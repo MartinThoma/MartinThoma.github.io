@@ -3,25 +3,20 @@ layout: default-wp
 title: Martin Thoma - A blog about Code, the Web and Cyberculture.
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts limit:4 %}
-		<div class="{{ post.id }} post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="{{ post.id }}">
-            <h2 class="title"><a href="{{ post.url }}" rel="bookmark" title="Permanent link to '{{ post.title }}'">{{ post.title }}</a></h2>
-			<div class="postdate">
-                <span>{{ post.date | date: '%B' }} {{ post.date | date: '%e' }}, {{ post.date | date: '%Y' }}</span> 
-                <!--<span>No Comments / 1 comment / 2 comments</span>-->
-            </div>
+{% for post in site.posts limit:4 %}
+	<div class="{{ post.id }} post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="{{ post.id }}">
+        <h2 class="title"><a href="{{ post.url }}" rel="bookmark" title="Permanent link to '{{ post.title }}'">{{ post.title }}</a></h2>
+		<div class="postdate">
+            <span>{{ post.date | date: '%B' }} {{ post.date | date: '%e' }}, {{ post.date | date: '%Y' }}</span> 
+            <!--<span>No Comments / 1 comment / 2 comments</span>-->
+        </div>
 
-			<div class="entry">
-                Thumbnail 
-				{{ post.excerpt }}
-                <div class="readmorecontent">
-					<a class="readmore" href="{{ post.url }}" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">Read More &raquo;</a>
-				</div>
+		<div class="entry">
+            Thumbnail 
+			{{ post.excerpt }}
+            <div class="readmorecontent">
+				<a class="readmore" href="{{ post.url }}" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">Read More &raquo;</a>
 			</div>
 		</div>
-    {% endfor %}
-  </ul>
-</div>
+	</div>
+{% endfor %}

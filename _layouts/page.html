@@ -50,7 +50,23 @@
                         <li class="page_item page-item-91"><a href="{{ site.baseurl }}/imprint/">Imprint</a></li>
 					</ul>
 				</div>
-            	<div id="content">			
+            	<div id="content">	
+                    <div class="post-76726 post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="post-76726">
+                        <h2 class="title entry-title">{{ page.title }}</h2>
+			            <div class="postdate">
+                            <span>{% assign d = page.date | date: "%d" | plus:'0' %}
+                                {{ page.date | date: "%B" }} 
+                                {% case d %}
+                                  {% when 1 or 21 or 31 %}{{ d }}st
+                                  {% when 2 or 22 %}{{ d }}nd
+                                  {% when 3 or 23 %}{{ d }}rd
+                                  {% else %}{{ d }}th
+                                  {% endcase %}, 
+                                {{ page.date | date: "%Y" }}
+                            </span>
+                            <!-- TODO<span><a href="check-point-inside-polygon/#respond" title="Comment on How to check if a point is inside of a polygon?">No Comments</a></span>-->
+                        </div>
+			
 						<div class="entry">
                             {{content}}
 						</div>
@@ -70,25 +86,23 @@
                                   {% when 3 or 23 %}{{ d }}rd
                                   {% else %}{{ d }}th
                                   {% endcase %}, 
-                                {{ page.date | date: "%Y" }}</span></span>
+                                {{ page.date | date: "%Y" }}</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                {% if page.previous.url %}
+                                    &laquo; <a href="{{page.previous.url}}" rel="prev">{{page.previous.title}}</a>
+                                {% endif %} 
+                                </div>
+								<div class="alignright">
+                                {% if page.next.url %}
+                                    <a href="{{page.next.url}}" rel="next">{{page.next.title}}</a> &raquo;
+                                {% endif %} 
+                                </div>
+							</div>
 						</div>
-						<div class="navigation clearfix">
-                            <div class="alignleft">
-                            {% if page.previous.url %}
-                                &laquo; <a href="{{page.previous.url}}" rel="prev">{{page.previous.title}}</a>
-                            {% endif %} 
-                            </div>
-							<div class="alignright">
-                            {% if page.next.url %}
-                                <a href="{{page.next.url}}" rel="next">{{page.next.title}}</a> &raquo;
-                            {% endif %} 
-                            </div>
-						</div>
-							
-                            You can skip to the end and leave a response.
-	
-            	</div>
-        	</div>
+                    </div>
+			    </div>
             <div class="span-8 last">
                 <div id="subscriptions">
                     <a href="http://martin-thoma.com/feed/"><img src="../css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
