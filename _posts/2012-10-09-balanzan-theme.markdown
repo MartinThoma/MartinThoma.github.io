@@ -39,9 +39,9 @@ comments:
 I don't understand why all desktop environment seem to lack a good theme chooser/editor and good themes. I have one favorite theme - called "<a href="http://www.bisigi-project.org/?p=28&lang=en">Balanzan Theme</a>" which should be available in every distribution. The Balanzan Theme is part of the <a href="http://www.bisigi-project.org/?lang=en">bisigi-project</a>. According to <a href="https://launchpad.net/~bisigi/+archive/ppa/+files/balanzan-theme_1.8.1.natty.ppa1.tar.gz">the package</a>, it is licensed under GPL. So I think I can upload some of its content here.
 
 <h2>Installation</h2>
-[bash]sudo add-apt-repository ppa:bisigi
+{% highlight bash %}sudo add-apt-repository ppa:bisigi
 sudo apt-get update
-sudo apt-get install bisigi-themes[/bash]
+sudo apt-get install bisigi-themes{% endhighlight %}
 
 <h2>Impression</h2>
 [caption id="attachment_46561" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/10/balazan-font.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/10/balazan-font-300x247.png" alt="Impression of the Balanzan Theme" title="Impression of the Balanzan Theme" width="300" height="247" class="size-medium wp-image-46561" /></a> Impression of the Balanzan Theme[/caption]

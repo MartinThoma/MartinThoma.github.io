@@ -46,7 +46,7 @@ Now you have to click on "Add External Jar" and add the args4j.jar file.
 <h3>Source Example</h3>
 As always in Java, you add another class for parsing your command line values. I've called it CommandLineValues.java and it does only check for the command line argument <code>-i FILE</code> or <code>--input FILE</code>.
 
-[java]import java.io.File;
+{% highlight java %}import java.io.File;
 
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -98,10 +98,10 @@ public class CommandLineValues {
     public File getSource() {
         return source;
     }
-}[/java]
+}{% endhighlight %}
 
 Here is some part of the main file:
-[java]public static void main(String[] args) {
+{% highlight java %}public static void main(String[] args) {
     CommandLineValues values = new CommandLineValues(args);
     CmdLineParser parser = new CmdLineParser(values);
 
@@ -118,23 +118,23 @@ Here is some part of the main file:
     ArrayList<ArrayList<Integer>> B = matrices.get(1);
     int[][] C = ijkAlgorithm(A, B);
     printMatrix(C);
-}[/java]
+}{% endhighlight %}
 
 <h3>Usage Examples</h3>
 If you do not specify the required parameters, you get a quite good error message:
-[bash]moose@pc07:~/Desktop$ java -jar matrix-multiplication.jar
+{% highlight bash %}moose@pc07:~/Desktop$ java -jar matrix-multiplication.jar
 Option "-i (--input)" is required
- -i (--input) FILE : input file with two matrices[/bash]
+ -i (--input) FILE : input file with two matrices{% endhighlight %}
 
 Help is <strong>not</strong> automatically generated:
-[bash]moose@pc07:~/Desktop$ java -jar matrix-multiplication.jar --help
+{% highlight bash %}moose@pc07:~/Desktop$ java -jar matrix-multiplication.jar --help
 "--help" is not a valid option
- -i (--input) FILE : input file with two matrices[/bash]
+ -i (--input) FILE : input file with two matrices{% endhighlight %}
 
 If you want to have default parameters, you simply assign the values to the attributes:
-[java]@Option(name = "-l", aliases = { "--leafsize" }, required = false,
+{% highlight java %}@Option(name = "-l", aliases = { "--leafsize" }, required = false,
         usage = "input file with two matrices")
-private int leafsize = 32;[/java]
+private int leafsize = 32;{% endhighlight %}
 Note: <a href="http://stackoverflow.com/q/7834111/562769">How can I prevent Eclipse from adding the 'final' for certain lines of Java code?</a>
 
 <h2>Commons CLI</h2>
@@ -142,9 +142,9 @@ Note: <a href="http://stackoverflow.com/q/7834111/562769">How can I prevent Ecli
 As for args4j, they offer a jar file which is in <a href="http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist//commons/cli/binaries/commons-cli-1.2-bin.tar.gz">commons-cli-1.2-bin.tar.gz</a> on the <a href="http://commons.apache.org/cli/download_cli.cgi">download-page</a>.
 
 If you just want to test if you have the required packages, copy this piece of code to Eclipse:
-[java]public class CommandLineValues {
+{% highlight java %}public class CommandLineValues {
     CommandLineParser parser = new BasicParser();
-}[/java]
+}{% endhighlight %}
 
 If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:
 [caption id="attachment_33201" align="aligncenter" width="431"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/java-eclipse-cli-lib-error.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/java-eclipse-cli-lib-error.png" alt="Java error mentioned by Eclipse: Missing org.apache.commons.cli" title="Java error mentioned by Eclipse: Missing org.apache.commons.cli" width="431" height="89" class="size-full wp-image-33201" /></a> Java error mentioned by Eclipse: Missing org.apache.commons.cli[/caption]

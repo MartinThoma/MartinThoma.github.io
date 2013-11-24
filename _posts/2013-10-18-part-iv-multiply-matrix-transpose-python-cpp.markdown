@@ -59,17 +59,17 @@ printMatrix(R)
 {% endhighlight %}
 
 Time:
-[bash]
+{% highlight bash %}
 real	7m19.223s
 user	7m12.147s
 sys	0m2.388s
-[/bash]
+{% endhighlight %}
 
 When you want to do this in an application, you might want to use <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html">numpy.load</a>.
 
 <h2>C++</h2>
 <h3>First try</h3>
-[cpp]
+{% highlight cpp %}
 #include <sstream>
 #include <string>
 #include <fstream>
@@ -174,18 +174,18 @@ int main (int argc, char* argv[]) {
 	printMatrix(R, n);
 	return 0;
 }
-[/cpp]
+{% endhighlight %}
 
 Time:
-[bash]
+{% highlight bash %}
 real	5m31.488s
 user	5m27.560s
 sys	0m1.812s
-[/bash]
+{% endhighlight %}
 
 <h3>Direct multiplication</h3>
 One might think that transposing first is a bad idea, because you can do this:
-[cpp]
+{% highlight cpp %}
 vector< vector<double> > ikjDirect(vector< vector<double> > &amp;J, 
 								   vector< vector<double> > &amp;R, 
                                    int n, int m) {
@@ -198,6 +198,6 @@ vector< vector<double> > ikjDirect(vector< vector<double> > &amp;J,
 	}
 	return R;
 }
-[/cpp]
+{% endhighlight %}
 
 I stopped execution after 15 minutes.

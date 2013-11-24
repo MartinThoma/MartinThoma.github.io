@@ -19,12 +19,12 @@ comments: []
 I've just read (ok, now it's over 3 months ago) that <a href="http://en.wikipedia.org/wiki/Google_Public_DNS">Google Public DNS</a> now supports DNSSEC (<a href="http://googleonlinesecurity.blogspot.de/2013/03/google-public-dns-now-supports-dnssec.html">source</a>).
 
 I was curious what I currently use on my Linux Mint 14 machine. The relevant file is <strong>/etc/resolv.conf</strong>:
-[text]nameserver 127.0.1.1
+{% highlight text %}nameserver 127.0.1.1
 
 # OpenDNS Fallback (configured by Linux Mint in /etc/resolvconf/resolv.conf.d/tail).
 nameserver 208.67.222.222
 nameserver 208.67.220.220
-[/text]
+{% endhighlight %}
 
 
 <h2>namebench</h2>

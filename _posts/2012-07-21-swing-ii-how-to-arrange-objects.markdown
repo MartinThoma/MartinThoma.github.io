@@ -23,7 +23,7 @@ Objects can be arranged with <a href="http://docs.oracle.com/javase/7/docs/api/j
 <img src="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-grid-bag.png" alt="GridBag example (Java Swing)" title="GridBag example (Java Swing)" width="198" height="199" class="size-full wp-image-33451" />
 
 Code:
-[java]import java.awt.GridBagConstraints;
+{% highlight java %}import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.MouseInfo;
@@ -128,7 +128,7 @@ public class test {
         c9.insets = i;
         panel.add(button9, c9);
     }
-}[/java]
+}{% endhighlight %}
 
 <h2>Google WindowBuilder</h2>
 Goole offers a free Eclipse plugin called <a href="https://developers.google.com/java-dev-tools/wbpro/">WindowBuilder</a>:

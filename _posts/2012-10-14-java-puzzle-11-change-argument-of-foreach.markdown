@@ -20,7 +20,7 @@ comments: []
 ---
 What is the output of the following HelloWorld.java?
 
-[java]import java.util.LinkedList;
+{% highlight java %}import java.util.LinkedList;
 
 public class HelloWorld {
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class HelloWorld {
             }
         }
     }
-}[/java]
+}{% endhighlight %}
 
 
 .
@@ -67,8 +67,8 @@ public class HelloWorld {
 .
 
 <h2>Answer</h2>
-[java]1
+{% highlight java %}1
 Exception in thread "main" java.util.ConcurrentModificationException
 	at java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:761)
 	at java.util.LinkedList$ListItr.next(LinkedList.java:696)
-	at HelloWorld.main(HelloWorld.java:10)[/java]
+	at HelloWorld.main(HelloWorld.java:10){% endhighlight %}

@@ -18,7 +18,7 @@ comments: []
 ---
 You've probably already seen one of the following lines:
 
-[text]
+{% highlight text %}
 #!/bin/sh
 #!/usr/bin/python
 #!/usr/bin/python3
@@ -26,7 +26,7 @@ You've probably already seen one of the following lines:
 #!/usr/bin/perl
 #!/usr/bin/php
 #!/usr/bin/ruby
-[/text]
+{% endhighlight %}
 
 This is a <a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>. It's a directive for your command line interpreter how it should execute a script.
 

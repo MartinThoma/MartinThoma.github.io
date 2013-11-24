@@ -281,19 +281,19 @@ if __name__ == "__main__":
     printMatrix(C){% endhighlight %}
 
 The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:
-[bash]
+{% highlight bash %}
 ikj-algorithm	44m13.458s
 LEAF_SIZE	Time
 2	47m45.983s
 8	47m41.311s
 16	48m5.472s
 32	48m5.624s
-64	47m55.076s[/bash]
+64	47m55.076s{% endhighlight %}
 
 <h2>Java</h2>
 The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.
 
-[java]public static int[][] ikjAlgorithm(int[][] A, int[][] B) {
+{% highlight java %}public static int[][] ikjAlgorithm(int[][] A, int[][] B) {
     int n = A.length;
 
     // initialise C
@@ -455,13 +455,13 @@ private static int[][] strassenR(int[][] A, int[][] B) {
         }
         return C;
     }
-}[/java]
+}{% endhighlight %}
 
 Here are the results for different leaf-sizes:
 [caption id="attachment_54901" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/bchart-simple.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/bchart-simple.png" alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" width="500" height="349" class="size-full wp-image-54901" /></a> Matrix multiplication with Java: Execution time in seconds for different leafsizes[/caption]
 
 <h2>C++</h2>
-[cpp]#include <sstream>
+{% highlight cpp %}#include <sstream>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -725,7 +725,7 @@ int main (int argc, char* argv[]) {
     strassen(A, B, C, n);
     printMatrix(C, n);
     return 0;
-}[/cpp]
+}{% endhighlight %}
 
 For C++, you get those user-times for the different leaf-sizes:
 [caption id="attachment_54921" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/cpp-leaf-size-times.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with differen leafsizes with C++" width="500" height="333" class="size-full wp-image-54921" /></a> Execution times in seconds with differen leafsizes with C++[/caption]

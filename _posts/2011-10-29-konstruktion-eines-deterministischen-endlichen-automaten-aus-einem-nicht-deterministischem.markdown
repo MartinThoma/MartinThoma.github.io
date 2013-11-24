@@ -140,7 +140,7 @@ Die &Uuml;bergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestell
 
 <h2>Material</h2>
 Die .gv sieht so aus:
-[text]digraph finite_state_machine {
+{% highlight text %}digraph finite_state_machine {
     rankdir=LR;
     size="8,5"
  
@@ -167,7 +167,7 @@ Die .gv sieht so aus:
     q1q2 -> q1q2 [ label = "b"];
 
     T -> T       [label = "a, b"];
-}[/text]
+}{% endhighlight %}
 
 Unter Linux kann man mit <a href="http://wiki.ubuntuusers.de/Graphviz">GraphViz</a> mit folgendem Befehl die Datei erstellen:
-[bash]dot -Tpng graph.gv -o deterministic-fsm.png[/bash]
+{% highlight bash %}dot -Tpng graph.gv -o deterministic-fsm.png{% endhighlight %}

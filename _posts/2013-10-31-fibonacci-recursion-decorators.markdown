@@ -120,9 +120,9 @@ def fib(n):
 Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python :-)
 
 By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:
-[bash]
+{% highlight bash %}
 RuntimeError: maximum recursion depth exceeded in comparison
-[/bash]
+{% endhighlight %}
 
 You can get around this limitation by successive calls of fib:
 

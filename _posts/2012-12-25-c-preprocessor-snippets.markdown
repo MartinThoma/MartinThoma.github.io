@@ -21,7 +21,7 @@ The C++ Preprocessor - which is in fact the same as the C Preprocessor - provide
 <h2>Maximum / Minimum</h2>
 If you want to find the maximum / minimum of two elements, no matter of which type, you can do something like this:
 
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
 
 #define MAX(a, b) ((a < b) ? b : a)
 
@@ -33,11 +33,11 @@ int main() {
 	cout << MAX(-1337, 42) << endl;
 	cout << MAX(1337.0, 42) << endl;
 	return 0;
-}[/cpp]
+}{% endhighlight %}
 
 <h2>Absolute Value</h2>
 You can get the absolute value like this:
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
 
 #define ABS(a) (a < 0 ? -(a) : a)
 
@@ -51,17 +51,17 @@ int main() {
 	cout << ABS(c) << endl;
 	cout << ABS(d) << endl;
 	return 0;
-}[/cpp]
+}{% endhighlight %}
 
 By the way, brackets around <code>a</code> are important, because without them you could get:
 
-[text]a=1,b=3
-ABS(a-b) = ABS(1-3) = (1-3 < 0 ? -1-3 : 1-3) = -2 < 0 ? -4 : -2 = -4[/text]
+{% highlight text %}a=1,b=3
+ABS(a-b) = ABS(1-3) = (1-3 < 0 ? -1-3 : 1-3) = -2 < 0 ? -4 : -2 = -4{% endhighlight %}
 
 <h2>Swap variable content</h2>
 This is an example for a multiline replacement.
 
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
 
 #define SWAP(a, b)  {	int tmp; \
 						tmp = b; \
@@ -77,7 +77,7 @@ int main() {
 	cout << a << endl;
 	cout << b << endl;
 	return 0;
-}[/cpp]
+}{% endhighlight %}
 <h2>See also</h2>
 <ul>
 	<li>Wikipedia: <a href="http://en.wikipedia.org/wiki/C_preprocessor">C preprocessor</a></li>

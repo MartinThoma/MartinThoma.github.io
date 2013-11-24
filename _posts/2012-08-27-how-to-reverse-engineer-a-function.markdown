@@ -67,7 +67,7 @@ And here is an approximation:
 [caption id="attachment_42471" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/wolframalpha-aproximate-form.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/wolframalpha-aproximate-form.png" alt="Approximate form with Wolfram|Alpha" title="Approximate form with Wolfram|Alpha" width="512" height="57" class="size-full wp-image-42471" /></a> Approximate form with Wolfram|Alpha[/caption]
 
 <h2>The LaTeX Code</h2>
-[text]\documentclass{article}
+{% highlight text %}\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{pgfplots}
@@ -130,7 +130,7 @@ And here is an approximation:
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 <h2>The result</h2>
 [caption id="attachment_42491" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/cubic-function-intermediate-value-theorem.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/cubic-function-intermediate-value-theorem.png" alt="Cubic function intermediate value theorem - Result" title="Cubic function intermediate value theorem - Result" width="500" height="383" class="size-full wp-image-42491" /></a> Cubic function intermediate value theorem - Result[/caption]

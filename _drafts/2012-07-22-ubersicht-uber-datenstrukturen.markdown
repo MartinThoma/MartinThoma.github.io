@@ -64,9 +64,7 @@ Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeich
 Wie man am Bild sehr sch&ouml;n sehen kann, definiert ein Stack keine Ordnung &uuml;ber die Elemente. Wenn ein neues Element kommt, wird es auf den Stack gelegt. Man kann auch nur das oberste Element - in diesem Fall a - vom Stack nehmen. Deshalb werden Stacks auch als LIFO-Speicher (<em>L</em>ast <em>I</em>n <em>F</em>irst <em>O</em>ut) bezeichnet.
 
 Stacks werden mit dynamischen Arrays realisiert. Dazu mal ein kleines Beispiel:
-
-{% highlight java %}
-import java.util.Stack;
+{% highlight java %}import java.util.Stack;
 
 public class test {
     public static void main(String[] args) {
@@ -87,12 +85,10 @@ public class test {
                     s.pop(),s.size(), s.capacity());
         }
     }
-}
-{% endhighlight %}
-
+}{% endhighlight %}
 
 Ausgabe:
-{% highlight bash %}
+{% highlight bash}
 size: 3 	 capacity: 10
 size: 4 	 capacity: 10
 size: 5 	 capacity: 10
@@ -296,8 +292,6 @@ Element: 0 	 size: 2 	 capacity: 160
 Element: 13 	 size: 1 	 capacity: 160
 Element: 12 	 size: 0 	 capacity: 160
 {% endhighlight %}
-
-
 
 Wenn man das ausf&uuml;hrt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:
 <blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>

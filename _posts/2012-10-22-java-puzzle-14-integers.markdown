@@ -16,7 +16,7 @@ tags: []
 comments: []
 ---
 What is the output of the following script?
-[java]public class SomeClass {
+{% highlight java %}public class SomeClass {
     public static void main(String[] args) {
         int x = 2147483647; // 2147483647 == 2**31 - 1
         if (x < 2*x) {
@@ -28,7 +28,7 @@ What is the output of the following script?
         System.out.println("x   = " + x);
         System.out.println("2*x = " + 2*x);
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -54,9 +54,9 @@ What is the output of the following script?
 .
 
 <h2>Answer</h2>
-[text]It's weird:
+{% highlight text %}It's weird:
 x   = 2147483647
-2*x = -2[/text]
+2*x = -2{% endhighlight %}
 
 <h2>Explanation</h2>
 2*x is out of Java Integer range, so it comes back at the other end.

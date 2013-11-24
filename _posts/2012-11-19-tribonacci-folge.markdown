@@ -249,7 +249,7 @@ Eine weitere M&ouml;glichkeit w&auml;re die schw&auml;che des rekursiven Ansatze
 <h2>Java</h2>
 Java-Nutzer m&uuml;ssen sich dar&uuml;ber im klaren sein, dass alle Elemente, die gr&ouml;&szlig;er als 36 sind, die <code>int</code>-Grenzen sprengen. Eine L&ouml;sung f&uuml;r das &Uuml;bungsblatt k&ouml;nnte ungef&auml;hr so aussehen:
 
-[java]/** This class calculates numbers of the Tribonacci sequence. */
+{% highlight java %}/** This class calculates numbers of the Tribonacci sequence. */
 public final class Tribonacci {
     /**
      * Utility classes should not have a public or default 
@@ -293,4 +293,4 @@ public final class Tribonacci {
     }
 
 }
-[/java]
+{% endhighlight %}

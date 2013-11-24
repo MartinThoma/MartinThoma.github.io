@@ -64,7 +64,7 @@ Note that you can compare some objects, like countries, by many measures. You co
 <h2>Collections</h2>
 One way to sort is to implement the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a>. For all datastructures, that implement the interface List or one of its sub-interfaces you can use <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> an go on like this:
 
-[java]import java.util.Collections;
+{% highlight java %}import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -80,19 +80,19 @@ public class Main {
         Collections.sort(myList);
         System.out.println(myList);
     }
-}[/java]
+}{% endhighlight %}
 
 Output:
-[bash]
+{% highlight bash %}
 [I, think, therefore, I, am]
 [I, I, am, therefore, think]
-[/bash]
+{% endhighlight %}
 
 Note that I didn't write a Comparator or implement Comparable as String has one by default.
 Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html">Collection</a>! A Set is a Collection, but it is not sortable. Collections is a class that you can use for sorting. Like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html">Math</a>, that has utilities like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#sqrt(double)">sqrt</a>
 
 <h2>Arrays</h2>
-[java]
+{% highlight java %}
 import java.util.Arrays;
 
 public class Main {
@@ -109,13 +109,13 @@ public class Main {
         System.out.println(Arrays.asList(myStrings));
     }
 }
-[/java]
+{% endhighlight %}
 
 <h2>Interface Comparable</h2>
 This is an example how you could implement <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html">Comparable</a>.
 
 Country.java
-[java]
+{% highlight java %}
 public class Country implements Comparable<Country> {
     int population;
     double area;
@@ -140,10 +140,10 @@ public class Country implements Comparable<Country> {
         return name + ": " + population;
     }
 }
-[/java]
+{% endhighlight %}
 
 Main.java
-[java]
+{% highlight java %}
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -161,31 +161,31 @@ public class Main {
         System.out.println(europe);
     }
 }
-[/java]
+{% endhighlight %}
 
 Output:
-[bash]
+{% highlight bash %}
 [Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371]
 [France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000]
-[/bash]
+{% endhighlight %}
 
 You should definitely add JavaDoc and comment what you've compared.
 Note that it would sort the list in reverse order if you switched <code>this.population - o.population;</code> to <code>o.population - this.population;</code>. This would be bad style, as the JavaDoc of Comparable define the order. If you would like to sort in reverse, you should use <code>Collections.reverse(europe);</code>.
 
 You can also use compareTo() within compareTo():
-[java]
+{% highlight java %}
     @Override
     public int compareTo(Country o) {
         return this.name.compareTo(o.name);
     }
-[/java]
+{% endhighlight %}
 
 <h2>Comparator</h2>
 If you need to compare objects in multiple ways, you might need to implement <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T, T)">Comperator</a>. If you only have to compare objects in one way, I would always use the Interface Comparable. It's easier to use.
 
 <h3>External Comparator</h3>
 An external Comperator PopulationDensityComperator.java could look like this:
-[java]
+{% highlight java %}
 import java.util.Comparator;
 
 public class PopulationDensityComperator implements
@@ -204,10 +204,10 @@ public class PopulationDensityComperator implements
     }
 
 }
-[/java]
+{% endhighlight %}
 
 and you would use it like this in the Main.java:
-[java]
+{% highlight java %}
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -229,18 +229,18 @@ public class Main {
         System.out.println(europe);
     }
 }
-[/java]
+{% endhighlight %}
 
 Your output would be:
-[bash]
+{% highlight bash %}
 [Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371]
 [France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000]
 [Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371]
-[/bash]
+{% endhighlight %}
 
 <h3>Internal (anonymous) Comparator</h3>
 You can also directly implement the comperator where you need it:
-[java]
+{% highlight java %}
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -277,14 +277,14 @@ public class Main {
         System.out.println(europe);
     }
 }
-[/java]
+{% endhighlight %}
 
 Your output would be:
-[bash]
+{% highlight bash %}
 [Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371]
 [France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000]
 [Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371]
-[/bash]
+{% endhighlight %}
 
 I don't recommend this way for some reasons:
 <ul>

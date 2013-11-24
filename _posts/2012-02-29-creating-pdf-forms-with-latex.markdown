@@ -84,7 +84,7 @@ I've just stumbled across a full, working example how to create a html form with
 It looks like this in Chromes PDF reader:
 [caption id="attachment_16711" align="aligncenter" width="421" caption="PDF LaTeX form in Chrome"]<a href="http://martin-thoma.com/wp-content/uploads/2012/02/pdf-latex-form-chrome.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/pdf-latex-form-chrome.png" alt="PDF LaTeX form in Chrome" title="PDF LaTeX form in Chrome" width="421" height="279" class="size-full wp-image-16711" /></a>[/caption]
 
-[text]\documentclass[a4paper,12pt]{article}
+{% highlight text %}\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -136,10 +136,10 @@ Sex: 	\>
 \hfill ~\\
 \end{Form}
 
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 You can save this as pdf-form.tex and run this command in Linux:
-[bash]pdflatex pdf-form.tex -output-format=pdf[/bash]
+{% highlight bash %}pdflatex pdf-form.tex -output-format=pdf{% endhighlight %}
 
 It seems as if the \ChoiceMenu radio option is buggy at the moment. Does anybody know how to fix that?
 edit: Hmm ... it works in Chromes PDF reader, but not in Document Viewer. Mayby Document Viewer is buggy.

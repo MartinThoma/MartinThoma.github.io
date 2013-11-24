@@ -25,7 +25,7 @@ A number of TeX distributions are available, including TeX Live (multiplatform) 
 
 <h2>LaTeX: an Hello World example</h2>
 This is the template I use when I want to write a minimal LaTeX PDF document. You can use it as an example.
-[text]\documentclass[a4paper,10pt]{article}
+{% highlight text %}\documentclass[a4paper,10pt]{article}
 \usepackage{amssymb}		% needed for math
 \usepackage{amsmath}		% needed for math
 \usepackage{amsthm}   		% needed for proof environment
@@ -56,10 +56,10 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie co
 
 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
 
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 If LaTeX is available on your system, you can create the PDF file from this myDocument.tex file with this command:
-[bash]pdflatex myDocument.tex -output-format=pdf[/bash]
+{% highlight bash %}pdflatex myDocument.tex -output-format=pdf{% endhighlight %}
 
 This will create a .log file, an .aux file
 
@@ -70,24 +70,24 @@ Here is the <a href='http://martin-thoma.com/wp-content/uploads/2012/03/latex-te
 It's a Network installation, so it will need Internet access. It needs to download about 2 GB so it will take some time. But everything is done automatically.
 
 You should remove your old installation before you start the new one:
-[bash]sudo apt-get purge texlive-*
-sudo apt-get autoremove[/bash]
+{% highlight bash %}sudo apt-get purge texlive-*
+sudo apt-get autoremove{% endhighlight %}
 
-[bash]wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+{% highlight bash %}wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -zxvf install-tl-unx.tar.gz
 cd install-tl-*
 sudo ./install-tl
-I[/bash]
+I{% endhighlight %}
 
 
 After you've started your installation, you can choose options (O). Then you should choose "create symlinks in standard directories" (L).
 
 If you didn't do so, add the path to your PATH (See <a href="http://askubuntu.com/a/60221/10425">How to add a directory to my path?</a>, <a href="http://askubuntu.com/a/60769/10425">How do I add a directory to MANPATH or INFOPATH?</a> and <a href="http://askubuntu.com/a/59127/10425">Reload .profile</a>):
-[bash]PATH=$PATH:/usr/local/texlive/2012/bin/i386-linux/[/bash]
+{% highlight bash %}PATH=$PATH:/usr/local/texlive/2012/bin/i386-linux/{% endhighlight %}
 
 That's it. So my <code>.profile</code> got these additional lines:
 
-[text]
+{% highlight text %}
 if [ -d "/usr/local/texlive/2012/bin/i386-linux" ] ; then
     PATH="/usr/local/texlive/2012/bin/i386-linux:$PATH"
 fi
@@ -99,14 +99,14 @@ fi
 if [ -d "/usr/local/texlive/2012/texmf/doc/info" ] ; then
     INFOPATH="/usr/local/texlive/2012/texmf/doc/info:$INFOPATH"
 fi
-[/text]
+{% endhighlight %}
 
 edit: I've just installed TeX-Live 2012 and had to do this:
-[bash]moose@pc07:/usr/bin$ rm latex
-moose@pc07:/usr/bin$ sudo ln -s /usr/local/texlive/2012/bin/i386-linux/pdflatex latex[/bash]
+{% highlight bash %}moose@pc07:/usr/bin$ rm latex
+moose@pc07:/usr/bin$ sudo ln -s /usr/local/texlive/2012/bin/i386-linux/pdflatex latex{% endhighlight %}
 
 You can try if your installation works by <code>latex --version</code>:
-[text]pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
+{% highlight text %}pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
 kpathsea version 5.0.0
 Copyright 2009 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 There is NO warranty.  Redistribution of this software is
@@ -118,15 +118,15 @@ Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 Compiled with libpng 1.2.42; using libpng 1.2.42
 Compiled with zlib 1.2.3.3; using zlib 1.2.3.3
 Compiled with poppler version 0.12.4
-[/text]
+{% endhighlight %}
 
 If an old version is shown, you might want to see where it is located:
-[bash]which latex[/bash]
+{% highlight bash %}which latex{% endhighlight %}
 
 <h2>Update</h2>
-[bash]cd /usr/local/texlive/2012/bin/i386-linux
+{% highlight bash %}cd /usr/local/texlive/2012/bin/i386-linux
 sudo ./tlmgr update --self
-sudo ./tlmgr update --all[/bash]
+sudo ./tlmgr update --all{% endhighlight %}
 
 <h2>See also</h2>
 <ul>

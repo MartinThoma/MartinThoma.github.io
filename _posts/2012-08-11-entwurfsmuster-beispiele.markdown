@@ -20,7 +20,8 @@ comments: []
 <h2>Singleton</h2>
 <strong>Zweck</strong>: Stelle sicher, dass es nur eine Instanz dieser Klasse gibt.
 <strong>Beispiel</strong>: <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html#getRuntime%28%29">java.lang.Runtime.getRuntime()</a>
-[java]public class Singleton {
+{% highlight java %}
+public class Singleton {
     // an instance of a singleton
     private static Singleton instance = null;
 
@@ -36,12 +37,14 @@ comments: []
         }
         return instance;
     }
-}[/java]
+}
+{% endhighlight %}
 
 <h2>Bequemlichkeitsklasse</h2>
 <strong>Zweck</strong>: Faulheit - mache Methodenaufrufe durch &auml;nderbare default-Parameter einfacher.
 Das Bequemlichkeitsmuster ist einfach das &Uuml;berladen einer Methode:
-[java]public class Bequemlichkeitsklasse {
+{% highlight java %}
+public class Bequemlichkeitsklasse {
     // convenience class
     int v1, v2, v3;
 
@@ -62,7 +65,7 @@ Das Bequemlichkeitsmuster ist einfach das &Uuml;berladen einer Methode:
         v2 = p2;
         v3 = p3;
     }
-}[/java]
+}{% endhighlight %}
 
 <h2>Schablonenmethode</h2>
 Siehe <a href="http://martin-thoma.com/java-puzzle-9-template-method-pattern">Java Puzzle #9: Template method pattern</a>.

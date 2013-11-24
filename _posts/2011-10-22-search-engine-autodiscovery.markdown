@@ -92,7 +92,7 @@ The browser needs a hint where it can find the OSSD. So you have to add the foll
 Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+. 
 
 Additionally, you can add this little piece of JavaScript to tell Firefox 2+ and Internet Explorer 7+ that your site supports OpenSearch:
-[javascript]window.external.AddSearchProvider("http://exampl.org/opensearch.xml");[/javascript]
+{% highlight javascript %}window.external.AddSearchProvider("http://exampl.org/opensearch.xml");{% endhighlight %}
 
 <h2>Google Chrome Autodiscovery</h2>
 Google doesn't provide a <abbr title="user interface">UI</abbr> for adding an internal search engine. Instead, you can add it via Settings:

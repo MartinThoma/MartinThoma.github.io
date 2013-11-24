@@ -20,7 +20,7 @@ comments: []
 ---
 What does the following snippet output?
 
-[java]public class SomeClass {
+{% highlight java %}public class SomeClass {
     public static void main(String[] args) {
         int a = -10;
         int b = -2147483648; // -2147483648 == -2**31
@@ -40,7 +40,7 @@ What does the following snippet output?
         System.out.println("|a| = " + Math.abs(a));
         System.out.println("|b| = " + Math.abs(b));
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -66,10 +66,10 @@ What does the following snippet output?
 .
 
 <h2>Answer</h2>
-[text]|a| >= -1
+{% highlight text %}|a| >= -1
 |b| < -1
 |a| = 10
-|b| = -2147483648[/text]
+|b| = -2147483648{% endhighlight %}
 
 <h2>Explanation</h2>
 Integer values range (in Java) from -2147483648 to 2147483647. This means, the absolute value of -2147483648 is not in the integer range. For more details, see <a href="http://stackoverflow.com/a/5444634/562769">this SO answer</a>.

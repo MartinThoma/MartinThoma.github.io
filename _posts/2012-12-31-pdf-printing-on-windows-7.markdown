@@ -26,7 +26,7 @@ I've just installed <a href="http://www.heise.de/download/typing-test-tq-1128987
 How would you solve this problem on a Debian machine? Well, most Debian machines would have a PDF printer pre-installed. So you would simply click on print, choose the PDF printer and be happy.
 
 If it is not pre-installed, type:
-[bash]sudo apt-get install cups-pdf[/bash]
+{% highlight bash %}sudo apt-get install cups-pdf{% endhighlight %}
 Now you can use a PDF printer.
 
 Done. It works.

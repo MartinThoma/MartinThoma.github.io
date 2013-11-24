@@ -45,8 +45,8 @@ Ihr <strong>m&uuml;sst</strong> eine Tests.txt mit abgeben. Die ist wie ein Beis
 Da ihr sie ja sowieso schreibt, k&ouml;nnt ihr euer Programm auch auf eure Tests.txt &uuml;berpr&uuml;fen. Ich habe mir dazu folgendes kleines <a href='http://martin-thoma.com/wp-content/uploads/2012/03/programmieren-abschlussaufgabe.zip'>Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.
 
 Also folgendes in der Bash:
-[bash]python checkTests.py
-meld ../tmp/createdOutputNormalized.txt ../tmp/compareTo.txt[/bash]
+{% highlight bash %}python checkTests.py
+meld ../tmp/createdOutputNormalized.txt ../tmp/compareTo.txt{% endhighlight %}
 
 Ihr m&uuml;sst halt noch die Pfade anpassen.
 

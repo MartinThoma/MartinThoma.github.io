@@ -19,10 +19,10 @@ comments: []
 I've just searched an image I have created some time ago. I knew that I've put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn't simply open your trash can, but it searches files which were deleted, but not overwritten.
 
 <h2>Installation</h2>
-[bash]sudo apt-get install magicrescue[/bash]
+{% highlight bash %}sudo apt-get install magicrescue{% endhighlight %}
 
 <h2>Basic usage</h2>
-[bash]$ magicrescue
+{% highlight bash %}$ magicrescue
 Usage: magicrescue [-I FILE] [-M MODE] [-O [+-=][0x]OFFSET] [-b BLOCKSIZE]
 	-d OUTPUT_DIR -r RECIPE1 [-r RECIPE2 [...]] DEVICE1 [DEVICE2 [...]]
 
@@ -31,16 +31,16 @@ Usage: magicrescue [-I FILE] [-M MODE] [-O [+-=][0x]OFFSET] [-b BLOCKSIZE]
   -r  Mandatory.  Recipe name, file or directory.
   -I  Read input file names from this file ("-" for stdin)
   -M  Produce machine-readable output to stdout.
-  -O  Resume from specified offset (hex or decimal) in the first device.[/bash]
+  -O  Resume from specified offset (hex or decimal) in the first device.{% endhighlight %}
 
 You need recipes to use Magic Rescue. These are the basic ones:
-[bash]moose@pc07:/usr/share/magicrescue/recipes$ ls
+{% highlight bash %}moose@pc07:/usr/share/magicrescue/recipes$ ls
 avi        flac      gzip       mp3-id3v1  nikon-raw  ppm
 canon-cr2  gimp-xcf  jpeg-exif  mp3-id3v2  perl       zip
-elf        gpl       jpeg-jfif  msoffice   png[/bash]
+elf        gpl       jpeg-jfif  msoffice   png{% endhighlight %}
 
 <h2>Where is my USB-Stick?</h2>
-[bash]$ sudo fdisk -l
+{% highlight bash %}$ sudo fdisk -l
 [sudo] password for moose: 
 
 Disk /dev/sda: 320.1 GB, 320072933376 bytes
@@ -63,10 +63,10 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk identifier: 0x005f4d47
 
    Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1   *           1       32045     2018800    b  W95 FAT32[/bash]
+/dev/sdc1   *           1       32045     2018800    b  W95 FAT32{% endhighlight %}
 
 <h2>Usage</h2>
-[bash]sudo magicrescue -r png -r jpeg-jfif -r gimp-xcf \
--r jpeg-exif -d /home/moose/output/ /dev/sdc1[/bash]
+{% highlight bash %}sudo magicrescue -r png -r jpeg-jfif -r gimp-xcf \
+-r jpeg-exif -d /home/moose/output/ /dev/sdc1{% endhighlight %}
 
 Just got the image back :-) 

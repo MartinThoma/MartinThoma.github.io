@@ -22,7 +22,7 @@ Today I've created a LaTeX timetable. Well, to be honest I have only used the ti
 
 Here is the LaTeX-Code:
 
-[text]\documentclass[a4paper,10pt]{report}
+{% highlight text %}\documentclass[a4paper,10pt]{report}
 
 % Definitions
 \usepackage{lscape}
@@ -74,8 +74,8 @@ Here is the LaTeX-Code:
   \event 5 {1545} {1715} {Analysis I}                             {Schmoeger}        {10.21 Benz}        {exercise-course}
 \end{timetable}
 \end{landscape}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 Here is the <a href='http://martin-thoma.com/wp-content/uploads/2011/10/timetable.sty'>timetable</a> and the <a href='http://martin-thoma.com/wp-content/uploads/2011/10/example.tex'>example timtable in LaTeX</a>.
 If you have a Linux machine, you can create the timetable with this command:
-[bash]pdflatex example.tex -output-format=pdf[/bash]
+{% highlight bash %}pdflatex example.tex -output-format=pdf{% endhighlight %}

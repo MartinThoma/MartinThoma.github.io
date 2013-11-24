@@ -34,7 +34,7 @@ The complete source is in the <a href='http://martin-thoma.com/wp-content/upload
 
 <h2>LaTeX-Code</h2>
 The following LaTeX-Code used TikZ and PGFplots:
-[text]% Plot of the probability that two people out of n people have the
+{% highlight text %}% Plot of the probability that two people out of n people have the
 % same birthday.
 % Author: Martin Thoma
 % Source: http://martin-thoma.com/plotting-graphs-with-pgfplots/
@@ -82,10 +82,10 @@ The following LaTeX-Code used TikZ and PGFplots:
     \end{axis} 
 \end{tikzpicture}
 \end{preview}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 I generate the images directly with this Makefile:
-[text]SOURCE = birthday-paradox
+{% highlight text %}SOURCE = birthday-paradox
 DELAY = 80
 DENSITY = 300
 WIDTH = 500
@@ -115,7 +115,7 @@ svg:
 	#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
 	pdf2svg $(SOURCE).pdf $(SOURCE).svg
 	# Necessary, as pdf2svg does not always create valid svgs:
-	inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg[/text]
+	inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg{% endhighlight %}
 
 <h2>See also</h2>
 <ul>

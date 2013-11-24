@@ -21,14 +21,14 @@ comments: []
 What is the output of the following snippets:
 
 <strong>Shape.java</strong>:
-[java]public interface Shape {
+{% highlight java %}public interface Shape {
     public void draw();
     private void calculateArea();
     public void printArea();
-}[/java]
+}{% endhighlight %}
 
 <strong>Rectangle.java</strong>
-[java]public class Rectangle implements Shape {
+{% highlight java %}public class Rectangle implements Shape {
 
     private final int x1, x2, y1, y2;
     private int area;
@@ -56,15 +56,15 @@ What is the output of the following snippets:
         System.out.println("My area is " + area + ".");
     }
 
-}[/java]
+}{% endhighlight %}
 
 <strong>test.java</strong>:
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         Shape s = new Rectangle(0, 0, 1, 1);
         s.printArea();
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -82,7 +82,7 @@ What is the output of the following snippets:
 .
 
 <h2>Answer</h2>
-[bash]My area is 1.[/bash]
+{% highlight bash %}My area is 1.{% endhighlight %}
 
 <h2>Explanation</h2>
 Interfaces may not implement anything. So it makes no sense to define private methods. Nevertheless it seems to be valid Java code.

@@ -43,25 +43,25 @@ Most of the following content is from a StackOverflow question <a href="http://s
 
 <h2>Weak typing</h2>
 <strong>Example</strong>
-[javascript]console.log(3..toString());[/javascript]
+{% highlight javascript %}console.log(3..toString());{% endhighlight %}
 
 <strong>Output</strong>
-[bash]'3'[/bash]
+{% highlight bash %}'3'{% endhighlight %}
 
 <strong>Explanation</strong>
 <strong>3.</strong> is a floating point and can get converted to a string. But <code>3.toString()</code> gives 
-[bash]SyntaxError: Unexpected token ILLEGAL [/bash]
+{% highlight bash %}SyntaxError: Unexpected token ILLEGAL {% endhighlight %}
 
 <h2>Weak typing and string concatenation</h2>
 <strong>Example</strong>
-[javascript]
+{% highlight javascript %}
 console.log('5' + 3);
 console.log('5' - 3);
-[/javascript]
+{% endhighlight %}
 
 <strong>Output</strong>
-[bash]'53'
-2[/bash]
+{% highlight bash %}'53'
+2{% endhighlight %}
 
 <strong>Explanation</strong>
 JavaScript automatically converts datatypes and <code>+</code> is used for string concatenation and for addition. 
@@ -73,7 +73,7 @@ In the second case, <code>-</code> is only defined for subtraction so <code>'5'<
 <h2>Automatic semicolons</h2>
 <strong>Example 1</strong>
 
-[javascript]
+{% highlight javascript %}
 function test() {
     return
     {
@@ -83,23 +83,23 @@ function test() {
 }
 
 console.log(test());
-[/javascript]
+{% endhighlight %}
 
 <strong>Example 2</strong>
-[javascript]
+{% highlight javascript %}
 function test() {
     return
         2 + 2;
 }
 
 console.log(test());
-[/javascript]
+{% endhighlight %}
 
 <strong>Output 1</strong>
-[bash]Uncaught SyntaxError: Unexpected token :[/bash]
+{% highlight bash %}Uncaught SyntaxError: Unexpected token :{% endhighlight %}
 
 <strong>Output 2</strong>
-[bash]undefined[/bash]
+{% highlight bash %}undefined{% endhighlight %}
 
 <strong>Explanation</strong>
 JS adds a <code>;</code> at every line end. Automatically. You can't prevent it.
@@ -108,7 +108,7 @@ Please note that the second output is no error! It has a (valid) return value of
 
 <h2>Truth table</h2>
 <strong>Example</strong>
-[javascript collapse="true"]
+{% highlight javascript %}
 console.log("------- 0 == XYZ ---------");
 console.log(0 == 0);
 console.log(0 == false);
@@ -198,7 +198,7 @@ console.log('0' == '0');
 console.log('false' == '0');
 console.log("-------  XYZ == 'false' ---------");
 console.log('false' == 'false');
-[/javascript]
+{% endhighlight %}
 
 <strong>Output</strong>
 
@@ -311,31 +311,31 @@ At least the table is symmetric and the diagonal is true. Please also note that 
 
 <h2>The truth</h2>
 <strong>Example</strong>
-[javascript]
+{% highlight javascript %}
 console.log(2 == [2]);
 console.log(2 == [[2]]);
-[/javascript]
+{% endhighlight %}
 
 <strong>Output</strong>
-[bash]
+{% highlight bash %}
 true
 true
-[/bash]
+{% endhighlight %}
 
 <strong>Explanation</strong>
 At <a href="http://stackoverflow.com/a/1724551/562769">StackOverflow</a>
 
 <h2>Date</h2>
 <strong>Example</strong>
-[javascript]
+{% highlight javascript %}
 var futureDate = new Date(2010,77,154);
 console.log(futureDate);
 console.log(futureDate.getYear());
-[/javascript]
+{% endhighlight %}
 
 <strong>Output</strong>
-[bash]Tue Nov 01 2016 00:00:00 GMT+0100 (CET) 
-116[/bash]
+{% highlight bash %}Tue Nov 01 2016 00:00:00 GMT+0100 (CET) 
+116{% endhighlight %}
 
 <strong>Explanation</strong>
 77 months and 154 days from the 0th day of 0th month of 2010
@@ -344,31 +344,31 @@ You should use <code>getFullYear()</code> instead of <code>getYear()</code>, as 
 
 <h2>Integer overflow</h2>
 <strong>Example</strong>
-[javascript]
+{% highlight javascript %}
 console.log(111111111111111111111);
-[/javascript]
+{% endhighlight %}
 
 <strong>Output</strong>
-[bash]111111111111111110000 [/bash]
+{% highlight bash %}111111111111111110000 {% endhighlight %}
 
 <strong>Explanation</strong>
 It's ok that JavaScript fails at handling this integer. I think it converts this to a float, but I'm not sure about that. But no matter what it does here, it doesn't throw an error. That's bad. How is a developer supposed to know in a big application know when something went wrong?
 
 <h2>Function parameters</h2>
 <blockquote>In Javascript, declaring the parameters a function accepts is only a convenience to the programmer. All variables passed through the function call are accessible by the keyword <code>arguments</code>. So the following would alert "world":
-[javascript]
+{% highlight javascript %}
 function blah(){
     alert(arguments[1]);
 }
 
 blah("hello", "world");
-[/javascript]
+{% endhighlight %}
 </blockquote>
 <a href="http://stackoverflow.com/a/2023908/562769">Source</a> on StackOverflow
 
 <h2>Global variables</h2>
 <strong>Example</strong>
-[javascript]
+{% highlight javascript %}
 var a = 12;
 
 function test() {
@@ -376,10 +376,10 @@ function test() {
 }
 test();
 console.log(a);
-[/javascript]
+{% endhighlight %}
 
 <strong>Output</strong>
-[bash]1337[/bash]
+{% highlight bash %}1337{% endhighlight %}
 
 <strong>Explanation</strong>
 When you forget to use <code>var</code> inside of <code>test()</code> you might accidentally use a global variable. 

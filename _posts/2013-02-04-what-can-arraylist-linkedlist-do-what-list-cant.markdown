@@ -17,9 +17,9 @@ tags:
 comments: []
 ---
 I've told my students to write
-[java]List<MyClass> myList = new ArrayList<MyClass>();[/java]
+{% highlight java %}List<MyClass> myList = new ArrayList<MyClass>();{% endhighlight %}
 instead of
-[java]ArrayList<MyClass> myList = new ArrayList<MyClass>();[/java]
+{% highlight java %}ArrayList<MyClass> myList = new ArrayList<MyClass>();{% endhighlight %}
 as this allows them to switch to any Class that implements List without having to change more code.
 
 This does always make sense, except if you need methods from ArrayList or LinkedList. But which methods does <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a> / <a href="http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html">LinkedList</a> offer that <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a> doesn't have?

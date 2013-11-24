@@ -20,12 +20,12 @@ comments: []
 ---
 <h2>free</h2>
 I've you want to check your memory consumption on a Linux machine, you can use free.
-[bash]moose@pc07:~$ free -m
+{% highlight bash %}moose@pc07:~$ free -m
              total       used       free     shared    buffers     cached
 Mem:          3952       2832       1119          0        117       1565
 -/+ buffers/cache:       1150       2802
 Swap:         8656          0       8656
-[/bash]
+{% endhighlight %}
 This means: I have a total of 3952 MB <a href="http://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, used and free should be clear, shared is memory which is shared between processes, e.g. shared libraries. The "buffers" entry tells you how much of your RAM is being used for disk buffering. Over 8 GB got swapped out.
 
 <h2>top</h2>
@@ -35,9 +35,9 @@ top will give you something like Windows' task manager in the command line. If y
 
 <h2>pmap</h2>
 pmap reports a memory map of a process. Lets make an example. Eclipse has the process ID (pid) 4526 at the moment.
-[bash]pmap 4526[/bash]
+{% highlight bash %}pmap 4526{% endhighlight %}
 gives the following output:
-[bash]4526:   /usr/lib/eclipse/eclipse
+{% highlight bash %}4526:   /usr/lib/eclipse/eclipse
 Address   Kbytes Mode  Offset           Device    Mapping
 08048000      16 r-x-- 0000000000000000 008:00001 eclipse
 0804c000       4 r---- 0000000000003000 008:00001 eclipse
@@ -133,17 +133,17 @@ bfa49000      12 ----- 0000000000000000 000:00000   [ anon ]
 bfa4d000     304 rwx-- 0000000000000000 000:00000   [ stack ]
 bfa99000       4 rw--- 0000000000000000 000:00000   [ anon ]
 mapped: 927836K    writeable/private: 881752K    shared: 13572K
-[/bash]
+{% endhighlight %}
 So at the moment eclipse is using 927MB of virtual memory. But it need "only" about 186 MB real, physical memory. According to <a href="http://virtualthreads.blogspot.com/2006/02/understanding-memory-usage-on-linux.html">virtualthreads.blogspot.com</a> all data segments have the access rights rw--- and all code segments have the rights r-x--.
 
 <h2>vmstat</h2>
 Virtual memory statistics gives you the following information:
 
 Here is the example:
-[bash]moose@pc07:~$ vmstat 
+{% highlight bash %}moose@pc07:~$ vmstat 
 procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
- 0  0      0 1120696 119948 1599112    0    0    21    35  416  116 12  5 82  1[/bash]
+ 0  0      0 1120696 119948 1599112    0    0    21    35  416  116 12  5 82  1{% endhighlight %}
 
 --memory--
 <strong>swpd</strong>: sum of the used virtual memory.

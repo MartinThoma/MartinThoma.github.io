@@ -47,61 +47,61 @@ This is the way you do it:
 The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.
 
 <h2>A quick example</h2>
-[bash]# Text color variables
+{% highlight bash %}# Text color variables
 txtred=$(tput setaf 1)    # Red
 txtreset=$(tput sgr0)     # Reset your text
-echo "Roses are ${txtred}red${txtreset}."[/bash]
+echo "Roses are ${txtred}red${txtreset}."{% endhighlight %}
 
 Simply copy this example line by line and then you'll see the expected example.
 
 A shorter way would be
-[bash]echo "Roses are `tput setaf 1`red`tput sgr0`."[/bash]
+{% highlight bash %}echo "Roses are `tput setaf 1`red`tput sgr0`."{% endhighlight %}
 
 <h2>The sgr attribuge</h2>
-[bash]tput sgr 0 1     turn off standout; turn on underline
+{% highlight bash %}tput sgr 0 1     turn off standout; turn on underline
 tput sgr 0 0     turn off standout; turn off underline
 tput sgr 1 1     turn on standout; turn on underline
 tput sgr 1 0     turn on standout; turn off underline
-tput sgr0        short for sgr 0 0[/bash]
+tput sgr0        short for sgr 0 0{% endhighlight %}
 
 <h2>The setaf attribute</h2>
-[bash]setaf 1 Red
+{% highlight bash %}setaf 1 Red
 setaf 2 Green
 setaf 3 Yellow
 setaf 4 Blue
 setaf 5 Purple
 setaf 6 Cyan
-setaf 7 Gray[/bash]
+setaf 7 Gray{% endhighlight %}
 
 <h2>Misc</h2>
 Make your text bold:
-[bash]tput bold[/bash]
+{% highlight bash %}tput bold{% endhighlight %}
 
 Reset your style:
-[bash]tput sgr0[/bash]
+{% highlight bash %}tput sgr0{% endhighlight %}
 
 <h2>Advanced Example</h2>
 Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.
 
 This is the way how "[ERROR]" gets red and bold:
-[bash]`tput setaf 1``tput bold`[ERROR]`tput sgr0`[/bash]
+{% highlight bash %}`tput setaf 1``tput bold`[ERROR]`tput sgr0`{% endhighlight %}
 You can test it with
-[bash]echo "`tput setaf 1``tput bold`[ERROR]`tput sgr0`"[/bash]
+{% highlight bash %}echo "`tput setaf 1``tput bold`[ERROR]`tput sgr0`"{% endhighlight %}
 
 I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.
 
 The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is 
-[bash]sed 's/search/replace/'[/bash]
+{% highlight bash %}sed 's/search/replace/'{% endhighlight %}
 
 So we pipe the output to sed:
-[bash]python output.py | sed 's/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'[/bash]
+{% highlight bash %}python output.py | sed 's/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'{% endhighlight %}
 
 And now we bring it all together:
-[bash]python output.py | sed 's/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'[/bash]
+{% highlight bash %}python output.py | sed 's/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'{% endhighlight %}
 
 Doesn't work? Well, lets analyse it. Instead of replacing `tput setaf 1` it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:
 
-[bash]python output.py | sed "s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"[/bash]
+{% highlight bash %}python output.py | sed "s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"{% endhighlight %}
 
 <h2>Colorize C / C++ output</h2>
 You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:

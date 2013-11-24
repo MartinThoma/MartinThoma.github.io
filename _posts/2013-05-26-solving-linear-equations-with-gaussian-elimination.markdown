@@ -77,7 +77,7 @@ It's actually quite simple to get this form:
 [caption id="attachment_68071" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/Gaussian-elimination.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination" width="500" height="772" class="size-full wp-image-68071" /></a> Pseudocode for Gaussian elimination[/caption]
 
 <h2>C++ Code</h2>
-[cpp]
+{% highlight cpp %}
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -175,17 +175,17 @@ int main() {
     }
     cout << endl;
 }
-[/cpp]
+{% endhighlight %}
 
 You can call it like this:
-[bash]
+{% highlight bash %}
 ./gauss.out < 3x3.in
 1	2	3	| 1	
 4	5	6	| 1	
 1	0	1	| 1	
 
 Result:	0 -1 1 
-[/bash]
+{% endhighlight %}
 
 <h2>Python code</h2>
 {% highlight python %}
@@ -270,7 +270,7 @@ if __name__ == "__main__":
 {% endhighlight %}
 
 <h2>JavaScript code</h2>
-[javascript]
+{% highlight javascript %}
 /** Solve a linear system of equations given by a n&times;n matrix 
     with a result vector n&times;1. */
 function gauss(A) {
@@ -317,7 +317,7 @@ function gauss(A) {
     }
     return x;
 }
-[/javascript]
+{% endhighlight %}
 
 <h2>Complexity</h2>
 <h3>Time complexity</h3>

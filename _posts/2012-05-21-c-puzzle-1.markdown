@@ -68,19 +68,19 @@ int main()
 It depends on your compiler flags!
 
 If you compile it with no optimization, you might get 43:
-[bash]$ gcc -O0 cpuzzle-1.c ; ./a.out 
+{% highlight bash %}$ gcc -O0 cpuzzle-1.c ; ./a.out 
 aufgabe-3.c: In function &lsquo;f&rsquo;:
 aufgabe-3.c:5: warning: function returns address of local variable
 x = 43
-x = 43[/bash]
+x = 43{% endhighlight %}
 
 If you compile it with 03 Optimization, you might get 5.
-[bash]$ gcc -O3 cpuzzle-1.c ; ./a.out 
+{% highlight bash %}$ gcc -O3 cpuzzle-1.c ; ./a.out 
 aufgabe-3.c: In function &lsquo;f&rsquo;:
 aufgabe-3.c:5: warning: function returns address of local variable
 x = 5
 x = 5
-[/bash]
+{% endhighlight %}
 
 <h2>Long answer</h2>
 <h3>The general answer</h3>
@@ -98,9 +98,9 @@ Line 18 calls g. Remember that g should not have any influence on the other prog
 <h3>Actual assembly code</h3>
 You still want to get more into detail? Ok ...
 First you should get your assembly code. If you're running a Linux machine, you can type this into the console:
-[bash]gcc -S -O0 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O0.s[/bash]
+{% highlight bash %}gcc -S -O0 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O0.s{% endhighlight %}
 This will create a file called "cpuzzle-1.s" which contains the assembly code for the non-optimized version. Rename it into "cpuzzle-1-O0.c". Then the same for O3:
-[bash]gcc -S -O3 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O3.s[/bash]
+{% highlight bash %}gcc -S -O3 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O3.s{% endhighlight %}
 
 Now you can compare those two with meld or any other diff Tool:
 [caption id="attachment_24851" align="aligncenter" width="300" caption="C Puzzle #1 - Assembly code part 1"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld-300x188.png" alt="C Puzzle #1 - Assembly code part 1" title="C Puzzle #1 - Assembly code part 1" width="300" height="188" class="size-medium wp-image-24851" /></a>[/caption]

@@ -21,7 +21,7 @@ comments: []
 ---
 What is the output of the following Java Snippet:
 
-[java]public class MyParallelClass implements java.lang.Runnable {
+{% highlight java %}public class MyParallelClass implements java.lang.Runnable {
     public String name;
 
     public myParallelTry(String name) {
@@ -32,9 +32,9 @@ What is the output of the following Java Snippet:
     public void run() {
         System.out.println(name);
     }
-}[/java]
+}{% endhighlight %}
 
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         MyParallelClass a = new MyParallelClass("A");
         MyParallelClass b = new MyParallelClass("B");
@@ -61,7 +61,7 @@ What is the output of the following Java Snippet:
         new Thread(c).start();
         new Thread(d).start();
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -96,7 +96,7 @@ What is the output of the following Java Snippet:
 <th>Third Try</th>
 </tr>
 <tr>
-<td>[text]A
+<td>{% highlight text %}A
 C
 B
 -
@@ -115,8 +115,8 @@ D
 B
 B
 D
-[/text]</td>
-<td>[text]A
+{% endhighlight %}</td>
+<td>{% highlight text %}A
 B
 C
 -
@@ -135,8 +135,8 @@ A
 B
 C
 D
-[/text]</td>
-<td>[text]A
+{% endhighlight %}</td>
+<td>{% highlight text %}A
 B
 C
 -
@@ -155,14 +155,14 @@ A
 B
 C
 D
-[/text]</td>
+{% endhighlight %}</td>
 </tr>
 </table>
 
 <h2>Explanation</h2>
 If you start threads like this, you don't get any guarantee that they will finish their execution in order. If you want them to execute in block of four, you could use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a>:
 
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         myParallelTry a = new myParallelTry("A");
         myParallelTry b = new myParallelTry("B");
@@ -221,7 +221,7 @@ If you start threads like this, you don't get any guarantee that they will finis
             e.printStackTrace();
         }
     }
-}[/java]
+}{% endhighlight %}
 
 <table>
 <tr>
@@ -230,7 +230,7 @@ If you start threads like this, you don't get any guarantee that they will finis
 <th>Third Try</th>
 </tr>
 <tr>
-<td>[text]A
+<td>{% highlight text %}A
 B
 D
 C
@@ -249,8 +249,8 @@ A
 B
 C
 D
-[/text]</td>
-<td>[text]A
+{% endhighlight %}</td>
+<td>{% highlight text %}A
 B
 C
 D
@@ -268,8 +268,8 @@ D
 A
 B
 C
-D[/text]</td>
-<td>[text]A
+D{% endhighlight %}</td>
+<td>{% highlight text %}A
 B
 C
 D
@@ -287,6 +287,6 @@ D
 A
 B
 C
-D[/text]</td>
+D{% endhighlight %}</td>
 </tr>
 </table>

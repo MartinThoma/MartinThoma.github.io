@@ -28,7 +28,7 @@ comments:
     to edit the setting, its path is /org/gnome/gedit/state/history-entry."
 ---
 Start <code>gconf-editor</code>:
-[bash]gconf-editor[/bash]
+{% highlight bash %}gconf-editor{% endhighlight %}
 
 Go to <code>/apps/gnome-settings/gedit/history-gedit2_search_for_entry</code> and <code>/apps/gnome-settings/gedit/history-gedit2_replace_entry_with</code> and remove the content there:
 

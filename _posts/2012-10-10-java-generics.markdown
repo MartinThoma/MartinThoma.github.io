@@ -22,7 +22,7 @@ Some months ago, I had to improve some Java code for university. They gave us a 
 You can download the <a href="http://martin-thoma.com/wp-content/uploads/2012/10/Filesystem.zip">complete Eclipse project</a>.
 
 <h2>Computer.java</h2>
-[java]package edu.kit.filesystem;
+{% highlight java %}package edu.kit.filesystem;
 
 import java.util.ArrayList;
 import java.util.Vector;
@@ -129,10 +129,10 @@ public class Computer {
 
         f.printContent();
     }
-}[/java]
+}{% endhighlight %}
 
 <h2>Node.java</h2>
-[java]package edu.kit.filesystem;
+{% highlight java %}package edu.kit.filesystem;
 
 public abstract class Node {
     private String name;
@@ -153,20 +153,20 @@ public abstract class Node {
     public void setDescription(String description) {
         this.description = description;
     }
-}[/java]
+}{% endhighlight %}
 
 <h2>NodeContainer.java</h2>
-[java]package edu.kit.filesystem;
+{% highlight java %}package edu.kit.filesystem;
 
 import java.util.ArrayList;
 
 public interface NodeContainer {
     public <T> ArrayList<T> get(Class<T> clazz);
     public void addNode(Node n);
-}[/java]
+}{% endhighlight %}
 
 <h2>HDD.java</h2>
-[java]package edu.kit.filesystem;
+{% highlight java %}package edu.kit.filesystem;
 
 import java.util.ArrayList;
 
@@ -192,10 +192,10 @@ public class HDD extends Node implements NodeContainer {
     public void addNode(Node n) {
         nodes.add(n);
     }
-}[/java]
+}{% endhighlight %}
 
 <h2>Directory.java</h2>
-[java]package edu.kit.filesystem;
+{% highlight java %}package edu.kit.filesystem;
 
 import java.util.ArrayList;
 
@@ -222,10 +222,10 @@ public class Directory extends Node implements NodeContainer {
         return allElements;
     }
 }
-[/java]
+{% endhighlight %}
 
 <h2>ZipArchiv.java</h2>
-[java]package edu.kit.filesystem;
+{% highlight java %}package edu.kit.filesystem;
 
 import java.util.ArrayList;
 
@@ -250,14 +250,14 @@ public class ZipArchiv extends File implements NodeContainer {
         }
         return allElements;
     }
-}[/java]
+}{% endhighlight %}
 
 <h2>File.java</h2>
-[java]package edu.kit.filesystem;
+{% highlight java %}package edu.kit.filesystem;
 
 public class File extends Node {
     public File(String name, String beschreibung) {
         this.setName(name);
         this.setDescription(beschreibung);
     }
-}[/java]
+}{% endhighlight %}

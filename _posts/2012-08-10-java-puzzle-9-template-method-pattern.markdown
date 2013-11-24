@@ -24,7 +24,7 @@ The following Java Puzzle is an example for the <a href="http://en.wikipedia.org
 
 What is the output of the following snippet:
 <strong>AbstractClass.java</strong>:
-[java]public class AbstractClass {
+{% highlight java %}public class AbstractClass {
     int templateMethod() {
         return simpleOperation1() * simpleOperation2();
     }
@@ -36,10 +36,10 @@ What is the output of the following snippet:
     int simpleOperation2() {
         return 3;
     }
-}[/java]
+}{% endhighlight %}
 
 <strong>ConcreteClass.java</strong>:
-[java]public class ConcreteClass extends AbstractClass {
+{% highlight java %}public class ConcreteClass extends AbstractClass {
     @Override
     int simpleOperation1() {
         return 5;
@@ -49,15 +49,15 @@ What is the output of the following snippet:
     int simpleOperation2() {
         return 7;
     }
-}[/java]
+}{% endhighlight %}
 
 <strong>test.java</strong>:
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         ConcreteClass t = new ConcreteClass();
         System.out.println(t.templateMethod());
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -78,7 +78,7 @@ What is the output of the following snippet:
 .
 
 <h2>Answer</h2>
-[bash]35[/bash]
+{% highlight bash %}35{% endhighlight %}
 
 35
 

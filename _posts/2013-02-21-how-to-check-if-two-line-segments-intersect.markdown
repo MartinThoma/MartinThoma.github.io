@@ -145,7 +145,7 @@ With this image in mind, it is obvious that the bounding boxes need to intersect
 
 It is much easier to check if two bounding boxes intersect. It's simply:
 
-[java]/**
+{% highlight java %}/**
  * Check if bounding boxes do intersect. If one bounding box
  * touches the other, they do intersect.
  * @param a first bounding box
@@ -158,7 +158,7 @@ public boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
         &amp;&amp; a[1].x >= b[0].x 
         &amp;&amp; a[0].y <= b[1].y
         &amp;&amp; a[1].y >= b[0].y;
-}[/java]
+}{% endhighlight %}
 
 If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.
 
@@ -190,7 +190,7 @@ $
 $
 
 Ok, now you can check if a point is on a line:
-[java]    /**
+{% highlight java %}    /**
      * Checks if a Point is on a line
      * @param a line (interpreted as line, although given as line
      *                segment)
@@ -205,11 +205,11 @@ Ok, now you can check if a point is on a line:
         Point bTmp = new Point(b.x - a.first.x, b.y - a.first.y);
         double r = crossProduct(aTmp.second, bTmp);
         return Math.abs(r) < EPSILON;
-    }[/java]
+    }{% endhighlight %}
 
 The second cool characteristic of the cross product is that it can be used to determine if a point b is left or right of the line through the origin and a point a:
 
-[java]    /**
+{% highlight java %}    /**
      * Checks if a point is right of a line. If the point is on the
      * line, it is not right of the line.
      * @param a line segment interpreted as a line
@@ -223,11 +223,11 @@ The second cool characteristic of the cross product is that it can be used to de
                 a.second.x - a.first.x, a.second.y - a.first.y));
         Point bTmp = new Point(b.x - a.first.x, b.y - a.first.y);
         return crossProduct(aTmp.second, bTmp) < 0;
-    }[/java]
+    }{% endhighlight %}
 
 When we have one line $a$ through the origin and one line segment $b$, you can check if $b$ crosses $a$ by checking if the end points of $b$ are on different sides of $a$:
 
-[java]    /**
+{% highlight java %}    /**
      * Check if line segment first touches or crosses the line that is 
      * defined by line segment second.
      *
@@ -243,10 +243,10 @@ When we have one line $a$ through the origin and one line segment $b$, you can c
                 || isPointOnLine(a, b.second)
                 || (isPointRightOfLine(a, b.first) ^ 
                     isPointRightOfLine(a, b.second));
-    }[/java]
+    }{% endhighlight %}
 
 Now you have everything you need:
-[java]    /**
+{% highlight java %}    /**
      * Check if line segments intersect
      * @param a first line segment
      * @param b second line segment
@@ -259,7 +259,7 @@ Now you have everything you need:
         return doBoundingBoxesIntersect(box1, box2)
                 &amp;&amp; lineSegmentTouchesOrCrossesLine(a, b)
                 &amp;&amp; lineSegmentTouchesOrCrossesLine(b, a);
-    }[/java]
+    }{% endhighlight %}
 
 By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesIntersect(box1, box2)</code>. All other tests still pass if you remove this function.
 
@@ -273,7 +273,7 @@ I did this with JavaScript:
 </iframe>
 
 This is the code that checks for line segments:
-[javascript]
+{% highlight javascript %}
 /** You know that lines a and b have an intersection and now you
     want to get it!
 */
@@ -397,12 +397,12 @@ function getIntersection(a, b) {
 
     return {"first": {"x":x1, "y":y1}, "second": {"x":x2, "y":y2}};
 }
-[/javascript]
+{% endhighlight %}
 
 <h2>TL;DR</h2>
 The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:
 
-[java]public class Geometry {
+{% highlight java %}public class Geometry {
 
     public static final double EPSILON = 0.000001;
 
@@ -495,7 +495,7 @@ The complete, tested code is on <a href="https://github.com/MartinThoma/algorith
                 &amp;&amp; lineSegmentTouchesOrCrossesLine(b, a);
     }
 }
-[/java]
+{% endhighlight %}
 
 <h2>Addendum</h2>
 Some notes for me:

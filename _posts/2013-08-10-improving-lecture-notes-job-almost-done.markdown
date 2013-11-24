@@ -43,7 +43,7 @@ Total number of files and folders: <code>find . | wc -l</code>
 
 How often did I change files: <code>svn log -qvr 1:HEAD|perl -nle 'print if /^Changed paths:/ ... /^-+$/ and /^\s/' \
     | sort | uniq -c | sort -n</code> (<a href="http://wirespeed.wordpress.com/2011/06/08/subversion-how-many-times-has-a-file-been-modified/">source</a>):
-[bash]
+{% highlight bash %}
       1    M /ti1.bib
       2    M /
       2    M /anhang-1.tex
@@ -64,7 +64,7 @@ How often did I change files: <code>svn log -qvr 1:HEAD|perl -nle 'print if /^Ch
      19    M /sn.tex
      22    M /README.txt
      28    M /skript.pdf
-[/bash]
+{% endhighlight %}
 
 With <a href="https://sourceforge.net/projects/codeanalyze-gpl/">CodeAnalyzer</a> over all .tex files:
 <table>

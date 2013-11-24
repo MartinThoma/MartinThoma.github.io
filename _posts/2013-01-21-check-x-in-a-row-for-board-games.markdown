@@ -24,14 +24,14 @@ In board games, you have quite often the situation that you want to check someth
 <h2>isOnBoard(int x, int y)</h2>
 You should create a method that checks if a coordinate is on your board. This can be as simple as this:
 
-[java]public boolean isOnBoard(int x, int y) {
+{% highlight java %}public boolean isOnBoard(int x, int y) {
     return 0 <= x &amp;&amp; x < width &amp;&amp; 0 <= y &amp;&amp; y < height;
-}[/java]
+}{% endhighlight %}
 
 <h2>Diagonal, horizontal and vertical</h2>
 You can create a method like this:
 
-[java]/**
+{% highlight java %}/**
  * This method checks XYZ and does XYZ.
  * 
  * @param player the current player
@@ -53,7 +53,7 @@ private void myBoardAction(Player player, int xDir, int yDir) {
             }
         }
     }
-}[/java]
+}{% endhighlight %}
 
 What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change doXYZ() and checkXYZ. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.
 
@@ -61,9 +61,9 @@ Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.h
 
 Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:
 
-[java]myBoardAction(player, 1, 1); // top right
+{% highlight java %}myBoardAction(player, 1, 1); // top right
 myBoardAction(player,-1, 1); // top left
 myBoardAction(player, 1, 0); // vertical
-myBoardAction(player, 0, 1); // horizontal[/java]
+myBoardAction(player, 0, 1); // horizontal{% endhighlight %}
 
 This is enough. You don't need more, as you go through the whole board. No need to write redundant code :-)

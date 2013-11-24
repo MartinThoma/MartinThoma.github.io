@@ -47,7 +47,7 @@ comments:
 I just wanted to answer an assignment and noticed that cyclic references kill Nautilus.
 
 <h2>What I did</h2>
-[bash]mkdir testFolder
+{% highlight bash %}mkdir testFolder
 cd testFolder
 touch testFile.txt
 ln -s testFile.txt mySoftlink
@@ -57,10 +57,10 @@ ls -l
 total 0
 lrwxrwxrwx 1 moose moose 10 2013-01-20 21:20 myfile.txt -> mySoftLink
 lrwxrwxrwx 1 moose moose 10 2013-01-20 21:18 mySoftLink -> myfile.txt
-[/bash]
+{% endhighlight %}
 
 Those two softlinks refer to each other. Now try to open this folder with Nautilus:
-[bash]nautilus /home/moose/Desktop/testFolder/[/bash]
+{% highlight bash %}nautilus /home/moose/Desktop/testFolder/{% endhighlight %}
 
 Nautilus opens and instantly closes again.
 

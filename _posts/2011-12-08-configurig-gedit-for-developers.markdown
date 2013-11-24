@@ -23,7 +23,7 @@ It belongs to GNOME, but it is also available for Windows. This is how it looks 
 [caption id="attachment_9571" align="aligncenter" width="300" caption="gedit screenshot"]<a href="http://martin-thoma.com/wp-content/uploads/2011/12/gedit-screenshot.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/12/gedit-screenshot-300x208.png" alt="gedit screenshot" title="gedit screenshot" width="300" height="208" class="size-medium wp-image-9571" /></a>[/caption]
 
 You might want to install gedit-plugins:
-[bash]sudo apt-get install gedit-plugins[/bash]
+{% highlight bash %}sudo apt-get install gedit-plugins{% endhighlight %}
 
 <h2>External Tools</h2>
 gedit allows you to run external command line tools by pressing shortcuts. You can find the external tools plugins in your preferences:
@@ -33,14 +33,14 @@ You can assign shortcuts by clicking into an input field and simply using the sh
 [caption id="attachment_9611" align="aligncenter" width="300" caption="external tools java"]<a href="http://martin-thoma.com/wp-content/uploads/2011/12/external-tool-java.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/12/external-tool-java-300x209.png" alt="external tools java" title="external tools java" width="300" height="209" class="size-medium wp-image-9611" /></a>[/caption]
 
 <h3>Java</h3>
-[bash]#!/bin/sh
+{% highlight bash %}#!/bin/sh
 cd $GEDIT_CURRENT_DOCUMENT_DIR
 if javac $GEDIT_CURRENT_DOCUMENT_NAME;
 then
 java ${GEDIT_CURRENT_DOCUMENT_NAME%\.java}
 else
 echo "Failed to compile"
-fi[/bash]
+fi{% endhighlight %}
 
 <h2>Code Comment</h2>
 This neat little plugin detects which programming language you are using. If you select a code block and press ctrl+m it gets marked as a comment. If you press ctrl+shift+m a block of comments gets "decommented" to a block of code. It uses # for Python and // for Java.

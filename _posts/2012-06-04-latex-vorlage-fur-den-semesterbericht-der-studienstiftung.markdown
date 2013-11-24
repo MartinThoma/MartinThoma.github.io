@@ -82,7 +82,7 @@ Mit dem Semesterbericht f&uuml;r das WS 2012/2013 soll der Bericht nicht mehr an
 Hier ist die Vorlage mit Blindtext als <a href='http://martin-thoma.com/wp-content/uploads/2012/06/semesterbericht-ws-2011.pdf'>PDF</a>.
 
 Makefile:
-[text]DOKUMENT = semesterbericht-martin-thoma-ws-2011
+{% highlight text %}DOKUMENT = semesterbericht-martin-thoma-ws-2011
 
 make:
 	pdflatex $(DOKUMENT).tex -output-format=pdf
@@ -90,10 +90,10 @@ make:
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out[/text]
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out{% endhighlight %}
 
 LaTeX:
-[text]\documentclass[a4paper,12pt]{article}
+{% highlight text %}\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for umlauts
@@ -284,4 +284,4 @@ imperdiet doming id quod mazim placerat facer.\\
 \Vorname~\Nachname
 
 
-\end{document}[/text]
+\end{document}{% endhighlight %}

@@ -56,7 +56,7 @@ You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to
 
 Compile it like this:
 
-[bash]gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out[/bash]
+{% highlight bash %}gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out{% endhighlight %}
 
 This is the script I use to get the number of correct digits:
 {% highlight python %}
@@ -110,7 +110,7 @@ print("Points for a=%i and n=%i: %i" % (args.a, args.n, getScore(args.program, a
 How should be choose the initial value? I thought $\frac{a}{2}$ could be ok. In a good implementation you'll probably do this with a lookup table.
 
 With long double:
-[cpp]
+{% highlight cpp %}
 #include <iostream>
 #include <cmath>
  
@@ -134,7 +134,7 @@ int main(int argc, char *argv[]) {
     printf("%.80Lf\n", newton(a, n));
     return 0;
 }
-[/cpp]
+{% endhighlight %}
 
 I failed to convert this to a version that uses GMP :-/
 
@@ -158,7 +158,7 @@ $\displaystyle \ln(1+x) =- \sum_{k=0}^\infty \frac{(-x)^{k+1}}{k+1}$
 
 So I gave it a try:
 
-[cpp]
+{% highlight cpp %}
 #include <iostream>
 #include <cmath>
  
@@ -202,7 +202,7 @@ int main(int argc, char *argv[]) {
     printf("%.80Lf\n", sqrt(a, n));
     return 0;
 }
-[/cpp]
+{% endhighlight %}
 
 This converges VERY slow: For $a = 2$
 

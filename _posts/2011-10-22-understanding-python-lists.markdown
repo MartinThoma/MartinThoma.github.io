@@ -61,10 +61,10 @@ How should the output look like? Think about it a second, then scroll down.
 
 
 
-[bash][[1,5,7],[0,6],[],[8,1,6],1]
+{% highlight bash %}[[1,5,7],[0,6],[],[8,1,6],1]
 [[1,5,7],[0,6],[],[8,1,6]]
 [[1,5,7],[0,6],[],[8,1,6]]
-[[1,5,7],[3,6],[],[8,1,6]][/bash]
+[[1,5,7],[3,6],[],[8,1,6]]{% endhighlight %}
 
 The reason for this strange behaviour is how lists are handled in Python. The variable itself is basically only the pointer to the list. If you slice the list (myList[:]) you copy each value of the list into another list. If myList was a nested list, it contained the pointers to the sublists. So, if you want to make a deep copy, you have to use the copy module.
 

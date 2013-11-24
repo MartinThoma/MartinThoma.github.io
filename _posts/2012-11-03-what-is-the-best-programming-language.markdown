@@ -31,7 +31,7 @@ The bash is great for tiny tasks where other programs are involved.
 <h3>Example</h3>
 Resizing all jpg-images in a given folder to a maximum resolution of 1600x1600 while maintaining the aspect ratio:
 
-[bash]for i in *.JPG;do convert "$i" -resize 1600x1600 "${i%.JPG}-resized.jpg"; done[/bash]
+{% highlight bash %}for i in *.JPG;do convert "$i" -resize 1600x1600 "${i%.JPG}-resized.jpg"; done{% endhighlight %}
 
 See <a href="http://martin-thoma.com/converting-files-with-linux/">Converting Files with Linux</a> for more examples.
 <h2>Python</h2>

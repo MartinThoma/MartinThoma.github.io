@@ -23,35 +23,35 @@ This <a href='http://martin-thoma.com/wp-content/uploads/2012/04/versioning-chea
 
 If you're at the KIT and you have SWT, then you'll probably need this command:
 
-[bash]svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1[/bash]
+{% highlight bash %}svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1{% endhighlight %}
 You will be asked for a password. I hope you remember it.
 
 <h2>SVN</h2>
-[bash]svn co URL LocalTarget --username yourUserName[/bash]
+{% highlight bash %}svn co URL LocalTarget --username yourUserName{% endhighlight %}
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a>
 
-[bash]svn up[/bash]
+{% highlight bash %}svn up{% endhighlight %}
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a>
 
-[bash]svn log -l 4[/bash]
+{% highlight bash %}svn log -l 4{% endhighlight %}
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a>
 
 <h3>Updating the repository</h3>
 You can update a SVN repository with this command:
-[bash]svn up [path][/bash]
+{% highlight bash %}svn up [path]{% endhighlight %}
 
 If you need to execute the command often, you might want to define an alias. aliases are shorthands for long commands in the bash. To create a permanent one, add the following line to your ~/.bashrc file:
-[bash]alias swt='svn up /home/moose/Studium/SWT'[/bash]
+{% highlight bash %}alias swt='svn up /home/moose/Studium/SWT'{% endhighlight %}
 Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".
 
 <h3>Nice diffs</h3>
 You can modify your config file:
-[bash]gedit ~/.subversion/config[/bash]
+{% highlight bash %}gedit ~/.subversion/config{% endhighlight %}
 
 and change <code>diff-cmd</code> to <code>meld</code>.
 
 <h3>Compare revisions</h3>
-[bash]svn diff -r 63:64[/bash]
+{% highlight bash %}svn diff -r 63:64{% endhighlight %}
 
 compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).
 
@@ -60,17 +60,17 @@ compares revision number 63 with revision number 64 with the tool you defined (s
 If you want a GUI for <code>git diff</code>, then you should do the following:
 
 Install meld:
-[bash]sudo apt-get install meld[/bash]
+{% highlight bash %}sudo apt-get install meld{% endhighlight %}
 
 Got to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:
-[bash]#!/bin/bash
-meld "$2" "$5"[/bash]
+{% highlight bash %}#!/bin/bash
+meld "$2" "$5"{% endhighlight %}
 
 Make it executable:
-[bash]chmod +x git-meld[/bash]
+{% highlight bash %}chmod +x git-meld{% endhighlight %}
 
 Add it to your git configuration:
-[bash]git config --global diff.external git-meld[/bash]
+{% highlight bash %}git config --global diff.external git-meld{% endhighlight %}
 
 Enjoy this experience when entering <code>git diff</code>:
 [caption id="attachment_35541" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/git-meld.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/git-meld-300x129.png" alt="Using Meld with GIT" title="Using Meld with GIT" width="300" height="129" class="size-medium wp-image-35541" /></a> Using Meld with GIT[/caption]
@@ -81,21 +81,21 @@ See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other
 <h4>Preparation</h4>
 Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.
 
-[bash]cd ~/.ssh
+{% highlight bash %}cd ~/.ssh
 ssh-keygen -t rsa -C "info@martin-thoma.de"
 git config --global user.name "Martin Thoma"
-git config --global user.email info@martin-thoma.de[/bash]
+git config --global user.email info@martin-thoma.de{% endhighlight %}
 
 <h4>Clone</h4>
 Clone a GITHub repository:
-[bash]git clone git@github.com:MartinThoma/matrix-multiplication.git[/bash]
+{% highlight bash %}git clone git@github.com:MartinThoma/matrix-multiplication.git{% endhighlight %}
 
 <h3>Snippets</h3>
 Reset a single file to the latest revision on the server:
-[bash]git checkout HEAD file/to/restore[/bash]
+{% highlight bash %}git checkout HEAD file/to/restore{% endhighlight %}
 
 Get the latest diff:
-[bash]git diff HEAD @{1}[/bash]
+{% highlight bash %}git diff HEAD @{1}{% endhighlight %}
 
 <h2>Resources</h2>
 <ul>

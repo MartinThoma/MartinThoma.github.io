@@ -42,7 +42,7 @@ I'll now introduce you to the basics of LaTeX beamer presentations. If you only 
 
 This is a basic presentation:
 
-[text]
+{% highlight text %}
 \documentclass{beamer}
 \usetheme{Frankfurt}
 \usepackage{hyperref}
@@ -68,16 +68,16 @@ This is a basic presentation:
 \end{frame}
 
 \end{document}
-[/text]
+{% endhighlight %}
 
 <h2>Style</h2>
 If you want to create nice-looking presentations like <a href="http://martin-thoma.com/wp-content/uploads/2013/03/tutorium-05.pdf">this one</a> or <a href="http://martin-thoma.com/wp-content/uploads/2013/03/google-presentation.pdf">that one</a>, you should probably adjust the style. Here is an overview of the default ones that LaTeX has: <a href="http://deic.uab.es/~iblanes/beamer_gallery/">Beamer theme gallery</a> or <a href="http://latex.simon04.net/">here</a>.
 
 The important commands for changing the appearance, that should get included just after documentclass, are:
-[text]
+{% highlight text %}
 \usetheme{Frankfurt}
 \usecolortheme{default}
-[/text]
+{% endhighlight %}
 
 When you're from KIT, you should use the <a href="https://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen">KIT theme</a>.
 
@@ -101,7 +101,7 @@ You might want to try those commands to hide and reveal information:
 
 You can use it like this:
 
-[text]
+{% highlight text %}
 \begin{frame}{Another title}
     Some text\\
     \uncover<2->{Uncover me on slide 2 (-)\\}
@@ -114,27 +114,27 @@ You can use it like this:
     \alt<8>{I am on slide 8\\}{I am not on slide 8\\}
     \onslide<9>{on slide 9\\}
 \end{frame}
-[/text]
+{% endhighlight %}
 
 Note that the numbers work like <code>\uncover<n-m>{ELEMENT}</code>. If no <code>m</code> is specified, ELEMENT is visible until end of this frame.
 
 When you have a list and you want to uncover it element by element, you can use this:
 
-[text]
+{% highlight text %}
 \begin{itemize}<+->
     \item one
     \item two
     \item three
 \end{itemize}
-[/text]
+{% endhighlight %}
 
 <h2>Blocks</h2>
 You can use <code>block</code>, <code>exampleblock</code> or <code>alertblock</code> inside your frame:
-[text]
+{% highlight text %}
 \begin{exampleblock}{Test}
   This is my text.
 \end{exampleblock}
-[/text]
+{% endhighlight %}
 
 It looks like this:
 [caption id="attachment_59391" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/latex-beamer-block.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock" width="300" height="117" class="size-medium wp-image-59391" /></a> LaTeX Beamer blocks: block, exampleblock, alertblock[/caption]
@@ -145,11 +145,11 @@ Quite often, you want to have one big image.
 You need <code>\usepackage{graphicx}</code> in your preamble.
 
 This is how you get the image it:
-[text]
+{% highlight text %}
 \begin{frame}{My frame title}
     \includegraphics[width=\textwidth, height=0.8\textheight, keepaspectratio]{../relative/path/image.jpg}
 \end{frame}
-[/text]
+{% endhighlight %}
 
 <h2>Further reading</h2>
 <ul>

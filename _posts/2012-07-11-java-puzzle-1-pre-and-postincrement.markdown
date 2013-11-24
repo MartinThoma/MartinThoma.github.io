@@ -21,7 +21,7 @@ comments: []
 <h2>The puzzle</h2>
 What is the output of the following piece of code?
 
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         int i = 1;
         i += ++i + i++ + ++i;
@@ -39,7 +39,7 @@ What is the output of the following piece of code?
         System.out.println("k = " + k);
         System.out.println("m = " + (m += 1));
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -66,24 +66,24 @@ What is the output of the following piece of code?
 
 <h2>Answer</h2>
 The output is:
-[bash]i = 9
+{% highlight bash %}i = 9
 j = 9
 k = 8
-m = 2[/bash]
+m = 2{% endhighlight %}
 
 <h2>Explanation</h2>
 <h3>Part one</h3>
 First, take a look at statements of this structure:
-[java]i += s[/java]
+{% highlight java %}i += s{% endhighlight %}
 where <code>i</code> is the integer and s is a statement (e.g. <code>++i</code>). This gets evaluated to 
-[java]i = a + s[/java]
+{% highlight java %}i = a + s{% endhighlight %}
 Source: <a href="http://wordpress.org/extend/plugins/embed-github-gist/">docs.oracle.com</a>
 
 <h3>Part two</h3>
 Lets take a look at pre- and postincrement in Java.
 
 You can quite easily figure out what the different increments do by this snippet:
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         int i = 0;
         int j = 0;
@@ -97,13 +97,13 @@ You can quite easily figure out what the different increments do by this snippet
 
         System.out.println("k = " + (k += 1));
     }
-}[/java]
+}{% endhighlight %}
 Output:
-[bash]i = 1
+{% highlight bash %}i = 1
 i = 1
 j = 0
 j = 1
-k = 1[/bash]
+k = 1{% endhighlight %}
 
 Line 7 adds +1 to <code>i</code> and returns the value.
 Line 10 returns the value of <code>j</code> and adds +1 to <code>j</code>.
@@ -115,21 +115,21 @@ Most important:
 <blockquote>Evaluation of an expression can also produce side effects, because expressions may contain embedded assignments, increment operators, decrement operators, and method invocations.</blockquote>
 
 So:
-[java]int i = 1;
-i += ++i + i++ + ++i;[/java]
+{% highlight java %}int i = 1;
+i += ++i + i++ + ++i;{% endhighlight %}
 is the same as
-[java]i = ((i + (++i)) + (i++)) + (++i);[/java]
+{% highlight java %}i = ((i + (++i)) + (i++)) + (++i);{% endhighlight %}
 The first <code>++i</code> increments <code>i</code> to 2 and returns 2. So you have:
-[java]i = 2;
-i = ((1 + 2) + (i++)) + (++i);[/java]
+{% highlight java %}i = 2;
+i = ((1 + 2) + (i++)) + (++i);{% endhighlight %}
 The <code>i++</code> returns 2, as it is the new value of <code>i</code>, and increments <code>i</code> to 3:
 
-[java]i = 3;
-i = ((1 + 2) + 2) + ++i;[/java]
+{% highlight java %}i = 3;
+i = ((1 + 2) + 2) + ++i;{% endhighlight %}
 
 The second <code>++i</code> increments <code>i</code> to 4 and returns 4:
-[java]i = 4;
-i += ((1 + 2) + 2) + 4;[/java]
+{% highlight java %}i = 4;
+i += ((1 + 2) + 2) + 4;{% endhighlight %}
 
 So you end up with <code>9</code>.
 

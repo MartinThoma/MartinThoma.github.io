@@ -80,9 +80,9 @@ Download the latest Piwik-Version <a href="http://piwik.org/">here</a> and insta
 <h2>Finetuning</h2>
 <strong>www or non-www-URL</strong>: decide if you want www.martin-thoma.com or martin-thoma.com as your standard URL. Both should work, but one should redirect the user to the other. I choose to take martin-thoma.com as I like short URLs. Add this to your .htaccess if you want www.martin-thoma.com:
 
-[bash]RewriteEngine on
+{% highlight bash %}RewriteEngine on
 RewriteCond %{HTTP_HOST} !^www.martin-thoma.com$
-RewriteRule ^(.*)$ http://www.martin-thoma.com/$1 [R=301][/bash]
+RewriteRule ^(.*)$ http://www.martin-thoma.com/$1 [R=301]{% endhighlight %}
 
 
 <strong>Imprint</strong>: In Germany, you have to create an imprint. Even if you don't have to create one, I strongly recomment giving your readers the possibility to get to know who writes the posts. It gives you more credibility.

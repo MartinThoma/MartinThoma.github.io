@@ -20,7 +20,7 @@ comments: []
 ---
 What is the output of the following snippet?
 
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         double a = 1.3378901234567877;
         double b = 0.0008901234567876;
@@ -32,7 +32,7 @@ What is the output of the following snippet?
             System.out.println("Oh no! Comparison failed!");
         }
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -52,14 +52,14 @@ What is the output of the following snippet?
 .
 .
 <h2>Solution</h2>
-[bash]Oh no! Comparison failed![/bash]
+{% highlight bash %}Oh no! Comparison failed!{% endhighlight %}
 
 <h2>Explanation</h2>
 Doubles are internally represented using the <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 standard</a> (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html">source</a>).
 This means, doubles are not represented with arbitrary precision.
 
 Just execute this snippet:
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         double a = 1.3378901234567876;
         System.out.println("a = " + a);
@@ -68,16 +68,16 @@ Just execute this snippet:
         double c = a - b;
         System.out.println("c = " + c);
     }
-}[/java]
+}{% endhighlight %}
 
 Output:
-[bash]a = 1.3378901234567877
+{% highlight bash %}a = 1.3378901234567877
 b = 8.901234567876E-4
-c = 1.3370000000000002[/bash]
+c = 1.3370000000000002{% endhighlight %}
 
 <h2>Resolve problem</h2>
 Use an appropriate epsilon to compare floats/doubles:
-[java]public class test {
+{% highlight java %}public class test {
     public static void main(String[] args) {
         double a       = 1.3378901234567877;
         double b       = 0.0008901234567876;
@@ -90,4 +90,4 @@ Use an appropriate epsilon to compare floats/doubles:
             System.out.println("Oh no! Comparison failed!");
         }
     }
-}[/java]
+}{% endhighlight %}

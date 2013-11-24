@@ -18,8 +18,8 @@ excerpt: ! "3691 people are listed in the scoreboard, but 3851 tried the first p
   \ <li>Problem 3 (<a href=\"http://code.google.com/codejam/contest/1645485/dashboard#s=p2\">Cruise
   Control</a>):\r\n  <ul>\r\n     <li>Small Set: 65/312 users (21%)</li>\r\n
   \    <li>Large Set: 22/42 users (52%)</li>\r\n  </ul>\r\n  </li>\r\n</ul>\r\n\r\n\r\nJust
-  as last time, you can execute these scripts by\r\n[bash]python jam.py < A-small-practice.in
-  > results.txt[/bash]\r\n\r\n"
+  as last time, you can execute these scripts by\r\n{% highlight bash %}python jam.py < A-small-practice.in
+  > results.txt{% endhighlight %}\r\n\r\n"
 wordpress_id: 23361
 wordpress_url: http://martin-thoma.com/?p=23361
 date: 2012-04-28 06:11:22.000000000 +02:00
@@ -58,7 +58,7 @@ comments: []
 
 
 Just as last time, you can execute these scripts by
-[bash]python jam.py < A-small-practice.in > results.txt[/bash]
+{% highlight bash %}python jam.py < A-small-practice.in > results.txt{% endhighlight %}
 
 <a id="more"></a><a id="more-23361"></a>
 

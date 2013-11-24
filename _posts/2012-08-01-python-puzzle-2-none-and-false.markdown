@@ -84,7 +84,7 @@ else:
 .
 
 <h2>Answer</h2>
-[bash]None and false are not equal.[/bash]
+{% highlight bash %}None and false are not equal.{% endhighlight %}
 
 <h2>Explanation</h2>
 Although <code>None</code> and <code>False</code> evaluate to <code>False</code> if they are used in a boolean expression, <code>None</code> is not the same as <code>False</code>.

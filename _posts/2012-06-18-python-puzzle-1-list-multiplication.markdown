@@ -44,9 +44,9 @@ You might also have heard of Pythons overloaded multiplication:
 print([[0]*4]*4)
 print("abc"*4){% endhighlight %}
 Output:
-[text][0, 0, 0, 0]
+{% highlight text %}[0, 0, 0, 0]
 [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-abcabcabcabc[/text]
+abcabcabcabc{% endhighlight %}
 
 <h2>Question</h2>
 What do you think does the following piece of Python-Code print?
@@ -115,7 +115,7 @@ print standardMatrixProduct(A, B){% endhighlight %}
 
 
 <h2>Answer</h2>
-[text][[32, 32], [32, 32]][/text]
+{% highlight text %}[[32, 32], [32, 32]]{% endhighlight %}
 Python creates only one list and makes pointers to it!
 
 So this is one that works:

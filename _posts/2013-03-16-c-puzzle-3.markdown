@@ -90,9 +90,9 @@ or
 
 Lets get the assembly code:
 
-[bash]gcc -S -O0 test.c[/bash]
+{% highlight bash %}gcc -S -O0 test.c{% endhighlight %}
 
-[text]
+{% highlight text %}
 	.file	"test.c"
 	.section	.rodata
 .LC0:
@@ -122,7 +122,7 @@ main:
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu/Linaro 4.7.2-2ubuntu1) 4.7.2"
 	.section	.note.GNU-stack,"",@progbits
-[/text]
+{% endhighlight %}
 
 In line 18 you can see that the bitshift already happened. When you introduce a variable for <code>a</code>, you can see that the compiler makes use of the assembly command <code>sarl %eax</code> or <code>sarl	$2, %eax</code> when you shift by two.
 

@@ -55,7 +55,7 @@ int main()
     printf("");
     return 0;
 }[/c]
-[bash]error: zero-length gnu_printf format string[/bash]
+{% highlight bash %}error: zero-length gnu_printf format string{% endhighlight %}
 
 <h2>Macros</h2>
 [c]#include <stdio.h>
@@ -70,8 +70,8 @@ int main()
 
     return 0;
 }[/c]
-[bash]macro.c: In function &lsquo;main&rsquo;:
-macro.c:8: error: &lsquo;else&rsquo; without a previous &lsquo;if&rsquo;[/bash]
+{% highlight bash %}macro.c: In function &lsquo;main&rsquo;:
+macro.c:8: error: &lsquo;else&rsquo; without a previous &lsquo;if&rsquo;{% endhighlight %}
 
 <h2>Single and Double quotes</h2>
 [c]#include <stdio.h>
@@ -81,12 +81,12 @@ int main()
     printf('hello, world\n');
     return 0;
 }[/c]
-[bash]macro.c:5:9: warning: character constant too long for its type
+{% highlight bash %}macro.c:5:9: warning: character constant too long for its type
 macro.c: In function &lsquo;main&rsquo;:
 macro.c:5: warning: passing argument 1 of &lsquo;printf&rsquo; makes pointer from integer without a cast
 /usr/include/stdio.h:339: note: expected &lsquo;const char * __restrict__&rsquo; but argument is of type &lsquo;int&rsquo;
 macro.c:5: warning: format not a string literal and no format arguments
-[/bash]
+{% endhighlight %}
 
 Thanks to <a href="http://www.drpaulcarter.com/cs/common-c-errors.php#3.1">drpaulcarter.com</a> for this example:
 [c]int main()
@@ -95,9 +95,9 @@ Thanks to <a href="http://www.drpaulcarter.com/cs/common-c-errors.php#3.1">drpau
     (void) myPointer;
     return 0;
 }[/c]
-[bash]macro.c: In function &lsquo;main&rsquo;:
+{% highlight bash %}macro.c: In function &lsquo;main&rsquo;:
 macro.c:3: warning: initialization makes pointer from integer without a cast
-[/bash]
+{% endhighlight %}
 
 <h2>Pointers</h2>
 [c]#include <string.h>
@@ -109,9 +109,9 @@ int main()
     strcpy(myPointer, "Hello World!");
     return 0;
 }[/c]
-[bash]macro.c: In function &lsquo;main&rsquo;:
+{% highlight bash %}macro.c: In function &lsquo;main&rsquo;:
 macro.c:7: warning: &lsquo;myPointer&rsquo; is used uninitialized in this function
-[/bash]
+{% endhighlight %}
 
 <h2>Loops</h2>
 [c]int main()
@@ -154,7 +154,7 @@ int main()
     return 0;
 }[/c]
 Again, you don't get a compiler error, but some strange results:
-[bash]Characters: 0
+{% highlight bash %}Characters: 0
 Characters: 3
 Characters: 12
 String: -Hello World!-
@@ -167,7 +167,7 @@ Characters: 12
 String: -Hello World!-
 Size: 4 Byte
 Characters: 13
-[/bash]
+{% endhighlight %}
 
 <h2>Further reading</h2>
 <ul>

@@ -32,7 +32,7 @@ Ich muss immer wieder mal K&uuml;ndigungsschreiben aufsetzen. Daf&uuml;r will ic
 Hier ist das <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung-archiv.zip'>Archiv</a> mit beiden LaTeX-Dateien, einer Make-Datei und beiden PDF-Dateien.
 
 <h2>LaTeX</h2>
-[text]\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+{% highlight text %}\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
 \usepackage[utf8]{inputenc} % this is needed for umlauts
 \usepackage[ngerman]{babel} % this is needed for umlauts
 \usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
@@ -83,6 +83,6 @@ Hier ist das <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendig
     \noindent Ich bitte um eine Best&auml;tigung der K&uuml;ndigung.
     \closing{Mit freundlichen Gr&uuml;&szlig;en,}
     \end{letter}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 Ach ja, wei&szlig; jemand wie man die Einr&uuml;ckung der Unterschrift verhindert?

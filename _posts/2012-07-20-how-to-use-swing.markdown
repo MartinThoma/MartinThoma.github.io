@@ -23,7 +23,7 @@ comments: []
 <h2>Basic examples</h2>
 <h3>JFrame</h3>
 The basic class is <a href="http://docs.oracle.com/javase/7/docs/api/javax/swing/JFrame.html">JFrame</a>:
-[java]import javax.swing.JFrame;
+{% highlight java %}import javax.swing.JFrame;
 
 public class test {
     public static void main(String[] args) {
@@ -32,14 +32,14 @@ public class test {
         frame.setSize(200, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-}[/java]
+}{% endhighlight %}
 
 You will get:
 <a href="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-JFrame.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-JFrame.png" alt="Java Swing: JFrame" title="Java Swing: JFrame" width="300" height="201" class="size-full wp-image-33311" /></a>
 
 <h3>JPanel</h3>
 You add your elements to a JPanel:
-[java]import javax.swing.JButton;
+{% highlight java %}import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -60,7 +60,7 @@ public class test {
         JButton button = new JButton("my button");
         panel.add(button);
     }
-}[/java]
+}{% endhighlight %}
 
 It looks like this:
 <a href="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-jpanel.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-jpanel.png" alt="Java Swing: JPanel, JLabel and JButton" title="Java Swing: JPanel, JLabel and JButton" width="300" height="151" class="size-full wp-image-33341" /></a>
@@ -68,7 +68,7 @@ It looks like this:
 <h2>Action Listeners</h2>
 This is the most simple example of an <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/ActionListener.html">ActionListener</a>. When you click on the button, it creates a new JFrame.
 
-[java]import java.awt.event.ActionEvent;
+{% highlight java %}import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -102,7 +102,7 @@ public class test {
             frame2.setSize(200,200);
         }
     }
-}[/java]
+}{% endhighlight %}
 
 <h2>See also</h2>
 <ul>

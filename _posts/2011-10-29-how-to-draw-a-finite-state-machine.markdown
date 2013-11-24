@@ -58,7 +58,7 @@ As I am currently learning something about them, I would like to be able to plot
 
 This image is created from a gv-file. I saved it as fsm.gv:
 
-[text]digraph finite_state_machine {
+{% highlight text %}digraph finite_state_machine {
 	rankdir=LR;
 	size="8,5"
 
@@ -73,16 +73,16 @@ This image is created from a gv-file. I saved it as fsm.gv:
 	q1 -> q2 [ label = "b" ];
 	q2 -> q1 [ label = "b" ];
 	q2 -> q2 [ label = "b" ];
-}[/text]
+}{% endhighlight %}
 
 To create a graph (or the picture of the nondeterministic finite-state machine) you have to enter the following command in Ubuntu Linux:
 
-[bash]dot -Tpng fsm.gv -o myFiniteStateMachine.png[/bash]
+{% highlight bash %}dot -Tpng fsm.gv -o myFiniteStateMachine.png{% endhighlight %}
 
 <h2>Deterministic finite-state machine</h2>
 [caption id="attachment_8171" align="alignleft" width="528" caption="Deterministic finite-state machine"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/deterministic-finite-state-machine.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" title="Deterministic finite-state machine" width="528" height="248" class="size-full wp-image-8171" /></a>[/caption]
 
-[text]digraph finite_state_machine {
+{% highlight text %}digraph finite_state_machine {
 	rankdir=LR;
 	size="8,5"
 
@@ -107,13 +107,13 @@ To create a graph (or the picture of the nondeterministic finite-state machine) 
 
 	q2  -> f   [ label = "b" ];
 	q2  -> q2  [ label = "c" ];
-}[/text]
+}{% endhighlight %}
 
 <h2>LaTeX</h2>
 If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.
 
 This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:
-[text]\documentclass{scrartcl}
+{% highlight text %}\documentclass{scrartcl}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}
 
@@ -131,14 +131,14 @@ This is the most minimalistic version I could create. It is equivalent to the no
         (q2) edge [loop above] node {b} (q2)
              edge [bend left]  node {b} (q1);
 \end{tikzpicture}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:
-[bash]pdflatex latexsheet.tex -output-format=pdf[/bash]
+{% highlight bash %}pdflatex latexsheet.tex -output-format=pdf{% endhighlight %}
 
 If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
 [caption id="attachment_13421" align="aligncenter" width="400" caption="Finite-state-machine with LaTeX"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/latex-finite-state-machine.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX" title="Finite-state-machine with LaTeX" width="400" height="147" class="size-full wp-image-13421" /></a>[/caption]
-[text]\documentclass{scrartcl}
+{% highlight text %}\documentclass{scrartcl}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}
  
@@ -155,10 +155,10 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
   \path              (q2) edge [loop above] node {b} (q2)
              edge [bend left]  node {b} (q1);
 \end{tikzpicture}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 <h3>Markov models</h3>
-[text]
+{% highlight text %}
 \documentclass{scrartcl}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}
@@ -180,7 +180,7 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
     \path (Ende)  edge  [loop above] node        {1}  (Ende);
 \end{tikzpicture}
 \end{document}
-[/text]
+{% endhighlight %}
 
 <h2>Further Reading</h2>
 <ul>

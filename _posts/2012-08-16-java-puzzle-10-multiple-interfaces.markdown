@@ -21,19 +21,19 @@ comments: []
 You have to following source code:
 
 <strong>A.java</strong>:
-[java]public interface A {
+{% highlight java %}public interface A {
     public int methodA(double a, int b, char c);
     public int methodB();
-}[/java]
+}{% endhighlight %}
 
 <strong>B.java</strong>:
-[java]public interface B {
+{% highlight java %}public interface B {
     public int methodB();
     public void methodC();
-}[/java]
+}{% endhighlight %}
 
 <strong>test.java</strong>:
-[java]public class test implements A, B {
+{% highlight java %}public class test implements A, B {
     public static void main(String[] args) {
         test t = new test();
         System.out.println(t.methodA(1, 2, '3'));
@@ -55,7 +55,7 @@ You have to following source code:
     public void methodC() {
         System.out.println("methodC executed.");
     }
-}[/java]
+}{% endhighlight %}
 
 What is the output? Does it compile? Is there a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html">RuntimeException</a>?
 
@@ -79,9 +79,9 @@ What is the output? Does it compile? Is there a <a href="http://docs.oracle.com/
 
 <h2>Answer</h2>
 Output:
-[bash]42
+{% highlight bash %}42
 1337
-methodC executed.[/bash]
+methodC executed.{% endhighlight %}
 
 <h2>Explanation</h2>
 If you use an Interface, it simply means you have to implement some methods. If more than one Interface forces you to implement the method, you still have to implement it only once. It just works fine.

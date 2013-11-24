@@ -186,14 +186,14 @@ if __name__ == "__main__":
 <h2>Conversion to Fraction</h2>
 You could think that the conversion to fraction is not necessary. But if you simply remove line 5 to 16, you will get:
 
-[bash][1, 0, -1, 0, 1][/bash]
+{% highlight bash %}[1, 0, -1, 0, 1]{% endhighlight %}
 
 because of integer arithmetic. When you convert the input to float before passing it to <code>solveUpperTriangularMatrix</code>, you will get 
 
-[bash][0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25][/bash]
+{% highlight bash %}[0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25]{% endhighlight %}
 
 which is almost the same as when we calculated with Fraction and converted to float afterwards:
-[bash][0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25][/bash]
+{% highlight bash %}[0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25]{% endhighlight %}
 
 So: Using Fractions needs some computing time, but you will get better results.
 

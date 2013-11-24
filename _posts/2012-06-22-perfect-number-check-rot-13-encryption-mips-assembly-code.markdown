@@ -32,7 +32,7 @@ else:
 	print "0"{% endhighlight %}
 
 And here is the MIPS-Code:
-[text]#####################################################################
+{% highlight text %}#####################################################################
 # Perfect number check												#
 # @param int the number you would like to check						#
 # @result int 0 if the number is not perfect, otherwise 1			#
@@ -68,12 +68,12 @@ eval: seq $s0, $s0, $s1	# Compare the sum of divisors with A
 	la $v0 , 1			# |
 	move $a0 , $s0		# |
 	syscall				# |=> Print $s0
-	jr $ra[/text]
+	jr $ra{% endhighlight %}
 
 <h2>ROT-13 encryption</h2>
 
 The basic idea for encrypting a string with ROT-13 is to loop over all characters and use the ASCII-Table to shift them. Here is the ROT-13 MIPS-Code:
-[text]#####################################################################
+{% highlight text %}#####################################################################
 # @param string a &#92;&#48; terminated string								#
 # @return string the ROT-13 encrypted string						#
 #####################################################################
@@ -133,7 +133,7 @@ out:
 	la 		$v0, 4		# |
 	la 		$a0, plain	# |
 	syscall				# |=> Print plain
-    jr      $ra[/text]
+    jr      $ra{% endhighlight %}
 
 A syntax-highlighted version of both code pieces is here: <a href='http://martin-thoma.com/wp-content/uploads/2012/06/mips-rot-13-perfect-number.pdf'>MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.
 

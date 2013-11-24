@@ -220,7 +220,7 @@ $12 \cdot b + \frac{b}{4} \cdot b+ \frac{\frac{b}{4} \cdot b}{4} \cdot b + \frac
 Bei einer Blockgr&ouml;&szlig;e von 1024 Byte sind das 17,25 GB (<a href="http://www.wolframalpha.com/input/?i=12*1024%2B1024%5E2%2F4%2B1024%5E3%2F16%2B1024%5E4%2F64+byte">Rechnung</a>), bei einer Blockgr&ouml;&szlig;e von 4096 Byte sogar 4,40 TB (<a href="http://www.wolframalpha.com/input/?i=12*4096%2B4096%5E2%2F4%2B4096%5E3%2F16%2B4096%5E4%2F64+byte">Rechnung</a>)!
 
 Wenn ihr Linux habt, k&ouml;nnt ihr diese Werte so herausfinden:
-[bash]moose@pc08 ~ $ df
+{% highlight bash %}moose@pc08 ~ $ df
 Filesystem     1K-blocks     Used Available Use% Mounted on
 /dev/sda1      303869280 16418288 272015268   6% /
 udev             1889040        4   1889036   1% /dev
@@ -230,7 +230,7 @@ none             1896772      772   1896000   1% /run/shm
 none              102400        8    102392   1% /run/user
 moose@pc08 ~ $ sudo tune2fs -l /dev/sda1 | grep 'Block size'
 Block size:               4096
-[/bash]
+{% endhighlight %}
 </div>
 </div>
 

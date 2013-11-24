@@ -43,7 +43,9 @@ I often need to print source code. Some years ago for a German competition calle
 [caption id="attachment_23851" align="aligncenter" width="590" caption="LaTeX Java Source Code: listings"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-listings.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" title="LaTeX Java Source Code: listings" width="590" height="185" class="size-full wp-image-23851" /></a>[/caption]
 Here is an minimal example how you could print Source Code with LaTeX:
 <a id="more"></a><a id="more-23541"></a>
-[text]\documentclass[a4paper,12pt]{article}
+{% highlight text %}
+{% raw %}
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -61,11 +63,15 @@ Here is an minimal example how you could print Source Code with LaTeX:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 	\lstinputlisting[language=Java]{Othello.java}
-\end{document}[/text]
+\end{document}
+{% endraw %}
+{% endhighlight %}
 
 <h3>My Template</h3>
 If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href='http://martin-thoma.com/wp-content/uploads/2012/04/LaTeX-Source-Code.pdf'>PDF-file</a>.
-[text]\documentclass[a4paper,12pt]{article}
+{% highlight text %}
+{% raw %}
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -134,7 +140,9 @@ If you want to customize a little bit more and if you want to get highlighted (c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 	\lstinputlisting[language=Java]{Othello.java}
-\end{document}[/text]
+\end{document}
+{% endraw %}
+{% endhighlight %}
 
 <h3>Supported Languages</h3>
 The LaTeX listings package provides quite a lot of language and dialects. Each bold dialect is the default dialect:
@@ -157,14 +165,14 @@ ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, <strong>R/3 6.10</strong>), ACSL, Ada
 
 <h2>minted</h2>
 Minted needs the package pygments:
-[bash]sudo apt-get install python-pygments[/bash]
+{% highlight bash %}sudo apt-get install python-pygments{% endhighlight %}
 
 <h3>Supported Languages</h3>
 Minted supports quite a lot of languages. You can get the supported languages with this command:
-[bash]moose@pc07:~$ pygmentize -L lexers[/bash]
+{% highlight bash %}moose@pc07:~$ pygmentize -L lexers{% endhighlight %}
 
 This is my output:
-[bash collapse="true"]Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
+{% highlight text %}Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
 
 Lexers:
 ~~~~~~~
@@ -408,12 +416,12 @@ Lexers:
 * xslt:
     XSLT (filenames *.xsl, *.xslt)
 * yaml:
-    YAML (filenames *.yaml, *.yml)[/bash]
+    YAML (filenames *.yaml, *.yml){% endhighlight %}
 <h3>Example</h3>
 [caption id="attachment_23841" align="aligncenter" width="613" caption="LaTeX Java Source Code: minted"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-minted.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" title="LaTeX Java Source Code: minted" width="613" height="232" class="size-full wp-image-23841" /></a>[/caption]
 This is the <a href='http://martin-thoma.com/wp-content/uploads/2012/04/minted-source-code.pdf'>PDF-file</a> produced by the following LaTeX-Code:
 
-[text]\documentclass[a4paper,12pt]{article}
+{% highlight text %}\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -428,7 +436,7 @@ This is the <a href='http://martin-thoma.com/wp-content/uploads/2012/04/minted-s
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Othello.java]{java}{Othello.java}
 
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 <h2>Material</h2>
 All files can be found in <a href='http://martin-thoma.com/wp-content/uploads/2012/04/LaTeX-Source-Code.zip'>LaTeX-Source-Code Archive</a>.
@@ -441,6 +449,6 @@ All files can be found in <a href='http://martin-thoma.com/wp-content/uploads/20
 </ul>
 
 You might also want to try
-[bash]texdoc listings[/bash]
+{% highlight bash %}texdoc listings{% endhighlight %}
 
 This command will show a manual as a PDF.

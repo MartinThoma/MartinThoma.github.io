@@ -63,7 +63,7 @@ int main () {
 }[/c]
 
 Now run it:
-[bash]
+{% highlight bash %}
 $ time ./createDirectories 
 
 return code		: -1
@@ -73,17 +73,17 @@ length of pathname	: 4096
 real	0m0.281s
 user	0m0.004s
 sys	0m0.180s
-[/bash]
+{% endhighlight %}
 
 Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal
 
-[bash]
+{% highlight bash %}
 $ cd one/one/one .... one/
 $ mkdir two
 $ cd two
 cd: error retrieving current directory: getcwd: cannot access 
     parent directories: File name too long
-[/bash]
+{% endhighlight %}
 
 Strangely, it showed me a path <code>/home/moose/.../one/one/one/one/tw$</code>. No, this is not a typo. It showed tw, not two. So, maybe the path can get only that long?
 Now I created a folder called "three" and one called "this". I entered both of them with cd, both showed <code>/home/moose/.../one/one/th</code>. So I guess this is a problem of Gnome Terminal and not a limitation of the file system.
@@ -95,12 +95,12 @@ Contents, according to nautilus: <code>1,016 items, totalling 4.0 MB</code>
 Then I've opened the folder "one" and double clicked as fast as I could. CPU utilization: 100%, but no crash. And 995 items are left :-) Now a single double click causes 100% CPU utilization for about 25 seconds.
 
 When I use a single character for sub-directories, I get:
-[bash]
+{% highlight bash %}
 moose@pc07:~/Desktop/Test$ ./createDirectories 
 return code		: -1
 Created sub-directories	: 2036
 length of pathname	: 4096
-[/bash]
+{% endhighlight %}
 
 <h2>Number of directories in one directory</h2>
 Do you know how many folders can fit into one folder? Well, lets find out:
@@ -165,8 +165,8 @@ int main () {
 
 I've executed it and after eight minutes I canceled the execution.
 
-[bash]$ ls | wc -l
-378463[/bash]
+{% highlight bash %}$ ls | wc -l
+378463{% endhighlight %}
 
 Ok, not a million folders, but 378.463 is also quite a lot. When I try to open this folder with Nautilus, I get 140% CPU utilization by Nautilus. Quite impressive, for only showing some folders.
 

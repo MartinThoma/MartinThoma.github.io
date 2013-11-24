@@ -20,13 +20,13 @@ comments: []
 ---
 What is the output of the following <strong>HelloWorld.java</strong>?
 
-[java]public class HelloWorld {
+{% highlight java %}public class HelloWorld {
     public static void main(String[] args) {
         if (2 < 1); {
             System.out.println("Yes");
         }
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .

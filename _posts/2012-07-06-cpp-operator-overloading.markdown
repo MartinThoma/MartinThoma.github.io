@@ -31,18 +31,18 @@ In some programming languages, like C++, you can overload operators by yourself.
 
 <h2>First simple example</h2>
 Imagine you wanted to store some data - lets say the prename, surname and age - about people you know. This could be done in a <code>struct</code>. After you've stored it, you would like to print this information. Obviously, you don't want to do something like this:
-[cpp]
+{% highlight cpp %}
 for (int i=0; i< 4; i++) {
     cout << "Person(" << myArray[i].prename << " " 
          << myArray[i].surname << ", " << myArray[i].age << ")";
 }
-[/cpp]
+{% endhighlight %}
 If you wanted to print this information more than one time, you would have to add this long line every time.
 
 A <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html#toString()">toString()</a> method like the one Java uses would be nice. In C++, you don't have toString, but you can overload the <code><<</code> operator!
 
 This is how it works:
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
 
 using namespace std;
 
@@ -76,16 +76,16 @@ int main(){
     }
 
     return 0;
-}[/cpp]
+}{% endhighlight %}
 
 <h2>Sorting</h2>
 You can sort by overloading <code><</code>.
 You can use a sort by adding 
-[cpp]#include <algorithm>[/cpp]
+{% highlight cpp %}#include <algorithm>{% endhighlight %}
 to your program and using <code>sort(array, array + elements);</code>
 
 This is how it looks like:
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
 #include <algorithm>
 
 using namespace std;
@@ -133,10 +133,10 @@ int main(){
     }
 
     return 0;
-}[/cpp]
+}{% endhighlight %}
 
 By the way, if you don't define <code><</code> you get something like this:
-[cpp]In file included from /usr/include/c++/4.4/algorithm:62,
+{% highlight cpp %}In file included from /usr/include/c++/4.4/algorithm:62,
                  from operators.cpp:2:
 /usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;const _Tp&amp; std::__median(const _Tp&amp;, const _Tp&amp;, const _Tp&amp;) [with _Tp = person]&rsquo;:
 /usr/include/c++/4.4/bits/stl_algo.h:2268:   instantiated from &lsquo;void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = Person*, _Size = int]&rsquo;
@@ -189,13 +189,13 @@ operators.cpp:34:   instantiated from here
 /usr/include/c++/4.4/bits/stl_algo.h:2256:   instantiated from &lsquo;void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = Person*, _Size = int]&rsquo;
 /usr/include/c++/4.4/bits/stl_algo.h:5220:   instantiated from &lsquo;void std::sort(_RAIter, _RAIter) [with _RAIter = Person*]&rsquo;
 operators.cpp:34:   instantiated from here
-/usr/include/c++/4.4/bits/stl_heap.h:134: error: no match for &lsquo;operator<&rsquo; in &lsquo;*(__first + ((unsigned int)(((unsigned int)__parent) * 12u))) < __value&rsquo;[/cpp]
+/usr/include/c++/4.4/bits/stl_heap.h:134: error: no match for &lsquo;operator<&rsquo; in &lsquo;*(__first + ((unsigned int)(((unsigned int)__parent) * 12u))) < __value&rsquo;{% endhighlight %}
 
 <h2>Equality</h2>
 You can also define <code>==</code> for your structs.
 
 I know this example does NOT make any sense. But it is an example you can work with:
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
  
 using namespace std;
  
@@ -228,11 +228,11 @@ int main(){
     }
  
     return 0;
-}[/cpp]
+}{% endhighlight %}
 
 <h2>Casting</h2>
 You can also define casts:
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
  
 using namespace std;
  
@@ -263,7 +263,7 @@ int main(){
     }
  
     return 0;
-}[/cpp]
+}{% endhighlight %}
 
 <h2>Adding new operators</h2>
 I like Python very much. Python allows me to get the power of a number like this:
@@ -271,7 +271,7 @@ I like Python very much. Python allows me to get the power of a number like this
 
 Lets try it for C++:
 <h3>Doesn't work</h3>
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
 
 using namespace std;
 
@@ -289,27 +289,27 @@ int main(){
     cout << 2**10 << endl;
 
     return 0;
-}[/cpp]
+}{% endhighlight %}
 I guess it doesn't work as it would be very difficult to distinguish something like this:
-[cpp]a = a * *b;
-a = a ** b;[/cpp]
+{% highlight cpp %}a = a * *b;
+a = a ** b;{% endhighlight %}
 
 If you try to use a <code>$</code> you get:
-[cpp]operators.cpp:16:13: error: invalid suffix "$10" on integer constant[/cpp]
+{% highlight cpp %}operators.cpp:16:13: error: invalid suffix "$10" on integer constant{% endhighlight %}
 
 If you try to use a <code>&sect;</code> you get:
-[cpp]operators.cpp:7: error: stray &lsquo;\302&rsquo; in program
+{% highlight cpp %}operators.cpp:7: error: stray &lsquo;\302&rsquo; in program
 operators.cpp:7: error: stray &lsquo;\247&rsquo; in program
 operators.cpp:16: error: stray &lsquo;\302&rsquo; in program
 operators.cpp:16: error: stray &lsquo;\247&rsquo; in program
-operators.cpp:7: error: expected type-specifier before &lsquo;(&rsquo; token[/cpp]
+operators.cpp:7: error: expected type-specifier before &lsquo;(&rsquo; token{% endhighlight %}
 
 You are also not allowed to redefine <code>*</code>:
-[cpp]operators.cpp:7: error: &lsquo;int operator*(int, int)&rsquo; must have an argument of class or enumerated type[/cpp]
+{% highlight cpp %}operators.cpp:7: error: &lsquo;int operator*(int, int)&rsquo; must have an argument of class or enumerated type{% endhighlight %}
 
 <h3>Works</h3>
 You can wrap the integer like this:
-[cpp]#include <iostream>
+{% highlight cpp %}#include <iostream>
  
 using namespace std;
  
@@ -331,7 +331,7 @@ int operator^(Integer a, Integer b){
 int main(){
     cout << (Integer(2)^Integer(10)) << endl; // outputs 1024
     return 0;
-}[/cpp]
+}{% endhighlight %}
 
 <h2>See also</h2>
 <ul>

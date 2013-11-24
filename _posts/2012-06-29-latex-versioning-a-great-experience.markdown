@@ -58,7 +58,7 @@ Here is the answer:
 
 I guess some might not know what a diff is or how it can look like. diff is a program that compares text files. This is an example with two text files. Each of them has 100 paragraphs:
 
-[bash]moose@pc07:~/Desktop$ diff file1.txt file2.txt 
+{% highlight bash %}moose@pc07:~/Desktop$ diff file1.txt file2.txt 
 127,128d126
 < And here is another one.
 < 
@@ -69,7 +69,7 @@ I guess some might not know what a diff is or how it can look like. diff is a pr
 191c189
 < Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nosnummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
 ---
-> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.[/bash]
+> Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.{% endhighlight %}
 
 If you use meld it looks like this:
 <a href="http://martin-thoma.com/wp-content/uploads/2012/06/meld-diff.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/meld-diff-300x156.png" alt="" title="meld-diff" width="300" height="156" class="aligncenter size-medium wp-image-29051" /></a>
@@ -82,12 +82,12 @@ I like editing the source code directly very much. To do so, I use gEdit. When I
 <ul>
  <li>Create a "Makefile" (a file called this way) with this content in the folder where your LaTeX file is:</li>
 </ul>
-[text]make:
+{% highlight text %}make:
 	pdflatex matrix.tex -output-format=pdf
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux[/text]
+	rm -rf  $(TARGET) *.class *.html *.log *.aux{% endhighlight %}
 <ul>
   <li>Enable the Plugin "External Tools"</li>
   <li>Go to Preferences &rarr; Plugins &rarr; External Tools &rarr; Configure Plugin</li>

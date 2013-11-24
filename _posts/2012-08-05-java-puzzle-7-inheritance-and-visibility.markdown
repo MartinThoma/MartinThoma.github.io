@@ -34,39 +34,39 @@ comments:
 ---
 You are given the following two classes:
 <strong>Animal.java</strong>:
-[java]public class Animal {
+{% highlight java %}public class Animal {
     private final int height = 120;
-}[/java]
+}{% endhighlight %}
 
 <strong>Tiger.java</strong>:
-[java]public class Tiger extends Animal {
+{% highlight java %}public class Tiger extends Animal {
     public int height;
-}[/java]
+}{% endhighlight %}
 
 What is the output of the following three snippets:
 <strong>test1.java</strong>:
-[java]public class test1 {
+{% highlight java %}public class test1 {
     public static void main(String[] args) {
         Tiger t = new Tiger();
         System.out.println(t.height);
     }
-}[/java]
+}{% endhighlight %}
 
 <strong>test2.java</strong>:
-[java]public class test2 {
+{% highlight java %}public class test2 {
     public static void main(String[] args) {
         Animal t = new Tiger();
         System.out.println(t.height);
     }
-}[/java]
+}{% endhighlight %}
 
 <strong>test3.java</strong>:
-[java]public class test3 {
+{% highlight java %}public class test3 {
     public static void main(String[] args) {
         Animal t = new Animal();
         System.out.println(t.height);
     }
-}[/java]
+}{% endhighlight %}
 
 .
 .
@@ -98,18 +98,18 @@ What is the output of the following three snippets:
 
 <h2>Answer</h2>
 <strong>test1.java</strong>:
-[bash]0[/bash]
+{% highlight bash %}0{% endhighlight %}
 
 <strong>test2.java</strong>:
-[bash]Exception in thread "main" java.lang.Error: Unresolved compilation 
+{% highlight bash %}Exception in thread "main" java.lang.Error: Unresolved compilation 
       problem: 
 	The field Animal.height is not visible
 
-	at test.main(test.java:4)[/bash]
+	at test.main(test.java:4){% endhighlight %}
 
 <strong>test3.java</strong>:
-[bash]Exception in thread "main" java.lang.Error: Unresolved compilation 
+{% highlight bash %}Exception in thread "main" java.lang.Error: Unresolved compilation 
       problem: 
 	The field Animal.height is not visible
 
-	at test.main(test.java:4)[/bash]
+	at test.main(test.java:4){% endhighlight %}

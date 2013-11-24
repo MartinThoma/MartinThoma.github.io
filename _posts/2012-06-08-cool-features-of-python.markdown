@@ -69,7 +69,7 @@ You can loop through every list-like datastructure like this:
 <h3>Arbitrary Integer size</h3>
 <strong>Description</strong>: Print the sum of the digits of $2^{100000}$.
 <strong>Java</strong>:
-[java]import java.math.BigInteger;
+{% highlight java %}import java.math.BigInteger;
 
 public class test {
     public static void main(String[] args) {
@@ -81,7 +81,7 @@ public class test {
         }
         System.out.println(sum);
     }
-}[/java]
+}{% endhighlight %}
 
 <strong>Python</strong>: (was much faster in both computation and programming time!)
 {% highlight python %}big = 2**100000
@@ -131,7 +131,7 @@ This is called "Argument Unpacking". In fact it does return only one variable (a
 <h3>Short initialisation</h3>
 <strong>Description</strong>: Get a string representation of a list from the standard library
 <strong>Java</strong>:
-[java]import java.util.LinkedList;
+{% highlight java %}import java.util.LinkedList;
 import java.util.List;
 
 public class test {
@@ -143,7 +143,7 @@ public class test {
         myList.add(7);
         System.out.println(myList);
     }
-}[/java]
+}{% endhighlight %}
 
 <strong>Python</strong>:
 {% highlight python %}myList = [1, 3, 3, 7]
@@ -154,7 +154,7 @@ Both get the same result.
 <h3>Chaining Comparisons</h3>
 Description: You would like to check if $x \in [-5, 42]$.
 <strong>Most languages</strong>:
-[java]if (-5 <= x &amp;&amp; x <= 42)[/java]
+{% highlight java %}if (-5 <= x &amp;&amp; x <= 42){% endhighlight %}
 
 <strong>Python</strong>:
 {% highlight python %}if -5 <= x <= 42:{% endhighlight %}
@@ -162,12 +162,12 @@ Description: You would like to check if $x \in [-5, 42]$.
 <h3>Enumeration</h3>
 <strong>Description</strong>: You have a list and you would like to print it, prefixed with the index in the list.
 <strong>Java</strong>:
-[java]List myList = (List initialisation and assignment, multiple lines)
+{% highlight java %}List myList = (List initialisation and assignment, multiple lines)
 int i = 0;
 for (int element : myList) {
     System.out.printf("%i: %i", i, element);
     i++;
-}[/java]
+}{% endhighlight %}
 
 <strong>Python</strong>:
 {% highlight python %}myList = [1, 3, 3, 7]
@@ -182,7 +182,7 @@ Python allows you to give parameters names:
 <h3>any() and all()</h3>
 <strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
 <strong>Most languages</strong>:
-[java]List myList = (List initialisation and assignment of many values)
+{% highlight java %}List myList = (List initialisation and assignment of many values)
 boolean isPrimePresent = false;
 for (int element : myList) {
     if (isPrime(element)) {
@@ -193,7 +193,7 @@ for (int element : myList) {
 
 if (!isPrimePresent) {
     System.out.println("The list did not containe a prime.");
-}[/java]
+}{% endhighlight %}
 
 <strong>Python</strong>:
 {% highlight python %}myList = [4, 4, 9, 12]
@@ -215,7 +215,7 @@ I already wrote an article about <a href="http://martin-thoma.com/understanding-
 <h3>for ... else</h3>
 <strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
 <strong>Most languages</strong>:
-[java]List myList = (List initialisation and assignment of many values)
+{% highlight java %}List myList = (List initialisation and assignment of many values)
 boolean isPrimePresent = false;
 for (int element : myList) {
     if (isPrime(element)) {
@@ -226,7 +226,7 @@ for (int element : myList) {
 
 if (!isPrimePresent) {
     System.out.println("The list did not containe a prime.");
-}[/java]
+}{% endhighlight %}
 
 <strong>Python</strong>:
 {% highlight python %}myList = [1, 3, 3, 7]

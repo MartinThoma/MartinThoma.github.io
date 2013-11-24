@@ -54,7 +54,7 @@ Important functions / datastructures are:
 
 A starting point for your code might be:
 
-[javascript]
+{% highlight javascript %}
 'use strict';
 
 var video = document.querySelector("#vid");
@@ -96,7 +96,7 @@ navigator.getUserMedia({video:true}, function (stream) {
     localMediaStream = stream;
 }, onCameraFail);
 console.log(localMediaStream);
-[/javascript]
+{% endhighlight %}
 
 <h2>Interactive example</h2>
 <div class="info">

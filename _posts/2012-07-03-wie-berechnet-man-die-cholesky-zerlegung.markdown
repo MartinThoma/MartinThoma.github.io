@@ -60,8 +60,8 @@ Ich habe mich mal nach Bibliotheken umgesehen, die die Cholesky-Zerlegung direkt
 {% highlight python %}from numpy import linalg
 print(linalg.cholesky([[5,1],[1,1]])){% endhighlight %}
 Gibt aus:
-[bash]array([[ 2.23606798,  0.        ],
-       [ 0.4472136 ,  0.89442719]])[/bash]
+{% highlight bash %}array([[ 2.23606798,  0.        ],
+       [ 0.4472136 ,  0.89442719]]){% endhighlight %}
 
 Das ist NICHT die Zerlegung $A = S \cdot D \cdot S^T$, sondern $A = G \cdot G^T$.
 

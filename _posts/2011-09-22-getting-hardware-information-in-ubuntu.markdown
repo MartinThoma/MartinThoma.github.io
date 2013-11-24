@@ -28,7 +28,7 @@ Maybe you need to install some packages.
 If you know more commands, please post a comment!
 
 <h2>CPU</h2>
-[bash]cat /proc/cpuinfo
+{% highlight bash %}cat /proc/cpuinfo
 
 processor	: 0
 vendor_id	: GenuineIntel
@@ -87,24 +87,24 @@ clflush size	: 64
 cache_alignment	: 64
 address sizes	: 36 bits physical, 48 bits virtual
 power management:
-[/bash]
+{% endhighlight %}
 
 <h2>RAM</h2>
-[bash]free
+{% highlight bash %}free
 
              total       used       free     shared    buffers     cached
 Mem:       4047112    1712724    2334388          0      94328     744808
 -/+ buffers/cache:     873588    3173524
 Swap:      8864760          0    8864760
-[/bash]
+{% endhighlight %}
 
 <h2>Graphic card</h2>
-[bash]lspci | grep VGA
+{% highlight bash %}lspci | grep VGA
 
-00:02.0 VGA compatible controller: Intel Corporation Mobile 4 Series Chipset Integrated Graphics Controller (rev 07)[/bash]
+00:02.0 VGA compatible controller: Intel Corporation Mobile 4 Series Chipset Integrated Graphics Controller (rev 07){% endhighlight %}
 
 And some more details:
-[bash]lspci -s 00:02.0 -v
+{% highlight bash %}lspci -s 00:02.0 -v
 00:02.0 VGA compatible controller: Intel Corporation Mobile 4 Series Chipset Integrated Graphics Controller (rev 07)
 	Subsystem: Acer Incorporated [ALI] Device 048a
 	Flags: bus master, fast devsel, latency 0, IRQ 29
@@ -113,44 +113,44 @@ And some more details:
 	I/O ports at 4110 [size=8]
 	Capabilities: <access denied>
 	Kernel driver in use: i915
-	Kernel modules: i915[/bash]
+	Kernel modules: i915{% endhighlight %}
 
 <h2>Audio Chipset</h2>
-[bash]lspci | grep Audio
+{% highlight bash %}lspci | grep Audio
 
-00:1b.0 Audio device: Intel Corporation 82801I (ICH9 Family) HD Audio Controller (rev 03)[/bash]
+00:1b.0 Audio device: Intel Corporation 82801I (ICH9 Family) HD Audio Controller (rev 03){% endhighlight %}
 
 And some more details:
-[bash]lspci -s 00:1b.0 -v
+{% highlight bash %}lspci -s 00:1b.0 -v
 00:1b.0 Audio device: Intel Corporation 82801I (ICH9 Family) HD Audio Controller (rev 03)
 	Subsystem: Acer Incorporated [ALI] Device 048a
 	Flags: bus master, fast devsel, latency 0, IRQ 22
 	Memory at d6700000 (64-bit, non-prefetchable) [size=16K]
 	Capabilities: <access denied>
 	Kernel driver in use: HDA Intel
-	Kernel modules: snd-hda-intel[/bash]
+	Kernel modules: snd-hda-intel{% endhighlight %}
 
 <h2>Network Chipset</h2>
-[bash]lspci | grep Network
+{% highlight bash %}lspci | grep Network
 
 04:00.0 Network controller: Atheros Communications Inc. AR9287 Wireless Network Adapter (rev 01)
-[/bash]
+{% endhighlight %}
 
 Then get some more information:
-[bash]lspci -s 04:00 -v
+{% highlight bash %}lspci -s 04:00 -v
 04:00.0 Network controller: Atheros Communications Inc. AR9287 Wireless Network Adapter (rev 01)
 	Subsystem: Foxconn International, Inc. Device e034
 	Flags: bus master, fast devsel, latency 0, IRQ 17
 	Memory at d4600000 (64-bit, non-prefetchable) [size=64K]
 	Capabilities: <access denied>
 	Kernel driver in use: ath9k
-	Kernel modules: ath9k[/bash]
+	Kernel modules: ath9k{% endhighlight %}
 
 <h2>Monitor</h2>
 The packages ddcprobe or xresprobe will help.
 
 <h2>Hard disk</h2>
-[bash]df -H
+{% highlight bash %}df -H
 
 Dateisystem             Gr&ouml;&szlig;e   Benut  Verf Ben% Eingeh&auml;ngt auf
 /dev/sda1              307G    28G   264G  10% /
@@ -158,4 +158,4 @@ none                   2,1G   320k   2,1G   1% /dev
 none                   2,1G   934k   2,1G   1% /dev/shm
 none                   2,1G   209k   2,1G   1% /var/run
 none                   2,1G      0   2,1G   0% /var/lock
-none                   2,1G      0   2,1G   0% /lib/init/rw[/bash]
+none                   2,1G      0   2,1G   0% /lib/init/rw{% endhighlight %}

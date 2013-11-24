@@ -69,7 +69,7 @@ What is the last value of i?
 Many languages provide a special for loop. This special for loop is sometimes called "foreach" as you iterate over each element in a collection (e.g. an array).
 
 <h3>Java</h3>
-[java]int[] array = new int[5];
+{% highlight java %}int[] array = new int[5];
 array[0] = 0;
 array[1] = 1;
 array[2] = 2;
@@ -78,14 +78,14 @@ array[4] = 4;
 
 for (int item: array) {
     System.out.println("Foreach: " + item);
-}[/java]
+}{% endhighlight %}
 
 <h3>JavaScript</h3>
-[javascript]var array = new Array(0, 1, 2, 3, 4);
+{% highlight javascript %}var array = new Array(0, 1, 2, 3, 4);
 
 for (var value in array) {
     document.write('Foreach: ' + value + '<br/>' );
-}[/javascript]
+}{% endhighlight %}
 
 <h3>PHP</h3>
 [php]$array = array(0, 1, 2, 3, 4);
