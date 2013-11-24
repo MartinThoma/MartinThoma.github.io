@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cyclic references kill Nautilus</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Cyclic references kill Nautilus</h2>
+<p class="meta">20 Jan 2013</p>
+
+<div class="post">
+<p>I just wanted to answer an assignment and noticed that cyclic references kill Nautilus.</p>
+
+<h2>What I did</h2>
+
+
+<p>[bash]mkdir testFolder
+cd testFolder
+touch testFile.txt
+ln -s testFile.txt mySoftlink
+rm testFile.txt
+ln -s mySoftlink testFile.txt
+ls -l
+total 0
+lrwxrwxrwx 1 moose moose 10 2013-01-20 21:20 myfile.txt -> mySoftLink
+lrwxrwxrwx 1 moose moose 10 2013-01-20 21:18 mySoftLink -> myfile.txt
+[/bash]</p>
+
+<p>Those two softlinks refer to each other. Now try to open this folder with Nautilus:
+[bash]nautilus /home/moose/Desktop/testFolder/[/bash]</p>
+
+<p>Nautilus opens and instantly closes again.</p>
+
+<h2>My Nautilus</h2>
+
+
+<p>I use Ubuntu 10.04.4 LTS with Nautilus 2.30.1.</p>
+
+<h2>Bug report?</h2>
+
+
+<p>I know, the current version of <a href="http://en.wikipedia.org/wiki/Nautilus_(file_manager)">Nautilus</a> is 3.6.1, but how often do you find a bug which is so easy to reproduce?</p>
+
+<p>The Nautilus Bugtracker is <a href="https://bugzilla.gnome.org/browse.cgi?product=nautilus">here</a>, but where would you look for the bug?</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

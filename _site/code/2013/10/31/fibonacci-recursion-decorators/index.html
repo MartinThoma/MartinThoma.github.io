@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Fibonacci, recursion and decorators</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Fibonacci, recursion and decorators</h2>
+<p class="meta">31 Oct 2013</p>
+
+<div class="post">
+<p>I think everybody who learned something about recursion has seen the Fibonacci sequence:</p>
+
+<p>$
+f(n) := \begin{cases}
+n               &amp;\text{if } n \leq 1\
+f(n-1) + f(n-2) &amp;\text{otherwise}
+\end{cases}
+$</p>
+
+<p>The simplest solution to get this number is:</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>The problem is, of course, that the number of evaluations goes wild. Here is a table of the number of function calls</p>
+
+<table>
+<tr>
+  <th>n</th>
+  <td>0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+  <td>9</td>
+  <td>10</td>
+  <td>20</td>
+</tr>
+<tr>
+  <th>calls</th>
+  <td>1</td>
+  <td>1</td>
+  <td>3</td>
+  <td>5</td>
+  <td>9</td>
+  <td>15</td>
+  <td>25</td>
+  <td>41</td>
+  <td>67</td>
+  <td>109</td>
+  <td>177</td>
+  <td>21891</td>
+</tr>
+</table>
+
+
+<p>To be exact, the number of calls of the fib-function is:</p>
+
+<p>$
+f(n) := \begin{cases}
+1               &amp;\text{if } n \leq 1\
+f(n-1) + f(n-2) + 1 &amp;\text{otherwise}
+\end{cases}
+$</p>
+
+<p>This means the dumb function is in $\mathcal{O}(2<sup>n</sup>)$! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
+
+<h2>Memorization with decorators</h2>
+
+
+<p>One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and space complexity) by storing values we already calculated.</p>
+
+<p>A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">memoizer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">memoizer</span>
+
+<span class="nd">@memoize</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python :-)</p>
+
+<p>By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:
+[bash]
+RuntimeError: maximum recursion depth exceeded in comparison
+[/bash]</p>
+
+<p>You can get around this limitation by successive calls of fib:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c"># Call to fill array</span>
+<span class="n">fib</span><span class="p">(</span><span class="mi">332</span><span class="p">)</span>
+
+<span class="c"># The number of recursive steps is now much smaller:</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
+</code></pre></div>
+
+
+<p>That gave 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125. A pretty big number.</p>
+
+<h2>Formula of Moivre-Binet</h2>
+
+
+<p>The formula of Moivre-Binet gives a closed form for calculating fibonacci numbers:</p>
+
+<p>$\varphi = \frac{\sqrt{5}+1}{2}$
+$\psi = 1 - \varphi$
+$f(n) = \frac{\varphi<sup>n</sup> - \psi<sup>n</sup>}{\phi - \psi}$</p>
+
+<p>Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">memoizer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">memoizer</span>
+
+<span class="nd">@memoize</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">moivreBinet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mf">0.5</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">phi</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="n">phi</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">psi</span><span class="o">**</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">phi</span> <span class="o">-</span> <span class="n">psi</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">count</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">exact</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">constTime</span> <span class="o">=</span> <span class="n">moivreBinet</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">exact</span> <span class="o">!=</span> <span class="n">constTime</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">((</span><span class="s">&quot;The </span><span class="si">%i</span><span class="s">-th fibonacci number is </span><span class="si">%i</span><span class="s">. Moivre-Binet &quot;</span>
+             <span class="o">+</span> <span class="s">&quot;gives due to precicion error </span><span class="si">%i</span><span class="s"> (delta=</span><span class="si">%i</span><span class="s">).&quot;</span><span class="p">)</span> 
+                 <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">exact</span><span class="p">,</span> <span class="n">constTime</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">exact</span><span class="o">-</span><span class="n">constTime</span><span class="p">)))</span>
+        <span class="k">break</span>
+</code></pre></div>
+
+
+<p>So the answer is:</p>
+
+<blockquote>The 72-th fibonacci number is 498454011879264. Moivre-Binet gives due to precicion error 498454011879265 (delta=1).</blockquote>
+
+
+<p>This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1)$ solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
+
+<h2>Very high numbers</h2>
+
+
+<p>The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).</p>
+
+<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">accFib</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Nm2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nm1</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">Nm2</span><span class="p">,</span> <span class="n">Nm1</span> <span class="o">=</span> <span class="n">Nm1</span><span class="p">,</span> <span class="n">Nm1</span><span class="o">+</span><span class="n">Nm2</span>
+        <span class="k">return</span> <span class="n">Nm2</span>   
+    <span class="k">return</span> <span class="n">accFib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+<h2>Additional ressources</h2>
+
+
+<p>The article on <a href="http://en.literateprograms.org/Fibonacci_numbers_(Python)">literate programs</a> is worth reading. They show some very different programs that calculate Fibonacci numbers.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

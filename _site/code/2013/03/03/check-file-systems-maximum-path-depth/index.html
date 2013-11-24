@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Check File Systems maximum path depth</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Check File Systems maximum path depth</h2>
+<p class="meta">03 Mar 2013</p>
+
+<div class="post">
+<p>Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I've created the following C-Snippet to test it:</p>
+
+<p>[c]#include &lt;sys/stat.h></p>
+
+<h1>include &lt;sys/types.h></h1>
+
+<h1>include &lt;stdio.h></h1>
+
+<h1>include &lt;string.h></h1>
+
+<h1>include &lt;stdlib.h></h1>
+
+<p>int i = 0;
+int returnCode;
+char *pathname;</p>
+
+<p>void giveInformation() {
+    printf("return code\t\t: %i\n", returnCode);
+    printf("Created sub-directories\t: %i\n", i);
+    printf("length of pathname\t: %i\n", strlen(pathname));
+    if (strlen(pathname) &lt;= 80) {
+        printf("Path\t\t\t: %s\n", pathname);
+    }
+}</p>
+
+<p>int main () {
+    pathname = "/home/moose/Desktop/Test";
+    char *ext = "/one";
+    returnCode = 0;
+    int maxDir = 1000000;</p>
+
+<pre><code>while(i &lt; maxDir &amp;amp;&amp;amp; returnCode == 0) {
+    char *newName = malloc(strlen(pathname)+strlen(ext)+1);
+    strcpy(newName, pathname);
+    strcat(newName, ext);
+    returnCode = mkdir(newName, 0777);
+    if (i != 0) {
+        // if you remove this line, your system gets very slow:
+        free(pathname);
+    }
+    pathname = newName;
+    i++;
+}
+
+giveInformation();
+return 0;
+</code></pre>
+
+<p>}[/c]</p>
+
+<p>Now run it:
+[bash]
+$ time ./createDirectories</p>
+
+<p>return code     : -1
+Created sub-directories : 1018
+length of pathname  : 4096</p>
+
+<p>real    0m0.281s
+user    0m0.004s
+sys 0m0.180s
+[/bash]</p>
+
+<p>Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal</p>
+
+<p>[bash]
+$ cd one/one/one .... one/
+$ mkdir two
+$ cd two
+cd: error retrieving current directory: getcwd: cannot access
+    parent directories: File name too long
+[/bash]</p>
+
+<p>Strangely, it showed me a path <code>/home/moose/.../one/one/one/one/tw$</code>. No, this is not a typo. It showed tw, not two. So, maybe the path can get only that long?
+Now I created a folder called "three" and one called "this". I entered both of them with cd, both showed <code>/home/moose/.../one/one/th</code>. So I guess this is a problem of Gnome Terminal and not a limitation of the file system.</p>
+
+<p>Let's see what Nautilus does. I <a href="http://martin-thoma.com/cyclic-references-kill-nautilus/" title="Cyclic references kill Nautilus">once got Nautilus to crash</a>, I think I get it another time:</p>
+
+<p>Contents, according to nautilus: <code>1,016 items, totalling 4.0 MB</code></p>
+
+<p>Then I've opened the folder "one" and double clicked as fast as I could. CPU utilization: 100%, but no crash. And 995 items are left :-) Now a single double click causes 100% CPU utilization for about 25 seconds.</p>
+
+<p>When I use a single character for sub-directories, I get:
+[bash]
+moose@pc07:~/Desktop/Test$ ./createDirectories
+return code     : -1
+Created sub-directories : 2036
+length of pathname  : 4096
+[/bash]</p>
+
+<h2>Number of directories in one directory</h2>
+
+
+<p>Do you know how many folders can fit into one folder? Well, lets find out:</p>
+
+<p>[c]</p>
+
+<h1>include &lt;sys/stat.h></h1>
+
+<h1>include &lt;sys/types.h></h1>
+
+<h1>include &lt;stdio.h></h1>
+
+<h1>include &lt;string.h></h1>
+
+<h1>include &lt;stdlib.h></h1>
+
+<p>int i = 0;
+int returnCode;
+char *pathname;</p>
+
+<p>/<em><em> http://stackoverflow.com/a/440240/562769 </em>/
+void gen_random(char </em>s, const int len) {
+    static const char alphanum[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";</p>
+
+<pre><code>for (int i = 0; i &lt; len; ++i) {
+    s[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
+}
+
+s[len] = 0;
+</code></pre>
+
+<p>}</p>
+
+<p>void giveInformation() {
+    printf("return code\t\t: %i\n", returnCode);
+    printf("Created sub-directories\t: %i\n", i);
+    printf("length of pathname\t: %i\n", strlen(pathname));
+    if (strlen(pathname) &lt;= 80) {
+        printf("Path\t\t\t: %s\n", pathname);
+    }
+}</p>
+
+<p>int main () {
+    pathname = "/home/moose/Desktop/Test/test/";
+    returnCode = 0;
+    int maxDir = 1000000;</p>
+
+<pre><code>while(i &lt; maxDir &amp;amp;&amp;amp; returnCode == 0) {
+    // get unique name
+    char *foldername = malloc(50+1);
+    gen_random(foldername, 50);
+    char *completePath = malloc(strlen(pathname)
+                         +strlen(foldername)+1);
+    strcpy(completePath, pathname);
+    strcat(completePath, foldername);
+    returnCode = mkdir(completePath, 0777);
+    free(foldername);
+    free(completePath);
+    i++;
+}
+
+giveInformation();
+return 0;
+</code></pre>
+
+<p>}
+[/c]</p>
+
+<p>I've executed it and after eight minutes I canceled the execution.</p>
+
+<p>[bash]$ ls | wc -l
+378463[/bash]</p>
+
+<p>Ok, not a million folders, but 378.463 is also quite a lot. When I try to open this folder with Nautilus, I get 140% CPU utilization by Nautilus. Quite impressive, for only showing some folders.</p>
+
+<p>You should probably not execute the script above, as <a href="http://unix.stackexchange.com/q/66806/4784">deleting the folder isn't that easy</a>.</p>
+
+<p>By the way, I got a new error message that I didn't know before:</p>
+
+<p>[caption id="attachment_58951" align="aligncenter" width="498"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/cannot-move-to-trash-filename.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/cannot-move-to-trash-filename.png" alt="Cannot move file to trash - Filename too long!" width="498" height="269" class="size-full wp-image-58951" /></a> Cannot move file to trash - Filename too long![/caption]</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

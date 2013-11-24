@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Plotting graphs with PGFplots (LaTeX and Tikz)</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Plotting graphs with PGFplots (LaTeX and Tikz)</h2>
+<p class="meta">24 Jul 2012</p>
+
+<div class="post">
+<p>I guess many of you might need to plot functions or data once. So I've made one example that shows much of the features you might need:</p>
+
+<ul>
+  <li>You can see how to change the axis' from normal linear scale to logarithmic scale.</li>
+  <li>Some axis-manipulations were used.</li>
+  <li>I have used a CSV-file to import and plot data.</li>
+  <li>The red line was drawn with a mathematical function.</li>
+</ul>
+
+
+<p>Best of all: I didn't use anything which is not in LaTeX :-) (Well, the generation of the CSV-file doesn't count. I just wanted to include such an example for physicists who might need to plot results of experiments).</p>
+
+<p>The complete source is in the <a href='http://martin-thoma.com/wp-content/uploads/2012/07/birthday-paradox.zip'>Birthday Paradox Archive</a>.</p>
+
+<h2>Result</h2>
+
+
+<p>[caption id="attachment_34821" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/birthday-paradox.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/birthday-paradox.png" alt="Plot of the birthday paradox" title="Plot of the birthday paradox" width="500" height="264" class="size-full wp-image-34821" /></a> Plot of the birthday paradox[/caption]</p>
+
+<h2>LaTeX-Code</h2>
+
+
+<p>The following LaTeX-Code used TikZ and PGFplots:
+[text]% Plot of the probability that two people out of n people have the
+% same birthday.
+% Author: Martin Thoma
+% Source: http://martin-thoma.com/plotting-graphs-with-pgfplots/</p>
+
+<p>\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}</p>
+
+<p>\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{arrows, positioning, calc}</p>
+
+<p>\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=15cm, height=8cm,     % size of the image
+        grid = major,
+        grid style={dashed, gray!30},
+        %xmode=log,log basis x=10,
+        %ymode=log,log basis y=10,
+        xmin=0,     % start the diagram at this x-coordinate
+        xmax=62,    % end   the diagram at this x-coordinate
+        ymin=0,     % start the diagram at this y-coordinate
+        ymax=1.1,   % end   the diagram at this y-coordinate
+        /pgfplots/xtick={0,5,...,60}, % make steps of length 5
+        extra x ticks={23},
+        extra y ticks={0.507297},
+        axis background/.style={fill=white},
+        ylabel=probability of at least one birthday-collision,
+        xlabel=people,
+        tick align=outside]</p>
+
+<pre><code>  % import the correct data from a CSV file
+  \addplot table [id=exp]{data.csv};
+
+  % mark x=23
+  \coordinate (a) at (axis cs:23,0.507297);
+  \draw[blue, dashed, thick](a -| current plot begin) -- (a);
+  \draw[blue, dashed, thick](a |- current plot begin) -- (a);
+
+  % plot the stirling-formulae
+  \addplot[domain=0:60, red, thick] 
+    {1-(365/(365-x))^(365.5-x)*e^(-x)}; 
+\end{axis} 
+</code></pre>
+
+<p>\end{tikzpicture}
+\end{preview}
+\end{document}[/text]</p>
+
+<p>I generate the images directly with this Makefile:
+[text]SOURCE = birthday-paradox
+DELAY = 80
+DENSITY = 300
+WIDTH = 500</p>
+
+<p>make:
+    pdflatex $(SOURCE).tex -output-format=pdf
+    make clean</p>
+
+<p>clean:
+    rm -rf  $(TARGET) <em>.class </em>.html <em>.log </em>.aux</p>
+
+<p>gif:
+    pdfcrop $(SOURCE).pdf
+    convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
+    make clean</p>
+
+<p>png:
+    make
+    make svg
+    inkscape $(SOURCE).svg -w $(WIDTH) --export-png=$(SOURCE).png</p>
+
+<p>transparentGif:
+    convert $(SOURCE).pdf -transparent white result.gif
+    make clean</p>
+
+<p>svg:
+    #inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
+    pdf2svg $(SOURCE).pdf $(SOURCE).svg
+    # Necessary, as pdf2svg does not always create valid svgs:
+    inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg[/text]</p>
+
+<h2>See also</h2>
+
+
+<ul>
+  <li><a href="http://martin-thoma.com/plotting-function-graphs-with-latex/">Plotting function graphs with LaTeX</a></li>
+  <li><a href="http://www.texample.net/tikz/examples/tag/plots/">Plotting examples</a></li>
+  <li><a href="http://www.texample.net/tikz/examples/area/mathematics/">Mathematics examples</a></li>
+  <li><a href="http://tex.stackexchange.com/questions/tagged/pgfplots?sort=votes">tex.stackexchange.com</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

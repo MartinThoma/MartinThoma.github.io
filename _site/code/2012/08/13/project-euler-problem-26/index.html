@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Project Euler: Problem 26</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Project Euler: Problem 26</h2>
+<p class="meta">13 Aug 2012</p>
+
+<div class="post">
+<p>The task in <a href="http://projecteuler.net/problem=26">Problem 26</a> of Project Euler is:</p>
+
+<blockquote>Find the value of d < 1000 for which $\frac{1}{d}$ contains the longest recurring cycle in its decimal fraction part.</blockquote>
+
+
+
+
+<h2>How to solve</h2>
+
+
+<p>Think about how you divide with pen and paper. How do you recognize that you have a cycle?</p>
+
+<p>You look at the rest. If you've seen the rest before, you are just about to get into the cycle.</p>
+
+<h2>My solution</h2>
+
+
+<p>This brute force solution finds the solution instantly.</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">def</span> <span class="nf">getCycle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">q</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">-=</span> <span class="n">q</span>
+
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c"># p/q is an integer</span>
+        <span class="k">return</span> <span class="s">&quot;&quot;</span>
+
+    <span class="n">digits</span> <span class="o">=</span> <span class="p">{}</span> <span class="c"># map rest to digit number</span>
+    <span class="c"># for 0.1234567, 1 is the digit #0, 2 digit #1, ...</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">cycle</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="n">rest</span> <span class="o">=</span> <span class="n">p</span>
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">digits</span><span class="p">[</span><span class="n">rest</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">rest</span> <span class="o">*=</span> <span class="mi">10</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">rest</span> <span class="o">/</span> <span class="n">q</span>
+        <span class="n">rest</span> <span class="o">-=</span> <span class="n">tmp</span><span class="o">*</span><span class="n">q</span>
+        <span class="n">cycle</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rest</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cycle</span><span class="p">[</span><span class="n">digits</span><span class="p">[</span><span class="n">rest</span><span class="p">]:]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">euler26</span><span class="p">(</span><span class="n">maximum</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">maxCycleLength</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maximum</span> <span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">getCycle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">tmp</span> <span class="o">&gt;</span> <span class="n">maxCycleLength</span><span class="p">:</span>
+            <span class="n">maxCycleLength</span> <span class="o">=</span> <span class="n">tmp</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">maxCycleLength</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">TestSequenceFunctions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seq</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_simpleSequences</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">getCycle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">getCycle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="s">&quot;6&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">getCycle</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">getCycle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="s">&quot;142857&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c">#unittest.main()</span>
+    <span class="k">print</span> <span class="n">euler26</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

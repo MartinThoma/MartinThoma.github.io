@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Java Puzzle #10: Multiple Interfaces</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Java Puzzle #10: Multiple Interfaces</h2>
+<p class="meta">16 Aug 2012</p>
+
+<div class="post">
+<p>You have to following source code:</p>
+
+<p><strong>A.java</strong>:
+[java]public interface A {
+    public int methodA(double a, int b, char c);
+    public int methodB();
+}[/java]</p>
+
+<p><strong>B.java</strong>:
+[java]public interface B {
+    public int methodB();
+    public void methodC();
+}[/java]</p>
+
+<p><strong>test.java</strong>:
+[java]public class test implements A, B {
+    public static void main(String[] args) {
+        test t = new test();
+        System.out.println(t.methodA(1, 2, '3'));
+        System.out.println(t.methodB());
+        t.methodC();
+    }</p>
+
+<pre><code>@Override
+public int methodA(double a, int b, char c) {
+    return 42;
+}
+
+@Override
+public int methodB() {
+    return 1337;
+}
+
+@Override
+public void methodC() {
+    System.out.println("methodC executed.");
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<p>What is the output? Does it compile? Is there a <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html">RuntimeException</a>?</p>
+
+<p>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.</p>
+
+<h2>Answer</h2>
+
+
+<p>Output:
+[bash]42
+1337
+methodC executed.[/bash]</p>
+
+<h2>Explanation</h2>
+
+
+<p>If you use an Interface, it simply means you have to implement some methods. If more than one Interface forces you to implement the method, you still have to implement it only once. It just works fine.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

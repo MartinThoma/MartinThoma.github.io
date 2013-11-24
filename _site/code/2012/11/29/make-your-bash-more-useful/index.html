@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Make your Bash more useful</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Make your Bash more useful</h2>
+<p class="meta">29 Nov 2012</p>
+
+<div class="post">
+<p>I just had the problem, that the bash prompt of my universities computer I've connected to via SSH looked like this:
+<code>bash-4.0$</code></p>
+
+<h2>Change the prompt</h2>
+
+
+<p>I think it's much more useful to see the path you're currently using. To get the current path in your bash promt, you have to add the following snippet to your <code>.bashrc</code>:</p>
+
+<p>[text]# This will limit the path to 30 characters.
+PROMPT_COMMAND='if [ ${#PWD} -gt 30 ]; then
+myPWD=${PWD:0:12}...
+${PWD:${#PWD}-15}; else myPWD=$PWD; fi'
+PS1="\u@\h \$myPWD$ "[/text]</p>
+
+<p>(Source: <a href="http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">cyberciti.biz</a>)</p>
+
+<p>Reload your bash config with <code>source .bashrc</code> and you should instantly see the changes.</p>
+
+<h2>Aliases</h2>
+
+
+<p>[text]# Add color to ls
+alias ls="ls --color"[/text]</p>
+
+<p>[text]# simply update an svn-repository
+alias swt='svn up /home/moose/Studium/SWT'[/text]</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

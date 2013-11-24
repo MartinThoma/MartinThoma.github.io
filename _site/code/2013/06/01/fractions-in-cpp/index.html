@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Fractions in C++</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Fractions in C++</h2>
+<p class="meta">01 Jun 2013</p>
+
+<div class="post">
+<p>Today, I thought I should try to implement a class in C++ that deals with fractions. This is actually quite easy as I'll show you.</p>
+
+<h2>First some math</h2>
+
+
+<h3>Names</h3>
+
+
+<p>When you have a fraction $\frac{a}{b}$ then $a$ is called <em>numerator</em> and $b$ is called <em>denominator</em>.</p>
+
+<h3>Operations</h3>
+
+
+<p>The rules for basic operations are simple:</p>
+
+<p>Addition:
+$\frac{a}{b}     + \frac{c}{d} = \frac{a \cdot d + c \cdot b}{b \cdot d}$</p>
+
+<p>Subtraction:
+$\frac{a}{b}     - \frac{c}{d} = \frac{a \cdot d - c \cdot b}{b \cdot d}$</p>
+
+<p>Multiplication:
+$\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}$</p>
+
+<p>Division:
+$\frac{a}{b} : \frac{c}{d} = \frac{a \cdot d}{b \cdot c}$</p>
+
+<h3>Euklids algorithm</h3>
+
+
+<p>You can calculate the greatest common divisor with <a href="http://en.wikipedia.org/wiki/Euclidean_algorithm">Euklids algorithm</a>. If you don't know it, please read the Wikipedia article.</p>
+
+<p>Knowing the greatest common divisor is important, because we want that our Faction class automatically cancels those factors so that the numerator and denominator are as small as possible.</p>
+
+<h2>C++ Code</h2>
+
+
+<p>[cpp]</p>
+
+<h1>include <iostream></h1>
+
+<p>using namespace std;</p>
+
+<p>class Fraction {
+    private:
+        // Calculates the greates common divisor with
+        // Euclid's algorithm
+        // both arguments have to be positive
+        long long gcd(long long a, long long b) {
+            while (a != b) {
+                if (a > b) {
+                    a -= b;
+                } else {
+                    b -= a;
+                }
+            }
+            return a;
+        }</p>
+
+<pre><code>public:
+    long long numerator, denominator;
+
+    Fraction() {
+        numerator = 0;
+        denominator = 1;
+    }
+
+    Fraction(long long n, long long d) {
+        if (d==0) {
+            cerr &lt;&lt; "Denominator may not be 0." &lt;&lt; endl;
+            exit(0);
+        } else if (n == 0) {
+            numerator = 0;
+            denominator = 1;
+        } else {
+            int sign = 1;
+            if (n &lt; 0) {
+                sign *= -1;
+                n *= -1;
+            }
+            if (d &lt; 0) {
+                sign *= -1;
+                d *= -1;
+            }
+
+            long long tmp = gcd(n, d);
+            numerator = n/tmp*sign;
+            denominator = d/tmp;
+        }
+    }
+
+    operator int() {return (numerator)/denominator;}
+    operator float() {return ((float)numerator)/denominator;}
+    operator double() {return ((double)numerator)/denominator;}
+</code></pre>
+
+<p>};</p>
+
+<p>Fraction operator+(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs.numerator<em>rhs.denominator
+                +rhs.numerator</em>lhs.denominator,
+                lhs.denominator*rhs.denominator);
+    return tmp;
+}</p>
+
+<p>Fraction operator+=(Fraction&amp; lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs.numerator<em>rhs.denominator
+                +rhs.numerator</em>lhs.denominator,
+                lhs.denominator*rhs.denominator);
+    lhs = tmp;
+    return lhs;
+}</p>
+
+<p>Fraction operator-(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs.numerator<em>rhs.denominator
+                -rhs.numerator</em>lhs.denominator,
+                lhs.denominator*rhs.denominator);
+    return tmp;
+}</p>
+
+<p>Fraction operator-=(Fraction&amp; lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs.numerator<em>rhs.denominator
+                -rhs.numerator</em>lhs.denominator,
+                lhs.denominator*rhs.denominator);
+    lhs = tmp;
+    return lhs;
+}</p>
+
+<p>Fraction operator<em>(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs.numerator</em>rhs.numerator,
+               lhs.denominator*rhs.denominator);
+    return tmp;
+}</p>
+
+<p>Fraction operator<em>=(Fraction&amp; lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs.numerator</em>rhs.numerator,
+               lhs.denominator*rhs.denominator);
+    lhs = tmp;
+    return lhs;
+}</p>
+
+<p>Fraction operator<em>(int lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs</em>rhs.numerator,rhs.denominator);
+    return tmp;
+}</p>
+
+<p>Fraction operator<em>(const Fraction&amp; rhs, int lhs) {
+    Fraction tmp(lhs</em>rhs.numerator,rhs.denominator);
+    return tmp;
+}</p>
+
+<p>Fraction operator/(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+    Fraction tmp(lhs.numerator<em>rhs.denominator,
+                 lhs.denominator</em>rhs.numerator);
+    return tmp;
+}</p>
+
+<p>std::ostream&amp; operator&lt;&lt;(std::ostream &amp;strm, const Fraction &amp;a) {
+    if (a.denominator == 1) {
+        strm &lt;&lt; a.numerator;
+    } else {
+        strm &lt;&lt; a.numerator &lt;&lt; "/" &lt;&lt; a.denominator;
+    }
+    return strm;
+}</p>
+
+<p>int main() {
+    Fraction a(1,3);
+    Fraction b(3,28);
+    Fraction c;</p>
+
+<pre><code>c = a + b;
+cout &lt;&lt; c &lt;&lt; "\t(should be 37/84)" &lt;&lt; endl;
+
+c = a - b;
+cout &lt;&lt; c &lt;&lt; "\t(should be 19/84)" &lt;&lt; endl;
+
+c = a * b;
+cout &lt;&lt; c &lt;&lt; "\t(should be 1/28)" &lt;&lt; endl;
+
+c = a / b;
+cout &lt;&lt; c &lt;&lt; "\t(should be 28/9)" &lt;&lt; endl;
+
+c = -1 * b;
+cout &lt;&lt; c &lt;&lt; "\t(should be -3/28)" &lt;&lt; endl;
+
+c = b * (-1);
+cout &lt;&lt; c &lt;&lt; "\t(should be -3/28)" &lt;&lt; endl;
+
+c = Fraction(-100,3);
+cout &lt;&lt;    (int)c &lt;&lt; "\t(should be -33)" &lt;&lt; endl;
+cout &lt;&lt;  (float)c &lt;&lt; "\t(should be -33.3...)" &lt;&lt; endl;
+cout &lt;&lt; (double)c &lt;&lt; "\t(should be -33.3...)" &lt;&lt; endl;
+
+a -= b;
+cout &lt;&lt; a &lt;&lt; "\t(should be 19/84)" &lt;&lt; endl;
+
+return 0;
+</code></pre>
+
+<p>}
+[/cpp]</p>
+
+<h2>See also</h2>
+
+
+<p>You might also be interested in my article about <a href="http://martin-thoma.com/c-operator-overloading/" title="C++ Operator overloading">operator overloading</a>.</p>
+
+<p>Does anybody know if there is an "official" Fraction class?</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

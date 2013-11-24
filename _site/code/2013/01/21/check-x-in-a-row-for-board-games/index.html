@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Check x-in-a-row for board games</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Check x-in-a-row for board games</h2>
+<p class="meta">21 Jan 2013</p>
+
+<div class="post">
+<p>In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.</p>
+
+<p>[gallery ids="54621,54611,54601"]</p>
+
+<h2>isOnBoard(int x, int y)</h2>
+
+
+<p>You should create a method that checks if a coordinate is on your board. This can be as simple as this:</p>
+
+<p>[java]public boolean isOnBoard(int x, int y) {
+    return 0 &lt;= x &amp;&amp; x &lt; width &amp;&amp; 0 &lt;= y &amp;&amp; y &lt; height;
+}[/java]</p>
+
+<h2>Diagonal, horizontal and vertical</h2>
+
+
+<p>You can create a method like this:</p>
+
+<p>[java]/<em>*
+ * This method checks XYZ and does XYZ.
+ *
+ * @param player the current player
+ * @param xDir -1 if you want to go to the left, 0 if you don't want
+ *            to move in x-direction and 1 if you want to go to
+ *            the right
+ * @param yDir -1 if you want to go to the bottom, 0 if you don't
+ *            want to move in y-direction and 1 if you want to go
+ *            to the top
+ </em>/
+private void myBoardAction(Player player, int xDir, int yDir) {
+    for (int x = 0; x &lt; board.width; x++) {
+        for (int y = 0; y &lt; board.height; y++) {
+            for (int c = 0; c &lt; SOME_CONSTANT; c++) {
+                if (board.isOnBoard(x + c * xDir, y + c * yDir)
+                   &amp;&amp; board.checkXYZ(x + c * xDir, y + c * yDir)) {
+                    doXYZ();
+                }
+            }
+        }
+    }
+}[/java]</p>
+
+<p>What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change doXYZ() and checkXYZ. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.</p>
+
+<p>Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.height)</code> and even add in the inner loop something. So some calls will be out of bound. But because of <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a> this works. I don't bother about ends, I simply include the critical parts. Most of the time, it is not much work to check if the call is within the boundary, but finding (and fixing) a bug is much work. Yes, I know, this is more efficient if you use the correct boundaries. But it's only a constant in time difference. And I guess this constant is very small for most games.</p>
+
+<p>Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:</p>
+
+<p>[java]myBoardAction(player, 1, 1); // top right
+myBoardAction(player,-1, 1); // top left
+myBoardAction(player, 1, 0); // vertical
+myBoardAction(player, 0, 1); // horizontal[/java]</p>
+
+<p>This is enough. You don't need more, as you go through the whole board. No need to write redundant code :-)</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

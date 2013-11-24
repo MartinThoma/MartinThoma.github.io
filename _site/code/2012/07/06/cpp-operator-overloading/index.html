@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>C++ Operator overloading</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>C++ Operator overloading</h2>
+<p class="meta">06 Jul 2012</p>
+
+<div class="post">
+<p>Operator overloading is heavily used in math. One of the most famous examples I know is "+". If you add two elements from $\mathbb{N}$ you will use the same character "+" as you use for adding two numbers from $\mathbb{R}$. You even use the plus-sign if you add matrices (which is obviously something different than adding single numbers).</p>
+
+<p>In some programming languages, like C++, you can overload operators by yourself.</p>
+
+<h2>First simple example</h2>
+
+
+<p>Imagine you wanted to store some data - lets say the prename, surname and age - about people you know. This could be done in a <code>struct</code>. After you've stored it, you would like to print this information. Obviously, you don't want to do something like this:
+[cpp]
+for (int i=0; i&lt; 4; i++) {
+    cout &lt;&lt; "Person(" &lt;&lt; myArray[i].prename &lt;&lt; " "
+         &lt;&lt; myArray[i].surname &lt;&lt; ", " &lt;&lt; myArray[i].age &lt;&lt; ")";
+}
+[/cpp]
+If you wanted to print this information more than one time, you would have to add this long line every time.</p>
+
+<p>A <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html#toString()">toString()</a> method like the one Java uses would be nice. In C++, you don't have toString, but you can overload the <code>&lt;&lt;</code> operator!</p>
+
+<p>This is how it works:
+[cpp]#include <iostream></p>
+
+<p>using namespace std;</p>
+
+<p>typedef struct person {
+    // attributes
+    string prename;
+    string surname;
+    int age;</p>
+
+<pre><code>// constructor
+person(string p, string s, int age) : 
+    prename(p), surname(s), age(age) {}
+</code></pre>
+
+<p>} Person;</p>
+
+<p>// "toString" for C++
+std::ostream&amp; operator&lt;&lt;(std::ostream &amp;strm, const person &amp;a) {
+  return strm &lt;&lt; "Person(" &lt;&lt; a.prename &lt;&lt; " " &lt;&lt; a.surname &lt;&lt; ", "
+              &lt;&lt; a.age &lt;&lt; ")";
+}</p>
+
+<p>int main(){
+    Person Martin ("Martin", "Thoma", 22);
+    Person Andreas ("Andreas", "Thoma", 22);
+    Person AndiOld ("Andreas", "Berger", 30);
+    Person AndiYoung ("Andreas", "Berger", 22);</p>
+
+<pre><code>Person myArray[] = {Martin, Andreas, AndiOld, AndiYoung};
+
+for (int i=0; i&lt; 4; i++) {
+    cout &lt;&lt; myArray[i] &lt;&lt; endl;
+}
+
+return 0;
+</code></pre>
+
+<p>}[/cpp]</p>
+
+<h2>Sorting</h2>
+
+
+<p>You can sort by overloading <code>&lt;</code>.
+You can use a sort by adding
+[cpp]#include <algorithm>[/cpp]
+to your program and using <code>sort(array, array + elements);</code></p>
+
+<p>This is how it looks like:
+[cpp]#include <iostream></p>
+
+<h1>include <algorithm></h1>
+
+<p>using namespace std;</p>
+
+<p>typedef struct person {
+    // attributes
+    string prename;
+    string surname;
+    int age;</p>
+
+<pre><code>// constructor
+person(string p, string s, int age) : 
+    prename(p), surname(s), age(age) {}
+</code></pre>
+
+<p>} Person;</p>
+
+<p>// ".equals()" for C++
+bool operator&lt;(const Person&amp; a, const Person&amp; b){
+    if (!(a.prename == b.prename)) {
+        return a.prename &lt; b.prename;
+    } else if (!(a.surname &lt; b.surname)) {
+        return a.surname &lt; b.surname;
+    } else {
+        return a.age &lt; b.age;
+    }
+}</p>
+
+<p>// "toString" for C++
+std::ostream&amp; operator&lt;&lt;(std::ostream &amp;strm, const person &amp;a) {
+  return strm &lt;&lt; "Person(" &lt;&lt; a.prename &lt;&lt; " " &lt;&lt; a.surname &lt;&lt; ", "
+              &lt;&lt; a.age &lt;&lt; ")";
+}</p>
+
+<p>int main(){
+    Person Martin ("Martin", "Thoma", 22);
+    Person Andreas ("Andreas", "Thoma", 22);
+    Person AndiOld ("Andreas", "Berger", 30);
+    Person AndiYoung ("Andreas", "Berger", 22);</p>
+
+<pre><code>Person myArray[] = {Martin, Andreas, AndiOld, AndiYoung};
+
+sort(myArray, myArray + 4);
+
+for (int i=0; i&lt; 4; i++) {
+    cout &lt;&lt; myArray[i] &lt;&lt; endl;
+}
+
+return 0;
+</code></pre>
+
+<p>}[/cpp]</p>
+
+<p>By the way, if you don't define <code>&lt;</code> you get something like this:
+[cpp]In file included from /usr/include/c++/4.4/algorithm:62,
+                 from operators.cpp:2:
+/usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;const <em>Tp&amp; std::__median(const </em>Tp&amp;, const <em>Tp&amp;, const </em>Tp&amp;) [with <em>Tp = person]&rsquo;:
+/usr/include/c++/4.4/bits/stl_algo.h:2268:   instantiated from &lsquo;void std::__introsort_loop(</em>RandomAccessIterator, <em>RandomAccessIterator, </em>Size) [with <em>RandomAccessIterator = Person*, </em>Size = int]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5220:   instantiated from &lsquo;void std::sort(<em>RAIter, </em>RAIter) [with <em>RAIter = Person*]&rsquo;
+operators.cpp:34:   instantiated from here
+/usr/include/c++/4.4/bits/stl_algo.h:89: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<strong>a &lt; </strong>b&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:90: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<strong>b &lt; </strong>c&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:92: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<strong>a &lt; </strong>c&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:96: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<strong>a &lt; </strong>c&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:98: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<strong>b &lt; </strong>c&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;</em>RandomAccessIterator std::<strong>unguarded_partition(<em>RandomAccessIterator, </em>RandomAccessIterator, <em>Tp) [with </em>RandomAccessIterator = Person*, _Tp = person]&rsquo;:
+/usr/include/c++/4.4/bits/stl_algo.h:2268:   instantiated from &lsquo;void std::</strong>introsort_loop(<em>RandomAccessIterator, </em>RandomAccessIterator, <em>Size) [with </em>RandomAccessIterator = Person<em>, <em>Size = int]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5220:   instantiated from &lsquo;void std::sort(</em>RAIter, <em>RAIter) [with </em>RAIter = Person</em>]&rsquo;
+operators.cpp:34:   instantiated from here
+/usr/include/c++/4.4/bits/stl_algo.h:2209: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<em> <strong>first &lt; </strong>pivot&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:2212: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<strong>pivot &lt; * </strong>last&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;void std::<em><em>insertion_sort(</em>RandomAccessIterator, </em>RandomAccessIterator) [with _RandomAccessIterator = Person</em>]&rsquo;:
+/usr/include/c++/4.4/bits/stl_algo.h:2178:   instantiated from &lsquo;void std::<strong>final_insertion_sort(<em>RandomAccessIterator, </em>RandomAccessIterator) [with <em>RandomAccessIterator = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5222:   instantiated from &lsquo;void std::sort(</em>RAIter, <em>RAIter) [with </em>RAIter = Person*]&rsquo;
+operators.cpp:34:   instantiated from here
+/usr/include/c++/4.4/bits/stl_algo.h:2106: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;</strong>val &lt; * <strong>first&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;void std::</strong>heap_select(<em>RandomAccessIterator, </em>RandomAccessIterator, <em>RandomAccessIterator) [with </em>RandomAccessIterator = Person<em>]&rsquo;:
+/usr/include/c++/4.4/bits/stl_algo.h:5067:   instantiated from &lsquo;void std::partial_sort(<em>RAIter, </em>RAIter, <em>RAIter) [with </em>RAIter = Person</em>]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:2256:   instantiated from &lsquo;void std::<strong>introsort_loop(<em>RandomAccessIterator, </em>RandomAccessIterator, <em>Size) [with </em>RandomAccessIterator = Person<em>, <em>Size = int]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5220:   instantiated from &lsquo;void std::sort(</em>RAIter, <em>RAIter) [with </em>RAIter = Person</em>]&rsquo;
+operators.cpp:34:   instantiated from here
+/usr/include/c++/4.4/bits/stl_algo.h:1906: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;* </strong>i &lt; * <strong>first&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;void std::</strong>unguarded_linear_insert(<em>RandomAccessIterator, </em>Tp) [with <em>RandomAccessIterator = Person*, </em>Tp = person]&rsquo;:
+/usr/include/c++/4.4/bits/stl_algo.h:2112:   instantiated from &lsquo;void std::<strong>insertion_sort(<em>RandomAccessIterator, </em>RandomAccessIterator) [with _RandomAccessIterator = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:2178:   instantiated from &lsquo;void std::</strong>final_insertion_sort(<em>RandomAccessIterator, </em>RandomAccessIterator) [with <em>RandomAccessIterator = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5222:   instantiated from &lsquo;void std::sort(</em>RAIter, <em>RAIter) [with </em>RAIter = Person<em>]&rsquo;
+operators.cpp:34:   instantiated from here
+/usr/include/c++/4.4/bits/stl_algo.h:2067: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;<strong>val &lt; * </strong>next&rsquo;
+In file included from /usr/include/c++/4.4/bits/stl_algo.h:62,
+                 from /usr/include/c++/4.4/algorithm:62,
+                 from operators.cpp:2:
+/usr/include/c++/4.4/bits/stl_heap.h: In function &lsquo;void std::<em><em>adjust_heap(</em>RandomAccessIterator, </em>Distance, <em>Distance, </em>Tp) [with _RandomAccessIterator = Person</em>, <em>Distance = int, </em>Tp = person]&rsquo;:
+/usr/include/c++/4.4/bits/stl_heap.h:394:   instantiated from &lsquo;void std::make_heap(<em>RAIter, </em>RAIter) [with <em>RAIter = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:1904:   instantiated from &lsquo;void std::__heap_select(</em>RandomAccessIterator, <em>RandomAccessIterator, </em>RandomAccessIterator) [with <em>RandomAccessIterator = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5067:   instantiated from &lsquo;void std::partial_sort(</em>RAIter, <em>RAIter, </em>RAIter) [with <em>RAIter = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:2256:   instantiated from &lsquo;void std::__introsort_loop(</em>RandomAccessIterator, <em>RandomAccessIterator, </em>Size) [with <em>RandomAccessIterator = Person*, </em>Size = int]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5220:   instantiated from &lsquo;void std::sort(<em>RAIter, </em>RAIter) [with <em>RAIter = Person<em>]&rsquo;
+operators.cpp:34:   instantiated from here
+/usr/include/c++/4.4/bits/stl_heap.h:232: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;</em>(<strong>first + ((unsigned int)(((unsigned int)</strong>secondChild) * 12u))) &lt; *(<strong>first + ((((unsigned int)</strong>secondChild) + 0xffffffffffffffffffffffffffffffffu) * 12u))&rsquo;
+/usr/include/c++/4.4/bits/stl_heap.h: In function &lsquo;void std::__push_heap(</em>RandomAccessIterator, <em>Distance, </em>Distance, <em>Tp) [with </em>RandomAccessIterator = Person<em>, <em>Distance = int, </em>Tp = person]&rsquo;:
+/usr/include/c++/4.4/bits/stl_heap.h:244:   instantiated from &lsquo;void std::<em><em>adjust_heap(</em>RandomAccessIterator, </em>Distance, <em>Distance, </em>Tp) [with _RandomAccessIterator = Person</em>, <em>Distance = int, </em>Tp = person]&rsquo;
+/usr/include/c++/4.4/bits/stl_heap.h:394:   instantiated from &lsquo;void std::make_heap(<em>RAIter, </em>RAIter) [with <em>RAIter = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:1904:   instantiated from &lsquo;void std::__heap_select(</em>RandomAccessIterator, <em>RandomAccessIterator, </em>RandomAccessIterator) [with <em>RandomAccessIterator = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5067:   instantiated from &lsquo;void std::partial_sort(</em>RAIter, <em>RAIter, </em>RAIter) [with <em>RAIter = Person*]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:2256:   instantiated from &lsquo;void std::__introsort_loop(</em>RandomAccessIterator, <em>RandomAccessIterator, </em>Size) [with <em>RandomAccessIterator = Person*, </em>Size = int]&rsquo;
+/usr/include/c++/4.4/bits/stl_algo.h:5220:   instantiated from &lsquo;void std::sort(<em>RAIter, </em>RAIter) [with _RAIter = Person<em>]&rsquo;
+operators.cpp:34:   instantiated from here
+/usr/include/c++/4.4/bits/stl_heap.h:134: error: no match for &lsquo;operator&lt;&rsquo; in &lsquo;</em>(<strong>first + ((unsigned int)(((unsigned int)</strong>parent) * 12u))) &lt; __value&rsquo;[/cpp]</p>
+
+<h2>Equality</h2>
+
+
+<p>You can also define <code>==</code> for your structs.</p>
+
+<p>I know this example does NOT make any sense. But it is an example you can work with:
+[cpp]#include <iostream></p>
+
+<p>using namespace std;</p>
+
+<p>typedef struct person {
+    // attributes
+    string prename;
+    string surname;
+    int age;</p>
+
+<pre><code>// constructor
+person(string p, string s, int age) : 
+    prename(p), surname(s), age(age) {}
+</code></pre>
+
+<p>} Person;</p>
+
+<p>// "comperator" for C++
+bool operator==(const Person&amp; a, const Person&amp; b){
+    return a.age == 30;
+}</p>
+
+<p>int main(){
+    Person Martin ("Martin", "Thoma", 22);
+    Person Andreas ("Andreas", "Thoma", 22);
+    Person AndiOld ("Andreas", "Berger", 30);
+    Person AndiYoung ("Andreas", "Berger", 22);</p>
+
+<pre><code>Person myArray[] = {Martin, Andreas, AndiOld, AndiYoung};
+
+for (int i=0; i&lt; 4; i++) {
+    cout &lt;&lt; (myArray[i] == myArray[i]) &lt;&lt; endl;
+}
+
+return 0;
+</code></pre>
+
+<p>}[/cpp]</p>
+
+<h2>Casting</h2>
+
+
+<p>You can also define casts:
+[cpp]#include <iostream></p>
+
+<p>using namespace std;</p>
+
+<p>typedef struct person {
+    // attributes
+    string prename;
+    string surname;
+    int age;</p>
+
+<pre><code>// constructor
+person(string p, string s, int age) : 
+    prename(p), surname(s), age(age) {}
+
+// prefix
+operator int() { return age; }
+</code></pre>
+
+<p>} Person;</p>
+
+<p>int main(){
+    Person Martin ("Martin", "Thoma", 22);
+    Person Andreas ("Andreas", "Thoma", 22);
+    Person AndiOld ("Andreas", "Berger", 30);
+    Person AndiYoung ("Andreas", "Berger", 22);</p>
+
+<pre><code>Person myArray[] = {Martin, Andreas, AndiOld, AndiYoung};
+
+for (int i=0; i&lt; 4; i++) {
+    cout &lt;&lt; int(myArray[i]) &lt;&lt; endl;
+}
+
+return 0;
+</code></pre>
+
+<p>}[/cpp]</p>
+
+<h2>Adding new operators</h2>
+
+
+<p>I like Python very much. Python allows me to get the power of a number like this:</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">10</span> <span class="c"># 1024</span>
+</code></pre></div>
+
+
+<p>Lets try it for C++:</p>
+
+<h3>Doesn't work</h3>
+
+
+<p>[cpp]#include <iostream></p>
+
+<p>using namespace std;</p>
+
+<p>// does NOT work
+// operators.cpp:7: error: expected initializer before &lsquo;<em>&rsquo; token
+int operator**(int a, int b){
+    int power = 1;
+    for (int i=0; i &lt; b; i++) {
+        power </em>= a;
+    }
+    return power;
+}</p>
+
+<p>int main(){
+    cout &lt;&lt; 2**10 &lt;&lt; endl;</p>
+
+<pre><code>return 0;
+</code></pre>
+
+<p>}[/cpp]
+I guess it doesn't work as it would be very difficult to distinguish something like this:
+[cpp]a = a * *b;
+a = a ** b;[/cpp]</p>
+
+<p>If you try to use a <code>$</code> you get:
+[cpp]operators.cpp:16:13: error: invalid suffix "$10" on integer constant[/cpp]</p>
+
+<p>If you try to use a <code>&sect;</code> you get:
+[cpp]operators.cpp:7: error: stray &lsquo;\302&rsquo; in program
+operators.cpp:7: error: stray &lsquo;\247&rsquo; in program
+operators.cpp:16: error: stray &lsquo;\302&rsquo; in program
+operators.cpp:16: error: stray &lsquo;\247&rsquo; in program
+operators.cpp:7: error: expected type-specifier before &lsquo;(&rsquo; token[/cpp]</p>
+
+<p>You are also not allowed to redefine <code><em></code>:
+[cpp]operators.cpp:7: error: &lsquo;int operator</em>(int, int)&rsquo; must have an argument of class or enumerated type[/cpp]</p>
+
+<h3>Works</h3>
+
+
+<p>You can wrap the integer like this:
+[cpp]#include <iostream></p>
+
+<p>using namespace std;</p>
+
+<p>typedef struct integer {
+    int inner;</p>
+
+<pre><code>// constructor
+integer(int i) : inner(i) {}
+</code></pre>
+
+<p>} Integer;</p>
+
+<p>int operator<sup>Integer a, Integer b</sup>{
+    int power = 1;
+    for (int i=0; i &lt; b.inner; i++) {
+        power *= a.inner;
+    }
+    return power;
+}</p>
+
+<p>int main(){
+    cout &lt;&lt; (Integer(2)<sup>Integer</sup>(10)) &lt;&lt; endl; // outputs 1024
+    return 0;
+}[/cpp]</p>
+
+<h2>See also</h2>
+
+
+<ul>
+  <li>A class for <a href="http://martin-thoma.com/fractions-in-cpp">dealing with fractions</a> - which includes 7 examples for operator overloading</li> 
+  <li><a href="http://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B">Operators in C and C++</a></li>
+  <li><a href="http://stackoverflow.com/a/4421715/562769">The General Syntax of operator overloading in C++</a>. sbi, Stack Overflow.</li>
+  <li><a href="http://stackoverflow.com/a/4421708/562769">The Three Basic Rules of Operator Overloading in C++</a>. sbi, Stack Overflow.</li>
+  <li><a href="http://www.cplusplus.com/doc/tutorial/classes2/">Overloading operators</a>. C++-Reference.</li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

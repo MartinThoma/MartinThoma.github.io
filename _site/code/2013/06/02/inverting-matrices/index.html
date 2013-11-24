@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Inverting matrices</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Inverting matrices</h2>
+<p class="meta">02 Jun 2013</p>
+
+<div class="post">
+<p>Suppose you have a matrix $A \in \mathbb{R}^{n \times n}$ and you want to invert it. I've already explained <a href="http://martin-thoma.com/wie-bestimme-ich-das-inverse-einer-matrix/">how to invert a matrix</a> (<a href="http://www.purplemath.com/modules/mtrxinvr.htm">English explanation</a>), but I didn't provide any code and / or runtime analysis.</p>
+
+<h2>C++ Code</h2>
+
+
+<p>[cpp]</p>
+
+<h1>include <iostream></h1>
+
+<h1>include <cmath></h1>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;</p>
+
+<p>void print(vector&lt; vector<double> > A) {
+    int n = A.size();
+    for (int i=0; i&lt;n; i++) {
+        for (int j=0; j&lt;2*n; j++) {
+            cout &lt;&lt; A[i][j] &lt;&lt; "\t";
+            if (j == n-1) {
+                cout &lt;&lt; "| ";
+            }
+        }
+        cout &lt;&lt; "\n";
+    }
+    cout &lt;&lt; endl;
+}</p>
+
+<p>void calculateInverse(vector&lt; vector<double> >&amp; A) {
+    int n = A.size();</p>
+
+<pre><code>for (int i=0; i&lt;n; i++) {
+    // Search for maximum in this column
+    double maxEl = abs(A[i][i]);
+    int maxRow = i;
+    for (int k=i+1; k&lt;n; k++) {
+        if (abs(A[k][i]) &gt; maxEl) {
+            maxEl = A[k][i];
+            maxRow = k;
+        }
+    }
+
+    // Swap maximum row with current row (column by column)
+    for (int k=i; k&lt;2*n;k++) {
+        double tmp = A[maxRow][k];
+        A[maxRow][k] = A[i][k];
+        A[i][k] = tmp;
+    }
+
+    // Make all rows below this one 0 in current column
+    for (int k=i+1; k&lt;n; k++) {
+        double c = -A[k][i]/A[i][i];
+        for (int j=i; j&lt;2*n; j++) {
+            if (i==j) {
+                A[k][j] = 0;
+            } else {
+                A[k][j] += c * A[i][j];
+            }
+        }
+    }
+}
+
+// Solve equation Ax=b for an upper triangular matrix A
+for (int i=n-1; i&gt;=0; i--) {
+    for (int k=n; k&lt;2*n;k++) {
+        A[i][k] /= A[i][i];
+    }
+    // this is not necessary, but the output looks nicer:
+    A[i][i] = 1; 
+
+    for (int rowModify=i-1;rowModify&gt;=0; rowModify--) {
+        for (int columModify=n;columModify&lt;2*n;columModify++) {
+            A[rowModify][columModify] -= A[i][columModify] 
+                                         * A[rowModify][i];
+        }
+        // this is not necessary, but the output looks nicer:
+        A[rowModify][i] = 0;
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<p>int main() {
+    int n;
+    cin >> n;</p>
+
+<pre><code>vector&lt;double&gt; line(2*n,0);
+vector&lt; vector&lt;double&gt; &gt; A(n,line);
+
+// Read input data
+for (int i=0; i&lt;n; i++) {
+    for (int j=0; j&lt;n; j++) {
+        cin &gt;&gt; A[i][j];
+    }
+}
+
+for (int i=0; i&lt;n; i++) {
+    A[i][n+i] = 1;
+}
+
+// Print input
+print(A);
+
+// Calculate solution
+calculateInverse(A);
+
+// Print result
+cout &lt;&lt; "Result:" &lt;&lt; endl;
+print(A);
+</code></pre>
+
+<p>}
+[/cpp]</p>
+
+<p>This code is VERY similar to the code of <a href="http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>. In fact, I've only changed all occurrences of <code>n+1</code> to <code>2*n</code>. I also had to change lines 57-70, as we need to do all operations now on a matrix instead of a vector.</p>
+
+<h3>Time complexity</h3>
+
+
+<p>Lines 43-52:</p>
+
+<p>$\displaystyle Operations = \sum<em>{i=0}^{n-1} \left (\sum</em>{k=i+1}^{n-1} (\sum_{j=i}^{2n} 1) \right ) = \frac{5}{6} n<sup>3</sup> - \frac{5}{6} n$ (see <a href="http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+(sum_%7Bk%3Di%2B1%7D%5E%7Bn-1%7D+(sum_%7Bj%3Di%7D%5E%7B2n%7D+1))">Wolfram|Alpha</a>)</p>
+
+<p>Lines 63-70:</p>
+
+<p>$\displaystyle Operations = \sum<em>{i=0}^{n-1} \left (\sum</em>{k=0}^{i-1} (\sum_{j=n}^{2n} 1) \right ) = \frac{1}{2} n<sup>3</sup> - \frac{1}{2} n$ (see <a href="http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+%28sum_%7Bk%3D0%7D%5E%7Bi-1%7D+%28sum_%7Bj%3Dn%7D%5E%7B2n%7D+1%29%29"))">Wolfram|Alpha</a>)</p>
+
+<p>So we need about $\frac{4}{3} n<sup>3</sup> + \mathcal{O}(n<sup>2</sup>)$ operations to invert a matrix with Gau&szlig;-Elimination.</p>
+
+<h3>Space complexity</h3>
+
+
+<p>My algorithm needs space for the inverse matrix, so it is in $\mathcal{O}(n<sup>2</sup>)$.</p>
+
+<h2>Inverting an upper triangular matrix</h2>
+
+
+<p>Suppose you have an upper triangular matrix $A \in \mathbb{R^{n \times n}}$ that you would like to invert. It could look like this:</p>
+
+<p>$\begin{pmatrix}
+2 &amp; 7 &amp; 1 &amp; 8 &amp; 2\
+0 &amp; 8 &amp; 1 &amp; 8 &amp; 2\
+0 &amp; 0 &amp; 8 &amp; 4 &amp; 5\
+0 &amp; 0 &amp; 0 &amp; 9 &amp; 0\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 4
+\end{pmatrix}$</p>
+
+<p>How could we improve the algorithm from above to get speed it up?</p>
+
+<p>Well, we don't need lines 24-53 any more, as those lines bring $A$ to an upper triangular form. But we still need lines 63-70. So we can improve the algorithm to a complexity of $\frac{1}{2} n<sup>3</sup> + \mathcal{O}(n<sup>2</sup>)$.</p>
+
+<h2>See also</h2>
+
+
+<p><a href="http://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations#Matrix_algebra">Computational complexity of mathematical operations</a></p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How to use magic rescue</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>How to use magic rescue</h2>
+<p class="meta">17 Dec 2011</p>
+
+<div class="post">
+<p>I've just searched an image I have created some time ago. I knew that I've put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn't simply open your trash can, but it searches files which were deleted, but not overwritten.</p>
+
+<h2>Installation</h2>
+
+
+<p>[bash]sudo apt-get install magicrescue[/bash]</p>
+
+<h2>Basic usage</h2>
+
+
+<p>[bash]$ magicrescue
+Usage: magicrescue [-I FILE] [-M MODE] [-O [+-=][0x]OFFSET] [-b BLOCKSIZE]
+    -d OUTPUT_DIR -r RECIPE1 [-r RECIPE2 [...]] DEVICE1 [DEVICE2 [...]]</p>
+
+<p>  -b  Only consider files starting at a multiple of BLOCKSIZE.
+  -d  Mandatory.  Output directory for found files.
+  -r  Mandatory.  Recipe name, file or directory.
+  -I  Read input file names from this file ("-" for stdin)
+  -M  Produce machine-readable output to stdout.
+  -O  Resume from specified offset (hex or decimal) in the first device.[/bash]</p>
+
+<p>You need recipes to use Magic Rescue. These are the basic ones:
+[bash]moose@pc07:/usr/share/magicrescue/recipes$ ls
+avi        flac      gzip       mp3-id3v1  nikon-raw  ppm
+canon-cr2  gimp-xcf  jpeg-exif  mp3-id3v2  perl       zip
+elf        gpl       jpeg-jfif  msoffice   png[/bash]</p>
+
+<h2>Where is my USB-Stick?</h2>
+
+
+<p>[bash]$ sudo fdisk -l
+[sudo] password for moose:</p>
+
+<p>Disk /dev/sda: 320.1 GB, 320072933376 bytes
+255 heads, 63 sectors/track, 38913 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00065e10</p>
+
+<p>   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *           1       37810   303704064   83  Linux
+/dev/sda2           37810       38914     8864769    5  Extended
+/dev/sda5           37810       38914     8864768   82  Linux swap / Solaris</p>
+
+<p>Disk /dev/sdc: 2067 MB, 2067267584 bytes
+2 heads, 63 sectors/track, 32044 cylinders
+Units = cylinders of 126 * 512 = 64512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x005f4d47</p>
+
+<p>   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1   *           1       32045     2018800    b  W95 FAT32[/bash]</p>
+
+<h2>Usage</h2>
+
+
+<p>[bash]sudo magicrescue -r png -r jpeg-jfif -r gimp-xcf \
+-r jpeg-exif -d /home/moose/output/ /dev/sdc1[/bash]</p>
+
+<p>Just got the image back :-)</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

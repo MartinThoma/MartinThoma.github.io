@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>C Puzzle #2</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>C Puzzle #2</h2>
+<p class="meta">20 Oct 2012</p>
+
+<div class="post">
+<p>What is the output of the following script? Why? How can it be fixed to get the expected output?</p>
+
+<p>[c]#define __STDC_FORMAT_MACROS</p>
+
+<h1>include &lt;inttypes.h></h1>
+
+<h1>include &lt;stdio.h></h1>
+
+<p>int main() {
+    uint64_t testvar;</p>
+
+<pre><code>testvar = 1&lt;&lt;30;
+printf("2^30 = %" PRIu64 "\n", testvar);
+
+testvar = 1&lt;&lt;31;
+printf("2^31 = %" PRIu64 "\n", testvar);
+
+return 0;
+</code></pre>
+
+<p>}
+[/c]</p>
+
+<p>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.</p>
+
+<h2>Answer</h2>
+
+
+<p>[text]2<sup>30</sup> = 1073741824
+2<sup>31</sup> = 18446744071562067968[/text]</p>
+
+<h2>Expected output</h2>
+
+
+<p>[text]2<sup>30</sup> = 1073741824
+2<sup>31</sup> = 2147483648[/text]</p>
+
+<h2>Explanation</h2>
+
+
+<p><code>1&lt;&lt;30</code> does a bitshift for <code>int</code>, not for <code>uint64_t</code></p>
+
+<h2>How to fix it</h2>
+
+
+<p>Add a typecast:</p>
+
+<p>[c]#define __STDC_FORMAT_MACROS</p>
+
+<h1>include &lt;inttypes.h></h1>
+
+<h1>include &lt;stdio.h></h1>
+
+<p>int main() {
+    uint64_t testvar;</p>
+
+<pre><code>testvar = 1&lt;&lt;30;
+printf("2^30 = %" PRIu64 "\n", testvar);
+
+testvar = ((uint64_t) 1)&lt;&lt;31;
+printf("2^31 = %" PRIu64 "\n", testvar);
+
+return 0;
+</code></pre>
+
+<p>}
+[/c]</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Creating pdf-forms with LaTeX</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Creating pdf-forms with LaTeX</h2>
+<p class="meta">29 Feb 2012</p>
+
+<div class="post">
+<p>I've just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the <a href='http://martin-thoma.com/wp-content/uploads/2012/02/pdf-form.pdf'>example PDF-file</a>.</p>
+
+<p>It looks like this in Chromes PDF reader:
+[caption id="attachment_16711" align="aligncenter" width="421" caption="PDF LaTeX form in Chrome"]<a href="http://martin-thoma.com/wp-content/uploads/2012/02/pdf-latex-form-chrome.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/pdf-latex-form-chrome.png" alt="PDF LaTeX form in Chrome" title="PDF LaTeX form in Chrome" width="421" height="279" class="size-full wp-image-16711" /></a>[/caption]</p>
+
+<p>[text]\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb} % needed for math
+\usepackage{amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout</p>
+
+<p>\usepackage{hyperref}  % this is needed for forms and links within the text</p>
+
+<p>\hypersetup{
+  pdfauthor   = {Martin Thoma},
+  pdfkeywords = {Martin Thoma, exmple, LaTeX, form},
+  pdftitle    = {An example for a LaTeX form}
+}</p>
+
+<p>\begin{document}</p>
+
+<p>\title{An example for a LaTeX form}
+\author{Martin Thoma}
+\date{\today}</p>
+
+<p>\section{An example for a \LaTeX~form}</p>
+
+<p>\begin{Form}[action=mailto:info@example.com,encoding=html,method=post]
+\subsection{Some general information:}
+\begin{tabbing}
+xxxxxxxxxx: \= \kill  % This is needed for the right tab width
+Name:           > \TextField[name=name,width=3cm,charsize=12pt]
+{\mbox{}}
+Prename: \TextField[name=vor,width=3cm,charsize=12pt]
+{\mbox{}} \</p>
+
+<p>City:           >
+\ChoiceMenu[combo,name=city,width=5cm,charsize=12pt,default=Karlsruhe]{\mbox{}}
+{Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,M&uuml;nchen} \</p>
+
+<p>Sex:    >
+\ChoiceMenu[radio,default=f,name=sex,charsize=14pt]{\mbox{}}{Male=m,Female=f}
+\end{tabbing}</p>
+
+<p>\subsection{Education:}
+\CheckBox[name=highschool,charsize=12pt]{High School}
+\CheckBox[name=college,charsize=12pt]{College}
+\CheckBox[name=university,charsize=12pt]{University} \</p>
+
+<p>\Submit{Submit}
+\Reset{Clear}
+\hfill ~\
+\end{Form}</p>
+
+<p>\end{document}[/text]</p>
+
+<p>You can save this as pdf-form.tex and run this command in Linux:
+[bash]pdflatex pdf-form.tex -output-format=pdf[/bash]</p>
+
+<p>It seems as if the \ChoiceMenu radio option is buggy at the moment. Does anybody know how to fix that?
+edit: Hmm ... it works in Chromes PDF reader, but not in Document Viewer. Mayby Document Viewer is buggy.</p>
+
+<h2>Sources</h2>
+
+
+<ul>
+    <li>TeX Users Group: <a href="http://www.tug.org/applications/hyperref/manual.html#x1-190006">PDF and HTML forms</a></li>
+    <li><a href="http://www.qucosa.de/fileadmin/data/qucosa/documents/4512/data/vortrag2.pdf">Teil 2: LATEX und PDF</a> - TU Chemnitz (German)</li>
+    <li><a href="http://www2.informatik.hu-berlin.de/~piefel/LaTeX-PS/Archive-2004/V12-PDF.pdf">Dokumentation der HU Berlin</a> (German)</li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

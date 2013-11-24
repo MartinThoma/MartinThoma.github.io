@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Create LaTeX timetable</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Create LaTeX timetable</h2>
+<p class="meta">18 Oct 2011</p>
+
+<div class="post">
+<p>LaTeX is a quite cool document markup language and document preparation system. You can easily create mathematical formulas.</p>
+
+<p>Today I've created a LaTeX timetable. Well, to be honest I have only used the timetable package from Pascal Gwosdek found on <a href="http://www.planetk.de/index.php/Stundenplan">planetk.de</a>.</p>
+
+<p>Here is the LaTeX-Code:</p>
+
+<p>[text]\documentclass[a4paper,10pt]{report}</p>
+
+<p>% Definitions
+\usepackage{lscape}
+\usepackage[height=25cm]{geometry}
+\usepackage{timetable}</p>
+
+<p>\begin{document}
+\thispagestyle{empty}
+\begin{landscape}
+\noindent\printheading{Stundenplan von Martin Thoma - 1. Semester}</p>
+
+<p>% Define the layout of your time tables
+\setslotsize{2.8cm}{0.3cm}
+\setslotcount {5} {40}
+\settopheight{3}
+\settextframe{0.8mm}</p>
+
+<p>% Retro
+\setframetype[t]{1}
+\seteventcornerradius{0pt}</p>
+
+<p>% Print timestamps into event blocks
+%\setprinttimestamps{2}</p>
+
+<p>% Define event types
+\defineevent{lecture}{0.0} {0.28}{1.0} {1.0}{1.0}{1.0}
+\defineevent{exercise-course}    {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{tutorial}   {0.6} {0.8} {1.0} {1.0}{1.0}{1.0}
+\defineevent{langcourse} {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+\defineevent{work}       {0.21}{0.5} {0.16}{1.0}{1.0}{1.0}</p>
+
+<p>% Start the time table
+\begin{timetable}
+  \hours{8}{15}{1}
+  \germandays{1}
+  \event 1 {0945} {1115} {Betriebssysteme}                        {Bellosa}          {10.23 Nusselt}     {lecture}
+  \event 1 {1130} {1300} {Wahrscheinlichkeits-theorie}            {Hug}              {11.40 Tulla HS}    {lecture}
+  \event 1 {1400} {1530} {Programmieren}                          {Pretschner}       {50.35 HS a. F.}    {lecture}
+  \event 1 {1545} {1715} {LinAlg und Ana}                         {Leuzinger}        {30.46 Neue Chemie} {exercise-course}
+  \event 2 {0800} {0930} {Analysis I}                             {Schmoeger}        {30.46 Neue Chemie} {lecture}
+  \event 2 {0945} {1115} {Betriebssysteme}                        {Bellosa}          {20.40 HS 37}       {exercise-course}
+  \event 2 {1130} {1300} {Theoretische Grundlagen der Informatik} {Wagner}           {30.21 Gerthsen}    {lecture}
+  \event 3 {0800} {0930} {LinAlg und Analytische Geometrie I}     {Leuzinger}        {10.21 Daimler}     {lecture}
+  \event 3 {1400} {1530} {Grundbegriffe der Informatik}           {Schultz}          {50.35 HS a. F.}    {lecture}
+  \event 4 {0800} {0930} {Analysis I}                             {Schmoeger}        {30.46 Neue Chemie} {lecture}
+  \event 4 {1130} {1300} {Theoretische Grundlagen der Informatik} {Wagner}           {30.21 Gerthsen}    {lecture}
+  \event 5 {0800} {0930} {LinAlg und Analytische Geometrie I}     {Leuzinger}        {11.40 Tulla HS}    {lecture}
+  \event 5 {0945} {1115} {Grundbegriffe der Informatik}           {Schultz}          {50.35 HS a. F.}    {exercise-course}
+  \event 5 {1545} {1715} {Analysis I}                             {Schmoeger}        {10.21 Benz}        {exercise-course}
+\end{timetable}
+\end{landscape}
+\end{document}[/text]</p>
+
+<p>Here is the <a href='http://martin-thoma.com/wp-content/uploads/2011/10/timetable.sty'>timetable</a> and the <a href='http://martin-thoma.com/wp-content/uploads/2011/10/example.tex'>example timtable in LaTeX</a>.
+If you have a Linux machine, you can create the timetable with this command:
+[bash]pdflatex example.tex -output-format=pdf[/bash]</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

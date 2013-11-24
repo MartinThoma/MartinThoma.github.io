@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Generating many prime numbers</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Generating many prime numbers</h2>
+<p class="meta">21 May 2013</p>
+
+<div class="post">
+<p>Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.</p>
+
+<p>So, lets prove my claim.</p>
+
+<h2>Trivial approach</h2>
+
+
+<p>[cpp]</p>
+
+<h1>include <iostream> // cin, cout</h1>
+
+<h1>include <cmath> // sqrt</h1>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;
+vector<unsigned long> primeList;</p>
+
+<p>bool isPrime(unsigned long n) {
+    vector<unsigned long>::iterator myIt;
+    unsigned long root = (unsigned long) sqrt(n);
+    for(myIt=primeList.begin(); myIt != primeList.end(); myIt++){
+        if(n%(<em>myIt) == 0) {
+            return false;
+        } else if ((</em>myIt) > root) {
+            return true;
+        }
+    }
+    return true;
+}</p>
+
+<p>int main(int argc, char* argv[]) {
+    primeList.push_back(2);
+    cout &lt;&lt; 2 &lt;&lt; endl;</p>
+
+<pre><code>unsigned long long max = (unsigned long long) atoi(argv[1]);
+for (unsigned long i=3; i&lt;max; i+=2) {
+    if(isPrime(i)) {
+        primeList.push_back(i);
+        cout &lt;&lt; i &lt;&lt; endl;
+    }
+}
+
+return 0;
+</code></pre>
+
+<p>}
+[/cpp]</p>
+
+<p>Execute it for 100,000,000:</p>
+
+<p>[bash]time ./generate-prime-list.out 100000000 > primes.txt</p>
+
+<p>real    0m57.274s
+user    0m41.855s
+sys 0m15.229s
+[/bash]</p>
+
+<p>So 41 seconds for all primes not bigger than 100,000,000.</p>
+
+<p>Now, lets test it for 1,000,000,000:
+[bash]time ./generate-prime-list.out 1000000000 > primes.txt</p>
+
+<p>real    18m18.205s
+user    15m56.904s
+sys 2m12.500s
+[/bash]</p>
+
+<p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
+
+<h2>Sieve of Eratosthenes</h2>
+
+
+<h3>A first try</h3>
+
+
+<p>[cpp]</p>
+
+<h1>include <iostream> // cin, cout</h1>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;</p>
+
+<p>void sieveOfEratosthenes(unsigned long n) {
+    vector<bool> primesEratosthenes (n+1, true);
+    cout &lt;&lt; 2 &lt;&lt; endl;
+    for (unsigned long i=3; i&lt;n; i+=2) {
+        if (primesEratosthenes[i] == true) {
+            cout &lt;&lt; i &lt;&lt; endl;
+            for (unsigned long j=2; j<em>i&lt;=n; j++) {
+                primesEratosthenes[j</em>i] = false;
+            }
+        }
+    }
+}</p>
+
+<p>int main(int argc, char* argv[]) {
+    unsigned long long n = (unsigned long long) atoi(argv[1]);
+    sieveOfEratosthenes(n);
+    return 0;
+}
+[/cpp]</p>
+
+<p>This one takes 1 minute 5 seconds:
+[bash]
+make;time ./generate-prime-list.out 1000000000 > testPrimes.txt
+g++ -std=c++0x -Wall -pedantic -O3 -D NDEBUG generate-prime-list.cpp -o generate-prime-list.out</p>
+
+<p>real    3m20.436s
+user    1m4.908s
+sys 2m11.748s
+[/bash]</p>
+
+<p>I'm getting closer to "seconds". :-)</p>
+
+<h3>ofstream, endl, \n and buffers</h3>
+
+
+<p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
+
+<p>[cpp]#include <fstream> // ofstream</p>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;</p>
+
+<p>void sieveOfEratosthenes(unsigned long n) {
+    ofstream myfile;
+    myfile.open ("huge-prime-list.txt");
+    vector<bool> primesEratosthenes (n+1, true);
+    myfile &lt;&lt; 2 &lt;&lt; endl;
+    for (unsigned long i=3; i&lt;n; i+=2) {
+        if (primesEratosthenes[i] == true) {
+            myfile &lt;&lt; i &lt;&lt; endl;
+            for (unsigned long j=2; j<em>i&lt;=n; j++) {
+                primesEratosthenes[j</em>i] = false;
+            }
+        }
+    }
+    myfile.close();
+}</p>
+
+<p>int main(int argc, char* argv[]) {
+    unsigned long long n = (unsigned long long) atoi(argv[1]);
+    sieveOfEratosthenes(n);
+    return 0;
+}[/cpp]</p>
+
+<p>[bash]time ./generate-prime-list.out 1000000000</p>
+
+<p>real    3m21.249s
+user    1m4.016s
+sys 2m12.332s
+[/bash]</p>
+
+<p>Ok, no real change :-/</p>
+
+<p>Another idea is to replace <code>endl</code> by <code>\n</code> (see <a href="http://stackoverflow.com/a/5192299/562769">explanation</a>)</p>
+
+<p>That was a good try. Now it needs only 46 seconds:</p>
+
+<p>[bash]time ./generate-prime-list.out 1000000000</p>
+
+<p>real    0m49.539s
+user    0m46.619s
+sys 0m0.920s
+[/bash]</p>
+
+<p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
+
+<p>[cpp]</p>
+
+<h1>include &lt;stdio.h> // fopen</h1>
+
+<h1>include <iostream> // atoi</h1>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;</p>
+
+<p>void sieveOfEratosthenes(unsigned long n) {
+    FILE* pFile;
+    pFile = fopen("huge-prime-list.txt", "wb");
+    vector<bool> primesEratosthenes (n+1, true);</p>
+
+<pre><code>unsigned long tmp = 2;
+fwrite(&amp;amp;tmp, sizeof(unsigned long),1, pFile);
+for (unsigned long i=3; i&lt;n; i+=2) {
+    if (primesEratosthenes[i] == true) {
+        fwrite(&amp;amp;i, sizeof(unsigned long),1, pFile);
+
+        for (unsigned long j=2; j*i&lt;=n; j++) {
+            primesEratosthenes[j*i] = false;
+        }
+    }
+}
+
+fclose(pFile);
+</code></pre>
+
+<p>}</p>
+
+<p>int main(int argc, char* argv[]) {
+    unsigned long long n = (unsigned long long) atoi(argv[1]);
+    sieveOfEratosthenes(n);
+    return 0;
+}
+[/cpp]</p>
+
+<p>And execute it:
+[bash]
+time ./generate-prime-list.out 1000000000</p>
+
+<p>real    0m39.700s
+user    0m38.546s
+sys 0m0.640s
+[/bash]</p>
+
+<p>38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.</p>
+
+<p>By the way, simply setting this with <code>setbuf(pFile, NULL);</code> to unbuffered resulted in 50 seconds execution time.</p>
+
+<p>You can get the list with this snippet:</p>
+
+<p>[cpp]</p>
+
+<h1>include <iostream></h1>
+
+<h1>include <fstream></h1>
+
+<p>using namespace std;</p>
+
+<p>int main(int argc, char<em> argv[]) {
+    if (argc != 2) {
+        cout &lt;&lt; "You have to specify a file name" &lt;&lt; endl;
+    } else {
+        FILE</em> pFile;
+        pFile = fopen(argv[1], "rb");</p>
+
+<pre><code>    long long x;
+    size_t read;
+    while (!feof(pFile)) {
+        read = fread(&amp;amp;x, sizeof(long long), 1, pFile);
+        (void) read;
+        if (feof(pFile)){
+            break; // otherwise it duplicates the last entry
+        }
+        cout &lt;&lt; x &lt;&lt; endl;
+    }
+    fclose(pFile);
+}
+</code></pre>
+
+<p>}
+[/cpp]</p>
+
+<h3>Improve sieving</h3>
+
+
+<p>The following change was suggested by <em>Niklas B.</em>. Thanks!</p>
+
+<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2</em>p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime.</p>
+
+<p>[cpp]</p>
+
+<h1>include &lt;stdio.h> // fopen</h1>
+
+<h1>include <iostream> // atoi</h1>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;</p>
+
+<p>void sieveOfEratosthenes(long long n) {
+    FILE* pFile;
+    pFile = fopen("huge-prime-list.bin", "wb");
+    vector<bool> primesEratosthenes (n+1, true);</p>
+
+<pre><code>long long tmp = 2;
+fwrite(&amp;amp;tmp, sizeof(long long),1, pFile);
+for (long long i=3; i&lt;n; i+=2) {
+    if (primesEratosthenes[i]) {
+        fwrite(&amp;amp;i, sizeof(long long), 1, pFile);
+
+        for (long long j=i*i; j&lt;=n; j+=i) {
+            primesEratosthenes[j] = false;
+        }
+    }
+}
+
+fclose(pFile);
+</code></pre>
+
+<p>}</p>
+
+<p>int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        cout &lt;&lt; "You have to specify n" &lt;&lt; endl;
+    } else {
+        long long  n = (long long) atoi(argv[1]);
+        sieveOfEratosthenes(n);
+    }
+    return 0;
+}
+[/cpp]</p>
+
+<p>Execute:
+[bash]
+time ./generate-prime-list.out 1000000000</p>
+
+<p>real    0m24.222s
+user    0m23.485s
+sys 0m0.436s
+[/bash]</p>
+
+<h3>primesieve</h3>
+
+
+<p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) $&lt; 2^{64}$ using a highly optimized implementation of the sieve of Eratosthenes.</p>
+
+<p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...</p>
+
+<h2>Sieve of Atkin</h2>
+
+
+<p>Arthur Oliver Lonsdale Atkin (July 31, 1925 &ndash; December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
+
+<h3>My first implementation</h3>
+
+
+<p>[cpp]</p>
+
+<h1>include &lt;stdio.h> // fopen</h1>
+
+<h1>include <iostream> // atoi</h1>
+
+<h1>include <vector></h1>
+
+<h1>include <cmath> // sqrt, ceil,</h1>
+
+<p>using namespace std;</p>
+
+<p>void sieveOfAtkin(long long limit) {
+    FILE* pFile;
+    pFile = fopen("huge-prime-list.bin", "wb");</p>
+
+<pre><code>long long root = ceil(sqrt(limit));
+
+// initialize the sieve
+vector&lt;bool&gt; is_prime(limit, false);
+
+// put in candidate primes: 
+// integers which have an odd number of
+// representations by certain quadratic forms
+for (long long x = 1; x &lt;= root; x++) {
+    long long xSquare = x*x;
+    for (long long y = 1; y &lt;= root; y++) {
+        long long n = (4*xSquare)+(y*y);
+        if (n &lt;= limit &amp;amp;&amp;amp; (n % 12 == 1 || n % 12 == 5)) {
+            is_prime[n] = !is_prime[n];
+        }
+
+        n = (3*xSquare)+(y*y);
+        if (n &lt;= limit &amp;amp;&amp;amp; n % 12 == 7) {
+            is_prime[n] = !is_prime[n];
+        }
+
+        n = (3*xSquare)-(y*y);
+        if (x &gt; y &amp;amp;&amp;amp; n &lt;= limit &amp;amp;&amp;amp; n % 12 == 11) {
+            is_prime[n] = !is_prime[n];
+        }
+    }
+}
+
+// eliminate composites by sieving
+for (long long n = 5; n &lt;= root; n++) {
+    if (is_prime[n]) {
+        long long add = n*n;
+        for (long long k = add; k &lt; limit; k += add) {
+            // n is prime, omit multiples of its square; this is
+            // sufficient because composites which managed to get
+            // on the list cannot be square-free
+            is_prime[k] = false;
+        }
+    }
+}
+
+// Output primes
+long long primTmp = 2;
+fwrite(&amp;amp;primTmp, sizeof(long long), 1, pFile);
+primTmp = 3;
+fwrite(&amp;amp;primTmp, sizeof(long long), 1, pFile);
+
+for (long long n = 5; n &lt; limit; n++) {
+    if (is_prime[n]) {
+        fwrite(&amp;amp;n, sizeof(long long), 1, pFile);
+    }
+}
+
+fclose(pFile);
+</code></pre>
+
+<p>}</p>
+
+<p>int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        cout &lt;&lt; "You have to specify n" &lt;&lt; endl;
+    } else {
+        long long  n = (long long) atoi(argv[1]);
+        sieveOfAtkin(n);
+    }
+    return 0;
+}
+[/cpp]</p>
+
+<p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
+
+<p>[bash]
+time ./generate-prime-list.out 1000000000</p>
+
+<p>real    1m6.001s
+user    1m4.724s
+sys 0m0.604s
+[/bash]</p>
+
+<h3>Primegen</h3>
+
+
+<p><a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.</p>
+
+<p>When I have some time, I'll update this article and create a new version of my sieve with ideas from Primegen.</p>
+
+<p>Primegen is fast:
+[bash]
+time ./primes > primes.txt</p>
+
+<p>real    0m11.677s
+user    0m10.649s
+sys 0m0.708s
+[/bash]
+About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
+
+<h2>See also</h2>
+
+
+<p>You might want to try the following Project Euler problem sets:</p>
+
+<ul>
+<li>Project Euler
+  <ul>
+    <li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
+    <li><a href="http://projecteuler.net/problem=7">Problem 7</a>: What is the 10 001st prime number?</li>
+    <li><a href="http://projecteuler.net/problem=60">Problem 60</a></li>
+  </ul>
+</li>
+<li>SPOJ
+  <ul>
+    <li><a href="http://www.spoj.com/problems/PRIME1/">PRIME1</a></li>
+    <li><a href="http://www.spoj.com/problems/PRIME2/">PRIME2</a></li>
+    <li><a href="http://www.spoj.com/problems/KPRIMES2/">KPRIMES2</a></li>
+  </ul>
+</li>
+<li><a href="http://sweet.ua.pt/tos/software/prime_sieve.html">Segmented sieve of Eratosthenes</a></li>
+<li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above $10^9$ which I didn't.</li>
+</ul>
+
+
+
+
+<h2>Finally</h2>
+
+
+<p>The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

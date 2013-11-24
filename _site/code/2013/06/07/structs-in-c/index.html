@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Structs in C++</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Structs in C++</h2>
+<p class="meta">07 Jun 2013</p>
+
+<div class="post">
+<p>I guess this article isn't very interesting, except if you have VERY little experience with C / C++. I only give some complete code examples. If you want some text, you could read <a href="http://en.wikibooks.org/wiki/C%2B%2B_Programming/Structures">C++ Programming/Structures</a> (a wikibook).</p>
+
+<h2>Point</h2>
+
+
+<h3>Basic example</h3>
+
+
+<p>[cpp]</p>
+
+<h1>include <iostream></h1>
+
+<p>using namespace std;</p>
+
+<p>struct Point {
+    double x;
+    double y;
+};</p>
+
+<p>int main() {
+    Point a = {12, 34};
+    printf("(%.2f|%.2f)\n", a.x, a.y);
+    return 0;
+}
+[/cpp]</p>
+
+<h3>Functions</h3>
+
+
+<p>[cpp]</p>
+
+<h1>include <iostream></h1>
+
+<h1>define ABS(a) (a &lt; 0 ? -(a) : a)</h1>
+
+<p>using namespace std;</p>
+
+<p>struct Point {
+    double x;
+    double y;
+};</p>
+
+<p>double getManhattanDistance(Point a, Point b) {
+    return ABS(a.x-b.x) + ABS(a.y-b.y);
+}</p>
+
+<p>int main() {
+    Point a = {1, 1};
+    Point b = {3, -4};
+    printf("(%.2f|%.2f)\n", a.x, a.y);
+    printf("(%.2f|%.2f)\n", b.x, b.y);
+    printf("Distance: %.2f\n", getManhattanDistance(a, b));
+    return 0;
+}
+[/cpp]</p>
+
+<h2>More stuff</h2>
+
+
+<h3>Initialization</h3>
+
+
+<p><code>Point a = {}</code> initializes all values of point to 0.</p>
+
+<h3>Constructors</h3>
+
+
+<p>You can write constructors for structs:</p>
+
+<p>[cpp]</p>
+
+<h1>include <iostream></h1>
+
+<h1>define ABS(a) (a &lt; 0 ? -(a) : a)</h1>
+
+<p>using namespace std;</p>
+
+<p>struct Point {
+    double x;
+    double y;</p>
+
+<pre><code>Point():x(2.0),y(5.0) {}
+Point(double a, double b):x(9.0),y(9.0) {x=a; y=b;}
+</code></pre>
+
+<p>};</p>
+
+<p>double getManhattanDistance(Point a, Point b) {
+    return ABS(a.x-b.x) + ABS(a.y-b.y);
+}</p>
+
+<p>int main() {
+    Point a = {};
+    Point b = {3, -4};
+    Point c;
+    printf("(%.2f|%.2f)\n", a.x, a.y);
+    printf("(%.2f|%.2f)\n", b.x, b.y);
+    printf("(%.2f|%.2f)\n", c.x, c.y);
+    printf("Distance: %.2f\n", getManhattanDistance(a, b));
+    return 0;
+}
+[/cpp]</p>
+
+<p>Which gives:</p>
+
+<p>[bash]
+./struct-example.out
+(2.00|5.00)
+(3.00|-4.00)
+(2.00|5.00)
+Distance: 10.00
+[/bash]</p>
+
+<h3>Functions in structs</h3>
+
+
+<p>You can also add functions to structs:</p>
+
+<p>[cpp]</p>
+
+<h1>include <iostream></h1>
+
+<h1>define ABS(a) (a &lt; 0 ? -(a) : a)</h1>
+
+<p>using namespace std;</p>
+
+<p>struct Point {
+    double x;
+    double y;</p>
+
+<pre><code>Point():x(2.0),y(5.0) {}
+Point(double a, double b):x(9.0),y(9.0) {x=a; y=b;}
+
+double getZeroDist() {
+    return ABS(x)+ABS(y);
+}
+</code></pre>
+
+<p>};</p>
+
+<p>double getManhattanDistance(Point a, Point b) {
+    return ABS(a.x-b.x) + ABS(a.y-b.y);
+}</p>
+
+<p>int main() {
+    Point a = {3, -10};
+    printf("(%.2f|%.2f)\n", a.x, a.y);
+    printf("Distance: %.2f\n", a.getZeroDist());
+    return 0;
+}
+[/cpp]</p>
+
+<p>Result:
+[bash]
+./struct-example.out
+(3.00|-10.00)
+Distance: 13.00
+[/bash]</p>
+
+<h2>Read also</h2>
+
+
+<ul>
+  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Struct_(C_programming_language)">struct (C programming language)</a></li>
+  <li><a href="http://martin-thoma.com/c-operator-overloading/" title="C++ Operator overloading">Operator overloading</a></li>
+  <li><a href="http://martin-thoma.com/a-practical-approach-to-floats/">A practical approach to floats</a>: An example for union</li>
+  <li><a href="http://martin-thoma.com/how-do-hash-functions-work/">Connect four</a>: One usage example for structs</li>
+</ul>
+
+
+<p>Is there anything interesting to say about structs?</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

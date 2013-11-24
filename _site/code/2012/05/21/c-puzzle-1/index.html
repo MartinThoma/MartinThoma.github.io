@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>C Puzzle #1</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>C Puzzle #1</h2>
+<p class="meta">21 May 2012</p>
+
+<div class="post">
+<p>What is the output of the following programm?</p>
+
+<p>[c]#include &lt;stdio.h></p>
+
+<p>int* f()
+{
+    int i = 5;
+    return &amp;i;
+}</p>
+
+<p>void g()
+{
+    int j = 42;
+    j++;
+}</p>
+
+<p>int main()
+{
+    int<em> x = f();
+    g();
+    printf("x = %d\n", </em>x);
+    g();
+    printf("x = %d\n", *x);
+    return 0;
+}[/c]</p>
+
+<h2>Short Answer</h2>
+
+
+<p>It depends on your compiler flags!</p>
+
+<p>If you compile it with no optimization, you might get 43:
+[bash]$ gcc -O0 cpuzzle-1.c ; ./a.out
+aufgabe-3.c: In function &lsquo;f&rsquo;:
+aufgabe-3.c:5: warning: function returns address of local variable
+x = 43
+x = 43[/bash]</p>
+
+<p>If you compile it with 03 Optimization, you might get 5.
+[bash]$ gcc -O3 cpuzzle-1.c ; ./a.out
+aufgabe-3.c: In function &lsquo;f&rsquo;:
+aufgabe-3.c:5: warning: function returns address of local variable
+x = 5
+x = 5
+[/bash]</p>
+
+<h2>Long answer</h2>
+
+
+<h3>The general answer</h3>
+
+
+<p>Lets analyse this code line by line.</p>
+
+<p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?).
+The variable is a so called local or automatic variable and is located on the stack frame.</p>
+
+<p>Line 9 - 14 is a function <strong>g</strong> that doesn't take any parameter and doesn't return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.</p>
+
+<p>Line 17 calls f and stores the returned function pointer in the variable x.</p>
+
+<p>Line 18 calls g. Remember that g should not have any influence on the other program. But you saved a pointer to a local variable which is not in the scope of the main function. So g is allowed to use the space which was previously used by the local variable i in the function f. It uses this space for j = 42 and increases it by 1. So if you access the address of the former variable i in f you will get 43.</p>
+
+<h3>Actual assembly code</h3>
+
+
+<p>You still want to get more into detail? Ok ...
+First you should get your assembly code. If you're running a Linux machine, you can type this into the console:
+[bash]gcc -S -O0 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O0.s[/bash]
+This will create a file called "cpuzzle-1.s" which contains the assembly code for the non-optimized version. Rename it into "cpuzzle-1-O0.c". Then the same for O3:
+[bash]gcc -S -O3 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O3.s[/bash]</p>
+
+<p>Now you can compare those two with meld or any other diff Tool:
+[caption id="attachment_24851" align="aligncenter" width="300" caption="C Puzzle #1 - Assembly code part 1"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld-300x188.png" alt="C Puzzle #1 - Assembly code part 1" title="C Puzzle #1 - Assembly code part 1" width="300" height="188" class="size-medium wp-image-24851" /></a>[/caption]
+The O3 code got an additional <code>.p2align 4,,15</code></p>
+
+<blockquote>.p2align 4,,15 means:
+When allocating memory, align it such that each new section must start at a location with 4 0's at the end (i.e. a multiple of 16 bytes), except for if more than 15 bytes must be skipped.</blockquote>
+
+
+<p><span class="quote-source">Quoted from <a href="http://answers.yahoo.com/question/index?qid=20100414222831AAxKaHs">MooseBoy</a></span></p>
+
+<p>It makes sense to store the data this way, as your computer can only access blocks. If one piece of data is half in one block, half in the other, you have to make to (slow) memory-accesses.</p>
+
+<p>[caption id="attachment_24881" align="aligncenter" width="300" caption="C Puzzle #1 - Assembly code part 2 (the main)"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld-300x113.png" alt="C Puzzle #1 - Assembly code part 2 (the main)" title="C Puzzle #1 - Assembly code part 2 (the main)" width="300" height="113" class="size-medium wp-image-24881" /></a>[/caption]</p>
+
+<p>It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don't know why the compiler does most of the optimizations :-(
+[caption id="attachment_24941" align="aligncenter" width="300" caption="C Puzzle #1, Assembly code part 1: Annotated"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld-annotated.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" alt="C Puzzle #1, Assembly code part 1: Annotated" title="C Puzzle #1, Assembly code part 1: Annotated" width="300" height="188" class="size-medium wp-image-24941" /></a>[/caption]</p>
+
+<p>[caption id="attachment_24951" align="aligncenter" width="300" caption="C Puzzle #1, Assembly code part 2: Annotated"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld-annotated.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld-annotated-300x113.png" alt="C Puzzle #1, Assembly code part 2: Annotated" title="C Puzzle #1, Assembly code part 2: Annotated" width="300" height="113" class="size-medium wp-image-24951" /></a>[/caption]</p>
+
+<p>You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">__printf_chk</a>. An implementation is <a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printf_chk.c">here</a>.</p>
+
+<h2>What you should have learned</h2>
+
+
+<p>Never return pointers to local variables / variables in the wrong scope.</p>
+
+<h2>See also</h2>
+
+
+<ul>
+  <li>Wikipedia:
+    <ul>
+    <li><a href="http://en.wikipedia.org/wiki/Stack_frame#Structure">Stack frame</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Call_stack">Call Stack</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Scope_(computer_science)">Scope</a></li>
+    </ul>
+  </li>
+  <li><a href="http://martin-thoma.com/get-your-programs-assembly-code-and-more-information/" title="Get your programs assembly code and more information">Get your programs assembly code and more information</a></li>
+  <li><a href="http://www.a-m-i.de/tips/stack/stack.php">Der "Stack Frame"</a> (German article about the stack frame)</li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

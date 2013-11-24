@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>The Collatz sequence</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>The Collatz sequence</h2>
+<p class="meta">16 May 2013</p>
+
+<div class="post">
+<p>The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.</p>
+
+<p>The Collatz sequences $(c<sup>n</sup>_i)$ of a number $n \in \mathbb{N}_{> 0}$ is defined like this:</p>
+
+<p>$f:\mathbb{N}<em>{>0} \rightarrow \mathbb{N}</em>{> 0}\;\;\;\;f(n) := \begin{cases}
+\frac{n}{2}   &amp; \text{if } n \text{ is even}\
+3 \cdot n + 1 &amp; \text{if } n \text{ is odd}
+\end{cases}$</p>
+
+<p>So the sequence $(c<sup>n</sup>_{i})$ is defined as:</p>
+
+<p>$c<sup>n</sup>_{i} := \begin{cases}
+n   &amp; \text{if } i = 0\
+f(c<sup>n</sup>_i) &amp; \text{otherwise}
+\end{cases}$</p>
+
+<p>You can define a directed graph $G=(V, E)$ like this:</p>
+
+<p>$V = \mathbb{N}_{>0}, \;\;\; E = {(n, f(n)) | n \in V}$</p>
+
+<p>I will call this the <em>Collatz graph</em>.</p>
+
+<h2>Collatz conjecture</h2>
+
+
+<div class="important">
+$\forall_{n \in \mathbb{N}_{>0}} \exists_{i \in \mathbb{N}_{>0}}: c^n_i = 1$
+</div>
+
+
+<p>The Collatz conjecture was not (dis)proved by now. This is astonishing, as it was proposed in 1937 and I think it is very easy to understand.</p>
+
+<p>We also don't know if the Collatz graph is connected. When it is not connected, it could be that one sequence $(c<sup>n</sup>_i)$ goes to infinity or that there is another circle ($4,2,1,4$ is a circle in the Collatz graph).</p>
+
+<h2>Small $n$</h2>
+
+
+<p>When you go through all possible Collatz sequences with $n \in 1, \dots, 15$, this is what you get:</p>
+
+<p>[caption id="attachment_66201" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-graph.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-graph.png" alt="A graph for all Collatz sequences $(c^n_i)$ with $n\leq15$" width="512" height="410" class="size-full wp-image-66201" /></a> A graph for all Collatz sequences $(c<sup>n</sup>_i)$ with $n\leq15$[/caption]</p>
+
+<p>This image was created with the following Python script:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="c"># Based on: http://en.wikipedia.org/wiki/File:Collatz-graph-all-30-no27.svg</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">3</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">writeDotfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">explored</span><span class="p">):</span>
+    <span class="n">dotfile</span> <span class="o">=</span> <span class="nb">file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;digraph {</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;node[style=filled,color=&quot;.7 .3 1.0&quot;];</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;1</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;node[style=filled,color=&quot;.95 .1 1&quot;];</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="c">#dotfile.write(&#39;size=&quot;15,8&quot;;\n&#39;)</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
+        <span class="k">while</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">explored</span><span class="p">:</span>
+            <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; -&gt; &#39;</span><span class="p">)</span>
+            <span class="n">explored</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">dotfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;}</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">createPng</span><span class="p">(</span><span class="n">dotfile</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">program</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">program</span> <span class="o">+</span> <span class="s">&quot; -Tsvg &quot;</span> <span class="o">+</span> <span class="n">dotfile</span> <span class="o">+</span> <span class="s">&quot; -o &quot;</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s">&quot;.svg&quot;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Execute command: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+    <span class="n">command</span> <span class="o">=</span> <span class="s">&quot;inkscape &quot;</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s">&quot;.svg&quot;</span><span class="o">+</span><span class="s">&quot; -w 512 --export-png=&quot;</span><span class="o">+</span><span class="n">base</span><span class="o">+</span><span class="s">&quot;.png&quot;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Execute command: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">command</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">argparse</span>
+ 
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s">&quot;Graph for small Collatz sequences&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;--file&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;filename&quot;</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="s">&quot;collatz-graph.gv&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&quot;write dot-FILE&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-p&quot;</span><span class="p">,</span> <span class="s">&quot;--program&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;program&quot;</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">&quot;dot, neato, twopi, circo, fdp, sfdp, osage&quot;</span><span class="p">,</span> 
+                  <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;PROGRAM&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;dot&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-n&quot;</span><span class="p">,</span> 
+                      <span class="n">dest</span><span class="o">=</span><span class="s">&quot;limit&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
+                      <span class="n">help</span><span class="o">=</span><span class="s">&quot;limit&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    
+    <span class="n">writeDotfile</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">createPng</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>called like this:</p>
+
+<p>[bash]python small-numbers.py -n 15 -p fdp[/bash]</p>
+
+<h2>$n=27$</h2>
+
+
+<p>$n=27$ is an enourmously long sequence:</p>
+
+<p>[caption id="attachment_66351" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-27.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-27.png" alt="Collatz sequence $c^{27}_i$" width="512" height="227" class="size-full wp-image-66351" /></a> Collatz sequence $c^{27}_i$[/caption]</p>
+
+<p>It was created with pgfplots:
+[text collapse="true"]
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage[margin=2.5cm]{geometry} %layout</p>
+
+<p>\usepackage{pgfplots}</p>
+
+<p>\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+            axis x line=middle,
+            axis y line=middle,
+            enlarge y limits=true,
+            scaled y ticks = false,
+            width=15cm, height=8cm, % size of the image
+            grid = major,
+            grid style={dashed, gray!30},
+            ylabel=$c^{27}_i$,
+            xlabel=$i$,
+            legend style={at={(0.1,-0.1)}, anchor=north}
+         ]
+          \addplot[sharp plot, mark=x, blue] table [x=steps, y=n, col sep=comma] {../collatz27.csv};
+    \end{axis}
+\end{tikzpicture}
+\end{document}
+[/text]</p>
+
+<h2>How long are Collatz sequences?</h2>
+
+
+<p>I've been interested in the question how long Collatz sequences are. Of course, they will be longer when $n$ is bigger. But how does the choice of $n$ influence the number of steps it takes until you reach $c<sup>n</sup>_i = 1$?</p>
+
+<p>I've tested all Collatz sequences with $n \leq 10,000,000$. This is the result:</p>
+
+<p>[caption id="attachment_66231" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-sequence-steps.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-sequence-steps.png" alt="Collatz sequence steps" width="512" height="512" class="size-full wp-image-66231" /></a> Collatz sequence steps[/caption]</p>
+
+<p>For every hexagon, you check how many datapoints $(n,steps)$ you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.</p>
+
+<p>The data was created as a 116.9 MB csv file with this C++ code:</p>
+
+<p>[cpp collapse="true"]</p>
+
+<h1>include <iostream></h1>
+
+<h1>include <string></h1>
+
+<h1>include <map></h1>
+
+<h1>include <vector></h1>
+
+<h1>include <climits> // get maximum value of unsigned long long</h1>
+
+<h1>include <cstdlib> // exit</h1>
+
+<h1>define SURPRESS_OUTPUT true</h1>
+
+<h1>define SHOW_DICT_CREATION false</h1>
+
+<p>using namespace std;</p>
+
+<p>struct element {
+    /<em>* What is the next collatz number? </em>/
+    unsigned long long next;</p>
+
+<pre><code>/** How many steps does it take until you reach 1? */
+unsigned long long steps;
+</code></pre>
+
+<p>};</p>
+
+<p>map<unsigned long long, struct element> collatz;</p>
+
+<p>unsigned long long CRITICAL_VALUE = (ULLONG_MAX-1) / 3;</p>
+
+<p>unsigned long long maxAddFromOneEntry = 0;
+unsigned long long maxEntry = 0;
+unsigned long long maxStepsToOne = 0;
+unsigned long long saveULong = 0;</p>
+
+<p>/<em><em> n >= 1 </em>/
+unsigned long long nextCollatz(unsigned long long n) {
+    if (n%2 == 0) {
+        return n/2;
+    } else {
+        if (n >= CRITICAL_VALUE) {
+            cerr &lt;&lt; "Critical value is: " &lt;&lt; CRITICAL_VALUE &lt;&lt; endl;
+            cerr &lt;&lt; "n is: " &lt;&lt; n &lt;&lt; endl;
+            cerr &lt;&lt; "saveULong is: " &lt;&lt; saveULong &lt;&lt; endl;
+            exit(1);
+        }
+        return 3</em>n+1;
+    }
+}</p>
+
+<p>void insertCollatz(unsigned long long i){
+    if (collatz.find(i) == collatz.end()) {
+        if (SHOW_DICT_CREATION &amp;&amp; !SURPRESS_OUTPUT) {
+            cout &lt;&lt; i &lt;&lt; " is not in collatz:" &lt;&lt; endl;
+        }</p>
+
+<pre><code>    // i is not in collatz
+    vector&lt;unsigned long long&gt; steps;
+    unsigned long long current = i;
+    unsigned long long next = nextCollatz(current);
+    while(collatz.find(current) == collatz.end()) {
+        steps.push_back(current);
+        current = next;
+        next = nextCollatz(current);
+    }
+
+    if (steps.size() &gt; maxAddFromOneEntry) {
+        maxAddFromOneEntry = steps.size();
+    }
+
+    vector&lt;unsigned long long&gt;::reverse_iterator it;
+    for(it=steps.rbegin(); it != steps.rend(); it++){
+        struct element el;
+        el.next = current;
+        el.steps = collatz[current].steps + 1;
+        collatz[*it] = el;
+
+        if (el.steps &gt; maxStepsToOne) {
+            maxStepsToOne = el.steps;
+        }
+
+        if (*it &gt; maxEntry) {
+            maxEntry = *it;
+        }
+
+        current = *it;
+
+        if (SHOW_DICT_CREATION &amp;amp;&amp;amp; !SURPRESS_OUTPUT) {
+            cout &lt;&lt; "\tinserted " &lt;&lt; *it &lt;&lt; "-&gt;" &lt;&lt; el.next &lt;&lt; endl;
+        }
+    }
+
+    return;
+} else if (SHOW_DICT_CREATION &amp;amp;&amp;amp; !SURPRESS_OUTPUT) {
+    cout &lt;&lt; i &lt;&lt; " was already in collatz." &lt;&lt; endl;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>void printCollatz() {
+    for(map<unsigned long long, struct element>::iterator it=collatz.begin();
+        it!=collatz.end(); ++it) {
+        unsigned long long next = (*it).first;
+        while(next != 1) {
+            cout &lt;&lt; next &lt;&lt; "->";
+            next = collatz[next].next;
+        }
+        cout &lt;&lt; 1 &lt;&lt; endl;
+    }
+}</p>
+
+<p>void printSteps(unsigned long long max) {
+    cout &lt;&lt; "n,steps" &lt;&lt; endl;
+    for(unsigned long long i=1;i&lt;=max;i++) {
+        cout &lt;&lt; i &lt;&lt; "," &lt;&lt; collatz[i].steps &lt;&lt; endl;
+    }
+}</p>
+
+<p>int main(int argc, char* argv[]) {
+    struct element e;
+    e.next = 4;
+    e.steps = 0;
+    collatz[1] = e;</p>
+
+<pre><code>unsigned long long maxCollatz = (unsigned long long) atoi(argv[1]);
+
+for (unsigned long long i = 2; i &lt;= maxCollatz; i++) {
+    insertCollatz(i);
+    saveULong = i;
+    if (i % 1000000 == 0) {
+        cerr &lt;&lt; i &lt;&lt; endl;
+    }
+}
+
+cerr &lt;&lt; "maxAddFromOneEntry: " &lt;&lt; maxAddFromOneEntry &lt;&lt; endl;
+cerr &lt;&lt; "maxStepsToOne: " &lt;&lt; maxStepsToOne &lt;&lt; endl;
+cerr &lt;&lt; "maxEntry: " &lt;&lt; maxEntry &lt;&lt; endl;
+cerr &lt;&lt; "entries: " &lt;&lt; collatz.size() &lt;&lt; endl;
+
+//printCollatz();
+printSteps(maxCollatz);
+
+return 0;
+</code></pre>
+
+<p>}
+[/cpp]</p>
+
+<p>Then I've processed it with R:</p>
+
+<p>[bash]R -f analyze.R[/bash]</p>
+
+<p>analyze.R:
+[text collapse="true"]
+library(ggplot2)
+memory.limit(4000)</p>
+
+<p>mydata = read.csv("/home/moose/Downloads/algorithms/collatz/steps.csv")</p>
+
+<h1>Prepare data</h1>
+
+<p>p&lt;-ggplot(mydata, aes ( x=n,y=steps ))</p>
+
+<p>p&lt;-p + geom_hex(bins=30)
+p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))</p>
+
+<h1>This will save the result in a pdf file called Rplots.pdf</h1>
+
+<p>p
+[/text]</p>
+
+<p>And finally, I've converted it to png:
+[bash]inkscape Rplots.pdf -w 512 --export-png=collatz-sequence-steps.png[/bash]</p>
+
+<p>I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
+
+<h2>Maximum in sequence</h2>
+
+
+<p>In the following plot you can see $n \in 1, \dots, 10,000,000$ on the $x$-axis and the maximum $y = \max({a<sup>n</sup>_i | i \in \mathbb{N}_{> 0}})$:</p>
+
+<p>[caption id="attachment_66391" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/maxInSequence.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/maxInSequence.png" alt="Hexagonal binpacking plot for maximum in sequence" width="512" height="512" class="size-full wp-image-66391" /></a> Hexagonal binpacking plot for maximum in sequence[/caption]</p>
+
+<p>[text collapse="true"]
+library(ggplot2)</p>
+
+<p>mydata = read.csv("../collatz-maxNumber.csv")</p>
+
+<h1>Prepare data</h1>
+
+<p>p&lt;-ggplot(mydata, aes(x=n, y=maximum)) + scale_y_log10()</p>
+
+<p>p&lt;-p + geom_hex(bins=50)
+p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))</p>
+
+<h1>This will save the result in a pdf file called Rplots.pdf</h1>
+
+<p>p
+[/text]</p>
+
+<h2>Execution times</h2>
+
+
+<p>Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.</p>
+
+<p>Inkscape didn't like the heavy plot:</p>
+
+<p>[bash]moose@pc07$ inkscape Rplots.pdf -w 512 --export-png=maxInSequence.png</p>
+
+<p>(inkscape:26733): GLib-ERROR **: /build/buildd/glib2.0-2.34.1/./glib/gmem.c:165: failed to allocate 3440640 bytes
+^CTrace/breakpoint trap (core dumped)
+[/bash]</p>
+
+<h2>Maximum in sequence and steps</h2>
+
+
+<p>[caption id="attachment_66481" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-sequence-and-steps-for-n.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/collatz-sequence-and-steps-for-n.png" alt="Maximum value and number of steps for n up to 10,000" width="512" height="512" class="size-full wp-image-66481" /></a> Maximum value and number of steps for n up to 10,000[/caption]</p>
+
+<h2>Read more</h2>
+
+
+<ul>
+  <li><a href="https://github.com/MartinThoma/algorithms/tree/master/collatz">All sources</a> of this article are on GitHub</li>
+  <li><a href="http://www.graphviz.org/Documentation/dotguide.pdf">Dot guide</a>, <a href="http://www.graphviz.org/doc/info/shapes.html">Node shapes</a></li>
+  <li><a href="http://wiki.ubuntuusers.de/R">R on UbuntuUsers</a> (German)</li>
+  <li><a href="http://projecteuler.net/problem=14">Project Euler 14</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

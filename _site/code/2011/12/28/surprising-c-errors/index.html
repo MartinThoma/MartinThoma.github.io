@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Surprising C errors</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Surprising C errors</h2>
+<p class="meta">28 Dec 2011</p>
+
+<div class="post">
+<p>Those errors might be surprising and a good exercise for C beginners:</p>
+
+<h2>Empty printf</h2>
+
+
+<p>[c]#include &lt;stdio.h></p>
+
+<p>int main()
+{
+    printf("");
+    return 0;
+}[/c]
+[bash]error: zero-length gnu_printf format string[/bash]</p>
+
+<h2>Macros</h2>
+
+
+<p>[c]#include &lt;stdio.h></p>
+
+<h1>define MY_MACRO printf("Hello World\n");</h1>
+
+<p>int main()
+{
+    if (1)
+        MY_MACRO;
+    else
+        printf("Crazy, huh?\n");</p>
+
+<pre><code>return 0;
+</code></pre>
+
+<p>}[/c]
+[bash]macro.c: In function &lsquo;main&rsquo;:
+macro.c:8: error: &lsquo;else&rsquo; without a previous &lsquo;if&rsquo;[/bash]</p>
+
+<h2>Single and Double quotes</h2>
+
+
+<p>[c]#include &lt;stdio.h></p>
+
+<p>int main()
+{
+    printf('hello, world\n');
+    return 0;
+}[/c]
+[bash]macro.c:5:9: warning: character constant too long for its type
+macro.c: In function &lsquo;main&rsquo;:
+macro.c:5: warning: passing argument 1 of &lsquo;printf&rsquo; makes pointer from integer without a cast
+/usr/include/stdio.h:339: note: expected &lsquo;const char * <strong>restrict</strong>&rsquo; but argument is of type &lsquo;int&rsquo;
+macro.c:5: warning: format not a string literal and no format arguments
+[/bash]</p>
+
+<p>Thanks to <a href="http://www.drpaulcarter.com/cs/common-c-errors.php#3.1">drpaulcarter.com</a> for this example:
+[c]int main()
+{
+    const char * myPointer = 'A';
+    (void) myPointer;
+    return 0;
+}[/c]
+[bash]macro.c: In function &lsquo;main&rsquo;:
+macro.c:3: warning: initialization makes pointer from integer without a cast
+[/bash]</p>
+
+<h2>Pointers</h2>
+
+
+<p>[c]#include &lt;string.h></p>
+
+<p>int main()
+{
+    char * myPointer;</p>
+
+<pre><code>strcpy(myPointer, "Hello World!");
+return 0;
+</code></pre>
+
+<p>}[/c]
+[bash]macro.c: In function &lsquo;main&rsquo;:
+macro.c:7: warning: &lsquo;myPointer&rsquo; is used uninitialized in this function
+[/bash]</p>
+
+<h2>Loops</h2>
+
+
+<p>[c]int main()
+{
+    int x = 42;
+    while( x > 0 );
+        x--;
+    return 0;
+}[/c]
+No compiler error, but an infinite loop.</p>
+
+<h2>Null terminator of Strings</h2>
+
+
+<p>[c]#include &lt;stdio.h></p>
+
+<h1>include &lt;stdlib.h></h1>
+
+<h1>include &lt;string.h></h1>
+
+<p>int main()
+{
+    char myArray[20];
+    printf("Characters: %i\n", strlen(myArray));
+    strcpy(myArray, "abc");
+    printf("Characters: %i\n", strlen(myArray));
+    strcpy(myArray, "Hello World!");
+    printf("Characters: %i\n", strlen(myArray));
+    printf("String: -%s-\n", myArray);
+    printf("Size: %i Byte\n\n", sizeof(myArray));</p>
+
+<pre><code>char * myString = malloc(strlen(myArray));
+strcpy(myString, myArray);
+printf("String: -%s-\n", myString);
+printf("Size: %i Byte\n", sizeof(myString));
+printf("Characters: %i\n\n", strlen(myString));
+
+char * breakIt = malloc(strlen(myString));
+strcpy(breakIt, myString);
+printf("String: -%s-\n", breakIt);
+printf("Size: %i Byte\n", sizeof(breakIt));
+printf("Characters: %i\n", strlen(breakIt));
+
+return 0;
+</code></pre>
+
+<p>}[/c]
+Again, you don't get a compiler error, but some strange results:
+[bash]Characters: 0
+Characters: 3
+Characters: 12
+String: -Hello World!-
+Size: 20 Byte</p>
+
+<p>String: -Hello World!-
+Size: 4 Byte
+Characters: 12</p>
+
+<p>String: -Hello World!-
+Size: 4 Byte
+Characters: 13
+[/bash]</p>
+
+<h2>Further reading</h2>
+
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/C_preprocessor">C Preprocessor</a> and <a href="http://en.wikipedia.org/wiki/C_preprocessor#Macro_definition_and_expansion">macros</a></li>
+  <li><a href="http://www.drpaulcarter.com/cs/common-c-errors.php#2.8">Pointer initialisation</a></li>
+  <li><a href="http://linux.die.net/man/3/strcpy">strcpy</a>, <a href="http://linux.die.net/man/3/strlen">strlen</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

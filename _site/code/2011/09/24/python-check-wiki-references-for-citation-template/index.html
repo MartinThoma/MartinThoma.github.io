@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Python: Check Wiki-references for citation template</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Python: Check Wiki-references for citation template</h2>
+<p class="meta">24 Sep 2011</p>
+
+<div class="post">
+<p>Wikipedia articles are full of references. Those references should be formatted the same way. It is much easier to use a template for citations than trying to guess the right way how to cite. Unfortunately most wikipedia users don't know the <a href="http://en.wikipedia.org/wiki/Template:Citation" title="Template:Citation">Template:Citation</a>.</p>
+
+<p>So I try to fix all manual styled citations when I edit an article. Doing this manually is quite time intensive. This is the reason why I wrote a little Python-script.</p>
+
+<h2>Examples</h2>
+
+
+<p>[html]<ref>[http://peter.mapledesign.co.uk/weblog/archives/python-is-slow Python is... slow?] December 21st, 2004 &mdash; Peter Bowyer&rsquo;s weblog]</ref>[/html]</p>
+
+<p>should be</p>
+
+<p>[html]<ref>{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}</ref>[/html]</p>
+
+<p>[html]<ref>[http://www.nongnu.org/pydbc/ Contracts for Python], PyDBC</ref>[/html]
+should be
+[html]{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}[/html]</p>
+
+<p>So, all that has to be done is</p>
+
+<ol>
+    <li>Finding all <ref>-Tags without a template in one article</li>
+        <li>Trying to find the URL of this reference</li>
+        <li>Filling out as much as possible for the user</li>
+        <li>Asking the user for missing information</li>
+        <li>Returning the new article wiki source code</li>
+</ol>
+
+
+
+
+<h2>Downloading wiki source code</h2>
+
+
+<p>Wikipedia offers an <a href="http://en.wikipedia.org/w/api.php" title="Wikipedia API">API</a> for accessing the needed information. I will use this API and Pythons <a href="http://docs.python.org/library/optparse.html">optparse</a>, <a href="http://www.crummy.com/software/BeautifulSoup/documentation.html">BeautifulSoup</a> and <a href="http://docs.python.org/library/htmlparser.html">HTMLParser</a> to get the raw wiki text in UTF-8 encoding:</p>
+
+<script src="https://gist.github.com/5555251.js"> </script>
+
+
+<p>We are now able to access the needed information. Now we need to get the references without templates. To do so, I will use the <a href="http://docs.python.org/library/re.html">Python re module</a>:</p>
+
+<script src="https://gist.github.com/5555251.js"> </script>
+
+
+<p>Here is the full script:</p>
+
+<script src="https://gist.github.com/5555251.js"> </script>
+
+
+<p>This can be improved in several ways:</p>
+
+<ul>
+    <li>Checking automatically the title / dead links</li>
+    <li>Trying to find the publication date automatically</li>
+    <li>Skip links with <a href="http://en.wikipedia.org/wiki/Template:Dead_link" title="Template:Dead link">Templade:Dead link</a></li>
+    <li>Search also for <ref name="xyz">Text</ref></li>
+</ul>
+
+
+<p>Here is the <a href="http://en.wikipedia.org/w/index.php?title=Python_%28programming_language%29&action=historysubmit&diff=452167384&oldid=452164712">Wikipedia diff page</a>. My little script seems to work.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

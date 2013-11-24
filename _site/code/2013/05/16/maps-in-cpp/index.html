@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Maps in C++</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Maps in C++</h2>
+<p class="meta">16 May 2013</p>
+
+<div class="post">
+<p>Maps are one of the most useful datastructures in C++ and there is no excuse for not knowing it.</p>
+
+<p>Here is a basic example that shows how you can use it:</p>
+
+<p>[cpp]</p>
+
+<h1>include <iostream> // cout</h1>
+
+<h1>include <string></h1>
+
+<h1>include <map></h1>
+
+<p>using namespace std;</p>
+
+<p>int main() {
+    map&lt;string, string> phonebook;</p>
+
+<pre><code>// Put some stuff in it
+phonebook["Martin"] = "(0123) 45 678";
+phonebook["Alice"] = "+(13) 37 0000";
+phonebook["Bob"]   = "+(13) 37 0000";
+phonebook["Charlie"] = "Alice";
+
+// Look stuff up
+cout &lt;&lt; "The phone number of Alice is " 
+     &lt;&lt; phonebook["Alice"] &lt;&lt; endl;
+
+cout &lt;&lt; "Number of phone book entries: "
+     &lt;&lt; phonebook.size() &lt;&lt; endl;
+
+// Print everything
+cout &lt;&lt; "Iterate over all phonebook entries: " &lt;&lt; endl;
+for(map&lt;string,string&gt;::iterator it=phonebook.begin(); 
+    it!=phonebook.end(); ++it) {
+    cout &lt;&lt; "\t" &lt;&lt; (*it).first &lt;&lt; ": " &lt;&lt; (*it).second &lt;&lt; endl;
+}
+
+// Check if entry exists:
+string person = "Bob";
+cout &lt;&lt; "Does " &lt;&lt; person &lt;&lt; " have a phone number ?" &lt;&lt; endl;
+map&lt;string,string&gt;::iterator it = phonebook.find(person);
+if(it != phonebook.end()) {
+    //element found:
+    cout &lt;&lt; "\t" &lt;&lt; "Yes! His number is: " &lt;&lt; it-&gt;second &lt;&lt; endl;
+} else {
+    cout &lt;&lt; "\t" &lt;&lt; "No." &lt;&lt; endl;
+}
+</code></pre>
+
+<p>}
+[/cpp]</p>
+
+<h2>See also</h2>
+
+
+<ul>
+  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Map_(computer_science)">Map (Computer Science)</a></li>
+  <li>C++ Reference: <a href="http://www.cplusplus.com/reference/map/map/">general information</a> and <a href="http://www.cplusplus.com/reference/map/map/map/">example</a></li>
+  <li>Map is ordered collection (<a href="http://stackoverflow.com/a/4562771/562769">source</a>)</li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

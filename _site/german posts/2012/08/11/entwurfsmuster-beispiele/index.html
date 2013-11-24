@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Entwurfsmuster-Beispiele</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Entwurfsmuster-Beispiele</h2>
+<p class="meta">11 Aug 2012</p>
+
+<div class="post">
+<h2>Singleton</h2>
+
+
+<p><strong>Zweck</strong>: Stelle sicher, dass es nur eine Instanz dieser Klasse gibt.
+<strong>Beispiel</strong>: <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html#getRuntime%28%29">java.lang.Runtime.getRuntime()</a>
+[java]public class Singleton {
+    // an instance of a singleton
+    private static Singleton instance = null;</p>
+
+<pre><code>// private default constructor to prevent the external creation
+// of more instances
+private Singleton() {
+}
+
+// static method which returns the instance
+public static synchronized Singleton getInstance() {
+    if (instance == null) {
+        instance = new Singleton();
+    }
+    return instance;
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<h2>Bequemlichkeitsklasse</h2>
+
+
+<p><strong>Zweck</strong>: Faulheit - mache Methodenaufrufe durch &auml;nderbare default-Parameter einfacher.
+Das Bequemlichkeitsmuster ist einfach das &Uuml;berladen einer Methode:
+[java]public class Bequemlichkeitsklasse {
+    // convenience class
+    int v1, v2, v3;</p>
+
+<pre><code>int anfrage(int p1, int p2, int p3) {
+    return p1 * p2 * p3;
+}
+
+int anfrage(int p1) {
+    return anfrage(p1, v2, v3);
+}
+
+int anfrage() {
+    return anfrage(v1, v2, v3);
+}
+
+void setzeZustand(int p1, int p2, int p3) {
+    v1 = p1;
+    v2 = p2;
+    v3 = p3;
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<h2>Schablonenmethode</h2>
+
+
+<p>Siehe <a href="http://martin-thoma.com/java-puzzle-9-template-method-pattern">Java Puzzle #9: Template method pattern</a>.</p>
+
+<h2>Siehe auch</h2>
+
+
+<ul>
+  <li><a href="http://stackoverflow.com/a/2707195/562769">Examples of GoF Design Patterns in Java</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

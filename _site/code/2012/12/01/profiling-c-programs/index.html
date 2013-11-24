@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Profiling C programs</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Profiling C programs</h2>
+<p class="meta">01 Dec 2012</p>
+
+<div class="post">
+<p>If you have a working program and you want to improve its execution speed, you might want to profile it. An easy way to do so, is adding global variables, increasing them at interesting points and counting how often these points are executed. A more sophisticated way is using a profiler.</p>
+
+<h2>valgrind and kcachegrind</h2>
+
+
+<p>Install valgrind and kcachegrind. For Ubuntu users:
+[bash]sudo apt-get install valgrind kcachegrind[/bash]</p>
+
+<p>Create a profile:
+[bash]valgrind --tool=callgrind ./connectfour[/bash]
+(I've profiled a connect four application. Replace that with your application)
+This command will create a file called similar to "callgrind.out.4846".</p>
+
+<p>Take a look at the profile:
+[bash]kcachegrind callgrind.out.4846[/bash]</p>
+
+<p>You can also create a call-graph:
+[caption id="attachment_49691" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/11/call-graph2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/11/call-graph2.png" alt="Call graph of connect four game graph creation program" title="Call graph of connect four game graph creation program" width="512" height="601" class="size-full wp-image-49691" /></a> Call graph of connect four game graph creation program[/caption]</p>
+
+<p>Just take a look at it by yourself. You will see much more than I could tell you now.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

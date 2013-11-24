@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Converting Files with Linux</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Converting Files with Linux</h2>
+<p class="meta">21 Sep 2011</p>
+
+<div class="post">
+<p>The following tipps work under a Linux terminal and were tested with Ubuntu 10.04 LTS.</p>
+
+<p>I guess they will also work with other systems, as the programs are available for them.</p>
+
+<p>If you know some further file conversions, please let me know.</p>
+
+<p>I am also very interested in Web based conversions.</p>
+
+<h2>Image Files</h2>
+
+
+<p>If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.</p>
+
+<p><b>Resize Images to a maximum resolution</b>
+[bash]convert "OldPicture.jpg" -resize 1600x1600 "NewPicture.jpg"[/bash]</p>
+
+<p><b>Create a Black-and-white picture and compress it</b>:
+[bash]djpeg "OldPicture.jpg" | ppmtopgm | cjpeg -qual 70 >"NewPicture.jpg"[/bash]</p>
+
+<p><b>Rename Pictures</b>:
+[bash]rename -n &rsquo;s/.jpg$/.JPG/&rsquo; *.jpg[/bash]</p>
+
+<h2>Audio Files</h2>
+
+
+<p><b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):
+[bash]mp3gain -a *.mp3[/bash]</p>
+
+<p><b>Merge many audio files to one</b>:
+[bash]mp3wrap merged.mp3 one.mp3 two.mp3[/bash]</p>
+
+<p><b>Convert all <em>.wav-files in one folder two </em>.mp3-files and remove the <em>.wav-files</b>:
+[bash]for i in </em>.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done[/bash]</p>
+
+<h2>
+Video Files</h2>
+
+
+<p>For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
+You might also want to install some codecs first:
+[bash]sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras[/bash]</p>
+
+<p><b>Merge many video files to one</b>:
+[bash]cat One.mpg Two.mpg Three.mpg | ffmpeg -f mpeg -i - -vcodec copy -acodec copy "Merged.mpg"[/bash]</p>
+
+<p><b>avi2mpg</b>:
+[bash]ffmpeg -i "Original.avi" "New.mpg"[/bash]</p>
+
+<p><b>mp42mpg</b>:
+[bash]ffmpeg -i "Original.mp4" -target ntsc-vcd "New.mpg"[/bash]</p>
+
+<p><b>mod2avi</b>:
+?</p>
+
+<p><b>vcd2avi</b>:
+[bash]mencoder vcd://2 -o "New.avi" -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=2000[/bash]</p>
+
+<p><b>ogv2avi</b>:
+[bash]mencoder "Original.ogv" -ovc xvid -oac mp3lame -xvidencopts pass=1 -o "New.avi"[/bash]</p>
+
+<p><b>wmv2mpg</b>:
+aspect=16/9 should eventually be changed to 4/3 or other aspects
+[bash]mencoder -of avi -ofps 25 \
+  -oac mp3lame -lameopts cbr:br=112:aq=3:mode=0:vol=0 \
+  -vf hqdn3d,softskip,harddup \
+  -ovc xvid \
+  -xvidencopts bitrate=501:max_key_interval=37:aspect=16/9:turbo:nochroma_me:notrellis:max_bframes=0:vhq=0 \
+  Original.wmv \
+  -o New.avi
+[/bash]</p>
+
+<p><b>mkv2avi</b>:
+[bash]mencoder "Original.mkv" -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=6000 -oac mp3lame -lameopts vbr=3 -o "New.avi"[/bash]</p>
+
+<h3>Converting Flash Videos flv to mpg</h3>
+
+
+<p>You might want to get the information of the video first:
+[bash]ffmpeg -i inputVideo.flv[/bash]</p>
+
+<p>This is how you convert it:
+[bash]ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg[/bash]
+<strong>-i</strong> input file
+<strong>-acodec</strong> audio codec
+<strong>-ab</strong> audio bitrate
+<strong>-s</strong> size
+<strong>-r</strong> fps where fps is the frame rate in Hz. The default value is 25Hz.</p>
+
+<h3>Converting Flash Videos flv to avi</h3>
+
+
+<p>[bash]ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi[/bash]</p>
+
+<h2>Shortcuts for Linux Console</h2>
+
+
+<p>I convert svg2png or pdf2png quite often for my articles. So I've created a command.</p>
+
+<p>You can create a command in Linux very easy:</p>
+
+<ol>
+  <li>Enter <code>echo $PATH</code> in your console</li>
+  <li>Go to <code>/usr/bin</code> or any other path in your PATH</li>
+  <li>Create a file with the name of your command (e.g. svg2png)</li>
+  <li>Fill the fill (see below for some examples).</li>
+  <li>Make it executable: <code>chmod +x svg2png</code></li>
+</ol>
+
+
+<p>My <code>svg2png</code> looks like this:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;convert a svg file to png&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="s">&quot;--input&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;input&quot;</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">&quot;read svg file&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--output&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;output&quot;</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">&quot;output png file&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-w&quot;</span><span class="p">,</span> <span class="s">&quot;--width&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;width&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
+                  <span class="n">help</span><span class="o">=</span><span class="s">&quot;width of output png&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">command</span> <span class="o">=</span> <span class="s">&quot;inkscape &quot;</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">input</span> <span class="o">+</span> \
+          <span class="s">&quot; -w &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; --export-png=&quot;</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Executed command: &quot;</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>My pdf2png looks like this:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;convert a svg file to png&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="s">&quot;--input&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;input&quot;</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">&quot;read svg file&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--output&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;output&quot;</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">&quot;output png file&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-w&quot;</span><span class="p">,</span> <span class="s">&quot;--width&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;width&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
+                  <span class="n">help</span><span class="o">=</span><span class="s">&quot;width of output png&quot;</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">commands</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;pdf2svg &quot;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">&quot; ~&quot;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">&quot;.svg&quot;</span><span class="p">)</span>
+<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;inkscape ~&quot;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">&quot;.svg --export-plain-svg=~&quot;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">&quot;.svg&quot;</span><span class="p">)</span>
+<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;svg2png -i ~&quot;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">&quot;.svg -o &quot;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="o">+</span><span class="s">&quot; -w &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">))</span>
+<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;rm ~&quot;</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">&quot;.svg&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Executed command: &quot;</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Debugging a C program</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Debugging a C program</h2>
+<p class="meta">30 Nov 2012</p>
+
+<div class="post">
+<p>As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn't even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I <strike>didn't</strike> don't know any good online resource for C, so I've always searched with Google for answers to questions that I couldn't properly formulate. One question that is important for beginners is <a href="http://stackoverflow.com/q/12949290/562769">How do I find missing C header files (without Internet)?</a> and another one might be: How can I debug my programs?</p>
+
+<h2>Compile time vs. runtime</h2>
+
+
+<p>A typical C workflow looks like this: You have an idea, you write your code, you compile it and you run it.
+[caption id="attachment_49641" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/11/c-workflow.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/11/c-workflow.png" alt="C workflow" title="C workflow" width="512" height="229" class="size-full wp-image-49641" /></a> C workflow[/caption]</p>
+
+<p>You might make multiple errors. Simple typos or syntax errors are almost always detected at compile time. They are called "compile time errors". Others, like the access of an array-index that isn't in the array might only occur sometimes at runtime, depending on the input. Those are runtime errors and they are much more difficult to detect. Additionally, they can not be reproduced that easily as compile time errors can.</p>
+
+<h2>gdb</h2>
+
+
+<p>If you want to find runtime errors, you should deactivate all optimization flags and add debugging symbols. A gcc call might look like this:</p>
+
+<p>[bash]gcc mySourceFile.c -g[/bash]</p>
+
+<p>This produces a binary file called "a.out".</p>
+
+<p>Now should run gdb - GNU debug:
+[bash]gdb ./a.out[/bash]</p>
+
+<p>Within the command line program GNU debug you have to enter:
+[bash]run ./a.out[/bash]</p>
+
+<p>You should now be able to see the line in which the runtime-error occurs.</p>
+
+<h2>valgrind</h2>
+
+
+<p>You might want to give valgrind a try.</p>
+
+<p><em>Uninitialised value was created by a stack allocation at 0x80488BC</em>: This could mean that you used an uninitialized variable. Check your variable initializations from the given point. Add <code>--track-origins=yes&lt;/code and run valgrind again.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

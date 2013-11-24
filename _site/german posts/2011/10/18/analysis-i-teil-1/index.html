@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Analysis I - Teil 1</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Analysis I - Teil 1</h2>
+<p class="meta">18 Oct 2011</p>
+
+<div class="post">
+<h2>Begriffe und Bezeichnungen</h2>
+
+
+<h3>Mengen</h3>
+
+
+<p>Es seien M und N Mengen.</p>
+
+<p>$M \cup N$: Vereinigung - Die Elemente sind in M oder N
+$M \cap N$: Durchschnitt ("Schnittmenge") - Die Elemente sind in M und N
+$M \setminus N$: Differenzmenge - Die Elemente sind in M aber nicht in N
+$M \subseteq N$: Teilmenge - Alle Elemente in M sind auch in N
+$\emptyset$: Leere Menge
+$a \in M$: a ist ein Element von M
+$a \notin M$: a ist kein Element von M</p>
+
+<h3>Funktionen</h3>
+
+
+<p>Seien M, N Mengen mit $M \neq \emptyset \neq N$.
+$f: \underbrace{M}<em>{\mathbb{D}} \to \underbrace{N}</em>{\mathbb{W}}$</p>
+
+<h3>Logische Zeichen</h3>
+
+
+<p>$\Rightarrow$: Implikation, z.B. $A \Rightarrow B$: Aus A folgt B
+$\Leftrightarrow$: &Auml;quivalenz. $A \Rightarrow B \wedge B \Rightarrow A$: Aus A folgt B und umgekehrt.
+$\underbrace{: \Leftrightarrow}_\text{"genau dann"}$, z.B. $M \subseteq N : \Leftrightarrow \text{aus } x \in M \text{ folgt stets } x \in N$.
+$\forall$: <a href="http://de.wikipedia.org/wiki/Existenzquantor#Existenz-_und_Allquantor">Allquantor</a>, sprich "f&uuml;r alle" oder "f&uuml;r jedes"
+$\exists$: <a href="http://de.wikipedia.org/wiki/Existenzquantor#Existenz-_und_Allquantor">Existenzquantor</a>, sprich "es gibt mindestens ein" oder "es existiert"</p>
+
+<h2>Reele Zahlen</h2>
+
+
+<p>Die Grundmenge der Analysis ist die Menge $\mathbb{R}$, die Menge der reelen Zahlen. Diese f&uuml;hren wir durch die folgenden 15 Axiome ein.</p>
+
+<h3>K&ouml;rperaxiome</h3>
+
+
+<p>In $\mathbb{R}$ seien zwei Verkn&uuml;pfungen "+" und "&middot;" gegeben. Sie ordnen jedem Paar $a, b \in \mathbb{R}$ genau ein $ab := a \cdot b \in \mathbb{R}$ zu. Dabei soll gelten:</p>
+
+<p>$\left. \begin{array}{lllll}
+A.1 &amp; a+    (b+c)  &amp; = &amp; (a+b)+c      &amp; \forall a, b, c \in \mathbb{R} \
+A.2 &amp; a \cdot (bc) &amp; = &amp; (ab) \cdot c &amp; \forall a, b, c \in \mathbb{R} \
+\end{array} \right } \text{Assoziativgesetze}$</p>
+
+<p>$\left. \begin{array}{lllll}
+A.3 &amp; a  +    b &amp; = &amp; b  +     a &amp; \forall a, b \in \mathbb{R} \
+A.4 &amp; a \cdot b &amp; = &amp; b) \cdot a &amp; \forall a, b \in \mathbb{R} \
+\end{array} \right } \text{Kommutativgesetze}$</p>
+
+<p>$\left. \begin{array}{lllll}
+A.5 &amp; \exists 0 \in \mathbb{R} &amp; : &amp; a +     0 = a                  &amp; \forall a \in \mathbb{R} \text{ ("Null")} \
+A.6 &amp; \exists 1 \in \mathbb{R} &amp; : &amp; a \cdot 1 = a  \wedge 1 \neq 0 &amp; \forall a \in \mathbb{R} \text{ ("Eins")} \
+\end{array} \right } \text{Neutrales Element}$</p>
+
+<p>$\left. \begin{array}{lllll}
+A.7 &amp; \forall a \in \mathbb{R} \exists -a \in \mathbb{R} &amp; : &amp; a + (-a) = 0 \
+A.8 &amp; \forall a \in \mathbb{R} \setminus {0} \exists -a^{-1} \in \mathbb{R} &amp; : &amp; a \cdot a^{-1} = 1
+\end{array} \right } \text{Inverses Element}$</p>
+
+<p>$\text{A.9 } a(b+c) = ab+ac \forall a, b, c \in \mathbb{R}$: Distributivgesetz</p>
+
+<p>Schreibweisen: f&uuml;r $a, b \in \mathbb{R}: a -b := a + (-b)$
+f&uuml;r $b \neq 0: \frac{a}{b} := a \cdot b^{-1}$</p>
+
+<p>Alle Rechenregeln bzgl der Grundrechenarten lassen sich aus A.1 - A.9 herleiten. Diese Regeln seien von nun an bekannt.</p>
+
+<p><strong>Behauptung</strong>: Es existiert genau ein $0 \in \mathbb{R}: a+0 = a \forall a \in \mathbb{R}$
+<strong>Beweis</strong>:
+Existenz: folgt aus A.5
+Eindeutigkeit: Sei $\tilde 0 \in \mathbb{R} \text{ mit }a+\tilde 0 a \forall a \in \mathbb{R}$
+Mit $a = 0: 0 = 0 + \tilde 0 \underbrace{=}<em>{\text{A.3}} \tilde 0 + 0 \underbrace{=}</em>{\text{A.5}} = \tilde 0$</p>
+
+<p><strong>Behauptung</strong>: Ist $a \in \mathbb{R}\text{, so ist }a \cdot 0 = 0$
+<strong>Beweis</strong>: $ b := a \cdot 0 \underbrace{\Rightarrow}_\text{A.5} b = a (0 + 0) \Rightarrow a \cdot 0 + a \cdot 0 = b + b$
+$0 = b + (-b) = (b+b) + (-b) = b + (b + (-b)) = b + 0 = b$</p>
+
+<h3>Anordnungsaxiome</h3>
+
+
+<p>In $\mathbb{R}$ sei eine Relation "$\leq$" gegeben. Dabei soll gelten:</p>
+
+<p>$
+\begin{array}{lll}
+A.10 &amp; a \leq b \lor  b \leq a &amp; \forall a, b \in \mathbb{R} \
+A.11 &amp; a \leq b \land b \leq a &amp; \rightarrow a = b \
+A.12 &amp; a \leq b \land b \leq c &amp; \rightarrow a \leq c \
+A.13 &amp; a \leq b \rightarrow a + c \leq b + c &amp; \forall c \in \mathbb{R} \
+A.14 &amp; a \leq b \land 0 \leq c \Rightarrow a \leq c
+\end{array}
+$</p>
+
+<p>Schreibweise:
+$a \geq b: \Leftrightarrow b \geq a$
+$a \lt b: \Leftrightarrow a \leq b \land a \neq b$
+$a \gt b: \Leftrightarrow b \lt a$</p>
+
+<p>Alle Regeln f&uuml;r Ungleichungen lassen sich aus A.1 - A.14 herleiten. Diese Regeln seien nun bekannt.</p>
+
+<p><strong>Definition</strong>: F&uuml;r $a \in \mathbb{R}$ sei
+$|a| : =
+\left { \begin{array}{ll}
+a  &amp; \text{, falls } a \geq 0 \
+-a &amp; \text{, falls } a \lt 0
+\end{array}
+\right.$</p>
+
+<p>Anschaulich: Der Betrag misst den absoluten Abstand zur 0 auf dem Zahlenstrahl.</p>
+
+<p>$|a-b| \mathrel{\widehat{=}} \text{Abstand von a und b}$</p>
+
+<p><strong>Satz</strong>: Seien $a, b \in \mathbb{R}$. Dann:</p>
+
+<ul>
+  <li>$|a| \geq 0$</li>
+  <li>$|ab| = |a| \cdot |b|$</li>
+  <li>$\pm a \leq |a|$</li>
+  <li>$|a+b| \leq |a| + |b|$: Dreiecksungleichung</li>
+  <li>$| |a| - |b| | \leq | a-b|$</li>
+</ul>
+
+
+<p><strong>Beweis</strong>: 1, 2, 3 leichte &Uuml;bung
+<strong>Beweis von 4.</strong>:
+Fall 1: $a+b \geq 0$. Dann $|a+b| = a + b \leq |a| + |b|$
+Fall 2: $a+b \lt 0$. Dann $|a+b| = -(a+b) = (-a) + (-b) \leq |a| + |b|$
+<strong>Beweis von 5.</strong>:
+$c := |a| - |b|$. Es ist $|a| = |a - b + b| \leq |a - b | + |b| \Rightarrow |a| - |b| \leq |a - b|$, also $c \leq |a - b|$</p>
+
+<p>Analog: $ -c = |b| - |a| \leq |b-a| = |a - b|$.
+Es ist $| |a| - |b| | = c \text{ oder } = -c$.</p>
+
+<h3>Intervalle</h3>
+
+
+<p>Seien $a, b \in \mathbb{R} \land a \lt b$.</p>
+
+<p>$(a,b)      := {x \in \mathbb{R} a \lt  x \lt  b}$: offenes Intervall
+$[a,b]      := {x \in \mathbb{R} a \leq x \leq b}$: geschlossenes Intervall
+$(a,b]      := {x \in \mathbb{R} a \lt x \leq b}$: halboffenes Intervall
+$[a,\infty) := {x \in \mathbb{R} a \leq x }$.
+$(a,\infty) := {x \in \mathbb{R} a \lt x }$.
+$(-\infty,a]:= {x \in \mathbb{R} x \leq a }$.
+$(-\infty,\infty):= \mathbb{R}$.
+$[a,a]:= {a}$: entartetes Intervall</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>A practical approach to floats</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>A practical approach to floats</h2>
+<p class="meta">23 Oct 2012</p>
+
+<div class="post">
+<p>If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:</p>
+
+<p>[caption id="attachment_47381" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/10/IEEE_754_single_precision.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/10/IEEE_754_single_precision.png" alt="IEEE 754 single precision" title="IEEE 754 single precision" width="500" height="74" class="size-full wp-image-47381" /></a> IEEE 754 single precision[/caption]</p>
+
+<p>[caption id="attachment_47361" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/10/float-scheme.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/10/float-scheme.png" alt="Example of a floating point number" title="Example of a floating point number" width="500" height="64" class="size-full wp-image-47361" /></a> Example of a floating point number[/caption]</p>
+
+<p>You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.</p>
+
+<p>So this is how you can check it:
+[c]#include &lt;stdint.h></p>
+
+<h1>include &lt;stdio.h> // printf</h1>
+
+<h1>include &lt;limits.h> // INT_MAX, UINT_MAX, ...</h1>
+
+<h1>include &lt;math.h>   // needed for NAN</h1>
+
+<p>union myUnion {
+    uint32_t i; // unsigned integer 32-bit type (on every machine)
+    float f; // a type you want to play with
+};</p>
+
+<p>void printValue(union myUnion u) {
+    printf("uint32_t\t:\t%u\n", u.i);
+    printf("Bits\t\t:\t");
+    for (int i = 31; i >= 0; i--) {
+        printf("%i", (u.i >> i) % 2);
+        if (i != 0 &amp;&amp; i % 4 == 0) {
+            printf(".");
+        }
+        if (i == 31 || i == 23) {
+            printf("|");
+        }
+    }
+    printf("\nNumber\t\t:\t%0.10f\n\n", u.f);
+}</p>
+
+<p>void setSign(union myUnion *u, char sign) {
+    u->i = (u->i &amp; (0xffffffff - (1 &lt;&lt; 31))) + (sign &lt;&lt; 31);
+}</p>
+
+<p>/<em><em>
+ * The exponent has 8 bits.
+ * When all bits are 0, you switch to denormalized numbers.
+ * When all bits are 1, you get either NaN or infinity, depending on
+ * your characteristic. If the characteristic is 0, you get infinity.
+ * Otherwise NaN.
+ </em>/
+void setExponent(union myUnion </em>u, char exponent) {
+    u->i = (u->i &amp; (0xffffffff - (0xff &lt;&lt; 23))) + (exponent &lt;&lt; 23);
+}</p>
+
+<p>/<em><em>
+ * The mantissa has 23 bits.
+ </em>/
+void setMantissa(union myUnion </em>u, int mantissa) {
+    u->i = (u->i &amp; (0xffffffff - (0xff &lt;&lt; 0))) + (mantissa &lt;&lt; 0);
+}</p>
+
+<p>int main() {
+    union myUnion testVar;</p>
+
+<pre><code>printf("Manual guessing\n");
+testVar.i = 0;
+setSign(&amp;amp;testVar, 1);
+setExponent(&amp;amp;testVar, 0x01);
+setMantissa(&amp;amp;testVar, 0x00);
+printValue(testVar);
+
+printf("What does UINT_MAX evaluate to?\n");
+testVar.i = UINT_MAX;
+printValue(testVar);
+
+printf("What does nan evaluate to?\n");
+testVar.f = NAN;
+printValue(testVar);
+
+printf("The example above and switched first bit on\n");
+testVar.i = 0xbf200000;
+printValue(testVar);
+</code></pre>
+
+<p>}[/c]</p>
+
+<p>I think I have tried all interesting values. Have fun trying it yourself :-)</p>
+
+<p>(hmm ... I could also try to make a visualization ... I will think about this when I have more time)</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>When is matrix multiplication commutative?</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>When is matrix multiplication commutative?</h2>
+<p class="meta">14 Jul 2012</p>
+
+<div class="post">
+<p>Matrix multiplication in general is not commutative. Here is an example:</p>
+
+<p>$A, B \in R^{2 \times 2}$
+$A := \begin{pmatrix}
+ 1 &amp; 2 \
+ 3 &amp; 4
+\end{pmatrix}$
+$B := \begin{pmatrix}
+ 5 &amp; 6 \
+ 7 &amp; 8
+\end{pmatrix}$</p>
+
+<p>$A \cdot B = \begin{pmatrix}
+ 19 &amp; 22 \
+ 43 &amp; 50
+\end{pmatrix} \neq
+\begin{pmatrix}
+ 23 &amp; 34 \
+ 31 &amp; 46
+\end{pmatrix} = B \cdot A$</p>
+
+<h2>When is 2x2 matrix multiplication commutative?</h2>
+
+
+<p>$\begin{pmatrix}
+ a &amp; b \
+ c &amp; d
+\end{pmatrix} \cdot
+\begin{pmatrix}
+ e &amp; f \
+ g &amp; h
+\end{pmatrix} =
+\begin{pmatrix}
+ae + bg &amp; af + bh \
+ce + dg &amp; cf + dh
+\end{pmatrix}$</p>
+
+<p>$\begin{pmatrix}
+ e &amp; f \
+ g &amp; h
+\end{pmatrix} \cdot
+\begin{pmatrix}
+ a &amp; b \
+ c &amp; d
+\end{pmatrix} =
+\begin{pmatrix}
+ae + cf &amp; be + df \
+ag + ch &amp; bg + dh
+\end{pmatrix}$</p>
+
+<p>So you get four equations:
+$\begin{eqnarray<em>}
+I)   &amp; ae + bg &amp;= ae + cf &amp;\Leftrightarrow bg = cf \
+II)  &amp; af + bh &amp;= be + df\
+III) &amp; ce + dg &amp;= ag + ch\
+IV)  &amp; cf + dh &amp;= bg + dh &amp;\Leftrightarrow cf = bg
+\end{eqnarray</em>}$</p>
+
+<p>You might note that (I) is the same as (IV). So you have those equations:
+$\begin{eqnarray<em>}
+I)   &amp; bg = cf \
+II)  &amp; af + bh &amp;= be + df &amp; \Leftrightarrow f (a - d) = b (e - h)\
+III) &amp; ce + dg &amp;= ag + ch &amp; \Leftrightarrow g (a - d) = c (e - h)
+\end{eqnarray</em>}$</p>
+
+<h3>Case #1: a != d and e != h</h3>
+
+
+<p>$\begin{eqnarray<em>}
+I)   &amp; bg          &amp;= cf \
+II)  &amp; \frac{f}{g} &amp;= \frac{b}{c} \Leftrightarrow cf = bg
+\end{eqnarray</em>}$</p>
+
+<p>Now (I) and (II) are essentially the same. So we only demand that $ bg = cf$ and $a \neq d$ and $e \neq h$ for commutative matrix multiplication of $2 \times 2$ matrices.</p>
+
+<h3>Case #2.1: a == d</h3>
+
+
+<p>$\begin{eqnarray<em>}
+I)   &amp; bg &amp;= cf \
+II)  &amp; 0  &amp;= b (e - h)\
+III) &amp; 0  &amp;= c (e - h)
+\end{eqnarray</em>}$</p>
+
+<p>So you end up with:
+($e = h$ and $bg = cf$) or ($b = c = 0$)</p>
+
+<h3>Case #2.2: e == h</h3>
+
+
+<p>$\begin{eqnarray<em>}
+I)   &amp; bg &amp;= cf \
+II)  &amp; f (a - d) &amp;= 0\
+III) &amp; g (a - d) &amp;= 0
+\end{eqnarray</em>}$</p>
+
+<p>So you end up with:
+($a = d$ and $bg = cf$) or ($f = g = 0$)</p>
+
+<h2>Special Cases</h2>
+
+
+<p>Matrix multiplication is always commutative if ...</p>
+
+<ul>
+  <li>... one matrix is the <a href="http://en.wikipedia.org/wiki/Identity_matrix">Identity matrix</a>.</li>
+  <li>... one matrix is the <a href="http://en.wikipedia.org/wiki/Zero_matrix">Zero matrix</a>.</li>
+  <li>... both matrices are <a href="http://en.wikipedia.org/wiki/Rotation_matrix">rotation matrices</a>. (basically case #2)</li>
+  <li>... both matrices are <a href="http://en.wikipedia.org/wiki/Diagonal_matrix">Diagonal matrices</a>.</li>
+</ul>
+
+
+
+
+<h2>Simultaneous diagonalization</h2>
+
+
+<p>Two matrices $A, B \in R^{n \times n}$ are called simultaneous diagonalizable $: \Leftrightarrow$ one matrix $S \in R^{n \times n}$ exists, such that $D_A = S^{-1} \cdot A \cdot S$ and $D_B = S^{-1} \cdot B \cdot S$ with $D_A$ and $D_B$ are diagonal matrices.</p>
+
+<p><strong>Statement</strong>: $A, B \in \mathbb{R}^{n \times n}$ are simultaneous diagonalizable $\Rightarrow A \cdot B = B \cdot A$
+<strong>Proof</strong>:
+As A and B are simultaneous diagonalizable, a matrix $T \in \mathbb{R}^{n \times n}$ exists, such that $D_A = S^{-1} \cdot A \cdot S$ and $D_B = S^{-1} \cdot B \cdot S$ with $D_A$ and $D_B$ are diagonal matrices.</p>
+
+<p>$
+\begin{align}
+\Rightarrow A \cdot B &amp;= S \cdot D_A S^{-1} \cdot  S \cdot D_B \cdot S^{-1} \
+&amp;= S \cdot D_A \cdot D_B \cdot S^{-1} \
+&amp;= S \cdot D_B \cdot D_A \cdot S^{-1} \
+&amp;= S \cdot D_B \cdot S^{-1} \cdot  S \cdot D_A \cdot S^{-1} \
+&amp;= B \cdot A \blacksquare
+\end{align}
+$</p>
+
+<p><strong>Statement</strong>: $A \cdot B = B \cdot A \nRightarrow A, B \in \mathbb{R}^{n \times n}$ are simultaneous diagonalizable.
+<strong>Proof</strong>: by Counter-Example
+$\begin{pmatrix}0 &amp; 1 \
+0 &amp; 0\end{pmatrix} \cdot
+\begin{pmatrix}1 &amp; 0 \
+0 &amp; 1\end{pmatrix} =
+\begin{pmatrix}1 &amp; 0 \
+0 &amp; 1\end{pmatrix} \cdot
+\begin{pmatrix}0 &amp; 1 \
+0 &amp; 0\end{pmatrix}$, but
+$\begin{pmatrix}0 &amp; 1 \
+0 &amp; 0\end{pmatrix}$ is not diagonalizable. $\blacksquare$</p>
+
+<h2>See also</h2>
+
+
+<ul>
+  <li><a href="http://math.stackexchange.com/q/170241/6876">When is matrix multiplication commutative?</a> on math.stackexchange.com</li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

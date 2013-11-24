@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Part III: Matrix multiplication on multiple cores in Python, Java and C++</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Part III: Matrix multiplication on multiple cores in Python, Java and C++</h2>
+<p class="meta">21 Oct 2013</p>
+
+<div class="post">
+<div class="info">This is Part III of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
+<a href="part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
+
+
+<p>We got some pretty interesting results for matrix multiplication so far. Now, I would like to get to know in how far performance increases (or decreases) if I make use of multiple cores. I only have two cores, so I hope somebody with a better computer will also run the ikj single core algorithm form part I and the parallel version from this article and post the results as a comment.</p>
+
+<h2>The implementations</h2>
+
+
+<p>As last time, I&rsquo;ve added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>. So you can test it on your machine.</p>
+
+<p>Before we start implementing code for multiple processors, we have to get an algorithm that is actually parallelisable. You could use <a href="https://en.wikipedia.org/wiki/Cannon%27s_algorithm">Cannon's algorithm</a>, a algorithm that makes use of <a href="http://en.wikipedia.org/wiki/Systolic_array">systolic arrays</a> or try to find a solution by your own. The <a href="http://www.netlib.org/lapack/lawnspdf/lawn96.pdf">Scalable Universal Matrix Multiplication Algorithm</a> (short: SUMMA) could also work. The paper that I've linked is well-written and easy to understand. You should definitively read it, if you're interested in matrix multiplication.</p>
+
+<p>I will not use any advanced algorithm in this article. I will make the outer most for loop of the ikj-algorithm (see part I) execute in parallel.</p>
+
+<p>More about parallel matrix multiplication:</p>
+
+<ul>
+  <li><a href="http://www.mcs.anl.gov/~itf/dbpp/text/node45.html">Case Study: Matrix Multiplication</a></li>
+  <li><a href="http://berrendorf.inf.fh-bonn-rhein-sieg.de/Parallel/index.html">berrendorf</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/Matrix_multiplication#Algorithms_for_efficient_matrix_multiplication">Algorithms for efficient matrix multiplication</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/Coppersmith%E2%80%93Winograd_algorithm">Coppersmith-Winograd algorith</a></li>
+</ul>
+
+
+
+
+<h2>Python</h2>
+
+
+<p>Because of global interpreter lock (GIL), you need to start new processes in Python (<a href="http://stackoverflow.com/a/9786225/562769">source</a>).</p>
+
+<p>The ikj single core algorithm implemented in Python needs:
+[bash]
+time python ikjMultiplication.py -i 2000.in > 2000-nonparallel.out</p>
+
+<p>real    36m0.699s
+user    35m53.463s
+sys 0m2.356s
+[/bash]</p>
+
+<p>The most simple way to parallelize the ikj algorith is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:
+[bash]
+time python ikjMultiplication.py -i 2000.in > 2000-parallel.out</p>
+
+<p>real    20m47.693s
+user    40m34.460s
+sys 0m2.092s
+[/bash]</p>
+
+<p>When we share memory, the code looks like this:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">multiprocessing</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">ctypes</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">lineMult</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">mp_arr</span><span class="p">,</span> <span class="n">part</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="c"># create a new numpy array using the same memory as mp_arr</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">mp_arr</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">start</span><span class="o">+</span><span class="n">part</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">threadNumber</span><span class="p">)</span>
+
+    <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lineMult</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">,</span> <span class="n">part</span><span class="p">))</span>
+    <span class="c"># mp_arr and arr share the same memory</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">mp_arr</span><span class="o">.</span><span class="n">get_obj</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">)</span> 
+    <span class="n">C</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">C</span>
+
+<span class="k">def</span> <span class="nf">extant_file</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &#39;Type&#39; for argparse - checks that file exists but does not open.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">isfile</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span><span class="s">&quot;{0} does not exist&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">sys</span>
+    <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span>
+    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;ikjMatrix multiplication&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="s">&quot;--input&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s">&quot;filename&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">extant_file</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;input file with two matrices&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--output&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">),</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;output&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;file to write output to (default=stdout)&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">threadNumber</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">part</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">/</span> <span class="n">threadNumber</span>
+    <span class="k">if</span> <span class="n">part</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">part</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c"># shared, can be used from multiple processes</span>
+    <span class="n">mp_arr</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">)</span>
+    <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>and it needs MUCH more time:
+[bash]
+time python ikjMultiplication-shared.py -i 2000.in > 2000-parallel-2threads.out</p>
+
+<p>real    131m35.433s
+user    250m36.820s
+sys 0m9.533s
+[/bash]</p>
+
+<p>When we don't use shared memory, things run faster:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">multiprocessing</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">ctypes</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">line</span><span class="p">))</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">lineMult</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">part</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">start</span><span class="o">+</span><span class="n">part</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">threadNumber</span><span class="p">)</span>
+
+    <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lineMult</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">,</span> <span class="n">part</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">C</span>
+
+<span class="k">def</span> <span class="nf">extant_file</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &#39;Type&#39; for argparse - checks that file exists but does not open.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">isfile</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">(</span><span class="s">&quot;{0} does not exist&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">argparse</span><span class="o">,</span> <span class="nn">sys</span>
+    <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span>
+    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;ikjMatrix multiplication&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="s">&quot;--input&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s">&quot;filename&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">extant_file</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;input file with two matrices&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--output&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">),</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;output&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;file to write output to (default=stdout)&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">threadNumber</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">part</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">/</span> <span class="n">threadNumber</span>
+    <span class="k">if</span> <span class="n">part</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">part</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">threadNumber</span><span class="p">)</span>
+    <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>[bash]
+time python ikjMultiplication.py -i 2000.in > 2000-parallel-4threads.out</p>
+
+<p>real    22m46.066s
+user    41m42.396s
+sys 0m2.324s</p>
+
+<p>[/bash]</p>
+
+<h2>Java</h2>
+
+
+<p>Shell.java:
+[java]
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;</p>
+
+<p>public class Shell {
+    static List&lt;ArrayList&lt;ArrayList<Integer>>> read(String filename) {
+        ArrayList&lt;ArrayList<Integer>> A = new ArrayList&lt;ArrayList<Integer>>();
+        ArrayList&lt;ArrayList<Integer>> B = new ArrayList&lt;ArrayList<Integer>>();</p>
+
+<pre><code>    String thisLine;
+
+    try {
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        // Begin reading A
+        while ((thisLine = br.readLine()) != null) {
+            if (thisLine.trim().equals("")) {
+                break;
+            } else {
+                ArrayList&lt;Integer&gt; line = new ArrayList&lt;Integer&gt;();
+                String[] lineArray = thisLine.split("\t");
+                for (String number : lineArray) {
+                    line.add(Integer.parseInt(number));
+                }
+                A.add(line);
+            }
+        }
+
+        // Begin reading B
+        while ((thisLine = br.readLine()) != null) {
+            ArrayList&lt;Integer&gt; line = new ArrayList&lt;Integer&gt;();
+            String[] lineArray = thisLine.split("\t");
+            for (String number : lineArray) {
+                line.add(Integer.parseInt(number));
+            }
+            B.add(line);
+        }
+        br.close();
+    } catch (IOException e) {
+        System.err.println("Error: " + e);
+    }
+
+    List&lt;ArrayList&lt;ArrayList&lt;Integer&gt;&gt;&gt; res = new LinkedList&lt;ArrayList&lt;ArrayList&lt;Integer&gt;&gt;&gt;();
+    res.add(A);
+    res.add(B);
+    return res;
+}
+
+static void printMatrix(int[][] matrix) {
+    for (int[] line : matrix) {
+        int i = 0;
+        StringBuilder sb = new StringBuilder(matrix.length);
+        for (int number : line) {
+            if (i != 0) {
+                sb.append("\t");
+            } else {
+                i++;
+            }
+            sb.append(number);
+        }
+        System.out.println(sb.toString());
+    }
+}
+
+public static int[][] parallelMult(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; A,
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; B, int threadNumber) {
+    int[][] C = new int[A.size()][B.get(0).size()];
+    ExecutorService executor = Executors.newFixedThreadPool(threadNumber);
+    List&lt;Future&lt;int[][]&gt;&gt; list = new ArrayList&lt;Future&lt;int[][]&gt;&gt;();
+
+    int part = A.size() / threadNumber;
+    if (part &lt; 1) {
+        part = 1;
+    }
+    for (int i = 0; i &lt; A.size(); i += part) {
+        System.err.println(i);
+        Callable&lt;int[][]&gt; worker = new LineMultiplier(A, B, i, i+part);
+        Future&lt;int[][]&gt; submit = executor.submit(worker);
+        list.add(submit);
+    }
+
+    // now retrieve the result
+    int start = 0;
+    int CF[][];
+    for (Future&lt;int[][]&gt; future : list) {
+        try {
+            CF = future.get();
+            for (int i=start; i &lt; start+part; i += 1) {
+                C[i] = CF[i];
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        start+=part;
+    }
+    executor.shutdown();
+
+    return C;
+}
+
+public static void main(String[] args) {
+    String filename;
+    int cores = Runtime.getRuntime().availableProcessors();
+    System.err.println("Number of cores:\t" + cores);
+
+    int threads;
+    if (args.length &lt; 3) {
+        filename = "3.in";
+        threads = cores;
+    } else {
+        filename = args[1];
+        threads = Integer.parseInt(args[2]);
+    }
+
+    List&lt;ArrayList&lt;ArrayList&lt;Integer&gt;&gt;&gt; matrices = read(filename);
+    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; A = matrices.get(0);
+    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; B = matrices.get(1);
+    int[][] C = parallelMult(A, B, threads);
+    printMatrix(C);
+}
+</code></pre>
+
+<p>}
+[/java]</p>
+
+<p>LineMultiplier.java:
+[java]
+import java.util.ArrayList;
+import java.util.concurrent.Callable;</p>
+
+<p>public class LineMultiplier implements Callable&lt;int[][]> {
+    ArrayList&lt;ArrayList<Integer>> A;
+    ArrayList&lt;ArrayList<Integer>> B;
+    int start;
+    int end;
+    public int[][] C;</p>
+
+<pre><code>public LineMultiplier(ArrayList&lt;ArrayList&lt;Integer&gt;&gt; a,
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; b, int s, int e) {
+    A = a;
+    B = b;
+    C = new int[a.size()][b.get(0).size()];
+    start = s;
+    end = e;
+}
+
+@Override
+public int[][] call() {
+    for (int i = start; i &lt; end; i++) {
+        for (int k = 0; k &lt; B.size(); k++) {
+            for (int j = 0; j &lt; B.get(0).size(); j++) {
+                C[i][j] += A.get(i).get(k) * B.get(k).get(j);
+            }
+        }
+    }
+    return C;
+}
+</code></pre>
+
+<p>}
+[/java]</p>
+
+<p>Execute it with only one thread:
+[bash]
+time java Shell -i 2000.in 1 > 2000-paralllel.out
+Number of cores:    2
+0</p>
+
+<p>real    0m40.571s
+user    0m42.259s
+sys 0m0.388s
+[/bash]</p>
+
+<p>Execute it with two threads:
+[bash]
+time java Shell -i 2000.in 2 > 2000-paralllel.out
+Number of cores:    2
+0
+1000</p>
+
+<p>real    0m30.188s
+user    0m54.999s
+sys 0m0.512s
+[/bash]</p>
+
+<p>Note that real time is lower than user time. The reason is simply that the execution time on each processor is added. So user time might be double as high as real time!</p>
+
+<p>We got from 40.571s down to 0m30.188s!</p>
+
+<h3>Information for parallelism</h3>
+
+
+<ul>
+<li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/pools.html">Thread pools</a></li>
+<li><a href="http://www.ibm.com/developerworks/library/j-jtp0730/index.html">Java theory and practice: Thread pools and work queues</a></li>
+<li><a href="http://stackoverflow.com/questions/tagged/java+parallel-processing">StackOverflow</a></li>
+</ul>
+
+
+
+
+<h2>C++</h2>
+
+
+<p>Making the ikj-algorithm parallel is trivial with C++. You only need to add <code>#pragma omp parallel for</code> before the outer most for loop and add <code>-fopenmp</code> as a compile flag!
+(If you really want to see the code, go to <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/C%2B%2B/Parallel">my Git repository</a>.)</p>
+
+<p>[bash]
+$ time ./ikj-algorithm.out 2 2000.in > 2000-parallel.out</p>
+
+<p>real    0m12.563s
+user    0m20.569s
+sys 0m0.156s
+[/bash]</p>
+
+<p>So we got from 20.407 seconds down to 12.563 seconds by adding only one line!</p>
+
+<h3>More Information</h3>
+
+
+<ul>
+  <li><a href="http://bisqwit.iki.fi/story/howto/openmp/">Guide into OpenMP: Easy multithreading programming for C++</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

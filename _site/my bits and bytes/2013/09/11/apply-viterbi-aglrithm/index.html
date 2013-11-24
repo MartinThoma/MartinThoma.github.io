@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How to apply the Viterbi algorithm</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>How to apply the Viterbi algorithm</h2>
+<p class="meta">11 Sep 2013</p>
+
+<div class="post">
+<p>The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.</p>
+
+<p>Lets say this is your <abbr title="Hidden Markov model">HMM</abbr>:</p>
+
+<p>[caption id="attachment_76518" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/hidden-markov-model-abc-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/hidden-markov-model-abc-2.png" alt="A hidden Markov model (HMM) example" width="512" height="252" class="size-full wp-image-76518" /></a> A hidden Markov model (HMM) example[/caption]</p>
+
+<p>We always start in $x$ and always end in $z$.</p>
+
+<p>Now you observed the sequence $O_1 = BAB$. What is the most likely sequence that would generate this path?</p>
+
+<p>Candidates are:</p>
+
+<ul>
+  <li>xxyz</li>
+  <li>xyyz</li>
+  <li>xyzz</li>
+</ul>
+
+
+<p>If you're learing this because you will write the exam at KIT, you might have such an diagram:</p>
+
+<p>[caption id="attachment_76520" align="aligncenter" width="751"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/viterbi-algorithm.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/viterbi-algorithm.png" alt="Scheme of the Viterbi algorithm" width="751" height="300" class="size-full wp-image-76520" /></a> Scheme of the Viterbi algorithm[/caption]</p>
+
+<p>In this case, the bold path is the Viterbi path. You can see this when you get backwards from the last state:</p>
+
+<p>$\frac{1}{125} \cdot 1 \cdot 0.2 > \frac{9}{2500} \cdot 0.8 \cdot 0.2$. After this step, you only have one choice. So the Viterbi path is xyzz.</p>
+
+<p>Please note that there might be multiple paths with the highest possibility.</p>
+
+<p>As every state depends only on the state before, you can get the most likely path step by step. In every step, you calculate how likely it is that you end up in state x, state y, state z. After that, it doesn't matter how you got there. So you always have to expand those three nodes. You will get 9 following states, but only three of them matter (for each resulting state, the paths that had the highest probability leading there).</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

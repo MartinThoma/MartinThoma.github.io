@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Java Puzzle #6: Double Arithmetic</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Java Puzzle #6: Double Arithmetic</h2>
+<p class="meta">04 Aug 2012</p>
+
+<div class="post">
+<p>What is the output of the following snippet?</p>
+
+<p>[java]public class test {
+    public static void main(String[] args) {
+        double a = 1.3378901234567877;
+        double b = 0.0008901234567876;
+        double c = a - b;</p>
+
+<pre><code>    if (c == 1.337) {
+        System.out.println("Hallo doubles!");
+    } else {
+        System.out.println("Oh no! Comparison failed!");
+    }
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<p>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.</p>
+
+<h2>Solution</h2>
+
+
+<p>[bash]Oh no! Comparison failed![/bash]</p>
+
+<h2>Explanation</h2>
+
+
+<p>Doubles are internally represented using the <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 standard</a> (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html">source</a>).
+This means, doubles are not represented with arbitrary precision.</p>
+
+<p>Just execute this snippet:
+[java]public class test {
+    public static void main(String[] args) {
+        double a = 1.3378901234567876;
+        System.out.println("a = " + a);
+        double b = 0.0008901234567876;
+        System.out.println("b = " + b);
+        double c = a - b;
+        System.out.println("c = " + c);
+    }
+}[/java]</p>
+
+<p>Output:
+[bash]a = 1.3378901234567877
+b = 8.901234567876E-4
+c = 1.3370000000000002[/bash]</p>
+
+<h2>Resolve problem</h2>
+
+
+<p>Use an appropriate epsilon to compare floats/doubles:
+[java]public class test {
+    public static void main(String[] args) {
+        double a       = 1.3378901234567877;
+        double b       = 0.0008901234567876;
+        double c       = a - b;
+        double EPSILON = 0.000000000000001;</p>
+
+<pre><code>    if (Math.abs(c - 1.337) &lt; EPSILON) {
+        System.out.println("Hallo doubles!");
+    } else {
+        System.out.println("Oh no! Comparison failed!");
+    }
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

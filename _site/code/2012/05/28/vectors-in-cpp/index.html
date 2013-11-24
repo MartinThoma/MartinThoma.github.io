@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Vectors in C++</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Vectors in C++</h2>
+<p class="meta">28 May 2012</p>
+
+<div class="post">
+<h2>Minimal Example</h2>
+
+
+<p>[cpp]#include <iostream></p>
+
+<h1>include <vector></h1>
+
+<h1>include <algorithm></h1>
+
+<p>using namespace std;</p>
+
+<p>int main() {
+    // create an empty vector
+    vector<int> myVector;</p>
+
+<pre><code>// insert one element
+myVector.push_back(5);
+
+// insert another element
+myVector.push_back(4);
+
+// insert more elements
+myVector.push_back(1337);
+myVector.push_back(42);
+myVector.push_back(31415);
+
+// insert an element which was there before
+myVector.push_back(5);
+
+// get the third element
+cout &lt;&lt; "third element: " &lt;&lt; myVector[2] &lt;&lt; endl;
+
+// removes the element at position number 6
+myVector.erase (myVector.begin()+5);
+
+// removes the element with the value 4
+myVector.erase(remove(myVector.begin(), myVector.end(), 4), 
+                myVector.end());
+
+// iterate over the vector
+vector&lt;int&gt;::iterator myIt;
+for(myIt=myVector.begin(); myIt != myVector.end(); myIt++){
+    cout &lt;&lt; *myIt &lt;&lt; " ";
+}
+cout &lt;&lt; endl;
+
+return 0;
+</code></pre>
+
+<p>}[/cpp]</p>
+
+<p>Output:
+[bash]
+third element: 1337
+5 1337 42 31415
+[/bash]</p>
+
+<h2>Vector initialization</h2>
+
+
+<p>[cpp]// create a vector with 100 zeroes
+vector<int> myVector (100);[/cpp]</p>
+
+<p>[cpp]// create a vector which has 42 times the integer 100
+vector<int> myVector (42, 100);[/cpp]</p>
+
+<h2>Nested Vectors</h2>
+
+
+<p>[cpp]#include <iostream></p>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;</p>
+
+<p>int main() {
+    // create an empty vector
+    vector&lt; vector<int> > myVector (4);</p>
+
+<pre><code>// add elements
+myVector[0].push_back(1);
+myVector[0].push_back(2);
+myVector[1].push_back(3);
+
+// iterate over the vector
+vector&lt; vector&lt;int&gt; &gt;::iterator myIt;
+vector&lt;int&gt;::iterator innerIt;
+for(myIt=myVector.begin(); myIt != myVector.end(); myIt++){
+    cout &lt;&lt; "Inner vector: ";
+    for (innerIt=myIt-&gt;begin();innerIt!=myIt-&gt;end();innerIt++) {
+        cout &lt;&lt; *innerIt &lt;&lt; " ";
+    }
+    cout &lt;&lt; endl;
+}
+
+return 0;
+</code></pre>
+
+<p>}[/cpp]
+Output:
+[bash]Inner vector: 1 2
+Inner vector: 3
+Inner vector:
+Inner vector: [/bash]</p>
+
+<h3>Initialize nested vectors</h3>
+
+
+<p>[cpp]vector<int> myInnerVector(5, 3);
+vector&lt;vector<int> > myVector(8,myInnerVector);[/cpp]
+Output with the script above:
+[bash]Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3
+Inner vector: 3 3 3 3 3 [/bash]</p>
+
+<p>You could also do it this way:
+[cpp]vector&lt; vector<int> > myVector(8, vector<int>(5, 3));[/cpp]</p>
+
+<h2>Some more</h2>
+
+
+<h3>Reverse the order</h3>
+
+
+<p>With reverse (<a href="http://www.cplusplus.com/reference/algorithm/reverse/">source</a>):
+[cpp]#include <algorithm></p>
+
+<h1>include <vector></h1>
+
+<p>using namespace std;</p>
+
+<p>int main () {
+  vector<int> myvector;
+  vector<int>::iterator it;</p>
+
+<p>  // set some values:
+  for (int i=1; i&lt;10; ++i) myVector.push_back(i); // 1 2 3 4 5 6 7 8 9</p>
+
+<p>  reverse(myVector.begin(),myVector.end());       // 9 8 7 6 5 4 3 2 1</p>
+
+<p>  // print out content:
+  cout &lt;&lt; "myVector contains:";
+  for (it=myVector.begin(); it!=myVector.end(); ++it)
+    cout &lt;&lt; " " &lt;&lt; *it;</p>
+
+<p>  cout &lt;&lt; endl;</p>
+
+<p>  return 0;
+}[/cpp]</p>
+
+<h2>See also</h2>
+
+
+<ul>
+  <li>C++ Reference: <a href="http://www.cplusplus.com/reference/stl/vector/">General information</a> and <a href="http://www.cplusplus.com/reference/stl/vector/vector/">example</a></li>
+  <li><a href="http://stackoverflow.com/questions/3131991/iterating-over-2-dimensional-stl-vector-c">Iterating over 2-dimensional STL vector C++</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

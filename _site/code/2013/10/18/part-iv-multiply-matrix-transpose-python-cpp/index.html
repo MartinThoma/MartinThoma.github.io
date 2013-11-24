@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Part IV: How to multiply matrix with its transpose in Python and C++</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Part IV: How to multiply matrix with its transpose in Python and C++</h2>
+<p class="meta">18 Oct 2013</p>
+
+<div class="post">
+<div class="info">This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>, Part II was about multiplication with the <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/" title="Part II: The Strassen algorithm in Python, Java and C++">Strassen algorithm</a> and Part III will be about parallel matrix multiplication (I didn't write it yet).</div>
+
+
+<p>You can always multiply a matrix $J \in \mathbb{R}^{n \times m}$ with its transpose $J<sup>T</sup>$, because $J<sup>T</sup> \in \mathbb{R}^{m \times n}$. You will get a matrix $C \in \mathbb{R}^{n \times n}$.</p>
+
+<p>Standard matrix multiplication of square matrices $\in \mathbb{R}^{n \times n}$ is in $\mathcal{O}(n<sup>3</sup>)$. With the Strassen algorithm you can multiply in $\approx \cal O(n^{2.807})$. But this is for general matrix multiplication. When we do $J \cdot J<sup>T</sup>$ we have more structure, so it might be possible to do this multiplication faster.</p>
+
+<p>One important property of the result matrix $R = J \cdot J<sup>T</sup>$ is symmetry. So $R<em>{i,j} = R</em>{j,i}$.
+If we used the ikj-algorithm for this multiplication, we needed $n<sup>2</sup> \cdot m$ operations. This way, we only need $\frac{n<sup>2</sup> +n}{2} \cdot m$ operations. Yes, I know, asymptotically it is irrelevant. But skipping almost half of the operations is still quite good.</p>
+
+<h2>Python</h2>
+
+
+<h3>NumPy</h3>
+
+
+<p>I guess doing this with NumPy is the best option:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+ 
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;filename&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;2000.in&quot;</span><span class="p">,</span>
+     <span class="n">help</span><span class="o">=</span><span class="s">&quot;input file with two matrices&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+ 
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">J</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+ 
+<span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">line</span><span class="p">))</span>
+
+<span class="n">J</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">J</span> <span class="o">*</span> <span class="n">J</span><span class="o">.</span><span class="n">T</span>
+<span class="n">printMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Time:
+[bash]
+real    7m19.223s
+user    7m12.147s
+sys 0m2.388s
+[/bash]</p>
+
+<p>When you want to do this in an application, you might want to use <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html">numpy.load</a>.</p>
+
+<h2>C++</h2>
+
+
+<h3>First try</h3>
+
+
+<p>[cpp]</p>
+
+<h1>include <sstream></h1>
+
+<h1>include <string></h1>
+
+<h1>include <fstream></h1>
+
+<h1>include <iostream></h1>
+
+<h1>include <vector></h1>
+
+<h1>include <algorithm></h1>
+
+<p>using namespace std;</p>
+
+<p>int getMatrixN(string filename) {
+    std::ifstream inFile(filename.c_str());
+    return std::count(std::istreambuf_iterator<char>(inFile),
+             std::istreambuf_iterator<char>(), '\n');
+}</p>
+
+<p>int getMatrixM(string filename) {
+    string line;
+    ifstream infile;
+    infile.open (filename.c_str());
+    getline(infile, line);
+    return count(line.begin(), line.end(), '\t') + 1;
+}</p>
+
+<p>void read(string filename, vector&lt; vector<double> > &amp;A) {
+    string line;
+    FILE* matrixfile = freopen(filename.c_str(), "r", stdin);</p>
+
+<pre><code>int i = 0, j;
+double a;
+while (getline(cin, line) &amp;amp;&amp;amp; !line.empty()) {
+    istringstream iss(line);
+    j = 0;
+    while (iss &gt;&gt; a) {
+        A[i][j] = a;
+        j++;
+    }
+    i++;
+}
+
+fclose (matrixfile);
+</code></pre>
+
+<p>}</p>
+
+<p>vector&lt; vector<double> > ikjalgorithmTranspose(
+                                   vector&lt; vector<double> > &amp;J,
+                                   vector&lt; vector<double> > &amp;T,
+                                   vector&lt; vector<double> > &amp;R,
+                                   int n, int m) {
+    for (register int i = 0; i &lt; n; i++) {
+        for (register int k = 0; k &lt; m; k++) {
+            for (register int j = i; j &lt; n; j++) {
+                R[i][j] += J[i][k] * T[k][j];
+            }
+        }
+    }</p>
+
+<pre><code>for (register int i = 0; i &lt; n; i++) {
+    for (register int j = 0; j &lt; i; j++) {
+        R[i][j] += R[j][i];
+    }
+}
+
+return R;
+</code></pre>
+
+<p>}</p>
+
+<p>void transpose(vector&lt; vector<double> > &amp;A,
+               vector&lt; vector<double> > &amp;B, int n, int m) {
+    for (int i=0; i &lt; n; i++) {
+        for (int j=0; j &lt; m; j++) {
+            B[j][i] = A[i][j];
+        }
+    }
+}</p>
+
+<p>void printMatrix(vector&lt; vector<double> > &amp;matrix, int n) {
+    for (int i=0; i &lt; n; i++) {
+        for (int j=0; j &lt; n; j++) {
+            if (j != 0) {
+                cout &lt;&lt; "\t";
+            }
+            cout &lt;&lt; matrix[i][j];
+        }
+        cout &lt;&lt; endl;
+    }
+}</p>
+
+<p>int main (int argc, char* argv[]) {
+    string filename;
+    if (argc &lt; 3) {
+        filename = "../Testing/5161x7058.in";
+    } else {
+        filename = argv[2];
+    }</p>
+
+<pre><code>int n = getMatrixN(filename);
+int m = getMatrixM(filename);
+vector&lt;double&gt; inner (m);
+vector&lt;double&gt; inner2 (n);
+vector&lt; vector&lt;double&gt; &gt; J(n, inner), T(m, inner2), R(n, inner);
+read (filename, J);
+transpose(J, T, n, m);
+ikjalgorithmTranspose(J, T, R, n, m);
+printMatrix(R, n);
+return 0;
+</code></pre>
+
+<p>}
+[/cpp]</p>
+
+<p>Time:
+[bash]
+real    5m31.488s
+user    5m27.560s
+sys 0m1.812s
+[/bash]</p>
+
+<h3>Direct multiplication</h3>
+
+
+<p>One might think that transposing first is a bad idea, because you can do this:
+[cpp]
+vector&lt; vector<double> > ikjDirect(vector&lt; vector<double> > &amp;J,
+                                   vector&lt; vector<double> > &amp;R,
+                                   int n, int m) {
+    for (register int i = 0; i &lt; n; i++) {
+        for (register int k = 0; k &lt; m; k++) {
+            for (register int j = 0; j &lt; n; j++) {
+                R[i][j] += J[i][k] * J[j][k];
+            }
+        }
+    }
+    return R;
+}
+[/cpp]</p>
+
+<p>I stopped execution after 15 minutes.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

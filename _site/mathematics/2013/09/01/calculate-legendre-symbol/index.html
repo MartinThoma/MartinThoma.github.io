@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How to calculate the Legendre symbol</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>How to calculate the Legendre symbol</h2>
+<p class="meta">01 Sep 2013</p>
+
+<div class="post">
+<h2>Pseudocode</h2>
+
+
+<p>[caption id="attachment_76379" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/Calculate-Legendre.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol" width="500" height="528" class="size-full wp-image-76379" /></a> Pseudocode: Calculate Legendre symbol[/caption]</p>
+
+<h2>Python</h2>
+
+
+
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">isPrime</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+
+<span class="c"># http://stackoverflow.com/a/14793082/562769</span>
+<span class="k">def</span> <span class="nf">factorize</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span> <span class="c">#while we can divide by smaller number, do so</span>
+            <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="n">p</span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c">#p is not necessary prime, but n%p == 0 only for prime numbers</span>
+        <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">/</span> <span class="n">p</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">factors</span>
+
+<span class="k">def</span> <span class="nf">calculateLegendre</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   Calculate the legendre symbol (a, p) with p is prime.</span>
+<span class="sd">   The result is either -1, 0 or 1</span>
+
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(3, 29)</span>
+<span class="sd">   -1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(111, 41) # Beispiel aus dem Skript, S. 114</span>
+<span class="sd">   -1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(113, 41) # Beispiel aus dem Skript, S. 114</span>
+<span class="sd">   1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(2, 31)</span>
+<span class="sd">   1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(5, 31)</span>
+<span class="sd">   1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(150, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">   1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(25, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">   1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(2, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">   1</span>
+<span class="sd">   &gt;&gt;&gt; calculateLegendre(3, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">   1</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">p</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">p</span><span class="o">%</span><span class="mi">8</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">p</span><span class="o">%</span><span class="mi">8</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">p</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+        <span class="n">factors</span> <span class="o">=</span> <span class="n">factorize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">factors</span><span class="p">:</span>
+            <span class="n">product</span> <span class="o">*=</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">product</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">calculateLegendre</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+
+<h2>More</h2>
+
+
+<ul>
+  <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/eaz">Rules how to calculate with Legendre symbols</a></li>
+  <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/Calculate-Legendre">Python and Pseudocode source files</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

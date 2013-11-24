@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Google Code Jam 2012 &ndash; Round 1A 2012</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Google Code Jam 2012 &ndash; Round 1A 2012</h2>
+<p class="meta">28 Apr 2012</p>
+
+<div class="post">
+<p>3691 people are listed in the scoreboard, but 3851 tried the first problem. So I guess the number of contestants might even be higher.</p>
+
+<ul>
+  <li>Problem 1 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p0">Password Problem</a>):
+  <ul>
+     <li>Small Set: 3511/3851 users (91%)</li>
+     <li>Large Set: 2329/3376 users (69%)</li>
+  </ul>
+  </li>
+  <li>Problem 2 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p1">Kingdom Rush</a>):
+  <ul>
+     <li>Small Set: 1912/3466 users (55%)</li>
+     <li>Large Set: 1617/1848 users (88%)</li>
+  </ul>
+  </li>
+  <li>Problem 3 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p2">Cruise Control</a>):
+  <ul>
+     <li>Small Set: 65/312 users (21%)</li>
+     <li>Large Set: 22/42 users (52%)</li>
+  </ul>
+  </li>
+</ul>
+
+
+<p>Just as last time, you can execute these scripts by
+[bash]python jam.py &lt; A-small-practice.in > results.txt[/bash]</p>
+
+<p><a id="more"></a><a id="more-23361"></a></p>
+
+<h2>Passwords</h2>
+
+
+<p>This works only for the small input set:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">line2floatlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Convert integers in one line, separated by space to a</span>
+<span class="sd">       list of integers.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
+    <span class="k">return</span> <span class="n">numbers</span>
+
+<span class="k">def</span> <span class="nf">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">):</span>
+    <span class="n">typesMin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">probKorrect</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">[</span><span class="mi">0</span><span class="p">:(</span><span class="nb">len</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="p">)]:</span>
+            <span class="n">probKorrect</span> <span class="o">*=</span> <span class="n">el</span>
+        <span class="n">probWrong</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">probKorrect</span>
+        <span class="n">remainingTypes</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span> <span class="o">-</span> <span class="n">A</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">remainingTypesErr</span> <span class="o">=</span> <span class="n">remainingTypes</span> <span class="o">+</span> <span class="n">B</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">types</span> <span class="o">=</span> <span class="n">probKorrect</span> <span class="o">*</span> <span class="n">remainingTypes</span> \
+                <span class="o">+</span> <span class="n">probWrong</span> <span class="o">*</span> <span class="n">remainingTypesErr</span>
+        <span class="c">#print types</span>
+        <span class="k">if</span> <span class="n">types</span> <span class="o">&lt;</span> <span class="n">typesMin</span><span class="p">:</span>
+            <span class="n">typesMin</span> <span class="o">=</span> <span class="n">types</span>
+    <span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">typesMin</span><span class="p">:</span>
+        <span class="n">typesMin</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+ 
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">typesMin</span> <span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="c">#return typesMin</span>
+ 
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+ 
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+        <span class="n">probabilities</span> <span class="o">=</span> <span class="n">line2floatlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+        <span class="c">#print ((A+1), B)</span>
+        <span class="c">#print probabilities</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%.6lf</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">)))</span>
+</code></pre></div>
+
+
+
+
+<h2>Kingdom Rush</h2>
+
+
+<p>My solution works only for the small input set:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="k">def</span> <span class="nf">line2intlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Convert integers in one line, separated by space to a</span>
+<span class="sd">       list of integers.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
+    <span class="k">return</span> <span class="n">numbers</span>
+
+<span class="k">def</span> <span class="nf">isSolvable</span><span class="p">(</span><span class="n">starDict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Is it possible to solve this one? &quot;&quot;&quot;</span>
+    <span class="n">intList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
+        <span class="n">wasInFor</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">intList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
+        <span class="n">intList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">two</span><span class="p">)</span>
+    <span class="n">intList</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">levelVar</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">intList</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">levelVar</span> <span class="o">&lt;</span> <span class="n">intList</span><span class="p">[</span><span class="n">levelVar</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">king</span><span class="p">(</span><span class="n">starDict</span><span class="p">,</span> <span class="n">myLevel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">myCompetes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">partially</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">while</span> <span class="n">somethingChanged</span><span class="p">:</span>
+        <span class="n">removeList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="c">#all where i can do both</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
+            <span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">two</span> <span class="o">&lt;=</span> <span class="n">myLevel</span><span class="p">:</span>
+                <span class="n">removeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="c">#remove them</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">removeList</span><span class="p">:</span>
+            <span class="n">myCompetes</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">del</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">partially</span><span class="p">:</span>
+                <span class="n">myLevel</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">partially</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">myLevel</span> <span class="o">+=</span> <span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">starDict</span><span class="p">:</span>
+        <span class="n">minCompetes</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">&#39;inf&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
+            <span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">one</span> <span class="o">&lt;=</span> <span class="n">myLevel</span> <span class="ow">and</span> <span class="p">(</span><span class="n">index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">partially</span><span class="p">):</span>
+                <span class="n">starDictTmp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">starDict</span><span class="p">)</span>
+                <span class="n">partiallyTmp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">partially</span><span class="p">)</span>
+                <span class="n">partiallyTmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="n">tmpCompetes</span> <span class="o">=</span> <span class="n">king</span><span class="p">(</span><span class="n">starDictTmp</span><span class="p">,</span> <span class="n">myLevel</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>  
+                            <span class="n">myCompetes</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">partiallyTmp</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">tmpCompetes</span> <span class="o">&lt;</span> <span class="n">minCompetes</span><span class="p">:</span>
+                    <span class="n">minCompetes</span> <span class="o">=</span> <span class="n">tmpCompetes</span>
+        <span class="n">myCompetes</span> <span class="o">=</span> <span class="n">minCompetes</span>
+    <span class="k">return</span> <span class="n">myCompetes</span>
+
+ 
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+ 
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
+        <span class="n">levels</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
+            <span class="n">stars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line2intlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">()))</span>
+
+        <span class="c">#make stars dictionary</span>
+        <span class="n">starDict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">stars</span><span class="p">:</span>
+            <span class="n">starDict</span><span class="p">[</span><span class="n">level</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+            <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">isSolvable</span><span class="p">(</span><span class="n">starDict</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Case #</span><span class="si">%i</span><span class="s">: Too Bad&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">king</span><span class="p">(</span><span class="n">starDict</span><span class="p">)))</span>
+</code></pre></div>
+
+
+
+
+<h2>Cruise Controll</h2>
+
+
+<p>Only 22 people have a perfect solution for this one.</p>
+
+<p>This is the solution of royf:</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">def</span> <span class="nf">read_word</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">read_int</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">read_word</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">read_letters</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">read_word</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">read_digits</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">read_letters</span><span class="p">(</span><span class="n">f</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">read_words</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">read_word</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">read_ints</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">read_words</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">read_arr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="n">read_ints</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">solver</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">out_fn</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">in_fn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">+</span> <span class="s">&#39;.in&#39;</span>
+    <span class="k">if</span> <span class="n">out_fn</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">out_fn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">+</span> <span class="s">&#39;.out&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">in_fn</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_fn</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+                <span class="n">case</span> <span class="o">=</span> <span class="n">read_case</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">solver</span><span class="p">(</span><span class="n">case</span><span class="p">)</span>
+                <span class="n">write_case</span><span class="p">(</span><span class="n">fo</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+
+<span class="c">################################################################################</span>
+
+<span class="k">def</span> <span class="nf">read_case</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">read_int</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">Cs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span> <span class="o">=</span> <span class="n">read_words</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">Cs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">C</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">S</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">P</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">Cs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">write_case</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">res</span><span class="p">):</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;Case #</span><span class="si">%d</span><span class="s">: &#39;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span><span class="o">%</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="c">################################################################################</span>
+
+<span class="n">INF</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">&#39;inf&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">heapq</span>
+
+<span class="k">def</span> <span class="nf">solve_small</span><span class="p">(</span><span class="n">case</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">Cs</span><span class="p">)</span> <span class="o">=</span> <span class="n">case</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">p1</span><span class="p">)</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p1</span><span class="o">-</span><span class="n">p2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+                    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+                <span class="k">continue</span>
+            <span class="n">t1</span> <span class="o">=</span> <span class="p">(</span><span class="n">p2</span><span class="o">-</span><span class="n">p1</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s1</span><span class="o">-</span><span class="n">s2</span><span class="p">)</span>
+            <span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">p2</span><span class="o">-</span><span class="n">p1</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s1</span><span class="o">-</span><span class="n">s2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">t1</span> <span class="o">&gt;</span> <span class="n">t2</span><span class="p">:</span>
+                <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">t2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">t1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">t1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
+    <span class="n">act</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">act</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">set</span><span class="p">())</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">col</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">c</span><span class="p">:</span>
+            <span class="n">act</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">act</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">act</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">act</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;L&#39;</span>
+            <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;L&#39;</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">c</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+                    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="ow">not</span> <span class="n">b</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">t</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                            <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">t</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                            <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span> <span class="o">==</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="ow">not</span> <span class="n">b</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                            <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                            <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span> <span class="o">==</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n">k_</span><span class="p">,</span> <span class="n">b_</span><span class="p">)</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">k_</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="n">b_</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="n">t</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                            <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k_</span><span class="p">,</span> <span class="ow">not</span> <span class="n">b</span> <span class="o">^</span> <span class="n">b_</span> <span class="o">^</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c">#end col</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">act</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">act</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">l</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="s">&#39;Possible&#39;</span>
+
+<span class="n">solve_large</span> <span class="o">=</span> <span class="n">solve_small</span>
+
+<span class="c">##def solve_large(case):</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="s">&#39;i&#39;</span>
+
+<span class="kn">from</span> <span class="nn">run</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div>
+
+
+
+
+<h2>See also</h2>
+
+
+<ul>
+  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
+  <li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

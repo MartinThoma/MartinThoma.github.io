@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Briefe mit LaTeX schreiben</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Briefe mit LaTeX schreiben</h2>
+<p class="meta">03 Mar 2012</p>
+
+<div class="post">
+<p>Ich muss immer wieder mal K&uuml;ndigungsschreiben aufsetzen. Daf&uuml;r will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage f&uuml;r K&uuml;ndigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung.pdf'>alt</a> und <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung-scrlttr2.pdf'>neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich gro&szlig; ist.</p>
+
+<p>Hier ist das <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung-archiv.zip'>Archiv</a> mit beiden LaTeX-Dateien, einer Make-Datei und beiden PDF-Dateien.</p>
+
+<h2>LaTeX</h2>
+
+
+<p>[text]\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+\usepackage[utf8]{inputenc} % this is needed for umlauts
+\usepackage[ngerman]{babel} % this is needed for umlauts
+\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates</p>
+
+<p>% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vorname}{Martin}     % Vorname                         %
+\newcommand{\Nachname}{Thoma}     % Nachname                        %
+\newcommand{\Strasse}{Parkstra&szlig;e} % Deine Stra&szlig;e                    %
+\newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
+\newcommand{\PLZ}{76131}          % Deine PLZ                       %
+\newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
+\newcommand{\Kundennr}{123456}    % Deine Kundennummer              %
+                                                                    %
+\newcommand{\Empfaenger}{DB Fernverkehr AG} % Der Empf&auml;nger         %
+\newcommand{\EStrasse}{BahnCard-Service}    % Stra&szlig;e des Empf&auml;ngers %
+\newcommand{\EPLZ}{60643}                   % PLZ des Empf&auml;ngers    %
+\newcommand{\EOrt}{Frankfurt am Main}       % Ort des Empf&auml;ngers    %
+                                                                    %
+\newcommand{\DocTitle}{K&uuml;ndigung des Bahn-Abos} %Titel des Dokuments%
+% Datum der K&uuml;ndigung                                               %
+\newcommand{\Kuendigungsdatum}{n&auml;chstm&ouml;glichen Termin}              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+
+<p>% pdfinfo
+\pdfinfo{
+   /Author (\Nachname, \Vorname)
+   /Title  (\DocTitle)
+   /Subject (\DocTitle)
+   /Keywords (K&uuml;ndigung)
+}</p>
+
+<p>% set letter variables
+\signature{\Vorname~\Nachname}
+\customer{\Kundennr}
+\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}</p>
+
+<p>% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \begin{letter}{\Empfaenger \ \EStrasse \ \EPLZ~\EOrt}
+    \date{\today}%Change this if you want a different date than today
+    \subject{K&uuml;ndigung}
+    \opening{Sehr geehrte Damen und Herren,}
+    hiermit k&uuml;ndige ich meinen Vertrag f&uuml;r die Kundennummer
+    \Kundennr~ zum \Kuendigungsdatum.\</p>
+
+<pre><code>\noindent Ich bitte um eine Best&amp;auml;tigung der K&amp;uuml;ndigung.
+\closing{Mit freundlichen Gr&amp;uuml;&amp;szlig;en,}
+\end{letter}
+</code></pre>
+
+<p>\end{document}[/text]</p>
+
+<p>Ach ja, wei&szlig; jemand wie man die Einr&uuml;ckung der Unterschrift verhindert?</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

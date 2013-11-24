@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Jordansche Normalform: 2x2 Matrizen</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Jordansche Normalform: 2x2 Matrizen</h2>
+<p class="meta">17 Aug 2012</p>
+
+<div class="post">
+<div class="info">Hier sind $2 \times 2$ Beispiele zum Hauptartikel <a href="http://martin-thoma.com/wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
+
+
+
+
+<h2>Beispiel 1</h2>
+
+
+<p>Gegeben sei die Matrix $A \in \mathbb{R}^{2 \times 2}$:
+$A := \begin{pmatrix}
+11 &amp; -4\
+25 &amp; -9
+\end{pmatrix}$.</p>
+
+<h3>Jordannormalform bestimmen</h3>
+
+
+<p><strong>1. Charakteristisches Polynom berechnen:</strong>
+$p_A(\lambda) = (\lambda - 1)<sup>2</sup>$.</p>
+
+<p>Daraus folgt: $\lambda = 1$ ist einziger Eigenwert
+$\Rightarrow$ 1 Jordanblock</p>
+
+<p><strong>2. Anzahl der Jordank&auml;stchen bestimmen:</strong></p>
+
+<p>$
+\begin{align}
+\dim E_{1} &amp;= \dim \text{Kern}(A -1 \cdot I) \
+&amp;= \dim \text{Kern} \begin{pmatrix}
+10 &amp; -4\
+25 &amp; -10
+\end{pmatrix}\
+&amp;= \dim \text{Kern} \begin{pmatrix}
+10 &amp; -4\
+0 &amp; 0
+\end{pmatrix}\
+&amp;= \dim \left [ \begin{pmatrix}2\5\end{pmatrix} \right ] \
+&amp;= 1
+\end{align}$</p>
+
+<p>$\Rightarrow$ es gibt genau 1 Jordank&auml;stchen in diesem Jordanblock.</p>
+
+<p>$\Rightarrow
+J =
+\begin{pmatrix}1 &amp; 1\
+0 &amp; 1
+\end{pmatrix}$.</p>
+
+<h3>Basiswechselmatrix bestimmen</h3>
+
+
+<p><strong>Basisvektoren f&uuml;r den Eigenwert 1 bestimmen:</strong>
+$\Omega = \Phi<em>{| H</em>\lambda} - \lambda \cdot id =
+\begin{pmatrix}
+10 &amp; - 4\
+25 &amp; -10
+\end{pmatrix}
+$,</p>
+
+<p>$K_1 = \text{Kern } \Omega<sup>1</sup> = \left [ \begin{pmatrix}2 \ 5 \end{pmatrix} \right ]$</p>
+
+<h1>$K_2 = \text{Kern } \Omega<sup>2</sup> = \text{Kern } (\begin{pmatrix}10 &amp; -4\ 25 &amp; -10 \end{pmatrix} \cdot \begin{pmatrix}10 &amp; -4\ 25 &amp; -10 \end{pmatrix}) = \text{Kern } (\begin{pmatrix}0 &amp; 0\ 0 &amp; 0 \end{pmatrix}) </h1>
+
+<p>\left[
+\begin{pmatrix}1 \ 0 \end{pmatrix},
+\begin{pmatrix}0 \ 1 \end{pmatrix}
+\right]$</p>
+
+<p>$K_2 \stackrel{!}{=} U_1 \oplus K_1
+\Rightarrow
+\left [
+\begin{pmatrix}
+1 \ 0
+\end{pmatrix}
+\right ] ~~~ U_0 = K_1$</p>
+
+<p>[caption id="attachment_40961" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/jordan-normal-form-scheme-small.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/jordan-normal-form-scheme-small.png" alt="Schema zum finden der Basiswechselmatrix" title="Schema zum finden der Basiswechselmatrix" width="300" height="116" class="size-full wp-image-40961" /></a> Schema zum finden der Basiswechselmatrix[/caption]</p>
+
+<p>W&auml;hle $b_1<sup>1</sup> \in U_1: b_1<sup>1</sup> = \begin{pmatrix}1 \0 \end{pmatrix} \Rightarrow \Omega(b_1<sup>1</sup>) = \begin{pmatrix}10 \ 25 \end{pmatrix}$
+$\Rightarrow S =
+\begin{pmatrix}
+10 &amp; 1 \
+25 &amp; 0
+\end{pmatrix}$
+$\Rightarrow S^{-1} =
+\begin{pmatrix}
+0 &amp; \frac{1}{25} \
+1 &amp; -\frac{2}{5}
+\end{pmatrix}$</p>
+
+<p>$A = S \cdot J \cdot S^{-1}$
+$\Leftrightarrow
+\begin{pmatrix}
+11 &amp; -4\
+25 &amp; -9</p>
+
+<h1>\end{pmatrix}</h1>
+
+<p>\begin{pmatrix}
+10 &amp; 1 \
+25 &amp; 0
+\end{pmatrix}
+\cdot
+\begin{pmatrix}1 &amp; 1\
+0 &amp; 1
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+0 &amp; \frac{1}{25} \
+1 &amp; -\frac{2}{5}
+\end{pmatrix}$</p>
+
+<h2>Beispiel 2</h2>
+
+
+<p>Gegeben sei die Matrix $A \in \mathbb{R}^{2 \times 2}$:
+$A := \begin{pmatrix}
+1 &amp; 2\
+3 &amp; 6
+\end{pmatrix}$.</p>
+
+<h3>Jordannormalform bestimmen</h3>
+
+
+<p><strong>1. Charakteristisches Polynom berechnen:</strong>
+$p_A(\lambda) = \det \begin{pmatrix}
+1 -\lambda &amp; 2\
+3 &amp; 6 - \lambda
+\end{pmatrix} = (1- \lambda) \cdot (6 - \lambda) - 6 = 6-6\lambda-\lambda+\lambda<sup>2</sup>-6=\lambda<sup>2</sup>-7\lambda = \lambda \cdot (\lambda - 7)$
+Daraus folgt: 0 und 1 sind Eigenwerte. Sie haben jeweils die algebraischen Vielfachheit 1.
+Daraus folgt: Die Jordansche Normalform hat genau zwei Jordanbl&ouml;cke, die beide die Gr&ouml;&szlig;e 1x1 haben.
+Daraus folgt: Beide Jordanbl&ouml;cke haben genau ein Jordank&auml;stchen der Gr&ouml;&szlig;e 1x1.
+Daraus folgt: Die Jordansche Normalform der Matrix ist:</p>
+
+<p>$J = \begin{pmatrix}
+0 &amp; 0\
+0 &amp; 7
+\end{pmatrix}$</p>
+
+<h3>Basiswechselmatrix bestimmen</h3>
+
+
+<p><strong>Basisvektoren f&uuml;r den Eigenwert 0 bestimmen:</strong>
+$K_1 = \text{Kern }(A- 0 \cdot E) = \text{Kern } \begin{pmatrix}
+1 &amp; 2\
+3 &amp; 6
+\end{pmatrix} = \left [ \begin{pmatrix}2 \ -1 \end{pmatrix} \right ] $</p>
+
+<p><strong>Basisvektoren f&uuml;r den Eigenwert 7 bestimmen:</strong>
+$K_1 = \text{Kern }(A- 7 \cdot E) = \text{Kern } \begin{pmatrix}
+-6 &amp; 2\
+3 &amp; -1
+\end{pmatrix} = \text{Kern } \begin{pmatrix}
+1 &amp; -\frac{1}{3}\
+0 &amp; 0
+\end{pmatrix} = \left [ \begin{pmatrix}1 \ 3 \end{pmatrix} \right ] $</p>
+
+<p><strong>Zusammensetzen:</strong>
+$S = \begin{pmatrix}2 &amp; 1 \ -1 &amp; 3 \end{pmatrix}$
+$S^{-1} = \frac{1}{7} \cdot \begin{pmatrix}3 &amp; -1 \ 1 &amp; 2 \end{pmatrix}$</p>
+
+<h3>Anmerkung</h3>
+
+
+<p>Man h&auml;tte &uuml;brigens jeden Vektor aus $\left [ \begin{pmatrix}2 \ -1 \end{pmatrix} \right ] $ nehmen k&ouml;nnen. Angenommen, man h&auml;tte den Vektor $\begin{pmatrix}-14 \ 7 \end{pmatrix}$ gew&auml;hlt:</p>
+
+<p>$S = \begin{pmatrix}-14 &amp; 1 \ 7 &amp; 3 \end{pmatrix}$
+$S^{-1} = \frac{1}{49} \cdot \begin{pmatrix}-3 &amp; 1 \ 7 &amp; 14 \end{pmatrix}$</p>
+
+<p>Das gleiche gilt nat&uuml;rlich f&uuml;r jeden anderen gew&auml;hlten Vektor. Die inverse Matrix &auml;ndert sich selbstverst&auml;ndlich, jedoch nicht die Jordansche Normalform oder die urspr&uuml;ngliche Matrix.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

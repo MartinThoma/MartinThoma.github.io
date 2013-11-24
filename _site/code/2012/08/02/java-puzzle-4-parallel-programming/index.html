@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Java Puzzle #4: Parallel Programming</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Java Puzzle #4: Parallel Programming</h2>
+<p class="meta">02 Aug 2012</p>
+
+<div class="post">
+<p>What is the output of the following Java Snippet:</p>
+
+<p>[java]public class MyParallelClass implements java.lang.Runnable {
+    public String name;</p>
+
+<pre><code>public myParallelTry(String name) {
+    this.name = name;
+}
+
+@Override
+public void run() {
+    System.out.println(name);
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<p>[java]public class test {
+    public static void main(String[] args) {
+        MyParallelClass a = new MyParallelClass("A");
+        MyParallelClass b = new MyParallelClass("B");
+        MyParallelClass c = new MyParallelClass("C");
+        MyParallelClass d = new MyParallelClass("D");</p>
+
+<pre><code>    new Thread(a).start();
+    new Thread(b).start();
+    new Thread(c).start();
+    new Thread(d).start();
+    System.out.println("-");
+    new Thread(a).start();
+    new Thread(b).start();
+    new Thread(c).start();
+    new Thread(d).start();
+    System.out.println("-");
+    new Thread(a).start();
+    new Thread(b).start();
+    new Thread(c).start();
+    new Thread(d).start();
+    System.out.println("-");
+    new Thread(a).start();
+    new Thread(b).start();
+    new Thread(c).start();
+    new Thread(d).start();
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<p>.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.</p>
+
+<h2>Answer</h2>
+
+
+<table>
+<tr>
+<th>First Try</th>
+<th>Second Try</th>
+<th>Third Try</th>
+</tr>
+<tr>
+<td>[text]A
+C
+B
+-
+D
+A
+B
+C
+-
+D
+A
+-
+C
+A
+C
+D
+B
+B
+D
+[/text]</td>
+<td>[text]A
+B
+C
+-
+D
+A
+B
+C
+-
+D
+A
+B
+C
+-
+D
+A
+B
+C
+D
+[/text]</td>
+<td>[text]A
+B
+C
+-
+D
+A
+B
+C
+-
+D
+A
+B
+C
+-
+D
+A
+B
+C
+D
+[/text]</td>
+</tr>
+</table>
+
+
+
+
+<h2>Explanation</h2>
+
+
+<p>If you start threads like this, you don't get any guarantee that they will finish their execution in order. If you want them to execute in block of four, you could use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a>:</p>
+
+<p>[java]public class test {
+    public static void main(String[] args) {
+        myParallelTry a = new myParallelTry("A");
+        myParallelTry b = new myParallelTry("B");
+        myParallelTry c = new myParallelTry("C");
+        myParallelTry d = new myParallelTry("D");</p>
+
+<pre><code>    Thread tA = new Thread(a); tA.start();
+    Thread tB = new Thread(b); tB.start();
+    Thread tC = new Thread(c); tC.start();
+    Thread tD = new Thread(d); tD.start();
+    try {
+        tA.join();
+        tB.join();
+        tC.join();
+        tD.join();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    System.out.println("-");
+    tA = new Thread(a); tA.start();
+    tB = new Thread(b); tB.start();
+    tC = new Thread(c); tC.start();
+    tD = new Thread(d); tD.start();
+    try {
+        tA.join();
+        tB.join();
+        tC.join();
+        tD.join();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    System.out.println("-");
+    tA = new Thread(a); tA.start();
+    tB = new Thread(b); tB.start();
+    tC = new Thread(c); tC.start();
+    tD = new Thread(d); tD.start();
+    try {
+        tA.join();
+        tB.join();
+        tC.join();
+        tD.join();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    System.out.println("-");
+    tA = new Thread(a); tA.start();
+    tB = new Thread(b); tB.start();
+    tC = new Thread(c); tC.start();
+    tD = new Thread(d); tD.start();
+    try {
+        tA.join();
+        tB.join();
+        tC.join();
+        tD.join();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<table>
+<tr>
+<th>First Try</th>
+<th>Second Try</th>
+<th>Third Try</th>
+</tr>
+<tr>
+<td>[text]A
+B
+D
+C
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D
+[/text]</td>
+<td>[text]A
+B
+C
+D
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D[/text]</td>
+<td>[text]A
+B
+C
+D
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D[/text]</td>
+</tr>
+</table>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

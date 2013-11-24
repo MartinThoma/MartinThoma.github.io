@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How to analyze Mailman archives</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>How to analyze Mailman archives</h2>
+<p class="meta">18 Aug 2013</p>
+
+<div class="post">
+<p>All mailing lists I use are <a href="http://en.wikipedia.org/wiki/GNU_Mailman">GNU Mailman</a> lists. This software provides archives of all Emails that were send over the list.</p>
+
+<p>They look like this:
+[caption id="attachment_76298" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/08/mailman-list-archive.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/08/mailman-list-archive-300x277.png" alt="GNU Mailman list archive" width="300" height="277" class="size-medium wp-image-76298" /></a> GNU Mailman list archive[/caption]</p>
+
+<p>Once in a while, I would like to search if a topic was already discussed. Here is how you can do it:</p>
+
+<h2>Download archives</h2>
+
+
+<p>[bash]wget --save-cookies cookie.txt --post-data 'username=user&amp;password=pass' -A gz -m -p -E -k -K -np https://lists.abc.org/mailman/blub/[/bash]</p>
+
+<h2>Rename archives</h2>
+
+
+<p>[bash]for file in *.txt.gz; do mv "$file" "${file%.txt.gz}.txt"; done[/bash]</p>
+
+<p>To make them sortable:
+[bash]
+for file in <em>January.txt; do mv "$file" "${file%January.txt}01.txt"; done
+for file in </em>February.txt; do mv "$file" "${file%February.txt}02.txt"; done
+for file in <em>March.txt; do mv "$file" "${file%March.txt}03.txt"; done
+for file in </em>April.txt; do mv "$file" "${file%January.txt}04.txt"; done
+for file in <em>May.txt; do mv "$file" "${file%May.txt}05.txt"; done
+for file in </em>June.txt; do mv "$file" "${file%June.txt}06.txt"; done
+for file in <em>July.txt; do mv "$file" "${file%July.txt}07.txt"; done
+for file in </em>August.txt; do mv "$file" "${file%August.txt}08.txt"; done
+for file in <em>September.txt; do mv "$file" "${file%September.txt}09.txt"; done
+for file in </em>October.txt; do mv "$file" "${file%October.txt}10.txt"; done
+for file in <em>November.txt; do mv "$file" "${file%November.txt}11.txt"; done
+for file in </em>December.txt; do mv "$file" "${file%December.txt}12.txt"; done
+[/bash]</p>
+
+<h2>Analyze them</h2>
+
+
+<p>To analyze the archives properly, you should perhaps first import all emails in a relational database. But with <code>grep</code> you could also do simple keyword searches.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

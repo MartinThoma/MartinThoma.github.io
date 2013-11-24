@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Formatting Strings in Python</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Formatting Strings in Python</h2>
+<p class="meta">07 Nov 2013</p>
+
+<div class="post">
+<p>In Python, you can use the following ways to format Strings:</p>
+
+<h2>Print directly</h2>
+
+
+<p>Printing them directly (just like <a href="http://www.cplusplus.com/reference/cstdio/printf/">printf in C</a>):</p>
+
+<div class="highlight"><pre><code class="python"><span class="n">birthday</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">month</span> <span class="o">=</span> <span class="s">&quot;April&quot;</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">1990</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;My birthday is the </span><span class="si">%i</span><span class="s">-th </span><span class="si">%s</span><span class="s"> </span><span class="si">%i</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">birthday</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">))</span>
+</code></pre></div>
+
+
+<p>The first string contains the rules how to format. <code>%i</code> means that the first argument in the following tuple should be interpreted as a integer. The second one <code>%s</code> should be interpreted as a string and the third one again as a integer.</p>
+
+<h2>Save as string</h2>
+
+
+
+
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">&quot;Why is </span><span class="si">%i</span><span class="s"> the answer?&quot;</span> <span class="o">%</span> <span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="s">&#39;Why is 42 the answer?&#39;</span>
+</code></pre></div>
+
+
+
+
+<h2>Named formatting</h2>
+
+
+<p>You might prefer named formatting:</p>
+
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="s">&quot;{guy} loves {girl}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">girl</span><span class="o">=</span><span class="s">&quot;Marie&quot;</span><span class="p">,</span> <span class="n">guy</span><span class="o">=</span><span class="s">&quot;Martin&quot;</span><span class="p">)</span>
+<span class="s">&#39;Martin loves Marie.&#39;</span>
+</code></pre></div>
+
+
+<p>You can also store this first in a dictionary an unpack it:</p>
+
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">myDictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;girl&quot;</span><span class="p">:</span><span class="s">&quot;Marie&quot;</span><span class="p">,</span><span class="s">&quot;guy&quot;</span><span class="p">:</span> <span class="s">&quot;Martin&quot;</span><span class="p">,</span><span class="s">&quot;other&quot;</span><span class="p">:</span><span class="s">&quot;Internet&quot;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">&quot;{guy} loves {girl}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">girl</span><span class="o">=</span><span class="s">&quot;Marie&quot;</span><span class="p">,</span> <span class="n">guy</span><span class="o">=</span><span class="s">&quot;Martin&quot;</span><span class="p">)</span>
+<span class="s">&#39;Martin loves Marie.&#39;</span>
+</code></pre></div>
+
+
+
+
+<h2>Date and Time</h2>
+
+
+<p>You can format time any way you like, just look at <a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">this reference</a>.</p>
+
+<h2>Lists</h2>
+
+
+<p>Question: I would like to print a list! How do I do that?
+Answer: Convert your list to a string</p>
+
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;Your list: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">myList</span><span class="p">)))</span>
+<span class="n">Your</span> <span class="nb">list</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+
+
+
+
+<h2>__str__ and __repr__</h2>
+
+
+<p>When you build your own objects, you should add an implementation for the method <code><strong>str</strong></code> and <code><strong>repr</strong></code>. The first one should return a string representation that is human readable of the object, the second one should return a string that identifies the object.</p>
+
+<h2>Formatters</h2>
+
+
+<table>
+<tr>
+  <td><code>%i</code></td>
+  <td>Integer</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">123</span><span class="p">))</span>
+<span class="mi">123</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%s</code></td>
+  <td>String</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&quot;Martin&quot;</span><span class="p">))</span>
+<span class="n">Martin</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%o</code></td>
+  <td>Int as octal</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%o</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">123.123</span><span class="p">))</span>
+<span class="mi">173</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%x</code></td>
+  <td>Int as hexadecimal (lower case)</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%x</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">123.123</span><span class="p">))</span>
+<span class="mi">7</span><span class="n">b</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%X</code></td>
+  <td>Int as hexadecimal (upper case)</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%X</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">123.123</span><span class="p">))</span>
+<span class="mi">7</span><span class="n">B</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%f</code></td>
+  <td>Floating point</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">123.123</span><span class="p">))</span>
+<span class="mf">123.123000</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%.2f</code></td>
+  <td>Floating point with two decimal places</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%.2f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">123.123</span><span class="p">))</span>
+<span class="mf">123.12</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%e</code></td>
+  <td>Floating point in scientific notation</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%e</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">123.123</span><span class="p">))</span>
+<span class="mf">1.231230e+02</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%%</code></td>
+  <td>Percent sign</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%i%%</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">65</span><span class="p">))</span>
+<span class="mi">65</span><span class="o">%</span>
+</code></pre></div>
+</td>
+</tr>
+<tr>
+  <td><code>%6.2f</code></td>
+  <td>Print a float with 2 decimal places. Add spaces if this has less than 6 characters.</td>
+  <td>
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%6.2f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">65.123</span><span class="p">))</span>
+ <span class="mf">65.12</span>
+</code></pre></div>
+</td>
+</tr>
+</table>
+
+
+
+
+<h2>Resources</h2>
+
+
+<ul>
+  <li><a href="http://docs.python.org/2/library/string.html#format-specification-mini-language">Format Specification Mini-Language</a></li>
+  <li><a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">Time formatting</a></li>
+  <li><a href="http://docs.python.org/2/library/pprint.html">Pretty Print</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

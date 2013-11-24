@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>for loops in different programming languages</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>for loops in different programming languages</h2>
+<p class="meta">04 Dec 2011</p>
+
+<div class="post">
+<p>If you have to learn a new programming language it is most of the time quite easy. You know the structures and the way you have to think if you want to solve a problem. The first time it might be hard, but the more languages you learn the more simmilarities you'll recognize.</p>
+
+<p>I also have to learn a special variant of <a href="http://en.wikipedia.org/wiki/Pseudocode">pseudocode</a> at the moment. It is quite hard to know what pseudocode does if it isn't unambiguously defined. I had problems with for loops for example.</p>
+
+<p>For loops have some properties you simply have to define:</p>
+
+<ul>
+  <li><strong>Scoping</strong>: Does the loop counter still exist after the loop was executed?</li>
+  <li><strong>Copy or reference</strong>: Does the loop statement work with a copy or with a reference of the variables in the loop body?</li>
+  <li><strong>Last value of i</strong>: What is the last value of i?</li>
+</ul>
+
+
+
+
+<h2>General structure</h2>
+
+
+<p>A for loop usually consists of an initialisation part, a condition and an interation step:</p>
+
+<p>[caption id="attachment_9251" align="aligncenter" width="285" caption="The structure of a for loop."]<a href="http://martin-thoma.com/wp-content/uploads/2011/11/for-loop-structure1.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/11/for-loop-structure1.png" alt="for loop structure" title="for-loop-structure" width="285" height="176" class="size-full wp-image-9251" /></a>[/caption]</p>
+
+<h2>Pythons special strutcure</h2>
+
+
+<p>Python uses a generator or lists to loop:</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;In loop: </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Out of loop: </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+<h2>Scoping</h2>
+
+
+<p>Does the loop counter still exist after the loop was executed?</p>
+
+<ul>
+    <li><strong>Yes</strong>: JavaScript, PHP, Python</li>
+    <li><strong>No</strong>: C, C++, Java</li>
+</ul>
+
+
+
+
+<h2>Copy or reference</h2>
+
+
+<p>Does the loop statement work with a copy or with a reference of the variables in the loop body? Does the programming language use the same variable as in the for condition (reference) or does it use another one (copy)? You can test this if you add something to i in the body.</p>
+
+<ul>
+    <li><strong>Copy</strong>: Python</li>
+    <li><strong>Reference</strong>: C, C++, Java, JavaScript, PHP</li>
+</ul>
+
+
+<p>Python iterates over a generator. This means that you can't really compare Pythons for-loop to other programming languages' for loops.</p>
+
+<h2>Last value of i</h2>
+
+
+<p>What is the last value of i?</p>
+
+<p><strong>9</strong>: C, C++, Java (Inside the loop), Python (Outside of the loop)
+<strong>10</strong>: JavaScript, PHP (Outside of the loop)</p>
+
+<h2>foreach</h2>
+
+
+<p>Many languages provide a special for loop. This special for loop is sometimes called "foreach" as you iterate over each element in a collection (e.g. an array).</p>
+
+<h3>Java</h3>
+
+
+<p>[java]int[] array = new int[5];
+array[0] = 0;
+array[1] = 1;
+array[2] = 2;
+array[3] = 3;
+array[4] = 4;</p>
+
+<p>for (int item: array) {
+    System.out.println("Foreach: " + item);
+}[/java]</p>
+
+<h3>JavaScript</h3>
+
+
+<p>[javascript]var array = new Array(0, 1, 2, 3, 4);</p>
+
+<p>for (var value in array) {
+    document.write('Foreach: ' + value + '<br/>' );
+}[/javascript]</p>
+
+<h3>PHP</h3>
+
+
+<p>[php]$array = array(0, 1, 2, 3, 4);</p>
+
+<p>foreach ($array as $key=>$value) {
+    echo "Foreach: $value<br/>";
+}[/php]</p>
+
+<h3>Python</h3>
+
+
+
+
+<div class="highlight"><pre><code class="python"><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Foreach: </span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">value</span>
+</code></pre></div>
+
+
+
+
+<h2>More information</h2>
+
+
+<p>If you want to see the code, you can download this <a href='http://martin-thoma.com/wp-content/uploads/2011/12/for-loops.zip'>zip archive</a>.</p>
+
+<p>It is quite astonishing, but Wikipedia has a very long <a href="http://en.wikipedia.org/wiki/For_loop">article about for loops</a>.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

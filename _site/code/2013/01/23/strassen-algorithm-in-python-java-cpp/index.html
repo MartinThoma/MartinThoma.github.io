@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Part II: The Strassen algorithm in Python, Java and C++</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Part II: The Strassen algorithm in Python, Java and C++</h2>
+<p class="meta">23 Jan 2013</p>
+
+<div class="post">
+<div class="info">This is Part II of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
+<a href="part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
+
+
+<p>The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n<sup>3</sup>)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.</p>
+
+<h2>The implementations</h2>
+
+
+<p>As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times :-)
+If you know other languages, you could create a script for these. I focus on Python, Java and C++.</p>
+
+<p>I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four $\frac{n}{2} \times \frac{n}{2}$ matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those $\frac{n}{2} \times \frac{n}{2}$ matrices. You can do this until you have $1 \times 1$ matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.</p>
+
+<p>If you post a solution, please consider these restrictions:</p>
+
+<ul>
+    <li><strong>Input</strong>: 
+    <ul>
+      <li>The input file should get passed with the parameter <code>-i</code>, e.g.: 
+    <code>python -i bigMatrix.in</code> or <code>java Shell -i bigMatrix.in</code></li>
+      <li>The leaf-size should get passed with <code>-l</code>, e.g.: 
+    <code>python -i bigMatrix.in -l 32</code></li>
+    </ul>
+    </li>
+    <li>The standard value for the command line parameter -i should be "bigMatrix.in"</li>
+    <li>The user should <em>not</em> have to give the size of the matrix!</li>
+    <li>The two square-matrices that should get multiplied are ...
+    <ul>
+    <li>... read from a text-file.</li>
+    <li>... represented like this:
+        <ul>
+        <li>Every line of one matrix is one line in the text-file.</li>
+        <li>Newlines are only "\n".</li>
+        <li>Every number is separated by "\t".</li>
+        <li>The both matrices are separated by one newline.</li>
+        </ul>
+    </li>
+    </ul>
+    </li>
+    <li><strong>Output</strong>: The result has to get printed to standard output.</li>
+    <li>The result has to be formatted like the input (tabs for separation of number, \n for marks a new line)</li>
+</ul>
+
+
+
+
+<h2>Tests and Setting</h2>
+
+
+<p><a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.</p>
+
+<h2>Python</h2>
+
+
+<p>I&rsquo;ve used Python 2.6.5.</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">log</span>
+
+<span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">A</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">B</span>
+    <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">printMatrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">line</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+
+<span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+
+<span class="k">def</span> <span class="nf">strassenR</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Implementation of the strassen algorithm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">LEAF_SIZE</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ikjMatrixProduct</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># initializing the new sub-matrices</span>
+        <span class="n">newSize</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">a11</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+        <span class="n">a12</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+        <span class="n">a21</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+        <span class="n">a22</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+
+        <span class="n">b11</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+        <span class="n">b12</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+        <span class="n">b21</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+        <span class="n">b22</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+
+        <span class="n">aResult</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+        <span class="n">bResult</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">)]</span>
+
+        <span class="c"># dividing the matrices in 4 sub-matrices:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">):</span>
+                <span class="n">a11</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>            <span class="c"># top left</span>
+                <span class="n">a12</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">]</span>    <span class="c"># top right</span>
+                <span class="n">a21</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>    <span class="c"># bottom left</span>
+                <span class="n">a22</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">]</span> <span class="c"># bottom right</span>
+ 
+                <span class="n">b11</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>            <span class="c"># top left</span>
+                <span class="n">b12</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">]</span>    <span class="c"># top right</span>
+                <span class="n">b21</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>    <span class="c"># bottom left</span>
+                <span class="n">b22</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">]</span> <span class="c"># bottom right</span>
+
+        <span class="c"># Calculating p1 to p7:</span>
+        <span class="n">aResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">a11</span><span class="p">,</span> <span class="n">a22</span><span class="p">)</span>
+        <span class="n">bResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">b11</span><span class="p">,</span> <span class="n">b22</span><span class="p">)</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">strassenR</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="n">bResult</span><span class="p">)</span> <span class="c"># p1 = (a11+a22) * (b11+b22)</span>
+ 
+        <span class="n">aResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">a21</span><span class="p">,</span> <span class="n">a22</span><span class="p">)</span>      <span class="c"># a21 + a22</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">strassenR</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="n">b11</span><span class="p">)</span>  <span class="c"># p2 = (a21+a22) * (b11)</span>
+ 
+        <span class="n">bResult</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">b12</span><span class="p">,</span> <span class="n">b22</span><span class="p">)</span> <span class="c"># b12 - b22</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="n">strassenR</span><span class="p">(</span><span class="n">a11</span><span class="p">,</span> <span class="n">bResult</span><span class="p">)</span>  <span class="c"># p3 = (a11) * (b12 - b22)</span>
+ 
+        <span class="n">bResult</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">b21</span><span class="p">,</span> <span class="n">b11</span><span class="p">)</span> <span class="c"># b21 - b11</span>
+        <span class="n">p4</span> <span class="o">=</span><span class="n">strassenR</span><span class="p">(</span><span class="n">a22</span><span class="p">,</span> <span class="n">bResult</span><span class="p">)</span>   <span class="c"># p4 = (a22) * (b21 - b11)</span>
+ 
+        <span class="n">aResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">a11</span><span class="p">,</span> <span class="n">a12</span><span class="p">)</span>      <span class="c"># a11 + a12</span>
+        <span class="n">p5</span> <span class="o">=</span> <span class="n">strassenR</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="n">b22</span><span class="p">)</span>  <span class="c"># p5 = (a11+a12) * (b22)   </span>
+ 
+        <span class="n">aResult</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">a21</span><span class="p">,</span> <span class="n">a11</span><span class="p">)</span> <span class="c"># a21 - a11</span>
+        <span class="n">bResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">b11</span><span class="p">,</span> <span class="n">b12</span><span class="p">)</span>      <span class="c"># b11 + b12</span>
+        <span class="n">p6</span> <span class="o">=</span> <span class="n">strassenR</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="n">bResult</span><span class="p">)</span> <span class="c"># p6 = (a21-a11) * (b11+b12)</span>
+ 
+        <span class="n">aResult</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">a12</span><span class="p">,</span> <span class="n">a22</span><span class="p">)</span> <span class="c"># a12 - a22</span>
+        <span class="n">bResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">b21</span><span class="p">,</span> <span class="n">b22</span><span class="p">)</span>      <span class="c"># b21 + b22</span>
+        <span class="n">p7</span> <span class="o">=</span> <span class="n">strassenR</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="n">bResult</span><span class="p">)</span> <span class="c"># p7 = (a12-a22) * (b21+b22)</span>
+
+        <span class="c"># calculating c21, c21, c11 e c22:</span>
+        <span class="n">c12</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">p5</span><span class="p">)</span> <span class="c"># c12 = p3 + p5</span>
+        <span class="n">c21</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">p4</span><span class="p">)</span>  <span class="c"># c21 = p2 + p4</span>
+ 
+        <span class="n">aResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p4</span><span class="p">)</span> <span class="c"># p1 + p4</span>
+        <span class="n">bResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="n">p7</span><span class="p">)</span> <span class="c"># p1 + p4 + p7</span>
+        <span class="n">c11</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">bResult</span><span class="p">,</span> <span class="n">p5</span><span class="p">)</span> <span class="c"># c11 = p1 + p4 - p5 + p7</span>
+ 
+        <span class="n">aResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span> <span class="c"># p1 + p3</span>
+        <span class="n">bResult</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="n">aResult</span><span class="p">,</span> <span class="n">p6</span><span class="p">)</span> <span class="c"># p1 + p3 + p6</span>
+        <span class="n">c22</span> <span class="o">=</span> <span class="n">subtract</span><span class="p">(</span><span class="n">bResult</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span> <span class="c"># c22 = p1 + p3 - p2 + p6</span>
+ 
+        <span class="c"># Grouping the results obtained in a single matrix:</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">newSize</span><span class="p">):</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c11</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">]</span> <span class="o">=</span> <span class="n">c12</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c21</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">][</span><span class="n">j</span> <span class="o">+</span> <span class="n">newSize</span><span class="p">]</span> <span class="o">=</span> <span class="n">c22</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">C</span>
+
+<span class="k">def</span> <span class="nf">strassen</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c"># Make the matrices bigger so that you can apply the strassen</span>
+    <span class="c"># algorithm recursively without having to deal with odd</span>
+    <span class="c"># matrix sizes</span>
+    <span class="n">nextPowerOfTwo</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="mi">2</span><span class="o">**</span><span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">nextPowerOfTwo</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">APrep</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+    <span class="n">BPrep</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">APrep</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">BPrep</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">CPrep</span> <span class="o">=</span> <span class="n">strassenR</span><span class="p">(</span><span class="n">APrep</span><span class="p">,</span> <span class="n">BPrep</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">CPrep</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">C</span>
+    
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;filename&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;2000.in&quot;</span><span class="p">,</span>
+         <span class="n">help</span><span class="o">=</span><span class="s">&quot;input file with two matrices&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;FILE&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">&quot;-l&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;LEAF_SIZE&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&quot;8&quot;</span><span class="p">,</span>
+         <span class="n">help</span><span class="o">=</span><span class="s">&quot;when do you start using ikj&quot;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&quot;LEAF_SIZE&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">LEAF_SIZE</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">LEAF_SIZE</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="n">C</span> <span class="o">=</span> <span class="n">strassen</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+    <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:
+[bash]
+ikj-algorithm   44m13.458s
+LEAF_SIZE   Time
+2   47m45.983s
+8   47m41.311s
+16  48m5.472s
+32  48m5.624s
+64  47m55.076s[/bash]</p>
+
+<h2>Java</h2>
+
+
+<p>The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.</p>
+
+<p>[java]public static int[][] ikjAlgorithm(int[][] A, int[][] B) {
+    int n = A.length;</p>
+
+<pre><code>// initialise C
+int[][] C = new int[n][n];
+
+for (int i = 0; i &lt; n; i++) {
+    for (int k = 0; k &lt; n; k++) {
+        for (int j = 0; j &lt; n; j++) {
+            C[i][j] += A[i][k] * B[k][j];
+        }
+    }
+}
+return C;
+</code></pre>
+
+<p>}</p>
+
+<p>private static int[][] add(int[][] A, int[][] B) {
+    int n = A.length;
+    int[][] C = new int[n][n];
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+    return C;
+}</p>
+
+<p>private static int[][] subtract(int[][] A, int[][] B) {
+    int n = A.length;
+    int[][] C = new int[n][n];
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            C[i][j] = A[i][j] - B[i][j];
+        }
+    }
+    return C;
+}</p>
+
+<p>private static int nextPowerOfTwo(int n) {
+    int log2 = (int) Math.ceil(Math.log(n) / Math.log(2));
+    return (int) Math.pow(2, log2);
+}</p>
+
+<p>public static int[][] strassen(ArrayList&lt;ArrayList<Integer>> A,
+        ArrayList&lt;ArrayList<Integer>> B) {
+    // Make the matrices bigger so that you can apply the strassen
+    // algorithm recursively without having to deal with odd
+    // matrix sizes
+    int n = A.size();
+    int m = nextPowerOfTwo(n);
+    int[][] APrep = new int[m][m];
+    int[][] BPrep = new int[m][m];
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            APrep[i][j] = A.get(i).get(j);
+            BPrep[i][j] = B.get(i).get(j);
+        }
+    }</p>
+
+<pre><code>int[][] CPrep = strassenR(APrep, BPrep);
+int[][] C = new int[n][n];
+for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; n; j++) {
+        C[i][j] = CPrep[i][j];
+    }
+}
+return C;
+</code></pre>
+
+<p>}</p>
+
+<p>private static int[][] strassenR(int[][] A, int[][] B) {
+    int n = A.length;</p>
+
+<pre><code>if (n &lt;= LEAF_SIZE) {
+    return ikjAlgorithm(A, B);
+} else {
+    // initializing the new sub-matrices
+    int newSize = n / 2;
+    int[][] a11 = new int[newSize][newSize];
+    int[][] a12 = new int[newSize][newSize];
+    int[][] a21 = new int[newSize][newSize];
+    int[][] a22 = new int[newSize][newSize];
+
+    int[][] b11 = new int[newSize][newSize];
+    int[][] b12 = new int[newSize][newSize];
+    int[][] b21 = new int[newSize][newSize];
+    int[][] b22 = new int[newSize][newSize];
+
+    int[][] aResult = new int[newSize][newSize];
+    int[][] bResult = new int[newSize][newSize];
+
+    // dividing the matrices in 4 sub-matrices:
+    for (int i = 0; i &lt; newSize; i++) {
+        for (int j = 0; j &lt; newSize; j++) {
+            a11[i][j] = A[i][j]; // top left
+            a12[i][j] = A[i][j + newSize]; // top right
+            a21[i][j] = A[i + newSize][j]; // bottom left
+            a22[i][j] = A[i + newSize][j + newSize]; // bottom right
+
+            b11[i][j] = B[i][j]; // top left
+            b12[i][j] = B[i][j + newSize]; // top right
+            b21[i][j] = B[i + newSize][j]; // bottom left
+            b22[i][j] = B[i + newSize][j + newSize]; // bottom right
+        }
+    }
+
+    // Calculating p1 to p7:
+    aResult = add(a11, a22);
+    bResult = add(b11, b22);
+    int[][] p1 = strassenR(aResult, bResult);
+    // p1 = (a11+a22) * (b11+b22)
+
+    aResult = add(a21, a22); // a21 + a22
+    int[][] p2 = strassenR(aResult, b11); // p2 = (a21+a22) * (b11)
+
+    bResult = subtract(b12, b22); // b12 - b22
+    int[][] p3 = strassenR(a11, bResult);
+    // p3 = (a11) * (b12 - b22)
+
+    bResult = subtract(b21, b11); // b21 - b11
+    int[][] p4 = strassenR(a22, bResult);
+    // p4 = (a22) * (b21 - b11)
+
+    aResult = add(a11, a12); // a11 + a12
+    int[][] p5 = strassenR(aResult, b22);
+    // p5 = (a11+a12) * (b22)
+
+    aResult = subtract(a21, a11); // a21 - a11
+    bResult = add(b11, b12); // b11 + b12
+    int[][] p6 = strassenR(aResult, bResult);
+    // p6 = (a21-a11) * (b11+b12)
+
+    aResult = subtract(a12, a22); // a12 - a22
+    bResult = add(b21, b22); // b21 + b22
+    int[][] p7 = strassenR(aResult, bResult);
+    // p7 = (a12-a22) * (b21+b22)
+
+    // calculating c21, c21, c11 e c22:
+    int[][] c12 = add(p3, p5); // c12 = p3 + p5
+    int[][] c21 = add(p2, p4); // c21 = p2 + p4
+
+    aResult = add(p1, p4); // p1 + p4
+    bResult = add(aResult, p7); // p1 + p4 + p7
+    int[][] c11 = subtract(bResult, p5);
+    // c11 = p1 + p4 - p5 + p7
+
+    aResult = add(p1, p3); // p1 + p3
+    bResult = add(aResult, p6); // p1 + p3 + p6
+    int[][] c22 = subtract(bResult, p2);
+    // c22 = p1 + p3 - p2 + p6
+
+    // Grouping the results obtained in a single matrix:
+    int[][] C = new int[n][n];
+    for (int i = 0; i &lt; newSize; i++) {
+        for (int j = 0; j &lt; newSize; j++) {
+            C[i][j] = c11[i][j];
+            C[i][j + newSize] = c12[i][j];
+            C[i + newSize][j] = c21[i][j];
+            C[i + newSize][j + newSize] = c22[i][j];
+        }
+    }
+    return C;
+}
+</code></pre>
+
+<p>}[/java]</p>
+
+<p>Here are the results for different leaf-sizes:
+[caption id="attachment_54901" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/bchart-simple.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/bchart-simple.png" alt="Matrix multiplication with Java: Execution time in seconds for different leafsizes" width="500" height="349" class="size-full wp-image-54901" /></a> Matrix multiplication with Java: Execution time in seconds for different leafsizes[/caption]</p>
+
+<h2>C++</h2>
+
+
+<p>[cpp]#include <sstream></p>
+
+<h1>include <string></h1>
+
+<h1>include <fstream></h1>
+
+<h1>include <iostream></h1>
+
+<h1>include <vector></h1>
+
+<h1>include <algorithm></h1>
+
+<h1>include <cmath></h1>
+
+<p>// Set LEAF_SIZE to 1 if you want to the pure strassen algorithm
+// otherwise, the ikj-algorithm will be applied when the split
+// matrices are as small as LEAF_SIZE x LEAF_SIZE
+int leafsize;</p>
+
+<p>using namespace std;</p>
+
+<p>/<em>
+ * Implementation of the strassen algorithm, similar to
+ * http://en.wikipedia.org/w/index.php?title=Strassen_algorithm&amp;oldid=498910018#Source_code_of_the_Strassen_algorithm_in_C_language
+ </em>/</p>
+
+<p>void strassen(vector&lt; vector<int> > &amp;A,
+              vector&lt; vector<int> > &amp;B,
+              vector&lt; vector<int> > &amp;C, unsigned int tam);
+unsigned int nextPowerOfTwo(int n);
+void strassenR(vector&lt; vector<int> > &amp;A,
+              vector&lt; vector<int> > &amp;B,
+              vector&lt; vector<int> > &amp;C,
+              int tam);
+void sum(vector&lt; vector<int> > &amp;A,
+         vector&lt; vector<int> > &amp;B,
+         vector&lt; vector<int> > &amp;C, int tam);
+void subtract(vector&lt; vector<int> > &amp;A,
+              vector&lt; vector<int> > &amp;B,
+              vector&lt; vector<int> > &amp;C, int tam);</p>
+
+<p>void printMatrix(vector&lt; vector<int> > matrix, int n);
+void read(string filename, vector&lt; vector<int> > &amp;A, vector&lt; vector<int> > &amp;B);</p>
+
+<p>void ikjalgorithm(vector&lt; vector<int> > A,
+                                   vector&lt; vector<int> > B,
+                                   vector&lt; vector<int> > &amp;C, int n) {
+    for (int i = 0; i &lt; n; i++) {
+        for (int k = 0; k &lt; n; k++) {
+            for (int j = 0; j &lt; n; j++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}</p>
+
+<p>void strassenR(vector&lt; vector<int> > &amp;A,
+              vector&lt; vector<int> > &amp;B,
+              vector&lt; vector<int> > &amp;C, int tam) {
+    if (tam &lt;= leafsize) {
+        ikjalgorithm(A, B, C, tam);
+        return;
+    }</p>
+
+<pre><code>// other cases are treated here:
+else {
+    int newTam = tam/2;
+    vector&lt;int&gt; inner (newTam);
+    vector&lt; vector&lt;int&gt; &gt; 
+        a11(newTam,inner), a12(newTam,inner), a21(newTam,inner), a22(newTam,inner),
+        b11(newTam,inner), b12(newTam,inner), b21(newTam,inner), b22(newTam,inner),
+          c11(newTam,inner), c12(newTam,inner), c21(newTam,inner), c22(newTam,inner),
+        p1(newTam,inner), p2(newTam,inner), p3(newTam,inner), p4(newTam,inner), 
+        p5(newTam,inner), p6(newTam,inner), p7(newTam,inner),
+        aResult(newTam,inner), bResult(newTam,inner);
+
+    int i, j;
+
+    //dividing the matrices in 4 sub-matrices:
+    for (i = 0; i &lt; newTam; i++) {
+        for (j = 0; j &lt; newTam; j++) {
+            a11[i][j] = A[i][j];
+            a12[i][j] = A[i][j + newTam];
+            a21[i][j] = A[i + newTam][j];
+            a22[i][j] = A[i + newTam][j + newTam];
+
+            b11[i][j] = B[i][j];
+            b12[i][j] = B[i][j + newTam];
+            b21[i][j] = B[i + newTam][j];
+            b22[i][j] = B[i + newTam][j + newTam];
+        }
+    }
+
+    // Calculating p1 to p7:
+
+    sum(a11, a22, aResult, newTam); // a11 + a22
+    sum(b11, b22, bResult, newTam); // b11 + b22
+    strassenR(aResult, bResult, p1, newTam); // p1 = (a11+a22) * (b11+b22)
+
+    sum(a21, a22, aResult, newTam); // a21 + a22
+    strassenR(aResult, b11, p2, newTam); // p2 = (a21+a22) * (b11)
+
+    subtract(b12, b22, bResult, newTam); // b12 - b22
+    strassenR(a11, bResult, p3, newTam); // p3 = (a11) * (b12 - b22)
+
+    subtract(b21, b11, bResult, newTam); // b21 - b11
+    strassenR(a22, bResult, p4, newTam); // p4 = (a22) * (b21 - b11)
+
+    sum(a11, a12, aResult, newTam); // a11 + a12
+    strassenR(aResult, b22, p5, newTam); // p5 = (a11+a12) * (b22)   
+
+    subtract(a21, a11, aResult, newTam); // a21 - a11
+    sum(b11, b12, bResult, newTam); // b11 + b12
+    strassenR(aResult, bResult, p6, newTam); // p6 = (a21-a11) * (b11+b12)
+
+    subtract(a12, a22, aResult, newTam); // a12 - a22
+    sum(b21, b22, bResult, newTam); // b21 + b22
+    strassenR(aResult, bResult, p7, newTam); // p7 = (a12-a22) * (b21+b22)
+
+    // calculating c21, c21, c11 e c22:
+
+    sum(p3, p5, c12, newTam); // c12 = p3 + p5
+    sum(p2, p4, c21, newTam); // c21 = p2 + p4
+
+    sum(p1, p4, aResult, newTam); // p1 + p4
+    sum(aResult, p7, bResult, newTam); // p1 + p4 + p7
+    subtract(bResult, p5, c11, newTam); // c11 = p1 + p4 - p5 + p7
+
+    sum(p1, p3, aResult, newTam); // p1 + p3
+    sum(aResult, p6, bResult, newTam); // p1 + p3 + p6
+    subtract(bResult, p2, c22, newTam); // c22 = p1 + p3 - p2 + p6
+
+    // Grouping the results obtained in a single matrix:
+    for (i = 0; i &lt; newTam ; i++) {
+        for (j = 0 ; j &lt; newTam ; j++) {
+            C[i][j] = c11[i][j];
+            C[i][j + newTam] = c12[i][j];
+            C[i + newTam][j] = c21[i][j];
+            C[i + newTam][j + newTam] = c22[i][j];
+        }
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<p>unsigned int nextPowerOfTwo(int n) {
+    return pow(2, int(ceil(log2(n))));
+}</p>
+
+<p>void strassen(vector&lt; vector<int> > &amp;A,
+              vector&lt; vector<int> > &amp;B,
+              vector&lt; vector<int> > &amp;C, unsigned int n) {
+    //unsigned int n = tam;
+    unsigned int m = nextPowerOfTwo(n);
+    vector<int> inner(m);
+    vector&lt; vector<int> > APrep(m, inner), BPrep(m, inner), CPrep(m, inner);</p>
+
+<pre><code>for(unsigned int i=0; i&lt;n; i++) {
+    for (unsigned int j=0; j&lt;n; j++) {
+        APrep[i][j] = A[i][j];
+        BPrep[i][j] = B[i][j];
+    }
+}
+
+strassenR(APrep, BPrep, CPrep, m);
+for(unsigned int i=0; i&lt;n; i++) {
+    for (unsigned int j=0; j&lt;n; j++) {
+        C[i][j] = CPrep[i][j];
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<p>void sum(vector&lt; vector<int> > &amp;A,
+         vector&lt; vector<int> > &amp;B,
+         vector&lt; vector<int> > &amp;C, int tam) {
+    int i, j;</p>
+
+<pre><code>for (i = 0; i &lt; tam; i++) {
+    for (j = 0; j &lt; tam; j++) {
+        C[i][j] = A[i][j] + B[i][j];
+    }
+}
+</code></pre>
+
+<p>}</p>
+
+<p>void subtract(vector&lt; vector<int> > &amp;A,
+              vector&lt; vector<int> > &amp;B,
+              vector&lt; vector<int> > &amp;C, int tam) {
+    int i, j;</p>
+
+<pre><code>for (i = 0; i &lt; tam; i++) {
+    for (j = 0; j &lt; tam; j++) {
+        C[i][j] = A[i][j] - B[i][j];
+    }
+}   
+</code></pre>
+
+<p>}</p>
+
+<p>int getMatrixSize(string filename) {
+    string line;
+    ifstream infile;
+    infile.open (filename.c_str());
+    getline(infile, line);
+    return count(line.begin(), line.end(), '\t') + 1;
+}</p>
+
+<p>void read(string filename, vector&lt; vector<int> > &amp;A, vector&lt; vector<int> > &amp;B) {
+    string line;
+    FILE* matrixfile = freopen(filename.c_str(), "r", stdin);</p>
+
+<pre><code>if (matrixfile == 0) {
+    cerr &lt;&lt; "Could not read file " &lt;&lt; filename &lt;&lt; endl;
+    return;
+}
+
+int i = 0, j, a;
+while (getline(cin, line) &amp;amp;&amp;amp; !line.empty()) {
+    istringstream iss(line);
+    j = 0;
+    while (iss &gt;&gt; a) {
+        A[i][j] = a;
+        j++;
+    }
+    i++;
+}
+
+i = 0;
+while (getline(cin, line)) {
+    istringstream iss(line);
+    j = 0;
+    while (iss &gt;&gt; a) {
+        B[i][j] = a;
+        j++;
+    }
+    i++;
+}
+
+fclose (matrixfile);
+</code></pre>
+
+<p>}</p>
+
+<p>void printMatrix(vector&lt; vector<int> > matrix, int n) {
+    for (int i=0; i &lt; n; i++) {
+        for (int j=0; j &lt; n; j++) {
+            if (j != 0) {
+                cout &lt;&lt; "\t";
+            }
+            cout &lt;&lt; matrix[i][j];
+        }
+        cout &lt;&lt; endl;
+    }
+}</p>
+
+<p>int main (int argc, char* argv[]) {
+    string filename;
+    if (argc &lt; 3) {
+        filename = "2000.in";
+    } else {
+        filename = argv[2];
+    }</p>
+
+<pre><code>if (argc &lt; 5) {
+    leafsize = 16;
+} else {
+    leafsize = atoi(argv[4]);
+}
+
+int n = getMatrixSize(filename);
+vector&lt;int&gt; inner (n);
+vector&lt; vector&lt;int&gt; &gt; A(n, inner), B(n, inner), C(n, inner);
+read (filename, A, B);
+strassen(A, B, C, n);
+printMatrix(C, n);
+return 0;
+</code></pre>
+
+<p>}[/cpp]</p>
+
+<p>For C++, you get those user-times for the different leaf-sizes:
+[caption id="attachment_54921" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/cpp-leaf-size-times.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/cpp-leaf-size-times.png" alt="Execution times in seconds with differen leafsizes with C++" width="500" height="333" class="size-full wp-image-54921" /></a> Execution times in seconds with differen leafsizes with C++[/caption]</p>
+
+<h2>Conclusion</h2>
+
+
+<p>As always, C++ is the fastest solution.</p>
+
+<p>I am a little bit surprised, that the LEAF_SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF_SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often any preferably visualize it.</p>
+
+<p>For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why librarys perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)</p>
+
+<p>Leafsizes from 64 to 256 seem to be the best solution.</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

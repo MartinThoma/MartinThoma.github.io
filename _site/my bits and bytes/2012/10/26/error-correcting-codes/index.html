@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Error correcting Codes</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Error correcting Codes</h2>
+<p class="meta">26 Oct 2012</p>
+
+<div class="post">
+<div class="info">This blogpost is strongly related to <a href="http://page.math.tu-berlin.de/~felsner/DMSWe/Aufgaben/codes.pdf">this germand PDF</a> of a pupils' competition in which I have participated in 2008.</div>
+
+
+<p>Today, we have a lot of data that is stored or transferred in a binary way. Once in a while an error occurs and single bits get switched from 0 to 1 or the other way around. <a href="http://en.wikipedia.org/wiki/Coding_theory">Coding theory</a> tries to find algorithms with which you can <strong>detect</strong> and <strong>correct</strong> errors.</p>
+
+<h2>Introduction</h2>
+
+
+<p>To keep it simple, we make a small example. We have $2<sup>3</sup> = 8$ valid messages:</p>
+
+<p>Message A: (0, 0, 0)
+Message B: (0, 0, 1)
+Message C: (0, 1, 0)
+Message D: (0, 1, 1)
+Message E: (1, 0, 0)
+Message F: (1, 0, 1)
+Message G: (1, 1, 0)
+Message H: (1, 1, 1)</p>
+
+<p>I will call the set $c_1 := {A, B, C, D, E, F, G, H}$ of those messages a <strong>code</strong>.</p>
+
+<p>Now Alice wants to send message A to Bob. If one error occurs, Bob receives either message B, message C or message E. As all of those are valid messages, he might not notice that an error occurred (and even more not be able to correct the error).</p>
+
+<p>How could Alice and Bob solve this problem?</p>
+
+<h2>Redundancy</h2>
+
+
+<p>Well, a simple solution would be to send the message twice. Or, almost the same, sending once a message with redundant information. So the new messages are:</p>
+
+<p>Message A': (0, 0, 0, 0, 0, 0)
+Message B': (0, 0, 1, 0, 0, 1)
+Message C': (0, 1, 0, 0, 1, 0)
+Message D': (0, 1, 1, 0, 1, 1)
+Message E': (1, 0, 0, 1, 0, 0)
+Message F': (1, 0, 1, 1, 0, 1)
+Message G': (1, 1, 0, 1, 1, 0)
+Message H': (1, 1, 1, 1, 1, 1)</p>
+
+<p>$c_2 := {A', B', C', D', E', F', G', H'}$</p>
+
+<p>If Bob gets a message with only one error, he can detect it. But he still isn't able to correct it:
+Alice send Message A and an error occurred at the first (most significant) bit. Bob can see that this is not a valid message, but if he thinks that only one error occurred, it is equally likely that Alice sent message A or message E.</p>
+
+<p>Can we do better?</p>
+
+<h2>Hamming distance</h2>
+
+
+<p>A useful tool is the so called "<a href="http://en.wikipedia.org/wiki/Hamming_distance">Hamming distance</a>".</p>
+
+<p>The set of all 0/1 tuples of the length $n$ is called $\mathcal{F}_n$.</p>
+
+<p>Examples:
+$\begin{align}
+    {A, B, C, D, E, F, G, H}     &amp;= \mathcal{F}<em>3\
+{A', B', C', D', E', F', G', H'} &amp;\subsetneq \mathcal{F}</em>8
+\end{align}$</p>
+
+<p>$A[i]$ is the $i$-th bit of a message $A$ with $i \in {0, \dots, (n-1)}$</p>
+
+<p>$\oplus : {0,1} \times {0,1} \rightarrow {0,1}$ defined as $\oplus(a, b) :=
+\begin{cases}
+ 0 &amp; \text{, if } a = b\
+ 1 &amp; \text{, if } a \neq b\
+\end{cases}$.
+($\oplus$ is XOR).</p>
+
+<p>The Hamming distance is a function $h: \mathcal{F}<em>n \times \mathcal{F}</em>n \rightarrow \mathbb{N}<em>0$ defined as:
+$\displaystyle h(A, B) := \sum</em>{i=0}A[i] \oplus B[i]$</p>
+
+<p>The minimum Hamming distance is defined as:
+$\displaystyle h_\text{min}(\text{code}) = \min({h(A, B) | A, B \in \text{code}, A \neq B})$</p>
+
+<h3>First example</h3>
+
+
+
+
+<table class="wikitable">
+<tr>
+  <th>&nbsp;</th>
+  <th>A</th>
+  <th>B</th>
+  <th>C</th>
+  <th>D</th>
+  <th>E</th>
+  <th>F</th>
+  <th>G</th>
+  <th>H</th>
+</tr>
+<tr>
+  <th>A</th>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>2</td>
+  <td>1</td>
+  <td>2</td>
+  <td>2</td>
+  <td>3</td>
+</tr>
+<tr>
+  <th>B</th>
+  <td>1</td>
+  <td>0</td>
+  <td>2</td>
+  <td>1</td>
+  <td>2</td>
+  <td>1</td>
+  <td>3</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>C</th>
+  <td>1</td>
+  <td>2</td>
+  <td>0</td>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>2</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>D</th>
+  <td>2</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>3</td>
+  <td>2</td>
+  <td>2</td>
+  <td>1</td>
+</tr>
+<tr>
+  <th>E</th>
+  <td>1</td>
+  <td>2</td>
+  <td>2</td>
+  <td>3</td>
+  <td>0</td>
+  <td>1</td>
+  <td>1</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>F</th>
+  <td>2</td>
+  <td>1</td>
+  <td>3</td>
+  <td>2</td>
+  <td>1</td>
+  <td>0</td>
+  <td>2</td>
+  <td>1</td>
+</tr>
+<tr>
+  <th>G</th>
+  <td>2</td>
+  <td>3</td>
+  <td>1</td>
+  <td>2</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr>
+  <th>H</th>
+  <td>3</td>
+  <td>2</td>
+  <td>2</td>
+  <td>1</td>
+  <td>2</td>
+  <td>1</td>
+  <td>1</td>
+  <td>0</td>
+</tr>
+</table>
+
+
+<p>$h_\text{min}(c_1) = 1$</p>
+
+<h3>Second example</h3>
+
+
+<table class="wikitable">
+<tr>
+  <th>&nbsp;</th>
+  <th>A'</th>
+  <th>B'</th>
+  <th>C'</th>
+  <th>D'</th>
+  <th>E'</th>
+  <th>F'</th>
+  <th>G'</th>
+  <th>H'</th>
+</tr>
+<tr>
+  <th>A'</th>
+  <td>0</td>
+  <td>2</td>
+  <td>2</td>
+  <td>4</td>
+  <td>2</td>
+  <td>4</td>
+  <td>4</td>
+  <td>6</td>
+</tr>
+<tr>
+  <th>B'</th>
+  <td>2</td>
+  <td>0</td>
+  <td>4</td>
+  <td>2</td>
+  <td>4</td>
+  <td>2</td>
+  <td>6</td>
+  <td>4</td>
+</tr>
+<tr>
+  <th>C'</th>
+  <td>2</td>
+  <td>4</td>
+  <td>0</td>
+  <td>2</td>
+  <td>4</td>
+  <td>6</td>
+  <td>2</td>
+  <td>4</td>
+</tr>
+<tr>
+  <th>D</th>
+  <td>4</td>
+  <td>2</td>
+  <td>2</td>
+  <td>0</td>
+  <td>6</td>
+  <td>4</td>
+  <td>4</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>E'</th>
+  <td>2</td>
+  <td>4</td>
+  <td>4</td>
+  <td>6</td>
+  <td>0</td>
+  <td>2</td>
+  <td>2</td>
+  <td>4</td>
+</tr>
+<tr>
+  <th>F'</th>
+  <td>4</td>
+  <td>2</td>
+  <td>6</td>
+  <td>4</td>
+  <td>2</td>
+  <td>0</td>
+  <td>4</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>G'</th>
+  <td>4</td>
+  <td>6</td>
+  <td>2</td>
+  <td>4</td>
+  <td>2</td>
+  <td>4</td>
+  <td>0</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>H'</th>
+  <td>6</td>
+  <td>4</td>
+  <td>4</td>
+  <td>2</td>
+  <td>4</td>
+  <td>2</td>
+  <td>2</td>
+  <td>0</td>
+</tr>
+</table>
+
+
+<p>$h_\text{min}(c_2) = 2$</p>
+
+<h2>Detection and correction of errors</h2>
+
+
+<p>If I didn't make a typo, those tables should be symmetrical (as XOR is symmetrical) and the hamming distance of a message to itself is 0.</p>
+
+<p>The higher the minimum hamming distance of a code is, the more errors can be detected and corrected. In fact, you can quite easily quantise the relationship:</p>
+
+<div class="definition">Let $c$ be a code with $h_\text{min}(c) = 2e + 1 \quad e \in \mathbb{N}^+$.
+
+$2e$ is the maximum number of errors that can be detected and $e$ is the maximum number of errors that can be corrected.</div>
+
+
+<p>A code with length $n$ which has $M$ elements and a minimum Hamming distance of $d$ is called a $(n, M, d)$-Code.</p>
+
+<p>Example: $c_1$ is a $(3, 8, 1)$ code and $c_2$ is a $(6, 8, 2)$ code.</p>
+
+<p>The task of coding thery is:
+You're given a $n$ and a $d$ and you should find the code words so that M is as high as possible.</p>
+
+<h3>Example of a (6, 8, 3)-Code</h3>
+
+
+<p>$\begin{align}
+c_3 = {&amp;(1,1,1,1,1,1),\
+&amp;(0,0,0,0,1,1),\
+&amp;(0,0,1,1,0,0),\
+&amp;(0,1,0,1,0,1),\
+&amp;(0,1,1,0,1,0),\
+&amp;(1,0,0,1,1,0),\
+&amp;(1,0,1,0,0,1),\
+&amp;(1,1,0,0,0,0)}
+\end{align}
+$</p>
+
+<h2>Hamming codes</h2>
+
+
+<p><a href="http://en.wikipedia.org/wiki/Hamming_code">Hamming codes</a> are a family of $(2<sup>k</sup> - 1, 2^{(2<sup>k</sup> -1)-k}, 3), \quad k \geq 2$ codes. This means, every hamming code can only correct one error.</p>
+
+<p>The idea behind Hamming codes is to save in one bit if the number of a fixed set of positions of the message is even or odd. This is called parity and done with XOR. The parity-bit is saved at the end of the message (or, just another point of view: the positions that are powers of two (1, 2, 4, 8, ...) of each message are only parity bits. This are obviously $\lceil \log_2(\text{length of code}) \rceil = \lceil \log(2<sup>k</sup> - 1) \rceil = k$).</p>
+
+<p>Wikipedia has a really nice image for that:
+[caption id="attachment_47691" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/10/hamming-code-parity.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/10/hamming-code-parity.png" alt="Parity-bits and data bits in a Hamming codeword" title="Parity-bits and data bits in a Hamming codeword" width="500" height="95" class="size-full wp-image-47691" /></a> Parity-bits and data bits in a Hamming codeword[/caption]</p>
+
+<p>Now, how are the parity-bits calculated?
+Well, think of each messages as a vector in ${0,1}^{(2<sup>k</sup> - 1) - k}$. Then you define a matrix $G \in {0,1}^{2<sup>k</sup> - 1} \times {0,1}^{(2<sup>k</sup> - 1) - k}$. Now you can get the codewords $c$ by multiplying the datawords $d$ (messages) with $G$:
+$c = G \cdot d$.
+This is the reason why Hamming-Codes are called "linear codes". They can be obtained by a linear function.</p>
+
+<p>How do I get the generator-matrix $G$?
+I don't know it and my internet searches didn't reveal any solution. Do you know one?</p>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

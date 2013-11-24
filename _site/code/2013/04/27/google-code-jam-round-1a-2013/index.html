@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Google Code Jam &ndash; Round 1A 2013</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Google Code Jam &ndash; Round 1A 2013</h2>
+<p class="meta">27 Apr 2013</p>
+
+<div class="post">
+<ul>
+<li>Problem A (<a href="https://code.google.com/codejam/contest/2418487/dashboard#s=p0">Bullseye</a>):
+  <ul>
+    <li>Small Set: 5856/6195 users (95%)</li>
+    <li>Large Set: 1806/4795 users (38%)</li>
+  </ul>
+<li>Problem B (<a href="https://code.google.com/codejam/contest/2418487/dashboard#s=p1">Manage your Energy</a>):
+  <ul>
+    <li>Small Set: 2323/3789 users (61%)</li>
+    <li>Large Set: 456/1133 users (40%)</li>
+  </ul>
+</li>
+<li>Problem C (<a href="https://code.google.com/codejam/contest/2418487/dashboard#s=p2">Good Luck</a>):
+  <ul>
+    <li>Small Set: 1366/1774 users (77%)</li>
+    <li>Large Set: 31/605 users (5%)</li>
+  </ul>
+</li>
+</ul>
+
+
+<p>More information might soon be on <a href="http://www.go-hero.net/jam/13/">go-hero.net</a>.</p>
+
+<p>I'm too slow for Google Code Jam <em>sigh</em>. Nevertheless, here are my solutions:</p>
+
+<h2>Bullseye</h2>
+
+
+<h3>Small</h3>
+
+
+<p>[php]
+&lt;?</p>
+
+<p>function solve($r, $t) {
+    $circles = 0;
+    while($t >= 0) {
+        $circles++;
+        $t -= ($r+1)<em>($r+1)-$r</em>$r;
+        $r += 2;
+    }
+    return floor($circles) - 1;
+}</p>
+
+<p>$fp = fopen ($argv[1], 'r');
+$testcases = fgets ($fp);
+$caseNr=0;
+while($line = fgets ($fp)) {
+    $caseNr++;
+    $a = explode(' ', $line);
+    $r = $a[0];
+    $t = $a[1];
+    echo "Case #$caseNr: ".solve($r, $t)."\n";</p>
+
+<p>}
+?>
+[/php]</p>
+
+<h3>Large</h3>
+
+
+<p><em>Argh</em> I've copied the wrong equation from my pad to my computer</p>
+
+<p>You basically have to solve this:
+$\begin{align}
+t - \sum<em>{i=0}^x ((r+1+2i)<sup>2</sup> - (r+2i)<sup>2</sup>) &amp;\geq 0\
+\Leftrightarrow t - (x+1)(2x+2r+1) &amp;\geq 0 \
+\Leftrightarrow (-2)x<sup>2</sup> + (2r+3)x + (t-2r-1) &amp;\geq 0 \
+\Rightarrow x</em>{1,2} = 0 \Leftrightarrow x_{1,2} &amp;= \frac{1}{-4} \cdot (-(2r+3) \pm \sqrt{(2r+3)<sup>2</sup>-4(-2)(t-2r-1)}) \
+&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r<sup>2</sup>+12r+9+8(t-2r-1)})\
+&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r<sup>2</sup>+12r+9+8t-16r-8})\
+&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r<sup>2</sup>-4r+1+8t})\
+&amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)<sup>2</sup>+8t})\
+&amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)<sup>2</sup>+8t})\
+\end{align}
+$</p>
+
+<p>I have to know that $1 \leq r$ and $1 \geq x \in \mathbb{N}$. So you have to round $x_1, x_2$ to the nearest solution.</p>
+
+<p>Did you know that Python has (in numpy) a method to calculate roots of a quadratic equation? See <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.roots.html">numpy.roots</a> for reference.</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+ 
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">roots</span>
+ 
+<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+ 
+<span class="k">def</span> <span class="nf">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">myRoots</span> <span class="o">=</span> <span class="n">roots</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">myRoots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">myRoots</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">check</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+                <span class="n">answer</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">answer</span> <span class="o">+</span> <span class="mi">1</span>
+  
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+       
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+        <span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span>
+</code></pre></div>
+
+
+
+
+<h2>Good Luck</h2>
+
+
+<p>This one solves at least the first test case, but not the second one.</p>
+
+<p>I love <a href="http://docs.python.org/2/library/itertools.html">itertools</a> :-)</p>
+
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations_with_replacement</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">integers</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">integers</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">*=</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+    <span class="n">newCandidates</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">block</span><span class="p">):</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="n">block</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">-</span> <span class="n">newCandidates</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">diff</span><span class="p">):</span>
+            <span class="n">newCandidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">newCandidates</span>
+
+<span class="k">def</span> <span class="nf">canBeIn</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">candidates</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">merged</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">merged</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    N: number of numbers in total that got randomly picked</span>
+<span class="sd">    M: A_i in [2, M]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">):</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c"># Is there a simple answer?</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">products</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">candidates</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span> <span class="o">==</span> <span class="n">N</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">candidates</span>
+
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">products</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">canBeIn</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">candidates</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">candidates</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">candidates</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+      
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Case #</span><span class="si">%i</span><span class="s">:&quot;</span> <span class="o">%</span> <span class="n">caseNr</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+        <span class="c"># which products can I get</span>
+        <span class="n">productToBuildungs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">product</span> <span class="ow">in</span> <span class="n">combinations_with_replacement</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">M</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">r</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">mul</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">productToBuildungs</span><span class="p">:</span>
+                    <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">)]]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">productToBuildungs</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
+            <span class="n">products</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">)))))</span>
+</code></pre></div>
+
+
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>PHP: PEAR MDB2</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>PHP: PEAR MDB2</h2>
+<p class="meta">23 Sep 2011</p>
+
+<div class="post">
+<p>PEAR is short for <strong>P</strong>HP <strong>E</strong>xtension and <strong>A</strong>pplication <strong>R</strong>epository. It provides a very easy method to get some common classes.</p>
+
+<p>PEAR MDB2 is a database class. It is a successor of PEAR DB. I took a look at version 1.4.1 which is currently the latest stable one.</p>
+
+<h2>Install PEAR</h2>
+
+
+<p>You can install PEAR on Ubuntu via
+[bash]sudo apt-get install php-pear[/bash]</p>
+
+<p>You can check if it is installed with <a href="http://php.net/manual/en/function.phpinfo.php">phpinfo()</a>:
+[php]&lt;?php phpinfo();?>[/php]</p>
+
+<p>Something like <strong>.:/usr/share/php:/usr/share/pear</strong> should be in your <strong>include_path</strong>.</p>
+
+<h2>Install PEAR MDB2</h2>
+
+
+<p>PEAR MDB2 is then simply installed via
+[bash]sudo pear install MDB2[/bash]</p>
+
+<p>Then install the optional MySQL package:
+[bash]sudo pear install pear/MDB2#mysql[/bash]</p>
+
+<h2>Usage</h2>
+
+
+<p>I took a small chess database to test this package. You can set it up with <a href="http://code.google.com/p/community-chess/source/browse/trunk/install/chess.sql?spec=svn99&r=98">this sql file</a>.</p>
+
+<p>It's sad, but only including <strong>MDB2.php</strong> shows 5 "Deprecated"-messages and 6 warings because of "Strict Standards".</p>
+
+<p>You can easily connect to the database:
+[php]require_once "MDB2.php";</p>
+
+<p>$db   = new MDB2();
+$dsn  = "mysql://chessuser:localpass@localhost/chess";
+$mdb2 = MDB2::factory($dsn);
+$mdb2->setFetchMode(MDB2_FETCHMODE_ASSOC);[/php]</p>
+
+<p>It is also very easy to fetch some data:
+[php]$sql    = 'SELECT * FROM <code>chess_users</code>';
+$result = $mdb2->query($sql);
+while ($row = $result->fetchRow()) {
+    print_r($row);
+}[/php]
+or
+[php]$sql    = 'SELECT * FROM <code>chess_users</code>';
+$data = $mdb2->queryAll($sql);
+print_r($data);[/php]</p>
+
+<p>This results in:
+[text]
+Array
+(
+    [user_id] => 1
+    [user_name] => abc
+    [user_password] => 900150983cd24fb0d6963f7d28e17f72
+    [currentchesssoftware] => 0
+)
+Array
+(
+    [user_id] => 2
+    [user_name] => test
+    [user_password] => 098f6bcd4621d373cade4e832627b4f6
+    [currentchesssoftware] => 0
+)[/text]</p>
+
+<p>You can set limits via MDB2:
+[php]$sql    = 'SELECT * FROM <code>chess_users</code>';
+$mdb2->setLimit(1);
+$data = $mdb2->queryAll($sql);
+print_r($data);[/php]</p>
+
+<p>MDB2 offers lots of other features like choosing a (non)persistent connection, prepared statements or debuggin option. If you're interested in PEAR MDB2 I recommend to take a look at installationwiki.org.</p>
+
+<h2>Sources</h2>
+
+
+<ul>
+    <li><a href="http://en.wikipedia.org/wiki/PEAR" title="PEAR">PEAR</a>. Recieved 24 September 2011.</li>
+    <li><a href="http://pear.php.net/package/MDB2" title="PEAR MDB2">PEAR MDB2</a>. Recieved 24 September 2011.</li>
+    <li><a href="http://www.installationwiki.org/MDB2">MDB2</a> on installationwiki.org. Recieved 24 September 2011.</li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>

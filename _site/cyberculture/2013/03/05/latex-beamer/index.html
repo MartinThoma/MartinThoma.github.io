@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>LaTeX Beamer</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Martin Thoma</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>LaTeX Beamer</h2>
+<p class="meta">05 Mar 2013</p>
+
+<div class="post">
+<p>I really enjoy creating presentations with LaTeX. The reasons are:</p>
+
+<ul>
+  <li>You can use versioning (GIT, SVN, ...)</li>
+  <li>You can use your favorite editor!</li>
+  <li>When you've created an animation with Ti<em>k</em>Z, you can easily go one step back an go through it as fast as it is apropriate!</li>
+  <li>Good separation of presentation and content</li>
+  <li>It compiles to PDF
+    <ul>
+      <li>Everybody can open it</li>
+      <li>It always looks the same (no moved elements or hidden bullet points)</li>
+    </ul>
+  </li>
+  <li>You can use math mode :-)</li>
+  <li>No need to buy anything. It's free and OpenSource.</li>
+  <li>A big community (<a href="http://tex.stackexchange.com/questions/tagged/beamer">StackExchange</a> and <a href="http://www.latex-community.org/forum/viewforum.php?f=3">LateX-Community</a>) helps you, when you got questions.</li>
+</ul>
+
+
+<p>I'll now introduce you to the basics of LaTeX beamer presentations. If you only look for example, please go to my <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/presentations">GitHub LaTeX Repository</a>.</p>
+
+<h2>Basics</h2>
+
+
+<p>This is a basic presentation:</p>
+
+<p>[text]
+\documentclass{beamer}
+\usetheme{Frankfurt}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[english]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output
+                            % of umlauts in pdf</p>
+
+<p>\begin{document}</p>
+
+<p>\title{The title of your presentation}
+\subtitle{A subtitle}
+\author{Martin Thoma}
+\date{25. March 2013}
+\subject{Computer Science}</p>
+
+<p>\frame{\titlepage}</p>
+
+<p>\section{Introduction}
+\subsection{A subsection!}
+\begin{frame}{Slide title}
+    Slide content
+\end{frame}</p>
+
+<p>\end{document}
+[/text]</p>
+
+<h2>Style</h2>
+
+
+<p>If you want to create nice-looking presentations like <a href="http://martin-thoma.com/wp-content/uploads/2013/03/tutorium-05.pdf">this one</a> or <a href="http://martin-thoma.com/wp-content/uploads/2013/03/google-presentation.pdf">that one</a>, you should probably adjust the style. Here is an overview of the default ones that LaTeX has: <a href="http://deic.uab.es/~iblanes/beamer_gallery/">Beamer theme gallery</a> or <a href="http://latex.simon04.net/">here</a>.</p>
+
+<p>The important commands for changing the appearance, that should get included just after documentclass, are:
+[text]
+\usetheme{Frankfurt}
+\usecolortheme{default}
+[/text]</p>
+
+<p>When you're from KIT, you should use the <a href="https://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen">KIT theme</a>.</p>
+
+<p>Here are some screenshots:
+[gallery size="medium" columns="2" ids="59471,59461,59441,59451"]</p>
+
+<h2>Sections and subsections</h2>
+
+
+<p>Take a look at the slides I've included above. Do you notice the little bubbles at the bottom that indicate how many slides are left?</p>
+
+<p>You get the text over the bubbles with <code>\section{Your text}</code> and the bubbles with <code>frame</code>, but you need at least one <code>\subsection{bla}</code>! When you make more than one subsection, the frame-bubbles that belong to the same one get highlighted.</p>
+
+<h2>Reveal information</h2>
+
+
+<p>You might want to try those commands to hide and reveal information:</p>
+
+<ul>
+  <li>\pause</li>
+  <li>\uncover</li>
+  <li>\visible</li>
+  <li>\onslide and \only</li>
+</ul>
+
+
+<p>You can use it like this:</p>
+
+<p>[text]
+\begin{frame}{Another title}
+    Some text\
+    \uncover<2->{Uncover me on slide 2 (-)\}
+    \visible<3->{visible from slide 3 on (-)\}
+    \only<4->{only from slide 4 (-)\}
+    \onslide<5->{on slide 5 and further (-)\}
+    \uncover<6>{Uncover me on slide 6 \}
+    \visible<7>{visible on 7\}
+    \only<8>{only on slide 8 \}
+    \alt<8>{I am on slide 8\}{I am not on slide 8\}
+    \onslide<9>{on slide 9\}
+\end{frame}
+[/text]</p>
+
+<p>Note that the numbers work like <code>\uncover<n-m>{ELEMENT}</code>. If no <code>m</code> is specified, ELEMENT is visible until end of this frame.</p>
+
+<p>When you have a list and you want to uncover it element by element, you can use this:</p>
+
+<p>[text]
+\begin{itemize}&lt;+->
+    \item one
+    \item two
+    \item three
+\end{itemize}
+[/text]</p>
+
+<h2>Blocks</h2>
+
+
+<p>You can use <code>block</code>, <code>exampleblock</code> or <code>alertblock</code> inside your frame:
+[text]
+\begin{exampleblock}{Test}
+  This is my text.
+\end{exampleblock}
+[/text]</p>
+
+<p>It looks like this:
+[caption id="attachment_59391" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/latex-beamer-block.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock" width="300" height="117" class="size-medium wp-image-59391" /></a> LaTeX Beamer blocks: block, exampleblock, alertblock[/caption]</p>
+
+<h2>Images</h2>
+
+
+<p>Quite often, you want to have one big image.</p>
+
+<p>You need <code>\usepackage{graphicx}</code> in your preamble.</p>
+
+<p>This is how you get the image it:
+[text]
+\begin{frame}{My frame title}
+    \includegraphics[width=\textwidth, height=0.8\textheight, keepaspectratio]{../relative/path/image.jpg}
+\end{frame}
+[/text]</p>
+
+<h2>Further reading</h2>
+
+
+<ul>
+  <li><a href="http://martin-thoma.com/sizes-in-latex/" title="Sizes in LaTeX">Sizes in LaTeX</a></li>
+  <li><a href="http://martin-thoma.com/how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a></li>
+  <li><a href="http://www.math.umbc.edu/~rouben/beamer/beamer_guide.pdf">UMBC Beamer guide</a></li>
+  <li><code>texdoc beameruserguide</code> or <a href="http://www.tex.ac.uk/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf">online</a></li>
+</ul>
+
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  }
+});
+</script>
+</div>
+
+            <div class="footer">
+    <div class="contact">
+      <p>
+        Martin<br />
+        What You Are<br />
+        you@example.com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+        <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+      </p>
+    </div>
+  </div>
+
+        </div>
+    </body>
+</html>
