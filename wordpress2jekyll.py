@@ -7,6 +7,8 @@ def pageCodeConversion(filename):
     with open(filename) as f:
         content = f.read()
 
+    content = content.replace("&#47;", "/")
+
     # Create MathJax:
     #if "$" in content:
     #    print("Error: contained a $. It might already have been processed. Replace [latex]-tags manually", file=sys.stderr)
@@ -14,12 +16,10 @@ def pageCodeConversion(filename):
     content = content.replace("[latex]", "$")
     content = content.replace("[/latex]", "$")
 
-    content = content.replace("&#47;", "/")
-
     # Syntax highlighter: also '[python collapse="true"]'
-    content = content.replace("[python]", "{% highlight python %}")
-    content = content.replace("[/python]", "{% endhighlight %}")
-    content = content.replace("[&#47;python]", "{% endhighlight %}")
+    for language in ['python', 'cpp', 'text']:
+        content = content.replace("["+language+"]", "{% highlight "+language+" %}")
+        content = content.replace("[/"+language+"]", "{% endhighlight %}")
     
     with open(filename, 'w') as f:
         f.write(content)
