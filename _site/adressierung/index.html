@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+  <head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Adressierung</title>
+    <link rel="stylesheet" href="../css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io//feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martinthoma.github.io//favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="/adressierung" /><!-- TODO: Check if this is absolute url-->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@themoosemind"/>
+    <meta name="twitter:domain" content="Martin Thoma"/>
+    <meta name="twitter:creator" content="@themoosemind"/>
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside-thumb.png"/><!-- TODO-->
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-order.png"/><!-- TODO-->
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside.png"/><!-- TODO-->
+    
+    <meta name="twitter:description" content="" />
+    
+    <meta name="twitter:title" content="Adressierung - Martin Thoma"/>
+    <meta name="twitter:url" content="http://martinthoma.github.io//check-point-inside-polygon/"/>
+
+    <link rel='stylesheet' id='toc-screen-css'  href='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/screen.css?ver=1308' type='text/css' media='all' />
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel='shortlink' href='http://martin-thoma.com/?p=76726' /><!-- TODO -->
+<style type="text/css">div#toc_container {width: 275px;}</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <div id="header">
+                    <h1><a href="http://martinthoma.github.io/">Martin Thoma</a></h1>
+				    <h2>A blog about Code, the Web and Cyberculture.</h2>
+			    </div>
+                <div class="navcontainer">
+					<ul id="nav">
+						<li><a href="http://martinthoma.github.io/">Home</a></li>
+						<li class="page_item page-item-41"><a href="http://martinthoma.github.io//about-martin-thoma/">About Me</a></li>
+                        <li class="page_item page-item-91"><a href="http://martinthoma.github.io//imprint/">Imprint</a></li>
+					</ul>
+				</div>
+            	<div id="content">	
+                    <div class="post-76726 post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="post-76726">
+                        <h2 class="title entry-title">Adressierung</h2>
+			            <div class="postdate">
+                            <span>
+                                January 
+                                11th
+                                  , 
+                                2013
+                            </span>
+                            <!-- TODO<span><a href="check-point-inside-polygon/#respond" title="Comment on How to check if a point is inside of a polygon?">No Comments</a></span>-->
+                        </div>
+			
+						<div class="entry">
+                            <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per Email an info@martin-thoma.de oder direkt als Kommentar).</div>
+
+
+
+
+<h2>Allgemeines</h2>
+
+
+<p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
+
+<p>Eine M&ouml;glichkeit das zu machen, ist ein sog. &bdquo;direct mapped cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tlich noch schnell von der Hardware umgesetzt werden k&ouml;nnen muss. Also unterteilt man gedanklich die Hauptspeicheradressen in 3 Teile:</p>
+
+<ul>
+    <li>Tag</li>
+    <li>Index</li>
+    <li>Block-Offset</li>
+</ul>
+
+
+<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer Hauptspeicheradresse landen werden. Es w&auml;re also z.B. m&ouml;glich, die Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu legen, der die entsprechende Cache-Zeile durchschaltet.</p>
+
+<p>Es gilt also: Index-L&auml;nge in Bit = $\log_2(\text{Cache-Zeilen})$</p>
+
+<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile landen. Um diese unterscheiden zu k&ouml;nnen, speichert man folgendes in einer Cache-Zeile:</p>
+
+<ul>
+    <li>Tag</li>
+    <li>Datenblock</li>
+    <li>Flags</li>
+</ul>
+
+
+<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher. Ben&ouml;tigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut. Wenn dann die Tags &uuml;bereinstimmen, ist es die richtige Adresse und man kann die Daten aus dem Cache entnehmen.</p>
+
+<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen zusammenfasst, muss gelten:</p>
+
+<p>Gr&ouml;&szlig;e der Cache-Zeile $= 2^{\text{L&auml;nge des Block-offsets}} \cdot$ Gr&ouml;&szlig;e des Inhalts einer Hauptspeicheradresse</p>
+
+<p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
+
+<p>Der Tag muss aktiv im Cache gespeichert werden und die L&auml;nge des Tags im Cache muss mindestens so lang sein wie die Tag-L&auml;nge der Hauptspeicher-Adresse. Nat&uuml;rlich wird der Tag im Cache genau so lang sein wie der in der Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.</p>
+
+<p>Bei einem Voll-Assoziativem Cache w&uuml;rde es also keinen Index geben. Eine Hauptspeicher-Adresse w&uuml;rde dann nur in Tag und Block-Offset geteilt werden.</p>
+
+<p>Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ S&auml;tze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
+
+<ol>
+    <li>Datenwort mit Hauptspeicheradresse x = $x_\text{tag}$ | $x_\text{index}$ | $x_\text{blockoffset}$ wird ben&ouml;tigt</li>
+    <li>$x_\text{index}$ = der zu durchsuchende Satz im Cache<br/>
+    Dieser Satz wird zu den $n$ Vergleichern durchgeschaltet</li>
+    <li>Jeder Vergleicher vergleich den $x_\text{tag}$ und den in der Cache-Zeile gespeicherten tag</li>
+    <li>Wird die Adresse gefunden &rarr; Cache Hit<br/>
+    Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
+</ol>
+
+
+
+
+<h2>Physical address and virtual address</h2>
+
+
+<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es m&ouml;glich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verf&uuml;gung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space k&ouml;nnen sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Au&szlig;erdem will man Speicherschutz herstellen.
+Die virtuellen Adressen sind scheinbar zusammenh&auml;ngend und der Adressraum ist sehr gro&szlig;. Der virtuelle Adressraum ist in Bl&ouml;cke (Pages) unterteilt und die Pages werden von langsamen, aber gro&szlig;en auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.</p>
+
+<p>Das passiert allerdings selten. Um zu sehen, wie h&auml;ufig das der Fall ist, sollte man sich folgendes anschauen:</p>
+
+<ul>
+  <li>/proc/swaps</li>
+  <li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erkl&auml;rungen zu meminfo</a></li>
+  <li><code>vmstat -s</code></li>
+</ul>
+
+
+
+
+<h2>Cache-Modelle</h2>
+
+
+<p>Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:</p>
+
+<h3>Physically Indexed, Physically Tagged</h3>
+
+
+<p>Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.</p>
+
+<h3>Virtually indexed, physically tagged</h3>
+
+
+<p>Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort &uuml;berhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag &uuml;berpr&uuml;fen kann.</p>
+
+<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?
+Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456
+Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123
+Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456
+Die zugeh&ouml;rige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123
+Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
+
+
+
+
+<h3>Physically Indexed / Virtually Tagged</h3>
+
+
+<p>Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.</p>
+
+<h3>Virtually Indexed / Virtually Tagged</h3>
+
+
+<p>Kein MMU-Zugriff ben&ouml;tigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)</p>
+
+<h2>Quellen</h2>
+
+
+<ol>
+<li><a name="ref1" href="#anchor1">&uarr;</a>: <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a></li>
+</ol>
+
+
+<ul>
+  <li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
+  <li><a href="http://de.wikipedia.org/wiki/Virtuelle_Adresse#Motivation">Virtuelle Adresse</a></li>
+  <li><a href="http://en.wikipedia.org/wiki/CPU_cache">CPU cache</a></li>
+  <li><a href="http://lwn.net/Articles/106177/">Four-level page tables</a></li>
+  <li><a href="http://bottomupcs.sourceforge.net/csbu/x2816.htm">Linux Specifics: Address Space Layout</a></li>
+  <li><a href="http://www.ecst.csuchico.edu/~hilzer/csci152/htm/EAT-TLB.htm">Some example assignments</a> (Memory access times, With and without TLBs)</li>
+</ul>
+
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="/category/german posts">german posts</a>
+                             | Tags: 
+                            
+                                
+                                    <a href="/tag/OS">OS</a>
+                            
+                                , <a href="/tag/Operating Systems">Operating Systems</a>
+                                
+                            
+                                , <a href="/tag/TLB">TLB</a>
+                                
+                            
+                                , <a href="/tag/Cache">Cache</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/moose/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-01-11 16:15:56 UTC">
+                                January 
+                                11th
+                                  , 
+                                2013</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="/how-to-sort-with-java" rel="prev">How to sort with Java</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="/wie-wende-ich-die-shannon-zerlegung-an" rel="next">Wie wende ich die Shannon-Zerlegung an?</a> &raquo;
+                                 
+                                </div>
+							</div>
+							
+                            You can skip to the end and leave a response.
+	
+						</div>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                            <div class="cancel-comment-reply">
+	                            <small><a rel="nofollow" id="cancel-comment-reply-link" href="/check-point-inside-polygon/#respond" style="display:none;">Click here to cancel reply.</a></small>
+                            </div>
+    <!----------------- comment discuss code -------------------------------------------------------------------->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!----------------- comment discuss code -------------------------------------------------------------------->
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+                    <a href="http://martin-thoma.com/feed/"><img src="../css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="../css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+	<div id="sidebar">
+        <ul>
+            <li id="search">
+				 
+<div class="searchlayout">
+    <form method="get" id="searchform" action="http://martin-thoma.com/"> 
+        <input type="text" value="Search" 
+            name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
+            onfocus="if (this.value == 'Search') {this.value = '';}" />
+        <input type="image" src="../css/images/search.gif" style="border:0; vertical-align: top;" /> 
+    </form>
+</div>			</li>
+        </ul>
+            			<div class="addthis_toolbox">   
+    			    <div class="custom_images">
+    			            <a class="addthis_button_twitter"><img src="../css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+    			            <a class="addthis_button_delicious"><img src="../css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+    			            <a class="addthis_button_facebook"><img src="../css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+    			            <a class="addthis_button_digg"><img src="../css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+    			            <a class="addthis_button_stumbleupon"><img src="../css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+    			            <a class="addthis_button_favorites"><img src="../css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+    			            <a class="addthis_button_more"><img src="../css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+    			    </div>
+    			    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
+    			</div>
+    					        
+		<ul>
+    <li id="categories-3" class="widget widget_categories">
+    <h2 class="widgettitle">Categories</h2>
+        <ul>
+	        <li class="cat-item cat-item-11"><a href="../category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+	        <li class="cat-item cat-item-21"><a href="../category/web/" title="New emerging websites and technologies.">The Web</a></li>
+	        <li class="cat-item cat-item-31"><a href="../category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+	        <li class="cat-item cat-item-3404"><a href="../category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+	        <li class="cat-item cat-item-881"><a href="../category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+	        <li class="cat-item cat-item-41"><a href="../category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+		</ul>
+    </li>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud">
+<a href='../tag/advertising/' class='tag-link-401' title='5 topics' style='font-size: 8pt;'>advertising</a>
+<a href='../tag/algebra/' class='tag-link-3271' title='6 topics' style='font-size: 9.0537634408602pt;'>Algebra</a>
+<a href='../tag/algorithms/' class='tag-link-1981' title='7 topics' style='font-size: 9.8064516129032pt;'>algorithms</a>
+<a href='../tag/analysis/' class='tag-link-1481' title='6 topics' style='font-size: 9.0537634408602pt;'>analysis</a>
+<a href='../tag/assembly-language/' class='tag-link-1401' title='5 topics' style='font-size: 8pt;'>Assembly language</a>
+<a href='../tag/bash/' class='tag-link-731' title='6 topics' style='font-size: 9.0537634408602pt;'>Bash</a>
+<a href='../tag/c/' class='tag-link-1101' title='26 topics' style='font-size: 17.784946236559pt;'>C</a>
+<a href='../tag/challenge/' class='tag-link-671' title='7 topics' style='font-size: 9.8064516129032pt;'>Challenge</a>
+<a href='../tag/clip/' class='tag-link-861' title='10 topics' style='font-size: 11.913978494624pt;'>Clip</a>
+<a href='../tag/command-line/' class='tag-link-351' title='5 topics' style='font-size: 8pt;'>Command Line</a>
+<a href='../tag/computer-science/' class='tag-link-611' title='6 topics' style='font-size: 9.0537634408602pt;'>Computer science</a>
+<a href='../tag/cpp/' class='tag-link-3101' title='6 topics' style='font-size: 9.0537634408602pt;'>CPP</a>
+<a href='../tag/digitaltechnik/' class='tag-link-2441' title='8 topics' style='font-size: 10.559139784946pt;'>Digitaltechnik</a>
+<a href='../tag/flashgames/' class='tag-link-641' title='6 topics' style='font-size: 9.0537634408602pt;'>Flashgames</a>
+<a href='../tag/funny/' class='tag-link-121' title='14 topics' style='font-size: 14.021505376344pt;'>funny</a>
+<a href='../tag/geometry/' class='tag-link-2151' title='5 topics' style='font-size: 8pt;'>Geometry</a>
+<a href='../tag/google/' class='tag-link-271' title='9 topics' style='font-size: 11.311827956989pt;'>Google</a>
+<a href='../tag/google-code-jam/' class='tag-link-1531' title='8 topics' style='font-size: 10.559139784946pt;'>Google Code Jam</a>
+<a href='../tag/it-security/' class='tag-link-691' title='8 topics' style='font-size: 10.559139784946pt;'>IT-Security</a>
+<a href='../tag/java/' class='tag-link-1151' title='33 topics' style='font-size: 19.290322580645pt;'>Java</a>
+<a href='../tag/kit/' class='tag-link-1051' title='12 topics' style='font-size: 12.967741935484pt;'>KIT</a>
+<a href='../tag/klausur/' class='tag-link-1971' title='19 topics' style='font-size: 15.827956989247pt;'>Klausur</a>
+<a href='../tag/latex/' class='tag-link-1021' title='23 topics' style='font-size: 17.032258064516pt;'>LaTeX</a>
+<a href='../tag/learning/' class='tag-link-651' title='15 topics' style='font-size: 14.322580645161pt;'>learning</a>
+<a href='../tag/linear-algebra/' class='tag-link-1241' title='18 topics' style='font-size: 15.52688172043pt;'>Linear algebra</a>
+<a href='../tag/linux/' class='tag-link-331' title='12 topics' style='font-size: 12.967741935484pt;'>Linux</a>
+<a href='../tag/mathematics/' class='tag-link-991' title='50 topics' style='font-size: 22pt;'>mathematics</a>
+<a href='../tag/matrix/' class='tag-link-1471' title='8 topics' style='font-size: 10.559139784946pt;'>Matrix</a>
+<a href='../tag/operating-systems/' class='tag-link-2481' title='5 topics' style='font-size: 8pt;'>Operating Systems</a>
+<a href='../tag/os/' class='tag-link-1461' title='5 topics' style='font-size: 8pt;'>OS</a>
+<a href='../tag/php/' class='tag-link-441' title='6 topics' style='font-size: 9.0537634408602pt;'>PHP</a>
+<a href='../tag/programming/' class='tag-link-71' title='41 topics' style='font-size: 20.645161290323pt;'>Programming</a>
+<a href='../tag/project-euler/' class='tag-link-1521' title='9 topics' style='font-size: 11.311827956989pt;'>Project Euler</a>
+<a href='../tag/puzzle/' class='tag-link-1961' title='20 topics' style='font-size: 16.129032258065pt;'>puzzle</a>
+<a href='../tag/python/' class='tag-link-91' title='38 topics' style='font-size: 20.193548387097pt;'>Python</a>
+<a href='../tag/swt-i/' class='tag-link-1631' title='8 topics' style='font-size: 10.559139784946pt;'>SWT I</a>
+<a href='../tag/theoretical-computer-science/' class='tag-link-1341' title='9 topics' style='font-size: 11.311827956989pt;'>Theoretical computer science</a>
+<a href='../tag/tikz/' class='tag-link-1771' title='6 topics' style='font-size: 9.0537634408602pt;'>Tikz</a>
+<a href='../tag/ubuntu/' class='tag-link-341' title='5 topics' style='font-size: 8pt;'>Ubuntu</a>
+<a href='../tag/video/' class='tag-link-151' title='11 topics' style='font-size: 12.516129032258pt;'>Video</a>
+<a href='../tag/vimeo/' class='tag-link-421' title='8 topics' style='font-size: 10.559139784946pt;'>Vimeo</a>
+<a href='../tag/web-development/' class='tag-link-461' title='9 topics' style='font-size: 11.311827956989pt;'>Web Development</a>
+<a href='../tag/wikipedia/' class='tag-link-111' title='5 topics' style='font-size: 8pt;'>Wikipedia</a>
+<a href='../tag/wolframalpha/' class='tag-link-491' title='5 topics' style='font-size: 8pt;'>Wolfram|Alpha</a>
+<a href='../tag/youtube/' class='tag-link-171' title='11 topics' style='font-size: 12.516129032258pt;'>YouTube</a></div>
+</li>		</ul>
+	</div>
+</div>
+		</div><!--/container-->
+			<div id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</div><!--/footer-->
+            
+	</div><!--/wrapper-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!-- MathJax Latex Plugin installed -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/front.js?ver=1308'></script>
+
+</body>
+</html>

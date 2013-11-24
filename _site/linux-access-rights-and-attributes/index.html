@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+  <head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Linux access rights and attributes</title>
+    <link rel="stylesheet" href="../css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io//feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martinthoma.github.io//favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="/linux-access-rights-and-attributes" /><!-- TODO: Check if this is absolute url-->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@themoosemind"/>
+    <meta name="twitter:domain" content="Martin Thoma"/>
+    <meta name="twitter:creator" content="@themoosemind"/>
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside-thumb.png"/><!-- TODO-->
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-order.png"/><!-- TODO-->
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside.png"/><!-- TODO-->
+    
+    <meta name="twitter:description" content="" />
+    
+    <meta name="twitter:title" content="Linux access rights and attributes - Martin Thoma"/>
+    <meta name="twitter:url" content="http://martinthoma.github.io//check-point-inside-polygon/"/>
+
+    <link rel='stylesheet' id='toc-screen-css'  href='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/screen.css?ver=1308' type='text/css' media='all' />
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel='shortlink' href='http://martin-thoma.com/?p=76726' /><!-- TODO -->
+<style type="text/css">div#toc_container {width: 275px;}</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <div id="header">
+                    <h1><a href="http://martinthoma.github.io/">Martin Thoma</a></h1>
+				    <h2>A blog about Code, the Web and Cyberculture.</h2>
+			    </div>
+                <div class="navcontainer">
+					<ul id="nav">
+						<li><a href="http://martinthoma.github.io/">Home</a></li>
+						<li class="page_item page-item-41"><a href="http://martinthoma.github.io//about-martin-thoma/">About Me</a></li>
+                        <li class="page_item page-item-91"><a href="http://martinthoma.github.io//imprint/">Imprint</a></li>
+					</ul>
+				</div>
+            	<div id="content">	
+                    <div class="post-76726 post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="post-76726">
+                        <h2 class="title entry-title">Linux access rights and attributes</h2>
+			            <div class="postdate">
+                            <span>
+                                March 
+                                4th
+                                  , 
+                                2013
+                            </span>
+                            <!-- TODO<span><a href="check-point-inside-polygon/#respond" title="Comment on How to check if a point is inside of a polygon?">No Comments</a></span>-->
+                        </div>
+			
+						<div class="entry">
+                            <h2>RWX</h2>
+
+
+<h3>Files</h3>
+
+
+<p>Linux files have three important access rights for files:</p>
+
+<ul>
+  <li><strong>R</strong>ead</li>
+  <li><strong>W</strong>rite</li>
+  <li>E<strong>x</strong>ecute</li>
+</ul>
+
+
+<p>If you want to mark a file as executable, you can add the x-right:</p>
+
+<div class="highlight"><pre><code class="bash">chmod +x
+</code></pre></div>
+
+
+<p>When you want to mark a file as readable, you can dd the r-right:</p>
+
+<div class="highlight"><pre><code class="bash">chmod +r
+</code></pre></div>
+
+
+<p>You can remove rights in a similar way:</p>
+
+<div class="highlight"><pre><code class="bash">chmod -x testfile
+</code></pre></div>
+
+
+<p>Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two?</p>
+
+<h3>Folders</h3>
+
+
+<p>rwx has a meaning for folders, too:</p>
+
+<ul>
+  <li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
+  <li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
+  <li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
+</ul>
+
+
+
+
+<h2>User, Group, Others</h2>
+
+
+<p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
+
+<div class="highlight"><pre><code class="bash">moose@pc07:~/Downloads<span class="nv">$ </span>ls -l
+total 29624
+drwxr-xr-x  8 moose moose     4096 2013-02-22 14:18 algorithms
+-rw-r--r--  1 moose moose    60058 2013-02-11 08:00 args4j-2.0.21.jar
+drwxr-xr-x  6 moose moose     4096 2013-02-25 20:07 bwinf
+-rw-r--r--  1 moose moose 22160041 2013-02-05 16:45 DT2012.zip
+drwxr-xr-x  8 moose moose     4096 2013-02-28 19:23 graphentheorie
+-rw-r--r--  1 moose moose  2164878 2013-02-22 12:38 guava-14.0-rc1.jar
+-rw-r--r--  1 moose moose  2705344 2013-03-01 21:07 HardVacuum.zip
+drwxr-xr-x  8 moose moose     4096 2013-02-05 16:38 informatik-2011
+-rw-r--r--  1 moose moose   111926 2013-02-24 19:09 Jim_Keener_resume.pdf
+drwxr-xr-x  2 moose moose     4096 2011-11-08 11:50 juniper_linux
+-rw-r--r--  1 moose moose   288666 2012-12-04 11:38 junit-4.11.jar
+drwxr-xr-x 13 moose moose     4096 2013-02-01 23:33 LaTeX-examples
+drwxr-xr-x  2 moose moose     4096 2009-08-11 17:04 otrdecoder
+-rw-r--r--  1 moose moose   728292 2013-03-01 19:33 PlanetCute PNG.zip
+drwxr-xr-x  2 moose moose     4096 2012-11-13 10:49 ProjectEuler
+drwxr-xr-x  2 moose moose     4096 2013-03-04 20:28 Screenshots Matlab
+-rw-r--r--  1 moose moose   764196 2013-03-04 20:28 Screenshots Matlab.zip
+-rw-r--r--  1 moose moose   534614 2013-03-01 19:48 spritelib_gpl.zip
+drwxr-xr-x  8 moose moose     4096 2013-02-27 18:36 Team
+drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
+</code></pre></div>
+
+
+<p>You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.</p>
+
+<p>Did you know that you can search for file permissions with <code>find /home/ -perm 777</code>?</p>
+
+<h2>SUID, SGID, Sticky Bit</h2>
+
+
+<h3>Files</h3>
+
+
+<p>Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:</p>
+
+<div class="highlight"><pre><code class="bash">moose@pc07:/usr/bin<span class="nv">$ </span>ls -l <span class="p">|</span> grep passwd<span class="err">$</span>
+-rwsr-xr-x 1 root   root       53812 2011-02-14 23:11 gpasswd
+-rwxr-xr-x 1 root   root       13612 2012-11-06 21:41 htpasswd
+-rwsr-xr-x 1 root   lpadmin    13540 2012-12-04 16:24 lppasswd
+-rwsr-xr-x 1 root   root       37140 2011-02-14 23:11 passwd
+-rwxr-xr-x 1 root   root     5070304 2012-04-24 23:38 smbpasswd
+-rwxr-xr-x 1 root   root        9688 2013-01-18 17:59 vino-passwd
+</code></pre></div>
+
+
+<p>Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":</p>
+
+<div class="highlight"><pre><code class="bash">moose@pc07:/etc<span class="nv">$ </span>ls -l <span class="p">|</span> grep shadow<span class="err">$</span>
+-rw-r-----  1 root    shadow     813 2013-01-24 06:21 gshadow
+-rw-r-----  1 root    shadow    1274 2013-01-24 06:21 shadow
+</code></pre></div>
+
+
+<p>Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.</p>
+
+<p>The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.</p>
+
+<p>The sticky bit seems to be used for programs to stick in memory after it was finished.</p>
+
+<p>You can set the sticky bit like this:</p>
+
+<div class="highlight"><pre><code class="bash">chmod +t testfile
+</code></pre></div>
+
+
+<p>or like that:</p>
+
+<div class="highlight"><pre><code class="bash">chmod 1777 testfile
+</code></pre></div>
+
+
+
+
+<h3>Folders</h3>
+
+
+<ul>
+  <li>suid: is ignored on UNIX and Linux systems</li>
+  <li>sgid: new files and subdirectories created within this folder inherit the folders group ID</li>
+  <li>t: when the sticky bit is set, only owners may change the filename or delete files</li>
+</ul>
+
+
+
+
+<h2>Type</h2>
+
+
+<p>The first column of <code>ls -l</code> tells you the type of the item:</p>
+
+<ul>
+  <li>-: a file</li>
+  <li>b: a block device</li>
+  <li>c: a character device</li>
+  <li>d: a directory</li>
+  <li>l: a symbolic link</li>
+  <li>p: pipe</li>
+  <li>s: a socket</li>
+</ul>
+
+
+
+
+<div class="highlight"><pre><code class="bash">moose@pc07:/dev<span class="nv">$ </span>ls -l
+total 0
+crw-------  1 root video    10, 175 2013-03-04 10:01 agpgart
+crw-rw----+ 1 root audio    14,   4 2013-03-04 10:01 audio
+drwxr-xr-x  2 root root         640 2013-03-04 12:59 block
+drwxr-xr-x  2 root root         100 2013-03-04 12:59 bsg
+drwxr-xr-x  3 root root          60 2013-03-04 10:01 bus
+lrwxrwxrwx  1 root root           3 2013-03-04 10:01 cdrom -&gt; sr0
+lrwxrwxrwx  1 root root           3 2013-03-04 10:01 cdrw -&gt; sr0
+crw-rw----+ 1 root audio    14,   3 2013-03-04 10:01 dsp
+lrwxrwxrwx  1 root root           3 2013-03-04 10:01 dvd -&gt; sr0
+lrwxrwxrwx  1 root root           3 2013-03-04 10:01 dvdrw -&gt; sr0
+crw-rw----  1 root root     10,  61 2013-03-04 10:01 ecryptfs
+crw-rw----  1 root video    29,   0 2013-03-04 10:01 fb0
+lrwxrwxrwx  1 root root          13 2013-03-04 10:01 fd -&gt; /proc/...
+crw-rw-rw-  1 root root      1,   7 2013-03-04 10:01 full
+crw-rw-rw-  1 root fuse     10, 229 2013-03-04 10:01 fuse
+crw-rw----  1 root root    251,   0 2013-03-04 18:14 hidraw0
+crw-rw----  1 root root     10, 228 2013-03-04 10:01 hpet
+drwxr-xr-x  4 root root         380 2013-03-04 18:14 input
+crw-rw----  1 root root      1,  11 2013-03-04 10:01 kmsg
+srw-rw-rw-  1 root root           0 2013-03-04 10:01 log
+brw-rw----  1 root disk      7,   0 2013-03-04 10:01 loop0
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div>
+
+
+
+
+<h2>stat</h2>
+
+
+<p>You can display quite a lot of information of a file with stat:</p>
+
+<div class="highlight"><pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>stat testfile 
+  File: <span class="sb">`</span>testfile<span class="err">&#39;</span>
+  Size: 13          Blocks: 8          IO Block: 4096   regular file
+Device: 801h/2049d  Inode: 923339      Links: 1
+Access: <span class="o">(</span>0777/-rwxrwxrwx<span class="o">)</span>  Uid: <span class="o">(</span> 1000/   moose<span class="o">)</span>   Gid: <span class="o">(</span> 1000/moose<span class="o">)</span>
+Access: 2013-03-04 21:31:52.154187243 +0100
+Modify: 2013-03-04 21:31:51.154184098 +0100
+Change: 2013-03-04 21:31:51.154184098 +0100
+</code></pre></div>
+
+
+<p>The content of the file is "Hello World." (12 characters)</p>
+
+<h2>Attributes</h2>
+
+
+<p>According to the manpage of chattr:</p>
+
+<blockquote>The `c', 's',  and `u' attributes are not honored by the ext2 and ext3 filesystems as implemented in the current mainline Linux kernels. These attributes may be implemented in future versions of the ext2 and ext3 filesystems.</blockquote>
+
+
+
+
+<h3>Version</h3>
+
+
+<p>I've just learned that you can give files version-attributes:</p>
+
+<div class="highlight"><pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>lsattr -v
+ 1338 -----------------e- ./testfile
+</code></pre></div>
+
+
+<p>You can set the version like this:</p>
+
+<div class="highlight"><pre><code class="bash">chattr -v 1339 testfile
+</code></pre></div>
+
+
+
+
+<h3>Append only</h3>
+
+
+<p>This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file.</p>
+
+<p>First of all, I had to use sudo to add this attribute:</p>
+
+<div class="highlight"><pre><code class="bash">sudo chattr +a testfile
+</code></pre></div>
+
+
+<p>Then, I had all permissions:</p>
+
+<div class="highlight"><pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>stat testfile 
+  File: <span class="sb">`</span>testfile<span class="err">&#39;</span>
+  Size: 13          Blocks: 8          IO Block: 4096   regular file
+Device: 801h/2049d  Inode: 923339      Links: 1
+Access: <span class="o">(</span>0777/-rwxrwxrwx<span class="o">)</span>  Uid: <span class="o">(</span> 1000/   moose<span class="o">)</span>   Gid: <span class="o">(</span> 1000/moose<span class="o">)</span>
+Access: 2013-03-04 21:31:52.154187243 +0100
+Modify: 2013-03-04 21:31:51.154184098 +0100
+Change: 2013-03-04 21:33:55.154184312 +0100
+moose@pc07:~/Desktop/Test<span class="nv">$ </span>lsattr
+-----a-----------e- ./testfile
+</code></pre></div>
+
+
+<p>But I couldn't append to the file with gedit. With bash, it worked fine:</p>
+
+<div class="highlight"><pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;One more line &quot;</span> &gt;&gt; testfile 
+moose@pc07:~/Desktop/Test<span class="nv">$ </span>cat testfile 
+Hello World.
+One more line 
+</code></pre></div>
+
+
+<p>So I guess I found another bug in gEdit.</p>
+
+<h3>Immutable</h3>
+
+
+<p>You can mark a file as immutable with <code>sudo chattr +i testfile</code>. It's funny, you can't see that with <code>ls -l</code>, you have to use <code>lsattr</code>. I guess if you manage to get root privileges and want to troll somebody, you could set this bit. I think this might take quite a while until you recognize it.</p>
+
+<h3>Secure deletion and undeletable</h3>
+
+
+<p>When secure deletion is set with <code>chattr +s testfile</code> the operating system overwrites the file with random data when it is deleted.</p>
+
+<p><code>chattr +u testfile</code> makes your file undeletable. This is strange. You can still delete the file with <code>rm</code>, but the system will not overwrite it. I've just <a href="http://unix.stackexchange.com/q/66870/4784">asked a question on SE</a>.</p>
+
+<h3>Synchronous update</h3>
+
+
+<p>when you set <code>chattr +S testfile</code> the file gets directly written to the HDD and not buffered by the kernel cache.</p>
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="/category/cyberculture">cyberculture</a>
+                             | Tags: 
+                            
+                                
+                                    <a href="/tag/Linux">Linux</a>
+                            
+                                , <a href="/tag/IT-Security">IT-Security</a>
+                                
+                            
+                                , <a href="/tag/gedit">gedit</a>
+                                
+                            
+                                , <a href="/tag/Bug">Bug</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/moose/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-03-04 21:29:42 UTC">
+                                March 
+                                4th
+                                  , 
+                                2013</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="/check-file-systems-maximum-path-depth" rel="prev">Check File Systems maximum path depth</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="/latex-beamer" rel="next">LaTeX Beamer</a> &raquo;
+                                 
+                                </div>
+							</div>
+							
+                            You can skip to the end and leave a response.
+	
+						</div>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                            <div class="cancel-comment-reply">
+	                            <small><a rel="nofollow" id="cancel-comment-reply-link" href="/check-point-inside-polygon/#respond" style="display:none;">Click here to cancel reply.</a></small>
+                            </div>
+    <!----------------- comment discuss code -------------------------------------------------------------------->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!----------------- comment discuss code -------------------------------------------------------------------->
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+                    <a href="http://martin-thoma.com/feed/"><img src="../css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="../css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+	<div id="sidebar">
+        <ul>
+            <li id="search">
+				 
+<div class="searchlayout">
+    <form method="get" id="searchform" action="http://martin-thoma.com/"> 
+        <input type="text" value="Search" 
+            name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
+            onfocus="if (this.value == 'Search') {this.value = '';}" />
+        <input type="image" src="../css/images/search.gif" style="border:0; vertical-align: top;" /> 
+    </form>
+</div>			</li>
+        </ul>
+            			<div class="addthis_toolbox">   
+    			    <div class="custom_images">
+    			            <a class="addthis_button_twitter"><img src="../css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+    			            <a class="addthis_button_delicious"><img src="../css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+    			            <a class="addthis_button_facebook"><img src="../css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+    			            <a class="addthis_button_digg"><img src="../css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+    			            <a class="addthis_button_stumbleupon"><img src="../css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+    			            <a class="addthis_button_favorites"><img src="../css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+    			            <a class="addthis_button_more"><img src="../css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+    			    </div>
+    			    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
+    			</div>
+    					        
+		<ul>
+    <li id="categories-3" class="widget widget_categories">
+    <h2 class="widgettitle">Categories</h2>
+        <ul>
+	        <li class="cat-item cat-item-11"><a href="../category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+	        <li class="cat-item cat-item-21"><a href="../category/web/" title="New emerging websites and technologies.">The Web</a></li>
+	        <li class="cat-item cat-item-31"><a href="../category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+	        <li class="cat-item cat-item-3404"><a href="../category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+	        <li class="cat-item cat-item-881"><a href="../category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+	        <li class="cat-item cat-item-41"><a href="../category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+		</ul>
+    </li>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud">
+<a href='../tag/advertising/' class='tag-link-401' title='5 topics' style='font-size: 8pt;'>advertising</a>
+<a href='../tag/algebra/' class='tag-link-3271' title='6 topics' style='font-size: 9.0537634408602pt;'>Algebra</a>
+<a href='../tag/algorithms/' class='tag-link-1981' title='7 topics' style='font-size: 9.8064516129032pt;'>algorithms</a>
+<a href='../tag/analysis/' class='tag-link-1481' title='6 topics' style='font-size: 9.0537634408602pt;'>analysis</a>
+<a href='../tag/assembly-language/' class='tag-link-1401' title='5 topics' style='font-size: 8pt;'>Assembly language</a>
+<a href='../tag/bash/' class='tag-link-731' title='6 topics' style='font-size: 9.0537634408602pt;'>Bash</a>
+<a href='../tag/c/' class='tag-link-1101' title='26 topics' style='font-size: 17.784946236559pt;'>C</a>
+<a href='../tag/challenge/' class='tag-link-671' title='7 topics' style='font-size: 9.8064516129032pt;'>Challenge</a>
+<a href='../tag/clip/' class='tag-link-861' title='10 topics' style='font-size: 11.913978494624pt;'>Clip</a>
+<a href='../tag/command-line/' class='tag-link-351' title='5 topics' style='font-size: 8pt;'>Command Line</a>
+<a href='../tag/computer-science/' class='tag-link-611' title='6 topics' style='font-size: 9.0537634408602pt;'>Computer science</a>
+<a href='../tag/cpp/' class='tag-link-3101' title='6 topics' style='font-size: 9.0537634408602pt;'>CPP</a>
+<a href='../tag/digitaltechnik/' class='tag-link-2441' title='8 topics' style='font-size: 10.559139784946pt;'>Digitaltechnik</a>
+<a href='../tag/flashgames/' class='tag-link-641' title='6 topics' style='font-size: 9.0537634408602pt;'>Flashgames</a>
+<a href='../tag/funny/' class='tag-link-121' title='14 topics' style='font-size: 14.021505376344pt;'>funny</a>
+<a href='../tag/geometry/' class='tag-link-2151' title='5 topics' style='font-size: 8pt;'>Geometry</a>
+<a href='../tag/google/' class='tag-link-271' title='9 topics' style='font-size: 11.311827956989pt;'>Google</a>
+<a href='../tag/google-code-jam/' class='tag-link-1531' title='8 topics' style='font-size: 10.559139784946pt;'>Google Code Jam</a>
+<a href='../tag/it-security/' class='tag-link-691' title='8 topics' style='font-size: 10.559139784946pt;'>IT-Security</a>
+<a href='../tag/java/' class='tag-link-1151' title='33 topics' style='font-size: 19.290322580645pt;'>Java</a>
+<a href='../tag/kit/' class='tag-link-1051' title='12 topics' style='font-size: 12.967741935484pt;'>KIT</a>
+<a href='../tag/klausur/' class='tag-link-1971' title='19 topics' style='font-size: 15.827956989247pt;'>Klausur</a>
+<a href='../tag/latex/' class='tag-link-1021' title='23 topics' style='font-size: 17.032258064516pt;'>LaTeX</a>
+<a href='../tag/learning/' class='tag-link-651' title='15 topics' style='font-size: 14.322580645161pt;'>learning</a>
+<a href='../tag/linear-algebra/' class='tag-link-1241' title='18 topics' style='font-size: 15.52688172043pt;'>Linear algebra</a>
+<a href='../tag/linux/' class='tag-link-331' title='12 topics' style='font-size: 12.967741935484pt;'>Linux</a>
+<a href='../tag/mathematics/' class='tag-link-991' title='50 topics' style='font-size: 22pt;'>mathematics</a>
+<a href='../tag/matrix/' class='tag-link-1471' title='8 topics' style='font-size: 10.559139784946pt;'>Matrix</a>
+<a href='../tag/operating-systems/' class='tag-link-2481' title='5 topics' style='font-size: 8pt;'>Operating Systems</a>
+<a href='../tag/os/' class='tag-link-1461' title='5 topics' style='font-size: 8pt;'>OS</a>
+<a href='../tag/php/' class='tag-link-441' title='6 topics' style='font-size: 9.0537634408602pt;'>PHP</a>
+<a href='../tag/programming/' class='tag-link-71' title='41 topics' style='font-size: 20.645161290323pt;'>Programming</a>
+<a href='../tag/project-euler/' class='tag-link-1521' title='9 topics' style='font-size: 11.311827956989pt;'>Project Euler</a>
+<a href='../tag/puzzle/' class='tag-link-1961' title='20 topics' style='font-size: 16.129032258065pt;'>puzzle</a>
+<a href='../tag/python/' class='tag-link-91' title='38 topics' style='font-size: 20.193548387097pt;'>Python</a>
+<a href='../tag/swt-i/' class='tag-link-1631' title='8 topics' style='font-size: 10.559139784946pt;'>SWT I</a>
+<a href='../tag/theoretical-computer-science/' class='tag-link-1341' title='9 topics' style='font-size: 11.311827956989pt;'>Theoretical computer science</a>
+<a href='../tag/tikz/' class='tag-link-1771' title='6 topics' style='font-size: 9.0537634408602pt;'>Tikz</a>
+<a href='../tag/ubuntu/' class='tag-link-341' title='5 topics' style='font-size: 8pt;'>Ubuntu</a>
+<a href='../tag/video/' class='tag-link-151' title='11 topics' style='font-size: 12.516129032258pt;'>Video</a>
+<a href='../tag/vimeo/' class='tag-link-421' title='8 topics' style='font-size: 10.559139784946pt;'>Vimeo</a>
+<a href='../tag/web-development/' class='tag-link-461' title='9 topics' style='font-size: 11.311827956989pt;'>Web Development</a>
+<a href='../tag/wikipedia/' class='tag-link-111' title='5 topics' style='font-size: 8pt;'>Wikipedia</a>
+<a href='../tag/wolframalpha/' class='tag-link-491' title='5 topics' style='font-size: 8pt;'>Wolfram|Alpha</a>
+<a href='../tag/youtube/' class='tag-link-171' title='11 topics' style='font-size: 12.516129032258pt;'>YouTube</a></div>
+</li>		</ul>
+	</div>
+</div>
+		</div><!--/container-->
+			<div id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</div><!--/footer-->
+            
+	</div><!--/wrapper-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!-- MathJax Latex Plugin installed -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/front.js?ver=1308'></script>
+
+</body>
+</html>

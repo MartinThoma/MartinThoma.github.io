@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+  <head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Colorize your scripts output</title>
+    <link rel="stylesheet" href="../css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io//feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martinthoma.github.io//favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="/colorize-your-scripts-output" /><!-- TODO: Check if this is absolute url-->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@themoosemind"/>
+    <meta name="twitter:domain" content="Martin Thoma"/>
+    <meta name="twitter:creator" content="@themoosemind"/>
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside-thumb.png"/><!-- TODO-->
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-order.png"/><!-- TODO-->
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside.png"/><!-- TODO-->
+    
+    <meta name="twitter:description" content="" />
+    
+    <meta name="twitter:title" content="Colorize your scripts output - Martin Thoma"/>
+    <meta name="twitter:url" content="http://martinthoma.github.io//check-point-inside-polygon/"/>
+
+    <link rel='stylesheet' id='toc-screen-css'  href='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/screen.css?ver=1308' type='text/css' media='all' />
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel='shortlink' href='http://martin-thoma.com/?p=76726' /><!-- TODO -->
+<style type="text/css">div#toc_container {width: 275px;}</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <div id="header">
+                    <h1><a href="http://martinthoma.github.io/">Martin Thoma</a></h1>
+				    <h2>A blog about Code, the Web and Cyberculture.</h2>
+			    </div>
+                <div class="navcontainer">
+					<ul id="nav">
+						<li><a href="http://martinthoma.github.io/">Home</a></li>
+						<li class="page_item page-item-41"><a href="http://martinthoma.github.io//about-martin-thoma/">About Me</a></li>
+                        <li class="page_item page-item-91"><a href="http://martinthoma.github.io//imprint/">Imprint</a></li>
+					</ul>
+				</div>
+            	<div id="content">	
+                    <div class="post-76726 post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="post-76726">
+                        <h2 class="title entry-title">Colorize your scripts output</h2>
+			            <div class="postdate">
+                            <span>
+                                September 
+                                30th
+                                  , 
+                                2011
+                            </span>
+                            <!-- TODO<span><a href="check-point-inside-polygon/#respond" title="Comment on How to check if a point is inside of a polygon?">No Comments</a></span>-->
+                        </div>
+			
+						<div class="entry">
+                            <p>The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used.</p>
+
+<p>You can change this standard behaviour. You can add color to your output.</p>
+
+<p>This is the way you do it:</p>
+
+<p>The mini-program tput can initialize a terminal or query terminfo database. If you want to know more about it, you can take a look at the <a href="http://linux.die.net/man/1/tput">tput manpage</a>.</p>
+
+<h2>A quick example</h2>
+
+
+
+
+<div class="highlight"><pre><code class="bash"><span class="c"># Text color variables</span>
+<span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput setaf 1<span class="k">)</span>    <span class="c"># Red</span>
+<span class="nv">txtreset</span><span class="o">=</span><span class="k">$(</span>tput sgr0<span class="k">)</span>     <span class="c"># Reset your text</span>
+<span class="nb">echo</span> <span class="s2">&quot;Roses are ${txtred}red${txtreset}.&quot;</span>
+</code></pre></div>
+
+
+<p>Simply copy this example line by line and then you'll see the expected example.</p>
+
+<p>A shorter way would be</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">echo</span> <span class="s2">&quot;Roses are `tput setaf 1`red`tput sgr0`.&quot;</span>
+</code></pre></div>
+
+
+
+
+<h2>The sgr attribuge</h2>
+
+
+
+
+<div class="highlight"><pre><code class="bash">tput sgr 0 1     turn off standout<span class="p">;</span> turn on underline
+tput sgr 0 0     turn off standout<span class="p">;</span> turn off underline
+tput sgr 1 1     turn on standout<span class="p">;</span> turn on underline
+tput sgr 1 0     turn on standout<span class="p">;</span> turn off underline
+tput sgr0        short <span class="k">for </span>sgr 0 0
+</code></pre></div>
+
+
+
+
+<h2>The setaf attribute</h2>
+
+
+
+
+<div class="highlight"><pre><code class="bash">setaf 1 Red
+setaf 2 Green
+setaf 3 Yellow
+setaf 4 Blue
+setaf 5 Purple
+setaf 6 Cyan
+setaf 7 Gray
+</code></pre></div>
+
+
+
+
+<h2>Misc</h2>
+
+
+<p>Make your text bold:</p>
+
+<div class="highlight"><pre><code class="bash">tput bold
+</code></pre></div>
+
+
+<p>Reset your style:</p>
+
+<div class="highlight"><pre><code class="bash">tput sgr0
+</code></pre></div>
+
+
+
+
+<h2>Advanced Example</h2>
+
+
+<p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
+
+<p>This is the way how "[ERROR]" gets red and bold:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="sb">`</span>tput setaf 1<span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
+</code></pre></div>
+
+
+<p>You can test it with</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">echo</span> <span class="s2">&quot;`tput setaf 1``tput bold`[ERROR]`tput sgr0`&quot;</span>
+</code></pre></div>
+
+
+<p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
+
+<p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is</p>
+
+<div class="highlight"><pre><code class="bash">sed <span class="s1">&#39;s/search/replace/&#39;</span>
+</code></pre></div>
+
+
+<p>So we pipe the output to sed:</p>
+
+<div class="highlight"><pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">&#39;s/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/&#39;</span>
+</code></pre></div>
+
+
+<p>And now we bring it all together:</p>
+
+<div class="highlight"><pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">&#39;s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/&#39;</span>
+</code></pre></div>
+
+
+<p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
+
+<div class="highlight"><pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s2">&quot;s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/&quot;</span>
+</code></pre></div>
+
+
+
+
+<h2>Colorize C / C++ output</h2>
+
+
+<p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:
+[c]#include &lt;stdio.h></p>
+
+<p>int main()
+{
+    printf("&#92;&#48;33[30m%s&#92;&#48;33[0m\n", "black?");
+    printf("&#92;&#48;33[31m%s&#92;&#48;33[0m\n", "red");
+    printf("&#92;&#48;33[32m%s&#92;&#48;33[0m\n", "lime");
+    printf("&#92;&#48;33[33m%s&#92;&#48;33[0m\n", "yellow");
+    printf("&#92;&#48;33[34m%s&#92;&#48;33[0m\n", "blue");
+    printf("&#92;&#48;33[35m%s&#92;&#48;33[0m\n", "gray");
+    printf("&#92;&#48;33[36m%s&#92;&#48;33[0m\n", "blue");
+    printf("&#92;&#48;33[37m%s&#92;&#48;33[0m\n", "light gray");
+    printf("&#92;&#48;33[38m%s&#92;&#48;33[0m\n", "black?");
+    printf("&#92;&#48;33[39m%s&#92;&#48;33[0m\n", "black?");
+    printf("&#92;&#48;33[41m%s&#92;&#48;33[0m\n", "red background");
+    printf("&#92;&#48;33[1;34m%s&#92;&#48;33[0m\n", "bold and blue");
+    printf("&#92;&#48;33[4m%s&#92;&#48;33[0m\n", "underlined");
+    printf("&#92;&#48;33[9m%s&#92;&#48;33[0m\n", "strike");
+    return 0;
+}[/c]</p>
+
+<p>\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
+The numbers 30&ndash;37 change the color, 4 is a single underline.</p>
+
+<p>I guess these will also work for Java, but I didn't test it.</p>
+
+<p>Do you know what setaf or sgr stand for? Do you know further "terminal enhancement" tricks? Just leave a post!</p>
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="/category/code">code</a>
+                             | Tags: 
+                            
+                                
+                                    <a href="/tag/Command Line">Command Line</a>
+                            
+                                , <a href="/tag/Bash">Bash</a>
+                                
+                            
+                                , <a href="/tag/Scripting">Scripting</a>
+                                
+                            
+                                , <a href="/tag/C">C</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/moose/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2011-09-30 06:59:59 UTC">
+                                September 
+                                30th
+                                  , 
+                                2011</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="/captcha" rel="prev">CAPTCHA</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="/if-computer-problems-were-real" rel="next">If Computer Problems Were Real</a> &raquo;
+                                 
+                                </div>
+							</div>
+							
+                            You can skip to the end and leave a response.
+	
+						</div>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                            <div class="cancel-comment-reply">
+	                            <small><a rel="nofollow" id="cancel-comment-reply-link" href="/check-point-inside-polygon/#respond" style="display:none;">Click here to cancel reply.</a></small>
+                            </div>
+    <!----------------- comment discuss code -------------------------------------------------------------------->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!----------------- comment discuss code -------------------------------------------------------------------->
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+                    <a href="http://martin-thoma.com/feed/"><img src="../css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="../css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+	<div id="sidebar">
+        <ul>
+            <li id="search">
+				 
+<div class="searchlayout">
+    <form method="get" id="searchform" action="http://martin-thoma.com/"> 
+        <input type="text" value="Search" 
+            name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
+            onfocus="if (this.value == 'Search') {this.value = '';}" />
+        <input type="image" src="../css/images/search.gif" style="border:0; vertical-align: top;" /> 
+    </form>
+</div>			</li>
+        </ul>
+            			<div class="addthis_toolbox">   
+    			    <div class="custom_images">
+    			            <a class="addthis_button_twitter"><img src="../css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+    			            <a class="addthis_button_delicious"><img src="../css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+    			            <a class="addthis_button_facebook"><img src="../css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+    			            <a class="addthis_button_digg"><img src="../css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+    			            <a class="addthis_button_stumbleupon"><img src="../css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+    			            <a class="addthis_button_favorites"><img src="../css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+    			            <a class="addthis_button_more"><img src="../css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+    			    </div>
+    			    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
+    			</div>
+    					        
+		<ul>
+    <li id="categories-3" class="widget widget_categories">
+    <h2 class="widgettitle">Categories</h2>
+        <ul>
+	        <li class="cat-item cat-item-11"><a href="../category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+	        <li class="cat-item cat-item-21"><a href="../category/web/" title="New emerging websites and technologies.">The Web</a></li>
+	        <li class="cat-item cat-item-31"><a href="../category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+	        <li class="cat-item cat-item-3404"><a href="../category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+	        <li class="cat-item cat-item-881"><a href="../category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+	        <li class="cat-item cat-item-41"><a href="../category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+		</ul>
+    </li>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud">
+<a href='../tag/advertising/' class='tag-link-401' title='5 topics' style='font-size: 8pt;'>advertising</a>
+<a href='../tag/algebra/' class='tag-link-3271' title='6 topics' style='font-size: 9.0537634408602pt;'>Algebra</a>
+<a href='../tag/algorithms/' class='tag-link-1981' title='7 topics' style='font-size: 9.8064516129032pt;'>algorithms</a>
+<a href='../tag/analysis/' class='tag-link-1481' title='6 topics' style='font-size: 9.0537634408602pt;'>analysis</a>
+<a href='../tag/assembly-language/' class='tag-link-1401' title='5 topics' style='font-size: 8pt;'>Assembly language</a>
+<a href='../tag/bash/' class='tag-link-731' title='6 topics' style='font-size: 9.0537634408602pt;'>Bash</a>
+<a href='../tag/c/' class='tag-link-1101' title='26 topics' style='font-size: 17.784946236559pt;'>C</a>
+<a href='../tag/challenge/' class='tag-link-671' title='7 topics' style='font-size: 9.8064516129032pt;'>Challenge</a>
+<a href='../tag/clip/' class='tag-link-861' title='10 topics' style='font-size: 11.913978494624pt;'>Clip</a>
+<a href='../tag/command-line/' class='tag-link-351' title='5 topics' style='font-size: 8pt;'>Command Line</a>
+<a href='../tag/computer-science/' class='tag-link-611' title='6 topics' style='font-size: 9.0537634408602pt;'>Computer science</a>
+<a href='../tag/cpp/' class='tag-link-3101' title='6 topics' style='font-size: 9.0537634408602pt;'>CPP</a>
+<a href='../tag/digitaltechnik/' class='tag-link-2441' title='8 topics' style='font-size: 10.559139784946pt;'>Digitaltechnik</a>
+<a href='../tag/flashgames/' class='tag-link-641' title='6 topics' style='font-size: 9.0537634408602pt;'>Flashgames</a>
+<a href='../tag/funny/' class='tag-link-121' title='14 topics' style='font-size: 14.021505376344pt;'>funny</a>
+<a href='../tag/geometry/' class='tag-link-2151' title='5 topics' style='font-size: 8pt;'>Geometry</a>
+<a href='../tag/google/' class='tag-link-271' title='9 topics' style='font-size: 11.311827956989pt;'>Google</a>
+<a href='../tag/google-code-jam/' class='tag-link-1531' title='8 topics' style='font-size: 10.559139784946pt;'>Google Code Jam</a>
+<a href='../tag/it-security/' class='tag-link-691' title='8 topics' style='font-size: 10.559139784946pt;'>IT-Security</a>
+<a href='../tag/java/' class='tag-link-1151' title='33 topics' style='font-size: 19.290322580645pt;'>Java</a>
+<a href='../tag/kit/' class='tag-link-1051' title='12 topics' style='font-size: 12.967741935484pt;'>KIT</a>
+<a href='../tag/klausur/' class='tag-link-1971' title='19 topics' style='font-size: 15.827956989247pt;'>Klausur</a>
+<a href='../tag/latex/' class='tag-link-1021' title='23 topics' style='font-size: 17.032258064516pt;'>LaTeX</a>
+<a href='../tag/learning/' class='tag-link-651' title='15 topics' style='font-size: 14.322580645161pt;'>learning</a>
+<a href='../tag/linear-algebra/' class='tag-link-1241' title='18 topics' style='font-size: 15.52688172043pt;'>Linear algebra</a>
+<a href='../tag/linux/' class='tag-link-331' title='12 topics' style='font-size: 12.967741935484pt;'>Linux</a>
+<a href='../tag/mathematics/' class='tag-link-991' title='50 topics' style='font-size: 22pt;'>mathematics</a>
+<a href='../tag/matrix/' class='tag-link-1471' title='8 topics' style='font-size: 10.559139784946pt;'>Matrix</a>
+<a href='../tag/operating-systems/' class='tag-link-2481' title='5 topics' style='font-size: 8pt;'>Operating Systems</a>
+<a href='../tag/os/' class='tag-link-1461' title='5 topics' style='font-size: 8pt;'>OS</a>
+<a href='../tag/php/' class='tag-link-441' title='6 topics' style='font-size: 9.0537634408602pt;'>PHP</a>
+<a href='../tag/programming/' class='tag-link-71' title='41 topics' style='font-size: 20.645161290323pt;'>Programming</a>
+<a href='../tag/project-euler/' class='tag-link-1521' title='9 topics' style='font-size: 11.311827956989pt;'>Project Euler</a>
+<a href='../tag/puzzle/' class='tag-link-1961' title='20 topics' style='font-size: 16.129032258065pt;'>puzzle</a>
+<a href='../tag/python/' class='tag-link-91' title='38 topics' style='font-size: 20.193548387097pt;'>Python</a>
+<a href='../tag/swt-i/' class='tag-link-1631' title='8 topics' style='font-size: 10.559139784946pt;'>SWT I</a>
+<a href='../tag/theoretical-computer-science/' class='tag-link-1341' title='9 topics' style='font-size: 11.311827956989pt;'>Theoretical computer science</a>
+<a href='../tag/tikz/' class='tag-link-1771' title='6 topics' style='font-size: 9.0537634408602pt;'>Tikz</a>
+<a href='../tag/ubuntu/' class='tag-link-341' title='5 topics' style='font-size: 8pt;'>Ubuntu</a>
+<a href='../tag/video/' class='tag-link-151' title='11 topics' style='font-size: 12.516129032258pt;'>Video</a>
+<a href='../tag/vimeo/' class='tag-link-421' title='8 topics' style='font-size: 10.559139784946pt;'>Vimeo</a>
+<a href='../tag/web-development/' class='tag-link-461' title='9 topics' style='font-size: 11.311827956989pt;'>Web Development</a>
+<a href='../tag/wikipedia/' class='tag-link-111' title='5 topics' style='font-size: 8pt;'>Wikipedia</a>
+<a href='../tag/wolframalpha/' class='tag-link-491' title='5 topics' style='font-size: 8pt;'>Wolfram|Alpha</a>
+<a href='../tag/youtube/' class='tag-link-171' title='11 topics' style='font-size: 12.516129032258pt;'>YouTube</a></div>
+</li>		</ul>
+	</div>
+</div>
+		</div><!--/container-->
+			<div id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</div><!--/footer-->
+            
+	</div><!--/wrapper-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!-- MathJax Latex Plugin installed -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/front.js?ver=1308'></script>
+
+</body>
+</html>
