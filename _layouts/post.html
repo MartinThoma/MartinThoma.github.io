@@ -5,214 +5,214 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="/css/print.css" type="text/css" media="print" />
-    <!--[if IE]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection"><![endif]-->
-    <!--[if IE 6]>
-	    <script src="/js/pngfix.js"></script>
-    <![endif]--> 
-    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" />
-    <link rel="alternate" type="application/atom+xml" title="Martin Thoma Atom Feed" href="http://martin-thoma.com/feed/atom/" />
-    <link rel="pingback" href="http://martin-thoma.com/xmlrpc.php" />
-    <link rel="shortcut icon" href="{{ site.url }}{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
-    <!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.19 - http://yoast.com/wordpress/seo/ -->
-    <link rel="canonical" href="http://martin-thoma.com/" />
-    <link rel="next" href="http://martin-thoma.com/page/2/" />
-    <meta name="google-site-verification" content="google2946203151914bdb.html" />
-    <meta name="msvalidate.01" content="CE2ED1C9677DC191BBEC0ECC336AA0FA" />
-    <!-- / Yoast WordPress SEO plugin. -->
-  </head>
-  <body>
+    <link rel="stylesheet" href="../css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="{{ site.baseurl }}/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="{{ page.url }}" /><!-- TODO: Check if this is absolute url-->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@themoosemind"/>
+    <meta name="twitter:domain" content="Martin Thoma"/>
+    <meta name="twitter:creator" content="@themoosemind"/>
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside-thumb.png"/>
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-order.png"/>
+    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside.png"/>
+    {% if page.description %}
+    <meta name="twitter:description" content="{{page.description}}" />
+    {% else %}
+    <meta name="twitter:description" content="{{site.description}}" />
+    {% endif %}
+    <meta name="twitter:title" content="{{ page.title }} - Martin Thoma"/>
+    <meta name="twitter:url" content="{{ site.baseurl }}/check-point-inside-polygon/"/>
+
+    <link rel='stylesheet' id='toc-screen-css'  href='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/screen.css?ver=1308' type='text/css' media='all' />
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel='shortlink' href='http://martin-thoma.com/?p=76726' /><!-- TODO -->
+<style type="text/css">div#toc_container {width: 275px;}</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+</head>
+<body>
 	<div id="wrapper">
-		<div id="container" class="container">  
-            <?php $sidebar_over_header = get_theme_option('sidebar_over_header') == 'true' ? true : false; ?>
-            
+		<div id="container" class="container">
 			<div class="span-16">
                 <div id="header">
-            	    <h1><a href="{{ site.base-url }}">Martin Thoma</a></h1>
+                    <h1><a href="{{ site.baseurl }}">Martin Thoma</a></h1>
 				    <h2>A blog about Code, the Web and Cyberculture.</h2>
-				</div>
+			    </div>
                 <div class="navcontainer">
 					<ul id="nav">
-						<li class="current_page_item"><a href="{{ site.base-url }}">Home</a></li>
-                        <li class="page_item page-item-41"><a href="http://martin-thoma.com/about-martin-thoma/">About Me</a></li>
-                        <li class="page_item page-item-91"><a href="http://martin-thoma.com/imprint/">Imprint</a></li>	
+						<li><a href="{{ site.baseurl }}">Home</a></li>
+						<li class="page_item page-item-41"><a href="{{ site.baseurl }}/about-martin-thoma/">About Me</a></li>
+                        <li class="page_item page-item-91"><a href="{{ site.baseurl }}/imprint/">Imprint</a></li>
 					</ul>
 				</div>
-			<div id="content">	
-                {{content}}
+            	<div id="content">	
+                    <div class="post-76726 post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="post-76726">
+                        <h2 class="title entry-title">{{ page.title }}</h2>
+			            <div class="postdate">
+                            <span>{% assign d = page.date | date: "%d" | plus:'0' %}
+                                {{ page.date | date: "%B" }} 
+                                {% case d %}
+                                  {% when 1 or 21 or 31 %}{{ d }}st
+                                  {% when 2 or 22 %}{{ d }}nd
+                                  {% when 3 or 23 %}{{ d }}rd
+                                  {% else %}{{ d }}th
+                                  {% endcase %}, 
+                                {{ page.date | date: "%Y" }}
+                            </span>
+                            <!-- TODO<span><a href="check-point-inside-polygon/#respond" title="Comment on How to check if a point is inside of a polygon?">No Comments</a></span>-->
+                        </div>
+			
+						<div class="entry">
+                            {{content}}
+						</div>
+						<div class="postmeta">Posted in 
+                            {% for cat in page.categories %}
+                                <a href="/category/{{ cat }}">{{ cat }}</a>
+                            {% endfor %} | Tags: 
+                            {% for tag in page.tags %}
+                                {% if forloop.index0 == 0 %}
+                                    <a href="/tag/{{ tag }}">{{ tag }}</a>{% else %}, <a href="/tag/{{ tag }}">{{ tag }}</a>
+                                {% endif %}
+                            {% endfor %} by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/moose/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="{{ page.date }}">{% assign d = page.date | date: "%d" | plus:'0' %}
+                                {{ page.date | date: "%B" }} 
+                                {% case d %}
+                                  {% when 1 or 21 or 31 %}{{ d }}st
+                                  {% when 2 or 22 %}{{ d }}nd
+                                  {% when 3 or 23 %}{{ d }}rd
+                                  {% else %}{{ d }}th
+                                  {% endcase %}, 
+                                {{ page.date | date: "%Y" }}</span></span></div>
 
-                <div class="navigation">
-            		<div class="alignleft"><a href="http://martin-thoma.com/page/2/" >&laquo; Older Entries</a></div>
-            		<div class="alignright"></div>
-                </div>
-        </div>
-        <div class="span-8 last">
-    <div id="subscriptions">
-        <a href="http://martin-thoma.com/feed/"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
-		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                {% if page.previous.url %}
+                                    &laquo; <a href="{{page.previous.url}}" rel="prev">{{page.previous.title}}</a>
+                                {% endif %} 
+                                </div>
+								<div class="alignright">
+                                {% if page.next.url %}
+                                    <a href="{{page.next.url}}" rel="next">{{page.next.title}}</a> &raquo;
+                                {% endif %} 
+                                </div>
+							</div>
+							
+                            You can skip to the end and leave a response.
+	
+						</div>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                            <div class="cancel-comment-reply">
+	                            <small><a rel="nofollow" id="cancel-comment-reply-link" href="/check-point-inside-polygon/#respond" style="display:none;">Click here to cancel reply.</a></small>
+                            </div>
+                            <!-- comment: TODO -->
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+                    <a href="http://martin-thoma.com/feed/"><img src="../css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="../css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
 	<div id="sidebar">
         <ul>
-            <li id="search">			 
+            <li id="search">
+				 
 <div class="searchlayout">
     <form method="get" id="searchform" action="http://martin-thoma.com/"> 
         <input type="text" value="Search" 
             name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
             onfocus="if (this.value == 'Search') {this.value = '';}" />
-        <input type="image" src="http://martin-thoma.com/wp-content/themes/modern-style/images/search.gif" style="border:0; vertical-align: top;" /> 
+        <input type="image" src="../css/images/search.gif" style="border:0; vertical-align: top;" /> 
     </form>
 </div>			</li>
         </ul>
             			<div class="addthis_toolbox">   
     			    <div class="custom_images">
-    			            <a class="addthis_button_twitter"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-    			            <a class="addthis_button_delicious"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-    			            <a class="addthis_button_facebook"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-    			            <a class="addthis_button_digg"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-    			            <a class="addthis_button_stumbleupon"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-    			            <a class="addthis_button_favorites"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
-    			            <a class="addthis_button_more"><img src="http://martin-thoma.com/wp-content/themes/modern-style/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+    			            <a class="addthis_button_twitter"><img src="../css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+    			            <a class="addthis_button_delicious"><img src="../css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+    			            <a class="addthis_button_facebook"><img src="../css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+    			            <a class="addthis_button_digg"><img src="../css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+    			            <a class="addthis_button_stumbleupon"><img src="../css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+    			            <a class="addthis_button_favorites"><img src="../css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+    			            <a class="addthis_button_more"><img src="../css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
     			    </div>
     			    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
     			</div>
     					        
 		<ul>
-		  <li id="categories-3" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>		<ul>
-	<li class="cat-item cat-item-11"><a href="http://martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a>
-</li>
-	<li class="cat-item cat-item-21"><a href="http://martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a>
-</li>
-	<li class="cat-item cat-item-31"><a href="http://martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a>
-</li>
-	<li class="cat-item cat-item-3404"><a href="http://martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a>
-</li>
-	<li class="cat-item cat-item-881"><a href="http://martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a>
-</li>
-	<li class="cat-item cat-item-41"><a href="http://martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a>
-</li>
+    <li id="categories-3" class="widget widget_categories">
+    <h2 class="widgettitle">Categories</h2>
+        <ul>
+	        <li class="cat-item cat-item-11"><a href="../category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+	        <li class="cat-item cat-item-21"><a href="../category/web/" title="New emerging websites and technologies.">The Web</a></li>
+	        <li class="cat-item cat-item-31"><a href="../category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+	        <li class="cat-item cat-item-3404"><a href="../category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+	        <li class="cat-item cat-item-881"><a href="../category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+	        <li class="cat-item cat-item-41"><a href="../category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
 		</ul>
-</li><li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a href='http://martin-thoma.com/tag/advertising/' class='tag-link-401' title='5 topics' style='font-size: 8pt;'>advertising</a>
-<a href='http://martin-thoma.com/tag/algebra/' class='tag-link-3271' title='6 topics' style='font-size: 9.0537634408602pt;'>Algebra</a>
-<a href='http://martin-thoma.com/tag/algorithms/' class='tag-link-1981' title='7 topics' style='font-size: 9.8064516129032pt;'>algorithms</a>
-<a href='http://martin-thoma.com/tag/analysis/' class='tag-link-1481' title='6 topics' style='font-size: 9.0537634408602pt;'>analysis</a>
-<a href='http://martin-thoma.com/tag/assembly-language/' class='tag-link-1401' title='5 topics' style='font-size: 8pt;'>Assembly language</a>
-<a href='http://martin-thoma.com/tag/bash/' class='tag-link-731' title='6 topics' style='font-size: 9.0537634408602pt;'>Bash</a>
-<a href='http://martin-thoma.com/tag/c/' class='tag-link-1101' title='26 topics' style='font-size: 17.784946236559pt;'>C</a>
-<a href='http://martin-thoma.com/tag/challenge/' class='tag-link-671' title='7 topics' style='font-size: 9.8064516129032pt;'>Challenge</a>
-<a href='http://martin-thoma.com/tag/clip/' class='tag-link-861' title='10 topics' style='font-size: 11.913978494624pt;'>Clip</a>
-<a href='http://martin-thoma.com/tag/command-line/' class='tag-link-351' title='5 topics' style='font-size: 8pt;'>Command Line</a>
-<a href='http://martin-thoma.com/tag/computer-science/' class='tag-link-611' title='6 topics' style='font-size: 9.0537634408602pt;'>Computer science</a>
-<a href='http://martin-thoma.com/tag/cpp/' class='tag-link-3101' title='6 topics' style='font-size: 9.0537634408602pt;'>CPP</a>
-<a href='http://martin-thoma.com/tag/digitaltechnik/' class='tag-link-2441' title='8 topics' style='font-size: 10.559139784946pt;'>Digitaltechnik</a>
-<a href='http://martin-thoma.com/tag/flashgames/' class='tag-link-641' title='6 topics' style='font-size: 9.0537634408602pt;'>Flashgames</a>
-<a href='http://martin-thoma.com/tag/funny/' class='tag-link-121' title='14 topics' style='font-size: 14.021505376344pt;'>funny</a>
-<a href='http://martin-thoma.com/tag/geometry/' class='tag-link-2151' title='5 topics' style='font-size: 8pt;'>Geometry</a>
-<a href='http://martin-thoma.com/tag/google/' class='tag-link-271' title='9 topics' style='font-size: 11.311827956989pt;'>Google</a>
-<a href='http://martin-thoma.com/tag/google-code-jam/' class='tag-link-1531' title='8 topics' style='font-size: 10.559139784946pt;'>Google Code Jam</a>
-<a href='http://martin-thoma.com/tag/it-security/' class='tag-link-691' title='8 topics' style='font-size: 10.559139784946pt;'>IT-Security</a>
-<a href='http://martin-thoma.com/tag/java/' class='tag-link-1151' title='33 topics' style='font-size: 19.290322580645pt;'>Java</a>
-<a href='http://martin-thoma.com/tag/kit/' class='tag-link-1051' title='12 topics' style='font-size: 12.967741935484pt;'>KIT</a>
-<a href='http://martin-thoma.com/tag/klausur/' class='tag-link-1971' title='19 topics' style='font-size: 15.827956989247pt;'>Klausur</a>
-<a href='http://martin-thoma.com/tag/latex/' class='tag-link-1021' title='23 topics' style='font-size: 17.032258064516pt;'>LaTeX</a>
-<a href='http://martin-thoma.com/tag/learning/' class='tag-link-651' title='15 topics' style='font-size: 14.322580645161pt;'>learning</a>
-<a href='http://martin-thoma.com/tag/linear-algebra/' class='tag-link-1241' title='18 topics' style='font-size: 15.52688172043pt;'>Linear algebra</a>
-<a href='http://martin-thoma.com/tag/linux/' class='tag-link-331' title='12 topics' style='font-size: 12.967741935484pt;'>Linux</a>
-<a href='http://martin-thoma.com/tag/mathematics/' class='tag-link-991' title='50 topics' style='font-size: 22pt;'>mathematics</a>
-<a href='http://martin-thoma.com/tag/matrix/' class='tag-link-1471' title='8 topics' style='font-size: 10.559139784946pt;'>Matrix</a>
-<a href='http://martin-thoma.com/tag/operating-systems/' class='tag-link-2481' title='5 topics' style='font-size: 8pt;'>Operating Systems</a>
-<a href='http://martin-thoma.com/tag/os/' class='tag-link-1461' title='5 topics' style='font-size: 8pt;'>OS</a>
-<a href='http://martin-thoma.com/tag/php/' class='tag-link-441' title='6 topics' style='font-size: 9.0537634408602pt;'>PHP</a>
-<a href='http://martin-thoma.com/tag/programming/' class='tag-link-71' title='41 topics' style='font-size: 20.645161290323pt;'>Programming</a>
-<a href='http://martin-thoma.com/tag/project-euler/' class='tag-link-1521' title='9 topics' style='font-size: 11.311827956989pt;'>Project Euler</a>
-<a href='http://martin-thoma.com/tag/puzzle/' class='tag-link-1961' title='20 topics' style='font-size: 16.129032258065pt;'>puzzle</a>
-<a href='http://martin-thoma.com/tag/python/' class='tag-link-91' title='38 topics' style='font-size: 20.193548387097pt;'>Python</a>
-<a href='http://martin-thoma.com/tag/swt-i/' class='tag-link-1631' title='8 topics' style='font-size: 10.559139784946pt;'>SWT I</a>
-<a href='http://martin-thoma.com/tag/theoretical-computer-science/' class='tag-link-1341' title='9 topics' style='font-size: 11.311827956989pt;'>Theoretical computer science</a>
-<a href='http://martin-thoma.com/tag/tikz/' class='tag-link-1771' title='6 topics' style='font-size: 9.0537634408602pt;'>Tikz</a>
-<a href='http://martin-thoma.com/tag/ubuntu/' class='tag-link-341' title='5 topics' style='font-size: 8pt;'>Ubuntu</a>
-<a href='http://martin-thoma.com/tag/video/' class='tag-link-151' title='11 topics' style='font-size: 12.516129032258pt;'>Video</a>
-<a href='http://martin-thoma.com/tag/vimeo/' class='tag-link-421' title='8 topics' style='font-size: 10.559139784946pt;'>Vimeo</a>
-<a href='http://martin-thoma.com/tag/web-development/' class='tag-link-461' title='9 topics' style='font-size: 11.311827956989pt;'>Web Development</a>
-<a href='http://martin-thoma.com/tag/wikipedia/' class='tag-link-111' title='5 topics' style='font-size: 8pt;'>Wikipedia</a>
-<a href='http://martin-thoma.com/tag/wolframalpha/' class='tag-link-491' title='5 topics' style='font-size: 8pt;'>Wolfram|Alpha</a>
-<a href='http://martin-thoma.com/tag/youtube/' class='tag-link-171' title='11 topics' style='font-size: 12.516129032258pt;'>YouTube</a></div>
+    </li>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud">
+<a href='../tag/advertising/' class='tag-link-401' title='5 topics' style='font-size: 8pt;'>advertising</a>
+<a href='../tag/algebra/' class='tag-link-3271' title='6 topics' style='font-size: 9.0537634408602pt;'>Algebra</a>
+<a href='../tag/algorithms/' class='tag-link-1981' title='7 topics' style='font-size: 9.8064516129032pt;'>algorithms</a>
+<a href='../tag/analysis/' class='tag-link-1481' title='6 topics' style='font-size: 9.0537634408602pt;'>analysis</a>
+<a href='../tag/assembly-language/' class='tag-link-1401' title='5 topics' style='font-size: 8pt;'>Assembly language</a>
+<a href='../tag/bash/' class='tag-link-731' title='6 topics' style='font-size: 9.0537634408602pt;'>Bash</a>
+<a href='../tag/c/' class='tag-link-1101' title='26 topics' style='font-size: 17.784946236559pt;'>C</a>
+<a href='../tag/challenge/' class='tag-link-671' title='7 topics' style='font-size: 9.8064516129032pt;'>Challenge</a>
+<a href='../tag/clip/' class='tag-link-861' title='10 topics' style='font-size: 11.913978494624pt;'>Clip</a>
+<a href='../tag/command-line/' class='tag-link-351' title='5 topics' style='font-size: 8pt;'>Command Line</a>
+<a href='../tag/computer-science/' class='tag-link-611' title='6 topics' style='font-size: 9.0537634408602pt;'>Computer science</a>
+<a href='../tag/cpp/' class='tag-link-3101' title='6 topics' style='font-size: 9.0537634408602pt;'>CPP</a>
+<a href='../tag/digitaltechnik/' class='tag-link-2441' title='8 topics' style='font-size: 10.559139784946pt;'>Digitaltechnik</a>
+<a href='../tag/flashgames/' class='tag-link-641' title='6 topics' style='font-size: 9.0537634408602pt;'>Flashgames</a>
+<a href='../tag/funny/' class='tag-link-121' title='14 topics' style='font-size: 14.021505376344pt;'>funny</a>
+<a href='../tag/geometry/' class='tag-link-2151' title='5 topics' style='font-size: 8pt;'>Geometry</a>
+<a href='../tag/google/' class='tag-link-271' title='9 topics' style='font-size: 11.311827956989pt;'>Google</a>
+<a href='../tag/google-code-jam/' class='tag-link-1531' title='8 topics' style='font-size: 10.559139784946pt;'>Google Code Jam</a>
+<a href='../tag/it-security/' class='tag-link-691' title='8 topics' style='font-size: 10.559139784946pt;'>IT-Security</a>
+<a href='../tag/java/' class='tag-link-1151' title='33 topics' style='font-size: 19.290322580645pt;'>Java</a>
+<a href='../tag/kit/' class='tag-link-1051' title='12 topics' style='font-size: 12.967741935484pt;'>KIT</a>
+<a href='../tag/klausur/' class='tag-link-1971' title='19 topics' style='font-size: 15.827956989247pt;'>Klausur</a>
+<a href='../tag/latex/' class='tag-link-1021' title='23 topics' style='font-size: 17.032258064516pt;'>LaTeX</a>
+<a href='../tag/learning/' class='tag-link-651' title='15 topics' style='font-size: 14.322580645161pt;'>learning</a>
+<a href='../tag/linear-algebra/' class='tag-link-1241' title='18 topics' style='font-size: 15.52688172043pt;'>Linear algebra</a>
+<a href='../tag/linux/' class='tag-link-331' title='12 topics' style='font-size: 12.967741935484pt;'>Linux</a>
+<a href='../tag/mathematics/' class='tag-link-991' title='50 topics' style='font-size: 22pt;'>mathematics</a>
+<a href='../tag/matrix/' class='tag-link-1471' title='8 topics' style='font-size: 10.559139784946pt;'>Matrix</a>
+<a href='../tag/operating-systems/' class='tag-link-2481' title='5 topics' style='font-size: 8pt;'>Operating Systems</a>
+<a href='../tag/os/' class='tag-link-1461' title='5 topics' style='font-size: 8pt;'>OS</a>
+<a href='../tag/php/' class='tag-link-441' title='6 topics' style='font-size: 9.0537634408602pt;'>PHP</a>
+<a href='../tag/programming/' class='tag-link-71' title='41 topics' style='font-size: 20.645161290323pt;'>Programming</a>
+<a href='../tag/project-euler/' class='tag-link-1521' title='9 topics' style='font-size: 11.311827956989pt;'>Project Euler</a>
+<a href='../tag/puzzle/' class='tag-link-1961' title='20 topics' style='font-size: 16.129032258065pt;'>puzzle</a>
+<a href='../tag/python/' class='tag-link-91' title='38 topics' style='font-size: 20.193548387097pt;'>Python</a>
+<a href='../tag/swt-i/' class='tag-link-1631' title='8 topics' style='font-size: 10.559139784946pt;'>SWT I</a>
+<a href='../tag/theoretical-computer-science/' class='tag-link-1341' title='9 topics' style='font-size: 11.311827956989pt;'>Theoretical computer science</a>
+<a href='../tag/tikz/' class='tag-link-1771' title='6 topics' style='font-size: 9.0537634408602pt;'>Tikz</a>
+<a href='../tag/ubuntu/' class='tag-link-341' title='5 topics' style='font-size: 8pt;'>Ubuntu</a>
+<a href='../tag/video/' class='tag-link-151' title='11 topics' style='font-size: 12.516129032258pt;'>Video</a>
+<a href='../tag/vimeo/' class='tag-link-421' title='8 topics' style='font-size: 10.559139784946pt;'>Vimeo</a>
+<a href='../tag/web-development/' class='tag-link-461' title='9 topics' style='font-size: 11.311827956989pt;'>Web Development</a>
+<a href='../tag/wikipedia/' class='tag-link-111' title='5 topics' style='font-size: 8pt;'>Wikipedia</a>
+<a href='../tag/wolframalpha/' class='tag-link-491' title='5 topics' style='font-size: 8pt;'>Wolfram|Alpha</a>
+<a href='../tag/youtube/' class='tag-link-171' title='11 topics' style='font-size: 12.516129032258pt;'>YouTube</a></div>
 </li>		</ul>
 	</div>
 </div>
 		</div><!--/container-->
 			<div id="footer">
-				Copyright &copy; <a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
                 <div class="footer-credits">
                     <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
                 </div>
 			</div><!--/footer-->
             
 	</div><!--/wrapper-->
-<script type='text/javascript' src='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/front.js?ver=1308'></script>
-	<script type="text/javascript">
-		(function() {
-			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
-
-			request = true;
-
-			b[c] = b[c].replace( rcs, ' ' );
-			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
-		}());
-	</script>
-			<div id="wpadminbar" class="nojq nojs" role="navigation">
-			<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
-			<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0">
-				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
-		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://martin-thoma.com/wp-admin/about.php" title="About WordPress"><span class="ab-icon"></span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
-		<li id="wp-admin-bar-about"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/about.php">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
-		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="http://wordpress.org/">WordPress.org</a>		</li>
-		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="http://codex.wordpress.org/">Documentation</a>		</li>
-		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="http://wordpress.org/support/">Support Forums</a>		</li>
-		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
-		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://martin-thoma.com/wp-admin/">Martin Thoma</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
-		<li id="wp-admin-bar-dashboard"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/">Dashboard</a>		</li></ul><ul id="wp-admin-bar-appearance" class="ab-submenu">
-		<li id="wp-admin-bar-themes"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/themes.php">Themes</a>		</li>
-		<li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/customize.php?url=http%3A%2F%2Fmartin-thoma.com%2F">Customize</a>		</li>
-		<li id="wp-admin-bar-widgets"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/widgets.php">Widgets</a>		</li>
-		<li id="wp-admin-bar-menus"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/nav-menus.php">Menus</a>		</li></ul></div>		</li>
-		<li id="wp-admin-bar-comments"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/edit-comments.php" title="0 comments awaiting moderation"><span class="ab-icon"></span><span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-0">0</span></a>		</li>
-		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://martin-thoma.com/wp-admin/post-new.php" title="Add New"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
-		<li id="wp-admin-bar-new-post"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/post-new.php">Post</a>		</li>
-		<li id="wp-admin-bar-new-media"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/media-new.php">Media</a>		</li>
-		<li id="wp-admin-bar-new-link"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/link-add.php">Link</a>		</li>
-		<li id="wp-admin-bar-new-page"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/post-new.php?post_type=page">Page</a>		</li>
-		<li id="wp-admin-bar-new-user"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/user-new.php">User</a>		</li></ul></div>		</li>
-		<li id="wp-admin-bar-wpseo-menu" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_dashboard">SEO</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-menu-default" class="ab-submenu">
-		<li id="wp-admin-bar-wpseo-kwresearch" class="menupop"><div class="ab-item ab-empty-item"  aria-haspopup="true">Keyword Research</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-kwresearch-default" class="ab-submenu">
-		<li id="wp-admin-bar-wpseo-adwordsexternal"><a class="ab-item"  href="https://adwords.google.com/select/KeywordToolExternal" target="_blank">AdWords External</a>		</li>
-		<li id="wp-admin-bar-wpseo-googleinsights"><a class="ab-item"  href="http://www.google.com/insights/search/#q=&#038;cmpt=q" target="_blank">Google Insights</a>		</li>
-		<li id="wp-admin-bar-wpseo-wordtracker"><a class="ab-item"  href="http://tools.seobook.com/keyword-tools/seobook/?keyword=" target="_blank">SEO Book</a>		</li></ul></div>		</li>
-		<li id="wp-admin-bar-wpseo-analysis" class="menupop"><div class="ab-item ab-empty-item"  aria-haspopup="true">Analyze this page</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-analysis-default" class="ab-submenu">
-		<li id="wp-admin-bar-wpseo-inlinks-ose"><a class="ab-item"  href="http://www.opensiteexplorer.org/martin-thoma.com%252F/a!links" target="_blank">Check Inlinks (OSE)</a>		</li>
-		<li id="wp-admin-bar-wpseo-kwdensity"><a class="ab-item"  href="http://tools.davidnaylor.co.uk/keyworddensity/index.php?url=http://martin-thoma.com/&#038;keyword=" target="_blank">Check Keyword Density</a>		</li>
-		<li id="wp-admin-bar-wpseo-cache"><a class="ab-item"  href="http://webcache.googleusercontent.com/search?strip=1&#038;q=cache:http://martin-thoma.com/" target="_blank">Check Google Cache</a>		</li>
-		<li id="wp-admin-bar-wpseo-header"><a class="ab-item"  href="http://quixapp.com/headers/?r=http%3A%2F%2Fmartin-thoma.com%2F" target="_blank">Check Headers</a>		</li></ul></div>		</li>
-		<li id="wp-admin-bar-wpseo-settings" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_titles">SEO Settings</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-settings-default" class="ab-submenu">
-		<li id="wp-admin-bar-wpseo-titles"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_titles">Titles & Metas</a>		</li>
-		<li id="wp-admin-bar-wpseo-social"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_social">Social</a>		</li>
-		<li id="wp-admin-bar-wpseo-xml"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_xml">XML Sitemaps</a>		</li>
-		<li id="wp-admin-bar-wpseo-permalinks"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_permalinks">Permalinks</a>		</li>
-		<li id="wp-admin-bar-wpseo-internal-links"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_internal-links">Internal Links</a>		</li>
-		<li id="wp-admin-bar-wpseo-rss"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=wpseo_rss">RSS</a>		</li></ul></div>		</li></ul></div>		</li>
-		<li id="wp-admin-bar-w3tc" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://martin-thoma.com/wp-admin/admin.php?page=w3tc_dashboard">Performance</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-w3tc-default" class="ab-submenu">
-		<li id="wp-admin-bar-w3tc-empty-caches"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_all&#038;_wpnonce=98e1f50dff">Empty All Caches</a>		</li>
-		<li id="wp-admin-bar-w3tc-modules" class="menupop"><div class="ab-item ab-empty-item"  aria-haspopup="true">Empty Modules</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-w3tc-modules-default" class="ab-submenu">
-		<li id="wp-admin-bar-w3tc-flush-pgcache"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=w3tc_dashboard&#038;w3tc_flush_pgcache&#038;_wpnonce=98e1f50dff">Empty Page Cache</a>		</li></ul></div>		</li>
-		<li id="wp-admin-bar-w3tc-faq"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=w3tc_faq">FAQ</a>		</li>
-		<li id="wp-admin-bar-w3tc-support"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/admin.php?page=w3tc_support"><span style="color: red; background: none;">Support</span></a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
-		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="http://martin-thoma.com/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" /><input type="submit" class="adminbar-button" value="Search"/></form></div>		</li>
-		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item"  aria-haspopup="true" href="http://martin-thoma.com/wp-admin/profile.php" title="My Account">Howdy, Martin Thoma<img alt='' src='http://0.gravatar.com/avatar/e86681e49622d52817b36fd2a4c936b7?s=16&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D16&amp;r=G' class='avatar avatar-16 photo' height='16' width='16' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
-		<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="http://martin-thoma.com/wp-admin/profile.php"><img alt='' src='http://0.gravatar.com/avatar/e86681e49622d52817b36fd2a4c936b7?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=G' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>Martin Thoma</span><span class='username'>moose</span></a>		</li>
-		<li id="wp-admin-bar-edit-profile"><a class="ab-item"  href="http://martin-thoma.com/wp-admin/profile.php">Edit My Profile</a>		</li>
-		<li id="wp-admin-bar-logout"><a class="ab-item"  href="http://martin-thoma.com/wp-login.php?action=logout&#038;_wpnonce=d0f735a498">Log Out</a>		</li></ul></div>		</li></ul>			</div>
-						<a class="screen-reader-shortcut" href="http://martin-thoma.com/wp-login.php?action=logout&#038;_wpnonce=d0f735a498">Log Out</a>
-					</div>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
 MathJax.Hub.Config({
@@ -231,6 +231,13 @@ MathJax.Hub.Queue(function() {
     }
 });
 </script>
-		
+<!-- MathJax Latex Plugin installed -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/front.js?ver=1308'></script>
+
 </body>
 </html>
