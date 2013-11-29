@@ -1,0 +1,87 @@
+---
+layout: post
+status: publish
+published: true
+title: ! 'C Puzzle #2'
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 47221
+wordpress_url: http://martin-thoma.com/?p=47221
+date: 2012-10-20 17:00:53.000000000 +02:00
+categories:
+- Code
+tags:
+- Programming
+- C
+- puzzle
+comments: []
+---
+What is the output of the following script? Why? How can it be fixed to get the expected output?
+
+[c]#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
+#include <stdio.h>
+
+int main() {
+    uint64_t testvar;
+
+    testvar = 1<<30;
+    printf("2^30 = %" PRIu64 "\n", testvar);
+
+    testvar = 1<<31;
+    printf("2^31 = %" PRIu64 "\n", testvar);
+
+    return 0;
+}
+[/c]
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+<h2>Answer</h2>
+{% highlight text %}2^30 = 1073741824
+2^31 = 18446744071562067968{% endhighlight %}
+
+<h2>Expected output</h2>
+{% highlight text %}2^30 = 1073741824
+2^31 = 2147483648{% endhighlight %}
+
+<h2>Explanation</h2>
+<code>1<<30</code> does a bitshift for <code>int</code>, not for <code>uint64_t</code>
+
+<h2>How to fix it</h2>
+Add a typecast:
+
+[c]#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
+#include <stdio.h>
+
+int main() {
+    uint64_t testvar;
+
+    testvar = 1<<30;
+    printf("2^30 = %" PRIu64 "\n", testvar);
+
+    testvar = ((uint64_t) 1)<<31;
+    printf("2^31 = %" PRIu64 "\n", testvar);
+
+    return 0;
+}
+[/c]

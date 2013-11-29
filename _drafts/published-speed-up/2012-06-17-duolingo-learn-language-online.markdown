@@ -1,0 +1,75 @@
+---
+layout: post
+status: publish
+published: true
+title: Duolingo - Learn a Language Online
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 27051
+wordpress_url: http://martin-thoma.com/?p=27051
+date: 2012-06-17 12:02:19.000000000 +02:00
+categories:
+- The Web
+tags:
+- learning
+comments:
+- id: 164671
+  author: Stefan Koch
+  author_email: blog@stefan-koch.name
+  author_url: http://stefan-koch.name
+  date: !binary |-
+    MjAxMi0wNi0xNyAxMjo0MjowOCArMDIwMA==
+  date_gmt: !binary |-
+    MjAxMi0wNi0xNyAxMDo0MjowOCArMDIwMA==
+  content: ! "They do support Portuguese, Italian and Chinese? I can only choose between
+    German, Spanish, French or English for Spanish natives.\r\n\r\nBut I guess I would
+    not rather learn any of the other three :/ Wondering which language they should
+    support to make me happy."
+- id: 164681
+  author: Martin Thoma
+  author_email: info@martin-thoma.de
+  author_url: http://www.martin-thoma.com
+  date: !binary |-
+    MjAxMi0wNi0xNyAxMjo0NDoyMiArMDIwMA==
+  date_gmt: !binary |-
+    MjAxMi0wNi0xNyAxMDo0NDoyMiArMDIwMA==
+  content: If you log out, you can see that these languages are marked with "coming
+    later".
+---
+<a href="http://duolingo.com/">Duolingo</a> is a great online protal for learning new languages online. They currently support German, Spanish, French, Portuguese, Italian and Chinese.
+
+Here is a short explanation of Duolingo:
+<iframe width="512" height="288" src="http://www.youtube.com/embed/WyzJ2Qq9Abs" frameborder="0" allowfullscreen></iframe>
+
+The inventor of duolingo, Luis von Ahn, did also a great TED-Talk in which he explains the concepts:
+
+<object width="526" height="374">
+<param name="movie" value="http://video.ted.com/assets/player/swf/EmbedPlayer.swf"></param>
+<param name="allowFullScreen" value="true" />
+<param name="allowScriptAccess" value="always"/>
+<param name="wmode" value="transparent"></param>
+<param name="bgColor" value="#ffffff"></param>
+<param name="flashvars" value="vu=http://video.ted.com/talk/stream/2011X/Blank/LuisVonAhn_2011X-320k.mp4&su=http://images.ted.com/images/ted/tedindex/embed-posters/LuisVonAhn_2011X-embed.jpg&vw=512&vh=288&ap=0&ti=1295&lang=&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=luis_von_ahn_massive_scale_online_collaboration;year=2011;theme=the_rise_of_collaboration;event=TEDxCMU;tag=Internet;tag=collaboration;tag=computers;tag=language;tag=technology;&preAdTag=tconf.ted/embed;tile=1;sz=512x288;" />
+<embed src="http://video.ted.com/assets/player/swf/EmbedPlayer.swf" pluginspace="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" bgColor="#ffffff" width="526" height="374" allowFullScreen="true" allowScriptAccess="always" flashvars="vu=http://video.ted.com/talk/stream/2011X/Blank/LuisVonAhn_2011X-320k.mp4&su=http://images.ted.com/images/ted/tedindex/embed-posters/LuisVonAhn_2011X-embed.jpg&vw=512&vh=288&ap=0&ti=1295&lang=&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=luis_von_ahn_massive_scale_online_collaboration;year=2011;theme=the_rise_of_collaboration;event=TEDxCMU;tag=Internet;tag=collaboration;tag=computers;tag=language;tag=technology;&preAdTag=tconf.ted/embed;tile=1;sz=512x288;"></embed>
+</object>
+
+Now some screenshots to give you a feeling what Duolingo offers:
+[caption id="attachment_27071" align="aligncenter" width="488"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-advancement.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-advancement.png" alt="Achievements in Duolingo" title="Achievements in Duolingo" width="488" height="530" class="size-full wp-image-27071" /></a> Achievements in Duolingo[/caption]
+
+[caption id="attachment_27081" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-translation.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-translation-300x155.png" alt="Translation in Duolingo" title="Translation in Duolingo" width="300" height="155" class="size-medium wp-image-27081" /></a> Translation in Duolingo[/caption]
+
+[caption id="attachment_27091" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-typo.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-typo-300x166.png" alt="Duolingo analyses your errors." title="Duolingo analyses your errors." width="300" height="166" class="size-medium wp-image-27091" /></a> Duolingo analyses your errors.[/caption]
+
+[caption id="attachment_27101" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-speech.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-speech-300x149.png" alt="Speech to text task in Duolingo" title="Speech to text task in Duolingo" width="300" height="149" class="size-medium wp-image-27101" /></a> Speech to text task in Duolingo[/caption]
+
+[caption id="attachment_27111" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-photo-to-language.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-photo-to-language-300x167.png" alt="Duolingo: Photo to language" title="Duolingo: Photo to language" width="300" height="167" class="size-medium wp-image-27111" /></a> Duolingo: Photo to language[/caption]
+
+[caption id="attachment_27121" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-multiple-choice.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-multiple-choice-300x137.png" alt="Multiple choice in Duolingo" title="Multiple choice in Duolingo" width="300" height="137" class="size-medium wp-image-27121" /></a> Multiple choice in Duolingo[/caption]
+
+[caption id="attachment_27131" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-lection.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-lection-300x173.png" alt="A lection in Duolingo" title="A lection in Duolingo" width="300" height="173" class="size-medium wp-image-27131" /></a> A lection in Duolingo[/caption]
+
+[caption id="attachment_27141" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-achivement.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/duolingo-achivement-300x138.png" alt="Level mastered :-)" title="Level mastered :-)" width="300" height="138" class="size-medium wp-image-27141" /></a> Level mastered :-)[/caption]
+
+I have 3 invitations left. If you like to test Duolingo, simply post a comment with your email-address. The first three will get the invitations.

@@ -1,0 +1,76 @@
+---
+layout: post
+status: publish
+published: true
+title: Code golf
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 45771
+wordpress_url: http://martin-thoma.com/?p=45771
+date: 2012-09-27 08:47:50.000000000 +02:00
+categories:
+- Code
+tags:
+- Python
+- Code golf
+- J
+comments: []
+---
+<blockquote>Code golf is a type of recreational computer programming competition in which participants strive to achieve the shortest possible code that solves a certain problem.</blockquote>
+Source: <a href="http://en.wikipedia.org/wiki/Code_golf">Wikipedia</a>
+
+I've recently found some very interesting code golf examples on <a href="http://codegolf.stackexchange.com">codegolf.stackexchange.com</a>:
+
+<h2>Snake</h2>
+<a href="http://codegolf.stackexchange.com/q/7241/5240">Task</a>: Recreate the classic snake Game. 
+
+The shortest answer is written in <a href="http://codegolf.stackexchange.com/a/7260/5240">Ruby in 316 characters</a>, the longest is written in <a href="http://codegolf.stackexchange.com/a/7255/5240">Java in 2239 characters</a>.
+
+Here is a Python answer with 818 characters:
+
+{% highlight python %}import pygame as p
+from random import randint as r
+p.init();l=20
+c=p.time.Clock()
+dp=p.display;w=p.display.set_mode((500,500))
+C=p.Color;b=C(0,0,0);g=C(0,255,0)
+D=(0,1);U=(0,-1);L=(-1,0);R=(1,0)
+S=[R];d=R;n=[]
+O=lambda t:{U:D,R:L,D:U,L:R}[t]
+def Q(e):print "Score: %i"%(len(S)-1);p.quit()
+def K(e):global d;_={276:L,273:U,274:D,275:R}.get(e.key,(0,0));d=not _==O(d) and _ or d
+def N(S):[p.draw.rect(w,g,[x[0]*l,x[1]*l,l,l]) for x in S+n] 
+def M():n=(r(0,24),r(0,24));return n not in S and n or M()
+A=lambda s,o:tuple(x+y for x,y in zip(s,o))
+n=[M()] 
+while True:
+ w.fill(b);[{12:Q,2:K}.get(e.type,lambda e:e)(e) for e in p.event.get()]
+ if not (0<=S[-1][0]<25 and 0<=S[-1][1]<25) or A(S[-1],d) in S: Q(e) 
+ if A(S[-1],d) in n: S.append(A(S[-1],d));n=[M()]
+ else: S.append(A(S[-1],d));S.pop(0)
+ N(S);dp.update();c.tick(6){% endhighlight %}
+
+<h2>Matrix determinant</h2>
+<a href="http://codegolf.stackexchange.com/q/8405/5240">Task</a>: Calculate the determinant of a $n \times n$ matrix.
+
+Solution in <a href="http://en.wikipedia.org/wiki/J_(programming_language)">J</a> (61 characters):
+{% highlight text %}-/>([:+/#(([{.<:@[}.])[:*//._2,\2#])])&amp;.>(|.;])".];._2[1!:1[3{% endhighlight %}
+
+Solution in Python (198 characters):
+{% highlight python %}t=input()
+e=enumerate
+p=lambda t:t and((b+[a],j+i)for i,a in e(t)for b,j in p(t[:i]+t[i+1:]))or[([],0)]
+print sum(reduce(lambda t,(i,r):t*r[i],e(p),1-i%2*2)for p,i in p([t]+[input()for x in t[1:]])){% endhighlight %}
+
+<h2>Factorial</h2>
+<a href="http://codegolf.stackexchange.com/q/607/5240">Task</a>: Find the factorial of a number.
+
+J (12 characters):
+{% highlight text %}f=:*/@:>:@i.{% endhighlight %}
+
+Python (27 characters):
+{% highlight python %}f=lambda x:0**x or x*f(x-1){% endhighlight %}
+
+By the way, the shortest Java solution is 85 characters long^^.

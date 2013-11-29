@@ -1,0 +1,136 @@
+---
+layout: post
+status: publish
+published: true
+title: ! 'C Puzzle #3'
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 61591
+wordpress_url: http://martin-thoma.com/?p=61591
+date: 2013-03-16 14:54:43.000000000 +01:00
+categories:
+- Code
+tags:
+- C
+- puzzle
+comments:
+- id: 1151431
+  author: Stefan Koch
+  author_email: blog@stefan-koch.name
+  author_url: http://stefan-koch.name/
+  date: !binary |-
+    MjAxMy0wMy0xNiAxNjoyMzowMyArMDEwMA==
+  date_gmt: !binary |-
+    MjAxMy0wMy0xNiAxNToyMzowMyArMDEwMA==
+  content: I&rsquo;m always a bit confused by compilers stack management. Why does
+    the compiler subtract 16 from %esp, but then use only 4(%esp) with a four byte
+    value. I mean it'll only reach %esp to 7(%esp) with the .LC0 mark and the integer,
+    so the top part 8(%esp) to 15(%esp) will be lost during the call.
+- id: 1189911
+  author: _djh
+  author_email: nomail@example.org
+  author_url: ''
+  date: !binary |-
+    MjAxMy0wNS0xMSAyMjoxODozOCArMDIwMA==
+  date_gmt: !binary |-
+    MjAxMy0wNS0xMSAyMDoxODozOCArMDIwMA==
+  content: ! "Wrong. It's implementation defined.\r\n\r\n\r\nC++11 Standard, 5.8 and/or
+    C99 Standard, 6.5.7:\r\n\r\n\"The result of E1 >> E2 is E1 right-shifted E2 bit
+    positions. If E1 has an unsigned type or if E1 has a signed type and a nonnegative
+    value, the value of the result is the integral part of the quotient of E1 /
+    2E2 . If E1 has a signed type and a negative value, the resulting value is implementation-defined.\""
+---
+What is the output of the following programm?
+
+[c]#include<stdio.h>
+
+int main() {
+	printf("%i\n", -13>>1);
+}[/c]
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+<h2>Short answer</h2>
+-7
+
+<h2>Long answer</h2>
+<blockquote>Signed integers are two&rsquo;s complement binary values that can be used to represent both positive and negative
+integer values.</blockquote>
+Source: <a href="http://download.intel.com/products/processor/manual/325462.pdf#page=82">Intels IA-32 Architectures Software Developer's Manuals</a>, page 83
+
+When you want to get the two's complement representation of -13, you have to get the binary representation of 13, invert the digits and add one. As 13 is 1101 in binary, -13 looks like this on a 32 bit machine:
+1111.1111.1111.1111.1111.1111.1111.0011
+
+So two results might be logical:
+0111.1111.1111.1111.1111.1111.1111.1001
+
+or
+
+1111.1111.1111.1111.1111.1111.1111.1001
+
+Lets get the assembly code:
+
+{% highlight bash %}gcc -S -O0 test.c{% endhighlight %}
+
+{% highlight text %}
+	.file	"test.c"
+	.section	.rodata
+.LC0:
+	.string	"%i\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	andl	$-16, %esp
+	subl	$16, %esp
+	movl	$-7, 4(%esp)
+	movl	$.LC0, (%esp)
+	call	printf
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu/Linaro 4.7.2-2ubuntu1) 4.7.2"
+	.section	.note.GNU-stack,"",@progbits
+{% endhighlight %}
+
+In line 18 you can see that the bitshift already happened. When you introduce a variable for <code>a</code>, you can see that the compiler makes use of the assembly command <code>sarl %eax</code> or <code>sarl	$2, %eax</code> when you shift by two.
+
+When you take a look at Oracles <a href="http://docs.oracle.com/cd/E19455-01/806-3773/806-3773.pdf#page=56">IA-32 Assembly Language Reference Manual</a>, page 56, you find:
+
+<blockquote>sar right shifts (signed divides) a byte, word, or long value for a count speciﬁed by
+an immediate value and stores the quotient in that byte, word, or long respectively.
+The second variation right shifts by a count value speciﬁed in the CL register. sar
+rounds toward negative inﬁnity; <strong>the high-order bit remains unchanged</strong>.</blockquote>
+
+This means, 1111.1111.1111.1111.1111.1111.1111.1001 is correct. And that's -7.

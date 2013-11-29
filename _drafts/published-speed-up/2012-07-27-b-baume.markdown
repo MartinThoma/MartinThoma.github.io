@@ -1,0 +1,155 @@
+---
+layout: post
+status: publish
+published: true
+title: B-B&auml;ume
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 35741
+wordpress_url: http://martin-thoma.com/?p=35741
+date: 2012-07-27 19:53:55.000000000 +02:00
+categories:
+- German posts
+tags:
+- algorithms
+- data structure
+- B-tree
+comments: []
+---
+Ein B-Baum ist eine Datenstruktur, die vor allem f&uuml;r Datenbanken (z.B. <a href="http://de.wikipedia.org/wiki/SQLite">SQLite</a>) und Dateisysteme (z.B. <a href="http://de.wikipedia.org/wiki/Ext3">ext3</a>) eingesetzt wird.
+
+Im Folgenden sollte man immer im Hinterkopf behalten, dass an den Schl&uuml;sseln auch Werte - sog. Satellitendaten - h&auml;ngen. Der Einfachheit halber lasse ich diese aber hier weg.
+
+<h2>Definition</h2>
+Die folgende Definition ist sinngem&auml;&szlig; aus "Introduction to Algorithms" von Thomas H. Cormen &uuml;bernommen.
+
+F&uuml;r einen <strong>B-Baum der Ordnung t</strong>, $t \in \mathbb{N} \setminus \{1\}$, gilt:
+
+<ol>
+  <li>Jeder Knoten $x$ hat die folgenden Attribute:
+    <ol>
+      <li>$n$, die Anzahl der Schl&uuml;ssel die im Knoten $x$ gespeichert wird,</li>
+      <li>die $n$ Schl&uuml;ssel, die in aufsteigender Reihenfolge gespeichert werden (also $key_1 \leq key_2 \leq ... \leq key_{n}$),</li>
+      <li>$isLeaf$, ein boolscher Wert der <code>True</code> ist, falls $x$ ein Blatt ist und <code>False</code> ist, falls $x$ ein innerer Knoten ist</li>
+    </ol>
+  </li>
+  <li>Jeder innere Knoten hat $n + 1$ Zeiger $c_1, c_2, ... c_{n+1}$ auf seine Kinder. Blattknoten haben keine Kinder, also sind ihre $c_i$-Attribute undefiniert.</li>
+</ol>
+
+Ein Knoten eines B-Baumes sieht also so aus:
+[caption id="attachment_35861" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-node.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-node.png" alt="Node of a B-tree" title="Node of a B-tree" width="500" height="138" class="size-full wp-image-35861" /></a> Node of a B-tree[/caption]
+
+<ol start=3>
+  <li>Die Schl&uuml;ssel $key_i$ setzen grenzen f&uuml;r die Werte der Schl&uuml;ssel, die in den einzelnen Subb&auml;umen gespeichert sind.<br/> Falls $k_i$ ein Schl&uuml;ssel im Subbaum mit der Wurzel $c_i$ ist, dann gilt: $k_1 \leq key_1 \leq k_2 \leq key_2 \leq ... \leq key_{n} \leq k_{n} \leq key_{n+1}$</li>
+  <li>Alle Bl&auml;tter haben die gleiche Tiefe.</li>
+  <li>F&uuml;r die Anzahl der Schl&uuml;ssel eines Knotens gilt:
+    <ol>
+        <li>Jeder Knoten (bis auf die Wurzel) hat mindestens t-1 Schl&uuml;ssel.</li>
+        <li>Jeder Knoten hat h&ouml;chstens $2t - 1$ Schl&uuml;ssel.</li>
+    </ol>
+  </li>
+</ol>
+
+<h2>Stolperfallen</h2>
+Ein Schl&uuml;ssel ist etwas anderes als ein Zeiger!
+
+<h2>Folgerungen</h2>
+<ul>
+  <li>$(2) \Rightarrow$ Die Wurzel hat min. 2 Kinder, falls der Baum nicht leer ist.</li>
+  <li>$(2), (5.1) \Rightarrow$ Jeder innere Knoten (bis auf die Wurzel) hat min. t Kinder.</li>
+  <li>$(2), (5.2) \Rightarrow$ Jeder innere Knoten hat maximal 2t Kinder.</li>
+  <li>Wenn man an den Zeigern die Kinder in die Elterknoten zieht, sodass am Ende alle Knoten in der Wurzel sind, entsteht wegen (3) eine sortierte Liste.</li>
+  <li>$ h \leq \log_t \frac{n+1}{2}$ (Cormen, S. 489)</li>
+  <li>Ein B-Baum hat in der Tiefe h min. $2t^{h-1}$ Knoten.</li>
+</ul>
+
+<h2>Besondere B-B&auml;ume</h2>
+Ein B-Baum der Ordnung t = 2 wird auch <a href="http://de.wikipedia.org/wiki/2-3-4-Baum">2-3-4-Baum</a> genannt, da jeder Knoten entweder 2, 3 oder 4 Kinder hat.
+
+Ich habe ja ausgeschlossen, dass es einen B-Baum der Ordnung t = 1 gibt. Warum eigentlich?
+Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 m&uuml;ssten einzelne Knoten keine Schl&uuml;ssel haben. Das ist nicht sinnvoll. Also muss $t \geq  2$ gelten.
+
+<h2>Suchen eines Schl&uuml;ssels</h2>
+Das Suchen eines Schl&uuml;ssels funktioniert so:
+{% highlight python %}SEARCH-KEY(node, key):
+    int i = 0
+
+    while i < node.n and node.key[i].key < key:
+        i += 1
+
+    if node.key[i].key == key: # Schl&uuml;ssel ist gesuchter Schl&uuml;ssel
+        return node.key[i].satelittendaten
+    else if node.isLeaf: # Erfolglose Suche
+        return NIL
+    else: # Rekursiv weitersuchen
+        DISK-READ(node.c[i])
+        return SEARCH-KEY(node.c[i], key){% endhighlight %}
+
+Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.
+
+Laut Vorlesung (Folie 97) gilt:
+<ul>
+    <li>Anzahl Zugriffe auf Hintergrundspeicher maximal: ${\cal O}(\log_t(n))$</li>
+    <li>Innerhalb eines Knotens: ${\cal O}(t)$</li>
+    <li>Insgesamt also: ${\cal O}(t \cdot \log_t(n))$</li>
+</ul>
+
+<h2>Einf&uuml;gen von Schl&uuml;sseln</h2>
+Wenn ein Schl&uuml;ssel in einen B-Baum eingef&uuml;gt werden soll, dann muss man insebesondere auf Regel (5.1) und (5.2) achten:
+Jeder Knoten enth&auml;lt n Schl&uuml;ssel, mit $t-1 \leq n \leq 2t -1$.
+
+Die Idee ist, dass man das Blatt sucht, in dem der Schl&uuml;ssel sein m&uuml;sste. Falls noch Platz ist, kann man den Schl&uuml;ssel einfach einf&uuml;gen. Falls nicht, muss man das Blatt aufsplitten.
+
+<h3>Beispiel zu Fall 1: Es ist noch Platz</h3>
+[caption id="attachment_36091" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small.png" alt="B-Baum der Ordnung t = 2" title="B-Baum der Ordnung t = 2" width="500" height="217" class="size-full wp-image-36091" /></a> Abb. 2: B-Baum der Ordnung t = 2[/caption]
+
+In den B-Baum aus Abb. 2 soll nun der Schl&uuml;ssel <code>16</code> eingef&uuml;gt werden. In einem B-Baum der Ordnung 2 hat jeder Knoten mindestens einen und h&ouml;chstens 3 Schl&uuml;ssel. Egal wo wir also landen w&uuml;rden, es w&uuml;rde noch in diesen Baum passen. Wir landen aber im Knoten rechts unten, da $11 < 16$ ist.
+
+Das Ergebnis ist also:
+[caption id="attachment_36111" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small-2.png" alt="B-Baum der Ordnung t = 2" title="B-Baum der Ordnung t = 2" width="500" height="195" class="size-full wp-image-36111" /></a> Abb. 3: B-Baum der Ordnung t = 2[/caption]
+
+<h3>Beispiel zu Fall 2: Knoten&uuml;berlauf</h3>
+Will man nun in den B-Baum der Ordnung 2 aus Abb. 3 den Schl&uuml;ssel 17 hinzuf&uuml;gen, so gibt es einen "Knoten&uuml;berlauf". Der Schl&uuml;ssel m&uuml;sste in den Knoten rechts unten. Damit h&auml;tte dieser 4 Schl&uuml;ssel, er darf aber nur 3 haben. Also splitten wir zuerst den Knoten. Schl&uuml;ssel 15 wandert zu dem Elternknoten hoch, die beiden einzelnen Schl&uuml;ssel bilden eigene Knoten. Damit man sieht, was mit den Schl&uuml;sseln geschehen w&uuml;rde, wenn der Baum gr&ouml;&szlig;er w&auml;re, habe ich diese mal eingef&auml;rbt:
+[caption id="attachment_36131" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small-3.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small-3.png" alt="Abb. 4: B-Baum der Ordnung t = 2" title="Abb. 4: B-Baum der Ordnung t = 2" width="500" height="195" class="size-full wp-image-36131" /></a> Abb. 4: B-Baum der Ordnung t = 2[/caption]
+
+Nun ist man beim Einf&uuml;gen von 17 wieder in Fall 1. Das Ergebnis sieht so aus:
+[caption id="attachment_36151" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small-4.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2-small-4.png" alt="B-Baum der Ordnung t = 2" title="B-Baum der Ordnung t = 2" width="500" height="176" class="size-full wp-image-36151" /></a> Abb. 5: B-Baum der Ordnung t = 2[/caption]
+
+Nat&uuml;rlich kann es auch passieren, dass beim hochwandern des mittleren Knoten (15 von Abb. 3 nach Abb. 4) der Elternknoten &uuml;berl&auml;uft. Dann muss halt auch dieser gesplittet werden. Wenn die Wurzel &uuml;berl&auml;uft, muss eine neue Wurzel erstellt werden. Dann kann die alte Wurzel gesplittet werden.
+
+Die Laufzeit des Einf&uuml;gens ist in ${\cal O}(t \cdot \log_t(n))$.
+
+<h2>L&ouml;schen eines Schl&uuml;ssels</h2>
+Falls sich der Schl&uuml;ssel in einem Blatt befindet, kann man ihn einfach l&ouml;schen. Allerdings muss man darauf achten, dass mindestens t-1 Schl&uuml;ssel im Knoten verbleiben.
+
+Ist der Schl&uuml;ssel in einem inneren Knoten ist das ganze schwerer.
+
+<h3>Fall 1: Schl&uuml;ssel in Blatt</h3>
+Der Einfachste Fall ist der <a href="#Beispiel_zu_Fall_1_Es_ist_noch_Platz">1. Fall des Einf&uuml;gens</a>, nur umgekehrt. Also aus dem B-Baum aus Abb. 3 die 16 entfernen. Dann entsteht der B-Baum aus Abb. 2.
+
+<h3>Fall 2 - 3</h3>
+F&uuml;r die anderen F&auml;lle habe ich leider kein kleines Beispiel und will deshalb auf die Erkl&auml;rung verzichten. 
+
+Falls ihr da Hilfe braucht:
+Cormen, dritte Ausgabe, S. 499ff war sehr hilfreich. (<a href="http://shafaetsplanet.com/uploads/pdf/Introduction%20to%20Algorithms.pdf">Link</a> - Warum auch immer der eine PDF-Datei vom Buch hat. Die KIT-Bibliothek hat leider keine Online-Version.)
+
+<h2>Trivia</h2>
+<blockquote>[...] standard B-trees had numerous characteristics that were at odds with the ext2 design philosophy of simplicity and robustness. For example, XFS's B-tree implementation was larger than all of ext2 or ext3's source files combined.</blockquote>
+Source: <a href="http://ext2.sourceforge.net/2005-ols/paper-html/node3.html">ext2.sourceforge.net</a>
+
+<h2>Beispiel</h2>
+F&uuml;gt man die Schl&uuml;ssel 2, 4, 6, 8, 10, 12 in einen anfangs leeren B-Baum ein, entwickelt sich dieser wie folgt:
+
+[caption id="attachment_36421" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-3-evolution.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-3-evolution.png" alt="Entwicklung eines B-Baumes der Ordnung t = 3" title="Entwicklung eines B-Baumes der Ordnung t = 3" width="500" height="292" class="size-full wp-image-36421" /></a> Entwicklung eines B-Baumes der Ordnung t = 3[/caption]
+
+Die grauen Felder sind f&uuml;r Zeiger reserviert. Ist kein Zeiger eingezeichnet, dann ist es ein NIL-Zeiger.
+
+<h2>Siehe auch</h2>
+<ul>
+  <li><a href="http://stackoverflow.com/questions/11684578/which-datastructure-do-nodes-of-b-trees-use">Which datastructure do nodes of B-Trees use?</a></li>
+  <li><a href="http://stackoverflow.com/questions/32376/what-is-a-good-open-source-b-tree-implementation-in-c">What is a good open source B-tree implementation in C?</a> - Da kann man mal sehen wie es wirklich funktioniert :-)</li>
+  <li><a href="http://stackoverflow.com/a/6403383/562769">Red Black Tree vs. B Tree</a></li>
+  <li><a href="http://stackoverflow.com/a/1589587/562769">When to choose RB tree, B-Tree or AVL tree?</a></li>
+</ul>
