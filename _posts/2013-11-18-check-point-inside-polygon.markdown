@@ -26,7 +26,9 @@ A $n$-glon can be defined by a list of $n$ points.
 
 Note that the order is important:
 
-[caption id="attachment_76727" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-order.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-order.png" alt="The order of points is important for the definition of a polygon" width="512" height="233" class="size-full wp-image-76727" /></a> [A, B, C, D, E, F, G] != [A, B, C, D, F, E, G][/caption]
+<div style="width: 512px; height=233px" class="wp-caption alignright"><a href="../images/2013/11/polygon-order.png"><img class="size-full" title="Martin Thoma" src="../images/2013/11/polygon-order.png" alt="The order of points is important for the definition of a polygon" width="512" height="233"></a><p class="wp-caption-text">[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</p></div>
+
+
 
 I will not consider self-intersecting polygones for the following statements. I'm aware of them, but whenever you have a self-intersecting polygon you can create multiple polygones that cover the same area and don't intersect each other (some pairs might have a finite number of points in common, but not an infinite number).
 

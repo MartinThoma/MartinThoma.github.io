@@ -14,7 +14,8 @@ categories: []
 tags: []
 comments: []
 ---
-{% img right /images/2011/09/Martin_Thoma_web_thumb.jpg 134 Martin Thoma %}
+
+<div style="width: 144px" class="wp-caption alignright"><a href="../images/2011/09/Martin_Thoma_web_thumb.jpg"><img class="size-full" title="Martin Thoma" src="../images/2011/09/Martin_Thoma_web_thumb.jpg" alt="Martin Thoma" width="134" height="200"></a><p class="wp-caption-text">Martin Thoma</p></div>
 
 My name is Martin Thoma. I am a 22 year old student from Karlsruhe, Germany.
 
