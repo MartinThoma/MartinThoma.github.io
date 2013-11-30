@@ -85,7 +85,7 @@ $
 
 But I have written a piece of pseudocode to make it even easier to code this algorithm:
 
-[caption id="attachment_76716" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full wp-image-76716" /></a> WER calculation[/caption]
+{% caption class="size-full wp-image-76716" width="500" height="494" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
 
 <h2>Python</h2>
 {% highlight python %}

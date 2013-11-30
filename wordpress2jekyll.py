@@ -23,9 +23,9 @@ def parseCaptions(content):
     """
     import re
     url = "(.*?)"
-    pattern = re.compile('\[caption[\w\s=\d"]*\]' + \
+    pattern = re.compile('\[caption[\w\s=\d"]*align="(?P<alignment>.*?)"[\w\s=\d"]*\]' + \
         '<a href=\"(?P<url>' + url + ')\"(?P<asonst>.*?)>' + \
-        '<img src=\"(?P<imgurl>' + url + ')\" ' + \
+        '<img src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>' + url + '))\" ' + \
             'alt=\"(?P<alt>.*?)\"\s*' + \
             'width=\"(?P<width>.*?)\"\s*' + \
             'height=\"(?P<height>.*?)\"\s*' + \
@@ -38,7 +38,7 @@ def parseCaptions(content):
         for key, value in result.items():
             print("%s:\t%s" % (key, value))
 
-    return re.sub(pattern, '{% caption class="\g<imgclass>" width="\g<width>" height="\g<height>" alt="\g<alt>" text="\g<text>" url="\g<imgurl>" %}', content)
+    return re.sub(pattern, '{% caption class="\g<imgclass>" width="\g<width>" height="\g<height>" alt="\g<alt>" text="\g<text>" url="../images/\g<innerurl>" %}', content)
 
 def pageCodeConversion(filename):
     with open(filename) as f:
@@ -58,11 +58,8 @@ def pageCodeConversion(filename):
         content = content.replace("["+language+"]", "{% highlight "+language+" %}")
         content = content.replace("[/"+language+"]", "{% endhighlight %}")
     content = parseCaptions(content)
-    #with open(filename, 'w') as f:
-    #    f.write(content)
-    print(filename)
-    print(content)
-    print("#"*80)
+    with open(filename, 'w') as f:
+        f.write(content)
 
 if __name__ == "__main__":
     """

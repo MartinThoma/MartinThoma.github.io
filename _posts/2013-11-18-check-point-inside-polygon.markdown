@@ -42,7 +42,7 @@ Let $P$ be a point and $N = [P_1, P_2, \dots, P_n]$ be a $n$-glon. It is now muc
 <h3>Count Crossing Line Segments</h3>
 However, you can try another approach which I have visualized in the following image:
 
-[caption id="attachment_76730" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside.png" alt="Check if P is inside of N" width="512" height="481" class="size-full wp-image-76730" /></a> Check if P is inside of N[/caption]
+{% caption class="size-full wp-image-76730" width="512" height="481" alt="Check if P is inside of N" text="Check if P is inside of N" url="../images/2013/11/polygon-is-point-inside.png" %}
 
 When $P$ is inside of $N$, every line $P_{1}P, P_{2}P, \dots, P_{n}P$ will cross the polygon lines $P_{1}P_2,P_{2}P_3, \dots, P_{n}P_1$ an even number of times. If P is outside, at least one of the lines $P_{i}P$ will cross a polygon line $P_{j}P_{j+1}$ once.
 
