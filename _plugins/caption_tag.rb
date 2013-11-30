@@ -1,5 +1,15 @@
 # Title: Caption tag
 # Author: Martin Thoma, http://martin-thoma.com
+#
+# Searches for:
+#   {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
+# and replaces it with:
+#    <div style="width: 510px" class="wp-caption aligncenter">
+#        <a href="../images/2013/11/WER-calculation.png">
+#            <img src="../images/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full">
+#        </a>
+#        <p class="wp-caption-text">WER calculation</p>
+#    </div>
 
 require 'csv' 
 
