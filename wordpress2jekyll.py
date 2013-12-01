@@ -123,7 +123,7 @@ def findFeaturedImage(website):
             else:
                 print("# success: %s" % mdfilename)
                 imgsrc = post2image[mdfilename]
-                newsrc = "---" + yamml + "featured_image: "+imgsrc+"\n" + "---\n" + content
+                newsrc = "---" + yamml + "featured_image: "+imgsrc+"\n" + "---" + content
                 with open(filename, 'w') as f:
                     f.write(newsrc)
         else:
@@ -145,5 +145,5 @@ if __name__ == "__main__":
     """
 
     # improve things
-    findFeaturedImage("http://martin-thoma.com/page/52/")
+    findFeaturedImage("http://martin-thoma.com/")
     

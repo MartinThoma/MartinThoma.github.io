@@ -18,6 +18,7 @@ tags:
 - Firefox
 - Internet Explorer
 comments: []
+featured_image: 2011/09/FF-Chrome-IE-300x198.jpg
 ---
 The Usage of different browser verions is very interesting for me. Internet Explorer 6 causes many problems in Webdesign as it doesn't handle CSS and HTML as it should. 
 

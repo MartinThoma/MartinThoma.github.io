@@ -1,0 +1,123 @@
+---
+layout: post
+status: publish
+published: true
+title: How to install Arch Linux 2013.10.01
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 76601
+wordpress_url: http://martin-thoma.com/?p=76601
+date: 2013-10-07 03:19:05.000000000 +02:00
+categories:
+- Cyberculture
+tags:
+- Linux
+- ArchLinux
+comments: []
+featured_image: 2013/10/ArchLinux-logo.png
+---
+I've watched the following video which explains pretty much everything there is to know:
+
+<iframe width="512" height="288" src="http://www.youtube.com/embed/BMgGUBDxCjo" frameborder="0" allowfullscreen></iframe>
+
+You might also want to read the <a href="https://wiki.archlinux.org/index.php/Installation_Guide">Arch Linux Installation Guide</a>. The <a href="https://wiki.archlinux.de/title/Anleitung_f&uuml;r_Einsteiger">German guide</a> is also very good.
+
+I just like to add some notes. They are primarily for myself, so you really should read the installation guide or watch the video.
+
+The Arch Linux installation setup is command line based.
+
+<h2>Keyboard layout</h2>
+You can switch to a German keyboard layout with this command:
+
+{% highlight bash %}loadkeys de{% endhighlight %}
+
+<h2>Partitioning and mounting</h2>
+You need a bootable partition and a swap partition (that is at least as big as much RAM you have). Partitioning can be done with <code>cfdisk</code> (configure disk).
+
+Check the result with
+
+{% highlight bash %}parted /dev/sda print
+fdisk -l{% endhighlight %}
+
+Afterwards:
+
+{% highlight bash %}mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/sda3
+mkswap /dev/sda2
+swapon /dev/sda2
+mount /dev/sda1 /mnt
+mkdir /mnt/home
+mount /dev/sda3 /mnt/home/{% endhighlight %}
+
+<h2>Getting internet</h2>
+I only have WLAN at the moment, which makes things more difficult:
+
+{% highlight bash %}wpa_passphrase "SSID" PASSWORD > /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_supplicant -i wlp4so -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
+dhcpcd wlp4s0{% endhighlight %}
+
+wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.
+
+I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.
+
+<h2>Install base system</h2>
+{% highlight bash %}packstrap -i /mnt base base base-devel{% endhighlight %}
+
+After accepting all defaults (by pressing enter) and letting it download:
+
+{% highlight bash %}genfstab -U -p /mnt  :  sed 's/rw,realtime,data=ordered/defaults,realtime/' >> /mnt/etc/fstab
+arch-chroot /mnt
+nano /etc/locale.gen{% endhighlight %}
+
+Uncomment your language (from now on, your promt should be "sh-4.2#").
+
+{% highlight bash %}locale=gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc --utc
+systemctl enable dhcpcd.service{% endhighlight %}
+
+Now edit and uncomment multilib. Then:
+
+{% highlight bash %}mkinitcpio -p linux{% endhighlight %}
+
+Now set the password by entering <code>passwd</code>.
+Create your user:
+{% highlight bash %}useradd -m -g users -G wheel -s /bin/bash moose
+passwd moose{% endhighlight %}
+
+Synchronise caches:
+{% highlight bash %}pacman -Syy{% endhighlight %}
+
+Install grub:
+{% highlight bash %}pacman -S grub-bios
+pacman -S os-prober
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+exit
+restart{% endhighlight %}
+
+Give yourself sudo:
+{% highlight bash %}pacman -S sudo
+nano /etc/sudoers{% endhighlight %}
+Add your user to the bottom section "User privilege specification"
+
+<h2>Install GNOME</h2>
+{% highlight bash %}pacman -S gnome xorg
+systemctl enable gdm.service{% endhighlight %}
+
+<h2>MATE</h2>
+Add the following to your /etc/pacman.conf:
+
+{% highlight text %}[mate]
+SigLevel = Optional TrustAll
+Server = http://repo.mate-desktop.org/archlinux/$arch{% endhighlight %}
+
+Run
+{% highlight bash %}# pacman -Syy
+# pacman -S mate mate-extras{% endhighlight %}
+
+Lets see if I get an answer to <a href="https://bbs.archlinux.org/viewtopic.php?id=170911">some essential basic questions</a>.

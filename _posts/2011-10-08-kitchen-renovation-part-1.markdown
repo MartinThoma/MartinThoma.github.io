@@ -1,0 +1,103 @@
+---
+layout: post
+status: publish
+published: true
+title: Kitchen renovation - Part 1
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 4251
+wordpress_url: http://martin-thoma.com/?p=4251
+date: 2011-10-08 12:01:40.000000000 +02:00
+categories:
+- My bits and bytes
+tags:
+- home improvement
+- do-it-yourself
+comments:
+- id: 2951
+  author: Schnuerer
+  author_email: peter.schnuerer@mac.com
+  author_url: ''
+  date: !binary |-
+    MjAxMS0xMC0wOCAxOTowMDozOCArMDIwMA==
+  date_gmt: !binary |-
+    MjAxMS0xMC0wOCAxNzowMDozOCArMDIwMA==
+  content: ! "Hello, Mr. Thoma,\r\ntheir Blog has inspired me. Really made. How the
+    kitchen. They had to do, actually information scientist\r\nin the living area
+    aim.\r\nI do the bank credit transfer on Monday,there the TAN assignment anew
+    developed by the savings bank\r\nit is very susceptible.\r\n\r\nFriendly greeting\r\np.Schn&uuml;rer"
+featured_image: 2011/10/do-it-yourself-thumb.jpg
+---
+Most of you might know that I am currently a student. Living near the University is quite important for me as I hate traveling long. In the central part of <a href="http://en.wikipedia.org/wiki/Karlsruhe">Karlsruhe</a>, the city I study in, most houses are very old. The house I live in was built around 1900 and modernized from time to time. A heater and electricity were added, for example.
+
+The flat is shared by students. My hirer told me that he will pay all cost of materials if I wanted to improve something. As a new leaser came and we had no washing machine we thought it was time to renovate the kitchen.
+<h2>The old kitchen</h2>
+<h3>Why did I renovate?</h3>
+<ul>
+	<li>We needed more space for a new washing machine.</li>
+	<li>The old countertop was ugly, molded and had a water damage.</li>
+	<li>The tap was loose.</li>
+	<li>The tube for hot water was loose.</li>
+</ul>
+<h3>Some photos</h3>
+[caption id="attachment_4281" align="aligncenter" width="600" caption="The old countertop of our kitchen was ugly. The wood was macerated and partly moulded. The freezer at the left was a refrigerator directly beside the door."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-countertop.jpg"><img class="size-full wp-image-4281" title="Old countertop of our kitchen" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-countertop.jpg" alt="Old countertop of our kitchen" width="600" height="450" /></a>[/caption]
+
+[caption id="attachment_4301" align="aligncenter" width="375" caption="The old, moulded countertop. The white stuff is silicone."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-countertop-old.jpg"><img class="size-full wp-image-4301" title="The old countertop" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-countertop-old.jpg" alt="The old countertop" width="375" height="500" /></a>[/caption]
+
+[caption id="attachment_4331" align="aligncenter" width="600" caption="Top of the old countertop. I had to break the tap through the countertop, because the screws were heavily rosted."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-countertop-old-top.jpg"><img class="size-full wp-image-4331" title="Top of the old countertop" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-countertop-old-top.jpg" alt="Top of the old countertop" width="600" height="450" /></a>[/caption]
+<h2>Plans</h2>
+[caption id="attachment_4551" align="aligncenter" width="674" caption="The kitchen before renovation. Under the countertop was another refrigerator"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-plan.png"><img class="size-full wp-image-4551" title="Kitchen before renovation" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-before-plan.png" alt="Kitchen before renovation" width="674" height="458" /></a>[/caption]
+
+[caption id="attachment_4561" align="aligncenter" width="675" caption="The kitchen after renovation. The refridgerator is now on the top of the other refridgerator. Under the countertop is a washing machine."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-plan.png"><img class="size-full wp-image-4561" title="Kitchen after renovation" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-plan.png" alt="Kitchen after renovation" width="675" height="459" /></a>[/caption]
+<h2>The renovation</h2>
+<h3>Tools</h3>
+I needed quite a lot of tools. I had to buy most of them when I saw that I couldn't continue without them:
+
+[caption id="attachment_4571" align="aligncenter" width="400" caption="Drilling machine"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/tool-drilling-machine.jpg"><img class="size-full wp-image-4571" title="Drilling machine" src="http://martin-thoma.com/wp-content/uploads/2011/10/tool-drilling-machine.jpg" alt="Drilling machine" width="400" height="255" /></a>[/caption]
+
+[caption id="attachment_4581" align="aligncenter" width="400" caption="Plumber wrench"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/tool-plumber-wrench.jpg"><img class="size-full wp-image-4581" title="Plumber wrench" src="http://martin-thoma.com/wp-content/uploads/2011/10/tool-plumber-wrench.jpg" alt="Plumber wrench" width="400" height="127" /></a>[/caption]
+
+[caption id="attachment_4591" align="aligncenter" width="400" caption="An aweful lot of screwdrivers"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/tool-screwdriver.jpg"><img class="size-full wp-image-4591" title="Screwdrivers" src="http://martin-thoma.com/wp-content/uploads/2011/10/tool-screwdriver.jpg" alt="Screwdrivers" width="400" height="198" /></a>[/caption]
+
+[caption id="attachment_4611" align="aligncenter" width="500" caption="A silicone cartridge"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/tool-silicone-cartridge.jpg"><img class="size-full wp-image-4611" title="Silicone cartridge" src="http://martin-thoma.com/wp-content/uploads/2011/10/tool-silicone-cartridge.jpg" alt="Silicone cartridge" width="500" height="254" /></a>[/caption]
+
+[caption id="attachment_4621" align="aligncenter" width="600" caption="Spirit level"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/tool-spirit-level.jpg"><img class="size-full wp-image-4621" title="Spirit level" src="http://martin-thoma.com/wp-content/uploads/2011/10/tool-spirit-level.jpg" alt="Spirit level" width="600" height="120" /></a>[/caption]
+
+[caption id="attachment_4631" align="aligncenter" width="290" caption="Wrench"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/tool-wrench.jpg"><img class="size-full wp-image-4631" title="Wrench" src="http://martin-thoma.com/wp-content/uploads/2011/10/tool-wrench.jpg" alt="Wrench" width="290" height="350" /></a>[/caption]
+
+Additionally I needed a hammer to get the wall plugs into the wall, some different screws and wall plugs, pliers, some tubes and some <a href="http://en.wikipedia.org/wiki/O-ring">O-rings</a>.
+
+<h3>Photos while working</h3>
+[caption id="attachment_4641" align="aligncenter" width="196" caption="I just realised how crooked the wall is."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-crooked-wall2.jpg"><img class="size-medium wp-image-4641 " title="Crooked wall" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-crooked-wall2-196x300.jpg" alt="Crooked wall" width="196" height="300" /></a>[/caption]
+
+[caption id="attachment_4671" align="aligncenter" width="225" caption="The heating pipes had to be reinstalled as they were in the room, not at the wall."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-heating-pipe.jpg"><img class="size-medium wp-image-4671  " title="Heating pipes" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes" width="225" height="300" /></a>[/caption]
+
+[caption id="attachment_4741" align="aligncenter" width="300" caption="To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at it&#039;s place."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-washing-machine.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine" title="Washing machine" width="300" height="225" class="size-medium wp-image-4741" /></a>[/caption]
+
+[caption id="attachment_4821" align="aligncenter" width="300" caption="As I removed the old countertop, I saw that a tube was loose. This had to be fixed. So I mounted it to the wall."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-loose-tube.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-loose-tube-300x225.jpg" alt="A loose tube was mounted to the wall" title="A loose tube was mounted to the wall" width="300" height="225" class="size-medium wp-image-4821" /></a>[/caption]
+
+[caption id="attachment_4721" align="aligncenter" width="300" caption="Adding a working ledge is very important. It gives your countertop the needed stability and you can make sure that it&#039;s exactly horizontally.  Therefore you should use a spirit level."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-ledge2.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge" title="Adding a working ledge" width="300" height="225" class="size-medium wp-image-4721" /></a>[/caption]
+
+[caption id="attachment_4811" align="aligncenter" width="300" caption="You have to connect both countertops very good. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-connection.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-connection-300x214.jpg" alt="Connect countertops" title="Connect countertops" width="300" height="214" class="size-medium wp-image-4811" /></a>[/caption]
+
+[caption id="attachment_4831" align="aligncenter" width="259" caption="This little metal plate fixates the tap to the countertop. I put it for two days into vinegar to get rid of most of the rust, dirt and chalk. Before I did so, the whole plate was brown."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-tab.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-tab-259x300.jpg" alt="The tab was fixed to the countertop." title="The tab was fixed to the countertop." width="259" height="300" class="size-medium wp-image-4831" /></a>[/caption]
+
+[caption id="attachment_4801" align="aligncenter" width="300" caption="Angle joints fix the countertop to the wall. I used 23 angle joints with 46 screws. Nothing will separate my countertop from the wall :D"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-angle-joints.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-angle-joints-300x225.jpg" alt="Angle joints for crabbing the countertop to the wall" title="Angle joints for crabbing the countertop to the wall" width="300" height="225" class="size-medium wp-image-4801" /></a>[/caption]
+
+[caption id="attachment_4711" align="aligncenter" width="300" caption="Removing silicone leftovers is a pretty time intensive work. You can remove a lot with a knife, but if the underground is tender you have to use some chemicals."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-silicone-leftovers.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-working-silicone-leftovers-300x225.jpg" alt="Silicone leftovers" title="Silicone leftovers" width="300" height="225" class="size-medium wp-image-4711" /></a>[/caption]
+
+[caption id="attachment_4701" align="aligncenter" width="300" caption="If you want to make a clean silicone clogging, you should mask the surrounding area."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-masked-countertop.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-masked-countertop-300x225.jpg" alt="Masked countertop" title="Masked countertop" width="300" height="225" class="size-medium wp-image-4701" /></a>[/caption]
+
+[caption id="attachment_4781" align="aligncenter" width="300" caption="Adding a baseboard was one of the last steps. This small piece of would should prevent water from touching the wallpaper. Moreover it looks nice :-)"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-baseboard.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-baseboard-300x225.jpg" alt="Adding a baseboard" title="Adding a baseboard" width="300" height="225" class="size-medium wp-image-4781" /></a>[/caption]
+
+<h2>The new kitchen</h2>
+[caption id="attachment_4651" align="aligncenter" width="600" caption="Kitchen after renovation. I"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after.png"><img class="size-full wp-image-4651" title="Kitchen after renovation" src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after.png" alt="Kitchen after renovation" width="600" height="450" /></a>[/caption]
+
+[caption id="attachment_4771" align="aligncenter" width="300" caption="Exact work: It fitted only with a few milimeters left. Good that I added some space to make sure it will fit. If I made the plate exactly as big as it could have been according to my first plan, I would have been in trouble."]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-exact-work.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/kitchen-after-exact-work-300x225.jpg" alt="Exact work: It fitted only with a few milimeters left" title="Exact work: It fitted only with a few milimeters left" width="300" height="225" class="size-medium wp-image-4771" /></a>[/caption]
+
+<h2>Conclusion</h2>
+I am proud of the result. The new kitchen looks nice, the countertop is very exact horizontally, no water drips out. Some parts could have been done better (like the silicone clogging), but I guess most could not be much better.
+
+The next time I do something like this I will hopefully not have to go about ten times to the hardware store :-/ Now I have some more tools :D

@@ -1,0 +1,124 @@
+---
+layout: post
+status: publish
+published: true
+title: ! 'C Puzzle #1'
+author: Martin Thoma
+author_login: moose
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+wordpress_id: 24821
+wordpress_url: http://martin-thoma.com/?p=24821
+date: 2012-05-21 13:15:41.000000000 +02:00
+categories:
+- Code
+tags:
+- Programming
+- C
+- Assembly language
+- puzzle
+comments:
+- id: 167911
+  author: leemes
+  author_email: foo@leemes.de
+  author_url: http://Sebastian
+  date: !binary |-
+    MjAxMi0wNi0yMCAyMDo0Nzo0NiArMDIwMA==
+  date_gmt: !binary |-
+    MjAxMi0wNi0yMCAxODo0Nzo0NiArMDIwMA==
+  content: ! '"If you compile it with no optimization, you might get 26:" <-- I think
+    this should be 43.'
+- id: 167931
+  author: Martin Thoma
+  author_email: info@martin-thoma.de
+  author_url: http://www.martin-thoma.com
+  date: !binary |-
+    MjAxMi0wNi0yMCAyMDo0OTozOSArMDIwMA==
+  date_gmt: !binary |-
+    MjAxMi0wNi0yMCAxODo0OTozOSArMDIwMA==
+  content: Thank you, I've corrected it.
+featured_image: 2012/05/assembly-thumb.png
+---
+What is the output of the following programm?
+
+[c]#include <stdio.h>
+
+int* f()
+{
+    int i = 5;
+    return &amp;i;
+}
+
+void g()
+{
+    int j = 42;
+    j++;
+}
+
+int main()
+{
+    int* x = f();
+    g();
+    printf("x = %d\n", *x);
+    g();
+    printf("x = %d\n", *x);
+    return 0;
+}[/c]
+
+<h2>Short Answer</h2>
+It depends on your compiler flags!
+
+If you compile it with no optimization, you might get 43:
+{% highlight bash %}$ gcc -O0 cpuzzle-1.c ; ./a.out 
+aufgabe-3.c: In function &lsquo;f&rsquo;:
+aufgabe-3.c:5: warning: function returns address of local variable
+x = 43
+x = 43{% endhighlight %}
+
+If you compile it with 03 Optimization, you might get 5.
+{% highlight bash %}$ gcc -O3 cpuzzle-1.c ; ./a.out 
+aufgabe-3.c: In function &lsquo;f&rsquo;:
+aufgabe-3.c:5: warning: function returns address of local variable
+x = 5
+x = 5
+{% endhighlight %}
+
+<h2>Long answer</h2>
+<h3>The general answer</h3>
+Lets analyse this code line by line.
+
+Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?). 
+The variable is a so called local or automatic variable and is located on the stack frame.
+
+Line 9 - 14 is a function <strong>g</strong> that doesn't take any parameter and doesn't return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.
+
+Line 17 calls f and stores the returned function pointer in the variable x.
+
+Line 18 calls g. Remember that g should not have any influence on the other program. But you saved a pointer to a local variable which is not in the scope of the main function. So g is allowed to use the space which was previously used by the local variable i in the function f. It uses this space for j = 42 and increases it by 1. So if you access the address of the former variable i in f you will get 43.
+
+<h3>Actual assembly code</h3>
+You still want to get more into detail? Ok ...
+First you should get your assembly code. If you're running a Linux machine, you can type this into the console:
+{% highlight bash %}gcc -S -O0 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O0.s{% endhighlight %}
+This will create a file called "cpuzzle-1.s" which contains the assembly code for the non-optimized version. Rename it into "cpuzzle-1-O0.c". Then the same for O3:
+{% highlight bash %}gcc -S -O3 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O3.s{% endhighlight %}
+
+Now you can compare those two with meld or any other diff Tool:
+[caption id="attachment_24851" align="aligncenter" width="300" caption="C Puzzle #1 - Assembly code part 1"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld-300x188.png" alt="C Puzzle #1 - Assembly code part 1" title="C Puzzle #1 - Assembly code part 1" width="300" height="188" class="size-medium wp-image-24851" /></a>[/caption]
+The O3 code got an additional <code>.p2align 4,,15</code>
+
+
+<blockquote>.p2align 4,,15 means:
+When allocating memory, align it such that each new section must start at a location with 4 0's at the end (i.e. a multiple of 16 bytes), except for if more than 15 bytes must be skipped.</blockquote>
+<span class="quote-source">Quoted from <a href="http://answers.yahoo.com/question/index?qid=20100414222831AAxKaHs">MooseBoy</a></span>
+
+It makes sense to store the data this way, as your computer can only access blocks. If one piece of data is half in one block, half in the other, you have to make to (slow) memory-accesses.
+
+[caption id="attachment_24881" align="aligncenter" width="300" caption="C Puzzle #1 - Assembly code part 2 (the main)"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld-300x113.png" alt="C Puzzle #1 - Assembly code part 2 (the main)" title="C Puzzle #1 - Assembly code part 2 (the main)" width="300" height="113" class="size-medium wp-image-24881" /></a>[/caption]
+
+It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don't know why the compiler does most of the optimizations :-(
+[caption id="attachment_24941" align="aligncenter" width="300" caption="C Puzzle #1, Assembly code part 1: Annotated"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld-annotated.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" alt="C Puzzle #1, Assembly code part 1: Annotated" title="C Puzzle #1, Assembly code part 1: Annotated" width="300" height="188" class="size-medium wp-image-24941" /></a>[/caption]
+
+[caption id="attachment_24951" align="aligncenter" width="300" caption="C Puzzle #1, Assembly code part 2: Annotated"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld-annotated.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/c-puzzle-1.2-meld-annotated-300x113.png" alt="C Puzzle #1, Assembly code part 2: Annotated" title="C Puzzle #1, Assembly code part 2: Annotated" width="300" height="113" class="size-medium wp-image-24951" /></a>[/caption]
+
+You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc
