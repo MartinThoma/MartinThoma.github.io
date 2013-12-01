@@ -18,6 +18,7 @@ tags:
 - ASR
 - WER
 comments: []
+featured_image: 2013/11/wer-thumb.png
 ---
 The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypophysis and is defined like this:
 
