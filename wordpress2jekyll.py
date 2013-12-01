@@ -61,6 +61,72 @@ def pageCodeConversion(filename):
     with open(filename, 'w') as f:
         f.write(content)
 
+def getYamml(content):
+    return content.split("---")
+
+def findFeaturedImage(website):
+    post2image = {}
+    # Get all featured image urls connected to posts
+    import urllib2
+    from bs4 import BeautifulSoup
+
+    while website:
+        response = urllib2.urlopen(website)
+        html = response.read()
+        soup = BeautifulSoup(html)
+        for entry in soup.find_all("div", "entry"):
+            img = entry.find("img")
+            if img is not None:
+                imgsrc = img['src'].split("uploads/")[1]
+
+                a = entry.find("a", "readmore")
+                post = a['href'][len("http://martin-thoma.com/"):-1]
+
+                post2image[post] = imgsrc
+
+        nav = soup.find("div", "alignleft")
+        if nav is not None:
+            website = nav.find("a")
+            if website is not None:
+                website = website['href']
+        else:
+            website = None
+        print(website)
+        
+
+    from os import listdir
+    directory = "./_posts/"
+    files = listdir(directory)
+    for f in files:
+        filename = directory+f
+
+        with open(filename) as f:
+            content = f.read()
+
+        yamml = getYamml(content)
+        if len(yamml) != 3:
+            print("There seems to be --- inside of the post. Please fix it!")
+            exit
+
+        yamml = yamml[1]
+        hasFeaturedImage = False
+        for line in yamml.split("\n"):
+            if ":" in line:
+                if line.startswith("featured_image"):
+                    hasFeaturedImage = True
+                    break
+
+        if not hasFeaturedImage:
+            mdfilename = filename[len("./_posts/2013-11-18-"):-len(".markdown")]
+            if mdfilename not in post2image:
+                print("%s might not have a featured image." % mdfilename)
+            else:
+                print("# %s # success" % mdfilename)
+        else:
+            print("xx %s has already a featured image" % filename)
+
+
+
 if __name__ == "__main__":
     """
     from argparse import ArgumentParser
@@ -73,9 +139,7 @@ if __name__ == "__main__":
      
     pageCodeConversion(args.filename)
     """
-    from os import listdir
-    directory = "./_posts/"
-    files = listdir(directory)
-    for f in files:
-        pageCodeConversion(directory+f)
+
+    # improve things
+    findFeaturedImage("http://martin-thoma.com")
     
