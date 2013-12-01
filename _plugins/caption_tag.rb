@@ -15,6 +15,7 @@ require 'csv'
 
 module Jekyll
   class CaptionTag < Liquid::Tag
+    safe true
 
     def initialize(tag_name, text, tokens)
       super
