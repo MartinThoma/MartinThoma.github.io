@@ -108,7 +108,7 @@ def findFeaturedImage(website):
             print("There seems to be --- inside of the post. Please fix it!")
             exit
 
-        yamml = yamml[1]
+        yamml, content = yamml[1], yamml[2]
         hasFeaturedImage = False
         for line in yamml.split("\n"):
             if ":" in line:
@@ -119,11 +119,15 @@ def findFeaturedImage(website):
         if not hasFeaturedImage:
             mdfilename = filename[len("./_posts/2013-11-18-"):-len(".markdown")]
             if mdfilename not in post2image:
-                print("%s might not have a featured image." % mdfilename)
+                print("w warning: %s might not have a featured image." % mdfilename)
             else:
-                print("# %s # success" % mdfilename)
+                print("# success: %s" % mdfilename)
+                imgsrc = post2image[mdfilename]
+                newsrc = "---" + yamml + "featured_image: "+imgsrc+"\n" + "---\n" + content
+                with open(filename, 'w') as f:
+                    f.write(newsrc)
         else:
-            print("xx %s has already a featured image" % filename)
+            print("x info: %s has already a featured image" % filename)
 
 
 
@@ -141,5 +145,5 @@ if __name__ == "__main__":
     """
 
     # improve things
-    findFeaturedImage("http://martin-thoma.com")
+    findFeaturedImage("http://martin-thoma.com/page/52/")
     
