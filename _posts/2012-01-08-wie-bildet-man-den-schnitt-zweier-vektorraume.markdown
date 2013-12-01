@@ -28,6 +28,7 @@ comments:
     nicht einfach das was unten rechts steht schnittbasis ist, sondern nur die zeilen
     von unten rechts deren linke seite eine nullzeile ist. es kann ja dim (U1 Schnitt
     U2) < dim (U2) sein.\r\n\r\nWenn ich das richtig verstanden hab ;)\r\n\r\nLG,\r\n\r\nvin"
+featured_image: 2012/01/vector-space.png
 ---
 <h2>Angaben</h2>
 Gegeben sind zwei Untervektorr&auml;ume des $\mathbb{R}^4$:

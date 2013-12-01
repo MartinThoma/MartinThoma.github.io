@@ -16,6 +16,7 @@ tags:
 - mathematics
 - LaTeX
 comments: []
+featured_image: 2012/01/latex-logo.png
 ---
 <h2>Detexify</h2>
 The easiest way to search for a math symbol is <a href="http://detexify.kirelabs.org/classify.html">Detexify</a>. This webservices allows you to draw the symbol. It looks like this:

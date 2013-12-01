@@ -24,6 +24,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wNC0wOCAxMzo0NDo1MiArMDIwMA==
   content: Die Ergebnisse sind nun online. Ein Link ist oben zu finden.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Belosa und sp&auml;ter bei Prof. Dr. Beigl geh&ouml;rt.</div>
 

@@ -16,6 +16,7 @@ tags:
 - United States
 - caricature
 comments: []
+featured_image: 2011/12/tea-party.jpg
 ---
 I am not the first person you should ask if you want to know something about the United States. I've never been there and I know only one American. But I am reading quite a lot of websites which publish regularly political caricatures. This post is simply a collection of different caricatures I've stumbled over. For most of them I had to search the source, so I hope you will enjoy them.
 

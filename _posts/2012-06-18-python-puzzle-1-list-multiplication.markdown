@@ -17,6 +17,7 @@ tags:
 - Python
 - puzzle
 comments: []
+featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Basic concepts</h2>
 Image you had to multiply two small matrices in Python. You could just use the definition of a matrix product:

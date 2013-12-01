@@ -50,6 +50,7 @@ comments:
     der mit der leeren Menge bezeichnet wird und aus dem man nicht mehr heraus kommt.\r\n\r\nDanke
     f&uuml;r den Hinweis!\r\n\r\nedit: Ich habe den Artikel nun verbessert, sodass
     es nach der Definition aus GBI korrekt ist."
+featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Der nicht-deterministische endliche Automat zu dem regul&auml;rem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:
 $Q = \{S, q_1, q_2\}$

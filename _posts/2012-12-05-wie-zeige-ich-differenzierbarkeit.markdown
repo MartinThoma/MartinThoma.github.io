@@ -16,6 +16,7 @@ tags:
 - mathematics
 - analysis
 comments: []
+featured_image: 2012/12/ableitung-definition.png
 ---
 Weil das Thema so wichtig ist und man es doch recht leicht vergisst:
 

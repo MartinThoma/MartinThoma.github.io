@@ -24,6 +24,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wMy0wNyAxMzowMzo1MSArMDEwMA==
   content: Die Klausurergebnisse sind online.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesungen des Moduls &bdquo;Algorithmen II&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Wagner geh&ouml;rt.</div>
 

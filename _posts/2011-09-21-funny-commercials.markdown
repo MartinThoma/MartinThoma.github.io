@@ -20,6 +20,7 @@ tags:
 - commercial
 - Vimeo
 comments: []
+featured_image: 2011/09/Nando-Commercial-300x300.png
 ---
 Those commercials are so funny! I have never seen commercials which are that funny in TV. Did you? Although I know some good IKEA commercials, I have never heard of most of the other companies.
 

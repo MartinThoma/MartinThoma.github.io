@@ -16,6 +16,7 @@ tags:
 - mathematics
 - lecture-notes
 comments: []
+featured_image: 2011/10/eulers-formula.png
 ---
 Die abz&auml;hlende Kombinatorik besch&auml;ftigt sich mit der Bestimmung der Anzahl m&ouml;glicher Anordnungen oder Auswahlen.
 

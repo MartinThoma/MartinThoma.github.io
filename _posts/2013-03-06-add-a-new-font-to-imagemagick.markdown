@@ -15,6 +15,7 @@ categories:
 tags:
 - ImageMagick
 comments: []
+featured_image: 2013/03/Imagemagick-logo.png
 ---
 You can list all fonts that are known to ImageMagick by <code>identify -list font</code>. When your font isn't there, but it is installed, you might want to try these steps:
 

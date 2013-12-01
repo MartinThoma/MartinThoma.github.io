@@ -17,6 +17,7 @@ tags:
 - Java
 - Swing
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Swing_(Java)">Swing</a> is a Java package for creating graphical user interfaces (GUI). I will give you complete, runnable examples how you could use Swing. All examples are done in <code>test.java</code>
 

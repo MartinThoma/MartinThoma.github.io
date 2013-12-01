@@ -15,6 +15,7 @@ categories:
 tags:
 - Python
 comments: []
+featured_image: 2011/09/Python-Logo.png
 ---
 This article is about Python lists. I just want to show you some examples of the unexpected behaviour (for non-python-programmers) of lists in Python.
 

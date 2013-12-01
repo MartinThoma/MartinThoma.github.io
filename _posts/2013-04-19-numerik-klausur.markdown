@@ -55,6 +55,7 @@ comments:
   content: ! "Hallo Martin,\r\n\r\nich bin Maschinenbauer und hab keinen Zutritt zu
     der Facebook Seite, k&ouml;nntest du mir die Fotos zuschicken? \r\n\r\nDanke und
     viele Gr&uuml;&szlig;e"
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Numerische Mathematik f&uuml;r die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Wei&szlig; im Sommersemester 2013 geh&ouml;rt.</div>
 

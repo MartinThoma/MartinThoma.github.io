@@ -18,6 +18,7 @@ tags:
 - Challenge
 - Project Euler
 comments: []
+featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=33">Problem 33</a> of Project Euler is:
 

@@ -77,6 +77,7 @@ comments:
   content: You can divide both the (isosceles) triangles into two equal right triangles
     of 3x4x5, and depending on whether you place them side by side with common side
     as 4 or 3 you get the first or second triangle
+featured_image: 2013/04/triangle-heron-tricky-thumb.png
 ---
 I've just seen the following image on spikedmath.com:
 

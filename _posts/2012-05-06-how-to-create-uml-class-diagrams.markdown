@@ -28,6 +28,7 @@ comments:
     MjAxMi0wNS0wNiAxODo0NTozMSArMDIwMA==
   content: Wenn du die Dia Diagramme als svg exportierst und in ikscape ein pdf draus
     machst, dann kannst du so beliebig skalierbarbin latex einbinden.
+featured_image: 2012/05/UML-thumb.png
 ---
 <h2>Dia</h2>
 Creating UML diagrams with Dia works like a charm! It provides some default tools. You should simply try it. Dia is a free tool.

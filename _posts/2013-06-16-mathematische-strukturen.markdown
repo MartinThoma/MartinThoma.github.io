@@ -26,6 +26,7 @@ comments:
     MjAxMy0wNi0xNyAyMTo0MDoxNSArMDIwMA==
   content: ! "Danke f&uuml;r die sch&ouml;ne Auflistung von Strukturen. Magma kannte
     ich noch nicht.\r\n\r\nzfc"
+featured_image: 2012/01/vector-space.png
 ---
 Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele k&ouml;nnen gerne in den Kommentaren genannt werden.
 

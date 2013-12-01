@@ -15,6 +15,7 @@ categories:
 tags:
 - Algebra
 comments: []
+featured_image: 2013/08/algebra-thumb.jpg
 ---
 <div class="definition">Let $(G, \cdot)$ be a group and $M$ a set. A <strong>group action</strong> is a function:
 $G \circ M \rightarrow M$

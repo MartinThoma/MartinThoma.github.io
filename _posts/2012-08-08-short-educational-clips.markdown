@@ -18,6 +18,7 @@ tags:
 - Education
 - Science
 comments: []
+featured_image: 2012/08/educational-clips.png
 ---
 Here are some clips which are interesting for education. For example, one of then explains the history of the English language in about 10 minutes.
 

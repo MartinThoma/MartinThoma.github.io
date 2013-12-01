@@ -53,6 +53,7 @@ comments:
     &#039;: &#039; + ((min < count) ? min : count));\r\n}\r\n\r\nScanner.read(&#039;input.txt&#039;,
     function() {\r\n  var rows = Scanner.scanf(&#039;%d&#039;);\r\n  for (var i =
     0; i < rows; ++i) { rs((i+1)); }\r\n});"
+featured_image: 2012/04/code-jam-logo.png
 ---
 <ul>
 <li>Problem A (<a href="https://code.google.com/codejam/contest/2434486/dashboard#s=p0">Osmos</a>):

@@ -18,6 +18,7 @@ tags:
 - Ubuntu
 - Hardware
 comments: []
+featured_image: 2011/09/Ubuntu-Logo.png
 ---
 I'm using Ubuntu now for many years, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet.
 

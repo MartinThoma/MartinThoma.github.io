@@ -17,6 +17,7 @@ tags:
 - Beamer
 - Presentation
 comments: []
+featured_image: 2012/01/latex-logo.png
 ---
 I really enjoy creating presentations with LaTeX. The reasons are:
 

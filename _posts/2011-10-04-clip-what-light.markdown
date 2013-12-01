@@ -17,5 +17,6 @@ tags:
 - Clip
 - Stop motion
 comments: []
+featured_image: 2011/10/What-light.png
 ---
 <iframe width="560" height="315" src="http://www.youtube.com/embed/5BnVtz92Ius?rel=0" frameborder="0" allowfullscreen></iframe>

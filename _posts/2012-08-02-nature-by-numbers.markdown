@@ -28,6 +28,7 @@ comments:
   date_gmt: !binary |-
     MjAxMi0xMC0yNyAxOTowMzoxOSArMDIwMA==
   content: Einfach nur beeindruckend.
+featured_image: 2012/07/nature-by-numbers.png
 ---
 <iframe src="http://player.vimeo.com/video/9953368" width="512" height="288" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 

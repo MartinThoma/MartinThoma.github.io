@@ -15,6 +15,7 @@ categories:
 tags:
 - Algebra
 comments: []
+featured_image: 2013/08/algebra-thumb.jpg
 ---
 Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enth&auml;lt.
 Sei $A := \{a + b \sqrt{z} | a, b \in \mathbb{Z}\}$.

@@ -35,6 +35,7 @@ comments:
     MjAxMi0wNi0yMSAxNzoxNzo1MyArMDIwMA==
   content: I've tested all of them and all worked. I've re-tested the last one and
     it still works for me. Why do you ask?
+featured_image: 2011/09/Python-Logo.png
 ---
 Today, I've been trying to get used to <a href="http://martin-thoma.com/functional-programming-in-python/" title="Functional Programming in Python">Pythons functional programming tools</a> by solving <a href="http://projecteuler.net/about">Project-Euler</a> tasks. To make them more interesting, I've solved them in one line. But I realized, that it is difficult to read online as only about 70 characters get displayed without a scrollbar. So I made multi-line solutions out of them. 
 

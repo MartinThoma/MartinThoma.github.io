@@ -17,6 +17,7 @@ tags:
 - OS
 - Operating Systems
 comments: []
+featured_image: 2012/05/assembly-thumb.png
 ---
 <h2>What are Bitmasks?</h2>
 In computer science, a <a href="http://en.wikipedia.org/wiki/Mask_(computing)">mask</a> is data that is used for bitwise operations. Essentially it is a variable.

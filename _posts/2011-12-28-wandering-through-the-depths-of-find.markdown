@@ -17,6 +17,7 @@ tags:
 - Command Line
 - Bash
 comments: []
+featured_image: 2011/09/Tux.png
 ---
 find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.
 

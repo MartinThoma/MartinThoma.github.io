@@ -17,6 +17,7 @@ tags:
 - Vimeo
 - Shortfilm
 comments: []
+featured_image: 2011/09/cat-piano.png
 ---
 <div class="info">Here is the second part "<a href="http://martin-thoma.com/shortfilms-part-ii/">Shortfilms, Part II</a>".</div>
 

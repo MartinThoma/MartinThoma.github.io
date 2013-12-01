@@ -39,6 +39,7 @@ comments:
     MjAxMy0wMi0xMyAwNzoyMTowMyArMDEwMA==
   content: Dein &Auml;hnlichkeitssinn. So so. Mir sagt es die Bild-URL, die zwei mal
     vorkommt :-) Wurde korrigiert.
+featured_image: 2013/02/cmos-nand-thumbnail.jpg
 ---
 CMOS is a technology used to create digital circuits. The basic idea is to combine a pMOS circuit and a nMOS circuit.
 

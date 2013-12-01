@@ -15,6 +15,7 @@ categories:
 tags:
 - WordPress
 comments: []
+featured_image: 2011/09/WordPress-Logo.png
 ---
 This article is about creating a new WordPress blog. This includes installing and basic custominzation. 
 

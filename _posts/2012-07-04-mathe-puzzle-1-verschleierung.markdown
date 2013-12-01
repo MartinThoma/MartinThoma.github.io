@@ -27,6 +27,7 @@ comments:
     MjAxMi0wNy0wNyAwNjo0NjoxNyArMDIwMA==
   content: ! "Servus Martin, \r\n\r\ntoller Artikel.\r\nDas Video ist spitze.\r\nEs
     zeigt einem wie tolle Mathe sein kann.\r\nVielen Dank f&uuml;r Deinen Artikel."
+featured_image: 2012/07/math-symbol-thumb.png
 ---
 <strong>Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name?</strong>
 

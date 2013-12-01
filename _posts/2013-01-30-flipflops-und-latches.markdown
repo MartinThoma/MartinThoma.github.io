@@ -17,6 +17,7 @@ tags:
 - Latch
 - Flipflop
 comments: []
+featured_image: 2013/01/rs-flipflop.png
 ---
 Flipflops und Latches sind 1-bit Datenspeicher. Es gibt sie als synchrone und als asynchrone Varianten, wobei &bdquo;synchron&ldquo; nur bedeutet, dass das Bauteil zus&auml;tzlich einen Takteingang hat. Der wichtigste (und einzige?) Unterschied zwischen Flipflops und Latches ist, dass Flipflops Taktflankengesteuert sind und Latches Pegelgesteuert sind. Das hei&szlig;t, Flipflops k&ouml;nnen nur dann ihren Wert &auml;ndern, wenn der anliegende Takt von 0 auf 1 wechselt. Latches hingegen k&ouml;nnen ihren Wert immer &auml;ndern, wenn der anliegende Takt auf 1 ist. Beide haben die gleichen Ansteuertabellen, k&ouml;nnen aber unterschiedliche Zeitdiagramme haben.
 

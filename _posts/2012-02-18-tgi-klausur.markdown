@@ -54,6 +54,7 @@ comments:
   content: Ich vermute, dass man den Klausurbonus nur bekommt, wenn man eh schon bestanden
     h&auml;tte. Man kann also nicht durch den Bonus bestehen. Jedenfalls ist das sonst
     immer so.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Ich habe im WS 2011/2012 bei Frau <a href="http://i11www.iti.uni-karlsruhe.de/en/members/dorothea_wagner/index">Prof. Dr. Wagner</a> die TGI-Klausur am KIT geschrieben. Hierf&uuml;r entstand dieser Artikel.</div>
 

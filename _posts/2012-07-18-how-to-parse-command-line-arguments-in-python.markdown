@@ -36,6 +36,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wNy0wNSAxMjo0NjoyOCArMDIwMA==
   content: ! "@Bob: +1\r\n\r\nNow I finally got it."
+featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Argparse</h2>
 <blockquote>The <a href="http://docs.python.org/library/argparse.html">argparse module</a> makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv. The argparse module also automatically generates help and usage messages and issues errors when users give the program invalid arguments.</blockquote>

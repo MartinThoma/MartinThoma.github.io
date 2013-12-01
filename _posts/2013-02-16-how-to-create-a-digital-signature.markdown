@@ -19,6 +19,7 @@ tags:
 - signature
 - SVG
 comments: []
+featured_image: 2013/02/inkscape-remove-nodes-thumb.png
 ---
 At first, you have to write your signature on a white sheet of paper. You might have to make several tries:
 

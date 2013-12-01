@@ -19,6 +19,7 @@ tags:
 - puzzle
 - Design Pattern
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 The following Java Puzzle is an example for the <a href="http://en.wikipedia.org/wiki/Template_method_pattern">template method pattern</a>. It is a design pattern by the <a href="http://en.wikipedia.org/wiki/Design_Patterns">Gang of Four</a>.
 

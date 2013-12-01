@@ -19,6 +19,7 @@ tags:
 - Visual Studio
 - Windows 7
 comments: []
+featured_image: 2012/12/loading-times.png
 ---
 Another rage-post ... 
 

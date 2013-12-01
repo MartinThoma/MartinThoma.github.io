@@ -15,6 +15,7 @@ categories:
 tags:
 - Digitaltechnik
 comments: []
+featured_image: 2013/03/karnaugh-map-300x300.png
 ---
 <div class="info">Ich setze im Folgenden vorraus, dass man schon mal was von KV-Diagrammen geh&ouml;rt hat und vielleicht schon ein paar gezeichnet hat. Insbesondere erkl&auml;re ich nicht wie man aus dem KV-Diagramm der Gr&ouml;&szlig;e 16 eines der Gr&ouml;&szlig;e 32 bekomt und was die Beschriftung bedeutet.</div>
 

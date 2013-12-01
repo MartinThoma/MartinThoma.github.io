@@ -19,6 +19,7 @@ tags:
 - Linear algebra
 - NumPy
 comments: []
+featured_image: 2012/01/vector-space.png
 ---
 Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = S \cdot D \cdot S^T$, wobei $S$ eine <a href="http://de.wikipedia.org/wiki/Dreiecksmatrix#Unipotente_Dreiecksmatrizen">unipotente Dreiecksmatrix</a> ist und D eine positiv definite Diagonalmatrix.
 

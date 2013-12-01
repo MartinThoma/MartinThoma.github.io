@@ -15,6 +15,7 @@ categories:
 tags:
 - mathematics
 comments: []
+featured_image: 2012/08/blood.png
 ---
 <h2>Aufgabenstellung</h2>
 Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur n&auml;chsten Blutspende ist wird dieses Blut wieder neu gebildet. 

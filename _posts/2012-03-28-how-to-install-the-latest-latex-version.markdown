@@ -15,6 +15,7 @@ categories:
 tags:
 - LaTeX
 comments: []
+featured_image: 2012/01/latex-logo.png
 ---
 I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2012. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.
 

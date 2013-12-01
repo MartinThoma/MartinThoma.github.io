@@ -16,6 +16,7 @@ tags:
 - mathematics
 - Integral calculus
 comments: []
+featured_image: 2012/09/partielle-integration.png
 ---
 Hier sind ein paar sch&ouml;ne Aufgaben und ausf&uuml;hrliche L&ouml;sungsfindungsbeschreibungen zur Integralrechnung.
 

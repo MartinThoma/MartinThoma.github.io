@@ -15,6 +15,7 @@ categories:
 tags:
 - Programming
 comments: []
+featured_image: 2011/12/gedit.png
 ---
 <a href="http://en.wikipedia.org/wiki/Gedit">gedit</a> is a very lightweight text editor. It supports syntax highlighting for every programming language I can think of and is highly customizable.
 

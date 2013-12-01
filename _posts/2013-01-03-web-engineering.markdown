@@ -42,6 +42,7 @@ comments:
     rel=\"nofollow\">VAB</a>. Das Passwort dort wird nur einmal verlangt und ich
     wei&szlig; es nicht mehr. Eventuell kannst du direkt bei <a href=\"http://www.scc.kit.edu/personen/martin.nussbaumer.php\"
     rel=\"nofollow\">Dr. Nussbaumer</a> nachfragen.\r\n\r\nGr&uuml;&szlig;e,\r\nMartin"
+featured_image: 2012/07/web-graph-thumb.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer geh&ouml;rt.</div>
 

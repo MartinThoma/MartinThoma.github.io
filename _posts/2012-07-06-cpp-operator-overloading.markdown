@@ -24,6 +24,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wNS0wOSAwOTo0MzoyMSArMDIwMA==
   content: Good, clear and concise! Thanks!
+featured_image: 2012/05/CPP-thumb.png
 ---
 Operator overloading is heavily used in math. One of the most famous examples I know is "+". If you add two elements from $\mathbb{N}$ you will use the same character "+" as you use for adding two numbers from $\mathbb{R}$. You even use the plus-sign if you add matrices (which is obviously something different than adding single numbers).
 

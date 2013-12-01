@@ -17,6 +17,7 @@ tags:
 - lecture-notes
 - proof
 comments: []
+featured_image: 2011/10/eulers-formula.png
 ---
 In der Mathematik spielen Beweise eine zentrale Rolle. Es gibt verschiedene Beweisarten, aber im folgenden will ich nur einen direkten Beweis f&uuml;hren. Dieses Beispiel wurde in der &Uuml;bung zu Analysis I von Herrn Bolleyer gemacht.
 

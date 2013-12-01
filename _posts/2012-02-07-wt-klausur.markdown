@@ -16,6 +16,7 @@ tags:
 - cheat sheet
 - Klausur
 comments: []
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Morgen schreibe ich eine Klausur in Wahrscheinlichkeitstheorie. Zum Gl&uuml;ck d&uuml;rfen wir das Skript und Notizen mitnehmen. 
 

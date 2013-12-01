@@ -17,6 +17,7 @@ tags:
 - Python
 - puzzle
 comments: []
+featured_image: 2011/09/Python-Logo.png
 ---
 What is the output of
 

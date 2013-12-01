@@ -25,6 +25,7 @@ comments:
     MjAxMy0wNC0xMiAyMDowOTozOCArMDIwMA==
   content: ! "If you're looking for an easy way to customize Vim's syntax highlithing
     for a variety of different languages, have a look at:\r\n\r\nhttp://bytefluent.com/vivify/"
+featured_image: 2012/01/vim-logo.png
 ---
 <h2>ANSI Color codes</h2>
 

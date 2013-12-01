@@ -44,6 +44,7 @@ comments:
   date_gmt: !binary |-
     MjAxMi0wOC0xNCAxNDo1NjoxMCArMDIwMA==
   content: Die Klausurergebnisse h&auml;ngen im SCC, 3. OG, aus.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:
 <ul>

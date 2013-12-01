@@ -17,6 +17,7 @@ tags:
 - IT-Security
 - password
 comments: []
+featured_image: 2011/10/password-checker.png
 ---
 Today I've changed my PayPal password, because I thought it was time to do so. Now I know that the password changing service of PayPal can be improved quite a lot. I had to type the password about twelve times! This is the reason why I thought it was time to create some principles for good password chaning services:
 

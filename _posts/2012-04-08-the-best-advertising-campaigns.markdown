@@ -17,6 +17,7 @@ tags:
 - advertising
 - commercial
 comments: []
+featured_image: 2012/04/mr-clean-ad-thumb.jpg
 ---
 <h2>Jobs in Town</h2>
 <table>

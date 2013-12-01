@@ -17,6 +17,7 @@ tags:
 - YouTube
 - Lolcat
 comments: []
+featured_image: 2011/09/Lolcat.jpg
 ---
 Cats are sometimes so crazy.
 

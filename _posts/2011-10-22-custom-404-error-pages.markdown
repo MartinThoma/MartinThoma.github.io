@@ -16,6 +16,7 @@ categories:
 tags:
 - Web Development
 comments: []
+featured_image: 2011/10/404-Not-Found.png
 ---
 <a href="http://martin-thoma.com/wp-content/uploads/2011/10/404-Not-Found.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/404-Not-Found.png" alt="" title="404 Not Found" width="128" height="128" class="alignleft size-full wp-image-7061" /></a> A 404 http status code means that no document could be found at the given URL. The reason could be a misspelled URL or moved content. 
 

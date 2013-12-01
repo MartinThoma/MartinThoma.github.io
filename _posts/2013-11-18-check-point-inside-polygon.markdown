@@ -17,6 +17,7 @@ tags:
 - algorithms
 - Geometry
 comments: []
+featured_image: 2013/11/polygon-is-point-inside-thumb.png
 ---
 Suppose you have a with $n$ sides. This is called a $n$-glon.
 

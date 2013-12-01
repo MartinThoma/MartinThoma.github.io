@@ -16,6 +16,7 @@ tags:
 - KIT
 - Java
 comments: []
+featured_image: 2011/10/KIT-Logo.png
 ---
 <div class="info">Programmieren ist ein Modul am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a>. Dieser Blogpost richtet sich also vor allem an Studenten des KIT, die im WS 2012/2013 dieses Modul belegen und mein Tutorium besuchen. Er wird regelm&auml;&szlig;ig aktualisiert.</div>
 

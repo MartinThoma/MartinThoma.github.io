@@ -16,6 +16,7 @@ tags:
 - Linux
 - Hardware
 comments: []
+featured_image: 2011/09/Tux.png
 ---
 Linux users who are not very skilled have a big problem: If they want to buy a new computer or new hardware, it is very difficult for them to find out if something works or not. I'll give you some hints how you could find it out:
 

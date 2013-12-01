@@ -18,6 +18,7 @@ tags:
 - community-chess
 - project
 comments: []
+featured_image: 2011/10/logo.png
 ---
 Community Chess is one of my projects. I can make something usefull and play a bit.
 This project has now an own URL: <a href="http://community-chess.com/">community-chess.com</a>

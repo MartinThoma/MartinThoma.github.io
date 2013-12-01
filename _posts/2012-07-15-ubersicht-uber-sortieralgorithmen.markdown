@@ -34,6 +34,7 @@ comments:
     nochmals durch die liste, schaut ob min. zwei benachbarte Elmente gleich sind.
     Die Menge der gleichen Elemente sortiert man dann nach der Index-Reihenfolge in
     Array A."
+featured_image: 2012/07/insertion-sort-thumb.png
 ---
 Eine &Uuml;bersicht &uuml;ber g&auml;ngige Sortieralgorithmen:
 

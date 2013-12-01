@@ -42,6 +42,7 @@ comments:
     like what you are saying and the way in which you say it. You make it enjoyable
     and you still take care of to keep it smart. I can't wait to read far more from
     you. This is really a tremendous site.
+featured_image: 2012/05/assembly-thumb.png
 ---
 I've talked today with a fellow student about some system internals and we weren't sure what actually happens. So I needed the assembly code of some example programs.
 

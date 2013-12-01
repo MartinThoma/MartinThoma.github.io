@@ -25,6 +25,7 @@ comments:
   date_gmt: !binary |-
     MjAxMi0wOC0wOSAxMjoxNjoyNCArMDIwMA==
   content: Die Klausurergebnisse sind nun online.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 F&uuml;r die Klausur in Softwaretechnik I 2012 bei Herrn Prof. Dr. Tichy sollte man Folgendes auf jeden Fall wissen:
 <ul>

@@ -17,6 +17,7 @@ tags:
 - STL
 - Vector
 comments: []
+featured_image: 2012/05/CPP-thumb.png
 ---
 <h2>Minimal Example</h2>
 {% highlight cpp %}#include <iostream>

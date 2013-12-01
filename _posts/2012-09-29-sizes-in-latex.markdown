@@ -16,6 +16,7 @@ tags:
 - LaTeX
 - Tikz
 comments: []
+featured_image: 2012/09/tikz-sizes-thumb.png
 ---
 Here is an overview of sizes in LaTeX:
 

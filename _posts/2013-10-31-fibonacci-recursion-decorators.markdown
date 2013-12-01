@@ -28,6 +28,7 @@ comments:
   content: ! "Please note that you should maybe use functools and @wraps for the wrapper
     as shown in this example: http://pastebin.com/pEW3yQDN\r\n\r\nThis
     is useful, because it makes the wrapped function to keep its signature."
+featured_image: 2011/09/Python-Logo.png
 ---
 I think everybody who learned something about recursion has seen the Fibonacci sequence:
 

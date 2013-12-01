@@ -16,6 +16,7 @@ tags:
 - CPP
 - GMP
 comments: []
+featured_image: 2013/06/sqrt-2.png
 ---
 Suppose you have an equation like this:
 

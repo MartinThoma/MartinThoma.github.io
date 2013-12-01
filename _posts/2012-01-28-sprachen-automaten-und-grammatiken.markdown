@@ -20,6 +20,7 @@ tags:
 - Theoretical computer science
 - TGI
 comments: []
+featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Die folgende Tabelle gibt einen &Uuml;berblick &uuml;ber formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:
 <ul>

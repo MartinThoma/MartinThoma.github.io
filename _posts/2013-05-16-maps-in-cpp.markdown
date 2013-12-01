@@ -18,6 +18,7 @@ tags:
 - datastructure
 - map
 comments: []
+featured_image: 2012/05/CPP-thumb.png
 ---
 Maps are one of the most useful datastructures in C++ and there is no excuse for not knowing it.
 

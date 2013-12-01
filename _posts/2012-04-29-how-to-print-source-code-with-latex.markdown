@@ -35,6 +35,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0xMC0yNyAyMjozMzozMCArMDEwMA==
   content: Thanks a lot, it really helped me.
+featured_image: 2012/01/latex-logo.png
 ---
 I often need to print source code. Some years ago for a German competition called "Bundeswettbewerb Informatik", now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I've also included example PDF files.
 

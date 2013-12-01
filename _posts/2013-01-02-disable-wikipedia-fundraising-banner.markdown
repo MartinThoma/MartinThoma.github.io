@@ -16,6 +16,7 @@ tags:
 - Wikipedia
 - advertising
 comments: []
+featured_image: 2011/09/Wikipedia-logo.png
 ---
 I didn't spend this year for Wikipedia because of the advertising. It really got on my nerves:
 

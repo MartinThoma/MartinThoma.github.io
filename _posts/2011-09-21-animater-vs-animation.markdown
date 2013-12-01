@@ -18,6 +18,7 @@ tags:
 - Deviantart
 - YouTube
 comments: []
+featured_image: 2011/09/Animator-vs-Animation.png
 ---
 An animator faces his own animation in deadly combat. The battlefield? The Flash interface itself.
 A stick figure is created by an animator with the intent to torture. The stick figure drawn by the animator will be using everything he can find - the brush tool, the eraser tool - to get back at his tormentor. It's resourcefulness versus power. Who will win? You can find out yourself.

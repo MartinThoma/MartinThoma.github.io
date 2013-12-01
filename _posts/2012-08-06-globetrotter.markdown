@@ -17,6 +17,7 @@ tags:
 - learning
 - Geography
 comments: []
+featured_image: 2012/07/globetrotter-thumbnail.png
 ---
 [caption id="attachment_37021" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/globetrotter-xl.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/globetrotter-xl.png" alt="Globetrotter - A game to learn cities and countries" title="Globetrotter - A game to learn cities and countries" width="512" height="384" class="size-full wp-image-37021" /></a> Globetrotter - A game to learn cities and countries[/caption]
 <strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/crafics/globetrotter-xl">Globetrotter XL</a> on Kongregate

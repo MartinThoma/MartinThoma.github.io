@@ -15,6 +15,7 @@ categories:
 tags:
 - IT-Security
 comments: []
+featured_image: 2013/04/cryptography-thumb.png
 ---
 <h2>Definitionen</h2>
 <div class="definition">

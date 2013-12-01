@@ -70,6 +70,7 @@ comments:
     Verfahren nutzen. \r\n\r\nIch finde Beispiele immer sehr hilfreich. Schau dir
     doch mal das <a href=\"http://martin-thoma.com/jordansche-normalform-4x4-matrizen/\"
     rel=\"nofollow\">Beispiel mit den 4x4-Matrizen</a> an."
+featured_image: 2012/08/jordan-normal-form-block1.png
 ---
 Dieser Artikel beschreibt, wie die Jordansche Normalform einer Matrix sowie die dazugeh&ouml;rige Basiswechselmatrix gefunden werden kann. Dabei wird hier eine Jordansche Normalform erzeugt, bei der die 1er auf der oberen Nebendiagonale sind und die gr&ouml;&szlig;ten Jordank&auml;stchen zuerst kommen.
 

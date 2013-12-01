@@ -18,6 +18,7 @@ tags:
 - Information
 - Visualization
 comments: []
+featured_image: 2011/09/NGram-Viewer.png
 ---
 On October 14, 2010 Google announced that the number of scanned books is over 15 million. They did not simply scan those books, but they digitalized them. They can access not only image files, but the actual text. This allowes Google to search in those books and to analyse the information.
 

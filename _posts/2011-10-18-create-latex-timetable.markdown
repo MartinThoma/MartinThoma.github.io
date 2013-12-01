@@ -15,6 +15,7 @@ categories:
 tags:
 - LaTeX
 comments: []
+featured_image: 2012/01/latex-logo.png
 ---
 LaTeX is a quite cool document markup language and document preparation system. You can easily create mathematical formulas.
 

@@ -17,6 +17,7 @@ tags:
 - LaTeX
 - Gantt-Chart
 comments: []
+featured_image: 2012/12/gantt-thumb.png
 ---
 I am currently involved in a software project and I should create a Gantt chart. So I've searched for tools that allow me to do so, but it was astonishingly difficult to find good tools. I'm not completely content with any of them, but I would like to share my experiences.
 

@@ -19,6 +19,7 @@ tags:
 - Google Code Jam
 - competition
 comments: []
+featured_image: 2012/04/code-jam-logo.png
 ---
 4230 tried the first problem, but only 3189 people are listed in the <a href="http://code.google.com/codejam/contest/1781488/scoreboard?c=1781488">scoreboard</a>.
 

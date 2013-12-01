@@ -15,6 +15,7 @@ categories:
 tags:
 - LaTeX
 comments: []
+featured_image: 2013/08/latex1.png
 ---
 Some of you might know that I've bin improving the lecture notes for the computer engineering lecture (digital electronics) since April 2013.
 

@@ -31,6 +31,7 @@ comments:
     reference (Tiger) is assigned to Animal (superclass) and hence, t.height will
     point to height in Aminal which it finds private and issues a compile-time error.
     The rest of the cases are obvious.
+featured_image: 2012/07/java-thumb.png
 ---
 You are given the following two classes:
 <strong>Animal.java</strong>:

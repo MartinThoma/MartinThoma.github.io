@@ -19,6 +19,7 @@ tags:
 - Hans Rosling
 - David McCandless
 comments: []
+featured_image: 2011/09/Gapminder1.jpg
 ---
 The United States public debt increased from $10.7 trillion in 2008 to $14.2 trillion by February 2011. Google processes about 24 petabytes of data per day. About 21.9 people live in Mumbai.
 

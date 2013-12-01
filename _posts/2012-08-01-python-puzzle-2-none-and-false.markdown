@@ -18,6 +18,7 @@ tags:
 - puzzle
 - boolean expression
 comments: []
+featured_image: 2011/09/Python-Logo.png
 ---
 Python automatically casts to boolean if you use another type of variable for a boolean expression.
 

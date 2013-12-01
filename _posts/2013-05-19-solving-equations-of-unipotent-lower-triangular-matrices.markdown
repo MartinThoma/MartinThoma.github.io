@@ -19,6 +19,7 @@ tags:
 - systems of equations
 - numerics
 comments: []
+featured_image: 2013/05/unipotent-lower-triangular-matrix.png
 ---
 Suppose you have an equation like $L \cdot x = b$ with $L \in \mathbb{R}^{n \times n}$ and $x,b \in \mathbb{R}^n$. $b$ and $L$ are given and you want to solve for $x$.
 

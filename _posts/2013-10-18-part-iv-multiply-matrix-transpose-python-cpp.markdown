@@ -16,6 +16,7 @@ tags:
 - Python
 - C
 comments: []
+featured_image: 2012/03/Matrix-Inverses.png
 ---
 <div class="info">This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>, Part II was about multiplication with the <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/" title="Part II: The Strassen algorithm in Python, Java and C++">Strassen algorithm</a> and Part III will be about parallel matrix multiplication (I didn't write it yet).</div>
 

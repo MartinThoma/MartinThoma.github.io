@@ -18,6 +18,7 @@ tags:
 - Project Euler
 - brute-force
 comments: []
+featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=26">Problem 26</a> of Project Euler is:
 

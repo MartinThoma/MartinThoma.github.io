@@ -20,6 +20,7 @@ tags:
 - CCD
 - Optical fiber
 comments: []
+featured_image: 2012/09/fiberoptic-thumb.png
 ---
 Did you know how the election for a <a href="http://en.wikipedia.org/wiki/Nobel_Prize">Nobel Prize</a> works? Have you ever heard of a <a href="http://en.wikipedia.org/wiki/Charge-coupled_device">CCD</a>? I guess you know <a href="http://en.wikipedia.org/wiki/Optical_fiber">fiberoptics</a>?
 

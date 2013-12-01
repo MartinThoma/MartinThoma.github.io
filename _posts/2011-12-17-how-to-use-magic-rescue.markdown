@@ -15,6 +15,7 @@ categories:
 tags:
 - Data Recovery
 comments: []
+featured_image: 2011/12/PartitionManager.png
 ---
 I've just searched an image I have created some time ago. I knew that I've put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn't simply open your trash can, but it searches files which were deleted, but not overwritten.
 

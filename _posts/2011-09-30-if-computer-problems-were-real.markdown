@@ -17,6 +17,7 @@ tags:
 - Video
 - YouTube
 comments: []
+featured_image: 2011/09/LOL-cup.jpg
 ---
 Before the computer ...
 ... a memory was something you've lost with age

@@ -17,6 +17,7 @@ tags:
 - Internet Security
 - hash
 comments: []
+featured_image: 2011/10/rednoize.png
 ---
 MD5 is a cryptographic hash function. This means, you can give the MD5 algorithm a string and it will return another 32-character long alphanumeric string. The returned string looks quite random, but it isn't. If you use the same input, you always get the same 32 character output.
 

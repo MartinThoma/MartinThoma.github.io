@@ -17,6 +17,7 @@ tags:
 - Linear algebra
 - Matrix
 comments: []
+featured_image: 2012/03/Basiswechselmatrix.png
 ---
 Eine Basiswechselmatrix oder auch &Uuml;bergangsmatrix dient dem Basiswechsel.
 

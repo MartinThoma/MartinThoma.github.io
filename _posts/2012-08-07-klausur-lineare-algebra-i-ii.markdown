@@ -33,6 +33,7 @@ comments:
   date_gmt: !binary |-
     MjAxMi0xMC0wMyAwOToxNjoyNCArMDIwMA==
   content: Es wurde nun bekannt gegeben, wann man seine Note erfahren kann.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Leuzinger am KIT die Klausur &uuml;ber Lineare Algebra und analytische Geometrie schreiben werden.
 

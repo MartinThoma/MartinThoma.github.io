@@ -94,6 +94,7 @@ comments:
     is still around 4-5x faster, I wonder how they got it that fast, since they mostly
     use the exact same techniques :/ Well, at least that&#039;s definitely faster
     than primegen now."
+featured_image: 2012/04/leonhard-euler.jpg
 ---
 Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.
 

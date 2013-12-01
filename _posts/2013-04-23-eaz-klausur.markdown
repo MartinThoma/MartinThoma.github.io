@@ -15,6 +15,7 @@ categories:
 tags:
 - Klausur
 comments: []
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Einf&uuml;hrung in die Algebra und Zahlentheorie&ldquo; (EAZ) am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. K&uuml;hnlein im Sommersemester 2013 geh&ouml;rt.</div>
 

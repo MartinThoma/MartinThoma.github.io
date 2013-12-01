@@ -16,6 +16,7 @@ tags:
 - LaTeX
 - Tikz
 comments: []
+featured_image: 2012/07/plot-thumb.png
 ---
 I guess many of you might need to plot functions or data once. So I've made one example that shows much of the features you might need:
 <ul>

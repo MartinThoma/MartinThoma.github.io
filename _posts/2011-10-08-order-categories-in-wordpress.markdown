@@ -24,6 +24,7 @@ comments:
   date_gmt: !binary |-
     MjAxMi0wMy0yOCAxMzo1ODoyMCArMDIwMA==
   content: for custom taxonomies, take http://wordpress.org/extend/plugins/taxonomy-terms-order/
+featured_image: 2011/09/WordPress-Logo.png
 ---
 Today, I've introduced a new category: My bits and bytes. I wanted to write something about my <a href="http://martin-thoma.com/kitchen-renovation-part-1/">kitchen renovation</a>. Additionally, I thing I will write from time to time about other topics than computer related ones.
 

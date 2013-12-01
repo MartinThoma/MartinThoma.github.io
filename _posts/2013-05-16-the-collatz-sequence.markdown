@@ -17,6 +17,7 @@ tags:
 - mathematics
 - Project Euler
 comments: []
+featured_image: 2013/05/collatz-thumb.png
 ---
 The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.
 

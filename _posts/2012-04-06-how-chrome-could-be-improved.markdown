@@ -39,6 +39,7 @@ comments:
   date_gmt: !binary |-
     MjAxMi0wNC0yMSAwOTo0ODo1MyArMDIwMA==
   content: 4.1 - Rotation of PDf is in Version 18.0.1025.162 possible :D
+featured_image: 2012/04/google-chrome-logo.png
 ---
 Google Chorme is the browser of my choice. It is fast, has developer tools and looks great. But it could be improved. I'll describe some features I miss.
 

@@ -30,6 +30,7 @@ comments:
     hatte ich noch keine Probleme) bzw. Verlust der Karte wurde mir der Tip gegeben
     lieber zur Uni-Bib zu gehen. Dort kann wohl auch eine neue Karte ausgestellt werden
     und es soll angeblich schneller und weniger umst&auml;ndlich sein als im Studienb&uuml;ro.\r\n\r\nLG\r\nEva"
+featured_image: 2011/10/KIT-Logo.png
 ---
 Das KIT sieht sich gerne als Elite-Universit&auml;t.<sup>[<a href="http://www.kit.edu/besuchen/pi_2012_11933.php">1</a>]</sup> Es werden Rankings in Vorlesungen zitiert und erst vor kurzem wurde von einigen Professoren in der Vorlesung der Verlust des Status der Elite-Universit&auml;t betrauert.<sup>[<a href="http://bildungsklick.de/a/84162/hippler-elite-verlust-herber-rueckschlag-fuer-kit/">1</a>]</sup> Ich wei&szlig; nicht, was die Kriterien f&uuml;r eine Elite-Uni nach der Exzellenzinitiative sind, aber ich kann mir einige notwendige Voraussetzungen vorstellen, die f&uuml;r mich eine Elite-Uni ausmachen:
 

@@ -17,6 +17,7 @@ tags:
 - Vimeo
 - Shortfilm
 comments: []
+featured_image: 2012/08/electroshock.png
 ---
 <div class="info">Here is the first part "<a href="http://martin-thoma.com/shortfilms/">Shortfilms</a>".</div>
 

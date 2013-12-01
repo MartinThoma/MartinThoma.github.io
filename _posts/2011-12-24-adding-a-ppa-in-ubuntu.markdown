@@ -16,6 +16,7 @@ tags:
 - Ubuntu
 - PPA
 comments: []
+featured_image: 2011/09/Ubuntu-Logo.png
 ---
 PPAs (<a href="http://en.wikipedia.org/wiki/Personal_Package_Archive">Personal Package Archive</a>) provide additional resources. They are small repositories you can add to get some special content.
 

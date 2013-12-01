@@ -37,6 +37,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0xMC0yNSAxMTozNjozNiArMDIwMA==
   content: Danke f&uuml;r den Hinweis! Ich habs korrigiert!
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 geh&ouml;rt.</div>
 

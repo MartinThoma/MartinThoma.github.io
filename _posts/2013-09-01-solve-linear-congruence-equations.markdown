@@ -16,6 +16,7 @@ tags:
 - Python
 - mathematics
 comments: []
+featured_image: 2013/08/algebra-thumb.jpg
 ---
 When you have a system of linear congruences like:
 $

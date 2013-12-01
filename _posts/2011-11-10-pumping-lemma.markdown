@@ -54,6 +54,7 @@ comments:
     habe, stelle ich es hier ein und schreibe noch einen kurzen Kommentar.\r\n\r\nBitte
     hinterlasst doch einen Kommentar, falls jemand eine nicht-kontextfreie Sprache
     kennt, die Ogdens Lemma nicht erf&uuml;llt!\r\n\r\nViele Gr&uuml;&szlig;e,\r\nMartin"
+featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Regul&auml;re Sprachen k&ouml;nnen von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zust&auml;nden ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache $L = \{a^i b^{2i} | i \in \mathbb{N}\}$ beschrieben wird, m&uuml;sste gez&auml;hlt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz daf&uuml;r, dass es sich nicht um eine regul&auml;re Sprache handelt.
 

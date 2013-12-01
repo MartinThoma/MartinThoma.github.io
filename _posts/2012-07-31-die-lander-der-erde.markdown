@@ -43,6 +43,7 @@ comments:
     was ist Eritrea bekannt? Von diesem Land habe ich noch nicht einmal geh&ouml;rt
     ...\r\n\r\nEin sehr &auml;hnliches Spiel ist &uuml;brigens das <a href=\"http://www.jetpunk.com/quizzes/map-quiz-europe.php\"
     rel=\"nofollow\">Europe Map Quiz</a>."
+featured_image: 2012/07/laender-der-erde1.png
 ---
 [caption id="attachment_35581" align="aligncenter" width="482"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/laender-der-erde.png"><img class=" wp-image-35581 " title="L&auml;nder der Erde" src="http://martin-thoma.com/wp-content/uploads/2012/07/laender-der-erde.png" alt="L&auml;nder der Erde" width="482" height="280" /></a> L&auml;nder der Erde[/caption]
 

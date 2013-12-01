@@ -16,6 +16,7 @@ tags:
 - lecture-notes
 - Linear algebra
 comments: []
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Hier sind ein paar <a href='http://martin-thoma.com/wp-content/uploads/2012/04/lernkontrolle-lineare-algebra.pdf'>Fragen zur Linearen Algebra I</a> und die <a href='http://martin-thoma.com/wp-content/uploads/2012/04/lernkontrolle-lineare-algebra-loesung.pdf'>Antworten</a> dazu. Die <a href='http://martin-thoma.com/wp-content/uploads/2012/04/LA-lernkontrolle.zip'>LaTeX-Dokumente</a> gibts nat&uuml;rlich auch.
 

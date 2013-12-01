@@ -16,6 +16,7 @@ tags:
 - KIT
 - Klausur
 comments: []
+featured_image: 2011/11/java-programming.png
 ---
 <strong>Hinweis</strong>: Dieser Blogpost ist vermutlich nur f&uuml;r Informatik-Studenten am KIT im WS 2011 / 2012 interessant!
 

@@ -26,6 +26,7 @@ comments:
     MjAxMy0wNC0xOCAwNTo0Mzo0NCArMDIwMA==
   content: Seit gestern steht auf der TI-Website, dass die Klausureinsicht am Montag,
     den 29. April 2013 ist.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesungen &bdquo;Digitaltechnik und Entwurfsverfahren&ldquo; sowie &bdquo;Rechnerorganisation&ldquo; des Moduls &bdquo;Technische Informatik&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Asfour geh&ouml;rt.</div>
 

@@ -16,6 +16,7 @@ tags:
 - Assembly language
 - MIPS
 comments: []
+featured_image: 2012/06/MIPS-Ingenic_JZ4730.jpg
 ---
 <h2>Perfect number check</h2>
 The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode

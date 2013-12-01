@@ -16,6 +16,7 @@ tags:
 - mathematics
 - Linear algebra
 comments: []
+featured_image: 2012/03/Matrix-Inverses.png
 ---
 <h2>Definition</h2>
 Der Kern einer linearen Abbildung ist eine Menge von Vektoren. In diesem Artikel erkl&auml;re ich kurz und b&uuml;ndig, wie man den Kern einer linearen Abbildung bestimmt.

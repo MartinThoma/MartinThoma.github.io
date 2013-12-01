@@ -15,6 +15,7 @@ categories:
 tags:
 - Design
 comments: []
+featured_image: 2011/11/color-scheme-designer1.png
 ---
 Here are some nice online tools to create color schemes
 

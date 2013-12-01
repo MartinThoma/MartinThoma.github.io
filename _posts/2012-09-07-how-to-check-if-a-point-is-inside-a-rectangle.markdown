@@ -41,6 +41,7 @@ comments:
     \   areaTriangles = areaTri(A, P, D) + areaTri(D, P, C) + areaTri(C, P, B) + areaTri(P,
     B, A)\r\n    \r\n    return (np.abs(areaRectangle - areaTriangles) >> isPinRect([0,0],
     10, 10, [5, 5])\r\nTrue\r\n>>> isPinRect([0,0], 10, 10, [11, 11])\r\nFalse\r\n\r\n\r\ncheers,\r\njan"
+featured_image: 2012/09/rectangle-thumb.png
 ---
 [caption id="attachment_43611" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle.png"><img class="size-full wp-image-43611 " title="A rectangle" src="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle.png" alt="A rectangle" width="512" height="409" /></a> A rectangle[/caption]
 

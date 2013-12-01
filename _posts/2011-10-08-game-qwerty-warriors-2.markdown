@@ -17,6 +17,7 @@ tags:
 - learning
 - ten finger type
 comments: []
+featured_image: 2011/10/QWERTY-Warriors-2-thumb.png
 ---
 [caption id="attachment_4971" align="aligncenter" width="549" caption="QWERTY Warriors 2"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/QWERTY-Warriors-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/09/QWERTY-Warriors-2.png" alt="QWERTY Warriors 2" title="QWERTY Warriors 2" width="549" height="547" class="size-full wp-image-4971" /></a>[/caption]
 <b>Go to the Game</b>: <a href="http://www.kongregate.com/games/Weasel/qwerty-warriors-2">QWERTY Warriors 2 on Kongregate</a>

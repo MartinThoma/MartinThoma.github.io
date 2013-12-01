@@ -15,6 +15,7 @@ categories:
 tags:
 - KogSys
 comments: []
+featured_image: 2013/09/lena-testbild.png
 ---
 Let's say you have the following greyscale image:
 

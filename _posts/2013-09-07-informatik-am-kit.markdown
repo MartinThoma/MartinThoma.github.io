@@ -39,6 +39,7 @@ comments:
     ist der Rest auch nicht sonderlich interessant. Vllt noch der Rheinhafen und die
     G&uuml;nther-Klotz-Anlage. Gute Naherholung bieten der Lauf der Alb, der Tierpark
     sowie der Hardtwald."
+featured_image: 2011/10/KIT-Logo.png
 ---
 Ich werde immer wieder gefragt, wie Informatik am KIT ist. Was kann ich &uuml;ber Karlsruhe erz&auml;hlen? Wieviel Praxis bekommt man in einem Informatik-Studium am KIT?
 

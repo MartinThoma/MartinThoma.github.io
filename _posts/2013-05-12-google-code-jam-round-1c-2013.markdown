@@ -128,6 +128,7 @@ comments:
     I correctly prove (A) this will imply (B). But this will take some time. Suggestions
     are always welcome (even if it is only spelling as it is difficult for me to write
     this proof in English)"
+featured_image: 2012/04/code-jam-logo.png
 ---
 <ul>
 <li>Problem A (<a href="https://code.google.com/codejam/contest/2437488/dashboard#s=p0">Consonants</a>):

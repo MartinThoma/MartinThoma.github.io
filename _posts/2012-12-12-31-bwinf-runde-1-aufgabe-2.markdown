@@ -16,6 +16,7 @@ tags:
 - BWInf
 - ! '#glpk'
 comments: []
+featured_image: 2012/09/bwinf-thumb.png
 ---
 <h2>Die Aufgabenstellung</h2>
 <blockquote>Zum Transport von Geld werden schwer bewachte Geldtransporter eingesetzt. In einem solchen Geldtransporter k&ouml;nnen Koffer mit M&uuml;nzen transportiert werden. Die Koffer enthalten M&uuml;nzen in unterschiedlicher Menge und mit unterschiedlichem Gesamtwert. Entsprechend unterscheiden sich die Koffer in Gewicht und Wert.

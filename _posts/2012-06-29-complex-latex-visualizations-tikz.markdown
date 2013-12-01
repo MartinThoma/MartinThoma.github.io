@@ -16,6 +16,7 @@ tags:
 - LaTeX
 - Tikz
 comments: []
+featured_image: 2012/06/circumscribed-polygons-and-circles-thumb.png
 ---
 You can create some very complex visualizations with LaTeX. Take a look at these:
 

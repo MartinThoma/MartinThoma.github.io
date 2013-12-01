@@ -16,6 +16,7 @@ tags:
 - mathematics
 - Matrix
 comments: []
+featured_image: 2012/03/Matrix-Inverses.png
 ---
 Suppose you have a matrix $A \in \mathbb{R}^{n \times n}$ and you want to invert it. I've already explained <a href="http://martin-thoma.com/wie-bestimme-ich-das-inverse-einer-matrix/">how to invert a matrix</a> (<a href="http://www.purplemath.com/modules/mtrxinvr.htm">English explanation</a>), but I didn't provide any code and / or runtime analysis.
 

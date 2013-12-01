@@ -16,6 +16,7 @@ tags:
 - mathematics
 - analysis
 comments: []
+featured_image: 2012/12/transformationssatz-thumb.png
 ---
 <div class="info">Folgender Artikel basiert auf meinem Mitschrieb der Analysis III &Uuml;bung bei Herrn Bolleyer.</div>
 

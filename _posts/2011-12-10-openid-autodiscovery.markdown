@@ -15,6 +15,7 @@ categories:
 tags:
 - OpenID
 comments: []
+featured_image: 2011/10/OpenID.png
 ---
 <a href="http://martin-thoma.com/5-web-technologies-which-should-be-used-more-often/#OpenID">OpenID</a> is a web technology that gives the users the possibility to use one website for authentification on another web service. The <em>OpenID Attribute Exchange</em> makes registration processes simpler, as the user can automatically allow the website to get some information like the Email-adress, the gender and the full name.
 

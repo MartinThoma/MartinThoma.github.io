@@ -16,6 +16,7 @@ tags:
 - Assembly language
 - MIPS
 comments: []
+featured_image: 2012/06/MIPS-Ingenic_JZ4730.jpg
 ---
 I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit.
 

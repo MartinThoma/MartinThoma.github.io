@@ -26,6 +26,7 @@ comments:
     MjAxMy0wMi0xOCAwMjowNzo1NyArMDEwMA==
   content: ! "In a recent versions the history was moved to dconf.\r\nUse dconf-editor
     to edit the setting, its path is /org/gnome/gedit/state/history-entry."
+featured_image: 2011/12/gedit.png
 ---
 Start <code>gconf-editor</code>:
 {% highlight bash %}gconf-editor{% endhighlight %}

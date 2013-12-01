@@ -16,6 +16,7 @@ tags:
 - Flashgames
 - relaxing
 comments: []
+featured_image: 2011/09/Winterbells-300x200.png
 ---
 <b>Go to the Game</b>: <a href="http://www.ferryhalim.com/orisinal/g3/bells.htm" rel="nofollow">www.ferryhalim.com</a>
 <b>Task</b>: Jump at as many bells / pigeons with your arctic hare as possible

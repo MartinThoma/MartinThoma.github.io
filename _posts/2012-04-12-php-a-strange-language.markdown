@@ -16,6 +16,7 @@ tags:
 - Programming
 - PHP
 comments: []
+featured_image: 2011/10/PHP-logo.png
 ---
 <h2>Inconsistency</h2>
 <h3>Starting and ending PHP</h3>

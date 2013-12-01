@@ -19,6 +19,7 @@ tags:
 - JavaScript
 - canvas
 comments: []
+featured_image: 2013/05/k-means-interesting-setting-thumb.png
 ---
 <iframe src="http://martin-thoma.com/html5/clustering/clustering.htm" width="98%" height="700px"></iframe>
 

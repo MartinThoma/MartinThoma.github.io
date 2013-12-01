@@ -15,6 +15,7 @@ categories:
 tags:
 - Python
 comments: []
+featured_image: 2011/09/Python-Logo.png
 ---
 In Python, you can use the following ways to format Strings:
 

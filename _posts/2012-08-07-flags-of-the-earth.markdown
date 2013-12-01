@@ -27,6 +27,7 @@ comments:
     MjAxMi0xMC0wNyAxNjoxMjowMiArMDIwMA==
   content: ! "http://s7.directupload.net/images/121007/k3o8qy4l.jpg\r\n245240
     Punkte"
+featured_image: 2012/07/flags-of-the-earth1.png
 ---
 [caption id="attachment_37071" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/flags-of-the-earth.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/flags-of-the-earth.png" alt="Flags of the Earth" title="Flags of the Earth" width="512" height="370" class="size-full wp-image-37071" /></a> Flags of the Earth[/caption]
 <strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/KingDotCom/flags">Flags on Kongregate</a>

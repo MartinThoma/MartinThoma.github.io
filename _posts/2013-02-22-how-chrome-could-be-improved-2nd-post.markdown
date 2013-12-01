@@ -83,6 +83,7 @@ comments:
     rel=\"nofollow\">Chromium issue list</a>, but PDF and Flash get handled by
     a closed source part from Google as far as I know. \r\n\r\nThe only feature where
     I found a bug record is the MathML master bug. I've already linked that one."
+featured_image: 2012/04/google-chrome-logo.png
 ---
 Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article <a href="http://martin-thoma.com/how-chrome-could-be-improved/">How Chrome could be improved</a> for Chrome 18 I will also mention what  was realised meanwhile. If you're curious if you have the current version, just visit <a href="chrome://chrome/">chrome://chrome/</a>.
 

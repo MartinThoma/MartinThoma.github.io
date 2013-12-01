@@ -15,6 +15,7 @@ categories:
 tags:
 - illusion
 comments: []
+featured_image: 2012/03/fraser-spiral-illusion-thumb.png
 ---
 Some really great and short examples of illusions. If you want an explanation of them, I have added a link to the corresponding Wikipedia article.
 

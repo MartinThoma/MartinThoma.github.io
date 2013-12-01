@@ -16,6 +16,7 @@ tags:
 - Linux
 - Bash
 comments: []
+featured_image: 2011/09/Gnome-Terminal.png
 ---
 I just had the problem, that the bash prompt of my universities computer I've connected to via SSH looked like this:
 <code>bash-4.0$</code>

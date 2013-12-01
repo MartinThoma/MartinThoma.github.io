@@ -43,6 +43,7 @@ comments:
     machen, indem man eine Abbildungsmatrix betrachtet, die bereits in Diagonalform
     ist (und somit offensichtlich diagonalisierbar ist). Siehe <a href=\"http://de.wikipedia.org/wiki/Diagonalisierbarkeit#Beispiel\"
     rel=\"nofollow\">Beispiel</a> auf Wikipedia."
+featured_image: 2012/01/vector-space.png
 ---
 <strong>Eigenwerte</strong> sind Elemente des K&ouml;rpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erf&uuml;llen:
 $\Phi(x) = \lambda x$ mit $x \in V$ und $x \neq 0$

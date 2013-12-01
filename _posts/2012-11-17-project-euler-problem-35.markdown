@@ -64,6 +64,7 @@ comments:
     MjAxMi0xMS0yNSAxODoyMzo0NCArMDEwMA==
   content: ! "Change\r\nfor currentPrime in xrange(2, n):\r\nto\r\nfor currentPrime
     in xrange(3, n, 2):"
+featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:
 

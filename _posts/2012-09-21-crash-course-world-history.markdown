@@ -17,6 +17,7 @@ tags:
 - learning
 - history
 comments: []
+featured_image: 2012/09/world-history.png
 ---
 <h2>#32: Coal, Steam, and The Industrial Revolution</h2>
 <iframe width="512" height="288" src="http://www.youtube.com/embed/zhL5DCizj5c" frameborder="0" allowfullscreen></iframe>

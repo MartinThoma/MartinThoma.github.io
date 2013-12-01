@@ -16,6 +16,7 @@ tags:
 - IT-Security
 - Theoretical computer science
 comments: []
+featured_image: 2013/04/cryptography-thumb.png
 ---
 In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst $\mathcal{P} \neq \mathcal{NP}$ beweisen m&uuml;sste. Warum das so ist, versuche ich nun zu erl&auml;utern.
 

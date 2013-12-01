@@ -25,6 +25,7 @@ comments:
   content: ! 'Und wer''s ausprobieren will: http://www.freeware.de/download/solitaire3d_22105.html
     :D Das ist wohl im Jahre 2004 entstanden unter Windows 95 mit der VB6(!) Runtime,
     also keine Ahnung ob es unter heutigen Betriebssystemen noch l&auml;uft :P'
+featured_image: 2012/08/Peg-solitaire-board1.png
 ---
 Solit&auml;r (auch Solitaire, Steck- oder Solohalma, Springer, Jumper, Nonnenspiel, Einsiedlerspiel) ist ein Brettspiel f&uuml;r eine Person. Das weitest verbreitete Spielfeld ist kreuzf&ouml;rmig und wird mit 32 Steinen auf 33 Felder gestartet.
 In der Mitte fehlt die Kugel, alle anderen 32 Felder sind besetzt.

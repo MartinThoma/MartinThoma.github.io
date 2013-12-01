@@ -22,6 +22,7 @@ tags:
 - lecture-notes
 - Linear algebra
 comments: []
+featured_image: 2012/04/determinante.png
 ---
 Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss man zuerst sicher im Umgang mit Determinanten sein.
 

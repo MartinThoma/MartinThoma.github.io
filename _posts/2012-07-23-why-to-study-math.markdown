@@ -17,6 +17,7 @@ tags:
 - Clip
 - mathematics
 comments: []
+featured_image: 2012/07/math-symbol-thumb.png
 ---
 <iframe width="512" height="288" src="http://www.youtube.com/embed/aYIv4jggQJc" frameborder="0" allowfullscreen></iframe>
 

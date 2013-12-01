@@ -16,6 +16,7 @@ tags:
 - LaTeX
 - Tikz
 comments: []
+featured_image: 2012/01/latex-logo.png
 ---
 Sometimes I would like to create a single picture with Tikz for later usage on Wikipedia or my Blog. This is my LaTeX Tikz template I use in such a situation:
 

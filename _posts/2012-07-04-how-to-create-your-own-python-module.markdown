@@ -15,6 +15,7 @@ categories:
 tags:
 - Python
 comments: []
+featured_image: 2011/09/Python-Logo.png
 ---
 A python module is a container for some definitions and statements. You generally call it like this:
 {% highlight python %}import math{% endhighlight %}

@@ -17,6 +17,7 @@ tags:
 - Coding
 - float
 comments: []
+featured_image: 2012/10/float-scheme1.png
 ---
 If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:
 

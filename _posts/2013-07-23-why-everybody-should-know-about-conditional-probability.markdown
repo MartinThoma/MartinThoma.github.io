@@ -16,6 +16,7 @@ tags:
 - Stochastic
 - probability
 comments: []
+featured_image: 2013/07/probability-tree.png
 ---
 Probability theory is difficult, but I think everybody should be taught basics in this subject. Why? Because it is relevant for everybody.
 

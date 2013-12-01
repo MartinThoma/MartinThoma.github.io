@@ -17,6 +17,7 @@ tags:
 - JavaScript
 - canvas
 comments: []
+featured_image: 2013/07/laplace-filter-example-thumbnail.png
 ---
 I begin to fall in love with JavaScript and HTML5. You can access your Webcam with JS! As an example, I've implemented some graphic filters.
 

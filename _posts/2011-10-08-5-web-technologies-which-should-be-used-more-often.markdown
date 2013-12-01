@@ -21,6 +21,7 @@ tags:
 - Labels
 - Tags
 comments: []
+featured_image: 2011/10/OpenID.png
 ---
 [caption id="attachment_4411" align="alignright" width="100" caption="RSS-Feeds"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/RSS-Feeds.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/RSS-Feeds.png" alt="RSS-Feeds" title="RSS-Feeds" width="100" height="100" class="size-full wp-image-4411" /></a>[/caption]
 <h2>RSS-Feeds</h2>

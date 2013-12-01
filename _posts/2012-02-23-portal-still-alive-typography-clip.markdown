@@ -26,5 +26,6 @@ comments:
     MjAxMi0wMi0yMyAxOTozNDo1NiArMDEwMA==
   content: Eines der besten Spiele, die ich kenne. Es ist mein Paradebeispiel daf&uuml;r,
     dass die Menschen Computerspiele nicht nur spielen, wenn es um Gewalt geht!
+featured_image: 2012/02/portal-clip-typography-thumb.png
 ---
 <iframe src="http://player.vimeo.com/video/1612411?title=0&amp;byline=0&amp;portrait=0" width="512" height="307" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>

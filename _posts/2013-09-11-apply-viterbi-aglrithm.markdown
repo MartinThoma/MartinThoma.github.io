@@ -15,6 +15,7 @@ categories:
 tags:
 - KogSys
 comments: []
+featured_image: 2013/09/hidden-markov-model-hmm-thumb.png
 ---
 The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.
 

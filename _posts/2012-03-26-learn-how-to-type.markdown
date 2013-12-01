@@ -16,6 +16,7 @@ tags:
 - learning
 - ten finger type
 comments: []
+featured_image: 2012/03/learn-how-to-type-thumb.png
 ---
 [caption id="attachment_19691" align="aligncenter" width="476" caption="keybr - learn how to type"]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/keybr.png"><img class=" wp-image-19691   " title="keybr" src="http://martin-thoma.com/wp-content/uploads/2012/03/keybr.png" alt="keybr - learn how to type" width="476" height="246" /></a>[/caption]
 

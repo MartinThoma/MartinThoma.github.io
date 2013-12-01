@@ -14,6 +14,7 @@ categories:
 - The Web
 tags: []
 comments: []
+featured_image: 2011/10/baby-ogre-thumb.jpg
 ---
 It's so funny what happens when Geeks get parents. 
 

@@ -40,6 +40,7 @@ comments:
     MjAxMi0xMS0yOCAwNzo1ODo0NSArMDEwMA==
   content: Wow, vielen Dank daf&uuml;r! Mit Kommentaren und Vergleichen ist das noch
     interessanter.
+featured_image: 2012/11/scheduler.png
 ---
 <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung ge&auml;ndert.</div>
 

@@ -16,6 +16,7 @@ tags:
 - mathematics
 - analysis
 comments: []
+featured_image: 2012/08/limes-thumbnail.png
 ---
 Die folgenden Definitionen sind wortw&ouml;rtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript f&uuml;r Analysis I</a> bei Herrn Dr. Schmoeger &uuml;bernommen worden.
 

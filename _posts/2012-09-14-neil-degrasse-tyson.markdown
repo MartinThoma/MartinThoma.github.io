@@ -15,6 +15,7 @@ categories:
 tags:
 - funny
 comments: []
+featured_image: 2012/09/Neil_deGrasse_Tyson.jpg
 ---
 [caption id="attachment_44861" align="alignright" width="128"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/Neil_deGrasse_Tyson.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2012/09/Neil_deGrasse_Tyson.jpg" alt="Neil deGrasse Tyson" title="Neil deGrasse Tyson" width="128" height="128" class="size-full wp-image-44861" /></a> Neil deGrasse Tyson[/caption]
 <a href="http://en.wikipedia.org/wiki/Neil_degrasse">Neil deGrasse Tyson</a> is an American astrophysicist and science communicator. He is currently the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space and a research associate in the department of astrophysics at the American Museum of Natural History. And he gives hilarious talks and interviews.

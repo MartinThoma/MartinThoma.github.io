@@ -16,6 +16,7 @@ tags:
 - Lolcat
 - amazing
 comments: []
+featured_image: 2012/04/axolotl-thumb.jpg
 ---
 Some animals are truly amazing. Just take a look at them. I've also included some video clips of funny individuals.
 

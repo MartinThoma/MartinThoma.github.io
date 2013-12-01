@@ -16,6 +16,7 @@ tags:
 - Wikipedia
 - mathematics
 comments: []
+featured_image: 2012/08/cubic-function-thumb.png
 ---
 I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ. 
 

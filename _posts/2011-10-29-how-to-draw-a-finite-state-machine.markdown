@@ -49,6 +49,7 @@ comments:
     MjAxMy0xMC0yMCAxNTozMjo1NSArMDIwMA==
   content: Thanks for getting me started with this!  I would not have guessed that
     it could be so easy to build an FSM in LaTeX.
+featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).
 

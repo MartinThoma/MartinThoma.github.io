@@ -16,6 +16,7 @@ tags:
 - SWT I
 - UML
 comments: []
+featured_image: 2012/05/UML-thumb.png
 ---
 Folgende Pfeile werden in UML verwendet:
 <h2>Klassendiagramme</h2>

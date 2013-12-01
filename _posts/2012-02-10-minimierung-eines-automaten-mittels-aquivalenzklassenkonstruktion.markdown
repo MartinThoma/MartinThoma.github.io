@@ -33,6 +33,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wNS0xMSAxMDo1MjowMSArMDIwMA==
   content: Find ich klasse, sehr gut erkl&auml;rt.
+featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von &Auml;quivalenzklassen sehr einfach ein Automat mit gleichem Akzeptanzverhalten und minimaler Anzahl an Zust&auml;nden gefunden werden. Daf&uuml;r ben&ouml;tigt man im Wesentlichen sogar nur drei Schritte.
 

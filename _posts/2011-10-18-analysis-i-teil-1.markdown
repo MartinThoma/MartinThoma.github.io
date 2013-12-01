@@ -16,6 +16,7 @@ tags:
 - mathematics
 - lecture-notes
 comments: []
+featured_image: 2012/07/math-symbol-thumb.png
 ---
 <h2>Begriffe und Bezeichnungen</h2>
 <h3>Mengen</h3>

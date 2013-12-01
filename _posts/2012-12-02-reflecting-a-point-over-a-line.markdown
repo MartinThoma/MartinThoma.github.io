@@ -25,6 +25,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wMS0xMCAwNToyOTozOCArMDEwMA==
   content: Thanks for taking the time to write this up, was very helpful!
+featured_image: 2012/12/line-reflection-thumb.png
 ---
 It's astonishing how difficult it is to find a good explanation how to reflect a point over a line that does not use higher math methods. So here is my explanation:
 

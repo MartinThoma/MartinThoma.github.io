@@ -16,6 +16,7 @@ tags:
 - home improvement
 - do-it-yourself
 comments: []
+featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
 [caption id="attachment_4861" align="alignright" width="128" caption="Do-it-yourself"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/do-it-yourself-thumb.jpg"><img class="size-full wp-image-4861 " title="Do-it-yourself - Some random tools (Thumbnail)" src="http://martin-thoma.com/wp-content/uploads/2011/10/do-it-yourself-thumb.jpg" alt="Do-it-yourself - Some random tools (Thumbnail)" width="128" height="128" /></a>[/caption]
 

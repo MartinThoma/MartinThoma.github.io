@@ -15,6 +15,7 @@ categories:
 tags:
 - Python
 comments: []
+featured_image: 2011/09/Python-Logo.png
 ---
 Python has a quite mighty tool: Generators.
 

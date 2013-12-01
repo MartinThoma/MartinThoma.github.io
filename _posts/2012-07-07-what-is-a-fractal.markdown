@@ -16,6 +16,7 @@ tags:
 - mathematics
 - fractal
 comments: []
+featured_image: 2012/07/mandelbrot-set-thumb.jpg
 ---
 <blockquote>[...] Fractals are typically self-similar patterns, where self-similar means they are "the same from near as from far". [...] The definition of fractal goes beyond self-similarity per se to exclude trivial self-similarity and include the idea of a detailed pattern repeating itself.</blockquote>
 Source: <a href="http://en.wikipedia.org/wiki/Fractal">Fractal</a>, Wikipedia

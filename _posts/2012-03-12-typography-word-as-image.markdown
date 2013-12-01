@@ -17,6 +17,7 @@ tags:
 - Clip
 - Typography
 comments: []
+featured_image: 2012/03/brilliant-messages-in-words-as-images-robbery.jpg
 ---
 <iframe width="512" height="290" src="http://www.youtube.com/embed/J59n8FsoRLE" frameborder="0" allowfullscreen></iframe>
 Challenge: Create an image out of a word, using only the letters in the word itself.

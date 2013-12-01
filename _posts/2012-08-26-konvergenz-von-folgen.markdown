@@ -15,6 +15,7 @@ categories:
 tags:
 - analysis
 comments: []
+featured_image: 2012/08/limes-thumbnail.png
 ---
 <div class="definition">Sei $(a_n)$ eine Folge.
 

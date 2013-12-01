@@ -16,6 +16,7 @@ tags:
 - C
 - Java
 comments: []
+featured_image: 2012/05/C.png
 ---
 You might have read the variable modifier <code>volatile</code> in C, C++ or in Java. But do you know what it means?
 

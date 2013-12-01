@@ -30,6 +30,7 @@ comments:
     dann Personen, die einen anrufen doch die Auslandsvorwahl eintippen? Was aber
     merkw&uuml;rdig w&auml;re, da man damit ja vermutlich auf die im Ausland vergeben
     Festnetznummer kommt und nicht auf dein Handy ;)\r\n\r\nViele Gr&uuml;&szlig;e"
+featured_image: 2013/07/simquadrat.png
 ---
 Simquadrat ist ein Dienst von <a href="http://en.wikipedia.org/wiki/Sipgate">sipgate</a>. Das besondere daran ist, dass Simkarten verkauft werden, die eine Festnetznummer haben. Ich habe das ganze ausprobiert und will meine Erfahrungen nun teilen.
 

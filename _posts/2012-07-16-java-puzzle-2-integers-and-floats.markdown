@@ -17,6 +17,7 @@ tags:
 - Java
 - puzzle
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 <h2>Basics</h2>
 As you might know, Americans measure the temperature in <a href="http://en.wikipedia.org/wiki/Fahrenheit">Fahrenheit</a>. I'm not quite sure, but I guess the rest of the world uses <a href="http://en.wikipedia.org/wiki/Celsius">Celsius</a>.

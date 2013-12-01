@@ -18,6 +18,7 @@ tags:
 - Operating Systems
 - Multithreading
 comments: []
+featured_image: 2013/02/multithreading.png
 ---
 A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.
 

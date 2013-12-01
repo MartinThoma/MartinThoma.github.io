@@ -89,6 +89,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wNS0xNiAyMjowOTo0NSArMDIwMA==
   content: ! 'Very interesting: http://www.webresourcesdepot.com/google-reader-alternatives-hosted-self-hosted-desktop-browser-extensions/'
+featured_image: 2013/03/google-reader-logo.png
 ---
 On July 1, 2013, Google will retire Google Reader (<a href="http://googleblog.blogspot.de/2013/03/a-second-spring-of-cleaning.html">source</a>). A first step should be to save your data (especially your subscriptions). You can do that with <a href="https://www.google.com/takeout">Google Takeout</a>. You could also sign a <a href="https://www.change.org/petitions/google-keep-google-reader-running">petition against closing Google Reader</a>, but I doubt that this will have any effect. Currently, 106,712 people support this petition, though.
 

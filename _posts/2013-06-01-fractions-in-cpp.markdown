@@ -15,6 +15,7 @@ categories:
 tags:
 - CPP
 comments: []
+featured_image: 2012/05/CPP-thumb.png
 ---
 Today, I thought I should try to implement a class in C++ that deals with fractions. This is actually quite easy as I'll show you.
 

@@ -206,6 +206,7 @@ comments:
     results (relative):\r\n- optimal loop order + SIMD instructions: 1\r\n- default
     BLAS on debian wheezy: 1/45\r\n- ATLAS: 1/110\r\n\r\nHopefully this is
     useful for you!\r\n\r\nMarc"
+featured_image: 2011/09/Python-Logo.png
 ---
 <div class="info">This is Part I of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>

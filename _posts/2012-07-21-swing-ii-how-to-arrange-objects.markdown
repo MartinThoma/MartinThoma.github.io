@@ -17,6 +17,7 @@ tags:
 - Java
 - Swing
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 <h2>Without GUI</h2>
 Objects can be arranged with <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagLayout.html">GridBagLayout</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagConstraints.html">GridBagConstraints</a>. This is an example:

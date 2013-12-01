@@ -30,6 +30,7 @@ comments:
     and know that in legend was about to release some videos at the same time in order
     to see this connection :P\r\n\r\nhope your classes are not too boring for you!\r\n\r\ngreetz
     Ren&eacute;"
+featured_image: 2011/10/youtube-dvd-menu1.png
 ---
 Today a friend of mine <a href="http://www.rene-pickhardt.de/first-youtube-dvd-online-for-ballads-n-bullets-by-in-legend/">posted</a> an article about a very neat idea. He created a DVD-like menu with several YouTube clips.
 

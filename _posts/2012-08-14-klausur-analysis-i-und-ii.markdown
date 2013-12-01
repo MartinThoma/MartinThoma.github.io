@@ -33,6 +33,7 @@ comments:
   date_gmt: !binary |-
     MjAxMi0wOS0yNiAxNToxNDo0MSArMDIwMA==
   content: Der Termin der Klausureinsicht steht nun fest.
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Schmoeger am KIT die Klausur &uuml;ber Analysis schreiben werden.</div>
 

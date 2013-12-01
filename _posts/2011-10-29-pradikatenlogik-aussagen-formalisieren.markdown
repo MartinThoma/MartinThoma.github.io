@@ -16,6 +16,7 @@ tags:
 - mathematics
 - lecture-notes
 comments: []
+featured_image: 2011/10/eulers-formula.png
 ---
 Es ist h&auml;ufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden.
 

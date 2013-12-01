@@ -15,6 +15,7 @@ categories:
 tags:
 - numerics
 comments: []
+featured_image: 2013/06/spline-thumb.png
 ---
 Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x_i, y_i)$ with $x_0 < x_1 < \dots < x_n$. 
 

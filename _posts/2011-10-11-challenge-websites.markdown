@@ -19,6 +19,7 @@ tags:
 - IT-Security
 - Project Euler
 comments: []
+featured_image: 2011/09/Hacker.png
 ---
 Challenge websites are websites which offer many tasks to solve and a ranking system. If you solve the challenges, you get points and your rank increases. You don't get anything else. No money, no price. Only the knowledge and the ranking. Which is enough in my opinion. It might sound strange to others, but its fun to try to find the error in an application or to try to get better than others.
 

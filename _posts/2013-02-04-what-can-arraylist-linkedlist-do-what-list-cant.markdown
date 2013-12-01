@@ -15,6 +15,7 @@ categories:
 tags:
 - Java
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 I've told my students to write
 {% highlight java %}List<MyClass> myList = new ArrayList<MyClass>();{% endhighlight %}

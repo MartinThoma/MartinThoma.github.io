@@ -15,6 +15,7 @@ categories:
 tags:
 - Linear algebra
 comments: []
+featured_image: 2012/08/pi-thumbnail.png
 ---
 <h2>Permutation</h2>
 <h3>Definition</h3>

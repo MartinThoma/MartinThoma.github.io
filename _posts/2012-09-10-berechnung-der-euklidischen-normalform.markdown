@@ -17,6 +17,7 @@ tags:
 - Matrix
 - normal form
 comments: []
+featured_image: 2012/09/math-euklidische-normalform1.png
 ---
 Die euklidische Normalform einer linearen Isometrie, manchmal auch lineare Normalform gennant, hat folgende Gestalt:
 

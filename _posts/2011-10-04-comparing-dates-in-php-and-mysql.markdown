@@ -16,6 +16,7 @@ tags:
 - PHP
 - MySQL
 comments: []
+featured_image: 2011/10/PHP-logo.png
 ---
 Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same.
 

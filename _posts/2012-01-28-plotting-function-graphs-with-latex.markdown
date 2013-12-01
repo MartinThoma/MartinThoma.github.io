@@ -15,6 +15,7 @@ categories:
 tags:
 - LaTeX
 comments: []
+featured_image: 2012/01/latex-logo.png
 ---
 It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. 
 

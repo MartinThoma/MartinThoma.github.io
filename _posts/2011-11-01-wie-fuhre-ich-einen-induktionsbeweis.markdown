@@ -18,6 +18,7 @@ tags:
 - Mathematical induction
 - Structural induction
 comments: []
+featured_image: 2011/10/eulers-formula.png
 ---
 Der Induktionsbeweis eignet sich h&auml;ufig, wenn es um Aussagen &uuml;ber die Nat&uuml;rlichen Zahlen $\mathbb{N}$ geht, allerdings kann er auch f&uuml;r die ganzen Zahlen $\mathbb{Z}$ verwendet werden.
 

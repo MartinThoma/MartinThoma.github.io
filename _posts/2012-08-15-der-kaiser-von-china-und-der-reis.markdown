@@ -16,6 +16,7 @@ tags:
 - mathematics
 - chess
 comments: []
+featured_image: 2012/08/chess-thumbnail.png
 ---
 <a href="http://martin-thoma.com/wp-content/uploads/2012/08/chessboard-rice.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/chessboard-rice.png" alt="" title="Schachbrett mit Reis" width="191" height="128" class="alignright size-full wp-image-46151" /></a>
 <h2>Aufgabenstellung</h2>

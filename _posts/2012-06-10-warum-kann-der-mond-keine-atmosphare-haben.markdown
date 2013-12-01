@@ -15,6 +15,7 @@ categories:
 tags:
 - Physics
 comments: []
+featured_image: 2012/06/moon.jpg
 ---
 Ich lese gerade das Buch 2025 von Frank Sch&auml;tzing, in dem es um den Abbau des Isotops <a href="http://de.wikipedia.org/wiki/Helium-3#Kernfusion"><sup>3</sup>He</a> geht. Es wird auch kurz erw&auml;hnt, dass es auf dem Mond keine Atmosph&auml;re geben kann. Warum ist das so?
 

@@ -18,6 +18,7 @@ tags:
 - C
 - Java
 comments: []
+featured_image: 2012/07/testing_cartoon-thumb.jpg
 ---
 There is no such thing as a best programming language. Sorry about that, I've just thought it would be a catchy title. I would rather choose my tools after I know the problem I have to solve.
 

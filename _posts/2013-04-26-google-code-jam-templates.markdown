@@ -19,6 +19,7 @@ tags:
 - Java
 - Google Code Jam
 comments: []
+featured_image: 2012/04/code-jam-logo.png
 ---
 Here are some templates that are a good start for Google Code Jam.
 

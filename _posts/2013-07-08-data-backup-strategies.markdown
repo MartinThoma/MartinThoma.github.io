@@ -16,6 +16,7 @@ tags:
 - IT-Security
 - backup
 comments: []
+featured_image: 2013/07/hdd.png
 ---
 Yesterday, I thought what would happen if my internal or external hard drive crashed. 
 

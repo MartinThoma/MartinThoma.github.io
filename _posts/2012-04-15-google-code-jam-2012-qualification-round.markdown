@@ -61,6 +61,7 @@ comments:
     how much code duplication there seems to be in the solution presented here. Good
     work using numpy here and +1 for perfecting it even after the contest was over
     :)
+featured_image: 2012/04/code-jam-logo.png
 ---
 I've passed the <a href="https://code.google.com/codejam/contest/1460488/dashboard">Qualification Round</a> of Google Code Jam 2012. I've learned, that I am not allowed to submit the large dataset after the first 8 minutes. 
 

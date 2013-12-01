@@ -16,6 +16,7 @@ tags:
 - funny
 - Comedy
 comments: []
+featured_image: 2012/07/george-charline-thumb.jpg
 ---
 <a href="http://en.wikipedia.org/wiki/George_Carlin">George Carlin</a> is a great American stand-up comedian. Here are some of his clips:
 

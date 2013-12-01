@@ -17,6 +17,7 @@ tags:
 - Physics
 - Geometry
 comments: []
+featured_image: 2012/08/skizze-math-thumb.png
 ---
 <h2>Aufgabenstellung</h2>
 Der Burdsch Chalifa war 2010 das h&ouml;chste Geb&auml;ude der Erde. Bis zur Spitze sind es 830 m.

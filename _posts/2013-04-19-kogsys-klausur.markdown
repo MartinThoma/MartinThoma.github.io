@@ -69,6 +69,7 @@ comments:
     MjAxMy0wOS0zMCAxODo0ODoxOSArMDIwMA==
   content: Hey, sind die Ergebnisse eigentlich inzwischen drausen? Wenn ja, kann ich
     die irgendwie Online einsehen?
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Waibel im Sommersemester 2013 geh&ouml;rt.</div>
 

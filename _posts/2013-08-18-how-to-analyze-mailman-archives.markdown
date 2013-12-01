@@ -17,6 +17,7 @@ tags:
 - Mailman
 - discussion
 comments: []
+featured_image: 2011/09/Gnome-Terminal.png
 ---
 All mailing lists I use are <a href="http://en.wikipedia.org/wiki/GNU_Mailman">GNU Mailman</a> lists. This software provides archives of all Emails that were send over the list. 
 

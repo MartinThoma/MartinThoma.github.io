@@ -44,6 +44,7 @@ comments:
     most of the time. Just like the macro-one.\r\n\r\n<blockquote>And in particular
     it has no connection to x=42 (-:</blockquote>\r\nAre you sure? I don't know
     the question, but 42 is the answer ;-)"
+featured_image: 2011/12/compare-programming-languages.png
 ---
 Those errors might be surprising and a good exercise for C beginners:
 

@@ -17,6 +17,7 @@ tags:
 - Vimeo
 - beautiful
 comments: []
+featured_image: 2011/09/thought-of-you.png
 ---
 Vimeo is a video-sharing website like YouTube. The most obvious difference is the quality.
 

@@ -18,6 +18,7 @@ tags:
 - Theoretical computer science
 - GBI
 comments: []
+featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 <h2>Formale Sprachen</h2>
 A hei&szlig;t Alphabet $:\Leftrightarrow$ A ist eine endliche, nicht leere Menge aus Zeichen.

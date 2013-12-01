@@ -16,6 +16,7 @@ tags:
 - Python
 - Algebra
 comments: []
+featured_image: 2013/08/algebra-thumb.jpg
 ---
 <h2>Pseudocode</h2>
 [caption id="attachment_76379" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/Calculate-Legendre.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol" width="500" height="528" class="size-full wp-image-76379" /></a> Pseudocode: Calculate Legendre symbol[/caption]

@@ -15,6 +15,7 @@ categories:
 tags:
 - algorithms
 comments: []
+featured_image: 2012/07/landau-thumb.png
 ---
 <h2>Definitionen</h2>
 $

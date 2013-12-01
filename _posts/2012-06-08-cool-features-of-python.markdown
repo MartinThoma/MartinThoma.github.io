@@ -54,6 +54,7 @@ comments:
     MjAxMy0xMC0yMSAxNDo0ODo1NCArMDIwMA==
   content: ! "I've just found a very good resource for understanding decorators in
     Python:\r\n\r\nhttp://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps"
+featured_image: 2011/09/Python-Logo.png
 ---
 A friend wanted to know why I enjoy programming in Python so much more than programming in other languages. So I will describe some special features of Python which make it much easier to quickly implement algorithms.
 

@@ -16,6 +16,7 @@ tags:
 - Programming
 - learning
 comments: []
+featured_image: 2011/11/for-loop.png
 ---
 If you have to learn a new programming language it is most of the time quite easy. You know the structures and the way you have to think if you want to solve a problem. The first time it might be hard, but the more languages you learn the more simmilarities you'll recognize.
 

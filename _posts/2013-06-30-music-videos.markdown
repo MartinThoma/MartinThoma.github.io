@@ -17,6 +17,7 @@ tags:
 - YouTube
 - Chatroulette
 comments: []
+featured_image: 2013/06/paint-thumb.png
 ---
 <h2>Paint: Lord of the Rings</h2>
 <iframe width="512" height="288" src="http://www.youtube.com/embed/3FPxYDGfniM" frameborder="0" allowfullscreen></iframe>

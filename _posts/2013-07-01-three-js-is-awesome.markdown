@@ -18,6 +18,7 @@ tags:
 - JavaScript
 - three.js
 comments: []
+featured_image: 2013/07/threejs-reflection-thumb.png
 ---
 I recently discovered <a href="http://en.wikipedia.org/wiki/Three.js">three.js</a>, a JavaScript library/API used to create and display animated 3D computer graphics. 
 

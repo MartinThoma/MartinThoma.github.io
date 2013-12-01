@@ -28,6 +28,7 @@ comments:
     kitchen. They had to do, actually information scientist\r\nin the living area
     aim.\r\nI do the bank credit transfer on Monday,there the TAN assignment anew
     developed by the savings bank\r\nit is very susceptible.\r\n\r\nFriendly greeting\r\np.Schn&uuml;rer"
+featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
 Most of you might know that I am currently a student. Living near the University is quite important for me as I hate traveling long. In the central part of <a href="http://en.wikipedia.org/wiki/Karlsruhe">Karlsruhe</a>, the city I study in, most houses are very old. The house I live in was built around 1900 and modernized from time to time. A heater and electricity were added, for example.
 

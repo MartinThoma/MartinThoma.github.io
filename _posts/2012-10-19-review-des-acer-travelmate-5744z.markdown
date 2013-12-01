@@ -18,6 +18,7 @@ tags:
 - Review
 - Acer
 comments: []
+featured_image: 2011/09/Tux.png
 ---
 Vor ein paar Tagen ist mein <a href="http://support.acer.com/us/en/product/default.aspx?tab=1&modelId=3823">Acer Travelmate 5744Z</a>, das ich bei Amazon f&uuml;r 305,95 Euro bekommen habe, angekommen. Ich habe es mit &bdquo;Linux&ldquo; als System gekauft. Wie sich herausstellte, ist MeeGo release 1.0 mit dem Kernel 2.6.37, installiert. Das System startet zwar in sensationellen 29 Sekunden, aber Ubuntu ist mir doch lieber.
 

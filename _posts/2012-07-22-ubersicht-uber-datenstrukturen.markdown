@@ -16,6 +16,7 @@ tags:
 - algorithms
 - data structure
 comments: []
+featured_image: 2012/07/tree-thumb.png
 ---
 Diese &Uuml;bersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a href="http://de.wikipedia.org/wiki/Kategorie:Datenstruktur">mehr Datenstrukturen</a> (z.B. <a href="http://de.wikipedia.org/wiki/Bloomfilter">Bloomfilter</a>), als ich hier erw&auml;hne. Diese Datenstrukturen wurden in der Vorlesung Algorithmen I bei Frau Zitterbart am KIT erkl&auml;rt.
 

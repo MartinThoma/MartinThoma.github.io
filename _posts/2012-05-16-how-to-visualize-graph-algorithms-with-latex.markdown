@@ -37,6 +37,7 @@ comments:
   content: ! "Hallo Tom,\r\n\r\nnein, dass der node e die Bezeichnung \"d\" bekommt,
     ist absicht. Ich wollte zeigen, dass hier durchaus doppelte Beschriftungen zugelassen
     sind.\r\n\r\nMartin"
+featured_image: 2012/01/latex-logo.png
 ---
 Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template ;-) ). This post should give you a template to visualize graph algorithms with LaTeX.
 I recently found a great animation of Prim's algorithm done by <a href="http://www.texample.net/tikz/examples/prims-algorithm/">Kjell Magne Fauske</a>. I've edited his source files to show an eulerian path. This is how it looks like:

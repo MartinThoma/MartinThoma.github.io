@@ -30,6 +30,7 @@ comments:
     that AVG is in contact with Google for data of their trains, but not the local
     traffic system and referred to NVBW (Nahverkehr Baden-W&uuml;rttemberg).\r\n\r\nI
     think there is few sensibility for the problems of passengers at the system owners."
+featured_image: 2013/07/bus.png
 ---
 Public transportation in Germany is much worse than it could be. I've got quite angry today because of that and thought about ways to improve the situation.
 

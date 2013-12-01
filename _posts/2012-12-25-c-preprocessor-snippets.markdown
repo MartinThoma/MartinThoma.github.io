@@ -16,6 +16,7 @@ tags:
 - C
 - Preprocessor
 comments: []
+featured_image: 2012/05/CPP-thumb.png
 ---
 The C++ Preprocessor - which is in fact the same as the C Preprocessor - provides some very basic, but powerful abilities. I haven't used them quite often, but I have seen some nice examples. So here are some C++ Preprocessor Snippets:
 <h2>Maximum / Minimum</h2>

@@ -43,6 +43,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wNi0yNCAxMTo1ODowMyArMDIwMA==
   content: Anyway,thanks for sharing your notes,they are great!
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Datenbanksysteme&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://dbis.ipd.uni-karlsruhe.de/336.php">Herrn Prof. Dr. B&ouml;hm</a> im Sommersemester 2013 geh&ouml;rt.</div>
 

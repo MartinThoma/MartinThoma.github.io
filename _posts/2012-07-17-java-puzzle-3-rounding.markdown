@@ -17,6 +17,7 @@ tags:
 - Java
 - puzzle
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 <h2>The puzzle</h2>
 What is the output of the following script:

@@ -46,6 +46,7 @@ comments:
     but still readable\r\n * Scipping intermediate results without very good documentation
     and other reasons should not be done\r\n * Short, but readable code (sometimes
     also called \"elegant solution\") is cool\r\n\r\nCheers,\r\nMartin"
+featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in Problem 32 of Project Euler is:
 

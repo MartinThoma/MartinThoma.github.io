@@ -17,6 +17,7 @@ tags:
 - weather
 - hot
 comments: []
+featured_image: 2013/07/wetter1.png
 ---
 [gallery ids="74781,75651"]
 

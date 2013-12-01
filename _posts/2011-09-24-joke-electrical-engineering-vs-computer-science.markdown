@@ -18,6 +18,7 @@ tags:
 - Object Orientation
 - Computer science
 comments: []
+featured_image: 2011/09/Nerd-Crossing.jpg
 ---
 [caption id="attachment_2071" align="alignright" width="128" caption="Nerd-Crossing"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Nerd-Crossing.jpg"><img class="size-full wp-image-2071" title="Nerd-Crossing" src="http://martin-thoma.com/wp-content/uploads/2011/09/Nerd-Crossing.jpg" alt="Nerd-Crossing" width="128" height="127" /></a>[/caption]
 

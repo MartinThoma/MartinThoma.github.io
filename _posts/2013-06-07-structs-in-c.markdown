@@ -32,6 +32,7 @@ comments:
     search on the differences of structs and classes I could only find this stack
     overflow discussion http://stackoverflow.com/questions/92859/what-are-the-differences-between-struct-and-class-in-c
     which is basically stating what I already mentioned in the comment."
+featured_image: 2012/05/CPP-thumb.png
 ---
 I guess this article isn't very interesting, except if you have VERY little experience with C / C++. I only give some complete code examples. If you want some text, you could read <a href="http://en.wikibooks.org/wiki/C%2B%2B_Programming/Structures">C++ Programming/Structures</a> (a wikibook).
 

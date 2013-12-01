@@ -15,6 +15,7 @@ categories:
 tags:
 - mathematics
 comments: []
+featured_image: 2012/08/pi-thumbnail.png
 ---
 Ich verstehe unter einer wohldefinierten Funktion / Relation die Unabh&auml;ngigkeit von den Repr&auml;sentanten. Wikipedia sagt dazu:
 

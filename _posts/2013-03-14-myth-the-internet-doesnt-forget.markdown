@@ -16,6 +16,7 @@ tags:
 - YouTube
 - Copyright
 comments: []
+featured_image: 2013/03/youtube-logo.png
 ---
 I've created a <a href="http://www.youtube.com/watch?v=QDV4E9ldelM&list=PL1EB0B7290460E720">playlist</a> with 51 songs on YouTube about two years ago.
 

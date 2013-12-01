@@ -17,6 +17,7 @@ tags:
 - Java
 - puzzle
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 What does the following snippet output?
 

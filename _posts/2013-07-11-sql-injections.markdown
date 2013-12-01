@@ -19,6 +19,7 @@ tags:
 - MySQL
 - SQL
 comments: []
+featured_image: 2013/07/blackhat.png
 ---
 <abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. 
 

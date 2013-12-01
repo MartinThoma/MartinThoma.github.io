@@ -15,6 +15,7 @@ categories:
 tags:
 - Algebra
 comments: []
+featured_image: 2013/08/algebra-thumb.jpg
 ---
 Today I've wondered how many homomorphisms are between the groups $(\mathbb{Z}/n\mathbb{Z},+)$ and $(\mathbb{Z}/m\mathbb{Z},+)$ with $m, n \geq 2$. Does it make a difference if I use + or $\cdot$ as operators?
 

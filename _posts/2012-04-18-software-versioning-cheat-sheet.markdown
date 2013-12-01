@@ -18,6 +18,7 @@ tags:
 - svn
 - git
 comments: []
+featured_image: 2012/04/svn-git-logo.png
 ---
 This <a href='http://martin-thoma.com/wp-content/uploads/2012/04/versioning-cheat-sheet.pdf'>Software Versioning Cheat Sheet</a> has very basic information aboout the installation and usage of Subversion and Git. (The <a href='http://martin-thoma.com/wp-content/uploads/2012/04/versioning-cheat-sheet.zip'>LaTeX Source Code</a> is here.)
 

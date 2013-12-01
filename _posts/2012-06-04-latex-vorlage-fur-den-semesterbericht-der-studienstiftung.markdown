@@ -52,6 +52,7 @@ comments:
   date_gmt: !binary |-
     MjAxMy0wNy0zMCAxMjo0NTozMSArMDIwMA==
   content: ! "Hallo Martin!\r\n\r\nBesten Dank f&uuml;r die Vorlage!\r\n\r\nLudger"
+featured_image: 2012/06/Studienstiftung-Logo.png
 ---
 Stipendiaten der Studienstiftung des deutschen Volkes m&uuml;ssen jedes Semester einen Studienbericht schreiben. 
 

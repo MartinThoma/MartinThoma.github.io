@@ -16,6 +16,7 @@ tags:
 - Programming
 - Java
 comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 If you are using Eclipse, you might want to add your arguments. To specify them, go to:
 Run &rarr; Run Configurations ... &rarr; Arguments

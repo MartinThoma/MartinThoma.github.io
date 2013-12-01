@@ -16,6 +16,7 @@ tags:
 - mathematics
 - Linear algebra
 comments: []
+featured_image: 2012/01/vector-space.png
 ---
 Matrix multiplication in general is not commutative. Here is an example:
 

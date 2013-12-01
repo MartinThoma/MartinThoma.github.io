@@ -18,6 +18,7 @@ tags:
 - NumPy
 - itertools
 comments: []
+featured_image: 2012/04/code-jam-logo.png
 ---
 <ul>
 <li>Problem A (<a href="https://code.google.com/codejam/contest/2418487/dashboard#s=p0">Bullseye</a>):

@@ -25,6 +25,7 @@ comments:
     MjAxMy0xMC0wNiAxNDowNjoyMyArMDIwMA==
   content: ! "Hey, \r\n\r\nbeim Crime-Angriff wird der Klartext komprimiert bzw. manipuliert
     nicht das Chiffrat. \r\nViele Gr&uuml;&szlig;e"
+featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Sicherheit&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.iks.kit.edu/index.php?id=hofheinz">Jun.-Prof. Hofheinz</a> im Sommersemester 2013 geh&ouml;rt.</div>
 

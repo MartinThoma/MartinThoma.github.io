@@ -43,6 +43,7 @@ comments:
   content: ! "> I know, the current version of Nautilus is 3.6.1,\r\n\r\nIt&lsquo;s
     3.6.3 on my Arch Linux system here and I cannot reproduce the bug. Semms to be
     fixed by now."
+featured_image: 2013/01/Nautilus.png
 ---
 I just wanted to answer an assignment and noticed that cyclic references kill Nautilus.
 

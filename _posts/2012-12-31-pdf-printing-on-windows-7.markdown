@@ -17,6 +17,7 @@ tags:
 - ! '#windowsrage'
 - Windows 7
 comments: []
+featured_image: 2012/10/pdf-icon.png
 ---
 "Printing" files on PDF-printers is useful as you can save everything as a digital PDF file instead of printing it. 
 

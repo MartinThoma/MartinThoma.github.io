@@ -16,6 +16,7 @@ tags:
 - mathematics
 - Algebra
 comments: []
+featured_image: 2013/08/algebra-thumb.jpg
 ---
 Let $(G, \cdot)$ be a group and $X \lhd G$ and $Y \lhd G$ be two normal subgroups.
 
