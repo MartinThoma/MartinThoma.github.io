@@ -106,7 +106,7 @@ def findFeaturedImage(website):
         yamml = getYamml(content)
         if len(yamml) != 3:
             print("There seems to be --- inside of the post. Please fix it!")
-            exit
+            continue
 
         yamml, content = yamml[1], yamml[2]
         hasFeaturedImage = False
