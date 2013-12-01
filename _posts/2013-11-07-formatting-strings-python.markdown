@@ -32,9 +32,11 @@ print("My birthday is the %i-th %s %i." % (birthday, month, year))
 The first string contains the rules how to format. <code>%i</code> means that the first argument in the following tuple should be interpreted as a integer. The second one <code>%s</code> should be interpreted as a string and the third one again as a integer.
 
 <h2>Save as string</h2>
-{% highlight python %}>>> a = "Why is %i the answer?" % 42
+{% highlight python %}
+>>> a = "Why is %i the answer?" % 42
 >>> a
-'Why is 42 the answer?'{% endhighlight %}
+'Why is 42 the answer?'
+{% endhighlight %}
 
 <h2>Named formatting</h2>
 You might prefer named formatting:

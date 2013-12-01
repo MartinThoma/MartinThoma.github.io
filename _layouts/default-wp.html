@@ -1,40 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-  <!-- type: default-wp -->
-  <head profile="http://gmpg.org/xfn/11">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}css/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="{{ site.baseurl }}css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="{{ site.baseurl }}css/style.css" type="text/css" media="screen" />
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="{{ site.baseurl }}feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico" type="image/x-icon" />
-
-    <link rel="canonical" href="{{ site.baseurl }}{{ page.url | replace:'index.html',''}}" /><!-- TODO: Check if this is absolute url-->
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:site" content="@themoosemind"/>
-    <meta name="twitter:domain" content="Martin Thoma"/>
-    <meta name="twitter:creator" content="@themoosemind"/>
-    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside-thumb.png"/>
-    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-order.png"/>
-    <meta name="twitter:image:src" content="http://martin-thoma.com/wp-content/uploads/2013/11/polygon-is-point-inside.png"/>
-    {% if page.description %}
-    <meta name="twitter:description" content="{{page.description}}" />
-    {% else %}
-    <meta name="twitter:description" content="{{site.description}}" />
-    {% endif %}
-    <meta name="twitter:title" content="{{ page.title }} - Martin Thoma"/>
-    <meta name="twitter:url" content="{{ site.baseurl }}check-point-inside-polygon/"/>
-
-    <link rel='stylesheet' id='toc-screen-css'  href='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/screen.css?ver=1308' type='text/css' media='all' />
-<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
-<script type='text/javascript' src='http://martin-thoma.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
-<link rel='shortlink' href='http://martin-thoma.com/?p=76726' /><!-- TODO -->
-<style type="text/css">div#toc_container {width: 275px;}</style>
-<style type="text/css" id="syntaxhighlighteranchor"></style>
-
-</head>
+{% include head.html %}
+<!-- type: default-wp.html -->
 <body>
 	<div id="wrapper">
 		<div id="container" class="container">
@@ -59,7 +24,7 @@
                 <div class="navigation">
             	    <div class="alignleft">
                     {% if paginator.next_page %}
-                        <a href="/page{{ paginator.next_page }}">« Older Entries</a>
+                        <a href="/page/{{ paginator.next_page }}">« Older Entries</a>
                     {% endif %}
                     </div>
             		<div class="alignright">
@@ -67,7 +32,7 @@
                         {% if paginator.previous_page == 1 %}
                         <a href="/">Newer Entries »</a>
                         {% else %}
-                        <a href="/page{{ paginator.previous_page }}">Newer Entries »</a>
+                        <a href="/page/{{ paginator.previous_page }}">Newer Entries »</a>
                         {% endif %}
                     {% endif %}
                     </div>
@@ -75,14 +40,14 @@
         	</div>
             <div class="span-8 last">
                 <div id="subscriptions">
-                    <a href="http://martin-thoma.com/feed/"><img src="{{ site.baseurl }}css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+                    <a href="{{ site.baseurl }}feed/"><img src="{{ site.baseurl }}css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
 		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="{{ site.baseurl }}css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
 	<div id="sidebar">
         <ul>
             <li id="search">
 				 
 <div class="searchlayout">
-    <form method="get" id="searchform" action="http://martin-thoma.com/"> 
+    <form method="get" id="searchform" action="{{ site.baseurl }}"> 
         <input type="text" value="Search" 
             name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
             onfocus="if (this.value == 'Search') {this.value = '';}" />
@@ -166,7 +131,7 @@
 </div>
 		</div><!--/container-->
 			<div id="footer">
-				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+				<a href="{{ site.baseurl }}"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
                 <div class="footer-credits">
                     <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
                 </div>
@@ -197,7 +162,7 @@ MathJax.Hub.Queue(function() {
 var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='http://martin-thoma.com/wp-content/plugins/table-of-contents-plus/front.js?ver=1308'></script>
+<script type="text/javascript" src="{{ site.baseurl }}js/tocplus-front.js"></script>
 
 </body>
 </html>

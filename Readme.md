@@ -1,10 +1,10 @@
 TODO
 =====
 
-* add featured images to posts
-* Tag-Wolke hinzufügen
-* Suche für die Seite hinzufügen
-* Adjust pagination urls from /page2/ to /page/2/
+* add missing featured images to posts
+* add pagination for category pages / tag pages
+* create tag cloud
+* add site search
 * Minify results
 
 Testen
