@@ -1,6 +1,5 @@
 module Jekyll
   class RawTag < Liquid::Block
-    safe true
 
     def parse(tokens)
       @nodelist ||= []
