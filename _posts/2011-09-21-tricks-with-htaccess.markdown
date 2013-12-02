@@ -13,7 +13,7 @@ date: 2011-09-21 22:02:59.000000000 +02:00
 categories:
 - Code
 tags:
-- .htaccess
+- htaccess
 - Apache
 comments: []
 featured_image: 2011/09/Apache-Logo.png
