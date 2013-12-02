@@ -5,7 +5,7 @@ title: Martin Thoma - A blog about Code, the Web and Cyberculture.
 
 {% for post in paginator.posts %}
 	<div class="{{ post.id }} post type-post status-publish format-standard hentry category-code tag-algorithms tag-geometry tag-python clearfix" id="{{ post.id }}">
-        <h2 class="title"><a href="{{ post.url }}" rel="bookmark" title="Permanent link to '{{ post.title }}'">{{ post.title }}</a></h2>
+        <h2 class="title"><a href="{{ site.baseurl }}{{ post.url }}" rel="bookmark" title="Permanent link to '{{ post.title }}'">{{ post.title }}</a></h2>
 		<div class="postdate">
             <span>{{ post.date | date: '%B' }} {{ post.date | date: '%e' }}, {{ post.date | date: '%Y' }}</span> 
             <!--<span>No Comments / 1 comment / 2 comments</span>-->
@@ -13,12 +13,12 @@ title: Martin Thoma - A blog about Code, the Web and Cyberculture.
 
 		<div class="entry">
             {% if post.featured_image %}
-            <img width="128" height="128" src="{{ site.baseurl }}images/{{ post.featured_image }}" class="alignleft post_thumbnail wp-post-image" alt="{{ post.title }}"/>
+            <img width="128" height="128" src="{{ site.baseurl }}/images/{{ post.featured_image }}" class="alignleft post_thumbnail wp-post-image" alt="{{ post.title }}"/>
             {% endif %}
  
 			{{ post.excerpt }}
             <div class="readmorecontent">
-				<a class="readmore" href="{{ post.url }}" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">Read More &raquo;</a>
+				<a class="readmore" href="{{ site.baseurl }}{{ post.url }}" rel="bookmark" title="Permanent Link to '{{ post.title }}'">Read More &raquo;</a>
 			</div>
 		</div>
 	</div>
