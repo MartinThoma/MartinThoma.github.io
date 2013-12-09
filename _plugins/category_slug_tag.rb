@@ -1,27 +1,9 @@
 # Title: Cateogry Slug tag
 # Author: Martin Thoma, http://martin-thoma.com
-#
-# Searches for:
-#   {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
-# and replaces it with:
-#    <div style="width: 510px" class="wp-caption aligncenter">
-#        <a href="../images/2013/11/WER-calculation.png">
-#            <img src="../images/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full">
-#        </a>
-#        <p class="wp-caption-text">WER calculation</p>
-#    </div>
 
-module Jekyll
-  class CategorySlugTag < Liquid::Tag
-
-    def initialize(tag_name, text, tokens)
-      super
-      @text = text
-      @tokens = tokens
-    end
-
-    def render(context)
-        @loweredInput = @text.downcase
+module CategorySlugFilter
+    def readingtime(input)
+        @loweredInput = input.downcase
         if @loweredInput == "code"
             return "code"
         elsif @loweredInput == "the web"
@@ -38,7 +20,6 @@ module Jekyll
             return @loweredInput
         end
     end
-  end
 end
 
-Liquid::Template.register_tag('categoryslug', Jekyll::CategorySlugTag)
+Liquid::Template.register_filter(CategorySlugFilter)
