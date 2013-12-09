@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <!-- type: head.html -->
+  <head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>How to check if a point is inside of a polygon?</title>
+    <link rel="stylesheet" href="http://localhost/blog/_site/css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="http://localhost/blog/_site/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://localhost/blog/_site/css/style.css" type="text/css" media="screen" />
+
+    <!-- code highlighting-->
+    <link rel="stylesheet" href="http://localhost/blog/_site/css/pygments.css" type="text/css" media="screen" />
+
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://localhost/blog/_site/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://localhost/blog/_site/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="http://localhost/blog/_site/check-point-inside-polygon" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@themoosemind"/>
+    <meta name="twitter:domain" content="Martin Thoma"/>
+    <meta name="twitter:creator" content="@themoosemind"/>
+
+    
+        <meta name="twitter:image:src" content="http://localhost/blog/_site/images/2013/11/polygon-is-point-inside-thumb.png"/>
+    
+
+    
+        <meta name="twitter:description" content="" />
+    
+
+    <meta name="twitter:title" content="How to check if a point is inside of a polygon? - Martin Thoma"/>
+    <meta name="twitter:url" content="http://localhost/blog/_site/check-point-inside-polygon"/>
+
+    <link rel='stylesheet' id='toc-screen-css'  href="http://localhost/blog/_site/css/tocplus-screen.css" type='text/css' media='all' />
+<script type='text/javascript' src="http://localhost/blog/_site/js/jquery.js"></script>
+<script type='text/javascript' src="http://localhost/blog/_site/js/jquery-migrate.min.js"></script>
+<style type="text/css">div#toc_container {width: 275px;}</style>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+
+</head>
+
+<!-- type: post.html -->
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <div id="header">
+                    <h1><a href="http://localhost/blog/_site">Martin Thoma</a></h1>
+				    <h2>A blog about Code, the Web and Cyberculture.</h2>
+			    </div>
+                <div class="navcontainer">
+					<ul id="nav">
+						<li><a href="http://localhost/blog/_site">Home</a></li>
+						<li class="page_item page-item-41"><a href="http://localhost/blog/_site/about-martin-thoma/">About Me</a></li>
+                        <li class="page_item page-item-91"><a href="http://localhost/blog/_site/imprint/">Imprint</a></li>
+					</ul>
+				</div>
+            	<div id="content">	
+                    <div class="post type-post status-publish format-standard hentry clearfix">
+                        <h2 class="title entry-title">How to check if a point is inside of a polygon?</h2>
+			            <div class="postdate">
+                            <span>
+                                November 
+                                18th,
+                                  
+                                2013
+                            </span>
+                            <!-- TODO<span><a href="check-point-inside-polygon/#respond" title="Comment on How to check if a point is inside of a polygon?">No Comments</a></span>-->
+                        </div>
+			
+						<div class="entry">
+                            <p>Suppose you have a with $n$ sides. This is called a $n$-glon.</p>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Basics about polygones</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Is a point in a triangle / a rectangle</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-3">
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Is a point inside of a n-glon?</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-4">
+               <a href="#tocAnchor-1-3-1"><span class="tocnumber">3.1</span> <span class="toctext">Count Crossing Line Segments</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-5">
+               <a href="#tocAnchor-1-3-2"><span class="tocnumber">3.2</span> <span class="toctext">Triangularization</span></a>
+            </li>
+         </ul>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Basics about polygones</h2>
+
+
+<p>A $n$-glon can be defined by a list of $n$ points.</p>
+
+<p>Note that the order is important:</p>
+
+<div style="width: 512px" class="wp-caption ">
+   <a href="../images/../images/2013/11/polygon-order.png">
+      <img src="../images/../images/2013/11/polygon-order.png" alt="[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]" width="512" height="233" class="" />
+   </a>
+   <p class="wp-caption-text">[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</p>
+</div>
+
+
+<p>I will not consider self-intersecting polygones for the following statements. I'm aware of them, but whenever you have a self-intersecting polygon you can create multiple polygones that cover the same area and don't intersect each other (some pairs might have a finite number of points in common, but not an infinite number).</p>
+
+<h2 id="tocAnchor-1-2">Is a point in a triangle / a rectangle</h2>
+
+
+<p>It is quite easy to check weather a point is inside of a triangle or inside of a rectangle. I have already written an article about <a href="http://martin-thoma.com/how-to-check-if-a-point-is-inside-a-rectangle/">how to check if a point is inside of a rectangle</a>.</p>
+
+<h2 id="tocAnchor-1-3">Is a point inside of a n-glon?</h2>
+
+
+<p>Let $P$ be a point and $N = [P_1, P_2, \dots, P_n]$ be a $n$-glon. It is now much more difficult to check if $P$ is inside of $N$. The area-approach works for convex $n$-glons, but that's it.</p>
+
+<h3 id="tocAnchor-1-3-1">Count Crossing Line Segments</h3>
+
+
+<p>However, you can try another approach which I have visualized in the following image:</p>
+
+<div style="width: 512px" class="wp-caption ">
+   <a href="../images/../images/2013/11/polygon-is-point-inside.png">
+      <img src="../images/../images/2013/11/polygon-is-point-inside.png" alt="Check if P is inside of N" width="512" height="481" class="size-full wp-image-76730" />
+   </a>
+   <p class="wp-caption-text">Check if P is inside of N</p>
+</div>
+
+
+<p>When $P$ is inside of $N$, every line $P<em>{1}P, P</em>{2}P, \dots, P<em>{n}P$ will cross the polygon lines $P</em>{1}P_2,P<em>{2}P_3, \dots, P</em>{n}P_1$ an even number of times. If P is outside, at least one of the lines $P<em>{i}P$ will cross a polygon line $P</em>{j}P_{j+1}$ once.</p>
+
+<p>This means, for every check you have to check $n<sup>2</sup>$ pairs of line segments for crossings. How you can do that is explained in my article <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>.</p>
+
+<p>This algorithm is in $\mathcal{O}(n<sup>2</sup>)$ time complexity (it does need a constant amount of additional space).</p>
+
+<h3 id="tocAnchor-1-3-2">Triangularization</h3>
+
+
+<p>When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing $N$ into triangles.</p>
+
+<p>That way, you can check for every triangle if $P$ is inside of it. I assume that the number of triangles is not bigger than $n$. As the check is in constant time for one triangle, you would have an algorithm that needs $\mathcal{O}(n)$ time and space for its checks (+ some preprocessing which is done only once).</p>
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="http://localhost/blog/_site/category/code">code</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags: 
+                            
+                                
+                                    <a href="http://localhost/blog/_site/tag/Python">Python</a>
+                                
+                            
+                                , <a href="http://localhost/blog/_site/tag/algorithms">algorithms</a>
+                                
+                            
+                                , <a href="http://localhost/blog/_site/tag/Geometry">Geometry</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://localhost/blog/_site/author/moose/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-11-18 20:36:09 UTC">
+                                November 
+                                18th
+                                  , 
+                                2013</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="/word-error-rate-calculation" rel="prev">Word Error Rate Calculation</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="/jekyll-and-git" rel="next">How to use Jekyll with GitHub</a> &raquo;
+                                 
+                                </div>
+							</div>
+	
+						</div>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                            <div class="cancel-comment-reply">
+	                            <small><a rel="nofollow" id="cancel-comment-reply-link" href="/check-point-inside-polygon/#respond" style="display:none;">Click here to cancel reply.</a></small>
+                            </div>
+    <!--- comment discuss code --->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!--- comment discuss code --->
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+                    <a href="http://localhost/blog/_site/feed/"><img src="http://localhost/blog/_site/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://localhost/blog/_site/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+	<div id="sidebar">
+        <ul>
+            <li id="search">
+				 
+<div class="searchlayout">
+    <form method="get" id="searchform" action="http://localhost/blog/_site"> <!-- TODO-->
+        <input type="text" value="Search" 
+            name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
+            onfocus="if (this.value == 'Search') {this.value = '';}" />
+        <input type="image" src="http://localhost/blog/_site/css/images/search.gif" style="border:0; vertical-align: top;" /> 
+    </form>
+</div>			</li>
+        </ul>
+            			<div class="addthis_toolbox">   
+    			    <div class="custom_images">
+    			            <a class="addthis_button_twitter"><img src="http://localhost/blog/_site/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+    			            <a class="addthis_button_delicious"><img src="http://localhost/blog/_site/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+    			            <a class="addthis_button_facebook"><img src="http://localhost/blog/_site/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+    			            <a class="addthis_button_digg"><img src="http://localhost/blog/_site/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+    			            <a class="addthis_button_stumbleupon"><img src="http://localhost/blog/_site/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+    			            <a class="addthis_button_favorites"><img src="http://localhost/blog/_site/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+    			            <a class="addthis_button_more"><img src="http://localhost/blog/_site/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+    			    </div>
+    			    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
+    			</div>
+    					        
+		<ul>
+    <li id="categories-3" class="widget widget_categories">
+        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="http://localhost/blog/_site/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="http://localhost/blog/_site/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="http://localhost/blog/_site/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="http://localhost/blog/_site/category/mathematics/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="http://localhost/blog/_site/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="http://localhost/blog/_site/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+	</ul>
+
+    </li>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics' title='50 topics'>mathematics</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/Project Euler' title='9 topics'>Project Euler</a>
+<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/Video' title='11 topics'>Video</a>
+<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/YouTube' title='11 topics'>YouTube</a>
+<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/Linear algebra' title='18 topics'>Linear algebra</a>
+<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/Python' title='38 topics'>Python</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/Wolfram|Alpha' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/Klausur' title='19 topics'>Klausur</a>
+<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/Linux' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/Command Line' title='5 topics'>Command Line</a>
+<a style='font-size: 252.56%' href='http://localhost/blog/_site/tag/Programming' title='40 topics'>Programming</a>
+<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/puzzle' title='19 topics'>puzzle</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/Flashgames' title='6 topics'>Flashgames</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/PHP' title='6 topics'>PHP</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/Wikipedia' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/KogSys' title='5 topics'>KogSys</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/Google Code Jam' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/Theoretical computer science' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 215.81%' href='http://localhost/blog/_site/tag/C' title='25 topics'>C</a>
+<a style='font-size: 235.11%' href='http://localhost/blog/_site/tag/Java' title='32 topics'>Java</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/Algebra' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising' title='5 topics'>advertising</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis' title='6 topics'>analysis</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/SWT I' title='6 topics'>SWT I</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/Assembly language' title='5 topics'>Assembly language</a>
+<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes' title='10 topics'>lecture-notes</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/Digitaltechnik' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/Matrix' title='8 topics'>Matrix</a>
+<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/LaTeX' title='23 topics'>LaTeX</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/Vimeo' title='8 topics'>Vimeo</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/Google' title='9 topics'>Google</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/IT-Security' title='8 topics'>IT-Security</a>
+<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/CPP' title='5 topics'>CPP</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/Computer science' title='6 topics'>Computer science</a>
+<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/Challenge' title='7 topics'>Challenge</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/Ubuntu' title='5 topics'>Ubuntu</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/OS' title='5 topics'>OS</a>
+<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/KIT' title='12 topics'>KIT</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/JavaScript' title='5 topics'>JavaScript</a>
+<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/algorithms' title='7 topics'>algorithms</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/Geometry' title='5 topics'>Geometry</a>
+<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/Clip' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/Operating Systems' title='5 topics'>Operating Systems</a>
+<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning' title='15 topics'>learning</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/Web Development' title='9 topics'>Web Development</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/Tikz' title='6 topics'>Tikz</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/Bash' title='6 topics'>Bash</a>
+</div>
+</li>		</ul>
+	</div>
+</div>
+		</div><!--/container-->
+			<div id="footer">
+				<a href="http://localhost/blog/_site"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</div><!--/footer-->
+            
+	</div><!--/wrapper-->
+<!-- type: footer -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!-- MathJax Latex Plugin installed -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://localhost/blog/_site/js/tocplus-front.js"></script>
+
+</body>
+</html>
+
