@@ -5,7 +5,7 @@ push:
 	git push origin source
 
 deploy:
-	jekyll
+	jekyll build
 	git checkout master
 	git rm -qr .
 	cp -r _site/. .
@@ -13,3 +13,4 @@ deploy:
 	git add -A
 	git commit
 	git push origin master
+	git checkout source
