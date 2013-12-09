@@ -1,0 +1,60 @@
+---
+layout: post
+status: publish
+published: true
+title: How to use Jekyll with GitHub
+author: Martin Thoma
+author_email: info@martin-thoma.de
+author_url: http://www.martin-thoma.com
+categories:
+- The Web
+tags:
+- Jekyll
+- Git
+- GitHub
+featured_image: 2013/12/jekyll-thumbnail.png
+---
+
+You've probably noticed that I didn't write any posts the last 
+few weeks. The reason is that I've migrated my WordPress Blog to
+Jekyll.
+
+<a href="http://jekyllrb.com/">Jekyll</a> is a static blog generator.
+
+<h2>Create your repository</h2>
+<ol>
+  <li>Go to <a href="https://github.com/">github.com</a>, sign in and
+      create a new repo:
+  </li>
+  <li>Call it "[Username].github.io".</li>
+</ol>
+
+<h2>Branches</h2>
+Go to your Git repository that cointains your blog:
+
+{% highlight bash %}
+moose@pc08 ~/Downloads/MartinThoma.github.io $ ls
+_config.yml  favicon.ico  index.html  Makefile  Readme.md
+css          images       js          _plugins  _site
+_drafts      _includes    _layouts    _posts    thumbs
+{% endhighlight %}
+
+Now you should create a new branch that will contain your source files.
+The following command creates a branch `sources` that starts where
+the branch `master` currently is:
+
+{% highlight bash %}
+git checkout -b source master
+{% endhighlight %}
+
+Now update this branch to the server:
+
+{% highlight bash %}
+git push -u origin source
+{% endhighlight %}
+
+<h2>Resources</h2>
+<ul>
+  <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a></li>
+</ul>
+
