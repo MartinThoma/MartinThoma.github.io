@@ -32,6 +32,7 @@ comments:
     MjAxMi0wMy0wOSAyMDoyMzo1NiArMDEwMA==
   content: ! "I've just found another lolcat:\r\nhttp://k19.kn3.net/taringa/6/9/9/8/8/1/3/3dher/315.gif?6417"
 featured_image: 2011/09/Lame-pun-coon-300x298.jpg
+context: post
 ---
 Animals are quite often in some web memes:
 <h2>Lame Pun Coon</h2>

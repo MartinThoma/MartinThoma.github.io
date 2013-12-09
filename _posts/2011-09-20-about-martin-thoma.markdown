@@ -13,6 +13,7 @@ date: 2011-09-21 18:35:30.000000000 +02:00
 categories: []
 tags: []
 comments: []
+context: about
 ---
 
 <div style="width: 144px" class="wp-caption alignright"><a href="../images/2011/09/Martin_Thoma_web_thumb.jpg"><img class="size-full" title="Martin Thoma" src="../images/2011/09/Martin_Thoma_web_thumb.jpg" alt="Martin Thoma" width="134" height="200"></a><p class="wp-caption-text">Martin Thoma</p></div>

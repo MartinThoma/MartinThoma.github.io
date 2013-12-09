@@ -56,5 +56,6 @@ git push -u origin source
 <h2>Resources</h2>
 <ul>
   <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a></li>
+  <li><a href="https://alybadawy.com/developing/2013/08/02/search-a-jekyll-generated-website/">Search a Jekyll-generated website</a></li>
 </ul>
 
