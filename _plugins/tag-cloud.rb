@@ -80,7 +80,8 @@ module Jekyll
         name, weight, count = tag
         size = size_min + ((size_max - size_min) * weight).to_f
         size = sprintf("%.#{@precision}f", size)
-        html << "<a style='font-size: #{size}#{unit}' href='" << Jekyll.configuration({})['baseurl'] << "/tag/#{name}' title='#{count} topics'>#{name}</a>\n"
+        slug = name.downcase
+        html << "<a style='font-size: #{size}#{unit}' href='" << Jekyll.configuration({})['baseurl'] << "/tag/#{slug}' title='#{count} topics'>#{name}</a>\n"
       end
     end
 
