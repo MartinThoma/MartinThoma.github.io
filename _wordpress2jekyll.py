@@ -28,6 +28,7 @@ def parseCaptions(content):
         '<a(.*?)href=\"(?P<url>(.*?))\"(?P<asonst>.*?)>' + \
         '<img(.*?)src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>(.*?)))\" ' + \
             'alt=\"(?P<alt>.*?)\"\s*' + \
+            'title=\"(?P<title>.*?)\"\s*' + \
             'width=\"(?P<width>.*?)\"\s*' + \
             'height=\"(?P<height>.*?)\"\s*' + \
             'class=\"(?P<imgclass>.*?)\"\s*' + \
@@ -40,7 +41,7 @@ def parseCaptions(content):
         for key, value in result.items():
             print("%s:\t%s" % (key, value))
 
-    content = re.sub(pattern, '{% caption align="\g<align>" width="\g<width>" caption="\g<caption>" url="../images/\g<innerurl>" class="\g<imgclass>" height="\g<height>" alt="\g<alt>" text="\g<text>"  %}', content)
+    content = re.sub(pattern, '{% caption align="\g<align>" width="\g<width>" caption="\g<caption>" url="../images/\g<innerurl>" alt="\g<alt>" title="\g<title>" height="\g<height>" class="\g<imgclass>" %}', content)
 
     return content
 
