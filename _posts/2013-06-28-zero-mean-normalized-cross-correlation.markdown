@@ -18,7 +18,7 @@ tags:
 comments: []
 featured_image: 2013/06/image-correlation.png
 ---
-[caption id="attachment_71931" align="alignright" width="128"]<a href="http://martin-thoma.com/wp-content/uploads/2013/06/image-correlation.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/06/image-correlation.png" alt="Image correlation test image" width="128" height="128" class="size-full wp-image-71931" /></a> An image from Tsukuba University. This is one of hundreds of images that you can use to test your algorithms. Link is below.[/caption]
+{% caption align="alignright" width="128" caption="An image from Tsukuba University. This is one of hundreds of images that you can use to test your algorithms. Link is below." url="../images/2013/06/image-correlation.png" alt="Image correlation test image" title="" height="128" class="size-full wp-image-71931" %}
 
 Zero Mean Normalized Cross-Correlation or shorter ZNCC is an integer you can get when you compare two grayscale images.
 

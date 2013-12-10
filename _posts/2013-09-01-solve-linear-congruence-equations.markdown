@@ -31,7 +31,7 @@ you can solve it quite easily.
 Johannes Schickling has written a very nice <a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem">JavaScript Application</a> that applies the following algorithm online. I've used his source code to write the following Python code.
 
 <h2>Pseudocode</h2>
-[caption id="attachment_76382" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/SolveLinearCongruences.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/SolveLinearCongruences.png" alt="Solve a system of linear congruences" width="500" height="247" class="size-full wp-image-76382" /></a> Solve a system of linear congruences[/caption]
+{% caption align="aligncenter" width="500" caption="Solve a system of linear congruences" url="../images/2013/09/SolveLinearCongruences.png" alt="Solve a system of linear congruences" title="" height="247" class="size-full wp-image-76382" %}
 
 <h2>Python</h2>
 {% highlight python %}

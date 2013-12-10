@@ -106,14 +106,14 @@ You need a webcam for this:
 </div>
 
 This is what it should look like:
-[caption id="attachment_72801" align="aligncenter" width="664"]<a href="http://martin-thoma.com/wp-content/uploads/2013/07/graphic-webcam-html5-js-example.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" width="664" height="395" class="size-full wp-image-72801" /></a> Webcam example[/caption]
+{% caption align="aligncenter" width="664" caption="Webcam example" url="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" title="" height="395" class="size-full wp-image-72801" %}
 
 And it gives these results:
 [gallery ids="72871,72861,72831"]
 
 By the way, you can check if a website is currently accessing your webcam (with Google Chrome):
 
-[caption id="attachment_72811" align="aligncenter" width="370"]<a href="http://martin-thoma.com/wp-content/uploads/2013/07/webcam-red-dot.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" width="370" height="125" class="size-full wp-image-72811" /></a> Webcam indicator on tab in Google Chrome[/caption]
+{% caption align="aligncenter" width="370" caption="Webcam indicator on tab in Google Chrome" url="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" title="" height="125" class="size-full wp-image-72811" %}
 
 If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":
-[caption id="attachment_73191" align="aligncenter" width="180"]<a href="http://martin-thoma.com/wp-content/uploads/2013/07/enable-webrtc.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" width="180" height="300" class="size-medium wp-image-73191" /></a> Enamble Web-RTC in Chrome for Android[/caption]
+{% caption align="aligncenter" width="180" caption="Enamble Web-RTC in Chrome for Android" url="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" title="" height="300" class="size-medium wp-image-73191" %}

@@ -30,7 +30,7 @@ It looks like this:
 
 It is easy to use and has a good interface. I can simply define depencies:
 
-[caption id="attachment_51101" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/12/gantter-predecessor-depenency.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/12/gantter-predecessor-depenency-300x138.png" alt="Gantter Predecessor depency" width="300" height="138" class="size-medium wp-image-51101" /></a> Gantter Predecessor depency[/caption]
+{% caption align="aligncenter" width="300" caption="Gantter Predecessor depency" url="../images/2012/12/gantter-predecessor-depenency-300x138.png" alt="Gantter Predecessor depency" title="" height="138" class="size-medium wp-image-51101" %}
 
 <h3>Export</h3>
 Gantter offers some export options: HTML, <a href="http://martin-thoma.com/?attachment_id=50261">PDF</a>, <a href="http://martin-thoma.com/?attachment_id=50271">PNG</a>, MS-Project (.xml). All export options I've tried are unconvincing. I couldn't save the HTML export, the PDF export was splitted over several pages and the PNG ... well, it's a PNG. As I am currently on a Linux machine, I can't try the MS-Project export.

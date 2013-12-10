@@ -34,7 +34,7 @@ featured_image: 2011/09/Gnome-Terminal.png
 I've just switched from <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> to <a href="https://en.wikipedia.org/wiki/Z_shell">ZSH</a> because of <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-ZSH</a>. I think this is just the right time to explain the words Shell, command line, Terminal, Bash and ZSH.
 
 <a href="https://en.wikipedia.org/wiki/GNOME_Terminal">Terminal</a> is an terminal emulator, sometimes also called a "terminal window". I work in a window environment (MATE) and I want to use command line tools within that environment. So I need a "terminal window":
-[caption id="attachment_76644" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/10/teriminal-window.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/10/teriminal-window-300x168.png" alt="Terminal Window with ZSH and Bash" width="300" height="168" class="size-medium wp-image-76644" /></a> Terminal Window with ZSH and Bash[/caption]
+{% caption align="aligncenter" width="300" caption="Terminal Window with ZSH and Bash" url="../images/2013/10/teriminal-window-300x168.png" alt="Terminal Window with ZSH and Bash" title="" height="168" class="size-medium wp-image-76644" %}
 
 ZSH and Bash are both Unix shells. A shell is a command line interpreter that provides a text-based user interface.
 
@@ -59,4 +59,4 @@ Here are some differences. On the left side is zsh, on the right is bash:
 I like the time command of bash more, but that's it. All other interactions are either almost the same or better in zsh. I especially like that zsh doesn't print everything again when you autocomplete with tab. And it also autocompletes when you make an capitalization error.
 
 I also begin to like the Git-specific prompt indicators:
-[caption id="attachment_76671" align="aligncenter" width="236"]<a href="http://martin-thoma.com/wp-content/uploads/2013/10/oh-my-zsh-git-added.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/10/oh-my-zsh-git-added.png" alt="ZSH "git add" indicator" width="236" height="42" class="size-full wp-image-76671" /></a> ZSH "git add" indicator[/caption]
+{% caption align="aligncenter" width="236" caption="ZSH "git add" indicator" url="../images/2013/10/oh-my-zsh-git-added.png" alt="ZSH "git add" indicator" title="" height="42" class="size-full wp-image-76671" %}

@@ -307,4 +307,4 @@ H&auml;ufige Aufgabenstellungen sind:
 
 <h2>Ergebnisse</h2>
 Sind nun <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Ankuendigungen/DispForm.aspx?ID=11">online</a>. Hier ist die Statistik:
-[caption id="attachment_76302" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/04/klausur-rechnernetze-2013.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/04/klausur-rechnernetze-2013-300x274.png" alt="Klausurergebnisse Rechnernetze 2013" width="300" height="274" class="size-medium wp-image-76302" /></a> Klausurergebnisse Rechnernetze 2013[/caption]
+{% caption align="aligncenter" width="300" caption="Klausurergebnisse Rechnernetze 2013" url="../images/2013/04/klausur-rechnernetze-2013-300x274.png" alt="Klausurergebnisse Rechnernetze 2013" title="" height="274" class="size-medium wp-image-76302" %}

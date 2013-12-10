@@ -29,7 +29,7 @@ Interesannt sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von d
 <abbr title="Delay-Flipflops">D-Flipflops</abbr> ignorieren im Prinzip den aktuellen Zustand und setzt den neuen Zustand einfach auf das d-Signal.
 
 D-Flipflops k&ouml;nnen aus D-Latches erstellt werden:
-[caption id="attachment_55641" align="aligncenter" width="542"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/d-flipflop.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/d-flipflop.png" alt="D-Flipflop" width="542" height="182" class="size-full wp-image-55641" /></a> D-Flipflop[/caption]
+{% caption align="aligncenter" width="542" caption="D-Flipflop" url="../images/2013/01/d-flipflop.png" alt="D-Flipflop" title="" height="182" class="size-full wp-image-55641" %}
 
 <h3>Ansteuertabelle</h3>
 <table>
@@ -64,7 +64,7 @@ D-Flipflops k&ouml;nnen aus D-Latches erstellt werden:
 </table>
 </td>
 <td>
-[caption id="attachment_55781" align="aligncenter" width="150"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/d-flipflop1.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/d-flipflop1-150x150.png" alt="D-Flipflop mit Eingang D, unbennanten Takt und Ausgang Q sowie Q negiert." width="150" height="150" class="size-thumbnail wp-image-55781" /></a> D-Flipflop mit Eingang D, unbennanten Takt und Ausgang Q sowie Q negiert.[/caption]
+{% caption align="aligncenter" width="150" caption="D-Flipflop mit Eingang D, unbennanten Takt und Ausgang Q sowie Q negiert." url="../images/2013/01/d-flipflop1-150x150.png" alt="D-Flipflop mit Eingang D, unbennanten Takt und Ausgang Q sowie Q negiert." title="" height="150" class="size-thumbnail wp-image-55781" %}
 </td>
 </tr>
 </table>
@@ -113,7 +113,7 @@ Ein RS-Flipflop hat zwei Eing&auml;nge und einen oder zwei Ausg&auml;nge.
 </table>
 </td>
 <td>
-[caption id="attachment_55631" align="aligncenter" width="128"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/rs-flipflop.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/rs-flipflop.png" alt="RS-Flipflop" width="128" height="128" class="size-full wp-image-55631" /></a> RS-Flipflop[/caption]
+{% caption align="aligncenter" width="128" caption="RS-Flipflop" url="../images/2013/01/rs-flipflop.png" alt="RS-Flipflop" title="" height="128" class="size-full wp-image-55631" %}
 </td>
 </tr>
 </table>
@@ -154,7 +154,7 @@ Ein RS-Flipflop hat zwei Eing&auml;nge und einen oder zwei Ausg&auml;nge.
 </table>
 </td>
 <td>
-[caption id="attachment_55831" align="aligncenter" width="150"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/t-flipflop.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/t-flipflop-150x150.png" alt="T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q." width="150" height="150" class="size-thumbnail wp-image-55831" /></a> T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q.[/caption]
+{% caption align="aligncenter" width="150" caption="T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q." url="../images/2013/01/t-flipflop-150x150.png" alt="T-Flipflop mit Eingang T, unbenanntem Taktsignal, Ausgang Q und dem negiertem Ausgang Q." title="" height="150" class="size-thumbnail wp-image-55831" %}
 </td>
 </table>
 
@@ -199,7 +199,7 @@ Ein RS-Flipflop hat zwei Eing&auml;nge und einen oder zwei Ausg&auml;nge.
 </table>
 </td>
 <td>
-[caption id="attachment_55851" align="aligncenter" width="150"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/jk-flipflop.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/jk-flipflop-150x150.png" alt="JK-Flipflop" width="150" height="150" class="size-thumbnail wp-image-55851" /></a> JK-Flipflop[/caption]
+{% caption align="aligncenter" width="150" caption="JK-Flipflop" url="../images/2013/01/jk-flipflop-150x150.png" alt="JK-Flipflop" title="" height="150" class="size-thumbnail wp-image-55851" %}
 </td>
 </tr>
 </table>

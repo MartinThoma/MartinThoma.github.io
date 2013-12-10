@@ -282,7 +282,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 <iframe width="512" height="384" src="//www.youtube.com/embed/Mk06yfbXQYg" frameborder="0" allowfullscreen></iframe>
 
 <h2>Koalitionsm&ouml;glichkeiten</h2>
-[caption id="attachment_76427" align="aligncenter" width="458"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/koalitionsrechner.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/koalitionsrechner.png" alt="Koalitionsrechner - Ergebnis" width="458" height="174" class="size-full wp-image-76427" /></a> Koalitionsrechner - Ergebnis[/caption]
+{% caption align="aligncenter" width="458" caption="Koalitionsrechner - Ergebnis" url="../images/2013/09/koalitionsrechner.png" alt="Koalitionsrechner - Ergebnis" title="" height="174" class="size-full wp-image-76427" %}
 
 Die Parteien haben viele aussagen &uuml;ber Koalitionen nach der Bundestagswahl gemacht:
 <ul>
@@ -294,7 +294,7 @@ Die Parteien haben viele aussagen &uuml;ber Koalitionen nach der Bundestagswahl 
 
 Nun kann man Umfrageergebnisse betrachten:
 
-[caption id="attachment_76428" align="aligncenter" width="846"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/umfragen-bundestagswahl-2013.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/umfragen-bundestagswahl-2013.png" alt="Umfrageergebnisse zur Bundestagswahl 2013" width="846" height="330" class="size-full wp-image-76428" /></a> Umfrageergebnisse zur Bundestagswahl 2013<br />Quelle: <a href="http://www.wahlrecht.de/umfragen/index.htm">wahlrecht.de</a>[/caption]
+{% caption align="aligncenter" width="846" caption="Umfrageergebnisse zur Bundestagswahl 2013<br />Quelle: <a href="http://www.wahlrecht.de/umfragen/index.htm">wahlrecht.de</a>" url="../images/2013/09/umfragen-bundestagswahl-2013.png" alt="Umfrageergebnisse zur Bundestagswahl 2013" title="" height="330" class="size-full wp-image-76428" %}
 
 Damit steht fest:
 <ul>
@@ -457,7 +457,7 @@ Bitte h&auml;ngt euch nicht an den Zahlen auf. Das sollte nur das System veransc
 
 Hier mal eine Grafik &uuml;ber das Steueraufkommen in Deutschland:
 
-[caption id="attachment_76434" align="aligncenter" width="800"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/steueraufkommen-deutschland.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/steueraufkommen-deutschland.png" alt="Steueraufkommen in Deutschland (Stand: 2008)" width="800" height="512" class="size-full wp-image-76434" /></a> Steueraufkommen in Deutschland (Stand: 2008)[/caption]
+{% caption align="aligncenter" width="800" caption="Steueraufkommen in Deutschland (Stand: 2008)" url="../images/2013/09/steueraufkommen-deutschland.png" alt="Steueraufkommen in Deutschland (Stand: 2008)" title="" height="512" class="size-full wp-image-76434" %}
 
 Es gibt noch den Ansatz der &bdquo;<a href="https://de.wikipedia.org/wiki/Flat_Tax">Flat Tax</a>&ldquo;, die Steuern einfacher machen soll. Ob das sinnvoll ist, kann ich nicht sagen. Aber eine Vereinfachung verbunden mit einer Europ&auml;ischen Vereinheitlichung k&ouml;nnte Firmen entlasten und Steuerschlupfl&ouml;cher schlie&szlig;en.
 

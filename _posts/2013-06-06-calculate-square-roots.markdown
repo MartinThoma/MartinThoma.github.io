@@ -141,7 +141,7 @@ I failed to convert this to a version that uses GMP :-/
 
 But it converges quite fast:
 
-[caption id="attachment_69511" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/06/newton-correct-digits.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/06/newton-correct-digits.png" alt="Newtons method for calculating square roots" width="512" height="235" class="size-full wp-image-69511" /></a> Newtons method for calculating square roots[/caption]
+{% caption align="aligncenter" width="512" caption="Newtons method for calculating square roots" url="../images/2013/06/newton-correct-digits.png" alt="Newtons method for calculating square roots" title="" height="235" class="size-full wp-image-69511" %}
 
 <h2>Exponential identity</h2>
 According to Wikipedia (Source: <a href="http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Exponential_identity">Methods of computing square roots</a>) many calculators use the following identity:

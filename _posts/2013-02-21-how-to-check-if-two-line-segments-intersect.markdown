@@ -139,7 +139,7 @@ First of all, we should think about how lines can be arranged:
 <h2>Bounding boxes</h2>
 You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:
 
-[caption id="attachment_57731" align="aligncenter" width="250"]<a href="http://martin-thoma.com/wp-content/uploads/2013/02/line-segments-bounding-box.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/line-segments-bounding-box-250x300.png" alt="Two line segments with their bounding boxes" width="250" height="300" class="size-medium wp-image-57731" /></a> Two line segments with their bounding boxes[/caption]
+{% caption align="aligncenter" width="250" caption="Two line segments with their bounding boxes" url="../images/2013/02/line-segments-bounding-box-250x300.png" alt="Two line segments with their bounding boxes" title="" height="300" class="size-medium wp-image-57731" %}
 
 With this image in mind, it is obvious that the bounding boxes need to intersect if the lines should intersect. At this point you have to make a decision: If the endpoint of one line is on the other line, is this an intersection? I think so. If two lines have at least one point in common, they intersect. If two bounding boxes have at least one point in common, they intersect.
 
@@ -163,7 +163,7 @@ public boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
 If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.
 
 <h2>The algorithm</h2>
-[caption id="attachment_57771" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/02/flowchart.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/flowchart.png" alt="Flowchart how to check if two lines intersect" width="500" height="228" class="size-full wp-image-57771" /></a> Flowchart how to check if two lines intersect[/caption]
+{% caption align="aligncenter" width="500" caption="Flowchart how to check if two lines intersect" url="../images/2013/02/flowchart.png" alt="Flowchart how to check if two lines intersect" title="" height="228" class="size-full wp-image-57771" %}
 
 Looks quite simple, doesn't it?
 

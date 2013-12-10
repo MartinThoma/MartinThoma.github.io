@@ -82,7 +82,7 @@ Offensichtlich gilt: $\bar L = L \cdot D^{\frac{1}{2}}$.
 
 Die Cholesky-Zerlegung kann man folgenderma&szlig;en berechnen:
 
-[caption id="attachment_67881" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/cholesky-zerlegung-numerik.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/cholesky-zerlegung-numerik.png" alt="Berechnung der Cholesky-Zerlegung in Pseudocode" width="512" height="390" class="size-full wp-image-67881" /></a> Berechnung der Cholesky-Zerlegung in Pseudocode[/caption]
+{% caption align="aligncenter" width="512" caption="Berechnung der Cholesky-Zerlegung in Pseudocode" url="../images/2012/07/cholesky-zerlegung-numerik.png" alt="Berechnung der Cholesky-Zerlegung in Pseudocode" title="" height="390" class="size-full wp-image-67881" %}
 
 In Python sieht das dann so aus:
 

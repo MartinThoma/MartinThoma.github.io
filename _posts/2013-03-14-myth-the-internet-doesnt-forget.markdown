@@ -28,7 +28,7 @@ Let's see the stats:
   <li>22 are gone for other reasons</li>
 </ul>
 
-[caption id="attachment_60991" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/youtube-gema.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/youtube-gema-300x134.png" alt="YouTube Video is not available in Germany because of GEMA" width="300" height="134" class="size-medium wp-image-60991" /></a> YouTube Video is not available in Germany because of GEMA[/caption]
+{% caption align="aligncenter" width="300" caption="YouTube Video is not available in Germany because of GEMA" url="../images/2013/03/youtube-gema-300x134.png" alt="YouTube Video is not available in Germany because of GEMA" title="" height="134" class="size-medium wp-image-60991" %}
 
 <table>
   <thead>

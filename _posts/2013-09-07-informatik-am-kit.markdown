@@ -227,7 +227,7 @@ SEHR viele weitere Kurse sind im <a href="http://www.informatik.kit.edu/1956.php
 
 Hier ist &uuml;brigens mal ein Abh&auml;ngigkeitsgraph zum KIT-Bachelor-Informatik:
 
-[caption id="attachment_76453" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/09/informatikstudium-kit-abhaengigkeitsgraph.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/informatikstudium-kit-abhaengigkeitsgraph-300x294.png" alt="Abh&auml;ngigkeiten im Bachelor-Informatik Studium am KIT" width="300" height="294" class="size-medium wp-image-76453" /></a> Abh&auml;ngigkeiten im Bachelor-Informatik Studium am KIT[/caption]
+{% caption align="aligncenter" width="300" caption="Abh&auml;ngigkeiten im Bachelor-Informatik Studium am KIT" url="../images/2013/09/informatikstudium-kit-abhaengigkeitsgraph-300x294.png" alt="Abh&auml;ngigkeiten im Bachelor-Informatik Studium am KIT" title="" height="294" class="size-medium wp-image-76453" %}
 
 Es ist am KIT als Informatiker &uuml;brigens sehr leicht eine HiWi-Stelle zu finden.
 

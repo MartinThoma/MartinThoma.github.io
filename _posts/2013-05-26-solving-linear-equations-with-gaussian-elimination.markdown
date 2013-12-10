@@ -75,7 +75,7 @@ $
 
 It's actually quite simple to get this form:
 
-[caption id="attachment_68071" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/Gaussian-elimination.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination" width="500" height="772" class="size-full wp-image-68071" /></a> Pseudocode for Gaussian elimination[/caption]
+{% caption align="aligncenter" width="500" caption="Pseudocode for Gaussian elimination" url="../images/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination" title="" height="772" class="size-full wp-image-68071" %}
 
 <h2>C++ Code</h2>
 {% highlight cpp %}

@@ -200,14 +200,14 @@ Typischerweise gilt: $m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byt
 <div class="question">
 <span class="question">Wenn man nur Segmentierung nutzt, wie kommt man dann von der logischen Adresse auf die physische?</span>
 <div class="answer">
-[caption id="attachment_61751" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/segmentation-logical-to-linear-address.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/segmentation-logical-to-linear-address-300x176.png" alt="Segmentation: Logical to linear address" width="300" height="176" class="size-medium wp-image-61751" /></a> Segmentation: Logical to linear address (<a href="http://download.intel.com/products/processor/manual/325462.pdf">source</a>)[/caption]
+{% caption align="aligncenter" width="300" caption="Segmentation: Logical to linear address (<a href="http://download.intel.com/products/processor/manual/325462.pdf">source</a>)" url="../images/2013/03/segmentation-logical-to-linear-address-300x176.png" alt="Segmentation: Logical to linear address" title="" height="176" class="size-medium wp-image-61751" %}
 </div>
 </div>
 
 <div class="question">
 <span class="question">Wie ist ein Inode aufgebaut?</span>
 <div class="answer">
-[caption id="attachment_61871" align="aligncenter" width="256"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/inode-struktur.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/inode-struktur-256x300.png" alt="Struktur eines Inodes" width="256" height="300" class="size-medium wp-image-61871" /></a> Struktur eines Inodes[/caption]
+{% caption align="aligncenter" width="256" caption="Struktur eines Inodes" url="../images/2013/03/inode-struktur-256x300.png" alt="Struktur eines Inodes" title="" height="300" class="size-medium wp-image-61871" %}
 </div>
 </div>
 
@@ -238,7 +238,7 @@ Block size:               4096
 <div class="question">
 <span class="question">Depict the common memory layout of a process. Give an example of the data that is stored in each section.</span>
 <div class="answer">
-[caption id="attachment_61931" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/process-memory-layout.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/process-memory-layout-300x165.jpg" alt="Common process memory layout" width="300" height="165" class="size-medium wp-image-61931" /></a> Common process memory layout[/caption]
+{% caption align="aligncenter" width="300" caption="Common process memory layout" url="../images/2013/03/process-memory-layout-300x165.jpg" alt="Common process memory layout" title="" height="165" class="size-medium wp-image-61931" %}
 
 Ich sehe gerade, dass bei rodata wohl das Schl&uuml;sselwort <code>const</code> mit dabei stehen sollte. Statische Variablen k&ouml;nnen nat&uuml;rlich ge&auml;ndert werden.
 </div>
@@ -293,4 +293,4 @@ LPIC-1 - Vorbereitung auf die Pr&uuml;fung des Linux Professinal Institute. ISBN
 <strike>H&auml;ngen noch nicht aus (Stand: 15.03.2013)</strike>
 H&auml;ngen nun aus (Stand: 08.04.2013) und <a href="https://studium.kit.edu/sites/vab/0xC1937D6957186A468FE059ECE05D74B8/vorlesungsunterlagen_pwg/Ergebnisse/klausur__18_03_2013.pdf">sind im VAB</a>
 
-[caption id="attachment_63331" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/os-klausur-ws201213-ergebnisse.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/os-klausur-ws201213-ergebnisse-300x227.png" alt="Ergebnisse der OS-Klausur vom WS 2012 / 2013" width="300" height="227" class="size-medium wp-image-63331" /></a> Ergebnisse der OS-Klausur vom WS 2012 / 2013[/caption]
+{% caption align="aligncenter" width="300" caption="Ergebnisse der OS-Klausur vom WS 2012 / 2013" url="../images/2013/03/os-klausur-ws201213-ergebnisse-300x227.png" alt="Ergebnisse der OS-Klausur vom WS 2012 / 2013" title="" height="227" class="size-medium wp-image-63331" %}

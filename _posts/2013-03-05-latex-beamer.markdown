@@ -138,7 +138,7 @@ You can use <code>block</code>, <code>exampleblock</code> or <code>alertblock</c
 {% endhighlight %}
 
 It looks like this:
-[caption id="attachment_59391" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/latex-beamer-block.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock" width="300" height="117" class="size-medium wp-image-59391" /></a> LaTeX Beamer blocks: block, exampleblock, alertblock[/caption]
+{% caption align="aligncenter" width="300" caption="LaTeX Beamer blocks: block, exampleblock, alertblock" url="../images/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock" title="" height="117" class="size-medium wp-image-59391" %}
 
 <h2>Images</h2>
 Quite often, you want to have one big image.

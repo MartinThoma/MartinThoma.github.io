@@ -44,7 +44,7 @@ F&uuml;r <strong>10 Euro</strong> bekommt man eine <strong>1-Monat-Festnetzflat<
 <h2>Die Bestellung</h2>
 Die Bestellung auf <a href="https://www.simquadrat.de/signup">simquadrat.de</a> ist extrem einfach. 
 
-[caption id="attachment_74541" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/07/simquadrat-bestellung.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/07/simquadrat-bestellung-300x168.png" alt="Bestellung bei Simquadrat" width="300" height="168" class="size-medium wp-image-74541" /></a> Bestellung bei Simquadrat[/caption]
+{% caption align="aligncenter" width="300" caption="Bestellung bei Simquadrat" url="../images/2013/07/simquadrat-bestellung-300x168.png" alt="Bestellung bei Simquadrat" title="" height="168" class="size-medium wp-image-74541" %}
 
 Nach drei Schritten ist man wirklich fertig. Die beiden Emails, die man dann bekommt, sind auch sch&ouml;n kurz:
 
@@ -59,7 +59,7 @@ Wie man sieht, bekommt man eine Simkarte, wo man sich die richtige Gr&ouml;&szli
 <h2>Der Dienst</h2>
 Simquadrat hat sofort funktioniert. Ich konnte telefonieren und SMS schreiben (die aber nicht bei meiner Freundin angekommen sind ... aber das k&ouml;nnte auch gut an ihrem Handy/Anbieter liegen). Auch die Online-Benutzeroberfl&auml;che ist gut:
 
-[caption id="attachment_74601" align="aligncenter" width="261"]<a href="http://martin-thoma.com/wp-content/uploads/2013/07/simquadrat-eingeloggt.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/07/simquadrat-eingeloggt-261x300.png" alt="Simquadrat - So siehts aus, wenn man eingeloggt ist" width="261" height="300" class="size-medium wp-image-74601" /></a> Simquadrat - So siehts aus, wenn man eingeloggt ist[/caption]
+{% caption align="aligncenter" width="261" caption="Simquadrat - So siehts aus, wenn man eingeloggt ist" url="../images/2013/07/simquadrat-eingeloggt-261x300.png" alt="Simquadrat - So siehts aus, wenn man eingeloggt ist" title="" height="300" class="size-medium wp-image-74601" %}
 
 ABER: Die <strong>Telefonqualit&auml;t ist unterirdisch</strong>. Ich erwarte, dass der Zugangsanbieter mein Gespr&auml;ch in so guter Qualit&auml;t &uuml;bertr&auml;gt, wie es mein Handy unterst&uuml;tzt. Mit Simyo ist die Qualit&auml;t genauso gut wie &uuml;ber das Festnetz-Telefon.
 Laut prepaid-wiki nutzt Simquadrat wie Simyo das E-Plus-Netz. Ich habe mit meiner Freundin mit meinem Nexus 4 am selben Tag (mit einem Abstand von 10 Minuten f&uuml;r dem Simkartenwechsel) einmal mit Simyo und einmal mit Simquadrat telefoniert.  Das ist, im Bezug auf die Qualit&auml;t der Sprach&uuml;bertragung, ein himmelweiter Unterschied.

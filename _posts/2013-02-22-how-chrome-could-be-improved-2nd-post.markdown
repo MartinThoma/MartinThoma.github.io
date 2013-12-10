@@ -91,10 +91,10 @@ Chrome 25 was just released and I would like to mention some features I am still
 It's annoying to have caps lock on while typing passwords. So an indicator is needed.
 
 I would prefer a caps icon indicator solution:
-[caption id="attachment_76613" align="alignnone" width="160"]<a href="http://martin-thoma.com/how-chrome-could-be-improved-2nd-post/password-field-caps-icon-indicator/" rel="attachment wp-att-76613"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/password-field-caps-icon-indicator.png" alt="Password field caps icon indicator" width="160" height="29" class="size-full wp-image-76613" /></a> Password field caps icon indicator[/caption]
+{% caption align="alignnone" width="160" caption="Password field caps icon indicator" url="../images/2013/02/password-field-caps-icon-indicator.png" alt="Password field caps icon indicator" title="" height="29" class="size-full wp-image-76613" %}
 
 Another way to indicate it would be by text:
-[caption id="attachment_76614" align="alignnone" width="236"]<a href="http://martin-thoma.com/wp-content/uploads/2013/02/password-field-caps-warning.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/password-field-caps-warning.png" alt="Password field caps lock warning" width="236" height="67" class="size-full wp-image-76614" /></a> Password field caps lock warning[/caption]
+{% caption align="alignnone" width="236" caption="Password field caps lock warning" url="../images/2013/02/password-field-caps-warning.png" alt="Password field caps lock warning" title="" height="67" class="size-full wp-image-76614" %}
 
 <h2>Improve MathML support</h2>
 Chrome uses WebKit and WebKit didn't support MathML for quite a long time. A quite good work-around is <a href="http://www.mathjax.org/">MathJax</a>, but it is a work-around. Native support would be nice. With Chrome 24, they have added MathML support, but its still not optimal:
@@ -106,7 +106,7 @@ Chrome uses WebKit and WebKit didn't support MathML for quite a long time. A qui
 </ul>
 
 Here is an image where you can see some of the problems:
-[caption id="attachment_53981" align="aligncenter" width="621"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/mathml-chrome24-rendering.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/mathml-chrome24-rendering.png" alt="MathML rendered with Chrome 24" width="621" height="60" class="size-full wp-image-53981" /></a> MathML rendered with Chrome 24[/caption]
+{% caption align="aligncenter" width="621" caption="MathML rendered with Chrome 24" url="../images/2013/01/mathml-chrome24-rendering.png" alt="MathML rendered with Chrome 24" title="" height="60" class="size-full wp-image-53981" %}
 
 In Chrome 25, MathML was deactivated.
 
@@ -171,7 +171,7 @@ If you click on it, this dialog box gets displayed:
 {% caption align="aligncenter" width="540" caption="Google Chrome Color Dialog Box" url="../images/2012/08/chrome-color-dialog.png" alt="Google Chrome Color Dialog Box" title="Google Chrome Color Dialog Box" height="315" class="size-full wp-image-42061" %}
 
 They have added support to many of the time-elements like week:
-[caption id="attachment_58061" align="aligncenter" width="462"]<a href="http://martin-thoma.com/wp-content/uploads/2013/02/html5-week.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/html5-week.png" alt="HTML5 input type "week"" width="462" height="298" class="size-full wp-image-58061" /></a> HTML5 input type "week"[/caption]
+{% caption align="aligncenter" width="462" caption="HTML5 input type "week"" url="../images/2013/02/html5-week.png" alt="HTML5 input type "week"" title="" height="298" class="size-full wp-image-58061" %}
 
 If you want to check how your browser displays the different input types, here is a <a href="http://www.martin-thoma.de/html5/input.php">test page for input elements</a>.
 

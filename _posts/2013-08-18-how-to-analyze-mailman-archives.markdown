@@ -22,7 +22,7 @@ featured_image: 2011/09/Gnome-Terminal.png
 All mailing lists I use are <a href="http://en.wikipedia.org/wiki/GNU_Mailman">GNU Mailman</a> lists. This software provides archives of all Emails that were send over the list. 
 
 They look like this:
-[caption id="attachment_76298" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/08/mailman-list-archive.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/08/mailman-list-archive-300x277.png" alt="GNU Mailman list archive" width="300" height="277" class="size-medium wp-image-76298" /></a> GNU Mailman list archive[/caption]
+{% caption align="aligncenter" width="300" caption="GNU Mailman list archive" url="../images/2013/08/mailman-list-archive-300x277.png" alt="GNU Mailman list archive" title="" height="277" class="size-medium wp-image-76298" %}
 
 Once in a while, I would like to search if a topic was already discussed. Here is how you can do it:
 

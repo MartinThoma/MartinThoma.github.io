@@ -103,9 +103,9 @@ $g(d,c,b,a) := dc \bar b a \lor d \bar c ba \lor d \bar c \bar b a \lor \bar d c
 
 <strong>L&ouml;sung</strong>:
 (Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)
-[caption id="attachment_56641" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/digitaltechnik-aufgabe-7-2-1.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT" width="300" height="236" class="size-medium wp-image-56641" /></a> Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT[/caption]
+{% caption align="aligncenter" width="300" caption="Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT" url="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.1 aus DT" title="" height="236" class="size-medium wp-image-56641" %}
 
-[caption id="attachment_56651" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/digitaltechnik-aufgabe-7-2-2.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg" alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT" width="300" height="253" class="size-medium wp-image-56651" /></a> Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT[/caption]
+{% caption align="aligncenter" width="300" caption="Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT" url="../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg" alt="Handschriftliche L&ouml;sung der Aufgabe 7.2.2 aus DT" title="" height="253" class="size-medium wp-image-56651" %}
 
 <h2>Quellen</h2>
 Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw&list=PL025B377F9094FCB9&index=13">Vorlesung</a> und dem Tutorium erstellt. 

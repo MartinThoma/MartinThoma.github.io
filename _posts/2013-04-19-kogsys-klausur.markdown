@@ -168,7 +168,7 @@ Interessant, aber vermutlich nicht Klausurrelevant.
 </ul>
 
 <h4>07, 08: Machine Learning</h4>
-[caption id="attachment_76312" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/04/pattern-recognition-classification.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/04/pattern-recognition-classification-300x172.png" alt="Pattern recognition classification" width="300" height="172" class="size-medium wp-image-76312" /></a> Pattern recognition classification<br />Image Source: Folien von Prof. Waibel[/caption]
+{% caption align="aligncenter" width="300" caption="Pattern recognition classification<br />Image Source: Folien von Prof. Waibel" url="../images/2013/04/pattern-recognition-classification-300x172.png" alt="Pattern recognition classification" title="" height="172" class="size-medium wp-image-76312" %}
 
 <ul>
   <li>Perceptron<: <a href="http://de.wikipedia.org/wiki/Sigmoidfunktion">Sigmoidfunktion</a>/li>
