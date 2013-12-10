@@ -12,6 +12,6 @@ deploy:
 	cp -r _site/. .
 	rm -r _site
 	git add -A
-	git commit
+	git commit -m "misc"
 	git push origin master
 	git checkout source
