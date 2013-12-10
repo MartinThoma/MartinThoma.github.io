@@ -5,25 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Comparing Dates in PHP and MySQL</title>
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/style.css" type="text/css" media="screen" />
 
     <!-- code highlighting-->
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
 
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="martinthoma.github.io/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="martinthoma.github.io/favicon.ico" type="image/x-icon" />
 
-    <link rel="canonical" href="http://martinthoma.github.io/comparing-dates-in-php-and-mysql" />
+    <link rel="canonical" href="martinthoma.github.io/comparing-dates-in-php-and-mysql" />
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@themoosemind"/>
     <meta name="twitter:domain" content="Martin Thoma"/>
     <meta name="twitter:creator" content="@themoosemind"/>
 
     
-        <meta name="twitter:image:src" content="http://martinthoma.github.io/images/2011/10/PHP-logo.png"/>
+        <meta name="twitter:image:src" content="martinthoma.github.io/images/2011/10/PHP-logo.png"/>
     
 
     
@@ -31,11 +31,11 @@
     
 
     <meta name="twitter:title" content="Comparing Dates in PHP and MySQL - Martin Thoma"/>
-    <meta name="twitter:url" content="http://martinthoma.github.io/comparing-dates-in-php-and-mysql"/>
+    <meta name="twitter:url" content="martinthoma.github.io/comparing-dates-in-php-and-mysql"/>
 
-    <link rel='stylesheet' id='toc-screen-css'  href="http://martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery.js"></script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery-migrate.min.js"></script>
+    <link rel='stylesheet' id='toc-screen-css'  href="martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
+<script type='text/javascript' src="martinthoma.github.io/js/jquery.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/jquery-migrate.min.js"></script>
 <style type="text/css">div#toc_container {width: 275px;}</style>
 <style type="text/css" id="syntaxhighlighteranchor"></style>
 
@@ -48,14 +48,14 @@
 			<div class="span-16">
                 <!-- type: header.html -->
 <div id="header">
-    <h1><a href="http://martinthoma.github.io">Martin Thoma</a></h1>
+    <h1><a href="martinthoma.github.io">Martin Thoma</a></h1>
     <h2>A blog about Code, the Web and Cyberculture.</h2>
 </div>
 <div class="navcontainer">
 	<ul id="nav">
-		<li class=""><a href="http://martinthoma.github.io">Home</a></li>
-		<li class="page_item page-item-41 "><a href="http://martinthoma.github.io/about-martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="http://martinthoma.github.io/imprint/">Imprint</a></li>
+		<li class=""><a href="martinthoma.github.io">Home</a></li>
+		<li class="page_item page-item-41 "><a href="martinthoma.github.io/about-martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="martinthoma.github.io/imprint/">Imprint</a></li>
 	</ul>
 </div>
 
@@ -73,9 +73,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same.</p>
+                            <p>Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same.
 
-<div id="toc_container" class="toc_light_blue no_bullets">
+</p><div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -100,21 +100,10 @@
             </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">3</span> <span class="toctext">Comparing MySQL types with PHP types</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">4</span> <span class="toctext">From PHP to MySQL</span></a>
-      </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">PHP</h2>
-
-
 <h3 id="tocAnchor-1-1-1">time formats and functions</h3>
-
-
-<p>PHP knows these time / date formats:</p>
-
+PHP knows these time / date formats:
 <ul><li>UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are 
     <ul><li>int <a href="http://www.php.net/manual/en/function.mktime.php">mktime</a>([ int $hour = date("H") [, int $minute = date("i") [, int $second = date("s") [, int $month = date("n") [, int $day = date("j") [, int $year = date("Y") [, int $is_dst = -1 ]]]]]]])</li>
        <li>int <a href="http://www.php.net/manual/en/function.time.php">time</a>()</li>
@@ -143,51 +132,43 @@ The related functions are:
     </ul></li>
   <li><a href="http://php.net/manual/en/class.datetime.php">DateTime Class</a>: This class can do quite a lot. You should read the manual if you're interested in using it.</li>
 </ul><h3 id="tocAnchor-1-1-2">Comparisons</h3>
+Comparing UNIX Timestamps is like comparing integers. No problem. 
 
+Comparing Arrays is more interesting. What do you think will the following script print?
+[php]<?php $d1 = date_parse ("2011-05-11");
+$d2 = date_parse ("2011-05-11 13:00:00");
 
-<p>Comparing UNIX Timestamps is like comparing integers. No problem.</p>
+print_r($d1);
+print_r($d2);
 
-<p>Comparing Arrays is more interesting. What do you think will the following script print?
-[php]&lt;?php</p>
-
-<p>$d1 = date_parse ("2011-05-11");
-$d2 = date_parse ("2011-05-11 13:00:00");</p>
-
-<p>print_r($d1);
-print_r($d2);</p>
-
-<p>if ($d1 &lt; $d2) {
+if ($d1 < $d2) {
     echo '$d1 is less than $d2.';
 } else if ($d1 == $d2) {
     echo '$d1 is equal to $d2.';
 } else {
     echo '$d1 is greater than $d2.';
-}</p>
+}
 
-<p>?&gt;[/php]</p>
+??>[/php]
 
-<p>It prints '$d1 is less than $d2.' as
-[php]date_parse ("2011-05-11");[/php] is basically the same as
-[php]date_parse ("2011-05-11 00:00:00");[/php]</p>
+It prints '$d1 is less than $d2.' as 
+[php]date_parse ("2011-05-11");[/php] is basically the same as 
+[php]date_parse ("2011-05-11 00:00:00");[/php]
 
-<p>You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as beeing greater. If you use the functions you'll be fine.</p>
+You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as beeing greater. If you use the functions you'll be fine.
 
 <h2 id="tocAnchor-1-4">MySQL</h2>
-
-
 <h3 id="tocAnchor-1-4-1">time formats and functions</h3>
-
-
-<p>MySQL knows these date and time <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html">types</a> and those <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html">functions</a>. Here is a very short overview:</p>
-
+MySQL knows these date and time <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-types.html">types</a> and those <a href="http://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html">functions</a>. Here is a very short overview:
 <ul><li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">DATETIME</a>: 'YYYY-MM-DD HH:MM:SS'
 range is from '1000-01-01 00:00:00' to '9999-12-31 23:59:59'</li>
     <li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">DATE</a>: 'YYYY-MM-DD'
 range is from '1000-01-01' to '9999-12-31'</li>
     <li><a href="http://dev.mysql.com/doc/refman/5.5/en/datetime.html">TIMESTAMP</a>: like DATETIME, but
 range is from '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC</li>
-</ul><p>Those examples show more than a long explanation:</p>
+</ul>
 
+Those examples show more than a long explanation:
 <div class="highlight">
    <pre>
       <code class="bash">mysql&gt; SELECT CURTIME<span class="o">()</span><span class="p">;</span>
@@ -212,51 +193,27 @@ mysql&gt; SELECT UNIX_TIMESTAMP<span class="o">(</span><span class="sb">`</span>
    </pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-4-2">Comparisons</h3>
+You can compare two DATETIMEs like this:
+[sql]SELECT `my_row` FROM `my_table` WHEN `datetime1` Comparing MySQL types with PHP types
+The simplest way to compare MySQL DATE formats with PHP types is using strtotime(...) or date(...) if needed. If you have a DATETIME and you want to know if it's in the past, you can use
+[php]if (strtotime($datetime) From PHP to MySQL
+If you have a date you got via an date input field and want to submit it to MySQL, just use this piece of code:
+[php]$mysqlFormat = date('Y-m-d H:i:s', strtotime($_POST['my_date']));[/php]
 
-
-<p>You can compare two DATETIMEs like this:
-[sql]SELECT <code>my_row</code> FROM <code>my_table</code> WHEN <code>datetime1</code> &lt; <code>datetime2</code>[/sql]</p>
-
-<p>It's of course not problem if you compare two UNIX Timestamps which are stored as integers in the database:
-[sql]SELECT <code>my_row</code> FROM <code>my_table</code> WHEN <code>int1</code> &lt; <code>int2</code>[/sql]</p>
-
-<p>But what happens if you compare a DATETIME with a Timestamp (integer)?
-[sql]SELECT <code>my_row</code> FROM <code>my_table</code> WHEN <code>datetime1</code> &lt; UNIX_TIMESTAMP()[/sql]
-This is basically:
-[sql]SELECT <code>my_row</code> FROM <code>my_table</code> WHEN <code>datetime1</code> &lt; 1317750167[/sql]
-And it compares the "integered" DATETIME 20111004210710 for 2011-10-04 21:07:10 with 1317750167. This is obviously crap. Don't do it. Never.
-Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FROM_UNIXTIME(unix_timestamp).</p>
-
-<h2 id="tocAnchor-1-7">Comparing MySQL types with PHP types</h2>
-
-
-<p>The simplest way to compare MySQL DATE formats with PHP types is using strtotime(...) or date(...) if needed. If you have a DATETIME and you want to know if it's in the past, you can use
-[php]if (strtotime($datetime) &lt; time()) {
-   echo '$datetime is in the past.';
-}[/php]</p>
-
-<h2 id="tocAnchor-1-8">From PHP to MySQL</h2>
-
-
-<p>If you have a date you got via an date input field and want to submit it to MySQL, just use this piece of code:
-[php]$mysqlFormat = date('Y-m-d H:i:s', strtotime($_POST['my_date']));[/php]</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
-                                <a href="http://martinthoma.github.io/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
+                                <a href="martinthoma.github.io/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
                              | Tags: 
                             
                                 
-                                    <a href="http://martinthoma.github.io/tag/php/">PHP</a>
+                                    <a href="martinthoma.github.io/tag/php/">PHP</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/mysql/">MySQL</a>
+                                , <a href="martinthoma.github.io/tag/mysql/">MySQL</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2011-10-04 18:22:12 UTC">
+                             by <a rel="author" class="vcard author" href="martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2011-10-04 18:22:12 UTC">
                                 October 
                                 4th
                                   , 
@@ -265,12 +222,12 @@ Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FRO
 							<div class="navigation clearfix">
                                 <div class="alignleft">
                                 
-                                    &laquo; <a href="http://martinthoma.github.io/motion-of-the-sun" rel="prev">Motion of the sun</a>
+                                    &laquo; <a href="martinthoma.github.io/motion-of-the-sun" rel="prev">Motion of the sun</a>
                                  
                                 </div>
 								<div class="alignright">
                                 
-                                    <a href="http://martinthoma.github.io/clip-what-light" rel="next">Clip: What Light</a> &raquo;
+                                    <a href="martinthoma.github.io/clip-what-light" rel="next">Clip: What Light</a> &raquo;
                                  
                                 </div>
 							</div>
@@ -303,18 +260,18 @@ Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FRO
 			    </div>
             <div class="span-8 last">
                 <div id="subscriptions">
-                    <a href="http://martinthoma.github.io/feed/"><img src="http://martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
-		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+                    <a href="martinthoma.github.io/feed/"><img src="martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
 	<div id="sidebar">
         <!-- type: searchbox.html - TODO-->
 <ul>
     <li id="search">
         <div class="searchlayout">
-            <form method="get" id="searchform" action="http://martinthoma.github.io">
+            <form method="get" id="searchform" action="martinthoma.github.io">
                 <input type="text" value="Search" 
                     name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
                     onfocus="if (this.value == 'Search') {this.value = '';}" />
-                <input type="image" src="http://martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
+                <input type="image" src="martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
             </form>
         </div>
     </li>
@@ -322,13 +279,13 @@ Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FRO
 
         <div class="addthis_toolbox">   
     <div class="custom_images">
-            <a class="addthis_button_twitter"><img src="http://martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a class="addthis_button_delicious"><img src="http://martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a class="addthis_button_facebook"><img src="http://martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a class="addthis_button_digg"><img src="http://martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a class="addthis_button_stumbleupon"><img src="http://martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a class="addthis_button_favorites"><img src="http://martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
-            <a class="addthis_button_more"><img src="http://martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+            <a class="addthis_button_twitter"><img src="martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a class="addthis_button_delicious"><img src="martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a class="addthis_button_facebook"><img src="martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a class="addthis_button_digg"><img src="martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a class="addthis_button_stumbleupon"><img src="martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a class="addthis_button_favorites"><img src="martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+            <a class="addthis_button_more"><img src="martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
     </div>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
 </div>
@@ -339,70 +296,70 @@ Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FRO
         <!-- type: categories -->
 <h2 class="widgettitle">Categories</h2>
     <ul>
-        <li class="cat-item cat-item-11"><a href="http://martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="http://martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="http://martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="http://martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="http://martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="http://martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+        <li class="cat-item cat-item-11"><a href="martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
 	</ul>
 
     </li>
-    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 252.56%' href='http://martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 215.81%' href='http://martinthoma.github.io/tag/c/' title='25 topics'>C</a>
-<a style='font-size: 235.11%' href='http://martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
-<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 90.00%' href='martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 215.81%' href='martinthoma.github.io/tag/c/' title='25 topics'>C</a>
+<a style='font-size: 252.56%' href='martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 270.00%' href='martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 235.11%' href='martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 175.88%' href='martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 248.55%' href='martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 209.30%' href='martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 170.49%' href='martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 190.13%' href='martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
 </div>
 </li>		</ul>
 	</div>
 </div>
 		</div><!--/container-->
 			<div id="footer">
-				<a href="http://martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+				<a href="martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
                 <div class="footer-credits">
                     <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
                 </div>
@@ -436,7 +393,7 @@ MathJax.Hub.Queue(function() {
 var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
 /* ]]> */
 </script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/tocplus-front.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/tocplus-front.js"></script>
 
 </body>
 </html>

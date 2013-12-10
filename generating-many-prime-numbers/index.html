@@ -5,25 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Generating many prime numbers</title>
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/style.css" type="text/css" media="screen" />
 
     <!-- code highlighting-->
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
 
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="martinthoma.github.io/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="martinthoma.github.io/favicon.ico" type="image/x-icon" />
 
-    <link rel="canonical" href="http://martinthoma.github.io/generating-many-prime-numbers" />
+    <link rel="canonical" href="martinthoma.github.io/generating-many-prime-numbers" />
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@themoosemind"/>
     <meta name="twitter:domain" content="Martin Thoma"/>
     <meta name="twitter:creator" content="@themoosemind"/>
 
     
-        <meta name="twitter:image:src" content="http://martinthoma.github.io/images/2012/04/leonhard-euler.jpg"/>
+        <meta name="twitter:image:src" content="martinthoma.github.io/images/2012/04/leonhard-euler.jpg"/>
     
 
     
@@ -31,11 +31,11 @@
     
 
     <meta name="twitter:title" content="Generating many prime numbers - Martin Thoma"/>
-    <meta name="twitter:url" content="http://martinthoma.github.io/generating-many-prime-numbers"/>
+    <meta name="twitter:url" content="martinthoma.github.io/generating-many-prime-numbers"/>
 
-    <link rel='stylesheet' id='toc-screen-css'  href="http://martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery.js"></script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery-migrate.min.js"></script>
+    <link rel='stylesheet' id='toc-screen-css'  href="martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
+<script type='text/javascript' src="martinthoma.github.io/js/jquery.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/jquery-migrate.min.js"></script>
 <style type="text/css">div#toc_container {width: 275px;}</style>
 <style type="text/css" id="syntaxhighlighteranchor"></style>
 
@@ -48,14 +48,14 @@
 			<div class="span-16">
                 <!-- type: header.html -->
 <div id="header">
-    <h1><a href="http://martinthoma.github.io">Martin Thoma</a></h1>
+    <h1><a href="martinthoma.github.io">Martin Thoma</a></h1>
     <h2>A blog about Code, the Web and Cyberculture.</h2>
 </div>
 <div class="navcontainer">
 	<ul id="nav">
-		<li class=""><a href="http://martinthoma.github.io">Home</a></li>
-		<li class="page_item page-item-41 "><a href="http://martinthoma.github.io/about-martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="http://martinthoma.github.io/imprint/">Imprint</a></li>
+		<li class=""><a href="martinthoma.github.io">Home</a></li>
+		<li class="page_item page-item-41 "><a href="martinthoma.github.io/about-martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="martinthoma.github.io/imprint/">Imprint</a></li>
 	</ul>
 </div>
 
@@ -73,11 +73,11 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.</p>
+                            <p>Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.
 
-<p>So, lets prove my claim.</p>
+So, lets prove my claim.
 
-<div id="toc_container" class="toc_light_blue no_bullets">
+</p><div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -98,31 +98,22 @@
             <li class="toc_level-2 toc_section-6">
                <a href="#tocAnchor-1-2-4"><span class="tocnumber">2.4</span> <span class="toctext">primesieve</span></a>
             </li>
+            <li class="toc_level-2 toc_section-7">
+               <a href="#tocAnchor-1-2-5"><span class="tocnumber">2.5</span> <span class="toctext">My first implementation</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-8">
+               <a href="#tocAnchor-1-2-6"><span class="tocnumber">2.6</span> <span class="toctext">Primegen</span></a>
+            </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">3</span> <span class="toctext">Sieve of Atkin</span></a>
-         <ul>
-            <li class="toc_level-2 toc_section-8">
-               <a href="#tocAnchor-1-7-1"><span class="tocnumber">3.1</span> <span class="toctext">My first implementation</span></a>
-            </li>
-            <li class="toc_level-2 toc_section-9">
-               <a href="#tocAnchor-1-7-2"><span class="tocnumber">3.2</span> <span class="toctext">Primegen</span></a>
-            </li>
-         </ul>
+      <li class="toc_level-1 toc_section-9">
+         <a href="#tocAnchor-1-9"><span class="tocnumber">3</span> <span class="toctext">See also</span></a>
       </li>
       <li class="toc_level-1 toc_section-10">
-         <a href="#tocAnchor-1-10"><span class="tocnumber">4</span> <span class="toctext">See also</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-11">
-         <a href="#tocAnchor-1-11"><span class="tocnumber">5</span> <span class="toctext">Finally</span></a>
+         <a href="#tocAnchor-1-10"><span class="tocnumber">4</span> <span class="toctext">Finally</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Trivial approach</h2>
-
-
-
-
 <div class="highlight">
    <pre>
       <code class="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
@@ -163,47 +154,37 @@
    </pre>
 </div>
 
-
-<p>Execute it for 100,000,000:</p>
+Execute it for 100,000,000:
 
 <div class="highlight">
    <pre>
       <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 100000000 &gt; primes.txt
 
-real    0m57.274s
-user    0m41.855s
-sys 0m15.229s
+real	0m57.274s
+user	0m41.855s
+sys	0m15.229s
 </code>
    </pre>
 </div>
 
+So 41 seconds for all primes not bigger than 100,000,000. 
 
-<p>So 41 seconds for all primes not bigger than 100,000,000.</p>
-
-<p>Now, lets test it for 1,000,000,000:</p>
-
+Now, lets test it for 1,000,000,000:
 <div class="highlight">
    <pre>
       <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000 &gt; primes.txt
 
-real    18m18.205s
-user    15m56.904s
-sys 2m12.500s
+real	18m18.205s
+user	15m56.904s
+sys	2m12.500s
 </code>
    </pre>
 </div>
 
-
-<p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
+16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.
 
 <h2 id="tocAnchor-1-2">Sieve of Eratosthenes</h2>
-
-
 <h3 id="tocAnchor-1-2-1">A first try</h3>
-
-
-
-
 <div class="highlight">
    <pre>
       <code class="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
@@ -233,28 +214,23 @@ sys 2m12.500s
    </pre>
 </div>
 
-
-<p>This one takes 1 minute 5 seconds:</p>
-
+This one takes 1 minute 5 seconds:
 <div class="highlight">
    <pre>
       <code class="bash">make<span class="p">;</span><span class="nb">time</span> ./generate-prime-list.out 1000000000 &gt; testPrimes.txt
 g++ -std<span class="o">=</span>c++0x -Wall -pedantic -O3 -D NDEBUG generate-prime-list.cpp -o generate-prime-list.out
 
-real    3m20.436s
-user    1m4.908s
-sys 2m11.748s
+real	3m20.436s
+user	1m4.908s
+sys	2m11.748s
 </code>
    </pre>
 </div>
 
-
-<p>I'm getting closer to "seconds". :-)</p>
+I'm getting closer to "seconds". :-)
 
 <h3 id="tocAnchor-1-2-2">ofstream, endl, \n and buffers</h3>
-
-
-<p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
+Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:
 
 <div class="highlight">
    <pre>
@@ -288,40 +264,35 @@ sys 2m11.748s
    </pre>
 </div>
 
+<div class="highlight">
+   <pre>
+      <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
+real	3m21.249s
+user	1m4.016s
+sys	2m12.332s
+</code>
+   </pre>
+</div>
 
+Ok, no real change :-/
+
+Another idea is to replace <code>endl</code> by <code>\n</code> (see <a href="http://stackoverflow.com/a/5192299/562769">explanation</a>)
+
+That was a good try. Now it needs only 46 seconds:
 
 <div class="highlight">
    <pre>
       <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    3m21.249s
-user    1m4.016s
-sys 2m12.332s
+real	0m49.539s
+user	0m46.619s
+sys	0m0.920s
 </code>
    </pre>
 </div>
 
-
-<p>Ok, no real change :-/</p>
-
-<p>Another idea is to replace <code>endl</code> by <code>\n</code> (see <a href="http://stackoverflow.com/a/5192299/562769">explanation</a>)</p>
-
-<p>That was a good try. Now it needs only 46 seconds:</p>
-
-<div class="highlight">
-   <pre>
-      <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
-
-real    0m49.539s
-user    0m46.619s
-sys 0m0.920s
-</code>
-   </pre>
-</div>
-
-
-<p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
+Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:
 
 <div class="highlight">
    <pre>
@@ -360,26 +331,23 @@ sys 0m0.920s
    </pre>
 </div>
 
-
-<p>And execute it:</p>
-
+And execute it:
 <div class="highlight">
    <pre>
       <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    0m39.700s
-user    0m38.546s
-sys 0m0.640s
+real	0m39.700s
+user	0m38.546s
+sys	0m0.640s
 </code>
    </pre>
 </div>
 
+38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.
 
-<p>38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.</p>
+By the way, simply setting this with <code>setbuf(pFile, NULL);</code> to unbuffered resulted in 50 seconds execution time.
 
-<p>By the way, simply setting this with <code>setbuf(pFile, NULL);</code> to unbuffered resulted in 50 seconds execution time.</p>
-
-<p>You can get the list with this snippet:</p>
+You can get the list with this snippet:
 
 <div class="highlight">
    <pre>
@@ -412,15 +380,10 @@ sys 0m0.640s
    </pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-2-3">Improve sieving</h3>
+The following change was suggested by <em>Niklas B.</em>. Thanks!
 
-
-<p>The following change was suggested by <em>Niklas B.</em>. Thanks!</p>
-
-<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</em></code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime.</p>
+Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j*i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2*p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime. 
 
 <div class="highlight">
    <pre>
@@ -463,40 +426,23 @@ sys 0m0.640s
    </pre>
 </div>
 
-
-<p>Execute:</p>
-
+Execute:
 <div class="highlight">
    <pre>
       <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    0m24.222s
-user    0m23.485s
-sys 0m0.436s
+real	0m24.222s
+user	0m23.485s
+sys	0m0.436s
 </code>
    </pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-2-4">primesieve</h3>
+<a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) $Sieve of Atkin
+Arthur Oliver Lonsdale Atkin (July 31, 1925 – December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow
 
-
-<p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) $&lt; 2^{64}$ using a highly optimized implementation of the sieve of Eratosthenes.</p>
-
-<p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...</p>
-
-<h2 id="tocAnchor-1-7">Sieve of Atkin</h2>
-
-
-<p>Arthur Oliver Lonsdale Atkin (July 31, 1925 – December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
-
-<h3 id="tocAnchor-1-7-1">My first implementation</h3>
-
-
-
-
+<h3 id="tocAnchor-1-2-5">My first implementation</h3>
 <div class="highlight">
    <pre>
       <code class="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
@@ -510,36 +456,36 @@ sys 0m0.436s
     <span class="kt">FILE</span><span class="o">*</span> <span class="n">pFile</span><span class="p">;</span>
     <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"huge-prime-list.bin"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">);</span>
 
-    <span class="kt">long</span> <span class="kt">long</span> <span class="n">root</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">limit</span><span class="p">));</span>
+	<span class="kt">long</span> <span class="kt">long</span> <span class="n">root</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">limit</span><span class="p">));</span>
 
     <span class="c1">// initialize the sieve</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+	<span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
 
     <span class="c1">// put in candidate primes: </span>
     <span class="c1">// integers which have an odd number of</span>
     <span class="c1">// representations by certain quadratic forms</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">long</span> <span class="kt">long</span> <span class="n">xSquare</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
                 <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">!</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
             <span class="p">}</span>
 
-            <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">!</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
             <span class="p">}</span>
 
-            <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">!</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
             <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
     <span class="c1">// eliminate composites by sieving</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="p">{</span>
             <span class="kt">long</span> <span class="kt">long</span> <span class="n">add</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
             <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">k</span> <span class="o">=</span> <span class="n">add</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">k</span> <span class="o">+=</span> <span class="n">add</span><span class="p">)</span> <span class="p">{</span>
@@ -557,11 +503,11 @@ sys 0m0.436s
     <span class="n">primTmp</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
     <span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">primTmp</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pFile</span><span class="p">);</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="p">{</span>
             <span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">n</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pFile</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
     <span class="n">fclose</span><span class="p">(</span><span class="n">pFile</span><span class="p">);</span>
 <span class="p">}</span>
@@ -579,51 +525,39 @@ sys 0m0.436s
    </pre>
 </div>
 
-
-<p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
+Atkins sieve has a much worse performance than Sieve of Eratosthenes:
 
 <div class="highlight">
    <pre>
       <code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    1m6.001s
-user    1m4.724s
-sys 0m0.604s
+real	1m6.001s
+user	1m4.724s
+sys	0m0.604s
 </code>
    </pre>
 </div>
 
+<h3 id="tocAnchor-1-2-6">Primegen</h3>
+<a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.
 
+When I have some time, I'll update this article and create a new version of my sieve with ideas from Primegen.
 
-
-<h3 id="tocAnchor-1-7-2">Primegen</h3>
-
-
-<p><a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.</p>
-
-<p>When I have some time, I'll update this article and create a new version of my sieve with ideas from Primegen.</p>
-
-<p>Primegen is fast:</p>
-
+Primegen is fast:
 <div class="highlight">
    <pre>
       <code class="bash"><span class="nb">time</span> ./primes &gt; primes.txt
 
-real    0m11.677s
-user    0m10.649s
-sys 0m0.708s
+real	0m11.677s
+user	0m10.649s
+sys	0m0.708s
 </code>
    </pre>
 </div>
+About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.
 
-
-<p>About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
-
-<h2 id="tocAnchor-1-10">See also</h2>
-
-
-<p>You might want to try the following Project Euler problem sets:</p>
-
+<h2 id="tocAnchor-1-9">See also</h2>
+You might want to try the following Project Euler problem sets:
 <ul><li>Project Euler
   <ul><li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
     <li><a href="http://projecteuler.net/problem=7">Problem 7</a>: What is the 10 001st prime number?</li>
@@ -636,29 +570,28 @@ sys 0m0.708s
   </ul></li>
 <li><a href="http://sweet.ua.pt/tos/software/prime_sieve.html">Segmented sieve of Eratosthenes</a></li>
 <li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above $10^9$ which I didn't.</li>
-</ul><h2 id="tocAnchor-1-11">Finally</h2>
+</ul><h2 id="tocAnchor-1-10">Finally</h2>
+The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)
 
-
-<p>The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
-                                <a href="http://martinthoma.github.io/category/cyberculture/">cyberculture</a><!--TODO: Displayed category name should be upper case! -->
+                                <a href="martinthoma.github.io/category/cyberculture/">cyberculture</a><!--TODO: Displayed category name should be upper case! -->
                              | Tags: 
                             
                                 
-                                    <a href="http://martinthoma.github.io/tag/mathematics/">mathematics</a>
+                                    <a href="martinthoma.github.io/tag/mathematics/">mathematics</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/project euler/">Project Euler</a>
+                                , <a href="martinthoma.github.io/tag/project euler/">Project Euler</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/cpp/">CPP</a>
+                                , <a href="martinthoma.github.io/tag/cpp/">CPP</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/prime number/">prime number</a>
+                                , <a href="martinthoma.github.io/tag/prime number/">prime number</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-05-21 20:50:10 UTC">
+                             by <a rel="author" class="vcard author" href="martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-05-21 20:50:10 UTC">
                                 May 
                                 21st
                                   , 
@@ -667,12 +600,12 @@ sys 0m0.708s
 							<div class="navigation clearfix">
                                 <div class="alignleft">
                                 
-                                    &laquo; <a href="http://martinthoma.github.io/solving-equations-of-upper-triangular-matrices" rel="prev">Solving equations of upper triangular matrices</a>
+                                    &laquo; <a href="martinthoma.github.io/solving-equations-of-upper-triangular-matrices" rel="prev">Solving equations of upper triangular matrices</a>
                                  
                                 </div>
 								<div class="alignright">
                                 
-                                    <a href="http://martinthoma.github.io/solving-linear-equations-with-gaussian-elimination" rel="next">Solving linear equations with Gaussian elimination</a> &raquo;
+                                    <a href="martinthoma.github.io/solving-linear-equations-with-gaussian-elimination" rel="next">Solving linear equations with Gaussian elimination</a> &raquo;
                                  
                                 </div>
 							</div>
@@ -705,18 +638,18 @@ sys 0m0.708s
 			    </div>
             <div class="span-8 last">
                 <div id="subscriptions">
-                    <a href="http://martinthoma.github.io/feed/"><img src="http://martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
-		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+                    <a href="martinthoma.github.io/feed/"><img src="martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
 	<div id="sidebar">
         <!-- type: searchbox.html - TODO-->
 <ul>
     <li id="search">
         <div class="searchlayout">
-            <form method="get" id="searchform" action="http://martinthoma.github.io">
+            <form method="get" id="searchform" action="martinthoma.github.io">
                 <input type="text" value="Search" 
                     name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
                     onfocus="if (this.value == 'Search') {this.value = '';}" />
-                <input type="image" src="http://martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
+                <input type="image" src="martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
             </form>
         </div>
     </li>
@@ -724,13 +657,13 @@ sys 0m0.708s
 
         <div class="addthis_toolbox">   
     <div class="custom_images">
-            <a class="addthis_button_twitter"><img src="http://martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a class="addthis_button_delicious"><img src="http://martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a class="addthis_button_facebook"><img src="http://martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a class="addthis_button_digg"><img src="http://martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a class="addthis_button_stumbleupon"><img src="http://martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a class="addthis_button_favorites"><img src="http://martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
-            <a class="addthis_button_more"><img src="http://martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+            <a class="addthis_button_twitter"><img src="martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a class="addthis_button_delicious"><img src="martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a class="addthis_button_facebook"><img src="martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a class="addthis_button_digg"><img src="martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a class="addthis_button_stumbleupon"><img src="martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a class="addthis_button_favorites"><img src="martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+            <a class="addthis_button_more"><img src="martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
     </div>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
 </div>
@@ -741,70 +674,70 @@ sys 0m0.708s
         <!-- type: categories -->
 <h2 class="widgettitle">Categories</h2>
     <ul>
-        <li class="cat-item cat-item-11"><a href="http://martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="http://martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="http://martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="http://martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="http://martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="http://martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+        <li class="cat-item cat-item-11"><a href="martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
 	</ul>
 
     </li>
-    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 252.56%' href='http://martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 215.81%' href='http://martinthoma.github.io/tag/c/' title='25 topics'>C</a>
-<a style='font-size: 235.11%' href='http://martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
-<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 90.00%' href='martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 215.81%' href='martinthoma.github.io/tag/c/' title='25 topics'>C</a>
+<a style='font-size: 252.56%' href='martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 270.00%' href='martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 235.11%' href='martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 175.88%' href='martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 248.55%' href='martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 209.30%' href='martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 170.49%' href='martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 190.13%' href='martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
 </div>
 </li>		</ul>
 	</div>
 </div>
 		</div><!--/container-->
 			<div id="footer">
-				<a href="http://martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+				<a href="martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
                 <div class="footer-credits">
                     <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
                 </div>
@@ -838,7 +771,7 @@ MathJax.Hub.Queue(function() {
 var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
 /* ]]> */
 </script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/tocplus-front.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/tocplus-front.js"></script>
 
 </body>
 </html>

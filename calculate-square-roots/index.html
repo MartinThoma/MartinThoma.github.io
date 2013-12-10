@@ -5,25 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Calculate square roots</title>
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/style.css" type="text/css" media="screen" />
 
     <!-- code highlighting-->
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
 
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="martinthoma.github.io/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="martinthoma.github.io/favicon.ico" type="image/x-icon" />
 
-    <link rel="canonical" href="http://martinthoma.github.io/calculate-square-roots" />
+    <link rel="canonical" href="martinthoma.github.io/calculate-square-roots" />
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@themoosemind"/>
     <meta name="twitter:domain" content="Martin Thoma"/>
     <meta name="twitter:creator" content="@themoosemind"/>
 
     
-        <meta name="twitter:image:src" content="http://martinthoma.github.io/images/2013/06/sqrt-2.png"/>
+        <meta name="twitter:image:src" content="martinthoma.github.io/images/2013/06/sqrt-2.png"/>
     
 
     
@@ -31,11 +31,11 @@
     
 
     <meta name="twitter:title" content="Calculate square roots - Martin Thoma"/>
-    <meta name="twitter:url" content="http://martinthoma.github.io/calculate-square-roots"/>
+    <meta name="twitter:url" content="martinthoma.github.io/calculate-square-roots"/>
 
-    <link rel='stylesheet' id='toc-screen-css'  href="http://martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery.js"></script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery-migrate.min.js"></script>
+    <link rel='stylesheet' id='toc-screen-css'  href="martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
+<script type='text/javascript' src="martinthoma.github.io/js/jquery.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/jquery-migrate.min.js"></script>
 <style type="text/css">div#toc_container {width: 275px;}</style>
 <style type="text/css" id="syntaxhighlighteranchor"></style>
 
@@ -48,14 +48,14 @@
 			<div class="span-16">
                 <!-- type: header.html -->
 <div id="header">
-    <h1><a href="http://martinthoma.github.io">Martin Thoma</a></h1>
+    <h1><a href="martinthoma.github.io">Martin Thoma</a></h1>
     <h2>A blog about Code, the Web and Cyberculture.</h2>
 </div>
 <div class="navcontainer">
 	<ul id="nav">
-		<li class=""><a href="http://martinthoma.github.io">Home</a></li>
-		<li class="page_item page-item-41 "><a href="http://martinthoma.github.io/about-martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="http://martinthoma.github.io/imprint/">Imprint</a></li>
+		<li class=""><a href="martinthoma.github.io">Home</a></li>
+		<li class="page_item page-item-41 "><a href="martinthoma.github.io/about-martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="martinthoma.github.io/imprint/">Imprint</a></li>
 	</ul>
 </div>
 
@@ -73,15 +73,15 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Suppose you have an equation like this:</p>
+                            <p>Suppose you have an equation like this:
 
-<p>$x<sup>2</sup> = a, \;\;\;\; a \in \mathbb{R}_{\geq 0}$</p>
+$x^2 = a, \;\;\;\; a \in \mathbb{R}_{\geq 0}$
 
-<p>Your task is to compute the solution $x \in \mathbb{R}_{\geq 0}$.</p>
+Your task is to compute the solution $x \in \mathbb{R}_{\geq 0}$.
 
-<p>How do you solve this algorithmically?</p>
+How do you solve this algorithmically?
 
-<div id="toc_container" class="toc_light_blue no_bullets">
+</p><div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -101,53 +101,40 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Input and output</h2>
-
-
-<p>Write a program that takes two parameters $a, n \in \mathbb{N}_{\geq 1}$:</p>
-
+Write a program that takes two parameters $a, n \in \mathbb{N}_{\geq 1}$:
 <ul><li>$a$: The number you should take the square root of. $a$ is not bigger than 65535. To make this a little bit simpler, you can also assume that $a$ is an integer.</li>
   <li>$n$: Number of iterations you may use</li>
-</ul><p>Your program should output exactly one positive floating point number. The decimal separator is a point. At the end of the number should be a newline character <code>\n</code>.</p>
+</ul>
+
+Your program should output exactly one positive floating point number. The decimal separator is a point. At the end of the number should be a newline character <code>\n</code>.
 
 <h2 id="tocAnchor-1-2">Reference code</h2>
+[c]
+// Thanks to http://stackoverflow.com/a/15363123/562769
+#include <stdio.h>
+#include <gmp.h>
 
-
-<p>[c]
-// Thanks to http://stackoverflow.com/a/15363123/562769</p>
-
-<h1>include &lt;stdio.h&gt;</h1>
-
-<h1>include &lt;gmp.h&gt;</h1>
-
-<p>int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     mpf_t res, a;
     mpf_set_default_prec(1000000); // Increase this number.
     mpf_init(res);
     mpf_init(a);
     mpf_set_str(a, "2", 10);
-    mpf_sqrt (res, a);
+    mpf_sqrt (res, a); 
     gmp_printf("%.1000Ff\n\n", res); // Increase this number.
     return 0;
 }
-[/c]</p>
+[/c]
 
-<p>You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to compile this.</p>
+You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to compile this. 
 
-<p>Compile it like this:</p>
+Compile it like this:
 
-<div class="highlight">
-   <pre>
-      <code class="bash">gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out
-</code>
-   </pre>
-</div>
+<div class="highlight"><pre><code class="bash">gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out
+</code></pre></div>
 
-
-<p>This is the script I use to get the number of correct digits:</p>
-
-<div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+This is the script I use to get the number of correct digits:
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">getScore</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -191,23 +178,13 @@
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
  
 <span class="k">print</span><span class="p">(</span><span class="s">"Points for a=</span><span class="si">%i</span><span class="s"> and n=</span><span class="si">%i</span><span class="s">: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">getScore</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)))</span>
-</code>
-   </pre>
-</div>
-
-
-
+</code></pre></div>
 
 <h2 id="tocAnchor-1-3">Newton's method</h2>
+How should be choose the initial value? I thought $\frac{a}{2}$ could be ok. In a good implementation you'll probably do this with a lookup table.
 
-
-<p>How should be choose the initial value? I thought $\frac{a}{2}$ could be ok. In a good implementation you'll probably do this with a lookup table.</p>
-
-<p>With long double:</p>
-
-<div class="highlight">
-   <pre>
-      <code class="cpp"><span class="cp">#include &lt;iostream&gt;</span>
+With long double:
+<div class="highlight"><pre><code class="cpp"><span class="cp">#include &lt;iostream&gt;</span>
 <span class="cp">#include &lt;cmath&gt;</span>
  
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -230,38 +207,31 @@
     <span class="n">printf</span><span class="p">(</span><span class="s">"%.80Lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">newton</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code>
-   </pre>
-</div>
+</code></pre></div>
 
+I failed to convert this to a version that uses GMP :-/
 
-<p>I failed to convert this to a version that uses GMP :-/</p>
+But it converges quite fast:
 
-<p>But it converges quite fast:</p>
-
-<p>[caption id="attachment_69511" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/06/newton-correct-digits.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/06/newton-correct-digits.png" alt="Newtons method for calculating square roots" width="512" height="235" class="size-full wp-image-69511" /></a> Newtons method for calculating square roots[/caption]</p>
+<div style="width: 512px" class="wp-caption aligncenter"><a href="../images/../images/2013/06/newton-correct-digits.png"><img src="../images/../images/2013/06/newton-correct-digits.png" alt="" width="512" height="235" class="size-full wp-image-69511" /></a><p class="wp-caption-text"></p></div>
 
 <h2 id="tocAnchor-1-4">Exponential identity</h2>
+According to Wikipedia (Source: <a href="http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Exponential_identity">Methods of computing square roots</a>) many calculators use the following identity:
 
+$\displaystyle \sqrt{a} = e^{\frac{1}{2}\ln a}$
 
-<p>According to Wikipedia (Source: <a href="http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Exponential_identity">Methods of computing square roots</a>) many calculators use the following identity:</p>
+But to calculate this, you need to be able to calculate $e^x$ for $x \in \mathbb{R}_{\geq 0}$ and $\ln(a)$ for $a \in \mathbb{R}_{\geq 0}$.
 
-<p>$\displaystyle \sqrt{a} = e^{\frac{1}{2}\ln a}$</p>
+I've used the definition of $e^x$ to calculate $e^x$:
+$\displaystyle e^x := \sum_{i = 0}^\infty \frac{x^i}{i!}$
 
-<p>But to calculate this, you need to be able to calculate $e<sup>x</sup>$ for $x \in \mathbb{R}<em>{\geq 0}$ and $\ln(a)$ for $a \in \mathbb{R}</em>{\geq 0}$.</p>
+and:
 
-<p>I've used the definition of $e<sup>x</sup>$ to calculate $e<sup>x</sup>$:
-$\displaystyle e<sup>x</sup> := \sum_{i = 0}^\infty \frac{x<sup>i</sup>}{i!}$</p>
+$\displaystyle \ln(1+x) =- \sum_{k=0}^\infty \frac{(-x)^{k+1}}{k+1}$
 
-<p>and:</p>
+So I gave it a try:
 
-<p>$\displaystyle \ln(1+x) =- \sum_{k=0}^\infty \frac{(-x)^{k+1}}{k+1}$</p>
-
-<p>So I gave it a try:</p>
-
-<div class="highlight">
-   <pre>
-      <code class="cpp"><span class="cp">#include &lt;iostream&gt;</span>
+<div class="highlight"><pre><code class="cpp"><span class="cp">#include &lt;iostream&gt;</span>
 <span class="cp">#include &lt;cmath&gt;</span>
  
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -304,12 +274,9 @@ $\displaystyle e<sup>x</sup> := \sum_{i = 0}^\infty \frac{x<sup>i</sup>}{i!}$</p
     <span class="n">printf</span><span class="p">(</span><span class="s">"%.80Lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code>
-   </pre>
-</div>
+</code></pre></div>
 
-
-<p>This converges VERY slow: For $a = 2$</p>
+This converges VERY slow: For $a = 2$
 
 <ul><li>$n=1$: 1 digit correct</li>
   <li>$n=10$: 1 digit correct</li>
@@ -318,31 +285,34 @@ $\displaystyle e<sup>x</sup> := \sum_{i = 0}^\infty \frac{x<sup>i</sup>}{i!}$</p
   <li>$n=10,000$: 5 digit correct</li>
   <li>$n=100,000$: 5 digit correct</li>
   <li>$n=1,000,000$: 6 digit correct</li>
-</ul><p>Ok, lets take a better Taylor series for calculating $e<sup>x</sup>$:
-$\displaystyle e<sup>x</sup> = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}{(2\cdot k)!}$</p>
+</ul>
 
-<p>This didn't change anything! I'm very surprised ... as I've calculated $\pi$ for another article, changing the series to something similar improved the speed of convergence drastically.</p>
+Ok, lets take a better Taylor series for calculating $e^x$:
+$\displaystyle e^x = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}{(2\cdot k)!}$
+
+This didn't change anything! I'm very surprised ... as I've calculated $\pi$ for another article, changing the series to something similar improved the speed of convergence drastically.
 
 <h2 id="tocAnchor-1-5">See also</h2>
-
-
 <ul><li>StackOverflow: <a href="http://stackoverflow.com/a/12304868/562769">How does the computer calculate Square roots?</a></li>
   <li><a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">Intel® 64 and IA-32 Architectures Software Developer’s Manual</a>: FSQRT, SQRTPS, SQRTSS</li>
   <li><a href="https://github.com/MartinThoma/algorithms/tree/master/square-root-calculation">Source code</a> of this article</li>
-</ul><p>Feel free to add a program that calculates square roots. When they are interesting, I'll probably add them to this article.</p>
+</ul>
+
+Feel free to add a program that calculates square roots. When they are interesting, I'll probably add them to this article.
+</gmp.h></stdio.h>
 						</div>
 						<div class="postmeta">Posted in 
                             
-                                <a href="http://martinthoma.github.io/category/cyberculture/">cyberculture</a><!--TODO: Displayed category name should be upper case! -->
+                                <a href="martinthoma.github.io/category/cyberculture/">cyberculture</a><!--TODO: Displayed category name should be upper case! -->
                              | Tags: 
                             
                                 
-                                    <a href="http://martinthoma.github.io/tag/cpp/">CPP</a>
+                                    <a href="martinthoma.github.io/tag/cpp/">CPP</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/gmp/">GMP</a>
+                                , <a href="martinthoma.github.io/tag/gmp/">GMP</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-06-06 18:54:10 UTC">
+                             by <a rel="author" class="vcard author" href="martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-06-06 18:54:10 UTC">
                                 June 
                                 6th
                                   , 
@@ -351,12 +321,12 @@ $\displaystyle e<sup>x</sup> = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}
 							<div class="navigation clearfix">
                                 <div class="alignleft">
                                 
-                                    &laquo; <a href="http://martinthoma.github.io/inverting-matrices" rel="prev">Inverting matrices</a>
+                                    &laquo; <a href="martinthoma.github.io/inverting-matrices" rel="prev">Inverting matrices</a>
                                  
                                 </div>
 								<div class="alignright">
                                 
-                                    <a href="http://martinthoma.github.io/structs-in-c" rel="next">Structs in C++</a> &raquo;
+                                    <a href="martinthoma.github.io/structs-in-c" rel="next">Structs in C++</a> &raquo;
                                  
                                 </div>
 							</div>
@@ -389,18 +359,18 @@ $\displaystyle e<sup>x</sup> = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}
 			    </div>
             <div class="span-8 last">
                 <div id="subscriptions">
-                    <a href="http://martinthoma.github.io/feed/"><img src="http://martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
-		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+                    <a href="martinthoma.github.io/feed/"><img src="martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
 	<div id="sidebar">
         <!-- type: searchbox.html - TODO-->
 <ul>
     <li id="search">
         <div class="searchlayout">
-            <form method="get" id="searchform" action="http://martinthoma.github.io">
+            <form method="get" id="searchform" action="martinthoma.github.io">
                 <input type="text" value="Search" 
                     name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
                     onfocus="if (this.value == 'Search') {this.value = '';}" />
-                <input type="image" src="http://martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
+                <input type="image" src="martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
             </form>
         </div>
     </li>
@@ -408,13 +378,13 @@ $\displaystyle e<sup>x</sup> = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}
 
         <div class="addthis_toolbox">   
     <div class="custom_images">
-            <a class="addthis_button_twitter"><img src="http://martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a class="addthis_button_delicious"><img src="http://martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a class="addthis_button_facebook"><img src="http://martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a class="addthis_button_digg"><img src="http://martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a class="addthis_button_stumbleupon"><img src="http://martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a class="addthis_button_favorites"><img src="http://martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
-            <a class="addthis_button_more"><img src="http://martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+            <a class="addthis_button_twitter"><img src="martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a class="addthis_button_delicious"><img src="martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a class="addthis_button_facebook"><img src="martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a class="addthis_button_digg"><img src="martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a class="addthis_button_stumbleupon"><img src="martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a class="addthis_button_favorites"><img src="martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+            <a class="addthis_button_more"><img src="martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
     </div>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
 </div>
@@ -425,70 +395,70 @@ $\displaystyle e<sup>x</sup> = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}
         <!-- type: categories -->
 <h2 class="widgettitle">Categories</h2>
     <ul>
-        <li class="cat-item cat-item-11"><a href="http://martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="http://martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="http://martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="http://martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="http://martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="http://martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+        <li class="cat-item cat-item-11"><a href="martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
 	</ul>
 
     </li>
-    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 252.56%' href='http://martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 215.81%' href='http://martinthoma.github.io/tag/c/' title='25 topics'>C</a>
-<a style='font-size: 235.11%' href='http://martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
-<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 90.00%' href='martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 215.81%' href='martinthoma.github.io/tag/c/' title='25 topics'>C</a>
+<a style='font-size: 252.56%' href='martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 270.00%' href='martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 235.11%' href='martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 175.88%' href='martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 248.55%' href='martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 209.30%' href='martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 170.49%' href='martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 190.13%' href='martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
 </div>
 </li>		</ul>
 	</div>
 </div>
 		</div><!--/container-->
 			<div id="footer">
-				<a href="http://martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+				<a href="martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
                 <div class="footer-credits">
                     <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
                 </div>
@@ -522,7 +492,7 @@ MathJax.Hub.Queue(function() {
 var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
 /* ]]> */
 </script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/tocplus-front.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/tocplus-front.js"></script>
 
 </body>
 </html>

@@ -5,25 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Project Euler: Problem 35</title>
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/style.css" type="text/css" media="screen" />
 
     <!-- code highlighting-->
-    <link rel="stylesheet" href="http://martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="martinthoma.github.io/css/pygments.css" type="text/css" media="screen" />
 
 
-    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
-    <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="martinthoma.github.io/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="martinthoma.github.io/favicon.ico" type="image/x-icon" />
 
-    <link rel="canonical" href="http://martinthoma.github.io/project-euler-problem-35" />
+    <link rel="canonical" href="martinthoma.github.io/project-euler-problem-35" />
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@themoosemind"/>
     <meta name="twitter:domain" content="Martin Thoma"/>
     <meta name="twitter:creator" content="@themoosemind"/>
 
     
-        <meta name="twitter:image:src" content="http://martinthoma.github.io/images/2012/04/leonhard-euler.jpg"/>
+        <meta name="twitter:image:src" content="martinthoma.github.io/images/2012/04/leonhard-euler.jpg"/>
     
 
     
@@ -31,11 +31,11 @@
     
 
     <meta name="twitter:title" content="Project Euler: Problem 35 - Martin Thoma"/>
-    <meta name="twitter:url" content="http://martinthoma.github.io/project-euler-problem-35"/>
+    <meta name="twitter:url" content="martinthoma.github.io/project-euler-problem-35"/>
 
-    <link rel='stylesheet' id='toc-screen-css'  href="http://martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery.js"></script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/jquery-migrate.min.js"></script>
+    <link rel='stylesheet' id='toc-screen-css'  href="martinthoma.github.io/css/tocplus-screen.css" type='text/css' media='all' />
+<script type='text/javascript' src="martinthoma.github.io/js/jquery.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/jquery-migrate.min.js"></script>
 <style type="text/css">div#toc_container {width: 275px;}</style>
 <style type="text/css" id="syntaxhighlighteranchor"></style>
 
@@ -48,14 +48,14 @@
 			<div class="span-16">
                 <!-- type: header.html -->
 <div id="header">
-    <h1><a href="http://martinthoma.github.io">Martin Thoma</a></h1>
+    <h1><a href="martinthoma.github.io">Martin Thoma</a></h1>
     <h2>A blog about Code, the Web and Cyberculture.</h2>
 </div>
 <div class="navcontainer">
 	<ul id="nav">
-		<li class=""><a href="http://martinthoma.github.io">Home</a></li>
-		<li class="page_item page-item-41 "><a href="http://martinthoma.github.io/about-martin-thoma/">About Me</a></li>
-        <li class="page_item page-item-91 "><a href="http://martinthoma.github.io/imprint/">Imprint</a></li>
+		<li class=""><a href="martinthoma.github.io">Home</a></li>
+		<li class="page_item page-item-41 "><a href="martinthoma.github.io/about-martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="martinthoma.github.io/imprint/">Imprint</a></li>
 	</ul>
 </div>
 
@@ -73,16 +73,13 @@
                         </div>
 			
 						<div class="entry">
-                            <p>The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:</p>
+                            <p>The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:
 
-<blockquote>The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
+</p><blockquote>The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
 
 There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 
 How many circular primes are there below one million?</blockquote>
-
-
-
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -104,19 +101,74 @@ How many circular primes are there below one million?</blockquote>
 Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
 You can use the same thought for the digit 5.
 
+So you can skip those digits
+
+The final snippet
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+ 
+def getPrimesBelowN(n=1000000):
+    """Get all primes below n with the sieve of Eratosthenes. 
+    @return: a list 0..n with boolean values that indicate if 
+             i in 0..n is a prime.
+    """
+    from math import ceil
+    primes = [True] * n
+    primes[0] = False
+    primes[1] = False
+    primeList = []
+    roundUp = lambda n, prime: int(ceil(float(n) / prime))
+    for currentPrime in xrange(2, n):
+        if not primes[currentPrime]:
+            continue
+        primeList.append(currentPrime)
+        for multiplicant in xrange(2, roundUp(n, currentPrime)):
+            primes[multiplicant * currentPrime] = False
+    return primes
+ 
+def isCircularPrime(primes, number):
+    """Check if number is a circular prime.
+     
+    Keyword arguments:
+    primes -- a list from 0..n with boolean values that indicate if 
+              i in 0..n is a prime
+    number -- the integer you want to check
+    """
+    number = str(number)
+    for i in xrange(0, len(number)):
+        rotatedNumber = number[i:len(number)] + number[0:i]
+        if not primes[int(rotatedNumber)]:
+            return False
+    return True
+ 
+if __name__ == "__main__":
+    print("Start sieving.")
+    primes = getPrimesBelowN(1000000)
+    print("End sieving.")
+    numberOfPrimes = 2
+    print(2)    # I print them now, because I want to skip all primes
+    print(5)    # that contain one of those digits: 0,2,4,5,6,8
+    for prime, isPrime in enumerate(primes):
+        if (not isPrime) or ("2" in str(prime)) or \
+           ("4" in str(prime)) or ("6" in str(prime)) or \
+           ("8" in str(prime)) or ("0" in str(prime)) or \
+           ("5" in str(prime)):
+            continue
+        if isCircularPrime(primes, prime):
+            print(prime)
+            numberOfPrimes += 1
+ 
+    print("Number of circular primes: %i" % numberOfPrimes)
+
+
+It takes about 1.096 seconds (in comparison: having the version of isCircularPrime that searches through the list of primes took over 5 minutes!)
 </span></a>
-            </li>
-            <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-2-4"><span class="tocnumber">2.4</span> <span class="toctext">The final snippet</span></a>
             </li>
          </ul>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">How to solve</h2>
-
-
-<p>If you have heard of the sieve of Eratosthenes, this one sounds quite easy:</p>
-
+If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
 <ol><li>Find all primes below one million</li>
   <li>For each prime, do:
     <ol><li>Generate all rotations</li>
@@ -124,20 +176,17 @@ You can use the same thought for the digit 5.
     </ol></li>
   <li>Count the number of circular primes</li>
 </ol><h2 id="tocAnchor-1-2">The implementation</h2>
-
-
 <h3 id="tocAnchor-1-2-1">Sieve of Eratosthenes</h3>
+The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.
 
+First, this is the way the sieve of Eratosthenes works:
 
-<p>The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.</p>
+[caption id="attachment_48841" align="aligncenter" width="445"]<a href="http://martin-thoma.com/project-euler-problem-35/sieve_of_eratosthenes_animation/" rel="attachment wp-att-48841">
+   <img src="http://martin-thoma.com/wp-content/uploads/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" width="445" height="369" class="size-full wp-image-48841" />
+</a> Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).
+Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>[/caption]
 
-<p>First, this is the way the sieve of Eratosthenes works:</p>
-
-<p>[caption id="attachment_48841" align="aligncenter" width="445"]<a href="http://martin-thoma.com/project-euler-problem-35/sieve_of_eratosthenes_animation/" rel="attachment wp-att-48841"><img src="http://martin-thoma.com/wp-content/uploads/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" width="445" height="369" class="size-full wp-image-48841" /></a> Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).
-Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>[/caption]</p>
-
-<p>For example, this implementation is not good:</p>
-
+For example, this implementation is not good:
 <div class="highlight">
    <pre>
       <code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
@@ -156,12 +205,10 @@ Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_an
    </pre>
 </div>
 
+Whats bad with this code? 
+Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.
 
-<p>Whats bad with this code?
-Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.</p>
-
-<p>How could this get improved? Here is a better solution:</p>
-
+How could this get improved? Here is a better solution:
 <div class="highlight">
    <pre>
       <code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
@@ -185,16 +232,12 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
    </pre>
 </div>
 
+This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.
 
-<p>This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.</p>
-
-<p>A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.</p>
+A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.
 
 <h3 id="tocAnchor-1-2-2">isCircularPrime</h3>
-
-
-<p>Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:</p>
-
+Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:
 <div class="highlight">
    <pre>
       <code class="python"><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
@@ -208,8 +251,7 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
    </pre>
 </div>
 
-
-<p>Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:</p>
+Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:
 
 <div class="highlight">
    <pre>
@@ -224,29 +266,23 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
    </pre>
 </div>
 
-
-
-
-<p></p><h3 id="tocAnchor-1-2-3">Some more speedups
+<h3 id="tocAnchor-1-2-3">Some more speedups
 Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
 You can use the same thought for the digit 5.
 
-</h3><p>So you can skip those digits</p>
+So you can skip those digits
 
-<p></p><h3 id="tocAnchor-1-2-4">The final snippet</h3>
-
-<p></p><div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/python</span>
-<span class="c"># -<em>- coding: utf-8 -</em>-</span>
-
-<p><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
+<h3>The final snippet</h3>
+<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+ 
+<span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">"""Get all primes below n with the sieve of Eratosthenes. </span>
 <span class="sd">    @return: a list 0..n with boolean values that indicate if </span>
 <span class="sd">             i in 0..n is a prime.</span>
 <span class="sd">    """</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
-    <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o"><em></em></span> <span class="n">n</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
     <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">primeList</span> <span class="o">=</span> <span class="p">[]</span>
@@ -256,10 +292,10 @@ You can use the same thought for the digit 5.
             <span class="k">continue</span>
         <span class="n">primeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentPrime</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
-            <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o"></span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="n">primes</span></p>
-
-<p><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+            <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="n">primes</span>
+ 
+<span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="sd">"""Check if number is a circular prime.</span>
 <span class="sd">     </span>
 <span class="sd">    Keyword arguments:</span>
@@ -272,9 +308,9 @@ You can use the same thought for the digit 5.
         <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)]:</span>
             <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">True</span></p>
-
-<p><span class="k">if</span> <span class="n"><strong>name</strong></span> <span class="o">==</span> <span class="s">"<strong>main</strong>"</span><span class="p">:</span>
+    <span class="k">return</span> <span class="bp">True</span>
+ 
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"Start sieving."</span><span class="p">)</span>
     <span class="n">primes</span> <span class="o">=</span> <span class="n">getPrimesBelowN</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"End sieving."</span><span class="p">)</span>
@@ -289,35 +325,32 @@ You can use the same thought for the digit 5.
             <span class="k">continue</span>
         <span class="k">if</span> <span class="n">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">prime</span><span class="p">):</span>
             <span class="k">print</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
-            <span class="n">numberOfPrimes</span> <span class="o">+=</span> <span class="mi">1</span></p>
+            <span class="n">numberOfPrimes</span> <span class="o">+=</span> <span class="mi">1</span>
+ 
+    <span class="k">print</span><span class="p">(</span><span class="s">"Number of circular primes: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">numberOfPrimes</span><span class="p">)</span>
+</code></pre></div>
 
-<pre><code>&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Number of circular primes: &lt;/span&gt;&lt;span class="si"&gt;%i&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;numberOfPrimes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-</code></pre>
-
-<p></p></code>
-   </pre>
-</div>
-
-<p>It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)</p>
+It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)
+</h3>
 						</div>
 						<div class="postmeta">Posted in 
                             
-                                <a href="http://martinthoma.github.io/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
+                                <a href="martinthoma.github.io/category/code/">code</a><!--TODO: Displayed category name should be upper case! -->
                              | Tags: 
                             
                                 
-                                    <a href="http://martinthoma.github.io/tag/programming/">Programming</a>
+                                    <a href="martinthoma.github.io/tag/programming/">Programming</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/python/">Python</a>
+                                , <a href="martinthoma.github.io/tag/python/">Python</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/challenge/">Challenge</a>
+                                , <a href="martinthoma.github.io/tag/challenge/">Challenge</a>
                                 
                             
-                                , <a href="http://martinthoma.github.io/tag/project euler/">Project Euler</a>
+                                , <a href="martinthoma.github.io/tag/project euler/">Project Euler</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-11-17 12:23:01 UTC">
+                             by <a rel="author" class="vcard author" href="martinthoma.github.io/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-11-17 12:23:01 UTC">
                                 November 
                                 17th
                                   , 
@@ -326,12 +359,12 @@ You can use the same thought for the digit 5.
 							<div class="navigation clearfix">
                                 <div class="alignleft">
                                 
-                                    &laquo; <a href="http://martinthoma.github.io/project-euler-problem-33" rel="prev">Project Euler: Problem 33</a>
+                                    &laquo; <a href="martinthoma.github.io/project-euler-problem-33" rel="prev">Project Euler: Problem 33</a>
                                  
                                 </div>
 								<div class="alignright">
                                 
-                                    <a href="http://martinthoma.github.io/tribonacci-folge" rel="next">Tribonacci-Folge</a> &raquo;
+                                    <a href="martinthoma.github.io/tribonacci-folge" rel="next">Tribonacci-Folge</a> &raquo;
                                  
                                 </div>
 							</div>
@@ -364,18 +397,18 @@ You can use the same thought for the digit 5.
 			    </div>
             <div class="span-8 last">
                 <div id="subscriptions">
-                    <a href="http://martinthoma.github.io/feed/"><img src="http://martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
-		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
+                    <a href="martinthoma.github.io/feed/"><img src="martinthoma.github.io/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" /></a>		
+		<a href="http://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="martinthoma.github.io/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  /></a>    </div>
 	<div id="sidebar">
         <!-- type: searchbox.html - TODO-->
 <ul>
     <li id="search">
         <div class="searchlayout">
-            <form method="get" id="searchform" action="http://martinthoma.github.io">
+            <form method="get" id="searchform" action="martinthoma.github.io">
                 <input type="text" value="Search" 
                     name="s" id="s"  onblur="if (this.value == '')  {this.value = 'Search';}"  
                     onfocus="if (this.value == 'Search') {this.value = '';}" />
-                <input type="image" src="http://martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
+                <input type="image" src="martinthoma.github.io/css/images/search.gif" style="border:0; vertical-align: top;" /> 
             </form>
         </div>
     </li>
@@ -383,13 +416,13 @@ You can use the same thought for the digit 5.
 
         <div class="addthis_toolbox">   
     <div class="custom_images">
-            <a class="addthis_button_twitter"><img src="http://martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a class="addthis_button_delicious"><img src="http://martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
-            <a class="addthis_button_facebook"><img src="http://martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a class="addthis_button_digg"><img src="http://martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a class="addthis_button_stumbleupon"><img src="http://martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
-            <a class="addthis_button_favorites"><img src="http://martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
-            <a class="addthis_button_more"><img src="http://martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
+            <a class="addthis_button_twitter"><img src="martinthoma.github.io/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a class="addthis_button_delicious"><img src="martinthoma.github.io/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a class="addthis_button_facebook"><img src="martinthoma.github.io/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a class="addthis_button_digg"><img src="martinthoma.github.io/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a class="addthis_button_stumbleupon"><img src="martinthoma.github.io/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a class="addthis_button_favorites"><img src="martinthoma.github.io/css/images/socialicons/favorites.png" width="32" height="32" alt="Favorites" /></a>
+            <a class="addthis_button_more"><img src="martinthoma.github.io/css/images/socialicons/more.png" width="32" height="32" alt="More" /></a>
     </div>
     <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a65e1d93cd75e94"></script>
 </div>
@@ -400,70 +433,70 @@ You can use the same thought for the digit 5.
         <!-- type: categories -->
 <h2 class="widgettitle">Categories</h2>
     <ul>
-        <li class="cat-item cat-item-11"><a href="http://martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
-        <li class="cat-item cat-item-21"><a href="http://martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
-        <li class="cat-item cat-item-31"><a href="http://martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
-        <li class="cat-item cat-item-3404"><a href="http://martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
-        <li class="cat-item cat-item-881"><a href="http://martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
-        <li class="cat-item cat-item-41"><a href="http://martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+        <li class="cat-item cat-item-11"><a href="martinthoma.github.io/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="martinthoma.github.io/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="martinthoma.github.io/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="martinthoma.github.io/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="martinthoma.github.io/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="martinthoma.github.io/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
 	</ul>
 
     </li>
-    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 252.56%' href='http://martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 215.81%' href='http://martinthoma.github.io/tag/c/' title='25 topics'>C</a>
-<a style='font-size: 235.11%' href='http://martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
-<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+    <li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Tags</h2><div class="tagcloud"><a style='font-size: 90.00%' href='martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 215.81%' href='martinthoma.github.io/tag/c/' title='25 topics'>C</a>
+<a style='font-size: 252.56%' href='martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 270.00%' href='martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 235.11%' href='martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
+<a style='font-size: 144.19%' href='martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 175.88%' href='martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 151.64%' href='martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 248.55%' href='martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 209.30%' href='martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 170.49%' href='martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 116.30%' href='martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 135.95%' href='martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
+<a style='font-size: 194.36%' href='martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 126.74%' href='martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 104.25%' href='martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 158.44%' href='martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 190.13%' href='martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
 </div>
 </li>		</ul>
 	</div>
 </div>
 		</div><!--/container-->
 			<div id="footer">
-				<a href="http://martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+				<a href="martinthoma.github.io"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
                 <div class="footer-credits">
                     <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
                 </div>
@@ -497,7 +530,7 @@ MathJax.Hub.Queue(function() {
 var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
 /* ]]> */
 </script>
-<script type='text/javascript' src="http://martinthoma.github.io/js/tocplus-front.js"></script>
+<script type='text/javascript' src="martinthoma.github.io/js/tocplus-front.js"></script>
 
 </body>
 </html>
