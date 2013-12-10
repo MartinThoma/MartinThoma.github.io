@@ -12,17 +12,7 @@ layout: default-wp
             <span>{{ post.date | date: '%B' }} {{ post.date | date: '%e' }}, {{ post.date | date: '%Y' }}</span> 
             <!--<span>No Comments / 1 comment / 2 comments</span>-->
         </div>
-
-		<div class="entry">
-            {% if post.featured_image %}
-            <a href="{{ site.baseurl }}{{ post.url }}/"><img width="128" height="128" src="{{ site.baseurl }}/images/{{ post.featured_image }}" class="alignleft post_thumbnail wp-post-image" alt="{{ post.title }}"/></a>
-            {% endif %}
- 
-			{{ post.content | strip_html | truncatewords:75}} [...]
-            <div class="readmorecontent">
-				<a class="readmore" href="{{ site.baseurl }}{{ post.url }}/" rel="bookmark" title="Permanent Link to '{{ post.title }}'">Read More &raquo;</a>
-			</div>
-		</div>
+        {% include entry.html %}
         <div class="postmeta">Posted in 
             {% for category in post.categories %}
                 <a href="{{ site.baseurl }}/category/{{ category | CategorySlugFilter }}/" title="View all posts in '{{ category }}'" rel="category tag">{{ category }}</a>

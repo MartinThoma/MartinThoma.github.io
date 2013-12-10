@@ -13,8 +13,8 @@ date: 2012-12-12 12:12:58.000000000 +01:00
 categories:
 - German posts
 tags:
-- BWInf
-- ! '#glpk'
+- BwInf
+- GLPK
 comments: []
 featured_image: 2012/09/bwinf-thumb.png
 ---
