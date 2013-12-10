@@ -4,11 +4,8 @@ status: publish
 published: true
 title: Programmierparadigmen Klausur
 author: Martin Thoma
-author_login: moose
 author_email: info@martin-thoma.de
 author_url: http://www.martin-thoma.com
-wordpress_id: 76674
-wordpress_url: http://martin-thoma.com/?p=76674
 date: 2013-10-24 12:46:16.000000000 +02:00
 categories:
 - German posts
@@ -16,27 +13,6 @@ tags:
 - Haskell
 - Klausur
 - Programmierparadigmen
-comments:
-- id: 1238019
-  author: Stefan Koch
-  author_email: cct@stefan-koch.name
-  author_url: http://www.stefan-koch.name/
-  date: !binary |-
-    MjAxMy0xMC0yNCAxOTozMDowNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0yNCAxNzozMDowNiArMDIwMA==
-  content: Hab ich was &uuml;bersehen oder schreibst du die Nachklausur vom Vorjahr?
-    Bei mir steht auf der Klausurenseite des KIT und in den Vorlesungsfolien der 10.4.2014
-    als Klausurtermin.
-- id: 1238028
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0xMC0yNSAxMzozNjozNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0yNSAxMTozNjozNiArMDIwMA==
-  content: Danke f&uuml;r den Hinweis! Ich habs korrigiert!
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 geh&ouml;rt.</div>
@@ -70,11 +46,11 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
     <th>Inhalt</th>
   </tr>
   <tr>
-    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt0.pdf">&Uuml;B 0</a>: Haskell</td>
+    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt0.pdf" rel="nofollow">&Uuml;B 0</a>: Haskell</td>
     <td>Haskell installieren (siehe <a href="http://wiki.ubuntuusers.de/Haskell">UbuntuUsers</a>), Maximum dreier Zahlen berechnen</td>
   </tr>
   <tr>
-    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt1.pdf">&Uuml;B 1</a>: Rekursive Funktionen in Haskell</td>
+    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt1.pdf" rel="nofollow">&Uuml;B 1</a>: Rekursive Funktionen in Haskell</td>
     <td>Potenzen, Primzahlen, Sortieren</td>
   </tr>
 </table>
@@ -99,13 +75,13 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr
-<strong>Ort</strong>: steht noch nicht fest (Stand: 24.10.2013)
+<strong>Ort</strong>: steht noch nicht fest (Stand: 10.12.2013)
 <strong>Punkte</strong>: ?
 <strong>Bestehensgrenze</strong>: ?
 <strong>&Uuml;bungsschein</strong>: Gibt es nicht.
 <strong>Bonuspunkte</strong>: Gibt es nicht.
-<strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 24.10.2013)
-<strong>Einsicht</strong>: steht noch nicht fest (Stand: 24.10.2013)
+<strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 10.12.2013)
+<strong>Einsicht</strong>: steht noch nicht fest (Stand: 10.12.2013)
 <strong>Erlaubte Hilfsmittel</strong>: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
 <blockquote>Erlaubte Hilfsmittel f&uuml;r die Klausur sind alle Quellen in Papierform, insbesondere
@@ -116,7 +92,5 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 </ul>
 </blockquote>
 
-
-
 <h2>Ergebnisse</h2>
-Stehen noch nicht fest (Stand: 24.10.2013).
+Stehen noch nicht fest (Stand: 10.12.2013).
