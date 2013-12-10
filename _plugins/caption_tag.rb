@@ -36,7 +36,7 @@ module Jekyll
     def render(context)
         @hash = parse_attrs(@text)
         #"#{@text} #{@tokens}"
-        "<div style=\"width: #{@hash['width']}px\" class=\"wp-caption #{@hash['alignment']}\">" +
+        "<div style=\"width: #{@hash['width']}px\" class=\"wp-caption #{@hash['align']}\">" +
         "<a href=\"../images/#{@hash['url']}\">" +
             "<img src=\"../images/#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\">" +
         "</a>" +

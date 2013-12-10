@@ -22,34 +22,32 @@ def parseCaptions(content):
     {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
     """
     import re
-    url = "(.*?)"
-    pattern = re.compile('\[caption[\w\s=\d"]*align="(?P<alignment>.*?)"[\w\s=\d"]*\]' + \
-        '<a href=\"(?P<url>' + url + ')\"(?P<asonst>.*?)>' + \
-        '<img src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>' + url + '))\" ' + \
+
+    # first with caption inside caption tag
+    pattern = '\[caption(.*?)align="(?P<align>.*?)"(.*?)caption="(?P<caption>.*?)"(.*?)\]' + \
+        '<a(.*?)href=\"(?P<url>(.*?))\"(?P<asonst>.*?)>' + \
+        '<img(.*?)src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>(.*?)))\" ' + \
             'alt=\"(?P<alt>.*?)\"\s*' + \
             'width=\"(?P<width>.*?)\"\s*' + \
             'height=\"(?P<height>.*?)\"\s*' + \
             'class=\"(?P<imgclass>.*?)\"\s*' + \
             '(?P<isonst>.*?)/>' + \
         '</a>\s*' + \
-        '(?P<text>.*?)\[/caption\]')
+        '(?P<text>.*?)\[/caption\]'
+    pattern = re.compile(pattern)
     results = [m.groupdict() for m in pattern.finditer(content)]
     for result in results:
         for key, value in result.items():
             print("%s:\t%s" % (key, value))
 
-    return re.sub(pattern, '{% caption class="\g<imgclass>" width="\g<width>" height="\g<height>" alt="\g<alt>" text="\g<text>" url="../images/\g<innerurl>" %}', content)
+    content = re.sub(pattern, '{% caption align="\g<align>" width="\g<width>" caption="\g<caption>" url="../images/\g<innerurl>" class="\g<imgclass>" height="\g<height>" alt="\g<alt>" text="\g<text>"  %}', content)
+
+    return content
 
 def pageCodeConversion(filename):
     with open(filename) as f:
         content = f.read()
 
-    content = content.replace("&#47;", "/")
-
-    # Create MathJax:
-    #if "$" in content:
-    #    print("Error: contained a $. It might already have been processed. Replace [latex]-tags manually", file=sys.stderr)
-    #else:
     content = content.replace("[latex]", "$")
     content = content.replace("[/latex]", "$")
 
@@ -70,6 +68,7 @@ def findFeaturedImage(website):
     import urllib2
     from bs4 import BeautifulSoup
 
+    """
     while website:
         response = urllib2.urlopen(website)
         html = response.read()
@@ -92,7 +91,7 @@ def findFeaturedImage(website):
         else:
             website = None
         print(website)
-        
+    """
 
     from os import listdir
     directory = "./_posts/"
@@ -100,21 +99,24 @@ def findFeaturedImage(website):
     for f in files:
         filename = directory+f
 
-        with open(filename) as f:
-            content = f.read()
+        #with open(filename) as f:
+        #    content = f.read()
 
-        yamml = getYamml(content)
-        if len(yamml) != 3:
-            print("There seems to be --- inside of the post. Please fix it!")
-            continue
+        #yamml = getYamml(content)
+        #if len(yamml) != 3:
+        #    print("There seems to be --- inside of post '%s'. Please fix it!" % filename)
+        #    continue
 
-        yamml, content = yamml[1], yamml[2]
-        hasFeaturedImage = False
-        for line in yamml.split("\n"):
+        #yamml, content = yamml[1], yamml[2]
+        #hasFeaturedImage = False
+        """
+        for i, line in enumerate(yamml.split("\n")):
             if ":" in line:
                 if line.startswith("featured_image"):
                     hasFeaturedImage = True
                     break
+                if line.startswith("comment"):
+                    commentline = i
 
         if not hasFeaturedImage:
             mdfilename = filename[len("./_posts/2013-11-18-"):-len(".markdown")]
@@ -128,6 +130,9 @@ def findFeaturedImage(website):
                     f.write(newsrc)
         else:
             print("x info: %s has already a featured image" % filename)
+        """
+
+        pageCodeConversion(filename)
 
 
 
