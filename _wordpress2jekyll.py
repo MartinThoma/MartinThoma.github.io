@@ -50,7 +50,7 @@ def parseCaptions(content):
         '<a(.*?)href=\"(?P<url>(.*?))\"(?P<asonst>.*?)>' + \
         '<img(.*?)src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>(.*?)))\" ' + \
             'alt=\"(?P<alt>.*?)\"\s*' + \
-            'title=\"(?P<title>.*?)\"\s*' + \
+            '(title=\"(?P<title>.*?)\")?\s*' + \
             'width=\"(?P<width>.*?)\"\s*' + \
             'height=\"(?P<height>.*?)\"\s*' + \
             'class=\"(?P<imgclass>.*?)\"\s*' + \
