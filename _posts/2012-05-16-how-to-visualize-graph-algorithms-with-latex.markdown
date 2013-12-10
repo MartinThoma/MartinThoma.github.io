@@ -41,7 +41,7 @@ featured_image: 2012/01/latex-logo.png
 ---
 Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template ;-) ). This post should give you a template to visualize graph algorithms with LaTeX.
 I recently found a great animation of Prim's algorithm done by <a href="http://www.texample.net/tikz/examples/prims-algorithm/">Kjell Magne Fauske</a>. I've edited his source files to show an eulerian path. This is how it looks like:
-[caption id="attachment_24611" align="aligncenter" width="512" caption="LaTeX (Tikz) animation of an eulerian path"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/tikz-animation.gif"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/tikz-animation.gif" alt="LaTeX (Tikz) animation of an eulerian path" title="LaTeX (Tikz) animation of an eulerian path" width="512" height="228" class="size-full wp-image-24611" /></a>[/caption]
+{% caption align="aligncenter" width="512" caption="LaTeX (Tikz) animation of an eulerian path" url="../images/2012/05/tikz-animation.gif" alt="LaTeX (Tikz) animation of an eulerian path" title="LaTeX (Tikz) animation of an eulerian path" height="228" class="size-full wp-image-24611" %}
 This animation was automatically created. See <a href='http://martin-thoma.com/wp-content/uploads/2012/05/LaTeX-example.zip'>Archive</a> and the intermediate <a href='http://martin-thoma.com/wp-content/uploads/2012/05/tikz-animation.pdf'>PDF</a>.
 
 <h2>The ideas</h2>
@@ -88,7 +88,7 @@ Simple graphs could look like this:
 \end{figure}{% endhighlight %}
 
 You should get something similar to this:
-[caption id="attachment_24691" align="aligncenter" width="300" caption="Simple example graph created with LaTeX and Tikz"]<a href="http://martin-thoma.com/wp-content/uploads/2012/05/simple-example-graph.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/05/simple-example-graph-300x105.png" alt="Simple example graph created with LaTeX and Tikz" title="Simple example graph created with LaTeX and Tikz" width="300" height="105" class="size-medium wp-image-24691" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="Simple example graph created with LaTeX and Tikz" url="../images/2012/05/simple-example-graph-300x105.png" alt="Simple example graph created with LaTeX and Tikz" title="Simple example graph created with LaTeX and Tikz" height="105" class="size-medium wp-image-24691" %}
 
 <h3>Animate</h3>
 Animations can be created with Tikz by working with layers. You don't want to redraw the whole graph every time. Most of the time you want to overlay/underlay some parts of the graph. This can be achieved by declaring a new layer:

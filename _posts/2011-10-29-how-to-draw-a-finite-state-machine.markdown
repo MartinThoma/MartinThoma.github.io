@@ -81,7 +81,7 @@ To create a graph (or the picture of the nondeterministic finite-state machine) 
 {% highlight bash %}dot -Tpng fsm.gv -o myFiniteStateMachine.png{% endhighlight %}
 
 <h2>Deterministic finite-state machine</h2>
-[caption id="attachment_8171" align="alignleft" width="528" caption="Deterministic finite-state machine"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/deterministic-finite-state-machine.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" title="Deterministic finite-state machine" width="528" height="248" class="size-full wp-image-8171" /></a>[/caption]
+{% caption align="alignleft" width="528" caption="Deterministic finite-state machine" url="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" title="Deterministic finite-state machine" height="248" class="size-full wp-image-8171" %}
 
 {% highlight text %}digraph finite_state_machine {
 	rankdir=LR;
@@ -138,7 +138,7 @@ This was the most basic example which shows how to draw a finite-state automaton
 {% highlight bash %}pdflatex latexsheet.tex -output-format=pdf{% endhighlight %}
 
 If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
-[caption id="attachment_13421" align="aligncenter" width="400" caption="Finite-state-machine with LaTeX"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/latex-finite-state-machine.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX" title="Finite-state-machine with LaTeX" width="400" height="147" class="size-full wp-image-13421" /></a>[/caption]
+{% caption align="aligncenter" width="400" caption="Finite-state-machine with LaTeX" url="../images/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX" title="Finite-state-machine with LaTeX" height="147" class="size-full wp-image-13421" %}
 {% highlight text %}\documentclass{scrartcl}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}

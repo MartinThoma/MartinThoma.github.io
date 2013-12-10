@@ -54,9 +54,9 @@ Dann muss man Subversive installieren:
 Auch hier macht man es wie mit CheckStyle.
 
 Sobald alles klappt, sieht es etwa so aus:
-[caption id="attachment_23271" align="aligncenter" width="666" caption="Subversive plugin in Eclipse"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/eclipse-subversive.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/eclipse-subversive.png" alt="Subversive plugin in Eclipse" title="Subversive plugin in Eclipse" width="666" height="434" class="size-full wp-image-23271" /></a>[/caption]
+{% caption align="aligncenter" width="666" caption="Subversive plugin in Eclipse" url="../images/2012/04/eclipse-subversive.png" alt="Subversive plugin in Eclipse" title="Subversive plugin in Eclipse" height="434" class="size-full wp-image-23271" %}
 
-[caption id="attachment_23751" align="aligncenter" width="300" caption="Commit mit Subversive unter Eclipse"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/subversive.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/subversive-300x290.png" alt="Commit mit Subversive unter Eclipse" title="Commit mit Subversive unter Eclipse" width="300" height="290" class="size-medium wp-image-23751" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="Commit mit Subversive unter Eclipse" url="../images/2012/04/subversive-300x290.png" alt="Commit mit Subversive unter Eclipse" title="Commit mit Subversive unter Eclipse" height="290" class="size-medium wp-image-23751" %}
 
 <h2>Grundeinstellungen</h2>
 Als erstes sollte man mal auf "Window" -> "Open Perspective" -> "Java" klicken.

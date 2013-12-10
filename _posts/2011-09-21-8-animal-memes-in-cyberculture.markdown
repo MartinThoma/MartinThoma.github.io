@@ -36,7 +36,7 @@ context: post
 ---
 Animals are quite often in some web memes:
 <h2>Lame Pun Coon</h2>
-[caption id="attachment_1001" align="aligncenter" width="310" caption="Lame Pun Coon"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Lame-pun-coon.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/09/Lame-pun-coon.jpg" alt="Lame Pun Coon" title="Lame Pun Coon" width="310" height="308" class="size-full wp-image-1001" /></a>[/caption]
+{% caption align="aligncenter" width="310" caption="Lame Pun Coon" url="../images/2011/09/Lame-pun-coon.jpg" alt="Lame Pun Coon" title="Lame Pun Coon" height="308" class="size-full wp-image-1001" %}
 
 <h2>Philosoraptor</h2>
 [caption id="attachment_381" align="alignnone" width="300" caption="If he&#39;s a vegan since birth ... Does that mean he wasn&#39;t breast fed?"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Philosoraptor.jpg"><img class="size-medium wp-image-381" title="Philosoraptor" src="http://martin-thoma.com/wp-content/uploads/2011/09/Philosoraptor-300x300.jpg" alt="If he's a vegan since birth ... Does that mean he wasn't breast fed?" width="300" height="300" /></a>[/caption]

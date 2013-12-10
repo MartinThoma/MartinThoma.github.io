@@ -41,7 +41,7 @@ I often need to print source code. Some years ago for a German competition calle
 
 <h2>listings</h2>
 <h3>Minimal example</h3>
-[caption id="attachment_23851" align="aligncenter" width="590" caption="LaTeX Java Source Code: listings"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-listings.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" title="LaTeX Java Source Code: listings" width="590" height="185" class="size-full wp-image-23851" /></a>[/caption]
+{% caption align="aligncenter" width="590" caption="LaTeX Java Source Code: listings" url="../images/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" title="LaTeX Java Source Code: listings" height="185" class="size-full wp-image-23851" %}
 Here is an minimal example how you could print Source Code with LaTeX:
 <a id="more"></a><a id="more-23541"></a>
 {% highlight text %}
@@ -419,7 +419,7 @@ Lexers:
 * yaml:
     YAML (filenames *.yaml, *.yml){% endhighlight %}
 <h3>Example</h3>
-[caption id="attachment_23841" align="aligncenter" width="613" caption="LaTeX Java Source Code: minted"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-minted.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" title="LaTeX Java Source Code: minted" width="613" height="232" class="size-full wp-image-23841" /></a>[/caption]
+{% caption align="aligncenter" width="613" caption="LaTeX Java Source Code: minted" url="../images/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" title="LaTeX Java Source Code: minted" height="232" class="size-full wp-image-23841" %}
 This is the <a href='http://martin-thoma.com/wp-content/uploads/2012/04/minted-source-code.pdf'>PDF-file</a> produced by the following LaTeX-Code:
 
 {% highlight text %}\documentclass[a4paper,12pt]{article}

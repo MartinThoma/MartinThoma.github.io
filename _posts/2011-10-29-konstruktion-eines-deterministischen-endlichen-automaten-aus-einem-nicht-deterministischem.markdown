@@ -137,7 +137,7 @@ $\tilde{F} = \{\{S\}, \{q_1, S\}\}$
 
 Die &Uuml;bergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:
 
-[caption id="attachment_8421" align="aligncenter" width="512" caption="Deterministic Finite State machine (create from a non-deterministic version)"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/deterministic-fsm.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" title="Deterministic Finite State machine (create from a non-deterministic version)" width="512" height="196" class="size-full wp-image-8421" /></a>[/caption]
+{% caption align="aligncenter" width="512" caption="Deterministic Finite State machine (create from a non-deterministic version)" url="../images/2011/10/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" title="Deterministic Finite State machine (create from a non-deterministic version)" height="196" class="size-full wp-image-8421" %}
 
 <h2>Material</h2>
 Die .gv sieht so aus:

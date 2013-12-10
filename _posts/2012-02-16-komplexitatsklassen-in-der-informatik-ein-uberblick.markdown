@@ -69,12 +69,12 @@ Es ist wohl anschaulich klar, dass gilt: $\cal P \subset NP$. P vs. NP ist die F
 Die Klasse der NP-Vollst&auml;ndigen Probleme ist echt in NP, also $\cal NPC \subsetneq NP$. Das besondere an $\cal NPC$ ist, dass jedes Probleminstanz in $\cal NP$ in eine Instanz eines beliebigen Problems in $\cal NPC$ umgewandelt werden kann.
 
 Das es ein solches Problem gibt, hat Cook 1971 mit <a href="http://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a> gezeigt. Cook hat also anschaulich folgendes gemacht:
-[caption id="attachment_15231" align="aligncenter" width="387" caption="SAT ist in NPC"]<a href="http://martin-thoma.com/wp-content/uploads/2012/02/npc-sat.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/npc-sat.png" alt="SAT ist in NPC" title="SAT ist in NPC" width="387" height="313" class="size-full wp-image-15231" /></a>[/caption]
+{% caption align="aligncenter" width="387" caption="SAT ist in NPC" url="../images/2012/02/npc-sat.png" alt="SAT ist in NPC" title="SAT ist in NPC" height="313" class="size-full wp-image-15231" %}
 
 F&uuml;r alle folgenden Beweise, dass ein Problem in $\cal NPC$ liegt, wurde der Satz von Cook verwendet.
 Laut diesem Satz (dessen Beweis wahnsinning lang ist) l&auml;sst sich jede Probleminstanz von Problemen in $\cal NP$ sich in eine Instanz von SAT umwandeln. Es reicht also zu zeigen, dass sich eine beliebige SAT-Instanz I  in eine Instanz I' des neuen Problems in polynomialzeit umwandeln l&auml;sst. Diese beiden Instzanzen m&uuml;ssen in folgender Beziehung stehen: 
 F&uuml;r I existiert eine L&ouml;sung $\Leftrightarrow$ f&uuml;r I' existiert eine L&ouml;sung:
-[caption id="attachment_15241" align="aligncenter" width="460" caption="Beweis, dass 3-SAT in NPC liegt"]<a href="http://martin-thoma.com/wp-content/uploads/2012/02/proof-new-npc.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/proof-new-npc.png" alt="Beweis, dass 3-SAT in NPC liegt" title="Beweis, dass 3-SAT in NPC liegt" width="460" height="354" class="size-full wp-image-15241" /></a>[/caption]
+{% caption align="aligncenter" width="460" caption="Beweis, dass 3-SAT in NPC liegt" url="../images/2012/02/proof-new-npc.png" alt="Beweis, dass 3-SAT in NPC liegt" title="Beweis, dass 3-SAT in NPC liegt" height="354" class="size-full wp-image-15241" %}
 
 Sobald man von einem Problem sicher wei&szlig;, dass es in $\cal NPC$ liegt, kann man nat&uuml;rlich auch etwas anderes als SAT verwenden.
 
@@ -92,7 +92,7 @@ Formal gilt: $\cal NPI := NP \setminus (P \cup NPC)$.
 Es sind also alle Probleme, die innerhalb von $\cal NP$ sind, aber au&szlig;erhalb von $\cal P$ und noch nicht in $\cal NPC$ in $\cal NPI$. Es ist also so eine Art "Zwischenklasse".
 
 Um es etwas anschaulicher zu machen, habe ich mal folgendes Bildchen erstellt:
-[caption id="attachment_14511" align="aligncenter" width="500" caption="P vs. NP: Die Klassen P, NP, NPC und NPI im &Uuml;berblick"]<a href="http://martin-thoma.com/wp-content/uploads/2012/02/PvsNP.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/PvsNP.png" alt="P vs. NP: Die Klassen P, NP, NPC und NPI im &Uuml;berblick" title="P vs. NP: Die Klassen P, NP, NPC und NPI im &Uuml;berblick" width="500" height="400" class="size-full wp-image-14511" /></a>[/caption]
+{% caption align="aligncenter" width="500" caption="P vs. NP: Die Klassen P, NP, NPC und NPI im &Uuml;berblick" url="../images/2012/02/PvsNP.png" alt="P vs. NP: Die Klassen P, NP, NPC und NPI im &Uuml;berblick" title="P vs. NP: Die Klassen P, NP, NPC und NPI im &Uuml;berblick" height="400" class="size-full wp-image-14511" %}
 
 Bemerkenswert ist folgende Aussage:
 Im Fall $\cal P = NP$ ist auch ${\cal P} \setminus \{\emptyset, \Sigma^*\} = {\cal NPC}$ (siehe Nachklausur von 2007 / 2008, Frage 5).

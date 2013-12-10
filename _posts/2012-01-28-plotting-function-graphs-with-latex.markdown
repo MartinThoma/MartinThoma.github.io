@@ -23,7 +23,7 @@ I have used this command to generate the PDF-file:
 {% highlight bash %}pdflatex latex.tex -output-format=pdf{% endhighlight %}
 
 <h2>gnuplot</h2>
-[caption id="attachment_12781" align="aligncenter" width="300" caption="gnuplot"]<a href="http://martin-thoma.com/wp-content/uploads/2012/01/gnuplot.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/01/gnuplot-300x246.png" alt="gnuplot" title="gnuplot" width="300" height="246" class="size-medium wp-image-12781" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="gnuplot" url="../images/2012/01/gnuplot-300x246.png" alt="gnuplot" title="gnuplot" height="246" class="size-medium wp-image-12781" %}
 {% highlight text %}\documentclass{article}
 
 \usepackage{tikz}
@@ -40,7 +40,7 @@ I have used this command to generate the PDF-file:
 \end{document}{% endhighlight %}
 
 <h2>tikzpicture</h2>
-[caption id="attachment_12821" align="aligncenter" width="180" caption="tikzpicture"]<a href="http://martin-thoma.com/wp-content/uploads/2012/01/tikzpicture1.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/01/tikzpicture1-180x300.png" alt="tikzpicture" title="tikzpicture" width="180" height="300" class="size-medium wp-image-12821" /></a>[/caption]
+{% caption align="aligncenter" width="180" caption="tikzpicture" url="../images/2012/01/tikzpicture1-180x300.png" alt="tikzpicture" title="tikzpicture" height="300" class="size-medium wp-image-12821" %}
 {% highlight text %}\documentclass{article}
  
 \usepackage{tikz}

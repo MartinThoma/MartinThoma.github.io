@@ -26,7 +26,7 @@ featured_image: 2012/03/face-grin-fun-joke-thumb.png
 Programming is like sex:
 One mistake and you have to support it for the rest of your life.
 
-[caption id="attachment_18111" align="aligncenter" width="484" caption="Write 500 words on board with C++"]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/write-500-words-count-cpp.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2012/03/write-500-words-count-cpp.jpg" alt="Write 500 words on board with C++" title="Write 500 words on board with C++" width="484" height="162" class="size-full wp-image-18111" /></a>[/caption]
+{% caption align="aligncenter" width="484" caption="Write 500 words on board with C++" url="../images/2012/03/write-500-words-count-cpp.jpg" alt="Write 500 words on board with C++" title="Write 500 words on board with C++" height="162" class="size-full wp-image-18111" %}
 
 What&rsquo;s the difference between drug dealers and computer programmers?
 <table>
@@ -78,11 +78,11 @@ ME: You should really think about a new monitor.
 CLIENT: I would, but I don&rsquo;t want to lose my icons. 
 (Source: Clients From Hell)
 
-[caption id="attachment_18161" align="aligncenter" width="282" caption="Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a>"]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/computer-science-major.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose" title="Computer Science Major" width="282" height="300" class="size-medium wp-image-18161" /></a>[/caption]
+{% caption align="aligncenter" width="282" caption="Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a>" url="../images/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose" title="Computer Science Major" height="300" class="size-medium wp-image-18161" %}
 
 There are 10 types of people: those who understand binary, and those who do not understand it.
 
-[caption id="attachment_18181" align="aligncenter" width="300" caption="Why people seem to have freetime"]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/why-people-seem-to-have-freetime.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime" title="Why people seem to have freetime" width="300" height="248" class="size-medium wp-image-18181" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="Why people seem to have freetime" url="../images/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime" title="Why people seem to have freetime" height="248" class="size-medium wp-image-18181" %}
 
 <h2>More Jokes!</h2>
 <ul>

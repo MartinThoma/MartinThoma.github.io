@@ -21,17 +21,17 @@ featured_image: 2011/12/gedit.png
 
 It belongs to GNOME, but it is also available for Windows. This is how it looks like:
 
-[caption id="attachment_9571" align="aligncenter" width="300" caption="gedit screenshot"]<a href="http://martin-thoma.com/wp-content/uploads/2011/12/gedit-screenshot.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/12/gedit-screenshot-300x208.png" alt="gedit screenshot" title="gedit screenshot" width="300" height="208" class="size-medium wp-image-9571" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="gedit screenshot" url="../images/2011/12/gedit-screenshot-300x208.png" alt="gedit screenshot" title="gedit screenshot" height="208" class="size-medium wp-image-9571" %}
 
 You might want to install gedit-plugins:
 {% highlight bash %}sudo apt-get install gedit-plugins{% endhighlight %}
 
 <h2>External Tools</h2>
 gedit allows you to run external command line tools by pressing shortcuts. You can find the external tools plugins in your preferences:
-[caption id="attachment_9601" align="aligncenter" width="300" caption="gedit external tools"]<a href="http://martin-thoma.com/wp-content/uploads/2011/12/gedit-external-tools1.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/12/gedit-external-tools1-300x209.png" alt="gedit external tools" title="gedit external tools" width="300" height="209" class="size-medium wp-image-9601" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="gedit external tools" url="../images/2011/12/gedit-external-tools1-300x209.png" alt="gedit external tools" title="gedit external tools" height="209" class="size-medium wp-image-9601" %}
 
 You can assign shortcuts by clicking into an input field and simply using the shortcut once:
-[caption id="attachment_9611" align="aligncenter" width="300" caption="external tools java"]<a href="http://martin-thoma.com/wp-content/uploads/2011/12/external-tool-java.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/12/external-tool-java-300x209.png" alt="external tools java" title="external tools java" width="300" height="209" class="size-medium wp-image-9611" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="external tools java" url="../images/2011/12/external-tool-java-300x209.png" alt="external tools java" title="external tools java" height="209" class="size-medium wp-image-9611" %}
 
 <h3>Java</h3>
 {% highlight bash %}#!/bin/sh

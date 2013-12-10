@@ -32,7 +32,7 @@ For loops have some properties you simply have to define:
 <h2>General structure</h2>
 A for loop usually consists of an initialisation part, a condition and an interation step:
 
-[caption id="attachment_9251" align="aligncenter" width="285" caption="The structure of a for loop."]<a href="http://martin-thoma.com/wp-content/uploads/2011/11/for-loop-structure1.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/11/for-loop-structure1.png" alt="for loop structure" title="for-loop-structure" width="285" height="176" class="size-full wp-image-9251" /></a>[/caption]
+{% caption align="aligncenter" width="285" caption="The structure of a for loop." url="../images/2011/11/for-loop-structure1.png" alt="for loop structure" title="for-loop-structure" height="176" class="size-full wp-image-9251" %}
 
 <h2>Pythons special strutcure</h2>
 Python uses a generator or lists to loop:

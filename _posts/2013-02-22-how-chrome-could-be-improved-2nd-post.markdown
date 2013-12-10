@@ -127,13 +127,13 @@ It would also be nice if you were able to stop all animations on the page. Regre
 Sometimes I watch a movie while I play a flash game. Some flash games don't offer an option to mute them. So I would like to get the possibility to disable sound for one tab.
 
 It could look like this.
-[caption id="attachment_20981" align="aligncenter" width="300" caption="Disable the sound of a tab"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/disable-tab-sound.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/disable-tab-sound-300x172.png" alt="Disable the sound of a tab" title="Disable the sound of a tab" width="300" height="172" class="size-medium wp-image-20981" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="Disable the sound of a tab" url="../images/2012/04/disable-tab-sound-300x172.png" alt="Disable the sound of a tab" title="Disable the sound of a tab" height="172" class="size-medium wp-image-20981" %}
 
 UPDATE: This is <a href="https://code.google.com/p/chromium/issues/detail?id=3541">issue 3541</a>.
 
 <h3>Spell checker</h3>
 I write Blogs in German and in English. So I would like a spell-checker option at the bottom-left corner to switch languages:
-[caption id="attachment_21021" align="aligncenter" width="698" caption="Spell checker"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/spell-checker.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/spell-checker.png" alt="Spell checker" title="Spell checker" width="698" height="91" class="size-full wp-image-21021" /></a>[/caption]
+{% caption align="aligncenter" width="698" caption="Spell checker" url="../images/2012/04/spell-checker.png" alt="Spell checker" title="Spell checker" height="91" class="size-full wp-image-21021" %}
 
 <h3>PDF page numbers</h3>
 It would be great, if I could see the number of the page your currently on. Sometimes PDF-Documents don't even have numbers (e.g. LaTeX beamer slides). What do you do if you have a question to one slide if there are dozens of slides? Manually count them, to get the page number you're looking for?
@@ -152,7 +152,7 @@ Auto-Disable extensions for https. Only PayPal, Amazon, Ebay, GMail and my bank 
 <h4>Password Reuse Visualizer</h4>
 Firefox offers a tool which helps to identify passwords, that get reused often. It is called "<a href="https://addons.mozilla.org/de/firefox/addon/password-reuse-visualizer/">Password Reuse Visualizer</a>" and looks like this:
 
-[caption id="attachment_21101" align="aligncenter" width="300" caption="Password Reuse Visualizer"]<a href="http://martin-thoma.com/wp-content/uploads/2012/04/password-reuse.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/04/password-reuse.png" alt="Password Reuse Visualizer" title="Password Reuse Visualizer" width="300" height="269" class="size-full wp-image-21101" /></a>[/caption]
+{% caption align="aligncenter" width="300" caption="Password Reuse Visualizer" url="../images/2012/04/password-reuse.png" alt="Password Reuse Visualizer" title="Password Reuse Visualizer" height="269" class="size-full wp-image-21101" %}
 
 <h2>What was realized?</h2>
 <h3>Rotate PDF</h3>

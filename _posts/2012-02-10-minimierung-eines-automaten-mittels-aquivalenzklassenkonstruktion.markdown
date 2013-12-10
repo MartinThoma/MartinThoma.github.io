@@ -47,13 +47,13 @@ Wenn ein Endlicher Automat gegeben ist, kann durch die Konstruktion von &Auml;qu
 <h2>Beispiel</h2>
 Gegeben sei folgender Endlicher Automat A: 
 $A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})$ mit folgender &Uuml;bergangsfunktion $\sigma$:
-[caption id="attachment_13451" align="aligncenter" width="392" caption="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden"]<a href="http://martin-thoma.com/wp-content/uploads/2012/02/endlicher-automat-gross.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" title="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" width="392" height="389" class="size-full wp-image-13451" /></a>[/caption]
+{% caption align="aligncenter" width="392" caption="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" url="../images/2012/02/endlicher-automat-gross.png" alt="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" title="Endlicher Automat mit &uuml;berfl&uuml;ssigen Zust&auml;nden" height="389" class="size-full wp-image-13451" %}
 
 Es ist offensichtlich, dass I nicht erreicht werden kann. Da der Graph gerichtet ist, kann man schnell sehen, dass auch  H und G nicht erreicht werden k&ouml;nnen. Algorithmisch kann man diese Zust&auml;nde durch eine Tiefensuche bestimmen.
 
 Nach Schritt 1 haben wir also den Automaten 
 $A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})$:
-[caption id="attachment_13471" align="aligncenter" width="340" caption="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten"]<a href="http://martin-thoma.com/wp-content/uploads/2012/02/endlicher-automat-kleiner.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/endlicher-automat-kleiner.png" alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" title="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" width="340" height="381" class="size-full wp-image-13471" /></a>[/caption]
+{% caption align="aligncenter" width="340" caption="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" url="../images/2012/02/endlicher-automat-kleiner.png" alt="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" title="Keine &uuml;berfl&uuml;ssen Zust&auml;nde im Endlichen Automaten" height="381" class="size-full wp-image-13471" %}
 
 In Schritt 2 erstellen wir also zuerst eine &Auml;quivalenzklasse der Zust&auml;nde:
 $\{S, A, B, C, D, E, F\}$.

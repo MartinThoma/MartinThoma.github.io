@@ -18,7 +18,7 @@ tags:
 comments: []
 featured_image: 2011/10/z-type-168x300.png
 ---
-[caption id="attachment_3311" align="aligncenter" width="168" caption="Z-Type"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/z-type.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/z-type-168x300.png" alt="Z-Type" title="Z-Type" width="168" height="300" class="size-medium wp-image-3311" /></a>[/caption]
+{% caption align="aligncenter" width="168" caption="Z-Type" url="../images/2011/10/z-type-168x300.png" alt="Z-Type" title="Z-Type" height="300" class="size-medium wp-image-3311" %}
 
 <b>Go to the Game</b>: <a href="http://www.phoboslab.org/ztype/" rel="nofollow">www.phoboslab.org/ztype</a>
 <b>Task</b>: Survive as long as possible

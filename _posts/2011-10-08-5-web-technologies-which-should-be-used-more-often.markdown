@@ -23,11 +23,11 @@ tags:
 comments: []
 featured_image: 2011/10/OpenID.png
 ---
-[caption id="attachment_4411" align="alignright" width="100" caption="RSS-Feeds"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/RSS-Feeds.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/RSS-Feeds.png" alt="RSS-Feeds" title="RSS-Feeds" width="100" height="100" class="size-full wp-image-4411" /></a>[/caption]
+{% caption align="alignright" width="100" caption="RSS-Feeds" url="../images/2011/10/RSS-Feeds.png" alt="RSS-Feeds" title="RSS-Feeds" height="100" class="size-full wp-image-4411" %}
 <h2>RSS-Feeds</h2>
 Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your Feed Reader makes an update, you can get instantly a little notice. Its a bit like Email, but you have the possibility to stop this service. You can't get spam, as the Feed owner doesn't get an identifier for you.
 
-[caption id="attachment_4431" align="alignright" width="100" caption="OpenID"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/OpenID.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/OpenID.png" alt="OpenID" title="OpenID" width="100" height="100" class="size-full wp-image-4431" /></a>[/caption]
+{% caption align="alignright" width="100" caption="OpenID" url="../images/2011/10/OpenID.png" alt="OpenID" title="OpenID" height="100" class="size-full wp-image-4431" %}
 <h2>OpenID</h2>
 It is really annoying to register on every single page you use. The idea behind OpenID is having one account for registering on many domains. If you want to log-in in Blogger, you are sent to Google. You type in your username and password and Google sends you back to Blogger. 
 
@@ -69,7 +69,7 @@ The document you a re searching for could be in Word; in School/English, in Docu
 
 I wrote "Hierarchical Labels", because sometimes you have one label, that comes always with another one, but not the other way round. As I am not very interested in chemistry, all files about chemistry were for school. So if I tagged a file with "chemistry" it should automatically get the "school"-tag.
 
-[caption id="attachment_4441" align="alignright" width="63" caption="Gravatar-Logo"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/Gravatar-Logo.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/Gravatar-Logo.png" alt="Gravatar-Logo" title="Gravatar-Logo" width="63" height="63" class="size-full wp-image-4441" /></a>[/caption]
+{% caption align="alignright" width="63" caption="Gravatar-Logo" url="../images/2011/10/Gravatar-Logo.png" alt="Gravatar-Logo" title="Gravatar-Logo" height="63" class="size-full wp-image-4441" %}
 <h2>Gravatar</h2>
 Have you ever noticed <a href="http://www.sembeo.com/ninja/comment-page-2/" rel="nofollow">blogs</a> or <a href="http://stackoverflow.com/questions/4880891/javascript-settimeout-and-changes-to-system-time-cause-problems" rel="nofollow">other</a> sites where some people have avatars and others don't? Sometimes, if a possibility to login is provided this is not really amazing. But where does the website get the pictures from if there is no possibility to log in?
 
