@@ -13,7 +13,7 @@ date: 2012-12-17 13:05:32.000000000 +01:00
 categories:
 - Cyberculture
 tags:
-- ! '#windowsrage'
+- windowsrage
 - Microsoft
 - Windows 7
 comments: []

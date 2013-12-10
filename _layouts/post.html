@@ -31,8 +31,8 @@
                             {% endfor %} | Tags: 
                             {% for tag in page.tags %}
                                 {% if forloop.index0 == 0 %}
-                                    <a href="{{ site.baseurl }}/tag/{{ tag | downcase }}">{{ tag }}</a>
-                                {% else %}, <a href="{{ site.baseurl }}/tag/{{ tag | downcase }}">{{ tag }}</a>
+                                    <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}">{{ tag }}</a>
+                                {% else %}, <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}">{{ tag }}</a>
                                 {% endif %}
                             {% endfor %} by <a rel="author" class="vcard author" href="{{ site.baseurl }}/author/{{ page.author | downcase | replace:' ','-' }}/"><span class="fn">{{ page.author }}</span></a> on <span class="updated"><span class="value-title" title="{{ page.date }}">{% assign d = page.date | date: "%d" | plus:'0' %}
                                 {{ page.date | date: "%B" }} 

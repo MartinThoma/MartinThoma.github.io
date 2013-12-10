@@ -14,7 +14,7 @@ categories:
 - Code
 tags:
 - eclipse
-- ! '#windowsrage'
+- windowsrage
 - Microsoft
 - Visual Studio
 - Windows 7

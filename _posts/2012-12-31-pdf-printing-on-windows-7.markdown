@@ -14,7 +14,7 @@ categories:
 - Cyberculture
 tags:
 - PDF
-- ! '#windowsrage'
+- windowsrage
 - Windows 7
 comments: []
 featured_image: 2012/10/pdf-icon.png
