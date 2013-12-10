@@ -20,9 +20,7 @@ tags:
 - Python
 comments: []
 ---
-Have you ever heard of polyglots? This is sooo crazy. A <a href="http://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot</a> is a program which can be interpreded as many programming languages. You don't believe me that something crazy like that is possible? Here is an example I've made:
-
-[code lang="python"]       
+Have you ever heard of polyglots? This is sooo crazy. A <a href="http://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot</a> is a program which can be interpreded as many programming languages. You don't believe me that something crazy like that is possible? Here is an example I've made:     
           
         
           
@@ -129,7 +127,7 @@ Have you ever heard of polyglots? This is sooo crazy. A <a href="http://en.wikip
  
    
   
- 
+{% highlight python %} 
 #>++++++++++[
 # Python code written by Martin Thoma
 #>++++++++
@@ -175,7 +173,8 @@ def looping(i):
     return answer
 
 print looping(1)
-print("You've just executed some Python-Code written by Martin Thoma")[/code]
+print("You've just executed some Python-Code written by Martin Thoma")
+{% endhighlight %} 
 You can download the file at <a href="http://martin-thoma.com/python/polyglot.py">martin-thoma.com/python/polyglot.py</a>.
 
 I used three languages in this piece of code: <a href="http://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>, <a href="http://en.wikipedia.org/wiki/Brainfuck">Brainfuck</a> and <a href="http://en.wikipedia.org/wiki/Whitespace_(programming_language)">Whitespace</a>. You can try it with <a href="http://ideone.com/">ideone.com</a>. But please, copy the whole code!

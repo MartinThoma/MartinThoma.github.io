@@ -53,6 +53,11 @@ Now update this branch to the server:
 git push -u origin source
 {% endhighlight %}
 
+<h2>Customization</h2>
+<ul>
+  <li><a href="http://jekyllrb.com/docs/plugins/">Example for a liquid filter</a></li>
+</ul>
+
 <h2>Resources</h2>
 <ul>
   <li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a></li>

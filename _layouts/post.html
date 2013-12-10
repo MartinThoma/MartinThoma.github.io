@@ -34,7 +34,7 @@
                                     <a href="{{ site.baseurl }}/tag/{{ tag | downcase }}">{{ tag }}</a>
                                 {% else %}, <a href="{{ site.baseurl }}/tag/{{ tag | downcase }}">{{ tag }}</a>
                                 {% endif %}
-                            {% endfor %} by <a rel="author" class="vcard author" href="{{ site.baseurl }}/author/moose/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="{{ page.date }}">{% assign d = page.date | date: "%d" | plus:'0' %}
+                            {% endfor %} by <a rel="author" class="vcard author" href="{{ site.baseurl }}/author/{{ page.author | downcase | replace:' ','-' }}/"><span class="fn">{{ page.author }}</span></a> on <span class="updated"><span class="value-title" title="{{ page.date }}">{% assign d = page.date | date: "%d" | plus:'0' %}
                                 {{ page.date | date: "%B" }} 
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st
@@ -47,12 +47,12 @@
 							<div class="navigation clearfix">
                                 <div class="alignleft">
                                 {% if page.previous.url %}
-                                    &laquo; <a href="{{page.previous.url}}" rel="prev">{{page.previous.title}}</a>
+                                    &laquo; <a href="{{ site.baseurl }}{{page.previous.url}}" rel="prev">{{page.previous.title}}</a>
                                 {% endif %} 
                                 </div>
 								<div class="alignright">
                                 {% if page.next.url %}
-                                    <a href="{{page.next.url}}" rel="next">{{page.next.title}}</a> &raquo;
+                                    <a href="{{ site.baseurl }}{{page.next.url}}" rel="next">{{page.next.title}}</a> &raquo;
                                 {% endif %} 
                                 </div>
 							</div>
