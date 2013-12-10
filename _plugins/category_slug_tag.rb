@@ -10,7 +10,7 @@ module Jekyll
         elsif @loweredInput == "the web"
             return "web"
         elsif @loweredInput == "mathematics"
-            return "math"
+            return "maths"
         elsif @loweredInput == "my bits and bytes"
             return "bits-and-bytes"
         elsif @loweredInput == "german posts"

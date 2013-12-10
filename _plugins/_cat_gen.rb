@@ -23,6 +23,8 @@ module Jekyll
                 site.pages << CategoryPage.new(site, site.source, File.join(dir, "web"), category)
             elsif category.downcase == "cyberculture"
                 site.pages << CategoryPage.new(site, site.source, File.join(dir, "cyberculture"), category)
+            elsif category.downcase == "mathematics"
+                site.pages << CategoryPage.new(site, site.source, File.join(dir, "maths"), category)
             elsif category.downcase == "code"
                 site.pages << CategoryPage.new(site, site.source, File.join(dir, "code"), category)
             elsif category.downcase == "german posts"
