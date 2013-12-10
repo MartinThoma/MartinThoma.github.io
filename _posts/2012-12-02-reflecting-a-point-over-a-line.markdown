@@ -31,7 +31,7 @@ It's astonishing how difficult it is to find a good explanation how to reflect a
 
 You have a point $P = (x,y)$ and a line $g(x) = m \cdot x + t$ and you want to get the point $P' = (x', y')$ that got mirrored over $g$.
 
-[caption id="attachment_49811" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/12/line-reflection.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/12/line-reflection.png" alt="Reflection point over a line" title="Reflection point over a line" width="500" height="596" class="size-full wp-image-49811" /></a> Reflection point over a line[/caption]
+{% caption align="aligncenter" width="500" caption="Reflection point over a line" url="../images/2012/12/line-reflection.png" alt="Reflection point over a line" title="Reflection point over a line" height="596" class="size-full wp-image-49811" %}
 
 As you can see, you can construct this quite easily on paper:
 <ol>

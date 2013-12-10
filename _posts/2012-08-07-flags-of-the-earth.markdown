@@ -29,7 +29,7 @@ comments:
     Punkte"
 featured_image: 2012/07/flags-of-the-earth1.png
 ---
-[caption id="attachment_37071" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/flags-of-the-earth.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/flags-of-the-earth.png" alt="Flags of the Earth" title="Flags of the Earth" width="512" height="370" class="size-full wp-image-37071" /></a> Flags of the Earth[/caption]
+{% caption align="aligncenter" width="512" caption="Flags of the Earth" url="../images/2012/07/flags-of-the-earth.png" alt="Flags of the Earth" title="Flags of the Earth" height="370" class="size-full wp-image-37071" %}
 <strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/KingDotCom/flags">Flags on Kongregate</a>
 <strong>Task</strong>: Say which country the shown flag belongs to.
 <strong>How to play</strong>: Click on on of the 4 - 5 countries.

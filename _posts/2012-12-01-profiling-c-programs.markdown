@@ -33,6 +33,6 @@ Take a look at the profile:
 {% highlight bash %}kcachegrind callgrind.out.4846{% endhighlight %}
 
 You can also create a call-graph:
-[caption id="attachment_49691" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/11/call-graph2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/11/call-graph2.png" alt="Call graph of connect four game graph creation program" title="Call graph of connect four game graph creation program" width="512" height="601" class="size-full wp-image-49691" /></a> Call graph of connect four game graph creation program[/caption]
+{% caption align="aligncenter" width="512" caption="Call graph of connect four game graph creation program" url="../images/2012/11/call-graph2.png" alt="Call graph of connect four game graph creation program" title="Call graph of connect four game graph creation program" height="601" class="size-full wp-image-49691" %}
 
 Just take a look at it by yourself. You will see much more than I could tell you now.

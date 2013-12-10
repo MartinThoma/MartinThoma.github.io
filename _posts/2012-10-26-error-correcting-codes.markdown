@@ -366,7 +366,7 @@ $
 The idea behind Hamming codes is to save in one bit if the number of a fixed set of positions of the message is even or odd. This is called parity and done with XOR. The parity-bit is saved at the end of the message (or, just another point of view: the positions that are powers of two (1, 2, 4, 8, ...) of each message are only parity bits. This are obviously $\lceil \log_2(\text{length of code}) \rceil = \lceil \log(2^k - 1) \rceil = k$).
 
 Wikipedia has a really nice image for that:
-[caption id="attachment_47691" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/10/hamming-code-parity.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/10/hamming-code-parity.png" alt="Parity-bits and data bits in a Hamming codeword" title="Parity-bits and data bits in a Hamming codeword" width="500" height="95" class="size-full wp-image-47691" /></a> Parity-bits and data bits in a Hamming codeword[/caption]
+{% caption align="aligncenter" width="500" caption="Parity-bits and data bits in a Hamming codeword" url="../images/2012/10/hamming-code-parity.png" alt="Parity-bits and data bits in a Hamming codeword" title="Parity-bits and data bits in a Hamming codeword" height="95" class="size-full wp-image-47691" %}
 
 Now, how are the parity-bits calculated?
 Well, think of each messages as a vector in $\{0,1\}^{(2^k - 1) - k}$. Then you define a matrix $G \in \{0,1\}^{2^k - 1} \times \{0,1\}^{(2^k - 1) - k}$. Now you can get the codewords $c$ by multiplying the datawords $d$ (messages) with $G$:

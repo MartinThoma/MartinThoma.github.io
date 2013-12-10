@@ -63,4 +63,4 @@ This beats or equals 67.6% of test takers.
 The average score is 77.
 Your high score is 90.
 
-[caption id="attachment_37601" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/laender-der-erde-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/laender-der-erde-2.png" alt="L&auml;nder der Erde - zweiter Versuch" title="L&auml;nder der Erde - zweiter Versuch" width="512" height="298" class="size-full wp-image-37601" /></a> L&auml;nder der Erde - zweiter Versuch[/caption]
+{% caption align="aligncenter" width="512" caption="L&auml;nder der Erde - zweiter Versuch" url="../images/2012/07/laender-der-erde-2.png" alt="L&auml;nder der Erde - zweiter Versuch" title="L&auml;nder der Erde - zweiter Versuch" height="298" class="size-full wp-image-37601" %}

@@ -21,9 +21,9 @@ featured_image: 2012/10/float-scheme1.png
 ---
 If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:
 
-[caption id="attachment_47381" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/10/IEEE_754_single_precision.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/10/IEEE_754_single_precision.png" alt="IEEE 754 single precision" title="IEEE 754 single precision" width="500" height="74" class="size-full wp-image-47381" /></a> IEEE 754 single precision[/caption]
+{% caption align="aligncenter" width="500" caption="IEEE 754 single precision" url="../images/2012/10/IEEE_754_single_precision.png" alt="IEEE 754 single precision" title="IEEE 754 single precision" height="74" class="size-full wp-image-47381" %}
 
-[caption id="attachment_47361" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/10/float-scheme.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/10/float-scheme.png" alt="Example of a floating point number" title="Example of a floating point number" width="500" height="64" class="size-full wp-image-47361" /></a> Example of a floating point number[/caption]
+{% caption align="aligncenter" width="500" caption="Example of a floating point number" url="../images/2012/10/float-scheme.png" alt="Example of a floating point number" title="Example of a floating point number" height="64" class="size-full wp-image-47361" %}
 
 You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.
 

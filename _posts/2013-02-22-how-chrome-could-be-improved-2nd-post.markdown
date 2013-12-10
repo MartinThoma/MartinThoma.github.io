@@ -158,7 +158,7 @@ Firefox offers a tool which helps to identify passwords, that get reused often. 
 <h3>Rotate PDF</h3>
 You can view <a href="http://cloud.github.com/downloads/MartinThoma/free-books/01-A-Study-in-Scarlet.pdf">this PDF</a> online as an example. If you make a right-click on it, you can rotate it now.
 
-[caption id="attachment_42081" align="aligncenter" width="412"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/pdf-chrome-rightclick-menu.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/pdf-chrome-rightclick-menu.png" alt="Rightclick menu of Google Chrome" title="Rightclick menu of Google Chrome" width="412" height="338" class="size-full wp-image-42081" /></a> Rightclick menu of Google Chrome[/caption]
+{% caption align="aligncenter" width="412" caption="Rightclick menu of Google Chrome" url="../images/2012/08/pdf-chrome-rightclick-menu.png" alt="Rightclick menu of Google Chrome" title="Rightclick menu of Google Chrome" height="338" class="size-full wp-image-42081" %}
 
 <h3>HTML5 input elements - partly</h3>
 Chrome 25 does still not support the <a href="http://www.w3schools.com/html5/html5_form_input_types.asp">datetime input element</a>, tel input element, .
@@ -166,9 +166,9 @@ They have added a very nice color input element:
 <input type="color" />
 Some Screenshots for non-Chrome users:
 The button gets displayed like that:
-[caption id="attachment_42051" align="aligncenter" width="55"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/chrome-color-chooser.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/chrome-color-chooser.png" alt="Google Chrome input type color element" title="Google Chrome input type color element" width="55" height="33" class="size-full wp-image-42051" /></a> Google Chrome input type color element[/caption]
+{% caption align="aligncenter" width="55" caption="Google Chrome input type color element" url="../images/2012/08/chrome-color-chooser.png" alt="Google Chrome input type color element" title="Google Chrome input type color element" height="33" class="size-full wp-image-42051" %}
 If you click on it, this dialog box gets displayed:
-[caption id="attachment_42061" align="aligncenter" width="540"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/chrome-color-dialog.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/chrome-color-dialog.png" alt="Google Chrome Color Dialog Box" title="Google Chrome Color Dialog Box" width="540" height="315" class="size-full wp-image-42061" /></a> Google Chrome Color Dialog Box[/caption]
+{% caption align="aligncenter" width="540" caption="Google Chrome Color Dialog Box" url="../images/2012/08/chrome-color-dialog.png" alt="Google Chrome Color Dialog Box" title="Google Chrome Color Dialog Box" height="315" class="size-full wp-image-42061" %}
 
 They have added support to many of the time-elements like week:
 [caption id="attachment_58061" align="aligncenter" width="462"]<a href="http://martin-thoma.com/wp-content/uploads/2013/02/html5-week.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/html5-week.png" alt="HTML5 input type "week"" width="462" height="298" class="size-full wp-image-58061" /></a> HTML5 input type "week"[/caption]

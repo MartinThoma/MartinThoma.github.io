@@ -24,34 +24,34 @@ Source: <a href="http://en.wikipedia.org/wiki/Fractal">Fractal</a>, Wikipedia
 <h2>Examples</h2>
 The <a href="http://en.wikipedia.org/wiki/Rensselaer_Polytechnic_Institute">Rensselaer Polytechnic Institute</a> made an <a href="http://www.ccd.rpi.edu/eglash/temp/CS%20RPI/Chapter%201.2.html">applet</a> which allows you to create fractals by yourself.
 So I've tried this one as a starter:
-[caption id="attachment_29991" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/martin-fractal-1.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/martin-fractal-1-300x57.png" alt="Martin Fractal #1" title="Martin Fractal #1" width="300" height="57" class="size-medium wp-image-29991" /></a> Martin Fractal #1[/caption]
-[caption id="attachment_30001" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/martin-fractal-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/martin-fractal-2-300x63.png" alt="Martin Fractal #2" title="Martin Fractal #2" width="300" height="63" class="size-medium wp-image-30001" /></a> Martin Fractal #2[/caption]
-[caption id="attachment_30011" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/martin-fractal-3.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/martin-fractal-3-300x65.png" alt="Martin Fractal #3" title="Martin Fractal #3" width="300" height="65" class="size-medium wp-image-30011" /></a> Martin Fractal #3[/caption]
+{% caption align="aligncenter" width="300" caption="Martin Fractal #1" url="../images/2012/07/martin-fractal-1-300x57.png" alt="Martin Fractal #1" title="Martin Fractal #1" height="57" class="size-medium wp-image-29991" %}
+{% caption align="aligncenter" width="300" caption="Martin Fractal #2" url="../images/2012/07/martin-fractal-2-300x63.png" alt="Martin Fractal #2" title="Martin Fractal #2" height="63" class="size-medium wp-image-30001" %}
+{% caption align="aligncenter" width="300" caption="Martin Fractal #3" url="../images/2012/07/martin-fractal-3-300x65.png" alt="Martin Fractal #3" title="Martin Fractal #3" height="65" class="size-medium wp-image-30011" %}
 
 You might know this one:
-[caption id="attachment_30031" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-1.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-1-300x71.png" alt="Snowflake fractal #1" title="Snowflake fractal #1" width="300" height="71" class="size-medium wp-image-30031" /></a> Snowflake fractal #1[/caption]
+{% caption align="aligncenter" width="300" caption="Snowflake fractal #1" url="../images/2012/07/schnee-fractal-1-300x71.png" alt="Snowflake fractal #1" title="Snowflake fractal #1" height="71" class="size-medium wp-image-30031" %}
 
-[caption id="attachment_30041" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-2-300x72.png" alt="Snowflake fractal #2" title="Snowflake fractal #2" width="300" height="72" class="size-medium wp-image-30041" /></a> Snowflake fractal #2[/caption]
+{% caption align="aligncenter" width="300" caption="Snowflake fractal #2" url="../images/2012/07/schnee-fractal-2-300x72.png" alt="Snowflake fractal #2" title="Snowflake fractal #2" height="72" class="size-medium wp-image-30041" %}
 
-[caption id="attachment_30051" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-3.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-3-300x71.png" alt="Snowflake fractal #3" title="Snowflake fractal #3" width="300" height="71" class="size-medium wp-image-30051" /></a> Snowflake fractal #3[/caption]
+{% caption align="aligncenter" width="300" caption="Snowflake fractal #3" url="../images/2012/07/schnee-fractal-3-300x71.png" alt="Snowflake fractal #3" title="Snowflake fractal #3" height="71" class="size-medium wp-image-30051" %}
 
-[caption id="attachment_30061" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-4.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/schnee-fractal-4-300x72.png" alt="Snowflake fractal #4" title="Snowflake fractal #4" width="300" height="72" class="size-medium wp-image-30061" /></a> Snowflake fractal #4[/caption]
+{% caption align="aligncenter" width="300" caption="Snowflake fractal #4" url="../images/2012/07/schnee-fractal-4-300x72.png" alt="Snowflake fractal #4" title="Snowflake fractal #4" height="72" class="size-medium wp-image-30061" %}
 
 <h2>Fractals in Nature</h2>
 Fractals seem to appear quite often in nature. I have just re-created one that I have seen recently:
-[caption id="attachment_30081" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-1.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-1-300x163.png" alt="Leaf fractal #1" title="Leaf fractal #1" width="300" height="163" class="size-medium wp-image-30081" /></a> Leaf fractal #1[/caption]
+{% caption align="aligncenter" width="300" caption="Leaf fractal #1" url="../images/2012/07/leaf-fractal-1-300x163.png" alt="Leaf fractal #1" title="Leaf fractal #1" height="163" class="size-medium wp-image-30081" %}
 
-[caption id="attachment_30091" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-2-300x162.png" alt="Leaf fractal #2" title="Leaf fractal #2" width="300" height="162" class="size-medium wp-image-30091" /></a> Leaf fractal #2[/caption]
+{% caption align="aligncenter" width="300" caption="Leaf fractal #2" url="../images/2012/07/leaf-fractal-2-300x162.png" alt="Leaf fractal #2" title="Leaf fractal #2" height="162" class="size-medium wp-image-30091" %}
 
-[caption id="attachment_30101" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-3.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-3-300x165.png" alt="Leaf fractal #3" title="Leaf fractal #3" width="300" height="165" class="size-medium wp-image-30101" /></a> Leaf fractal #3[/caption]
+{% caption align="aligncenter" width="300" caption="Leaf fractal #3" url="../images/2012/07/leaf-fractal-3-300x165.png" alt="Leaf fractal #3" title="Leaf fractal #3" height="165" class="size-medium wp-image-30101" %}
 
-[caption id="attachment_30111" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-4.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractal-4-300x156.png" alt="Leaf fractal #4" title="Leaf fractal #4" width="300" height="156" class="size-medium wp-image-30111" /></a> Leaf fractal #4[/caption]
+{% caption align="aligncenter" width="300" caption="Leaf fractal #4" url="../images/2012/07/leaf-fractal-4-300x156.png" alt="Leaf fractal #4" title="Leaf fractal #4" height="156" class="size-medium wp-image-30111" %}
 
-[caption id="attachment_30121" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractals-5.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractals-5-300x147.png" alt="Leaf fractal #5" title="Leaf fractal #5" width="300" height="147" class="size-medium wp-image-30121" /></a> Leaf fractal #5[/caption]
+{% caption align="aligncenter" width="300" caption="Leaf fractal #5" url="../images/2012/07/leaf-fractals-5-300x147.png" alt="Leaf fractal #5" title="Leaf fractal #5" height="147" class="size-medium wp-image-30121" %}
 
-[caption id="attachment_30131" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractals-6.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractals-6-300x157.png" alt="Leaf fractal #6" title="Leaf fractal #6" width="300" height="157" class="size-medium wp-image-30131" /></a> Leaf fractal #6[/caption]
+{% caption align="aligncenter" width="300" caption="Leaf fractal #6" url="../images/2012/07/leaf-fractals-6-300x157.png" alt="Leaf fractal #6" title="Leaf fractal #6" height="157" class="size-medium wp-image-30131" %}
 
-[caption id="attachment_30141" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractals-9.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/leaf-fractals-9-300x155.png" alt="Leaf fractal #9" title="Leaf fractal #9" width="300" height="155" class="size-medium wp-image-30141" /></a> Leaf fractal #9[/caption]
+{% caption align="aligncenter" width="300" caption="Leaf fractal #9" url="../images/2012/07/leaf-fractals-9-300x155.png" alt="Leaf fractal #9" title="Leaf fractal #9" height="155" class="size-medium wp-image-30141" %}
 
 
 <h2>Mandelbrot set</h2>

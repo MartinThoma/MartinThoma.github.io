@@ -75,6 +75,6 @@ T&ndash;Z: Daimler (Geb. 10.21)
 </ul>
 
 <h2>Klausurergebnisse</h2>
-[caption id="attachment_39581" align="aligncenter" width="800"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/swt-1-klausur.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/swt-1-klausur.png" alt="Klausurergebnisse f&uuml;r SWT I" title="Klausurergebnisse f&uuml;r SWT I" width="800" height="455" class="size-full wp-image-39581" /></a> Klausurergebnisse f&uuml;r SWT I[/caption]
+{% caption align="aligncenter" width="800" caption="Klausurergebnisse f&uuml;r SWT I" url="../images/2012/08/swt-1-klausur.png" alt="Klausurergebnisse f&uuml;r SWT I" title="Klausurergebnisse f&uuml;r SWT I" height="455" class="size-full wp-image-39581" %}
 
 <strong>Klausureinsicht</strong>: Montag, den 13.08.2012 von 14:00 bis 16:00 Uhr, SR 348, Infobau

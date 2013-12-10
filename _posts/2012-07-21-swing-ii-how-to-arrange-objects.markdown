@@ -143,19 +143,19 @@ They offer great <a href="https://developers.google.com/java-dev-tools/wbpro/ins
 
 <h3>Editing</h3>
 You have to open your project with the window builder:
-[caption id="attachment_33501" align="aligncenter" width="285"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-open-with-window-builder.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-open-with-window-builder-285x300.png" alt="Open existing SWING-file with Window Builder" title="Open existing SWING-file with Window Builder" width="285" height="300" class="size-medium wp-image-33501" /></a> Open existing SWING-file with Window Builder[/caption]
+{% caption align="aligncenter" width="285" caption="Open existing SWING-file with Window Builder" url="../images/2012/07/eclipse-open-with-window-builder-285x300.png" alt="Open existing SWING-file with Window Builder" title="Open existing SWING-file with Window Builder" height="300" class="size-medium wp-image-33501" %}
 
 The Window-Builder-View looks like this:
-[caption id="attachment_33541" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder-300x157.png" alt="Eclipse WindowBuilder View" title="Eclipse WindowBuilder View" width="300" height="157" class="size-medium wp-image-33541" /></a> Eclipse WindowBuilder View[/caption]
+{% caption align="aligncenter" width="300" caption="Eclipse WindowBuilder View" url="../images/2012/07/eclipse-window-builder-300x157.png" alt="Eclipse WindowBuilder View" title="Eclipse WindowBuilder View" height="157" class="size-medium wp-image-33541" %}
 
 You can easily resize the window:
-[caption id="attachment_33521" align="aligncenter" width="258"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder-resize.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder-resize-258x300.png" alt="Resize a window with WindowBuilder" title="Resize a window with WindowBuilder" width="258" height="300" class="size-medium wp-image-33521" /></a> Resize a window with WindowBuilder[/caption]
+{% caption align="aligncenter" width="258" caption="Resize a window with WindowBuilder" url="../images/2012/07/eclipse-window-builder-resize-258x300.png" alt="Resize a window with WindowBuilder" title="Resize a window with WindowBuilder" height="300" class="size-medium wp-image-33521" %}
 
 Positioning single components is also simple:
-[caption id="attachment_33531" align="aligncenter" width="249"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder-component.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder-component.png" alt="Position a single component with WindowBuilder" title="Position a single component with WindowBuilder" width="249" height="273" class="size-full wp-image-33531" /></a> Position a single component with WindowBuilder[/caption]
+{% caption align="aligncenter" width="249" caption="Position a single component with WindowBuilder" url="../images/2012/07/eclipse-window-builder-component.png" alt="Position a single component with WindowBuilder" title="Position a single component with WindowBuilder" height="273" class="size-full wp-image-33531" %}
 
 Adding a menu bar worked fine:
-[caption id="attachment_33561" align="aligncenter" width="227"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder-menu.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/eclipse-window-builder-menu.png" alt="MenuBar added with WindowBuilder" title="MenuBar added with WindowBuilder" width="227" height="231" class="size-full wp-image-33561" /></a> MenuBar added with WindowBuilder[/caption]
+{% caption align="aligncenter" width="227" caption="MenuBar added with WindowBuilder" url="../images/2012/07/eclipse-window-builder-menu.png" alt="MenuBar added with WindowBuilder" title="MenuBar added with WindowBuilder" height="231" class="size-full wp-image-33561" %}
 
 <h2>See also</h2>
 <ul>

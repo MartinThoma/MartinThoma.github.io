@@ -107,7 +107,7 @@ $  J =
 $A_{\lambda_i}$ sind die Jordanbl&ouml;cke zu den Eigenwerten $\lambda_i$.
 
 Die Einzelnen Jordanbl&ouml;cke schauen etwa so aus:
-[caption id="attachment_40381" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/jordan-normal-form-block.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/jordan-normal-form-block.png" alt="Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen" title="Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen" width="500" height="260" class="size-full wp-image-40381" /></a> Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen[/caption]
+{% caption align="aligncenter" width="500" caption="Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen" url="../images/2012/08/jordan-normal-form-block.png" alt="Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen" title="Einzelner Jordanblock mit zwei hervorgehobenen Jordank&auml;stchen" height="260" class="size-full wp-image-40381" %}
 
 Jedes Jordank&auml;stchen ist quadratisch, hat auf der Diagonalen den Eigenwert und auf der oberen Nebendiagonale 1er. Sonst sind nur 0er im Jordank&auml;stchen. Au&szlig;erhalb der Jordank&auml;stchen sind im Jordanblock nur 0er. Insbesondere k&ouml;nnen also auf der oberen Nebendiagonalen des Jordanblocks 0er stehen!
 

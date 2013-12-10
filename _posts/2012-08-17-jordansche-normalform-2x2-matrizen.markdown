@@ -84,7 +84,7 @@ $K_2 \stackrel{!}{=} U_1 \oplus K_1
 \end{pmatrix}
 \right ] ~~~ U_0 = K_1$
 
-[caption id="attachment_40961" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/jordan-normal-form-scheme-small.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/jordan-normal-form-scheme-small.png" alt="Schema zum finden der Basiswechselmatrix" title="Schema zum finden der Basiswechselmatrix" width="300" height="116" class="size-full wp-image-40961" /></a> Schema zum finden der Basiswechselmatrix[/caption]
+{% caption align="aligncenter" width="300" caption="Schema zum finden der Basiswechselmatrix" url="../images/2012/08/jordan-normal-form-scheme-small.png" alt="Schema zum finden der Basiswechselmatrix" title="Schema zum finden der Basiswechselmatrix" height="116" class="size-full wp-image-40961" %}
 
 W&auml;hle $b_1^1 \in U_1: b_1^1 = \begin{pmatrix}1 \\0 \end{pmatrix} \Rightarrow \Omega(b_1^1) = \begin{pmatrix}10 \\ 25 \end{pmatrix}$
 $\Rightarrow S = 

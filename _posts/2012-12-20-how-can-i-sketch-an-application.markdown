@@ -56,11 +56,11 @@ Balsamiq was carefully designed, is available (and working!) on Windows 7 and Ub
 
 Here are two screenshots of the GUI of the Balsamiq web service:
 
-[caption id="attachment_51021" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/12/balsamiq-tabs-bar.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/12/balsamiq-tabs-bar-300x137.png" alt="Balsamiq GUI overview" title="Balsamiq GUI overview" width="300" height="137" class="size-medium wp-image-51021" /></a> Balsamiq GUI overview[/caption]
+{% caption align="aligncenter" width="300" caption="Balsamiq GUI overview" url="../images/2012/12/balsamiq-tabs-bar-300x137.png" alt="Balsamiq GUI overview" title="Balsamiq GUI overview" height="137" class="size-medium wp-image-51021" %}
 
 Do you see the arrow-symbol? This looks very cool in drafts. Why doesn't GIMP provide anything similar?
 
-[caption id="attachment_51031" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2012/12/balsamiq-edit.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/12/balsamiq-edit-300x138.png" alt="Edit an element with Balsamiq" title="Edit an element with Balsamiq" width="300" height="138" class="size-medium wp-image-51031" /></a> Edit an element with Balsamiq[/caption]
+{% caption align="aligncenter" width="300" caption="Edit an element with Balsamiq" url="../images/2012/12/balsamiq-edit-300x138.png" alt="Edit an element with Balsamiq" title="Edit an element with Balsamiq" height="138" class="size-medium wp-image-51031" %}
 
 <h3>What I've missed</h3>
 No application is perfect, so I also found some specials that Balsamiq didn't offer:

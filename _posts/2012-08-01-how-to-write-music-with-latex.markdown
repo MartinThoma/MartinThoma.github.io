@@ -23,7 +23,7 @@ featured_image: 2012/08/latex-music-thumb.png
 It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to <del datetime="2012-08-01T08:01:06+00:00">write a little tutorial</del> show some examples. 
 
 <h2>Symbols</h2>
-[caption id="attachment_37171" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/music-notes.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/music-notes.png" alt="Some basic music symbols" title="Some basic music symbols" width="512" height="42" class="size-full wp-image-37171" /></a> Some basic music symbols[/caption]
+{% caption align="aligncenter" width="512" caption="Some basic music symbols" url="../images/2012/08/music-notes.png" alt="Some basic music symbols" title="Some basic music symbols" height="42" class="size-full wp-image-37171" %}
 {% highlight text %}\documentclass[a4paper,12pt]{article}
 \usepackage{wasysym}
 \begin{document}
@@ -32,7 +32,7 @@ It is possible to write music with LaTeX. My girlfriend was quite surprised of t
 \end{document}{% endhighlight %}
 
 The harmony package offers some additional symbols:
-[caption id="attachment_37181" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/latex-music-harmony.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/latex-music-harmony.png" alt="music symbols form the LaTeX-harmony package" title="music symbols form the LaTeX-harmony package" width="512" height="331" class="size-full wp-image-37181" /></a> music symbols form the LaTeX-harmony package[/caption]
+{% caption align="aligncenter" width="512" caption="music symbols form the LaTeX-harmony package" url="../images/2012/08/latex-music-harmony.png" alt="music symbols form the LaTeX-harmony package" title="music symbols form the LaTeX-harmony package" height="331" class="size-full wp-image-37181" %}
 
 {% highlight text %}\documentclass[a4paper,12pt]{article}
 \usepackage{harmony}
@@ -46,7 +46,7 @@ The harmony package offers some additional symbols:
 \end{document}{% endhighlight %}
 
 <h2>musixtex</h2>
-[caption id="attachment_37221" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/08/latex-musixtex.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/latex-musixtex.png" alt="musixtex example" title="musixtex example" width="512" height="139" class="size-full wp-image-37221" /></a> musixtex example[/caption]
+{% caption align="aligncenter" width="512" caption="musixtex example" url="../images/2012/08/latex-musixtex.png" alt="musixtex example" title="musixtex example" height="139" class="size-full wp-image-37221" %}
 
 {% highlight text %}\documentclass[a4paper,12pt]{article}
 \usepackage{musixtex}
@@ -80,7 +80,7 @@ compile with
 {% highlight bash %}pdflatex --shell-escape myTexFile.tex{% endhighlight %}
 
 to get this:
-[caption id="attachment_33701" align="aligncenter" width="477"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/abc-example.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/abc-example.png" alt="ABC example for creating music sheets with LaTeX" title="ABC example for creating music sheets with LaTeX" width="477" height="113" class="size-full wp-image-33701" /></a> ABC example for creating music sheets with LaTeX[/caption]
+{% caption align="aligncenter" width="477" caption="ABC example for creating music sheets with LaTeX" url="../images/2012/07/abc-example.png" alt="ABC example for creating music sheets with LaTeX" title="ABC example for creating music sheets with LaTeX" height="113" class="size-full wp-image-33701" %}
 
 
 <h2>LilyPond</h2>
@@ -125,7 +125,7 @@ rm -rf out{% endhighlight %}
 For simplification, you can save this as <code>compile.sh</code>, execute <code>chmod +x compile.sh</code> and now you only have to enter <code>./compile.sh</code> to generate the PDF.
 
 Output:
-[caption id="attachment_33661" align="aligncenter" width="594"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/lilypond-example.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/lilypond-example.png" alt="Lilypond example - output was a PDF" title="Lilypond example - output was a PDF" width="594" height="362" class="size-full wp-image-33661" /></a> Lilypond example - output was a PDF[/caption]
+{% caption align="aligncenter" width="594" caption="Lilypond example - output was a PDF" url="../images/2012/07/lilypond-example.png" alt="Lilypond example - output was a PDF" title="Lilypond example - output was a PDF" height="362" class="size-full wp-image-33661" %}
 
 <h2>Further Reading</h2>
 <ul>

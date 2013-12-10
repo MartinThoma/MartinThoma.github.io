@@ -73,11 +73,11 @@ Beispiele sind:
 </ul>
 
 <h2>Objektdiagramme</h2>
-[caption id="attachment_36561" align="aligncenter" width="404"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/objektdiagramm-instance-of.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/objektdiagramm-instance-of.png" alt="UML: instanceOf beziehung in einem Objektdiagramm" title="UML: instanceOf beziehung in einem Objektdiagramm" width="404" height="77" class="size-full wp-image-36561" /></a> UML: instanceOf beziehung in einem Objektdiagramm[/caption]
+{% caption align="aligncenter" width="404" caption="UML: instanceOf beziehung in einem Objektdiagramm" url="../images/2012/07/objektdiagramm-instance-of.png" alt="UML: instanceOf beziehung in einem Objektdiagramm" title="UML: instanceOf beziehung in einem Objektdiagramm" height="77" class="size-full wp-image-36561" %}
 
 <h2>Sequenzdiagramme</h2>
 <a href="http://de.wikipedia.org/wiki/Sequenzdiagramm">Sequenzdiagramme</a> haben wieder eigene Pfeile. 
-[caption id="attachment_32951" align="aligncenter" width="421"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/sequenzdiagram.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm" title="UML Sequenzdiagramm" width="421" height="259" class="size-full wp-image-32951" /></a> UML Sequenzdiagramm[/caption]
+{% caption align="aligncenter" width="421" caption="UML Sequenzdiagramm" url="../images/2012/07/sequenzdiagram.png" alt="UML Sequenzdiagramm" title="UML Sequenzdiagramm" height="259" class="size-full wp-image-32951" %}
 Der Pfeil mit der ausgef&uuml;llten Spitze ist eine Synchrone Nachricht, der gestrichelte mit der nicht-ausgef&uuml;llten Spitze ist eine Antwort  und der durchgezogenen Pfeil mit der nicht-ausgef&uuml;llten Spitze ist eine asynchrone Nachricht.
 <strong>ACHTUNG</strong>: In der Vorlesung bei Herrn Prof. Tichy hat die Antwort (Folie 42) auch keinen ausgef&uuml;llten Kopf, im gegensatz zu dem hier gezeigtem Bild!
 

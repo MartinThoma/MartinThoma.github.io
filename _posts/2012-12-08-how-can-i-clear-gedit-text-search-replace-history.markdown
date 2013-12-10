@@ -33,4 +33,4 @@ Start <code>gconf-editor</code>:
 
 Go to <code>/apps/gnome-settings/gedit/history-gedit2_search_for_entry</code> and <code>/apps/gnome-settings/gedit/history-gedit2_replace_entry_with</code> and remove the content there:
 
-[caption id="attachment_50181" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/12/gedit-remove-text-search-history.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/12/gedit-remove-text-search-history.png" alt="gedit: Clear text search / replace history" title="gedit: Clear text search / replace history" width="512" height="392" class="size-full wp-image-50181" /></a> gedit: Clear text search / replace history[/caption]
+{% caption align="aligncenter" width="512" caption="gedit: Clear text search / replace history" url="../images/2012/12/gedit-remove-text-search-history.png" alt="gedit: Clear text search / replace history" title="gedit: Clear text search / replace history" height="392" class="size-full wp-image-50181" %}

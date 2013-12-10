@@ -20,41 +20,41 @@ featured_image: 2012/06/circumscribed-polygons-and-circles-thumb.png
 ---
 You can create some very complex visualizations with LaTeX. Take a look at these:
 
-[caption id="attachment_28871" align="aligncenter" width="322"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/circumscribed-polygons-and-circles.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/circumscribed-polygons-and-circles.png" alt="Circumscribed polygons and circles" title="Circumscribed polygons and circles" width="322" height="322" class="size-full wp-image-28871" /></a> Circumscribed polygons and circles[/caption]
+{% caption align="aligncenter" width="322" caption="Circumscribed polygons and circles" url="../images/2012/06/circumscribed-polygons-and-circles.png" alt="Circumscribed polygons and circles" title="Circumscribed polygons and circles" height="322" class="size-full wp-image-28871" %}
 Used matlab
 Source: <a href="http://www.texample.net/tikz/examples/circumscribed-polygons-and-circles/">texample.net</a>
 
-[caption id="attachment_28881" align="aligncenter" width="400"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/mosaik-from-pompeii.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/mosaik-from-pompeii.png" alt="Mosaic from Pompeii" title="Mosaic from Pompeii" width="400" height="400" class="size-full wp-image-28881" /></a> Mosaic from Pompeii[/caption]
+{% caption align="aligncenter" width="400" caption="Mosaic from Pompeii" url="../images/2012/06/mosaik-from-pompeii.png" alt="Mosaic from Pompeii" title="Mosaic from Pompeii" height="400" class="size-full wp-image-28881" %}
 Source: <a href="http://www.texample.net/tikz/examples/mosaic-from-pompeii/">texample.net</a>
 
-[caption id="attachment_28891" align="aligncenter" width="400"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/dandelin-spheres.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/dandelin-spheres.png" alt="Plane Sections of the Cylinder - Dandelin Spheres" title="Plane Sections of the Cylinder - Dandelin Spheres" width="400" height="400" class="size-full wp-image-28891" /></a> Plane Sections of the Cylinder - Dandelin Spheres[/caption]
+{% caption align="aligncenter" width="400" caption="Plane Sections of the Cylinder - Dandelin Spheres" url="../images/2012/06/dandelin-spheres.png" alt="Plane Sections of the Cylinder - Dandelin Spheres" title="Plane Sections of the Cylinder - Dandelin Spheres" height="400" class="size-full wp-image-28891" %}
 Source: <a href="http://www.texample.net/tikz/examples/dandelin-spheres/">texample.net</a>
 
-[caption id="attachment_28901" align="aligncenter" width="472"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/dipolar-magnetic-field.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/dipolar-magnetic-field.png" alt="Example: Dipolar magnetic field" title="Example: Dipolar magnetic field" width="472" height="343" class="size-full wp-image-28901" /></a> Example: Dipolar magnetic field[/caption]
+{% caption align="aligncenter" width="472" caption="Example: Dipolar magnetic field" url="../images/2012/06/dipolar-magnetic-field.png" alt="Example: Dipolar magnetic field" title="Example: Dipolar magnetic field" height="343" class="size-full wp-image-28901" %}
 Source: <a href="http://www.texample.net/tikz/examples/dipolar-magnetic-field/">texample.net</a>
 
-[caption id="attachment_28921" align="aligncenter" width="408"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/gamma-interaction.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/gamma-interaction.png" alt="Gamma interaction" title="Gamma interaction" width="408" height="322" class="size-full wp-image-28921" /></a> Gamma interaction[/caption]
+{% caption align="aligncenter" width="408" caption="Gamma interaction" url="../images/2012/06/gamma-interaction.png" alt="Gamma interaction" title="Gamma interaction" height="322" class="size-full wp-image-28921" %}
 Source: <a href="http://www.texample.net/tikz/examples/gamma-interaction/">texample.net</a>
 
-[caption id="attachment_28931" align="aligncenter" width="400"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/complete-graph.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/complete-graph.png" alt="A complete graph" title="A complete graph" width="400" height="400" class="size-full wp-image-28931" /></a> A complete graph[/caption]
+{% caption align="aligncenter" width="400" caption="A complete graph" url="../images/2012/06/complete-graph.png" alt="A complete graph" title="A complete graph" height="400" class="size-full wp-image-28931" %}
 Source: <a href="http://www.texample.net/tikz/examples/complete-graph/">texample.net</a>
 
-[caption id="attachment_28951" align="aligncenter" width="400"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/mandala.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/mandala.png" alt="Mandala" title="Mandala" width="400" height="400" class="size-full wp-image-28951" /></a> Mandala[/caption]
+{% caption align="aligncenter" width="400" caption="Mandala" url="../images/2012/06/mandala.png" alt="Mandala" title="Mandala" height="400" class="size-full wp-image-28951" %}
 Source: <a href="http://www.texample.net/tikz/examples/mandala/">texample.net</a>
 
-[caption id="attachment_28961" align="aligncenter" width="497"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/pascals-triangle.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/pascals-triangle.png" alt="Pascal&rsquo;s triangle and Sierpinski triangle" title="Pascal&rsquo;s triangle and Sierpinski triangle" width="497" height="342" class="size-full wp-image-28961" /></a> Pascal&rsquo;s triangle and Sierpinski triangle[/caption]
+{% caption align="aligncenter" width="497" caption="Pascal&rsquo;s triangle and Sierpinski triangle" url="../images/2012/06/pascals-triangle.png" alt="Pascal&rsquo;s triangle and Sierpinski triangle" title="Pascal&rsquo;s triangle and Sierpinski triangle" height="342" class="size-full wp-image-28961" %}
 Source: <a href="http://www.texample.net/tikz/examples/pascals-triangle-and-sierpinski-triangle/">texample.net</a>
 
-[caption id="attachment_28971" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/seismic-focal-mechanism.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/seismic-focal-mechanism.png" alt="Seismic focal mechanism in 3D view" title="Seismic focal mechanism in 3D view" width="512" height="470" class="size-full wp-image-28971" /></a> Seismic focal mechanism in 3D view[/caption]
+{% caption align="aligncenter" width="512" caption="Seismic focal mechanism in 3D view" url="../images/2012/06/seismic-focal-mechanism.png" alt="Seismic focal mechanism in 3D view" title="Seismic focal mechanism in 3D view" height="470" class="size-full wp-image-28971" %}
 Source: <a href="http://www.texample.net/tikz/examples/seismic-focal-mechanism-in-3d-view/">texample.net</a>
 
-[caption id="attachment_28981" align="aligncenter" width="492"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/membrane-surface.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/membrane-surface.png" alt="Membrane-like surface" title="Membrane-like surface" width="492" height="358" class="size-full wp-image-28981" /></a> Membrane-like surface[/caption]
+{% caption align="aligncenter" width="492" caption="Membrane-like surface" url="../images/2012/06/membrane-surface.png" alt="Membrane-like surface" title="Membrane-like surface" height="358" class="size-full wp-image-28981" %}
 Source: <a href="http://www.texample.net/tikz/examples/membrane-surface/">texample.net</a>
 
-[caption id="attachment_28991" align="aligncenter" width="494"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/mindmap.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/mindmap.png" alt="Computer science mindmap" title="Computer science mindmap" width="494" height="404" class="size-full wp-image-28991" /></a> Computer science mindmap[/caption]
+{% caption align="aligncenter" width="494" caption="Computer science mindmap" url="../images/2012/06/mindmap.png" alt="Computer science mindmap" title="Computer science mindmap" height="404" class="size-full wp-image-28991" %}
 Source: <a href="http://www.texample.net/tikz/examples/computer-science-mindmap/">texample.net</a>
 
-[caption id="attachment_29001" align="aligncenter" width="477"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/spherical-and-cartesian-grids.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/spherical-and-cartesian-grids.png" alt="Spherical and cartesian grids" title="Spherical and cartesian grids" width="477" height="457" class="size-full wp-image-29001" /></a> Spherical and cartesian grids[/caption]
+{% caption align="aligncenter" width="477" caption="Spherical and cartesian grids" url="../images/2012/06/spherical-and-cartesian-grids.png" alt="Spherical and cartesian grids" title="Spherical and cartesian grids" height="457" class="size-full wp-image-29001" %}
 Source: <a href="http://www.texample.net/tikz/examples/spherical-and-cartesian-grids/">texample.net</a>
 
 Do you know more? Please leave a comment!
