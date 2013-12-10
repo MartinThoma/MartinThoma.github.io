@@ -5,6 +5,7 @@ push:
 	git push origin source
 
 deploy:
+	make push
 	jekyll build
 	git checkout master
 	git rm -qr .
