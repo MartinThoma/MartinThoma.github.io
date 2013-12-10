@@ -1,7 +1,30 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*
 
-import sys
+import sys, re
+
+def re_sub(pattern, replacement, string):
+	def _r(m):
+		# Now this is ugly.
+		# Python has a "feature" where unmatched groups return None
+		# then re.sub chokes on this.
+		# see http://bugs.python.org/issue1519638
+		
+		# this works around and hooks into the internal of the re module...
+
+		# the match object is replaced with a wrapper that
+		# returns "" instead of None for unmatched groups
+
+		class _m():
+			def __init__(self, m):
+				self.m=m
+				self.string=m.string
+			def group(self, n):
+				return m.group(n) or ""
+
+		return re._expand(pattern, _m(m), replacement)
+	
+	return re.sub(pattern, _r, string)
 
 def parseCaptions(content):
     """
@@ -23,8 +46,7 @@ def parseCaptions(content):
     """
     import re
 
-    # first with caption inside caption tag
-    pattern = '\[caption(.*?)align="(?P<align>.*?)"(.*?)caption="(?P<caption>.*?)"(.*?)\]' + \
+    pattern = '\[caption(.*?)align="(?P<align>.*?)"(.*?)(caption="(?P<caption>.*?)")?(.*?)\]' + \
         '<a(.*?)href=\"(?P<url>(.*?))\"(?P<asonst>.*?)>' + \
         '<img(.*?)src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>(.*?)))\" ' + \
             'alt=\"(?P<alt>.*?)\"\s*' + \
@@ -41,7 +63,7 @@ def parseCaptions(content):
         for key, value in result.items():
             print("%s:\t%s" % (key, value))
 
-    content = re.sub(pattern, '{% caption align="\g<align>" width="\g<width>" caption="\g<caption>" url="../images/\g<innerurl>" alt="\g<alt>" title="\g<title>" height="\g<height>" class="\g<imgclass>" %}', content)
+    content = re_sub(pattern, '{% caption align="\g<align>" width="\g<width>" caption="\g<caption>\g<text>" url="../images/\g<innerurl>" alt="\g<alt>" title="\g<title>" height="\g<height>" class="\g<imgclass>" %}', content)
 
     return content
 
@@ -132,7 +154,7 @@ def findFeaturedImage(website):
         else:
             print("x info: %s has already a featured image" % filename)
         """
-
+        print filename
         pageCodeConversion(filename)
 
 
