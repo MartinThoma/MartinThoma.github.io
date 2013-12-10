@@ -1,8 +1,9 @@
 # Title: Cateogry Slug tag
 # Author: Martin Thoma, http://martin-thoma.com
 
-module CategorySlugFilter
-    def readingtime(input)
+module Jekyll
+  module CategorySlugFilter
+    def CategorySlugFilter(input)
         @loweredInput = input.downcase
         if @loweredInput == "code"
             return "code"
@@ -20,6 +21,7 @@ module CategorySlugFilter
             return @loweredInput
         end
     end
+  end
 end
 
-Liquid::Template.register_filter(CategorySlugFilter)
+Liquid::Template.register_filter(Jekyll::CategorySlugFilter)
