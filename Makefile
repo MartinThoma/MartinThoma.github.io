@@ -7,6 +7,7 @@ push:
 deploy:
 	make push
 	jekyll build
+	./_removeWhitespace.py
 	git checkout master
 	git rm -qr .
 	cp -r _site/. .
