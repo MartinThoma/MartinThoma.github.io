@@ -6,7 +6,7 @@
 
     <title>Check x-in-a-row for board games</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -86,20 +86,17 @@
 You should create a method that checks if a coordinate is on your board. This can be as simple as this:
 
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOnBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+   <pre><code class="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOnBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="o">;</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Diagonal, horizontal and vertical</h2>
 You can create a method like this:
 
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="cm">/**</span>
+   <pre><code class="java"><span class="cm">/**</span>
 <span class="cm"> * This method checks XYZ and does XYZ.</span>
 <span class="cm"> * </span>
 <span class="cm"> * @param player the current player</span>
@@ -122,8 +119,7 @@ You can create a method like this:
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change doXYZ() and checkXYZ. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.
@@ -133,13 +129,11 @@ Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.h
 Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:
 
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top right</span>
+   <pre><code class="java"><span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top right</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top left</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// vertical</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// horizontal</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 This is enough. You don't need more, as you go through the whole board. No need to write redundant code :-)

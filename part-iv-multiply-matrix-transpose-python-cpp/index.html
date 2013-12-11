@@ -6,7 +6,7 @@
 
     <title>Part IV: How to multiply matrix with its transpose in Python and C++</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -104,8 +104,7 @@ If we used the ikj-algorithm for this multiplication, we needed $n^2 \cdot m$ op
 <h3 id="tocAnchor-1-1-1">NumPy</h3>
 I guess doing this with NumPy is the best option:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
  
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -131,18 +130,15 @@ I guess doing this with NumPy is the best option:
 <span class="n">J</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">J</span> <span class="o">*</span> <span class="n">J</span><span class="o">.</span><span class="n">T</span>
 <span class="n">printMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Time:
 <div class="highlight">
-   <pre>
-      <code class="bash">real	7m19.223s
+   <pre><code class="bash">real	7m19.223s
 user	7m12.147s
 sys	0m2.388s
-</code>
-   </pre>
+</code></pre>
 </div>
 
 When you want to do this in an application, you might want to use <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html">numpy.load</a>.
@@ -150,8 +146,7 @@ When you want to do this in an application, you might want to use <a href="http:
 <h2 id="tocAnchor-1-3">C++</h2>
 <h3 id="tocAnchor-1-3-1">First try</h3>
 <div class="highlight">
-   <pre>
-      <code class="cpp"><span class="cp">#include &lt;sstream&gt;</span>
+   <pre><code class="cpp"><span class="cp">#include &lt;sstream&gt;</span>
 <span class="cp">#include &lt;string&gt;</span>
 <span class="cp">#include &lt;fstream&gt;</span>
 <span class="cp">#include &lt;iostream&gt;</span>
@@ -255,25 +250,21 @@ When you want to do this in an application, you might want to use <a href="http:
 	<span class="n">printMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Time:
 <div class="highlight">
-   <pre>
-      <code class="bash">real	5m31.488s
+   <pre><code class="bash">real	5m31.488s
 user	5m27.560s
 sys	0m1.812s
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-3-2">Direct multiplication</h3>
 One might think that transposing first is a bad idea, because you can do this:
 <div class="highlight">
-   <pre>
-      <code class="cpp"><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">ikjDirect</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">J</span><span class="p">,</span> 
+   <pre><code class="cpp"><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">ikjDirect</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">J</span><span class="p">,</span> 
 								   <span class="n">vector</span><span class="o">&lt;</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">R</span><span class="p">,</span> 
                                    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">for</span> <span class="p">(</span><span class="k">register</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -285,8 +276,7 @@ One might think that transposing first is a bad idea, because you can do this:
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="n">R</span><span class="p">;</span>
 <span class="p">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 I stopped execution after 15 minutes.

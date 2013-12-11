@@ -6,7 +6,7 @@
 
     <title>Fibonacci, recursion and decorators</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -80,14 +80,12 @@ $
 The simplest solution to get this number is:
 
 </p><div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 The problem is, of course, that the number of evaluations goes wild. Here is a table of the number of function calls
@@ -156,8 +154,7 @@ One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and s
 A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
     <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span> <span class="nf">memoizer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -172,31 +169,26 @@ A very neat way to achieve this are decorators. It might be a common problem tha
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python :-)
 
 By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:
 <div class="highlight">
-   <pre>
-      <code class="bash">RuntimeError: maximum recursion depth exceeded in comparison
-</code>
-   </pre>
+   <pre><code class="bash">RuntimeError: maximum recursion depth exceeded in comparison
+</code></pre>
 </div>
 
 You can get around this limitation by successive calls of fib:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c"># Call to fill array</span>
+   <pre><code class="python"><span class="c"># Call to fill array</span>
 <span class="n">fib</span><span class="p">(</span><span class="mi">332</span><span class="p">)</span>
 
 <span class="c"># The number of recursive steps is now much smaller:</span>
 <span class="k">print</span><span class="p">(</span><span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 That gave 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125. A pretty big number.
@@ -211,8 +203,7 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$
 Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">functools</span>
 <span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
@@ -246,8 +237,7 @@ Although this is mathematically exact, it will not work on computers due to a fi
              <span class="o">+</span> <span class="s">"gives due to precicion error </span><span class="si">%i</span><span class="s"> (delta=</span><span class="si">%i</span><span class="s">)."</span><span class="p">)</span> 
                  <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">exact</span><span class="p">,</span> <span class="n">constTime</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">exact</span><span class="o">-</span><span class="n">constTime</span><span class="p">)))</span>
         <span class="k">break</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 So the answer is:
@@ -260,15 +250,13 @@ This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1
 The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">accFib</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">Nm2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nm1</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="n">Nm2</span><span class="p">,</span> <span class="n">Nm1</span> <span class="o">=</span> <span class="n">Nm1</span><span class="p">,</span> <span class="n">Nm1</span><span class="o">+</span><span class="n">Nm2</span>
         <span class="k">return</span> <span class="n">Nm2</span>   
     <span class="k">return</span> <span class="n">accFib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Additional ressources</h2>

@@ -6,7 +6,7 @@
 
     <title>How to install the latest LaTeX Version</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -97,8 +97,7 @@ A number of TeX distributions are available, including TeX Live (multiplatform) 
 <h2 id="tocAnchor-1-2">LaTeX: an Hello World example</h2>
 This is the template I use when I want to write a minimal LaTeX PDF document. You can use it as an example.
 <div class="highlight">
-   <pre>
-      <code class="text">\documentclass[a4paper,10pt]{article}
+   <pre><code class="text">\documentclass[a4paper,10pt]{article}
 \usepackage{amssymb}		% needed for math
 \usepackage{amsmath}		% needed for math
 \usepackage{amsthm}   		% needed for proof environment
@@ -130,16 +129,13 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie co
 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
 
 \end{document}
-</code>
-   </pre>
+</code></pre>
 </div>
 
 If LaTeX is available on your system, you can create the PDF file from this myDocument.tex file with this command:
 <div class="highlight">
-   <pre>
-      <code class="bash">pdflatex myDocument.tex -output-format<span class="o">=</span>pdf
-</code>
-   </pre>
+   <pre><code class="bash">pdflatex myDocument.tex -output-format<span class="o">=</span>pdf
+</code></pre>
 </div>
 
 This will create a .log file, an .aux file
@@ -152,22 +148,18 @@ It's a Network installation, so it will need Internet access. It needs to downlo
 
 You should remove your old installation before you start the new one:
 <div class="highlight">
-   <pre>
-      <code class="bash">sudo apt-get purge texlive-*
+   <pre><code class="bash">sudo apt-get purge texlive-*
 sudo apt-get autoremove
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <div class="highlight">
-   <pre>
-      <code class="bash">wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+   <pre><code class="bash">wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -zxvf install-tl-unx.tar.gz
 <span class="nb">cd </span>install-tl-*
 sudo ./install-tl
 I
-</code>
-   </pre>
+</code></pre>
 </div>
 
 
@@ -175,17 +167,14 @@ After you've started your installation, you can choose options (O). Then you sho
 
 If you didn't do so, add the path to your PATH (See <a href="http://askubuntu.com/a/60221/10425">How to add a directory to my path?</a>, <a href="http://askubuntu.com/a/60769/10425">How do I add a directory to MANPATH or INFOPATH?</a> and <a href="http://askubuntu.com/a/59127/10425">Reload .profile</a>):
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/texlive/2012/bin/i386-linux/
-</code>
-   </pre>
+   <pre><code class="bash"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/texlive/2012/bin/i386-linux/
+</code></pre>
 </div>
 
 That's it. So my <code>.profile</code> got these additional lines:
 
 <div class="highlight">
-   <pre>
-      <code class="text">if [ -d "/usr/local/texlive/2012/bin/i386-linux" ] ; then
+   <pre><code class="text">if [ -d "/usr/local/texlive/2012/bin/i386-linux" ] ; then
     PATH="/usr/local/texlive/2012/bin/i386-linux:$PATH"
 fi
 
@@ -196,23 +185,19 @@ fi
 if [ -d "/usr/local/texlive/2012/texmf/doc/info" ] ; then
     INFOPATH="/usr/local/texlive/2012/texmf/doc/info:$INFOPATH"
 fi
-</code>
-   </pre>
+</code></pre>
 </div>
 
 edit: I've just installed TeX-Live 2012 and had to do this:
 <div class="highlight">
-   <pre>
-      <code class="bash">moose@pc07:/usr/bin<span class="nv">$ </span>rm latex
+   <pre><code class="bash">moose@pc07:/usr/bin<span class="nv">$ </span>rm latex
 moose@pc07:/usr/bin<span class="nv">$ </span>sudo ln -s /usr/local/texlive/2012/bin/i386-linux/pdflatex latex
-</code>
-   </pre>
+</code></pre>
 </div>
 
 You can try if your installation works by <code>latex --version</code>:
 <div class="highlight">
-   <pre>
-      <code class="text">pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
+   <pre><code class="text">pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
 kpathsea version 5.0.0
 Copyright 2009 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 There is NO warranty.  Redistribution of this software is
@@ -224,26 +209,21 @@ Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 Compiled with libpng 1.2.42; using libpng 1.2.42
 Compiled with zlib 1.2.3.3; using zlib 1.2.3.3
 Compiled with poppler version 0.12.4
-</code>
-   </pre>
+</code></pre>
 </div>
 
 If an old version is shown, you might want to see where it is located:
 <div class="highlight">
-   <pre>
-      <code class="bash">which latex
-</code>
-   </pre>
+   <pre><code class="bash">which latex
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Update</h2>
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="nb">cd</span> /usr/local/texlive/2012/bin/i386-linux
+   <pre><code class="bash"><span class="nb">cd</span> /usr/local/texlive/2012/bin/i386-linux
 sudo ./tlmgr update --self
 sudo ./tlmgr update --all
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">See also</h2>

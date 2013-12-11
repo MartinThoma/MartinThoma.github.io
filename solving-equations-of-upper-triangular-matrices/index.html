@@ -6,7 +6,7 @@
 
     <title>Solving equations of upper triangular matrices</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -179,8 +179,7 @@ $x = \frac{1}{4608} \cdot \begin{pmatrix}4017\\-1182\\-1552\\512\\5760\end{pmatr
 I will use <a href="http://docs.python.org/2/library/fractions.html">fractions</a> for operations as I don't want to lose precision while dividing.
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solveUpperTriangularMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -223,16 +222,14 @@ I will use <a href="http://docs.python.org/2/library/fractions.html">fractions</
     <span class="c"># Convert x to float</span>
     <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">A better algorithm</h2>
 Just like for <a href="http://martin-thoma.com/solving-equations-of-unipotent-lower-triangular-matrices/" title="Solving equations of unipotent lower triangular matrices">unipotent lower triangular matrices</a>, we can operate directly on the given input:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solveUpperTriangularMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -266,35 +263,28 @@ Just like for <a href="http://martin-thoma.com/solving-equations-of-unipotent-lo
     <span class="n">b</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="n">solveUpperTriangularMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">Conversion to Fraction</h2>
 You could think that the conversion to fraction is not necessary. But if you simply remove line 5 to 16, you will get:
 
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="o">[</span>1, 0, -1, 0, 1<span class="o">]</span>
-</code>
-   </pre>
+   <pre><code class="bash"><span class="o">[</span>1, 0, -1, 0, 1<span class="o">]</span>
+</code></pre>
 </div>
 
 because of integer arithmetic. When you convert the input to float before passing it to <code>solveUpperTriangularMatrix</code>, you will get 
 
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="o">[</span>0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span>
-</code>
-   </pre>
+   <pre><code class="bash"><span class="o">[</span>0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span>
+</code></pre>
 </div>
 
 which is almost the same as when we calculated with Fraction and converted to float afterwards:
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="o">[</span>0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span>
-</code>
-   </pre>
+   <pre><code class="bash"><span class="o">[</span>0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span>
+</code></pre>
 </div>
 
 So: Using Fractions needs some computing time, but you will get better results.

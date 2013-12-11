@@ -6,7 +6,7 @@
 
     <title>Python Generators</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -75,8 +75,7 @@ Generators help you to program interators. They look almost like normal function
 Imagine you wanted to display n fibonacci numbers. This could be your normal approach:
 
 </p><div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -91,15 +90,13 @@ Imagine you wanted to display n fibonacci numbers. This could be your normal app
 
 <span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">fib</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">100</span><span class="p">)):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"The </span><span class="si">%i</span><span class="s">-th Fibonacci-Nr is </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">fib</span><span class="p">))</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 The disadvantage of this approach is that you have to keep every element of the sequence in memory. Of course, you could write something like this:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -113,16 +110,14 @@ The disadvantage of this approach is that you have to keep every element of the 
 
 <span class="k">for</span> <span class="n">nr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"The </span><span class="si">%i</span><span class="s">-th Fibonacci-Nr is </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">nr</span><span class="p">)))</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 This needs much less memory, but much more time. You have to recalculate the first few fibonacci numbers every time.
 
 A generator could look like this:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">fibGenerator</span><span class="p">():</span>
@@ -136,8 +131,7 @@ A generator could look like this:
 
 <span class="k">for</span> <span class="n">nr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"The </span><span class="si">%i</span><span class="s">-th Fibonacci-Nr is </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">myGenerator</span><span class="o">.</span><span class="n">next</span><span class="p">()))</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">

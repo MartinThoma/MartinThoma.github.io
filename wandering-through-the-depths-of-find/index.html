@@ -6,7 +6,7 @@
 
     <title>Wandering through the depths of find</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -107,10 +107,8 @@ You might get some "Permission denied" errors. They are very bothersome if you c
 I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.
 The easiest way to achieve this is via find, xargs and sed:
 <div class="highlight">
-   <pre>
-      <code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
-</code>
-   </pre>
+   <pre><code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
+</code></pre>
 </div>
 
 Now the explanation of the different commands:
@@ -127,26 +125,20 @@ Now the explanation of the different commands:
 </ul><h2 id="tocAnchor-1-4">Snippets</h2>
 move all files in subdirectories to a single directory:
 <div class="highlight">
-   <pre>
-      <code class="bash">find -type f -exec mv <span class="o">{}</span> collection/ <span class="se">\;</span>
-</code>
-   </pre>
+   <pre><code class="bash">find -type f -exec mv <span class="o">{}</span> collection/ <span class="se">\;</span>
+</code></pre>
 </div>
 
 find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:
 <div class="highlight">
-   <pre>
-      <code class="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print $5 ":\t" $8 }'</span>
-</code>
-   </pre>
+   <pre><code class="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print $5 ":\t" $8 }'</span>
+</code></pre>
 </div>
 
 find files in the home folder owned by alice:
 <div class="highlight">
-   <pre>
-      <code class="bash">find /home -user alice
-</code>
-   </pre>
+   <pre><code class="bash">find /home -user alice
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">Further reading</h2>

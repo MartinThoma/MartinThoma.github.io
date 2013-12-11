@@ -6,7 +6,7 @@
 
     <title>Cool features of Python</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -144,19 +144,16 @@ I also made drafts how the tasks would be solved in most programming languages. 
 You can loop through every list-like datastructure like this:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+   <pre><code class="python"><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-1-2">Arbitrary Integer size</h3>
 <strong>Description</strong>: Print the sum of the digits of $2^{100000}$.
 <strong>Java</strong>:
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="o">;</span>
+   <pre><code class="java"><span class="kn">import</span> <span class="nn">java.math.BigInteger</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
@@ -169,21 +166,18 @@ You can loop through every list-like datastructure like this:
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Python</strong>: (was much faster in both computation and programming time!)
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">big</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">100000</span>
+   <pre><code class="python"><span class="n">big</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">100000</span>
 <span class="n">sumOfDigits</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">big</span><span class="p">):</span>
 	<span class="n">sumOfDigits</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">sumOfDigits</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Python has no need for a special class as it has arbitrary length integers (see <a href="http://docs.python.org/release/3.1.5/c-api/long.html">source</a>)
@@ -191,28 +185,23 @@ Python has no need for a special class as it has arbitrary length integers (see 
 <h3 id="tocAnchor-1-1-3">Swich values of variables</h3>
 <strong>Description</strong>: You want to make sure, that variable a is smaller than b ($a Most languages:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span>
+   <pre><code class="python"><span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">a</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Python</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-</code>
-   </pre>
+   <pre><code class="python"><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-1-4">Return more than one variable</h3>
 <strong>Description</strong>: Evaluate $f: \mathbb{R}^2 \rightarrow \mathbb{R}^3, f(x, y) := (x^2, y^2, x+y)$
 <strong>Most languages</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">double</span> <span class="n">function</span><span class="p">(</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+   <pre><code class="python"><span class="n">double</span> <span class="n">function</span><span class="p">(</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">double</span> <span class="n">returnValues</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
   <span class="n">returnValues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
   <span class="n">returnValues</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
@@ -223,21 +212,18 @@ Python has no need for a special class as it has arbitrary length integers (see 
 <span class="n">double</span> <span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"Part 1: </span><span class="si">%.2f</span><span class="s">"</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"Part 3: </span><span class="si">%.2f</span><span class="s">"</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Python</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">function</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">function</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">"Part 1: </span><span class="si">%.2f</span><span class="s">"</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s">"Part 3: </span><span class="si">%.2f</span><span class="s">"</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 This is called "Argument Unpacking". In fact it does return only one variable (a tuple), but it creating the tuple is so easy that it does not feel like creating another variable.
@@ -246,8 +232,7 @@ This is called "Argument Unpacking". In fact it does return only one variable (a
 <strong>Description</strong>: Get a string representation of a list from the standard library
 <strong>Java</strong>:
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
+   <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
@@ -260,17 +245,14 @@ This is called "Argument Unpacking". In fact it does return only one variable (a
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">myList</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Python</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+   <pre><code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Both get the same result.
@@ -279,61 +261,50 @@ Both get the same result.
 Description: You would like to check if $x \in [-5, 42]$.
 <strong>Most languages</strong>:
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="k">if</span> <span class="o">(-</span><span class="mi">5</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">42</span><span class="o">)</span>
-</code>
-   </pre>
+   <pre><code class="java"><span class="k">if</span> <span class="o">(-</span><span class="mi">5</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">42</span><span class="o">)</span>
+</code></pre>
 </div>
 
 <strong>Python</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">if</span> <span class="o">-</span><span class="mi">5</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">42</span><span class="p">:</span>
-</code>
-   </pre>
+   <pre><code class="python"><span class="k">if</span> <span class="o">-</span><span class="mi">5</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">42</span><span class="p">:</span>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-1-7">Enumeration</h3>
 <strong>Description</strong>: You have a list and you would like to print it, prefixed with the index in the list.
 <strong>Java</strong>:
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="n">List</span> <span class="n">myList</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span> <span class="n">initialisation</span> <span class="n">and</span> <span class="n">assignment</span><span class="o">,</span> <span class="n">multiple</span> <span class="n">lines</span><span class="o">)</span>
+   <pre><code class="java"><span class="n">List</span> <span class="n">myList</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span> <span class="n">initialisation</span> <span class="n">and</span> <span class="n">assignment</span><span class="o">,</span> <span class="n">multiple</span> <span class="n">lines</span><span class="o">)</span>
 <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">:</span> <span class="n">myList</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%i: %i"</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">element</span><span class="o">);</span>
     <span class="n">i</span><span class="o">++;</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Python</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+   <pre><code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">myList</span><span class="p">):</span>
 	<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="si">%i</span><span class="s">: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">element</span><span class="p">))</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-1-8">Named String formatting</h3>
 Python allows you to give parameters names:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">print</span><span class="p">(</span><span class="s">"The </span><span class="si">%(foo)s</span><span class="s"> is </span><span class="si">%(bar)i</span><span class="s">."</span> <span class="o">%</span> <span class="p">{</span><span class="s">'foo'</span><span class="p">:</span> <span class="s">'answer'</span><span class="p">,</span> <span class="s">'bar'</span><span class="p">:</span><span class="mi">42</span><span class="p">})</span>
-</code>
-   </pre>
+   <pre><code class="python"><span class="k">print</span><span class="p">(</span><span class="s">"The </span><span class="si">%(foo)s</span><span class="s"> is </span><span class="si">%(bar)i</span><span class="s">."</span> <span class="o">%</span> <span class="p">{</span><span class="s">'foo'</span><span class="p">:</span> <span class="s">'answer'</span><span class="p">,</span> <span class="s">'bar'</span><span class="p">:</span><span class="mi">42</span><span class="p">})</span>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-1-9">any() and all()</h3>
 <strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
 <strong>Most languages</strong>:
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="n">List</span> <span class="n">myList</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span> <span class="n">initialisation</span> <span class="n">and</span> <span class="n">assignment</span> <span class="n">of</span> <span class="n">many</span> <span class="n">values</span><span class="o">)</span>
+   <pre><code class="java"><span class="n">List</span> <span class="n">myList</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span> <span class="n">initialisation</span> <span class="n">and</span> <span class="n">assignment</span> <span class="n">of</span> <span class="n">many</span> <span class="n">values</span><span class="o">)</span>
 <span class="kt">boolean</span> <span class="n">isPrimePresent</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">:</span> <span class="n">myList</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">isPrime</span><span class="o">(</span><span class="n">element</span><span class="o">))</span> <span class="o">{</span>
@@ -345,19 +316,16 @@ Python allows you to give parameters names:
 <span class="k">if</span> <span class="o">(!</span><span class="n">isPrimePresent</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The list did not containe a prime."</span><span class="o">);</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Python</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+   <pre><code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">isPrime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"The list did not contain a prime"</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 See also: <a href="http://stackoverflow.com/questions/10958874/exists-keyword-in-python">StackOverflow answer from steveha</a>.
@@ -375,8 +343,7 @@ I already wrote an article about <a href="http://martin-thoma.com/understanding-
 <strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
 <strong>Most languages</strong>:
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="n">List</span> <span class="n">myList</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span> <span class="n">initialisation</span> <span class="n">and</span> <span class="n">assignment</span> <span class="n">of</span> <span class="n">many</span> <span class="n">values</span><span class="o">)</span>
+   <pre><code class="java"><span class="n">List</span> <span class="n">myList</span> <span class="o">=</span> <span class="o">(</span><span class="n">List</span> <span class="n">initialisation</span> <span class="n">and</span> <span class="n">assignment</span> <span class="n">of</span> <span class="n">many</span> <span class="n">values</span><span class="o">)</span>
 <span class="kt">boolean</span> <span class="n">isPrimePresent</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">element</span> <span class="o">:</span> <span class="n">myList</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">isPrime</span><span class="o">(</span><span class="n">element</span><span class="o">))</span> <span class="o">{</span>
@@ -388,39 +355,33 @@ I already wrote an article about <a href="http://martin-thoma.com/understanding-
 <span class="k">if</span> <span class="o">(!</span><span class="n">isPrimePresent</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The list did not containe a prime."</span><span class="o">);</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Python</strong>:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+   <pre><code class="python"><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
         <span class="k">break</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"The list did not containe a prime."</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-13-3">Step through lists</h3>
 <strong>Description</strong>: Print only every n-th element of an iterable.
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">[::</span><span class="n">n</span><span class="p">]:</span>
+   <pre><code class="python"><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">myList</span><span class="p">[::</span><span class="n">n</span><span class="p">]:</span>
     <span class="k">print</span> <span class="n">elemenet</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-13-4">Dynamically add properties to objects and classes</h3>
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">Node</span><span class="p">()</span>
@@ -438,17 +399,14 @@ I already wrote an article about <a href="http://martin-thoma.com/understanding-
 <span class="c"># You can even add a property to the class</span>
 <span class="n">Node</span><span class="o">.</span><span class="n">special</span> <span class="o">=</span> <span class="s">"here is it"</span>
 <span class="k">print</span> <span class="n">b</span><span class="o">.</span><span class="n">special</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-13-5">Imaginary numbers</h3>
 Python directly supports usage of imaginary numbers:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="p">(</span><span class="mi">2j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-</code>
-   </pre>
+   <pre><code class="python"><span class="p">(</span><span class="mi">2j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</code></pre>
 </div>
 Output: (-3+4j)
 

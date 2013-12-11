@@ -6,7 +6,7 @@
 
     <title>Part II: The Strassen algorithm in Python, Java and C++</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -126,8 +126,7 @@ If you post a solution, please consider these restrictions:
 I’ve used Python 2.6.5.
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
@@ -294,30 +293,26 @@ I’ve used Python 2.6.5.
 
     <span class="n">C</span> <span class="o">=</span> <span class="n">strassen</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:
 <div class="highlight">
-   <pre>
-      <code class="bash">ikj-algorithm	44m13.458s
+   <pre><code class="bash">ikj-algorithm	44m13.458s
 LEAF_SIZE	Time
 2	47m45.983s
 8	47m41.311s
 16	48m5.472s
 32	48m5.624s
 64	47m55.076s
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Java</h2>
 The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.
 
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">ikjAlgorithm</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">A</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">B</span><span class="o">)</span> <span class="o">{</span>
+   <pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">ikjAlgorithm</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">A</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">B</span><span class="o">)</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
 
     <span class="c1">// initialise C</span>
@@ -480,8 +475,7 @@ The Java-code is a little bit long and has three classes. I'll only past the imp
         <span class="k">return</span> <span class="n">C</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Here are the results for different leaf-sizes:
@@ -494,8 +488,7 @@ Here are the results for different leaf-sizes:
 
 <h2 id="tocAnchor-1-5">C++</h2>
 <div class="highlight">
-   <pre>
-      <code class="cpp"><span class="cp">#include &lt;sstream&gt;</span>
+   <pre><code class="cpp"><span class="cp">#include &lt;sstream&gt;</span>
 <span class="cp">#include &lt;string&gt;</span>
 <span class="cp">#include &lt;fstream&gt;</span>
 <span class="cp">#include &lt;iostream&gt;</span>
@@ -760,8 +753,7 @@ Here are the results for different leaf-sizes:
     <span class="n">printMatrix</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 For C++, you get those user-times for the different leaf-sizes:

@@ -6,7 +6,7 @@
 
     <title>Understanding Python Lists</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -72,8 +72,7 @@
 
 Imagine you have the following Python source code:
 </p><div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 
@@ -89,8 +88,7 @@ Imagine you have the following Python source code:
 <span class="k">print</span> <span class="n">example2</span>
 <span class="k">print</span> <span class="n">example3</span>
 <span class="k">print</span> <span class="n">example4</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 How should the output look like? Think about it a second, then scroll down.
@@ -119,13 +117,11 @@ How should the output look like? Think about it a second, then scroll down.
 
 
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="o">[[</span>1,5,7<span class="o">]</span>,<span class="o">[</span>0,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span>8,1,6<span class="o">]</span>,1<span class="o">]</span>
+   <pre><code class="bash"><span class="o">[[</span>1,5,7<span class="o">]</span>,<span class="o">[</span>0,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span>8,1,6<span class="o">]</span>,1<span class="o">]</span>
 <span class="o">[[</span>1,5,7<span class="o">]</span>,<span class="o">[</span>0,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span>8,1,6<span class="o">]]</span>
 <span class="o">[[</span>1,5,7<span class="o">]</span>,<span class="o">[</span>0,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span>8,1,6<span class="o">]]</span>
 <span class="o">[[</span>1,5,7<span class="o">]</span>,<span class="o">[</span>3,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span>8,1,6<span class="o">]]</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 The reason for this strange behaviour is how lists are handled in Python. The variable itself is basically only the pointer to the list. If you slice the list (myList[:]) you copy each value of the list into another list. If myList was a nested list, it contained the pointers to the sublists. So, if you want to make a deep copy, you have to use the copy module.
@@ -145,19 +141,16 @@ phimuemue added this example in my old blog:
 
 Another issue I ran into concerns the scoping of Python:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+   <pre><code class="python"><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
 <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c"># yields 3</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 That means, python doesn't create a new variable for the list comprehension but uses the outer i.
 
 <h2 id="tocAnchor-1-2">Recursive Lists</h2>
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+   <pre><code class="python"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -167,8 +160,7 @@ That means, python doesn't create a new variable for the list comprehension but 
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]]]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]]]</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Do you know more examples of unexpected behaviour of python lists? Please share them in the comments!

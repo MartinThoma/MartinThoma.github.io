@@ -6,7 +6,7 @@
 
     <title>How to parse command line arguments in Python</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -106,8 +106,7 @@ As far as I've just tried it, you can use argparse very similar to optparse. See
 
 It is very easy to add command line <del>options</del> argument (if you require an option, it would not be an option any more, would it? I'll try to call them arguments from now on):
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
  
 <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
@@ -124,8 +123,7 @@ It is very easy to add command line <del>options</del> argument (if you require 
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">myFilenameVariable</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Every option has some values like:
@@ -149,23 +147,20 @@ Every option has some values like:
 
 argparse automatically generates a help text. So if you call <code>python myScript.py --help</code> you will get something like that:
 <div class="highlight">
-   <pre>
-      <code class="bash">usage: ikjMultiplication.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span>
+   <pre><code class="bash">usage: ikjMultiplication.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span>
 
 ikjMatrix multiplication
 
 optional arguments:
   -h, --help  show this <span class="nb">help </span>message and <span class="nb">exit</span>
   -i FILE     input file with two matrices
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-1-3">Example 1: Fibonacci</h3>
 It is absolutely no problem to calculate the 100,000st Fibonacci number.
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
@@ -191,16 +186,14 @@ It is absolutely no problem to calculate the 100,000st Fibonacci number.
 
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="k">print</span> <span class="n">fib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse. 
 
 <h3 id="tocAnchor-1-1-4">Example 2: less</h3>
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
  
 <span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
@@ -238,8 +231,7 @@ Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
         <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 

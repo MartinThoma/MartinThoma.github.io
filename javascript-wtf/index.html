@@ -6,7 +6,7 @@
 
     <title>JavaScript: WTF?!?</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -109,46 +109,36 @@ Most of the following content is from a StackOverflow question <a href="http://s
 </div><h2 id="tocAnchor-1-1">Weak typing</h2>
 <strong>Example</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">3</span><span class="p">..</span><span class="nx">toString</span><span class="p">());</span>
-</code>
-   </pre>
+   <pre><code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">3</span><span class="p">..</span><span class="nx">toString</span><span class="p">());</span>
+</code></pre>
 </div>
 
 <strong>Output</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="s1">'3'</span>
-</code>
-   </pre>
+   <pre><code class="bash"><span class="s1">'3'</span>
+</code></pre>
 </div>
 
 <strong>Explanation</strong>
 <strong>3.</strong> is a floating point and can get converted to a string. But <code>3.toString()</code> gives 
 <div class="highlight">
-   <pre>
-      <code class="bash">SyntaxError: Unexpected token ILLEGAL 
-</code>
-   </pre>
+   <pre><code class="bash">SyntaxError: Unexpected token ILLEGAL 
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Weak typing and string concatenation</h2>
 <strong>Example</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+   <pre><code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'5'</span> <span class="o">-</span> <span class="mi">3</span><span class="p">);</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Output</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="s1">'53'</span>
+   <pre><code class="bash"><span class="s1">'53'</span>
 2
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Explanation</strong>
@@ -162,8 +152,7 @@ In the second case, <code>-</code> is only defined for subtraction so <code>'5'<
 <strong>Example 1</strong>
 
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+   <pre><code class="javascript"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span>
     <span class="p">{</span>
         <span class="nx">id</span> <span class="o">:</span> <span class="mi">1338</span><span class="p">,</span>
@@ -172,37 +161,30 @@ In the second case, <code>-</code> is only defined for subtraction so <code>'5'<
 <span class="p">}</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Example 2</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+   <pre><code class="javascript"><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span>
         <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Output 1</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash">Uncaught SyntaxError: Unexpected token :
-</code>
-   </pre>
+   <pre><code class="bash">Uncaught SyntaxError: Unexpected token :
+</code></pre>
 </div>
 
 <strong>Output 2</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash">undefined
-</code>
-   </pre>
+   <pre><code class="bash">undefined
+</code></pre>
 </div>
 
 <strong>Explanation</strong>
@@ -213,8 +195,7 @@ Please note that the second output is no error! It has a (valid) return value of
 <h2 id="tocAnchor-1-4">Truth table</h2>
 <strong>Example</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 0 == XYZ ---------"</span><span class="p">);</span>
+   <pre><code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"------- 0 == XYZ ---------"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="kc">false</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">''</span><span class="p">);</span>
@@ -303,8 +284,7 @@ Please note that the second output is no error! It has a (valid) return value of
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'0'</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"-------  XYZ == 'false' ---------"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'false'</span> <span class="o">==</span> <span class="s1">'false'</span><span class="p">);</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Output</strong>
@@ -408,20 +388,16 @@ At least the table is symmetric and the diagonal is true. Please also note that 
 <h2 id="tocAnchor-1-5">The truth</h2>
 <strong>Example</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+   <pre><code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">==</span> <span class="p">[[</span><span class="mi">2</span><span class="p">]]);</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Output</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="nb">true</span>
+   <pre><code class="bash"><span class="nb">true</span>
 <span class="nb">true</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Explanation</strong>
@@ -430,21 +406,17 @@ At <a href="http://stackoverflow.com/a/1724551/562769">StackOverflow</a>
 <h2 id="tocAnchor-1-6">Date</h2>
 <strong>Example</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="kd">var</span> <span class="nx">futureDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">154</span><span class="p">);</span>
+   <pre><code class="javascript"><span class="kd">var</span> <span class="nx">futureDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">154</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">futureDate</span><span class="p">.</span><span class="nx">getYear</span><span class="p">());</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Output</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash">Tue Nov 01 2016 00:00:00 GMT+0100 <span class="o">(</span>CET<span class="o">)</span> 
+   <pre><code class="bash">Tue Nov 01 2016 00:00:00 GMT+0100 <span class="o">(</span>CET<span class="o">)</span> 
 116
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Explanation</strong>
@@ -455,18 +427,14 @@ You should use <code>getFullYear()</code> instead of <code>getYear()</code>, as 
 <h2 id="tocAnchor-1-7">Integer overflow</h2>
 <strong>Example</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">111111111111111111111</span><span class="p">);</span>
-</code>
-   </pre>
+   <pre><code class="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">111111111111111111111</span><span class="p">);</span>
+</code></pre>
 </div>
 
 <strong>Output</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash">111111111111111110000 
-</code>
-   </pre>
+   <pre><code class="bash">111111111111111110000 
+</code></pre>
 </div>
 
 <strong>Explanation</strong>
@@ -486,24 +454,20 @@ It's ok that JavaScript fails at handling this integer. I think it converts this
 <h2 id="tocAnchor-1-9">Global variables</h2>
 <strong>Example</strong>
 <div class="highlight">
-   <pre>
-      <code class="javascript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+   <pre><code class="javascript"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
   <span class="nx">a</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nx">test</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <strong>Output</strong>
 <div class="highlight">
-   <pre>
-      <code class="bash">1337
-</code>
-   </pre>
+   <pre><code class="bash">1337
+</code></pre>
 </div>
 
 <strong>Explanation</strong>

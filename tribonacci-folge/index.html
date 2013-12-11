@@ -6,7 +6,7 @@
 
     <title>Tribonacci-Folge</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -107,14 +107,12 @@ $a_0 = a_1 = a_2 = 1, a_3 = 3, a_4 = 5, a_5 = 9, a_6 = 17, a_7 = 31, a_8 = 57$
 Solche Aufgaben lassen sich häufig sehr einfach rekursiv lösen:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">tribonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">tribonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">tribonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tribonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">tribonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Allerdings hat diese rekursive Lösung den riesigen nachteil, dass viele Berechnungen redundant sind.
@@ -147,8 +145,7 @@ Wie kann man so was verbessern?
 Wir benötigen für ein neues Folgenglied immer nur das vorhergehende. Das kann dann so aussehen:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">tribonacciBottomUp</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">tribonacciBottomUp</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">last</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">secondLast</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">thirdLast</span> <span class="o">=</span> <span class="mi">1</span>
@@ -158,8 +155,7 @@ Wir benötigen für ein neues Folgenglied immer nur das vorhergehende. Das kann 
         <span class="n">secondLast</span> <span class="o">=</span> <span class="n">last</span>
         <span class="n">last</span> <span class="o">=</span> <span class="n">new</span>
     <span class="k">return</span> <span class="n">last</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Fill it</h2>
@@ -339,8 +335,7 @@ Eine weitere Möglichkeit wäre die schwäche des rekursiven Ansatzes zu elimini
 Java-Nutzer müssen sich darüber im klaren sein, dass alle Elemente, die größer als 36 sind, die <code>int</code>-Grenzen sprengen. Eine Lösung für das Übungsblatt könnte ungefähr so aussehen:
 
 <div class="highlight">
-   <pre>
-      <code class="java"><span class="cm">/** This class calculates numbers of the Tribonacci sequence. */</span>
+   <pre><code class="java"><span class="cm">/** This class calculates numbers of the Tribonacci sequence. */</span>
 <span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">Tribonacci</span> <span class="o">{</span>
     <span class="cm">/**</span>
 <span class="cm">     * Utility classes should not have a public or default </span>
@@ -384,8 +379,7 @@ Java-Nutzer müssen sich darüber im klaren sein, dass alle Elemente, die größ
     <span class="o">}</span>
 
 <span class="o">}</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 						</div>
 						<div class="postmeta">Posted in 

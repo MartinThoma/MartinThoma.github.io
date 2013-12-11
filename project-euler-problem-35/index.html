@@ -6,7 +6,7 @@
 
     <title>Project Euler: Problem 35</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -183,8 +183,7 @@ Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_an
 
 For example, this implementation is not good:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">""" Sieve of Eratosthenes """</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
     <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
@@ -196,8 +195,7 @@ For example, this implementation is not good:
             <span class="k">if</span> <span class="n">noPrime</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span> 
                 <span class="n">primes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">noPrime</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">primes</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Whats bad with this code? 
@@ -205,8 +203,7 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 
 How could this get improved? Here is a better solution:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">""" Sieve of Eratosthenes """</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
     <span class="n">roundUp</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">prime</span><span class="p">))</span>
@@ -223,8 +220,7 @@ How could this get improved? Here is a better solution:
         <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
             <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="n">primeList</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.
@@ -234,31 +230,27 @@ A generator version of the sieve of Erasthostenes can be found on <a href="http:
 <h3 id="tocAnchor-1-2-2">isCircularPrime</h3>
 Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
         <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="bp">True</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)):</span>
         <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)]:</span>
             <span class="k">return</span> <span class="bp">False</span>
     <span class="k">return</span> <span class="bp">True</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-2-3">Some more speedups

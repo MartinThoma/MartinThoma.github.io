@@ -6,7 +6,7 @@
 
     <title>How to write music with LaTeX</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -113,15 +113,13 @@
    <p class="wp-caption-text"></p>
 </div>
 <div class="highlight">
-   <pre>
-      <code class="text">\documentclass[a4paper,12pt]{article}
+   <pre><code class="text">\documentclass[a4paper,12pt]{article}
 \usepackage{wasysym}
 \begin{document}
 \eighthnote ~~~ \halfnote ~~~ \twonotes ~~~ \fullnote ~~~ 
 \quarternote ~~~ $\natural$ ~~~ $\flat$ ~~~ $\sharp$
 \end{document}
-</code>
-   </pre>
+</code></pre>
 </div>
 
 The harmony package offers some additional symbols:
@@ -133,8 +131,7 @@ The harmony package offers some additional symbols:
 </div>
 
 <div class="highlight">
-   <pre>
-      <code class="text">\documentclass[a4paper,12pt]{article}
+   <pre><code class="text">\documentclass[a4paper,12pt]{article}
 \usepackage{harmony}
 
 \begin{document}
@@ -144,8 +141,7 @@ The harmony package offers some additional symbols:
     \SechBL ~~~ \SechBl ~~~ \SechBR  ~~~ \SePa ~~~ \UB ~~~ \Vier \\
     \ViPa ~~~ \VM ~~~ \Zwdr ~~~ \ZwPa
 \end{document}
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">musixtex</h2>
@@ -157,8 +153,7 @@ The harmony package offers some additional symbols:
 </div>
 
 <div class="highlight">
-   <pre>
-      <code class="text">\documentclass[a4paper,12pt]{article}
+   <pre><code class="text">\documentclass[a4paper,12pt]{article}
 \usepackage{musixtex}
 
 \begin{document}
@@ -167,24 +162,20 @@ The harmony package offers some additional symbols:
     - a simple example\\
     for the \LaTeX{} package musixtex.
 \end{document}
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">ABC</h2>
 <h3 id="tocAnchor-1-3-1">Preparation</h3>
 You have to have ABC installed. For Ubuntu-Users:
 <div class="highlight">
-   <pre>
-      <code class="bash">sudo apt-get install abcm2ps
-</code>
-   </pre>
+   <pre><code class="bash">sudo apt-get install abcm2ps
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-3-2">Example</h3>
 <div class="highlight">
-   <pre>
-      <code class="text">\documentclass[a4paper]{article}
+   <pre><code class="text">\documentclass[a4paper]{article}
 \usepackage{abc}
 
 \begin{document}
@@ -195,16 +186,13 @@ You have to have ABC installed. For Ubuntu-Users:
         "Text"c2 G4 | (3FED c4 G2 |
     \end{abc}
 \end{document}
-</code>
-   </pre>
+</code></pre>
 </div>
 
 compile with
 <div class="highlight">
-   <pre>
-      <code class="bash">pdflatex --shell-escape myTexFile.tex
-</code>
-   </pre>
+   <pre><code class="bash">pdflatex --shell-escape myTexFile.tex
+</code></pre>
 </div>
 
 to get this:
@@ -222,10 +210,8 @@ Make sure that you have installed <a href="http://en.wikipedia.org/wiki/GNU_Lily
 
 Ubuntu-Users have to type
 <div class="highlight">
-   <pre>
-      <code class="bash">sudo apt-get install lilypond
-</code>
-   </pre>
+   <pre><code class="bash">sudo apt-get install lilypond
+</code></pre>
 </div>
 to install Lilypond.
 
@@ -233,8 +219,7 @@ to install Lilypond.
 <h4>From the Documentation</h4>
 Save the following source as <code>lilybook.lytex</code>:
 <div class="highlight">
-   <pre>
-      <code class="text">\documentclass[a4paper]{article}
+   <pre><code class="text">\documentclass[a4paper]{article}
 
 \begin{document}
     Documents for \verb+lilypond-book+ may freely mix music and text.
@@ -254,20 +239,17 @@ Save the following source as <code>lilybook.lytex</code>:
     Larger examples can be put into a separate file, and introduced 
     with \verb+\lilypondfile+.
 \end{document}
-</code>
-   </pre>
+</code></pre>
 </div>
 Compile it with these commands:
 <div class="highlight">
-   <pre>
-      <code class="bash">lilypond-book --output<span class="o">=</span>out --pdf lilybook.lytex
+   <pre><code class="bash">lilypond-book --output<span class="o">=</span>out --pdf lilybook.lytex
 <span class="nb">cd </span>out/
 pdflatex lilybook
 mv lilybook.pdf ../lilybook.pdf
 <span class="nb">cd</span> ..
 rm -rf out
-</code>
-   </pre>
+</code></pre>
 </div>
 
 For simplification, you can save this as <code>compile.sh</code>, execute <code>chmod +x compile.sh</code> and now you only have to enter <code>./compile.sh</code> to generate the PDF.

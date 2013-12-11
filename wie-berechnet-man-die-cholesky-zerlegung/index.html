@@ -6,7 +6,7 @@
 
     <title>Wie berechnet man die Cholesky-Zerlegung?</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -109,8 +109,7 @@ $S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \righ
 <h3 id="tocAnchor-1-2-1">Implementierung</h3>
 Eine Python-Implementierung sieht so aus:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">getSD</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -131,26 +130,21 @@ Eine Python-Implementierung sieht so aus:
         <span class="n">_summe</span>  <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">D</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
         <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">D</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">_summe</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">S</span><span class="p">,</span> <span class="n">D</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-2-2">Bibliotheken</h3>
 Ich habe mich mal nach Bibliotheken umgesehen, die die Cholesky-Zerlegung direkt beherrschen. NumPy kann es natürlich:
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
+   <pre><code class="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
 <span class="k">print</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]))</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 Gibt aus:
 <div class="highlight">
-   <pre>
-      <code class="bash">array<span class="o">([[</span> 2.23606798,  0.        <span class="o">]</span>,
+   <pre><code class="bash">array<span class="o">([[</span> 2.23606798,  0.        <span class="o">]</span>,
        <span class="o">[</span> 0.4472136 ,  0.89442719<span class="o">]])</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Das ist NICHT die Zerlegung $A = S \cdot D \cdot S^T$, sondern $A = G \cdot G^T$.
@@ -181,8 +175,7 @@ Die Cholesky-Zerlegung kann man folgendermaßen berechnen:
 In Python sieht das dann so aus:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="k">def</span> <span class="nf">getL</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+   <pre><code class="python"><span class="k">def</span> <span class="nf">getL</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">L</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
     <span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
@@ -195,8 +188,7 @@ In Python sieht das dann so aus:
                         <span class="o">-</span> <span class="nb">sum</span><span class="p">([</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">L</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]))</span> \
                       <span class="o">/</span> <span class="n">L</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">L</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-7">Siehe auch</h2>

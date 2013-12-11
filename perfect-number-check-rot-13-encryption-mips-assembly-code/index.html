@@ -6,7 +6,7 @@
 
     <title>Perfect number check and ROT-13 encryption in MIPS-assembly code</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -85,8 +85,7 @@
 The perfect number check in MIPS is quite easy to realize. Here is some pythonic Pseudocode
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> 			<span class="c"># read a positive integer n from the user</span>
+   <pre><code class="python"><span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> 			<span class="c"># read a positive integer n from the user</span>
 <span class="n">sumOfDivisors</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>	<span class="c"># go from 1 to n-1</span>
 	<span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>		<span class="c"># if i is a divisor</span>
@@ -96,14 +95,12 @@ The perfect number check in MIPS is quite easy to realize. Here is some pythonic
 	<span class="k">print</span> <span class="s">"1"</span>
 <span class="k">else</span><span class="p">:</span>
 	<span class="k">print</span> <span class="s">"0"</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 And here is the MIPS-Code:
 <div class="highlight">
-   <pre>
-      <code class="text">#####################################################################
+   <pre><code class="text">#####################################################################
 # Perfect number check												#
 # @param int the number you would like to check						#
 # @result int 0 if the number is not perfect, otherwise 1			#
@@ -140,16 +137,14 @@ eval: seq $s0, $s0, $s1	# Compare the sum of divisors with A
 	move $a0 , $s0		# |
 	syscall				# |=&gt; Print $s0
 	jr $ra
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">ROT-13 encryption</h2>
 
 The basic idea for encrypting a string with ROT-13 is to loop over all characters and use the ASCII-Table to shift them. Here is the ROT-13 MIPS-Code:
 <div class="highlight">
-   <pre>
-      <code class="text">#####################################################################
+   <pre><code class="text">#####################################################################
 # @param string a &amp;#92;&amp;#48; terminated string								#
 # @return string the ROT-13 encrypted string						#
 #####################################################################
@@ -210,8 +205,7 @@ out:
 	la 		$a0, plain	# |
 	syscall				# |=&gt; Print plain
     jr      $ra
-</code>
-   </pre>
+</code></pre>
 </div>
 
 A syntax-highlighted version of both code pieces is here: <a href="http://martin-thoma.com/wp-content/uploads/2012/06/mips-rot-13-perfect-number.pdf">MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.

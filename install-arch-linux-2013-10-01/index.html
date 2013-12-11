@@ -6,7 +6,7 @@
 
     <title>How to install Arch Linux 2013.10.01</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -104,10 +104,8 @@ The Arch Linux installation setup is command line based.
 You can switch to a German keyboard layout with this command:
 
 <div class="highlight">
-   <pre>
-      <code class="bash">loadkeys de
-</code>
-   </pre>
+   <pre><code class="bash">loadkeys de
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Partitioning and mounting</h2>
@@ -116,38 +114,32 @@ You need a bootable partition and a swap partition (that is at least as big as m
 Check the result with
 
 <div class="highlight">
-   <pre>
-      <code class="bash">parted /dev/sda print
+   <pre><code class="bash">parted /dev/sda print
 fdisk -l
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Afterwards:
 
 <div class="highlight">
-   <pre>
-      <code class="bash">mkfs.ext4 /dev/sda1
+   <pre><code class="bash">mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
 mkswap /dev/sda2
 swapon /dev/sda2
 mount /dev/sda1 /mnt
 mkdir /mnt/home
 mount /dev/sda3 /mnt/home/
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">Getting internet</h2>
 I only have WLAN at the moment, which makes things more difficult:
 
 <div class="highlight">
-   <pre>
-      <code class="bash">wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
+   <pre><code class="bash">wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
 wpa_supplicant -i wlp4so -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
 dhcpcd wlp4s0
-</code>
-   </pre>
+</code></pre>
 </div>
 
 wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.
@@ -156,115 +148,93 @@ I had a lot of fun at this point as you can see <a href="http://unix.stackexchan
 
 <h2 id="tocAnchor-1-4">Install base system</h2>
 <div class="highlight">
-   <pre>
-      <code class="bash">packstrap -i /mnt base base base-devel
-</code>
-   </pre>
+   <pre><code class="bash">packstrap -i /mnt base base base-devel
+</code></pre>
 </div>
 
 After accepting all defaults (by pressing enter) and letting it download:
 
 <div class="highlight">
-   <pre>
-      <code class="bash">genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
+   <pre><code class="bash">genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
 arch-chroot /mnt
 nano /etc/locale.gen
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Uncomment your language (from now on, your promt should be "sh-4.2#").
 
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="nv">locale</span><span class="o">=</span>gen
+   <pre><code class="bash"><span class="nv">locale</span><span class="o">=</span>gen
 <span class="nb">echo </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
 <span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 systemctl <span class="nb">enable </span>dhcpcd.service
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Now edit and uncomment multilib. Then:
 
 <div class="highlight">
-   <pre>
-      <code class="bash">mkinitcpio -p linux
-</code>
-   </pre>
+   <pre><code class="bash">mkinitcpio -p linux
+</code></pre>
 </div>
 
 Now set the password by entering <code>passwd</code>.
 Create your user:
 <div class="highlight">
-   <pre>
-      <code class="bash">useradd -m -g users -G wheel -s /bin/bash moose
+   <pre><code class="bash">useradd -m -g users -G wheel -s /bin/bash moose
 passwd moose
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Synchronise caches:
 <div class="highlight">
-   <pre>
-      <code class="bash">pacman -Syy
-</code>
-   </pre>
+   <pre><code class="bash">pacman -Syy
+</code></pre>
 </div>
 
 Install grub:
 <div class="highlight">
-   <pre>
-      <code class="bash">pacman -S grub-bios
+   <pre><code class="bash">pacman -S grub-bios
 pacman -S os-prober
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 <span class="nb">exit</span>
 restart
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Give yourself sudo:
 <div class="highlight">
-   <pre>
-      <code class="bash">pacman -S sudo
+   <pre><code class="bash">pacman -S sudo
 nano /etc/sudoers
-</code>
-   </pre>
+</code></pre>
 </div>
 Add your user to the bottom section "User privilege specification"
 
 <h2 id="tocAnchor-1-5">Install GNOME</h2>
 <div class="highlight">
-   <pre>
-      <code class="bash">pacman -S gnome xorg
+   <pre><code class="bash">pacman -S gnome xorg
 systemctl <span class="nb">enable </span>gdm.service
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">MATE</h2>
 Add the following to your /etc/pacman.conf:
 
 <div class="highlight">
-   <pre>
-      <code class="text">[mate]
+   <pre><code class="text">[mate]
 SigLevel = Optional TrustAll
 Server = http://repo.mate-desktop.org/archlinux/$arch
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Run
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="c"># pacman -Syy</span>
+   <pre><code class="bash"><span class="c"># pacman -Syy</span>
 <span class="c"># pacman -S mate mate-extras</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Lets see if I get an answer to <a href="https://bbs.archlinux.org/viewtopic.php?id=170911">some essential basic questions</a>.

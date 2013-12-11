@@ -6,7 +6,7 @@
 
     <title>Solving equations of lower unitriangular matrices</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -165,8 +165,7 @@ This is the reason why solving such a system of equations is sometimes called "f
 
 <h2 id="tocAnchor-1-4">Python straightforward algorithm</h2>
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -186,8 +185,7 @@ This is the reason why solving such a system of equations is sometimes called "f
     <span class="n">b</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
     <span class="k">print</span><span class="p">(</span><span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Pretty easy, isn't it? But can we even do better?
@@ -198,8 +196,7 @@ Yes, we can!
 Take a look at what's happening when row = 0 in line 9. We make a step that is not necessary. Also, we can take the space of b to store x!
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -217,8 +214,7 @@ Take a look at what's happening when row = 0 in line 9. We make a step that is n
 
     <span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Now it looks super clean, doesn't it :-)
@@ -254,8 +250,7 @@ In the last algorithm I've presented you can see that we actually don't check th
 This means, the following two function calls do give the same b:
 
 <div class="highlight">
-   <pre>
-      <code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -282,8 +277,7 @@ This means, the following two function calls do give the same b:
     <span class="n">b</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 So, theoretically, we could store some other information on and above of the diagonal. We also don't change L. Keep this in mind, this might be important in later articles.

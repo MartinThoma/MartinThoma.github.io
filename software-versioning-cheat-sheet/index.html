@@ -6,7 +6,7 @@
 
     <title>Software Versioning Cheat Sheet</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312111044.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -73,10 +73,8 @@
 If you're at the KIT and you have SWT, then you'll probably need this command:
 
 </p><div class="highlight">
-   <pre>
-      <code class="bash">svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
-</code>
-   </pre>
+   <pre><code class="bash">svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
+</code></pre>
 </div>
 You will be asked for a password. I hope you remember it.
 
@@ -117,64 +115,50 @@ You will be asked for a password. I hope you remember it.
    </ul>
 </div><h2 id="tocAnchor-1-1">SVN</h2>
 <div class="highlight">
-   <pre>
-      <code class="bash">svn co URL LocalTarget --username yourUserName
-</code>
-   </pre>
+   <pre><code class="bash">svn co URL LocalTarget --username yourUserName
+</code></pre>
 </div>
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a>
 
 <div class="highlight">
-   <pre>
-      <code class="bash">svn up
-</code>
-   </pre>
+   <pre><code class="bash">svn up
+</code></pre>
 </div>
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a>
 
 <div class="highlight">
-   <pre>
-      <code class="bash">svn log -l 4
-</code>
-   </pre>
+   <pre><code class="bash">svn log -l 4
+</code></pre>
 </div>
 Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a>
 
 <h3 id="tocAnchor-1-1-1">Updating the repository</h3>
 You can update a SVN repository with this command:
 <div class="highlight">
-   <pre>
-      <code class="bash">svn up <span class="o">[</span>path<span class="o">]</span>
-</code>
-   </pre>
+   <pre><code class="bash">svn up <span class="o">[</span>path<span class="o">]</span>
+</code></pre>
 </div>
 
 If you need to execute the command often, you might want to define an alias. aliases are shorthands for long commands in the bash. To create a permanent one, add the following line to your ~/.bashrc file:
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="nb">alias </span><span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
-</code>
-   </pre>
+   <pre><code class="bash"><span class="nb">alias </span><span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
+</code></pre>
 </div>
 Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".
 
 <h3 id="tocAnchor-1-1-2">Nice diffs</h3>
 You can modify your config file:
 <div class="highlight">
-   <pre>
-      <code class="bash">gedit ~/.subversion/config
-</code>
-   </pre>
+   <pre><code class="bash">gedit ~/.subversion/config
+</code></pre>
 </div>
 
 and change <code>diff-cmd</code> to <code>meld</code>.
 
 <h3 id="tocAnchor-1-1-3">Compare revisions</h3>
 <div class="highlight">
-   <pre>
-      <code class="bash">svn diff -r 63:64
-</code>
-   </pre>
+   <pre><code class="bash">svn diff -r 63:64
+</code></pre>
 </div>
 
 compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).
@@ -185,35 +169,27 @@ If you want a GUI for <code>git diff</code>, then you should do the following:
 
 Install meld:
 <div class="highlight">
-   <pre>
-      <code class="bash">sudo apt-get install meld
-</code>
-   </pre>
+   <pre><code class="bash">sudo apt-get install meld
+</code></pre>
 </div>
 
 Got to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="c">#!/bin/bash</span>
+   <pre><code class="bash"><span class="c">#!/bin/bash</span>
 meld <span class="s2">"$2"</span> <span class="s2">"$5"</span>
-</code>
-   </pre>
+</code></pre>
 </div>
 
 Make it executable:
 <div class="highlight">
-   <pre>
-      <code class="bash">chmod +x git-meld
-</code>
-   </pre>
+   <pre><code class="bash">chmod +x git-meld
+</code></pre>
 </div>
 
 Add it to your git configuration:
 <div class="highlight">
-   <pre>
-      <code class="bash">git config --global diff.external git-meld
-</code>
-   </pre>
+   <pre><code class="bash">git config --global diff.external git-meld
+</code></pre>
 </div>
 
 Enjoy this experience when entering <code>git diff</code>:
@@ -231,39 +207,31 @@ See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other
 Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.
 
 <div class="highlight">
-   <pre>
-      <code class="bash"><span class="nb">cd</span> ~/.ssh
+   <pre><code class="bash"><span class="nb">cd</span> ~/.ssh
 ssh-keygen -t rsa -C <span class="s2">"info@martin-thoma.de"</span>
 git config --global user.name <span class="s2">"Martin Thoma"</span>
 git config --global user.email info@martin-thoma.de
-</code>
-   </pre>
+</code></pre>
 </div>
 
 <h4>Clone</h4>
 Clone a GITHub repository:
 <div class="highlight">
-   <pre>
-      <code class="bash">git clone git@github.com:MartinThoma/matrix-multiplication.git
-</code>
-   </pre>
+   <pre><code class="bash">git clone git@github.com:MartinThoma/matrix-multiplication.git
+</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-5-3">Snippets</h3>
 Reset a single file to the latest revision on the server:
 <div class="highlight">
-   <pre>
-      <code class="bash">git checkout HEAD file/to/restore
-</code>
-   </pre>
+   <pre><code class="bash">git checkout HEAD file/to/restore
+</code></pre>
 </div>
 
 Get the latest diff:
 <div class="highlight">
-   <pre>
-      <code class="bash">git diff HEAD @<span class="o">{</span>1<span class="o">}</span>
-</code>
-   </pre>
+   <pre><code class="bash">git diff HEAD @<span class="o">{</span>1<span class="o">}</span>
+</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-9">Resources</h2>
