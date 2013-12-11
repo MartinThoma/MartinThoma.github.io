@@ -75,7 +75,7 @@ def pageCodeConversion(filename):
     content = content.replace("[/latex]", "$")
 
     # Syntax highlighter: also '[python collapse="true"]'
-    for language in ['python', 'cpp', 'text', 'bash', 'java', 'javascript']:
+    for language in ['python', 'cpp', 'text', 'bash', 'java', 'javascript', 'c']:
         content = content.replace("["+language+"]", "{% highlight "+language+" %}")
         content = content.replace("[/"+language+"]", "{% endhighlight %}")
     content = parseCaptions(content)

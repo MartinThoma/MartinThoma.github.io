@@ -106,7 +106,7 @@ Doesn't work? Well, lets analyse it. Instead of replacing `tput setaf 1` it gets
 
 <h2>Colorize C / C++ output</h2>
 You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:
-[c]#include <stdio.h>
+{% highlight c %}#include <stdio.h>
 
 int main()
 {
@@ -125,7 +125,7 @@ int main()
     printf("&#92;&#48;33[4m%s&#92;&#48;33[0m\n", "underlined");
     printf("&#92;&#48;33[9m%s&#92;&#48;33[0m\n", "strike");
     return 0;
-}[/c]
+}{% endhighlight %}
 
 \033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
 The numbers 30&ndash;37 change the color, 4 is a single underline.
