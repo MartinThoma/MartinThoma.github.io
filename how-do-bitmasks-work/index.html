@@ -6,7 +6,7 @@
 
     <title>How do Bitmasks work?</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112318.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -80,6 +80,9 @@
       <li class="toc_level-1 toc_section-3">
          <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Some examples</span></a>
       </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">See also</span></a>
+      </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">What are Bitmasks?</h2>
 In computer science, a <a href="http://en.wikipedia.org/wiki/Mask_(computing)">mask</a> is data that is used for bitwise operations. Essentially it is a variable.
@@ -148,13 +151,30 @@ This is how the operators work:
 Lets say I have any variable named "variable" with 32 bit.
 
 Get the last bit:
-[c]return variable &amp; 1;[/c]
+<div class="highlight">
+   <pre><code class="c"><span class="k">return</span> <span class="n">variable</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre>
+</div>
 
 Get the first bit:
-[c]return variable &gt;&gt; 31;[/c]
+<div class="highlight">
+   <pre><code class="c"><span class="k">return</span> <span class="n">variable</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
+</code></pre>
+</div>
 
 Get the bits 4 - 14 (11 bits):
-[c]return (variable  &gt;&gt; 4) &amp; ((1See also
+<div class="highlight">
+   <pre><code class="c"><span class="k">return</span> <span class="p">(</span><span class="n">variable</span>  <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</code></pre>
+</div>
+
+Getting the pow(2,11):
+<div class="highlight">
+   <pre><code class="c"><span class="k">return</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-4">See also</h2>
 <ul><li><a href="http://stackoverflow.com/questions/231760/what-does-a-type-followed-by-t-underscore-t-represent/231807#231807">What does a type followed by _t (underscore-t) represent?</a>. Jonathan Leffler, Stackoverflow.</li>
   <li><a href="http://stackoverflow.com/a/9602958/562769">Why does mode_t use 4 byte?</a>. Niklas B., Stackoverflow.</li>
 </ul>

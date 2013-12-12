@@ -6,7 +6,7 @@
 
     <title>Colorize your scripts output</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112318.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -193,26 +193,29 @@ Doesn't work? Well, lets analyse it. Instead of replacing `tput setaf 1` it gets
 
 <h2 id="tocAnchor-1-6">Colorize C / C++ output</h2>
 You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:
-[c]#include <stdio.h>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
-int main()
-{
-    printf("\033[30m%s\033[0m\n", "black?");
-    printf("\033[31m%s\033[0m\n", "red");
-    printf("\033[32m%s\033[0m\n", "lime");
-    printf("\033[33m%s\033[0m\n", "yellow");
-    printf("\033[34m%s\033[0m\n", "blue");
-    printf("\033[35m%s\033[0m\n", "gray");
-    printf("\033[36m%s\033[0m\n", "blue");
-    printf("\033[37m%s\033[0m\n", "light gray");
-    printf("\033[38m%s\033[0m\n", "black?");
-    printf("\033[39m%s\033[0m\n", "black?");
-    printf("\033[41m%s\033[0m\n", "red background");
-    printf("\033[1;34m%s\033[0m\n", "bold and blue");
-    printf("\033[4m%s\033[0m\n", "underlined");
-    printf("\033[9m%s\033[0m\n", "strike");
-    return 0;
-}[/c]
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[30m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"black?"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[31m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"red"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[32m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"lime"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[33m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"yellow"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[34m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"blue"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[35m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"gray"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[36m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"blue"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[37m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"light gray"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[38m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"black?"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[39m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"black?"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[41m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"red background"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[1;34m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"bold and blue"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[4m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"underlined"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"&amp;#92;&amp;#48;33[9m%s&amp;#92;&amp;#48;33[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"strike"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 \033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
 The numbers 30–37 change the color, 4 is a single underline.
@@ -220,7 +223,7 @@ The numbers 30–37 change the color, 4 is a single underline.
 I guess these will also work for Java, but I didn't test it.
 
 Do you know what setaf or sgr stand for? Do you know further "terminal enhancement" tricks? Just leave a post!
-</stdio.h>
+
 						</div>
 						<div class="postmeta">Posted in 
                             

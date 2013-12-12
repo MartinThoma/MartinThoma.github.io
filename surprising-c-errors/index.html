@@ -6,7 +6,7 @@
 
     <title>Surprising C errors</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112318.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -96,115 +96,147 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Empty printf</h2>
-[c]#include <stdio.h>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
-int main()
-{
-    printf("");
-    return 0;
-}[/c]
-<div class="highlight"><pre><code class="bash">error: zero-length gnu_printf format string
-</code></pre></div>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<div class="highlight">
+   <pre><code class="bash">error: zero-length gnu_printf format string
+</code></pre>
+</div>
 
 <h2 id="tocAnchor-1-2">Macros</h2>
-[c]#include <stdio.h>
-#define MY_MACRO printf("Hello World\n");
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#define MY_MACRO printf("Hello World\n");</span>
 
-int main()
-{
-    if (1)
-        MY_MACRO;
-    else
-        printf("Crazy, huh?\n");
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">MY_MACRO</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Crazy, huh?</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 
-    return 0;
-}[/c]
-<div class="highlight"><pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<div class="highlight">
+   <pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:8: error: <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="k">else</span><span class="p">&amp;</span>rsquo<span class="p">;</span> without a previous <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="k">if</span><span class="p">&amp;</span>rsquo<span class="p">;</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 <h2 id="tocAnchor-1-3">Single and Double quotes</h2>
-[c]#include <stdio.h>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
-int main()
-{
-    printf('hello, world\n');
-    return 0;
-}[/c]
-<div class="highlight"><pre><code class="bash">macro.c:5:9: warning: character constant too long <span class="k">for </span>its <span class="nb">type</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="err">'</span><span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="err">\</span><span class="n">n</span><span class="err">'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<div class="highlight">
+   <pre><code class="bash">macro.c:5:9: warning: character constant too long <span class="k">for </span>its <span class="nb">type</span>
 macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:5: warning: passing argument 1 of <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="nb">printf</span><span class="p">&amp;</span>rsquo<span class="p">;</span> makes pointer from integer without a cast
 /usr/include/stdio.h:339: note: expected <span class="p">&amp;</span>lsquo<span class="p">;</span>const char * __restrict__<span class="p">&amp;</span>rsquo<span class="p">;</span> but argument is of <span class="nb">type</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>int<span class="p">&amp;</span>rsquo<span class="p">;</span>
 macro.c:5: warning: format not a string literal and no format arguments
-</code></pre></div>
+</code></pre>
+</div>
 
 Thanks to <a href="http://www.drpaulcarter.com/cs/common-c-errors.php#3.1">drpaulcarter.com</a> for this example:
-[c]int main()
-{
-    const char * myPointer = 'A';
-    (void) myPointer;
-    return 0;
-}[/c]
-<div class="highlight"><pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+<div class="highlight">
+   <pre><code class="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">myPointer</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span>
+    <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">myPointer</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<div class="highlight">
+   <pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:3: warning: initialization makes pointer from integer without a cast
-</code></pre></div>
+</code></pre>
+</div>
 
 <h2 id="tocAnchor-1-4">Pointers</h2>
-[c]#include <string.h>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;string.h&gt;</span>
 
-int main()
-{
-    char * myPointer;
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span> <span class="n">myPointer</span><span class="p">;</span>
 
-    strcpy(myPointer, "Hello World!");
-    return 0;
-}[/c]
-<div class="highlight"><pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">myPointer</span><span class="p">,</span> <span class="s">"Hello World!"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<div class="highlight">
+   <pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myPointer<span class="p">&amp;</span>rsquo<span class="p">;</span> is used uninitialized in this <span class="k">function</span>
-</code></pre></div>
+</code></pre>
+</div>
 
 <h2 id="tocAnchor-1-5">Loops</h2>
-[c]int main()
-{
-    int x = 42;
-    while( x &gt; 0 );
-        x--;
-    return 0;
-}[/c]
+<div class="highlight">
+   <pre><code class="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">);</span>
+        <span class="n">x</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 No compiler error, but an infinite loop.
 
 <h2 id="tocAnchor-1-6">Null terminator of Strings</h2>
-[c]#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
 
-int main()
-{
-    char myArray[20];
-    printf("Characters: %i\n", strlen(myArray));
-    strcpy(myArray, "abc");
-    printf("Characters: %i\n", strlen(myArray));
-    strcpy(myArray, "Hello World!"); 
-    printf("Characters: %i\n", strlen(myArray));
-    printf("String: -%s-\n", myArray);
-    printf("Size: %i Byte\n\n", sizeof(myArray));
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">myArray</span><span class="p">,</span> <span class="s">"Hello World!"</span><span class="p">);</span> 
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"String: -%s-</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">myArray</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Size: %i Byte</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
 
-    char * myString = malloc(strlen(myArray));
-    strcpy(myString, myArray);
-    printf("String: -%s-\n", myString);
-    printf("Size: %i Byte\n", sizeof(myString));
-    printf("Characters: %i\n\n", strlen(myString));
+    <span class="kt">char</span> <span class="o">*</span> <span class="n">myString</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">myArray</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">myString</span><span class="p">,</span> <span class="n">myArray</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"String: -%s-</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Size: %i Byte</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
 
-    char * breakIt = malloc(strlen(myString));
-    strcpy(breakIt, myString);
-    printf("String: -%s-\n", breakIt);
-    printf("Size: %i Byte\n", sizeof(breakIt));
-    printf("Characters: %i\n", strlen(breakIt));
+    <span class="kt">char</span> <span class="o">*</span> <span class="n">breakIt</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">myString</span><span class="p">));</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">breakIt</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"String: -%s-</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">breakIt</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Size: %i Byte</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">breakIt</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Characters: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">breakIt</span><span class="p">));</span>
 
-    return 0;
-}[/c]
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 Again, you don't get a compiler error, but some strange results:
-<div class="highlight"><pre><code class="bash">Characters: 0
+<div class="highlight">
+   <pre><code class="bash">Characters: 0
 Characters: 3
 Characters: 12
 String: -Hello World!-
@@ -217,13 +249,14 @@ Characters: 12
 String: -Hello World!-
 Size: 4 Byte
 Characters: 13
-</code></pre></div>
+</code></pre>
+</div>
 
 <h2 id="tocAnchor-1-7">Further reading</h2>
 <ul><li><a href="http://en.wikipedia.org/wiki/C_preprocessor">C Preprocessor</a> and <a href="http://en.wikipedia.org/wiki/C_preprocessor#Macro_definition_and_expansion">macros</a></li>
   <li><a href="http://www.drpaulcarter.com/cs/common-c-errors.php#2.8">Pointer initialisation</a></li>
   <li><a href="http://linux.die.net/man/3/strcpy">strcpy</a>, <a href="http://linux.die.net/man/3/strlen">strlen</a></li>
-</ul></string.h></stdlib.h></stdio.h></string.h></stdio.h></stdio.h></stdio.h>
+</ul>
 						</div>
 						<div class="postmeta">Posted in 
                             

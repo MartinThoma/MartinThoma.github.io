@@ -6,7 +6,7 @@
 
     <title>Get your programs assembly code and more information</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112318.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -93,18 +93,27 @@
             <li class="toc_level-2 toc_section-6">
                <a href="#tocAnchor-1-5-1"><span class="tocnumber">2.1</span> <span class="toctext">C-Code</span></a>
             </li>
-         </ul>
-      </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">3</span> <span class="toctext">Fibonacci</span></a>
-         <ul>
+            <li class="toc_level-2 toc_section-7">
+               <a href="#tocAnchor-1-5-2"><span class="tocnumber">2.2</span> <span class="toctext">Assembly</span></a>
+            </li>
             <li class="toc_level-2 toc_section-8">
-               <a href="#tocAnchor-1-7-1"><span class="tocnumber">3.1</span> <span class="toctext">C-Code</span></a>
+               <a href="#tocAnchor-1-5-3"><span class="tocnumber">2.3</span> <span class="toctext">Further information</span></a>
             </li>
          </ul>
       </li>
       <li class="toc_level-1 toc_section-9">
-         <a href="#tocAnchor-1-9"><span class="tocnumber">4</span> <span class="toctext">References</span></a>
+         <a href="#tocAnchor-1-9"><span class="tocnumber">3</span> <span class="toctext">Fibonacci</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-10">
+               <a href="#tocAnchor-1-9-1"><span class="tocnumber">3.1</span> <span class="toctext">C-Code</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-11">
+               <a href="#tocAnchor-1-9-2"><span class="tocnumber">3.2</span> <span class="toctext">Assembly</span></a>
+            </li>
+         </ul>
+      </li>
+      <li class="toc_level-1 toc_section-12">
+         <a href="#tocAnchor-1-12"><span class="tocnumber">4</span> <span class="toctext">References</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">General Information</h2>
@@ -199,21 +208,27 @@ Many instructions have suffixes. This is what they mean<small>
 </ul><h2 id="tocAnchor-1-5">Simple example</h2>
 <h3 id="tocAnchor-1-5-1">C-Code</h3>
 This program simply outputs 
-[c]#include <stdio.h>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
-int main(void)
-{
-    printf("%i", 1337*42);
-    return 0;
-}[/c]
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="mi">1337</span><span class="o">*</span><span class="mi">42</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
-<h3>Assembly</h3>
+<h3 id="tocAnchor-1-5-2">Assembly</h3>
 Now I compile it and I save the assembly code:
-<div class="highlight"><pre><code class="bash">gcc -S test.c<span class="p">;</span> gcc test.c -o <span class="nb">test</span>
-</code></pre></div>
+<div class="highlight">
+   <pre><code class="bash">gcc -S test.c<span class="p">;</span> gcc test.c -o <span class="nb">test</span>
+</code></pre>
+</div>
 This gives me test.s (the assembly code) and an executable called "test".
 
-<div class="highlight"><pre><code class="text">	.file	"test.c"
+<div class="highlight">
+   <pre><code class="text">	.file	"test.c"
 	.section	.rodata
 .LC0:
 	.string	"%i"
@@ -235,7 +250,8 @@ main:
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
 	.section	.note.GNU-stack,"",@progbits
-</code></pre></div>
+</code></pre>
+</div>
 This is code of the <a href="http://en.wikipedia.org/wiki/GNU_Assembler">GNU Assembler</a>. I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?
 
 The first and most important thing you might notice is that neither "1337" nor "42" appear in the assembly code, but 56154 which is 1337*42. I didn't use any optimization options! You might also notice that constants begin with a dollar sign and registers (esp, ebp) begin with a percent sign.
@@ -248,23 +264,28 @@ The following ones are called assembly directives. They tell the assembler what 
 Line 14: I'm not quite sure why you need the 4. I thought the integer size could be the reason (see <a href="http://www.cplusplus.com/doc/tutorial/variables/">variable sizes in C</a>), but as I used a string it still worked. As I used a character, it disappeared.
 
 
-<h3>Further information</h3>
+<h3 id="tocAnchor-1-5-3">Further information</h3>
 <code>objdump</code> gives even more information!
 
 Archive header information: objdump -a test
-<div class="highlight"><pre><code class="text">test:     file format elf32-i386
+<div class="highlight">
+   <pre><code class="text">test:     file format elf32-i386
 test
-</code></pre></div>
+</code></pre>
+</div>
 
 File header information: objdump -f test
-<div class="highlight"><pre><code class="text">test:     file format elf32-i386
+<div class="highlight">
+   <pre><code class="text">test:     file format elf32-i386
 architecture: i386, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
 start address 0x08048330
-</code></pre></div>
+</code></pre>
+</div>
 
 Object specific file header contents: objdump -p test
-<div class="highlight"><pre><code class="text">test:     file format elf32-i386
+<div class="highlight">
+   <pre><code class="text">test:     file format elf32-i386
 
 Program Header:
     PHDR off    0x00000034 vaddr 0x08048034 paddr 0x08048034 align 2**2
@@ -309,10 +330,12 @@ Dynamic Section:
 Version References:
   required from libc.so.6:
     0x0d696910 0x00 02 GLIBC_2.0
-</code></pre></div>
+</code></pre>
+</div>
 
 Display the contents of the section headers: objdump -h test
-<div class="highlight"><pre><code class="text">test:     file format elf32-i386
+<div class="highlight">
+   <pre><code class="text">test:     file format elf32-i386
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -368,26 +391,46 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  25 .comment      00000023  00000000  00000000  00001014  2**0
                   CONTENTS, READONLY
-</code></pre></div>
+</code></pre>
+</div>
 
 Display DWARF info in the file: objdump --dwarf test
-<div class="highlight"><pre><code class="text">test:     file format elf32-i386
+<div class="highlight">
+   <pre><code class="text">test:     file format elf32-i386
 
 Contents of the .eh_frame section:
 
 00000000 ZERO terminator
-</code></pre></div>
+</code></pre>
+</div>
 By the way, <a href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="http://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="http://en.wikipedia.org/wiki/Backronym">backronym</a>.
 
-<h2 id="tocAnchor-1-7">Fibonacci</h2>
-<h3 id="tocAnchor-1-7-1">C-Code</h3>
-This is the most simple version of Fibonacci I could find:<small><sup><a href="#ref7" name="anchor7" id="anchor7">[7]</a></sup></small>
-[c]#include <stdio.h>
+<h2 id="tocAnchor-1-9">Fibonacci</h2>
+<h3 id="tocAnchor-1-9-1">C-Code</h3>
+This is the most simple version of Fibonacci I could find:<small>
+   <sup>
+      <a href="#ref7" name="anchor7" id="anchor7">[7]</a>
+   </sup>
+</small>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
-unsigned int fib(unsigned int n)
-{
-	return n Assembly
-<div class="highlight"><pre><code class="text">	.file	"test.c"
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">fib</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">?</span> <span class="n">n</span> <span class="o">:</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">13</span><span class="p">));</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="tocAnchor-1-9-2">Assembly</h3>
+<div class="highlight">
+   <pre><code class="text">	.file	"test.c"
 	.text
 .globl fib
 	.type	fib, @function
@@ -440,9 +483,10 @@ main:
 	.size	main, .-main
 	.ident	"GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
 	.section	.note.GNU-stack,"",@progbits
-</code></pre></div>
+</code></pre>
+</div>
 
-<h2 id="tocAnchor-1-9">References</h2>
+<h2 id="tocAnchor-1-12">References</h2>
 <ol><li><a name="ref1" href="#anchor1" id="ref1">↑</a>: <a href="http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html">PUSHL Instruction</a>. The University of Auckland, Department of Computer Science.</li>
   <li><a name="ref2" href="#anchor2" id="ref2">↑</a>: <a href="http://www.cse.nd.edu/~dthain/courses/cse40243/fall2008/ia32-intro.html">IA-32 Assembly for Compiler Writers</a>. Douglas Thain, Associate Professor, University of Notre Dame, Department of Computer Science and Engineering.</li>
   <li><a name="ref3" href="#anchor3" id="ref3">↑</a>: <a href="http://linuxgazette.net/issue94/ramankutty.html">From C To Assembly Language </a>. Hiran Ramankutty, Linux Gazett, Issue 94.</li>
@@ -455,7 +499,7 @@ The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
   <li><a name="ref9" href="#anchor9" id="ref9">↑</a>: <a href="http://stackoverflow.com/questions/4003894/leal-assembler-instruction">LEAL Assembler instruction</a>. Nils Pipenbrinck, Stackoverflow</li>
   <li><a name="ref10" href="#anchor10" id="ref10">↑</a>: <a href="http://stackoverflow.com/a/5367004/562769">What does this dollar sign mean in __asm?</a>. Zimbabao, Stackoverflow</li>
   <li><a name="ref11" href="#anchor11" id="ref11">↑</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
-</ol></stdio.h></stdio.h>
+</ol>
 						</div>
 						<div class="postmeta">Posted in 
                             

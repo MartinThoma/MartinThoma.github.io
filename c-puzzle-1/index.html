@@ -6,7 +6,7 @@
 
     <title>C Puzzle #1</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112318.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -68,48 +68,79 @@
 						<div class="entry">
                             <p>What is the output of the following programm?
 
-[c]#include <stdio.h>
+</p><div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
-int* f()
-{
-    int i = 5;
-    return &amp;i;
-}
+<span class="kt">int</span><span class="o">*</span> <span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
 
-void g()
-{
-    int j = 42;
-    j++;
-}
+<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
 
-int main()
-{
-    int* x = f();
-    g();
-    printf("x = %d\n", *x);
-    g();
-    printf("x = %d\n", *x);
-    return 0;
-}[/c]
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+    <span class="n">g</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">g</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"x = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
-<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Contents</p><ul class="toc_list"><li class="toc_level-1 toc_section-1"><a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Short Answer</span></a></li><li class="toc_level-1 toc_section-2"><a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Long answer</span></a><ul><li class="toc_level-2 toc_section-3"><a href="#tocAnchor-1-2-1"><span class="tocnumber">2.1</span> <span class="toctext">The general answer</span></a></li><li class="toc_level-2 toc_section-4"><a href="#tocAnchor-1-2-2"><span class="tocnumber">2.2</span> <span class="toctext">Actual assembly code</span></a></li></ul></li><li class="toc_level-1 toc_section-5"><a href="#tocAnchor-1-5"><span class="tocnumber">3</span> <span class="toctext">What you should have learned</span></a></li><li class="toc_level-1 toc_section-6"><a href="#tocAnchor-1-6"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li></ul></div><h2 id="tocAnchor-1-1">Short Answer</h2>
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Short Answer</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Long answer</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-3">
+               <a href="#tocAnchor-1-2-1"><span class="tocnumber">2.1</span> <span class="toctext">The general answer</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-4">
+               <a href="#tocAnchor-1-2-2"><span class="tocnumber">2.2</span> <span class="toctext">Actual assembly code</span></a>
+            </li>
+         </ul>
+      </li>
+      <li class="toc_level-1 toc_section-5">
+         <a href="#tocAnchor-1-5"><span class="tocnumber">3</span> <span class="toctext">What you should have learned</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-6">
+         <a href="#tocAnchor-1-6"><span class="tocnumber">4</span> <span class="toctext">See also</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Short Answer</h2>
 It depends on your compiler flags!
 
 If you compile it with no optimization, you might get 43:
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>gcc -O0 cpuzzle-1.c <span class="p">;</span> ./a.out 
+<div class="highlight">
+   <pre><code class="bash"><span class="nv">$ </span>gcc -O0 cpuzzle-1.c <span class="p">;</span> ./a.out 
 aufgabe-3.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>f<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 aufgabe-3.c:5: warning: <span class="k">function </span>returns address of <span class="nb">local </span>variable
 <span class="nv">x</span> <span class="o">=</span> 43
 <span class="nv">x</span> <span class="o">=</span> 43
-</code></pre></div>
+</code></pre>
+</div>
 
 If you compile it with 03 Optimization, you might get 5.
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>gcc -O3 cpuzzle-1.c <span class="p">;</span> ./a.out 
+<div class="highlight">
+   <pre><code class="bash"><span class="nv">$ </span>gcc -O3 cpuzzle-1.c <span class="p">;</span> ./a.out 
 aufgabe-3.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>f<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 aufgabe-3.c:5: warning: <span class="k">function </span>returns address of <span class="nb">local </span>variable
 <span class="nv">x</span> <span class="o">=</span> 5
 <span class="nv">x</span> <span class="o">=</span> 5
-</code></pre></div>
+</code></pre>
+</div>
 
 <h2 id="tocAnchor-1-2">Long answer</h2>
 <h3 id="tocAnchor-1-2-1">The general answer</h3>
@@ -127,14 +158,23 @@ Line 18 calls g. Remember that g should not have any influence on the other prog
 <h3 id="tocAnchor-1-2-2">Actual assembly code</h3>
 You still want to get more into detail? Ok ...
 First you should get your assembly code. If you're running a Linux machine, you can type this into the console:
-<div class="highlight"><pre><code class="bash">gcc -S -O0 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O0.s
-</code></pre></div>
+<div class="highlight">
+   <pre><code class="bash">gcc -S -O0 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O0.s
+</code></pre>
+</div>
 This will create a file called "cpuzzle-1.s" which contains the assembly code for the non-optimized version. Rename it into "cpuzzle-1-O0.c". Then the same for O3:
-<div class="highlight"><pre><code class="bash">gcc -S -O3 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O3.s
-</code></pre></div>
+<div class="highlight">
+   <pre><code class="bash">gcc -S -O3 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O3.s
+</code></pre>
+</div>
 
 Now you can compare those two with meld or any other diff Tool:
-<div style="width: 300px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-300x188.png"><img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-300x188.png" alt="" width="300" height="188" class="size-medium wp-image-24851" /></a><p class="wp-caption-text"></p></div>
+<div style="width: 300px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-300x188.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-300x188.png" alt="" width="300" height="188" class="size-medium wp-image-24851" />
+   </a>
+   <p class="wp-caption-text"></p>
+</div>
 The O3 code got an additional <code>.p2align 4,,15</code>
 
 
@@ -144,12 +184,27 @@ When allocating memory, align it such that each new section must start at a loca
 
 It makes sense to store the data this way, as your computer can only access blocks. If one piece of data is half in one block, half in the other, you have to make to (slow) memory-accesses.
 
-<div style="width: 300px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-300x113.png"><img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-300x113.png" alt="" width="300" height="113" class="size-medium wp-image-24881" /></a><p class="wp-caption-text"></p></div>
+<div style="width: 300px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-300x113.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-300x113.png" alt="" width="300" height="113" class="size-medium wp-image-24881" />
+   </a>
+   <p class="wp-caption-text"></p>
+</div>
 
 It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don't know why the compiler does most of the optimizations :-(
-<div style="width: 300px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png"><img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" alt="" width="300" height="188" class="size-medium wp-image-24941" /></a><p class="wp-caption-text"></p></div>
+<div style="width: 300px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" alt="" width="300" height="188" class="size-medium wp-image-24941" />
+   </a>
+   <p class="wp-caption-text"></p>
+</div>
 
-<div style="width: 300px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png"><img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png" alt="" width="300" height="113" class="size-medium wp-image-24951" /></a><p class="wp-caption-text"></p></div>
+<div style="width: 300px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png" alt="" width="300" height="113" class="size-medium wp-image-24951" />
+   </a>
+   <p class="wp-caption-text"></p>
+</div>
 
 You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">__printf_chk</a>. An implementation is <a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printf_chk.c">here</a>.
 
@@ -164,7 +219,7 @@ Never return pointers to local variables / variables in the wrong scope.
     </ul></li>
   <li><a href="http://martin-thoma.com/get-your-programs-assembly-code-and-more-information/" title="Get your programs assembly code and more information">Get your programs assembly code and more information</a></li>
   <li><a href="http://www.a-m-i.de/tips/stack/stack.php">Der "Stack Frame"</a> (German article about the stack frame)</li>
-</ul></stdio.h></p>
+</ul>
 						</div>
 						<div class="postmeta">Posted in 
                             

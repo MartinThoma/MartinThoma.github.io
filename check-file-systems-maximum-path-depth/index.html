@@ -6,7 +6,7 @@
 
     <title>Check File Systems maximum path depth</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112318.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -70,21 +70,54 @@
 						<div class="entry">
                             <p>Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I've created the following C-Snippet to test it:
 
-[c]#include <sys>
-#include <sys>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+</p><div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;sys/stat.h&gt;</span>
+<span class="cp">#include &lt;sys/types.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
 
-int i = 0;
-int returnCode;
-char *pathname;
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">returnCode</span><span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">;</span>
 
-void giveInformation() {
-    printf("return code\t\t: %i\n", returnCode);
-    printf("Created sub-directories\t: %i\n", i);
-    printf("length of pathname\t: %i\n", strlen(pathname));
-    if (strlen(pathname) <pre><code class="bash"><span class="nv">$ </span><span class="nb">time</span> ./createDirectories 
+<span class="kt">void</span> <span class="nf">giveInformation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"return code</span><span class="se">\t\t</span><span class="s">: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">returnCode</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Created sub-directories</span><span class="se">\t</span><span class="s">: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"length of pathname</span><span class="se">\t</span><span class="s">: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">pathname</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">pathname</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Path</span><span class="se">\t\t\t</span><span class="s">: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">pathname</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">pathname</span> <span class="o">=</span> <span class="s">"/home/moose/Desktop/Test"</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">ext</span> <span class="o">=</span> <span class="s">"/one"</span><span class="p">;</span>
+    <span class="n">returnCode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">maxDir</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxDir</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">returnCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">newName</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">pathname</span><span class="p">)</span><span class="o">+</span><span class="n">strlen</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">newName</span><span class="p">,</span> <span class="n">pathname</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">newName</span><span class="p">,</span> <span class="n">ext</span><span class="p">);</span>
+        <span class="n">returnCode</span> <span class="o">=</span> <span class="n">mkdir</span><span class="p">(</span><span class="n">newName</span><span class="p">,</span> <span class="mo">0777</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// if you remove this line, your system gets very slow:</span>
+            <span class="n">free</span><span class="p">(</span><span class="n">pathname</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">pathname</span> <span class="o">=</span> <span class="n">newName</span><span class="p">;</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">giveInformation</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+Now run it:
+<div class="highlight">
+   <pre><code class="bash"><span class="nv">$ </span><span class="nb">time</span> ./createDirectories 
 
 <span class="k">return </span>code		: -1
 Created sub-directories	: 1018
@@ -94,15 +127,18 @@ real	0m0.281s
 user	0m0.004s
 sys	0m0.180s
 </code></pre>
+</div>
 
 Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span><span class="nb">cd </span>one/one/one .... one/
+<div class="highlight">
+   <pre><code class="bash"><span class="nv">$ </span><span class="nb">cd </span>one/one/one .... one/
 <span class="nv">$ </span>mkdir two
 <span class="nv">$ </span><span class="nb">cd </span>two
 <span class="nb">cd</span>: error retrieving current directory: getcwd: cannot access 
     parent directories: File name too long
-</code></pre></div>
+</code></pre>
+</div>
 
 Strangely, it showed me a path <code>/home/moose/.../one/one/one/one/tw$</code>. No, this is not a typo. It showed tw, not two. So, maybe the path can get only that long?
 Now I created a folder called "three" and one called "this". I entered both of them with cd, both showed <code>/home/moose/.../one/one/th</code>. So I guess this is a problem of Gnome Terminal and not a limitation of the file system.
@@ -114,36 +150,90 @@ Contents, according to nautilus: <code>1,016 items, totalling 4.0 MB</code>
 Then I've opened the folder "one" and double clicked as fast as I could. CPU utilization: 100%, but no crash. And 995 items are left :-) Now a single double click causes 100% CPU utilization for about 25 seconds.
 
 When I use a single character for sub-directories, I get:
-<div class="highlight"><pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>./createDirectories 
+<div class="highlight">
+   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>./createDirectories 
 <span class="k">return </span>code		: -1
 Created sub-directories	: 2036
 length of pathname	: 4096
-</code></pre></div>
+</code></pre>
+</div>
 
-<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Contents</p><ul class="toc_list"><li class="toc_level-1 toc_section-1"><a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Number of directories in one directory</span></a></li></ul></div><h2 id="tocAnchor-1-1">Number of directories in one directory</h2>
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Number of directories in one directory</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Number of directories in one directory</h2>
 Do you know how many folders can fit into one folder? Well, lets find out:
 
-[c]
-#include <sys>
-#include <sys>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+<div class="highlight">
+   <pre><code class="c"><span class="cp">#include &lt;sys/stat.h&gt;</span>
+<span class="cp">#include &lt;sys/types.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
 
-int i = 0;
-int returnCode;
-char *pathname;
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">returnCode</span><span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">;</span>
 
-/** http://stackoverflow.com/a/440240/562769 */
-void gen_random(char *s, const int len) {
-    static const char alphanum[] =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
+<span class="cm">/** http://stackoverflow.com/a/440240/562769 */</span>
+<span class="kt">void</span> <span class="nf">gen_random</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">alphanum</span><span class="p">[]</span> <span class="o">=</span>
+        <span class="s">"0123456789"</span>
+        <span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>
+        <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
 
-    for (int i = 0; i <pre><code class="bash"><span class="nv">$ </span>ls <span class="p">|</span> wc -l
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">alphanum</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">alphanum</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)];</span>
+    <span class="p">}</span>
+
+    <span class="n">s</span><span class="p">[</span><span class="n">len</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">giveInformation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"return code</span><span class="se">\t\t</span><span class="s">: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">returnCode</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Created sub-directories</span><span class="se">\t</span><span class="s">: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"length of pathname</span><span class="se">\t</span><span class="s">: %i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">pathname</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">pathname</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Path</span><span class="se">\t\t\t</span><span class="s">: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">pathname</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">pathname</span> <span class="o">=</span> <span class="s">"/home/moose/Desktop/Test/test/"</span><span class="p">;</span>
+    <span class="n">returnCode</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">maxDir</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxDir</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">returnCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// get unique name</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">foldername</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">gen_random</span><span class="p">(</span><span class="n">foldername</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">completePath</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">pathname</span><span class="p">)</span>
+                             <span class="o">+</span><span class="n">strlen</span><span class="p">(</span><span class="n">foldername</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">completePath</span><span class="p">,</span> <span class="n">pathname</span><span class="p">);</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">completePath</span><span class="p">,</span> <span class="n">foldername</span><span class="p">);</span>
+        <span class="n">returnCode</span> <span class="o">=</span> <span class="n">mkdir</span><span class="p">(</span><span class="n">completePath</span><span class="p">,</span> <span class="mo">0777</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">foldername</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">completePath</span><span class="p">);</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">giveInformation</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+I've executed it and after eight minutes I canceled the execution.
+
+<div class="highlight">
+   <pre><code class="bash"><span class="nv">$ </span>ls <span class="p">|</span> wc -l
 378463
 </code></pre>
+</div>
 
 Ok, not a million folders, but 378.463 is also quite a lot. When I try to open this folder with Nautilus, I get 140% CPU utilization by Nautilus. Quite impressive, for only showing some folders.
 
@@ -151,7 +241,12 @@ You should probably not execute the script above, as <a href="http://unix.stacke
 
 By the way, I got a new error message that I didn't know before:
 
-<div style="width: 498px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2013/03/cannot-move-to-trash-filename.png"><img src="http://martinthoma.github.io/images/../images/2013/03/cannot-move-to-trash-filename.png" alt="" width="498" height="269" class="size-full wp-image-58951" /></a><p class="wp-caption-text"></p></div></stdlib.h></string.h></stdio.h></sys></sys></stdlib.h></string.h></stdio.h></sys></sys></p>
+<div style="width: 498px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2013/03/cannot-move-to-trash-filename.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/03/cannot-move-to-trash-filename.png" alt="" width="498" height="269" class="size-full wp-image-58951" />
+   </a>
+   <p class="wp-caption-text"></p>
+</div>
 						</div>
 						<div class="postmeta">Posted in 
                             

@@ -6,7 +6,7 @@
 
     <title>How do hash functions work?</title>
     <link rel="stylesheet" href="http://martinthoma.github.io/css/print.css" type="text/css" media="print" />
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312112318.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -83,28 +83,31 @@
          <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Implementation</span></a>
       </li>
       <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">A hash function</span></a>
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">How is this realated to hash functions?</span></a>
       </li>
       <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Linear probing</span></a>
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">A hash function</span></a>
       </li>
       <li class="toc_level-1 toc_section-6">
-         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Quadratic probing</span></a>
+         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Linear probing</span></a>
       </li>
       <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">7</span> <span class="toctext">Double hashing</span></a>
+         <a href="#tocAnchor-1-7"><span class="tocnumber">7</span> <span class="toctext">Quadratic probing</span></a>
       </li>
       <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">8</span> <span class="toctext">Performance</span></a>
+         <a href="#tocAnchor-1-8"><span class="tocnumber">8</span> <span class="toctext">Double hashing</span></a>
       </li>
       <li class="toc_level-1 toc_section-9">
-         <a href="#tocAnchor-1-9"><span class="tocnumber">9</span> <span class="toctext">Why are hash functions important?</span></a>
+         <a href="#tocAnchor-1-9"><span class="tocnumber">9</span> <span class="toctext">Performance</span></a>
       </li>
       <li class="toc_level-1 toc_section-10">
-         <a href="#tocAnchor-1-10"><span class="tocnumber">10</span> <span class="toctext">Final notes</span></a>
+         <a href="#tocAnchor-1-10"><span class="tocnumber">10</span> <span class="toctext">Why are hash functions important?</span></a>
       </li>
       <li class="toc_level-1 toc_section-11">
-         <a href="#tocAnchor-1-11"><span class="tocnumber">11</span> <span class="toctext">Resources</span></a>
+         <a href="#tocAnchor-1-11"><span class="tocnumber">11</span> <span class="toctext">Final notes</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-12">
+         <a href="#tocAnchor-1-12"><span class="tocnumber">12</span> <span class="toctext">Resources</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Connect four</h2>
@@ -136,146 +139,220 @@ First of all, I would like to mention that you can <a href="#How_is_this_realate
 
 Lets say our game situation looks like this:
 
-[c]
-struct gamesituation {
-    /** How does the board currently look like? */
-    char board[BOARD_WIDTH][BOARD_HEIGHT];
+<div class="highlight">
+   <pre><code class="c"><span class="k">struct</span> <span class="n">gamesituation</span> <span class="p">{</span>
+    <span class="cm">/** How does the board currently look like? */</span>
+    <span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">];</span>
 
-    /**
-     * What are the next game situations that I can reach from this 
-     * board? 
-     * The next[i] means that the player dropped the disc at column i
-     */
-    int next[7];
+    <span class="cm">/**</span>
+<span class="cm">     * What are the next game situations that I can reach from this </span>
+<span class="cm">     * board? </span>
+<span class="cm">     * The next[i] means that the player dropped the disc at column i</span>
+<span class="cm">     */</span>
+    <span class="kt">int</span> <span class="n">next</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
 
-    /* I could use a bitfield for this ... but it would make access
-     * much more inconvenient. 
-     */
-    unsigned char isEmpty;  // Is this gamesitatution already filled?
-    unsigned char isFinished; // Is this game finished?
-    unsigned char stalemate; // Was this game a stalemate?
-    unsigned char winRed;   // Did red win?
-    unsigned char winBlack; // Did black win?
-};
-[/c]
+    <span class="cm">/* I could use a bitfield for this ... but it would make access</span>
+<span class="cm">     * much more inconvenient. </span>
+<span class="cm">     */</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">isEmpty</span><span class="p">;</span>  <span class="c1">// Is this gamesitatution already filled?</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">isFinished</span><span class="p">;</span> <span class="c1">// Is this game finished?</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">stalemate</span><span class="p">;</span> <span class="c1">// Was this game a stalemate?</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">winRed</span><span class="p">;</span>   <span class="c1">// Did red win?</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">winBlack</span><span class="p">;</span> <span class="c1">// Did black win?</span>
+<span class="p">};</span>
+</code></pre>
+</div>
 
 You need a check if one player won:
-[c]
-/*
- * Check if player has won by placing a disc on (x,y). 
- * with direction (xDir, yDir)
- * @return 1 iff RED won, -1 iff BLACK won and 0 if nobody won
- */
-signed char hasPlayerWon(char board[BOARD_WIDTH][BOARD_HEIGHT], 
-                  int x, int y, char xDir, char yDir) {
-    char color = board[x][y];
+<div class="highlight">
+   <pre><code class="c"><span class="cm">/*</span>
+<span class="cm"> * Check if player has won by placing a disc on (x,y). </span>
+<span class="cm"> * with direction (xDir, yDir)</span>
+<span class="cm"> * @return 1 iff RED won, -1 iff BLACK won and 0 if nobody won</span>
+<span class="cm"> */</span>
+<span class="kt">signed</span> <span class="kt">char</span> <span class="nf">hasPlayerWon</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+                  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">xDir</span><span class="p">,</span> <span class="kt">char</span> <span class="n">yDir</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">color</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">];</span>
 
-    int tokensInRow = getTokensInRow(board, color, x, y, xDir, yDir)
-              + getTokensInRow(board, color, x, y, -xDir, -yDir) - 1;
+    <span class="kt">int</span> <span class="n">tokensInRow</span> <span class="o">=</span> <span class="n">getTokensInRow</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xDir</span><span class="p">,</span> <span class="n">yDir</span><span class="p">)</span>
+              <span class="o">+</span> <span class="n">getTokensInRow</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">xDir</span><span class="p">,</span> <span class="o">-</span><span class="n">yDir</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 
-    if (tokensInRow &gt;= WINNING_NR) {
-        if (color == RED) {
-            return 1;
-        } else if (color == BLACK) {
-            return -1;
-        } else {
-            perror("this color doesn't / shouldn't exist\n");
-            exit(1);
-        }
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">tokensInRow</span> <span class="o">&gt;=</span> <span class="n">WINNING_NR</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="n">BLACK</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">perror</span><span class="p">(</span><span class="s">"this color doesn't / shouldn't exist</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    return 0;
-}
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
-/* 
- * A new disc has been dropped. Check if this disc means that 
- * somebody won.
- * @return 1 iff RED won, -1 iff BLACK won, otherwise NOT_FINISHED
- */
-int isBoardFinished(char board[BOARD_WIDTH][BOARD_HEIGHT], 
-                    int x, int y) {
-    signed char status;
+<span class="cm">/* </span>
+<span class="cm"> * A new disc has been dropped. Check if this disc means that </span>
+<span class="cm"> * somebody won.</span>
+<span class="cm"> * @return 1 iff RED won, -1 iff BLACK won, otherwise NOT_FINISHED</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">isBoardFinished</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+                    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">signed</span> <span class="kt">char</span> <span class="n">status</span><span class="p">;</span>
 
-    // check left-right
-    status = hasPlayerWon(board, x, y, 1, 0);
+    <span class="c1">// check left-right</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">hasPlayerWon</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
-    if (status != 0) {
-        return status;
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // top-down
-    status = hasPlayerWon(board, x, y, 0, 1);
+    <span class="c1">// top-down</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">hasPlayerWon</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-    if (status != 0) {
-        return status;
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // down-left to top-right
-    status = hasPlayerWon(board, x, y, 1, 1);
+    <span class="c1">// down-left to top-right</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">hasPlayerWon</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-    if (status != 0) {
-        return status;
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    // top-left to down-right
-    status = hasPlayerWon(board, x, y, -1, 1);
+    <span class="c1">// top-left to down-right</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">hasPlayerWon</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-    if (status != 0) {
-        return status;
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    return NOT_FINISHED;
-}
-[/c]
+    <span class="k">return</span> <span class="n">NOT_FINISHED</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 If you need an explanation for this, you should read <a href="http://martin-thoma.com/check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.
 
 And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:
-[c]
-char isSameBoard(char a[BOARD_WIDTH][BOARD_HEIGHT], 
-                 char b[BOARD_WIDTH][BOARD_HEIGHT]) {
-    for (int x = 0; x = 0 &amp;&amp; board[column][height] == EMPTY) {
-            height--;
-        }
-        height++;
+<div class="highlight">
+   <pre><code class="c"><span class="kt">char</span> <span class="nf">isSameBoard</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+                 <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">BOARD_HEIGHT</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">!=</span> <span class="n">b</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">FALSE</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-        // this colum is full
-        if (height == 6) {
-            continue;
-        }
+    <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="p">}</span>
 
-        // place disc
-        board[column][height] = currentPlayer;
+<span class="kt">void</span> <span class="nf">mirrorBoard</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span>
+                 <span class="kt">char</span> <span class="n">newBoard</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">BOARD_HEIGHT</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">newBoard</span><span class="p">[</span><span class="n">BOARD_WIDTH</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
-        if (didBoardAlreadyOccur(board)) {
-            // I've already got to this situation
-            insertID = getBoardIndex(board);
-            savePreviousID(insertID, lastId, column);
-        } else {
-            char mirrored[BOARD_WIDTH][BOARD_HEIGHT];
-            mirrorBoard(board, mirrored);
+You need a function that makes all possible moves for the players:
+<div class="highlight">
+   <pre><code class="c"><span class="cm">/*</span>
+<span class="cm"> * Make all possible turns that the player can make in this</span>
+<span class="cm"> * game situation.</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">makeTurns</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+   <span class="kt">char</span> <span class="n">currentPlayer</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">lastId</span><span class="p">,</span> <span class="kt">int</span> <span class="n">recursion</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">insertID</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">outcome</span><span class="p">;</span>
 
-            if (didBoardAlreadyOccur(mirrored)) {
-                // I've already got this situation, but mirrored
-                // so take care of symmetry at this point
-                mirroredCounter++;
-                insertID = getBoardIndex(mirrored);
-                savePreviousID(insertID, lastId, column);
-            } else {
-                registeredSituations++;
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">column</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">column</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// add to column</span>
+        <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">BOARD_HEIGHT</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 
-                if (registeredSituations == MAXIMUM_SITUATIONS) {
-                    giveCurrentInformation();
-                    exit(MAXIMUM_SITUATIONS_REACHED_EXIT_STATUS);
-                }
+        <span class="c1">// the disc falls down</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">height</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">board</span><span class="p">[</span><span class="n">column</span><span class="p">][</span><span class="n">height</span><span class="p">]</span> <span class="o">==</span> <span class="n">EMPTY</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">height</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">height</span><span class="o">++</span><span class="p">;</span>
 
-                if (REGISTERED_MOD &gt; 0 &amp;&amp;
-                    registeredSituations % REGISTERED_MOD == 0) {
-                    giveCurrentInformation();
-                }
+        <span class="c1">// this colum is full</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">height</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
 
-                outcome = isBoardFinished(board, column, height);
+        <span class="c1">// place disc</span>
+        <span class="n">board</span><span class="p">[</span><span class="n">column</span><span class="p">][</span><span class="n">height</span><span class="p">]</span> <span class="o">=</span> <span class="n">currentPlayer</span><span class="p">;</span>
 
-                if (ABS(outcome) How is this realated to hash functions?
+        <span class="k">if</span> <span class="p">(</span><span class="n">didBoardAlreadyOccur</span><span class="p">(</span><span class="n">board</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// I've already got to this situation</span>
+            <span class="n">insertID</span> <span class="o">=</span> <span class="n">getBoardIndex</span><span class="p">(</span><span class="n">board</span><span class="p">);</span>
+            <span class="n">savePreviousID</span><span class="p">(</span><span class="n">insertID</span><span class="p">,</span> <span class="n">lastId</span><span class="p">,</span> <span class="n">column</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="kt">char</span> <span class="n">mirrored</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">];</span>
+            <span class="n">mirrorBoard</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">mirrored</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">didBoardAlreadyOccur</span><span class="p">(</span><span class="n">mirrored</span><span class="p">))</span> <span class="p">{</span>
+                <span class="c1">// I've already got this situation, but mirrored</span>
+                <span class="c1">// so take care of symmetry at this point</span>
+                <span class="n">mirroredCounter</span><span class="o">++</span><span class="p">;</span>
+                <span class="n">insertID</span> <span class="o">=</span> <span class="n">getBoardIndex</span><span class="p">(</span><span class="n">mirrored</span><span class="p">);</span>
+                <span class="n">savePreviousID</span><span class="p">(</span><span class="n">insertID</span><span class="p">,</span> <span class="n">lastId</span><span class="p">,</span> <span class="n">column</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">registeredSituations</span><span class="o">++</span><span class="p">;</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">registeredSituations</span> <span class="o">==</span> <span class="n">MAXIMUM_SITUATIONS</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">giveCurrentInformation</span><span class="p">();</span>
+                    <span class="n">exit</span><span class="p">(</span><span class="n">MAXIMUM_SITUATIONS_REACHED_EXIT_STATUS</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">REGISTERED_MOD</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span>
+                    <span class="n">registeredSituations</span> <span class="o">%</span> <span class="n">REGISTERED_MOD</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">giveCurrentInformation</span><span class="p">();</span>
+                <span class="p">}</span>
+
+                <span class="n">outcome</span> <span class="o">=</span> <span class="n">isBoardFinished</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">ABS</span><span class="p">(</span><span class="n">outcome</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="c1">// the game is finished</span>
+                    <span class="n">insertID</span> <span class="o">=</span> <span class="n">getNewIndex</span><span class="p">(</span><span class="n">board</span><span class="p">);</span>
+                    <span class="n">storeToDatabase</span><span class="p">(</span><span class="n">insertID</span><span class="p">,</span> <span class="n">board</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">outcome</span><span class="p">);</span>
+                    <span class="n">savePreviousID</span><span class="p">(</span><span class="n">insertID</span><span class="p">,</span> <span class="n">lastId</span><span class="p">,</span> <span class="n">column</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="c1">// Switch players</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">currentPlayer</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">currentPlayer</span> <span class="o">=</span> <span class="n">BLACK</span><span class="p">;</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="n">currentPlayer</span> <span class="o">=</span> <span class="n">RED</span><span class="p">;</span>
+                    <span class="p">}</span>
+
+                    <span class="n">insertID</span> <span class="o">=</span> <span class="n">getNewIndex</span><span class="p">(</span><span class="n">board</span><span class="p">);</span>
+                    <span class="n">setBoard</span><span class="p">(</span><span class="n">insertID</span><span class="p">,</span> <span class="n">board</span><span class="p">);</span>
+                    <span class="n">savePreviousID</span><span class="p">(</span><span class="n">insertID</span><span class="p">,</span> <span class="n">lastId</span><span class="p">,</span> <span class="n">column</span><span class="p">);</span>
+                    <span class="kt">char</span> <span class="n">copy</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">];</span>
+
+                    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">BOARD_HEIGHT</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="n">copy</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">];</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+
+                    <span class="n">makeTurns</span><span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">currentPlayer</span><span class="p">,</span> <span class="n">insertID</span><span class="p">,</span> 
+                              <span class="n">recursion</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-4">How is this realated to hash functions?</h2>
 You might have noticed a few functions that I didn't explain by now:
 <ul><li><code>didBoardAlreadyOccur(board)</code>: Checks if a given board is stored in database.</li>
   <li><code>getBoardIndex(board)</code>: This is a function that takes a board and gives a non-negative integer which is characteristic for the given board.</li>
@@ -285,20 +362,21 @@ You might have noticed a few functions that I didn't explain by now:
 
 How would you implement <code>didBoardAlreadyOccur(board)</code>? This function (or insertID) will be the slowest part of the code and will be called VERY often. So it needs to be as fast as possible.
 
-<h2 id="tocAnchor-1-4">A hash function</h2>
+<h2 id="tocAnchor-1-5">A hash function</h2>
 Most of the time you can create hash functions by mapping values to integers. In my case, I mapped the board - which is a two-dimensional char array - to one integer by thinking of it as a very long number. I think of a red disc as the digit 1, a black disc as the digit 2 and an empty field as 0:
 
-[c]
-unsigned int charToInt(char x) {
-    if (x == RED) {
-        return 1;
-    } else if (x == BLACK) {
-        return 2;
-    } else {
-        return 0;
-    }
-}
-[/c]
+<div class="highlight">
+   <pre><code class="c"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">BLACK</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 When you want to get the board number, you can get it like this:
 <div style="width: 320px" class="wp-caption aligncenter">
@@ -310,16 +388,30 @@ When you want to get the board number, you can get it like this:
 
 For most game situations, this number will be much too big to store it in an integer. Also, we would like to get an index for our array so that we know where to store this board. The simplest solution to this problem is to calculate <code>NUMBER % ARRAY_SIZE</code>:
 
-[c]unsigned int getFirstIndex(char board[BOARD_WIDTH][BOARD_HEIGHT]) {
-    unsigned int index = 0;
+<div class="highlight">
+   <pre><code class="c"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getFirstIndex</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    for (int x = 0; x getFirstIndex maps an char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">BOARD_HEIGHT</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">index</span> <span class="o">+=</span> <span class="n">charToInt</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span> <span class="o">*</span> 
+                     <span class="n">myPow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">BOARD_WIDTH</span><span class="p">)</span> <span class="o">%</span> <span class="n">HASH_MODULO</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">%</span> <span class="n">MAXIMUM_SITUATIONS</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+The function <code>getFirstIndex</code> maps an char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.
 
 This means, you will have two board situations that map to the same hash number. This is called a "hash collision". When you use the hash number directly as an index for your board, you will have to deal with hash collisions. Some solutions are:
 <ul><li>Ignoring the problem: That's boring and not always possible (but simple).</li>
   <li>Linear probing</li>
   <li>Quadratic probing</li>
-</ul><h2 id="tocAnchor-1-5">Linear probing</h2>
+</ul><h2 id="tocAnchor-1-6">Linear probing</h2>
 The idea of linear probing is very simple: 
 
 Inserting a new item:
@@ -341,7 +433,7 @@ The problem of linear probing is <strong>clustering</strong>. When you have some
 
 An advantage of linear probing compared to quadratic probing is that you might get a better performance due to cache effects.
 
-<h2 id="tocAnchor-1-6">Quadratic probing</h2>
+<h2 id="tocAnchor-1-7">Quadratic probing</h2>
 The idea of quadratic probing is the same as for linear probing, but you try to fix the clustering-problem by using a clever way to search for a free spot:
 
 $h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil^2\right) \bmod~m$
@@ -350,14 +442,14 @@ where $h$ is your hash function and $i$ is your i-th try to find a free spot whi
 
 This one also suffers from clustering, but it's not as bad as with linear clustering.
 
-<h2 id="tocAnchor-1-7">Double hashing</h2>
+<h2 id="tocAnchor-1-8">Double hashing</h2>
 This solution could be the best one, but also the hardest one to implement correctly. You could find a free spot by using a second hash function $h'$ like this:
 
 $h_i(x) = (h(x)+h'(x)\cdot i) ~ \bmod ~ m$
 
 BUT you have to make sure that $Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m^2}$
 
-<h2 id="tocAnchor-1-8">Performance</h2>
+<h2 id="tocAnchor-1-9">Performance</h2>
 You can use linear probing, quadratic probing and double hashing in my example and measure how many game situations get stored. The more game situations you can store in the same amount of time, the better:
 
 <div style="width: 512px" class="wp-caption aligncenter">
@@ -369,16 +461,16 @@ You can use linear probing, quadratic probing and double hashing in my example a
 
 You can see that linear probing performs much worse than quadratic probing and double hashing. When you compare quadratic probing with double hashing, there seems not to be a big difference. But note that my second hash function is almost the same as the first one. You could probably choose a better second hash function and get better results (suggestions are welcome).
 
-<h2 id="tocAnchor-1-9">Why are hash functions important?</h2>
+<h2 id="tocAnchor-1-10">Why are hash functions important?</h2>
 Hash functions help you to map a big amount of data to a small space. They are important, because they are a relevant part of many datastructures. The better they are, the faster will operations on those datastructures work. Better means: Faster to compute or less collisions.
 
 Some datastructures like this are:
 <ul><li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html">HashMap</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">HashTable</a> (→ <a href="http://stackoverflow.com/a/40878/562769">difference</a>)</li>
   <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html">HashSet</a></li>
-</ul><h2 id="tocAnchor-1-10">Final notes</h2>
+</ul><h2 id="tocAnchor-1-11">Final notes</h2>
 Another resolution for hash collisions is creating a linked list. This means you will not suffer from clustering and you can insert in $\mathcal{O}(1)$. But searching for an element is still in $\mathcal{O}(n)$, where $n$ is the number of elements that were already inserted.
 
-<h2 id="tocAnchor-1-11">Resources</h2>
+<h2 id="tocAnchor-1-12">Resources</h2>
 You can find the <a href="https://github.com/MartinThoma/connect-four/tree/master/C">code at GitHub</a>.
 
 						</div>
