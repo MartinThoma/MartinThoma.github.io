@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to use Jekyll with GitHub</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312192105.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312192113.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,13 +65,13 @@
                         </div>
 			
 						<div class="entry">
-                            <p>You've probably noticed that I didn't write any posts the last
+                            <p>You've probably noticed that I didn't write any posts the last 
 few weeks. The reason is that I've migrated my WordPress Blog to
-Jekyll.</p>
+Jekyll.
 
-<p><a href="http://jekyllrb.com/">Jekyll</a> is a static blog generator.</p>
+<a href="http://jekyllrb.com/">Jekyll</a> is a static blog generator.
 
-<div id="toc_container" class="toc_light_blue no_bullets">
+</p><div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -105,39 +105,30 @@ Jekyll.</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Jekyll compared with WordPress</h2>
+Jekyll is a static site generator. 
 
-
-<p>Jekyll is a static site generator.</p>
-
-<p>Reasons for Jekyll:</p>
-
+Reasons for Jekyll:
 <ul><li><b>Security</b>: With Jekyll, you only upload static files (HTML, CSS, 
       JavaScript, Images, ...). There is nothing where the user
       can pass some data.</li>
-  <li><b>Speed</b>: The page gets served much faster as the server 
-      does not have to compute anything. Yes, with caching this
-      advantage might be negliable. But it cannot be faster than
-      the static version.</li>
-</ul><p>Reasons for WordPress:</p>
+  <li><b>Speed</b>: The webserver needs only to serve the sites.
+      Nothing else. Of course, when you use caching with PHP you
+      might get into a similar situation with WordPress. But it
+      will never be faster.</li>
+</ul>
 
-<ul><li><b>Comments</b>: Comments are dynamic. You can't get this with
-      a static site. You can use third party services like
-      <a href="http://disqus.com/">Disqus</a>, but that's only
-      a workaround.</li>
-  <li><b>Search</b>: Site search could possibly be done with some
-      pre-computation and JavaScript, but I it gets much more 
-      difficult.</li>
+Reasons for WordPress:
+<ul><li><b>Comments</b>: There is no way to get comments only with
+      static pages. So you need something else, e.g. <a href="http://disqus.com/">disqus</a>.</li>
+  <li><b>Search</b>: Could probably be done with JavaScript, but
+      I guess it is difficult.</li>
 </ul><h2 id="tocAnchor-1-2">Create your repository</h2>
-
-
 <ol><li>Go to <a href="https://github.com/">github.com</a>, sign in and
       create a new repo:
   </li>
-  <li>Call it <code>[Username].github.io</code>.</li>
+  <li>Call it `[Username].github.io`.</li>
 </ol><h2 id="tocAnchor-1-3">Branches</h2>
-
-
-<p>Go to your Git repository that cointains your blog:</p>
+Go to your Git repository that cointains your blog:
 
 <div class="highlight">
    <pre><code class="bash">moose@pc08 ~/Downloads/MartinThoma.github.io <span class="nv">$ </span>ls
@@ -147,39 +138,26 @@ _drafts      _includes    _layouts    _posts    thumbs
 </code></pre>
 </div>
 
-
-<p>Now you should create a new branch that will contain your source files.
-The following command creates a branch <code>sources</code> that starts where
-the branch <code>master</code> currently is:</p>
+Now you should create a new branch that will contain your source files.
+The following command creates a branch `sources` that starts where
+the branch `master` currently is:
 
 <div class="highlight">
    <pre><code class="bash">git checkout -b <span class="nb">source </span>master
 </code></pre>
 </div>
 
-
-<p>Now update this branch to the server:</p>
+Now update this branch to the server:
 
 <div class="highlight">
    <pre><code class="bash">git push -u origin <span class="nb">source</span>
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-4">Customization</h2>
-
-
 <ul><li><a href="http://jekyllrb.com/docs/plugins/">Example for a liquid filter</a></li>
 </ul><h2 id="tocAnchor-1-5">Make the Website super-fast</h2>
-
-
 <h3 id="tocAnchor-1-5-1">CSS Minification</h3>
-
-
-
-
 <div class="highlight">
    <pre><code class="bash">sudo gem install juicer
 juicer install jslint
@@ -187,28 +165,20 @@ juicer install yui_compressor
 </code></pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-5-2">Images</h3>
-
-
-<p>I've included small images as base64 (used <a href="http://webcodertools.com/imagetobase64converter/Create">this online tool</a>).
+I've included small images as base64 (used <a href="http://webcodertools.com/imagetobase64converter/Create">this online tool</a>).
 According to <a href="http://caniuse.com/datauri">caniuse</a> it's
-quite save to use.</p>
+quite save to use.
 
 <h2 id="tocAnchor-1-8">Some tests</h2>
+I like <a href="http://tools.pingdom.com/fpt/">Pingdom Tools</a>
+to get some information about my site (number of requests, load time, page size, ...)
 
+<a href="http://whichloadsfaster.com/">WichLoadsFaster.com</a>
+is also nice, because it lets me compare my old site to my new site.
 
-<p>I like <a href="http://tools.pingdom.com/fpt/">Pingdom Tools</a>
-to get some information about my site (number of requests, load time, page size, ...)</p>
-
-<p><a href="http://whichloadsfaster.com/">WichLoadsFaster.com</a>
-is also nice, because it lets me compare my old site to my new site.</p>
 
 <h2 id="tocAnchor-1-9">Resources</h2>
-
-
 <ul><li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a></li>
   <li><a href="https://alybadawy.com/developing/2013/08/02/search-a-jekyll-generated-website/">Search a Jekyll-generated website</a></li>
 </ul>
@@ -240,8 +210,6 @@ is also nice, because it lets me compare my old site to my new site.</p>
                                  
                                 </div>
 								<div class="alignright">
-                                
-                                    <a href="http://martinthoma.github.io/jekyll-and-git/" rel="next">How to use Jekyll with GitHub</a> &raquo;
                                  
                                 </div>
 							</div>
