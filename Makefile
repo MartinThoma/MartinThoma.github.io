@@ -4,9 +4,14 @@ push:
 	git commit
 	git push origin source
 
+test:
+	rm -rf _site
+	jekyll build
+	./_removeWhitespace.py
+
 deploy:
 	make push
-	jekyll build
+	jekyll build --config _config_prod.yml
 	./_removeWhitespace.py
 	git checkout master
 	git rm -qr .

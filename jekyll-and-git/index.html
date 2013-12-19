@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to use Jekyll with GitHub</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312132204.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312192105.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,49 +65,79 @@
                         </div>
 			
 						<div class="entry">
-                            <p>You've probably noticed that I didn't write any posts the last 
+                            <p>You've probably noticed that I didn't write any posts the last
 few weeks. The reason is that I've migrated my WordPress Blog to
-Jekyll.
+Jekyll.</p>
 
-<a href="http://jekyllrb.com/">Jekyll</a> is a static blog generator.
+<p><a href="http://jekyllrb.com/">Jekyll</a> is a static blog generator.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Create your repository</span></a>
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Jekyll compared with WordPress</span></a>
       </li>
       <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Branches</span></a>
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Create your repository</span></a>
       </li>
       <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Customization</span></a>
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Branches</span></a>
       </li>
       <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Make the Website super-fast</span></a>
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Customization</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-5">
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Make the Website super-fast</span></a>
          <ul>
-            <li class="toc_level-2 toc_section-5">
-               <a href="#tocAnchor-1-4-1"><span class="tocnumber">4.1</span> <span class="toctext">CSS Minification</span></a>
-            </li>
             <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-4-2"><span class="tocnumber">4.2</span> <span class="toctext">Images</span></a>
+               <a href="#tocAnchor-1-5-1"><span class="tocnumber">5.1</span> <span class="toctext">CSS Minification</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-7">
+               <a href="#tocAnchor-1-5-2"><span class="tocnumber">5.2</span> <span class="toctext">Images</span></a>
             </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">5</span> <span class="toctext">Some tests</span></a>
-      </li>
       <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">6</span> <span class="toctext">Resources</span></a>
+         <a href="#tocAnchor-1-8"><span class="tocnumber">6</span> <span class="toctext">Some tests</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-9">
+         <a href="#tocAnchor-1-9"><span class="tocnumber">7</span> <span class="toctext">Resources</span></a>
       </li>
    </ul>
-</div><h2 id="tocAnchor-1-1">Create your repository</h2>
+</div><h2 id="tocAnchor-1-1">Jekyll compared with WordPress</h2>
+
+
+<p>Jekyll is a static site generator.</p>
+
+<p>Reasons for Jekyll:</p>
+
+<ul><li><b>Security</b>: With Jekyll, you only upload static files (HTML, CSS, 
+      JavaScript, Images, ...). There is nothing where the user
+      can pass some data.</li>
+  <li><b>Speed</b>: The page gets served much faster as the server 
+      does not have to compute anything. Yes, with caching this
+      advantage might be negliable. But it cannot be faster than
+      the static version.</li>
+</ul><p>Reasons for WordPress:</p>
+
+<ul><li><b>Comments</b>: Comments are dynamic. You can't get this with
+      a static site. You can use third party services like
+      <a href="http://disqus.com/">Disqus</a>, but that's only
+      a workaround.</li>
+  <li><b>Search</b>: Site search could possibly be done with some
+      pre-computation and JavaScript, but I it gets much more 
+      difficult.</li>
+</ul><h2 id="tocAnchor-1-2">Create your repository</h2>
+
+
 <ol><li>Go to <a href="https://github.com/">github.com</a>, sign in and
       create a new repo:
   </li>
-  <li>Call it "[Username].github.io".</li>
-</ol><h2 id="tocAnchor-1-2">Branches</h2>
-Go to your Git repository that cointains your blog:
+  <li>Call it <code>[Username].github.io</code>.</li>
+</ol><h2 id="tocAnchor-1-3">Branches</h2>
+
+
+<p>Go to your Git repository that cointains your blog:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc08 ~/Downloads/MartinThoma.github.io <span class="nv">$ </span>ls
@@ -117,26 +147,39 @@ _drafts      _includes    _layouts    _posts    thumbs
 </code></pre>
 </div>
 
-Now you should create a new branch that will contain your source files.
-The following command creates a branch `sources` that starts where
-the branch `master` currently is:
+
+<p>Now you should create a new branch that will contain your source files.
+The following command creates a branch <code>sources</code> that starts where
+the branch <code>master</code> currently is:</p>
 
 <div class="highlight">
    <pre><code class="bash">git checkout -b <span class="nb">source </span>master
 </code></pre>
 </div>
 
-Now update this branch to the server:
+
+<p>Now update this branch to the server:</p>
 
 <div class="highlight">
    <pre><code class="bash">git push -u origin <span class="nb">source</span>
 </code></pre>
 </div>
 
-<h2 id="tocAnchor-1-3">Customization</h2>
+
+
+
+<h2 id="tocAnchor-1-4">Customization</h2>
+
+
 <ul><li><a href="http://jekyllrb.com/docs/plugins/">Example for a liquid filter</a></li>
-</ul><h2 id="tocAnchor-1-4">Make the Website super-fast</h2>
-<h3 id="tocAnchor-1-4-1">CSS Minification</h3>
+</ul><h2 id="tocAnchor-1-5">Make the Website super-fast</h2>
+
+
+<h3 id="tocAnchor-1-5-1">CSS Minification</h3>
+
+
+
+
 <div class="highlight">
    <pre><code class="bash">sudo gem install juicer
 juicer install jslint
@@ -144,20 +187,28 @@ juicer install yui_compressor
 </code></pre>
 </div>
 
-<h3 id="tocAnchor-1-4-2">Images</h3>
-I've included small images as base64 (used <a href="http://webcodertools.com/imagetobase64converter/Create">this online tool</a>).
+
+
+
+<h3 id="tocAnchor-1-5-2">Images</h3>
+
+
+<p>I've included small images as base64 (used <a href="http://webcodertools.com/imagetobase64converter/Create">this online tool</a>).
 According to <a href="http://caniuse.com/datauri">caniuse</a> it's
-quite save to use.
+quite save to use.</p>
 
-<h2 id="tocAnchor-1-7">Some tests</h2>
-I like <a href="http://tools.pingdom.com/fpt/">Pingdom Tools</a>
-to get some information about my site (number of requests, load time, page size, ...)
-
-<a href="http://whichloadsfaster.com/">WichLoadsFaster.com</a>
-is also nice, because it lets me compare my old site to my new site.
+<h2 id="tocAnchor-1-8">Some tests</h2>
 
 
-<h2 id="tocAnchor-1-8">Resources</h2>
+<p>I like <a href="http://tools.pingdom.com/fpt/">Pingdom Tools</a>
+to get some information about my site (number of requests, load time, page size, ...)</p>
+
+<p><a href="http://whichloadsfaster.com/">WichLoadsFaster.com</a>
+is also nice, because it lets me compare my old site to my new site.</p>
+
+<h2 id="tocAnchor-1-9">Resources</h2>
+
+
 <ul><li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a></li>
   <li><a href="https://alybadawy.com/developing/2013/08/02/search-a-jekyll-generated-website/">Search a Jekyll-generated website</a></li>
 </ul>
@@ -189,6 +240,8 @@ is also nice, because it lets me compare my old site to my new site.
                                  
                                 </div>
 								<div class="alignright">
+                                
+                                    <a href="http://martinthoma.github.io/jekyll-and-git/" rel="next">How to use Jekyll with GitHub</a> &raquo;
                                  
                                 </div>
 							</div>
@@ -269,54 +322,54 @@ is also nice, because it lets me compare my old site to my new site.
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 215.81%' href='http://martinthoma.github.io/tag/c/' title='25 topics'>C</a>
-<a style='font-size: 252.56%' href='http://martinthoma.github.io/tag/programming/' title='40 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 235.11%' href='http://martinthoma.github.io/tag/java/' title='32 topics'>Java</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/puzzle/' title='19 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/swt i/' title='6 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/cpp/' title='5 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 215.81%' href='http://localhost/blog/_site/tag/c/' title='25 topics'>C</a>
+<a style='font-size: 252.56%' href='http://localhost/blog/_site/tag/programming/' title='40 topics'>Programming</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 235.11%' href='http://localhost/blog/_site/tag/java/' title='32 topics'>Java</a>
+<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/puzzle/' title='19 topics'>puzzle</a>
+<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/algorithms/' title='7 topics'>algorithms</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/swt i/' title='6 topics'>SWT I</a>
+<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/cpp/' title='5 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
 </div>
                     </li>
                 </ul>
