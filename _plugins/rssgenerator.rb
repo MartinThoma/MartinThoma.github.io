@@ -51,7 +51,7 @@ module Jekyll
         site.posts.reverse[0..post_limit].each do |post|
           maker.items.new_item do |item|
             item.title = post.title
-            item.link = "#{site.config['url']}#{post.url}"
+            item.link = "#{site.config['baseurl']}#{post.url}"
             item.description = parser.convert(post.excerpt)
             item.updated = post.date
           end

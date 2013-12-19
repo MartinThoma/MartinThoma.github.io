@@ -29,7 +29,21 @@ Reasons for Jekyll:
   <li><b>Security</b>: With Jekyll, you only upload static files (HTML, CSS, 
       JavaScript, Images, ...). There is nothing where the user
       can pass some data.</li>
-  <li></li>
+  <li><b>Speed</b>: The page gets served much faster as the server 
+      does not have to compute anything. Yes, with caching this
+      advantage might be negliable. But it cannot be faster than
+      the static version.</li>
+</ul>
+
+Reasons for WordPress:
+<ul>
+  <li><b>Comments</b>: Comments are dynamic. You can't get this with
+      a static site. You can use third party services like
+      <a href="http://disqus.com/">Disqus</a>, but that's only
+      a workaround.</li>
+  <li><b>Search</b>: Site search could possibly be done with some
+      pre-computation and JavaScript, but I it gets much more 
+      difficult.</li>
 </ul>
 
 <h2>Create your repository</h2>
@@ -37,7 +51,7 @@ Reasons for Jekyll:
   <li>Go to <a href="https://github.com/">github.com</a>, sign in and
       create a new repo:
   </li>
-  <li>Call it `[Username].github.io`.</li>
+  <li>Call it <code>[Username].github.io</code>.</li>
 </ol>
 
 <h2>Branches</h2>
