@@ -1,3 +1,6 @@
+make:
+	make test
+
 push:
 	git checkout source
 	git add -A
