@@ -15,12 +15,13 @@ categories:
 tags:
 - SWT I
 - Design Pattern
-comments: []
+featured_image: 2012/05/UML-thumb.png
 ---
 <h2>Singleton</h2>
 <strong>Zweck</strong>: Stelle sicher, dass es nur eine Instanz dieser Klasse gibt.
 <strong>Beispiel</strong>: <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html#getRuntime%28%29">java.lang.Runtime.getRuntime()</a>
-{% highlight java %}
+
+```java
 public class Singleton {
     // an instance of a singleton
     private static Singleton instance = null;
@@ -38,12 +39,13 @@ public class Singleton {
         return instance;
     }
 }
-{% endhighlight %}
+```
 
 <h2>Bequemlichkeitsklasse</h2>
 <strong>Zweck</strong>: Faulheit - mache Methodenaufrufe durch &auml;nderbare default-Parameter einfacher.
 Das Bequemlichkeitsmuster ist einfach das &Uuml;berladen einer Methode:
-{% highlight java %}
+
+```java
 public class Bequemlichkeitsklasse {
     // convenience class
     int v1, v2, v3;
@@ -65,7 +67,8 @@ public class Bequemlichkeitsklasse {
         v2 = p2;
         v3 = p3;
     }
-}{% endhighlight %}
+}
+```
 
 <h2>Schablonenmethode</h2>
 Siehe <a href="http://martin-thoma.com/java-puzzle-9-template-method-pattern">Java Puzzle #9: Template method pattern</a>.

@@ -17,10 +17,11 @@ tags:
 - Java
 - SWT I
 - puzzle
-comments: []
+featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following script:
-{% highlight java %}
+
+```java
 public class test {
     public static int globalVar;
 
@@ -36,9 +37,9 @@ public class test {
         System.out.println(globalVar);
     }
 }
-{% endhighlight %}
+```
 
-{% highlight java %}
+```java
 public class MyParallelClass implements java.lang.Runnable {
     public int counter = 0;
 
@@ -52,7 +53,7 @@ public class MyParallelClass implements java.lang.Runnable {
         }
     }
 }
-{% endhighlight %}
+```
 
 .
 .

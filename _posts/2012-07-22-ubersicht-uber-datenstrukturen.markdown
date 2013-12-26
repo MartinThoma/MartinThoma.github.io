@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: ! '&Uuml;bersicht &uuml;ber Datenstrukturen'
+title: Übersicht über Datenstrukturen
 author: Martin Thoma
 author_login: moose
 author_email: info@martin-thoma.de
@@ -15,26 +15,26 @@ categories:
 tags:
 - algorithms
 - data structure
-comments: []
+featured_image: 2012/07/tree-thumb.png
 ---
-Diese &Uuml;bersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a href="http://de.wikipedia.org/wiki/Kategorie:Datenstruktur">mehr Datenstrukturen</a> (z.B. <a href="http://de.wikipedia.org/wiki/Bloomfilter">Bloomfilter</a>), als ich hier erw&auml;hne. Diese Datenstrukturen wurden in der Vorlesung Algorithmen I bei Frau Zitterbart am KIT erkl&auml;rt.
+Diese Übersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a href="http://de.wikipedia.org/wiki/Kategorie:Datenstruktur">mehr Datenstrukturen</a> (z.B. <a href="http://de.wikipedia.org/wiki/Bloomfilter">Bloomfilter</a>), als ich hier erwähne. Diese Datenstrukturen wurden in der Vorlesung Algorithmen I bei Frau Zitterbart am KIT erklärt.
 
 <h2>Array</h2>
 [caption id="attachment_34531" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/array.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/array.png" alt="Array" title="Array" width="500" height="225" class="size-full wp-image-34531" /></a> Array[/caption]
 Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. 
 Charakteristika:
 <ul>
-  <li>Ein Array hat eine feste, nicht ver&auml;nderbare Gr&ouml;&szlig;e.</li>
-  <li>Der Zugriff auf jedes beliebige Element erfolgt in konstanter Zeit - ist also insbesondere unabh&auml;ngig von der Gr&ouml;&szlig;e!</li>
+  <li>Ein Array hat eine feste, nicht veränderbare Größe.</li>
+  <li>Der Zugriff auf jedes beliebige Element erfolgt in konstanter Zeit - ist also insbesondere unabhängig von der Größe!</li>
 </ul>
 
 <h2>Dynamische Arrays</h2>
-Dynamische Arrays sind wie normale Arrays, nur dass sie wachsen k&ouml;nnen. Sobald ein Element eingef&uuml;gt werden soll, dass nicht mehr ins Array passen w&uuml;rde, allokiert man ein doppelt so gro&szlig;es Array und kopiert die Elemente um.
+Dynamische Arrays sind wie normale Arrays, nur dass sie wachsen können. Sobald ein Element eingefügt werden soll, dass nicht mehr ins Array passen würde, allokiert man ein doppelt so großes Array und kopiert die Elemente um.
 
 In Java ist es ein <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Vector.html">Vector</a> bzw. eine <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a>, in <a href="http://martin-thoma.com/vectors-in-cpp/" title="Vectors in C++">C++ Vektoren</a>.
 
 <h2>Hashtabelle</h2>
-<blockquote>In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) bzw. Streuwerttabelle. Als Indexstruktur werden Hashtabellen verwendet um Datenelemente in einer gro&szlig;en Datenmenge aufzufinden. Zu Hashtabellen alternative Index-Datenstrukturen sind beispielsweise Baumstrukturen (wie etwa ein B+-Baum) und die Skip-List. Hashtabellen zeichnen sich durch einen &uuml;blicherweise konstanten Zeitaufwand bei Einf&uuml;ge- bzw. Entfernen-Operationen aus. Beim Einsatz einer Hashtabelle zur Suche in Datenmengen spricht man auch von einem Hashverfahren oder Streuspeicherverfahren.</blockquote>
+<blockquote>In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) bzw. Streuwerttabelle. Als Indexstruktur werden Hashtabellen verwendet um Datenelemente in einer großen Datenmenge aufzufinden. Zu Hashtabellen alternative Index-Datenstrukturen sind beispielsweise Baumstrukturen (wie etwa ein B+-Baum) und die Skip-List. Hashtabellen zeichnen sich durch einen üblicherweise konstanten Zeitaufwand bei Einfüge- bzw. Entfernen-Operationen aus. Beim Einsatz einer Hashtabelle zur Suche in Datenmengen spricht man auch von einem Hashverfahren oder Streuspeicherverfahren.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/Hashtabelle">Hashtabelle</a>
 
 Hashtabellen werden hier benutzt:
@@ -43,7 +43,7 @@ Hashtabellen werden hier benutzt:
   <li>Java OpenJDK 7: <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">java.util.HashTable</a> und sehr viele mehr benutzen es (Properties.java, Dictionary.java, Enum.java, ...)</li>
 </ul>
 
-Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ f&uuml;r Suchen, L&ouml;schen und Einf&uuml;gen.
+Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ für Suchen, Löschen und Einfügen.
 
 Folgende Begriffe sollte man kennen: 
 <ul>
@@ -53,18 +53,19 @@ Folgende Begriffe sollte man kennen:
   <li><a href="http://de.wikipedia.org/wiki/Doppel-Hashing">Doppeltes Hashing</a>: $h(k, i) = (h_1(k) + i \cdot h_2(k)) \mod m$</li>
   <li><a href="http://de.wikipedia.org/wiki/Hashtabelle#Lineares_Sondieren">Lineares und quadratische Sondieren</a></li>
   <li>Belegungsfaktor: $\alpha = \frac{\text{Anzahl gespeicherter Elemente}}{\text{Anzahl der Slots}}$</li>
-  <li>Prim&auml;re und sekund&auml;re Clusterbildung</li>
+  <li>Primäre und sekundäre Clusterbildung</li>
 </ul>
 
 <h2>Stack</h2>
 [caption id="attachment_34421" align="alignright" width="101"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/stack.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/stack-101x300.png" alt="Stack a capacity of 5 elements and size of 4." title="Stack a capacity of 5 elements and size of 4." width="101" height="300" class="size-medium wp-image-34421" /></a> Stack a capacity of 5 elements and size of 4.[/caption]
 
-Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und nat&uuml;rlich gibt es auch in <a href="http://martin-thoma.com/stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.
+Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und natürlich gibt es auch in <a href="http://martin-thoma.com/stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.
 
-Wie man am Bild sehr sch&ouml;n sehen kann, definiert ein Stack keine Ordnung &uuml;ber die Elemente. Wenn ein neues Element kommt, wird es auf den Stack gelegt. Man kann auch nur das oberste Element - in diesem Fall a - vom Stack nehmen. Deshalb werden Stacks auch als LIFO-Speicher (<em>L</em>ast <em>I</em>n <em>F</em>irst <em>O</em>ut) bezeichnet.
+Wie man am Bild sehr schön sehen kann, definiert ein Stack keine Ordnung über die Elemente. Wenn ein neues Element kommt, wird es auf den Stack gelegt. Man kann auch nur das oberste Element - in diesem Fall a - vom Stack nehmen. Deshalb werden Stacks auch als LIFO-Speicher (<em>L</em>ast <em>I</em>n <em>F</em>irst <em>O</em>ut) bezeichnet.
 
 Stacks werden mit dynamischen Arrays realisiert. Dazu mal ein kleines Beispiel:
-{% highlight java %}import java.util.Stack;
+```java
+import java.util.Stack;
 
 public class test {
     public static void main(String[] args) {
@@ -85,10 +86,11 @@ public class test {
                     s.pop(),s.size(), s.capacity());
         }
     }
-}{% endhighlight %}
+}
+```
 
 Ausgabe:
-{% highlight bash}
+```bash
 size: 3 	 capacity: 10
 size: 4 	 capacity: 10
 size: 5 	 capacity: 10
@@ -291,9 +293,9 @@ Element: 1 	 size: 3 	 capacity: 160
 Element: 0 	 size: 2 	 capacity: 160
 Element: 13 	 size: 1 	 capacity: 160
 Element: 12 	 size: 0 	 capacity: 160
-{% endhighlight %}
+```
 
-Wenn man das ausf&uuml;hrt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:
+Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:
 <blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>
 
 <table>
@@ -314,10 +316,10 @@ Wenn man das ausf&uuml;hrt, sieht man es recht schnell. Alternativ schaut man in
 </tr>
 </table>
 
-Ein Stack l&auml;sst sich als doppelt verkettete, zyklische Liste implementieren.
+Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.
 
 <h2>Warteschlangen</h2>
-Warteschlangen, auch Queues genannt, sind Stacks sehr &auml;hnlich. Beide unterst&uuml;tzen prinzipiell nur zwei Operationen. Bei Stacks nanne es sich PUSH und POP, bei Warteschlangen hei&szlig;t es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.
+Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks nanne es sich PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.
 
 <table>
 <tr>
@@ -337,10 +339,10 @@ Warteschlangen, auch Queues genannt, sind Stacks sehr &auml;hnlich. Beide unters
 </tr>
 </table>
 
-Eine Warteschlange l&auml;sst sich als doppelt verkettete, zyklische Liste implementieren.
+Eine Warteschlange lässt sich als doppelt verkettete, zyklische Liste implementieren.
 
 <h2>Verkettete Listen</h2>
-Wie bei allen Datenstrukturen, kann man f&uuml;r verkettete Listen mehr Operationen definieren und umsetzen, als ich hier aufliste. Eine gute Menge von Operationen wird durch das <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">Java List Interface</a> vorgegeben.
+Wie bei allen Datenstrukturen, kann man für verkettete Listen mehr Operationen definieren und umsetzen, als ich hier aufliste. Eine gute Menge von Operationen wird durch das <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">Java List Interface</a> vorgegeben.
 
 <h3>Einfach verkettete Liste</h3>
 [caption id="attachment_34051" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/singly-linked-list.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/singly-linked-list.png" alt="Singly linked list" title="Singly linked list" width="500" height="71" class="size-full wp-image-34051" /></a> Singly linked list[/caption]
@@ -368,22 +370,22 @@ Sei $n$ die Anzahl der Elemente der Liste.
 <td>&rarr; Element ist am Ende der Liste</td>
 </tr>
 <tr>
-<td>Einf&uuml;gen am Anfang</td>
+<td>Einfügen am Anfang</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
 <tr>
-<td>Wahlfreies Einf&uuml;gen</td>
+<td>Wahlfreies Einfügen</td>
 <td>${\cal O}(n)$</td>
 <td></td>
 </tr>
 <tr>
-<td>L&ouml;schen</td>
+<td>Löschen</td>
 <td>${\cal O}(n)$</td>
 <td>&rarr; Suchen</td>
 </tr>
 <tr>
-<td>Vorg&auml;nger</td>
+<td>Vorgänger</td>
 <td>${\cal O}(n)$</td>
 <td></td>
 </tr>
@@ -420,22 +422,22 @@ Sei $n$ die Anzahl der Elemente der Liste.
 <td>&rarr; Element ist am Ende der Liste</td>
 </tr>
 <tr>
-<td>Einf&uuml;gen am Anfang</td>
+<td>Einfügen am Anfang</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
 <tr>
-<td>Wahlfreies Einf&uuml;gen</td>
+<td>Wahlfreies Einfügen</td>
 <td>${\cal O}(n)$</td>
 <td></td>
 </tr>
 <tr>
-<td>L&ouml;schen</td>
+<td>Löschen</td>
 <td>${\cal O}(n)$</td>
 <td>&rarr; Suchen</td>
 </tr>
 <tr>
-<td>Vorg&auml;nger</td>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
 <td>Nur hier ist die doppelt-verkettete Liste besser als die einfach verkettete Liste.</td>
 </tr>
@@ -446,35 +448,35 @@ Sei $n$ die Anzahl der Elemente der Liste.
 </tr>
 </table>
 
-<h2>B&auml;ume</h2>
-In der Vorlesung wurden B&auml;ume sehr unpr&auml;zise eingef&uuml;hrt. Ich versuche das mal etwas pr&auml;ziser zu machen:
+<h2>Bäume</h2>
+In der Vorlesung wurden Bäume sehr unpräzise eingeführt. Ich versuche das mal etwas präziser zu machen:
 <div class="definition">Sei $G = (V, E)$ ein gerichteter Graph.
-$G$ hei&szlig;t <strong>gerichteter Baum</strong> $: \Leftrightarrow \exists_{r \in V} \forall_{x \in V}:$Es exisitert genau ein Pfad von $r$ nach $x$.</div>
+$G$ heißt <strong>gerichteter Baum</strong> $: \Leftrightarrow \exists_{r \in V} \forall_{x \in V}:$Es exisitert genau ein Pfad von $r$ nach $x$.</div>
 
-<div class="definition">Sei $G = (V, E)$ ein gerichteter Baum und sei $r \in V$ das $r$ aus der Definition. $r$ hei&szlig;t <strong>Wurzel</strong> von $G$.</div>
+<div class="definition">Sei $G = (V, E)$ ein gerichteter Baum und sei $r \in V$ das $r$ aus der Definition. $r$ heißt <strong>Wurzel</strong> von $G$.</div>
 
 ACHTUNG: Die folgende Definition habe ich mir ausgedacht! NICHT IN DER KLAUSUR VERWENDEN!
 <div class="definition">Sei $E \subseteq V \times V$ eine Menge ungerichteter Kanten. 
-Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugeh&ouml;rigen gerichteten Kanten.</div>
+Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörigen gerichteten Kanten.</div>
 
 <div class="definition">Sei $U = (V, E)$ ein ungerichteter Graph.
-$U$ hei&szlig;t ein <strong>ungerichteter Baum</strong> $:\Leftrightarrow \exists$ gerichteten Baum $G = (V, E')$ mit $E' \subsetneq G(E)$.</div>
+$U$ heißt ein <strong>ungerichteter Baum</strong> $:\Leftrightarrow \exists$ gerichteten Baum $G = (V, E')$ mit $E' \subsetneq G(E)$.</div>
 
 <div class="definition">Sei $G = (V, E)$ ein Baum und $x, y \in V$.
-$x$ hei&szlig;t <strong>Elternknoten</strong> von $y :\Leftrightarrow x$ liegt auf dem Pfad von der Wurzel nach $y$ direkt vor $y$.</div>
+$x$ heißt <strong>Elternknoten</strong> von $y :\Leftrightarrow x$ liegt auf dem Pfad von der Wurzel nach $y$ direkt vor $y$.</div>
 
 <div class="definition">Sei $G = (V, E)$ ein Baum und $x, y \in V$.
-$x$ hei&szlig;t <strong>Kindknoten</strong> von $y :\Leftrightarrow y$ ist Elternknoten von $x$.</div>
+$x$ heißt <strong>Kindknoten</strong> von $y :\Leftrightarrow y$ ist Elternknoten von $x$.</div>
 
-<h3>Bin&auml;re B&auml;ume</h3>
+<h3>Binäre Bäume</h3>
 [caption id="attachment_33851" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/binary-tree.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/binary-tree.png" alt="Binary tree datastructure" title="Binary tree datastructure" width="500" height="277" class="size-full wp-image-33851" /></a> Binary tree datastructure[/caption]
 
 <div class="definition">Sei $G = (V, E)$ ein Baum.
-$G$ hei&szlig;t <strong>bin&auml;rer Baum</strong> $:\Leftrightarrow \forall_{x \in V}: x$ hat h&ouml;chstens zwei Kindknoten.</div>
+$G$ heißt <strong>binärer Baum</strong> $:\Leftrightarrow \forall_{x \in V}: x$ hat höchstens zwei Kindknoten.</div>
 
-Ich beziehe mich im folgenden auf ungerichtete, bin&auml;re B&auml;ume. Soll hei&szlig;en, jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
+Ich beziehe mich im folgenden auf ungerichtete, binäre Bäume. Soll heißen, jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 
-Wie w&uuml;rde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.
+Wie würde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.
 <table>
 <tr>
 <th>Operation</th>
@@ -497,19 +499,19 @@ Wie w&uuml;rde man das implementieren? Im Prinzip wie eine doppelt verkettete Li
 <td>&rarr; <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
 </tr>
 <tr>
-<td>Einf&uuml;gen</td>
+<td>Einfügen</td>
 <td>${\cal O}(|V|)$</td>
 <td></td>
 </tr>
 <tr>
-<td>L&ouml;schen</td>
+<td>Löschen</td>
 <td>${\cal O}(|V| + |E|)$</td>
 <td>&rarr; Suchen</td>
 </tr>
 <tr>
-<td>Vorg&auml;nger</td>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
-<td>Implementierungsabh&auml;ngig!</td>
+<td>Implementierungsabhängig!</td>
 </tr>
 <tr>
 <td>Nachfolger</td>
@@ -518,15 +520,15 @@ Wie w&uuml;rde man das implementieren? Im Prinzip wie eine doppelt verkettete Li
 </tr>
 </table>
 
-<h3>Suchb&auml;ume</h3>
+<h3>Suchbäume</h3>
 [caption id="attachment_33871" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/binary-search-tree.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/binary-search-tree.png" alt="Binary search tree" title="Binary search tree" width="500" height="361" class="size-full wp-image-33871" /></a> Binary search tree[/caption]
 Dieser Baum hat die gleichen Werte wie der Baum oberhalb, aber es gilt nun:
-Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des aktuelle, der Wert aller Knoten rechts davon ist echt gr&ouml;&szlig;er.
+Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des aktuelle, der Wert aller Knoten rechts davon ist echt größer.
 
-Ich beschr&auml;nke mich hier auf bin&auml;re Suchb&auml;ume.
+Ich beschränke mich hier auf binäre Suchbäume.
 
 Damit ergeben sich folgende Laufzeiten:
-Sei $G = (V, E)$ ein beliebiger bin&auml;rer Suchbaum.
+Sei $G = (V, E)$ ein beliebiger binärer Suchbaum.
 Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 <table>
 <tr>
@@ -550,19 +552,19 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 <td>&rarr; Verkettete Liste</td>
 </tr>
 <tr>
-<td>Einf&uuml;gen</td>
+<td>Einfügen</td>
 <td>${\cal O}(|V|)$</td>
 <td>&rarr; Verkettete Liste</td>
 </tr>
 <tr>
-<td>L&ouml;schen</td>
+<td>Löschen</td>
 <td>${\cal O}(|V|)$</td>
 <td>&rarr; Verkettete Liste</td>
 </tr>
 <tr>
-<td>Vorg&auml;nger</td>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
-<td>Implementierungsabh&auml;ngig!</td>
+<td>Implementierungsabhängig!</td>
 </tr>
 <tr>
 <td>Nachfolger</td>
@@ -571,11 +573,11 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 </tr>
 </table>
 
-<h4>Rot-Schwarz-B&auml;ume</h4>
+<h4>Rot-Schwarz-Bäume</h4>
 [caption id="attachment_34071" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/red-black-tree1.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/red-black-tree1.png" alt="Red Black Tree" title="Red Black Tree" width="500" height="244" class="size-full wp-image-34071" /></a> Red Black Tree[/caption]
 
-Sei $G = (V, E)$ ein bin&auml;rer Suchbaum.
-G hei&szlig;t Rot-Schwarz-Baum $: \Leftrightarrow$ F&uuml;r G gilt:
+Sei $G = (V, E)$ ein binärer Suchbaum.
+G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 <ol>
   <li>Jeder Knoten ist entweder Rot oder Schwarz.</li>
   <li>Der Wurzelknoten ist schwarz.</li>
@@ -606,17 +608,17 @@ G hei&szlig;t Rot-Schwarz-Baum $: \Leftrightarrow$ F&uuml;r G gilt:
 <td></td>
 </tr>
 <tr>
-<td>Einf&uuml;gen</td>
+<td>Einfügen</td>
 <td>${\cal O}(\lg n)$</td>
 <td></td>
 </tr>
 <tr>
-<td>L&ouml;schen</td>
+<td>Löschen</td>
 <td>${\cal O}(\lg n)$</td>
 <td></td>
 </tr>
 <tr>
-<td>Vorg&auml;nger</td>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
@@ -630,9 +632,9 @@ G hei&szlig;t Rot-Schwarz-Baum $: \Leftrightarrow$ F&uuml;r G gilt:
 Eine Python-Implementation ist hier zu finden: <a href="https://github.com/MartinThoma/algorithms/blob/master/datastructures/redBlackTree.py">https://github.com/MartinThoma/algorithms</a>
 
 <h3>Heaps</h3>
-[caption id="attachment_34361" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/heap.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/heap.png" alt="Ein bin&auml;rer Min-Heap" title="Ein bin&auml;rer Min-Heap" width="500" height="254" class="size-full wp-image-34361" /></a> Ein bin&auml;rer Min-Heap[/caption]
+[caption id="attachment_34361" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/heap.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/heap.png" alt="Ein binärer Min-Heap" title="Ein binärer Min-Heap" width="500" height="254" class="size-full wp-image-34361" /></a> Ein binärer Min-Heap[/caption]
 
-Ich beschr&auml;nke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">bin&auml;re Min-Heaps</a>.
+Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">binäre Min-Heaps</a>.
 <table>
 <tr>
 <th>Operation</th>
@@ -660,17 +662,17 @@ Ich beschr&auml;nke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/
 <td>&rarr; Suche</td>
 </tr>
 <tr>
-<td>Einf&uuml;gen</td>
+<td>Einfügen</td>
 <td>${\cal O}(\log n)$</td>
 <td>&rarr; Heapify</td>
 </tr>
 <tr>
-<td>L&ouml;schen</td>
+<td>Löschen</td>
 <td>${\cal O}(\log n)$</td>
 <td>&rarr; Heapify (bei bekannter Position des Elements, sonst siehe Suche)</td>
 </tr>
 <tr>
-<td>Vorg&auml;nger</td>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
 <td>Hat keine besondere Bedeutung in Heaps.</td>
 </tr>
@@ -681,33 +683,33 @@ Ich beschr&auml;nke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/
 </tr>
 </table>
 
-<h3>B-B&auml;ume</h3>
+<h3>B-Bäume</h3>
 [caption id="attachment_34581" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-2.png" alt="B-Baum der Ordnung 2" title="B-Baum der Ordnung 2" width="500" height="124" class="size-full wp-image-34581" /></a> B-Baum der Ordnung 2[/caption]
 [caption id="attachment_34591" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-3.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/b-tree-3.png" alt="B-Baum der Ordnung 3" title="B-Baum der Ordnung 3" width="500" height="187" class="size-full wp-image-34591" /></a> B-Baum der Ordnung 3[/caption]
 
-<blockquote>Ein B-Baum ist ein immer vollst&auml;ndig balancierter Baum, der Daten sortiert nach Schl&uuml;sseln speichert. Er kann bin&auml;r sein, ist aber im Allgemeinen kein Bin&auml;rbaum. Das Einf&uuml;gen, Suchen und L&ouml;schen von Daten in B-B&auml;umen ist in amortisiert logarithmischer Zeit m&ouml;glich. B-B&auml;ume wachsen &ndash; und schrumpfen &ndash; anders als viele Suchb&auml;ume von den Bl&auml;ttern hin zur Wurzel.</blockquote>
+<blockquote>Ein B-Baum ist ein immer vollständig balancierter Baum, der Daten sortiert nach Schlüsseln speichert. Er kann binär sein, ist aber im Allgemeinen kein Binärbaum. Das Einfügen, Suchen und Löschen von Daten in B-Bäumen ist in amortisiert logarithmischer Zeit möglich. B-Bäume wachsen &ndash; und schrumpfen &ndash; anders als viele Suchbäume von den Blättern hin zur Wurzel.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/B-Baum">Wikipedia</a>
 
-Die beiden abgebildeten B-B&auml;ume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigener Reihenfolge eingef&uuml;gt wurden.
+Die beiden abgebildeten B-Bäume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigener Reihenfolge eingefügt wurden.
 
-F&uuml;r einen B-Baum der Ordnung t, $t \geq 2$, gilt:
+Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:
 <ul>
   <li>Alle Pfade von der Wurzel zu einem Blatt sind gleich lang.</li>
-  <li>Die Wurzel hat mindestens 2, h&ouml;chstens 2t Kinder.</li>
-  <li>Alle anderen inneren Knoten haben mindestens t, h&ouml;chstens 2t Kinder.</li>
-  <li>Jeder Knoten mit i Kindern hat i-1 Schl&uuml;ssel.</li>
+  <li>Die Wurzel hat mindestens 2, höchstens 2t Kinder.</li>
+  <li>Alle anderen inneren Knoten haben mindestens t, höchstens 2t Kinder.</li>
+  <li>Jeder Knoten mit i Kindern hat i-1 Schlüssel.</li>
 </ul>
 
-Die beiden B-B&auml;ume habe ich mit <a href="https://gist.github.com/3159687">diesem Script</a> erstellt.
+Die beiden B-Bäume habe ich mit <a href="https://gist.github.com/3159687">diesem Script</a> erstellt.
 
-Mehr zu B-B&auml;umen gibt es in diesem <a href="http://martin-thoma.com/b-baume/" title="B-B&auml;ume">Artikel &uuml;ber B-B&auml;ume</a>.
+Mehr zu B-Bäumen gibt es in diesem <a href="http://martin-thoma.com/b-baume/" title="B-Bäume">Artikel über B-Bäume</a>.
 
 <h3>Tries</h3>
 [caption id="attachment_34621" align="aligncenter" width="200"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/trie.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/trie.png" alt="Trie" title="Trie" width="200" height="285" class="size-full wp-image-34621" /></a> Trie[/caption]
 Bildquelle: <a href="http://commons.wikimedia.org/wiki/File:Trie.svg">Wikipedia</a>
 
 Ein Trie ist ein spezieller digitaler Baum. 
-<blockquote>Ein Trie oder Pr&auml;fixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
+<blockquote>Ein Trie oder Präfixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
 Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a>
 
 

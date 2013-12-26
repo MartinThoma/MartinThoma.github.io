@@ -16,10 +16,10 @@ tags:
 - C
 - Stack
 - STL
-comments: []
+featured_image: 2012/05/CPP-thumb.png
 ---
 <h2>Minimum Example</h2>
-{% highlight cpp %}
+```c++
 #include <iostream>
 #include <stack>
 
@@ -48,7 +48,7 @@ int main(){
 
     return 0;
 }
-{% endhighlight %}
+```
 
 <h2>Maximum number of elements</h2>
 {% highlight cpp %}

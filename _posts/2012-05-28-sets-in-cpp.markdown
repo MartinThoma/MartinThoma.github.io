@@ -7,8 +7,6 @@ author: Martin Thoma
 author_login: moose
 author_email: info@martin-thoma.de
 author_url: http://www.martin-thoma.com
-wordpress_id: 25261
-wordpress_url: http://martin-thoma.com/?p=25261
 date: 2012-05-28 12:08:58.000000000 +02:00
 categories:
 - Code
@@ -16,9 +14,10 @@ tags:
 - STL
 - Set
 - CPP
-comments: []
+featured_image: 2012/05/CPP-thumb.png
 ---
-{% highlight cpp %}#include <iostream>
+``` cpp
+#include <iostream>
 #include <set>
 #include <iterator>
 
@@ -56,17 +55,20 @@ int main() {
 	}
 
 	return 0;
-}{% endhighlight %}
+}
+```
 
-As find is logarithmic in size() (source: <a href="http://www.cplusplus.com/reference/stl/set/find/">C++ Reference</a>), the membership test is also in ${\cal O}(log(n))$.
+As find is logarithmic in `size()` (source: <a href="http://www.cplusplus.com/reference/stl/set/find/">C++ Reference</a>), the membership test is also in ${\cal O}(log(n))$.
 
 <h2>Sets of structs</h2>
 If you want to create a set of structs, you have to create a comperator:
 
-{% highlight cpp %}bool operator<(const Edge&amp; left, const Edge&amp; right)
+{% highlight cpp %}
+bool operator<(const Edge&amp; left, const Edge&amp; right)
 {
     return left.uniqueEdge < right.uniqueEdge;
-}{% endhighlight %}
+}
+{% endhighlight %}
 <h2>See also</h2>
 <ul>
   <li>C++ Reference: <a href="http://www.cplusplus.com/reference/stl/set/">general information</a> and <a href="http://www.cplusplus.com/reference/stl/set/set/">example</a></li>
