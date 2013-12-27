@@ -26,5 +26,11 @@ deploy:
 	git push origin master
 	git checkout source
 
+martinde:
+	make clean
+	jekyll build --config _config_martinde.yml
+	./_removeWhitespace.py
+	mv search.db _site/search/search.db
+
 clean:
 	rm -rf _site
