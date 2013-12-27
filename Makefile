@@ -11,6 +11,7 @@ test:
 	make clean
 	jekyll build --draft
 	./_removeWhitespace.py
+	mv search.db _site/search/search.db
 
 deploy:
 	make push
