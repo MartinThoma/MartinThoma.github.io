@@ -142,6 +142,7 @@ def changeYaml(content):
             line.startswith("title:") or \
             line.startswith("author:") or \
             line.startswith("date:") or \
+            line.startswith("context:") or \
             line.startswith("featured_image:"):
             newContent += line + "\n"
             isComment = False
