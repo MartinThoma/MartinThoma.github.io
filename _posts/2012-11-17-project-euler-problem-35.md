@@ -39,8 +39,7 @@ The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistake
 
 First, this is the way the sieve of Eratosthenes works:
 
-{% caption align="aligncenter" width="445" caption="Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).<br/>
-Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>" url="../images/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" height="503" class="size-full" link="../project-euler-problem-35/sieve_of_eratosthenes_animation/" %}
+{% caption align="aligncenter" width="445" caption="Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).<br/>Source: <a href='http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif'>Wikimedia</a>" url="../images/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" height="503" class="size-full" link="../project-euler-problem-35/sieve_of_eratosthenes_animation/" %}
 
 For example, this implementation is not good:
 {% highlight python %}
