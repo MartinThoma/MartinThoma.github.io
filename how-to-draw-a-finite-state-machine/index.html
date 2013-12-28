@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to draw a finite-state machine</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,10 +65,10 @@
                         </div>
 			
 						<div class="entry">
-                            <a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).
+                            <p><a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).</p>
 
-As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
-<div id="toc_container" class="toc_light_blue no_bullets">
+<p>As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
+</p><div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -94,29 +94,29 @@ As I am currently learning something about them, I would like to be able to plot
    <img class="size-full wp-image-8141 " title="Nondeterministic finite-state machine" src="http://martin-thoma.com/wp-content/uploads/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" width="365" height="119" />
 </a>[/caption]
 
-This image is created from a gv-file. I saved it as fsm.gv:
+<p>This image is created from a gv-file. I saved it as fsm.gv:</p>
 
 <div class="highlight">
    <pre><code class="text">digraph finite_state_machine {
-	rankdir=LR;
-	size="8,5"
+    rankdir=LR;
+    size="8,5"
 
-	node [shape = doublecircle]; S;
-	node [shape = point ]; qi
+    node [shape = doublecircle]; S;
+    node [shape = point ]; qi
 
-	node [shape = circle];
-	qi -&gt; S;
-	S  -&gt; q1 [ label = "a" ];
-	S  -&gt; S  [ label = "a" ];
-	q1 -&gt; S  [ label = "a" ];
-	q1 -&gt; q2 [ label = "b" ];
-	q2 -&gt; q1 [ label = "b" ];
-	q2 -&gt; q2 [ label = "b" ];
+    node [shape = circle];
+    qi -&gt; S;
+    S  -&gt; q1 [ label = "a" ];
+    S  -&gt; S  [ label = "a" ];
+    q1 -&gt; S  [ label = "a" ];
+    q1 -&gt; q2 [ label = "b" ];
+    q2 -&gt; q1 [ label = "b" ];
+    q2 -&gt; q2 [ label = "b" ];
 }
 </code></pre>
 </div>
 
-To create a graph (or the picture of the nondeterministic finite-state machine) you have to enter the following command in Ubuntu Linux:
+<p>To create a graph (or the picture of the nondeterministic finite-state machine) you have to enter the following command in Ubuntu Linux:</p>
 
 <div class="highlight">
    <pre><code class="bash">dot -Tpng fsm.gv -o myFiniteStateMachine.png
@@ -124,47 +124,50 @@ To create a graph (or the picture of the nondeterministic finite-state machine) 
 </div>
 
 <h2 id="tocAnchor-1-2">Deterministic finite-state machine</h2>
+
 <div style="width: 528px" class="wp-caption alignleft">
-   <a href="http://localhost/blog/_site/images/../images/2011/10/deterministic-finite-state-machine.png">
-      <img src="http://localhost/blog/_site/images/../images/2011/10/deterministic-finite-state-machine.png" alt="" width="528" height="248" class="size-full wp-image-8171" />
+   <a href="http://martinthoma.github.io/images/../images/2011/10/deterministic-finite-state-machine.png">
+      <img src="http://martinthoma.github.io/images/../images/2011/10/deterministic-finite-state-machine.png" alt="" width="528" height="248" class="size-full wp-image-8171" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
 <div class="highlight">
    <pre><code class="text">digraph finite_state_machine {
-	rankdir=LR;
-	size="8,5"
+    rankdir=LR;
+    size="8,5"
 
-	node [shape = doublecircle, label="{f}", fontsize=12] f;
-	node [shape = doublecircle, label="{q2, f}", fontsize=10] q2f;
+    node [shape = doublecircle, label="{f}", fontsize=12] f;
+    node [shape = doublecircle, label="{q2, f}", fontsize=10] q2f;
 
-	node [shape = circle, label="S", fontsize=14] S;
-	node [shape = circle, label="{q1}", fontsize=12] q1;
-	node [shape = circle, label="{q2}", fontsize=12] q2;
+    node [shape = circle, label="S", fontsize=14] S;
+    node [shape = circle, label="{q1}", fontsize=12] q1;
+    node [shape = circle, label="{q2}", fontsize=12] q2;
 
-	node [shape = point ]; qi
-	qi -&gt; S;
+    node [shape = point ]; qi
+    qi -&gt; S;
 
-	S   -&gt; q1  [ label = "a" ];
-	S   -&gt; q2f [ label = "b" ];
-	S   -&gt; q2  [ label = "c" ];
+    S   -&gt; q1  [ label = "a" ];
+    S   -&gt; q2f [ label = "b" ];
+    S   -&gt; q2  [ label = "c" ];
 
-	q1  -&gt; q2  [ label = "b" ];
+    q1  -&gt; q2  [ label = "b" ];
 
-	q2f -&gt; f   [ label = "b" ];
-	q2f -&gt; q2  [ label = "c" ];
+    q2f -&gt; f   [ label = "b" ];
+    q2f -&gt; q2  [ label = "c" ];
 
-	q2  -&gt; f   [ label = "b" ];
-	q2  -&gt; q2  [ label = "c" ];
+    q2  -&gt; f   [ label = "b" ];
+    q2  -&gt; q2  [ label = "c" ];
 }
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">LaTeX</h2>
-If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.
 
-This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:
+<p>If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.</p>
+
+<p>This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:</p>
+
 <div class="highlight">
    <pre><code class="text">\documentclass{scrartcl}
 \usepackage{tikz}
@@ -188,19 +191,21 @@ This is the most minimalistic version I could create. It is equivalent to the no
 </code></pre>
 </div>
 
-This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:
+<p>This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:</p>
+
 <div class="highlight">
    <pre><code class="bash">pdflatex latexsheet.tex -output-format<span class="o">=</span>pdf
 </code></pre>
 </div>
 
-If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
-<div style="width: 400px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2011/10/latex-finite-state-machine.png">
-      <img src="http://localhost/blog/_site/images/../images/2011/10/latex-finite-state-machine.png" alt="" width="400" height="147" class="size-full wp-image-13421" />
+<p>If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
+</p><div style="width: 400px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2011/10/latex-finite-state-machine.png">
+      <img src="http://martinthoma.github.io/images/../images/2011/10/latex-finite-state-machine.png" alt="" width="400" height="147" class="size-full wp-image-13421" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
 <div class="highlight">
    <pre><code class="text">\documentclass{scrartcl}
 \usepackage{tikz}
@@ -224,6 +229,7 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
 </div>
 
 <h3 id="tocAnchor-1-3-1">Markov models</h3>
+
 <div class="highlight">
    <pre><code class="text">\documentclass{scrartcl}
 \usepackage{tikz}
@@ -250,6 +256,7 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
 </div>
 
 <h2 id="tocAnchor-1-5">Further Reading</h2>
+
 <ul><li><a href="http://www.graphviz.org/doc/info/shapes.html">DOT Node Shape reference</a></li>
     <li><a href="http://wiki.ubuntuusers.de/Graphviz">ubuntuusers.de</a> (German): Installation on Ubuntu</li>
     <li><a href="http://www.wikischool.de/wiki/WikiSchool:Graphviz">Wikischool.de</a> (German): Many examples</li>
@@ -367,54 +374,54 @@ If you want to see some more fancy stuff, take a look at this example of a non-d
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

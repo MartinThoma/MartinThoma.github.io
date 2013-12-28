@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Pr&auml;dikatenlogik: Aussagen formalisieren</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Es ist häufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden.
+                            <p>Es ist häufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -87,78 +87,83 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Allgemeines zur Prädikatenlogik</h2>
-x sei im folgenden eine Aussage
-$\neg x$: Die Negation der Aussage x
 
-$\exists x$: Es existiert mindestens ein x (Quantor)
-$\forall x$: Alle x (Quantor)
+<p>x sei im folgenden eine Aussage
+$\neg x$: Die Negation der Aussage x</p>
 
-$\land$: und (eine Verknüfung zweier Aussagen)
-$\lor$: oder (eine Verknüfung zweier Aussagen). Im Deutschen wird oder meistens exklusiv, also im Sinne "entweder ... oder ..." verwendet. Dieses oder ist inklusiv, also "entweder ... oder ... oder beides".
+<p>$\exists x$: Es existiert mindestens ein x (Quantor)
+$\forall x$: Alle x (Quantor)</p>
 
-Ich habe die Symbole bewusst in diesen Paragraphen angeordnet. Wird die Negation eines Ausdrucks gebildet, werden alle Symbole im Inneren durch das jeweils andere Symbol ersetzt. Beispielsweise wird das logische "und" zu einem "oder".
+<p>$\land$: und (eine Verknüfung zweier Aussagen)
+$\lor$: oder (eine Verknüfung zweier Aussagen). Im Deutschen wird oder meistens exklusiv, also im Sinne "entweder ... oder ..." verwendet. Dieses oder ist inklusiv, also "entweder ... oder ... oder beides".</p>
 
-Ein kleiner Nachtrag: Was macht man, wenn man sagen will, dass eine Aussage A für genau ein Element x einer Menge M gilt?
-$\exists x \in M: A(x) \land \forall (y \in M, y \neq x): \neg A(y)$
+<p>Ich habe die Symbole bewusst in diesen Paragraphen angeordnet. Wird die Negation eines Ausdrucks gebildet, werden alle Symbole im Inneren durch das jeweils andere Symbol ersetzt. Beispielsweise wird das logische "und" zu einem "oder".</p>
+
+<p>Ein kleiner Nachtrag: Was macht man, wenn man sagen will, dass eine Aussage A für genau ein Element x einer Menge M gilt?
+$\exists x \in M: A(x) \land \forall (y \in M, y \neq x): \neg A(y)$</p>
 
 <h2 id="tocAnchor-1-2">Karlsruher und die Verkehrsmittel</h2>
-Folgendes Beispiel hatte ich in einem Tutorium am KIT:
-<blockquote>(i) Alle Karlsruher fahren mit dem Rad oder der Straßenbahn.</blockquote>
+
+<p>Folgendes Beispiel hatte ich in einem Tutorium am KIT:
+</p><blockquote>(i) Alle Karlsruher fahren mit dem Rad oder der Straßenbahn.</blockquote>
 Was ist das Gegenteil dieser Aussage? Folgendes wäre denkbar:
 <ol><li>Kein Karlsruher fährt mit dem Rad oder der Straßenbahn.</li>
-	<li>Kein Karlsruher fährt mit dem Rad und der Straßenbahn.</li>
-	<li>Alle Karlsruher fahren mit dem Rad und der Straßenbahn.</li>
-	<li>Alle Karlsruher fahren nicht mit dem Rad und der Straßenbahn.</li>
-	<li>Es fahren nicht alle Karlsruher mit dem Rad oder der Straßenbahn.</li>
+    <li>Kein Karlsruher fährt mit dem Rad und der Straßenbahn.</li>
+    <li>Alle Karlsruher fahren mit dem Rad und der Straßenbahn.</li>
+    <li>Alle Karlsruher fahren nicht mit dem Rad und der Straßenbahn.</li>
+    <li>Es fahren nicht alle Karlsruher mit dem Rad oder der Straßenbahn.</li>
         <li>Es fahren nicht alle Karlsruher mit dem Rad und der Straßenbahn.</li>
         <li>...</li>
 </ol>
 Nun wurde mir beigebracht, dass folgendes eine "saubere" Formalisierung der ersten Aussage ist:
 
-Sei K die Menge aller Karlsruher.
+<p>Sei K die Menge aller Karlsruher.
 Sei F Aussageform auf K und definiert durch $F(k) := \text{"k fährt mit dem Fahrrad"} (k \in K)$
-Sei analog S Aussageform auf K mit $S(k) := \text{"k fährt mit der Straßenbahn"}$
+Sei analog S Aussageform auf K mit $S(k) := \text{"k fährt mit der Straßenbahn"}$</p>
 
-Dann lautet (i) formalisiert:
-$\forall k \in K: F(k) \lor S(k)$ <small>(sprich: "Für alle k in K gilt: F von k oder S von k")</small>
+<p>Dann lautet (i) formalisiert:
+$\forall k \in K: F(k) \lor S(k)$ <small>(sprich: "Für alle k in K gilt: F von k oder S von k")</small></p>
 
-Negiert:
-$\exists k \in K: \neg F(k) \land \neg S(k)$ <small>(sprich: "Es existiert mindestens ein k in K für das gilt: Es ist F von k nicht wahr und zugleich S von k nicht wahr.")</small>
+<p>Negiert:
+$\exists k \in K: \neg F(k) \land \neg S(k)$ <small>(sprich: "Es existiert mindestens ein k in K für das gilt: Es ist F von k nicht wahr und zugleich S von k nicht wahr.")</small></p>
 
-Übersetzt man das in einen schöneren deutschen Satz kann man sagen:
-Mindestens ein Karlsruher fährt weder mit dem Rad noch mit der Bahn.
+<p>Übersetzt man das in einen schöneren deutschen Satz kann man sagen:
+Mindestens ein Karlsruher fährt weder mit dem Rad noch mit der Bahn.</p>
 
-Wenn man das nun auf die oben angegebenen Lösungen bezieht, könnte es Aussage 5 oder 6 sein. Der Sinngemäß muss es heißen:
+<p>Wenn man das nun auf die oben angegebenen Lösungen bezieht, könnte es Aussage 5 oder 6 sein. Der Sinngemäß muss es heißen:
 Es fahren nicht alle Karlsruher entweder mit dem Rad, der Straßenbahn oder beidem.
-Ich tendiere stark dazu, Satz 5 zu nehmen. Allerdings bin ich mir nicht sicher, ob mein Sprachgefühl mich täuscht.
+Ich tendiere stark dazu, Satz 5 zu nehmen. Allerdings bin ich mir nicht sicher, ob mein Sprachgefühl mich täuscht.</p>
 
 <h2 id="tocAnchor-1-3">Wöchentliches Fernsehprogramm</h2>
-Noch ein Beispiel aus meinem Tutorium:
-<blockquote>(ii) Im Fernsehen läuft jede Woche "Die Simpsons", "Die Ludolfs" und "Telekolleg".</blockquote>
 
-Sei W die Menge aller Wochen.
-Sei A Aussageform auf W.
+<p>Noch ein Beispiel aus meinem Tutorium:
+</p><blockquote>(ii) Im Fernsehen läuft jede Woche "Die Simpsons", "Die Ludolfs" und "Telekolleg".</blockquote>
 
-A(w) := In der Woche w läuft "Die Simpsons". $w \in W$
+<p>Sei W die Menge aller Wochen.
+Sei A Aussageform auf W.</p>
+
+<p>A(w) := In der Woche w läuft "Die Simpsons". $w \in W$
 B(w) := In der Woche w läuft "Die Ludolfs". $w \in W$
-C(w) := In der Woche w läuft "Telekolleg". $w \in W$
+C(w) := In der Woche w läuft "Telekolleg". $w \in W$</p>
 
-Dann lautet (ii) formalisiert:
-$\forall w \in W: A(w) \land B(w) \land C(w)$
+<p>Dann lautet (ii) formalisiert:
+$\forall w \in W: A(w) \land B(w) \land C(w)$</p>
 
-Negiert:
-$\exists w \in W: \neg A(w) \lor \neg B(w) \lor \neg C(w)$
+<p>Negiert:
+$\exists w \in W: \neg A(w) \lor \neg B(w) \lor \neg C(w)$</p>
 
 <h2 id="tocAnchor-1-4">Teilbarkeit</h2>
-Nun mal etwas eigenes:
+
+<p>Nun mal etwas eigenes:</p>
 
 <blockquote>(iii) Jede gerade Zahl ist durch zwei teilbar.</blockquote>
 
-Sei M die Menge der geraden Zahlen.
+<p>Sei M die Menge der geraden Zahlen.
 Dann lautet (iii) formalisiert:
-$\forall m \in M: x = \frac{m}{2} \implies x \in \mathbb{N}$
+$\forall m \in M: x = \frac{m}{2} \implies x \in \mathbb{N}$</p>
 
 <h2 id="tocAnchor-1-5">Weitere Materialien</h2>
+
 <ul><li><a href="http://lrb.cs.uni-dortmund.de/~tick/Lehre/WS10/Logik/01-introw.pdf">Uni Dortmund</a>: 15 Seiten zum Formalisieren vom Aussagen</li>
   <li><a href="http://page.math.tu-berlin.de/~schmitt/lina0910/loesungen/loesung01.pdf">TU-Berlin</a> (Aufgabe 4 - " Jeder, der ein gutes Gehor hat, kann richtig singen[...]")</li>
 </ul>
@@ -269,54 +274,54 @@ $\forall m \in M: x = \frac{m}{2} \implies x \in \mathbb{N}$
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Abschlussaufgaben Programmieren</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <strong>Hinweis</strong>: Dieser Blogpost ist vermutlich nur für Informatik-Studenten am KIT im WS 2011 / 2012 interessant!
+                            <p><strong>Hinweis</strong>: Dieser Blogpost ist vermutlich nur für Informatik-Studenten am KIT im WS 2011 / 2012 interessant!</p>
 
-Hier ein paar Hinweise zu den Abschlussaufgaben aus dem Forum. Dabei habe ich die Antworten von jgraf, mmohr und praktomat genommen.
+<p>Hier ein paar Hinweise zu den Abschlussaufgaben aus dem Forum. Dabei habe ich die Antworten von jgraf, mmohr und praktomat genommen.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -100,46 +100,49 @@ Hier ein paar Hinweise zu den Abschlussaufgaben aus dem Forum. Dabei habe ich di
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Allgemeines</h2>
+
 <ul><li>Was wir absolut nicht sehen wollen sind grosse Methoden, die verstreut über den ganzen Code diverse returns enthält. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
   <li>Parameter: Die Anzahl der Parameter muss exakt stimmen. Sind zu überzählige Parameter vorhanden, muss ein Fehler ausgegeben werden.</li>
   <li>toString/equals: Sollte nur für Klassen geschrieben werden, bei denen es Sinn macht. Vor allem auf eins aufpassen: Wenn man equals überschreibt, dann sollte man auch hashCode überschreiben (siehe <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html#equals(java.lang.Object">docs.oracle.com</a>) bzw, beliebige suche nach "equals hashCode"). Mir fallen spontan wenige Fälle ein, wo es keinen Sinn macht, equals()/hashCode() oder toString() zu überschreiben. Die Shell ist vielleicht so ein Fall, oder auch Utility-Klassen. </li>
   <li>Verbergt die tatsächlichen Typen, woimmer es möglich ist! Also z.B. <code>private Map meineMap = new HashMap<integer blub="">();</integer></code></li>
 </ul><blockquote>Frage: Dürfen Strings direkt im Programmcode stehen, oder sollten diese gesammelt am Beginn einer Klasse stehen?</blockquote>
 
-Antwort: Kommt darauf an, wenn Sie mehr als eimal verwendet werden, dann sollte man Konstanten daraus machen.
+<p>Antwort: Kommt darauf an, wenn Sie mehr als eimal verwendet werden, dann sollte man Konstanten daraus machen.</p>
 
 <blockquote>Frage: Soll die Shell nur korrekte Werte an den eigentlichen LittlePraktomat übergeben, also alle Fehlerquellen bereits in der Shell-Klasse abgefangen werden oder soll der LittlePraktomat Exceptions werfen, die in der Shell dann gefangen werden? Oder soll beides gemacht werden?</blockquote>
 
-Antwort: Die öffentlichen Methoden einer Klasse sind deren Schnittstelle. In den Javadoc Kommentaren sollte stehen, wie diese Schnittstelle zu verwenden ist. Also welcher Art die Eingaben sein müssen und wie die Ausgaben aussehen. Wenn sich ein Aufrufer nicht and diese Vereinbarung hält, dann sollte die Methode der Schnittstelle eine Exception werfen (IllegalArgument, NullPointer, ...). Diese Exceptions sollten normalerweise nie vom Aufrufer gefangen werden. Sie sollen das Program kontrolliert zum Absturz bringen. Die Logik dahinter ist folgende: Wenn eine IllegalArgumentException (oder ähnliches) fliegt, dann wurde eine Schnittstelle falsch verwendet. Der Aufrufer der Schnittstelle hat aber vor dem Aufruf sicher zu stellen, dass alle Forderungen der Schnittstelle eingehalten werden. D.h. wenn eine solche Exception auftritt liegt ein Programmierfehler vor. Mit Hilfe des Exceptionstacktrace kann der Entwickler diesen realtiv bequem finden und beheben.
+<p>Antwort: Die öffentlichen Methoden einer Klasse sind deren Schnittstelle. In den Javadoc Kommentaren sollte stehen, wie diese Schnittstelle zu verwenden ist. Also welcher Art die Eingaben sein müssen und wie die Ausgaben aussehen. Wenn sich ein Aufrufer nicht and diese Vereinbarung hält, dann sollte die Methode der Schnittstelle eine Exception werfen (IllegalArgument, NullPointer, ...). Diese Exceptions sollten normalerweise nie vom Aufrufer gefangen werden. Sie sollen das Program kontrolliert zum Absturz bringen. Die Logik dahinter ist folgende: Wenn eine IllegalArgumentException (oder ähnliches) fliegt, dann wurde eine Schnittstelle falsch verwendet. Der Aufrufer der Schnittstelle hat aber vor dem Aufruf sicher zu stellen, dass alle Forderungen der Schnittstelle eingehalten werden. D.h. wenn eine solche Exception auftritt liegt ein Programmierfehler vor. Mit Hilfe des Exceptionstacktrace kann der Entwickler diesen realtiv bequem finden und beheben.</p>
 
-Es ist also beides zu machen, die Shell (der Aufrufer) hat vor dem Verwenden der Praktomat-Schnittstelle sicher zu stellen, dass alle Eingaben korrekt sind. Sind die Eingaben falsch, dann wird eine Fehlermeldung ausgegeben. Die Praktomat-Schnittstelle schützt sich vor falscher Verwendung mit Hilfe von Exceptions.
+<p>Es ist also beides zu machen, die Shell (der Aufrufer) hat vor dem Verwenden der Praktomat-Schnittstelle sicher zu stellen, dass alle Eingaben korrekt sind. Sind die Eingaben falsch, dann wird eine Fehlermeldung ausgegeben. Die Praktomat-Schnittstelle schützt sich vor falscher Verwendung mit Hilfe von Exceptions.</p>
 
 <h2 id="tocAnchor-1-2">Tests</h2>
-Ihr <strong>müsst</strong> eine Tests.txt mit abgeben. Die ist wie ein Beispiel aufgebaut und sollt wichtige Eingaben / Ausgaben enthalten, die eventuell zu Fehlern führen könnten.
 
-Da ihr sie ja sowieso schreibt, könnt ihr euer Programm auch auf eure Tests.txt überprüfen. Ich habe mir dazu folgendes kleines <a href="http://martin-thoma.com/wp-content/uploads/2012/03/programmieren-abschlussaufgabe.zip">Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.
+<p>Ihr <strong>müsst</strong> eine Tests.txt mit abgeben. Die ist wie ein Beispiel aufgebaut und sollt wichtige Eingaben / Ausgaben enthalten, die eventuell zu Fehlern führen könnten.</p>
 
-Also folgendes in der Bash:
+<p>Da ihr sie ja sowieso schreibt, könnt ihr euer Programm auch auf eure Tests.txt überprüfen. Ich habe mir dazu folgendes kleines <a href="http://martin-thoma.com/wp-content/uploads/2012/03/programmieren-abschlussaufgabe.zip">Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.</p>
+
+<p>Also folgendes in der Bash:</p>
+
 <div class="highlight">
    <pre><code class="bash">python checkTests.py
 meld ../tmp/createdOutputNormalized.txt ../tmp/compareTo.txt
 </code></pre>
 </div>
 
-Ihr müsst halt noch die Pfade anpassen.
+<p>Ihr müsst halt noch die Pfade anpassen.</p>
 
 <h2 id="tocAnchor-1-3">Abschlussaufgabe 1</h2>
-Folgendes zum LittlePraktomat:
-<ul><li>Falls die Namen von Personen etwas anderes als Kleinbuchstaben haben (also z.B. Großbuchstaben!) soll ein Fehler ausgegeben werden. äöü müssen nicht als Kleinbuchstaben erkannt werden, a-z reicht.</li>
+
+<p>Folgendes zum LittlePraktomat:
+</p><ul><li>Falls die Namen von Personen etwas anderes als Kleinbuchstaben haben (also z.B. Großbuchstaben!) soll ein Fehler ausgegeben werden. äöü müssen nicht als Kleinbuchstaben erkannt werden, a-z reicht.</li>
 </ul><h2 id="tocAnchor-1-4">Abschlussaufgabe 2</h2>
-Folgendes zu <a href="http://de.wikipedia.org/wiki/Othello_(Spiel)">Othello</a>:
-<ul><li>Wer sehr schnell die Aufgabe erledigt hatte (also noch am ersten Tag), dem fehlen hier eventuell ein paar Sachen. Habt ihr den hole-Befehl? Falls ja, ist alles ok. Sonst solltet ihr nochmals rein schauen und eure Lösung nochmals hochladen, weil eine veraltete Aufgabenstellung zu beginn hochgeladen wurde.</li>
+
+<p>Folgendes zu <a href="http://de.wikipedia.org/wiki/Othello_(Spiel)">Othello</a>:
+</p><ul><li>Wer sehr schnell die Aufgabe erledigt hatte (also noch am ersten Tag), dem fehlen hier eventuell ein paar Sachen. Habt ihr den hole-Befehl? Falls ja, ist alles ok. Sonst solltet ihr nochmals rein schauen und eure Lösung nochmals hochladen, weil eine veraltete Aufgabenstellung zu beginn hochgeladen wurde.</li>
 <li>Eine gültige Spielfeldgröße MUSS gerade breite / höhe haben, größer als 0x0 sein und kleiner gleich 26x98 sein.</li>
 <li>Ein gültiges Rechteck MUSS die erste Koordinate links oben und die zweite rechts unten haben!</li>
-</ul>
-
-Es gibt folgende Befehle:
-<ul><li>newGame <breite><h> [<stellung>]</stellung></h></breite></li>
+</ul><p>Es gibt folgende Befehle:
+</p><ul><li>newGame <breite><h> [<stellung>]</stellung></h></breite></li>
   <li>hole <rechteck></rechteck></li>
   <li>move <position></position></li>
   <li>print</li>
@@ -147,20 +150,22 @@ Es gibt folgende Befehle:
   <li>possibleMoves</li>
   <li>quit</li>
 </ul><h2 id="tocAnchor-1-5">Daten</h2>
-<strong>Abschlussaufgabe 1</strong>: 01.02.2012 - 12.03.2012
-Funktionalität: 0 - 7 Punkte
-Programmiermethodik: 0 - 7 Punkte
-Endnote = (2 · Funktionalität + Programmiermethodik)
 
-<strong>Abschlussaufgabe 2</strong>: 13.02.2012 - 26.03.2012, 13:00 Uhr
+<p><strong>Abschlussaufgabe 1</strong>: 01.02.2012 - 12.03.2012
 Funktionalität: 0 - 7 Punkte
 Programmiermethodik: 0 - 7 Punkte
-Endnote = (2 · Funktionalität + Programmiermethodik)
+Endnote = (2 · Funktionalität + Programmiermethodik)</p>
+
+<p><strong>Abschlussaufgabe 2</strong>: 13.02.2012 - 26.03.2012, 13:00 Uhr
+Funktionalität: 0 - 7 Punkte
+Programmiermethodik: 0 - 7 Punkte
+Endnote = (2 · Funktionalität + Programmiermethodik)</p>
 
 <h2 id="tocAnchor-1-6">Ergebnisse</h2>
-Mir wird, wenn ich im Abschlussaufgaben-Praktomat auf "Home" klicke, bereits angezeigt, dass es anscheinend maximal 24 Punkte auf die "Abschlußaufgabe 1: Little Praktomat" gibt. Bin ja mal gespannt, wann es Ergebnisse gibt.
 
-Es gab jeweils auf Funktionalität und Programmiermethodik 14 Punkte, wobei die Punktzahl der Funktionalität verdoppelt wurde. Damit kommen wir insgesamt auf 2 * (14*2 + 14)= 84 Punkte. Der Notenschlüssel ist wie folgt:
+<p>Mir wird, wenn ich im Abschlussaufgaben-Praktomat auf "Home" klicke, bereits angezeigt, dass es anscheinend maximal 24 Punkte auf die "Abschlußaufgabe 1: Little Praktomat" gibt. Bin ja mal gespannt, wann es Ergebnisse gibt.</p>
+
+<p>Es gab jeweils auf Funktionalität und Programmiermethodik 14 Punkte, wobei die Punktzahl der Funktionalität verdoppelt wurde. Damit kommen wir insgesamt auf 2 * (14*2 + 14)= 84 Punkte. Der Notenschlüssel ist wie folgt:</p>
 
 <table>
    <tr>
@@ -212,20 +217,23 @@ Es gab jeweils auf Funktionalität und Programmiermethodik 14 Punkte, wobei die 
       <td>5,0 - nicht bestanden</td>
    </tr>
 </table><h2 id="tocAnchor-1-7">Meine Abgabe</h2>
+
 <ul><li>LittlePraktomat: <a href="http://www.martin-thoma.de/programmieren-little-praktomat/class-diagram/class-diagram.pdf">Klassendiagramm</a> + <a href="http://www.martin-thoma.de/programmieren-little-praktomat/">JavaDoc</a> + <a href="http://martin-thoma.com/wp-content/uploads/2012/03/little-praktomat.zip">Java Source Code</a></li>
   <li>Othello: <a href="http://www.martin-thoma.de/programmieren-othello/">JavaDoc</a> + <a href="http://martin-thoma.com/wp-content/uploads/2012/03/othello.zip">Java Source Code</a></li>
 </ul><h3 id="tocAnchor-1-7-1">Fehlerquellen</h3>
-Es wurde bemängelt, dass ich wenig Kommentare hab. Ich finde, ich habe wahnsinnig viele ...
+
+<p>Es wurde bemängelt, dass ich wenig Kommentare hab. Ich finde, ich habe wahnsinnig viele ...</p>
 
 <h4>LittlePraktomat</h4>
-<strong>Test 4</strong>:
+
+<p><strong>Test 4</strong>:
 Eingabe: list-solutions 99999999999999999999
 Exception in thread "main" java.lang.NumberFormatException - die Zahl ist zu groß
-<strong>Test 7</strong>: Aus Blödheit nicht bestanden ... ich habe eine Funktion (das wechseln von Tutoren) nicht überprüft.
+<strong>Test 7</strong>: Aus Blödheit nicht bestanden ... ich habe eine Funktion (das wechseln von Tutoren) nicht überprüft.</p>
 
 <h4>Othello</h4>
-<strong>Test 6 b</strong>: Direkt nach dem Start des Programms "hole A1:A1" hat eine (meiner eigenen) Exceptions geworfen ... bzw. mit korrekter Angabe, wo der Fehler liegt ... also auch Dummheit *argh*
 
+<p><strong>Test 6 b</strong>: Direkt nach dem Start des Programms "hole A1:A1" hat eine (meiner eigenen) Exceptions geworfen ... bzw. mit korrekter Angabe, wo der Fehler liegt ... also auch Dummheit <em>argh</em></p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -333,54 +341,54 @@ Exception in thread "main" java.lang.NumberFormatException - die Zahl ist zu gro
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

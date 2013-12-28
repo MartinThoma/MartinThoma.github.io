@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to parse command line arguments in Java</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -66,9 +66,9 @@
 			
 						<div class="entry">
                             <p>If you are using Eclipse, you might want to add your arguments. To specify them, go to:
-Run → Run Configurations ... → Arguments
+Run → Run Configurations ... → Arguments</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -101,34 +101,36 @@ Run → Run Configurations ... → Arguments
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">args4j</h2>
-<blockquote>args4j is a small Java class library that makes it easy to parse command line options/arguments in your CUI application.</blockquote>
-Source: <a href="http://args4j.kohsuke.org/">args4j.kohsuke.org</a>
 
-Lets see how easy it really is.
+<blockquote>args4j is a small Java class library that makes it easy to parse command line options/arguments in your CUI application.</blockquote>
+
+<p>Source: <a href="http://args4j.kohsuke.org/">args4j.kohsuke.org</a></p>
+
+<p>Lets see how easy it really is.</p>
 
 <h3 id="tocAnchor-1-1-1">Requirements</h3>
-First, you have to get the package. It is not in my Ubuntu-Version, but <a href="http://packages.ubuntu.com/quantal/libargs4j-java">Ubuntu Quantal will have args4j</a>. The package is called <code>libargs4j-java</code>.
 
-If you can't install it this way, you have to <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/">download args4j</a>. Currently, it is <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/args4j/2.0.21/args4j-2.0.21.jar">args4j-2.0.21.jar</a>.
+<p>First, you have to get the package. It is not in my Ubuntu-Version, but <a href="http://packages.ubuntu.com/quantal/libargs4j-java">Ubuntu Quantal will have args4j</a>. The package is called <code>libargs4j-java</code>.</p>
 
-You can add this as an external jar to Eclipse:
-<ol><li>Right-click on your project.</li>
+<p>If you can't install it this way, you have to <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/">download args4j</a>. Currently, it is <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/args4j/2.0.21/args4j-2.0.21.jar">args4j-2.0.21.jar</a>.</p>
+
+<p>You can add this as an external jar to Eclipse:
+</p><ol><li>Right-click on your project.</li>
   <li>Select "Properties"</li>
   <li>Type "java build path" in the input field at the upper left corner of the window.</li>
-</ol>
-
-Now it should look like this:
-<div style="width: 300px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/07/java-eclipse-project-properties-libraries-300x214.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" alt="" width="300" height="214" class="size-medium wp-image-33151" />
+</ol><p>Now it should look like this:
+</p><div style="width: 300px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-project-properties-libraries-300x214.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" alt="" width="300" height="214" class="size-medium wp-image-33151" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-Now you have to click on "Add External Jar" and add the args4j.jar file.
+<p>Now you have to click on "Add External Jar" and add the args4j.jar file.</p>
 
 <h3 id="tocAnchor-1-1-2">Source Example</h3>
-As always in Java, you add another class for parsing your command line values. I've called it CommandLineValues.java and it does only check for the command line argument <code>-i FILE</code> or <code>--input FILE</code>.
+
+<p>As always in Java, you add another class for parsing your command line values. I've called it CommandLineValues.java and it does only check for the command line argument <code>-i FILE</code> or <code>--input FILE</code>.</p>
 
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
@@ -187,7 +189,8 @@ As always in Java, you add another class for parsing your command line values. I
 </code></pre>
 </div>
 
-Here is some part of the main file:
+<p>Here is some part of the main file:</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">CommandLineValues</span> <span class="n">values</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CommandLineValues</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
@@ -211,7 +214,9 @@ Here is some part of the main file:
 </div>
 
 <h3 id="tocAnchor-1-1-3">Usage Examples</h3>
-If you do not specify the required parameters, you get a quite good error message:
+
+<p>If you do not specify the required parameters, you get a quite good error message:</p>
+
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Desktop<span class="nv">$ </span>java -jar matrix-multiplication.jar
 Option <span class="s2">"-i (--input)"</span> is required
@@ -219,7 +224,8 @@ Option <span class="s2">"-i (--input)"</span> is required
 </code></pre>
 </div>
 
-Help is <strong>not</strong> automatically generated:
+<p>Help is <strong>not</strong> automatically generated:</p>
+
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Desktop<span class="nv">$ </span>java -jar matrix-multiplication.jar --help
 <span class="s2">"--help"</span> is not a valid option
@@ -227,20 +233,25 @@ Help is <strong>not</strong> automatically generated:
 </code></pre>
 </div>
 
-If you want to have default parameters, you simply assign the values to the attributes:
+<p>If you want to have default parameters, you simply assign the values to the attributes:</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="nd">@Option</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"-l"</span><span class="o">,</span> <span class="n">aliases</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"--leafsize"</span> <span class="o">},</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span>
         <span class="n">usage</span> <span class="o">=</span> <span class="s">"input file with two matrices"</span><span class="o">)</span>
 <span class="kd">private</span> <span class="kt">int</span> <span class="n">leafsize</span> <span class="o">=</span> <span class="mi">32</span><span class="o">;</span>
 </code></pre>
 </div>
-Note: <a href="http://stackoverflow.com/q/7834111/562769">How can I prevent Eclipse from adding the 'final' for certain lines of Java code?</a>
+
+<p>Note: <a href="http://stackoverflow.com/q/7834111/562769">How can I prevent Eclipse from adding the 'final' for certain lines of Java code?</a></p>
 
 <h2 id="tocAnchor-1-5">Commons CLI</h2>
-<h3 id="tocAnchor-1-5-1">Installation</h3>
-As for args4j, they offer a jar file which is in <a href="http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist//commons/cli/binaries/commons-cli-1.2-bin.tar.gz">commons-cli-1.2-bin.tar.gz</a> on the <a href="http://commons.apache.org/cli/download_cli.cgi">download-page</a>.
 
-If you just want to test if you have the required packages, copy this piece of code to Eclipse:
+<h3 id="tocAnchor-1-5-1">Installation</h3>
+
+<p>As for args4j, they offer a jar file which is in <a href="http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist//commons/cli/binaries/commons-cli-1.2-bin.tar.gz">commons-cli-1.2-bin.tar.gz</a> on the <a href="http://commons.apache.org/cli/download_cli.cgi">download-page</a>.</p>
+
+<p>If you just want to test if you have the required packages, copy this piece of code to Eclipse:</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CommandLineValues</span> <span class="o">{</span>
     <span class="n">CommandLineParser</span> <span class="n">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BasicParser</span><span class="o">();</span>
@@ -248,18 +259,20 @@ If you just want to test if you have the required packages, copy this piece of c
 </code></pre>
 </div>
 
-If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:
-<div style="width: 431px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/07/java-eclipse-cli-lib-error.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/07/java-eclipse-cli-lib-error.png" alt="" width="431" height="89" class="size-full wp-image-33201" />
+<p>If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:
+</p><div style="width: 431px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-cli-lib-error.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-cli-lib-error.png" alt="" width="431" height="89" class="size-full wp-image-33201" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
 <h3 id="tocAnchor-1-5-2">Usage examples</h3>
-I have not found a single, complete and working usage example.
+
+<p>I have not found a single, complete and working usage example.</p>
 
 <h2 id="tocAnchor-1-8">See also</h2>
+
 <ul><li><a href="http://stackoverflow.com/q/367706/562769">Is there a good command line argument parser for Java?</a> - A lot of other command line parsers are mentioned for Java.</li>
   <li><a href="http://args4j.kohsuke.org/args4j/apidocs/">args4j JavaDoc</a></li>
   <li><a href="http://commons.apache.org/cli/api-release/index.html">Apache CLI JavaDoc</a></li>
@@ -371,54 +384,54 @@ I have not found a single, complete and working usage example.
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

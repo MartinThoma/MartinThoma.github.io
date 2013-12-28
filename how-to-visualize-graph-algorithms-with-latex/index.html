@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to visualize Graph algorithms with LaTeX</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -68,8 +68,8 @@
                             <p>Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template ;-) ). This post should give you a template to visualize graph algorithms with LaTeX.
 I recently found a great animation of Prim's algorithm done by <a href="http://www.texample.net/tikz/examples/prims-algorithm/">Kjell Magne Fauske</a>. I've edited his source files to show an eulerian path. This is how it looks like:
 </p><div style="width: 512px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/05/tikz-animation.gif">
-      <img src="http://localhost/blog/_site/images/../images/2012/05/tikz-animation.gif" alt="" width="512" height="228" class="size-full wp-image-24611" />
+   <a href="http://martinthoma.github.io/images/../images/2012/05/tikz-animation.gif">
+      <img src="http://martinthoma.github.io/images/../images/2012/05/tikz-animation.gif" alt="" width="512" height="228" class="size-full wp-image-24611" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
@@ -103,9 +103,12 @@ This animation was automatically created. See <a href="http://martin-thoma.com/w
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">The ideas</h2>
+
 <h3 id="tocAnchor-1-1-1">Draw the Graph</h3>
-If you want to visualize a graph algorithm, you should first try to get the image of the graph with Tikz. 
-First include all packages / create the general structure of the document:
+
+<p>If you want to visualize a graph algorithm, you should first try to get the image of the graph with Tikz. 
+First include all packages / create the general structure of the document:</p>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">documentclass</span><span class="p">[</span><span class="n">hyperref</span><span class="o">=</span><span class="p">{</span><span class="n">pdfpagelabels</span><span class="o">=</span><span class="n">false</span><span class="p">}]{</span><span class="n">beamer</span><span class="p">}</span>
 \<span class="n">usepackage</span><span class="p">{</span><span class="n">lmodern</span><span class="p">}</span>
@@ -124,53 +127,60 @@ First include all packages / create the general structure of the document:
 
 \<span class="n">begin</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
 \<span class="n">begin</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-	<span class="n">Your</span> <span class="n">content</span> <span class="n">will</span> <span class="n">be</span> <span class="n">here</span><span class="o">.</span>
+    <span class="n">Your</span> <span class="n">content</span> <span class="n">will</span> <span class="n">be</span> <span class="n">here</span><span class="o">.</span>
 \<span class="n">end</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
 \<span class="n">end</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
 </code></pre>
 </div>
 
-Simple graphs could look like this:
+<p>Simple graphs could look like this:</p>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">begin</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-	\<span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}[</span><span class="o">-&gt;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span><span class="n">swap</span><span class="p">]</span>
-		<span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span>
-		\<span class="n">node</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">a</span> <span class="p">(</span><span class="n">this</span> <span class="ow">is</span> <span class="n">text</span><span class="p">)</span><span class="err">$</span><span class="p">};</span>
-		\<span class="n">node</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">b</span><span class="err">$</span><span class="p">};</span>
-		\<span class="n">node</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">c</span><span class="err">$</span><span class="p">};</span>
-		\<span class="n">node</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">d</span><span class="err">$</span><span class="p">};</span>
-		\<span class="n">node</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">d</span><span class="err">$</span><span class="p">};</span>
+    \<span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}[</span><span class="o">-&gt;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span><span class="n">swap</span><span class="p">]</span>
+        <span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span>
+        \<span class="n">node</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">a</span> <span class="p">(</span><span class="n">this</span> <span class="ow">is</span> <span class="n">text</span><span class="p">)</span><span class="err">$</span><span class="p">};</span>
+        \<span class="n">node</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">b</span><span class="err">$</span><span class="p">};</span>
+        \<span class="n">node</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">c</span><span class="err">$</span><span class="p">};</span>
+        \<span class="n">node</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">d</span><span class="err">$</span><span class="p">};</span>
+        \<span class="n">node</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">d</span><span class="err">$</span><span class="p">};</span>
 
-		<span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
-		\<span class="n">path</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="p">);</span>
-		\<span class="n">path</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">c</span><span class="p">);</span>
-		\<span class="n">path</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="p">);</span>
-		\<span class="n">path</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">a</span><span class="p">);</span>
-	\<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
+        <span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
+        \<span class="n">path</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="p">);</span>
+        \<span class="n">path</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">c</span><span class="p">);</span>
+        \<span class="n">path</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="p">);</span>
+        \<span class="n">path</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    \<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
 \<span class="n">end</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
 </code></pre>
 </div>
 
-You should get something similar to this:
-<div style="width: 300px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/05/simple-example-graph-300x105.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/05/simple-example-graph-300x105.png" alt="" width="300" height="105" class="size-medium wp-image-24691" />
+<p>You should get something similar to this:
+</p><div style="width: 300px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/05/simple-example-graph-300x105.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/05/simple-example-graph-300x105.png" alt="" width="300" height="105" class="size-medium wp-image-24691" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
 <h3 id="tocAnchor-1-1-2">Animate</h3>
-Animations can be created with Tikz by working with layers. You don't want to redraw the whole graph every time. Most of the time you want to overlay/underlay some parts of the graph. This can be achieved by declaring a new layer:
+
+<p>Animations can be created with Tikz by working with layers. You don't want to redraw the whole graph every time. Most of the time you want to overlay/underlay some parts of the graph. This can be achieved by declaring a new layer:</p>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">NAME</span><span class="p">}</span>
 </code></pre>
 </div>
-Then you need to tell PGF which layers are to use in the next figure:
+
+<p>Then you need to tell PGF which layers are to use in the next figure:</p>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">pgfsetlayers</span><span class="p">{</span><span class="n">LAYER</span> <span class="n">LIST</span><span class="p">}</span>
 </code></pre>
 </div>
-The layer main should always be part of the list. Here is an example:
+
+<p>The layer main should always be part of the list. Here is an example:</p>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">background</span><span class="p">}</span>
 \<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">foreground</span><span class="p">}</span>
@@ -178,18 +188,21 @@ The layer main should always be part of the list. Here is an example:
 </code></pre>
 </div>
 
-Now the magic begins. You consecutively add frames to the layer:
+<p>Now the magic begins. You consecutively add frames to the layer:</p>
+
 <div class="highlight">
-   <pre><code class="python">	\<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
-		\<span class="n">path</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-		\<span class="n">path</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-		\<span class="n">path</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-	\<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
+   <pre><code class="python">   \<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
+        \<span class="n">path</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
+        \<span class="n">path</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
+        \<span class="n">path</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
+    \<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
 </code></pre>
 </div>
-The number (2, 10 and 12 in this example) indicate the frame in which it should be added. This is the absolute frame, but 1 is the first frame of the figure environment!
+
+<p>The number (2, 10 and 12 in this example) indicate the frame in which it should be added. This is the absolute frame, but 1 is the first frame of the figure environment!</p>
 
 <h3 id="tocAnchor-1-1-3">Status quo</h3>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">documentclass</span><span class="p">[</span><span class="n">hyperref</span><span class="o">=</span><span class="p">{</span><span class="n">pdfpagelabels</span><span class="o">=</span><span class="n">false</span><span class="p">}]{</span><span class="n">beamer</span><span class="p">}</span>
 \<span class="n">usepackage</span><span class="p">{</span><span class="n">lmodern</span><span class="p">}</span>
@@ -220,7 +233,7 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
         \<span class="n">node</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">b</span><span class="err">$</span><span class="p">};</span>
         \<span class="n">node</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">c</span><span class="err">$</span><span class="p">};</span>
         \<span class="n">node</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">d</span><span class="err">$</span><span class="p">};</span>
-		\<span class="n">node</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">d</span><span class="err">$</span><span class="p">};</span>
+        \<span class="n">node</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="err">$</span><span class="n">d</span><span class="err">$</span><span class="p">};</span>
  
         <span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
         \<span class="n">path</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="p">);</span>
@@ -228,11 +241,11 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
         \<span class="n">path</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="p">);</span>
         \<span class="n">path</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">a</span><span class="p">);</span>
 
-		\<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
-			\<span class="n">path</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-			\<span class="n">path</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-			\<span class="n">path</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-		\<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
+        \<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
+            \<span class="n">path</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
+            \<span class="n">path</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
+            \<span class="n">path</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
+        \<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
     \<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
 \<span class="n">end</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
 \<span class="n">end</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
@@ -241,28 +254,33 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
 </div>
 
 <h3 id="tocAnchor-1-1-4">Simplify it</h3>
-You can make some definitions, e.g.:
+
+<p>You can make some definitions, e.g.:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span>
 </code></pre>
 </div>
-can be replaced by
+
+<p>can be replaced by</p>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">selected</span> <span class="n">edge</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span>
 </code></pre>
 </div>
 
-You can make loops:
+<p>You can make loops:</p>
+
 <div class="highlight">
-   <pre><code class="python">	<span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span>
-	\<span class="n">foreach</span> \<span class="n">pos</span> <span class="o">/</span> \<span class="n">identifier</span> <span class="o">/</span> \<span class="n">name</span> <span class="ow">in</span> <span class="p">{{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">a</span> <span class="p">(</span><span class="n">this</span> <span class="ow">is</span> <span class="n">text</span><span class="p">)},</span> 
-		<span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="n">b</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">c</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="n">d</span><span class="p">},</span> <span class="p">{(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">d</span><span class="p">}}</span>
-		\<span class="n">node</span> <span class="p">(</span>\<span class="n">identifier</span><span class="p">)</span> <span class="n">at</span> \<span class="n">pos</span> <span class="p">{</span><span class="err">$</span>\<span class="n">name</span><span class="err">$</span><span class="p">};</span>
+   <pre><code class="python">   <span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span>
+    \<span class="n">foreach</span> \<span class="n">pos</span> <span class="o">/</span> \<span class="n">identifier</span> <span class="o">/</span> \<span class="n">name</span> <span class="ow">in</span> <span class="p">{{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">a</span> <span class="p">(</span><span class="n">this</span> <span class="ow">is</span> <span class="n">text</span><span class="p">)},</span> 
+        <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="n">b</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">c</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="n">d</span><span class="p">},</span> <span class="p">{(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">d</span><span class="p">}}</span>
+        \<span class="n">node</span> <span class="p">(</span>\<span class="n">identifier</span><span class="p">)</span> <span class="n">at</span> \<span class="n">pos</span> <span class="p">{</span><span class="err">$</span>\<span class="n">name</span><span class="err">$</span><span class="p">};</span>
 </code></pre>
 </div>
 
-
 <h2 id="tocAnchor-1-6">The whole, working template</h2>
+
 <div class="highlight">
    <pre><code class="python">\<span class="n">documentclass</span><span class="p">[</span><span class="n">hyperref</span><span class="o">=</span><span class="p">{</span><span class="n">pdfpagelabels</span><span class="o">=</span><span class="n">false</span><span class="p">}]{</span><span class="n">beamer</span><span class="p">}</span>
 \<span class="n">usepackage</span><span class="p">{</span><span class="n">lmodern</span><span class="p">}</span>
@@ -299,48 +317,49 @@ You can make loops:
 \<span class="n">pgfsetlayers</span><span class="p">{</span><span class="n">background</span><span class="p">,</span><span class="n">main</span><span class="p">}</span>
 
 \<span class="n">begin</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-	\<span class="n">begin</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-		\<span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}[</span><span class="o">-&gt;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span><span class="n">swap</span><span class="p">]</span>
-			<span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span> <span class="n">First</span> <span class="n">you</span> <span class="n">define</span> <span class="n">a</span> <span class="nb">list</span><span class="o">.</span>
-			\<span class="n">foreach</span> \<span class="n">pos</span><span class="o">/</span>\<span class="n">name</span> <span class="ow">in</span> <span class="p">{{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="p">},</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="p">},</span>
-				                    <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">},</span> <span class="p">{(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="p">},</span> <span class="p">{(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">},</span> 
-									<span class="p">{(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">g</span><span class="p">},</span> <span class="p">{(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">h</span><span class="p">},</span> <span class="p">{(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">i</span><span class="p">},</span>
-									<span class="p">{(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">j</span><span class="p">}}</span>
-				\<span class="n">node</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="p">(</span>\<span class="n">name</span><span class="p">)</span> <span class="n">at</span> \<span class="n">pos</span> <span class="p">{</span><span class="err">$</span>\<span class="n">name</span><span class="err">$</span><span class="p">};</span>
+    \<span class="n">begin</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
+        \<span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}[</span><span class="o">-&gt;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span><span class="n">swap</span><span class="p">]</span>
+            <span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span> <span class="n">First</span> <span class="n">you</span> <span class="n">define</span> <span class="n">a</span> <span class="nb">list</span><span class="o">.</span>
+            \<span class="n">foreach</span> \<span class="n">pos</span><span class="o">/</span>\<span class="n">name</span> <span class="ow">in</span> <span class="p">{{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="p">},</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="p">},</span>
+                                    <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">},</span> <span class="p">{(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="p">},</span> <span class="p">{(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">},</span> 
+                                    <span class="p">{(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">g</span><span class="p">},</span> <span class="p">{(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">h</span><span class="p">},</span> <span class="p">{(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">i</span><span class="p">},</span>
+                                    <span class="p">{(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">j</span><span class="p">}}</span>
+                \<span class="n">node</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="p">(</span>\<span class="n">name</span><span class="p">)</span> <span class="n">at</span> \<span class="n">pos</span> <span class="p">{</span><span class="err">$</span>\<span class="n">name</span><span class="err">$</span><span class="p">};</span>
 
-			<span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
-			\<span class="n">foreach</span> \<span class="n">source</span><span class="o">/</span> \<span class="n">dest</span> <span class="o">/</span>\<span class="n">pos</span> <span class="ow">in</span> <span class="p">{</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="p">,</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="p">,</span>
-										<span class="n">c</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="p">,</span>
-										<span class="n">e</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="p">,</span>
-										<span class="n">g</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="n">bend</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span>
-										<span class="n">g</span><span class="o">/</span><span class="n">h</span><span class="o">/</span><span class="p">,</span> <span class="n">h</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="p">,</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="p">}</span>
-				\<span class="n">path</span> <span class="p">(</span>\<span class="n">source</span><span class="p">)</span> <span class="n">edge</span> <span class="p">[</span>\<span class="n">pos</span><span class="p">]</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span>\<span class="n">dest</span><span class="p">);</span>
+            <span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
+            \<span class="n">foreach</span> \<span class="n">source</span><span class="o">/</span> \<span class="n">dest</span> <span class="o">/</span>\<span class="n">pos</span> <span class="ow">in</span> <span class="p">{</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="p">,</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="p">,</span>
+                                        <span class="n">c</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="p">,</span>
+                                        <span class="n">e</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="p">,</span>
+                                        <span class="n">g</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="n">bend</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span>
+                                        <span class="n">g</span><span class="o">/</span><span class="n">h</span><span class="o">/</span><span class="p">,</span> <span class="n">h</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="p">,</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="p">}</span>
+                \<span class="n">path</span> <span class="p">(</span>\<span class="n">source</span><span class="p">)</span> <span class="n">edge</span> <span class="p">[</span>\<span class="n">pos</span><span class="p">]</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span>\<span class="n">dest</span><span class="p">);</span>
 
-			<span class="o">%</span> <span class="n">Start</span> <span class="n">animating</span> <span class="n">the</span> <span class="n">edge</span> <span class="n">selection</span><span class="o">.</span> 
-			<span class="o">%</span> <span class="n">For</span> <span class="n">convenience</span> <span class="n">we</span> <span class="n">use</span> <span class="n">a</span> <span class="n">background</span> <span class="n">layer</span> <span class="n">to</span> 
-			<span class="o">%</span> <span class="n">highlight</span> <span class="n">edges</span><span class="o">.</span> <span class="n">This</span> <span class="n">way</span> <span class="n">we</span> <span class="n">don</span><span class="s">'t have to worry about </span>
-			<span class="o">%</span> <span class="n">the</span> <span class="n">highlighting</span> <span class="n">covering</span> <span class="n">weight</span> <span class="n">labels</span><span class="o">.</span> 
-			\<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
-				\<span class="n">foreach</span> \<span class="n">source</span> <span class="o">/</span> \<span class="n">dest</span> <span class="o">/</span> \<span class="n">fr</span> <span class="o">/</span> \<span class="n">pos</span> <span class="ow">in</span> <span class="p">{</span><span class="n">d</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="p">,</span>
-						<span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="p">,</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">5</span><span class="o">/</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="p">,</span> 
-						<span class="n">c</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="mi">9</span><span class="o">/</span><span class="p">,</span>
-						<span class="n">g</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="n">bend</span> <span class="n">right</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="p">,</span> <span class="n">g</span><span class="o">/</span><span class="n">h</span><span class="o">/</span><span class="mi">13</span><span class="o">/</span><span class="p">,</span> 
-						<span class="n">h</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="p">,</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="mi">15</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">}</span>
-				    \<span class="n">path</span><span class="o">&lt;</span>\<span class="n">fr</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">selected</span> <span class="n">edge</span><span class="p">]</span> <span class="p">(</span>\<span class="n">source</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> 
-										<span class="p">[</span>\<span class="n">pos</span><span class="p">]</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span>\<span class="n">dest</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-			\<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
-		\<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
-	\<span class="n">end</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-	<span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consetetur</span> <span class="n">sadipscing</span> <span class="n">elitr</span><span class="p">,</span> 
-	<span class="n">sed</span> <span class="n">diam</span> <span class="n">nonumy</span> <span class="n">eirmod</span> <span class="n">tempor</span> <span class="n">invidunt</span> <span class="n">ut</span> <span class="n">labore</span> <span class="n">et</span> <span class="n">dolore</span>
-	<span class="n">magna</span> <span class="n">aliquyam</span> <span class="n">erat</span><span class="p">,</span> <span class="n">sed</span> <span class="n">diam</span> <span class="n">voluptua</span><span class="o">.</span> <span class="n">At</span> <span class="n">vero</span> <span class="n">eos</span> <span class="n">et</span> 
-	<span class="n">accusam</span> <span class="n">et</span><span class="o">.</span>
+            <span class="o">%</span> <span class="n">Start</span> <span class="n">animating</span> <span class="n">the</span> <span class="n">edge</span> <span class="n">selection</span><span class="o">.</span> 
+            <span class="o">%</span> <span class="n">For</span> <span class="n">convenience</span> <span class="n">we</span> <span class="n">use</span> <span class="n">a</span> <span class="n">background</span> <span class="n">layer</span> <span class="n">to</span> 
+            <span class="o">%</span> <span class="n">highlight</span> <span class="n">edges</span><span class="o">.</span> <span class="n">This</span> <span class="n">way</span> <span class="n">we</span> <span class="n">don</span><span class="s">'t have to worry about </span>
+            <span class="o">%</span> <span class="n">the</span> <span class="n">highlighting</span> <span class="n">covering</span> <span class="n">weight</span> <span class="n">labels</span><span class="o">.</span> 
+            \<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
+                \<span class="n">foreach</span> \<span class="n">source</span> <span class="o">/</span> \<span class="n">dest</span> <span class="o">/</span> \<span class="n">fr</span> <span class="o">/</span> \<span class="n">pos</span> <span class="ow">in</span> <span class="p">{</span><span class="n">d</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="p">,</span>
+                        <span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="p">,</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">5</span><span class="o">/</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="p">,</span> 
+                        <span class="n">c</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="mi">9</span><span class="o">/</span><span class="p">,</span>
+                        <span class="n">g</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="n">bend</span> <span class="n">right</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="p">,</span> <span class="n">g</span><span class="o">/</span><span class="n">h</span><span class="o">/</span><span class="mi">13</span><span class="o">/</span><span class="p">,</span> 
+                        <span class="n">h</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="p">,</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="mi">15</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">}</span>
+                    \<span class="n">path</span><span class="o">&lt;</span>\<span class="n">fr</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">selected</span> <span class="n">edge</span><span class="p">]</span> <span class="p">(</span>\<span class="n">source</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> 
+                                        <span class="p">[</span>\<span class="n">pos</span><span class="p">]</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span>\<span class="n">dest</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
+            \<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
+        \<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
+    \<span class="n">end</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
+    <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consetetur</span> <span class="n">sadipscing</span> <span class="n">elitr</span><span class="p">,</span> 
+    <span class="n">sed</span> <span class="n">diam</span> <span class="n">nonumy</span> <span class="n">eirmod</span> <span class="n">tempor</span> <span class="n">invidunt</span> <span class="n">ut</span> <span class="n">labore</span> <span class="n">et</span> <span class="n">dolore</span>
+    <span class="n">magna</span> <span class="n">aliquyam</span> <span class="n">erat</span><span class="p">,</span> <span class="n">sed</span> <span class="n">diam</span> <span class="n">voluptua</span><span class="o">.</span> <span class="n">At</span> <span class="n">vero</span> <span class="n">eos</span> <span class="n">et</span> 
+    <span class="n">accusam</span> <span class="n">et</span><span class="o">.</span>
 \<span class="n">end</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
 \<span class="n">end</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-7">Resources</h2>
+
 <ul><li><a href="http://paws.wcu.edu/tsfoguel/tikzpgfmanual.pdf">TikZ and pgf: Manual for version 1.18</a></li>
   <li><a href="http://www.texample.net/tikz/examples/">TeXamples.net</a>: Great page with many Tikz-Examples</li>
   <li><a href="http://www.tex.ac.uk/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf">The beamer class</a></li>
@@ -452,54 +471,54 @@ You can make loops:
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

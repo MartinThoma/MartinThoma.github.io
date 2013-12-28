@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Permutationen und Transpositionen</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -99,48 +99,54 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Permutation</h2>
+
 <h3 id="tocAnchor-1-1-1">Definition</h3>
+
 <div class="definition">Es sei M eine endliche Menge. Eine bijektive Selbstabbildung von M heißt <strong>Permutation</strong>. Die Menge $S_M$ der Permutationen von M ist eine Gruppe bezüglich der Verkettung $\circ$ von Abbildungen und heißt symmetrische Gruppe von M.</div>
-Quelle: <a href="https://studium.kit.edu/sites/vab/0x40F0348A9ACDCE49A96EEE39EB076112/Vorlesungsunterlagen/LA.pdf">Skript</a> von Herrn Prof. Dr. Leuzinger, KIT
+
+<p>Quelle: <a href="https://studium.kit.edu/sites/vab/0x40F0348A9ACDCE49A96EEE39EB076112/Vorlesungsunterlagen/LA.pdf">Skript</a> von Herrn Prof. Dr. Leuzinger, KIT</p>
 
 <h3 id="tocAnchor-1-1-2">Allgemeines</h3>
-Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} anschaue. Es sind einfach nur drei Objekte, die unterscheidbar sind. Um es einfacher zu machen, gehen wir nun von den Objekten {1, 2, ..., m} aus. Alle Permutationen dieser Objekte bilden eine Gruppe. Diese nennen wir $S_m$.
 
-Ein einzelnes Element aus $S_m$ wird meist $\pi$ oder $\sigma$ genannt, also $\pi \in S_m$. Da $\pi$ eine Permutation ist, ist es insbesondere eine bijektive Selbstabbildung, also:
+<p>Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} anschaue. Es sind einfach nur drei Objekte, die unterscheidbar sind. Um es einfacher zu machen, gehen wir nun von den Objekten {1, 2, ..., m} aus. Alle Permutationen dieser Objekte bilden eine Gruppe. Diese nennen wir $S_m$.</p>
 
-$M = {1, ..., m}$
+<p>Ein einzelnes Element aus $S<em>m$ wird meist $\pi$ oder $\sigma$ genannt, also $\pi \in S</em>m$. Da $\pi$ eine Permutation ist, ist es insbesondere eine bijektive Selbstabbildung, also:</p>
+
+<p>$M = {1, ..., m}$
 $\pi: M \rightarrow M$
-$i \mapsto \pi(i)$
+$i \mapsto \pi(i)$</p>
 
-Kurz schreibt man auch:
+<p>Kurz schreibt man auch:
 $\pi = 
-\begin{pmatrix} 1 &amp; 2      &amp; 3      &amp; ... &amp; m\\
+\begin{pmatrix} 1 &amp; 2      &amp; 3      &amp; ... &amp; m\
            \pi(1) &amp; \pi(2) &amp; \pi(3) &amp; ... &amp; \pi(m)
-\end{pmatrix}$
+\end{pmatrix}$</p>
 
 <h3 id="tocAnchor-1-1-3">Anzahl der Permutationen</h3>
-Wenn ich n Elemente habe, die ich auf n Plätze verteilen muss: Wie viele unterschiedliche Zuordnungen von Elementen zu den Plätzen gibt es?
 
-Die Antwort ist $n! = 1 \cdot 2 \cdot ... (n - 1) \cdot n = \prod_{i=1}^n i$. Für das erste Element sind $n$ Plätze frei. Das Zweite kann nur noch auf $(n-1)$ Plätze verteilt werden, ... , das letzte hat nur noch einen Platz zur "Auswahl".
+<p>Wenn ich n Elemente habe, die ich auf n Plätze verteilen muss: Wie viele unterschiedliche Zuordnungen von Elementen zu den Plätzen gibt es?</p>
+
+<p>Die Antwort ist $n! = 1 \cdot 2 \cdot ... (n - 1) \cdot n = \prod_{i=1}^n i$. Für das erste Element sind $n$ Plätze frei. Das Zweite kann nur noch auf $(n-1)$ Plätze verteilt werden, ... , das letzte hat nur noch einen Platz zur "Auswahl".</p>
 
 <h3 id="tocAnchor-1-1-4">Erzeugung der Permutationen</h3>
-Angenommen, man muss in einem Test $S_3$ explizit angeben. Wie geht das? 
 
-Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also $3 \cdot 2 \cdot 1 = 6$ Permutationen:
+<p>Angenommen, man muss in einem Test $S_3$ explizit angeben. Wie geht das? </p>
+
+<p>Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also $3 \cdot 2 \cdot 1 = 6$ Permutationen:
 1. _ _ _
 2. _ _ _
 3. _ _ _
 4. _ _ _
 5. _ _ _
-6. _ _ _
+6. _ _ _</p>
 
-Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite oder die dritte Stelle verschieben. Also:
+<p>Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite oder die dritte Stelle verschieben. Also:
 1. 1 _ _
 2. 1 _ _
 3. _ 1 _
 4. _ 1 _
 5. _ _ 1
-6. _ _ 1
+6. _ _ 1</p>
 
 <table>
    <tr><td>Nun zum zweiten Element, der 2. Wieder das gleiche Prinzip:</td>
@@ -159,180 +165,180 @@ Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite od
 5. 2 3 1
 6. 3 2 1</td>
 </tr>
-</table>
+</table><p>Und nun noch als Menge in der mathematischen Schreibweise aufschreiben:</p>
 
-Und nun noch als Menge in der mathematischen Schreibweise aufschreiben:
-
-$S_3 = \left \{
+<p>$S<em>3 = \left {
 \underbrace{\begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3 \
   1 &amp; 2 &amp; 3
-\end{pmatrix}}_{\pi_1},
+\end{pmatrix}}</em>{\pi<em>1},
 \underbrace{\begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3 \
   1 &amp; 3 &amp; 2
-\end{pmatrix}}_{\pi_2},
+\end{pmatrix}}</em>{\pi<em>2},
 \underbrace{\begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3 \
   2 &amp; 1 &amp; 3
-\end{pmatrix}}_{\pi_3},
+\end{pmatrix}}</em>{\pi<em>3},
 \underbrace{\begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3 \
   3 &amp; 1 &amp; 2
-\end{pmatrix}}_{\pi_4},
+\end{pmatrix}}</em>{\pi<em>4},
 \underbrace{\begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3 \
   2 &amp; 3 &amp; 1
-\end{pmatrix}}_{\pi_5},
+\end{pmatrix}}</em>{\pi<em>5},
 \underbrace{\begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+  1 &amp; 2 &amp; 3 \
   3 &amp; 2 &amp; 1
-\end{pmatrix}}_{\pi_6}
-\right \}$
+\end{pmatrix}}</em>{\pi_6}
+\right }$</p>
 
 <h3 id="tocAnchor-1-1-5">Verkettung</h3>
-Was passiert, wenn ich die Permuation $\pi_2$ mit der Permutation $\pi_3$ verkette? Also:
-$\pi_x(i) = \pi_2(\pi_3(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
-3 &amp; 1 &amp; 2 \end{pmatrix} = \pi_6$
+
+<p>Was passiert, wenn ich die Permuation $\pi<em>2$ mit der Permutation $\pi</em>3$ verkette? Also:
+$\pi<em>x(i) = \pi</em>2(\pi<em>3(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\
+3 &amp; 1 &amp; 2 \end{pmatrix} = \pi</em>6$
 Aber:
-$\pi_y(i) = \pi_3(\pi_2(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
-2 &amp; 3 &amp; 1 \end{pmatrix} = \pi_5 \neq \pi_6$
+$\pi<em>y(i) = \pi</em>3(\pi<em>2(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\
+2 &amp; 3 &amp; 1 \end{pmatrix} = \pi</em>5 \neq \pi_6$</p>
 
-Die Verkettung von Permutationen ist also nicht kommutativ!
+<p>Die Verkettung von Permutationen ist also nicht kommutativ!</p>
 
-Es ergibt sich insgesamt folgende Verknüfungstabelle (gelesen wird: Zeile zuerst, Spalte später):
-<table>
+<p>Es ergibt sich insgesamt folgende Verknüfungstabelle (gelesen wird: Zeile zuerst, Spalte später):
+</p><table>
    <tr><th style="border-right: 1px solid #000;border-bottom: 1px solid #000;"> </th>
-  <th style="border-bottom: 1px solid #000;">$\pi_1$</th>
-  <th style="border-bottom: 1px solid #000;">$\pi_2$</th>
-  <th style="border-bottom: 1px solid #000;">$\pi_3$</th>
-  <th style="border-bottom: 1px solid #000;">$\pi_4$</th>
-  <th style="border-bottom: 1px solid #000;">$\pi_5$</th>
-  <th style="border-bottom: 1px solid #000;">$\pi_6$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi<em>1$</em></th>
+  <th style="border-bottom: 1px solid #000;">$\pi2$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi<em>3$</em></th>
+  <th style="border-bottom: 1px solid #000;">$\pi4$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi<em>5$</em></th>
+  <th style="border-bottom: 1px solid #000;">$\pi6$</th>
 </tr>
-   <tr><th style="border-right: 1px solid #000;">$\pi_1$</th>
-  <td>$\pi_1$</td>
-  <td>$\pi_2$</td>
-  <td>$\pi_3$</td>
-  <td>$\pi_4$</td>
-  <td>$\pi_5$</td>
-  <td>$\pi_6$</td>
+   <tr><th style="border-right: 1px solid #000;">$\pi<em>1$</em></th>
+  <td>$\pi1$</td>
+  <td>$\pi<em>2$</em></td>
+  <td>$\pi3$</td>
+  <td>$\pi<em>4$</em></td>
+  <td>$\pi5$</td>
+  <td>$\pi<em>6$</em></td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;">$\pi_2$</th>
-  <td>$\pi_2$</td>
-  <td>$\pi_1$</td>
-  <td>$\pi_5$</td>
-  <td>$\pi_6$</td>
-  <td>$\pi_3$</td>
-  <td>$\pi_4$</td>
+   <tr><th style="border-right: 1px solid #000;">$\pi2$</th>
+  <td>$\pi<em>2$</em></td>
+  <td>$\pi1$</td>
+  <td>$\pi<em>5$</em></td>
+  <td>$\pi6$</td>
+  <td>$\pi<em>3$</em></td>
+  <td>$\pi4$</td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;">$\pi_3$</th>
-  <td>$\pi_3$</td>
-  <td>$\pi_4$</td>
-  <td>$\pi_1$</td>
-  <td>$\pi_2$</td>
-  <td>$\pi_6$</td>
-  <td>$\pi_5$</td>
+   <tr><th style="border-right: 1px solid #000;">$\pi<em>3$</em></th>
+  <td>$\pi3$</td>
+  <td>$\pi<em>4$</em></td>
+  <td>$\pi1$</td>
+  <td>$\pi<em>2$</em></td>
+  <td>$\pi6$</td>
+  <td>$\pi<em>5$</em></td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;">$\pi_4$</th>
-  <td>$\pi_4$</td>
-  <td>$\pi_3$</td>
-  <td>$\pi_6$</td>
-  <td>$\pi_5$</td>
-  <td>$\pi_1$</td>
-  <td>$\pi_2$</td>
+   <tr><th style="border-right: 1px solid #000;">$\pi4$</th>
+  <td>$\pi<em>4$</em></td>
+  <td>$\pi3$</td>
+  <td>$\pi<em>6$</em></td>
+  <td>$\pi5$</td>
+  <td>$\pi<em>1$</em></td>
+  <td>$\pi2$</td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;">$\pi_5$</th>
-  <td>$\pi_5$</td>
-  <td>$\pi_6$</td>
-  <td>$\pi_2$</td>
-  <td>$\pi_1$</td>
-  <td>$\pi_4$</td>
-  <td>$\pi_3$</td>
+   <tr><th style="border-right: 1px solid #000;">$\pi<em>5$</em></th>
+  <td>$\pi5$</td>
+  <td>$\pi<em>6$</em></td>
+  <td>$\pi2$</td>
+  <td>$\pi<em>1$</em></td>
+  <td>$\pi4$</td>
+  <td>$\pi<em>3$</em></td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;">$\pi_6$</th>
-  <td>$\pi_6$</td>
-  <td>$\pi_5$</td>
-  <td>$\pi_4$</td>
-  <td>$\pi_3$</td>
-  <td>$\pi_2$</td>
-  <td>$\pi_1$</td>
+   <tr><th style="border-right: 1px solid #000;">$\pi6$</th>
+  <td>$\pi<em>6$</em></td>
+  <td>$\pi5$</td>
+  <td>$\pi<em>4$</em></td>
+  <td>$\pi3$</td>
+  <td>$\pi<em>2$</em></td>
+  <td>$\pi1$</td>
 </tr>
-</table>
+</table><p>Man sieht nun, und das finde ich durchaus erstaunlich, man landet immer wieder in $S<em>3$. Durch die Verknüpfung von Permutationen kommt also <em>immer</em> wieder eine Permutation heraus! Das bedeutet, $S</em>3$ ist unter dieser Verknüpfung abgeschlossen. </p>
 
-Man sieht nun, und das finde ich durchaus erstaunlich, man landet immer wieder in $S_3$. Durch die Verknüpfung von Permutationen kommt also <em>immer</em> wieder eine Permutation heraus! Das bedeutet, $S_3$ ist unter dieser Verknüpfung abgeschlossen. 
+<p>Man kann nun auch noch sehen, jedes Element aus $(S<em>3, \circ)$ ein inverses hat, da in jeder Zeile ein mal $\pi</em>1$ vorkommt.</p>
 
-Man kann nun auch noch sehen, jedes Element aus $(S_3, \circ)$ ein inverses hat, da in jeder Zeile ein mal $\pi_1$ vorkommt.
+<p>Außerdem ist $(S_3, \circ)$ assoziativ. </p>
 
-Außerdem ist $(S_3, \circ)$ assoziativ. 
+<p>Kurz: $(S_3, \circ)$ ist eine Gruppe, die jedoch nicht abelsch ist.</p>
 
-Kurz: $(S_3, \circ)$ ist eine Gruppe, die jedoch nicht abelsch ist.
-
-Es wurde in der Vorlesung auch gezeigt, dass allgemein $(S_m, \circ)$ eine Gruppe ist.
+<p>Es wurde in der Vorlesung auch gezeigt, dass allgemein $(S_m, \circ)$ eine Gruppe ist.</p>
 
 <h3 id="tocAnchor-1-1-6">Die Fehlstandszahl</h3>
+
 <div class="definition">Es sei $\pi \in S_m$ eine Permutation. Die <strong>Fehlstandszahl</strong> $F(\pi)$ von $\pi$ ist die (eindeutige) Anzahl der Fälle, in denen für $i  \pi(k)$. Die Permutationen mit gerader Fehlstandszahl $F(\pi)$ heißen gerade, die Permutationen mit ungerader Fehlstandszahl heißen ungerade.</div>
 
 <h4>Beispiele</h4>
-$\pi_1 = \begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+
+<p>$\pi_1 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \
   1 &amp; 2 &amp; 3
-\end{pmatrix}$ hat die Fehlstandszahl 0.
+\end{pmatrix}$ hat die Fehlstandszahl 0.</p>
 
-$\pi_2 = \begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+<p>$\pi<em>2 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \
   1 &amp; 3 &amp; 2
-\end{pmatrix}$ hat die Fehlstandszahl 1, da $i = 2  2 = \pi_2(3)$.
+\end{pmatrix}$ hat die Fehlstandszahl 1, da $i = 2 &lt; 3 = k$ gilt, aber $\pi</em>2(2) = 3 &gt; 2 = \pi_2(3)$.</p>
 
-$\pi_3 = \begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+<p>$\pi_3 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \
   2 &amp; 1 &amp; 3
-\end{pmatrix}$ hat die Fehlstandszahl 1.
+\end{pmatrix}$ hat die Fehlstandszahl 1.</p>
 
-$\pi_4 = \begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+<p>$\pi_4 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \
   3 &amp; 1 &amp; 2
-\end{pmatrix}$ hat die Fehlstandszahl 2.
+\end{pmatrix}$ hat die Fehlstandszahl 2.</p>
 
-$\pi_5 = \begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+<p>$\pi_5 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \
   2 &amp; 3 &amp; 1
-\end{pmatrix}$ hat die Fehlstandszahl 2.
+\end{pmatrix}$ hat die Fehlstandszahl 2.</p>
 
-$\pi_6 = \begin{pmatrix}
-  1 &amp; 2 &amp; 3 \\
+<p>$\pi_6 = \begin{pmatrix}
+  1 &amp; 2 &amp; 3 \
   3 &amp; 2 &amp; 1
-\end{pmatrix}$ hat die Fehlstandszahl 2.
-
+\end{pmatrix}$ hat die Fehlstandszahl 2.</p>
 
 <h2 id="tocAnchor-1-8">Transposition</h2>
+
 <div class="definition">Eine  <strong>Transposition</strong> ist eine Permutation aus $S_m$, bei der zwei verschiedene,
 fest gewahlte Zahlen $i, k \in \{1, 2, ..., m\}$ vertauscht werden, während alle anderen Zahlen fest bleiben.
 Man schreibt fur diese Transposition auch kurz $(i~k)$.</div>
 
-Transpositionen werden gerne mit $\tau$ abgekürzt.
+<p>Transpositionen werden gerne mit $\tau$ abgekürzt.</p>
 
-Also: $\pi_2 = (2~3), \pi_3=(1~2), \pi_6 = (1~3)$ sind Transpositionen.
-$\pi_1, \pi_4, \pi_5$ sind keine Transpositionen.
+<p>Also: $\pi<em>2 = (2~3), \pi</em>3=(1~2), \pi<em>6 = (1~3)$ sind Transpositionen.
+$\pi</em>1, \pi<em>4, \pi</em>5$ sind keine Transpositionen.</p>
 
-Es gilt: $\tau \circ \tau = id$
+<p>Es gilt: $\tau \circ \tau = id$</p>
 
-wir haben in der Vorlesung gezeigt:
-<div class="satz">Jede Permutation $\pi \in S_m, m \geq 2,$ lässt sich als Verkettung von Transpositionen darstellen.</div>
+<p>wir haben in der Vorlesung gezeigt:
+</p><div class="satz">Jede Permutation $\pi \in S_m, m \geq 2,$ lässt sich als Verkettung von Transpositionen darstellen.</div>
 
-Beispiel:
-$\sigma = \begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
-6 &amp; 5 &amp; 4 &amp; 1 &amp; 3 &amp; 2\end{pmatrix} = (1~6) \circ (2~5) \circ (3~4) \circ (4~6) \circ (5~6)$
+<p>Beispiel:
+$\sigma = \begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \
+6 &amp; 5 &amp; 4 &amp; 1 &amp; 3 &amp; 2\end{pmatrix} = (1~6) \circ (2~5) \circ (3~4) \circ (4~6) \circ (5~6)$</p>
 
-Gelesen wird das ganze von rechts nach links. Die Transposition $(5~6)$ wird also zuerst angewendet. Wie bei Abbildungen die verkettet werden halt auch.
+<p>Gelesen wird das ganze von rechts nach links. Die Transposition $(5~6)$ wird also zuerst angewendet. Wie bei Abbildungen die verkettet werden halt auch.</p>
 
-Die Fehlstandszahl von $\sigma$ ist 13 und die Anzahl der Transpositionen ist ungerade.
+<p>Die Fehlstandszahl von $\sigma$ ist 13 und die Anzahl der Transpositionen ist ungerade.</p>
 
-Interessanterweise gilt auch $\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2)$.
-Außerdem kann man beliebig häufig eine Transposition doppelt hinzufügen, da es ja die Identität ist. Die Darstellung einer Permutation als folge von Transpositionen ist also nicht eindeutig.
+<p>Interessanterweise gilt auch $\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2)$.
+Außerdem kann man beliebig häufig eine Transposition doppelt hinzufügen, da es ja die Identität ist. Die Darstellung einer Permutation als folge von Transpositionen ist also nicht eindeutig.</p>
 
 <h2 id="tocAnchor-1-9">Siehe auch</h2>
-Wikipedia: <a href="http://de.wikipedia.org/wiki/Permutation">Permutation</a>
+
+<p>Wikipedia: <a href="http://de.wikipedia.org/wiki/Permutation">Permutation</a></p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -437,54 +443,54 @@ Wikipedia: <a href="http://de.wikipedia.org/wiki/Permutation">Permutation</a>
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

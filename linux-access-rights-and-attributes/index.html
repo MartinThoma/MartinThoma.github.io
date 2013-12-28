@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Linux access rights and attributes</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -119,40 +119,45 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">RWX</h2>
+
 <h3 id="tocAnchor-1-1-1">Files</h3>
-Linux files have three important access rights for files:
-<ul><li><strong>R</strong>ead</li>
+
+<p>Linux files have three important access rights for files:
+</p><ul><li><strong>R</strong>ead</li>
   <li><strong>W</strong>rite</li>
   <li>E<strong>x</strong>ecute</li>
-</ul>
+</ul><p>If you want to mark a file as executable, you can add the x-right:</p>
 
-If you want to mark a file as executable, you can add the x-right:
 <div class="highlight">
    <pre><code class="bash">chmod +x
 </code></pre>
 </div>
 
-When you want to mark a file as readable, you can dd the r-right:
+<p>When you want to mark a file as readable, you can dd the r-right:</p>
+
 <div class="highlight">
    <pre><code class="bash">chmod +r
 </code></pre>
 </div>
 
-You can remove rights in a similar way:
+<p>You can remove rights in a similar way:</p>
+
 <div class="highlight">
    <pre><code class="bash">chmod -x testfile
 </code></pre>
 </div>
 
-Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two? 
+<p>Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two? </p>
 
 <h3 id="tocAnchor-1-1-2">Folders</h3>
-rwx has a meaning for folders, too:
-<ul><li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
+
+<p>rwx has a meaning for folders, too:
+</p><ul><li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
   <li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
   <li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
 </ul><h2 id="tocAnchor-1-4">User, Group, Others</h2>
-The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:
+
+<p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Downloads<span class="nv">$ </span>ls -l
@@ -180,13 +185,15 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 </code></pre>
 </div>
 
-You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.
+<p>You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.</p>
 
-Did you know that you can search for file permissions with <code>find /home/ -perm 777</code>?
+<p>Did you know that you can search for file permissions with <code>find /home/ -perm 777</code>?</p>
 
 <h2 id="tocAnchor-1-5">SUID, SGID, Sticky Bit</h2>
+
 <h3 id="tocAnchor-1-5-1">Files</h3>
-Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:
+
+<p>Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:/usr/bin<span class="nv">$ </span>ls -l <span class="p">|</span> grep passwd<span class="err">$</span>
@@ -199,7 +206,7 @@ Sometimes, you want to execute programs as root, although the user who started t
 </code></pre>
 </div>
 
-Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":
+<p>Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:/etc<span class="nv">$ </span>ls -l <span class="p">|</span> grep shadow<span class="err">$</span>
@@ -208,29 +215,34 @@ Instead of "x" in the user-execution-row, it states "s". That means, you can exe
 </code></pre>
 </div>
 
-Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.
+<p>Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.</p>
 
-The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.
+<p>The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.</p>
 
-The sticky bit seems to be used for programs to stick in memory after it was finished. 
+<p>The sticky bit seems to be used for programs to stick in memory after it was finished. </p>
 
-You can set the sticky bit like this:
+<p>You can set the sticky bit like this:</p>
+
 <div class="highlight">
    <pre><code class="bash">chmod +t testfile
 </code></pre>
 </div>
-or like that:
+
+<p>or like that:</p>
+
 <div class="highlight">
    <pre><code class="bash">chmod 1777 testfile
 </code></pre>
 </div>
 
 <h3 id="tocAnchor-1-5-2">Folders</h3>
+
 <ul><li>suid: is ignored on UNIX and Linux systems</li>
   <li>sgid: new files and subdirectories created within this folder inherit the folders group ID</li>
   <li>t: when the sticky bit is set, only owners may change the filename or delete files</li>
 </ul><h2 id="tocAnchor-1-8">Type</h2>
-The first column of <code>ls -l</code> tells you the type of the item:
+
+<p>The first column of <code>ls -l</code> tells you the type of the item:</p>
 
 <ul><li>-: a file</li>
   <li>b: a block device</li>
@@ -267,16 +279,15 @@ brw-rw----  1 root disk      7,   0 2013-03-04 10:01 loop0
 </code></pre>
 </div>
 
-
-
 <h2 id="tocAnchor-1-9">stat</h2>
-You can display quite a lot of information of a file with stat:
+
+<p>You can display quite a lot of information of a file with stat:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>stat testfile 
   File: <span class="sb">`</span>testfile<span class="err">'</span>
-  Size: 13        	Blocks: 8          IO Block: 4096   regular file
-Device: 801h/2049d	Inode: 923339      Links: 1
+  Size: 13          Blocks: 8          IO Block: 4096   regular file
+Device: 801h/2049d  Inode: 923339      Links: 1
 Access: <span class="o">(</span>0777/-rwxrwxrwx<span class="o">)</span>  Uid: <span class="o">(</span> 1000/   moose<span class="o">)</span>   Gid: <span class="o">(</span> 1000/moose<span class="o">)</span>
 Access: 2013-03-04 21:31:52.154187243 +0100
 Modify: 2013-03-04 21:31:51.154184098 +0100
@@ -284,15 +295,17 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 </code></pre>
 </div>
 
-The content of the file is "Hello World." (12 characters)
+<p>The content of the file is "Hello World." (12 characters)</p>
 
 <h2 id="tocAnchor-1-10">Attributes</h2>
-According to the manpage of chattr:
+
+<p>According to the manpage of chattr:</p>
 
 <blockquote>The `c', 's',  and `u' attributes are not honored by the ext2 and ext3 filesystems as implemented in the current mainline Linux kernels. These attributes may be implemented in future versions of the ext2 and ext3 filesystems.</blockquote>
 
 <h3 id="tocAnchor-1-10-1">Version</h3>
-I've just learned that you can give files version-attributes:
+
+<p>I've just learned that you can give files version-attributes:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>lsattr -v
@@ -300,29 +313,31 @@ I've just learned that you can give files version-attributes:
 </code></pre>
 </div>
 
-You can set the version like this:
+<p>You can set the version like this:</p>
+
 <div class="highlight">
    <pre><code class="bash">chattr -v 1339 testfile
 </code></pre>
 </div>
 
 <h3 id="tocAnchor-1-10-2">Append only</h3>
-This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file. 
 
-First of all, I had to use sudo to add this attribute:
+<p>This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file. </p>
+
+<p>First of all, I had to use sudo to add this attribute:</p>
 
 <div class="highlight">
    <pre><code class="bash">sudo chattr +a testfile
 </code></pre>
 </div>
 
-Then, I had all permissions:
+<p>Then, I had all permissions:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span>stat testfile 
   File: <span class="sb">`</span>testfile<span class="err">'</span>
-  Size: 13        	Blocks: 8          IO Block: 4096   regular file
-Device: 801h/2049d	Inode: 923339      Links: 1
+  Size: 13          Blocks: 8          IO Block: 4096   regular file
+Device: 801h/2049d  Inode: 923339      Links: 1
 Access: <span class="o">(</span>0777/-rwxrwxrwx<span class="o">)</span>  Uid: <span class="o">(</span> 1000/   moose<span class="o">)</span>   Gid: <span class="o">(</span> 1000/moose<span class="o">)</span>
 Access: 2013-03-04 21:31:52.154187243 +0100
 Modify: 2013-03-04 21:31:51.154184098 +0100
@@ -332,7 +347,7 @@ moose@pc07:~/Desktop/Test<span class="nv">$ </span>lsattr
 </code></pre>
 </div>
 
-But I couldn't append to the file with gedit. With bash, it worked fine:
+<p>But I couldn't append to the file with gedit. With bash, it worked fine:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"One more line "</span> &gt;&gt; testfile 
@@ -342,19 +357,21 @@ One more line
 </code></pre>
 </div>
 
-So I guess I found another bug in gEdit.
+<p>So I guess I found another bug in gEdit.</p>
 
 <h3 id="tocAnchor-1-10-3">Immutable</h3>
-You can mark a file as immutable with <code>sudo chattr +i testfile</code>. It's funny, you can't see that with <code>ls -l</code>, you have to use <code>lsattr</code>. I guess if you manage to get root privileges and want to troll somebody, you could set this bit. I think this might take quite a while until you recognize it.
+
+<p>You can mark a file as immutable with <code>sudo chattr +i testfile</code>. It's funny, you can't see that with <code>ls -l</code>, you have to use <code>lsattr</code>. I guess if you manage to get root privileges and want to troll somebody, you could set this bit. I think this might take quite a while until you recognize it.</p>
 
 <h3 id="tocAnchor-1-10-4">Secure deletion and undeletable</h3>
-When secure deletion is set with <code>chattr +s testfile</code> the operating system overwrites the file with random data when it is deleted.
 
-<code>chattr +u testfile</code> makes your file undeletable. This is strange. You can still delete the file with <code>rm</code>, but the system will not overwrite it. I've just <a href="http://unix.stackexchange.com/q/66870/4784">asked a question on SE</a>.
+<p>When secure deletion is set with <code>chattr +s testfile</code> the operating system overwrites the file with random data when it is deleted.</p>
+
+<p><code>chattr +u testfile</code> makes your file undeletable. This is strange. You can still delete the file with <code>rm</code>, but the system will not overwrite it. I've just <a href="http://unix.stackexchange.com/q/66870/4784">asked a question on SE</a>.</p>
 
 <h3 id="tocAnchor-1-10-5">Synchronous update</h3>
-when you set <code>chattr +S testfile</code> the file gets directly written to the HDD and not buffered by the kernel cache.
 
+<p>when you set <code>chattr +S testfile</code> the file gets directly written to the HDD and not buffered by the kernel cache.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -468,54 +485,54 @@ when you set <code>chattr +S testfile</code> the file gets directly written to t
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Google Code Jam 2012 &ndash; Round 1A 2012</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -63,9 +63,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>3691 people are listed in the scoreboard, but 3851 tried the first problem. So I guess the number of contestants might even be higher.
+                            <p>3691 people are listed in the scoreboard, but 3851 tried the first problem. So I guess the number of contestants might even be higher.</p>
 
-</p><ul><li>Problem 1 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p0">Password Problem</a>):
+<ul><li>Problem 1 (<a href="http://code.google.com/codejam/contest/1645485/dashboard#s=p0">Password Problem</a>):
   <ul><li>Small Set: 3511/3851 users (91%)</li>
      <li>Large Set: 2329/3376 users (69%)</li>
   </ul></li>
@@ -77,16 +77,17 @@
   <ul><li>Small Set: 65/312 users (21%)</li>
      <li>Large Set: 22/42 users (52%)</li>
   </ul></li>
-</ul>
+</ul><p>Just as last time, you can execute these scripts by</p>
 
-
-Just as last time, you can execute these scripts by
 <div class="highlight">
    <pre><code class="bash">python jam.py &lt; A-small-practice.in &gt; results.txt
 </code></pre>
 </div>
 
-<a id="more"></a><a id="more-23361"></a>
+<p>
+   <a id="more"></a>
+   <a id="more-23361"></a>
+</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -105,55 +106,59 @@ Just as last time, you can execute these scripts by
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Passwords</h2>
-This works only for the small input set:
+
+<p>This works only for the small input set:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">line2floatlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-	<span class="sd">""" Convert integers in one line, separated by space to a</span>
-<span class="sd">		list of integers.</span>
-<span class="sd">	"""</span>
-	<span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
-	<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
-	<span class="k">return</span> <span class="n">numbers</span>
+    <span class="sd">""" Convert integers in one line, separated by space to a</span>
+<span class="sd">       list of integers.</span>
+<span class="sd">   """</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
+    <span class="k">return</span> <span class="n">numbers</span>
 
 <span class="k">def</span> <span class="nf">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">):</span>
-	<span class="n">typesMin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-		<span class="n">probKorrect</span> <span class="o">=</span> <span class="mf">1.0</span>
-		<span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">[</span><span class="mi">0</span><span class="p">:(</span><span class="nb">len</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="p">)]:</span>
-			<span class="n">probKorrect</span> <span class="o">*=</span> <span class="n">el</span>
-		<span class="n">probWrong</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">probKorrect</span>
-		<span class="n">remainingTypes</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span> <span class="o">-</span> <span class="n">A</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-		<span class="n">remainingTypesErr</span> <span class="o">=</span> <span class="n">remainingTypes</span> <span class="o">+</span> <span class="n">B</span> <span class="o">+</span> <span class="mi">1</span>
-		<span class="n">types</span> <span class="o">=</span> <span class="n">probKorrect</span> <span class="o">*</span> <span class="n">remainingTypes</span> \
-				<span class="o">+</span> <span class="n">probWrong</span> <span class="o">*</span> <span class="n">remainingTypesErr</span>
-		<span class="c">#print types</span>
-		<span class="k">if</span> <span class="n">types</span> <span class="o">&lt;</span> <span class="n">typesMin</span><span class="p">:</span>
-			<span class="n">typesMin</span> <span class="o">=</span> <span class="n">types</span>
-	<span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">typesMin</span><span class="p">:</span>
-		<span class="n">typesMin</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">typesMin</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">probKorrect</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">[</span><span class="mi">0</span><span class="p">:(</span><span class="nb">len</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="p">)]:</span>
+            <span class="n">probKorrect</span> <span class="o">*=</span> <span class="n">el</span>
+        <span class="n">probWrong</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">probKorrect</span>
+        <span class="n">remainingTypes</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span> <span class="o">-</span> <span class="n">A</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">remainingTypesErr</span> <span class="o">=</span> <span class="n">remainingTypes</span> <span class="o">+</span> <span class="n">B</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">types</span> <span class="o">=</span> <span class="n">probKorrect</span> <span class="o">*</span> <span class="n">remainingTypes</span> \
+                <span class="o">+</span> <span class="n">probWrong</span> <span class="o">*</span> <span class="n">remainingTypesErr</span>
+        <span class="c">#print types</span>
+        <span class="k">if</span> <span class="n">types</span> <span class="o">&lt;</span> <span class="n">typesMin</span><span class="p">:</span>
+            <span class="n">typesMin</span> <span class="o">=</span> <span class="n">types</span>
+    <span class="k">if</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">typesMin</span><span class="p">:</span>
+        <span class="n">typesMin</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">B</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
  
-	<span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">typesMin</span> <span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-	<span class="c">#return typesMin</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">typesMin</span> <span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="c">#return typesMin</span>
  
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-	<span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
  
-	<span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
-		<span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
-		<span class="n">A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-		<span class="n">B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-		<span class="n">probabilities</span> <span class="o">=</span> <span class="n">line2floatlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
-		<span class="c">#print ((A+1), B)</span>
-		<span class="c">#print probabilities</span>
-		<span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%.6lf</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+        <span class="n">probabilities</span> <span class="o">=</span> <span class="n">line2floatlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+        <span class="c">#print ((A+1), B)</span>
+        <span class="c">#print probabilities</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%.6lf</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">prob</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">probabilities</span><span class="p">)))</span>
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Kingdom Rush</h2>
-My solution works only for the small input set:
+
+<p>My solution works only for the small input set:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -161,94 +166,96 @@ My solution works only for the small input set:
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 
 <span class="k">def</span> <span class="nf">line2intlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-	<span class="sd">""" Convert integers in one line, separated by space to a</span>
-<span class="sd">		list of integers.</span>
-<span class="sd">	"""</span>
-	<span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
-	<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
-	<span class="k">return</span> <span class="n">numbers</span>
+    <span class="sd">""" Convert integers in one line, separated by space to a</span>
+<span class="sd">       list of integers.</span>
+<span class="sd">   """</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
+    <span class="k">return</span> <span class="n">numbers</span>
 
 <span class="k">def</span> <span class="nf">isSolvable</span><span class="p">(</span><span class="n">starDict</span><span class="p">):</span>
-	<span class="sd">""" Is it possible to solve this one? """</span>
-	<span class="n">intList</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
-		<span class="n">wasInFor</span> <span class="o">=</span> <span class="bp">True</span>
-		<span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-		<span class="n">intList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
-		<span class="n">intList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">two</span><span class="p">)</span>
-	<span class="n">intList</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="sd">""" Is it possible to solve this one? """</span>
+    <span class="n">intList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
+        <span class="n">wasInFor</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">intList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
+        <span class="n">intList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">two</span><span class="p">)</span>
+    <span class="n">intList</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 
-	<span class="k">for</span> <span class="n">levelVar</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">intList</span><span class="p">)):</span>
-		<span class="k">if</span> <span class="n">levelVar</span> <span class="o">&lt;</span> <span class="n">intList</span><span class="p">[</span><span class="n">levelVar</span><span class="p">]:</span>
-			<span class="k">return</span> <span class="bp">False</span>
-	<span class="k">return</span> <span class="bp">True</span>
+    <span class="k">for</span> <span class="n">levelVar</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">intList</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">levelVar</span> <span class="o">&lt;</span> <span class="n">intList</span><span class="p">[</span><span class="n">levelVar</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
 
 <span class="k">def</span> <span class="nf">king</span><span class="p">(</span><span class="n">starDict</span><span class="p">,</span> <span class="n">myLevel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">myCompetes</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">partially</span> <span class="o">=</span> <span class="p">[]):</span>
-	<span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">True</span>
-	<span class="k">while</span> <span class="n">somethingChanged</span><span class="p">:</span>
-		<span class="n">removeList</span> <span class="o">=</span> <span class="p">[]</span>
-		<span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">while</span> <span class="n">somethingChanged</span><span class="p">:</span>
+        <span class="n">removeList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">False</span>
 
-		<span class="c">#all where i can do both</span>
-		<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
-			<span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-			<span class="k">if</span> <span class="n">two</span> <span class="o">&lt;=</span> <span class="n">myLevel</span><span class="p">:</span>
-				<span class="n">removeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-				<span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="c">#all where i can do both</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
+            <span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">two</span> <span class="o">&lt;=</span> <span class="n">myLevel</span><span class="p">:</span>
+                <span class="n">removeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="n">somethingChanged</span> <span class="o">=</span> <span class="bp">True</span>
 
-		<span class="c">#remove them</span>
-		<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">removeList</span><span class="p">:</span>
-			<span class="n">myCompetes</span> <span class="o">+=</span> <span class="mi">1</span>
-			<span class="k">del</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-			<span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">partially</span><span class="p">:</span>
-				<span class="n">myLevel</span> <span class="o">+=</span> <span class="mi">1</span>
-				<span class="n">partially</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-			<span class="k">else</span><span class="p">:</span>
-				<span class="n">myLevel</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="c">#remove them</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">removeList</span><span class="p">:</span>
+            <span class="n">myCompetes</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">del</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">partially</span><span class="p">:</span>
+                <span class="n">myLevel</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">partially</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">myLevel</span> <span class="o">+=</span> <span class="mi">2</span>
 
-	<span class="k">if</span> <span class="n">starDict</span><span class="p">:</span>
-		<span class="n">minCompetes</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)</span>
-		<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
-			<span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-			<span class="k">if</span> <span class="n">one</span> <span class="o">&lt;=</span> <span class="n">myLevel</span> <span class="ow">and</span> <span class="p">(</span><span class="n">index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">partially</span><span class="p">):</span>
-				<span class="n">starDictTmp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">starDict</span><span class="p">)</span>
-				<span class="n">partiallyTmp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">partially</span><span class="p">)</span>
-				<span class="n">partiallyTmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-				<span class="n">tmpCompetes</span> <span class="o">=</span> <span class="n">king</span><span class="p">(</span><span class="n">starDictTmp</span><span class="p">,</span> <span class="n">myLevel</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>  
-							<span class="n">myCompetes</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">partiallyTmp</span><span class="p">)</span>
-				<span class="k">if</span> <span class="n">tmpCompetes</span> <span class="o">&lt;</span> <span class="n">minCompetes</span><span class="p">:</span>
-					<span class="n">minCompetes</span> <span class="o">=</span> <span class="n">tmpCompetes</span>
-		<span class="n">myCompetes</span> <span class="o">=</span> <span class="n">minCompetes</span>
-	<span class="k">return</span> <span class="n">myCompetes</span>
+    <span class="k">if</span> <span class="n">starDict</span><span class="p">:</span>
+        <span class="n">minCompetes</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">starDict</span><span class="p">:</span>
+            <span class="n">one</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="n">starDict</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">one</span> <span class="o">&lt;=</span> <span class="n">myLevel</span> <span class="ow">and</span> <span class="p">(</span><span class="n">index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">partially</span><span class="p">):</span>
+                <span class="n">starDictTmp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">starDict</span><span class="p">)</span>
+                <span class="n">partiallyTmp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">partially</span><span class="p">)</span>
+                <span class="n">partiallyTmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="n">tmpCompetes</span> <span class="o">=</span> <span class="n">king</span><span class="p">(</span><span class="n">starDictTmp</span><span class="p">,</span> <span class="n">myLevel</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>  
+                            <span class="n">myCompetes</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">partiallyTmp</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">tmpCompetes</span> <span class="o">&lt;</span> <span class="n">minCompetes</span><span class="p">:</span>
+                    <span class="n">minCompetes</span> <span class="o">=</span> <span class="n">tmpCompetes</span>
+        <span class="n">myCompetes</span> <span class="o">=</span> <span class="n">minCompetes</span>
+    <span class="k">return</span> <span class="n">myCompetes</span>
 
  
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-	<span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
  
-	<span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
-		<span class="n">levels</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-		<span class="n">stars</span> <span class="o">=</span> <span class="p">[]</span>
-		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
-			<span class="n">stars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line2intlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
+        <span class="n">levels</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+        <span class="n">stars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
+            <span class="n">stars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line2intlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">()))</span>
 
-		<span class="c">#make stars dictionary</span>
-		<span class="n">starDict</span> <span class="o">=</span> <span class="p">{}</span>
-		<span class="n">level</span> <span class="o">=</span> <span class="mi">1</span>
-		<span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">stars</span><span class="p">:</span>
-			<span class="n">starDict</span><span class="p">[</span><span class="n">level</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
-			<span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c">#make stars dictionary</span>
+        <span class="n">starDict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">stars</span><span class="p">:</span>
+            <span class="n">starDict</span><span class="p">[</span><span class="n">level</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">el</span><span class="p">)</span>
+            <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
 
-		<span class="k">if</span> <span class="ow">not</span> <span class="n">isSolvable</span><span class="p">(</span><span class="n">starDict</span><span class="p">):</span>
-			<span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: Too Bad"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">king</span><span class="p">(</span><span class="n">starDict</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">isSolvable</span><span class="p">(</span><span class="n">starDict</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: Too Bad"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">king</span><span class="p">(</span><span class="n">starDict</span><span class="p">)))</span>
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">Cruise Controll</h2>
-Only 22 people have a perfect solution for this one. 
 
-This is the solution of royf:
+<p>Only 22 people have a perfect solution for this one. </p>
+
+<p>This is the solution of royf:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -426,6 +433,7 @@ This is the solution of royf:
 </div>
 
 <h2 id="tocAnchor-1-4">See also</h2>
+
 <ul><li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
   <li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
 </ul>
@@ -545,54 +553,54 @@ This is the solution of royf:
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

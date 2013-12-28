@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Einf&uuml;hrung in die abz&auml;hlende Kombinatorik</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Die abzählende Kombinatorik beschäftigt sich mit der Bestimmung der Anzahl möglicher Anordnungen oder Auswahlen.
+                            <p>Die abzählende Kombinatorik beschäftigt sich mit der Bestimmung der Anzahl möglicher Anordnungen oder Auswahlen.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -92,27 +92,32 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Begriffe</h2>
+
 <h3 id="tocAnchor-1-1-1">Permutation</h3>
-Eine Permutation ist eine Veränderung der Reihenfolge einer geordneten Anzahl von Objekten. <small>(Weil die Objekte in irgend einer Art geordnet sein müssen, damit sich eine Reihenfolge ändern kann, will ich diese Ansammlung nicht "Menge" nennen.)</small>
 
-Beispiel:
+<p>Eine Permutation ist eine Veränderung der Reihenfolge einer geordneten Anzahl von Objekten. <small>(Weil die Objekte in irgend einer Art geordnet sein müssen, damit sich eine Reihenfolge ändern kann, will ich diese Ansammlung nicht "Menge" nennen.)</small></p>
+
+<p>Beispiel:
 Wir haben eine Liste von Zahlen: [1, 2, 5, -7, -1, 3]
-Eine Permutation davon ist: [1, 2, 5, -7, 3, -1]
+Eine Permutation davon ist: [1, 2, 5, -7, 3, -1]</p>
 
-Anagramme sind Permutationen: "ANGSTBUDE" und "BUNDESTAG"
+<p>Anagramme sind Permutationen: "ANGSTBUDE" und "BUNDESTAG"</p>
 
-Das Wesentliche ist also, dass es bei Permutationen auf die Reihenfolge ankommt.
+<p>Das Wesentliche ist also, dass es bei Permutationen auf die Reihenfolge ankommt.</p>
 
 <h3 id="tocAnchor-1-1-2">k-Permutation</h3>
-Eine k-Permutation wählt aus n Objekten k aus. 
 
-Wenn wir also die 6 Objekte [1, 2, 5, -7, -1, 3] haben, wären [1, 2, 5], [5, 2, 1], [-7, 2, 3] und [-7, 3, 3] verschiedene 3-Permutationen davon.
+<p>Eine k-Permutation wählt aus n Objekten k aus. </p>
+
+<p>Wenn wir also die 6 Objekte [1, 2, 5, -7, -1, 3] haben, wären [1, 2, 5], [5, 2, 1], [-7, 2, 3] und [-7, 3, 3] verschiedene 3-Permutationen davon.</p>
 
 <h3 id="tocAnchor-1-1-3">Kombination und k-Kombination</h3>
-Bei einer Kombination kommt es <em>nicht</em> auf die Reihenfolge an. Sonst ist alles analog zu den Permutationen.
+
+<p>Bei einer Kombination kommt es <em>nicht</em> auf die Reihenfolge an. Sonst ist alles analog zu den Permutationen.</p>
 
 <h2 id="tocAnchor-1-5">Formeln</h2>
-Es gibt nur vier Formeln, die man sich merken sollte. Dabei sei n die Anzahl aller wählbaren Objekte:
+
+<p>Es gibt nur vier Formeln, die man sich merken sollte. Dabei sei n die Anzahl aller wählbaren Objekte:</p>
 
 <table>
    <tr>
@@ -130,27 +135,26 @@ Es gibt nur vier Formeln, die man sich merken sollte. Dabei sei n die Anzahl all
       <td>$\binom{n-1+k}{k}$</td>
       <td>$\binom{n}{k}$</td>
    </tr>
-</table>
+</table><p>Warum stimmt das?</p>
 
-Warum stimmt das?
+<p>Wenn man n Objekte hat und k-mal eines davon auswählt, wobei die Reihenfolge eine Rolle spielt und man das Objekt danach immer wieder zurück legt (also Wiederholungen haben kann), dann hat man beim ersten mal n verschiedene Wahlmöglichkeiten. Beim zweiten, dritten, ... k.-Zug auch. Es sind also $\underbrace{n \cdot n \cdot ... \cdot n}_\text{k mal} = n^k$ Möglichkeiten.</p>
 
-Wenn man n Objekte hat und k-mal eines davon auswählt, wobei die Reihenfolge eine Rolle spielt und man das Objekt danach immer wieder zurück legt (also Wiederholungen haben kann), dann hat man beim ersten mal n verschiedene Wahlmöglichkeiten. Beim zweiten, dritten, ... k.-Zug auch. Es sind also $\underbrace{n \cdot n \cdot ... \cdot n}_\text{k mal} = n^k$ Möglichkeiten.
+<p>Wenn man die Objekte nicht wieder zurück legt, die Reihenfolge aber eine Rolle spielt, hat man beim ersten Zug wieder n Möglichkeiten. Beim zweiten Zug sind es (n-1), beim dritten (n-3), ... beim k.-Zug (n-k+1) Möglichkeiten. Also gilt:
+$\underbrace{(n-0) \cdot (n-1) \cdot ... \cdot (n- (k-1))}<em>\text{k Faktoren} = \prod</em>{i=0}^{k-1} (n-i)=  \frac{n!}{(n-k)!}$</p>
 
-Wenn man die Objekte nicht wieder zurück legt, die Reihenfolge aber eine Rolle spielt, hat man beim ersten Zug wieder n Möglichkeiten. Beim zweiten Zug sind es (n-1), beim dritten (n-3), ... beim k.-Zug (n-k+1) Möglichkeiten. Also gilt:
-$\underbrace{(n-0) \cdot (n-1) \cdot ... \cdot (n- (k-1))}_\text{k Faktoren} = \prod_{i=0}^{k-1} (n-i)=  \frac{n!}{(n-k)!}$
+<p>Angenommen es spielt nun nur eine Rolle, welche Objekte man ausgewählt hat, aber nicht wann. Dann gibt es, wenn man die Objekte nicht wieder zurücklegt, $\frac{n!}{(n-k)!}$ Möglichkeiten, abzüglich der Möglichkeiten, die nur bei Beachtung der Reihenfolge eine Rolle spielen. Das bedeutet, es muss noch durch k! geteilt werden. Das kann man sich klar machen, indem man eine bestimmte Menge an k ausgewählten Objekten betrachtet. Dann muss man entscheiden, welches das erste ist. Dafür gibt es k Möglichkeiten. Für das zweite hat man (k-1) Möglichkeiten, usw. Das Bedeutet, es gibt für diesen Fall $\frac{n!}{(n-k)! \cdot k!} = \binom{n}{k}$ Möglichkeiten.</p>
 
-Angenommen es spielt nun nur eine Rolle, welche Objekte man ausgewählt hat, aber nicht wann. Dann gibt es, wenn man die Objekte nicht wieder zurücklegt, $\frac{n!}{(n-k)!}$ Möglichkeiten, abzüglich der Möglichkeiten, die nur bei Beachtung der Reihenfolge eine Rolle spielen. Das bedeutet, es muss noch durch k! geteilt werden. Das kann man sich klar machen, indem man eine bestimmte Menge an k ausgewählten Objekten betrachtet. Dann muss man entscheiden, welches das erste ist. Dafür gibt es k Möglichkeiten. Für das zweite hat man (k-1) Möglichkeiten, usw. Das Bedeutet, es gibt für diesen Fall $\frac{n!}{(n-k)! \cdot k!} = \binom{n}{k}$ Möglichkeiten.
-
-Der schwerste Fall sind k-Kombinationen mit zurücklegen. Dafür denkt man sich am besten, dass man eine Liste der Objekte hat. Nun macht man, um die n Objekte zu trennen, zwischen diese (n-1) Sternchen. Die Anzahl wird durch k Striche repräsentiert.
+<p>Der schwerste Fall sind k-Kombinationen mit zurücklegen. Dafür denkt man sich am besten, dass man eine Liste der Objekte hat. Nun macht man, um die n Objekte zu trennen, zwischen diese (n-1) Sternchen. Die Anzahl wird durch k Striche repräsentiert.
 Nun kann man sich fragen, wie viele Möglichkeiten es gibt diese k Striche und (n-1) Sternchen anzuordnen.  Das sind, wenn man die k Striche auf (n-1)+k Plätze verteilt:
-$\frac{(n-1+k)!}{(n-1)!} \cdot \underbrace{\frac{1}{k!}}_\text{Reihenfolge ist egal} = \frac{(n-1+k)!}{(n-1)!k!}$
+$\frac{(n-1+k)!}{(n-1)!} \cdot \underbrace{\frac{1}{k!}}_\text{Reihenfolge ist egal} = \frac{(n-1+k)!}{(n-1)!k!}$</p>
 
-Dies entspricht genau dem Binomialkoeffizienten:
-$\binom{n-1+k}{k} = \frac{(n-1+k)!}{k!((n-1+k)-k)!} = \frac{(n-1+k)!}{k!(n-1)!}$
+<p>Dies entspricht genau dem Binomialkoeffizienten:
+$\binom{n-1+k}{k} = \frac{(n-1+k)!}{k!((n-1+k)-k)!} = \frac{(n-1+k)!}{k!(n-1)!}$</p>
 
 <h2 id="tocAnchor-1-6">Siehe auch</h2>
-Wikipedia:
-<ul><li><a href="http://de.wikipedia.org/wiki/Kombinatorik">Kombinatorik</a> (Der Artikel ist leider sehr mager. Eventuell hat jemand lust ihn zu ergänzen?)</li>
+
+<p>Wikipedia:
+</p><ul><li><a href="http://de.wikipedia.org/wiki/Kombinatorik">Kombinatorik</a> (Der Artikel ist leider sehr mager. Eventuell hat jemand lust ihn zu ergänzen?)</li>
   <li><a href="http://de.wikipedia.org/wiki/Abz%C3%A4hlende_Kombinatorik">Abzählende Kombinatorik</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Permutation">Permutation</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Anagramm">Anagramm</a></li>
@@ -263,54 +267,54 @@ Wikipedia:
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

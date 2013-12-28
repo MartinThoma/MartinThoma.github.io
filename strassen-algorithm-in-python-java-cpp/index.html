@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Part II: The Strassen algorithm in Python, Java and C++</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -66,7 +66,7 @@
                             <div class="info">This is Part II of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
 
-The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.
+<p>The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log<em>2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the &lt;a href="http://en.wikipedia.org/wiki/Karatsuba</em>algorithm"&gt;Karatsuba algorithm for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -91,13 +91,14 @@ The usual matrix multiplication of two $n \times n$ matrices has a time-complexi
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">The implementations</h2>
-As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times :-)
-If you know other languages, you could create a script for these. I focus on Python, Java and C++.
 
-I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four $\frac{n}{2} \times \frac{n}{2}$ matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those $\frac{n}{2} \times \frac{n}{2}$ matrices. You can do this until you have $1 \times 1$ matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.
+<p>As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times :-)
+If you know other languages, you could create a script for these. I focus on Python, Java and C++.</p>
 
-If you post a solution, please consider these restrictions:
-<ul><li><strong>Input</strong>: 
+<p>I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four $\frac{n}{2} \times \frac{n}{2}$ matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those $\frac{n}{2} \times \frac{n}{2}$ matrices. You can do this until you have $1 \times 1$ matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.</p>
+
+<p>If you post a solution, please consider these restrictions:
+</p><ul><li><strong>Input</strong>: 
     <ul><li>The input file should get passed with the parameter <code>-i</code>, e.g.: 
     <code>python -i bigMatrix.in</code> or <code>java Shell -i bigMatrix.in</code></li>
       <li>The leaf-size should get passed with <code>-l</code>, e.g.: 
@@ -117,10 +118,12 @@ If you post a solution, please consider these restrictions:
     <li><strong>Output</strong>: The result has to get printed to standard output.</li>
     <li>The result has to be formatted like the input (tabs for separation of number, \n for marks a new line)</li>
 </ul><h2 id="tocAnchor-1-2">Tests and Setting</h2>
-<a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.
+
+<p><a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.</p>
 
 <h2 id="tocAnchor-1-3">Python</h2>
-I’ve used Python 2.6.5.
+
+<p>I’ve used Python 2.6.5.</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/python</span>
@@ -293,20 +296,22 @@ I’ve used Python 2.6.5.
 </code></pre>
 </div>
 
-The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:
+<p>The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:</p>
+
 <div class="highlight">
-   <pre><code class="bash">ikj-algorithm	44m13.458s
-LEAF_SIZE	Time
-2	47m45.983s
-8	47m41.311s
-16	48m5.472s
-32	48m5.624s
-64	47m55.076s
+   <pre><code class="bash">ikj-algorithm    44m13.458s
+LEAF_SIZE   Time
+2   47m45.983s
+8   47m41.311s
+16  48m5.472s
+32  48m5.624s
+64  47m55.076s
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Java</h2>
-The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.
+
+<p>The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.</p>
 
 <div class="highlight">
    <pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span><span class="o">[][]</span> <span class="nf">ikjAlgorithm</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">A</span><span class="o">,</span> <span class="kt">int</span><span class="o">[][]</span> <span class="n">B</span><span class="o">)</span> <span class="o">{</span>
@@ -475,15 +480,16 @@ The Java-code is a little bit long and has three classes. I'll only past the imp
 </code></pre>
 </div>
 
-Here are the results for different leaf-sizes:
-<div style="width: 500px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2013/01/bchart-simple.png">
-      <img src="http://localhost/blog/_site/images/../images/2013/01/bchart-simple.png" alt="" width="500" height="349" class="size-full wp-image-54901" />
+<p>Here are the results for different leaf-sizes:
+</p><div style="width: 500px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2013/01/bchart-simple.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/01/bchart-simple.png" alt="" width="500" height="349" class="size-full wp-image-54901" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
 <h2 id="tocAnchor-1-5">C++</h2>
+
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;sstream&gt;</span>
 <span class="cp">#include &lt;string&gt;</span>
@@ -753,23 +759,23 @@ Here are the results for different leaf-sizes:
 </code></pre>
 </div>
 
-For C++, you get those user-times for the different leaf-sizes:
-<div style="width: 500px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2013/01/cpp-leaf-size-times.png">
-      <img src="http://localhost/blog/_site/images/../images/2013/01/cpp-leaf-size-times.png" alt="" width="500" height="333" class="size-full wp-image-54921" />
+<p>For C++, you get those user-times for the different leaf-sizes:
+</p><div style="width: 500px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2013/01/cpp-leaf-size-times.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/01/cpp-leaf-size-times.png" alt="" width="500" height="333" class="size-full wp-image-54921" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
 <h2 id="tocAnchor-1-6">Conclusion</h2>
-As always, C++ is the fastest solution. 
 
-I am a little bit surprised, that the LEAF_SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF_SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often any preferably visualize it.
+<p>As always, C++ is the fastest solution. </p>
 
-For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why librarys perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)
+<p>I am a little bit surprised, that the LEAF<em>SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF</em>SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often any preferably visualize it.</p>
 
-Leafsizes from 64 to 256 seem to be the best solution.
+<p>For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why librarys perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)</p>
 
+<p>Leafsizes from 64 to 256 seem to be the best solution.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -886,54 +892,54 @@ Leafsizes from 64 to 256 seem to be the best solution.
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

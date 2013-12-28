@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>A practical approach to floats</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,41 +65,42 @@
                         </div>
 			
 						<div class="entry">
-                            If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:
+                            <p>If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:</p>
 
-<div style="width: 500px" class="wp-caption aligncenter"><a href="http://localhost/blog/_site/images/../images/2012/10/IEEE_754_single_precision.png"><img src="http://localhost/blog/_site/images/../images/2012/10/IEEE_754_single_precision.png" alt="" width="500" height="74" class="size-full wp-image-47381"></a><p class="wp-caption-text"></p></div>
+<div style="width: 500px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2012/10/IEEE_754_single_precision.png"><img src="http://martinthoma.github.io/images/../images/2012/10/IEEE_754_single_precision.png" alt="" width="500" height="74" class="size-full wp-image-47381"></a><p class="wp-caption-text"></p></div>
 
-<div style="width: 500px" class="wp-caption aligncenter"><a href="http://localhost/blog/_site/images/../images/2012/10/float-scheme.png"><img src="http://localhost/blog/_site/images/../images/2012/10/float-scheme.png" alt="" width="500" height="64" class="size-full wp-image-47361"></a><p class="wp-caption-text"></p></div>
+<div style="width: 500px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2012/10/float-scheme.png"><img src="http://martinthoma.github.io/images/../images/2012/10/float-scheme.png" alt="" width="500" height="64" class="size-full wp-image-47361"></a><p class="wp-caption-text"></p></div>
 
-You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I've learned.
+<p>You will (have to) learn how <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 floats</a> are structured on a bit-wise level. But I also like to check if it is correct, what I&#39;ve learned.</p>
 
-So this is how you can check it: 
+<p>So this is how you can check it: </p>
+
 <div class="highlight"><pre><code class="c"><span class="cp">#include &lt;stdint.h&gt;</span>
 <span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// printf</span>
 <span class="cp">#include &lt;limits.h&gt; </span><span class="c1">// INT_MAX, UINT_MAX, ...</span>
 <span class="cp">#include &lt;math.h&gt;   </span><span class="c1">// needed for NAN</span>
 <span class="k">union</span> <span class="n">myUnion</span> <span class="p">{</span>
-	<span class="kt">uint32_t</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// unsigned integer 32-bit type (on every machine)</span>
-	<span class="kt">float</span> <span class="n">f</span><span class="p">;</span> <span class="c1">// a type you want to play with</span>
+    <span class="kt">uint32_t</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// unsigned integer 32-bit type (on every machine)</span>
+    <span class="kt">float</span> <span class="n">f</span><span class="p">;</span> <span class="c1">// a type you want to play with</span>
 <span class="p">};</span>
 
 <span class="kt">void</span> <span class="nf">printValue</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;uint32_t</span><span class="se">\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Bits</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">printf</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">31</span> <span class="o">||</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">23</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">printf</span><span class="p">(</span><span class="s">&quot;|&quot;</span><span class="p">);</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Number</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%0.10f</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;uint32_t</span><span class="se">\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Bits</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">31</span> <span class="o">||</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">23</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;|&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Number</span><span class="se">\t\t</span><span class="s">:</span><span class="se">\t</span><span class="s">%0.10f</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">setSign</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">sign</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">);</span>
+    <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">sign</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/**</span>
@@ -110,43 +111,43 @@ So this is how you can check it:
 <span class="cm"> * Otherwise NaN.</span>
 <span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">setExponent</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">char</span> <span class="n">exponent</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>
+    <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">&lt;&lt;</span> <span class="mi">23</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * The mantissa has 23 bits.</span>
 <span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">setMantissa</span><span class="p">(</span><span class="k">union</span> <span class="n">myUnion</span> <span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mantissa</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">mantissa</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-&gt;</span><span class="n">i</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="mh">0xffffffff</span> <span class="o">-</span> <span class="p">(</span><span class="mh">0xff</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="n">mantissa</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">union</span> <span class="n">myUnion</span> <span class="n">testVar</span><span class="p">;</span>
-	
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Manual guessing</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-	<span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-	<span class="n">setSign</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">testVar</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-	<span class="n">setExponent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">testVar</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">);</span>
-	<span class="n">setMantissa</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">testVar</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">);</span>
-	<span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+    <span class="k">union</span> <span class="n">myUnion</span> <span class="n">testVar</span><span class="p">;</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Manual guessing</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">setSign</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">testVar</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">setExponent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">testVar</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">);</span>
+    <span class="n">setMantissa</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">testVar</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">);</span>
+    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;What does UINT_MAX evaluate to?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-	<span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">UINT_MAX</span><span class="p">;</span>
-	<span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What does UINT_MAX evaluate to?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">UINT_MAX</span><span class="p">;</span>
+    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;What does nan evaluate to?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-	<span class="n">testVar</span><span class="p">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">NAN</span><span class="p">;</span>
-	<span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
-	
-	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;The example above and switched first bit on</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What does nan evaluate to?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">testVar</span><span class="p">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">NAN</span><span class="p">;</span>
+    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The example above and switched first bit on</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
     <span class="n">testVar</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mh">0xbf200000</span><span class="p">;</span>
-	<span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
+    <span class="n">printValue</span><span class="p">(</span><span class="n">testVar</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 
-I think I have tried all interesting values. Have fun trying it yourself :-)
+<p>I think I have tried all interesting values. Have fun trying it yourself :-)</p>
 
-(hmm ... I could also try to make a visualization ... I will think about this when I have more time)
+<p>(hmm ... I could also try to make a visualization ... I will think about this when I have more time)</p>
 
 						</div>
 						<div class="postmeta">Posted in 
@@ -258,54 +259,54 @@ I think I have tried all interesting values. Have fun trying it yourself :-)
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

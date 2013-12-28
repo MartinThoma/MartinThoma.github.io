@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Polynomial interpolation</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,13 +65,13 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$. 
+                            <p>Suppose you have a list of $n+1$ given point $(x<em>i, y</em>i)$ with $i \in {0, \dots, n}$ and $\forall i,j \in {0, \dots, n}: i \neq j \Rightarrow x<em>i \neq x</em>j$. </p>
 
-Now you want to find a polynomial $\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i$ that goes through all of the given points. This means:
+<p>Now you want to find a polynomial $\displaystyle p(x) = \sum<em>{i=0}^n a</em>i \cdot x^i$ that goes through all of the given points. This means:</p>
 
-$\forall i \in \{0, \dots, n\}: p(x_i) = y_i$
+<p>$\forall i \in {0, \dots, n}: p(x<em>i) = y</em>i$</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -94,40 +94,43 @@ $\forall i \in \{0, \dots, n\}: p(x_i) = y_i$
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Existence and uniqueness</h2>
-<strong>Theorem</strong>: When you have a list of $n+1$ points with mutually different $x_i$ there is exactly one polynom of degree $\leq n$ that fits those points.
 
-<strong>Proof</strong>:
+<p><strong>Theorem</strong>: When you have a list of $n+1$ points with mutually different $x_i$ there is exactly one polynom of degree $\leq n$ that fits those points.</p>
 
-You can formulate a linear system of equations:
+<p><strong>Proof</strong>:</p>
 
-$\underbrace{\begin{pmatrix}
- x_0^0 &amp; \cdots &amp; x_0^n \\
-\vdots &amp; \ddots &amp; \vdots \\
- x_n^0 &amp; \cdots &amp; x_n^n
+<p>You can formulate a linear system of equations:</p>
+
+<p>$\underbrace{\begin{pmatrix}
+ x<em>0^0 &amp; \cdots &amp; x</em>0^n \
+\vdots &amp; \ddots &amp; \vdots \
+ x<em>n^0 &amp; \cdots &amp; x</em>n^n
 \end{pmatrix}
-}_{:= A \in \mathbb{R}^{(n+1) \times (n+1)}}
+}<em>{:= A \in \mathbb{R}^{(n+1) \times (n+1)}}
 \begin{pmatrix}
-a_0 \\
-\vdots \\
-a_n
-\end{pmatrix}
-= 
-\begin{pmatrix}
-y_0 \\
-\vdots \\
-y_n
-\end{pmatrix}$
+a</em>0 \
+\vdots \
+a_n</p>
 
-A matrix of the form of $A$ is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points $x_i$ are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).
+<h1>\end{pmatrix}</h1>
 
-This means, the solution $(a_0 \dots a_n)^T$ of this linear equation gives the polynom $p(x) = \sum_{i=0}^n a_i x^i$
+<p>\begin{pmatrix}
+y<em>0 \
+\vdots \
+y</em>n
+\end{pmatrix}$</p>
 
-So the solution exists and is unique $\blacksquare$
+<p>A matrix of the form of $A$ is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points $x_i$ are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).</p>
+
+<p>This means, the solution $(a<em>0 \dots a</em>n)^T$ of this linear equation gives the polynom $p(x) = \sum<em>{i=0}^n a</em>i x^i$</p>
+
+<p>So the solution exists and is unique $\blacksquare$</p>
 
 <h2 id="tocAnchor-1-2">Straight forward interpolating polynomials</h2>
-For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I'll use the matrix $A$ from section "<a href="#Uniqueness">Uniqueness</a>".
 
-You might want to take a look at my article about <a href="http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.
+<p>For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum<em>{i=0}^n a</em>i x^i$. I'll use the matrix $A$ from section "<a href="#Uniqueness">Uniqueness</a>".</p>
+
+<p>You might want to take a look at my article about <a href="http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
@@ -232,7 +235,7 @@ You might want to take a look at my article about <a href="http://martin-thoma.c
 </code></pre>
 </div>
 
-It is also interesting to get the value of $p(x)$ at any given point $x \in \mathbb{R}$:
+<p>It is also interesting to get the value of $p(x)$ at any given point $x \in \mathbb{R}$:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">evaluatePolynomial</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -245,40 +248,42 @@ It is also interesting to get the value of $p(x)$ at any given point $x \in \mat
 </code></pre>
 </div>
 
-Time complexity to get the polynomial: $\frac{1}{3} n^3 + \mathcal{O}(n^2)$ (where $n$ is the number of points)
-Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)
+<p>Time complexity to get the polynomial: $\frac{1}{3} n^3 + \mathcal{O}(n^2)$ (where $n$ is the number of points)
+Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)</p>
 
-Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n)$.
+<p>Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n)$.</p>
 
 <h2 id="tocAnchor-1-3">Polynomials</h2>
-$\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$ 
 
-So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}_n[X]$ forms a vector space for $n \in \mathbb{N}_0$. The degree of that vector space is $n+1$.
+<p>$\displaystyle \mathbb{R}<em>n[X] := \left {p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum</em>{i=0}^n a<em>i \cdot x^i \text{ with } a</em>0, \dots, a_n \in \mathbb{R} \right }$ </p>
 
-What does that mean?
+<p>So $\mathbb{R}<em>n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}</em>n[X]$ forms a vector space for $n \in \mathbb{N}_0$. The degree of that vector space is $n+1$.</p>
 
-This means you can use different bases for polynomials. The base we usually use for $\mathbb{R}_n[X]$ is $\{x^0, x^1, x^2, x^3, \dots\}$, but you can switch the base.
+<p>What does that mean?</p>
+
+<p>This means you can use different bases for polynomials. The base we usually use for $\mathbb{R}_n[X]$ is ${x^0, x^1, x^2, x^3, \dots}$, but you can switch the base.</p>
 
 <h2 id="tocAnchor-1-4">Lagrange interpolation</h2>
-Define $n+1$ polynomials like this:
 
-$\displaystyle L_{i}(x) := \prod_{j=0 \atop j \neq i}^n \frac{x-x_j}{x_i - x_j}$
+<p>Define $n+1$ polynomials like this:</p>
 
-This means:
+<p>$\displaystyle L<em>{i}(x) := \prod</em>{j=0 \atop j \neq i}^n \frac{x-x<em>j}{x</em>i - x_j}$</p>
 
-$\displaystyle L_{i}(x_i) := \prod_{j=0 \atop j \neq i}^n \frac{x_i-x_j}{x_i - x_j} = 1$
+<p>This means:</p>
 
-and
+<p>$\displaystyle L<em>{i}(x</em>i) := \prod<em>{j=0 \atop j \neq i}^n \frac{x</em>i-x<em>j}{x</em>i - x_j} = 1$</p>
 
-$\displaystyle L_{i}(x_p) := \prod_{j=0 \atop j \neq i}^n \frac{x_p-x_j}{x_i - x_j} = 0 \;\; p \in \{0, \dots, n\} \setminus \{i\}$
+<p>and</p>
 
-So the polynomial $y_i \cdot L_{i}(x)$ fits the point $(x_i, y_i)$ and is zero for all other points. This implies that 
+<p>$\displaystyle L<em>{i}(x</em>p) := \prod<em>{j=0 \atop j \neq i}^n \frac{x</em>p-x<em>j}{x</em>i - x_j} = 0 \;\; p \in {0, \dots, n} \setminus {i}$</p>
 
-$\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)$ is an interpolation of our data points. The degree of $p(x)$ is not higher than $n$. You can see that easily when you take a look at the definition of $p(x)$ and $L_i(x)$.
+<p>So the polynomial $y<em>i \cdot L</em>{i}(x)$ fits the point $(x<em>i, y</em>i)$ and is zero for all other points. This implies that </p>
 
-The polynomials $L_i(x)$ form another base for $\mathbb{R}_n[X]$.
+<p>$\displaystyle p(x) = \sum<em>{i=0}^n y</em>i \cdot L<em>i(x)$ is an interpolation of our data points. The degree of $p(x)$ is not higher than $n$. You can see that easily when you take a look at the definition of $p(x)$ and $L</em>i(x)$.</p>
 
-Lagranges way to interpolate polynomials can be implemented like this:
+<p>The polynomials $L<em>i(x)$ form another base for $\mathbb{R}</em>n[X]$.</p>
+
+<p>Lagranges way to interpolate polynomials can be implemented like this:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">lagrangeInterpolation</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
@@ -306,38 +311,40 @@ Lagranges way to interpolate polynomials can be implemented like this:
 </code></pre>
 </div>
 
-Time complexity to get the polynomial: $n^2 + \mathcal{O}(n)$ (where $n$ is the number of points)
-Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)
+<p>Time complexity to get the polynomial: $n^2 + \mathcal{O}(n)$ (where $n$ is the number of points)
+Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)</p>
 
-Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n^2)$.
+<p>Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n^2)$.</p>
 
 <h2 id="tocAnchor-1-5">Newton interpolation</h2>
-Define
 
-$\displaystyle N_i(x) := \prod_{j=0}^{i-1} (x-x_j)$
+<p>Define</p>
 
-So you know that 
+<p>$\displaystyle N<em>i(x) := \prod</em>{j=0}^{i-1} (x-x_j)$</p>
 
-$N_i(x) = 0 \Leftrightarrow \exists p \in \{1, \dots, i\}: x = x_{i-p}$
+<p>So you know that </p>
 
-So your polynomial is
+<p>$N<em>i(x) = 0 \Leftrightarrow \exists p \in {1, \dots, i}: x = x</em>{i-p}$</p>
 
-$\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)$
+<p>So your polynomial is</p>
 
-for the correct $c_i$. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those $c_i$, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.
+<p>$\displaystyle p(x) = \sum<em>{i=0}^n c</em>i \cdot N_i(x)$</p>
 
-$\begin{pmatrix}
-1 &amp; &amp; &amp; &amp; 0 \\
-1 &amp; (x_1 - x_0) &amp; &amp; &amp; \\
-1 &amp; (x_2 - x_0) &amp; (x_2 - x_0)(x_2 - x_1) &amp; &amp; \\
-\vdots &amp; \vdots &amp; &amp; \ddots &amp; \\
-1 &amp; (x_n - x_0) &amp; \cdots &amp; &amp; \prod_{i=0}^{n-1}(x_n - x_i) \\
+<p>for the correct $c<em>i$. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those $c</em>i$, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.</p>
+
+<p>$\begin{pmatrix}
+1 &amp; &amp; &amp; &amp; 0 \
+1 &amp; (x<em>1 - x</em>0) &amp; &amp; &amp; \
+1 &amp; (x<em>2 - x</em>0) &amp; (x<em>2 - x</em>0)(x<em>2 - x</em>1) &amp; &amp; \
+\vdots &amp; \vdots &amp; &amp; \ddots &amp; \
+1 &amp; (x<em>n - x</em>0) &amp; \cdots &amp; &amp; \prod<em>{i=0}^{n-1}(x</em>n - x<em>i) \
 \end{pmatrix}
 \cdot
-  \begin{pmatrix} c_0 \\ \vdots \\ c_n \end{pmatrix}
-= \begin{pmatrix} f_0 \\ \vdots \\ f_n \end{pmatrix}$
+  \begin{pmatrix} c</em>0 \ \vdots \ c<em>n \end{pmatrix}
+= \begin{pmatrix} f</em>0 \ \vdots \ f_n \end{pmatrix}$</p>
 
-You can get this lower triangular matrix like this:
+<p>You can get this lower triangular matrix like this:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">getGaussSystemForNewton</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -355,11 +362,12 @@ You can get this lower triangular matrix like this:
 </code></pre>
 </div>
 
-From my previous posts about <a href="http://martin-thoma.com/solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="http://martin-thoma.com/solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in $\Theta(n^2)$.
+<p>From my previous posts about <a href="http://martin-thoma.com/solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="http://martin-thoma.com/solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in $\Theta(n^2)$.</p>
 
-According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner%27s_method">Horner's method</a> to evaluate this Polynom in $\mathcal{O}(n)$. But I really don't want to implement this today.
+<p>According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner%27s_method">Horner's method</a> to evaluate this Polynom in $\mathcal{O}(n)$. But I really don't want to implement this today.</p>
 
 <h2 id="tocAnchor-1-6">Interactive example</h2>
+
 <iframe src="http://martin-thoma.com/html5/polynom-interpolation.htm" width="98%" height="700px"></iframe>
 
 <ul><li>Click to add points.</li>
@@ -485,54 +493,54 @@ According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

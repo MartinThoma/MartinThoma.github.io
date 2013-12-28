@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Adressierung</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -96,64 +96,61 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Allgemeines</h2>
-CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small>
-   <sup>
-      <a href="#ref1" name="anchor1" id="anchor1">[1]</a>
-   </sup>
-</small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden. 
 
-Eine Möglichkeit das zu machen, ist ein sog. „direct mapped cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch schnell von der Hardware umgesetzt werden können muss. Also unterteilt man gedanklich die Hauptspeicheradressen in 3 Teile:
-<ul><li>Tag</li>
-	<li>Index</li>
-	<li>Block-Offset</li>
-</ul>
+<p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden. </p>
 
-Der Index gibt direkt die Cache-Zeile an, in der die Daten einer Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu legen, der die entsprechende Cache-Zeile durchschaltet.
+<p>Eine Möglichkeit das zu machen, ist ein sog. „direct mapped cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch schnell von der Hardware umgesetzt werden können muss. Also unterteilt man gedanklich die Hauptspeicheradressen in 3 Teile:
+</p><ul><li>Tag</li>
+    <li>Index</li>
+    <li>Block-Offset</li>
+</ul><p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu legen, der die entsprechende Cache-Zeile durchschaltet.</p>
 
-Es gilt also: Index-Länge in Bit = $\log_2(\text{Cache-Zeilen})$
+<p>Es gilt also: Index-Länge in Bit = $\log_2(\text{Cache-Zeilen})$</p>
 
-Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile landen. Um diese unterscheiden zu können, speichert man folgendes in einer Cache-Zeile:
-<ul><li>Tag</li>
-	<li>Datenblock</li>
-	<li>Flags</li>
-</ul>
+<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile landen. Um diese unterscheiden zu können, speichert man folgendes in einer Cache-Zeile:
+</p><ul><li>Tag</li>
+    <li>Datenblock</li>
+    <li>Flags</li>
+</ul><p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher. Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut. Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man kann die Daten aus dem Cache entnehmen.</p>
 
-Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher. Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut. Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man kann die Daten aus dem Cache entnehmen.
+<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen zusammenfasst, muss gelten:</p>
 
-Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen zusammenfasst, muss gelten:
+<p>Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$ Größe des Inhalts einer Hauptspeicheradresse</p>
 
-Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$ Größe des Inhalts einer Hauptspeicheradresse
+<p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
 
-Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.
+<p>Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.</p>
 
-Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.
+<p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt werden.</p>
 
-Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt werden.
-
-Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ Sätze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:
+<p>Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ Sätze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
 
 <ol><li>Datenwort mit Hauptspeicheradresse x = $x_\text{tag}$ | $x_\text{index}$ | $x_\text{blockoffset}$ wird benötigt</li>
-	<li>$x_\text{index}$ = der zu durchsuchende Satz im Cache<br />
-	Dieser Satz wird zu den $n$ Vergleichern durchgeschaltet</li>
-	<li>Jeder Vergleicher vergleich den $x_\text{tag}$ und den in der Cache-Zeile gespeicherten tag</li>
-	<li>Wird die Adresse gefunden → Cache Hit<br />
-	Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
+    <li>$x_\text{index}$ = der zu durchsuchende Satz im Cache<br />
+    Dieser Satz wird zu den $n$ Vergleichern durchgeschaltet</li>
+    <li>Jeder Vergleicher vergleich den $x_\text{tag}$ und den in der Cache-Zeile gespeicherten tag</li>
+    <li>Wird die Adresse gefunden → Cache Hit<br />
+    Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
 </ol><h2 id="tocAnchor-1-2">Physical address and virtual address</h2>
-Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.
-Die virtuellen Adressen sind scheinbar zusammenhängend und der Adressraum ist sehr groß. Der virtuelle Adressraum ist in Blöcke (Pages) unterteilt und die Pages werden von langsamen, aber großen auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.
 
-Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollte man sich folgendes anschauen:
-<ul><li>/proc/swaps</li>
+<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.
+Die virtuellen Adressen sind scheinbar zusammenhängend und der Adressraum ist sehr groß. Der virtuelle Adressraum ist in Blöcke (Pages) unterteilt und die Pages werden von langsamen, aber großen auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.</p>
+
+<p>Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollte man sich folgendes anschauen:
+</p><ul><li>/proc/swaps</li>
   <li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erklärungen zu meminfo</a></li>
   <li><code>vmstat -s</code></li>
 </ul><h2 id="tocAnchor-1-3">Cache-Modelle</h2>
-Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:
+
+<p>Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:</p>
 
 <h3 id="tocAnchor-1-3-1">Physically Indexed, Physically Tagged</h3>
-Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.
+
+<p>Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.</p>
 
 <h3 id="tocAnchor-1-3-2">Virtually indexed, physically tagged</h3>
-Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort überhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag überprüfen kann.
+
+<p>Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort überhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag überprüfen kann.</p>
 
 <div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?
 Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456
@@ -163,15 +160,17 @@ Die zugehörige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] 
 Nun müsste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
 
 <h3 id="tocAnchor-1-3-3">Physically Indexed / Virtually Tagged</h3>
-Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.
+
+<p>Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.</p>
 
 <h3 id="tocAnchor-1-3-4">Virtually Indexed / Virtually Tagged</h3>
-Kein MMU-Zugriff benötigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)
+
+<p>Kein MMU-Zugriff benötigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)</p>
 
 <h2 id="tocAnchor-1-8">Quellen</h2>
-1. <a name="ref1" href="#anchor1" id="ref1">↑</a>: <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a>
 
-<ul><li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
+<ol><li><a name="ref1" href="#anchor1" id="ref1">↑</a>: <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a></li>
+</ol><ul><li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Virtuelle_Adresse#Motivation">Virtuelle Adresse</a></li>
   <li><a href="http://en.wikipedia.org/wiki/CPU_cache">CPU cache</a></li>
   <li><a href="http://lwn.net/Articles/106177/">Four-level page tables</a></li>
@@ -291,54 +290,54 @@ Kein MMU-Zugriff benötigt, also schneller als die anderen Varianten. Birgt aber
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

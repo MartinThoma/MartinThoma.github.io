@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Add MIPS syntax highlighting to gEdit</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,73 +65,218 @@
                         </div>
 			
 						<div class="entry">
-                            <p>I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit.
+                            <p>I have to code some little programs in MIPS assembly language for university. So I liked to have some syntax highlighting for my favorite editor: gEdit.</p>
 
-The following steps were tested on Ubuntu 10.04.4 LTS.
+<p>The following steps were tested on Ubuntu 10.04.4 LTS.</p>
 
-This adds MIPS syntax highlighting to gEdit and every editor, that uses gtksourceview.
+<p>This adds MIPS syntax highlighting to gEdit and every editor, that uses gtksourceview.</p>
 
-Create the following file: <code>/usr/share/gtksourceview-2.0/language-specs/sal.lang</code>
+<p>Create the following file: <code>/usr/share/gtksourceview-2.0/language-specs/sal.lang</code></p>
 
+<p>Source: GITHub: <a href="https://github.com/Xodarap/Mips-Assembly-Syntax-Highlighting">Xodarap / Mips-Assembly-Syntax-Highlighting</a></p>
 
-Source: GITHub: <a href="https://github.com/Xodarap/Mips-Assembly-Syntax-Highlighting">Xodarap / Mips-Assembly-Syntax-Highlighting</a>
+<p>Copy and paste the following:
+[xml]&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!--</p>
 
-Copy and paste the following:
-[xml]<?xml version="1.0" encoding="UTF-8"??><!--
-
- Author: Ben West
+<p>Author: Ben West
  Copyright (C) 2010 Ben West
- edited by Martin Thoma
+ edited by Martin Thoma</p>
 
- This library is free software; you can redistribute it and/or
+<p>This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Library General Public
  License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later version.
+ version 2 of the License, or (at your option) any later version.</p>
 
- This library is distributed in the hope that it will be useful,
+<p>This library is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Library General Public License for more details.
+ Library General Public License for more details.</p>
 
- You should have received a copy of the GNU Library General Public
+<p>You should have received a copy of the GNU Library General Public
  License along with this library; if not, write to the
  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- Boston, MA 02111-1307, USA.
+ Boston, MA 02111-1307, USA.</p>
 
---><!--
-	Somewhat copied and pasted from nasm.lang
---><language id="mal" _name="MAL" version="2.0" _section="Others"><metadata><property name="mimetypes">text/mal</property><property name="globs">*.s</property><property name="line-comment-start">#</property></metadata><styles><style id="comment" _name="Comment" map-to="def:comment"></style><style id="error" _name="Error" map-to="def:error"></style><style id="string" _name="String" map-to="def:string"></style><style id="preprocessor" _name="Preprocessor" map-to="def:preprocessor"></style><style id="opcode" _name="Opcode" map-to="def:keyword"></style><style id="register" _name="Register" map-to="def:special-char"></style><style id="type" _name="Data Type" map-to="def:type"></style><style id="escaped-character" _name="Escaped Character" map-to="def:special-char"></style><style id="decimal" _name="Decimal number" map-to="def:decimal"></style><style id="hexadecimal" _name="Hexadecimal number" map-to="def:base-n-integer"></style><style id="label" _name="Label" map-to="def:identifier"></style></styles><default-regex-options case-sensitive="false"></default-regex-options><definitions><define-regex id="escaped-character" extended="true">
-            \\(      # leading backslash
-            [\\\"\'] # escaped character
-            )
-        </define-regex><context id="mal"><include><context id="preprocessor" style-ref="preprocessor"><prefix>^\.</prefix><keyword>data</keyword><keyword>text</keyword></context><context id="comment" style-ref="comment" end-at-line-end="true"><start>#</start><include><context ref="def:in-line-comment"></context></include></context><context id="string" style-ref="string" end-at-line-end="true"><start>"</start><end>"</end><include><context id="escaped-characterw" style-ref="escaped-character"><match>\%{escaped-character}</match></context></include></context><context id="string2" style-ref="string" end-at-line-end="true"><start>'</start><end>'</end><include><context id="escaped-characters" style-ref="escaped-character"><match>\%{escaped-character}</match></context></include></context><context id="hexadecimal-number" style-ref="hexadecimal"><match extended="true">
-			(?&amp;lt;![\w\.])
-			[+-]?0x[0-9a-fA-F]+
-			(?![\w\.])
-	      	    </match></context><context id="decimal" style-ref="decimal"><match extended="true">
-                        (?&amp;lt;![\w\.])
-                        [0-9]+
-                        (?![\w\.])
-                    </match></context><context id="registers" style-ref="register"><match extended="true">
-				(\$
-					(
-						\d|[12]\d|3[12]|
-						(ra)|
-						([vk][01])|
-						(a[0-3t])|
-						(t[0-9])|
-						(s[0-7p])|
-						([gsf]p)|
-						(zero)
-					)
-				)\b
-			</match></context><context id="label" style-ref="label"><match extended="true">
-				^\w+:
-			</match></context><!-- Opcodes --><context id="opcodes_simple" style-ref="opcode"><!-- MAL Opcodes --><keyword>la</keyword><keyword>li</keyword><keyword>lw</keyword><keyword>lb</keyword><keyword>lbu</keyword><keyword>sw</keyword><keyword>sb</keyword><keyword>add(\.s)?</keyword><keyword>sub(\.s)?</keyword><keyword>mul(\.s)?</keyword><keyword>div(\.s)?</keyword><keyword>rem</keyword><keyword>and</keyword><keyword>or</keyword><keyword>xor</keyword><keyword>nor</keyword><keyword>not</keyword><keyword>move</keyword><keyword>sll</keyword><keyword>srl</keyword><keyword>sra</keyword><keyword>l\.s</keyword><keyword>s\.s</keyword><keyword>mov\.s</keyword><keyword>cvt\.s\.w</keyword><keyword>cvt\.w\.s</keyword><keyword>mfc0</keyword><keyword>mtc0</keyword><keyword>mfc1</keyword><keyword>mtc1</keyword><keyword>b</keyword><keyword>beq</keyword><keyword>bne</keyword><keyword>blt</keyword><keyword>bgt</keyword><keyword>ble</keyword><keyword>bge</keyword><keyword>bltz</keyword><keyword>bgtz</keyword><keyword>blez</keyword><keyword>bgez</keyword><keyword>bnez</keyword><keyword>beqz</keyword><keyword>j</keyword><keyword>jr</keyword><keyword>jal</keyword><keyword>jalr</keyword><keyword>getc</keyword><keyword>putc</keyword><keyword>puts</keyword><keyword>done</keyword><keyword>syscall</keyword><keyword>andi</keyword></context><context id="types" style-ref="type"><prefix>\.</prefix><keyword>byte</keyword><keyword>word</keyword><keyword>asciiz</keyword><keyword>ascii</keyword><keyword>float</keyword></context></include></context></definitions></language>[/xml]
+<p>--&gt;
+&lt;!--
+    Somewhat copied and pasted from nasm.lang
+--&gt;
+<language id="mal" _name="MAL" version="2.0" _section="Others"><metadata><property name="mimetypes">text/mal</property><property name="globs">*.s</property><property name="line-comment-start">#</property></metadata></language></p>
+<div class="highlight">
+   <pre><code class="text language-text" data-lang="text">&lt;styles&gt;
+    &lt;style id="comment"             _name="Comment"                 map-to="def:comment"/&gt;
+    &lt;style id="error"               _name="Error"                   map-to="def:error"/&gt;
+    &lt;style id="string"              _name="String"                  map-to="def:string"/&gt;
+    &lt;style id="preprocessor"        _name="Preprocessor"            map-to="def:preprocessor"/&gt;
+    &lt;style id="opcode"              _name="Opcode"                  map-to="def:keyword"/&gt;
+    &lt;style id="register"            _name="Register"                map-to="def:special-char"/&gt;
+    &lt;style id="type"                _name="Data Type"               map-to="def:type"/&gt;
+    &lt;style id="escaped-character"   _name="Escaped Character"       map-to="def:special-char"/&gt;
+    &lt;style id="decimal"             _name="Decimal number"      map-to="def:decimal"/&gt;
+    &lt;style id="hexadecimal"     _name="Hexadecimal number"  map-to="def:base-n-integer"/&gt;
+&lt;style id="label"       _name="Label"           map-to="def:identifier" /&gt;
+&lt;/styles&gt;
 
-That's it.
+&lt;default-regex-options case-sensitive="false"/&gt;
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+&lt;definitions&gt;
+    &lt;define-regex id="escaped-character" extended="true"&gt;
+        \\(      # leading backslash
+        [\\\"\'] # escaped character
+        )
+    &lt;/define-regex&gt;
+
+    &lt;context id="mal"&gt;
+        &lt;include&gt;   
+    &lt;context id="preprocessor" style-ref="preprocessor"&gt;
+        &lt;prefix&gt;^\.&lt;/prefix&gt;
+        &lt;keyword&gt;data&lt;/keyword&gt;
+        &lt;keyword&gt;text&lt;/keyword&gt;
+    &lt;/context&gt;
+
+            &lt;context id="comment" style-ref="comment" end-at-line-end="true"&gt;
+                &lt;start&gt;#&lt;/start&gt;
+                &lt;include&gt;
+                  &lt;context ref="def:in-line-comment"/&gt;
+                &lt;/include&gt;
+            &lt;/context&gt;
+
+            &lt;context id="string" style-ref="string" end-at-line-end="true"&gt;
+                &lt;start&gt;"&lt;/start&gt;
+                &lt;end&gt;"&lt;/end&gt;
+                &lt;include&gt;
+                    &lt;context id="escaped-characterw" style-ref="escaped-character"&gt;
+                        &lt;match&gt;\%{escaped-character}&lt;/match&gt;
+                    &lt;/context&gt;
+                &lt;/include&gt;
+            &lt;/context&gt;
+            &lt;context id="string2" style-ref="string" end-at-line-end="true"&gt;
+                &lt;start&gt;'&lt;/start&gt;
+                &lt;end&gt;'&lt;/end&gt;
+                &lt;include&gt;
+                    &lt;context id="escaped-characters" style-ref="escaped-character"&gt;
+                        &lt;match&gt;\%{escaped-character}&lt;/match&gt;
+                    &lt;/context&gt;
+                &lt;/include&gt;
+            &lt;/context&gt;
+
+
+        &lt;context id="hexadecimal-number" style-ref="hexadecimal"&gt;
+            &lt;match extended="true"&gt;
+        (?&amp;amp;lt;![\w\.])
+        [+-]?0x[0-9a-fA-F]+
+        (?![\w\.])
+            &lt;/match&gt;
+        &lt;/context&gt;
+
+            &lt;context id="decimal" style-ref="decimal"&gt;
+                &lt;match extended="true"&gt;
+                    (?&amp;amp;lt;![\w\.])
+                    [0-9]+
+                    (?![\w\.])
+                &lt;/match&gt;
+            &lt;/context&gt;
+
+            &lt;context id="registers" style-ref="register"&gt;           
+        &lt;match extended="true"&gt;
+            (\$
+                (
+                    \d|[12]\d|3[12]|
+                    (ra)|
+                    ([vk][01])|
+                    (a[0-3t])|
+                    (t[0-9])|
+                    (s[0-7p])|
+                    ([gsf]p)|
+                    (zero)
+                )
+            )\b
+        &lt;/match&gt;            
+            &lt;/context&gt;
+
+    &lt;context id="label" style-ref="label"&gt;
+        &lt;match extended="true"&gt;
+            ^\w+:
+        &lt;/match&gt;
+    &lt;/context&gt;
+
+            &lt;!-- Opcodes --&gt;
+    &lt;context id="opcodes_simple" style-ref="opcode"&gt;
+        &lt;!-- MAL Opcodes --&gt;
+        &lt;keyword&gt;la&lt;/keyword&gt;
+        &lt;keyword&gt;li&lt;/keyword&gt;
+        &lt;keyword&gt;lw&lt;/keyword&gt;
+        &lt;keyword&gt;lb&lt;/keyword&gt;
+        &lt;keyword&gt;lbu&lt;/keyword&gt;
+        &lt;keyword&gt;sw&lt;/keyword&gt;
+        &lt;keyword&gt;sb&lt;/keyword&gt;
+        &lt;keyword&gt;add(\.s)?&lt;/keyword&gt;
+        &lt;keyword&gt;sub(\.s)?&lt;/keyword&gt;
+        &lt;keyword&gt;mul(\.s)?&lt;/keyword&gt;
+        &lt;keyword&gt;div(\.s)?&lt;/keyword&gt;
+        &lt;keyword&gt;rem&lt;/keyword&gt;
+        &lt;keyword&gt;and&lt;/keyword&gt;
+        &lt;keyword&gt;or&lt;/keyword&gt;
+        &lt;keyword&gt;xor&lt;/keyword&gt;
+        &lt;keyword&gt;nor&lt;/keyword&gt;
+        &lt;keyword&gt;not&lt;/keyword&gt;
+        &lt;keyword&gt;move&lt;/keyword&gt;
+        &lt;keyword&gt;sll&lt;/keyword&gt;
+        &lt;keyword&gt;srl&lt;/keyword&gt;
+        &lt;keyword&gt;sra&lt;/keyword&gt;
+        &lt;keyword&gt;l\.s&lt;/keyword&gt;
+        &lt;keyword&gt;s\.s&lt;/keyword&gt;
+        &lt;keyword&gt;mov\.s&lt;/keyword&gt;
+        &lt;keyword&gt;cvt\.s\.w&lt;/keyword&gt;
+        &lt;keyword&gt;cvt\.w\.s&lt;/keyword&gt;
+        &lt;keyword&gt;mfc0&lt;/keyword&gt;
+        &lt;keyword&gt;mtc0&lt;/keyword&gt;
+        &lt;keyword&gt;mfc1&lt;/keyword&gt;
+        &lt;keyword&gt;mtc1&lt;/keyword&gt;
+        &lt;keyword&gt;b&lt;/keyword&gt;
+        &lt;keyword&gt;beq&lt;/keyword&gt;
+        &lt;keyword&gt;bne&lt;/keyword&gt;
+        &lt;keyword&gt;blt&lt;/keyword&gt;
+        &lt;keyword&gt;bgt&lt;/keyword&gt;
+        &lt;keyword&gt;ble&lt;/keyword&gt;
+        &lt;keyword&gt;bge&lt;/keyword&gt;
+        &lt;keyword&gt;bltz&lt;/keyword&gt;
+        &lt;keyword&gt;bgtz&lt;/keyword&gt;
+        &lt;keyword&gt;blez&lt;/keyword&gt;
+        &lt;keyword&gt;bgez&lt;/keyword&gt;
+        &lt;keyword&gt;bnez&lt;/keyword&gt;
+        &lt;keyword&gt;beqz&lt;/keyword&gt;
+        &lt;keyword&gt;j&lt;/keyword&gt;
+        &lt;keyword&gt;jr&lt;/keyword&gt;
+        &lt;keyword&gt;jal&lt;/keyword&gt;
+        &lt;keyword&gt;jalr&lt;/keyword&gt;
+        &lt;keyword&gt;getc&lt;/keyword&gt;
+        &lt;keyword&gt;putc&lt;/keyword&gt;
+        &lt;keyword&gt;puts&lt;/keyword&gt;
+        &lt;keyword&gt;done&lt;/keyword&gt;
+        &lt;keyword&gt;syscall&lt;/keyword&gt;
+        &lt;keyword&gt;andi&lt;/keyword&gt;
+            &lt;/context&gt;                               
+
+            &lt;context id="types" style-ref="type"&gt;
+        &lt;prefix&gt;\.&lt;/prefix&gt;
+        &lt;keyword&gt;byte&lt;/keyword&gt;
+        &lt;keyword&gt;word&lt;/keyword&gt;
+        &lt;keyword&gt;asciiz&lt;/keyword&gt;
+        &lt;keyword&gt;ascii&lt;/keyword&gt;
+        &lt;keyword&gt;float&lt;/keyword&gt;
+            &lt;/context&gt;         
+        &lt;/include&gt;
+    &lt;/context&gt;
+&lt;/definitions&gt;
+</code></pre>
+</div>
+<p>[/xml]</p>
+
+<p>That's it.</p>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -139,6 +284,7 @@ That's it.
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">See also</h2>
+
 <ul><li>Wikipedia: <a href="http://en.wikipedia.org/wiki/MIPS_architecture">MIPS architecture</a></li>
   <li>Wikibooks: <a href="http://en.wikibooks.org/wiki/MIPS_Assembly">MIPS Assembly</a></li>
   <li><a href="http://spimsimulator.sourceforge.net/">SPIM</a> (a MIPS simulator)</li>
@@ -250,54 +396,54 @@ That's it.
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

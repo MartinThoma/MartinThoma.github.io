@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to parse command line arguments in Python</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -93,15 +93,19 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Argparse</h2>
+
 <blockquote>The <a href="http://docs.python.org/library/argparse.html">argparse module</a> makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv. The argparse module also automatically generates help and usage messages and issues errors when users give the program invalid arguments.</blockquote>
 
 <h3 id="tocAnchor-1-1-1">Installation</h3>
-I had to install <code>python-argparse</code> on my old Ubuntu machine before I could use it.
+
+<p>I had to install <code>python-argparse</code> on my old Ubuntu machine before I could use it.</p>
 
 <h3 id="tocAnchor-1-1-2">Usage</h3>
-As far as I've just tried it, you can use argparse very similar to optparse. See this <a href="https://github.com/MartinThoma/matrix-multiplication/commit/7af938c54fd2effee3efe74352b76f01d2e817e5#Python/ikjMultiplication.py">diff</a> for my switch from optparse to argparse for a simple script.
 
-It is very easy to add command line <del>options</del> argument (if you require an option, it would not be an option any more, would it? I'll try to call them arguments from now on):
+<p>As far as I've just tried it, you can use argparse very similar to optparse. See this <a href="https://github.com/MartinThoma/matrix-multiplication/commit/7af938c54fd2effee3efe74352b76f01d2e817e5#Python/ikjMultiplication.py">diff</a> for my switch from optparse to argparse for a simple script.</p>
+
+<p>It is very easy to add command line <del>options</del> argument (if you require an option, it would not be an option any more, would it? I'll try to call them arguments from now on):</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -123,26 +127,25 @@ It is very easy to add command line <del>options</del> argument (if you require 
 </code></pre>
 </div>
 
-Every option has some values like:
-<ul><li><a href="http://docs.python.org/library/argparse.html#dest">dest</a>: You will access the value of option with this variable</li>
+<p>Every option has some values like:
+</p><ul><li><a href="http://docs.python.org/library/argparse.html#dest">dest</a>: You will access the value of option with this variable</li>
   <li><a href="http://docs.python.org/library/argparse.html#help">help</a>: This text gets displayed whey someone uses <code>--help</code>.</li>
   <li><a href="http://docs.python.org/library/argparse.html#default">default</a>: If the command line argument was not specified, it will get this default value.</li>
   <li><a href="http://docs.python.org/library/argparse.html#action">action</a>: Actions tell optparse what to do when it encounters an option on the command line. <code>action</code> defaults to <code>store</code>. These actions are available:
     <ul><li><strong>store</strong>: take the next argument (or the remainder of the current argument), ensure that it is of the correct type, and store it to your chosen destination dest.</li>
-      <li><strong>store_true</strong>: store <code>True</code> in dest if this flag was set.</li>
-      <li><strong>store_false</strong>: store <code>False</code> in dest if this flag was set.</li>
-      <li><strong>store_const</strong>: store a constant value</li>
+      <li><strong>store<em>true</em></strong>: store <code>True</code> in dest if this flag was set.</li>
+      <li><strong>storefalse</strong>: store <code>False</code> in dest if this flag was set.</li>
+      <li><strong>store<em>const</em></strong>: store a constant value</li>
       <li><strong>append</strong>: append this option’s argument to a list</li>
       <li><strong>count</strong>: increment a counter by one</li>
       <li><strong>callback</strong>: call a specified function</li>
     </ul></li>
   <li><a href="http://docs.python.org/library/argparse.html#nargs">nargs</a>: ArgumentParser objects usually associate a single command-line argument with a single action to be taken. The nargs keyword argument associates a different number of command-line arguments with a single action.</li>
   <li><a href="http://docs.python.org/library/argparse.html#required">required</a>: Mark a command line argument as non-optional (required).</li>
-  <li><a href="http://docs.python.org/library/argparse.html#choices">choices</a>: Some command-line arguments should be selected from a restricted set of values. These can be handled by passing a container object as the choices keyword argument to add_argument(). When the command line is parsed, argument values will be checked, and an error message will be displayed if the argument was not one of the acceptable values.</li>
+  <li><a href="http://docs.python.org/library/argparse.html#choices">choices</a>: Some command-line arguments should be selected from a restricted set of values. These can be handled by passing a container object as the choices keyword argument to addargument(). When the command line is parsed, argument values will be checked, and an error message will be displayed if the argument was not one of the acceptable values.</li>
   <li><a href="http://docs.python.org/library/argparse.html#type">type</a>: Use this command, if the argument is of another type (e.g. int or float).</li>
-</ul>
+</ul><p>argparse automatically generates a help text. So if you call <code>python myScript.py --help</code> you will get something like that:</p>
 
-argparse automatically generates a help text. So if you call <code>python myScript.py --help</code> you will get something like that:
 <div class="highlight">
    <pre><code class="bash">usage: ikjMultiplication.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-i FILE<span class="o">]</span>
 
@@ -155,7 +158,9 @@ optional arguments:
 </div>
 
 <h3 id="tocAnchor-1-1-3">Example 1: Fibonacci</h3>
-It is absolutely no problem to calculate the 100,000st Fibonacci number.
+
+<p>It is absolutely no problem to calculate the 100,000st Fibonacci number.</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -186,9 +191,10 @@ It is absolutely no problem to calculate the 100,000st Fibonacci number.
 </code></pre>
 </div>
 
-Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse. 
+<p>Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse. </p>
 
 <h3 id="tocAnchor-1-1-4">Example 2: less</h3>
+
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -231,14 +237,14 @@ Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in
 </code></pre>
 </div>
 
-
-
 <h2 id="tocAnchor-1-6">Optparse</h2>
+
 <div class="info">Deprecated since version 2.7: The optparse module is deprecated and will not be developed further; development will continue with the argparse module.</div>
 
-Parsing command line arguments with <a href="http://docs.python.org/library/optparse.html">optparse</a> was very easy, but as it is deprecated and argparse works almost the same way, I will not make any examples. Just use argparse.
+<p>Parsing command line arguments with <a href="http://docs.python.org/library/optparse.html">optparse</a> was very easy, but as it is deprecated and argparse works almost the same way, I will not make any examples. Just use argparse.</p>
 
 <h2 id="tocAnchor-1-7">See also</h2>
+
 <ul><li><a href="http://stackoverflow.com/q/3217673/562769">Why use argparse rather than optparse?</a></li>
   <li><a href="http://stackoverflow.com/q/8387924/562769">Python argparse and bash completion</a></li>
 </ul>
@@ -349,54 +355,54 @@ Parsing command line arguments with <a href="http://docs.python.org/library/optp
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

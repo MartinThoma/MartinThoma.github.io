@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Converting Files with Linux</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,15 +65,15 @@
                         </div>
 			
 						<div class="entry">
-                            <p>The following tipps work under a Linux terminal and were tested with Ubuntu 10.04 LTS.
+                            <p>The following tipps work under a Linux terminal and were tested with Ubuntu 10.04 LTS.</p>
 
-I guess they will also work with other systems, as the programs are available for them.
+<p>I guess they will also work with other systems, as the programs are available for them.</p>
 
-If you know some further file conversions, please let me know. 
+<p>If you know some further file conversions, please let me know. </p>
 
-I am also very interested in Web based conversions.
+<p>I am also very interested in Web based conversions.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -99,40 +99,50 @@ Video Files</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Image Files</h2>
-If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.
 
-<b>Resize Images to a maximum resolution</b>
+<p>If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.</p>
+
+<p>
+   <b>Resize Images to a maximum resolution</b>
+</p>
+
 <div class="highlight">
    <pre><code class="bash">convert <span class="s2">"OldPicture.jpg"</span> -resize 1600x1600 <span class="s2">"NewPicture.jpg"</span>
 </code></pre>
 </div>
 
-<b>Create a Black-and-white picture and compress it</b>: 
+<p><b>Create a Black-and-white picture and compress it</b>: </p>
+
 <div class="highlight">
    <pre><code class="bash">djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual 70 &gt;<span class="s2">"NewPicture.jpg"</span>
 </code></pre>
 </div>
 
-<b>Rename Pictures</b>:
+<p><b>Rename Pictures</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">rename -n <span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg<span class="nv">$/</span><span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span> *.jpg
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Audio Files</h2>
-<b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):
+
+<p><b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):</p>
+
 <div class="highlight">
    <pre><code class="bash">mp3gain -a *.mp3
 </code></pre>
 </div>
 
-<b>Merge many audio files to one</b>:
+<p><b>Merge many audio files to one</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">mp3wrap merged.mp3 one.mp3 two.mp3
 </code></pre>
 </div>
 
-<b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:
+<p><b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash"><span class="k">for </span>i in *.wav<span class="p">;</span><span class="k">do </span>lame <span class="s2">"$i"</span> <span class="s2">"${i%wav}mp3"</span><span class="p">;</span> rm <span class="s2">"$i"</span><span class="p">;</span> <span class="k">done</span>
 </code></pre>
@@ -140,48 +150,56 @@ If you want to change image files via terminal, <a href="http://en.wikipedia.org
 
 <h2 id="tocAnchor-1-3">
 Video Files</h2>
-For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
-You might also want to install some codecs first:
+
+<p>For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
+You might also want to install some codecs first:</p>
+
 <div class="highlight">
    <pre><code class="bash">sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras
 </code></pre>
 </div>
 
-<b>Merge many video files to one</b>:
+<p><b>Merge many video files to one</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span>
 </code></pre>
 </div>
 
-<b>avi2mpg</b>:
+<p><b>avi2mpg</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i <span class="s2">"Original.avi"</span> <span class="s2">"New.mpg"</span>
 </code></pre>
 </div>
 
-<b>mp42mpg</b>:
+<p><b>mp42mpg</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span>
 </code></pre>
 </div>
 
-<b>mod2avi</b>:
-?
+<p><b>mod2avi</b>:
+?</p>
 
-<b>vcd2avi</b>:
+<p><b>vcd2avi</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span>2000
 </code></pre>
 </div>
 
-<b>ogv2avi</b>:
+<p><b>ogv2avi</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span>1 -o <span class="s2">"New.avi"</span>
 </code></pre>
 </div>
 
-<b>wmv2mpg</b>:
-aspect=16/9 should eventually be changed to 4/3 or other aspects
+<p><b>wmv2mpg</b>:
+aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
+
 <div class="highlight">
    <pre><code class="bash">mencoder -of avi -ofps 25 <span class="se">\</span>
   -oac mp3lame -lameopts cbr:br<span class="o">=</span>112:aq<span class="o">=</span>3:mode<span class="o">=</span>0:vol<span class="o">=</span>0 <span class="se">\</span>
@@ -193,48 +211,54 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects
 </code></pre>
 </div>
 
-<b>mkv2avi</b>:
+<p><b>mkv2avi</b>:</p>
+
 <div class="highlight">
    <pre><code class="bash">mencoder <span class="s2">"Original.mkv"</span> -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span>6000 -oac mp3lame -lameopts <span class="nv">vbr</span><span class="o">=</span>3 -o <span class="s2">"New.avi"</span>
 </code></pre>
 </div>
 
 <h3 id="tocAnchor-1-3-1">Converting Flash Videos flv to mpg</h3>
-You might want to get the information of the video first:
+
+<p>You might want to get the information of the video first:</p>
+
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i inputVideo.flv
 </code></pre>
 </div>
 
-This is how you convert it:
+<p>This is how you convert it:</p>
+
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg
 </code></pre>
 </div>
-<strong>-i</strong> input file
+
+<p><strong>-i</strong> input file
 <strong>-acodec</strong> audio codec
 <strong>-ab</strong> audio bitrate
 <strong>-s</strong> size
-<strong>-r</strong> fps where fps is the frame rate in Hz. The default value is 25Hz.
+<strong>-r</strong> fps where fps is the frame rate in Hz. The default value is 25Hz.</p>
 
 <h3 id="tocAnchor-1-3-2">Converting Flash Videos flv to avi</h3>
+
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">Shortcuts for Linux Console</h2>
-I convert svg2png or pdf2png quite often for my articles. So I've created a command.
 
-You can create a command in Linux very easy: 
-<ol><li>Enter <code>echo $PATH</code> in your console</li>
+<p>I convert svg2png or pdf2png quite often for my articles. So I've created a command.</p>
+
+<p>You can create a command in Linux very easy: 
+</p><ol><li>Enter <code>echo $PATH</code> in your console</li>
   <li>Go to <code>/usr/bin</code> or any other path in your PATH</li>
   <li>Create a file with the name of your command (e.g. svg2png)</li>
   <li>Fill the fill (see below for some examples).</li>
   <li>Make it executable: <code>chmod +x svg2png</code></li>
-</ol>
+</ol><p>My <code>svg2png</code> looks like this:</p>
 
-My <code>svg2png</code> looks like this:
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -259,7 +283,8 @@ My <code>svg2png</code> looks like this:
 </code></pre>
 </div>
 
-My pdf2png looks like this:
+<p>My pdf2png looks like this:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
@@ -283,8 +308,8 @@ My pdf2png looks like this:
 <span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"svg2png -i ~"</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">".svg -o "</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="o">+</span><span class="s">" -w "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">))</span>
 <span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"rm ~"</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">".svg"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
-	<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-	<span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
 
 <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 </code></pre>
@@ -405,54 +430,54 @@ My pdf2png looks like this:
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

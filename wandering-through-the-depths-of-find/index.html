@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Wandering through the depths of find</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.
+                            <p>find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -77,40 +77,33 @@
          <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Redirecting errors</span></a>
       </li>
       <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Real life example</span></a>
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Snippets</span></a>
       </li>
       <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Snippets</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Further reading</span></a>
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Further reading</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Very basic usage</h2>
-<a href="http://martin-thoma.com/wp-content/uploads/2011/09/find-basic1.png">
-   <img src="http://martin-thoma.com/wp-content/uploads/2011/09/find-basic1.png" alt="$ find  /home -iname 'Tux*'" title="$ find  /home -iname 'Tux*'" width="500" height="100" class="alignnone size-full wp-image-2671" />
-</a>
 
-I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.
+<p>
+   <a href="http://martin-thoma.com/wp-content/uploads/2011/09/find-basic1.png">
+      <img src="http://martin-thoma.com/wp-content/uploads/2011/09/find-basic1.png" alt="$ find  /home -iname 'Tux*'" title="$ find  /home -iname 'Tux*'" width="500" height="100" class="alignnone size-full wp-image-2671" />
+   </a>
+</p>
+
+<p>I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.</p>
 
 <h2 id="tocAnchor-1-2">Redirecting errors</h2>
-You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:
 
-<a href="http://martin-thoma.com/wp-content/uploads/2011/09/find-error-redirection.png">
-   <img src="http://martin-thoma.com/wp-content/uploads/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null" title="find /home -iname 'Tux*' 2&gt;/dev/null" width="500" height="100" class="alignnone size-full wp-image-2691" />
-</a>
+<p>You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
 
-<h2 id="tocAnchor-1-3">Real life example</h2>
-I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.
-The easiest way to achieve this is via find, xargs and sed:
-<div class="highlight">
-   <pre><code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
+<p>
+   <a href="http://martin-thoma.com/wp-content/uploads/2011/09/find-error-redirection.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE&lt;em&gt;USER&lt;/em&gt;TABLE and should now be USER&lt;em&gt;INFO&lt;/em&gt;TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
 </code></pre>
-</div>
 
-Now the explanation of the different commands:
+<p>Now the explanation of the different commands:
 <strong>find:</strong>
-<ul><li>.: search in the current working directory</li>
+</p><ul><li>.: search in the current working directory</li>
     <li>-path '*/.svn' -prune': If a directory starting with .svn is in the path to the file, skip it</li>
     <li>-o: atlernative (OR)</li>
     <li>-type f: only search for files</li>
@@ -118,28 +111,36 @@ Now the explanation of the different commands:
 </ul><strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.
 <strong>sed:</strong>
 <ul><li>-i: edit the given file in-place. If you would not use -i, it would just print everything in standard output</li>
-    <li>/g: edit the file globaly. If you would not use g, sed would only replace the first occurence of SOFTWARE_USER_TABLE</li>
-</ul><h2 id="tocAnchor-1-4">Snippets</h2>
-move all files in subdirectories to a single directory:
+    <li>/g: edit the file globaly. If you would not use g, sed would only replace the first occurence of SOFTWARE<em>USER</em>TABLE</li>
+</ul></a>
+</p>
+
+<h2 id="tocAnchor-1-3">Snippets</h2>
+
+<p>move all files in subdirectories to a single directory:</p>
+
 <div class="highlight">
    <pre><code class="bash">find -type f -exec mv <span class="o">{}</span> collection/ <span class="se">\;</span>
 </code></pre>
 </div>
 
-find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:
+<p>find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:</p>
+
 <div class="highlight">
    <pre><code class="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print $5 ":\t" $8 }'</span>
 </code></pre>
 </div>
 
-find files in the home folder owned by alice:
+<p>find files in the home folder owned by alice:</p>
+
 <div class="highlight">
    <pre><code class="bash">find /home -user alice
 </code></pre>
 </div>
 
-<h2 id="tocAnchor-1-5">Further reading</h2>
-Note that you should use grep if you want to search for patterns in single files.
+<h2 id="tocAnchor-1-4">Further reading</h2>
+
+<p>Note that you should use grep if you want to search for patterns in single files.</p>
 
 <ul><li><a href="http://linux.die.net/man/1/find">man page</a></li>
   <li><a href="http://en.wikipedia.org/wiki/Find">Wikipedia</a></li>
@@ -254,54 +255,54 @@ Note that you should use grep if you want to search for patterns in single files
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

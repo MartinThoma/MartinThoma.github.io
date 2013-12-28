@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Google Code Jam 2012 &ndash; Round 1B 2012</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>5614 tried the first problem, but only 3281 people are listed in the scoreboard. So quite a lot tried to solve a problem, but couldn't even solve one. I think these problems were much harder than the ones from <a href="http://martin-thoma.com/google-code-jam-2012-round-1a-2012/" title="Google Code Jam 2012 – Round 1A 2012">Round 1A 2012</a>.
+                            <p>5614 tried the first problem, but only 3281 people are listed in the scoreboard. So quite a lot tried to solve a problem, but couldn't even solve one. I think these problems were much harder than the ones from <a href="http://martin-thoma.com/google-code-jam-2012-round-1a-2012/" title="Google Code Jam 2012 – Round 1A 2012">Round 1A 2012</a>.</p>
 
-</p><ul><li>Problem 1 (<a href="http://code.google.com/codejam/contest/1836486/dashboard#s=p0">Safety in Numbers</a>):
+<ul><li>Problem 1 (<a href="http://code.google.com/codejam/contest/1836486/dashboard#s=p0">Safety in Numbers</a>):
   <ul><li>Small Set: 2695/5614 users (48%)</li>
      <li>Large Set: 2016/2686 users (75%)</li>
   </ul></li>
@@ -96,30 +96,32 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Safety in Numbers</h2>
-I tried this approach:
+
+<p>I tried this approach:
 X is the sum of all points given by judges. The visitors have an equal amount of points to give. 
-$P_i$ is the number of total points of contestant i.
-$J_i$ is the number of points of contestant i by the judges.
-$V_i$ is the percentage of the visitors points contestant i gets.
+$P<em>i$ is the number of total points of contestant i.
+$J</em>i$ is the number of points of contestant i by the judges.
+$V_i$ is the percentage of the visitors points contestant i gets.</p>
 
-So: $P_i = J_i + V_i * X$
+<p>So: $P<em>i = J</em>i + V_i * X$</p>
 
-You don't know $V_i$ and $P_i$. You have to get the minimal value of $V_i$ to guarantee that contestant $i$ will not to be eliminated. So you have to create some kind of "worst case" for contestant i, if he gets $V_i \cdot X$ visitor-points. The worst case is that the minimum of all remaining visitors is as high as possible. So if you think of them as players, they will always try to get a equal number of points.
+<p>You don't know $V<em>i$ and $P</em>i$. You have to get the minimal value of $V<em>i$ to guarantee that contestant $i$ will not to be eliminated. So you have to create some kind of "worst case" for contestant i, if he gets $V</em>i \cdot X$ visitor-points. The worst case is that the minimum of all remaining visitors is as high as possible. So if you think of them as players, they will always try to get a equal number of points.</p>
 
-If they can get an equal number of points, you can make these (in)equations:
-$average = (X - p_i)/(N-1)$
-$p_i + V_i \cdot X \geq avg + \frac{1-V_i}{N-1} \cdot X$
-$V_i \cdot X - \frac{1-V_i}{N-1}  \cdot X \geq avg - p_i$
-$V_i X (N-1) - (1-V_i) \cdot X \geq (N-1) \cdot (avg - p_i)$
-$V_i X (N-1) - X +V_i \cdot X \geq (N-1) \cdot (avg - p_i)$
-$V_i X (N-1) +V_i \cdot X \geq (N-1) \cdot (avg - p_i) + X$
-$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X (N-1) +X)$
-$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X ((N-1) +1))$
-$V_i \geq \frac{N-1}{X \cdot N} \cdot (avg - p_i + X)$
+<p>If they can get an equal number of points, you can make these (in)equations:
+$average = (X - p<em>i)/(N-1)$
+$p</em>i + V<em>i \cdot X \geq avg + \frac{1-V</em>i}{N-1} \cdot X$
+$V<em>i \cdot X - \frac{1-V</em>i}{N-1}  \cdot X \geq avg - p<em>i$
+$V</em>i X (N-1) - (1-V<em>i) \cdot X \geq (N-1) \cdot (avg - p</em>i)$
+$V<em>i X (N-1) - X +V</em>i \cdot X \geq (N-1) \cdot (avg - p<em>i)$
+$V</em>i X (N-1) +V<em>i \cdot X \geq (N-1) \cdot (avg - p</em>i) + X$
+$V<em>i \geq (N-1) \cdot ((avg - p</em>i) + X)/(X (N-1) +X)$
+$V<em>i \geq (N-1) \cdot ((avg - p</em>i) + X)/(X ((N-1) +1))$
+$V<em>i \geq \frac{N-1}{X \cdot N} \cdot (avg - p</em>i + X)$</p>
 
-Unfortunately, its possible that the other players can't get an equal number of points. So this approach is useless in this case.
+<p>Unfortunately, its possible that the other players can't get an equal number of points. So this approach is useless in this case.</p>
 
-Here is an approach with an approximation, which also works for the large input set.
+<p>Here is an approach with an approximation, which also works for the large input set.</p>
+
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;iostream&gt;</span>
 <span class="cp">#include &lt;cstdio&gt;</span>
@@ -127,61 +129,63 @@ Here is an approach with an approximation, which also works for the large input 
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-	<span class="kt">int</span> <span class="n">testcases</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">sum</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">1011</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">testcases</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">1011</span><span class="p">];</span>
 
-	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">testcases</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">testcases</span><span class="p">;</span>
 
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">caseNr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">caseNr</span> <span class="o">&lt;=</span> <span class="n">testcases</span><span class="p">;</span> <span class="n">caseNr</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">caseNr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">caseNr</span> <span class="o">&lt;=</span> <span class="n">testcases</span><span class="p">;</span> <span class="n">caseNr</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span><span class="p">;</span>
 
-		<span class="cm">/** the sum of all points of all contestants*/</span>
-		<span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="cm">/** the sum of all points of all contestants*/</span>
+        <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-			<span class="n">sum</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-		<span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
 
-		<span class="n">printf</span><span class="p">(</span><span class="s">"Case #%d:"</span><span class="p">,</span> <span class="n">caseNr</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Case #%d:"</span><span class="p">,</span> <span class="n">caseNr</span><span class="p">);</span>
 
-		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">contestant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">contestant</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">contestant</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-			<span class="c1">// approximate the minimum for each contestant</span>
-			<span class="kt">double</span> <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">contestant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">contestant</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">contestant</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// approximate the minimum for each contestant</span>
+            <span class="kt">double</span> <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-			<span class="c1">// increase the accuracy 100 times</span>
-			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-				<span class="kt">double</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-				<span class="kt">double</span> <span class="n">me</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">contestant</span><span class="p">]</span> <span class="o">+</span> <span class="n">mid</span> <span class="o">*</span> <span class="n">sum</span><span class="p">;</span>
-				<span class="kt">double</span> <span class="n">remaining</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">mid</span><span class="p">;</span>
+            <span class="c1">// increase the accuracy 100 times</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">double</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="kt">double</span> <span class="n">me</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">contestant</span><span class="p">]</span> <span class="o">+</span> <span class="n">mid</span> <span class="o">*</span> <span class="n">sum</span><span class="p">;</span>
+                <span class="kt">double</span> <span class="n">remaining</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">mid</span><span class="p">;</span>
 
-				<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">remaining</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-					<span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">!=</span> <span class="n">contestant</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">me</span><span class="p">)</span> <span class="p">{</span>
-						<span class="c1">// the contestant k needs at least</span>
-						<span class="c1">// this part of all audience votes</span>
-						<span class="n">remaining</span> <span class="o">-=</span> <span class="p">(</span><span class="n">me</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">/</span> <span class="n">sum</span><span class="p">;</span>
-					<span class="p">}</span>
-				<span class="p">}</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">N</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">remaining</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">!=</span> <span class="n">contestant</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">me</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// the contestant k needs at least</span>
+                        <span class="c1">// this part of all audience votes</span>
+                        <span class="n">remaining</span> <span class="o">-=</span> <span class="p">(</span><span class="n">me</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">/</span> <span class="n">sum</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
 
-				<span class="k">if</span> <span class="p">(</span><span class="n">remaining</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-					<span class="n">low</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
-				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-					<span class="n">high</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-			<span class="n">printf</span><span class="p">(</span><span class="s">" %.6lf"</span><span class="p">,</span> <span class="n">low</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
-		<span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">remaining</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">" %.6lf"</span><span class="p">,</span> <span class="n">low</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="p">}</span>
 
-		<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-	<span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Tide Goes In, Tide Goes Out</h2>
-This one could be solved with Graphs. You calculate one Graph, where every node is one cell. Every cell / node is connected to adjacent cells. Every cell has a value which is the time when you can enter them.
 
-After you've created the graph, you can make something like that:
+<p>This one could be solved with Graphs. You calculate one Graph, where every node is one cell. Every cell / node is connected to adjacent cells. Every cell has a value which is the time when you can enter them.</p>
+
+<p>After you've created the graph, you can make something like that:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="n">graph</span> <span class="o">=</span> <span class="n">createGraph</span><span class="p">(</span><span class="n">floorHeight</span><span class="p">,</span> <span class="n">ceilingHeight</span><span class="p">)</span>
 <span class="n">endReached</span> <span class="o">=</span> <span class="bp">False</span>
@@ -194,9 +198,11 @@ After you've created the graph, you can make something like that:
 </div>
 
 <h2 id="tocAnchor-1-3">Equal Sums</h2>
-A trivial solution for the small one is to try every combination. You might want to take a look at Pythonss <a href="http://docs.python.org/library/itertools.html#itertools.combinations">itertools.combinations()</a>.
+
+<p>A trivial solution for the small one is to try every combination. You might want to take a look at Pythonss <a href="http://docs.python.org/library/itertools.html#itertools.combinations">itertools.combinations()</a>.</p>
 
 <h2 id="tocAnchor-1-4">See also</h2>
+
 <ul><li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
   <li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
 </ul>
@@ -319,54 +325,54 @@ A trivial solution for the small one is to try every combination. You might want
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

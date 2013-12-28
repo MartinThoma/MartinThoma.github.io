@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>The Collatz sequence</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,30 +65,29 @@
                         </div>
 			
 						<div class="entry">
-                            <p>The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.
+                            <p>The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.</p>
 
-The Collatz sequences $(c^n_i)$ of a number $n \in \mathbb{N}_{&gt; 0}$ is defined like this:
+<p>The Collatz sequences $(c^n<em>i)$ of a number $n \in \mathbb{N}</em>{&gt; 0}$ is defined like this:</p>
 
-$f:\mathbb{N}_{&gt;0} \rightarrow \mathbb{N}_{&gt; 0}\;\;\;\;f(n) := \begin{cases}
-\frac{n}{2}   &amp; \text{if } n \text{ is even}\\
+<p>$f:\mathbb{N}<em>{&gt;0} \rightarrow \mathbb{N}</em>{&gt; 0}\;\;\;\;f(n) := \begin{cases}
+\frac{n}{2}   &amp; \text{if } n \text{ is even}\
 3 \cdot n + 1 &amp; \text{if } n \text{ is odd}
-\end{cases}$
+\end{cases}$</p>
 
-So the sequence $(c^n_{i})$ is defined as:
+<p>So the sequence $(c^n_{i})$ is defined as:</p>
 
-$c^n_{i} := \begin{cases}
-n   &amp; \text{if } i = 0\\
-f(c^n_i) &amp; \text{otherwise} 
-\end{cases}$
+<p>$c^n<em>{i} := \begin{cases}
+n   &amp; \text{if } i = 0\
+f(c^n</em>i) &amp; \text{otherwise} 
+\end{cases}$</p>
 
-You can define a directed graph $G=(V, E)$ like this:
+<p>You can define a directed graph $G=(V, E)$ like this:</p>
 
-$V = \mathbb{N}_{&gt;0}, \;\;\; E = \{(n, f(n)) | n \in V\}$
+<p>$V = \mathbb{N}_{&gt;0}, \;\;\; E = {(n, f(n)) | n \in V}$</p>
 
-I will call this the <em>Collatz graph</em>.
+<p>I will call this the <em>Collatz graph</em>.</p>
 
-
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -117,25 +116,27 @@ I will call this the <em>Collatz graph</em>.
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Collatz conjecture</h2>
+
 <div class="important">
 $\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 1$
 </div>
 
-The Collatz conjecture was not (dis)proved by now. This is astonishing, as it was proposed in 1937 and I think it is very easy to understand.
+<p>The Collatz conjecture was not (dis)proved by now. This is astonishing, as it was proposed in 1937 and I think it is very easy to understand.</p>
 
-We also don't know if the Collatz graph is connected. When it is not connected, it could be that one sequence $(c^n_i)$ goes to infinity or that there is another circle ($4,2,1,4$ is a circle in the Collatz graph).
+<p>We also don't know if the Collatz graph is connected. When it is not connected, it could be that one sequence $(c^n_i)$ goes to infinity or that there is another circle ($4,2,1,4$ is a circle in the Collatz graph).</p>
 
 <h2 id="tocAnchor-1-2">Small $n$</h2>
-When you go through all possible Collatz sequences with $n \in 1, \dots, 15$, this is what you get:
+
+<p>When you go through all possible Collatz sequences with $n \in 1, \dots, 15$, this is what you get:</p>
 
 <div style="width: 512px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2013/05/collatz-graph.png">
-      <img src="http://localhost/blog/_site/images/../images/2013/05/collatz-graph.png" alt="" width="512" height="410" class="size-full wp-image-66201" />
+   <a href="http://martinthoma.github.io/images/../images/2013/05/collatz-graph.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/05/collatz-graph.png" alt="" width="512" height="410" class="size-full wp-image-66201" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-This image was created with the following Python script:
+<p>This image was created with the following Python script:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
@@ -199,7 +200,7 @@ This image was created with the following Python script:
 </code></pre>
 </div>
 
-called like this:
+<p>called like this:</p>
 
 <div class="highlight">
    <pre><code class="bash">python small-numbers.py -n 15 -p fdp
@@ -207,16 +208,18 @@ called like this:
 </div>
 
 <h2 id="tocAnchor-1-3">$n=27$</h2>
-$n=27$ is an enourmously long sequence:
+
+<p>$n=27$ is an enourmously long sequence:</p>
 
 <div style="width: 512px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2013/05/collatz-27.png">
-      <img src="http://localhost/blog/_site/images/../images/2013/05/collatz-27.png" alt="" width="512" height="227" class="size-full wp-image-66351" />
+   <a href="http://martinthoma.github.io/images/../images/2013/05/collatz-27.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/05/collatz-27.png" alt="" width="512" height="227" class="size-full wp-image-66351" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-It was created with pgfplots:
+<p>It was created with pgfplots:</p>
+
 <div class="highlight">
    <pre><code class="text">\documentclass[varwidth=true, border=2pt]{standalone}
 \usepackage[margin=2.5cm]{geometry} %layout
@@ -245,20 +248,21 @@ It was created with pgfplots:
 </div>
 
 <h2 id="tocAnchor-1-4">How long are Collatz sequences?</h2>
-I've been interested in the question how long Collatz sequences are. Of course, they will be longer when $n$ is bigger. But how does the choice of $n$ influence the number of steps it takes until you reach $c^n_i = 1$?
 
-I've tested all Collatz sequences with $n \leq 10,000,000$. This is the result:
+<p>I've been interested in the question how long Collatz sequences are. Of course, they will be longer when $n$ is bigger. But how does the choice of $n$ influence the number of steps it takes until you reach $c^n_i = 1$?</p>
+
+<p>I've tested all Collatz sequences with $n \leq 10,000,000$. This is the result:</p>
 
 <div style="width: 512px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2013/05/collatz-sequence-steps.png">
-      <img src="http://localhost/blog/_site/images/../images/2013/05/collatz-sequence-steps.png" alt="" width="512" height="512" class="size-full wp-image-66231" />
+   <a href="http://martinthoma.github.io/images/../images/2013/05/collatz-sequence-steps.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/05/collatz-sequence-steps.png" alt="" width="512" height="512" class="size-full wp-image-66231" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-For every hexagon, you check how many datapoints $(n,steps)$ you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.
+<p>For every hexagon, you check how many datapoints $(n,steps)$ you have there. This leads to the count. As you can see, step numbers from 50-120 are very common, the rest is very uncommon. The number of steps increases very slow.</p>
 
-The data was created as a 116.9 MB csv file with this C++ code:
+<p>The data was created as a 116.9 MB csv file with this C++ code:</p>
 
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;iostream&gt;</span>
@@ -401,14 +405,15 @@ The data was created as a 116.9 MB csv file with this C++ code:
 </code></pre>
 </div>
 
-Then I've processed it with R:
+<p>Then I've processed it with R:</p>
 
 <div class="highlight">
    <pre><code class="bash">R -f analyze.R
 </code></pre>
 </div>
 
-analyze.R:
+<p>analyze.R:</p>
+
 <div class="highlight">
    <pre><code class="text">library(ggplot2)
 memory.limit(4000)
@@ -426,20 +431,22 @@ p
 </code></pre>
 </div>
 
-And finally, I've converted it to png:
+<p>And finally, I've converted it to png:</p>
+
 <div class="highlight">
    <pre><code class="bash">inkscape Rplots.pdf -w 512 --export-png<span class="o">=</span>collatz-sequence-steps.png
 </code></pre>
 </div>
 
-I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.
+<p>I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
 
 <h2 id="tocAnchor-1-5">Maximum in sequence</h2>
-In the following plot you can see $n \in 1, \dots, 10,000,000$ on the $x$-axis and the maximum $y = \max(\{a^n_i | i \in \mathbb{N}_{&gt; 0}\})$:
+
+<p>In the following plot you can see $n \in 1, \dots, 10,000,000$ on the $x$-axis and the maximum $y = \max({a^n<em>i | i \in \mathbb{N}</em>{&gt; 0}})$:</p>
 
 <div style="width: 512px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2013/05/maxInSequence.png">
-      <img src="http://localhost/blog/_site/images/../images/2013/05/maxInSequence.png" alt="" width="512" height="512" class="size-full wp-image-66391" />
+   <a href="http://martinthoma.github.io/images/../images/2013/05/maxInSequence.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/05/maxInSequence.png" alt="" width="512" height="512" class="size-full wp-image-66391" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
@@ -461,9 +468,10 @@ p
 </div>
 
 <h2 id="tocAnchor-1-6">Execution times</h2>
-Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.
 
-Inkscape didn't like the heavy plot:
+<p>Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.</p>
+
+<p>Inkscape didn't like the heavy plot:</p>
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07<span class="nv">$ </span>inkscape Rplots.pdf -w 512 --export-png<span class="o">=</span>maxInSequence.png
@@ -476,13 +484,14 @@ Inkscape didn't like the heavy plot:
 <h2 id="tocAnchor-1-7">Maximum in sequence and steps</h2>
 
 <div style="width: 512px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2013/05/collatz-sequence-and-steps-for-n.png">
-      <img src="http://localhost/blog/_site/images/../images/2013/05/collatz-sequence-and-steps-for-n.png" alt="" width="512" height="512" class="size-full wp-image-66481" />
+   <a href="http://martinthoma.github.io/images/../images/2013/05/collatz-sequence-and-steps-for-n.png">
+      <img src="http://martinthoma.github.io/images/../images/2013/05/collatz-sequence-and-steps-for-n.png" alt="" width="512" height="512" class="size-full wp-image-66481" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
 <h2 id="tocAnchor-1-8">Read more</h2>
+
 <ul><li><a href="https://github.com/MartinThoma/algorithms/tree/master/collatz">All sources</a> of this article are on GitHub</li>
   <li><a href="http://www.graphviz.org/Documentation/dotguide.pdf">Dot guide</a>, <a href="http://www.graphviz.org/doc/info/shapes.html">Node shapes</a></li>
   <li><a href="http://wiki.ubuntuusers.de/R">R on UbuntuUsers</a> (German)</li>
@@ -598,54 +607,54 @@ Inkscape didn't like the heavy plot:
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

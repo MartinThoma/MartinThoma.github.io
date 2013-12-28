@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Project Euler: Problem 35</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:
+                            <p>The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:</p>
 
-</p><blockquote>The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
+<blockquote>The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
 
 There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 
@@ -96,6 +96,7 @@ You can use the same thought for the digit 5.
 So you can skip those digits
 
 The final snippet
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
  
@@ -153,32 +154,33 @@ if __name__ == "__main__":
     print("Number of circular primes: %i" % numberOfPrimes)
 
 
-It takes about 1.096 seconds (in comparison: having the version of isCircularPrime that searches through the list of primes took over 5 minutes!)
 </span></a>
             </li>
          </ul>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">How to solve</h2>
-If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
-<ol><li>Find all primes below one million</li>
+
+<p>If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
+</p><ol><li>Find all primes below one million</li>
   <li>For each prime, do:
     <ol><li>Generate all rotations</li>
       <li>Check for every rotation if it is a prime</li>
     </ol></li>
   <li>Count the number of circular primes</li>
 </ol><h2 id="tocAnchor-1-2">The implementation</h2>
+
 <h3 id="tocAnchor-1-2-1">Sieve of Eratosthenes</h3>
-The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.
 
-First, this is the way the sieve of Eratosthenes works:
+<p>The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.</p>
 
-[caption id="attachment_48841" align="aligncenter" width="445"]<a href="http://martin-thoma.com/project-euler-problem-35/sieve_of_eratosthenes_animation/" rel="attachment wp-att-48841">
-   <img src="http://martin-thoma.com/wp-content/uploads/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" width="445" height="369" class="size-full wp-image-48841" />
-</a> Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).
-Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>[/caption]
+<p>First, this is the way the sieve of Eratosthenes works:</p>
 
-For example, this implementation is not good:
+<p>[caption id="attachment<em>48841" align="aligncenter" width="445"]&lt;a href="http://martin-thoma.com/project-euler-problem-35/sieve</em>of<em>eratosthenes</em>animation/" rel="attachment wp-att-48841"&gt;<img src="http://martin-thoma.com/wp-content/uploads/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" width="445" height="369" class="size-full wp-image-48841" /> Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).
+Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>[/caption]</p>
+
+<p>For example, this implementation is not good:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">""" Sieve of Eratosthenes """</span>
@@ -195,10 +197,11 @@ For example, this implementation is not good:
 </code></pre>
 </div>
 
-Whats bad with this code? 
-Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.
+<p>Whats bad with this code? 
+Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.</p>
 
-How could this get improved? Here is a better solution:
+<p>How could this get improved? Here is a better solution:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">""" Sieve of Eratosthenes """</span>
@@ -220,12 +223,14 @@ How could this get improved? Here is a better solution:
 </code></pre>
 </div>
 
-This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.
+<p>This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.</p>
 
-A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.
+<p>A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.</p>
 
 <h3 id="tocAnchor-1-2-2">isCircularPrime</h3>
-Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:
+
+<p>Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
@@ -237,7 +242,7 @@ Rotation the digits of a number is the same as cutting the number into two piece
 </code></pre>
 </div>
 
-Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:
+<p>Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
@@ -257,6 +262,7 @@ You can use the same thought for the digit 5.
 So you can skip those digits
 
 <h3>The final snippet</h3>
+
 <div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
  
@@ -314,8 +320,7 @@ So you can skip those digits
     <span class="k">print</span><span class="p">(</span><span class="s">"Number of circular primes: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">numberOfPrimes</span><span class="p">)</span>
 </code></pre></div>
 
-It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)
-</h3>
+</h3><p>It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -429,54 +434,54 @@ It takes about 1.096 seconds (in comparison: having the version of <code>isCircu
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

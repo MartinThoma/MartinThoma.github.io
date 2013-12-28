@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Project Euler: Problem 142</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,16 +65,16 @@
                         </div>
 			
 						<div class="entry">
-                            <a href="http://en.wikipedia.org/wiki/Project_Euler">Project Euler</a> is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.
+                            <p><a href="http://en.wikipedia.org/wiki/Project_Euler">Project Euler</a> is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.</p>
 
-The motivation for starting Project Euler, and its continuation, is to provide a platform for the inquiring mind to delve into unfamiliar areas and learn new concepts in a fun and recreational context.
+<p>The motivation for starting Project Euler, and its continuation, is to provide a platform for the inquiring mind to delve into unfamiliar areas and learn new concepts in a fun and recreational context.</p>
 
-Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself. 
+<p>Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself. </p>
 
-The task is:
-<blockquote>Find the smallest x + y + z with integers $x &gt; y &gt; z &gt; 0$ such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
+<p>The task is:
+</p><blockquote>Find the smallest x + y + z with integers $x &gt; y &gt; z &gt; 0$ such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
 
-I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.
+<p>I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -90,7 +90,8 @@ I don't want to post the solution (if you want to cheat, I guess you could easil
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">First thought: Brute-force</h2>
-<a href="http://en.wikipedia.org/wiki/Brute-force_search">Brute-force</a> is the easiest way that could give you the solution. So I wrote this piece of code:
+
+<p><a href="http://en.wikipedia.org/wiki/Brute-force_search">Brute-force</a> is the easiest way that could give you the solution. So I wrote this piece of code:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/python</span>
@@ -107,87 +108,88 @@ I don't want to post the solution (if you want to cheat, I guess you could easil
         <span class="k">return</span> <span class="bp">False</span>
 
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1000</span><span class="p">):</span>
-	<span class="k">print</span> <span class="n">x</span>
-	<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-		<span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">):</span>
-				<span class="k">if</span> <span class="p">(</span><span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
-					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
-					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
-					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
-					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
-					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)):</span>
-						<span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
-						<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">x</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)):</span>
+                        <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </code></pre>
 </div>
 
-This is quite fast until you reach about 500. So this is not a good way to solve it.
+<p>This is quite fast until you reach about 500. So this is not a good way to solve it.</p>
 
 <h2 id="tocAnchor-1-2">Apply some math</h2>
-You can formalize the task like this:
+
+<p>You can formalize the task like this:
 Find the smallest $x, y, z \in \mathbb{N}$, so that:
-<ol><li>$x &gt; y &gt; z &gt; 0$</li>
+</p><ol><li>$x &gt; y &gt; z &gt; 0$</li>
   <li>$a = x + y$</li>
   <li>$b = x - y$</li>
   <li>$c = x + z$</li>
   <li>$d = x - z$</li>
   <li>$e = y + z$</li>
   <li>$f = y - z$</li>
-</ol>
+</ol><p>With $a, b, c, d, e, f \in Squares$.</p>
 
-With $a, b, c, d, e, f \in Squares$.
-
-Now you can make the following conclusions:
-<ol><li>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</li>
+<p>Now you can make the following conclusions:
+</p><ol><li>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</li>
   <li>$\overset{A.1, A.4, A.5}{\implies} c &gt; d$</li>
   <li>$\overset{A.1, A.6, A.7}{\implies} e &gt; f$</li>
-</ol>
-
-4. $a &gt; c$:
+</ol><ol><li><p>$a &gt; c$:
 $y &gt; z$
 $\Leftrightarrow x + y &gt; x + z$
-$\Leftrightarrow a &gt; c$
-
-5. $c &gt; e$:
+$\Leftrightarrow a &gt; c$</p></li>
+<li><p>$c &gt; e$:
 $x &gt; y$
 $\Leftrightarrow x + z &gt; y + z$
-$c &gt; e$
-
-6. a is the biggest element (see B.1, B.4, B.6)
-
-7. $b  z$
-$\Leftrightarrow -y  f$:
+$c &gt; e$</p></li>
+<li><p>a is the biggest element (see B.1, B.4, B.6)</p></li>
+<li><p>$b &lt; c$:
+$-y &lt; z$
+$\Leftrightarrow x - y &lt; x + z$
+$b &lt; c$</p></li>
+<li><p>c is the second biggest element (see B.7, B.2, B.5, B.8)</p></li>
+<li><p>$b &lt; d$:
+$ y &gt; z$
+$\Leftrightarrow -y &lt; -z$
+$\Leftrightarrow x - y &lt; x - z$
+$b &lt; d$</p></li>
+<li><p>$d &gt; f$:
 $ x &gt; y$
 $\Leftrightarrow x - z &gt; y - z$
-$d &gt; f$
-
-11. I can't tell anything about the relationship between:
-<ul><li>d and e</li>
-  <li>b and f</li>
-  <li>b and e</li>
-</ul>
-
-Lets conclude:
-<div style="width: 298px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/04/euler-142-graph.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/04/euler-142-graph.png" alt="" width="298" height="400" class="size-full wp-image-21421" />
+$d &gt; f$</p></li>
+<li><p>I can't tell anything about the relationship between:
+</p><ul><li>d and e</li>
+<li>b and f</li>
+<li>b and e</li>
+</ul></li>
+</ol><p>Lets conclude:
+</p><div style="width: 298px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/04/euler-142-graph.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/04/euler-142-graph.png" alt="" width="298" height="400" class="size-full wp-image-21421" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-You also know:
+<p>You also know:</p>
 
-$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$
-The same argumentation can be used for (c, d) and (e, f).
+<p>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$
+The same argumentation can be used for (c, d) and (e, f).</p>
 
-$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$.
+<p>$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$.</p>
 
-With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.
+<p>With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.</p>
 
 <h2 id="tocAnchor-1-3">Material</h2>
-Some material like the LaTeX-file can be found in the <a href="http://martin-thoma.com/wp-content/uploads/2012/04/euler-142.zip">Project Euler 142 Archive</a>.
 
+<p>Some material like the LaTeX-file can be found in the <a href="http://martin-thoma.com/wp-content/uploads/2012/04/euler-142.zip">Project Euler 142 Archive</a>.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -298,54 +300,54 @@ Some material like the LaTeX-file can be found in the <a href="http://martin-tho
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

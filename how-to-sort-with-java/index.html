@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to sort with Java</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use <a href="http://martin-thoma.com/c-operator-overloading/#Sorting">operator overloading</a>. I'll now tell you how to do basic sorting with Java. I will not write about <a href="http://www.codinghorror.com/blog/2007/12/sorting-for-humans-natural-sort-order.html">natural language sorting</a> or language-aware sorting. This is only about simple sorting with Java.
+                            <p>Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use <a href="http://martin-thoma.com/c-operator-overloading/#Sorting">operator overloading</a>. I'll now tell you how to do basic sorting with Java. I will not write about <a href="http://www.codinghorror.com/blog/2007/12/sorting-for-humans-natural-sort-order.html">natural language sorting</a> or language-aware sorting. This is only about simple sorting with Java.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -98,30 +98,28 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Sorting without programming</h2>
-First of all, you have to make sure that you understand how sorting works - without Java, just in the real world.
 
-What you need:
-<ul><li>A container $C$ of objects</li>
+<p>First of all, you have to make sure that you understand how sorting works - without Java, just in the real world.</p>
+
+<p>What you need:
+</p><ul><li>A container $C$ of objects</li>
   <li>A way to compare two objects of the list at a time. The comparison, lets call it $\leq$ needs to satisfy the following conditions:
      <ul><li><a href="http://en.wikipedia.org/wiki/Total_relation">totality</a>: $\forall x, y \in C: x \leq y \lor y \leq x$</li>
        <li><a href="http://en.wikipedia.org/wiki/Antisymmetric_relation">antisymmetry</a>: $\forall x,y \in C: x \leq y \land y \leq x \Rightarrow x = y$</li>
        <li><a href="http://en.wikipedia.org/wiki/Transitive_relation">transitivity</a>: $\forall x,y,z \in C: x \leq y \land y \leq z \Rightarrow x \leq z$</li>
      </ul></li>
-</ul>
-
-Just think about what you sort in your everyday life:
-<ul><li>Numbers</li>
+</ul><p>Just think about what you sort in your everyday life:
+</p><ul><li>Numbers</li>
   <li>Words</li>
   <li><a href="http://en.wikipedia.org/wiki/List_of_countries_by_population">Contries by population</a></li>
   <li>Playing cards</li>
-</ul>
+</ul><p>You can apply different algorithms like <a href="http://en.wikipedia.org/wiki/Selection_sort">selection sort</a> which you would use for numbers or <a href="http://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a> which you would use for card games. No matter what algorithm you use, you need to be able to compare the elements. </p>
 
-You can apply different algorithms like <a href="http://en.wikipedia.org/wiki/Selection_sort">selection sort</a> which you would use for numbers or <a href="http://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a> which you would use for card games. No matter what algorithm you use, you need to be able to compare the elements. 
-
-Note that you can compare some objects, like countries, by many measures. You could look at the population, the birth rate or the area. No matter what you use to compare, the this will not influence the way you sort.
+<p>Note that you can compare some objects, like countries, by many measures. You could look at the population, the birth rate or the area. No matter what you use to compare, the this will not influence the way you sort.</p>
 
 <h2 id="tocAnchor-1-2">Collections</h2>
-One way to sort is to implement the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a>. For all datastructures, that implement the interface List or one of its sub-interfaces you can use <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> an go on like this:
+
+<p>One way to sort is to implement the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a>. For all datastructures, that implement the interface List or one of its sub-interfaces you can use <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> an go on like this:</p>
 
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
@@ -144,17 +142,19 @@ One way to sort is to implement the interface <a href="http://docs.oracle.com/ja
 </code></pre>
 </div>
 
-Output:
+<p>Output:</p>
+
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>I, think, therefore, I, am<span class="o">]</span>
 <span class="o">[</span>I, I, am, therefore, think<span class="o">]</span>
 </code></pre>
 </div>
 
-Note that I didn't write a Comparator or implement Comparable as String has one by default.
-Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html">Collection</a>! A Set is a Collection, but it is not sortable. Collections is a class that you can use for sorting. Like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html">Math</a>, that has utilities like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#sqrt(double)">sqrt</a>
+<p>Note that I didn't write a Comparator or implement Comparable as String has one by default.
+Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collections.html">Collections</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html">Collection</a>! A Set is a Collection, but it is not sortable. Collections is a class that you can use for sorting. Like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html">Math</a>, that has utilities like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#sqrt(double)">sqrt</a></p>
 
 <h2 id="tocAnchor-1-3">Arrays</h2>
+
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 
@@ -176,9 +176,11 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
 </div>
 
 <h2 id="tocAnchor-1-4">Interface Comparable</h2>
-This is an example how you could implement <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html">Comparable</a>.
 
-Country.java
+<p>This is an example how you could implement <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html">Comparable</a>.</p>
+
+<p>Country.java</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Country</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Country</span><span class="o">&gt;</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">population</span><span class="o">;</span>
@@ -207,7 +209,8 @@ Country.java
 </code></pre>
 </div>
 
-Main.java
+<p>Main.java</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
@@ -229,17 +232,19 @@ Main.java
 </code></pre>
 </div>
 
-Output:
+<p>Output:</p>
+
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
 </code></pre>
 </div>
 
-You should definitely add JavaDoc and comment what you've compared.
-Note that it would sort the list in reverse order if you switched <code>this.population - o.population;</code> to <code>o.population - this.population;</code>. This would be bad style, as the JavaDoc of Comparable define the order. If you would like to sort in reverse, you should use <code>Collections.reverse(europe);</code>.
+<p>You should definitely add JavaDoc and comment what you've compared.
+Note that it would sort the list in reverse order if you switched <code>this.population - o.population;</code> to <code>o.population - this.population;</code>. This would be bad style, as the JavaDoc of Comparable define the order. If you would like to sort in reverse, you should use <code>Collections.reverse(europe);</code>.</p>
 
-You can also use compareTo() within compareTo():
+<p>You can also use compareTo() within compareTo():</p>
+
 <div class="highlight">
    <pre><code class="java">    <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Country</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
@@ -249,10 +254,13 @@ You can also use compareTo() within compareTo():
 </div>
 
 <h2 id="tocAnchor-1-5">Comparator</h2>
-If you need to compare objects in multiple ways, you might need to implement <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T, T)">Comperator</a>. If you only have to compare objects in one way, I would always use the Interface Comparable. It's easier to use.
+
+<p>If you need to compare objects in multiple ways, you might need to implement <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T, T)">Comperator</a>. If you only have to compare objects in one way, I would always use the Interface Comparable. It's easier to use.</p>
 
 <h3 id="tocAnchor-1-5-1">External Comparator</h3>
-An external Comperator PopulationDensityComperator.java could look like this:
+
+<p>An external Comperator PopulationDensityComperator.java could look like this:</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Comparator</span><span class="o">;</span>
 
@@ -275,7 +283,8 @@ An external Comperator PopulationDensityComperator.java could look like this:
 </code></pre>
 </div>
 
-and you would use it like this in the Main.java:
+<p>and you would use it like this in the Main.java:</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
@@ -301,7 +310,8 @@ and you would use it like this in the Main.java:
 </code></pre>
 </div>
 
-Your output would be:
+<p>Your output would be:</p>
+
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
@@ -310,7 +320,9 @@ Your output would be:
 </div>
 
 <h3 id="tocAnchor-1-5-2">Internal (anonymous) Comparator</h3>
-You can also directly implement the comperator where you need it:
+
+<p>You can also directly implement the comperator where you need it:</p>
+
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Collections</span><span class="o">;</span>
@@ -351,7 +363,8 @@ You can also directly implement the comperator where you need it:
 </code></pre>
 </div>
 
-Your output would be:
+<p>Your output would be:</p>
+
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
@@ -359,15 +372,14 @@ Your output would be:
 </code></pre>
 </div>
 
-I don't recommend this way for some reasons:
-<ul><li>It is more likely that your code gets more difficult to read</li>
+<p>I don't recommend this way for some reasons:
+</p><ul><li>It is more likely that your code gets more difficult to read</li>
   <li>It's more difficult to reuse your code (you can't use the same Comparator in another location)</li>
   <li>It's more difficult to extend your code</li>
-</ul>
-
-An argument for such an Comparator might be, that it is easier to read. But this is only an argument if the Comparator is very short.
+</ul><p>An argument for such an Comparator might be, that it is easier to read. But this is only an argument if the Comparator is very short.</p>
 
 <h2 id="tocAnchor-1-8">More examples</h2>
+
 <ul><li>StackOverflow: <a href="http://stackoverflow.com/q/3718383/562769">java class implements comparable</a></li>
 </ul>
 						</div>
@@ -480,54 +492,54 @@ An argument for such an Comparator might be, that it is easier to read. But this
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>B-B&auml;ume</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,11 +65,11 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Ein B-Baum ist eine Datenstruktur, die vor allem für Datenbanken (z.B. <a href="http://de.wikipedia.org/wiki/SQLite">SQLite</a>) und Dateisysteme (z.B. <a href="http://de.wikipedia.org/wiki/Ext3">ext3</a>) eingesetzt wird.
+                            <p>Ein B-Baum ist eine Datenstruktur, die vor allem für Datenbanken (z.B. <a href="http://de.wikipedia.org/wiki/SQLite">SQLite</a>) und Dateisysteme (z.B. <a href="http://de.wikipedia.org/wiki/Ext3">ext3</a>) eingesetzt wird.</p>
 
-Im Folgenden sollte man immer im Hinterkopf behalten, dass an den Schlüsseln auch Werte - sog. Satellitendaten - hängen. Der Einfachheit halber lasse ich diese aber hier weg.
+<p>Im Folgenden sollte man immer im Hinterkopf behalten, dass an den Schlüsseln auch Werte - sog. Satellitendaten - hängen. Der Einfachheit halber lasse ich diese aber hier weg.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -120,9 +120,10 @@ Im Folgenden sollte man immer im Hinterkopf behalten, dass an den Schlüsseln au
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Definition</h2>
-Die folgende Definition ist sinngemäß aus "Introduction to Algorithms" von Thomas H. Cormen übernommen.
 
-Für einen <strong>B-Baum der Ordnung t</strong>, $t \in \mathbb{N} \setminus \{1\}$, gilt:
+<p>Die folgende Definition ist sinngemäß aus "Introduction to Algorithms" von Thomas H. Cormen übernommen.</p>
+
+<p>Für einen <strong>B-Baum der Ordnung t</strong>, $t \in \mathbb{N} \setminus {1}$, gilt:</p>
 
 <ol><li>Jeder Knoten $x$ hat die folgenden Attribute:
     <ol><li>$n$, die Anzahl der Schlüssel die im Knoten $x$ gespeichert wird,</li>
@@ -130,12 +131,10 @@ Für einen <strong>B-Baum der Ordnung t</strong>, $t \in \mathbb{N} \setminus \{
       <li>$isLeaf$, ein boolscher Wert der <code>True</code> ist, falls $x$ ein Blatt ist und <code>False</code> ist, falls $x$ ein innerer Knoten ist</li>
     </ol></li>
   <li>Jeder innere Knoten hat $n + 1$ Zeiger $c_1, c_2, ... c_{n+1}$ auf seine Kinder. Blattknoten haben keine Kinder, also sind ihre $c_i$-Attribute undefiniert.</li>
-</ol>
-
-Ein Knoten eines B-Baumes sieht also so aus:
-<div style="width: 500px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/07/b-tree-node.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/07/b-tree-node.png" alt="" width="500" height="138" class="size-full wp-image-35861" />
+</ol><p>Ein Knoten eines B-Baumes sieht also so aus:
+</p><div style="width: 500px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-node.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/b-tree-node.png" alt="" width="500" height="138" class="size-full wp-image-35861" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
@@ -147,9 +146,11 @@ Ein Knoten eines B-Baumes sieht also so aus:
         <li>Jeder Knoten hat höchstens $2t - 1$ Schlüssel.</li>
     </ol></li>
 </ol><h2 id="tocAnchor-1-2">Stolperfallen</h2>
-Ein Schlüssel ist etwas anderes als ein Zeiger!
+
+<p>Ein Schlüssel ist etwas anderes als ein Zeiger!</p>
 
 <h2 id="tocAnchor-1-3">Folgerungen</h2>
+
 <ul><li>$(2) \Rightarrow$ Die Wurzel hat min. 2 Kinder, falls der Baum nicht leer ist.</li>
   <li>$(2), (5.1) \Rightarrow$ Jeder innere Knoten (bis auf die Wurzel) hat min. t Kinder.</li>
   <li>$(2), (5.2) \Rightarrow$ Jeder innere Knoten hat maximal 2t Kinder.</li>
@@ -157,13 +158,16 @@ Ein Schlüssel ist etwas anderes als ein Zeiger!
   <li>$ h \leq \log_t \frac{n+1}{2}$ (Cormen, S. 489)</li>
   <li>Ein B-Baum hat in der Tiefe h min. $2t^{h-1}$ Knoten.</li>
 </ul><h2 id="tocAnchor-1-4">Besondere B-Bäume</h2>
-Ein B-Baum der Ordnung t = 2 wird auch <a href="http://de.wikipedia.org/wiki/2-3-4-Baum">2-3-4-Baum</a> genannt, da jeder Knoten entweder 2, 3 oder 4 Kinder hat.
 
-Ich habe ja ausgeschlossen, dass es einen B-Baum der Ordnung t = 1 gibt. Warum eigentlich?
-Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 müssten einzelne Knoten keine Schlüssel haben. Das ist nicht sinnvoll. Also muss $t \geq  2$ gelten.
+<p>Ein B-Baum der Ordnung t = 2 wird auch <a href="http://de.wikipedia.org/wiki/2-3-4-Baum">2-3-4-Baum</a> genannt, da jeder Knoten entweder 2, 3 oder 4 Kinder hat.</p>
+
+<p>Ich habe ja ausgeschlossen, dass es einen B-Baum der Ordnung t = 1 gibt. Warum eigentlich?
+Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 müssten einzelne Knoten keine Schlüssel haben. Das ist nicht sinnvoll. Also muss $t \geq  2$ gelten.</p>
 
 <h2 id="tocAnchor-1-5">Suchen eines Schlüssels</h2>
-Das Suchen eines Schlüssels funktioniert so:
+
+<p>Das Suchen eines Schlüssels funktioniert so:</p>
+
 <div class="highlight">
    <pre><code class="python"><span class="n">SEARCH</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
     <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -181,82 +185,98 @@ Das Suchen eines Schlüssels funktioniert so:
 </code></pre>
 </div>
 
-Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.
+<p>Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.</p>
 
-Laut Vorlesung (Folie 97) gilt:
-<ul><li>Anzahl Zugriffe auf Hintergrundspeicher maximal: ${\cal O}(\log_t(n))$</li>
+<p>Laut Vorlesung (Folie 97) gilt:
+</p><ul><li>Anzahl Zugriffe auf Hintergrundspeicher maximal: ${\cal O}(\log<em>t(n))$</em></li>
     <li>Innerhalb eines Knotens: ${\cal O}(t)$</li>
-    <li>Insgesamt also: ${\cal O}(t \cdot \log_t(n))$</li>
+    <li>Insgesamt also: ${\cal O}(t \cdot \logt(n))$</li>
 </ul><h2 id="tocAnchor-1-6">Einfügen von Schlüsseln</h2>
-Wenn ein Schlüssel in einen B-Baum eingefügt werden soll, dann muss man insebesondere auf Regel (5.1) und (5.2) achten:
-Jeder Knoten enthält n Schlüssel, mit $t-1 \leq n \leq 2t -1$.
 
-Die Idee ist, dass man das Blatt sucht, in dem der Schlüssel sein müsste. Falls noch Platz ist, kann man den Schlüssel einfach einfügen. Falls nicht, muss man das Blatt aufsplitten.
+<p>Wenn ein Schlüssel in einen B-Baum eingefügt werden soll, dann muss man insebesondere auf Regel (5.1) und (5.2) achten:
+Jeder Knoten enthält n Schlüssel, mit $t-1 \leq n \leq 2t -1$.</p>
+
+<p>Die Idee ist, dass man das Blatt sucht, in dem der Schlüssel sein müsste. Falls noch Platz ist, kann man den Schlüssel einfach einfügen. Falls nicht, muss man das Blatt aufsplitten.</p>
 
 <h3 id="tocAnchor-1-6-1">Beispiel zu Fall 1: Es ist noch Platz</h3>
+
 <div style="width: 500px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small.png" alt="" width="500" height="217" class="size-full wp-image-36091" />
+   <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small.png" alt="" width="500" height="217" class="size-full wp-image-36091" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-In den B-Baum aus Abb. 2 soll nun der Schlüssel <code>16</code> eingefügt werden. In einem B-Baum der Ordnung 2 hat jeder Knoten mindestens einen und höchstens 3 Schlüssel. Egal wo wir also landen würden, es würde noch in diesen Baum passen. Wir landen aber im Knoten rechts unten, da $11 <a href="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small-2.png">
-   <img src="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small-2.png" alt="" width="500" height="195" class="size-full wp-image-36111" />
-</a><p class="wp-caption-text"></p>
+<p>In den B-Baum aus Abb. 2 soll nun der Schlüssel <code>16</code> eingefügt werden. In einem B-Baum der Ordnung 2 hat jeder Knoten mindestens einen und höchstens 3 Schlüssel. Egal wo wir also landen würden, es würde noch in diesen Baum passen. Wir landen aber im Knoten rechts unten, da $11 &lt; 16$ ist.</p>
+
+<p>Das Ergebnis ist also:
+</p><div style="width: 500px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small-2.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small-2.png" alt="" width="500" height="195" class="size-full wp-image-36111" />
+   </a>
+   <p class="wp-caption-text"></p>
+</div>
 
 <h3 id="tocAnchor-1-6-2">Beispiel zu Fall 2: Knotenüberlauf</h3>
-Will man nun in den B-Baum der Ordnung 2 aus Abb. 3 den Schlüssel 17 hinzufügen, so gibt es einen "Knotenüberlauf". Der Schlüssel müsste in den Knoten rechts unten. Damit hätte dieser 4 Schlüssel, er darf aber nur 3 haben. Also splitten wir zuerst den Knoten. Schlüssel 15 wandert zu dem Elternknoten hoch, die beiden einzelnen Schlüssel bilden eigene Knoten. Damit man sieht, was mit den Schlüsseln geschehen würde, wenn der Baum größer wäre, habe ich diese mal eingefärbt:
-<div style="width: 500px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small-3.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small-3.png" alt="" width="500" height="195" class="size-full wp-image-36131" />
+
+<p>Will man nun in den B-Baum der Ordnung 2 aus Abb. 3 den Schlüssel 17 hinzufügen, so gibt es einen "Knotenüberlauf". Der Schlüssel müsste in den Knoten rechts unten. Damit hätte dieser 4 Schlüssel, er darf aber nur 3 haben. Also splitten wir zuerst den Knoten. Schlüssel 15 wandert zu dem Elternknoten hoch, die beiden einzelnen Schlüssel bilden eigene Knoten. Damit man sieht, was mit den Schlüsseln geschehen würde, wenn der Baum größer wäre, habe ich diese mal eingefärbt:
+</p><div style="width: 500px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small-3.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small-3.png" alt="" width="500" height="195" class="size-full wp-image-36131" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-Nun ist man beim Einfügen von 17 wieder in Fall 1. Das Ergebnis sieht so aus:
-<div style="width: 500px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small-4.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/07/b-tree-2-small-4.png" alt="" width="500" height="176" class="size-full wp-image-36151" />
+<p>Nun ist man beim Einfügen von 17 wieder in Fall 1. Das Ergebnis sieht so aus:
+</p><div style="width: 500px" class="wp-caption aligncenter">
+   <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small-4.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/b-tree-2-small-4.png" alt="" width="500" height="176" class="size-full wp-image-36151" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-Natürlich kann es auch passieren, dass beim hochwandern des mittleren Knoten (15 von Abb. 3 nach Abb. 4) der Elternknoten überläuft. Dann muss halt auch dieser gesplittet werden. Wenn die Wurzel überläuft, muss eine neue Wurzel erstellt werden. Dann kann die alte Wurzel gesplittet werden.
+<p>Natürlich kann es auch passieren, dass beim hochwandern des mittleren Knoten (15 von Abb. 3 nach Abb. 4) der Elternknoten überläuft. Dann muss halt auch dieser gesplittet werden. Wenn die Wurzel überläuft, muss eine neue Wurzel erstellt werden. Dann kann die alte Wurzel gesplittet werden.</p>
 
-Die Laufzeit des Einfügens ist in ${\cal O}(t \cdot \log_t(n))$.
+<p>Die Laufzeit des Einfügens ist in ${\cal O}(t \cdot \log_t(n))$.</p>
 
 <h2 id="tocAnchor-1-9">Löschen eines Schlüssels</h2>
-Falls sich der Schlüssel in einem Blatt befindet, kann man ihn einfach löschen. Allerdings muss man darauf achten, dass mindestens t-1 Schlüssel im Knoten verbleiben.
 
-Ist der Schlüssel in einem inneren Knoten ist das ganze schwerer.
+<p>Falls sich der Schlüssel in einem Blatt befindet, kann man ihn einfach löschen. Allerdings muss man darauf achten, dass mindestens t-1 Schlüssel im Knoten verbleiben.</p>
+
+<p>Ist der Schlüssel in einem inneren Knoten ist das ganze schwerer.</p>
 
 <h3 id="tocAnchor-1-9-1">Fall 1: Schlüssel in Blatt</h3>
-Der Einfachste Fall ist der <a href="#Beispiel_zu_Fall_1_Es_ist_noch_Platz">1. Fall des Einfügens</a>, nur umgekehrt. Also aus dem B-Baum aus Abb. 3 die 16 entfernen. Dann entsteht der B-Baum aus Abb. 2.
+
+<p>Der Einfachste Fall ist der <a href="#Beispiel_zu_Fall_1_Es_ist_noch_Platz">1. Fall des Einfügens</a>, nur umgekehrt. Also aus dem B-Baum aus Abb. 3 die 16 entfernen. Dann entsteht der B-Baum aus Abb. 2.</p>
 
 <h3 id="tocAnchor-1-9-2">Fall 2 - 3</h3>
-Für die anderen Fälle habe ich leider kein kleines Beispiel und will deshalb auf die Erklärung verzichten. 
 
-Falls ihr da Hilfe braucht:
-Cormen, dritte Ausgabe, S. 499ff war sehr hilfreich. (<a href="http://shafaetsplanet.com/uploads/pdf/Introduction%20to%20Algorithms.pdf">Link</a> - Warum auch immer der eine PDF-Datei vom Buch hat. Die KIT-Bibliothek hat leider keine Online-Version.)
+<p>Für die anderen Fälle habe ich leider kein kleines Beispiel und will deshalb auf die Erklärung verzichten. </p>
+
+<p>Falls ihr da Hilfe braucht:
+Cormen, dritte Ausgabe, S. 499ff war sehr hilfreich. (<a href="http://shafaetsplanet.com/uploads/pdf/Introduction%20to%20Algorithms.pdf">Link</a> - Warum auch immer der eine PDF-Datei vom Buch hat. Die KIT-Bibliothek hat leider keine Online-Version.)</p>
 
 <h2 id="tocAnchor-1-12">Trivia</h2>
+
 <blockquote>[...] standard B-trees had numerous characteristics that were at odds with the ext2 design philosophy of simplicity and robustness. For example, XFS's B-tree implementation was larger than all of ext2 or ext3's source files combined.</blockquote>
-Source: <a href="http://ext2.sourceforge.net/2005-ols/paper-html/node3.html">ext2.sourceforge.net</a>
+
+<p>Source: <a href="http://ext2.sourceforge.net/2005-ols/paper-html/node3.html">ext2.sourceforge.net</a></p>
 
 <h2 id="tocAnchor-1-13">Beispiel</h2>
-Fügt man die Schlüssel 2, 4, 6, 8, 10, 12 in einen anfangs leeren B-Baum ein, entwickelt sich dieser wie folgt:
+
+<p>Fügt man die Schlüssel 2, 4, 6, 8, 10, 12 in einen anfangs leeren B-Baum ein, entwickelt sich dieser wie folgt:</p>
 
 <div style="width: 500px" class="wp-caption aligncenter">
-   <a href="http://localhost/blog/_site/images/../images/2012/07/b-tree-3-evolution.png">
-      <img src="http://localhost/blog/_site/images/../images/2012/07/b-tree-3-evolution.png" alt="" width="500" height="292" class="size-full wp-image-36421" />
+   <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-3-evolution.png">
+      <img src="http://martinthoma.github.io/images/../images/2012/07/b-tree-3-evolution.png" alt="" width="500" height="292" class="size-full wp-image-36421" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-Die grauen Felder sind für Zeiger reserviert. Ist kein Zeiger eingezeichnet, dann ist es ein NIL-Zeiger.
+<p>Die grauen Felder sind für Zeiger reserviert. Ist kein Zeiger eingezeichnet, dann ist es ein NIL-Zeiger.</p>
 
 <h2 id="tocAnchor-1-14">Siehe auch</h2>
+
 <ul><li><a href="http://stackoverflow.com/questions/11684578/which-datastructure-do-nodes-of-b-trees-use">Which datastructure do nodes of B-Trees use?</a></li>
   <li><a href="http://stackoverflow.com/questions/32376/what-is-a-good-open-source-b-tree-implementation-in-c">What is a good open source B-tree implementation in C?</a> - Da kann man mal sehen wie es wirklich funktioniert :-)</li>
   <li><a href="http://stackoverflow.com/a/6403383/562769">Red Black Tree vs. B Tree</a></li>
@@ -372,54 +392,54 @@ Die grauen Felder sind für Zeiger reserviert. Ist kein Zeiger eingezeichnet, da
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

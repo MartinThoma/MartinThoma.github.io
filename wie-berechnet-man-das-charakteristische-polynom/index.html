@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Wie berechnet man das charakteristische Polynom?</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss man zuerst sicher im Umgang mit Determinanten sein.
+                            <p>Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss man zuerst sicher im Umgang mit Determinanten sein.</p>
 
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -90,67 +90,73 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Rechenregeln für Determinanten</h2>
-Man darf eine <strong>Zeile mit einer Konstanten a multiplizieren</strong>, muss dann aber die Determinante durch a teilen:
+
+<p>Man darf eine <strong>Zeile mit einer Konstanten a multiplizieren</strong>, muss dann aber die Determinante durch a teilen:
 <a id="more"></a><a id="more-22721"></a>
 $
 det \begin{pmatrix}
-3 &amp; 2 &amp; 12 &amp; 5 \\ 
-2 &amp; 1 &amp;  6 &amp; 4 \\
-2 &amp; 0 &amp;  2 &amp; -3\\
+3 &amp; 2 &amp; 12 &amp; 5 \ 
+2 &amp; 1 &amp;  6 &amp; 4 \
+2 &amp; 0 &amp;  2 &amp; -3\
 2 &amp; 2 &amp;  7 &amp; 4
 \end{pmatrix}
-\begin{array}{c} | \cdot 2 \\ | \cdot 3 \\ | \cdot 3 \\ | \cdot 3 \end{array}
+\begin{array}{c} | \cdot 2 \ | \cdot 3 \ | \cdot 3 \ | \cdot 3 \end{array}
  = \frac{1}{2} \cdot (\frac{1}{3})^3 \cdot
 det \begin{pmatrix}
-6 &amp; 4 &amp; 24 &amp; 10 \\ 
-6 &amp; 3 &amp; 18 &amp; 12 \\
-6 &amp; 0 &amp;  6 &amp; -9\\
+6 &amp; 4 &amp; 24 &amp; 10 \ 
+6 &amp; 3 &amp; 18 &amp; 12 \
+6 &amp; 0 &amp;  6 &amp; -9\
 6 &amp; 6 &amp; 21 &amp; 12
 \end{pmatrix}
-$
+$</p>
 
-Man darf zwei <strong>Zeilen / Spalten tauschen</strong>, muss dann aber die Determinante mit (-1) multiplizieren:
+<p>Man darf zwei <strong>Zeilen / Spalten tauschen</strong>, muss dann aber die Determinante mit (-1) multiplizieren:
 $det \begin{pmatrix}
-6 &amp; 4 &amp; 24 &amp; 10 \\ 
-6 &amp; 3 &amp; 18 &amp; 12 \\
-6 &amp; 0 &amp;  6 &amp; -9\\
+6 &amp; 4 &amp; 24 &amp; 10 \ 
+6 &amp; 3 &amp; 18 &amp; 12 \
+6 &amp; 0 &amp;  6 &amp; -9\
 6 &amp; 6 &amp; 21 &amp; 12
-\end{pmatrix} \begin{array}{c} \cdot  \\  \cdot \\ \leftarrow \\ \leftarrow \end{array} = -
+\end{pmatrix} \begin{array}{c} \cdot  \  \cdot \ \leftarrow \ \leftarrow \end{array} = -
 det \begin{pmatrix}
-6 &amp; 4 &amp; 24 &amp; 10 \\ 
-6 &amp; 3 &amp; 18 &amp; 12 \\
-6 &amp; 6 &amp; 21 &amp; 12 \\
+6 &amp; 4 &amp; 24 &amp; 10 \ 
+6 &amp; 3 &amp; 18 &amp; 12 \
+6 &amp; 6 &amp; 21 &amp; 12 \
 6 &amp; 0 &amp;  6 &amp; -9
 \end{pmatrix} = 
 det \begin{pmatrix}
-6 &amp; 24 &amp; 4 &amp; 10 \\ 
-6 &amp; 18 &amp; 3 &amp; 12 \\
-6 &amp; 21 &amp; 6 &amp; 12 \\
+6 &amp; 24 &amp; 4 &amp; 10 \ 
+6 &amp; 18 &amp; 3 &amp; 12 \
+6 &amp; 21 &amp; 6 &amp; 12 \
 6 &amp; 6  &amp; 0 &amp; -9
-\end{pmatrix}$
+\end{pmatrix}$</p>
 
-Man darf eine <strong>Zeile mit einer Konstanten multiplizieren und auf eine beliebige <em>andere</em> Zeile addieren</strong> (wie beim Gauss-Verfahren)
+<p>Man darf eine <strong>Zeile mit einer Konstanten multiplizieren und auf eine beliebige <em>andere</em> Zeile addieren</strong> (wie beim Gauss-Verfahren)</p>
 
-Man darf eine <strong>Zeile und eine Spalte zugleich entfernen</strong> (Entwicklung nach Spalte / Zeile xy), muss dann aber folgendermaßen ausgleichen:
-Entwicklung nach der k-ten Spalte: $D(a_1, ... , a_n) = \sum_{j=1}^{n}(-1)^{k+j}a_{jk}D_{jk}$
-Entwicklung nach der i-ten Zeile: $det A = \sum_{k=1}^n (-1)^{i+k}a_{ik}D_{ik}$
+<p>Man darf eine <strong>Zeile und eine Spalte zugleich entfernen</strong> (Entwicklung nach Spalte / Zeile xy), muss dann aber folgendermaßen ausgleichen:
+Entwicklung nach der k-ten Spalte: $D(a<em>1, ... , a</em>n) = \sum<em>{j=1}^{n}(-1)^{k+j}a</em>{jk}D<em>{jk}$
+Entwicklung nach der i-ten Zeile: $det A = \sum</em>{k=1}^n (-1)^{i+k}a<em>{ik}D</em>{ik}$
 Direkt entfernen, ohne etwas weiteres zu beachten, kann man die Zeile, wenn in dieser Zeile nur eine 1 steht und diese 1 an einer ungeraden Spalte (1, ..., n) ist.
-Eine Spalte kann man direkt entfernen, wenn in der Spalte nur an einer Stelle eine 1 steht und diese 1 an einer ungeraden Zeile (1, ..., n) steht.
+Eine Spalte kann man direkt entfernen, wenn in der Spalte nur an einer Stelle eine 1 steht und diese 1 an einer ungeraden Zeile (1, ..., n) steht.</p>
 
 <h2 id="tocAnchor-1-2">Berechnung des charakteristischen Polynoms</h2>
-Das charakteristische Polynom einer Abbildungsmatrix A ist der Wert folgender Determinanten:
-$det(\lambda \cdot E_n - A)$, wobei $E_n$ die Einheitsmatrix ist.
+
+<p>Das charakteristische Polynom einer Abbildungsmatrix A ist der Wert folgender Determinanten:
+$det(\lambda \cdot E<em>n - A)$, wobei $E</em>n$ die Einheitsmatrix ist.</p>
 
 <h2 id="tocAnchor-1-3">Beispiel</h2>
-Siehe <a href="http://de.wikipedia.org/wiki/Charakteristisches_Polynom#Beispiel">Wikipedia</a>.
+
+<p>Siehe <a href="http://de.wikipedia.org/wiki/Charakteristisches_Polynom#Beispiel">Wikipedia</a>.</p>
 
 <h2 id="tocAnchor-1-4">Berechnung am PC</h2>
-Mit Wolfram|Alpha kann man das <a href="http://www.wolframalpha.com/widgets/view.jsp?id=27ddb8d522a2dc74e89687bd357db5a0">charakteristische Polynom</a> berechnen und auch direkt die <a href="http://www.wolframalpha.com/input/?i=Eigenvalues%7B%7B1%2C0%2C1%7D%2C%7B2%2C2%2C1%7D%2C%7B4%2C2%2C1%7D%7D">Eigenwerte</a>.
+
+<p>Mit Wolfram|Alpha kann man das <a href="http://www.wolframalpha.com/widgets/view.jsp?id=27ddb8d522a2dc74e89687bd357db5a0">charakteristische Polynom</a> berechnen und auch direkt die <a href="http://www.wolframalpha.com/input/?i=Eigenvalues%7B%7B1%2C0%2C1%7D%2C%7B2%2C2%2C1%7D%2C%7B4%2C2%2C1%7D%7D">Eigenwerte</a>.</p>
 
 <h2 id="tocAnchor-1-5">Wozu das Ganze?</h2>
-An dem charakteristischem Polynom kann man direkt die Eigenwerte ablesen. Existiert eine Basis aus Eigenvektoren für den Vektorraum, dann ist eine Matrix diagonalsiierbar. Wenn eine Matrix in Diagonalform ist, dann kann man damit besonders gut rechnen.
+
+<p>An dem charakteristischem Polynom kann man direkt die Eigenwerte ablesen. Existiert eine Basis aus Eigenvektoren für den Vektorraum, dann ist eine Matrix diagonalsiierbar. Wenn eine Matrix in Diagonalform ist, dann kann man damit besonders gut rechnen.</p>
 
 <h2 id="tocAnchor-1-6">Siehe auch</h2>
+
 <ul><li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Determinante">Determinante</a>, <a href="http://de.wikipedia.org/wiki/Charakteristisches_Polynom">Charakteristisches Polynom</a>, <a href="http://de.wikipedia.org/wiki/Eigenwertproblem">Eigenwertproblem</a>, <a href="http://de.wikipedia.org/wiki/Diagonalmatrix">Diagonalmatrix</a></li>
   <li>Skript von Herrn Prof. Dr. Leuzinger, S. 131 - 142: Determinanten.</li>
 </ul>
@@ -267,54 +273,54 @@ An dem charakteristischem Polynom kann man direkt die Eigenwerte ablesen. Existi
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

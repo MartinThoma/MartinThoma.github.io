@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Basic Multithreading in Java</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,14 +65,12 @@
                         </div>
 			
 						<div class="entry">
-                            <p>A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.
+                            <p>A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.</p>
 
-There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference? 
+<p>There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference? 
 </p><ul><li>When you execute code in <strong>multiple processes</strong>, the operating system handles the scheduling. It decides when which process gets executed and tries to find an optimal order. Every process has its own memory segment. A process is sometimes also called "kernel level thread".</li>
   <li>When you execute code in <strong>multiple threads</strong>, all threads have one process they belong to (see <a href="http://eliezerciriaco.blogspot.de/2009/07/multi-threading-models.html">Multi-Threading models</a>, also from <a href="http://docs.oracle.com/cd/E19455-01/806-3461/6jck06gqk/index.html">Java</a>). Every set of threads that have the same process share their memory.</li>
-</ul>
-
-In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes wiht <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.
+</ul><p>In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes wiht <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -94,13 +92,15 @@ In Java, you will use multithreading most of the time. I will only write about m
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Java Basics for Multithreading</h2>
-All important lessons you need to learn are covered in <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/">Java Concurrency Tutorial</a>. If you're really interested in multithreading, you should read this.
 
-You can put the part that can get executed concurrently in a separate class that implements the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html">Runnable</a>. This class has a method called run(). You can create a new <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#Thread(java.lang.Runnable)">Thread(Runnable)</a> by calling <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#start()">start()</a>.
+<p>All important lessons you need to learn are covered in <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/">Java Concurrency Tutorial</a>. If you're really interested in multithreading, you should read this.</p>
 
-Here is an example:
+<p>You can put the part that can get executed concurrently in a separate class that implements the interface <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html">Runnable</a>. This class has a method called run(). You can create a new <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#Thread(java.lang.Runnable)">Thread(Runnable)</a> by calling <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#start()">start()</a>.</p>
+
+<p>Here is an example:</p>
 
 <h2 id="tocAnchor-1-2">Sum</h2>
+
 <div class="highlight">
    <pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sum</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">UpperEnd</span><span class="o">;</span>
@@ -120,6 +120,7 @@ Here is an example:
 </div>
 
 <h2 id="tocAnchor-1-3">Main</h2>
+
 <div class="highlight">
    <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -178,32 +179,33 @@ Here is an example:
 </code></pre>
 </div>
 
-Call it like this:
+<p>Call it like this:</p>
+
 <div class="highlight">
    <pre><code class="bash">java Main 5 2000
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Race Conditions</h2>
-When you execute the code above, the output will vary. Why is this the case?
 
-In short: The execution order is not defined and <code>RaceCondition.bigSum++</code> is not atomic.
+<p>When you execute the code above, the output will vary. Why is this the case?</p>
 
-Let's imagine that you call this with two threads only: 
-<code>java Main 2 2000</code>
+<p>In short: The execution order is not defined and <code>RaceCondition.bigSum++</code> is not atomic.</p>
 
-Now you could get this execution order:
-<ul><li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
+<p>Let's imagine that you call this with two threads only: 
+<code>java Main 2 2000</code></p>
+
+<p>Now you could get this execution order:
+</p><ul><li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
   <li>Thread 2: Executes completely. Now <code>RaceCondition.bigSum</code> is 2000</li>
   <li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
   <li>Thread 1: Finishes it's execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
-</ul>
+</ul><p>Ok, we can obviously get values in $[\text{BIG}_\text{NR}, \text{NR}_\text{THREADS} \cdot \text{BIG}_\text{NR}]$.</p>
 
-Ok, we can obviously get values in $[\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$.
+<p>Can we get smaller values? Yes, we can!</p>
 
-Can we get smaller values? Yes, we can!
+<p>Execute:</p>
 
-Execute:
 <div class="highlight">
    <pre><code class="bash">java Main 50 20000
 </code></pre>
@@ -217,20 +219,17 @@ Execute:
   <li>Thread 2 loads <code>bigSum</code> = 1</li>
   <li>Thread 1 executes and finishes.</li>
   <li>Thread 2 increases the loaded value from 1 to 2 and writes 2 back.</li>
-</ul>
+</ul><p>You can get all values in $[2, \text{NR}_\text{THREADS} \cdot \text{BIG}_\text{NR}]$!</p>
 
-You can get all values in $[2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$!
-
-Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.
+<p>Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.</p>
 
 <h2 id="tocAnchor-1-5">Playing with BASH</h2>
-If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments: 
-<ul><li>$1: The number of times you execute a the program with a fixed number of THREADS</li>
+
+<p>If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments: 
+</p><ul><li>$1: The number of times you execute a the program with a fixed number of THREADS</li>
   <li>$2: The maximum number of THREADS you would like to use</li>
   <li>$3: BIG_NR</li>
-</ul>
-
-The script executes the program $$1 \cdot $2$ times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.
+</ul><p>The script executes the program $$1 \cdot $2$ times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
 
 <div class="highlight">
    <pre><code class="bash">rm raceCondition.tmp
@@ -363,54 +362,54 @@ touch raceCondition.tmp
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>

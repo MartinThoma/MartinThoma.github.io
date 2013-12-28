@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Konstruktion der Chomsky-Normalform</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270022.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312270148.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
 						<div class="entry">
                             <div class="warning">Dieser Artikel könnte inhaltliche Fehler beinhalten. Bitte lest euch die Kommentare durch.</div>
 
-Die Chomsky-Normalform ist eine bestimmte Art, eine kontextfreie Grammatik zu formulieren. Dabei haben nur die Produktionsregeln eine festgelegte Form, alles andere ist wie immer. Die Chomsky-Normalform kommt bei dem CYK-Algorithmus, der das Wortproblem für kontextfreie Grammatiken löst, zum Einsatz. Jede kontextfreie Grammatik kann in Chomsky-Normalform gebracht werden.
+<p>Die Chomsky-Normalform ist eine bestimmte Art, eine kontextfreie Grammatik zu formulieren. Dabei haben nur die Produktionsregeln eine festgelegte Form, alles andere ist wie immer. Die Chomsky-Normalform kommt bei dem CYK-Algorithmus, der das Wortproblem für kontextfreie Grammatiken löst, zum Einsatz. Jede kontextfreie Grammatik kann in Chomsky-Normalform gebracht werden.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -103,84 +103,98 @@ Die Chomsky-Normalform ist eine bestimmte Art, eine kontextfreie Grammatik zu fo
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Die Chomsky-Normalform</h2>
-Das Besondere an der Chomsky-Normalform ist, dass alle Regeln der Grammatik $G (V, \Sigma, P, S)$ folgende Form haben:
+
+<p>Das Besondere an der Chomsky-Normalform ist, dass alle Regeln der Grammatik $G (V, \Sigma, P, S)$ folgende Form haben:
 $A \rightarrow BC$ oder
 $A \rightarrow a$.
-Dabei sind $A, B, C \in V$ und $a \in \Sigma$.
+Dabei sind $A, B, C \in V$ und $a \in \Sigma$.</p>
 
-Falls die Grammatik in der Lage ist, das Leere Wort $\varepsilon$ zu erzeugen, dann fügt man folgende Sonderregel hinzu: $S' \rightarrow S | \varepsilon$. Dabei darf S' niemals auf der rechten Seite einer Produktion stehen.
+<p>Falls die Grammatik in der Lage ist, das Leere Wort $\varepsilon$ zu erzeugen, dann fügt man folgende Sonderregel hinzu: $S' \rightarrow S | \varepsilon$. Dabei darf S' niemals auf der rechten Seite einer Produktion stehen.</p>
 
-Eine Eigenschaft der Chomsky-Normalform ist, dass jedes Wort aus $2 \cdot |w| - 1$ Ableitungen gebildet werden kann. (Falls das leere Wort gebildet werden kann sind es $2 \cdot |w|$ Ableitungen für jedes nicht-leere Wort und eine Ableitung für das leere Wort) In jedem Ableitungsschritt erhält man entweder ein Terminal, oder ein weiteres Nicht-Terminal.
+<p>Eine Eigenschaft der Chomsky-Normalform ist, dass jedes Wort aus $2 \cdot |w| - 1$ Ableitungen gebildet werden kann. (Falls das leere Wort gebildet werden kann sind es $2 \cdot |w|$ Ableitungen für jedes nicht-leere Wort und eine Ableitung für das leere Wort) In jedem Ableitungsschritt erhält man entweder ein Terminal, oder ein weiteres Nicht-Terminal.</p>
 
 <h2 id="tocAnchor-1-2">Konstruktion der CNF</h2>
-Aus einer Grammatik $G (V, \Sigma, P, S)$ kann mit folgenden vier Schritten eine Grammatik $G' (V', \Sigma, P', S)$ in Chomsky-Normalform (CNF) erstellt werden:
+
+<p>Aus einer Grammatik $G (V, \Sigma, P, S)$ kann mit folgenden vier Schritten eine Grammatik $G' (V', \Sigma, P', S)$ in Chomsky-Normalform (CNF) erstellt werden:</p>
 
 <h3 id="tocAnchor-1-2-1">Schritt 1</h3>
-Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y_a$ ersetzt und eine neue Produktion $Y_a \rightarrow a$ zu P' hinzugefügt. 
 
-Es ist somit sichergestellt, dass alle Regeln entweder nur Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.
+<p>Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y<em>a$ ersetzt und eine neue Produktion $Y</em>a \rightarrow a$ zu P' hinzugefügt. </p>
+
+<p>Es ist somit sichergestellt, dass alle Regeln entweder nur Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.</p>
 
 <h3 id="tocAnchor-1-2-2">Schritt 2</h3>
-Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann führt man m - 2 neue Variablen ein, fügt diese zu V' hinzu, und macht aus einer Regel $A \rightarrow B_1 B_2 ... B_m$ die Regeln $A \rightarrow B_1 C_1, C_1 \rightarrow B_2 C_2, ..., C_{i+1} \rightarrow B_i C_i ... C_{m-2} \rightarrow B_{m-3} C_{m-3}$. 
 
-An dieser Stelle ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.
+<p>Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann führt man m - 2 neue Variablen ein, fügt diese zu V' hinzu, und macht aus einer Regel $A \rightarrow B<em>1 B</em>2 ... B<em>m$ die Regeln $A \rightarrow B</em>1 C<em>1, C</em>1 \rightarrow B<em>2 C</em>2, ..., C<em>{i+1} \rightarrow B</em>i C<em>i ... C</em>{m-2} \rightarrow B<em>{m-3} C</em>{m-3}$. </p>
+
+<p>An dieser Stelle ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.</p>
 
 <h3 id="tocAnchor-1-2-3">Schritt 3</h3>
-Nun wollen wir alle $\varepsilon$-Übergänge entfernen. 
 
-Um dies zu erreichen, suchen wir alle Regeln, die nach $\varepsilon$ abbilden, also von der Form $A \rightarrow \varepsilon$ sind. Dabei streichen wir die Regeln $A \rightarrow \varepsilon$. Falls A nun nicht mehr auf der linken Seite auftaucht, streichen wir es überall aus der rechten Seite. Falls dabei eine Regel zu $B \rightarrow \varepsilon$ wird, streichen wir auch diese. Das wiederholen wir so lange, bis keine $\varepsilon$-Übergänge mehr vorhanden sind.
-Am Ende fügen wir die Regel $S' \rightarrow S | \varepsilon$ hinzu, falls die Grammatik auf das leere Wort abbilden konnte.
+<p>Nun wollen wir alle $\varepsilon$-Übergänge entfernen. </p>
 
-Nun ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder dass dort ein einzelnes Terminal steht. Allerdings kann es noch Kreise in der Ableitung geben, die man entfernen kann.
+<p>Um dies zu erreichen, suchen wir alle Regeln, die nach $\varepsilon$ abbilden, also von der Form $A \rightarrow \varepsilon$ sind. Dabei streichen wir die Regeln $A \rightarrow \varepsilon$. Falls A nun nicht mehr auf der linken Seite auftaucht, streichen wir es überall aus der rechten Seite. Falls dabei eine Regel zu $B \rightarrow \varepsilon$ wird, streichen wir auch diese. Das wiederholen wir so lange, bis keine $\varepsilon$-Übergänge mehr vorhanden sind.
+Am Ende fügen wir die Regel $S' \rightarrow S | \varepsilon$ hinzu, falls die Grammatik auf das leere Wort abbilden konnte.</p>
+
+<p>Nun ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder dass dort ein einzelnes Terminal steht. Allerdings kann es noch Kreise in der Ableitung geben, die man entfernen kann.</p>
 
 <h3 id="tocAnchor-1-2-4">Schritt 4</h3>
-In diesem Schritt entfernen wir eventuell vorhandene Kettenregeln, also Regeln der Form $A_1 \rightarrow A_2 \rightarrow A_3 \rightarrow A_u \rightarrow A_1$. Diese findet man mit einer Tiefensuche.
-Dann ersetzt man alle $A_2, ..., A_u$ durch $A_1$. Die Regel $A_1 \rightarrow A_1$ kann entfernt werden, da sie ja nichts ändert.
+
+<p>In diesem Schritt entfernen wir eventuell vorhandene Kettenregeln, also Regeln der Form $A<em>1 \rightarrow A</em>2 \rightarrow A<em>3 \rightarrow A</em>u \rightarrow A<em>1$. Diese findet man mit einer Tiefensuche.
+Dann ersetzt man alle $A</em>2, ..., A<em>u$ durch $A</em>1$. Die Regel $A<em>1 \rightarrow A</em>1$ kann entfernt werden, da sie ja nichts ändert.</p>
 
 <h2 id="tocAnchor-1-7">Beispiele</h2>
+
 <h3 id="tocAnchor-1-7-1">Die Sprache der Palindrome</h3>
-Gegeben sei folgende Grammatik:
-$G(\underbrace{\{S\}}_{V}, \underbrace{\{a,b\}}_{\Sigma}, S, P)$ mit
-$P = \{S \rightarrow \varepsilon | a | b | aSa | bSb \}$.
+
+<p>Gegeben sei folgende Grammatik:
+$G(\underbrace{{S}}<em>{V}, \underbrace{{a,b}}</em>{\Sigma}, S, P)$ mit
+$P = {S \rightarrow \varepsilon | a | b | aSa | bSb }$.</p>
 
 <h4>Schritt 1</h4>
-$S \rightarrow \varepsilon | Y_a | Y_b | Y_aSY_a | Y_bSY_b$
-$Y_a \rightarrow a$
-$Y_b \rightarrow b$
+
+<p>$S \rightarrow \varepsilon | Y<em>a | Y</em>b | Y<em>aSY</em>a | Y<em>bSY</em>b$
+$Y<em>a \rightarrow a$
+$Y</em>b \rightarrow b$</p>
 
 <h4>Schritt 2</h4>
-$S \rightarrow \varepsilon | Y_a | Y_b | Y_aC_1 | Y_bC_2$
-$C_1 \rightarrow SY_a$
-$C_2 \rightarrow SY_b$
-$Y_a \rightarrow a$
-$Y_b \rightarrow b$
+
+<p>$S \rightarrow \varepsilon | Y<em>a | Y</em>b | Y<em>aC</em>1 | Y<em>bC</em>2$
+$C<em>1 \rightarrow SY</em>a$
+$C<em>2 \rightarrow SY</em>b$
+$Y<em>a \rightarrow a$
+$Y</em>b \rightarrow b$</p>
 
 <h4>Schritt 3</h4>
-$S \rightarrow Y_a | Y_b | Y_aC_1 | Y_bC_2$
-$C_1 \rightarrow SY_a$
-$C_2 \rightarrow SY_b$
-$Y_a \rightarrow a$
-$Y_b \rightarrow b$
-$S' \rightarrow S | \varepsilon$
+
+<p>$S \rightarrow Y<em>a | Y</em>b | Y<em>aC</em>1 | Y<em>bC</em>2$
+$C<em>1 \rightarrow SY</em>a$
+$C<em>2 \rightarrow SY</em>b$
+$Y<em>a \rightarrow a$
+$Y</em>b \rightarrow b$
+$S' \rightarrow S | \varepsilon$</p>
 
 <h4>Schritt 4</h4>
-Keine Kettenregel vorhanden.
+
+<p>Keine Kettenregel vorhanden.</p>
 
 <h4>Ergebnis</h4>
-Nun werden noch einzelne Nicht-Terminale durch die möglichen Terminale ersetzt und man ist fertig.
 
-Damit ist die Grammatik:
-$G_{CNF} (\{S, S', Y_a, Y_b, C_1, C_2\}, \{a,b\}, S', P'))$ mit folgenden Produktionen P':
-$P' = \{S \rightarrow a | b | Y_aC_1 | Y_bC_2,$
-$~ C_1 \rightarrow SY_a,$
-$~ C_2 \rightarrow SY_b,$
-$~ Y_a \rightarrow a,$
+<p>Nun werden noch einzelne Nicht-Terminale durch die möglichen Terminale ersetzt und man ist fertig.</p>
+
+<p>Damit ist die Grammatik:
+$G<em>{CNF} ({S, S', Y</em>a, Y<em>b, C</em>1, C<em>2}, {a,b}, S', P'))$ mit folgenden Produktionen P':
+$P' = {S \rightarrow a | b | Y</em>aC<em>1 | Y</em>bC<em>2,$
+$~ C</em>1 \rightarrow SY<em>a,$
+$~ C</em>2 \rightarrow SY<em>b,$
+$~ Y</em>a \rightarrow a,$
 $~ Y_b \rightarrow b,$
-$~ S' \rightarrow S | \varepsilon\}$
+$~ S' \rightarrow S | \varepsilon}$</p>
 
-Sie ist also nicht schöner oder einfacher geworden, hat aber eine bestimmte Struktur erhalten.
+<p>Sie ist also nicht schöner oder einfacher geworden, hat aber eine bestimmte Struktur erhalten.</p>
 
 <h2 id="tocAnchor-1-9">Weiterführende Links und Quellen</h2>
+
 <ul><li><a href="http://de.wikipedia.org/wiki/Chomsky-Normalform">Wikipedia</a></li>
     <li>Uwe Schöning: <i>Theoretische Informatik- kurz gefasst</i>. 5. Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, S. 44, <span class="plainlinks-print"><a rel="nofollow" class="external text" href="http://d-nb.info/986529222">DNB 986529222</a></span>.</li>
     <li>KIT:
@@ -295,54 +309,54 @@ Sie ist also nicht schöner oder einfacher geworden, hat aber eine bestimmte Str
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/command line/' title='5 topics'>Command Line</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 218.88%' href='http://localhost/blog/_site/tag/c/' title='26 topics'>C</a>
-<a style='font-size: 254.49%' href='http://localhost/blog/_site/tag/programming/' title='41 topics'>Programming</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/linux/' title='12 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/ubuntu/' title='5 topics'>Ubuntu</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 270.00%' href='http://localhost/blog/_site/tag/mathematics/' title='50 topics'>mathematics</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 237.52%' href='http://localhost/blog/_site/tag/java/' title='33 topics'>Java</a>
-<a style='font-size: 198.37%' href='http://localhost/blog/_site/tag/puzzle/' title='20 topics'>puzzle</a>
-<a style='font-size: 144.19%' href='http://localhost/blog/_site/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 175.88%' href='http://localhost/blog/_site/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/video/' title='11 topics'>Video</a>
-<a style='font-size: 151.64%' href='http://localhost/blog/_site/tag/youtube/' title='11 topics'>YouTube</a>
-<a style='font-size: 248.55%' href='http://localhost/blog/_site/tag/python/' title='38 topics'>Python</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/php/' title='6 topics'>PHP</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/google code jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 116.30%' href='http://localhost/blog/_site/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/project euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/web development/' title='9 topics'>Web Development</a>
-<a style='font-size: 209.30%' href='http://localhost/blog/_site/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 170.49%' href='http://localhost/blog/_site/tag/funny/' title='14 topics'>funny</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/algorithms/' title='8 topics'>algorithms</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/assembly language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 135.95%' href='http://localhost/blog/_site/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/swt i/' title='8 topics'>SWT I</a>
-<a style='font-size: 194.36%' href='http://localhost/blog/_site/tag/klausur/' title='19 topics'>Klausur</a>
-<a style='font-size: 126.74%' href='http://localhost/blog/_site/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/computer science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 158.44%' href='http://localhost/blog/_site/tag/kit/' title='12 topics'>KIT</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
-<a style='font-size: 190.13%' href='http://localhost/blog/_site/tag/linear algebra/' title='18 topics'>Linear algebra</a>
-<a style='font-size: 104.25%' href='http://localhost/blog/_site/tag/cpp/' title='6 topics'>CPP</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 90.00%' href='http://localhost/blog/_site/tag/operating systems/' title='5 topics'>Operating Systems</a>
+                        <div class="tagcloud"><a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/theoretical computer science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 254.49%' href='http://martinthoma.github.io/tag/programming/' title='41 topics'>Programming</a>
+<a style='font-size: 248.55%' href='http://martinthoma.github.io/tag/python/' title='38 topics'>Python</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 218.88%' href='http://martinthoma.github.io/tag/c/' title='26 topics'>C</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/google code jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/linux/' title='12 topics'>Linux</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 270.00%' href='http://martinthoma.github.io/tag/mathematics/' title='50 topics'>mathematics</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 190.13%' href='http://martinthoma.github.io/tag/linear algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 194.36%' href='http://martinthoma.github.io/tag/klausur/' title='19 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/operating systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 237.52%' href='http://martinthoma.github.io/tag/java/' title='33 topics'>Java</a>
+<a style='font-size: 209.30%' href='http://martinthoma.github.io/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/analysis/' title='6 topics'>analysis</a>
+<a style='font-size: 198.37%' href='http://martinthoma.github.io/tag/puzzle/' title='20 topics'>puzzle</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 158.44%' href='http://martinthoma.github.io/tag/kit/' title='12 topics'>KIT</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/project euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/swt i/' title='8 topics'>SWT I</a>
+<a style='font-size: 170.49%' href='http://martinthoma.github.io/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/wolfram|alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/computer science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 144.19%' href='http://martinthoma.github.io/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 126.74%' href='http://martinthoma.github.io/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 135.95%' href='http://martinthoma.github.io/tag/web development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/cpp/' title='6 topics'>CPP</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 116.30%' href='http://martinthoma.github.io/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 175.88%' href='http://martinthoma.github.io/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 151.64%' href='http://martinthoma.github.io/tag/video/' title='11 topics'>Video</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/assembly language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martinthoma.github.io/tag/command line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.25%' href='http://martinthoma.github.io/tag/bash/' title='6 topics'>Bash</a>
 </div>
                     </li>
                 </ul>
