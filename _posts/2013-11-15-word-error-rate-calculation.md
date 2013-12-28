@@ -50,6 +50,7 @@ Interestingly, the WER is just the Levenshtein distance for words.
 
 I've understood it after I saw this on the German Wikipedia:
 
+<div>
 $
 \begin{align}
 m &= |r|\\
@@ -74,6 +75,7 @@ D_{i - 1, j}&+ 1 \ {\rm(Deletion)}
 \end{cases}
 $
 <br/>
+</div>
 
 
 But I have written a piece of pseudocode to make it even easier to code this algorithm:
