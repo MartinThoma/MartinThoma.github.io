@@ -137,6 +137,10 @@ faster, the latter supports fenced code blocks. I finally stuck with
 redcarped, because Liquid has problems when it comes to C++ for loops
 after curly braces.
 
+Other Markdown parsers are `maruku` (which has a 
+[Multiple lines for HTML &lt;li&gt;-tag](https://github.com/bhollis/maruku/issues/121)
+issue) and `kramdown` (which is slow).
+
 ### Linebreaks and newline ###
 Linebreaks are an issue. Sometimes I want to get a `<br/>`, sometimes
 I make linebreaks to make reading of the text files easier. It's
