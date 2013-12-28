@@ -20,14 +20,14 @@ Google has published the Ngram Viewer. This is a tool which allows the user to s
 
 Here is an example search:
 
-[caption id="attachment_1971" align="alignnone" width="300" caption="Google Ngram Viewer: Germany vs France"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Google-Ngram-Viewer-germany-france.png"><img class="size-medium wp-image-1971" title="Google Ngram Viewer: Germany vs France" src="http://martin-thoma.com/wp-content/uploads/2011/09/Google-Ngram-Viewer-germany-france-300x113.png" alt="Google Ngram Viewer: Germany vs France" width="300" height="113" /></a>[/caption]
+{% caption align="alignnone" width="300" caption="" url="../images/2011/09/Google-Ngram-Viewer-germany-france-300x113.png" alt="Google Ngram Viewer: Germany vs France" title="" height="113" class="size-medium wp-image-1971" title="Google Ngram Viewer: Germany vs France" %}
 
 The x-axis shows the years, the y-axis shows the percentage of the specified ngram of all ngrams.
 Don't bother with the numbers. If one curve is higher than the other, more books contained the specified Ngram.
 
 My example shows that the term "France" was more often in books than "Germany". Why is this the case? My first thought was that in the time of the two world wars more books should have been written about Germany. The answer is simply that I wrote "germany" instead of "Germany". So it's case sensitive:
 
-[caption id="attachment_1981" align="alignnone" width="300" caption="Google Ngram Viewer: Germany vs. France vs. Third-Reich"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich.png"><img class="size-medium wp-image-1981" title="Google Ngram Viewer: Germany vs. France vs. Third-Reich" src="http://martin-thoma.com/wp-content/uploads/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png" alt="Google Ngram Viewer: Germany vs. France vs. Third-Reich" width="300" height="112" /></a>[/caption]
+{% caption align="alignnone" width="300" caption="" url="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png" alt="Google Ngram Viewer: Germany vs. France vs. Third-Reich" title="" height="112" class="size-medium wp-image-1981" title="Google Ngram Viewer: Germany vs. France vs. Third-Reich" %}
 
 You can compare how successfull some books are:
 {% caption align="alignnone" width="300" caption="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" url="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png" alt="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" title="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" height="112" class="size-medium wp-image-2001" %}

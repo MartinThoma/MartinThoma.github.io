@@ -40,13 +40,14 @@ def parseCaptions(page):
     import re
 
     pattern = '\[caption(.*?)align="(?P<align>.*?)"(.*?)(caption="(?P<caption>.*?)")?(.*?)\]' + \
-        '<a(.*?)href=\"(?P<url>(.*?))\"(?P<asonst>.*?)>' + \
-        '<img(.*?)src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>(.*?)))\" ' + \
+        '<a(.*?)href=\"(?P<url>.*?)\"(?P<asonst>.*?)>' + \
+        '<img(.*?)' + \
+            'class=\"(?P<imgclass>.*?)\"\s*' + \
+            'src=\"(?P<imgurl>http://martin-thoma.com/wp-content/uploads/(?P<innerurl>.*?))\" ' + \
             'alt=\"(?P<alt>.*?)\"\s*' + \
             '(title=\"(?P<title>.*?)\")?\s*' + \
             'width=\"(?P<width>.*?)\"\s*' + \
             'height=\"(?P<height>.*?)\"\s*' + \
-            'class=\"(?P<imgclass>.*?)\"\s*' + \
             '(?P<isonst>.*?)/>' + \
         '</a>\s*' + \
         '(?P<text>.*?)\[/caption\]'

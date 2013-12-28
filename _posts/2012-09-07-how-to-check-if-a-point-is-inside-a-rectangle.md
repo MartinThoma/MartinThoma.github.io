@@ -10,7 +10,7 @@ tags:
 - Geometry
 featured_image: 2012/09/rectangle-thumb.png
 ---
-[caption id="attachment_43611" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle.png"><img class="size-full wp-image-43611 " title="A rectangle" src="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle.png" alt="A rectangle" width="512" height="409" /></a> A rectangle[/caption]
+{% caption align="aligncenter" width="512" caption="A rectangle" url="../images/2012/09/rectangle.png" alt="A rectangle" title="" height="409" class="size-full wp-image-43611 " title="A rectangle" %}
 
 I've just found this interesting question on <a href="http://math.stackexchange.com/q/190111/6876">StackExchange</a>:
 
@@ -21,11 +21,11 @@ The idea how to solve this problem is simply beautiful.
 
 If the point is in the rectangle, it divides it into four rectangles:
 
-[caption id="attachment_43651" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle-2.png"><img class="size-full wp-image-43651 " title="Divided rectangle" src="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle-2.png" alt="Divided rectangle" width="512" height="409" /></a> Divided rectangle[/caption]
+{% caption align="aligncenter" width="512" caption="Divided rectangle" url="../images/2012/09/rectangle-2.png" alt="Divided rectangle" title="" height="409" class="size-full wp-image-43651 " title="Divided rectangle" %}
 
 If P is not inside of ABCD, you end up with somethink like this:
 
-[caption id="attachment_43661" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle-3.png"><img class="size-full wp-image-43661 " title="Point is outside of rectangle " src="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle-3.png" alt="Point is outside of rectangle " width="512" height="409" /></a> Point is outside of rectangle[/caption]
+{% caption align="aligncenter" width="512" caption="Point is outside of rectangle" url="../images/2012/09/rectangle-3.png" alt="Point is outside of rectangle " title="" height="409" class="size-full wp-image-43661 " title="Point is outside of rectangle " %}
 
 You might note that the area of the four triangles in is bigger than the area of the rectangle. So if the area is bigger, you know that the point is outside of the rectangle.
 

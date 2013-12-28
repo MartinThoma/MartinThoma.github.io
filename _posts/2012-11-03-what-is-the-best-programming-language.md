@@ -18,7 +18,7 @@ Some programming languages are very good at some tasks. I don't know any that is
 
 This comic illustrates what I mean:
 
-[caption id="attachment_32731" align="alignnone" width="582"]<a href="http://martin-thoma.com/what-is-the-best-programming-language/testing_cartoon/"><img class="size-full wp-image-32731 " title="A fair test" src="http://martin-thoma.com/wp-content/uploads/2012/07/testing_cartoon.jpg" alt="A fair test - comic - illustration - cartoon - caricature" width="582" height="402" /></a> A fair test[/caption]
+{% caption align="alignnone" width="582" caption="A fair test" url="../images/2012/07/testing_cartoon.jpg" alt="A fair test - comic - illustration - cartoon - caricature" title="" height="402" class="size-full wp-image-32731 " title="A fair test" %}
 <h2>Bash</h2>
 The bash is great for tiny tasks where other programs are involved.
 <h3>Example</h3>

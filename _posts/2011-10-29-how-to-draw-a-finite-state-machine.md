@@ -16,7 +16,7 @@ featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 
 As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
 <h2>Nondeterministic finite-state machine</h2>
-[caption id="attachment_8141" align="aligncenter" width="365" caption="Nondeterministic finite-state machine"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/myFiniteStateMachine1.png"><img class="size-full wp-image-8141 " title="Nondeterministic finite-state machine" src="http://martin-thoma.com/wp-content/uploads/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" width="365" height="119" /></a>[/caption]
+{% caption align="aligncenter" width="365" caption="" url="../images/2011/10/myFiniteStateMachine1.png" alt="Nondeterministic finite-state machine" title="" height="119" class="size-full wp-image-8141 " title="Nondeterministic finite-state machine" %}
 
 This image is created from a gv-file. I saved it as fsm.gv:
 

@@ -13,7 +13,7 @@ featured_image: 2012/09/tikz-sizes-thumb.png
 Here is an overview of sizes in LaTeX:
 
 <h2>TikZ</h2>
-[caption id="attachment_45911" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/tikz-sizes.png"><img class="size-full wp-image-45911 " title="TikZ thicknes" src="http://martin-thoma.com/wp-content/uploads/2012/09/tikz-sizes.png" alt="TikZ thicknes" width="500" height="503" /></a> TikZ thicknes[/caption]
+{% caption align="aligncenter" width="500" caption="TikZ thicknes" url="../images/2012/09/tikz-sizes.png" alt="TikZ thicknes" title="" height="503" class="size-full wp-image-45911 " title="TikZ thicknes" %}
 Usage example:
 <code>\draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);</code>
 <ul>
@@ -43,7 +43,7 @@ Usage example:
 </ul>
 
 <h2>Math</h2>
-[caption id="attachment_45931" align="aligncenter" width="309"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/latex-math-sizes.png"><img class="size-full wp-image-45931 " title="Sizes of different math modes" src="http://martin-thoma.com/wp-content/uploads/2012/09/latex-math-sizes.png" alt="Sizes of different math modes" width="309" height="145" /></a> Sizes of different math modes[/caption]
+{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes" title="" height="145" class="size-full wp-image-45931 " title="Sizes of different math modes" %}
 Usage example:
 <code>$\scriptstyle \lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n$</code>
 <ul>

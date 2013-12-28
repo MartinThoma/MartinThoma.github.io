@@ -13,7 +13,7 @@ featured_image: 2012/03/face-grin-fun-joke-thumb.png
 ---
 <div class="info">You have to read <a href="http://stackoverflow.com/q/234075/562769">What is your best programmer joke?</a>, <a href="http://stackoverflow.com/q/218123/562769">What was the strangest coding standard rule that you were forced to follow?</a> and <a href="http://stackoverflow.com/q/184618/562769">What is the best comment in source code you have ever encountered?</a></div>
 
-[caption id="attachment_18071" align="aligncenter" width="512" caption="Hello World Cartoon"]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/hello-world-cartoon.jpg"><img class=" wp-image-18071 " title="Hello World Cartoon" src="http://martin-thoma.com/wp-content/uploads/2012/03/hello-world-cartoon.jpg" alt="Hello World Cartoon" width="512" height="487" /></a>[/caption]
+{% caption align="aligncenter" width="512" caption="" url="../images/2012/03/hello-world-cartoon.jpg" alt="Hello World Cartoon" title="" height="487" class=" wp-image-18071 " title="Hello World Cartoon" %}
 
 Programming is like sex:
 One mistake and you have to support it for the rest of your life.

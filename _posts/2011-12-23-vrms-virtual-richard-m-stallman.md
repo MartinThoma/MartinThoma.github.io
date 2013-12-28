@@ -11,7 +11,7 @@ tags:
 - OpenSource
 featured_image: 2011/12/Richard-Stallman1.jpg
 ---
-[caption id="attachment_10141" align="alignright" width="200" caption="Richard Stallman"]<a title="Richard Stallman" href="http://martin-thoma.com/wp-content/uploads/2011/12/Richard-Stallman.jpg"><img class="size-medium wp-image-10141 " title="Richard Stallman" src="http://martin-thoma.com/wp-content/uploads/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" width="200" height="300" /></a>[/caption]
+{% caption align="alignright" width="200" caption="" url="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" title="" height="300" class="size-medium wp-image-10141 " title="Richard Stallman" %}
 
 I've just installed vrms - the virtual richard stallman :D
 

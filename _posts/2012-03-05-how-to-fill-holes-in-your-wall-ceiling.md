@@ -10,14 +10,14 @@ tags:
 - do-it-yourself
 featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
-[caption id="attachment_4861" align="alignright" width="128" caption="Do-it-yourself"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/do-it-yourself-thumb.jpg"><img class="size-full wp-image-4861 " title="Do-it-yourself - Some random tools (Thumbnail)" src="http://martin-thoma.com/wp-content/uploads/2011/10/do-it-yourself-thumb.jpg" alt="Do-it-yourself - Some random tools (Thumbnail)" width="128" height="128" /></a>[/caption]
+{% caption align="alignright" width="128" caption="" url="../images/2011/10/do-it-yourself-thumb.jpg" alt="Do-it-yourself - Some random tools (Thumbnail)" title="" height="128" class="size-full wp-image-4861 " title="Do-it-yourself - Some random tools (Thumbnail)" %}
 
 I've decided to fill some holes in my ceiling and my wall today. I don't want to paint my room the next time as it is too cold at the moment, but the holes were really ugly. I've added a photo of them. So I went to the next hardware store and asked what could be done. I thought I needed to use gypsum which is grey, so it wouldn't look very good. Additionally you can buy gypsum only in 1.5 kg bags. 
 <br/>
 <br/>
 <br/>
 <h2>Situation before</h2>
-[caption id="attachment_17171" align="aligncenter" width="614" caption="Holes in the ceiling before I fixed it."]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/loch-in-der-decke.jpg"><img class=" wp-image-17171 " title="Holes in the ceiling" src="http://martin-thoma.com/wp-content/uploads/2012/03/loch-in-der-decke-1024x563.jpg" alt="Holes in the ceiling before I fixed it." width="614" height="338" /></a>[/caption]
+{% caption align="aligncenter" width="614" caption="" url="../images/2012/03/loch-in-der-decke-1024x563.jpg" alt="Holes in the ceiling before I fixed it." title="" height="338" class=" wp-image-17171 " title="Holes in the ceiling" %}
 
 <h2>The tools</h2>
 The guy at the hardware store suggested to use acrylic paint. So I did. These were the tools I needed:
