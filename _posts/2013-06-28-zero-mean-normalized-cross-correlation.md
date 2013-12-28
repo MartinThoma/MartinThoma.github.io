@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Zero Mean Normalized Cross-Correlation
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 71801
-wordpress_url: http://martin-thoma.com/?p=71801
 date: 2013-06-28 22:15:45.000000000 +02:00
 categories:
 - Code
 - The Web
 tags:
 - KogSys
-comments: []
 featured_image: 2013/06/image-correlation.png
 ---
 {% caption align="alignright" width="128" caption="An image from Tsukuba University. This is one of hundreds of images that you can use to test your algorithms. Link is below." url="../images/2013/06/image-correlation.png" alt="Image correlation test image" title="" height="128" class="size-full wp-image-71931" %}

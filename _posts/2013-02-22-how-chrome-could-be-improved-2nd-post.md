@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How Chrome could be improved - 2nd Post
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 42031
-wordpress_url: http://martin-thoma.com/?p=42031
 date: 2013-02-22 09:55:07.000000000 +01:00
 categories:
 - Cyberculture

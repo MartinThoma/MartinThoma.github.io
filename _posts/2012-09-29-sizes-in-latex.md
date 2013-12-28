@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Sizes in LaTeX
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 45891
-wordpress_url: http://martin-thoma.com/?p=45891
 date: 2012-09-29 18:23:38.000000000 +02:00
 categories:
 - Code
 tags:
 - LaTeX
 - Tikz
-comments: []
 featured_image: 2012/09/tikz-sizes-thumb.png
 ---
 Here is an overview of sizes in LaTeX:

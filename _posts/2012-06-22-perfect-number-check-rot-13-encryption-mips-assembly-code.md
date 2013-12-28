@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Perfect number check and ROT-13 encryption in MIPS-assembly code
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 28421
-wordpress_url: http://martin-thoma.com/?p=28421
 date: 2012-06-22 10:43:49.000000000 +02:00
 categories:
 - Code
 tags:
 - Assembly language
 - MIPS
-comments: []
 featured_image: 2012/06/MIPS-Ingenic_JZ4730.jpg
 ---
 <h2>Perfect number check</h2>

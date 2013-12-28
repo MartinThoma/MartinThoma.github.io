@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Mathe Puzzle #1: Verschleierung'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 29671
-wordpress_url: http://martin-thoma.com/?p=29671
 date: 2012-07-04 20:54:42.000000000 +02:00
 categories:
 - German posts
@@ -16,17 +9,6 @@ tags:
 - mathematics
 - Fibonacci
 - puzzle
-comments:
-- id: 176051
-  author: ThJ2704
-  author_email: ThJ2704@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNy0wNyAwODo0NjoxNyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0wNyAwNjo0NjoxNyArMDIwMA==
-  content: ! "Servus Martin, \r\n\r\ntoller Artikel.\r\nDas Video ist spitze.\r\nEs
-    zeigt einem wie tolle Mathe sein kann.\r\nVielen Dank f&uuml;r Deinen Artikel."
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <strong>Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name?</strong>

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: What does volatile mean?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 62281
-wordpress_url: http://martin-thoma.com/?p=62281
 date: 2013-03-20 22:19:41.000000000 +01:00
 categories:
 - Code
 tags:
 - C
 - Java
-comments: []
 featured_image: 2012/05/C.png
 ---
 You might have read the variable modifier <code>volatile</code> in C, C++ or in Java. But do you know what it means?

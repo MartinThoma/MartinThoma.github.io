@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Tricks with .htaccess '
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 541
-wordpress_url: http://martin-thoma.com/?p=541
 date: 2011-09-21 22:02:59.000000000 +02:00
 categories:
 - Code
 tags:
 - htaccess
 - Apache
-comments: []
 featured_image: 2011/09/Apache-Logo.png
 ---
 If your Website is running on an Apache2 Webserver, you can change the behaviour of this server with .htaccess-files. 

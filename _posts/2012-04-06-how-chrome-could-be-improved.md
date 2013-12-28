@@ -1,44 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How Chrome could be improved
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 20971
-wordpress_url: http://martin-thoma.com/?p=20971
 date: 2012-04-06 14:19:31.000000000 +02:00
 categories:
 - The Web
 tags:
 - Browser
 - Chrome
-comments:
-- id: 109691
-  author: Roy
-  author_email: admin@techlogon.com
-  author_url: http://techlogon.com/
-  date: !binary |-
-    MjAxMi0wNC0xNSAxNzoxMjowMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0xNSAxNToxMjowMiArMDIwMA==
-  content: ! "I agree with most of these but guess there's a trade-off between features
-    and the fact that Chrome is viewed (rightly or wrongly) as fast. Each new feature
-    adds to bloat so, unless it's a very popular request, it probably won't make it
-    in.\r\n\r\nI guess you use extensions to make up for some of these features but
-    if anyone is interested I'd suggest MuteTab or Chrome Toolbox for disabling sounds
-    and 'Spell Checker For Chrome'."
-- id: 115051
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNC0yMSAxMTo0ODo1MyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0yMSAwOTo0ODo1MyArMDIwMA==
-  content: 4.1 - Rotation of PDf is in Version 18.0.1025.162 possible :D
 featured_image: 2012/04/google-chrome-logo.png
 ---
 Google Chorme is the browser of my choice. It is fast, has developer tools and looks great. But it could be improved. I'll describe some features I miss.

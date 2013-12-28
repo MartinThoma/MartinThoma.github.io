@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Why are Microsoft products so User unfriendly?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 51121
-wordpress_url: http://martin-thoma.com/?p=51121
 date: 2012-12-21 17:00:31.000000000 +01:00
 categories:
 - Code
@@ -18,7 +11,6 @@ tags:
 - Microsoft
 - Visual Studio
 - Windows 7
-comments: []
 featured_image: 2012/12/loading-times.png
 ---
 Another rage-post ... 

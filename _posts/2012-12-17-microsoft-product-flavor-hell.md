@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Microsoft product flavor hell
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 50631
-wordpress_url: http://martin-thoma.com/?p=50631
 date: 2012-12-17 13:05:32.000000000 +01:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - windowsrage
 - Microsoft
 - Windows 7
-comments: []
 featured_image: 2012/12/windows-7-editions-thumb.jpg
 ---
 As a KIT student I may download pretty much of Microsofts software from a MSDNAA-shop for free. So I've downloaded Windows 7 and Visual Studio. I need them for work, so I thought it would be as simple as choosing to download it. But I didn't think of Microsofts will to make business at the expense of user experience.

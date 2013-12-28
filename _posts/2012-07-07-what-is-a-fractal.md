@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: What is a fractal?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 29951
-wordpress_url: http://martin-thoma.com/?p=29951
 date: 2012-07-07 19:00:09.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - mathematics
 - fractal
-comments: []
 featured_image: 2012/07/mandelbrot-set-thumb.jpg
 ---
 <blockquote>[...] Fractals are typically self-similar patterns, where self-similar means they are "the same from near as from far". [...] The definition of fractal goes beyond self-similarity per se to exclude trivial self-similarity and include the idea of a detailed pattern repeating itself.</blockquote>

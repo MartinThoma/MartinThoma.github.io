@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Surprising C errors
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 8601
-wordpress_url: http://martin-thoma.com/?p=8601
 date: 2011-12-28 15:18:43.000000000 +01:00
 categories:
 - Code
@@ -16,34 +9,6 @@ tags:
 - Programming
 - learning
 - C
-comments:
-- id: 24081
-  author: Rene Pickhardt
-  author_email: r.pickhardt@gmail.com
-  author_url: http://www.rene-pickhardt.de
-  date: !binary |-
-    MjAxMS0xMi0yOCAxNjozNDowNiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMi0yOCAxNDozNDowNiArMDEwMA==
-  content: ! "int main()\r\n{\r\n    int x = 42;\r\n    while( x > 0 );\r\n        x--;\r\n
-    \   return 0;\r\n}\r\n\r\nline 4 has a \";\" after the while. So you are running
-    a loop with no statments. \r\n\r\nif you do not start a new scope with { and }
-    then the next stament after a loop expression is executed. Your next statement
-    is not x--; but your statement is the empty statement \";\" of course this results
-    in an infinity loop. I guess it is the same in java. And in particular it has
-    no connection to x=42 (-:"
-- id: 24101
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMS0xMi0yOCAxNzowNzoxMSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMi0yOCAxNTowNzoxMSArMDEwMA==
-  content: ! "Correct. I think this is a tricky one as too much ; aren't important
-    most of the time. Just like the macro-one.\r\n\r\n<blockquote>And in particular
-    it has no connection to x=42 (-:</blockquote>\r\nAre you sure? I don't know
-    the question, but 42 is the answer ;-)"
 featured_image: 2011/12/compare-programming-languages.png
 ---
 Those errors might be surprising and a good exercise for C beginners:

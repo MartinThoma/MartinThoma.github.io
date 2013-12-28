@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Animater vs. Animation
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 341
-wordpress_url: http://martin-thoma.com/?p=341
 date: 2011-09-21 19:56:55.000000000 +02:00
 categories:
 - Cyberculture
@@ -17,7 +10,6 @@ tags:
 - Video
 - Deviantart
 - YouTube
-comments: []
 featured_image: 2011/09/Animator-vs-Animation.png
 ---
 An animator faces his own animation in deadly combat. The battlefield? The Flash interface itself.

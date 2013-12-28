@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Getting Hardware Information in Ubuntu
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 1341
-wordpress_url: http://martin-thoma.com/?p=1341
 date: 2011-09-22 20:44:21.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Linux
 - Ubuntu
 - Hardware
-comments: []
 featured_image: 2011/09/Ubuntu-Logo.png
 ---
 I'm using Ubuntu now for many years, but I always have to look the commands for retrieving hardware information up. Now I will not Google any longer but search in my own little cheat sheet.

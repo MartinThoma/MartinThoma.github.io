@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: What can ArrayList / LinkedList do what List can't?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 56211
-wordpress_url: http://martin-thoma.com/?p=56211
 date: 2013-02-04 11:50:45.000000000 +01:00
 categories:
 - Code
 tags:
 - Java
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 I've told my students to write

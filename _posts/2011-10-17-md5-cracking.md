@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: MD5 cracking
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 3711
-wordpress_url: http://martin-thoma.com/?p=3711
 date: 2011-10-17 07:36:15.000000000 +02:00
 categories:
 - The Web
@@ -16,7 +9,6 @@ tags:
 - MD5
 - Internet Security
 - hash
-comments: []
 featured_image: 2011/10/rednoize.png
 ---
 MD5 is a cryptographic hash function. This means, you can give the MD5 algorithm a string and it will return another 32-character long alphanumeric string. The returned string looks quite random, but it isn't. If you use the same input, you always get the same 32 character output.

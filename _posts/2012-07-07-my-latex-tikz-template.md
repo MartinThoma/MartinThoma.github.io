@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: My LaTeX Tikz Template
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 30211
-wordpress_url: http://martin-thoma.com/?p=30211
 date: 2012-07-07 17:38:13.000000000 +02:00
 categories:
 - Code
 tags:
 - LaTeX
 - Tikz
-comments: []
 featured_image: 2012/01/latex-logo.png
 ---
 Sometimes I would like to create a single picture with Tikz for later usage on Wikipedia or my Blog. This is my LaTeX Tikz template I use in such a situation:

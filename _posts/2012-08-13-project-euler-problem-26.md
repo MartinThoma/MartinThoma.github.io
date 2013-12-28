@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Project Euler: Problem 26'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 39711
-wordpress_url: http://martin-thoma.com/?p=39711
 date: 2012-08-13 17:00:49.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - mathematics
 - Project Euler
 - brute-force
-comments: []
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=26">Problem 26</a> of Project Euler is:

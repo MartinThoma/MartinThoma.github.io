@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Projects I never realized
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76376
-wordpress_url: http://martin-thoma.com/?p=76376
 date: 2013-10-01 23:41:37.000000000 +02:00
 categories:
 - Cyberculture

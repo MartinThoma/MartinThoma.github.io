@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Triangle area
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 64181
-wordpress_url: http://martin-thoma.com/?p=64181
 date: 2013-04-25 10:13:15.000000000 +02:00
 categories:
 - My bits and bytes

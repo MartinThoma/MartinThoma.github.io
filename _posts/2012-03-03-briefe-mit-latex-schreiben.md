@@ -1,31 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Briefe mit LaTeX schreiben
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 16821
-wordpress_url: http://martin-thoma.com/?p=16821
 date: 2012-03-03 17:48:38.000000000 +01:00
 categories:
 - German posts
 tags:
 - LaTeX
 - scrlttr2
-comments:
-- id: 531311
-  author: till
-  author_email: t.wichterey@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMi0wNyAxNDozNjo1MCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMi0wNyAxMjozNjo1MCArMDEwMA==
-  content: ! "Hiermit d&uuml;rfte die Einr&uuml;ckung der Unterschrift unterbunden
-    werden:\r\n\r\n\\renewcommand*{\\raggedsignature}{\\raggedright}"
 featured_image: 2012/01/latex-logo.png
 ---
 Ich muss immer wieder mal K&uuml;ndigungsschreiben aufsetzen. Daf&uuml;r will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage f&uuml;r K&uuml;ndigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung.pdf'>alt</a> und <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung-scrlttr2.pdf'>neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich gro&szlig; ist.

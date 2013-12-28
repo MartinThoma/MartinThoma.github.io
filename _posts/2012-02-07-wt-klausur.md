@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wahrscheinlichkeitstheorie - Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 13231
-wordpress_url: http://martin-thoma.com/?p=13231
 date: 2012-02-07 16:29:52.000000000 +01:00
 categories:
 - German posts
 tags:
 - cheat sheet
 - Klausur
-comments: []
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Morgen schreibe ich eine Klausur in Wahrscheinlichkeitstheorie. Zum Gl&uuml;ck d&uuml;rfen wir das Skript und Notizen mitnehmen. 

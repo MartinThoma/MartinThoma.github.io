@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Das Consensus-Verfahren
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 55511
-wordpress_url: http://martin-thoma.com/?p=55511
 date: 2013-01-29 16:23:14.000000000 +01:00
 categories:
 - German posts
 tags:
 - Digitaltechnik
-comments: []
 ---
 Mithilfe des Consensus-Verfahrens k&ouml;nnen Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}$ in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das &Uuml;berdeckungsproblem noch gel&ouml;st werden muss. Dies kann man z.B. mit der <a href="http://martin-thoma.com/das-quine-mccluskey-verfahren/" title="Das Quine-McCluskey-Verfahren">zweiten Quineschen Tabelle</a> machen.
 

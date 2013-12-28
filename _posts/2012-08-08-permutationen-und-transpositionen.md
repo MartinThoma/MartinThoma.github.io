@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Permutationen und Transpositionen
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 38541
-wordpress_url: http://martin-thoma.com/?p=38541
 date: 2012-08-08 10:36:06.000000000 +02:00
 categories:
 - German posts
 tags:
 - Linear algebra
-comments: []
 featured_image: 2012/08/pi-thumbnail.png
 ---
 <h2>Permutation</h2>

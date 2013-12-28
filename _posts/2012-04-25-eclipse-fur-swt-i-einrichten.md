@@ -1,20 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Eclipse f&uuml;r SWT I einrichten
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-excerpt: ! "<div class=\"info\">SWT I ist das Modul Softwaretechnik I am <a href=\"http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie\">KIT</a>.
-  Dieser Blogpost richtet sich also vor allem an Studenten des KIT von Herrn <a href=\"http://www.ipd.uka.de/Tichy/people.php?id=15\">Prof.
-  Dr. Tichy</a>. Ich arbeite au&szlig;erdem mit Ubuntu Linux. Die momentan aktuellste
-  Version nennt sich Oneiric Ocelot und kann bei <a href=\"http://wiki.ubuntuusers.de/Downloads/Oneiric_Ocelot\">UbuntuUsers</a>
-  heruntergeladen werden. Das System k&ouml;nnte z.B. in <a href=\"http://wiki.ubuntuusers.de/VirtualBox\">VirtualBox</a>
-  installiert werden.</div>\r\n"
-wordpress_id: 22911
-wordpress_url: http://martin-thoma.com/?p=22911
 date: 2012-04-25 22:25:11.000000000 +02:00
 categories:
 - German posts
@@ -24,7 +11,6 @@ tags:
 - svn
 - SWT I
 - eclipse
-comments: []
 featured_image: 2012/04/eclipse-logo.png
 ---
 <div class="info">SWT I ist das Modul Softwaretechnik I am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a>. Dieser Blogpost richtet sich also vor allem an Studenten des KIT von Herrn <a href="http://www.ipd.uka.de/Tichy/people.php?id=15">Prof. Dr. Tichy</a>. Ich arbeite au&szlig;erdem mit Ubuntu Linux. Die momentan aktuellste Version nennt sich Oneiric Ocelot und kann bei <a href="http://wiki.ubuntuusers.de/Downloads/Oneiric_Ocelot">UbuntuUsers</a> heruntergeladen werden. Das System k&ouml;nnte z.B. in <a href="http://wiki.ubuntuusers.de/VirtualBox">VirtualBox</a> installiert werden.</div>

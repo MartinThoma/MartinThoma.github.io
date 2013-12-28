@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: George Carlin
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 29151
-wordpress_url: http://martin-thoma.com/?p=29151
 date: 2012-07-01 19:49:23.000000000 +02:00
 categories:
 - My bits and bytes
 tags:
 - funny
 - Comedy
-comments: []
 featured_image: 2012/07/george-charline-thumb.jpg
 ---
 <a href="http://en.wikipedia.org/wiki/George_Carlin">George Carlin</a> is a great American stand-up comedian. Here are some of his clips:

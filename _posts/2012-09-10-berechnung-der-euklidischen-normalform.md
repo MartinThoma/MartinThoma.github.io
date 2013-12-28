@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Berechnung der euklidischen Normalform
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 43901
-wordpress_url: http://martin-thoma.com/?p=43901
 date: 2012-09-10 07:57:50.000000000 +02:00
 categories:
 - German posts
@@ -16,7 +9,6 @@ tags:
 - Linear algebra
 - Matrix
 - normal form
-comments: []
 featured_image: 2012/09/math-euklidische-normalform1.png
 ---
 Die euklidische Normalform einer linearen Isometrie, manchmal auch lineare Normalform gennant, hat folgende Gestalt:

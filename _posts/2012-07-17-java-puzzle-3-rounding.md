@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Java Puzzle #3: Rounding'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 32601
-wordpress_url: http://martin-thoma.com/?p=32601
 date: 2012-07-17 17:00:53.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Programming
 - Java
 - puzzle
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 <h2>The puzzle</h2>

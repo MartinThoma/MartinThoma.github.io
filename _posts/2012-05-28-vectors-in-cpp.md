@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Vectors in C++
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 25331
-wordpress_url: http://martin-thoma.com/?p=25331
 date: 2012-05-28 12:40:52.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - C
 - STL
 - Vector
-comments: []
 featured_image: 2012/05/CPP-thumb.png
 ---
 <h2>Minimal Example</h2>

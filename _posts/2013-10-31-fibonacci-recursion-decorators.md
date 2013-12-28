@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Fibonacci, recursion and decorators
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76683
-wordpress_url: http://martin-thoma.com/?p=76683
 date: 2013-10-31 11:08:01.000000000 +01:00
 categories:
 - Code
@@ -16,18 +9,6 @@ tags:
 - Python
 - Fibonacci
 - decorators
-comments:
-- id: 1238270
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0xMS0xMCAxNzozMToxMyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMS0xMCAxNjozMToxMyArMDEwMA==
-  content: ! "Please note that you should maybe use functools and @wraps for the wrapper
-    as shown in this example: http://pastebin.com/pEW3yQDN\r\n\r\nThis
-    is useful, because it makes the wrapped function to keep its signature."
 featured_image: 2011/09/Python-Logo.png
 ---
 I think everybody who learned something about recursion has seen the Fibonacci sequence:

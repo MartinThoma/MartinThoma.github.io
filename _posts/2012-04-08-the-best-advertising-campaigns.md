@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: The Best Advertising Campaigns
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 21561
-wordpress_url: http://martin-thoma.com/?p=21561
 date: 2012-04-08 22:15:57.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - funny
 - advertising
 - commercial
-comments: []
 featured_image: 2012/04/mr-clean-ad-thumb.jpg
 ---
 <h2>Jobs in Town</h2>

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Complex LaTeX visualizations (Tikz)
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 28861
-wordpress_url: http://martin-thoma.com/?p=28861
 date: 2012-06-29 18:38:27.000000000 +02:00
 categories:
 - Code
 tags:
 - LaTeX
 - Tikz
-comments: []
 featured_image: 2012/06/circumscribed-polygons-and-circles-thumb.png
 ---
 You can create some very complex visualizations with LaTeX. Take a look at these:

@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Die Landau-Symbole
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 35131
-wordpress_url: http://martin-thoma.com/?p=35131
 date: 2012-07-26 08:41:08.000000000 +02:00
 categories:
 - German posts
 tags:
 - algorithms
-comments: []
 featured_image: 2012/07/landau-thumb.png
 ---
 <h2>Definitionen</h2>

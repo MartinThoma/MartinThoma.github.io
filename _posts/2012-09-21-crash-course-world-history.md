@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Crash Course: World History'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 45591
-wordpress_url: http://martin-thoma.com/?p=45591
 date: 2012-09-21 19:19:52.000000000 +02:00
 categories:
 - The Web
@@ -16,7 +9,6 @@ tags:
 - YouTube
 - learning
 - history
-comments: []
 featured_image: 2012/09/world-history.png
 ---
 <h2>#32: Coal, Steam, and The Industrial Revolution</h2>

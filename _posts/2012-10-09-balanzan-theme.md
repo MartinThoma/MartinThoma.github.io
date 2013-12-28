@@ -1,40 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Balanzan Theme
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 46461
-wordpress_url: http://martin-thoma.com/?p=46461
 date: 2012-10-09 18:20:35.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - Ubuntu
 - Theme
-comments:
-- id: 1210641
-  author: Steve
-  author_email: stepan.doan@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNi0xNCAwMzowNTowMCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0xNCAwMTowNTowMCArMDIwMA==
-  content: The repository doesn't work, could you fix it, please?
-- id: 1211441
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wNi0xNCAwOTozODoxNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0xNCAwNzozODoxNiArMDIwMA==
-  content: ! "What do you mean when you write \"the repository doesn't work\"?\r\nIt's
-    still there: https://launchpad.net/~bisigi/+archive/ppa"
 featured_image: 2012/10/balazan-thumb.png
 ---
 I don't understand why all desktop environment seem to lack a good theme chooser/editor and good themes. I have one favorite theme - called "<a href="http://www.bisigi-project.org/?p=28&lang=en">Balanzan Theme</a>" which should be available in every distribution. The Balanzan Theme is part of the <a href="http://www.bisigi-project.org/?lang=en">bisigi-project</a>. According to <a href="https://launchpad.net/~bisigi/+archive/ppa/+files/balanzan-theme_1.8.1.natty.ppa1.tar.gz">the package</a>, it is licensed under GPL. So I think I can upload some of its content here.

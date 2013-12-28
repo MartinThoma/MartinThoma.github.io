@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Abschlussaufgaben Programmieren
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 17791
-wordpress_url: http://martin-thoma.com/?p=17791
 date: 2012-03-10 16:00:13.000000000 +01:00
 categories:
 - German posts
 tags:
 - KIT
 - Klausur
-comments: []
 featured_image: 2011/11/java-programming.png
 ---
 <strong>Hinweis</strong>: Dieser Blogpost ist vermutlich nur f&uuml;r Informatik-Studenten am KIT im WS 2011 / 2012 interessant!

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Colorize your scripts output
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 3021
-wordpress_url: http://martin-thoma.com/?p=3021
 date: 2011-09-30 08:59:59.000000000 +02:00
 categories:
 - Code
@@ -17,26 +10,6 @@ tags:
 - Bash
 - Scripting
 - C
-comments:
-- id: 1431
-  author: Peter
-  author_email: steffek@k-tc.de
-  author_url: ''
-  date: !binary |-
-    MjAxMS0xMC0wMSAwNzowODowMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMC0wMSAwNTowODowMiArMDIwMA==
-  content: ! "Hello Thomas,\r\ngood job we will youse this for our log output in our
-    company. \r\nPeter"
-- id: 21731
-  author: snip
-  author_email: webmaster@leprimepagine.com
-  author_url: http://brainstretching.blogspot.com/
-  date: !binary |-
-    MjAxMS0xMi0yMCAxODoyMzo1NyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMi0yMCAxNjoyMzo1NyArMDEwMA==
-  content: Interesting, really.
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used.

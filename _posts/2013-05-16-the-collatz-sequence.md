@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: The Collatz sequence
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 66141
-wordpress_url: http://martin-thoma.com/?p=66141
 date: 2013-05-16 23:58:45.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Visualization
 - mathematics
 - Project Euler
-comments: []
 featured_image: 2013/05/collatz-thumb.png
 ---
 The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.

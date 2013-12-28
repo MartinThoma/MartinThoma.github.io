@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Game: Lightbot 2.0'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 2161
-wordpress_url: http://martin-thoma.com/?p=2161
 date: 2011-09-25 10:08:27.000000000 +02:00
 categories:
 - The Web
 tags:
 - Flashgames
 - learning
-comments: []
 featured_image: 2011/09/Lightbot-2.0-300x171.png
 ---
 {% caption align="aligncenter" width="300" caption="Lightbot 2.0" url="../images/2011/09/Lightbot-2.0-300x171.png" alt="" title="Lightbot-2.0" height="171" class="size-medium wp-image-2171" %}

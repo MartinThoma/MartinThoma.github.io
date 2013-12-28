@@ -1,35 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Simquadrat
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 74531
-wordpress_url: http://martin-thoma.com/?p=74531
 date: 2013-07-21 18:18:12.000000000 +02:00
 categories:
 - German posts
 tags:
 - Review
 - smartphone
-comments:
-- id: 1234141
-  author: Peter Merkert
-  author_email: peter.merkert@gmx.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNy0yNCAxNzo0ODoxMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNy0yNCAxNTo0ODoxMiArMDIwMA==
-  content: ! "Hey Martin,\r\n\r\nw&auml;re mal interessant zu wissen, wie die Services
-    das schalten. Ich kann mir garnicht vorstellen, wie der Anruf geleitet wird.\r\n\r\nWie
-    ist es eigentlich im Ausland? Telefoniert man dann auch zu Festnetzkosten? M&uuml;ssen
-    dann Personen, die einen anrufen doch die Auslandsvorwahl eintippen? Was aber
-    merkw&uuml;rdig w&auml;re, da man damit ja vermutlich auf die im Ausland vergeben
-    Festnetznummer kommt und nicht auf dein Handy ;)\r\n\r\nViele Gr&uuml;&szlig;e"
 featured_image: 2013/07/simquadrat.png
 ---
 Simquadrat ist ein Dienst von <a href="http://en.wikipedia.org/wiki/Sipgate">sipgate</a>. Das besondere daran ist, dass Simkarten verkauft werden, die eine Festnetznummer haben. Ich habe das ganze ausprobiert und will meine Erfahrungen nun teilen.

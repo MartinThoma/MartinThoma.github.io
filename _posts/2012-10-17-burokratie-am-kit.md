@@ -1,35 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: B&uuml;rokratie am KIT
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 47031
-wordpress_url: http://martin-thoma.com/?p=47031
 date: 2012-10-17 18:06:31.000000000 +02:00
 categories:
 - German posts
 tags:
 - KIT
-comments:
-- id: 353341
-  author: Eva
-  author_email: eva.wolkwitz@gmx.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMC0zMSAxMzoxNTowNiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0zMSAxMToxNTowNiArMDEwMA==
-  content: ! "Hallo,\r\n\r\ndass das Studienb&uuml;ro nur so selten ge&ouml;ffnet
-    ist, hat mich auch schon ver&auml;rgert. Ich habe Scheine aus den letzten drei
-    Semestern immer noch nicht eingereicht weil das B&uuml;ro entweder geschlossen
-    oder &uuml;berf&uuml;llt war.\r\n\r\nZu Problemen mit der KIT-Card (zum Gl&uuml;ck
-    hatte ich noch keine Probleme) bzw. Verlust der Karte wurde mir der Tip gegeben
-    lieber zur Uni-Bib zu gehen. Dort kann wohl auch eine neue Karte ausgestellt werden
-    und es soll angeblich schneller und weniger umst&auml;ndlich sein als im Studienb&uuml;ro.\r\n\r\nLG\r\nEva"
 featured_image: 2011/10/KIT-Logo.png
 ---
 Das KIT sieht sich gerne als Elite-Universit&auml;t.<sup>[<a href="http://www.kit.edu/besuchen/pi_2012_11933.php">1</a>]</sup> Es werden Rankings in Vorlesungen zitiert und erst vor kurzem wurde von einigen Professoren in der Vorlesung der Verlust des Status der Elite-Universit&auml;t betrauert.<sup>[<a href="http://bildungsklick.de/a/84162/hippler-elite-verlust-herber-rueckschlag-fuer-kit/">1</a>]</sup> Ich wei&szlig; nicht, was die Kriterien f&uuml;r eine Elite-Uni nach der Exzellenzinitiative sind, aber ich kann mir einige notwendige Voraussetzungen vorstellen, die f&uuml;r mich eine Elite-Uni ausmachen:

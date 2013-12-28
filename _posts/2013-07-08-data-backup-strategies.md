@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Data Backup Strategies
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 73291
-wordpress_url: http://martin-thoma.com/?p=73291
 date: 2013-07-08 08:48:50.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - IT-Security
 - backup
-comments: []
 featured_image: 2013/07/hdd.png
 ---
 Yesterday, I thought what would happen if my internal or external hard drive crashed. 

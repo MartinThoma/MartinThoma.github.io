@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Jordansche Normalform: 2x2 Matrizen'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 41041
-wordpress_url: http://martin-thoma.com/?p=41041
 date: 2012-08-17 21:49:41.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - Linear algebra
-comments: []
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
 <div class="info">Hier sind $2 \times 2$ Beispiele zum Hauptartikel <a href="http://martin-thoma.com/wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>

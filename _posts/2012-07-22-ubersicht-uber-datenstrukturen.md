@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! '&Uuml;bersicht &uuml;ber Datenstrukturen'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 33781
-wordpress_url: http://martin-thoma.com/?p=33781
 date: 2012-07-22 17:38:04.000000000 +02:00
 categories:
 - German posts
 tags:
 - algorithms
 - data structure
-comments: []
 featured_image: 2012/07/tree-thumb.png
 ---
 Diese &Uuml;bersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a href="http://de.wikipedia.org/wiki/Kategorie:Datenstruktur">mehr Datenstrukturen</a> (z.B. <a href="http://de.wikipedia.org/wiki/Bloomfilter">Bloomfilter</a>), als ich hier erw&auml;hne. Diese Datenstrukturen wurden in der Vorlesung Algorithmen I bei Frau Zitterbart am KIT erkl&auml;rt.

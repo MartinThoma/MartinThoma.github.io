@@ -1,61 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: GBI-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 15771
-wordpress_url: http://martin-thoma.com/?p=15771
 date: 2012-02-28 19:30:01.000000000 +01:00
 categories:
 - German posts
 tags:
 - GBI
 - Klausur
-comments:
-- id: 59861
-  author: frape
-  author_email: stefan.ka1@gmx.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMy0wMiAyMDoxOTo1NCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMy0wMiAxODoxOTo1NCArMDEwMA==
-  content: ! "Danke f&uuml;r die Zusammenfassung. Kleiner Hinweis: In deinen random-facts
-    steht \"Ein Mebibyte (MiB) sind 10^20 Byte,...\". Das m&uuml;sste aber 2^20 hei&szlig;en
-    ;-) \r\n\r\ngreez"
-- id: 59871
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wMy0wMiAyMDoyMzoyNCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMy0wMiAxODoyMzoyNCArMDEwMA==
-  content: Vielen Dank, ich habs korrigiert.
-- id: 1141841
-  author: Someone
-  author_email: 152a567b4f92@a85dfab573aa.anonbox.net
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wMy0wMiAxMzoxNzowNiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMy0wMiAxMjoxNzowNiArMDEwMA==
-  content: ! "Ist O(n!) eine echte Teilmenge von O(2^n)?\r\nBei n = 4 gilt doch schon
-    2^4 = 16 und 4! = 24"
-- id: 1141871
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wMy0wMiAxNDoxMTowNCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMy0wMiAxMzoxMTowNCArMDEwMA==
-  content: So wie es dort stand, war es nat&uuml;rlich falsch. Danke f&uuml;r den
-    Hinweis. Ich habe oben eine Begr&uuml;ndung eingef&uuml;gt.
 ---
 F&uuml;r die Klausur in den Grundbegriffe der Informatik (GBI) sollte man Folgendes auf jeden Fall wissen:
 <ul>

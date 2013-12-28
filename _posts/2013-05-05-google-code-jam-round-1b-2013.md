@@ -1,58 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Google Code Jam &ndash; Round 1B 2013
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 65421
-wordpress_url: http://martin-thoma.com/?p=65421
 date: 2013-05-05 16:15:32.000000000 +02:00
 categories:
 - Code
 tags:
 - Python
 - Google Code Jam
-comments:
-- id: 1188201
-  author: hashed
-  author_email: mariomaresca@hotmail.it
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNS0wNiAwMTozNjoxOSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNS0wNSAyMzozNjoxOSArMDIwMA==
-  content: ! "Wow that's almost exactly how I did the falling diamonds (after the
-    2h:30). That formula is basic this formula:\r\n\r\nhttp://math.stackexchange.com/a/382123/32707"
-- id: 1188431
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wNS0wNyAyMjowODozMyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNS0wNyAyMDowODozMyArMDIwMA==
-  content: ! "You might be interested in\r\n\r\nhttps://github.com/tmoertel/practice/blob/master/google-code-jam/2013/round-1B-B-falling-diamonds/diamonds.py"
-- id: 1188761
-  author: d
-  author_email: blah@blah.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNS0wOSAwNTozMTo0MCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNS0wOSAwMzozMTo0MCArMDIwMA==
-  content: ! "Here's a simple implementation of Osmos in Javascript:\r\n\r\nfunction
-    rs(si) \r\n{\r\n  var a = Scanner.scanf('%d'), n = Scanner.scanf('%d');\r\n  count
-    = 0, min = Infinity;\r\n  var m = Scanner.toArray('%d', n).sort(function(a, b){
-    return a - b; })\r\n  \r\n  for (var i = 0; i  (count+(m.length-i))) ? (count+(m.length-i))
-    : min;\r\n    if (min  m[i]) {\r\n      a+=m[i];\r\n    } else if (a < 2) {\r\n
-    \     count = m.length;\r\n      break;\r\n    } else {\r\n      a+=(a-1); i-=1;
-    count+=1;\r\n    }\r\n  }\r\n  \r\n  Scanner.printf(&#039;Case #&#039; + si +
-    &#039;: &#039; + ((min < count) ? min : count));\r\n}\r\n\r\nScanner.read(&#039;input.txt&#039;,
-    function() {\r\n  var rows = Scanner.scanf(&#039;%d&#039;);\r\n  for (var i =
-    0; i < rows; ++i) { rs((i+1)); }\r\n});"
 featured_image: 2012/04/code-jam-logo.png
 ---
 <ul>

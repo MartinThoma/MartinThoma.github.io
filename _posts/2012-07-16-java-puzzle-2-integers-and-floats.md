@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Java Puzzle #2: Integers and Floats'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 32421
-wordpress_url: http://martin-thoma.com/?p=32421
 date: 2012-07-16 17:00:35.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Programming
 - Java
 - puzzle
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 <h2>Basics</h2>

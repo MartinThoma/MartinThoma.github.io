@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to use magic rescue
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 9981
-wordpress_url: http://martin-thoma.com/?p=9981
 date: 2011-12-17 13:02:47.000000000 +01:00
 categories:
 - Code
 tags:
 - Data Recovery
-comments: []
 featured_image: 2011/12/PartitionManager.png
 ---
 I've just searched an image I have created some time ago. I knew that I've put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn't simply open your trash can, but it searches files which were deleted, but not overwritten.

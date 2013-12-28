@@ -1,40 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: LaTeX + Versioning = A great Experience
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 28781
-wordpress_url: http://martin-thoma.com/?p=28781
 date: 2012-06-29 22:52:03.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - LaTeX
-comments:
-- id: 173291
-  author: Victor
-  author_email: victor.zverovich@gmail.com
-  author_url: http://zverovich.net
-  date: !binary |-
-    MjAxMi0wNi0zMCAwNTozODowNSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0zMCAwMzozODowNSArMDIwMA==
-  content: ! 'Nice post. I have one more reason to use LaTeX: it allows me to put
-    math into HTML and render it beautifully using something like MathJax.'
-- id: 180081
-  author: Ted
-  author_email: lwxted@qq.com
-  author_url: http://www.lwxted.com/blog/
-  date: !binary |-
-    MjAxMi0wNy0yMCAxNTo1NTowMyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0yMCAxMzo1NTowMyArMDIwMA==
-  content: Hi there, I'm also interested in LaTeX and programming. Nice blog you've
-    got in here. Keep up the great work! I've added your blog to my blog roll.
 ---
 Some people keep asking me questions like "Why do you use LaTeX?" - "Wouldn't it be faster to do it with Word?"
 

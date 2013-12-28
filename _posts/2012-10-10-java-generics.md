@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Java Generics
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 46671
-wordpress_url: http://martin-thoma.com/?p=46671
 date: 2012-10-10 12:18:42.000000000 +02:00
 categories:
 - Code
 tags:
 - Java
 - Generics
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 Some months ago, I had to improve some Java code for university. They gave us a model of a windows like file system and we had to make the code "cleaner". I think I've overdone the application of generics, but it's a nice example for generics ;-)

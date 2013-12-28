@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Python Puzzle #1: List multiplication'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 27261
-wordpress_url: http://martin-thoma.com/?p=27261
 date: 2012-06-18 15:06:48.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Programming
 - Python
 - puzzle
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Basic concepts</h2>

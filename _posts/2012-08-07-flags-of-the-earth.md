@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Flags of the Earth
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 37061
-wordpress_url: http://martin-thoma.com/?p=37061
 date: 2012-08-07 17:00:47.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,17 +9,6 @@ tags:
 - Flashgames
 - learning
 - Geography
-comments:
-- id: 284681
-  author: Leonid
-  author_email: an.onymer@ymail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMC0wNyAxODoxMjowMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0wNyAxNjoxMjowMiArMDIwMA==
-  content: ! "http://s7.directupload.net/images/121007/k3o8qy4l.jpg\r\n245240
-    Punkte"
 featured_image: 2012/07/flags-of-the-earth1.png
 ---
 {% caption align="aligncenter" width="512" caption="Flags of the Earth" url="../images/2012/07/flags-of-the-earth.png" alt="Flags of the Earth" title="Flags of the Earth" height="370" class="size-full wp-image-37071" %}

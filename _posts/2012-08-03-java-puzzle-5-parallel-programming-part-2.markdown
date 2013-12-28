@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Java Puzzle #5: Parallel Programming, Part 2'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 36711
-wordpress_url: http://martin-thoma.com/?p=36711
 date: 2012-08-03 17:00:58.000000000 +02:00
 categories:
 - Code

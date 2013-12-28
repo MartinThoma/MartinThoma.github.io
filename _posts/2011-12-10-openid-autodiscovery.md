@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: OpenID autodiscovery
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 9741
-wordpress_url: http://martin-thoma.com/?p=9741
 date: 2011-12-10 11:08:56.000000000 +01:00
 categories:
 - The Web
 tags:
 - OpenID
-comments: []
 featured_image: 2011/10/OpenID.png
 ---
 <a href="http://martin-thoma.com/5-web-technologies-which-should-be-used-more-often/#OpenID">OpenID</a> is a web technology that gives the users the possibility to use one website for authentification on another web service. The <em>OpenID Attribute Exchange</em> makes registration processes simpler, as the user can automatically allow the website to get some information like the Email-adress, the gender and the full name.

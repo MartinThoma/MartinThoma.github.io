@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Short Educational Clips
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 37711
-wordpress_url: http://martin-thoma.com/?p=37711
 date: 2012-08-08 17:00:37.000000000 +02:00
 categories:
 - Cyberculture
@@ -17,7 +10,6 @@ tags:
 - Clip
 - Education
 - Science
-comments: []
 featured_image: 2012/08/educational-clips.png
 ---
 Here are some clips which are interesting for education. For example, one of then explains the history of the English language in about 10 minutes.

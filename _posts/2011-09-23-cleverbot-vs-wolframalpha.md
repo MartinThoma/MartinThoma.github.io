@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Cleverbot vs. Wolfram|Alpha
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 1501
-wordpress_url: http://martin-thoma.com/?p=1501
 date: 2011-09-23 11:46:31.000000000 +02:00
 categories:
 - The Web
@@ -18,7 +11,6 @@ tags:
 - Cleverbot
 - Wolfram|Alpha
 - A.I.
-comments: []
 featured_image: 2011/09/Cleverbot-Logo.png
 ---
 <a href="http://cleverbot.com/" title="Cleverbot">Cleverbot</a> is an AI web application. You can chat with it and it tries to guess a good answer. This can be quite funny.

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Check Computer / Hardware for Linux-compatibility
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 12691
-wordpress_url: http://martin-thoma.com/?p=12691
 date: 2012-01-27 20:42:21.000000000 +01:00
 categories:
 - Cyberculture
 tags:
 - Linux
 - Hardware
-comments: []
 featured_image: 2011/09/Tux.png
 ---
 Linux users who are not very skilled have a big problem: If they want to buy a new computer or new hardware, it is very difficult for them to find out if something works or not. I'll give you some hints how you could find it out:

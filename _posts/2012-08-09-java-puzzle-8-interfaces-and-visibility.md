@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Java Puzzle #8: Interfaces and Visibility'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 37981
-wordpress_url: http://martin-thoma.com/?p=37981
 date: 2012-08-09 17:00:42.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Programming
 - Java
 - puzzle
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following snippets:

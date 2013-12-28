@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: 5 Online Comic Websites
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 291
-wordpress_url: http://martin-thoma.com/?p=291
 date: 2011-09-21 19:53:03.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - Comic
 - Webcomic
-comments: []
 ---
 All of those Websites offer one small comic strip each day. Some of them are a bit geeky, so you might not understand them if you don't know anything about Linux / D&amp;D.
 <h2>xkcd</h2>

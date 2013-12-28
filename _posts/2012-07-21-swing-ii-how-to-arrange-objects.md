@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Swing II: How to arrange Objects'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 33411
-wordpress_url: http://martin-thoma.com/?p=33411
 date: 2012-07-21 17:00:44.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Programming
 - Java
 - Swing
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 <h2>Without GUI</h2>

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wie berechnet man die Jordan'sche Normalform?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 39841
-wordpress_url: http://martin-thoma.com/?p=39841
 date: 2012-08-17 12:59:27.000000000 +02:00
 categories:
 - German posts
@@ -17,59 +10,6 @@ tags:
 - mathematics
 - Linear algebra
 - normal form
-comments:
-- id: 220331
-  author: pi
-  author_email: anonymous@freenode.net
-  author_url: http://www.jugend-forscht.de
-  date: !binary |-
-    MjAxMi0wOS0xMiAxNzoxNjowOSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOS0xMiAxNToxNjowOSArMDIwMA==
-  content: ! "Sch&ouml;ne Erkl&auml;rung ;-)\r\n\r\nAllerdings schreibst du \"Die
-    restlichen i&minus;1 Vektoren f&uuml;r dieses K&auml;stchen erh&auml;lt man, indem
-    man die Abbildungsmatrix von &Omega;j, mit j=1,&hellip;,i&minus;1, mit vi multipliziert.\"\r\n[bei
-    http://martin-thoma.com/wie-berechnet-man-die-jordansche-normalform/#Zusammensetzen]\r\n\r\nDa
-    sollte man aber beachten, dass man nur linear unabh&auml;ngige dazu w&auml;hlt,
-    richtig?"
-- id: 220351
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wOS0xMiAxODowMjo1MiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOS0xMiAxNjowMjo1MiArMDIwMA==
-  content: ! "Nein, man w&auml;hlt f&uuml;r ein Jordank&auml;stchen nur einen Vektor.
-    Die anderen Vektoren, die man durch multiplikation mit der Matrix &Omega;^j erh&auml;lt,
-    sind automatisch linear unabh&auml;ngig.\r\n(Bei dem gew&auml;hlten Vektor muss
-    man nat&uuml;rlich aufpassen, dass der nicht linear abh&auml;ngig zu anderen Vektoren
-    ist.)"
-- id: 1132521
-  author: Anonym
-  author_email: anonym@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wMi0wNCAxNzoxNjoyOCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMi0wNCAxNjoxNjoyOCArMDEwMA==
-  content: ! "interessant w&auml;re eine erkl&auml;rung, wie man auf das minimalpolynom
-    kommt, um die gr&ouml;&szlig;e des gr&ouml;&szlig;ten jordan-k&auml;stchens zu
-    bestimmen.\r\n\r\nansonsten anschaulich erkl&auml;rt, danke"
-- id: 1132531
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wMi0wNCAxNzoyMjoxNiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMi0wNCAxNjoyMjoxNiArMDEwMA==
-  content: ! "Vielleicht hilft dir <a href=\"http://www.stud.uni-hannover.de/~fmodler/Das%20Minimalpolynom.pdf\"
-    rel=\"nofollow\">dieser Link</a> weiter. Grunds&auml;tzlich musst du aber
-    nicht explizit das Minimalpolynom finden, sondern kannst einfach das hier beschriebene
-    Verfahren nutzen. \r\n\r\nIch finde Beispiele immer sehr hilfreich. Schau dir
-    doch mal das <a href=\"http://martin-thoma.com/jordansche-normalform-4x4-matrizen/\"
-    rel=\"nofollow\">Beispiel mit den 4x4-Matrizen</a> an."
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
 Dieser Artikel beschreibt, wie die Jordansche Normalform einer Matrix sowie die dazugeh&ouml;rige Basiswechselmatrix gefunden werden kann. Dabei wird hier eine Jordansche Normalform erzeugt, bei der die 1er auf der oberen Nebendiagonale sind und die gr&ouml;&szlig;ten Jordank&auml;stchen zuerst kommen.

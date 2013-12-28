@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Configurig gEdit for developers
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 9551
-wordpress_url: http://martin-thoma.com/?p=9551
 date: 2011-12-08 23:10:19.000000000 +01:00
 categories:
 - Cyberculture
 tags:
 - Programming
-comments: []
 featured_image: 2011/12/gedit.png
 ---
 <a href="http://en.wikipedia.org/wiki/Gedit">gedit</a> is a very lightweight text editor. It supports syntax highlighting for every programming language I can think of and is highly customizable.

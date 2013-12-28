@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: 8 Animal Memes in Cyberculture
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 371
-wordpress_url: http://martin-thoma.com/?p=371
 date: 2011-09-21 21:43:12.000000000 +02:00
 categories:
 - Cyberculture
@@ -21,16 +14,6 @@ tags:
 - Paranoid Parrot
 - Socially Awkward Penguin
 - Bachelor Frog
-comments:
-- id: 67461
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wMy0wOSAyMjoyMzo1NiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMy0wOSAyMDoyMzo1NiArMDEwMA==
-  content: ! "I've just found another lolcat:\r\nhttp://k19.kn3.net/taringa/6/9/9/8/8/1/3/3dher/315.gif?6417"
 featured_image: 2011/09/Lame-pun-coon-300x298.jpg
 context: post
 ---

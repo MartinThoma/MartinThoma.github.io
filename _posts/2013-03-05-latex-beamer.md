@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: LaTeX Beamer
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 59321
-wordpress_url: http://martin-thoma.com/?p=59321
 date: 2013-03-05 11:25:20.000000000 +01:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - LaTeX
 - Beamer
 - Presentation
-comments: []
 featured_image: 2012/01/latex-logo.png
 ---
 I really enjoy creating presentations with LaTeX. The reasons are:

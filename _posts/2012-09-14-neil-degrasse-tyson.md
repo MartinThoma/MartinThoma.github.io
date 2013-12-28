@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Neil deGrasse Tyson
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 44841
-wordpress_url: http://martin-thoma.com/?p=44841
 date: 2012-09-14 18:26:00.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - funny
-comments: []
 featured_image: 2012/09/Neil_deGrasse_Tyson.jpg
 ---
 {% caption align="alignright" width="128" caption="Neil deGrasse Tyson" url="../images/2012/09/Neil_deGrasse_Tyson.jpg" alt="Neil deGrasse Tyson" title="Neil deGrasse Tyson" height="128" class="size-full wp-image-44861" %}

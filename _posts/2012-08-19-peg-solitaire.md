@@ -1,30 +1,11 @@
 ---
 layout: post
-status: publish
-published: true
 title: Peg Solitaire
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 41421
-wordpress_url: http://martin-thoma.com/?p=41421
 date: 2012-08-19 17:00:58.000000000 +02:00
 categories:
 - German posts
 tags: []
-comments:
-- id: 194301
-  author: Niklas B.
-  author_email: white57@gmx.net
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wOC0yMSAyMjoyMDoyMyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOC0yMSAyMDoyMDoyMyArMDIwMA==
-  content: ! 'Und wer''s ausprobieren will: http://www.freeware.de/download/solitaire3d_22105.html
-    :D Das ist wohl im Jahre 2004 entstanden unter Windows 95 mit der VB6(!) Runtime,
-    also keine Ahnung ob es unter heutigen Betriebssystemen noch l&auml;uft :P'
 featured_image: 2012/08/Peg-solitaire-board1.png
 ---
 Solit&auml;r (auch Solitaire, Steck- oder Solohalma, Springer, Jumper, Nonnenspiel, Einsiedlerspiel) ist ein Brettspiel f&uuml;r eine Person. Das weitest verbreitete Spielfeld ist kreuzf&ouml;rmig und wird mit 32 Steinen auf 33 Felder gestartet.

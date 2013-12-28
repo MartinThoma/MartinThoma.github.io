@@ -1,49 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Algorithmen-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 30811
-wordpress_url: http://martin-thoma.com/?p=30811
 date: 2012-07-16 09:00:25.000000000 +02:00
 categories:
 - German posts
 tags:
 - Klausur
-comments:
-- id: 184481
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNy0zMCAxMToxNToxNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0zMCAwOToxNToxNiArMDIwMA==
-  content: Fast 30 Stunden vor der Klausur gibts auch mal eine Sitzplatzverteilung.
-    Ich habe den Blogpost geupdated.
-- id: 185041
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNy0zMSAyMToxNjoyMCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0zMSAxOToxNjoyMCArMDIwMA==
-  content: ! 'Der Termin der Klausureinsicht ist nun bekannt: Der 23.08.2012 und 24.08.2012
-    (Donnerstag und Freitag).'
-- id: 189701
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wOC0xNCAxNjo1NjoxMCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOC0xNCAxNDo1NjoxMCArMDIwMA==
-  content: Die Klausurergebnisse h&auml;ngen im SCC, 3. OG, aus.
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:

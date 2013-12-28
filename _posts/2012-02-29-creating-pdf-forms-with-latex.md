@@ -1,83 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Creating pdf-forms with LaTeX
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 16071
-wordpress_url: http://martin-thoma.com/?p=16071
 date: 2012-02-29 15:11:07.000000000 +01:00
 categories:
 - My bits and bytes
 tags:
 - LaTeX
-comments:
-- id: 178391
-  author: Aravind
-  author_email: aravindmnps@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNy0xNSAwOTo1MzozNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0xNSAwNzo1MzozNiArMDIwMA==
-  content: ! "Hi\r\nThis is a brilliant way to create forms through Latex. Thanks
-    a ton for the code! But could you suggest a way to make it a save-able pdf?"
-- id: 178401
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNy0xNSAwOTo1NTo0NCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0xNSAwNzo1NTo0NCArMDIwMA==
-  content: ! "Does this help?\r\nhttp://tex.stackexchange.com/q/29842/5645"
-- id: 1154981
-  author: Alex
-  author_email: alexvergaragil@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wMy0xOSAxODoxODozMiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMy0xOSAxNzoxODozMiArMDEwMA==
-  content: ! 'I&acute;ve just saw this page and it is a very good example for creating
-    forms but I am lacking of a feature I need: I want a textfield to be disabled
-    until a determined checkbox is checked, and the other way if it is unckecked then
-    the textfield must be disabled. How do I do this? What would be the right place
-    to add the javascript code'
-- id: 1155041
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wMy0xOSAyMDoyNToxMSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMy0xOSAxOToyNToxMSArMDEwMA==
-  content: ! 'Dear Alex,
-
-
-    I don''t know how to do this. But I can recommend http://tex.stackexchange.com/
-    for such questions.
-
-    When you ask it there, please share a link to the question in the comments.
-
-
-    Best regards,
-
-    Martin'
-- id: 1223061
-  author: Cornie Malan
-  author_email: ctmalan@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNi0yMSAxNjoxNjoyNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0yMSAxNDoxNjoyNiArMDIwMA==
-  content: ! "The TextField [default = Default Entry] is very handy, but how do you
-    do something like a multiline default such as an address?\r\n\r\ndefault={Name\\newline\r\nLine1\\newline\r\nLine2\\newline\r\nPcode}
-    gives errors!\r\n\r\nSee http://tex.stackexchange.com/q/120250/27312\r\n\r\nC-:"
 ---
 I've just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the <a href='http://martin-thoma.com/wp-content/uploads/2012/02/pdf-form.pdf'>example PDF-file</a>.
 

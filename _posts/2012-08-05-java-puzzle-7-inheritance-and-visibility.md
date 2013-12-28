@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Java Puzzle #7: Inheritance and Visibility'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 37871
-wordpress_url: http://martin-thoma.com/?p=37871
 date: 2012-08-05 17:00:38.000000000 +02:00
 categories:
 - Code
@@ -16,21 +9,6 @@ tags:
 - Programming
 - Java
 - puzzle
-comments:
-- id: 329761
-  author: Tiny
-  author_email: nobody2012855@gmail.com
-  author_url: http://None
-  date: !binary |-
-    MjAxMi0xMC0yMiAyMTo1MDowNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0yMiAxOTo1MDowNiArMDIwMA==
-  content: It's interesting. It's because unlike methods (except private, static and
-    final), fields (members variables) in Java can not be implemented polymorphically.
-    They can not have polymorphic behaviour even though in the second case, a subclass
-    reference (Tiger) is assigned to Animal (superclass) and hence, t.height will
-    point to height in Aminal which it finds private and issues a compile-time error.
-    The rest of the cases are obvious.
 featured_image: 2012/07/java-thumb.png
 ---
 You are given the following two classes:

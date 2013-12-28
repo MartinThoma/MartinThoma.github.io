@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Graphic filters
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 72711
-wordpress_url: http://martin-thoma.com/?p=72711
 date: 2013-07-04 18:21:19.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - HTML5
 - JavaScript
 - canvas
-comments: []
 featured_image: 2013/07/laplace-filter-example-thumbnail.png
 ---
 I begin to fall in love with JavaScript and HTML5. You can access your Webcam with JS! As an example, I've implemented some graphic filters.

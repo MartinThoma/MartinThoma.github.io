@@ -1,29 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: C++ Operator overloading
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 29791
-wordpress_url: http://martin-thoma.com/?p=29791
 date: 2012-07-06 16:00:22.000000000 +02:00
 categories:
 - Code
 tags:
 - C
-comments:
-- id: 1188801
-  author: Gert
-  author_email: gert.kanter@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNS0wOSAxMTo0MzoyMSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNS0wOSAwOTo0MzoyMSArMDIwMA==
-  content: Good, clear and concise! Thanks!
 featured_image: 2012/05/CPP-thumb.png
 ---
 Operator overloading is heavily used in math. One of the most famous examples I know is "+". If you add two elements from $\mathbb{N}$ you will use the same character "+" as you use for adding two numbers from $\mathbb{R}$. You even use the plus-sign if you add matrices (which is obviously something different than adding single numbers).

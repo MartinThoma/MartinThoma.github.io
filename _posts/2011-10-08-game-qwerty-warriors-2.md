@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Game: QWERTY Warriors 2'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 4941
-wordpress_url: http://martin-thoma.com/?p=4941
 date: 2011-10-08 21:44:24.000000000 +02:00
 categories:
 - The Web
@@ -16,7 +9,6 @@ tags:
 - Flashgames
 - learning
 - ten finger type
-comments: []
 featured_image: 2011/10/QWERTY-Warriors-2-thumb.png
 ---
 {% caption align="aligncenter" width="549" caption="QWERTY Warriors 2" url="../images/2011/09/QWERTY-Warriors-2.png" alt="QWERTY Warriors 2" title="QWERTY Warriors 2" height="547" class="size-full wp-image-4971" %}

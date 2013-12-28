@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Google Code Jam 2012 - Qualification Round
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 22121
-wordpress_url: http://martin-thoma.com/?p=22121
 date: 2012-04-15 13:35:40.000000000 +02:00
 categories:
 - Code
@@ -18,49 +11,6 @@ tags:
 - Google
 - Google Code Jam
 - competition
-comments:
-- id: 112901
-  author: Niklas B.
-  author_email: white57@gmx.net
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNC0xOCAyMzozODozNSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0xOCAyMTozODozNSArMDIwMA==
-  content: ! "The first one's easy :)\r\n\r\n>>> key = \"ynficwlbkuomxsevzpdrjgthaq\"\r\n>>>
-    decode = lambda c: string.translate(c, string.maketrans(key, string.ascii_lowercase))"
-- id: 112931
-  author: Niklas B.
-  author_email: white57@gmx.net
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNC0xOSAwMzo0NTowNyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0xOSAwMTo0NTowNyArMDIwMA==
-  content: ! 'Man, I really like that stuff: https://gist.github.com/2417788
-    Can you make it even shorter? :) We should start an obfuscated Python contest!'
-- id: 113221
-  author: A
-  author_email: castellidicarte@gmail.com
-  author_url: http://codejamdaemon.blogspot.com/
-  date: !binary |-
-    MjAxMi0wNC0xOSAxMDo0ODoxMCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0xOSAwODo0ODoxMCArMDIwMA==
-  content: ! "Check out this solution for Hall of Mirrors Small input in 25 lines
-    of python:\r\n\r\nhttp://codejamdaemon.blogspot.com/2012/04/problem-d-hall-of-mirrors-google-code.html"
-- id: 113671
-  author: Niklas B.
-  author_email: white57@gmx.net
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNC0xOSAyMTozNjoxNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0xOSAxOTozNjoxNiArMDIwMA==
-  content: Nice one. I figured that this could be condensed a lot as well, seeing
-    how much code duplication there seems to be in the solution presented here. Good
-    work using numpy here and +1 for perfecting it even after the contest was over
-    :)
 featured_image: 2012/04/code-jam-logo.png
 ---
 I've passed the <a href="https://code.google.com/codejam/contest/1460488/dashboard">Qualification Round</a> of Google Code Jam 2012. I've learned, that I am not allowed to submit the large dataset after the first 8 minutes. 

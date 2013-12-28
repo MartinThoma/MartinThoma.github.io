@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: vrms - virtual Richard M. Stallman
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 10101
-wordpress_url: http://martin-thoma.com/?p=10101
 date: 2011-12-23 01:38:37.000000000 +01:00
 categories:
 - Code
@@ -16,16 +9,6 @@ categories:
 tags:
 - Linux
 - OpenSource
-comments:
-- id: 38921
-  author: Thiago
-  author_email: thiagofernandezpupo@yahoo.com.ar
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMi0wMyAxNToyNTowMSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0wMyAxMzoyNTowMSArMDEwMA==
-  content: jajaj, fantastic. Long live free as in freedom software!.
 featured_image: 2011/12/Richard-Stallman1.jpg
 ---
 [caption id="attachment_10141" align="alignright" width="200" caption="Richard Stallman"]<a title="Richard Stallman" href="http://martin-thoma.com/wp-content/uploads/2011/12/Richard-Stallman.jpg"><img class="size-medium wp-image-10141 " title="Richard Stallman" src="http://martin-thoma.com/wp-content/uploads/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" width="200" height="300" /></a>[/caption]

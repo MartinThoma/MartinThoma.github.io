@@ -1,31 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Mathematische Strukturen
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 70101
-wordpress_url: http://martin-thoma.com/?p=70101
 date: 2013-06-16 18:14:57.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - Algebra
-comments:
-- id: 1214541
-  author: zfc
-  author_email: hu32@gmx.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNi0xNyAyMzo0MDoxNSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0xNyAyMTo0MDoxNSArMDIwMA==
-  content: ! "Danke f&uuml;r die sch&ouml;ne Auflistung von Strukturen. Magma kannte
-    ich noch nicht.\r\n\r\nzfc"
 featured_image: 2012/01/vector-space.png
 ---
 Es gibt einen ganzen Haufen an mathematischen Strukturen. Dieser Artikel soll jeweils die Definition und bekannte Beispiele sammeln. Weitere Strukturen bzw. Beispiele k&ouml;nnen gerne in den Kommentaren genannt werden.

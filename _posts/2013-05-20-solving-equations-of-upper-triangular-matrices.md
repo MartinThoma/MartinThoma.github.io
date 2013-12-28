@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Solving equations of upper triangular matrices
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 67251
-wordpress_url: http://martin-thoma.com/?p=67251
 date: 2013-05-20 10:41:49.000000000 +02:00
 categories:
 - Code
@@ -18,7 +11,6 @@ tags:
 - Matrix
 - systems of equations
 - numerics
-comments: []
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
 Suppose you have an equation like $R \cdot x = b$ with $R \in \mathbb{R}^{n \times n}$ and $x,b \in \mathbb{R}^n$. $b$ and $R$ are given and you want to solve for $x$.

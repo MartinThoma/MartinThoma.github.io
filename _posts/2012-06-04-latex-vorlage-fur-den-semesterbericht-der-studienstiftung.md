@@ -1,57 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: LaTeX-Vorlage f&uuml;r den Semesterbericht der Studienstiftung
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 25531
-wordpress_url: http://martin-thoma.com/?p=25531
 date: 2012-06-04 07:31:36.000000000 +02:00
 categories:
 - German posts
 tags:
 - LaTeX
 - Studienstiftung
-comments:
-- id: 181921
-  author: Simon Niederl&auml;nder
-  author_email: simon.niederlaender@googlemail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNy0yNSAxMjo1MTo0NCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0yNSAxMDo1MTo0NCArMDIwMA==
-  content: ! "Hallo Martin,\r\nbesten Dank f&uuml;r Deine M&uuml;hen! Die Vorlage
-    erspart definitiv viel Aufwand!\r\nIch benutze anstatt Deiner anf&auml;nglichen
-    Tabelle\r\n[...]\r\n>\\section*{Semesterbericht &uuml;ber das \\Semester~\\Jahr}\r\n>\\begin{tabular}{l
-    l l l}\r\n>... &amp; ... &amp; ... &amp; ... \\\\\r\n>\\end{tabular}\r\n[...]\r\n\r\ndas
-    Packet/den Befehl\r\n\r\n[...]\r\n\\usepackage{tabularx}\r\n>\\begin{tabularx}{@{}llllX}\r\n>...
-    &amp; ... &amp; ... &amp; ... \\\\\r\n>\\end{tabularx}\r\n[...],\r\ndamit wird
-    das Einr&uuml;cken der Tabelle unterbunden. Evtl. ist es aber so von Dir gewollt!?\r\n\r\nBeste
-    Gr&uuml;&szlig;e,\r\nSimon"
-- id: 181931
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNy0yNSAxMzowNjowNyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0yNSAxMTowNjowNyArMDIwMA==
-  content: ! "Hallo Simon,\r\n\r\ndanke f&uuml;r den Hinweis! Nein, dass die Tabelle
-    einger&uuml;ckt ist, ist mir schlicht nicht aufgefallen. Ich habe deinen &Auml;nderungsvorschlag
-    &uuml;bernommen.\r\n\r\nViele Gr&uuml;&szlig;e,\r\nMartin"
-- id: 1236041
-  author: Ludger
-  author_email: ludger.sandig@gmx.de
-  author_url: http://www-public.rz.uni-duesseldorf.de/~lusan100/
-  date: !binary |-
-    MjAxMy0wNy0zMCAxNDo0NTozMSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNy0zMCAxMjo0NTozMSArMDIwMA==
-  content: ! "Hallo Martin!\r\n\r\nBesten Dank f&uuml;r die Vorlage!\r\n\r\nLudger"
 featured_image: 2012/06/Studienstiftung-Logo.png
 ---
 Stipendiaten der Studienstiftung des deutschen Volkes m&uuml;ssen jedes Semester einen Studienbericht schreiben. 

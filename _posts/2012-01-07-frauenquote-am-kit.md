@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Frauenquote am KIT
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 12061
-wordpress_url: http://martin-thoma.com/?p=12061
 date: 2012-01-07 23:57:47.000000000 +01:00
 categories:
 - German posts
 tags:
 - KIT
-comments: []
 featured_image: 2011/10/KIT-Logo.png
 ---
 Die Frauenquote am KIT wird oft genannt, allerdings hatte ich bisher nur grobe Zahlen. Nun habe ich eine <a href="http://www.kit.edu/downloads/Statistik_WS11.pdf">zuverl&auml;ssige Quelle</a> mit Zahlen zum WS 2011/2012. Das ist die Frauenquote:

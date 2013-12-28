@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Improve German Public Transportation
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 72951
-wordpress_url: http://martin-thoma.com/?p=72951
 date: 2013-07-06 20:45:32.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,20 +9,6 @@ tags:
 - Google
 - Public Transportation
 - Google Maps
-comments:
-- id: 1231571
-  author: Andreas Hahn
-  author_email: webmaster@goblor.de
-  author_url: http://goblor.de/
-  date: !binary |-
-    MjAxMy0wNy0xNCAxODoyNjozMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNy0xNCAxNjoyNjozMiArMDIwMA==
-  content: ! "I contacted KVV and Naldo in October 2012 already.\r\nNaldos reaction
-    at the phone was \"the data is already in machine-readable form\".\r\nKVV said,
-    that AVG is in contact with Google for data of their trains, but not the local
-    traffic system and referred to NVBW (Nahverkehr Baden-W&uuml;rttemberg).\r\n\r\nI
-    think there is few sensibility for the problems of passengers at the system owners."
 featured_image: 2013/07/bus.png
 ---
 Public transportation in Germany is much worse than it could be. I've got quite angry today because of that and thought about ways to improve the situation.

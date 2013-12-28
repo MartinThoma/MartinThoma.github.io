@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wie wende ich die Shannon-Zerlegung an?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 54311
-wordpress_url: http://martin-thoma.com/?p=54311
 date: 2013-01-17 17:46:27.000000000 +01:00
 categories:
 - German posts
@@ -16,7 +9,6 @@ tags:
 - boolean expression
 - Digitaltechnik
 - Boolean algebra
-comments: []
 featured_image: 2013/01/george-boole-thumbnail.jpg
 ---
 Die Shannon-Zerlegung ist hilfreich, um die disjunktive bzw. konjunktive Form einer Funktion zu erhalten. Im Folgenden gibt es ein paar Beispiele, wie man das macht:

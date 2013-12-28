@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: KV-Diagramme
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 62811
-wordpress_url: http://martin-thoma.com/?p=62811
 date: 2013-03-25 23:37:00.000000000 +01:00
 categories:
 - German posts
 tags:
 - Digitaltechnik
-comments: []
 featured_image: 2013/03/karnaugh-map-300x300.png
 ---
 <div class="info">Ich setze im Folgenden vorraus, dass man schon mal was von KV-Diagrammen geh&ouml;rt hat und vielleicht schon ein paar gezeichnet hat. Insbesondere erkl&auml;re ich nicht wie man aus dem KV-Diagramm der Gr&ouml;&szlig;e 16 eines der Gr&ouml;&szlig;e 32 bekomt und was die Beschriftung bedeutet.</div>

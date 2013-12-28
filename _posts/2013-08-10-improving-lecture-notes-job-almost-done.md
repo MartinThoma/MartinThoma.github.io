@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Improving lecture notes: Job (almost) done!'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 75861
-wordpress_url: http://martin-thoma.com/?p=75861
 date: 2013-08-10 15:50:09.000000000 +02:00
 categories:
 - My bits and bytes
 tags:
 - LaTeX
-comments: []
 featured_image: 2013/08/latex1.png
 ---
 Some of you might know that I've bin improving the lecture notes for the computer engineering lecture (digital electronics) since April 2013.

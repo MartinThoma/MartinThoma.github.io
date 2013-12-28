@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: SQL Injections
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 73901
-wordpress_url: http://martin-thoma.com/?p=73901
 date: 2013-07-11 19:25:03.000000000 +02:00
 categories:
 - Code
@@ -18,7 +11,6 @@ tags:
 - IT-Security
 - MySQL
 - SQL
-comments: []
 featured_image: 2013/07/blackhat.png
 ---
 <abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. 

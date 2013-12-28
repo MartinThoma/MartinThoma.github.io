@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Integration durch Substitution
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 45101
-wordpress_url: http://martin-thoma.com/?p=45101
 date: 2012-09-16 11:32:43.000000000 +02:00
 categories:
 - German posts
@@ -16,7 +9,6 @@ tags:
 - mathematics
 - analysis
 - Integral calculus
-comments: []
 ---
 Integration durch Substitution ist eine elementare Methode zum finden von Stammfunktionen von Integralen bzw. zum berechnen von Integralen.
 

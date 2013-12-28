@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Übersicht über Datenstrukturen
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 33781
-wordpress_url: http://martin-thoma.com/?p=33781
 date: 2012-07-22 17:38:04.000000000 +02:00
 categories:
 - German posts

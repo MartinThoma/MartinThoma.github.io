@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to calculate the Legendre symbol
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76378
-wordpress_url: http://martin-thoma.com/?p=76378
 date: 2013-09-01 13:05:46.000000000 +02:00
 categories:
 - Mathematics
 tags:
 - Python
 - Algebra
-comments: []
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 <h2>Pseudocode</h2>

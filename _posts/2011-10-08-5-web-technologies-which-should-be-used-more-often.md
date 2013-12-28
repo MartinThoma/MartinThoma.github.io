@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: 5 Web Technologies which should be used more often
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 4401
-wordpress_url: http://martin-thoma.com/?p=4401
 date: 2011-10-08 06:21:25.000000000 +02:00
 categories:
 - The Web
@@ -20,7 +13,6 @@ tags:
 - Ajax
 - Labels
 - Tags
-comments: []
 featured_image: 2011/10/OpenID.png
 ---
 {% caption align="alignright" width="100" caption="RSS-Feeds" url="../images/2011/10/RSS-Feeds.png" alt="RSS-Feeds" title="RSS-Feeds" height="100" class="size-full wp-image-4411" %}

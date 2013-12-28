@@ -1,38 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Klausur Analysis I und II
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 40151
-wordpress_url: http://martin-thoma.com/?p=40151
 date: 2012-08-14 17:13:24.000000000 +02:00
 categories:
 - German posts
 tags:
 - Klausur
-comments:
-- id: 242881
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wOS0yMyAyMTo0NzowNyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOS0yMyAxOTo0NzowNyArMDIwMA==
-  content: Die H&ouml;rsaaleinteilung ist nun online.
-- id: 250271
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wOS0yNiAxNzoxNDo0MSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOS0yNiAxNToxNDo0MSArMDIwMA==
-  content: Der Termin der Klausureinsicht steht nun fest.
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Schmoeger am KIT die Klausur &uuml;ber Analysis schreiben werden.</div>

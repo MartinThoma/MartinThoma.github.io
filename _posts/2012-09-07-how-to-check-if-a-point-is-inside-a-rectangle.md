@@ -1,46 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to check if a point is inside a rectangle
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 43601
-wordpress_url: http://martin-thoma.com/?p=43601
 date: 2012-09-07 21:28:38.000000000 +02:00
 categories:
 - Code
 tags:
 - Python
 - Geometry
-comments:
-- id: 1237291
-  author: Jan
-  author_email: jan9000@trashmail.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOC0xMSAxNDowOTowOSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOC0xMSAxMjowOTowOSArMDIwMA==
-  content: ! "Thanks for sharing your code, but I think it does not work. Examples:\r\n\r\n>>>
-    isPinRectangle([[0,0], [10,0], [10,10], [0,10]], [5,5])\r\nFalse\r\n>>> isPinRectangle([[0,0],
-    [10,0], [10,10], [0,10]], [11, 11])\r\nFalse\r\n\r\nIt cannot work since you do
-    not consider the point P in your area calculation of the triangles. Here is a
-    working implementation of the link you have posted:\r\n\r\nimport numpy as np\r\n\r\ndef
-    areaTri(A, B, C):\r\n    #Heron's formula\r\n    a = np.linalg.norm((B-C))\r\n
-    \   b = np.linalg.norm((C-A))\r\n    c = np.linalg.norm((A-B))\r\n    s = (a +
-    b + c) / 2.0\r\n    return np.sqrt(s * (s-a) * (s-b) * (s-c))\r\n\r\n\r\ndef
-    isPinRect(D, w, h, P):\r\n    #D is a list containing the x,y coordinate of the
-    lower left corner of the rectangle\r\n    #w, h are the width and height of the
-    rectangle\r\n    #P is a list containing the x,y coordinate of the point\r\n    A
-    = np.array([D[0], D[1] + h])\r\n    B = np.array([D[0] + w, D[1] + h])\r\n    C
-    = np.array([D[0] + w, D[1]])\r\n    D = np.array(D)\r\n    P = np.array(P)\r\n
-    \   \r\n    areaRectangle = np.linalg.norm((A-B)) * np.linalg.norm((A-D))\r\n
-    \   areaTriangles = areaTri(A, P, D) + areaTri(D, P, C) + areaTri(C, P, B) + areaTri(P,
-    B, A)\r\n    \r\n    return (np.abs(areaRectangle - areaTriangles) >> isPinRect([0,0],
-    10, 10, [5, 5])\r\nTrue\r\n>>> isPinRect([0,0], 10, 10, [11, 11])\r\nFalse\r\n\r\n\r\ncheers,\r\njan"
 featured_image: 2012/09/rectangle-thumb.png
 ---
 [caption id="attachment_43611" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle.png"><img class="size-full wp-image-43611 " title="A rectangle" src="http://martin-thoma.com/wp-content/uploads/2012/09/rectangle.png" alt="A rectangle" width="512" height="409" /></a> A rectangle[/caption]

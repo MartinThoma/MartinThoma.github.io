@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Signs that it is too hot outside
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 74771
-wordpress_url: http://martin-thoma.com/?p=74771
 date: 2013-07-22 22:59:13.000000000 +02:00
 categories:
 - My bits and bytes
@@ -16,7 +9,6 @@ tags:
 - funny
 - weather
 - hot
-comments: []
 featured_image: 2013/07/wetter1.png
 ---
 [gallery ids="74781,75651"]

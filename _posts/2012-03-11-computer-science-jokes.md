@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Computer Science Jokes
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 18061
-wordpress_url: http://martin-thoma.com/?p=18061
 date: 2012-03-11 00:04:54.000000000 +01:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - funny
 - Joke
 - Computer science
-comments: []
 featured_image: 2012/03/face-grin-fun-joke-thumb.png
 ---
 <div class="info">You have to read <a href="http://stackoverflow.com/q/234075/562769">What is your best programmer joke?</a>, <a href="http://stackoverflow.com/q/218123/562769">What was the strangest coding standard rule that you were forced to follow?</a> and <a href="http://stackoverflow.com/q/184618/562769">What is the best comment in source code you have ever encountered?</a></div>

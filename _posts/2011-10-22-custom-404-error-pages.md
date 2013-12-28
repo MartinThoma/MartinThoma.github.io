@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Custom 404 error pages
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 7051
-wordpress_url: http://martin-thoma.com/?p=7051
 date: 2011-10-22 20:50:47.000000000 +02:00
 categories:
 - Code
 - The Web
 tags:
 - Web Development
-comments: []
 featured_image: 2011/10/404-Not-Found.png
 ---
 <a href="http://martin-thoma.com/wp-content/uploads/2011/10/404-Not-Found.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/404-Not-Found.png" alt="" title="404 Not Found" width="128" height="128" class="alignleft size-full wp-image-7061" /></a> A 404 http status code means that no document could be found at the given URL. The reason could be a misspelled URL or moved content. 

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Aufgaben zur Integralrechnung
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 45371
-wordpress_url: http://martin-thoma.com/?p=45371
 date: 2012-09-20 08:56:07.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - Integral calculus
-comments: []
 featured_image: 2012/09/partielle-integration.png
 ---
 Hier sind ein paar sch&ouml;ne Aufgaben und ausf&uuml;hrliche L&ouml;sungsfindungsbeschreibungen zur Integralrechnung.

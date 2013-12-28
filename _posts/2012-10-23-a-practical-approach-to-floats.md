@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: A practical approach to floats
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 47351
-wordpress_url: http://martin-thoma.com/?p=47351
 date: 2012-10-23 12:40:45.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - C
 - Coding
 - float
-comments: []
 featured_image: 2012/10/float-scheme1.png
 ---
 If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below:

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Einf&uuml;hrung in die abz&auml;hlende Kombinatorik
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 7361
-wordpress_url: http://martin-thoma.com/?p=7361
 date: 2011-10-24 20:53:41.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - lecture-notes
-comments: []
 featured_image: 2011/10/eulers-formula.png
 ---
 Die abz&auml;hlende Kombinatorik besch&auml;ftigt sich mit der Bestimmung der Anzahl m&ouml;glicher Anordnungen oder Auswahlen.

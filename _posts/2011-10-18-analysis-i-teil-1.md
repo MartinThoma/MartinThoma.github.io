@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Analysis I - Teil 1
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 6111
-wordpress_url: http://martin-thoma.com/?p=6111
 date: 2011-10-18 17:50:21.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - lecture-notes
-comments: []
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <h2>Begriffe und Bezeichnungen</h2>

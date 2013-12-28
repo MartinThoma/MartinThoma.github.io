@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Linux access rights and attributes
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 59161
-wordpress_url: http://martin-thoma.com/?p=59161
 date: 2013-03-04 22:29:42.000000000 +01:00
 categories:
 - Cyberculture
@@ -17,7 +10,6 @@ tags:
 - IT-Security
 - gedit
 - Bug
-comments: []
 ---
 <h2>RWX</h2>
 <h3>Files</h3>

@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Endliche Gruppen
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 39011
-wordpress_url: http://martin-thoma.com/?p=39011
 date: 2012-08-08 12:03:42.000000000 +02:00
 categories:
 - German posts
 tags:
 - Linear algebra
-comments: []
 featured_image: 2012/08/endliche-gruppe-thumb.png
 ---
 Endliche Gruppen haben ein paar interessante Eigenschaften. Unter anderem gibt es nur zwei Gruppen mit vier Elementen. alle anderen Gruppen sind isomorph zu diesen Gruppen. Das zeige ich im folgendem.

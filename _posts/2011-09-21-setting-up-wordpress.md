@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Setting up WordPress
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 171
-wordpress_url: http://martin-thoma.com/?p=171
 date: 2011-09-21 19:36:18.000000000 +02:00
 categories:
 - The Web
 tags:
 - WordPress
-comments: []
 featured_image: 2011/09/WordPress-Logo.png
 ---
 This article is about creating a new WordPress blog. This includes installing and basic custominzation. 

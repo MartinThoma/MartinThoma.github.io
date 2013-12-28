@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to analyze Mailman archives
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76293
-wordpress_url: http://martin-thoma.com/?p=76293
 date: 2013-08-18 21:23:49.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - Bash
 - Mailman
 - discussion
-comments: []
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 All mailing lists I use are <a href="http://en.wikipedia.org/wiki/GNU_Mailman">GNU Mailman</a> lists. This software provides archives of all Emails that were send over the list. 

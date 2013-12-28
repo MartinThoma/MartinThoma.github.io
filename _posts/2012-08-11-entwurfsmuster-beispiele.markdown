@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Entwurfsmuster-Beispiele
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 37691
-wordpress_url: http://martin-thoma.com/?p=37691
 date: 2012-08-11 17:00:03.000000000 +02:00
 categories:
 - German posts

@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Gau&szlig;'sche Zahlen und verwandte Ringe
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76396
-wordpress_url: http://martin-thoma.com/?p=76396
 date: 2013-09-04 09:16:41.000000000 +02:00
 categories:
 - Mathematics
 tags:
 - Algebra
-comments: []
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enth&auml;lt.

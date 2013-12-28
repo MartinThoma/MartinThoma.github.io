@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Der Kaiser von China und der Reis
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 40031
-wordpress_url: http://martin-thoma.com/?p=40031
 date: 2012-08-15 17:00:54.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - chess
-comments: []
 featured_image: 2012/08/chess-thumbnail.png
 ---
 <a href="http://martin-thoma.com/wp-content/uploads/2012/08/chessboard-rice.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/chessboard-rice.png" alt="" title="Schachbrett mit Reis" width="191" height="128" class="alignright size-full wp-image-46151" /></a>

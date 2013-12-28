@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Make your Bash more useful
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 49561
-wordpress_url: http://martin-thoma.com/?p=49561
 date: 2012-11-29 11:15:56.000000000 +01:00
 categories:
 - Code
 tags:
 - Linux
 - Bash
-comments: []
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 I just had the problem, that the bash prompt of my universities computer I've connected to via SSH looked like this:

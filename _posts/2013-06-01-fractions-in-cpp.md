@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Fractions in C++
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 68831
-wordpress_url: http://martin-thoma.com/?p=68831
 date: 2013-06-01 12:00:34.000000000 +02:00
 categories:
 - Code
 tags:
 - CPP
-comments: []
 featured_image: 2012/05/CPP-thumb.png
 ---
 Today, I thought I should try to implement a class in C++ that deals with fractions. This is actually quite easy as I'll show you.

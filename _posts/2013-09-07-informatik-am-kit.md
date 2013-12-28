@@ -1,44 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Informatik am KIT
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76445
-wordpress_url: http://martin-thoma.com/?p=76445
 date: 2013-09-07 11:41:05.000000000 +02:00
 categories:
 - German posts
 tags:
 - KIT
-comments:
-- id: 1237790
-  author: daniel
-  author_email: danielhandloser@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0xMSAxMjowNDo1OSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0xMSAxMDowNDo1OSArMDIwMA==
-  content: sehr schoener ueberblick fuer erstsemester. hat mich ein bisschen weniger
-    unsicher gemacht:D
-- id: 1237906
-  author: addy
-  author_email: tru5@hotmail.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0xMC0wNiAxMjowMDo1NyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0wNiAxMDowMDo1NyArMDIwMA==
-  content: ! "\"Auch &uuml;ber Karlsruhe kann ich nicht so viel erz&auml;hlen, wie
-    man sich vielleicht denkt. Ich bin meistens am studieren. Daher habe ich von Karlsruhe
-    au&szlig;erhalb der Innenstadt bisher wenig gesehen.\"\r\n\r\nBis auf Durlach
-    ist der Rest auch nicht sonderlich interessant. Vllt noch der Rheinhafen und die
-    G&uuml;nther-Klotz-Anlage. Gute Naherholung bieten der Lauf der Alb, der Tierpark
-    sowie der Hardtwald."
 featured_image: 2011/10/KIT-Logo.png
 ---
 Ich werde immer wieder gefragt, wie Informatik am KIT ist. Was kann ich &uuml;ber Karlsruhe erz&auml;hlen? Wieviel Praxis bekommt man in einem Informatik-Studium am KIT?

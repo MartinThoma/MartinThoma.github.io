@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Create LaTeX timetable
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 6051
-wordpress_url: http://martin-thoma.com/?p=6051
 date: 2011-10-18 16:10:55.000000000 +02:00
 categories:
 - Code
 tags:
 - LaTeX
-comments: []
 featured_image: 2012/01/latex-logo.png
 ---
 LaTeX is a quite cool document markup language and document preparation system. You can easily create mathematical formulas.

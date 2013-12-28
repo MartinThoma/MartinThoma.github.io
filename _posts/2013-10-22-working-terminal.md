@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Working with Terminal
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76643
-wordpress_url: http://martin-thoma.com/?p=76643
 date: 2013-10-22 10:40:46.000000000 +02:00
 categories:
 - Code

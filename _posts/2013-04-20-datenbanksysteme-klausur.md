@@ -1,48 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Datenbanksysteme-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 63871
-wordpress_url: http://martin-thoma.com/?p=63871
 date: 2013-04-20 13:35:01.000000000 +02:00
 categories:
 - German posts
 tags:
 - Klausur
-comments:
-- id: 1223071
-  author: Jaime
-  author_email: everjunchen@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNi0yMSAxNzo1MjowNCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0yMSAxNTo1MjowNCArMDIwMA==
-  content: Your Anki Deck for Datenbanksysteme is so great,awesome!Are you going to
-    update it?
-- id: 1223271
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wNi0yMiAxMzo0MjoyOCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0yMiAxMTo0MjoyOCArMDIwMA==
-  content: I'm not sure if I will have enough time to update it.
-- id: 1225131
-  author: Jaime
-  author_email: everjunchen@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNi0yNCAxMzo1ODowMyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0yNCAxMTo1ODowMyArMDIwMA==
-  content: Anyway,thanks for sharing your notes,they are great!
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Datenbanksysteme&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://dbis.ipd.uni-karlsruhe.de/336.php">Herrn Prof. Dr. B&ouml;hm</a> im Sommersemester 2013 geh&ouml;rt.</div>

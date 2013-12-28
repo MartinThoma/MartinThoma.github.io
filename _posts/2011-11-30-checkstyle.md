@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Checkstyle
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 9301
-wordpress_url: http://martin-thoma.com/?p=9301
 date: 2011-11-30 21:59:40.000000000 +01:00
 categories:
 - Code
 tags:
 - KIT
 - Java
-comments: []
 featured_image: 2011/11/java-programming.png
 ---
 	<li></li>

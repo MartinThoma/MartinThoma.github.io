@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Music videos
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 59111
-wordpress_url: http://martin-thoma.com/?p=59111
 date: 2013-06-30 21:21:51.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - Video
 - YouTube
 - Chatroulette
-comments: []
 featured_image: 2013/06/paint-thumb.png
 ---
 <h2>Paint: Lord of the Rings</h2>

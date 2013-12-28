@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Linux Scheduler
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 49141
-wordpress_url: http://martin-thoma.com/?p=49141
 date: 2012-11-26 23:25:15.000000000 +01:00
 categories:
 - German posts
@@ -17,29 +10,6 @@ tags:
 - OS
 - Operating Systems
 - Scheduler
-comments:
-- id: 465961
-  author: Moritz Klammler
-  author_email: moritz@klammler.eu
-  author_url: http://klammler.eu
-  date: !binary |-
-    MjAxMi0xMS0yOCAwMjoyMjo0OSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0yOCAwMDoyMjo0OSArMDEwMA==
-  content: ! "Danke f&uuml;r den Beitrag, Martin.  Hat mich dazu motiviert, selbst
-    auch ein Video mit verschiedenen Hardware Konfigurationen und Scheduler Einstellungen
-    zu machen.\r\n\r\nhttp://klammler.eu/data/computer-science/kit/os/blink_in_action.ogv\r\n\r\nHappy
-    Hacking!"
-- id: 469221
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0xMS0yOCAwOTo1ODo0NSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0yOCAwNzo1ODo0NSArMDEwMA==
-  content: Wow, vielen Dank daf&uuml;r! Mit Kommentaren und Vergleichen ist das noch
-    interessanter.
 featured_image: 2012/11/scheduler.png
 ---
 <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung ge&auml;ndert.</div>

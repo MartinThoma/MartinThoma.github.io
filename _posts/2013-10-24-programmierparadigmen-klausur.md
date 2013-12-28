@@ -1,11 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Programmierparadigmen Klausur
 author: Martin Thoma
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
 date: 2013-10-24 12:46:16.000000000 +02:00
 categories:
 - German posts

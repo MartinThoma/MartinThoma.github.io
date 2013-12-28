@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to create a digital signature
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 57231
-wordpress_url: http://martin-thoma.com/?p=57231
 date: 2013-02-16 11:34:54.000000000 +01:00
 categories:
 - Cyberculture
@@ -18,7 +11,6 @@ tags:
 - GIMP
 - signature
 - SVG
-comments: []
 featured_image: 2013/02/inkscape-remove-nodes-thumb.png
 ---
 At first, you have to write your signature on a white sheet of paper. You might have to make several tries:

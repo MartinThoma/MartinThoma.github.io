@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Google Code Jam 2012 &ndash; Round 1B 2012
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 23971
-wordpress_url: http://martin-thoma.com/?p=23971
 date: 2012-05-05 21:20:45.000000000 +02:00
 categories:
 - Code
@@ -19,7 +12,6 @@ tags:
 - C
 - Google Code Jam
 - competition
-comments: []
 featured_image: 2012/04/code-jam-logo.png
 ---
 5614 tried the first problem, but only 3281 people are listed in the scoreboard. So quite a lot tried to solve a problem, but couldn't even solve one. I think these problems were much harder than the ones from <a href="http://martin-thoma.com/google-code-jam-2012-round-1a-2012/" title="Google Code Jam 2012 &ndash; Round 1A 2012">Round 1A 2012</a>.

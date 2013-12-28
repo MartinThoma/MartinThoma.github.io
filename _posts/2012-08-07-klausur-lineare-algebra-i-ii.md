@@ -1,38 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Klausur Lineare Algebra I + II
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 38121
-wordpress_url: http://martin-thoma.com/?p=38121
 date: 2012-08-07 09:35:33.000000000 +02:00
 categories:
 - German posts
 tags:
 - Klausur
-comments:
-- id: 216721
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wOS0xMSAxMzo0MToyNSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOS0xMSAxMTo0MToyNSArMDIwMA==
-  content: Die H&ouml;rsaaleinteilung ist nun online.
-- id: 269761
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0xMC0wMyAxMToxNjoyNCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0wMyAwOToxNjoyNCArMDIwMA==
-  content: Es wurde nun bekannt gegeben, wann man seine Note erfahren kann.
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Dieser Artikel richtet sich vor allem an Studenten, die im Sommersemester 2012 bei Herrn Prof. Dr. Leuzinger am KIT die Klausur &uuml;ber Lineare Algebra und analytische Geometrie schreiben werden.

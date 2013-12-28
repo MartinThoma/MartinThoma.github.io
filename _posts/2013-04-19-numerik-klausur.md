@@ -1,60 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Numerik-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 63731
-wordpress_url: http://martin-thoma.com/?p=63731
 date: 2013-04-19 20:05:19.000000000 +02:00
 categories:
 - German posts
 tags:
 - Klausur
-comments:
-- id: 1237828
-  author: Peter
-  author_email: Bla@bla.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0yMSAxNzozNzoyMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0yMSAxNTozNzoyMiArMDIwMA==
-  content: ! "Hi Martin,\r\n\r\nK&ouml;nntest du das Ankideck updaten falls du es
-    schon vollbracht hast?! W&auml;re super :)\r\n\r\nAuf den bisherigen 12 Karten
-    hast du Simsonregel geschrieben. Da fehlt das P. Nur damit man nicht durcheinander!\r\n\r\nLG\r\nPeter"
-- id: 1237889
-  author: Martin
-  author_email: dertesttester69@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0zMCAxOTozMDozOCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0zMCAxNzozMDozOCArMDIwMA==
-  content: ! "Kann jemand die Ergbenisse abfotografieren und hochladen?\r\n\r\nThx"
-- id: 1237892
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0xMC0wMSAxODo1MjoxNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0wMSAxNjo1MjoxNiArMDIwMA==
-  content: Siehe https://www.facebook.com/media/set/?set=pcb.732886870070613&type=1
-- id: 1237893
-  author: Felix
-  author_email: uychn@student.kit.edu
-  author_url: ''
-  date: !binary |-
-    MjAxMy0xMC0wMSAyMDozMDo0NiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0wMSAxODozMDo0NiArMDIwMA==
-  content: ! "Hallo Martin,\r\n\r\nich bin Maschinenbauer und hab keinen Zutritt zu
-    der Facebook Seite, k&ouml;nntest du mir die Fotos zuschicken? \r\n\r\nDanke und
-    viele Gr&uuml;&szlig;e"
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Numerische Mathematik f&uuml;r die Fachrichtungen Informatik und Ingenieurwesen&ldquo; des Moduls &bdquo;Praktische Mathematik&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Wei&szlig; im Sommersemester 2013 geh&ouml;rt.</div>

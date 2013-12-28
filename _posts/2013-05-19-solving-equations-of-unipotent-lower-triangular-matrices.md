@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Solving equations of lower unitriangular matrices
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 66841
-wordpress_url: http://martin-thoma.com/?p=66841
 date: 2013-05-19 22:15:59.000000000 +02:00
 categories:
 - Code
@@ -18,7 +11,6 @@ tags:
 - Matrix
 - systems of equations
 - numerics
-comments: []
 featured_image: 2013/05/unipotent-lower-triangular-matrix.png
 ---
 Suppose you have an equation like $L \cdot x = b$ with $L \in \mathbb{R}^{n \times n}$ and $x,b \in \mathbb{R}^n$. $b$ and $L$ are given and you want to solve for $x$.

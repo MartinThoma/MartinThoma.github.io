@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Learning Java
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 36481
-wordpress_url: http://martin-thoma.com/?p=36481
 date: 2012-10-15 17:00:04.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Programming
 - learning
 - Java
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 I've just found some YouTube clips by <a href="http://www.youtube.com/user/thenewboston">thenewboston</a> in which he explains how to program in Java. I didn't watch them, but I took a look at some of them. Seems to be very easy to understand.

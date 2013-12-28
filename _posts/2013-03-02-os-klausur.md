@@ -1,29 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Betriebssysteme Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 17391
-wordpress_url: http://martin-thoma.com/?p=17391
 date: 2013-03-02 19:06:15.000000000 +01:00
 categories:
 - German posts
 tags:
 - Klausur
-comments:
-- id: 1170091
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wNC0wOCAxNTo0NDo1MiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNC0wOCAxMzo0NDo1MiArMDIwMA==
-  content: Die Ergebnisse sind nun online. Ein Link ist oben zu finden.
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Belosa und sp&auml;ter bei Prof. Dr. Beigl geh&ouml;rt.</div>

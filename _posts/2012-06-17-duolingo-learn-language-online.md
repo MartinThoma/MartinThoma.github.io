@@ -1,42 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Duolingo - Learn a Language Online
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 27051
-wordpress_url: http://martin-thoma.com/?p=27051
 date: 2012-06-17 12:02:19.000000000 +02:00
 categories:
 - The Web
 tags:
 - learning
-comments:
-- id: 164671
-  author: Stefan Koch
-  author_email: blog@stefan-koch.name
-  author_url: http://stefan-koch.name
-  date: !binary |-
-    MjAxMi0wNi0xNyAxMjo0MjowOCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0xNyAxMDo0MjowOCArMDIwMA==
-  content: ! "They do support Portuguese, Italian and Chinese? I can only choose between
-    German, Spanish, French or English for Spanish natives.\r\n\r\nBut I guess I would
-    not rather learn any of the other three :/ Wondering which language they should
-    support to make me happy."
-- id: 164681
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNi0xNyAxMjo0NDoyMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0xNyAxMDo0NDoyMiArMDIwMA==
-  content: If you log out, you can see that these languages are marked with "coming
-    later".
 ---
 <a href="http://duolingo.com/">Duolingo</a> is a great online protal for learning new languages online. They currently support German, Spanish, French, Portuguese, Italian and Chinese.
 

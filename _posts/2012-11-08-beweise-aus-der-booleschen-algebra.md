@@ -1,58 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Beweise aus der booleschen Algebra
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 48441
-wordpress_url: http://martin-thoma.com/?p=48441
 date: 2012-11-08 13:18:09.000000000 +01:00
 categories:
 - German posts
 tags:
 - mathematics
 - Boolean algebra
-comments:
-- id: 365671
-  author: Keba
-  author_email: why@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMS0wOCAxNDo1OToxMyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0wOCAxMjo1OToxMyArMDEwMA==
-  content: ! "Ich hab keine Ahnung von boolescher Algebra, aber ich hab Lineare Algebra
-    geh&ouml;rt, und \r\nzu den Extremalgesetzen kann ich vielleicht was sagen, die
-    haben wir in LinA so &auml;hnlich gemacht: (wie tech ich denn hier, ich schreib
-    mal u und n statt der korrekten Symbole):\r\n\r\n1 u a = (1 n 1) u a = (1 u a)
-    n (1 u a). Da x = (x n x) nur f&uuml;r x = 0 wahr, folgt Beh.\r\n \r\n0 n a =
-    (0 u 0) n a = (0 n a) u (0 n a). Da x = (x u x) nur f&uuml;r x = 1 wahr, folgt
-    Beh.\r\n\r\nGr&uuml;&szlig;e, Keba."
-- id: 365931
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0xMS0wOCAxNzo0OTozMSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0wOCAxNTo0OTozMSArMDEwMA==
-  content: ! "Hi Keba,\r\n\r\nwarum soll \"x = (x n x) nur f&uuml;r x = 0 wahr\" sein?\r\nIm
-    Gegenteil, das nennt sich \"Idempotenzgesetz\" und gilt in booleschen Algebren
-    sogar f&uuml;r alle x in B!\r\nSobald ich mein TI-&Uuml;bungsblatt zur&uuml;ck
-    bekomme, werde ich den Beweis dazu hier aufnehmen. (Also in einer Woche etwa)\r\n\r\nGr&uuml;&szlig;e,\r\nMartin\r\n\r\nP.S.:
-    In Kommentaren kannst du leider kein LaTeX verwenden."
-- id: 391781
-  author: Keba
-  author_email: mariofuest@aol.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMS0xOSAxOToyODoyMSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0xOSAxNzoyODoyMSArMDEwMA==
-  content: Oh, dann geht das doch nicht so einfach wie in LinA, tschuldige. :)
 ---
 <h2>Definition</h2>
 Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher Algebren erarbeitet:

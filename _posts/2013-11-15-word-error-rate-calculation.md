@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Word Error Rate Calculation
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76715
-wordpress_url: http://martin-thoma.com/?p=76715
 date: 2013-11-15 08:59:15.000000000 +01:00
 categories:
 - Cyberculture
@@ -17,7 +10,6 @@ tags:
 - Levenshtein distance
 - ASR
 - WER
-comments: []
 featured_image: 2013/11/wer-thumb.png
 ---
 The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypophysis and is defined like this:

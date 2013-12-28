@@ -1,40 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Python one-liners for Project Euler
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 26451
-wordpress_url: http://martin-thoma.com/?p=26451
 date: 2012-06-13 17:00:14.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - Python
 - Project Euler
-comments:
-- id: 168431
-  author: Gui13
-  author_email: guitreize@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNi0yMSAxNDowNDozMCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0yMSAxMjowNDozMCArMDIwMA==
-  content: I'm assuming you didn't test the last one? :-)
-- id: 168551
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNi0yMSAxOToxNzo1MyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0yMSAxNzoxNzo1MyArMDIwMA==
-  content: I've tested all of them and all worked. I've re-tested the last one and
-    it still works for me. Why do you ask?
 featured_image: 2011/09/Python-Logo.png
 ---
 Today, I've been trying to get used to <a href="http://martin-thoma.com/functional-programming-in-python/" title="Functional Programming in Python">Pythons functional programming tools</a> by solving <a href="http://projecteuler.net/about">Project-Euler</a> tasks. To make them more interesting, I've solved them in one line. But I realized, that it is difficult to read online as only about 70 characters get displayed without a scrollbar. So I made multi-line solutions out of them. 

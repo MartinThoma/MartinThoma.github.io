@@ -1,39 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! '&Uuml;bersicht &uuml;ber Sortieralgorithmen'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 31801
-wordpress_url: http://martin-thoma.com/?p=31801
 date: 2012-07-15 15:00:12.000000000 +02:00
 categories:
 - German posts
 tags:
 - algorithms
 - sorting
-comments:
-- id: 182341
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNy0yNiAwODo1OToxNyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNy0yNiAwNjo1OToxNyArMDIwMA==
-  content: ! "Ich habe gerade gesehen, dass ich etwas zu viel als \"stabil\" bezeichnet
-    habe. Nun sollte es stimmen. Alle nicht-stabilen Sortierverfahren kann man stabil
-    implementieren. Das ist dann aber auf keinen Fall mehr die typische Form des Algorithmus
-    und geht auf Kosten der Laufzeit (allerdings teilweise nur als gro&szlig;e Konstante,
-    also nicht im O-Kalk&uuml;l) oder des  zus&auml;tzlich ben&ouml;tigten Speichers.\r\n\r\nDas
-    stabil-machen funktioniert so:\r\nMan nutzt ein zus&auml;tzliches Array A, um
-    die Indizes der Eingabeschl&uuml;ssel zu speichern. Dann geht man nach dem Sortieralgorithmus
-    nochmals durch die liste, schaut ob min. zwei benachbarte Elmente gleich sind.
-    Die Menge der gleichen Elemente sortiert man dann nach der Index-Reihenfolge in
-    Array A."
 featured_image: 2012/07/insertion-sort-thumb.png
 ---
 Eine &Uuml;bersicht &uuml;ber g&auml;ngige Sortieralgorithmen:

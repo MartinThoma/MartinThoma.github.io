@@ -1,19 +1,11 @@
 ---
 layout: post
-status: publish
-published: true
 title: When Geeks get Parents
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 5131
-wordpress_url: http://martin-thoma.com/?p=5131
 date: 2011-10-10 07:54:07.000000000 +02:00
 categories:
 - The Web
 tags: []
-comments: []
 featured_image: 2011/10/baby-ogre-thumb.jpg
 ---
 It's so funny what happens when Geeks get parents. 

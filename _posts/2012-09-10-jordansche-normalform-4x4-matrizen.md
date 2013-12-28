@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Jordansche Normalform: 4x4 Matrizen'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 41081
-wordpress_url: http://martin-thoma.com/?p=41081
 date: 2012-09-10 11:28:08.000000000 +02:00
 categories:
 - German posts
@@ -16,7 +9,6 @@ tags:
 - mathematics
 - Linear algebra
 - Matrix
-comments: []
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
 <div class="info">Hier sind $4 \times 4$ Beispiele zum Hauptartikel <a href="http://martin-thoma.com/wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>

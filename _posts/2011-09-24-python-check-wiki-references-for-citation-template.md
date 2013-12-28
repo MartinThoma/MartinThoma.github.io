@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Python: Check Wiki-references for citation template'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 1781
-wordpress_url: http://martin-thoma.com/?p=1781
 date: 2011-09-24 11:39:40.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Python
 - Wikipedia
 - RegEx
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 Wikipedia articles are full of references. Those references should be formatted the same way. It is much easier to use a template for citations than trying to guess the right way how to cite. Unfortunately most wikipedia users don't know the <a href="http://en.wikipedia.org/wiki/Template:Citation" title="Template:Citation">Template:Citation</a>. 

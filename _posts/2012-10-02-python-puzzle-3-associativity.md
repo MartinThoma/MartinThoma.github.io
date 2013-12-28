@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Python Puzzle #3: Associativity'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 46031
-wordpress_url: http://martin-thoma.com/?p=46031
 date: 2012-10-02 21:31:50.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Programming
 - Python
 - puzzle
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 What is the output of

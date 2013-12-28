@@ -1,11 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to use Jekyll with GitHub
 author: Martin Thoma
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
 categories:
 - The Web
 tags:

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Calculate square roots
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 69441
-wordpress_url: http://martin-thoma.com/?p=69441
 date: 2013-06-06 20:54:10.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - CPP
 - GMP
-comments: []
 featured_image: 2013/06/sqrt-2.png
 ---
 Suppose you have an equation like this:

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: What is the best programming language?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 32721
-wordpress_url: http://martin-thoma.com/?p=32721
 date: 2012-11-03 11:48:36.000000000 +01:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Python
 - C
 - Java
-comments: []
 featured_image: 2012/07/testing_cartoon-thumb.jpg
 ---
 There is no such thing as a best programming language. Sorry about that, I've just thought it would be a catchy title. I would rather choose my tools after I know the problem I have to solve.

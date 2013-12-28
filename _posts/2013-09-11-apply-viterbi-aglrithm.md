@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to apply the Viterbi algorithm
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76516
-wordpress_url: http://martin-thoma.com/?p=76516
 date: 2013-09-11 17:46:22.000000000 +02:00
 categories:
 - My bits and bytes
 tags:
 - KogSys
-comments: []
 featured_image: 2013/09/hidden-markov-model-hmm-thumb.png
 ---
 The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.

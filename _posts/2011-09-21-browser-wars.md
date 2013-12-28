@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Browser Wars
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 671
-wordpress_url: http://martin-thoma.com/?p=671
 date: 2011-09-21 22:18:48.000000000 +02:00
 categories:
 - The Web
@@ -17,7 +10,6 @@ tags:
 - Chrome
 - Firefox
 - Internet Explorer
-comments: []
 featured_image: 2011/09/FF-Chrome-IE-300x198.jpg
 ---
 The Usage of different browser verions is very interesting for me. Internet Explorer 6 causes many problems in Webdesign as it doesn't handle CSS and HTML as it should. 

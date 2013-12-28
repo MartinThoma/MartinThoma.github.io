@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to parse command line arguments in Java
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 33141
-wordpress_url: http://martin-thoma.com/?p=33141
 date: 2012-07-19 17:00:04.000000000 +02:00
 categories:
 - Code
 tags:
 - Programming
 - Java
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 If you are using Eclipse, you might want to add your arguments. To specify them, go to:

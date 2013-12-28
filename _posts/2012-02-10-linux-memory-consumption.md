@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Linux Memory Consumption
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 13581
-wordpress_url: http://martin-thoma.com/?p=13581
 date: 2012-02-10 21:04:45.000000000 +01:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Linux
 - Command Line
 - Memory
-comments: []
 ---
 <h2>free</h2>
 I've you want to check your memory consumption on a Linux machine, you can use free.

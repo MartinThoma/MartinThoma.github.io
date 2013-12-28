@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wie wendet man den Transformationssatz an?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 51491
-wordpress_url: http://martin-thoma.com/?p=51491
 date: 2012-12-22 22:43:11.000000000 +01:00
 categories:
 - Cyberculture
 tags:
 - mathematics
 - analysis
-comments: []
 featured_image: 2012/12/transformationssatz-thumb.png
 ---
 <div class="info">Folgender Artikel basiert auf meinem Mitschrieb der Analysis III &Uuml;bung bei Herrn Bolleyer.</div>

@@ -1,59 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Cool features of Python
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 25881
-wordpress_url: http://martin-thoma.com/?p=25881
 date: 2012-06-08 17:30:10.000000000 +02:00
 categories:
 - Code
 tags:
 - Programming
 - Python
-comments:
-- id: 156371
-  author: Stefan Koch
-  author_email: blog@stefan-koch.name
-  author_url: http://stefan-koch.name
-  date: !binary |-
-    MjAxMi0wNi0wOCAxODoxMjoxOCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0wOCAxNjoxMjoxOCArMDIwMA==
-  content: ! "I think you wante to write \"The list did not contain a prime\".\r\n\r\nAs
-    far as I understand it, else is executed if the for loop is terminated regularly
-    (i.e. not using break). As you use break if a prime was found, you would want
-    to display that there was no prime if the loop terminated normally.\r\n\r\nHowever,
-    I have to say that I consider the for-else-feature in Python a bit strange. What
-    I would expect from for-else is to execute else if the list is empty (and for
-    is never run). But maybe that&rsquo;s only because we have this probably a hell
-    a lot of times in web-development (list elements or show \"There are no elements
-    yet, be the first to add one!\")."
-- id: 156391
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNi0wOCAxODoxNzo1NCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0wOCAxNjoxNzo1NCArMDIwMA==
-  content: Thanks, you're right. I corrected the example. This feature was one of
-    those I've just discovered. I haven't used it before and I don't know if I'll
-    ever use it. But it's nice to know that this feature exists :-)
-- id: 1237985
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0xMC0yMSAxNjo0ODo1NCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0yMSAxNDo0ODo1NCArMDIwMA==
-  content: ! "I've just found a very good resource for understanding decorators in
-    Python:\r\n\r\nhttp://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps"
 featured_image: 2011/09/Python-Logo.png
 ---
 A friend wanted to know why I enjoy programming in Python so much more than programming in other languages. So I will describe some special features of Python which make it much easier to quickly implement algorithms.

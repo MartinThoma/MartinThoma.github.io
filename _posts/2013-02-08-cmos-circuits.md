@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: CMOS circuits
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 56701
-wordpress_url: http://martin-thoma.com/?p=56701
 date: 2013-02-08 23:39:26.000000000 +01:00
 categories:
 - Cyberculture
@@ -17,28 +10,6 @@ tags:
 - CMOS
 - MOSFET
 - digital circuit
-comments:
-- id: 1136491
-  author: Stefan Koch
-  author_email: blog@stefan-koch.name
-  author_url: http://stefan-koch.name/
-  date: !binary |-
-    MjAxMy0wMi0wOSAwOTozNzo1NyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMi0wOSAwODozNzo1NyArMDEwMA==
-  content: Ich wei&szlig; im Moment nicht mehr, was die durchgezogenen Linien waren,
-    aber mein &Auml;hnlichkeitssinn sagt mir, dass das zweite Bild bei "depletion"
-    auch einen durchgezogenen Strich haben sollte.
-- id: 1137301
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wMi0xMyAwODoyMTowMyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMi0xMyAwNzoyMTowMyArMDEwMA==
-  content: Dein &Auml;hnlichkeitssinn. So so. Mir sagt es die Bild-URL, die zwei mal
-    vorkommt :-) Wurde korrigiert.
 featured_image: 2013/02/cmos-nand-thumbnail.jpg
 ---
 CMOS is a technology used to create digital circuits. The basic idea is to combine a pMOS circuit and a nMOS circuit.

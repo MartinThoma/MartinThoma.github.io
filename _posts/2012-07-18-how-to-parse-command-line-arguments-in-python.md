@@ -1,41 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to parse command line arguments in Python
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 33011
-wordpress_url: http://martin-thoma.com/?p=33011
 date: 2012-07-18 17:00:03.000000000 +02:00
 categories:
 - Code
 tags:
 - Python
 - command line arguments
-comments:
-- id: 1120091
-  author: Bob
-  author_email: abc@xyz.org
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wMS0xNiAwOTo0MTo1MiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMS0xNiAwODo0MTo1MiArMDEwMA==
-  content: Thank you for sharing your experience! It's easier to grasp the basics
-    from your article than from the official documentation. The examples helped me
-    a lot.
-- id: 1230351
-  author: kultprok
-  author_email: info@kulturproktologie.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNy0wNSAxNDo0NjoyOCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNy0wNSAxMjo0NjoyOCArMDIwMA==
-  content: ! "@Bob: +1\r\n\r\nNow I finally got it."
 featured_image: 2011/09/Python-Logo.png
 ---
 <h2>Argparse</h2>

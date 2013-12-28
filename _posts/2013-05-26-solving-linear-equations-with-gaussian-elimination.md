@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Solving linear equations with Gaussian elimination
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 67901
-wordpress_url: http://martin-thoma.com/?p=67901
 date: 2013-05-26 00:01:30.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - mathematics
 - Linear algebra
 - CPP
-comments: []
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
 <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>

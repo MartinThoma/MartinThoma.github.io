@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Part II: The Strassen algorithm in Python, Java and C++'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 54691
-wordpress_url: http://martin-thoma.com/?p=54691
 date: 2013-01-23 10:35:55.000000000 +01:00
 categories:
 - Code
@@ -18,53 +11,6 @@ tags:
 - Java
 - Strassen algorithm
 - matrix multiplication
-comments:
-- id: 1124041
-  author: Keba
-  author_email: mariofuest@aol.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wMS0yMyAxODo0Mjo1NCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMS0yMyAxNzo0Mjo1NCArMDEwMA==
-  content: ! "As Python is a scripting language, it&lsquo;s qutie easy to find slow
-    functions using profilers: http://docs.python.org/2/library/profile.html\r\n\r\nAn
-    example `python -m cProfile myscript.py`.\r\n\r\nRegards, Keba."
-- id: 1207371
-  author: Ian
-  author_email: ian.wood@anu.edu.au
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNi0xMCAwMzo0OToyMSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0xMCAwMTo0OToyMSArMDIwMA==
-  content: ! "Thanks for this analysis, and for part 1 - it's something that's been
-    bugging me for some time.\r\n\r\nDid you get around to/find time for part
-    3: implementing as multi-core?\r\n\r\nThe python implementation could be dramatically
-    improved using array slicing and again by using numpy arrays.\r\n\r\nAlso, the
-    c++ version could be sped up by using memcpy() instead of looping over indexes
-    for initialising the sub-matrices. It might take some fiddling to get it right
-    though (segfaults are very fond of memcpy ;) \r\n\r\nI'm not sure if Java has
-    tools for shifting blocks of memory around. If it did, it'd be helped along by
-    their use as well.\r\n\r\nIn all 3 languages, things would go faster if you could
-    find a way to avoid allocating memory so often, find a way to reuse allocated
-    variables instead of using `new()` etc.. . I think this would especially benefit
-    python and java.\r\n\r\nCheers\r\nIan"
-- id: 1207431
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wNi0xMCAxMDo0NTozNyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0xMCAwODo0NTozNyArMDIwMA==
-  content: ! "Hi Ian,\r\n\r\nthanks for your suggestions. I will try to improve the
-    article as soon as I have some free time, but that might take some time.\r\n\r\nNo,
-    I didn't write the article about multi-core matrix multiplication jet. As I did
-    some research, I found a lot of multiplication algorithms (Cannon's algorithm,
-    Systolic arrays, SUMMA). They are much more difficult for me as I've never written
-    a multi-core algorithm before. They are also not as good documented as Strassens
-    algorithm. So I'm not sure if I'll ever finish this series.\r\n\r\nCheers,\r\nMartin"
 ---
 <div class="info">This is Part II of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>

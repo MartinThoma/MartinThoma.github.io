@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Pr&auml;dikatenlogik: Aussagen formalisieren'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 7651
-wordpress_url: http://martin-thoma.com/?p=7651
 date: 2011-10-29 15:12:33.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - lecture-notes
-comments: []
 featured_image: 2011/10/eulers-formula.png
 ---
 Es ist h&auml;ufig von Vorteil, wenn man Aussagen formalisieren kann. Es ist beispielsweise gar nicht so leicht das exakte Gegenteil einer Aussage zu finden.

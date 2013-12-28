@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Semantische Sicherheit
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 64801
-wordpress_url: http://martin-thoma.com/?p=64801
 date: 2013-04-28 15:06:53.000000000 +02:00
 categories:
 - German posts
 tags:
 - IT-Security
 - Theoretical computer science
-comments: []
 featured_image: 2013/04/cryptography-thumb.png
 ---
 In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst $\mathcal{P} \neq \mathcal{NP}$ beweisen m&uuml;sste. Warum das so ist, versuche ich nun zu erl&auml;utern.

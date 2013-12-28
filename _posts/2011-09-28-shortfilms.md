@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Shortfilms
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 2571
-wordpress_url: http://martin-thoma.com/?p=2571
 date: 2011-09-28 12:05:29.000000000 +02:00
 categories:
 - The Web
@@ -16,7 +9,6 @@ tags:
 - Video
 - Vimeo
 - Shortfilm
-comments: []
 featured_image: 2011/09/cat-piano.png
 ---
 <div class="info">Here is the second part "<a href="http://martin-thoma.com/shortfilms-part-ii/">Shortfilms, Part II</a>".</div>

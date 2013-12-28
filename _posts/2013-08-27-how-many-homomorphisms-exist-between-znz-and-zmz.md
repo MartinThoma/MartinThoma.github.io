@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: How many Homomorphisms exist between Z/nZ and Z/mZ?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76339
-wordpress_url: http://martin-thoma.com/?p=76339
 date: 2013-08-27 15:26:38.000000000 +02:00
 categories:
 - Mathematics
 tags:
 - Algebra
-comments: []
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 Today I've wondered how many homomorphisms are between the groups $(\mathbb{Z}/n\mathbb{Z},+)$ and $(\mathbb{Z}/m\mathbb{Z},+)$ with $m, n \geq 2$. Does it make a difference if I use + or $\cdot$ as operators?

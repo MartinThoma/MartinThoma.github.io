@@ -1,47 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Get your programs assembly code and more information
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 16201
-wordpress_url: http://martin-thoma.com/?p=16201
 date: 2012-03-01 19:40:43.000000000 +01:00
 categories:
 - Code
 tags:
 - C
 - Assembly language
-comments:
-- id: 78231
-  author: i42n
-  author_email: g@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMy0xOSAxOTowOToxMSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMy0xOSAxNzowOToxMSArMDEwMA==
-  content: ! "You asked yourself what is being compared at the jbe call. The jbe command
-    only determines if the last cmp operation put a 0 or a 1 into a special CPU register
-    (can not remember right now which one).\r\n\r\ncmpl $1, 8(%ebp) # Call cmp first,
-    which will put 0 or 1 into register\r\njbe .L2 # Check for its value and jump
-    if 1"
-- id: 81891
-  author: Hyo Cicconi
-  author_email: Masako_Kundert@yahoo.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMy0yMyAwMjowNzo0OSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMy0yMyAwMDowNzo0OSArMDEwMA==
-  content: Fantastic goods from you, man. I've understand your stuff previous to and
-    you are just extremely great. I actually like what you have acquired here, really
-    like what you are saying and the way in which you say it. You make it enjoyable
-    and you still take care of to keep it smart. I can't wait to read far more from
-    you. This is really a tremendous site.
 featured_image: 2012/05/assembly-thumb.png
 ---
 I've talked today with a fellow student about some system internals and we weren't sure what actually happens. So I needed the assembly code of some example programs.

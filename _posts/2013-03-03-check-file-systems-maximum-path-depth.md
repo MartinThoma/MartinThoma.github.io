@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Check File Systems maximum path depth
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 58821
-wordpress_url: http://martin-thoma.com/?p=58821
 date: 2013-03-03 20:51:24.000000000 +01:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - C
 - OS
 - Nautilus
-comments: []
 featured_image: 2013/03/long-path-thumb.png
 ---
 Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I've created the following C-Snippet to test it:

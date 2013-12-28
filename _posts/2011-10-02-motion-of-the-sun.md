@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Motion of the sun
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 3591
-wordpress_url: http://martin-thoma.com/?p=3591
 date: 2011-10-02 09:25:07.000000000 +02:00
 categories:
 - The Web
 tags:
 - learning
-comments: []
 featured_image: 2011/10/Motions-of-the-sun-thumb.png
 ---
 How is the sun moving, according to our latitude, the time of the day and the time of the year?

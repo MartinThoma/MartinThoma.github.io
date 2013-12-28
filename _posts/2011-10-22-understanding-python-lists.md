@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Understanding Python Lists
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 7131
-wordpress_url: http://martin-thoma.com/?p=7131
 date: 2011-10-22 23:01:55.000000000 +02:00
 categories:
 - Code
 tags:
 - Python
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 This article is about Python lists. I just want to show you some examples of the unexpected behaviour (for non-python-programmers) of lists in Python.

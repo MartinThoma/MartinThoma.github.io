@@ -1,38 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: 7 mind-blowing artists you didn't know
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 15531
-wordpress_url: http://martin-thoma.com/?p=15531
 date: 2012-02-23 19:56:14.000000000 +01:00
 categories:
 - My bits and bytes
 tags:
 - Art
-comments:
-- id: 56841
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wMi0yOSAwMTozMzoyMiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0yOCAyMzozMzoyMiArMDEwMA==
-  content: ! 'Peter Callesen is another one: http://www.myfunmails.com/2011/09/amazing-paper-art-by-peter-callesen.html'
-- id: 62761
-  author: S&ouml;ren
-  author_email: soeren@soeren.de
-  author_url: http://soeren.de
-  date: !binary |-
-    MjAxMi0wMy0wNSAxNDo1MTo0NiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMy0wNSAxMjo1MTo0NiArMDEwMA==
-  content: ! 'I really like Dalton Ghetti''s work: http://www.daltonmghetti.com/'
 ---
 <h2>Anamorphic Art</h2>
 <a href="http://en.wikipedia.org/wiki/Anamorphosis">Anamorphosis</a> is a distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image. 

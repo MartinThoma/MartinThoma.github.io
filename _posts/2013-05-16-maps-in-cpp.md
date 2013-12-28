@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Maps in C++
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 66091
-wordpress_url: http://martin-thoma.com/?p=66091
 date: 2013-05-16 08:52:54.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - STL
 - datastructure
 - map
-comments: []
 featured_image: 2012/05/CPP-thumb.png
 ---
 Maps are one of the most useful datastructures in C++ and there is no excuse for not knowing it.

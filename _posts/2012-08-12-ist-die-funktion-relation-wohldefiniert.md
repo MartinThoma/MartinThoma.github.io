@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Ist die Funktion / Relation wohldefiniert?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 39601
-wordpress_url: http://martin-thoma.com/?p=39601
 date: 2012-08-12 17:00:14.000000000 +02:00
 categories:
 - Cyberculture
 tags:
 - mathematics
-comments: []
 featured_image: 2012/08/pi-thumbnail.png
 ---
 Ich verstehe unter einer wohldefinierten Funktion / Relation die Unabh&auml;ngigkeit von den Repr&auml;sentanten. Wikipedia sagt dazu:

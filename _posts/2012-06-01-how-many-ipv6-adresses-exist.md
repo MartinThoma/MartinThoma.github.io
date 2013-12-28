@@ -1,19 +1,11 @@
 ---
 layout: post
-status: publish
-published: true
 title: How many IPv6 adresses exist?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 25411
-wordpress_url: http://martin-thoma.com/?p=25411
 date: 2012-06-01 18:43:22.000000000 +02:00
 categories:
 - The Web
 tags: []
-comments: []
 ---
 <h2>Some general information</h2>
 <iframe width="512" height="288" src="http://www.youtube.com/embed/-Uwjt32NvVA" frameborder="0" allowfullscreen></iframe>

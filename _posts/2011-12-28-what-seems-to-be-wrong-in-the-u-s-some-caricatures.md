@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: What seems to be wrong in the U.S. - some caricatures
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 10361
-wordpress_url: http://martin-thoma.com/?p=10361
 date: 2011-12-28 14:23:30.000000000 +01:00
 categories:
 - My bits and bytes
 tags:
 - United States
 - caricature
-comments: []
 featured_image: 2011/12/tea-party.jpg
 ---
 I am not the first person you should ask if you want to know something about the United States. I've never been there and I know only one American. But I am reading quite a lot of websites which publish regularly political caricatures. This post is simply a collection of different caricatures I've stumbled over. For most of them I had to search the source, so I hope you will enjoy them.

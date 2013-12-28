@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Part III: Matrix multiplication on multiple cores in Python, Java and C++'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 54981
-wordpress_url: http://martin-thoma.com/?p=54981
 date: 2013-10-21 16:39:35.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - C
 - Java
 - matrix multiplication
-comments: []
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 <div class="info">This is Part III of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.

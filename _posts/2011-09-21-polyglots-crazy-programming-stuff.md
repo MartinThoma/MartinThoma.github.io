@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Polyglots - Crazy Programming Stuff
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 131
-wordpress_url: http://martin-thoma.com/?p=131
 date: 2011-09-21 19:28:02.000000000 +02:00
 categories:
 - Code
@@ -18,7 +11,6 @@ tags:
 - Programming
 - Whitespace
 - Python
-comments: []
 ---
 Have you ever heard of polyglots? This is sooo crazy. A <a href="http://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot</a> is a program which can be interpreded as many programming languages. You don't believe me that something crazy like that is possible? Here is an example I've made:     
           

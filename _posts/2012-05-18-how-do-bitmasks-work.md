@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How do Bitmasks work?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 17491
-wordpress_url: http://martin-thoma.com/?p=17491
 date: 2012-05-18 23:02:55.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - C
 - OS
 - Operating Systems
-comments: []
 featured_image: 2012/05/assembly-thumb.png
 ---
 <h2>What are Bitmasks?</h2>

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Nobel Prize in Physics 2009
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 42881
-wordpress_url: http://martin-thoma.com/?p=42881
 date: 2012-09-01 11:09:36.000000000 +02:00
 categories:
 - My bits and bytes
@@ -19,7 +12,6 @@ tags:
 - Science
 - CCD
 - Optical fiber
-comments: []
 featured_image: 2012/09/fiberoptic-thumb.png
 ---
 Did you know how the election for a <a href="http://en.wikipedia.org/wiki/Nobel_Prize">Nobel Prize</a> works? Have you ever heard of a <a href="http://en.wikipedia.org/wiki/Charge-coupled_device">CCD</a>? I guess you know <a href="http://en.wikipedia.org/wiki/Optical_fiber">fiberoptics</a>?

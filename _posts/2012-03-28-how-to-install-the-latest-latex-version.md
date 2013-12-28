@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to install the latest LaTeX Version
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 20381
-wordpress_url: http://martin-thoma.com/?p=20381
 date: 2012-03-28 11:29:41.000000000 +02:00
 categories:
 - My bits and bytes
 tags:
 - LaTeX
-comments: []
 featured_image: 2012/01/latex-logo.png
 ---
 I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2012. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.

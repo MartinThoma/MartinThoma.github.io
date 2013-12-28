@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Python Generators
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 8741
-wordpress_url: http://martin-thoma.com/?p=8741
 date: 2011-11-10 08:24:00.000000000 +01:00
 categories:
 - Code
 tags:
 - Python
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 Python has a quite mighty tool: Generators.

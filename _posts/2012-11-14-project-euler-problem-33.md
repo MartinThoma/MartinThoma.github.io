@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Project Euler: Problem 33'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 48781
-wordpress_url: http://martin-thoma.com/?p=48781
 date: 2012-11-14 15:43:35.000000000 +01:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Python
 - Challenge
 - Project Euler
-comments: []
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=33">Problem 33</a> of Project Euler is:

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: C++ Preprocessor Snippets
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 28561
-wordpress_url: http://martin-thoma.com/?p=28561
 date: 2012-12-25 19:32:31.000000000 +01:00
 categories:
 - Code
 tags:
 - C
 - Preprocessor
-comments: []
 featured_image: 2012/05/CPP-thumb.png
 ---
 The C++ Preprocessor - which is in fact the same as the C Preprocessor - provides some very basic, but powerful abilities. I haven't used them quite often, but I have seen some nice examples. So here are some C++ Preprocessor Snippets:

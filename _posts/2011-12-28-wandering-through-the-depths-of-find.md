@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wandering through the depths of find
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 2621
-wordpress_url: http://martin-thoma.com/?p=2621
 date: 2011-12-28 16:01:18.000000000 +01:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - Linux
 - Command Line
 - Bash
-comments: []
 featured_image: 2011/09/Tux.png
 ---
 find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.

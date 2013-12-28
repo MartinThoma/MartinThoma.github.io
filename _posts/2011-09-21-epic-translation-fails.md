@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Epic Translation Fails
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 481
-wordpress_url: http://martin-thoma.com/?p=481
 date: 2011-09-21 21:45:47.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - funny
 - Online Translator
 - Google
-comments: []
 featured_image: 2011/09/Google-Translator-Spielzeugladen-300x72.png
 ---
 Online translation programs are getting better and they are great if you want to get a vague idea of the content of a chinese website. Never the less you should know that the translations are not good enough by now:

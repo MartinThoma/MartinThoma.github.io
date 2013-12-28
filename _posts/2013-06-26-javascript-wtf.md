@@ -1,39 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'JavaScript: WTF?!?'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 71601
-wordpress_url: http://martin-thoma.com/?p=71601
 date: 2013-06-26 22:51:52.000000000 +02:00
 categories:
 - Code
 tags:
 - JavaScript
-comments:
-- id: 1237724
-  author: Leo
-  author_email: neuman.il@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOC0yOCAxMDozODoxOSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOC0yOCAwODozODoxOSArMDIwMA==
-  content: ! "Thanks for the post!\r\n\r\nIf you haven't seen it already, check out
-    Gary Bernhardt's short talk (starts with Ruby but gets to JS):\r\n\r\nhttps://www.destroyallsoftware.com/talks/wat\r\n\r\nL."
-- id: 1237740
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wOC0yOSAxNzoxMTozNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOC0yOSAxNToxMTozNiArMDIwMA==
-  content: Haha, hilarious! Thank you for sharing!
 ---
 JavaScript is THE web programming language. It gets interpreted by your browser and web applications like Google Mail, Google Maps and Facebook make heavy use of them. Almost always, when you see something working smoothly / interactive, you see JavaScript in action.
 

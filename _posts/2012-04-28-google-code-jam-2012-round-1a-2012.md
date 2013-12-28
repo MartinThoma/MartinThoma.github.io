@@ -1,27 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Google Code Jam 2012 &ndash; Round 1A 2012
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-excerpt: ! "3691 people are listed in the scoreboard, but 3851 tried the first problem.
-  So I guess the number of contestants might even be higher.\r\n\r\n<ul>\r\n  <li>Problem
-  1 (<a href=\"http://code.google.com/codejam/contest/1645485/dashboard#s=p0\">Password
-  Problem</a>):\r\n  <ul>\r\n     <li>Small Set: 3511/3851 users (91%)</li>\r\n
-  \    <li>Large Set: 2329/3376 users (69%)</li>\r\n  </ul>\r\n  </li>\r\n
-  \ <li>Problem 2 (<a href=\"http://code.google.com/codejam/contest/1645485/dashboard#s=p1\">Kingdom
-  Rush</a>):\r\n  <ul>\r\n     <li>Small Set: 1912/3466 users (55%)</li>\r\n
-  \    <li>Large Set: 1617/1848 users (88%)</li>\r\n  </ul>\r\n  </li>\r\n
-  \ <li>Problem 3 (<a href=\"http://code.google.com/codejam/contest/1645485/dashboard#s=p2\">Cruise
-  Control</a>):\r\n  <ul>\r\n     <li>Small Set: 65/312 users (21%)</li>\r\n
-  \    <li>Large Set: 22/42 users (52%)</li>\r\n  </ul>\r\n  </li>\r\n</ul>\r\n\r\n\r\nJust
-  as last time, you can execute these scripts by\r\n{% highlight bash %}python jam.py < A-small-practice.in
-  > results.txt{% endhighlight %}\r\n\r\n"
-wordpress_id: 23361
-wordpress_url: http://martin-thoma.com/?p=23361
 date: 2012-04-28 06:11:22.000000000 +02:00
 categories:
 - Code
@@ -31,7 +11,6 @@ tags:
 - Google
 - Google Code Jam
 - competition
-comments: []
 ---
 3691 people are listed in the scoreboard, but 3851 tried the first problem. So I guess the number of contestants might even be higher.
 

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Password Changing Services
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 5401
-wordpress_url: http://martin-thoma.com/?p=5401
 date: 2011-10-17 08:10:43.000000000 +02:00
 categories:
 - The Web
@@ -16,7 +9,6 @@ tags:
 - Web Development
 - IT-Security
 - password
-comments: []
 featured_image: 2011/10/password-checker.png
 ---
 Today I've changed my PayPal password, because I thought it was time to do so. Now I know that the password changing service of PayPal can be improved quite a lot. I had to type the password about twelve times! This is the reason why I thought it was time to create some principles for good password chaning services:

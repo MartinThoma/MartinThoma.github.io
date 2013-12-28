@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to solve linear congruence equations
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76368
-wordpress_url: http://martin-thoma.com/?p=76368
 date: 2013-09-01 17:43:49.000000000 +02:00
 categories:
 - Mathematics
 tags:
 - Python
 - mathematics
-comments: []
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 When you have a system of linear congruences like:

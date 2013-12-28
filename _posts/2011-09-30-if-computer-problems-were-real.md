@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: If Computer Problems Were Real
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 3091
-wordpress_url: http://martin-thoma.com/?p=3091
 date: 2011-09-30 13:39:27.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - funny
 - Video
 - YouTube
-comments: []
 featured_image: 2011/09/LOL-cup.jpg
 ---
 Before the computer ...

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Software Versioning Cheat Sheet
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 22591
-wordpress_url: http://martin-thoma.com/?p=22591
 date: 2012-04-18 07:00:59.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - software versioning
 - svn
 - git
-comments: []
 featured_image: 2012/04/svn-git-logo.png
 ---
 This <a href='http://martin-thoma.com/wp-content/uploads/2012/04/versioning-cheat-sheet.pdf'>Software Versioning Cheat Sheet</a> has very basic information aboout the installation and usage of Subversion and Git. (The <a href='http://martin-thoma.com/wp-content/uploads/2012/04/versioning-cheat-sheet.zip'>LaTeX Source Code</a> is here.)

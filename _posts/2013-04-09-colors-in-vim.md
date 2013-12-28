@@ -1,30 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Colors in Vim
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 63411
-wordpress_url: http://martin-thoma.com/?p=63411
 date: 2013-04-09 17:36:31.000000000 +02:00
 categories:
 - Code
 tags:
 - Vim
-comments:
-- id: 1176781
-  author: Jona
-  author_email: Jona.gunner@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wNC0xMiAyMjowOTozOCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNC0xMiAyMDowOTozOCArMDIwMA==
-  content: ! "If you're looking for an easy way to customize Vim's syntax highlithing
-    for a variety of different languages, have a look at:\r\n\r\nhttp://bytefluent.com/vivify/"
 featured_image: 2012/01/vim-logo.png
 ---
 <h2>ANSI Color codes</h2>

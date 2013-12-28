@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Java Puzzle #4: Parallel Programming'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 36641
-wordpress_url: http://martin-thoma.com/?p=36641
 date: 2012-08-02 11:00:36.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Java
 - SWT I
 - puzzle
-comments: []
 featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following Java Snippet:

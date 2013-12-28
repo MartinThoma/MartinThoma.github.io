@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Ingenious Autocomplete
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 511
-wordpress_url: http://martin-thoma.com/?p=511
 date: 2011-09-21 21:48:03.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,16 +9,6 @@ tags:
 - funny
 - Google
 - Autocomplete
-comments:
-- id: 164871
-  author: Cheryl Galloway
-  author_email: CherylJGalloway@teleworm.us
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNi0xNyAyMToxNzo1MyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNi0xNyAxOToxNzo1MyArMDIwMA==
-  content: ! 'Awesome collection of autocompletes!  Similar stuff at: http://www.aisforautocomplete.com'
 featured_image: 2011/09/autocomplete-windows-is-300x110.png
 ---
 Did you notice some strange autocomplete-results? Keep in mind that Google gets those suggestions by other searches. They don't employ someone who tries to guess what you mean. So many others have searched for the term which is suggested.

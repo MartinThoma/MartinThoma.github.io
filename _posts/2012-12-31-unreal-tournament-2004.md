@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Unreal Tournament 2004
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 52761
-wordpress_url: http://martin-thoma.com/?p=52761
 date: 2012-12-31 13:49:40.000000000 +01:00
 categories:
 - Cyberculture
 tags:
 - Unreal Tournament
 - Games
-comments: []
 featured_image: 2012/12/ut2004-logo.png
 ---
 I am currently at home and I found <a href="http://en.wikipedia.org/wiki/Unreal_Tournament_2004">Unreal Tournament 2004</a> in my old stuff. Of course, I had to play it again :-)

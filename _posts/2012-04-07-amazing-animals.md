@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Amazing Animals
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 21161
-wordpress_url: http://martin-thoma.com/?p=21161
 date: 2012-04-07 02:39:26.000000000 +02:00
 categories:
 - My bits and bytes
 tags:
 - Lolcat
 - amazing
-comments: []
 featured_image: 2012/04/axolotl-thumb.jpg
 ---
 Some animals are truly amazing. Just take a look at them. I've also included some video clips of funny individuals.

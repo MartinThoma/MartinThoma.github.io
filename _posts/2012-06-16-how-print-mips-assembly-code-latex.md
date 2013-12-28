@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to print MIPS assembly code in LaTeX
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 26961
-wordpress_url: http://martin-thoma.com/?p=26961
 date: 2012-06-16 11:33:11.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - LaTeX
 - Assembly language
 - MIPS
-comments: []
 featured_image: 2012/01/latex-logo.png
 ---
 If you like to print highlighted MIPS assembly code in LaTeX, you can use the listings package. Sadly, no MIPS language file exits by default in LaTeX, but awg has created one and provides it on his blog. Just download <a href='http://martin-thoma.com/wp-content/uploads/2012/06/mips.sty_.zip'>mips.sty</a> (thanks to <a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Adam Gordon</a>!) and place it in your project folder. Then you can create a project like this:

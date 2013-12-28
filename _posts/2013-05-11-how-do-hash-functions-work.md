@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How do hash functions work?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 65281
-wordpress_url: http://martin-thoma.com/?p=65281
 date: 2013-05-11 20:07:07.000000000 +02:00
 categories:
 - Code

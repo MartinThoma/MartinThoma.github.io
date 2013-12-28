@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to fill holes in your wall / ceiling
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 17161
-wordpress_url: http://martin-thoma.com/?p=17161
 date: 2012-03-05 22:08:41.000000000 +01:00
 categories:
 - My bits and bytes
 tags:
 - home improvement
 - do-it-yourself
-comments: []
 featured_image: 2011/10/do-it-yourself-thumb.jpg
 ---
 [caption id="attachment_4861" align="alignright" width="128" caption="Do-it-yourself"]<a href="http://martin-thoma.com/wp-content/uploads/2011/10/do-it-yourself-thumb.jpg"><img class="size-full wp-image-4861 " title="Do-it-yourself - Some random tools (Thumbnail)" src="http://martin-thoma.com/wp-content/uploads/2011/10/do-it-yourself-thumb.jpg" alt="Do-it-yourself - Some random tools (Thumbnail)" width="128" height="128" /></a>[/caption]

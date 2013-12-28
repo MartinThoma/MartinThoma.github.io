@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: GOTO in Python, Java and C++
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 30331
-wordpress_url: http://martin-thoma.com/?p=30331
 date: 2012-07-12 22:04:01.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - C
 - Java
 - GOTO
-comments: []
 featured_image: 2012/05/CPP-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Goto">GOTO</a> is a statement of the early beginnings of programming. It is rarely used in high-level code today. Code that makes use of it is called <a href="http://en.wikipedia.org/wiki/Spaghetti_code">Spaghetti code</a> by some people. I have almost never seen goto statements in code, so I've been curious about them.

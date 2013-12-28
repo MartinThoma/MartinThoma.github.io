@@ -1,28 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: URL shortener
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-excerpt: ! "URL shortening services are Websites, which offer redirections from one
-  of their pages with short URLs to your page (with a long URL). URL shortening services
-  are great when you need to print URLs. I don't like them on Websites / in Emails
-  as I can't see the target, but I don't want to type so much when I get a URL in
-  my real live.\r\n\r\nThese services should be used more often in my university.
-  It's ridiculous that all students have to note very long URLs in the first few days.
-  It's not a real problem, but using URL shorteners would be better.\r\n\r\nI'll describe
-  some services in the following article."
-wordpress_id: 22501
-wordpress_url: http://martin-thoma.com/?p=22501
 date: 2012-04-16 15:12:57.000000000 +02:00
 categories:
 - The Web
 tags:
 - Web Service
-comments: []
 ---
 URL shortening services are Websites, which offer redirections from one of their pages with short URLs to your page (with a long URL). URL shortening services are great when you need to print URLs. I don't like them on Websites / in Emails as I can't see the target, but I don't want to type so much when I get a URL in my real live.
 

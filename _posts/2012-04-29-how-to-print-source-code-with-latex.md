@@ -1,40 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to print Source Code with LaTeX
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-excerpt: ! "I often need to print source code. Some years ago for a German competition
-  called \"Bundeswettbewerb Informatik\", now for projects at my university. If you
-  use LaTeX, you can simply include the source code into your document! Here are three
-  examples with listings and minted. I've also included example PDF files.\r\n\r\n<h2>listings</h2>\r\n<h3>Minimal
-  example</h3>\r\n[caption id=\"attachment_23851\" align=\"aligncenter\" width=\"590\"
-  caption=\"LaTeX Java Source Code: listings\"]<a href=\"http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-listings.png\"><img
-  src=\"http://martin-thoma.com/wp-content/uploads/2012/04/latex-java-source-listings.png\"
-  alt=\"LaTeX Java Source Code: listings\" title=\"LaTeX Java Source Code: listings\"
-  width=\"590\" height=\"185\" class=\"size-full wp-image-23851\" /></a>[/caption]\r\nHere
-  is an minimal example how you could print Source Code with LaTeX:\r\n"
-wordpress_id: 23541
-wordpress_url: http://martin-thoma.com/?p=23541
 date: 2012-04-29 12:04:32.000000000 +02:00
 categories:
 - Code
 tags:
 - LaTeX
 - Documentation
-comments:
-- id: 1238059
-  author: Anton
-  author_email: a@abc.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0xMC0yNyAyMzozMzozMCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0yNyAyMjozMzozMCArMDEwMA==
-  content: Thanks a lot, it really helped me.
 featured_image: 2012/01/latex-logo.png
 ---
 I often need to print source code. Some years ago for a German competition called "Bundeswettbewerb Informatik", now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I've also included example PDF files.

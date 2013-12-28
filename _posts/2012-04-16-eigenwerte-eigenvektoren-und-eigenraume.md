@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Eigenwerte, Eigenvektoren und Eigenr&auml;ume
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 22311
-wordpress_url: http://martin-thoma.com/?p=22311
 date: 2012-04-16 08:15:32.000000000 +02:00
 categories:
 - German posts
@@ -18,31 +11,6 @@ tags:
 - Eigenvektor
 - Eigenraum
 - Eigenwertproblem
-comments:
-- id: 110171
-  author: Peter
-  author_email: peter.merkert@gmx.de
-  author_url: http://petermerkert.com
-  date: !binary |-
-    MjAxMi0wNC0xNiAwODozNDozNiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0xNiAwNjozNDozNiArMDIwMA==
-  content: Der 3. Satz (unter 'interessante S&auml;tze') ist etwas unklar. Muss diese
-    Basis aus Eigenvektoren zu einem Eigenwert sein oder k&ouml;nnen dort Eigenvektoren
-    gemixt werden?
-- id: 110201
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNC0xNiAwODo1NjozMSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0xNiAwNjo1NjozMSArMDIwMA==
-  content: ! "Hallo Peter,\r\n\r\ndie Eigenvektoren, die eine Basis von V bilden,
-    k&ouml;nnen zu verschiedenen Eigenwerten geh&ouml;ren. Das kann man sich klar
-    machen, indem man eine Abbildungsmatrix betrachtet, die bereits in Diagonalform
-    ist (und somit offensichtlich diagonalisierbar ist). Siehe <a href=\"http://de.wikipedia.org/wiki/Diagonalisierbarkeit#Beispiel\"
-    rel=\"nofollow\">Beispiel</a> auf Wikipedia."
 featured_image: 2012/01/vector-space.png
 ---
 <strong>Eigenwerte</strong> sind Elemente des K&ouml;rpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erf&uuml;llen:

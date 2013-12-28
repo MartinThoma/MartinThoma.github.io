@@ -1,59 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: TGI-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 14321
-wordpress_url: http://martin-thoma.com/?p=14321
 date: 2012-02-18 16:57:30.000000000 +01:00
 categories:
 - German posts
 tags:
 - Klausur
-comments:
-- id: 49091
-  author: tobstu@gmail.com
-  author_email: tobstu@gmail.com
-  author_url: http://0xabc.de
-  date: !binary |-
-    MjAxMi0wMi0xOCAxODozMDoxOSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0xOCAxNjozMDoxOSArMDEwMA==
-  content: ! "Hi,\r\n\r\nDanke f&uuml;r di Posts soweit :-P\r\n\r\nIch finde es fehlt
-    noch ein Post, wie man die Greibach-NF bastelt ;)\r\n\r\nGr&uuml;&szlig;e\r\nTobi"
-- id: 49611
-  author: Alexander Monev
-  author_email: bcclan@mail.bg
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMi0xOSAyMDoyNzoyNyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0xOSAxODoyNzoyNyArMDEwMA==
-  content: Der Klausurbonus ist +0.3 zur Note.
-- id: 50081
-  author: i42n
-  author_email: g@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMi0yMCAxNzo1MDowNyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0yMCAxNTo1MDowNyArMDEwMA==
-  content: Gilt das aber auch nur, wenn man die Klausur besteht?
-- id: 50111
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wMi0yMCAxNzo1NDo0MyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0yMCAxNTo1NDo0MyArMDEwMA==
-  content: Ich vermute, dass man den Klausurbonus nur bekommt, wenn man eh schon bestanden
-    h&auml;tte. Man kann also nicht durch den Bonus bestehen. Jedenfalls ist das sonst
-    immer so.
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Ich habe im WS 2011/2012 bei Frau <a href="http://i11www.iti.uni-karlsruhe.de/en/members/dorothea_wagner/index">Prof. Dr. Wagner</a> die TGI-Klausur am KIT geschrieben. Hierf&uuml;r entstand dieser Artikel.</div>

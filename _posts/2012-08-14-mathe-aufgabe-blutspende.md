@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Mathe-Aufgabe: Blutspende'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 39921
-wordpress_url: http://martin-thoma.com/?p=39921
 date: 2012-08-14 17:00:16.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
-comments: []
 featured_image: 2012/08/blood.png
 ---
 <h2>Aufgabenstellung</h2>

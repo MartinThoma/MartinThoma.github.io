@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Check x-in-a-row for board games
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 54591
-wordpress_url: http://martin-thoma.com/?p=54591
 date: 2013-01-21 21:59:28.000000000 +01:00
 categories:
 - Code
 tags:
 - Programming
 - short-circuit evaluation
-comments: []
 featured_image: 2013/01/queens-moves.png
 ---
 In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.

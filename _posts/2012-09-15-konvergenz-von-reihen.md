@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Konvergenz von Reihen
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 41881
-wordpress_url: http://martin-thoma.com/?p=41881
 date: 2012-09-15 09:02:02.000000000 +02:00
 categories:
 - German posts
 tags:
 - mathematics
 - analysis
-comments: []
 featured_image: 2012/08/limes-thumbnail.png
 ---
 Die folgenden Definitionen sind wortw&ouml;rtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript f&uuml;r Analysis I</a> bei Herrn Dr. Schmoeger &uuml;bernommen worden.

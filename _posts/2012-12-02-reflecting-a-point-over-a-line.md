@@ -1,30 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Reflecting a point over a line
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 49801
-wordpress_url: http://martin-thoma.com/?p=49801
 date: 2012-12-02 15:32:41.000000000 +01:00
 categories:
 - My bits and bytes
 tags:
 - mathematics
 - Geometry
-comments:
-- id: 1071561
-  author: Natalie
-  author_email: eilatann@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wMS0xMCAwNjoyOTozOCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMS0xMCAwNToyOTozOCArMDEwMA==
-  content: Thanks for taking the time to write this up, was very helpful!
 featured_image: 2012/12/line-reflection-thumb.png
 ---
 It's astonishing how difficult it is to find a good explanation how to reflect a point over a line that does not use higher math methods. So here is my explanation:

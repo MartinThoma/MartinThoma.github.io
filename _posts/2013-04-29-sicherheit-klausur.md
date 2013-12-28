@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Sicherheit-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 65051
-wordpress_url: http://martin-thoma.com/?p=65051
 date: 2013-04-29 10:19:05.000000000 +02:00
 categories:
 - German posts

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Why is the intersection of two normal subgroups a normal subgroup?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 76317
-wordpress_url: http://martin-thoma.com/?p=76317
 date: 2013-08-25 18:04:56.000000000 +02:00
 categories:
 - Mathematics
 tags:
 - mathematics
 - Algebra
-comments: []
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 Let $(G, \cdot)$ be a group and $X \lhd G$ and $Y \lhd G$ be two normal subgroups.

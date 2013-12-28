@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 12901
-wordpress_url: http://martin-thoma.com/?p=12901
 date: 2012-01-28 10:52:34.000000000 +01:00
 categories:
 - German posts
@@ -19,7 +12,6 @@ tags:
 - Chomsky hierarchy
 - Theoretical computer science
 - TGI
-comments: []
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Die folgende Tabelle gibt einen &Uuml;berblick &uuml;ber formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:

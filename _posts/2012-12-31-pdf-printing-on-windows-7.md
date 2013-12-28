@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: PDF-Printing on Windows 7
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 52851
-wordpress_url: http://martin-thoma.com/?p=52851
 date: 2012-12-31 17:23:10.000000000 +01:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - PDF
 - windowsrage
 - Windows 7
-comments: []
 featured_image: 2012/10/pdf-icon.png
 ---
 "Printing" files on PDF-printers is useful as you can save everything as a digital PDF file instead of printing it. 

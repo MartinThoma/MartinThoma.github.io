@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: E.i.d. Algebra und Zahlentheorie-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 64031
-wordpress_url: http://martin-thoma.com/?p=64031
 date: 2013-04-23 22:49:50.000000000 +02:00
 categories:
 - German posts
 tags:
 - Klausur
-comments: []
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Einf&uuml;hrung in die Algebra und Zahlentheorie&ldquo; (EAZ) am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. K&uuml;hnlein im Sommersemester 2013 geh&ouml;rt.</div>

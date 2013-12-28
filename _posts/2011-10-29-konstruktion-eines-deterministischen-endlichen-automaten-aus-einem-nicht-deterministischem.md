@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 8231
-wordpress_url: http://martin-thoma.com/?p=8231
 date: 2011-10-29 10:21:43.000000000 +02:00
 categories:
 - German posts
@@ -16,40 +9,6 @@ tags:
 - Computer science
 - Abstract machine
 - Theoretical computer science
-comments:
-- id: 49421
-  author: philipp
-  author_email: phlyer89@yahoo.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMi0xOSAxNTozMTozOSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0xOSAxMzozMTozOSArMDEwMA==
-  content: ! "Hey,\r\nbin gerade zuf&auml;llig auf Deine Seite gesto&szlig;en. Tolle
-    Arbeit.\r\n\r\nEine Frage zu obiger Thematik habe ich: Muss ich bei einem DEA
-    nicht noch den sog. \"Junk-Zustand\", der hier durch die leere Menge entsteht,
-    einbauen, dass ich f&uuml;r jede m&ouml;gliche Eingabe eine Zuordnung habe? \r\n\r\nFalls
-    ich das nicht muss, falsch es trotzdem zu machen ist es deshalb nicht oder?"
-- id: 49601
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wMi0xOSAyMDoyNDozMyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0xOSAxODoyNDozMyArMDEwMA==
-  content: ! "Hallo Philipp,\r\n\r\nden Junk-Zustand (oder auch Trash-Zustand genannt)
-    sollte man hinzuf&uuml;gen. In meinem Beispiel ist das die leere Menge. \r\n\r\nDa
-    man von dem Trash-Zustand nur wieder in den Trash-Zustand kommt, hatte ich ihn
-    weggelassen. Er wurde also implizit benutzt. Laut GBI soll man bei Endlichen Automaten
-    ja jede M&ouml;glichkeit explizit angeben. Im Zustand {q2} k&ouml;nnte noch a
-    gelesen werden. Von dort aus w&uuml;rde man im Trash-Zustand landen.\r\n\r\nIn
-    der Klausur sollte das unbedingt explizit stehen! Das w&auml;ren verschenkte Punkte!
-    \r\n\r\nAlso nochmals:\r\n1. In der Tabelle fehlt ganz rechts eine Spalte, in
-    der in jeder Zeile die leere Menge steht\r\n2. In dem Graphen fehlt ein Zustand,
-    der mit der leeren Menge bezeichnet wird und aus dem man nicht mehr heraus kommt.\r\n\r\nDanke
-    f&uuml;r den Hinweis!\r\n\r\nedit: Ich habe den Artikel nun verbessert, sodass
-    es nach der Definition aus GBI korrekt ist."
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 Der nicht-deterministische endliche Automat zu dem regul&auml;rem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Search Engine Autodiscovery
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 6771
-wordpress_url: http://martin-thoma.com/?p=6771
 date: 2011-10-22 11:12:07.000000000 +02:00
 categories:
 - Code
@@ -17,52 +10,6 @@ tags:
 - Firefox
 - Web Development
 - HTML5
-comments:
-- id: 122891
-  author: Phil Oertel
-  author_email: phillipao@gmail.com
-  author_url: http://philoertel.com
-  date: !binary |-
-    MjAxMi0wNS0wMiAwMTozNTozMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNS0wMSAyMzozNTozMiArMDIwMA==
-  content: ! "Thanks Martin, this is the only writing I was able to find on Chrome's
-    search engine discovery feature. Would you mind sharing how you were able to figure
-    out Chrome's behavior? A pointer to the source maybe? Or was this through trial
-    and error?\r\n\r\nI was surprised to see the limited conditions for Chrome discovery:
-    type=\"search\" or name=\"s\". I checked one of the search engines added to my
-    preferences and saw an . Might this pattern also trigger an add?\r\n\r\nOf course,
-    this is an open source browser and it's not worth speculating too much, but this
-    gets me close enough that it doesn't seem worth it to go spelunking in the Chromium
-    source. Thank you!"
-- id: 122991
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNS0wMiAwNjozNzoyNSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNS0wMiAwNDozNzoyNSArMDIwMA==
-  content: ! "Hi Phil,\r\n\r\ndie original source was (as I wrote in my post) Jan
-    Phillip. He wrote his post in German and I thought this might be interesting for
-    more people, so I've translated it. He found got to know this behaviour by trial
-    and error.\r\n\r\nIf you really want to find out more, you can check the source
-    (as you mentioned):\r\n\r\nCheckout of the Chromium repository:\r\n<source>svn
-    checkout http://chromium.googlecode.com/svn/trunk/ chromium-read-only</source>\r\nAfter
-    that you can grep through the source. Or you could use the <a href=\"http://code.google.com/p/chromium/source/search?q=search+engine+discovery&origq=search+engine+discovery&btnG=Search+Trunk\"
-    rel=\"nofollow\">online interface</a>.\r\n\r\nI was interested if I could
-    find the relevant pages in a couple of minutes (it worked :D). Here you are:\r\n*
-    <a href=\"http://code.google.com/searchframe#OAMlx_jo-ck/src/chrome/test/pyautolib/pyauto.py&exact_package=chromium&q=GetSearchEngineInfo&ct=rc&cd=1&sq=\"
-    rel=\"nofollow\">pyauto.py</a>: Take a look at GetSearchEngineInfo, AddSearchEngine\r\n*
-    <a href=\"http://code.google.com/searchframe#OAMlx_jo-ck/src/chrome/test/functional/search_engines.py&exact_package=chromium\"
-    rel=\"nofollow\">Testing</a>: This is probably not interesting for you, but
-    I would like to take a look at it later (now I have to get ready for University).
-    I got interested in automatic testing. (By the way: Thanks for pointing to PHPUnit
-    on your website. I'll definitely take a look at it. Do you know some good pages
-    with tutorials how to use it?)\r\n\r\nI've just read that you work at Google.
-    Its a little bit funny that I can tell you something about a Google product (I
-    know that Google is big and nobody can know all details of all projects of Google.
-    Nevertheless, it's funny :-) )"
 featured_image: 2011/10/firefox-add-search-engine-thumb.png
 ---
 Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically? 

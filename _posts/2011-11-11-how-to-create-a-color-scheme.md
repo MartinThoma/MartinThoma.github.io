@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to create a color scheme
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 8691
-wordpress_url: http://martin-thoma.com/?p=8691
 date: 2011-11-11 08:22:09.000000000 +01:00
 categories:
 - The Web
 tags:
 - Design
-comments: []
 featured_image: 2011/11/color-scheme-designer1.png
 ---
 Here are some nice online tools to create color schemes

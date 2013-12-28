@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Google Code Jam 2012 &ndash; Round 1C 2012
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 24081
-wordpress_url: http://martin-thoma.com/?p=24081
 date: 2012-05-06 14:03:54.000000000 +02:00
 categories:
 - Code
@@ -18,7 +11,6 @@ tags:
 - Google
 - Google Code Jam
 - competition
-comments: []
 featured_image: 2012/04/code-jam-logo.png
 ---
 4230 tried the first problem, but only 3189 people are listed in the <a href="http://code.google.com/codejam/contest/1781488/scoreboard?c=1781488">scoreboard</a>.

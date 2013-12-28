@@ -1,42 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to visualize Graph algorithms with LaTeX
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 24581
-wordpress_url: http://martin-thoma.com/?p=24581
 date: 2012-05-16 13:16:29.000000000 +02:00
 categories:
 - Code
 tags:
 - LaTeX
 - Tikz
-comments:
-- id: 134061
-  author: tom
-  author_email: tom.politfeed@gmail.com
-  author_url: http://tom.bradschetl.de
-  date: !binary |-
-    MjAxMi0wNS0xNiAxMzo0MzoyMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNS0xNiAxMTo0MzoyMiArMDIwMA==
-  content: ! "Du m&ouml;chtest bestimmt `\r\node (e) at (3,1) {% raw %}{$d$}{% endraw %};` korrigieren.
-    \r\n\r\nAnsonsten coole Sache. Werd ich mir mal bei Zeiten genauer ansehen."
-- id: 134201
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wNS0xNiAxNjo0MToxMiArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNS0xNiAxNDo0MToxMiArMDIwMA==
-  content: ! "Hallo Tom,\r\n\r\nnein, dass der node e die Bezeichnung \"d\" bekommt,
-    ist absicht. Ich wollte zeigen, dass hier durchaus doppelte Beschriftungen zugelassen
-    sind.\r\n\r\nMartin"
 featured_image: 2012/01/latex-logo.png
 ---
 Tkiz is a very powerful TeX package. You can easily create visualizations of graphs and graph algorithms (if you have a template ;-) ). This post should give you a template to visualize graph algorithms with LaTeX.

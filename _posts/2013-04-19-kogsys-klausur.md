@@ -1,74 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: KogSys-Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 63791
-wordpress_url: http://martin-thoma.com/?p=63791
 date: 2013-04-19 20:38:47.000000000 +02:00
 categories:
 - German posts
 tags:
 - Klausur
 - KogSys
-comments:
-- id: 1237796
-  author: Peter
-  author_email: Bla@bla.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0xMiAxOToxNzo0OCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0xMiAxNzoxNzo0OCArMDIwMA==
-  content: ! "nur damit sich andere nicht wundern. Die Klausur ist einst&uuml;ndig.
-    Vlt kannst du das nochmal &auml;ndern Martin. Danke!\r\n\r\nPS: gibts kein ANKIDroid
-    Deck f&uuml;r Kogsys?"
-- id: 1237798
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wOS0xMiAyMTo0NjozMyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0xMiAxOTo0NjozMyArMDIwMA==
-  content: ! "Hi Peter,\r\n\r\ndanke f&uuml;r den Hinweis! Ich habs verbessert.\r\n\r\nDoch,
-    es gibt ein Anki-Deck (siehe unter \"Material\"). Allerdings habe ich bisher noch
-    ein paar gr&ouml;&szlig;ere L&uuml;cken. Sobald sich die geschlossen haben, werde
-    ich das Deck auch aktualisieren.\r\n\r\nGr&uuml;&szlig;e,\r\nMartin"
-- id: 1237804
-  author: Alex
-  author_email: trunks123@gmx.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0xNSAwNjo1MDoxNSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0xNSAwNDo1MDoxNSArMDIwMA==
-  content: Danke f&uuml;r die &Uuml;bersicht :) Wie kommst du auf den Klausuraufbau?
-    Wurde das in der Vorlesung gesagt?
-- id: 1237806
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wOS0xNSAxMzo1Mjo1OSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0xNSAxMTo1Mjo1OSArMDIwMA==
-  content: ! "Hi Alex,\r\n\r\nder KLausuraufbau der alten Klausuren ist immer ungef&auml;hr
-    so. Das ist also nur eine Vermutung von mir.\r\n\r\nGr&uuml;&szlig;e,\r\nMartin"
-- id: 1237890
-  author: Klaus
-  author_email: Hannibal-GG@gmx.de
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0zMCAyMDo0ODoxOSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0zMCAxODo0ODoxOSArMDIwMA==
-  content: Hey, sind die Ergebnisse eigentlich inzwischen drausen? Wenn ja, kann ich
-    die irgendwie Online einsehen?
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Kognitive Systeme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Dr. Waibel im Sommersemester 2013 geh&ouml;rt.</div>

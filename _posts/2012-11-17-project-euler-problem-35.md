@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Project Euler: Problem 35'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 48831
-wordpress_url: http://martin-thoma.com/?p=48831
 date: 2012-11-17 13:23:01.000000000 +01:00
 categories:
 - Code
@@ -17,53 +10,6 @@ tags:
 - Python
 - Challenge
 - Project Euler
-comments:
-- id: 381271
-  author: Simon
-  author_email: simon.schaefer4@student.kit.edu
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMS0xNyAxNTo1ODozNiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0xNyAxMzo1ODozNiArMDEwMA==
-  content: ! "You forgot the most important optimization: filtering out all primes
-    containing even digits (that means about 96% less possibilities to check!).\r\n\r\nI'm
-    interested in seeing how much time you can save by applying this optimization."
-- id: 386411
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0xMS0xOCAxOTo0NDowOCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0xOCAxNzo0NDowOCArMDEwMA==
-  content: ! "Hi Simon,\r\n\r\nI don't think that this is \"the most important optimization\".
-    I've added it at the end (where it is easy to add), but the new code is only 0.2seconds
-    faster.\r\n\r\nMaybe you could get it a little bit faster if you rewrote the whole
-    code, but I don't think that the possible speed up of at most 1 second is worth
-    about 10 minutes of programming.\r\n\r\nCheers,\r\nMartin"
-- id: 391001
-  author: Simon
-  author_email: simon.schaefer4@student.kit.edu
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMS0xOSAxNjowNToyNyArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0xOSAxNDowNToyNyArMDEwMA==
-  content: ! "Maybe you can save some time by using something like\r\n\r\n  prime%10%2
-    == 0 or prime%10%5 == 0\r\n\r\ninstead of checking each searching each digit in
-    str(prime). But that is probably only some premature optimization and not useful
-    if one is not interested in the most efficient solution."
-- id: 445571
-  author: Tur1ng
-  author_email: none@example.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMS0yNSAyMDoyMzo0NCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0yNSAxODoyMzo0NCArMDEwMA==
-  content: ! "Change\r\nfor currentPrime in xrange(2, n):\r\nto\r\nfor currentPrime
-    in xrange(3, n, 2):"
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:

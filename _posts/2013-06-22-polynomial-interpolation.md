@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Polynomial interpolation
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 70651
-wordpress_url: http://martin-thoma.com/?p=70651
 date: 2013-06-22 18:41:43.000000000 +02:00
 categories:
 - Code
@@ -19,7 +12,6 @@ tags:
 - numerics
 - polynomial
 - canvas
-comments: []
 featured_image: 2013/06/polynom.png
 ---
 Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$. 

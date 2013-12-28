@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Project Euler: Problem 32'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 48721
-wordpress_url: http://martin-thoma.com/?p=48721
 date: 2012-11-13 11:52:12.000000000 +01:00
 categories:
 - Code
@@ -16,36 +9,6 @@ tags:
 - Challenge
 - Project Euler
 - brute-force
-comments:
-- id: 371511
-  author: Simon
-  author_email: simon.schaefer4@student.kit.edu
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMS0xMyAxNTo0MjoyOCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0xMyAxMzo0MjoyOCArMDEwMA==
-  content: ! "The problem with the one-liner is not that it is a one-liner but that
-    all intermediate results are inlined, where it would have been better to assign
-    them to meaningful names.\r\n\r\nI solved this problem once with Scala and it
-    would be possible to do it something like this:\r\n\r\nhttps://gist.github.com/4065631\r\n\r\nThe
-    result is completely unreadable - instead I decided to format it like this:\r\n\r\nhttps://gist.github.com/4065585\r\n\r\nWhich
-    is very readable in my opinion although there are no explicit loops and no mutable
-    state. I don't think it is cool to write one-liners - I think it is cool to write
-    code that could be one-liners when they are formatted different."
-- id: 371871
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0xMS0xMyAyMzowMTo1NSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMS0xMyAyMTowMTo1NSArMDEwMA==
-  content: ! "Well, a one-liner is naturally inlined ...\r\n\r\nBut I definitely agree
-    in every point you've mentioned:\r\n\r\n * You could solve this much shorter,
-    but still readable\r\n * Scipping intermediate results without very good documentation
-    and other reasons should not be done\r\n * Short, but readable code (sometimes
-    also called \"elegant solution\") is cool\r\n\r\nCheers,\r\nMartin"
 featured_image: 2012/04/leonhard-euler.jpg
 ---
 The task in Problem 32 of Project Euler is:

@@ -1,30 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: SWT I Klausur
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 37511
-wordpress_url: http://martin-thoma.com/?p=37511
 date: 2012-08-02 20:16:12.000000000 +02:00
 categories:
 - German posts
 tags:
 - SWT I
 - Klausur
-comments:
-- id: 187781
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wOC0wOSAxNDoxNjoyNCArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wOC0wOSAxMjoxNjoyNCArMDIwMA==
-  content: Die Klausurergebnisse sind nun online.
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 F&uuml;r die Klausur in Softwaretechnik I 2012 bei Herrn Prof. Dr. Tichy sollte man Folgendes auf jeden Fall wissen:

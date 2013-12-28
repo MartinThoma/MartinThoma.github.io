@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: SOPA protests
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 12391
-wordpress_url: http://martin-thoma.com/?p=12391
 date: 2012-01-18 08:29:42.000000000 +01:00
 categories:
 - The Web
 tags:
 - SOPA
 - protest
-comments: []
 featured_image: 2012/01/sopa.png
 ---
 Some of the biggest sites in the internet are currently calling US citizens up to protest. SOPA - the Stop Online Piracy Act - is endangering some key aspects of the internet.

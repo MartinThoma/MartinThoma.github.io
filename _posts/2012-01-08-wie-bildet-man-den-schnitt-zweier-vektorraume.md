@@ -1,33 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wie bildet man den Schnitt zweier Vektorr&auml;ume?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 11361
-wordpress_url: http://martin-thoma.com/?p=11361
 date: 2012-01-08 20:27:37.000000000 +01:00
 categories:
 - German posts
 tags:
 - mathematics
 - Linear algebra
-comments:
-- id: 1237791
-  author: vin
-  author_email: sys1down@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0xMSAxMjoyOTo0MSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0xMSAxMDoyOTo0MSArMDIwMA==
-  content: ! "Hey Martin,\r\ndu k&ouml;nntest noch beim Zassenhaus erw&auml;hnen das
-    nicht einfach das was unten rechts steht schnittbasis ist, sondern nur die zeilen
-    von unten rechts deren linke seite eine nullzeile ist. es kann ja dim (U1 Schnitt
-    U2) < dim (U2) sein.\r\n\r\nWenn ich das richtig verstanden hab ;)\r\n\r\nLG,\r\n\r\nvin"
 featured_image: 2012/01/vector-space.png
 ---
 <h2>Angaben</h2>

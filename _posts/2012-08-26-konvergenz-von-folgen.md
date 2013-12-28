@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Konvergenz von Folgen
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 41241
-wordpress_url: http://martin-thoma.com/?p=41241
 date: 2012-08-26 18:04:36.000000000 +02:00
 categories:
 - German posts
 tags:
 - analysis
-comments: []
 featured_image: 2012/08/limes-thumbnail.png
 ---
 <div class="definition">Sei $(a_n)$ eine Folge.

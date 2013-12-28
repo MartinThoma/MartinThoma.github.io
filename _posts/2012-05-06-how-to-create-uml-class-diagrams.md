@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to create UML class diagrams
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 24161
-wordpress_url: http://martin-thoma.com/?p=24161
 date: 2012-05-06 20:38:01.000000000 +02:00
 categories:
 - My bits and bytes
@@ -17,17 +10,6 @@ tags:
 - MetaUML
 - UML
 - Dia
-comments:
-- id: 126401
-  author: i42n
-  author_email: g@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNS0wNiAyMDo0NTozMSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNS0wNiAxODo0NTozMSArMDIwMA==
-  content: Wenn du die Dia Diagramme als svg exportierst und in ikscape ein pdf draus
-    machst, dann kannst du so beliebig skalierbarbin latex einbinden.
 featured_image: 2012/05/UML-thumb.png
 ---
 <h2>Dia</h2>

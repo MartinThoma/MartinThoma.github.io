@@ -1,49 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Komplexit&auml;tsklassen in der Informatik: Ein &Uuml;berblick'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 14361
-wordpress_url: http://martin-thoma.com/?p=14361
 date: 2012-02-16 15:51:04.000000000 +01:00
 categories:
 - German posts
 tags:
 - Theoretical computer science
-comments:
-- id: 49041
-  author: i42n
-  author_email: g@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wMi0xOCAxNzoxMjo1NSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0xOCAxNToxMjo1NSArMDEwMA==
-  content: ! "Ich glaube es solle Quellen statt Qullen hei&szlig;en ;)\r\n\r\nAnsonsten
-    danke f&uuml;r den Artikel!"
-- id: 49051
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0wMi0xOCAxNzoxNTo0MCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0wMi0xOCAxNToxNTo0MCArMDEwMA==
-  content: Danke f&uuml;r den Hinweis, ich habs korrigiert :-)
-- id: 1138401
-  author: pengpeng
-  author_email: pengpeng@pengpeng.peng
-  author_url: http://www.pengpeng.peng
-  date: !binary |-
-    MjAxMy0wMi0xNiAxNjozOTo0NCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMi0xNiAxNTozOTo0NCArMDEwMA==
-  content: huaptklausur 04/05, aufgabe 3d. sieht so aus, als wenn dtape sich auf
-    O(s(n)) bezieht oder? pengpeng!
 ---
 Komplexit&auml;tsklassen werden in der Theoretischen Informatik verwendet um den Ressourcenbedarf von Algorithmen bzw. Problemen einzuordnen. Meist betrachtet man die Laufzeit- und die Speicherplatzkomplexit&auml;t, aber es w&auml;re prinzipiell auf Vorstellbar, dass man andere Kriterien nutzt. Ich werde in diesem Artikel mal kurz die in der Vorlesung behandelten Klassen vorstellen.
 

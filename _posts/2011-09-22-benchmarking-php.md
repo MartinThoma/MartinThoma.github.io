@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Benchmarking PHP
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 1131
-wordpress_url: http://martin-thoma.com/?p=1131
 date: 2011-09-22 13:06:12.000000000 +02:00
 categories:
 - Code
@@ -16,7 +9,6 @@ tags:
 - PHP
 - Benchmark
 - Web Development
-comments: []
 featured_image: 2011/09/PHP-logo.png
 ---
 I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in. 

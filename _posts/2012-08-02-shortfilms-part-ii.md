@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Shortfilms, Part II
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 37621
-wordpress_url: http://martin-thoma.com/?p=37621
 date: 2012-08-02 23:59:53.000000000 +02:00
 categories:
 - The Web
@@ -16,7 +9,6 @@ tags:
 - Video
 - Vimeo
 - Shortfilm
-comments: []
 featured_image: 2012/08/electroshock.png
 ---
 <div class="info">Here is the first part "<a href="http://martin-thoma.com/shortfilms/">Shortfilms</a>".</div>

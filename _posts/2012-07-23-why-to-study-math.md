@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Why to study math?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 34671
-wordpress_url: http://martin-thoma.com/?p=34671
 date: 2012-07-23 01:14:24.000000000 +02:00
 categories:
 - Cyberculture
@@ -16,7 +9,6 @@ tags:
 - YouTube
 - Clip
 - mathematics
-comments: []
 featured_image: 2012/07/math-symbol-thumb.png
 ---
 <iframe width="512" height="288" src="http://www.youtube.com/embed/aYIv4jggQJc" frameborder="0" allowfullscreen></iframe>

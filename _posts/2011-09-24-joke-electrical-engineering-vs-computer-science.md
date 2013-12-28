@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Joke: Electrical Engineering vs. Computer Science'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 2061
-wordpress_url: http://martin-thoma.com/?p=2061
 date: 2011-09-24 22:29:05.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Joke
 - Object Orientation
 - Computer science
-comments: []
 featured_image: 2011/09/Nerd-Crossing.jpg
 ---
 [caption id="attachment_2071" align="alignright" width="128" caption="Nerd-Crossing"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Nerd-Crossing.jpg"><img class="size-full wp-image-2071" title="Nerd-Crossing" src="http://martin-thoma.com/wp-content/uploads/2011/09/Nerd-Crossing.jpg" alt="Nerd-Crossing" width="128" height="127" /></a>[/caption]

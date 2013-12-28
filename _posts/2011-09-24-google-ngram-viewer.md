@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Google Ngram Viewer
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 1951
-wordpress_url: http://martin-thoma.com/?p=1951
 date: 2011-09-24 19:02:34.000000000 +02:00
 categories:
 - The Web
@@ -17,7 +10,6 @@ tags:
 - Data
 - Information
 - Visualization
-comments: []
 featured_image: 2011/09/NGram-Viewer.png
 ---
 On October 14, 2010 Google announced that the number of scanned books is over 15 million. They did not simply scan those books, but they digitalized them. They can access not only image files, but the actual text. This allowes Google to search in those books and to analyse the information.

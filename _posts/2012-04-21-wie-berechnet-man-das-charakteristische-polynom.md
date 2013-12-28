@@ -1,18 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wie berechnet man das charakteristische Polynom?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-excerpt: ! "Will man das charakteristische Polynom einer Abbildungsmatrix berechnen,
-  so muss man zuerst sicher im Umgang mit Determinanten sein.\r\n\r\n<h2>Rechenregeln
-  f&uuml;r Determinanten</h2>\r\nMan darf eine <strong>Zeile mit einer Konstanten
-  a multiplizieren</strong>, muss dann aber die Determinante durch a teilen:\r\n"
-wordpress_id: 22721
-wordpress_url: http://martin-thoma.com/?p=22721
 date: 2012-04-21 13:41:39.000000000 +02:00
 categories:
 - German posts
@@ -21,7 +10,6 @@ tags:
 - mathematics
 - lecture-notes
 - Linear algebra
-comments: []
 featured_image: 2012/04/determinante.png
 ---
 Will man das charakteristische Polynom einer Abbildungsmatrix berechnen, so muss man zuerst sicher im Umgang mit Determinanten sein.

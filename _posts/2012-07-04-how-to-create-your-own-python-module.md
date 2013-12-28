@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to create your own Python module
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 26491
-wordpress_url: http://martin-thoma.com/?p=26491
 date: 2012-07-04 16:11:54.000000000 +02:00
 categories:
 - Code
 tags:
 - Python
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 A python module is a container for some definitions and statements. You generally call it like this:

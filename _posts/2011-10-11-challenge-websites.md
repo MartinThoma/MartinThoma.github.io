@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Challenge Websites
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 2321
-wordpress_url: http://martin-thoma.com/?p=2321
 date: 2011-10-11 21:57:21.000000000 +02:00
 categories:
 - Cyberculture
@@ -18,7 +11,6 @@ tags:
 - Hacker
 - IT-Security
 - Project Euler
-comments: []
 featured_image: 2011/09/Hacker.png
 ---
 Challenge websites are websites which offer many tasks to solve and a ranking system. If you solve the challenges, you get points and your rank increases. You don't get anything else. No money, no price. Only the knowledge and the ranking. Which is enough in my opinion. It might sound strange to others, but its fun to try to find the error in an application or to try to get better than others.

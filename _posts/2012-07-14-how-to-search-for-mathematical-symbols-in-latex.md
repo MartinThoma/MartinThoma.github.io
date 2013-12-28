@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to search for mathematical symbols in LaTeX
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 31461
-wordpress_url: http://martin-thoma.com/?p=31461
 date: 2012-07-14 19:00:44.000000000 +02:00
 categories:
 - My bits and bytes
 tags:
 - mathematics
 - LaTeX
-comments: []
 featured_image: 2012/01/latex-logo.png
 ---
 <h2>Detexify</h2>

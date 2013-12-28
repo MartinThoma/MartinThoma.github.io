@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'PHP: A strange language'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 21851
-wordpress_url: http://martin-thoma.com/?p=21851
 date: 2012-04-12 16:24:32.000000000 +02:00
 categories:
 - Code
 tags:
 - Programming
 - PHP
-comments: []
 featured_image: 2011/10/PHP-logo.png
 ---
 <h2>Inconsistency</h2>

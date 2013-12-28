@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Python Puzzle #2: None and False'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 34931
-wordpress_url: http://martin-thoma.com/?p=34931
 date: 2012-08-01 17:00:55.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Python
 - puzzle
 - boolean expression
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 Python automatically casts to boolean if you use another type of variable for a boolean expression.

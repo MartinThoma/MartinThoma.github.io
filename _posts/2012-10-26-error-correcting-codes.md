@@ -1,55 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Error correcting Codes
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 47471
-wordpress_url: http://martin-thoma.com/?p=47471
 date: 2012-10-26 22:29:51.000000000 +02:00
 categories:
 - My bits and bytes
 tags:
 - mathematics
 - coding theory
-comments:
-- id: 353581
-  author: Keba
-  author_email: why@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMC0zMSAxOTo1Njo0NSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0zMSAxNzo1Njo0NSArMDEwMA==
-  content: ! "You&lsquo;re bad at googling: \r\n\r\nEnglish Wikipedia: http://en.wikipedia.org/wiki/Hamming_code#Construction_of_G_and_H
-    &ndash; \r\nGerman Wikipedia: http://en.wikipedia.org/wiki/Hamming_code#Construction_of_G_and_H\r\n\r\nWhat
-    the hack did you type into the google search field? ;)\r\n\r\nNevertheless, thanks
-    for the article. Though I&lsquo;m not (yet) an Informatics student, it&lsquo;s
-    an interesting topic. :)\r\n\r\nRegards, Keba"
-- id: 353591
-  author: Keba
-  author_email: why@web.de
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMC0zMSAxOTo1NzoyOSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0zMSAxNzo1NzoyOSArMDEwMA==
-  content: ! 'Nah, and I&lsquo;m bad at copy-pasting. Link to German Wikipedia: http://de.wikipedia.org/wiki/Hamming-Code#Linearit.C3.A4t'
-- id: 353601
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMi0xMC0zMSAyMDoxOTo0MiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMC0zMSAxODoxOTo0MiArMDEwMA==
-  content: ! "Hi Keba,\r\n\r\nI did read this article, but I don't think it really
-    answers the question how the matrix G can be obtained.\r\nIf you understood how
-    to generate the matrix G, could you tell me how it would look like for a (15,
-    2048, 3)-Hamming Code?\r\n\r\nCheers,\r\nMartin"
 ---
 <div class="info">This blogpost is strongly related to <a href="http://page.math.tu-berlin.de/~felsner/DMSWe/Aufgaben/codes.pdf">this germand PDF</a> of a pupils' competition in which I have participated in 2008.</div>
 

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Google Code Jam &ndash; Round 1A 2013
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 64521
-wordpress_url: http://martin-thoma.com/?p=64521
 date: 2013-04-27 07:15:17.000000000 +02:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Google Code Jam
 - NumPy
 - itertools
-comments: []
 featured_image: 2012/04/code-jam-logo.png
 ---
 <ul>

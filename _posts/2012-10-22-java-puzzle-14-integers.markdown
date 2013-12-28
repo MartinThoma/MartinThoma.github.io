@@ -1,19 +1,11 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Java Puzzle #14: Integers'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 47201
-wordpress_url: http://martin-thoma.com/?p=47201
 date: 2012-10-22 12:00:44.000000000 +02:00
 categories:
 - Code
 tags: []
-comments: []
 ---
 What is the output of the following script?
 

@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: How to draw a finite-state machine
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 8091
-wordpress_url: http://martin-thoma.com/?p=8091
 date: 2011-10-29 09:37:50.000000000 +02:00
 categories:
 - My bits and bytes
@@ -17,38 +10,6 @@ tags:
 - LaTeX
 - Abstract machine
 - Tikz
-comments:
-- id: 24341
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMS0xMi0yOSAwOToxNDozNiArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMi0yOSAwNzoxNDozNiArMDEwMA==
-  content: You can draw finite state machines directly in LaTeX with <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/"
-    rel="nofollow">tikz</a>.
-- id: 128951
-  author: hannes
-  author_email: saggamawuat@googlemail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNS0xMCAxMToyNzowNyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNS0xMCAwOToyNzowNyArMDIwMA==
-  content: Thank you very much for this tutorial. I have been searching for something
-    like this since i began my computer science studies in '09. Greetings from Germany!
-    :)
-- id: 1237979
-  author: Kevin Cohen
-  author_email: kevin.cohen@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0xMC0yMCAxNzozMjo1NSArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0xMC0yMCAxNTozMjo1NSArMDIwMA==
-  content: Thanks for getting me started with this!  I would not have guessed that
-    it could be so easy to build an FSM in LaTeX.
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).

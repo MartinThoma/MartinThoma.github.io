@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Add a new font to ImageMagick
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 59671
-wordpress_url: http://martin-thoma.com/?p=59671
 date: 2013-03-06 23:15:26.000000000 +01:00
 categories:
 - Cyberculture
 tags:
 - ImageMagick
-comments: []
 featured_image: 2013/03/Imagemagick-logo.png
 ---
 You can list all fonts that are known to ImageMagick by <code>identify -list font</code>. When your font isn't there, but it is installed, you might want to try these steps:

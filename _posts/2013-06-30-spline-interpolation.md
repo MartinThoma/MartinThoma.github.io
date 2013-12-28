@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Spline interpolation
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 71961
-wordpress_url: http://martin-thoma.com/?p=71961
 date: 2013-06-30 13:58:20.000000000 +02:00
 categories:
 - Code
 tags:
 - numerics
-comments: []
 featured_image: 2013/06/spline-thumb.png
 ---
 Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x_i, y_i)$ with $x_0 < x_1 < \dots < x_n$. 

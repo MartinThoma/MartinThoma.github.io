@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Game: Z-Type'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 3301
-wordpress_url: http://martin-thoma.com/?p=3301
 date: 2011-10-01 10:36:41.000000000 +02:00
 categories:
 - The Web
 tags:
 - learning
 - JavaScript Game
-comments: []
 featured_image: 2011/10/z-type-168x300.png
 ---
 {% caption align="aligncenter" width="168" caption="Z-Type" url="../images/2011/10/z-type-168x300.png" alt="Z-Type" title="Z-Type" height="300" class="size-medium wp-image-3311" %}

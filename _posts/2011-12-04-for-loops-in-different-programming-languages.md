@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: for loops in different programming languages
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 9181
-wordpress_url: http://martin-thoma.com/?p=9181
 date: 2011-12-04 11:19:54.000000000 +01:00
 categories:
 - Code
 tags:
 - Programming
 - learning
-comments: []
 featured_image: 2011/11/for-loop.png
 ---
 If you have to learn a new programming language it is most of the time quite easy. You know the structures and the way you have to think if you want to solve a problem. The first time it might be hard, but the more languages you learn the more simmilarities you'll recognize.

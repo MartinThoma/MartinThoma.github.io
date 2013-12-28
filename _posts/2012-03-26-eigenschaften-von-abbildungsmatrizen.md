@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Eigenschaften von Abbildungsmatrizen
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 13981
-wordpress_url: http://martin-thoma.com/?p=13981
 date: 2012-03-26 17:30:44.000000000 +02:00
 categories:
 - German posts
@@ -16,7 +9,6 @@ tags:
 - mathematics
 - Linear algebra
 - Matrix
-comments: []
 featured_image: 2012/03/Matrix-Inverses.png
 ---
 Eine Abbildungsmatrix beschreibt eine lineare Abbildungs zwischen zwei endlichdimensionalen Vektorr&auml;umen. Sie ist abh&auml;ngig von der Basis des Urraums und des Zielraumes.

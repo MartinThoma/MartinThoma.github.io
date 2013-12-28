@@ -1,12 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Sets in C++
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
 date: 2012-05-28 12:08:58.000000000 +02:00
 categories:
 - Code

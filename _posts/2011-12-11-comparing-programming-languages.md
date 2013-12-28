@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Comparing programming languages
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 9791
-wordpress_url: http://martin-thoma.com/?p=9791
 date: 2011-12-11 11:50:59.000000000 +01:00
 categories:
 - Code
 tags:
 - Programming
-comments: []
 featured_image: 2011/12/compare-programming-languages.png
 ---
 [caption id="attachment_9801" align="alignright" width="128" caption="Compare programming languages"]<a href="http://martin-thoma.com/wp-content/uploads/2011/12/compare-programming-languages.png"><img class="size-full wp-image-9801 " title="Compare programming languages" src="http://martin-thoma.com/wp-content/uploads/2011/12/compare-programming-languages.png" alt="Compare programming languages" width="128" height="128" /></a>[/caption]

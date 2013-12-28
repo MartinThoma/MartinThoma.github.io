@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wie f&uuml;hre ich einen sauberen Beweis?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 7221
-wordpress_url: http://martin-thoma.com/?p=7221
 date: 2011-10-23 13:07:29.000000000 +02:00
 categories:
 - German posts
@@ -16,7 +9,6 @@ tags:
 - mathematics
 - lecture-notes
 - proof
-comments: []
 featured_image: 2011/10/eulers-formula.png
 ---
 In der Mathematik spielen Beweise eine zentrale Rolle. Es gibt verschiedene Beweisarten, aber im folgenden will ich nur einen direkten Beweis f&uuml;hren. Dieses Beispiel wurde in der &Uuml;bung zu Analysis I von Herrn Bolleyer gemacht.

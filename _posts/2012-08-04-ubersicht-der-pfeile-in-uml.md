@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! '&Uuml;bersicht der Pfeile in UML'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 32831
-wordpress_url: http://martin-thoma.com/?p=32831
 date: 2012-08-04 09:23:29.000000000 +02:00
 categories:
 - German posts
 tags:
 - SWT I
 - UML
-comments: []
 featured_image: 2012/05/UML-thumb.png
 ---
 Folgende Pfeile werden in UML verwendet:

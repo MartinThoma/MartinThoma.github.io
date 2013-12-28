@@ -1,18 +1,10 @@
 ---
 layout: page
-status: publish
-published: true
 title: About Me
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 41
-wordpress_url: http://martin-thoma.com/?page_id=41
 date: 2011-09-21 18:35:30.000000000 +02:00
 categories: []
 tags: []
-comments: []
 context: about
 ---
 

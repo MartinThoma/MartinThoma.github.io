@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: TI-Klausur (DT & RO)
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 55191
-wordpress_url: http://martin-thoma.com/?p=55191
 date: 2013-01-28 00:25:14.000000000 +01:00
 categories:
 - German posts

@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'Game: Marble Run'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 7171
-wordpress_url: http://martin-thoma.com/?p=7171
 date: 2011-10-23 08:41:58.000000000 +02:00
 categories:
 - The Web
 tags:
 - JavaScript Game
-comments: []
 featured_image: 2011/10/marblerun-thumb.png
 ---
 {% caption align="alignleft" width="584" caption="Marble Run" url="../images/2011/10/marblerun.png" alt="Marble Run" title="Marble Run" height="558" class="size-full wp-image-7181" %}

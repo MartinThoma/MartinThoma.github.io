@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Community Chess
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 6431
-wordpress_url: http://martin-thoma.com/?p=6431
 date: 2011-10-19 12:30:01.000000000 +02:00
 categories:
 - The Web
@@ -17,7 +10,6 @@ tags:
 - OpenSource
 - community-chess
 - project
-comments: []
 featured_image: 2011/10/logo.png
 ---
 Community Chess is one of my projects. I can make something usefull and play a bit.

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Kellerautomat
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 14751
-wordpress_url: http://martin-thoma.com/?p=14751
 date: 2012-02-17 20:17:01.000000000 +01:00
 categories:
 - German posts
 tags:
 - Abstract machine
 - Theoretical computer science
-comments: []
 ---
 Ein Kellerautomat ist ein Endlicher Automat mit einem Stack ("Kellerspeicher"). Er wird mit PDA (pushdown automaton) bzw. NPDA (nondeterministic pushdown automaton) abgek&uuml;rzt. 
 

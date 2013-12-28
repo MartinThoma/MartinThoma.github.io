@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Einf&uuml;hrung in die Stochastik
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 5691
-wordpress_url: http://martin-thoma.com/?p=5691
 date: 2011-10-17 21:19:55.000000000 +02:00
 categories:
 - German posts
@@ -17,7 +10,6 @@ tags:
 - mathematics
 - Stochastic
 - lecture-notes
-comments: []
 ---
 In diesem Artikel werde ich ein paar einfache Definitionen, die f&uuml;r die Stochastik wichtig sind, einf&uuml;hren.
 <h2>Basisdefinitionen bei Zufallsexperimenten</h2>

@@ -1,21 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: 31. BwInf - Runde 1, Aufgabe 2
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 46841
-wordpress_url: http://martin-thoma.com/?p=46841
 date: 2012-12-12 12:12:58.000000000 +01:00
 categories:
 - German posts
 tags:
 - BwInf
 - GLPK
-comments: []
 featured_image: 2012/09/bwinf-thumb.png
 ---
 <h2>Die Aufgabenstellung</h2>

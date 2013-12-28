@@ -1,25 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: Wie berechne ich das multiplikativ Inverse einer komplexen Zahl?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-excerpt: ! "Im Folgenden werde ich kurz und b&uuml;ndig erkl&auml;ren, wie man das
-  multiplikativ Inverse einer komplexen Zahl berechnet.\r\n\r\n<h2>Beispiel</h2>\r\nBerechne
-  das multiplikativ Inverse zur komplexen Zahl $(\\frac{1}{10} + \\frac{1}{5}i)$.\r\n\r\nDas
-  Ergebnis ist von der Form $(c + di) \\in \\mathbb{C}$.\r\nEs muss
-  folgende Gleichung erf&uuml;llen:\r\n"
-wordpress_id: 20591
-wordpress_url: http://martin-thoma.com/?p=20591
 date: 2012-04-04 16:57:06.000000000 +02:00
 categories:
 - German posts
 tags:
 - Complex number
-comments: []
 ---
 Im Folgenden werde ich kurz und b&uuml;ndig erkl&auml;ren, wie man das multiplikativ Inverse einer komplexen Zahl berechnet.
 

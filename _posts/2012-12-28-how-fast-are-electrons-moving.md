@@ -1,44 +1,11 @@
 ---
 layout: post
-status: publish
-published: true
 title: How fast are electrons moving?
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 51981
-wordpress_url: http://martin-thoma.com/?p=51981
 date: 2012-12-28 07:04:47.000000000 +01:00
 categories:
 - Cyberculture
 tags: []
-comments:
-- id: 754021
-  author: Keba
-  author_email: mariofuest@aol.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0xMi0yOCAyMjo1Mzo0NSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMi0xMi0yOCAyMTo1Mzo0NSArMDEwMA==
-  content: ! "> Hmm &hellip; seems to be very slow. Is my calculation correct?\r\n\r\nI
-    don&lsquo;t know the \"v = &hellip;\" formula (but it makes sense, if my \"classical
-    Physic approach below is usable here), but the calculation seems correct to me.
-    You realise that less free electrons *increase* the speed of the electrons (if
-    we keep I the same, i. e. \"put some more Volt in\")? So in copper each electron
-    moves (accordiung to you) very slow, but as there are so many electrons the effects
-    (-> move next electron) are faster.\r\n\r\nThat&lsquo;s not how you do Physics,
-    but assume a pile with lots of balls. You put some energy to the first ball and
-    \"instantly\" the last ball pops out of the pile. The speed of each ball is rather
-    slow.\r\n\r\nNow put only 10% of the balls in another, similar pile. To keep the
-    \"output rate of balls per time, ie. I) intact, use more power to push the first
-    ball. It hits the second ball, which hits the third&hellip; As the angular momentum
-    keeps the same all the time (no friction&hellip;), all balls have the same &ndash;
-    higher &ndash; speed.\r\n\r\nSo do the same calculation with air &ndash; and you
-    get greater speeds. ;)\r\n\r\nIf we keep A the same all the time, maybe the speed
-    is always the same then? Ie. are I and Q proportional?\r\n\r\nRegards, *not* a
-    Physic student, Keba."
 featured_image: 2012/12/atom-electron-bohr1.png
 ---
 I've recently learned something about electric circuits. The ideal model of circuits does ignore that electrons actually need time to pass the components of the circuit. So we introduced the "dead time model". So we added a model component for each real component that does only delay the incoming signal. But I've wondered if dead time of a cable wasn't important, too. So I thought the question would be <em>How fast are electrons moving in a cable?</em>, but I just realized that the question is <em>How fast does a signal move in a wire?</em>.

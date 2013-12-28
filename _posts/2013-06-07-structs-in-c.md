@@ -1,37 +1,13 @@
 ---
 layout: post
-status: publish
-published: true
 title: Structs in C++
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 69661
-wordpress_url: http://martin-thoma.com/?p=69661
 date: 2013-06-07 16:25:18.000000000 +02:00
 categories:
 - Code
 tags:
 - CPP
 - struct
-comments:
-- id: 1211491
-  author: Rene Pickhardt
-  author_email: r.pickhardt@gmail.com
-  author_url: http://www.rene-pickhardt.de
-  date: !binary |-
-    MjAxMy0wNi0xNCAxMjo1Mzo0MyArMDIwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNi0xNCAxMDo1Mzo0MyArMDIwMA==
-  content: ! "I would say that structs are basically the same as classes only the
-    standard data hiding is different. \r\nWhere in classes fields are private by
-    standard in structs they are public. At least this is what I remember from my
-    C++ class in high school. \r\n\r\nIf structs and classes are compiled differently
-    to machine could is something that I would be interested in but doing a google
-    search on the differences of structs and classes I could only find this stack
-    overflow discussion http://stackoverflow.com/questions/92859/what-are-the-differences-between-struct-and-class-in-c
-    which is basically stating what I already mentioned in the comment."
 featured_image: 2012/05/CPP-thumb.png
 ---
 I guess this article isn't very interesting, except if you have VERY little experience with C / C++. I only give some complete code examples. If you want some text, you could read <a href="http://en.wikibooks.org/wiki/C%2B%2B_Programming/Structures">C++ Programming/Structures</a> (a wikibook).

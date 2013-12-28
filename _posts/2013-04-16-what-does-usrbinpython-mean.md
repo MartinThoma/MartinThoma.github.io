@@ -1,20 +1,12 @@
 ---
 layout: post
-status: publish
-published: true
 title: ! 'What does #!/usr/bin/python mean?'
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 63591
-wordpress_url: http://martin-thoma.com/?p=63591
 date: 2013-04-16 18:23:17.000000000 +02:00
 categories:
 - Code
 tags:
 - Python
-comments: []
 featured_image: 2011/09/Python-Logo.png
 ---
 You've probably already seen one of the following lines:

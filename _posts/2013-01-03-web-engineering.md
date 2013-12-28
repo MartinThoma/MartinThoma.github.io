@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Web Engineering
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 53111
-wordpress_url: http://martin-thoma.com/?p=53111
 date: 2013-01-03 13:57:06.000000000 +01:00
 categories:
 - The Web
@@ -16,32 +9,6 @@ categories:
 tags:
 - Web Development
 - Klausur
-comments:
-- id: 1129771
-  author: Ivaylo Yanev
-  author_email: uxlx@student.kit.edu
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wMS0yNyAxMTo1NjowOCArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMS0yNyAxMDo1NjowOCArMDEwMA==
-  content: ! "Hi Martin,\r\n\r\nwei&szlig;t du zuf&auml;llig das Passwort f&uuml;r
-    die Vorlesung Webengineering bei Nussbaumer im WS12/13, wenn du die Pr&uuml;fung
-    in dreieinhalb Wochen pr&uuml;fen willst.\r\nKannst du mir bitte das per Email
-    schicken.\r\n\r\nVielen Dank im Voraus!\r\nMit freundlichen Gr&uuml;ssen,\r\nIvaylo
-    Yanev"
-- id: 1130231
-  author: Martin Thoma
-  author_email: info@martin-thoma.de
-  author_url: http://www.martin-thoma.com
-  date: !binary |-
-    MjAxMy0wMS0yOCAwMDowNjowMSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMS0yNyAyMzowNjowMSArMDEwMA==
-  content: ! "Hallo Ivaylo,\r\n\r\ndie Unterlagen sind im <a href=\"https://studium.kit.edu/sites/vab/0x20897EEAEB96104D9AF4B7FD1BEBAFBB/Start/homepage.aspx\"
-    rel=\"nofollow\">VAB</a>. Das Passwort dort wird nur einmal verlangt und ich
-    wei&szlig; es nicht mehr. Eventuell kannst du direkt bei <a href=\"http://www.scc.kit.edu/personen/martin.nussbaumer.php\"
-    rel=\"nofollow\">Dr. Nussbaumer</a> nachfragen.\r\n\r\nGr&uuml;&szlig;e,\r\nMartin"
 featured_image: 2012/07/web-graph-thumb.jpg
 ---
 <div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Web Engineering&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe Web Engineering bei Dr. Nussbaumer geh&ouml;rt.</div>

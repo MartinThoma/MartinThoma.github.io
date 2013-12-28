@@ -1,14 +1,7 @@
 ---
 layout: post
-status: publish
-published: true
 title: Basic Multithreading in Java
 author: Martin Thoma
-author_login: moose
-author_email: info@martin-thoma.de
-author_url: http://www.martin-thoma.com
-wordpress_id: 56011
-wordpress_url: http://martin-thoma.com/?p=56011
 date: 2013-02-04 00:44:11.000000000 +01:00
 categories:
 - Code
@@ -17,7 +10,6 @@ tags:
 - Java
 - Operating Systems
 - Multithreading
-comments: []
 featured_image: 2013/02/multithreading.png
 ---
 A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.
