@@ -10,19 +10,6 @@ tags:
 - Operating Systems
 - TLB
 - Cache
--------------------------\r\n\r\nzu
-    n-Way Set Associative Cache: In Deinem Beispiel hast Du eine Adresse x in x_tag
-    | x_index | x_blockoffset zerlegt. Das Set wird durch x_index angegeben, der Bitanzahl
-    entsprechend gew&auml;hlt ist.\r\n\r\nViele Gr&uuml;&szlig;e, Alex"
-- id: 1131901
-  author: Funkenstrahlen
-  author_email: mail@funkenstrahlen.de
-  author_url: http://www.funkenstrahlen.de
-  date: !binary |-
-    MjAxMy0wMi0wMiAxNzo0MTo0OSArMDEwMA==
-  date_gmt: !binary |-
-    MjAxMy0wMi0wMiAxNjo0MTo0OSArMDEwMA==
-  content: ! 'Ich habe zu dem Thema vor einiger Zeit auch mal was geschrieben: http://funkenstrahlen.de/blog/2012/03/21/speichermagie/'
 ---
 <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per Email an info@martin-thoma.de oder direkt als Kommentar).</div>
 
