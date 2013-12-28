@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*
 
 import sys, re
@@ -31,16 +31,6 @@ def parseCaptions(content):
     [caption id="attachment_76716" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full wp-image-76716" /></a> WER calculation[/caption]
 
     to
-
-
-    <div style="width: 510px" class="wp-caption aligncenter">
-        <a href="../images/2013/11/WER-calculation.png">
-            <img src="../images/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full">
-        </a>
-        <p class="wp-caption-text">WER calculation</p>
-    </div>
-
-    or
 
     {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
     """
@@ -83,16 +73,18 @@ def pageCodeConversion(filename):
     with open(filename, 'w') as f:
         f.write(content)
 
-def getYamml(content):
-    return content.split("---")
+def getYaml(content):
+    tmp, yaml, *content = content.split("---") #here you need python3
+    content = "---".joint(content)
+    return (yaml, content)
 
-def findFeaturedImage(website):
+def featuredImage(website, content):
     post2image = {}
     # Get all featured image urls connected to posts
     import urllib2
     from bs4 import BeautifulSoup
 
-    """
+    # Parse Website for images
     while website:
         response = urllib2.urlopen(website)
         html = response.read()
@@ -103,7 +95,7 @@ def findFeaturedImage(website):
                 imgsrc = img['src'].split("uploads/")[1]
 
                 a = entry.find("a", "readmore")
-                post = a['href'][len("http://martin-thoma.com/"):-1]
+                post = a['href'][len(website):-1]
 
                 post2image[post] = imgsrc
 
@@ -115,50 +107,92 @@ def findFeaturedImage(website):
         else:
             website = None
         print(website)
-    """
 
+    yaml, content = getYaml(content)
+    hasFeaturedImage = False
+
+    for i, line in enumerate(yaml.split("\n")):
+        if ":" in line:
+            if line.startswith("featured_image"):
+                hasFeaturedImage = True
+                break
+            if line.startswith("comment"):
+                commentline = i
+
+    if not hasFeaturedImage:
+        mdfilename = filename[len("./_posts/2013-11-18-"):-len(".markdown")]
+        if mdfilename not in post2image:
+            print("w warning: %s might not have a featured image." % mdfilename)
+        else:
+            print("# success: %s" % mdfilename)
+            imgsrc = post2image[mdfilename]
+            newsrc = "---" + yamml + "featured_image: "+imgsrc+"\n" + "---" + content
+            with open(filename, 'w') as f:
+                f.write(newsrc)
+    else:
+        print("x info: %s has already a featured image" % filename)
+
+def changeYaml(content):
+    tmp, yaml, *contentArray = content.split("---")
+    newContent = "---\n"
+    isComment = False
+    isTagOrCat = False
+    for line in yaml.split("\n"):
+        if line.startswith("layout:") or \
+            line.startswith("title:") or \
+            line.startswith("author:") or \
+            line.startswith("date:") or \
+            line.startswith("featured_image:"):
+            newContent += line + "\n"
+            isComment = False
+            isTagOrCat = False
+        elif line.startswith("status:") or \
+            line.startswith("published:") or \
+            line.startswith("author_login:") or \
+            line.startswith("author_email:") or \
+            line.startswith("author_url:") or \
+            line.startswith("wordpress_id:") or \
+            line.startswith("wordpress_url:") or \
+            line.startswith("published:"):
+            isComment = False
+            isTagOrCat = False
+            pass#ignore those lines (that means: delete them!)
+        elif line.startswith("comments:"):
+            isComment = True
+        elif line.startswith("tags:"):
+            newContent += line + "\n"
+            isTagOrCat = True
+        elif line.startswith("categories:"):
+            newContent += line + "\n"
+            isTagOrCat = True
+        elif line.startswith("-") and isComment:
+            pass
+        elif line.startswith("-") and isTagOrCat:
+            newContent += line + "\n"
+        else:
+            print(line)
+    newContent += "---"
+    newContent += "---".join(contentArray)
+    return newContent
+
+def forEveryPost(website, operation, development=True):
     from os import listdir
     directory = "./_posts/"
-    files = listdir(directory)
+    files = sorted(listdir(directory))
     for f in files:
         filename = directory+f
 
-        #with open(filename) as f:
-        #    content = f.read()
+        with open(filename) as f:
+            content = f.read()
+        newContent = operation(content)
 
-        #yamml = getYamml(content)
-        #if len(yamml) != 3:
-        #    print("There seems to be --- inside of post '%s'. Please fix it!" % filename)
-        #    continue
-
-        #yamml, content = yamml[1], yamml[2]
-        #hasFeaturedImage = False
-        """
-        for i, line in enumerate(yamml.split("\n")):
-            if ":" in line:
-                if line.startswith("featured_image"):
-                    hasFeaturedImage = True
-                    break
-                if line.startswith("comment"):
-                    commentline = i
-
-        if not hasFeaturedImage:
-            mdfilename = filename[len("./_posts/2013-11-18-"):-len(".markdown")]
-            if mdfilename not in post2image:
-                print("w warning: %s might not have a featured image." % mdfilename)
-            else:
-                print("# success: %s" % mdfilename)
-                imgsrc = post2image[mdfilename]
-                newsrc = "---" + yamml + "featured_image: "+imgsrc+"\n" + "---" + content
-                with open(filename, 'w') as f:
-                    f.write(newsrc)
+        print(filename)
+        if not development:
+            with open(filename, 'w') as f:
+                f.write(newContent)
         else:
-            print("x info: %s has already a featured image" % filename)
-        """
-        print filename
-        pageCodeConversion(filename)
-
-
+            #print(newContent)
+            print("#"*80)
 
 if __name__ == "__main__":
     """
@@ -174,5 +208,5 @@ if __name__ == "__main__":
     """
 
     # improve things
-    findFeaturedImage("http://martin-thoma.com/")
+    forEveryPost("http://martin-thoma.com/", changeYaml, False)
     
