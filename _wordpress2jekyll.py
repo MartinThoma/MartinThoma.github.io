@@ -26,7 +26,7 @@ def re_sub(pattern, replacement, string):
 	
 	return re.sub(pattern, _r, string)
 
-def parseCaptions(content):
+def parseCaptions(page):
     """
     [caption id="attachment_76716" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full wp-image-76716" /></a> WER calculation[/caption]
 
@@ -34,6 +34,9 @@ def parseCaptions(content):
 
     {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
     """
+    yaml, content = getYaml(page)
+
+
     import re
 
     pattern = '\[caption(.*?)align="(?P<align>.*?)"(.*?)(caption="(?P<caption>.*?)")?(.*?)\]' + \
@@ -55,11 +58,10 @@ def parseCaptions(content):
 
     content = re_sub(pattern, '{% caption align="\g<align>" width="\g<width>" caption="\g<caption>\g<text>" url="../images/\g<innerurl>" alt="\g<alt>" title="\g<title>" height="\g<height>" class="\g<imgclass>" %}', content)
 
-    return content
+    return "---" + yaml + "---" + content
 
-def pageCodeConversion(filename):
-    with open(filename) as f:
-        content = f.read()
+def pageCodeConversion(page):
+    yaml, content = getYaml(page)
 
     content = content.replace("[latex]", "$")
     content = content.replace("[/latex]", "$")
@@ -70,12 +72,11 @@ def pageCodeConversion(filename):
         content = content.replace("["+language+"]", "{% highlight "+language+" %}")
         content = content.replace("[/"+language+"]", "{% endhighlight %}")
     content = parseCaptions(content)
-    with open(filename, 'w') as f:
-        f.write(content)
+    return "---" + yaml + "---" + content
 
 def getYaml(content):
     tmp, yaml, *content = content.split("---") #here you need python3
-    content = "---".joint(content)
+    content = "---".join(content)
     return (yaml, content)
 
 def featuredImage(website, content):
@@ -209,5 +210,5 @@ if __name__ == "__main__":
     """
 
     # improve things
-    forEveryPost("http://martin-thoma.com/", changeYaml, False)
+    forEveryPost("http://martin-thoma.com/", parseCaptions, False)
     
