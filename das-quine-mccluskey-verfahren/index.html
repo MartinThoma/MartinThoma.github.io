@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Das Quine-McCluskey-Verfahren</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -82,27 +82,30 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Verfahren</h2>
 
+
 <p><strong>Gegeben</strong>: Eine Schaltfunktion $f:{0,1}^n \rightarrow {0,1}, \; n \in \mathbb{N}$
-<strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten 
-</p><ul><li>„Nr.“, die bei 0 beginnt und bis $2^n - 1$ geht.</li>
+<strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten</p>
+
+<ul><li>„Nr.“, die bei 0 beginnt und bis $2^n - 1$ geht.</li>
   <li>Eine Spalte pro Funktionsparameter (z.B. $a, b, c, ...$)</li>
   <li>Eine Spalte für den Funktionswert $f(a,b,c,...)$</li>
-</ul><p><strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung. </p>
+</ul><p><strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung.</p>
 
-<p>Sie hat die Spalten
-</p><ul><li>„Nr.“</li>
+<p>Sie hat die Spalten</p>
+
+<ul><li>„Nr.“</li>
   <li>Eine Spalte pro Parameter</li>
   <li>„✓“ (Häkchen)</li>
-</ul>
-In der ersten Quineschen Tabelle stehen nur noch die Zeilen, deren Funktionswert 1 ist. Das sind die sogenannten Minterme. Zusätzlich sind sie nach Anzahl der 1er geordnet.
+</ul><p>In der ersten Quineschen Tabelle stehen nur noch die Zeilen, deren Funktionswert 1 ist. Das sind die sogenannten Minterme. Zusätzlich sind sie nach Anzahl der 1er geordnet.</p>
 
 <p><strong>Schritt 3</strong>: $i$-tes Zusammenfassen</p>
 
 <p>Nun erstellt man die erste Quinesche Tabelle $i$-ter Ordnung. Also beim ersten mal erster Ordnung, beim zweiten Mal zweiter Ordnung, ...
 Diese Tabellen haben alle die gleichen Spalten und die Zeilen-Anzahl kann sowohl wachsen als auch schrumpfen. Das $i$ gibt dabei die Anzahl der „don't care“ Stellen an, also der Stellen die sowohl 0 als auch 1 sein können.</p>
 
-<p>Um aus der ersten Quinesche Tabelle $(i-1)$-ter Ordnung die rsten Quinesche Tabelle $i$-ter Ordnung zu erstellen, geht man wie folgt vor:
-</p><ul><li>Vergleiche alle Zeilen, in denen sich die Anzahl der 1er um genau 1 unterscheidet:
+<p>Um aus der ersten Quinesche Tabelle $(i-1)$-ter Ordnung die rsten Quinesche Tabelle $i$-ter Ordnung zu erstellen, geht man wie folgt vor:</p>
+
+<ul><li>Vergleiche alle Zeilen, in denen sich die Anzahl der 1er um genau 1 unterscheidet:
     <ul><li>Unterscheiden sich Zeile Nr. x und Zeile Nr. y an nur einer Stelle, so schreibe in die Tabelle $i$ter Ordnung eine neue Zeile. Die Nummer dieser Zeile ist „x, y“ und sie hat an der Stelle, an der sich die Zeilen x und y unterschieden, ein don't care.</li>
       <li>Hake die Zeilen x und y in der Tabelle $(i-1)$-ter Ordnung ab</li>
     </ul></li>
@@ -113,16 +116,18 @@ Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fe
 
 <p><strong>Schritt 4</strong>: Aufstellen der zweiten Quineschen Tabelle</p>
 
-<p>Die zweite Quinesche Tabelle (auch Überdeckungstabelle genannt) hat folgende Spalten:
-</p><ul><li>Primimplikanten</li>
+<p>Die zweite Quinesche Tabelle (auch Überdeckungstabelle genannt) hat folgende Spalten:</p>
+
+<ul><li>Primimplikanten</li>
   <li>Eine Spalte pro Minterm. Die Beschriftung ist dabei eine Nr.</li>
   <li>Eine Spalte „Kosten“</li>
 </ul><p>Nun macht man in den Zellen ein Kreuz, in denen der Primimplikant den Minterm abdeckt (also wenn die Nr. im Namen des Minterms vorkommt). Die Kosten muss man pro Primimplikant berechnen.</p>
 
 <p><strong>Schritt 5</strong>: Vereinfachen der zweiten Quineschen Tabelle</p>
 
-<p>Dieser Schritt erinnert mich irgendwie an Sudoku. 
-</p><ul><li><em>Zeilendominanz</em>: Hat eine Zeile a nur x-e an Stellen, wo auch eine andere Zeile b x-e hat und ist Zeile b nicht teurer als a, so kann Zeile a gestrichen werden. Also: Es wird die Zeile mit weniger x gestrichen</li>
+<p>Dieser Schritt erinnert mich irgendwie an Sudoku.</p>
+
+<ul><li><em>Zeilendominanz</em>: Hat eine Zeile a nur x-e an Stellen, wo auch eine andere Zeile b x-e hat und ist Zeile b nicht teurer als a, so kann Zeile a gestrichen werden. Also: Es wird die Zeile mit weniger x gestrichen</li>
   <li><em>Spaltendominanz</em>: Überdeckt eine Spalte eine andere Spalte mit ihren x-en, so kann die Spalte mit <u>mehr</u> x-en gestrichen werden.</li>
 </ul><p><strong>Schritt 6</strong>: Identifizieren von Kernprimimplikanten.</p>
 
@@ -136,6 +141,7 @@ Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fe
 
 <h2 id="tocAnchor-1-2">Beispiele</h2>
 
+
 <p>Die folgende Aufgabe ist vom Übungsblatt 7 (WS 2012/2013). Herr Terlemez hat mir freundlicherweise erlaubt, sie hier verwenden zu dürfen.
 (Die <a href="http://ti.ira.uka.de/TI-1/Uebungen/Uebungen.php">offiziellen Aufgaben und Lösungen</a> sind passwortgeschützt.)</p>
 
@@ -147,13 +153,17 @@ Gegeben sei die Schaltfunktion</p>
 <ol><li>Bestimmen Sie alle Primimplikanten von $g$ mit Hilfe der 1. Quineschen Tabelle des Quine-McCluskey-Verfahrens.</li>
   <li>Geben Sie die Überdeckungstabelle (2. Quinesche Tabelle) für die gefundenen Primimpikanten an (ohne Vereinfachung). Lesen Sie eine disjunktive Minimalform von $g$ ab.</li>
 </ol><p><strong>Lösung</strong>:
-(Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)
-</p><div style="width: 300px" class="wp-caption aligncenter">
+(Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)</p>
+
+<div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg">
       <img src="http://martinthoma.github.io/images/../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" alt="" width="300" height="236" class="size-medium wp-image-56641" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
+
+
 
 <div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/01/digitaltechnik-aufgabe-7-2-2-300x253.jpg">
@@ -162,9 +172,13 @@ Gegeben sei die Schaltfunktion</p>
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-3">Quellen</h2>
 
-<p>Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw&amp;list=PL025B377F9094FCB9&amp;index=13">Vorlesung</a> und dem Tutorium erstellt. </p>
+
+<p>Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw&amp;list=PL025B377F9094FCB9&amp;index=13">Vorlesung</a> und dem Tutorium erstellt.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

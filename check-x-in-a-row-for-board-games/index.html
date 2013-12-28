@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Check x-in-a-row for board games</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -81,6 +81,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">isOnBoard(int x, int y)</h2>
 
+
 <p>You should create a method that checks if a coordinate is on your board. This can be as simple as this:</p>
 
 <div class="highlight">
@@ -90,7 +91,11 @@
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-2">Diagonal, horizontal and vertical</h2>
+
 
 <p>You can create a method like this:</p>
 
@@ -121,6 +126,7 @@
 </code></pre>
 </div>
 
+
 <p>What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change doXYZ() and checkXYZ. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.</p>
 
 <p>Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.height)</code> and even add in the inner loop something. So some calls will be out of bound. But because of <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a> this works. I don't bother about ends, I simply include the critical parts. Most of the time, it is not much work to check if the call is within the boundary, but finding (and fixing) a bug is much work. Yes, I know, this is more efficient if you use the correct boundaries. But it's only a constant in time difference. And I guess this constant is very small for most games.</p>
@@ -134,6 +140,7 @@
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// horizontal</span>
 </code></pre>
 </div>
+
 
 <p>This is enough. You don't need more, as you go through the whole board. No need to write redundant code :-)</p>
 						</div>

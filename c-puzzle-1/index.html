@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>C Puzzle #1</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -92,6 +92,9 @@
 </code></pre>
 </div>
 
+
+
+
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -118,6 +121,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Short Answer</h2>
 
+
 <p>It depends on your compiler flags!</p>
 
 <p>If you compile it with no optimization, you might get 43:</p>
@@ -131,6 +135,7 @@ aufgabe-3.c:5: warning: <span class="k">function </span>returns address of <span
 </code></pre>
 </div>
 
+
 <p>If you compile it with 03 Optimization, you might get 5.</p>
 
 <div class="highlight">
@@ -142,13 +147,18 @@ aufgabe-3.c:5: warning: <span class="k">function </span>returns address of <span
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-2">Long answer</h2>
+
 
 <h3 id="tocAnchor-1-2-1">The general answer</h3>
 
+
 <p>Lets analyse this code line by line.</p>
 
-<p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?). 
+<p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?).
 The variable is a so called local or automatic variable and is located on the stack frame.</p>
 
 <p>Line 9 - 14 is a function <strong>g</strong> that doesn't take any parameter and doesn't return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.</p>
@@ -159,6 +169,7 @@ The variable is a so called local or automatic variable and is located on the st
 
 <h3 id="tocAnchor-1-2-2">Actual assembly code</h3>
 
+
 <p>You still want to get more into detail? Ok ...
 First you should get your assembly code. If you're running a Linux machine, you can type this into the console:</p>
 
@@ -167,6 +178,7 @@ First you should get your assembly code. If you're running a Linux machine, you 
 </code></pre>
 </div>
 
+
 <p>This will create a file called "cpuzzle-1.s" which contains the assembly code for the non-optimized version. Rename it into "cpuzzle-1-O0.c". Then the same for O3:</p>
 
 <div class="highlight">
@@ -174,17 +186,22 @@ First you should get your assembly code. If you're running a Linux machine, you 
 </code></pre>
 </div>
 
-<p>Now you can compare those two with meld or any other diff Tool:
-</p><div style="width: 300px" class="wp-caption aligncenter">
+
+<p>Now you can compare those two with meld or any other diff Tool:</p>
+
+<div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-300x188.png">
       <img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-300x188.png" alt="" width="300" height="188" class="size-medium wp-image-24851" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
-The O3 code got an additional <code>.p2align 4,,15</code>
+
+
+<p>The O3 code got an additional <code>.p2align 4,,15</code></p>
 
 <blockquote>.p2align 4,,15 means:
 When allocating memory, align it such that each new section must start at a location with 4 0's at the end (i.e. a multiple of 16 bytes), except for if more than 15 bytes must be skipped.</blockquote>
+
 
 <p>
    <span class="quote-source">Quoted from <a href="http://answers.yahoo.com/question/index?qid=20100414222831AAxKaHs">MooseBoy</a></span>
@@ -199,13 +216,18 @@ When allocating memory, align it such that each new section must start at a loca
    <p class="wp-caption-text"></p>
 </div>
 
-<p>It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don't know why the compiler does most of the optimizations :-(
-</p><div style="width: 300px" class="wp-caption aligncenter">
+
+<p>It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don't know why the compiler does most of the optimizations :-(</p>
+
+<div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png">
       <img src="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" alt="" width="300" height="188" class="size-medium wp-image-24941" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
+
+
 
 <div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/05/c-puzzle-1.2-meld-annotated-300x113.png">
@@ -214,13 +236,16 @@ When allocating memory, align it such that each new section must start at a loca
    <p class="wp-caption-text"></p>
 </div>
 
-<p>You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">_<em>printf</em>chk</a>. An implementation is <a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printf_chk.c">here</a>.</p>
+
+<p>You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">__printf_chk</a>. An implementation is <a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printf_chk.c">here</a>.</p>
 
 <h2 id="tocAnchor-1-5">What you should have learned</h2>
+
 
 <p>Never return pointers to local variables / variables in the wrong scope.</p>
 
 <h2 id="tocAnchor-1-6">See also</h2>
+
 
 <ul><li>Wikipedia:
     <ul><li><a href="http://en.wikipedia.org/wiki/Stack_frame#Structure">Stack frame</a></li>

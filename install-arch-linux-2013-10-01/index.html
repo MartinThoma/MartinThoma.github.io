@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to install Arch Linux 2013.10.01</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -69,6 +69,7 @@
 
 <iframe width="512" height="288" src="http://www.youtube.com/embed/BMgGUBDxCjo" frameborder="0" allowfullscreen=""></iframe>
 
+
 <p>You might also want to read the <a href="https://wiki.archlinux.org/index.php/Installation_Guide">Arch Linux Installation Guide</a>. The <a href="https://wiki.archlinux.de/title/Anleitung_für_Einsteiger">German guide</a> is also very good.</p>
 
 <p>I just like to add some notes. They are primarily for myself, so you really should read the installation guide or watch the video.</p>
@@ -99,6 +100,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Keyboard layout</h2>
 
+
 <p>You can switch to a German keyboard layout with this command:</p>
 
 <div class="highlight">
@@ -106,7 +108,11 @@
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-2">Partitioning and mounting</h2>
+
 
 <p>You need a bootable partition and a swap partition (that is at least as big as much RAM you have). Partitioning can be done with <code>cfdisk</code> (configure disk).</p>
 
@@ -117,6 +123,7 @@
 fdisk -l
 </code></pre>
 </div>
+
 
 <p>Afterwards:</p>
 
@@ -131,7 +138,11 @@ mount /dev/sda3 /mnt/home/
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-3">Getting internet</h2>
+
 
 <p>I only have WLAN at the moment, which makes things more difficult:</p>
 
@@ -142,16 +153,21 @@ dhcpcd wlp4s0
 </code></pre>
 </div>
 
+
 <p>wlp4s0 is the wlan interface (which is wlan0 most of the time). You get it with <code>ip link</code>.</p>
 
 <p>I had a lot of fun at this point as you can see <a href="http://unix.stackexchange.com/questions/93851/can-i-connet-to-internet-with-one-pc-and-give-over-lan-switch-internet-to-othe">here</a>.</p>
 
 <h2 id="tocAnchor-1-4">Install base system</h2>
 
+
+
+
 <div class="highlight">
    <pre><code class="bash">packstrap -i /mnt base base base-devel
 </code></pre>
 </div>
+
 
 <p>After accepting all defaults (by pressing enter) and letting it download:</p>
 
@@ -161,6 +177,7 @@ arch-chroot /mnt
 nano /etc/locale.gen
 </code></pre>
 </div>
+
 
 <p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
 
@@ -174,12 +191,14 @@ systemctl <span class="nb">enable </span>dhcpcd.service
 </code></pre>
 </div>
 
+
 <p>Now edit and uncomment multilib. Then:</p>
 
 <div class="highlight">
    <pre><code class="bash">mkinitcpio -p linux
 </code></pre>
 </div>
+
 
 <p>Now set the password by entering <code>passwd</code>.
 Create your user:</p>
@@ -190,12 +209,14 @@ passwd moose
 </code></pre>
 </div>
 
+
 <p>Synchronise caches:</p>
 
 <div class="highlight">
    <pre><code class="bash">pacman -Syy
 </code></pre>
 </div>
+
 
 <p>Install grub:</p>
 
@@ -209,6 +230,7 @@ restart
 </code></pre>
 </div>
 
+
 <p>Give yourself sudo:</p>
 
 <div class="highlight">
@@ -217,9 +239,13 @@ nano /etc/sudoers
 </code></pre>
 </div>
 
+
 <p>Add your user to the bottom section "User privilege specification"</p>
 
 <h2 id="tocAnchor-1-5">Install GNOME</h2>
+
+
+
 
 <div class="highlight">
    <pre><code class="bash">pacman -S gnome xorg
@@ -227,7 +253,11 @@ systemctl <span class="nb">enable </span>gdm.service
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-6">MATE</h2>
+
 
 <p>Add the following to your /etc/pacman.conf:</p>
 
@@ -238,6 +268,7 @@ Server = http://repo.mate-desktop.org/archlinux/$arch
 </code></pre>
 </div>
 
+
 <p>Run</p>
 
 <div class="highlight">
@@ -245,6 +276,7 @@ Server = http://repo.mate-desktop.org/archlinux/$arch
 <span class="c"># pacman -S mate mate-extras</span>
 </code></pre>
 </div>
+
 
 <p>Lets see if I get an answer to <a href="https://bbs.archlinux.org/viewtopic.php?id=170911">some essential basic questions</a>.</p>
 						</div>

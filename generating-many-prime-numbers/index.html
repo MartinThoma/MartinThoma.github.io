@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Generating many prime numbers</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -112,6 +112,9 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Trivial approach</h2>
 
+
+
+
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
 <span class="cp">#include &lt;cmath&gt; </span><span class="c1">// sqrt</span>
@@ -150,6 +153,7 @@
 </code></pre>
 </div>
 
+
 <p>Execute it for 100,000,000:</p>
 
 <div class="highlight">
@@ -161,7 +165,8 @@ sys 0m15.229s
 </code></pre>
 </div>
 
-<p>So 41 seconds for all primes not bigger than 100,000,000. </p>
+
+<p>So 41 seconds for all primes not bigger than 100,000,000.</p>
 
 <p>Now, lets test it for 1,000,000,000:</p>
 
@@ -174,11 +179,16 @@ sys 2m12.500s
 </code></pre>
 </div>
 
+
 <p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
 
 <h2 id="tocAnchor-1-2">Sieve of Eratosthenes</h2>
 
+
 <h3 id="tocAnchor-1-2-1">A first try</h3>
+
+
+
 
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
@@ -207,6 +217,7 @@ sys 2m12.500s
 </code></pre>
 </div>
 
+
 <p>This one takes 1 minute 5 seconds:</p>
 
 <div class="highlight">
@@ -219,9 +230,11 @@ sys 2m11.748s
 </code></pre>
 </div>
 
+
 <p>I'm getting closer to "seconds". :-)</p>
 
 <h3 id="tocAnchor-1-2-2">ofstream, endl, \n and buffers</h3>
+
 
 <p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
 
@@ -255,6 +268,9 @@ sys 2m11.748s
 </code></pre>
 </div>
 
+
+
+
 <div class="highlight">
    <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
@@ -263,6 +279,7 @@ user    1m4.016s
 sys 2m12.332s
 </code></pre>
 </div>
+
 
 <p>Ok, no real change :-/</p>
 
@@ -278,6 +295,7 @@ user    0m46.619s
 sys 0m0.920s
 </code></pre>
 </div>
+
 
 <p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
 
@@ -316,6 +334,7 @@ sys 0m0.920s
 </code></pre>
 </div>
 
+
 <p>And execute it:</p>
 
 <div class="highlight">
@@ -326,6 +345,7 @@ user    0m38.546s
 sys 0m0.640s
 </code></pre>
 </div>
+
 
 <p>38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.</p>
 
@@ -362,11 +382,15 @@ sys 0m0.640s
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-2-3">Improve sieving</h3>
+
 
 <p>The following change was suggested by <em>Niklas B.</em>. Thanks!</p>
 
-<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</em></code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime. </p>
+<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j<em>i</em></code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime.</p>
 
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
@@ -407,6 +431,7 @@ sys 0m0.640s
 </code></pre>
 </div>
 
+
 <p>Execute:</p>
 
 <div class="highlight">
@@ -418,7 +443,11 @@ sys 0m0.436s
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-2-4">primesieve</h3>
+
 
 <p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) $&lt; 2^{64}$ using a highly optimized implementation of the sieve of Eratosthenes.</p>
 
@@ -426,9 +455,13 @@ sys 0m0.436s
 
 <h2 id="tocAnchor-1-7">Sieve of Atkin</h2>
 
+
 <p>Arthur Oliver Lonsdale Atkin (July 31, 1925 – December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
 
 <h3 id="tocAnchor-1-7-1">My first implementation</h3>
+
+
+
 
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
@@ -510,6 +543,7 @@ sys 0m0.436s
 </code></pre>
 </div>
 
+
 <p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
 
 <div class="highlight">
@@ -521,7 +555,11 @@ sys 0m0.604s
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-7-2">Primegen</h3>
+
 
 <p><a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.</p>
 
@@ -538,12 +576,15 @@ sys 0m0.708s
 </code></pre>
 </div>
 
+
 <p>About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
 
 <h2 id="tocAnchor-1-10">See also</h2>
 
-<p>You might want to try the following Project Euler problem sets:
-</p><ul><li>Project Euler
+
+<p>You might want to try the following Project Euler problem sets:</p>
+
+<ul><li>Project Euler
   <ul><li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
     <li><a href="http://projecteuler.net/problem=7">Problem 7</a>: What is the 10 001st prime number?</li>
     <li><a href="http://projecteuler.net/problem=60">Problem 60</a></li>
@@ -556,6 +597,7 @@ sys 0m0.708s
 <li><a href="http://sweet.ua.pt/tos/software/prime_sieve.html">Segmented sieve of Eratosthenes</a></li>
 <li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above $10^9$ which I didn't.</li>
 </ul><h2 id="tocAnchor-1-11">Finally</h2>
+
 
 <p>The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)</p>
 						</div>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>&Uuml;bersicht &uuml;ber Datenstrukturen</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -119,6 +119,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Array</h2>
 
+
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/array.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/array.png" alt="" width="500" height="225" class="size-full wp-image-34531" />
@@ -126,11 +127,14 @@
    <p class="wp-caption-text"></p>
 </div>
 
-<p>Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. 
-Charakteristika:
-</p><ul><li>Ein Array hat eine feste, nicht veränderbare Größe.</li>
+
+<p>Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur.
+Charakteristika:</p>
+
+<ul><li>Ein Array hat eine feste, nicht veränderbare Größe.</li>
   <li>Der Zugriff auf jedes beliebige Element erfolgt in konstanter Zeit - ist also insbesondere unabhängig von der Größe!</li>
 </ul><h2 id="tocAnchor-1-2">Dynamische Arrays</h2>
+
 
 <p>Dynamische Arrays sind wie normale Arrays, nur dass sie wachsen können. Sobald ein Element eingefügt werden soll, dass nicht mehr ins Array passen würde, allokiert man ein doppelt so großes Array und kopiert die Elemente um.</p>
 
@@ -138,24 +142,29 @@ Charakteristika:
 
 <h2 id="tocAnchor-1-3">Hashtabelle</h2>
 
+
 <blockquote>In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) bzw. Streuwerttabelle. Als Indexstruktur werden Hashtabellen verwendet um Datenelemente in einer großen Datenmenge aufzufinden. Zu Hashtabellen alternative Index-Datenstrukturen sind beispielsweise Baumstrukturen (wie etwa ein B+-Baum) und die Skip-List. Hashtabellen zeichnen sich durch einen üblicherweise konstanten Zeitaufwand bei Einfüge- bzw. Entfernen-Operationen aus. Beim Einsatz einer Hashtabelle zur Suche in Datenmengen spricht man auch von einem Hashverfahren oder Streuspeicherverfahren.</blockquote>
+
 
 <p>Quelle: <a href="http://de.wikipedia.org/wiki/Hashtabelle">Hashtabelle</a></p>
 
-<p>Hashtabellen werden hier benutzt:
-</p><ul><li>Python 3.2.3: Modules/_pickle.c</li>
+<p>Hashtabellen werden hier benutzt:</p>
+
+<ul><li>Python 3.2.3: Modules/_pickle.c</li>
   <li>Java OpenJDK 7: <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">java.util.HashTable</a> und sehr viele mehr benutzen es (Properties.java, Dictionary.java, Enum.java, ...)</li>
 </ul><p>Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ für Suchen, Löschen und Einfügen.</p>
 
-<p>Folgende Begriffe sollte man kennen: 
-</p><ul><li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: $h(k) = k \mod m$</li>
+<p>Folgende Begriffe sollte man kennen:</p>
+
+<ul><li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: $h(k) = k \mod m$</li>
   <li><a href="http://de.wikipedia.org/wiki/Multiplikative_Methode">Multiplikationsmethode</a>: $h(k) = \lfloor A \cdot k \mod 1 \rfloor$, mit z.B. $A \approx \frac{\sqrt{5}-1}{2}$</li>
   <li>offenes Hashing</li>
-  <li><a href="http://de.wikipedia.org/wiki/Doppel-Hashing">Doppeltes Hashing</a>: $h(k, i) = (h<em>1(k) + i \cdot h</em>2(k)) \mod m$</li>
+  <li><a href="http://de.wikipedia.org/wiki/Doppel-Hashing">Doppeltes Hashing</a>: $h(k, i) = (h_1(k) + i \cdot h_2(k)) \mod m$</li>
   <li><a href="http://de.wikipedia.org/wiki/Hashtabelle#Lineares_Sondieren">Lineares und quadratische Sondieren</a></li>
   <li>Belegungsfaktor: $\alpha = \frac{\text{Anzahl gespeicherter Elemente}}{\text{Anzahl der Slots}}$</li>
   <li>Primäre und sekundäre Clusterbildung</li>
 </ul><h2 id="tocAnchor-1-4">Stack</h2>
+
 
 <div style="width: 101px" class="wp-caption alignright">
    <a href="http://martinthoma.github.io/images/../images/2012/07/stack-101x300.png">
@@ -163,6 +172,7 @@ Charakteristika:
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
 
 <p>Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und natürlich gibt es auch in <a href="http://martin-thoma.com/stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.</p>
 
@@ -195,6 +205,7 @@ Charakteristika:
 <span class="o">}</span>
 </code></pre>
 </div>
+
 
 <p>Ausgabe:</p>
 
@@ -404,8 +415,13 @@ Element: 12      size: 0     capacity: 160
 </code></pre>
 </div>
 
-<p>Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:
-</p><blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>
+
+<p>Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:</p>
+
+<blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>
+
+
+
 
 <table>
    <tr><th>Operation</th>
@@ -423,6 +439,7 @@ Element: 12      size: 0     capacity: 160
 </table><p>Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
 
 <h2 id="tocAnchor-1-5">Warteschlangen</h2>
+
 
 <p>Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks nanne es sich PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.</p>
 
@@ -443,9 +460,11 @@ Element: 12      size: 0     capacity: 160
 
 <h2 id="tocAnchor-1-6">Verkettete Listen</h2>
 
+
 <p>Wie bei allen Datenstrukturen, kann man für verkettete Listen mehr Operationen definieren und umsetzen, als ich hier aufliste. Eine gute Menge von Operationen wird durch das <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">Java List Interface</a> vorgegeben.</p>
 
 <h3 id="tocAnchor-1-6-1">Einfach verkettete Liste</h3>
+
 
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/singly-linked-list.png">
@@ -454,8 +473,10 @@ Element: 12      size: 0     capacity: 160
    <p class="wp-caption-text"></p>
 </div>
 
-<p>Sei $n$ die Anzahl der Elemente der Liste.
-</p><table>
+
+<p>Sei $n$ die Anzahl der Elemente der Liste.</p>
+
+<table>
    <tr><th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
@@ -494,6 +515,7 @@ Element: 12      size: 0     capacity: 160
 </tr>
 </table><h3 id="tocAnchor-1-6-2">Doppelt verkettete Liste</h3>
 
+
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/doubly-linked-list.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/doubly-linked-list.png" alt="" width="500" height="54" class="size-full wp-image-34031" />
@@ -501,8 +523,10 @@ Element: 12      size: 0     capacity: 160
    <p class="wp-caption-text"></p>
 </div>
 
-<p>Sei $n$ die Anzahl der Elemente der Liste.
-</p><table>
+
+<p>Sei $n$ die Anzahl der Elemente der Liste.</p>
+
+<table>
    <tr><th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
@@ -541,26 +565,46 @@ Element: 12      size: 0     capacity: 160
 </tr>
 </table><h2 id="tocAnchor-1-9">Bäume</h2>
 
-<p>In der Vorlesung wurden Bäume sehr unpräzise eingeführt. Ich versuche das mal etwas präziser zu machen:
-</p><div class="definition">Sei $G = (V, E)$ ein gerichteter Graph.
-$G$ heißt <strong>gerichteter Baum</strong> $: \Leftrightarrow \exists<em>{r \in V} \forall</em>{x \in V}:$Es exisitert genau ein Pfad von $r$ nach $x$.</div>
+
+<p>In der Vorlesung wurden Bäume sehr unpräzise eingeführt. Ich versuche das mal etwas präziser zu machen:</p>
+
+<div class="definition">Sei $G = (V, E)$ ein gerichteter Graph.
+$G$ heißt <strong>gerichteter Baum</strong> $: \Leftrightarrow \exists_{r \in V} \forall_{x \in V}:$Es exisitert genau ein Pfad von $r$ nach $x$.</div>
+
+
+
 
 <div class="definition">Sei $G = (V, E)$ ein gerichteter Baum und sei $r \in V$ das $r$ aus der Definition. $r$ heißt <strong>Wurzel</strong> von $G$.</div>
 
-<p>ACHTUNG: Die folgende Definition habe ich mir ausgedacht! NICHT IN DER KLAUSUR VERWENDEN!
-</p><div class="definition">Sei $E \subseteq V \times V$ eine Menge ungerichteter Kanten. 
-Dann bezeichne $G(E) := {(v, w) | {v, w} \in E}$ die Menge aller zugehörigen gerichteten Kanten.</div>
+
+<p>ACHTUNG: Die folgende Definition habe ich mir ausgedacht! NICHT IN DER KLAUSUR VERWENDEN!</p>
+
+<div class="definition">Sei $E \subseteq V \times V$ eine Menge ungerichteter Kanten. 
+Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörigen gerichteten Kanten.</div>
+
+
+
 
 <div class="definition">Sei $U = (V, E)$ ein ungerichteter Graph.
 $U$ heißt ein <strong>ungerichteter Baum</strong> $:\Leftrightarrow \exists$ gerichteten Baum $G = (V, E')$ mit $E' \subsetneq G(E)$.</div>
 
+
+
+
 <div class="definition">Sei $G = (V, E)$ ein Baum und $x, y \in V$.
 $x$ heißt <strong>Elternknoten</strong> von $y :\Leftrightarrow x$ liegt auf dem Pfad von der Wurzel nach $y$ direkt vor $y$.</div>
+
+
+
 
 <div class="definition">Sei $G = (V, E)$ ein Baum und $x, y \in V$.
 $x$ heißt <strong>Kindknoten</strong> von $y :\Leftrightarrow y$ ist Elternknoten von $x$.</div>
 
+
+
+
 <h3 id="tocAnchor-1-9-1">Binäre Bäume</h3>
+
 
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/binary-tree.png">
@@ -569,13 +613,18 @@ $x$ heißt <strong>Kindknoten</strong> von $y :\Leftrightarrow y$ ist Elternknot
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <div class="definition">Sei $G = (V, E)$ ein Baum.
 $G$ heißt <strong>binärer Baum</strong> $:\Leftrightarrow \forall_{x \in V}: x$ hat höchstens zwei Kindknoten.</div>
 
+
 <p>Ich beziehe mich im folgenden auf ungerichtete, binäre Bäume. Soll heißen, jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.</p>
 
-<p>Wie würde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.
-</p><table>
+<p>Wie würde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.</p>
+
+<table>
    <tr><th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
@@ -610,12 +659,14 @@ $G$ heißt <strong>binärer Baum</strong> $:\Leftrightarrow \forall_{x \in V}: x
 </tr>
 </table><h3 id="tocAnchor-1-9-2">Suchbäume</h3>
 
+
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/binary-search-tree.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/binary-search-tree.png" alt="" width="500" height="361" class="size-full wp-image-33871" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
 
 <p>Dieser Baum hat die gleichen Werte wie der Baum oberhalb, aber es gilt nun:
 Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des aktuelle, der Wert aller Knoten rechts davon ist echt größer.</p>
@@ -624,8 +675,9 @@ Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des
 
 <p>Damit ergeben sich folgende Laufzeiten:
 Sei $G = (V, E)$ ein beliebiger binärer Suchbaum.
-Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
-</p><table>
+Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.</p>
+
+<table>
    <tr><th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
@@ -660,6 +712,7 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 </tr>
 </table><h4>Rot-Schwarz-Bäume</h4>
 
+
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/red-black-tree1.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/red-black-tree1.png" alt="" width="500" height="244" class="size-full wp-image-34071" />
@@ -667,9 +720,11 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Sei $G = (V, E)$ ein binärer Suchbaum.
-G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
-</p><ol><li>Jeder Knoten ist entweder Rot oder Schwarz.</li>
+G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:</p>
+
+<ol><li>Jeder Knoten ist entweder Rot oder Schwarz.</li>
   <li>Der Wurzelknoten ist schwarz.</li>
   <li>Die Blattknoten sind schwarz.</li>
   <li>Ein Knoten ist rot $\Rightarrow$ Beide Kinder sind schwarz.</li>
@@ -711,6 +766,7 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 
 <h3 id="tocAnchor-1-9-3">Heaps</h3>
 
+
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/heap.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/heap.png" alt="" width="500" height="254" class="size-full wp-image-34361" />
@@ -718,8 +774,10 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
    <p class="wp-caption-text"></p>
 </div>
 
-<p>Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">binäre Min-Heaps</a>.
-</p><table>
+
+<p>Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">binäre Min-Heaps</a>.</p>
+
+<table>
    <tr><th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
@@ -758,12 +816,14 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 </tr>
 </table><h3 id="tocAnchor-1-9-4">B-Bäume</h3>
 
+
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-2.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/b-tree-2.png" alt="" width="500" height="124" class="size-full wp-image-34581" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
 
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/b-tree-3.png">
@@ -772,14 +832,19 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <blockquote>Ein B-Baum ist ein immer vollständig balancierter Baum, der Daten sortiert nach Schlüsseln speichert. Er kann binär sein, ist aber im Allgemeinen kein Binärbaum. Das Einfügen, Suchen und Löschen von Daten in B-Bäumen ist in amortisiert logarithmischer Zeit möglich. B-Bäume wachsen – und schrumpfen – anders als viele Suchbäume von den Blättern hin zur Wurzel.</blockquote>
+
 
 <p>Quelle: <a href="http://de.wikipedia.org/wiki/B-Baum">Wikipedia</a></p>
 
 <p>Die beiden abgebildeten B-Bäume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigener Reihenfolge eingefügt wurden.</p>
 
-<p>Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:
-</p><ul><li>Alle Pfade von der Wurzel zu einem Blatt sind gleich lang.</li>
+<p>Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:</p>
+
+<ul><li>Alle Pfade von der Wurzel zu einem Blatt sind gleich lang.</li>
   <li>Die Wurzel hat mindestens 2, höchstens 2t Kinder.</li>
   <li>Alle anderen inneren Knoten haben mindestens t, höchstens 2t Kinder.</li>
   <li>Jeder Knoten mit i Kindern hat i-1 Schlüssel.</li>
@@ -789,6 +854,7 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 
 <h3 id="tocAnchor-1-9-5">Tries</h3>
 
+
 <div style="width: 200px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/trie.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/trie.png" alt="" width="200" height="285" class="size-full wp-image-34621" />
@@ -796,14 +862,19 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Bildquelle: <a href="http://commons.wikimedia.org/wiki/File:Trie.svg">Wikipedia</a></p>
 
-<p>Ein Trie ist ein spezieller digitaler Baum. 
-</p><blockquote>Ein Trie oder Präfixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
-Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a>
+<p>Ein Trie ist ein spezieller digitaler Baum.</p>
 
-<p>Wo werden Tries genutzt?
-</p><ul><li>Python charmap encoder (<a href="http://mail.python.org/pipermail/patches/2006-May/019891.html">source</a>)</li>
+<blockquote>Ein Trie oder Präfixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
+
+
+<p>Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a></p>
+
+<p>Wo werden Tries genutzt?</p>
+
+<ul><li>Python charmap encoder (<a href="http://mail.python.org/pipermail/patches/2006-May/019891.html">source</a>)</li>
   <li>Der <a href="http://docs.oracle.com/javase/7/docs/api/java/text/Normalizer.html">Normalizer</a> scheint Tries zu verwenden.</li>
 </ul>
 						</div>

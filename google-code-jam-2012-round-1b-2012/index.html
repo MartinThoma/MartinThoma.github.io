@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Google Code Jam 2012 &ndash; Round 1B 2012</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -97,26 +97,27 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Safety in Numbers</h2>
 
+
 <p>I tried this approach:
-X is the sum of all points given by judges. The visitors have an equal amount of points to give. 
-$P<em>i$ is the number of total points of contestant i.
-$J</em>i$ is the number of points of contestant i by the judges.
+X is the sum of all points given by judges. The visitors have an equal amount of points to give.
+$P_i$ is the number of total points of contestant i.
+$J_i$ is the number of points of contestant i by the judges.
 $V_i$ is the percentage of the visitors points contestant i gets.</p>
 
-<p>So: $P<em>i = J</em>i + V_i * X$</p>
+<p>So: $P_i = J_i + V_i * X$</p>
 
-<p>You don't know $V<em>i$ and $P</em>i$. You have to get the minimal value of $V<em>i$ to guarantee that contestant $i$ will not to be eliminated. So you have to create some kind of "worst case" for contestant i, if he gets $V</em>i \cdot X$ visitor-points. The worst case is that the minimum of all remaining visitors is as high as possible. So if you think of them as players, they will always try to get a equal number of points.</p>
+<p>You don't know $V_i$ and $P_i$. You have to get the minimal value of $V_i$ to guarantee that contestant $i$ will not to be eliminated. So you have to create some kind of "worst case" for contestant i, if he gets $V_i \cdot X$ visitor-points. The worst case is that the minimum of all remaining visitors is as high as possible. So if you think of them as players, they will always try to get a equal number of points.</p>
 
 <p>If they can get an equal number of points, you can make these (in)equations:
-$average = (X - p<em>i)/(N-1)$
-$p</em>i + V<em>i \cdot X \geq avg + \frac{1-V</em>i}{N-1} \cdot X$
-$V<em>i \cdot X - \frac{1-V</em>i}{N-1}  \cdot X \geq avg - p<em>i$
-$V</em>i X (N-1) - (1-V<em>i) \cdot X \geq (N-1) \cdot (avg - p</em>i)$
-$V<em>i X (N-1) - X +V</em>i \cdot X \geq (N-1) \cdot (avg - p<em>i)$
-$V</em>i X (N-1) +V<em>i \cdot X \geq (N-1) \cdot (avg - p</em>i) + X$
-$V<em>i \geq (N-1) \cdot ((avg - p</em>i) + X)/(X (N-1) +X)$
-$V<em>i \geq (N-1) \cdot ((avg - p</em>i) + X)/(X ((N-1) +1))$
-$V<em>i \geq \frac{N-1}{X \cdot N} \cdot (avg - p</em>i + X)$</p>
+$average = (X - p_i)/(N-1)$
+$p_i + V_i \cdot X \geq avg + \frac{1-V_i}{N-1} \cdot X$
+$V_i \cdot X - \frac{1-V_i}{N-1}  \cdot X \geq avg - p_i$
+$V_i X (N-1) - (1-V_i) \cdot X \geq (N-1) \cdot (avg - p_i)$
+$V_i X (N-1) - X +V_i \cdot X \geq (N-1) \cdot (avg - p_i)$
+$V_i X (N-1) +V_i \cdot X \geq (N-1) \cdot (avg - p_i) + X$
+$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X (N-1) +X)$
+$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X ((N-1) +1))$
+$V_i \geq \frac{N-1}{X \cdot N} \cdot (avg - p_i + X)$</p>
 
 <p>Unfortunately, its possible that the other players can't get an equal number of points. So this approach is useless in this case.</p>
 
@@ -180,7 +181,11 @@ $V<em>i \geq \frac{N-1}{X \cdot N} \cdot (avg - p</em>i + X)$</p>
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-2">Tide Goes In, Tide Goes Out</h2>
+
 
 <p>This one could be solved with Graphs. You calculate one Graph, where every node is one cell. Every cell / node is connected to adjacent cells. Every cell has a value which is the time when you can enter them.</p>
 
@@ -197,11 +202,16 @@ $V<em>i \geq \frac{N-1}{X \cdot N} \cdot (avg - p</em>i + X)$</p>
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-3">Equal Sums</h2>
+
 
 <p>A trivial solution for the small one is to try every combination. You might want to take a look at Pythonss <a href="http://docs.python.org/library/itertools.html#itertools.combinations">itertools.combinations()</a>.</p>
 
 <h2 id="tocAnchor-1-4">See also</h2>
+
 
 <ul><li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
   <li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>SQL Injections</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p><abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. </p>
+                            <p><abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -88,6 +88,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Example: IMDb</h2>
 
+
 <p>Take a look at <a href="http://www.imdb.com/">IMDb</a>. Users can search for movies by title:</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
@@ -97,6 +98,7 @@
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>When you search for "Harry Potter" for example, the following happens:</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
@@ -105,6 +107,7 @@
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
 
 <p>You obviously interacted with imdb.com in a very dynamic way. The output of the website depends on what you typed in and IMDb has to search in its database for your search terms.</p>
 
@@ -116,8 +119,10 @@
 
 <h2 id="tocAnchor-1-2">Proof of concept</h2>
 
-<p>You need:
-</p><ul><li>Apache Web Server</li>
+
+<p>You need:</p>
+
+<ul><li>Apache Web Server</li>
   <li>PHP</li>
   <li>MySQL</li>
   <li>PhpMyAdmin (for convenience)</li>
@@ -130,36 +135,35 @@
 $mysqlhost = "localhost";
 $mysqluser = "root";
 $mysqlpwd = "asdfasdf";
-$connection = mysql<em>connect($mysqlhost, $mysqluser, $mysqlpwd) or die
+$connection = mysql_connect($mysqlhost, $mysqluser, $mysqlpwd) or die
 ("Your connection string was wrong");
-$db</em>selected = mysql<em>select</em>db('imdb', $connection);</p>
+$db_selected = mysql_select_db('imdb', $connection);</p>
 
-<p>$q = $<em>GET['q'];
+<p>$q = $_GET['q'];
 if ($q != "") {
-    $result = mysql</em>query("SELECT * FROM <code>movies</code> WHERE title='$q'");
+    $result = mysql_query("SELECT * FROM <code>movies</code> WHERE title='$q'");
     if (!$result) {
-        die('MySQL query error: ' . mysql<em>error());
+        die('MySQL query error: ' . mysql_error());
     }
-    echo "Found ".mysql</em>num<em>rows($result)." movies:<br />";
-    while ($row = mysql</em>fetch_assoc($result)) {
+    echo "Found ".mysql_num_rows($result)." movies:<br />";
+    while ($row = mysql_fetch_assoc($result)) {
         echo $row["id"].": ".$row["title"]."<br />";
     }
 }
 ?&gt;</p>
 
-<form method="get" action="hack.php">
+<p></p><form method="get" action="hack.php">
   <input type="text" name="q" /><input type="submit" /></form>
-
-<p>[/php]</p>
+[/php]
 
 <p>Now create a database called <code>imdb</code> with PHPMyAdmin and execute the following SQL:</p>
 
 <p>[sql]
 CREATE TABLE IF NOT EXISTS <code>movies</code> (
-  <code>id</code> int(11) NOT NULL AUTO<em>INCREMENT,
+  <code>id</code> int(11) NOT NULL AUTO_INCREMENT,
   <code>title</code> varchar(255) NOT NULL,
   PRIMARY KEY (<code>id</code>)
-) AUTO</em>INCREMENT=4;</p>
+) AUTO_INCREMENT=4;</p>
 
 <p>INSERT INTO <code>movies</code> (<code>id</code>, <code>title</code>) VALUES
 (1, 'Harry Potter'),
@@ -167,12 +171,12 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
 (3, 'Rise of the Silver Surfer');</p>
 
 <p>CREATE TABLE IF NOT EXISTS <code>users</code> (
-  <code>id</code> int(11) NOT NULL AUTO<em>INCREMENT,
+  <code>id</code> int(11) NOT NULL AUTO_INCREMENT,
   <code>username</code> varchar(255) NOT NULL,
   <code>password</code> varchar(32) NOT NULL,
   <code>email</code> varchar(255) NOT NULL,
   PRIMARY KEY (<code>id</code>)
-) AUTO</em>INCREMENT=3 ;</p>
+) AUTO_INCREMENT=3 ;</p>
 
 <p>INSERT INTO <code>users</code> (<code>id</code>, <code>username</code>, <code>password</code>, <code>email</code>) VALUES
 (1, 'admin', 'qewrtqwert', 'admin@imdb.com'),
@@ -188,6 +192,7 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>When you search for "Harry Potter" it should show you "1: Harry Potter". Note that there could be a lot of information, but I wanted to keep this example as small as possible.</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
@@ -196,6 +201,7 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
 
 <p>This resulted in the following query:</p>
 
@@ -210,13 +216,14 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:</p>
 
-<p>[sql]' UNION SELECT table<em>name, table</em>type FROM information_schema.tables WHERE '1'='1[/sql]</p>
+<p>[sql]' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '1'='1[/sql]</p>
 
 <p>which results in this query:</p>
 
-<p>[sql]SELECT * FROM <code>movies</code> WHERE title='' UNION SELECT table<em>name, table</em>type FROM information_schema.tables WHERE '1'='1'[/sql]</p>
+<p>[sql]SELECT * FROM <code>movies</code> WHERE title='' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '1'='1'[/sql]</p>
 
 <p>which gives:</p>
 
@@ -227,6 +234,7 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>This way, the attacker gets all table names from all databases on this machine. So he essentially can get everything stored in your database. And, of course, after getting everything he could drop it:</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
@@ -236,7 +244,11 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-3">History</h2>
+
 
 <p>Just a few famous examples to show you that this happens all the time:</p>
 
@@ -255,10 +267,12 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
   <li>2011: Comodo (<a href="http://www.infosecurity-magazine.com/view/18265/another-comodo-partner-attacked-using-sql-injection/">source 1</a>, <a href="http://www.heise.de/security/meldung/Erneut-Comodo-SSL-Registrar-gehackt-1250208.html">source 2</a>)</li>
 </ul><h2 id="tocAnchor-1-4">Solutions</h2>
 
+
 <ul><li>Sanitize user input, e.g. with <a href="http://de2.php.net/mysql_real_escape_string">mysql_real_escape_string</a></li>
   <li>Use <a href="http://php.net/manual/en/pdo.prepared-statements.php">prepared statements</a></li>
   <li>Switch of <a href="http://php.net/manual/en/function.error-reporting.php">error reporting</a> (this makes attacks more difficult, but doesn't prevent them)</li>
 </ul><h2 id="tocAnchor-1-5">See also</h2>
+
 
 <ul><li><a href="http://martin-thoma.com/challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself :-)</li>
 </ul>

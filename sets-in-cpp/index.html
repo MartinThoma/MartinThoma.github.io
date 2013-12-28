@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Sets in C++</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,48 +65,47 @@
                         </div>
 			
 						<div class="entry">
-                            <div class="highlight">
-   <pre><code class="cpp language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt;</span>
-<span class="cp">#include &lt;set&gt;</span>
-<span class="cp">#include &lt;iterator&gt;</span>
+                            <pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;set&gt;
+#include &lt;iterator&gt;
 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+using namespace std;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// create an empty set of integers</span>
-    <span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mySet</span><span class="p">;</span>
+int main() {
+    // create an empty set of integers
+    set&lt;int&gt; mySet;
 
-    <span class="c1">// insert one element</span>
-    <span class="n">mySet</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    // insert one element
+    mySet.insert(5);
 
-    <span class="c1">// insert another element</span>
-    <span class="n">mySet</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+    // insert another element
+    mySet.insert(4);
 
-    <span class="c1">// insert more elements</span>
-    <span class="n">mySet</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1337</span><span class="p">);</span>
-    <span class="n">mySet</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
-    <span class="n">mySet</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">31415</span><span class="p">);</span>
+    // insert more elements
+    mySet.insert(1337);
+    mySet.insert(42);
+    mySet.insert(31415);
 
-    <span class="c1">// insert an element which was there before</span>
-    <span class="n">mySet</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    // insert an element which was there before
+    mySet.insert(5);
 
-    <span class="c1">// check if 4 is in set</span>
-    <span class="kt">bool</span> <span class="n">is_in</span> <span class="o">=</span> <span class="n">mySet</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">!=</span> <span class="n">mySet</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"4 is in mySet: "</span> <span class="o">&lt;&lt;</span> <span class="n">is_in</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    // check if 4 is in set
+    bool is_in = mySet.find(4) != mySet.end();
+    cout &lt;&lt; "4 is in mySet: " &lt;&lt; is_in &lt;&lt; endl;
 
-    <span class="n">is_in</span> <span class="o">=</span> <span class="n">mySet</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">!=</span> <span class="n">mySet</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"6 is in mySet: "</span> <span class="o">&lt;&lt;</span> <span class="n">is_in</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    is_in = mySet.find(6) != mySet.end();
+    cout &lt;&lt; "6 is in mySet: " &lt;&lt; is_in &lt;&lt; endl;
 
-    <span class="c1">// iterate over the set</span>
-    <span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">myIt</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="n">myIt</span><span class="o">=</span><span class="n">mySet</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">myIt</span> <span class="o">!=</span> <span class="n">mySet</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">myIt</span><span class="o">++</span><span class="p">){</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">myIt</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
-    <span class="p">}</span>
+    // iterate over the set
+    set&lt;int&gt;::iterator myIt;
+    for(myIt=mySet.begin(); myIt != mySet.end(); myIt++){
+        cout &lt;&lt; *myIt &lt;&lt; " ";
+    }
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    return 0;
+}
 </code></pre>
-</div>
+
 <p>As find is logarithmic in <code>size()</code> (source: <a href="http://www.cplusplus.com/reference/stl/set/find/">C++ Reference</a>), the membership test is also in ${\cal O}(log(n))$.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -121,6 +120,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Sets of structs</h2>
 
+
 <p>If you want to create a set of structs, you have to create a comperator:</p>
 
 <div class="highlight">
@@ -131,7 +131,11 @@
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-2">See also</h2>
+
 
 <ul><li>C++ Reference: <a href="http://www.cplusplus.com/reference/stl/set/">general information</a> and <a href="http://www.cplusplus.com/reference/stl/set/set/">example</a></li>
   <li><a href="http://stackoverflow.com/questions/1701067/how-to-check-that-an-element-is-in-a-stdset">How to check that an element is in a std::set?</a></li>

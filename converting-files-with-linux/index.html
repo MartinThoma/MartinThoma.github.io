@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Converting Files with Linux</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -69,7 +69,7 @@
 
 <p>I guess they will also work with other systems, as the programs are available for them.</p>
 
-<p>If you know some further file conversions, please let me know. </p>
+<p>If you know some further file conversions, please let me know.</p>
 
 <p>I am also very interested in Web based conversions.</p>
 
@@ -100,6 +100,7 @@ Video Files</span></a>
    </ul>
 </div><h2 id="tocAnchor-1-1">Image Files</h2>
 
+
 <p>If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.</p>
 
 <p>
@@ -111,12 +112,14 @@ Video Files</span></a>
 </code></pre>
 </div>
 
-<p><b>Create a Black-and-white picture and compress it</b>: </p>
+
+<p><b>Create a Black-and-white picture and compress it</b>:</p>
 
 <div class="highlight">
    <pre><code class="bash">djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual 70 &gt;<span class="s2">"NewPicture.jpg"</span>
 </code></pre>
 </div>
+
 
 <p><b>Rename Pictures</b>:</p>
 
@@ -125,7 +128,11 @@ Video Files</span></a>
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-2">Audio Files</h2>
+
 
 <p><b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):</p>
 
@@ -134,6 +141,7 @@ Video Files</span></a>
 </code></pre>
 </div>
 
+
 <p><b>Merge many audio files to one</b>:</p>
 
 <div class="highlight">
@@ -141,15 +149,20 @@ Video Files</span></a>
 </code></pre>
 </div>
 
-<p><b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:</p>
+
+<p><b>Convert all <em>.wav-files in one folder two </em>.mp3-files and remove the *.wav-files</b>:</p>
 
 <div class="highlight">
    <pre><code class="bash"><span class="k">for </span>i in *.wav<span class="p">;</span><span class="k">do </span>lame <span class="s2">"$i"</span> <span class="s2">"${i%wav}mp3"</span><span class="p">;</span> rm <span class="s2">"$i"</span><span class="p">;</span> <span class="k">done</span>
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-3">
 Video Files</h2>
+
 
 <p>For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
 You might also want to install some codecs first:</p>
@@ -159,12 +172,14 @@ You might also want to install some codecs first:</p>
 </code></pre>
 </div>
 
+
 <p><b>Merge many video files to one</b>:</p>
 
 <div class="highlight">
    <pre><code class="bash">cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span>
 </code></pre>
 </div>
+
 
 <p><b>avi2mpg</b>:</p>
 
@@ -173,12 +188,14 @@ You might also want to install some codecs first:</p>
 </code></pre>
 </div>
 
+
 <p><b>mp42mpg</b>:</p>
 
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span>
 </code></pre>
 </div>
+
 
 <p><b>mod2avi</b>:
 ?</p>
@@ -190,12 +207,14 @@ You might also want to install some codecs first:</p>
 </code></pre>
 </div>
 
+
 <p><b>ogv2avi</b>:</p>
 
 <div class="highlight">
    <pre><code class="bash">mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span>1 -o <span class="s2">"New.avi"</span>
 </code></pre>
 </div>
+
 
 <p><b>wmv2mpg</b>:
 aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
@@ -211,6 +230,7 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 </code></pre>
 </div>
 
+
 <p><b>mkv2avi</b>:</p>
 
 <div class="highlight">
@@ -218,7 +238,11 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-3-1">Converting Flash Videos flv to mpg</h3>
+
 
 <p>You might want to get the information of the video first:</p>
 
@@ -227,12 +251,14 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 </code></pre>
 </div>
 
+
 <p>This is how you convert it:</p>
 
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg
 </code></pre>
 </div>
+
 
 <p><strong>-i</strong> input file
 <strong>-acodec</strong> audio codec
@@ -242,17 +268,25 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 
 <h3 id="tocAnchor-1-3-2">Converting Flash Videos flv to avi</h3>
 
+
+
+
 <div class="highlight">
    <pre><code class="bash">ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-6">Shortcuts for Linux Console</h2>
+
 
 <p>I convert svg2png or pdf2png quite often for my articles. So I've created a command.</p>
 
-<p>You can create a command in Linux very easy: 
-</p><ol><li>Enter <code>echo $PATH</code> in your console</li>
+<p>You can create a command in Linux very easy:</p>
+
+<ol><li>Enter <code>echo $PATH</code> in your console</li>
   <li>Go to <code>/usr/bin</code> or any other path in your PATH</li>
   <li>Create a file with the name of your command (e.g. svg2png)</li>
   <li>Fill the fill (see below for some examples).</li>
@@ -282,6 +316,7 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
 </code></pre>
 </div>
+
 
 <p>My pdf2png looks like this:</p>
 

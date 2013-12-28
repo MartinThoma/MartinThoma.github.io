@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to check if two line segments intersect</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -94,11 +94,13 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Test cases</h2>
 
+
 <p>First of all, we should think about how lines can be arranged:</p>
 
 <p>[gallery columns="4" ids="57661,57671,57681,57691,57701,57711,57581,57591,57601,57611,57621,57631,57641,57651"]</p>
 
 <h2 id="tocAnchor-1-2">Bounding boxes</h2>
+
 
 <p>You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:</p>
 
@@ -108,6 +110,7 @@
    </a>
    <p class="wp-caption-text"></p>
 </div>
+
 
 <p>With this image in mind, it is obvious that the bounding boxes need to intersect if the lines should intersect. At this point you have to make a decision: If the endpoint of one line is on the other line, is this an intersection? I think so. If two lines have at least one point in common, they intersect. If two bounding boxes have at least one point in common, they intersect.</p>
 
@@ -131,9 +134,11 @@
 </code></pre>
 </div>
 
+
 <p>If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.</p>
 
 <h2 id="tocAnchor-1-3">The algorithm</h2>
+
 
 <div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/02/flowchart.png">
@@ -142,16 +147,18 @@
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Looks quite simple, doesn't it?</p>
 
 <h3 id="tocAnchor-1-3-1">Cross product</h3>
 
+
 <p>Well, you might notice that you need to check if one line intersects with a given line segment. To check this, you have to understand one cool idea:</p>
 
-<p>You can definie a cross product for points: 
+<p>You can definie a cross product for points:
 $\begin{align}
-  \times<em>P&amp;: Point \times Point \rightarrow \mathbb{R}\
-  \times</em>P(a, b) &amp;:= a.x \cdot b.y - b.x \cdot a.y;
+  \times_P&amp;: Point \times Point \rightarrow \mathbb{R}\
+  \times_P(a, b) &amp;:= a.x \cdot b.y - b.x \cdot a.y;
 \end{align}$</p>
 
 <p>This cross product has one nice characteristics:
@@ -189,6 +196,7 @@ $</p>
 </code></pre>
 </div>
 
+
 <p>The second cool characteristic of the cross product is that it can be used to determine if a point b is left or right of the line through the origin and a point a:</p>
 
 <div class="highlight">
@@ -209,6 +217,7 @@ $</p>
     <span class="o">}</span>
 </code></pre>
 </div>
+
 
 <p>When we have one line $a$ through the origin and one line segment $b$, you can check if $b$ crosses $a$ by checking if the end points of $b$ are on different sides of $a$:</p>
 
@@ -233,6 +242,7 @@ $</p>
 </code></pre>
 </div>
 
+
 <p>Now you have everything you need:</p>
 
 <div class="highlight">
@@ -253,17 +263,21 @@ $</p>
 </code></pre>
 </div>
 
+
 <p>By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesIntersect(box1, box2)</code>. All other tests still pass if you remove this function.</p>
 
 <h2 id="tocAnchor-1-5">Where do two line segments intersect?</h2>
 
-<p>When you know that two line segments intersect, you can also calculate the intersection.
-The intersection could be a line or only a point. </p>
 
-<p>I did this with JavaScript:
+<p>When you know that two line segments intersect, you can also calculate the intersection.
+The intersection could be a line or only a point.</p>
+
+<p>I did this with JavaScript:</p>
+
 <iframe src="http://martin-thoma.com/html5/line-segment-intersection/" width="800" height="600">
   <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen. Die Seite ist <a href="http://martin-thoma.com/html5/line-segment-intersection/">hier</a>.</p>
-</iframe></p>
+</iframe>
+
 
 <p>This is the code that checks for line segments:</p>
 
@@ -394,7 +408,11 @@ The intersection could be a line or only a point. </p>
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-6">TL;DR</h2>
+
 
 <p>The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:</p>
 
@@ -495,10 +513,15 @@ The intersection could be a line or only a point. </p>
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-7">Addendum</h2>
 
-<p>Some notes for me:
-</p><ul><li>Writing Tests first is worth the effort. I guess it finally saved me some time and it gives me some confidence that my code works.</li>
+
+<p>Some notes for me:</p>
+
+<ul><li>Writing Tests first is worth the effort. I guess it finally saved me some time and it gives me some confidence that my code works.</li>
   <li>I should update my system. I'm still using Ubuntu 10.04.4 LTS. Especially, I have Eclipse 3.5.2. This means I could not try <a href="http://www.eclemma.org/">EclEmma</a> to test my code coverage :-(</li>
   <li>LaTeX is great. I've created all images with LaTeX and it was quite fast after I got the first one. Here is the <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/tikz/line-segments">LaTeX source</a>.</li>
 </ul><p>edit:

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Konstruktion der Chomsky-Normalform</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,6 +65,7 @@
 						<div class="entry">
                             <div class="warning">Dieser Artikel könnte inhaltliche Fehler beinhalten. Bitte lest euch die Kommentare durch.</div>
 
+
 <p>Die Chomsky-Normalform ist eine bestimmte Art, eine kontextfreie Grammatik zu formulieren. Dabei haben nur die Produktionsregeln eine festgelegte Form, alles andere ist wie immer. Die Chomsky-Normalform kommt bei dem CYK-Algorithmus, der das Wortproblem für kontextfreie Grammatiken löst, zum Einsatz. Jede kontextfreie Grammatik kann in Chomsky-Normalform gebracht werden.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -104,6 +105,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Die Chomsky-Normalform</h2>
 
+
 <p>Das Besondere an der Chomsky-Normalform ist, dass alle Regeln der Grammatik $G (V, \Sigma, P, S)$ folgende Form haben:
 $A \rightarrow BC$ oder
 $A \rightarrow a$.
@@ -115,23 +117,27 @@ Dabei sind $A, B, C \in V$ und $a \in \Sigma$.</p>
 
 <h2 id="tocAnchor-1-2">Konstruktion der CNF</h2>
 
+
 <p>Aus einer Grammatik $G (V, \Sigma, P, S)$ kann mit folgenden vier Schritten eine Grammatik $G' (V', \Sigma, P', S)$ in Chomsky-Normalform (CNF) erstellt werden:</p>
 
 <h3 id="tocAnchor-1-2-1">Schritt 1</h3>
 
-<p>Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y<em>a$ ersetzt und eine neue Produktion $Y</em>a \rightarrow a$ zu P' hinzugefügt. </p>
+
+<p>Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y_a$ ersetzt und eine neue Produktion $Y_a \rightarrow a$ zu P' hinzugefügt.</p>
 
 <p>Es ist somit sichergestellt, dass alle Regeln entweder nur Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.</p>
 
 <h3 id="tocAnchor-1-2-2">Schritt 2</h3>
 
-<p>Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann führt man m - 2 neue Variablen ein, fügt diese zu V' hinzu, und macht aus einer Regel $A \rightarrow B<em>1 B</em>2 ... B<em>m$ die Regeln $A \rightarrow B</em>1 C<em>1, C</em>1 \rightarrow B<em>2 C</em>2, ..., C<em>{i+1} \rightarrow B</em>i C<em>i ... C</em>{m-2} \rightarrow B<em>{m-3} C</em>{m-3}$. </p>
+
+<p>Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann führt man m - 2 neue Variablen ein, fügt diese zu V' hinzu, und macht aus einer Regel $A \rightarrow B_1 B_2 ... B_m$ die Regeln $A \rightarrow B_1 C_1, C_1 \rightarrow B_2 C_2, ..., C<em>{i+1} \rightarrow B_i C_i ... C</em>{m-2} \rightarrow B<em>{m-3} C</em>{m-3}$.</p>
 
 <p>An dieser Stelle ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.</p>
 
 <h3 id="tocAnchor-1-2-3">Schritt 3</h3>
 
-<p>Nun wollen wir alle $\varepsilon$-Übergänge entfernen. </p>
+
+<p>Nun wollen wir alle $\varepsilon$-Übergänge entfernen.</p>
 
 <p>Um dies zu erreichen, suchen wir alle Regeln, die nach $\varepsilon$ abbilden, also von der Form $A \rightarrow \varepsilon$ sind. Dabei streichen wir die Regeln $A \rightarrow \varepsilon$. Falls A nun nicht mehr auf der linken Seite auftaucht, streichen wir es überall aus der rechten Seite. Falls dabei eine Regel zu $B \rightarrow \varepsilon$ wird, streichen wir auch diese. Das wiederholen wir so lange, bis keine $\varepsilon$-Übergänge mehr vorhanden sind.
 Am Ende fügen wir die Regel $S' \rightarrow S | \varepsilon$ hinzu, falls die Grammatik auf das leere Wort abbilden konnte.</p>
@@ -140,12 +146,15 @@ Am Ende fügen wir die Regel $S' \rightarrow S | \varepsilon$ hinzu, falls die G
 
 <h3 id="tocAnchor-1-2-4">Schritt 4</h3>
 
-<p>In diesem Schritt entfernen wir eventuell vorhandene Kettenregeln, also Regeln der Form $A<em>1 \rightarrow A</em>2 \rightarrow A<em>3 \rightarrow A</em>u \rightarrow A<em>1$. Diese findet man mit einer Tiefensuche.
-Dann ersetzt man alle $A</em>2, ..., A<em>u$ durch $A</em>1$. Die Regel $A<em>1 \rightarrow A</em>1$ kann entfernt werden, da sie ja nichts ändert.</p>
+
+<p>In diesem Schritt entfernen wir eventuell vorhandene Kettenregeln, also Regeln der Form $A_1 \rightarrow A_2 \rightarrow A_3 \rightarrow A_u \rightarrow A_1$. Diese findet man mit einer Tiefensuche.
+Dann ersetzt man alle $A_2, ..., A_u$ durch $A_1$. Die Regel $A_1 \rightarrow A_1$ kann entfernt werden, da sie ja nichts ändert.</p>
 
 <h2 id="tocAnchor-1-7">Beispiele</h2>
 
+
 <h3 id="tocAnchor-1-7-1">Die Sprache der Palindrome</h3>
+
 
 <p>Gegeben sei folgende Grammatik:
 $G(\underbrace{{S}}<em>{V}, \underbrace{{a,b}}</em>{\Sigma}, S, P)$ mit
@@ -153,47 +162,53 @@ $P = {S \rightarrow \varepsilon | a | b | aSa | bSb }$.</p>
 
 <h4>Schritt 1</h4>
 
-<p>$S \rightarrow \varepsilon | Y<em>a | Y</em>b | Y<em>aSY</em>a | Y<em>bSY</em>b$
-$Y<em>a \rightarrow a$
-$Y</em>b \rightarrow b$</p>
+
+<p>$S \rightarrow \varepsilon | Y_a | Y_b | Y_aSY_a | Y_bSY_b$
+$Y_a \rightarrow a$
+$Y_b \rightarrow b$</p>
 
 <h4>Schritt 2</h4>
 
-<p>$S \rightarrow \varepsilon | Y<em>a | Y</em>b | Y<em>aC</em>1 | Y<em>bC</em>2$
-$C<em>1 \rightarrow SY</em>a$
-$C<em>2 \rightarrow SY</em>b$
-$Y<em>a \rightarrow a$
-$Y</em>b \rightarrow b$</p>
+
+<p>$S \rightarrow \varepsilon | Y_a | Y_b | Y_aC_1 | Y_bC_2$
+$C_1 \rightarrow SY_a$
+$C_2 \rightarrow SY_b$
+$Y_a \rightarrow a$
+$Y_b \rightarrow b$</p>
 
 <h4>Schritt 3</h4>
 
-<p>$S \rightarrow Y<em>a | Y</em>b | Y<em>aC</em>1 | Y<em>bC</em>2$
-$C<em>1 \rightarrow SY</em>a$
-$C<em>2 \rightarrow SY</em>b$
-$Y<em>a \rightarrow a$
-$Y</em>b \rightarrow b$
+
+<p>$S \rightarrow Y_a | Y_b | Y_aC_1 | Y_bC_2$
+$C_1 \rightarrow SY_a$
+$C_2 \rightarrow SY_b$
+$Y_a \rightarrow a$
+$Y_b \rightarrow b$
 $S' \rightarrow S | \varepsilon$</p>
 
 <h4>Schritt 4</h4>
+
 
 <p>Keine Kettenregel vorhanden.</p>
 
 <h4>Ergebnis</h4>
 
+
 <p>Nun werden noch einzelne Nicht-Terminale durch die möglichen Terminale ersetzt und man ist fertig.</p>
 
 <p>Damit ist die Grammatik:
-$G<em>{CNF} ({S, S', Y</em>a, Y<em>b, C</em>1, C<em>2}, {a,b}, S', P'))$ mit folgenden Produktionen P':
-$P' = {S \rightarrow a | b | Y</em>aC<em>1 | Y</em>bC<em>2,$
-$~ C</em>1 \rightarrow SY<em>a,$
-$~ C</em>2 \rightarrow SY<em>b,$
-$~ Y</em>a \rightarrow a,$
+$G_{CNF} ({S, S', Y_a, Y_b, C_1, C_2}, {a,b}, S', P'))$ mit folgenden Produktionen P':
+$P' = {S \rightarrow a | b | Y_aC_1 | Y_bC_2,$
+$~ C_1 \rightarrow SY_a,$
+$~ C_2 \rightarrow SY_b,$
+$~ Y_a \rightarrow a,$
 $~ Y_b \rightarrow b,$
 $~ S' \rightarrow S | \varepsilon}$</p>
 
 <p>Sie ist also nicht schöner oder einfacher geworden, hat aber eine bestimmte Struktur erhalten.</p>
 
 <h2 id="tocAnchor-1-9">Weiterführende Links und Quellen</h2>
+
 
 <ul><li><a href="http://de.wikipedia.org/wiki/Chomsky-Normalform">Wikipedia</a></li>
     <li>Uwe Schöning: <i>Theoretische Informatik- kurz gefasst</i>. 5. Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, S. 44, <span class="plainlinks-print"><a rel="nofollow" class="external text" href="http://d-nb.info/986529222">DNB 986529222</a></span>.</li>

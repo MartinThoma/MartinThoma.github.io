@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Sicherheit-Klausur</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -67,6 +67,7 @@
 						<div class="entry">
                             <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Sicherheit“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.iks.kit.edu/index.php?id=hofheinz">Jun.-Prof. Hofheinz</a> im Sommersemester 2013 gehört.</div>
 
+
 <p>An diesem Artikel wird natürlich noch gearbeitet.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -112,6 +113,7 @@
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
+
 
 <table>
    <tr><td>25.04.2013</td>
@@ -221,6 +223,7 @@
 
 <h2 id="tocAnchor-1-2">Definitionen und Sätze</h2>
 
+
 <div class="definition">
 Eine über $k$ parametrisierte Funktion $H$ ist <strong>kollisionsresistent</strong>, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit eine Kollision findet.
 
@@ -230,6 +233,9 @@ $Adv^{cr}_{H,\mathcal{A}}(k) := Pr[(X,X') \leftarrow \mathcal{A}(1^k): X \neq X'
 
 vernachlässigbar.
 </div>
+
+
+
 
 <div class="definition">
 Eine über $k$ parametrisierte Funktion $H$ ist eine <strong>Einwegfunktion</strong> bzgl. der Urbildverteilung $\mathcal{X}_k$, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit ein Urbild eines gegebenen, aus $\mathcal{X}_k$ gezogenen Bildes findet.
@@ -241,28 +247,43 @@ $Adv^{cr}_{H,\mathcal{A}}(k) := Pr[X' \leftarrow \mathcal{A}(1^k, H(X)): H(X) = 
 vernachlässigbar, wobei $X \leftarrow \mathcal{X}_k$ gewählt wurde.
 </div>
 
+
+
+
 <div class="theorem">
 Jede kollisionsresistente Hashfunktion $H:\{0,1\}^* \rightarrow \{0,1\}^k$ ist eine Einwegfunktion bzgl. der Gleichverteilung auf $\{0,1\}^{2k}$.
 </div>
 
+
+
+
 <div class="theorem">
 Ist $f$ eine kollisionsresistente Hashfunktion, so ist die Merkle–Damgård-Konstruktion mit $f$ kollisionsresistent.
 </div>
+
+
+
 
 <div class="theorem">
 Hash-Then-Sign-Paradigma: Sei (Sig, Ver) EUF-CMA-sicher und H eine kollisionsresistente Hashfunktion.
 Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M), $\sigma$) erklärte <abbr title="Message Authentification Code">MAC</abbr> EUF-CMA-sicher.
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-3">Fragen</h2>
+
 
 <div class="question">
 <span class="question">Wann ist ein Verschlüsselungsschema IND-CPA-sicher?</span>
 <div class="answer">
 IND-CPA bedeutet „indistinguishability under chosen-plaintext attacks“. Ein Verschlüsselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgewählten Klartexten unterscheiden kann.
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Wann ist eine Signatur EUF-CMA-sicher?</span>
@@ -272,16 +293,20 @@ EUF-CMA bedeutet „existentially unforgeable under chosen-message attacks“. E
   <li>$\mathcal{A}$ gibt als Ausgabe $(M^*, \sigma^*)$</li>
   <li>$\mathcal{A}$ gewinnt, wenn $Ver(K, M^*, \sigma^*) = 1$ und $M^*$ „frisch“ ist</li>
 </ul></div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Was sind Replay-Angriffe?</span>
 <div class="answer">
 Bei Replay-Angriffen fängt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Später schickt er diesen Teil ohne weitere Bearbeitung an einen der Beiden.
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Was versteht man unter der Merkle–Damgård-Konstruktion?</span>
@@ -290,8 +315,10 @@ Die Merkle–Damgård-Konstruktion ist eine Methode zur Konstruktion von kryptog
 
 <div style="width: 300px" class="wp-caption aligncenter"><a href="http://martinthoma.github.io/images/../images/2013/04/merkle-damgard-300x139.png"><img src="http://martinthoma.github.io/images/../images/2013/04/merkle-damgard-300x139.png" alt="" width="300" height="139" class="size-medium wp-image-74091" /></a><p class="wp-caption-text"></p></div>
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Wie funktioniert RSA?</span>
@@ -305,8 +332,10 @@ Die Merkle–Damgård-Konstruktion ist eine Methode zur Konstruktion von kryptog
 Verschlüsselung einer Nachricht $m$: $c = m^{e} \mod n$
 Verschlüsselung eines Ciphertextes $c$: $m = c^{d} \mod n$
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Welches Problem birgt ein kleines $e$ beim RSA-Verfahren?</span>
@@ -317,8 +346,10 @@ Folgender Angriff ist für $e=3$ möglich:
   <li>Chinesischer Restsatz für $m^3 \mod N_1 N_2 N_3$.</li>
   <li>Wurzelziehen über $\mathbb{Z}$ liefert $m$</li>
 </ul></div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Was ist damit gemeint, wenn man sagt „RSA ist Homomorph“?</span>
@@ -334,8 +365,10 @@ Enc(pk, m_1) \cdot Enc(pk, m_2) &amp;= m_1^e \cdot m_2^e\\
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
 Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Was sind <abbr title="Hash-based message authentication code">HMACs</abbr>?</span>
@@ -344,8 +377,10 @@ Spezielle symmetrische Signaturen, die wie folgt aufgebaut sind:
 
 $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</span>
@@ -357,8 +392,10 @@ $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 Verschlüsselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zufälligem $y$ → Verschlüsselung ist zufällig!
 Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Wie funktioniert das Kerberos-Schlüsselaustauschprotokoll?</span>
@@ -370,44 +407,56 @@ Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \fra
 
 Ein <a href="http://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibts auch.
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Warum kann es schlecht für die Sicherheit sein, wenn man komprimiert?</span>
 <div class="answer">
 Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor der Kompression hinzufügen. Wenn der Ciphertext deutlich weniger wächst als er an Text hinzugefügt hat, kann er vermuten, dass er den Text erraten hat. (→ CRIME-Angriff)
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</span>
 <div class="answer">
 Ein Angreifer kann die Klartextnachricht ändern. Wenn er weiß (oder zumindest ahnt) was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Nennen Sie Verfahren, die IND-CPA-sicher sind.</span>
 <div class="answer">
 Eine Blockciffre im CBC-Modus
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <div class="question">
 <span class="question">Nennen Sie Verfahren, die EUF-CMA-sicher sind.</span>
 <div class="answer">
 Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,1\}^* \rightarrow \{0,1\}^k$ eine kollisionsresistente Hashfunktion. Dann ist der durch $Sig(K, M) = PRF(K, H(M))$ gegebene MAC EUF-CMA-sicher.
 </div>
+</div>
 
-<p></p></div>
+
+
 
 <h2 id="tocAnchor-1-4">Diverses</h2>
 
+
 <h3 id="tocAnchor-1-4-1">TLS Handshake</h3>
+
 
 <div style="width: 512px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/04/tls-handshake.jpg">
@@ -416,17 +465,26 @@ Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-4-2">Change Cipher Spec Drop</h3>
 
-<p>Ein Angriff auf verschlüsselte Verbindungen:
-</p><div style="width: 512px" class="wp-caption aligncenter">
+
+<p>Ein Angriff auf verschlüsselte Verbindungen:</p>
+
+<div style="width: 512px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/04/change-cipher-spec-drop.jpg">
       <img src="http://martinthoma.github.io/images/../images/2013/04/change-cipher-spec-drop.jpg" alt="" width="512" height="275" class="size-full wp-image-74501" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-7">Material</h2>
+
 
 <ul><li><a href="http://www.iks.kit.edu/index.php?id=sic-sose13">Vorlesungswebsite</a></li>
   <li>Mein <a href="https://ankiweb.net/shared/info/4056558772">Anki-Deck</a></li>
@@ -434,13 +492,15 @@ Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,
   <li>StackExchange:
     <ul><li><a href="http://crypto.stackexchange.com/q/5646/7248">What are the differences between a digital signature, a MAC and a hash?</a></li>
     </ul></li>
-</ul><p>In der Fachschaft gibt es folgende Altklausuren:
-</p><ol><li>Hauptklausur SS 2012</li>
+</ul><p>In der Fachschaft gibt es folgende Altklausuren:</p>
+
+<ol><li>Hauptklausur SS 2012</li>
   <li>Nachklausur SS 2011</li>
   <li>Hauptklausur SS 2011</li>
   <li>Nachklausur SS 2010</li>
   <li>Hauptklausur SS 2010</li>
 </ol><h2 id="tocAnchor-1-8">Aufbau der Klausur</h2>
+
 
 <p>Bisher gab es meist 6 Aufgaben mit jeweils 10 Punkten:</p>
 
@@ -452,9 +512,11 @@ Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,
   <li>Multiple Choice</li>
 </ol><h2 id="tocAnchor-1-9">Übungsbetrieb</h2>
 
+
 <p>Es gibt Übungsblätter auf der Vorlesungswebsite, aber keinen Übungsschein, keine Abgaben und keine Bonuspunkte.</p>
 
 <h2 id="tocAnchor-1-10">Termine und Klausurablauf</h2>
+
 
 <p><strong>Datum</strong>: Freitag, den 26. Juli 2013 von 14:00 bis 15:00 Uhr (Klausur dauerte eine Stunde)
 <strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im H.S.a.F)
@@ -465,9 +527,11 @@ Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,
 
 <h2 id="tocAnchor-1-11">Nicht vergessen</h2>
 
+
 <ul><li>Studentenausweis</li>
   <li>Kugelschreiber</li>
 </ul><h2 id="tocAnchor-1-12">Ergebnisse</h2>
+
 
 <p>Sind noch nicht draußen (Stand: 30.07.2013)</p>
 

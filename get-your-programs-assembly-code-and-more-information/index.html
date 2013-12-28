@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Get your programs assembly code and more information</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -115,13 +115,15 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">General Information</h2>
 
+
 <p>It is important to know that I will use <strong>AT&amp;T syntax</strong> in this article!
-This is AT&amp;T Syntax: </p>
+This is AT&amp;T Syntax:</p>
 
 <div class="highlight">
    <pre><code class="text">movl %esp, %ebp
 </code></pre>
 </div>
+
 
 <p>And this is Intel Syntax:</p>
 
@@ -130,7 +132,11 @@ This is AT&amp;T Syntax: </p>
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-1-1">Pointers</h3>
+
 
 <ul><li><strong>%esp</strong>: Stack pointer for top address of the stack.</li>
   <li><strong>%ebp</strong>: Stack base pointer for holding the address of the current stack frame.</li>
@@ -139,9 +145,11 @@ This is AT&amp;T Syntax: </p>
 
 <h3 id="tocAnchor-1-1-2">$ Dollar and % Percentage signs</h3>
 
+
 <p>$i, with $i \in mathbb{N}$, is a constant and percentages mean registers.<small><sup><a href="#ref10" name="anchor10" id="anchor10">[10]</a></sup></small><small><sup><a href="#ref10" name="anchor11" id="anchor11">[11]</a></sup></small></p>
 
 <h3 id="tocAnchor-1-1-3">Instruction</h3>
+
 
 <p><strong>pushl <register></register></strong>: To push the source operand onto the stack<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small>
 <strong>movl <from>, <to></to></from></strong>: moves a long<small><sup><a href="#ref2" name="anchor2" id="anchor2">[2]</a></sup></small>
@@ -156,8 +164,10 @@ This is AT&amp;T Syntax: </p>
 
 <h4>Suffixes</h4>
 
-<p>Many instructions have suffixes. This is what they mean<small><sup><a href="#ref6" name="anchor6" id="anchor6">[6]</a></sup></small>:
-</p><ul><li>b: byte (8 bit)</li>
+
+<p>Many instructions have suffixes. This is what they mean<small><sup><a href="#ref6" name="anchor6" id="anchor6">[6]</a></sup></small>:</p>
+
+<ul><li>b: byte (8 bit)</li>
   <li>s: short (16 bit integer) or single (32-bit floating point)</li>
   <li>w: word (16 bit)</li>
   <li>l: long (32 bit integer or 64-bit floating point)</li>
@@ -165,9 +175,11 @@ This is AT&amp;T Syntax: </p>
   <li>t: ten bytes (80-bit floating point)</li>
 </ul><h2 id="tocAnchor-1-5">Simple example</h2>
 
+
 <h3 id="tocAnchor-1-5-1">C-Code</h3>
 
-<p>This program simply outputs </p>
+
+<p>This program simply outputs</p>
 
 <div class="highlight">
    <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
@@ -180,7 +192,11 @@ This is AT&amp;T Syntax: </p>
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-5-2">Assembly</h3>
+
 
 <p>Now I compile it and I save the assembly code:</p>
 
@@ -188,6 +204,7 @@ This is AT&amp;T Syntax: </p>
    <pre><code class="bash">gcc -S test.c<span class="p">;</span> gcc test.c -o <span class="nb">test</span>
 </code></pre>
 </div>
+
 
 <p>This gives me test.s (the assembly code) and an executable called "test".</p>
 
@@ -217,6 +234,7 @@ main:
 </code></pre>
 </div>
 
+
 <p>This is code of the <a href="http://en.wikipedia.org/wiki/GNU_Assembler">GNU Assembler</a>. I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?</p>
 
 <p>The first and most important thing you might notice is that neither "1337" nor "42" appear in the assembly code, but 56154 which is 1337*42. I didn't use any optimization options! You might also notice that constants begin with a dollar sign and registers (esp, ebp) begin with a percent sign.</p>
@@ -230,6 +248,7 @@ main:
 
 <h3 id="tocAnchor-1-5-3">Further information</h3>
 
+
 <p><code>objdump</code> gives even more information!</p>
 
 <p>Archive header information: objdump -a test</p>
@@ -240,6 +259,7 @@ test
 </code></pre>
 </div>
 
+
 <p>File header information: objdump -f test</p>
 
 <div class="highlight">
@@ -249,6 +269,7 @@ EXEC_P, HAS_SYMS, D_PAGED
 start address 0x08048330
 </code></pre>
 </div>
+
 
 <p>Object specific file header contents: objdump -p test</p>
 
@@ -300,6 +321,7 @@ Version References:
     0x0d696910 0x00 02 GLIBC_2.0
 </code></pre>
 </div>
+
 
 <p>Display the contents of the section headers: objdump -h test</p>
 
@@ -363,6 +385,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
 </code></pre>
 </div>
 
+
 <p>Display DWARF info in the file: objdump --dwarf test</p>
 
 <div class="highlight">
@@ -374,11 +397,14 @@ Contents of the .eh_frame section:
 </code></pre>
 </div>
 
+
 <p>By the way, <a href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="http://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="http://en.wikipedia.org/wiki/Backronym">backronym</a>.</p>
 
 <h2 id="tocAnchor-1-9">Fibonacci</h2>
 
+
 <h3 id="tocAnchor-1-9-1">C-Code</h3>
+
 
 <p>This is the most simple version of Fibonacci I could find:<small><sup><a href="#ref7" name="anchor7" id="anchor7">[7]</a></sup></small></p>
 
@@ -398,7 +424,13 @@ Contents of the .eh_frame section:
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-9-2">Assembly</h3>
+
+
+
 
 <div class="highlight">
    <pre><code class="text"> .file   "test.c"
@@ -457,7 +489,11 @@ main:
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-12">References</h2>
+
 
 <ol><li><a name="ref1" href="#anchor1" id="ref1">↑</a>: <a href="http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html">PUSHL Instruction</a>. The University of Auckland, Department of Computer Science.</li>
   <li><a name="ref2" href="#anchor2" id="ref2">↑</a>: <a href="http://www.cse.nd.edu/~dthain/courses/cse40243/fall2008/ia32-intro.html">IA-32 Assembly for Compiler Writers</a>. Douglas Thain, Associate Professor, University of Notre Dame, Department of Computer Science and Engineering.</li>

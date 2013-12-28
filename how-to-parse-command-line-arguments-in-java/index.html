@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to parse command line arguments in Java</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -102,7 +102,9 @@ Run → Run Configurations ... → Arguments</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">args4j</h2>
 
+
 <blockquote>args4j is a small Java class library that makes it easy to parse command line options/arguments in your CUI application.</blockquote>
+
 
 <p>Source: <a href="http://args4j.kohsuke.org/">args4j.kohsuke.org</a></p>
 
@@ -110,25 +112,30 @@ Run → Run Configurations ... → Arguments</p>
 
 <h3 id="tocAnchor-1-1-1">Requirements</h3>
 
+
 <p>First, you have to get the package. It is not in my Ubuntu-Version, but <a href="http://packages.ubuntu.com/quantal/libargs4j-java">Ubuntu Quantal will have args4j</a>. The package is called <code>libargs4j-java</code>.</p>
 
 <p>If you can't install it this way, you have to <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/">download args4j</a>. Currently, it is <a href="http://maven.jenkins-ci.org/content/repositories/releases/args4j/args4j/2.0.21/args4j-2.0.21.jar">args4j-2.0.21.jar</a>.</p>
 
-<p>You can add this as an external jar to Eclipse:
-</p><ol><li>Right-click on your project.</li>
+<p>You can add this as an external jar to Eclipse:</p>
+
+<ol><li>Right-click on your project.</li>
   <li>Select "Properties"</li>
   <li>Type "java build path" in the input field at the upper left corner of the window.</li>
-</ol><p>Now it should look like this:
-</p><div style="width: 300px" class="wp-caption aligncenter">
+</ol><p>Now it should look like this:</p>
+
+<div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-project-properties-libraries-300x214.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" alt="" width="300" height="214" class="size-medium wp-image-33151" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Now you have to click on "Add External Jar" and add the args4j.jar file.</p>
 
 <h3 id="tocAnchor-1-1-2">Source Example</h3>
+
 
 <p>As always in Java, you add another class for parsing your command line values. I've called it CommandLineValues.java and it does only check for the command line argument <code>-i FILE</code> or <code>--input FILE</code>.</p>
 
@@ -189,6 +196,7 @@ Run → Run Configurations ... → Arguments</p>
 </code></pre>
 </div>
 
+
 <p>Here is some part of the main file:</p>
 
 <div class="highlight">
@@ -213,7 +221,11 @@ Run → Run Configurations ... → Arguments</p>
 </code></pre>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-1-3">Usage Examples</h3>
+
 
 <p>If you do not specify the required parameters, you get a quite good error message:</p>
 
@@ -224,6 +236,7 @@ Option <span class="s2">"-i (--input)"</span> is required
 </code></pre>
 </div>
 
+
 <p>Help is <strong>not</strong> automatically generated:</p>
 
 <div class="highlight">
@@ -232,6 +245,7 @@ Option <span class="s2">"-i (--input)"</span> is required
  -i <span class="o">(</span>--input<span class="o">)</span> FILE : input file with two matrices
 </code></pre>
 </div>
+
 
 <p>If you want to have default parameters, you simply assign the values to the attributes:</p>
 
@@ -242,11 +256,14 @@ Option <span class="s2">"-i (--input)"</span> is required
 </code></pre>
 </div>
 
+
 <p>Note: <a href="http://stackoverflow.com/q/7834111/562769">How can I prevent Eclipse from adding the 'final' for certain lines of Java code?</a></p>
 
 <h2 id="tocAnchor-1-5">Commons CLI</h2>
 
+
 <h3 id="tocAnchor-1-5-1">Installation</h3>
+
 
 <p>As for args4j, they offer a jar file which is in <a href="http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist//commons/cli/binaries/commons-cli-1.2-bin.tar.gz">commons-cli-1.2-bin.tar.gz</a> on the <a href="http://commons.apache.org/cli/download_cli.cgi">download-page</a>.</p>
 
@@ -259,19 +276,26 @@ Option <span class="s2">"-i (--input)"</span> is required
 </code></pre>
 </div>
 
-<p>If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:
-</p><div style="width: 431px" class="wp-caption aligncenter">
+
+<p>If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:</p>
+
+<div style="width: 431px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-cli-lib-error.png">
       <img src="http://martinthoma.github.io/images/../images/2012/07/java-eclipse-cli-lib-error.png" alt="" width="431" height="89" class="size-full wp-image-33201" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <h3 id="tocAnchor-1-5-2">Usage examples</h3>
+
 
 <p>I have not found a single, complete and working usage example.</p>
 
 <h2 id="tocAnchor-1-8">See also</h2>
+
 
 <ul><li><a href="http://stackoverflow.com/q/367706/562769">Is there a good command line argument parser for Java?</a> - A lot of other command line parsers are mentioned for Java.</li>
   <li><a href="http://args4j.kohsuke.org/args4j/apidocs/">args4j JavaDoc</a></li>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>MD5 cracking</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -71,7 +71,7 @@
 
 <p>Well, imagine you had a web application. Now an attacker found a security whole and can read the password-column in the database. If it was plain text, he could use the passwords to log into the users accounts. As it is hashed and the hash function can't be simply reverted. So the attacker can't take any advantage of the passwords he just read.</p>
 
-<p>It is much more realistic that the attacker can read the whole database. So he can access sensitive user data. As it is very likely that you have some Email-Adresses in there, he could quite probably log into the Email-accounts of the users with the same password. If the password is hashed, it's not that simple. He has to try to crack the MD5 hashed passwords. </p>
+<p>It is much more realistic that the attacker can read the whole database. So he can access sensitive user data. As it is very likely that you have some Email-Adresses in there, he could quite probably log into the Email-accounts of the users with the same password. If the password is hashed, it's not that simple. He has to try to crack the MD5 hashed passwords.</p>
 
 <p>I'll describe and test in the following how easy this is and how it could be done.</p>
 
@@ -90,36 +90,43 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Tested Hashes</h2>
 
-<p>MD5 is a widely used cryptographic hash function. I wanted to know how easy it is to crack them, so I tested it. I used those passwords:
-</p><ul><li>"computer": df53ca268240ca76670c8566ee54568a</li>
+
+<p>MD5 is a widely used cryptographic hash function. I wanted to know how easy it is to crack them, so I tested it. I used those passwords:</p>
+
+<ul><li>"computer": df53ca268240ca76670c8566ee54568a</li>
 <li>"establishment": f469410e5ec7594a9c41603e06ccf6a3</li>
 <li>"My Birthday": ce9dbd008dac54422b90b3f82f58dd40</li>
 <li>"I'm born in 1990.": 834649b6298642a7576b10c6705842d8</li>
 <li>"r4Nd0m9": cc11c3de28e4425eff27b2fb5f216903</li>
 </ul><h2 id="tocAnchor-1-2">Online Crackers</h2>
 
-<p>If you search for "md5 cracker" you find <a href="http://md5cracker.org/" rel="nofollow">some md5 crackers</a>. 
-This website could crack <em>computer</em>, <em>establishment</em> and <em>My Birthday</em>. 
+
+<p>If you search for "md5 cracker" you find <a href="http://md5cracker.org/" rel="nofollow">some md5 crackers</a>.
+This website could crack <em>computer</em>, <em>establishment</em> and <em>My Birthday</em>.
 The other two hashes weren't cracked.</p>
 
 <h2 id="tocAnchor-1-3">John the Ripper</h2>
 
-<p>Ubuntu-Users can easily install John the Ripper (sudo apt-get install john) and use it for cracking hashes. To do so, the have to create a file in their working directory (let's call it md5.txt) and execute the following command: </p>
+
+<p>Ubuntu-Users can easily install John the Ripper (sudo apt-get install john) and use it for cracking hashes. To do so, the have to create a file in their working directory (let's call it md5.txt) and execute the following command:</p>
 
 <div class="highlight">
    <pre><code class="bash">john --format<span class="o">=</span>raw-MD5 md5.txt
 </code></pre>
 </div>
 
-<p>Here is the time, john needed to crack the hashes:
-</p><ul><li>"computer": 0.521 seconds</li>
+
+<p>Here is the time, john needed to crack the hashes:</p>
+
+<ul><li>"computer": 0.521 seconds</li>
 <li>"establishment": after 1 h it wasn't cracked</li>
 <li>"My Birthday": after 5 min it wasn't cracked</li>
 <li>"I'm born in 1990.": after 5 min it wasn't cracked</li>
 <li>"r4Nd0m9": after 38 min it wasn't cracked</li>
-</ul><p>Okay, these results aren't good. But you can also use a wordlist (e.g. the 15 MB list from http://www.bright-shadows.net/download/downloads.php) and the command 
-john --wordlist:tbswordlist1.txt --format=raw-MD5 md5.txt
-</p><ul><li>"computer": df53ca268240ca76670c8566ee54568a</li>
+</ul><p>Okay, these results aren't good. But you can also use a wordlist (e.g. the 15 MB list from http://www.bright-shadows.net/download/downloads.php) and the command
+john --wordlist:tbswordlist1.txt --format=raw-MD5 md5.txt</p>
+
+<ul><li>"computer": df53ca268240ca76670c8566ee54568a</li>
 <li>"establishment": 0.568 seconds</li>
 <li>"My Birthday": not cracked</li>
 <li>"I'm born in 1990.": not cracked</li>

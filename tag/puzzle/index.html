@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Posts Tagged &ldquo;puzzle&rdquo;</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -549,7 +549,7 @@
         <div class="entry">
     
 
-	What is the output of the following programm? { highlight c }#include int main() { printf(&quot;i\n&quot;, -13&gt;&gt;1); }{ endhighlight } . . . . . . . . . . . . . . . . . . . Short answer -7 Long answer Signed integers are two&rsquo;s complement binary values that can be used to represent both positive and negative integer values. Source: Intels IA-32 Architectures Software Developer&#39;s Manuals, page 83 When you want... [...]
+	What is the output of the following programm? { highlight c }#include&lt;stdio.h> int main() { printf("i\n", -13>>1); }{ endhighlight } . . . . . . . . . . . . . . . . . . . Short answer -7 Long answer Signed integers are two&rsquo;s complement binary values that can be used to represent both positive and negative integer values. Source: Intels IA-32 Architectures Software Developer's Manuals, page 83 When you want... [...]
 
     
     <div class="readmorecontent">
@@ -1029,7 +1029,7 @@
     <a href="http://martinthoma.github.io/c-puzzle-2/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/05/C.png" class="alignleft post_thumbnail wp-post-image" alt="C Puzzle #2"/></a>
     
 
-	What is the output of the following script? Why? How can it be fixed to get the expected output? { highlight c }#define _STDCFORMAT_MACROS include include int main() { uint64_t testvar; testvar = 1&lt;&lt;30; printf(&quot;2^30 = &quot; PRIu64 &quot;\n&quot;, testvar); testvar = 1&lt;&lt;31; printf(&quot;2^31 = &quot; PRIu64 &quot;\n&quot;, testvar); return 0; } { endhighlight } . . . . . . . . . . . . . . . . . Answer { highlight... [...]
+	What is the output of the following script? Why? How can it be fixed to get the expected output? { highlight c }#define __STDC_FORMAT_MACROS include &lt;inttypes.h> include &lt;stdio.h> int main() { uint64_t testvar; testvar = 1&lt;&lt;30; printf("2^30 = " PRIu64 "\n", testvar); testvar = 1&lt;&lt;31; printf("2^31 = " PRIu64 "\n", testvar); return 0; } { endhighlight } . . . . . . . . . . . . . . . . . Answer... [...]
 
     
     <div class="readmorecontent">
@@ -1086,7 +1086,7 @@
     <a href="http://martinthoma.github.io/java-puzzle-13-absolute-value-weirdness/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #13: Absolute value weirdness"/></a>
     
 
-	What does the following snippet output? { highlight java }public class SomeClass { public static void main(String[] args) { int a = -10; int b = -2147483648; // -2147483648 == -2**31 if (Math.abs(a) &lt; -1) { System.out.println(&quot;|a| &lt; -1&quot;); } else { System.out.println(&quot;|a| &gt;= -1&quot;); } if (Math.abs(b) &lt; -1) { System.out.println(&quot;|b| &lt; -1&quot;); } else { System.out.println(&quot;|b| &gt;= -1&quot;); } System.out.println(&quot;|a| = &quot; + Math.abs(a)); System.out.println(&quot;|b| = &quot; + Math.abs(b)); } }{ endhighlight }... [...]
+	What does the following snippet output? { highlight java }public class SomeClass { public static void main(String[] args) { int a = -10; int b = -2147483648; // -2147483648 == -2**31 if (Math.abs(a) &lt; -1) { System.out.println("|a| &lt; -1"); } else { System.out.println("|a| &gt;= -1"); } if (Math.abs(b) &lt; -1) { System.out.println("|b| &lt; -1"); } else { System.out.println("|b| &gt;= -1"); } System.out.println("|a| = " + Math.abs(a)); System.out.println("|b| = " + Math.abs(b)); } }{ endhighlight }... [...]
 
     
     <div class="readmorecontent">
@@ -1142,7 +1142,7 @@
 { highlight java }public class HelloWorld {
     public static void main(String[] args) {
         if (2 &lt; 1); {
-            System.out.println(&quot;Yes&quot;);
+            System.out.println("Yes");
         }
     }
 }{ endhighlight }
@@ -1161,9 +1161,11 @@
 
 Answer
 
-The output is &quot;Yes&quot;. 
+
+The output is "Yes".
 
 Explanation
+
 
 The ; means, that no block is executed. The { ... } is just a code block and not really related to the if-statement.
  [...]
@@ -1221,7 +1223,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/java-puzzle-11-change-argument-of-foreach/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #11: Change argument of foreach"/></a>
     
 
-	What is the output of the following HelloWorld.java? { highlight java }import java.util.LinkedList; public class HelloWorld { public static void main(String[] args) { LinkedList list = new LinkedList(); list.add(1); list.add(2); list.add(3); int i = 0; for (Integer el : list) { System.out.println(el); list.add(el); i++; if (i &gt; 20) { break; } } } }{ endhighlight } . . . . . . . . . . . . . . . . . . .... [...]
+	What is the output of the following HelloWorld.java? { highlight java }import java.util.LinkedList; public class HelloWorld { public static void main(String[] args) { LinkedList list = new LinkedList(); list.add(1); list.add(2); list.add(3); int i = 0; for (Integer el : list) { System.out.println(el); list.add(el); i++; if (i > 20) { break; } } } }{ endhighlight } . . . . . . . . . . . . . . . . . . .... [...]
 
     
     <div class="readmorecontent">
@@ -1290,7 +1292,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/python-puzzle-3-associativity/"><img width="128" height="128" src="http://martinthoma.github.io/images/2011/09/Python-Logo.png" class="alignleft post_thumbnail wp-post-image" alt="Python Puzzle #3: Associativity"/></a>
     
 
-	What is the output of { highlight python }1 in [] in &#39;a&#39;{ endhighlight } and what is the output of { highlight python }(1 in []) in &#39;a&#39;{ endhighlight } or { highlight python }1 in ([] in &#39;a&#39;){ endhighlight } . . . . . . . . . . . . . . . . . . . . . . . . . Answer The first expression evaluates to False, because... [...]
+	What is the output of { highlight python }1 in [] in 'a'{ endhighlight } and what is the output of { highlight python }(1 in []) in 'a'{ endhighlight } or { highlight python }1 in ([] in 'a'){ endhighlight } . . . . . . . . . . . . . . . . . . . . . . . . . Answer The first expression evaluates to False, because... [...]
 
     
     <div class="readmorecontent">
@@ -1463,7 +1465,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/java-puzzle-10-multiple-interfaces/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #10: Multiple Interfaces"/></a>
     
 
-	You have to following source code: A.java: { highlight java }public interface A { public int methodA(double a, int b, char c); public int methodB(); }{ endhighlight } B.java: { highlight java }public interface B { public int methodB(); public void methodC(); }{ endhighlight } test.java: { highlight java }public class test implements A, B { public static void main(String[] args) { test t = new test(); System.out.println(t.methodA(1, 2, &#39;3&#39;)); System.out.println(t.methodB()); t.methodC(); } @Override public... [...]
+	You have to following source code: A.java: { highlight java }public interface A { public int methodA(double a, int b, char c); public int methodB(); }{ endhighlight } B.java: { highlight java }public interface B { public int methodB(); public void methodC(); }{ endhighlight } test.java: { highlight java }public class test implements A, B { public static void main(String[] args) { test t = new test(); System.out.println(t.methodA(1, 2, '3')); System.out.println(t.methodB()); t.methodC(); } @Override public... [...]
 
     
     <div class="readmorecontent">
@@ -1747,7 +1749,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/java-puzzle-6-double-arithmetic/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #6: Double Arithmetic"/></a>
     
 
-	What is the output of the following snippet? { highlight java }public class test { public static void main(String[] args) { double a = 1.3378901234567877; double b = 0.0008901234567876; double c = a - b; if (c == 1.337) { System.out.println(&quot;Hallo doubles!&quot;); } else { System.out.println(&quot;Oh no! Comparison failed!&quot;); } } }{ endhighlight } . . . . . . . . . . . . . . . . . Solution { highlight bash... [...]
+	What is the output of the following snippet? { highlight java }public class test { public static void main(String[] args) { double a = 1.3378901234567877; double b = 0.0008901234567876; double c = a - b; if (c == 1.337) { System.out.println("Hallo doubles!"); } else { System.out.println("Oh no! Comparison failed!"); } } }{ endhighlight } . . . . . . . . . . . . . . . . . Solution { highlight bash... [...]
 
     
     <div class="readmorecontent">
@@ -1880,7 +1882,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/java-puzzle-4-parallel-programming/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #4: Parallel Programming"/></a>
     
 
-	What is the output of the following Java Snippet: { highlight java }public class MyParallelClass implements java.lang.Runnable { public String name; public myParallelTry(String name) { this.name = name; } @Override public void run() { System.out.println(name); } }{ endhighlight } { highlight java }public class test { public static void main(String[] args) { MyParallelClass a = new MyParallelClass(&quot;A&quot;); MyParallelClass b = new MyParallelClass(&quot;B&quot;); MyParallelClass c = new MyParallelClass(&quot;C&quot;); MyParallelClass d = new MyParallelClass(&quot;D&quot;); new Thread(a).start(); new... [...]
+	What is the output of the following Java Snippet: { highlight java }public class MyParallelClass implements java.lang.Runnable { public String name; public myParallelTry(String name) { this.name = name; } @Override public void run() { System.out.println(name); } }{ endhighlight } { highlight java }public class test { public static void main(String[] args) { MyParallelClass a = new MyParallelClass("A"); MyParallelClass b = new MyParallelClass("B"); MyParallelClass c = new MyParallelClass("C"); MyParallelClass d = new MyParallelClass("D"); new Thread(a).start(); new... [...]
 
     
     <div class="readmorecontent">
@@ -1930,7 +1932,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/python-puzzle-2-none-and-false/"><img width="128" height="128" src="http://martinthoma.github.io/images/2011/09/Python-Logo.png" class="alignleft post_thumbnail wp-post-image" alt="Python Puzzle #2: None and False"/></a>
     
 
-	Python automatically casts to boolean if you use another type of variable for a boolean expression. Here is an example: { highlight python }#!/usr/bin/python -- coding: utf-8 -- if [1]: print(&quot;Crazy, &quot;) if 1: print(&quot;this &quot;) if 2: print(&quot;is &quot;) if True: print(&quot;also &quot;) if &quot;a string&quot;: print(&quot;true.&quot;) print(&quot;&quot;) if not None: print(&quot;This &quot;) if not False: print(&quot;is &quot;) if not 0: print(&quot;not &quot;) if not []: print(&quot;true.&quot;){ endhighlight } Everything gets printed. Now the... [...]
+	Python automatically casts to boolean if you use another type of variable for a boolean expression. Here is an example: { highlight python }#!/usr/bin/python -- coding: utf-8 -- if [1]: print("Crazy, ") if 1: print("this ") if 2: print("is ") if True: print("also ") if "a string": print("true.") print("") if not None: print("This ") if not False: print("is ") if not 0: print("not ") if not []: print("true."){ endhighlight } Everything gets printed. Now the... [...]
 
     
     <div class="readmorecontent">
@@ -2064,7 +2066,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/java-puzzle-3-rounding/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #3: Rounding"/></a>
     
 
-	The puzzle What is the output of the following script: { highlight java }public class test { public static void main(String[] args) { double x = 0.4999999999999999; double y = 0.49999999999999992; double z = 0.49999999999999994; System.out.println(x + &quot; rounded is &quot; + Math.round(x)); System.out.println(y + &quot; rounded is &quot; + Math.round(y)); System.out.println(z + &quot; rounded is &quot; + Math.round(z)); } }{ endhighlight } . . . . . . . . . . . .... [...]
+	The puzzle What is the output of the following script: { highlight java }public class test { public static void main(String[] args) { double x = 0.4999999999999999; double y = 0.49999999999999992; double z = 0.49999999999999994; System.out.println(x + " rounded is " + Math.round(x)); System.out.println(y + " rounded is " + Math.round(y)); System.out.println(z + " rounded is " + Math.round(z)); } }{ endhighlight } . . . . . . . . . . . .... [...]
 
     
     <div class="readmorecontent">
@@ -2111,7 +2113,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/java-puzzle-2-integers-and-floats/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #2: Integers and Floats"/></a>
     
 
-	Basics As you might know, Americans measure the temperature in Fahrenheit. I&#39;m not quite sure, but I guess the rest of the world uses Celsius. 0&deg; C is the temperature when water freezes. 100&deg; C is the temperature when water boils. 0&deg; F is the lowest temperature of the winter 1708/1709 in Gdańsk. 32&deg; F is the temperature when water boils. If you want to calculate the temperature $TC$ in &deg;C from $TF$ in &deg;F... [...]
+	Basics As you might know, Americans measure the temperature in Fahrenheit. I'm not quite sure, but I guess the rest of the world uses Celsius. 0&deg; C is the temperature when water freezes. 100&deg; C is the temperature when water boils. 0&deg; F is the lowest temperature of the winter 1708/1709 in Gdańsk. 32&deg; F is the temperature when water boils. If you want to calculate the temperature $T_C$ in &deg;C from $T_F$ in &deg;F... [...]
 
     
     <div class="readmorecontent">
@@ -2190,7 +2192,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/java-puzzle-1-pre-and-postincrement/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #1: Pre- and Postincrement"/></a>
     
 
-	The puzzle What is the output of the following piece of code? { highlight java }public class test { public static void main(String[] args) { int i = 1; i += ++i + i++ + ++i; int j = 1; j += ++j + j++ + ++j; int k = 1; k += k++ + k++ + ++k; int m = 1; System.out.println(&quot;i = &quot; + i); System.out.println(&quot;j = &quot; + j); System.out.println(&quot;k = &quot;... [...]
+	The puzzle What is the output of the following piece of code? { highlight java }public class test { public static void main(String[] args) { int i = 1; i += ++i + i++ + ++i; int j = 1; j += ++j + j++ + ++j; int k = 1; k += k++ + k++ + ++k; int m = 1; System.out.println("i = " + i); System.out.println("j = " + j); System.out.println("k = "... [...]
 
     
     <div class="readmorecontent">
@@ -2253,7 +2255,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="http://martinthoma.github.io/mathe-puzzle-1-verschleierung/"><img width="128" height="128" src="http://martinthoma.github.io/images/2012/07/math-symbol-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Mathe Puzzle #1: Verschleierung"/></a>
     
 
-	Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name? Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Verkn&uuml;fungen auf $\mathbb{R}$ und definiert durch: $\oplus(a, b) := a + b$ $\otimes(a, b) := a - b$ Sei $O:\mathbb{N} \rightarrow \mathbb{R}$ eine Abbildung und definiert durch $O(0) := 0, O(0^0) := 0^0, O(o) := O(o \otimes 0^0) \oplus O(o \otimes 0^0 \otimes 0^0)$. . . . . . . . Aufl&ouml;sung gibts weiter unten - die... [...]
+	Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name? Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Verkn&uuml;fungen auf $\mathbb{R}$ und definiert durch: $\oplus(a, b) := a + b$ $\otimes(a, b) := a - b$ Sei $O:\mathbb{N} \rightarrow \mathbb{R}$ eine Abbildung und definiert durch $O(0) := 0, O(00) := 00, O(o) := O(o \otimes 00) \oplus O(o \otimes 00 \otimes 00)$. . . . . . . . Aufl&ouml;sung gibts weiter unten - die... [...]
 
     
     <div class="readmorecontent">
@@ -2475,7 +2477,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
         <div class="entry">
     
 
-	What is the output of the following programm? { highlight c }#include int* f() { int i = 5; return &amp;i; } void g() { int j = 42; j++; } int main() { int* x = f(); g(); printf(&quot;x = d\n&quot;, *x); g(); printf(&quot;x = d\n&quot;, *x); return 0; }{ endhighlight } Short Answer It depends on your compiler flags! If you compile it with no optimization, you might get 43: { highlight bash... [...]
+	What is the output of the following programm? { highlight c }#include &lt;stdio.h> int* f() { int i = 5; return &amp;i; } void g() { int j = 42; j++; } int main() { int x = f(); g(); printf("x = d\n", x); g(); printf("x = d\n", *x); return 0; }{ endhighlight } Short Answer It depends on your compiler flags! If you compile it with no optimization, you might get 43: { highlight... [...]
 
     
     <div class="readmorecontent">

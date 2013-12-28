@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Colorize your scripts output</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -97,6 +97,9 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">A quick example</h2>
 
+
+
+
 <div class="highlight">
    <pre><code class="bash"><span class="c"># Text color variables</span>
 <span class="nv">txtred</span><span class="o">=</span><span class="k">$(</span>tput setaf 1<span class="k">)</span>    <span class="c"># Red</span>
@@ -104,6 +107,7 @@
 <span class="nb">echo</span> <span class="s2">"Roses are ${txtred}red${txtreset}."</span>
 </code></pre>
 </div>
+
 
 <p>Simply copy this example line by line and then you'll see the expected example.</p>
 
@@ -114,7 +118,13 @@
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-2">The sgr attribuge</h2>
+
+
+
 
 <div class="highlight">
    <pre><code class="bash">tput sgr 0 1     turn off standout<span class="p">;</span> turn on underline
@@ -125,7 +135,13 @@ tput sgr0        short <span class="k">for </span>sgr 0 0
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-3">The setaf attribute</h2>
+
+
+
 
 <div class="highlight">
    <pre><code class="bash">setaf 1 Red
@@ -138,7 +154,11 @@ setaf 7 Gray
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-4">Misc</h2>
+
 
 <p>Make your text bold:</p>
 
@@ -147,6 +167,7 @@ setaf 7 Gray
 </code></pre>
 </div>
 
+
 <p>Reset your style:</p>
 
 <div class="highlight">
@@ -154,7 +175,11 @@ setaf 7 Gray
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-5">Advanced Example</h2>
+
 
 <p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
 
@@ -165,6 +190,7 @@ setaf 7 Gray
 </code></pre>
 </div>
 
+
 <p>You can test it with</p>
 
 <div class="highlight">
@@ -172,14 +198,16 @@ setaf 7 Gray
 </code></pre>
 </div>
 
+
 <p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
 
-<p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is </p>
+<p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is</p>
 
 <div class="highlight">
    <pre><code class="bash">sed <span class="s1">'s/search/replace/'</span>
 </code></pre>
 </div>
+
 
 <p>So we pipe the output to sed:</p>
 
@@ -188,12 +216,14 @@ setaf 7 Gray
 </code></pre>
 </div>
 
+
 <p>And now we bring it all together:</p>
 
 <div class="highlight">
    <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
 </code></pre>
 </div>
+
 
 <p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
 
@@ -202,7 +232,11 @@ setaf 7 Gray
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-6">Colorize C / C++ output</h2>
+
 
 <p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
 
@@ -229,6 +263,7 @@ setaf 7 Gray
 <span class="p">}</span>
 </code></pre>
 </div>
+
 
 <p>\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
 The numbers 30–37 change the color, 4 is a single underline.</p>

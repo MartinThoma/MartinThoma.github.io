@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Understanding Python Lists</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -89,6 +89,7 @@
 </code></pre>
 </div>
 
+
 <p>How should the output look like? Think about it a second, then scroll down.</p>
 
 <div class="highlight">
@@ -98,6 +99,7 @@
 <span class="o">[[</span>1,5,7<span class="o">]</span>,<span class="o">[</span>3,6<span class="o">]</span>,<span class="o">[]</span>,<span class="o">[</span>8,1,6<span class="o">]]</span>
 </code></pre>
 </div>
+
 
 <p>The reason for this strange behaviour is how lists are handled in Python. The variable itself is basically only the pointer to the list. If you slice the list (myList[:]) you copy each value of the list into another list. If myList was a nested list, it contained the pointers to the sublists. So, if you want to make a deep copy, you have to use the copy module.</p>
 
@@ -113,6 +115,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Scoping</h2>
 
+
 <p>phimuemue added this example in my old blog:</p>
 
 <p>Another issue I ran into concerns the scoping of Python:</p>
@@ -124,9 +127,13 @@
 </code></pre>
 </div>
 
+
 <p>That means, python doesn't create a new variable for the list comprehension but uses the outer i.</p>
 
 <h2 id="tocAnchor-1-2">Recursive Lists</h2>
+
+
+
 
 <div class="highlight">
    <pre><code class="python"><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -141,6 +148,7 @@
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">]]]</span>
 </code></pre>
 </div>
+
 
 <p>Do you know more examples of unexpected behaviour of python lists? Please share them in the comments!</p>
 						</div>

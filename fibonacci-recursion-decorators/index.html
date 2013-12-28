@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Fibonacci, recursion and decorators</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -85,6 +85,7 @@ $</p>
 </code></pre>
 </div>
 
+
 <p>The problem is, of course, that the number of evaluations goes wild. Here is a table of the number of function calls</p>
 
 <table>
@@ -125,7 +126,7 @@ f(n-1) + f(n-2) + 1 &amp;\text{otherwise}
 \end{cases}
 $</p>
 
-<p>This means the dumb function is in $\mathcal{O}(2^n)$! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
+<p>This means the dumb function is in $\mathcal{O}(2<sup>n</sup>)$! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -144,6 +145,7 @@ $</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Memorization with decorators</h2>
+
 
 <p>One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and space complexity) by storing values we already calculated.</p>
 
@@ -168,6 +170,7 @@ $</p>
 </code></pre>
 </div>
 
+
 <p>Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python :-)</p>
 
 <p>By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:</p>
@@ -176,6 +179,7 @@ $</p>
    <pre><code class="bash">RuntimeError: maximum recursion depth exceeded in comparison
 </code></pre>
 </div>
+
 
 <p>You can get around this limitation by successive calls of fib:</p>
 
@@ -188,15 +192,17 @@ $</p>
 </code></pre>
 </div>
 
+
 <p>That gave 139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125. A pretty big number.</p>
 
 <h2 id="tocAnchor-1-2">Formula of Moivre-Binet</h2>
+
 
 <p>The formula of Moivre-Binet gives a closed form for calculating fibonacci numbers:</p>
 
 <p>$\varphi = \frac{\sqrt{5}+1}{2}$
 $\psi = 1 - \varphi$
-$f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
+$f(n) = \frac{\varphi<sup>n</sup> - \psi<sup>n</sup>}{\phi - \psi}$</p>
 
 <p>Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:</p>
 
@@ -238,13 +244,16 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
 </code></pre>
 </div>
 
+
 <p>So the answer is:</p>
 
 <blockquote>The 72-th fibonacci number is 498454011879264. Moivre-Binet gives due to precicion error 498454011879265 (delta=1).</blockquote>
 
+
 <p>This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1)$ solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
 
 <h2 id="tocAnchor-1-3">Very high numbers</h2>
+
 
 <p>The following solution is fast and works 0.075 seconds for the 20000 Fibonacci number (which has 4180 digits).</p>
 
@@ -258,7 +267,11 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
 </code></pre>
 </div>
 
+
+
+
 <h2 id="tocAnchor-1-4">Additional ressources</h2>
+
 
 <p>The article on <a href="http://en.literateprograms.org/Fibonacci_numbers_(Python)">literate programs</a> is worth reading. They show some very different programs that calculate Fibonacci numbers.</p>
 						</div>

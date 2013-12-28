@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -66,7 +66,7 @@
 			
 						<div class="entry">
                             <p>Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck $(a \cup (ab(b)^\text{<em>}ba))^\text{</em>}$ ist folgender:
-$Q = {S, q<em>1, q</em>2}$
+$Q = {S, q_1, q_2}$
 $\Sigma = {a, b}$
 $\delta = \text{siehe Grafik}$
 $F = {S}$
@@ -79,13 +79,15 @@ $NEA = \left( Q, \Sigma, \delta, S, F \right)$</p>
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Will man daraus nun den endlichen Automaten konstruieren, läuft das im Prinzip über eine Potenzmengenkonstruktion.</p>
 
 <p>Zuerst defnieren wir:
 $\tilde{S} = E(S) = {S}$</p>
 
-<p>Dann erstellen wir folgende Tabelle:
-</p><table style="border:1px solid #000;">
+<p>Dann erstellen wir folgende Tabelle:</p>
+
+<table style="border:1px solid #000;">
    <tr><th style="border:1px solid #000;">$\tilde{S}$</th>
     <th style="border:1px solid #000;">{S}</th>
   </tr>
@@ -95,8 +97,9 @@ $\tilde{S} = E(S) = {S}$</p>
    <tr><th style="border:1px solid #000;">b</th>
     <td style="border:1px solid #000;"> </td>
   </tr>
-</table><p>Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:
-</p><table style="border:1px solid #000;">
+</table><p>Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:</p>
+
+<table style="border:1px solid #000;">
    <tr><th style="border:1px solid #000;">$\tilde{S}$</th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
@@ -112,8 +115,9 @@ $\tilde{S} = E(S) = {S}$</p>
 </table><p>Nun geht man also jede Spalte, von links nach rechts durch. Für jede Spalte wird jede Zeile, von oben nach unten, überprüft. Mit jeder Überprüfung kann eine neue Zustandsmenge als Spalte hinzukommen.
 Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.</p>
 
-<p>Am Ende schaut die Tablle wie folgt aus:
-</p><table style="border:1px solid #000;">
+<p>Am Ende schaut die Tablle wie folgt aus:</p>
+
+<table style="border:1px solid #000;">
    <tr><th style="border:1px solid #000;">$\tilde{S}$</th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
@@ -135,7 +139,7 @@ Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealph
     <td style="border:1px solid #000;">{q1, q2}</td>
     <td style="border:1px solid #000;">{q1, q2}</td>
   </tr>
-</table><p>$\tilde{Q} = {{S}, {q<em>1, S}, {q</em>2}, {q<em>1, q</em>2}}$
+</table><p>$\tilde{Q} = {{S}, {q_1, S}, {q_2}, {q_1, q_2}}$
 $\tilde{F} = {{S}, {q_1, S}}$</p>
 
 <p>Die Übergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:</p>
@@ -147,6 +151,9 @@ $\tilde{F} = {{S}, {q_1, S}}$</p>
    <p class="wp-caption-text"></p>
 </div>
 
+
+
+
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -155,6 +162,7 @@ $\tilde{F} = {{S}, {q_1, S}}$</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Material</h2>
+
 
 <p>Die .gv sieht so aus:</p>
 
@@ -189,6 +197,7 @@ $\tilde{F} = {{S}, {q_1, S}}$</p>
 }
 </code></pre>
 </div>
+
 
 <p>Unter Linux kann man mit <a href="http://wiki.ubuntuusers.de/Graphviz">GraphViz</a> mit folgendem Befehl die Datei erstellen:</p>
 

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Project Euler: Problem 35</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -73,6 +73,9 @@ There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73
 
 How many circular primes are there below one million?</blockquote>
 
+
+
+
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -93,76 +96,20 @@ How many circular primes are there below one million?</blockquote>
 Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
 You can use the same thought for the digit 5.
 
-So you can skip those digits
-
-The final snippet
-
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
- 
-def getPrimesBelowN(n=1000000):
-    """Get all primes below n with the sieve of Eratosthenes. 
-    @return: a list 0..n with boolean values that indicate if 
-             i in 0..n is a prime.
-    """
-    from math import ceil
-    primes = [True] * n
-    primes[0] = False
-    primes[1] = False
-    primeList = []
-    roundUp = lambda n, prime: int(ceil(float(n) / prime))
-    for currentPrime in xrange(2, n):
-        if not primes[currentPrime]:
-            continue
-        primeList.append(currentPrime)
-        for multiplicant in xrange(2, roundUp(n, currentPrime)):
-            primes[multiplicant * currentPrime] = False
-    return primes
- 
-def isCircularPrime(primes, number):
-    """Check if number is a circular prime.
-     
-    Keyword arguments:
-    primes -- a list from 0..n with boolean values that indicate if 
-              i in 0..n is a prime
-    number -- the integer you want to check
-    """
-    number = str(number)
-    for i in xrange(0, len(number)):
-        rotatedNumber = number[i:len(number)] + number[0:i]
-        if not primes[int(rotatedNumber)]:
-            return False
-    return True
- 
-if __name__ == "__main__":
-    print("Start sieving.")
-    primes = getPrimesBelowN(1000000)
-    print("End sieving.")
-    numberOfPrimes = 2
-    print(2)    # I print them now, because I want to skip all primes
-    print(5)    # that contain one of those digits: 0,2,4,5,6,8
-    for prime, isPrime in enumerate(primes):
-        if (not isPrime) or ("2" in str(prime)) or \
-           ("4" in str(prime)) or ("6" in str(prime)) or \
-           ("8" in str(prime)) or ("0" in str(prime)) or \
-           ("5" in str(prime)):
-            continue
-        if isCircularPrime(primes, prime):
-            print(prime)
-            numberOfPrimes += 1
- 
-    print("Number of circular primes: %i" % numberOfPrimes)
-
-
 </span></a>
+            </li>
+            <li class="toc_level-2 toc_section-6">
+               <a href="#tocAnchor-1-2-4"><span class="tocnumber">2.4</span> <span class="toctext">The final snippet</span></a>
             </li>
          </ul>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">How to solve</h2>
 
-<p>If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
-</p><ol><li>Find all primes below one million</li>
+
+<p>If you have heard of the sieve of Eratosthenes, this one sounds quite easy:</p>
+
+<ol><li>Find all primes below one million</li>
   <li>For each prime, do:
     <ol><li>Generate all rotations</li>
       <li>Check for every rotation if it is a prime</li>
@@ -170,13 +117,15 @@ if __name__ == "__main__":
   <li>Count the number of circular primes</li>
 </ol><h2 id="tocAnchor-1-2">The implementation</h2>
 
+
 <h3 id="tocAnchor-1-2-1">Sieve of Eratosthenes</h3>
+
 
 <p>The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.</p>
 
 <p>First, this is the way the sieve of Eratosthenes works:</p>
 
-<p>[caption id="attachment<em>48841" align="aligncenter" width="445"]&lt;a href="http://martin-thoma.com/project-euler-problem-35/sieve</em>of<em>eratosthenes</em>animation/" rel="attachment wp-att-48841"&gt;<img src="http://martin-thoma.com/wp-content/uploads/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" width="445" height="369" class="size-full wp-image-48841" /> Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).
+<p>[caption id="attachment_48841" align="aligncenter" width="445"]<a href="http://martin-thoma.com/project-euler-problem-35/sieve_of_eratosthenes_animation/" rel="attachment wp-att-48841"><img src="http://martin-thoma.com/wp-content/uploads/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" width="445" height="369" class="size-full wp-image-48841" /></a> Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).
 Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>[/caption]</p>
 
 <p>For example, this implementation is not good:</p>
@@ -197,7 +146,8 @@ Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_an
 </code></pre>
 </div>
 
-<p>Whats bad with this code? 
+
+<p>Whats bad with this code?
 Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.</p>
 
 <p>How could this get improved? Here is a better solution:</p>
@@ -223,11 +173,13 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 </code></pre>
 </div>
 
+
 <p>This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.</p>
 
 <p>A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.</p>
 
 <h3 id="tocAnchor-1-2-2">isCircularPrime</h3>
+
 
 <p>Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:</p>
 
@@ -242,6 +194,7 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 </code></pre>
 </div>
 
+
 <p>Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:</p>
 
 <div class="highlight">
@@ -255,24 +208,28 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 </code></pre>
 </div>
 
-<h3 id="tocAnchor-1-2-3">Some more speedups
+
+
+
+<p></p><h3 id="tocAnchor-1-2-3">Some more speedups
 Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
 You can use the same thought for the digit 5.
 
-So you can skip those digits
+</h3><p>So you can skip those digits</p>
 
-<h3>The final snippet</h3>
+<p></p><h3 id="tocAnchor-1-2-4">The final snippet</h3>
 
-<div class="highlight"><pre><code class="python"><span class="c">#!/usr/bin/python</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
- 
-<span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
+<p></p><div class="highlight">
+   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -<em>- coding: utf-8 -</em>-</span>
+
+<p><span class="k">def</span> <span class="nf">getPrimesBelowN</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000000</span><span class="p">):</span>
     <span class="sd">"""Get all primes below n with the sieve of Eratosthenes. </span>
 <span class="sd">    @return: a list 0..n with boolean values that indicate if </span>
 <span class="sd">             i in 0..n is a prime.</span>
 <span class="sd">    """</span>
     <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
-    <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">True</span><span class="p">]</span> <span class="o"><em></em></span> <span class="n">n</span>
     <span class="n">primes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">primes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
     <span class="n">primeList</span> <span class="o">=</span> <span class="p">[]</span>
@@ -282,10 +239,10 @@ So you can skip those digits
             <span class="k">continue</span>
         <span class="n">primeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentPrime</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">multiplicant</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">roundUp</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">currentPrime</span><span class="p">)):</span>
-            <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o">*</span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="n">primes</span>
- 
-<span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+            <span class="n">primes</span><span class="p">[</span><span class="n">multiplicant</span> <span class="o"></span> <span class="n">currentPrime</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="n">primes</span></p>
+
+<p><span class="k">def</span> <span class="nf">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
     <span class="sd">"""Check if number is a circular prime.</span>
 <span class="sd">     </span>
 <span class="sd">    Keyword arguments:</span>
@@ -298,9 +255,9 @@ So you can skip those digits
         <span class="n">rotatedNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)]</span> <span class="o">+</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">primes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">rotatedNumber</span><span class="p">)]:</span>
             <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">True</span>
- 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="k">return</span> <span class="bp">True</span></p>
+
+<p><span class="k">if</span> <span class="n"><strong>name</strong></span> <span class="o">==</span> <span class="s">"<strong>main</strong>"</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"Start sieving."</span><span class="p">)</span>
     <span class="n">primes</span> <span class="o">=</span> <span class="n">getPrimesBelowN</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"End sieving."</span><span class="p">)</span>
@@ -315,12 +272,15 @@ So you can skip those digits
             <span class="k">continue</span>
         <span class="k">if</span> <span class="n">isCircularPrime</span><span class="p">(</span><span class="n">primes</span><span class="p">,</span> <span class="n">prime</span><span class="p">):</span>
             <span class="k">print</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
-            <span class="n">numberOfPrimes</span> <span class="o">+=</span> <span class="mi">1</span>
- 
-    <span class="k">print</span><span class="p">(</span><span class="s">"Number of circular primes: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">numberOfPrimes</span><span class="p">)</span>
-</code></pre></div>
+            <span class="n">numberOfPrimes</span> <span class="o">+=</span> <span class="mi">1</span></p>
 
-</h3><p>It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)</p>
+<pre><code>&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Number of circular primes: &lt;/span&gt;&lt;span class="si"&gt;%i&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;numberOfPrimes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+</code></pre>
+
+<p></p></code></pre>
+</div>
+
+<p>It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Komplexit&auml;tsklassen in der Informatik: Ein &Uuml;berblick</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281312.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312281638.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -93,11 +93,13 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Die Klasse P</h2>
 
-<p>In der Klasse $\cal P$ sind alle Probleme, die mit einer deterministischen Turingmaschine in polynomialzeit lösbar sind. Das sind also alle Probleme, für die es einen Algorithmus gibt, der in $\cal O(n^i), i \in \mathbb{N}_0$ ist.</p>
+
+<p>In der Klasse $\cal P$ sind alle Probleme, die mit einer deterministischen Turingmaschine in polynomialzeit lösbar sind. Das sind also alle Probleme, für die es einen Algorithmus gibt, der in $\cal O(n<sup>i</sup>), i \in \mathbb{N}_0$ ist.</p>
 
 <p>Wenn es allerdings <em>noch</em> keinen Algorithmus gibt, der ein Problem in polynomialzeit löst, kann das Problem dennoch in $\cal P$ liegen. Dann muss es einen besseren Algorithmus zur Lösung des Problems geben.</p>
 
 <h2 id="tocAnchor-1-2">Die Klasse NP</h2>
+
 
 <p>In der Klasse $\cal NP$ sind alle Probleme, die mit einer <strong>nicht-deterministischen</strong> Turingmaschine in polynomialzeit lösbar sind. Das besondere an einer nicht-determinisitschen Turingmaschine ist das Orakelmodul. Es liefert einfach die Lösung. Wie es das macht, wissen wir nicht. Irgendwie geht es halt. Diese Lösung muss in polynomialzeit von einer deterministischen Turingmaschine verifiziert werden.</p>
 
@@ -111,59 +113,68 @@
 
 <h3 id="tocAnchor-1-2-1">Die Klasse NPC</h3>
 
+
 <p>Die Klasse der NP-Vollständigen Probleme ist echt in NP, also $\cal NPC \subsetneq NP$. Das besondere an $\cal NPC$ ist, dass jedes Probleminstanz in $\cal NP$ in eine Instanz eines beliebigen Problems in $\cal NPC$ umgewandelt werden kann.</p>
 
-<p>Das es ein solches Problem gibt, hat Cook 1971 mit <a href="http://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a> gezeigt. Cook hat also anschaulich folgendes gemacht:
-</p><div style="width: 387px" class="wp-caption aligncenter">
+<p>Das es ein solches Problem gibt, hat Cook 1971 mit <a href="http://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a> gezeigt. Cook hat also anschaulich folgendes gemacht:</p>
+
+<div style="width: 387px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/02/npc-sat.png">
       <img src="http://martinthoma.github.io/images/../images/2012/02/npc-sat.png" alt="" width="387" height="313" class="size-full wp-image-15231" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Für alle folgenden Beweise, dass ein Problem in $\cal NPC$ liegt, wurde der Satz von Cook verwendet.
-Laut diesem Satz (dessen Beweis wahnsinning lang ist) lässt sich jede Probleminstanz von Problemen in $\cal NP$ sich in eine Instanz von SAT umwandeln. Es reicht also zu zeigen, dass sich eine beliebige SAT-Instanz I  in eine Instanz I' des neuen Problems in polynomialzeit umwandeln lässt. Diese beiden Instzanzen müssen in folgender Beziehung stehen: 
-Für I existiert eine Lösung $\Leftrightarrow$ für I' existiert eine Lösung:
-</p><div style="width: 460px" class="wp-caption aligncenter">
+Laut diesem Satz (dessen Beweis wahnsinning lang ist) lässt sich jede Probleminstanz von Problemen in $\cal NP$ sich in eine Instanz von SAT umwandeln. Es reicht also zu zeigen, dass sich eine beliebige SAT-Instanz I  in eine Instanz I' des neuen Problems in polynomialzeit umwandeln lässt. Diese beiden Instzanzen müssen in folgender Beziehung stehen:
+Für I existiert eine Lösung $\Leftrightarrow$ für I' existiert eine Lösung:</p>
+
+<div style="width: 460px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/02/proof-new-npc.png">
       <img src="http://martinthoma.github.io/images/../images/2012/02/proof-new-npc.png" alt="" width="460" height="354" class="size-full wp-image-15241" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Sobald man von einem Problem sicher weiß, dass es in $\cal NPC$ liegt, kann man natürlich auch etwas anderes als SAT verwenden.</p>
 
 <p>Im Bezug auf P vs. NP ist es vor allem interessant. Wenn ein Problem nicht in P, aber in NP liegt, dann ist sicher jedes Problem in NPC außerhalb von P. Also: $\cal P \neq NP \Rightarrow P \cap NPC = \emptyset$.
-Warum? Angenommen es existiert ein Problem P für das gilt:
-</p><ul><li>$P \in \cal NP$</li>
+Warum? Angenommen es existiert ein Problem P für das gilt:</p>
+
+<ul><li>$P \in \cal NP$</li>
   <li>$P \notin \cal P$</li>
   <li>$P \notin \cal NPC$</li>
-</ul>
-Dann gibt es eine polynomielle Transformation von jeder Instanz von P in eine Probleminstanz von einem beliebigem Problem in $\cal NPC$. Damit kann jedes Problem in $\cal NPC$ nicht mehr in $\cal P$ liegen, da sonst auch $P \in \cal P$.
+</ul><p>Dann gibt es eine polynomielle Transformation von jeder Instanz von P in eine Probleminstanz von einem beliebigem Problem in $\cal NPC$. Damit kann jedes Problem in $\cal NPC$ nicht mehr in $\cal P$ liegen, da sonst auch $P \in \cal P$.</p>
 
 <h2 id="tocAnchor-1-4">NPI, co-P und co-NP</h2>
+
 
 <p>Formal gilt: $\cal NPI := NP \setminus (P \cup NPC)$.
 Es sind also alle Probleme, die innerhalb von $\cal NP$ sind, aber außerhalb von $\cal P$ und noch nicht in $\cal NPC$ in $\cal NPI$. Es ist also so eine Art "Zwischenklasse".</p>
 
-<p>Um es etwas anschaulicher zu machen, habe ich mal folgendes Bildchen erstellt:
-</p><div style="width: 500px" class="wp-caption aligncenter">
+<p>Um es etwas anschaulicher zu machen, habe ich mal folgendes Bildchen erstellt:</p>
+
+<div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/02/PvsNP.png">
       <img src="http://martinthoma.github.io/images/../images/2012/02/PvsNP.png" alt="" width="500" height="400" class="size-full wp-image-14511" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
+
 <p>Bemerkenswert ist folgende Aussage:
 Im Fall $\cal P = NP$ ist auch ${\cal P} \setminus {\emptyset, \Sigma^*} = {\cal NPC}$ (siehe Nachklausur von 2007 / 2008, Frage 5).
 Warum stimmt das? Damit ein Problem $\in \cal NPC$ ist, muss es nur eine polynomielle Transformation von jedem Problem in NP auf das eine Problem geben. Das ist offensichtlich der Fall, wenn man alle Probleme in NP in polynomieller Zeit lösen kann. In diesem Fall kann man das Entscheidungsproblem lösen und eine Ja-Instanz auf eine beliebige andere Ja-Instanz abbilden und analog Nein-Instanzen auf Nein-Instanzen abbilden. Da $\emptyset$ keine Ja-Instanz hat und $\Sigma$ keine Nein-Instanz hat, muss man diese herausnehmen.</p>
 
-<p>Formal gilt: $\text{co-}{\cal P} := {L \in \Sigma^* | L^C \in {\cal P}}$ und analog $\text{co-}{\cal NP} := {L \in \Sigma^* | L^C \in {\cal NP}}$.</p>
+<p>Formal gilt: $\text{co-}{\cal P} := {L \in \Sigma^<em> | L<sup>C</sup> \in {\cal P}}$ und analog $\text{co-}{\cal NP} := {L \in \Sigma^</em> | L<sup>C</sup> \in {\cal NP}}$.</p>
 
 <p>Folgende Aussage finde ich dazu sehr interessant:
 $L \in {\cal NPC} \land L \in \text{co-}{\cal NP} \Rightarrow {\cal NP} = \text{co-}{\cal NP}$</p>
 
 <h2 id="tocAnchor-1-5">D-TAPE und N-TAPE</h2>
+
 
 <p>Im Skript wurde das seltsam geschrieben ($\cal DTAPE$). Ich habe so nicht mehr erkannt, dass es TAPE heißen soll. In der Klausur sollte man sich davon nicht irritieren lassen.</p>
 
@@ -171,6 +182,7 @@ $L \in {\cal NPC} \land L \in \text{co-}{\cal NP} \Rightarrow {\cal NP} = \text{
 $N-TAPE(s(n)) := {L | \text{Es existiert eine nicht-determinitistische TM, die L mit Platzbedarf s(n) akzeptiert.}}$</p>
 
 <h2 id="tocAnchor-1-6">Quellen und Material</h2>
+
 
 <ul><li><a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi_skript_ws11.pdf">Theoretische Grundlagen der Informatik</a>: Skript von Prof. Dr. Dorothea Wagner</li>
   <li>Die Bilder stehen hier zur Verfügung: <a href="http://martin-thoma.com/wp-content/uploads/2012/02/komplexitaetsklassen-material.zip">Material zu den Komplexitätsklassen</a></li>
