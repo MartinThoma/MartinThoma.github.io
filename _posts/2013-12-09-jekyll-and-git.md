@@ -12,6 +12,7 @@ tags:
 - Jekyll
 - Git
 - GitHub
+- rsync
 featured_image: 2013/12/jekyll-thumbnail.png
 ---
 
@@ -75,7 +76,8 @@ Reasons for WordPress:
       to categories or authors.</li>
 </ul>
 
-## Create your repository ##
+## GitHub ##
+### Create your repository ###
 1. Go to <a href="https://github.com/">github.com</a>, sign in and create a new repo:
 2. Call it `[Username].github.io`.
 
@@ -101,6 +103,36 @@ Now update this branch to the server:
 
 ```bash
 git push -u origin source
+```
+
+## FTP Server ##
+If you have your own FTP server, you probably want to use it.
+
+One tool that might now come to your mind is `rsync`. But rsync 
+needs SSH ([source](http://serverfault.com/a/24627/113899)). If you
+have SSH, then you can do something like this:
+
+```bash
+rsync -avz --delete _site/ user@host:/path/to/web/root
+```
+
+The `--delete` options "delete[s] extraneous files from dest dirs",
+`-a` means archive which preserves the owner, group, change date
+and some more of files, `-v` is verbose as always and `-z` is for
+compression while the file transfer happens. `--progress` might also
+be interesting, especially for the first upload.
+
+Otherwise, you might want to try `curlftpfs`. This program lets you
+mount a FTP folder:
+
+```bash
+curlftpfs ftp.example.com/backups /mnt/ftpserver
+```
+
+and you can also umount it:
+
+```bash
+rsync --delete /var/backups /mnt/ftpserver
 ```
 
 ## Markdown ##
@@ -135,11 +167,17 @@ juicer install yui_compressor
 I've included small images as base64 (used [this online tool](http://webcodertools.com/imagetobase64converter/Create)). According to [caniuse](http://caniuse.com/datauri) it's quite save to use.
 
 ## Site Search ##
-Site search was a real problem.
+Site search is a real problem.
 
 http://www.businessguide.co.uk/blog/jekyll-search-ways-to-search-a-static-site/
 
 http://www.mzlinux.org/?q=node/435
+
+### PHP+SQLite ###
+
+### JavaScript solutions ###
+One JavaScript solution I've found is [lunr](https://github.com/slashdotdash/jekyll-lunr-js-search).
+But there are [other solutions](http://christian-fei.com/simple-jekyll-search-jquery-plugin/), [too](http://forrst.com/posts/Static_site_e_g_Jekyll_search_with_JQuery-zL9).
 
 
 ## Some tests ##

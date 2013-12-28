@@ -2,6 +2,7 @@
 #
 # Jekyll author page generator.
 # http://recursive-design.com/projects/jekyll-plugins/
+# https://github.com/multunus/jekyll-author-plugin/blob/master/author_generator.rb
 #
 # Version: 0.1.4 (201101061053)
 #
