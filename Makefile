@@ -17,6 +17,7 @@ deploy:
 	make push
 	jekyll build --config _config_prod.yml
 	./_removeWhitespace.py
+	mv search.db _site/search/search.db
 	git checkout master
 	git rm -qr .
 	cp -r _site/. .
