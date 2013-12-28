@@ -13,7 +13,7 @@ featured_image: 2012/09/tikz-sizes-thumb.png
 Here is an overview of sizes in LaTeX:
 
 <h2>TikZ</h2>
-{% caption align="aligncenter" width="500" caption="TikZ thicknes" url="../images/2012/09/tikz-sizes.png" alt="TikZ thicknes" title="" height="503" class="size-full wp-image-45911 " title="TikZ thicknes" %}
+{% caption align="aligncenter" width="500" caption="TikZ thicknes" url="../images/2012/09/tikz-sizes.png" alt="TikZ thicknes" title="TikZ thicknes" height="503" class="size-full" %}
 Usage example:
 <code>\draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);</code>
 <ul>

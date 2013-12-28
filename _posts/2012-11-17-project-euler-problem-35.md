@@ -39,11 +39,12 @@ The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistake
 
 First, this is the way the sieve of Eratosthenes works:
 
-[caption id="attachment_48841" align="aligncenter" width="445"]<a href="http://martin-thoma.com/project-euler-problem-35/sieve_of_eratosthenes_animation/" rel="attachment wp-att-48841"><img src="http://martin-thoma.com/wp-content/uploads/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" width="445" height="369" class="size-full wp-image-48841" /></a> Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).
-Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>[/caption]
+{% caption align="aligncenter" width="445" caption="Sieve of Eratosthenes: algorithm steps for primes below 121 (including optimization of starting from prime's square).<br/>
+Source: <a href="http://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif">Wikimedia</a>" url="../images/2012/11/Sieve_of_Eratosthenes_animation.gif" alt="Sieve of Eratosthenes animation" title="Sieve of Eratosthenes animation" height="503" class="size-full" link="../project-euler-problem-35/sieve_of_eratosthenes_animation/" %}
 
 For example, this implementation is not good:
-{% highlight python %}def getPrimesBelowN(n=1000000):
+{% highlight python %}
+def getPrimesBelowN(n=1000000):
     """ Sieve of Eratosthenes """
     from math import ceil
     roundUp = lambda n, prime: int(ceil(float(n) / prime))
@@ -54,13 +55,15 @@ For example, this implementation is not good:
             noPrime = multiplicant * currentPrime
             if noPrime in primes: 
                 primes.remove(noPrime)
-    return primes{% endhighlight %}
+    return primes
+{% endhighlight %}
 
 Whats bad with this code? 
 Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.
 
 How could this get improved? Here is a better solution:
-{% highlight python %}def getPrimesBelowN(n=1000000):
+{% highlight python %}
+def getPrimesBelowN(n=1000000):
     """ Sieve of Eratosthenes """
     from math import ceil
     roundUp = lambda n, prime: int(ceil(float(n) / prime))
@@ -76,7 +79,8 @@ How could this get improved? Here is a better solution:
         primeList.append(currentPrime)
         for multiplicant in xrange(2, roundUp(n, currentPrime)):
             primes[multiplicant * currentPrime] = False
-    return primeList{% endhighlight %}
+    return primeList
+{% endhighlight %}
 
 This solution does not need to search for <code>noPrime</code>, it simply jumps there in the list.
 
@@ -94,13 +98,15 @@ Rotation the digits of a number is the same as cutting the number into two piece
 
 Here is the same problem as above, in the sieving algorithm: Searching through the list takes much more time than jumping to a position in the list. So this one is better:
 
-{% highlight python %}def isCircularPrime(primes, number):
+{% highlight python %}
+def isCircularPrime(primes, number):
     number = str(number)
     for i in xrange(0, len(number)):
         rotatedNumber = number[i:len(number)] + number[0:i]
         if not primes[int(rotatedNumber)]:
             return False
-    return True{% endhighlight %}
+    return True
+{% endhighlight %}
 
 <h3>Some more speedups</h2>
 Every prime that contains one of the digits 0, 2, 4, 6 or 8 can't be a circular prime, because one rotation exist where that digit is at the end. This rotation would be divisible by 2 and thus not be a prime (except for 2, of course).
@@ -109,7 +115,8 @@ You can use the same thought for the digit 5.
 So you can skip those digits
 
 <h3>The final snippet</h3>
-{% highlight python %}#!/usr/bin/python
+{% highlight python %}
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
  
 def getPrimesBelowN(n=1000000):
@@ -163,6 +170,7 @@ if __name__ == "__main__":
             print(prime)
             numberOfPrimes += 1
  
-    print("Number of circular primes: %i" % numberOfPrimes){% endhighlight %}
+    print("Number of circular primes: %i" % numberOfPrimes)
+{% endhighlight %}
 
 It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)

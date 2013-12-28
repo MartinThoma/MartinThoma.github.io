@@ -64,17 +64,17 @@ What&rsquo;s the difference between drug dealers and computer programmers?
 </tr>
 </table>
 
-[caption id="" align="aligncenter" width="413" caption="xkcd: Compiling"]<img alt="" src="http://imgs.xkcd.com/comics/compiling.png" title="Compiling" width="413" height="360" />[/caption]
+{% caption align="aligncenter" width="413" caption="xkcd: Compiling" url="http://imgs.xkcd.com/comics/compiling.png" alt="Compiling" title="Compiling" height="360" class="" %}
 
 ME: You should really think about a new monitor.
 CLIENT: I would, but I don&rsquo;t want to lose my icons. 
 (Source: Clients From Hell)
 
-{% caption align="aligncenter" width="282" caption="Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a>" url="../images/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose" title="Computer Science Major" height="300" class="size-medium wp-image-18161" %}
+{% caption align="aligncenter" width="282" caption="Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a>" url="../images/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose" title="Computer Science Major" height="300" class="size-medium" %}
 
 There are 10 types of people: those who understand binary, and those who do not understand it.
 
-{% caption align="aligncenter" width="300" caption="Why people seem to have freetime" url="../images/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime" title="Why people seem to have freetime" height="248" class="size-medium wp-image-18181" %}
+{% caption align="aligncenter" width="300" caption="Why people seem to have freetime" url="../images/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime" title="Why people seem to have freetime" height="248" class="size-medium" %}
 
 <h2>More Jokes!</h2>
 <ul>
