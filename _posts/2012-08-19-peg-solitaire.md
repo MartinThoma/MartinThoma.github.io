@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2012-08-19 17:00:58.000000000 +02:00
 categories:
 - German posts
-tags: []
+tags:
+- Board Game
 featured_image: 2012/08/Peg-solitaire-board1.png
 ---
 Solit&auml;r (auch Solitaire, Steck- oder Solohalma, Springer, Jumper, Nonnenspiel, Einsiedlerspiel) ist ein Brettspiel f&uuml;r eine Person. Das weitest verbreitete Spielfeld ist kreuzf&ouml;rmig und wird mit 32 Steinen auf 33 Felder gestartet.

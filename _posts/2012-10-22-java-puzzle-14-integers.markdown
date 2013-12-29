@@ -5,7 +5,10 @@ author: Martin Thoma
 date: 2012-10-22 12:00:44.000000000 +02:00
 categories:
 - Code
-tags: []
+tags:
+- Programming
+- Java
+- puzzle
 ---
 What is the output of the following script?
 

@@ -19,17 +19,31 @@ module Jekyll
 
         db = Sequel.sqlite(sqlite_db)         
         db.run('CREATE TABLE pages(  title text, permalink text, meta_keywords text, meta_description  text, text_content text, search_excerpt text, featured_image text, date text) ;')
+        db.run('CREATE TABLE tags(  tag text, page int) ;')
+        db.run('CREATE TABLE categories(  category text, page int) ;')
         puts "Deleted old DB. Start creating new one ..."
 
         site.posts.each do |post|
-            title = post.title
             permalink = "#{site.config['baseurl']}#{post.url}"
             meta_keywords = ""
             meta_description = ""
             text = post.content
             search_excerpt = parser.convert(post.excerpt)
-            insert_pages = db["INSERT INTO pages (title, permalink, meta_keywords, meta_description, text_content, search_excerpt, featured_image, date) VALUES (? , ? , ?, ?, ? , ?, ?, ?)", title, permalink, meta_keywords, meta_description, text, search_excerpt, post.data["featured_image"], post.data["date"]]
-            insert_pages.insert
+            insert_pages = db["INSERT INTO pages (title, permalink, meta_keywords, meta_description, text_content, search_excerpt, featured_image, date) VALUES (? , ? , ?, ?, ? , ?, ?, ?)", post.title, permalink, meta_keywords, meta_description, text, search_excerpt, post.data["featured_image"], post.data["date"]]
+            postid = insert_pages.insert
+            post.tags.each do |tag|
+                insert_tags = db["INSERT INTO tags (tag, page) VALUES (?, ?)", tag, postid]
+                insert_tags.insert
+            end.empty? and begin
+                puts "[Info] '" + post.title + "' has no tags."
+            end
+
+            post.categories.each do |category|
+                insert_category = db["INSERT INTO categories (category, page) VALUES (?, ?)", category, postid]
+                insert_category.insert
+            end.empty? and begin
+                puts "[Info] '" + post.title + "' has no category."
+            end
         end
     end
 
