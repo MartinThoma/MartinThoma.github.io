@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Word Error Rate Calculation</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -69,9 +69,8 @@
 
 <p>$$\mathit{WER} = \frac{S+D+I}{N}$$</p>
 
-<p>where</p>
-
-<ul><li>S is the number of substitutions,</li>
+<p>where
+</p><ul><li>S is the number of substitutions,</li>
   <li>D is the number of deletions,</li>
   <li>I is the number of insertions and</li>
   <li>N is the number of words in the reference</li>
@@ -96,34 +95,28 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Examples</h2>
 
-
 <pre>REF: What a bright day
 HYP: What a day</pre>
-
 
 <p>In this case, a deletion happened. "Bright" was deleted by the ASR.</p>
 
 <pre>REF: What a day
 HYP: What a bright day</pre>
 
-
 <p>In this case, an insertion happened. "Bright" was inserted by the ASR.</p>
 
 <pre>REF: What a bright day
 HYP: What a light day</pre>
 
-
 <p>In this case, an substitution happened. "Bright" was substituted by "light" by the ASR.</p>
 
 <h2 id="tocAnchor-1-2">Range of values</h2>
-
 
 <p>As only addition and division with non-negative numbers happen, WER cannot get negativ. It is 0 exactly when the hypophysis is the same as the reference.</p>
 
 <p>WER can get arbitrary large, because the ASR can insert an arbitrary amount of words.</p>
 
 <h2 id="tocAnchor-1-3">Calculation</h2>
-
 
 <p>Interestingly, the WER is just the Levenshtein distance for words.</p>
 
@@ -146,10 +139,10 @@ D_{0, j} &amp;= j, 1 \leq j \leq n
 <p>$$
 \text{For } 1 \leq i\leq m, 1\leq j \leq n\
 D<em>{i, j} = \min \begin{cases}
-D</em>{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\
+D</em>{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u<em>i = v</em>j\
 D<em>{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \
 D</em>{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \
-D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}
+D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)} 
 \end{cases}
 $$</p>
 
@@ -162,13 +155,7 @@ $$</p>
    <p class="wp-caption-text">WER calculation</p>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-4">Python</h2>
-
-
-
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
@@ -216,15 +203,10 @@ $$</p>
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-5">Explanation</h2>
 
-
-<p>No matter at what stage of the code you are, the following is always true:</p>
-
-<ul><li>If <code>r[i]</code> equals <code>h[j]</code> you don't have to change anything. The error will be the same as it was for <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
+<p>No matter at what stage of the code you are, the following is always true:
+</p><ul><li>If <code>r[i]</code> equals <code>h[j]</code> you don't have to change anything. The error will be the same as it was for <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
   <li>If its a substitution, you have the same number of errors as you had before when comparing the <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
   <li>If it was an insertion, then the hypophysis will be longer than the reference. So you can delete one from the hypophysis and compare the rest. As this is the other way around for deletion, you don't have to worry when you have to delete something.</li>
 </ul>

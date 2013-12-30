@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Part IV: How to multiply matrix with its transpose in Python and C++</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -67,13 +67,12 @@
 						<div class="entry">
                             <div class="info">This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>, Part II was about multiplication with the <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/" title="Part II: The Strassen algorithm in Python, Java and C++">Strassen algorithm</a> and Part III will be about parallel matrix multiplication (I didn't write it yet).</div>
 
+<p>You can always multiply a matrix $J \in \mathbb{R}^{n \times m}$ with its transpose $J^T$, because $J^T \in \mathbb{R}^{m \times n}$. You will get a matrix $C \in \mathbb{R}^{n \times n}$.</p>
 
-<p>You can always multiply a matrix $J \in \mathbb{R}^{n \times m}$ with its transpose $J<sup>T</sup>$, because $J<sup>T</sup> \in \mathbb{R}^{m \times n}$. You will get a matrix $C \in \mathbb{R}^{n \times n}$.</p>
+<p>Standard matrix multiplication of square matrices $\in \mathbb{R}^{n \times n}$ is in $\mathcal{O}(n^3)$. With the Strassen algorithm you can multiply in $\approx \cal O(n^{2.807})$. But this is for general matrix multiplication. When we do $J \cdot J^T$ we have more structure, so it might be possible to do this multiplication faster.</p>
 
-<p>Standard matrix multiplication of square matrices $\in \mathbb{R}^{n \times n}$ is in $\mathcal{O}(n<sup>3</sup>)$. With the Strassen algorithm you can multiply in $\approx \cal O(n^{2.807})$. But this is for general matrix multiplication. When we do $J \cdot J<sup>T</sup>$ we have more structure, so it might be possible to do this multiplication faster.</p>
-
-<p>One important property of the result matrix $R = J \cdot J<sup>T</sup>$ is symmetry. So $R<em>{i,j} = R</em>{j,i}$.
-If we used the ikj-algorithm for this multiplication, we needed $n<sup>2</sup> \cdot m$ operations. This way, we only need $\frac{n<sup>2</sup> +n}{2} \cdot m$ operations. Yes, I know, asymptotically it is irrelevant. But skipping almost half of the operations is still quite good.</p>
+<p>One important property of the result matrix $R = J \cdot J^T$ is symmetry. So $R<em>{i,j} = R</em>{j,i}$.
+If we used the ikj-algorithm for this multiplication, we needed $n^2 \cdot m$ operations. This way, we only need $\frac{n^2 +n}{2} \cdot m$ operations. Yes, I know, asymptotically it is irrelevant. But skipping almost half of the operations is still quite good.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -100,9 +99,7 @@ If we used the ikj-algorithm for this multiplication, we needed $n<sup>2</sup> \
    </ul>
 </div><h2 id="tocAnchor-1-1">Python</h2>
 
-
 <h3 id="tocAnchor-1-1-1">NumPy</h3>
-
 
 <p>I guess doing this with NumPy is the best option:</p>
 
@@ -136,7 +133,6 @@ If we used the ikj-algorithm for this multiplication, we needed $n<sup>2</sup> \
 </code></pre>
 </div>
 
-
 <p>Time:</p>
 
 <div class="highlight">
@@ -146,16 +142,11 @@ sys 0m2.388s
 </code></pre>
 </div>
 
-
 <p>When you want to do this in an application, you might want to use <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.load.html">numpy.load</a>.</p>
 
 <h2 id="tocAnchor-1-3">C++</h2>
 
-
 <h3 id="tocAnchor-1-3-1">First try</h3>
-
-
-
 
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;sstream&gt;</span>
@@ -265,7 +256,6 @@ sys 0m2.388s
 </code></pre>
 </div>
 
-
 <p>Time:</p>
 
 <div class="highlight">
@@ -275,11 +265,7 @@ sys 0m1.812s
 </code></pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-3-2">Direct multiplication</h3>
-
 
 <p>One might think that transposing first is a bad idea, because you can do this:</p>
 
@@ -298,7 +284,6 @@ sys 0m1.812s
 <span class="p">}</span>
 </code></pre>
 </div>
-
 
 <p>I stopped execution after 15 minutes.</p>
 						</div>

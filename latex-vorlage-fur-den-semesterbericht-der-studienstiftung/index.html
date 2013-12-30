@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>LaTeX-Vorlage f&uuml;r den Semesterbericht der Studienstiftung</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben.</p>
+                            <p>Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben. </p>
 
 <p>Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine Email schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.</p>
 
@@ -84,6 +84,8 @@ Logge dich im daidalosnet ein.
   Klicke rechts unten auf "Meine Einstellungen".
   Klicke auf "Gespeicherte Daten".
   Nun sollte "Referent/in" sowie "aktueller Vertrauensdozent" dort stehen.
+Die Vorlage
+
 </span></a>
             </li>
          </ul>
@@ -94,54 +96,46 @@ Logge dich im daidalosnet ein.
    </ul>
 </div><h2 id="tocAnchor-1-1">Wozu dient der Semesterbericht?</h2>
 
-
 <p>Im Daidalosnet steht dazu:</p>
 
 <blockquote>Der Studienbericht bietet Gelegenheit, über die wesentlichen Inhalte und Erfahrungen des letzten Semesters nachzudenken sowie die beiden Leser - den Vertrauensdozenten und den Referenten - zu informieren und an Reflexionen und Bewertungen teilnehmen zu lassen. Ohne die Berichte wäre die Studienstiftung weniger oder kaum in der Lage, ein aktuelles Wissenschaftliches Programm zu bieten und die Stipendiaten verlässlich zu beraten.
 Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studiums und von fachlichen und außerfachlichen Aktivitäten gewonnen haben. Ein Umfang von zwei bis drei Seiten ist angemessen.</blockquote>
 
-
-
-
 <h2 id="tocAnchor-1-2">Wer bekommt wann den Studienbericht?</h2>
-
 
 <blockquote>Stipendiaten, die endgültig in die Studienstiftung aufgenommen worden sind, schreiben Jahresberichte jeweils zum <strong>1. August</strong>. Stipendiaten vor der endgültigen Aufnahme schreiben Semesterberichte, jeweils zum <strong>1. März</strong> und zum 1. August.</blockquote>
 
-
-<p>Mit dem Semesterbericht für das WS 2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden:</p>
+<p>Mit dem Semesterbericht für das WS 2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden: </p>
 
 <blockquote>Bitte laden Sie Ihren Bericht als PDF-Dokument im Daidalosnet hoch. Sie finden die Eingabemaske in Ihrem eigenen Kurzprofil ("<strong>Meine Einstellungen</strong>" unten rechts) - hier ist in der unteren Bildschirmhälfte die Rubrik "<strong>Studienberichte</strong>" zu finden. Wenn Sie hier einen als "offen" gekennzeichneten Eintrag finden, müssen Sie uns einen Bericht zukommen lassen - bitte folgen Sie dem Link in der Zeile unter "offen", um zur Eingabemaske zu gelangen. Sowohl Ihr/e Referent/in als auch Ihr/e Vertrauensdozent/in erhalten automatisch eine Kopie des Berichts per E-Mail.</blockquote>
-
-
-
 
 <p></p><h3 id="tocAnchor-1-2-1">Wer ist mein zuständiger Referent bzw. mein Vertrauensdozent?
 <ol><li>Logge dich im <a href="https://www.daidalosnet.de/">daidalosnet</a> ein.</li>
   <li>Klicke rechts unten auf "Meine Einstellungen".</li>
   <li>Klicke auf "Gespeicherte Daten".</li>
   <li>Nun sollte "Referent/in" sowie "aktueller Vertrauensdozent" dort stehen.</li>
-</ol></h3><p></p><h2 id="tocAnchor-1-4">Die Vorlage</h2>
-Hier ist die Vorlage mit Blindtext als <a href="http://martin-thoma.com/wp-content/uploads/2012/06/semesterbericht-ws-2011.pdf">PDF</a>.
+</ol><h2 id="tocAnchor-1-4">Die Vorlage</h2>
+
+</h3><p>Hier ist die Vorlage mit Blindtext als <a href="http://martin-thoma.com/wp-content/uploads/2012/06/semesterbericht-ws-2011.pdf">PDF</a>.</p>
 
 <p>Makefile:</p>
 
-<p></p><div class="highlight">
+<div class="highlight">
    <pre><code class="text">DOKUMENT = semesterbericht-martin-thoma-ws-2011
 
-<p>make:
+make:
     pdflatex $(DOKUMENT).tex -output-format=pdf
     pdflatex $(DOKUMENT).tex -output-format=pdf
-    make clean</p>
+    make clean
 
-<p>clean:
-    rm -rf  $(TARGET) <em>.class </em>.html <em>.log </em>.aux *.out
-</p></code></pre>
+clean:
+    rm -rf  $(TARGET) *.class *.html *.log *.aux *.out
+</code></pre>
 </div>
 
 <p>LaTeX:</p>
 
-<p></p><div class="highlight">
+<div class="highlight">
    <pre><code class="text">\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
@@ -157,7 +151,7 @@ Hier ist die Vorlage mit Blindtext als <a href="http://martin-thoma.com/wp-conte
 \clubpenalty  = 10000 % Schusterjungen verhindern
 \widowpenalty = 10000 % Hurenkinder verhindern
 
-<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hier eigene Daten einf&amp;uuml;gen                                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Jahr}{2011/2012}          % Typ: "2011 / 2012" oder "2012"
@@ -178,164 +172,163 @@ Hier ist die Vorlage mit Blindtext als <a href="http://martin-thoma.com/wp-conte
 \newcommand{\Vertrauensdozent}{Prof. Dr. &lt;a href='http://martin-thoma.com/wp-content/uploads/2012/06/semesterbericht-ws-2011.pdf'&gt;Semesterbericht WS 2011&lt;/a&gt;Mustermann}
 \newcommand{\Referent}{Dr. Alice Brown}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hypersetup{
-  pdfauthor   = {\Vorname~\Nachname},
-  pdfkeywords = {Studienstiftung; KIT; \Vorname~\Nachname},
-  pdftitle    = {Semesterbericht von~\Vorname~\Nachname~-~\Semester~\Jahr}
-}</p>
+\hypersetup{ 
+  pdfauthor   = {\Vorname~\Nachname}, 
+  pdfkeywords = {Studienstiftung; KIT; \Vorname~\Nachname}, 
+  pdftitle    = {Semesterbericht von~\Vorname~\Nachname~-~\Semester~\Jahr} 
+} 
 
-<p>\pagestyle{fancy}
+\pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancyfoot[R]{Seite~\thepage~von \pageref{LastPage}}</p>
+\fancyfoot[R]{Seite~\thepage~von \pageref{LastPage}}
 
-<p>\definecolor{LightCyan}{rgb}{0.88,1,1}</p>
+\definecolor{LightCyan}{rgb}{0.88,1,1}
 
-<p>\pagenumbering{arabic}</p>
+\pagenumbering{arabic}
 
-<p>\begin{document}</p>
+\begin{document}
 
-<p>\title{Semesterbericht &amp;uuml;ber das \Semester \Jahr}
+\title{Semesterbericht &amp;uuml;ber das \Semester \Jahr}
 \author{\Vorname \Nachname}
-\date{\Datum}</p>
+\date{\Datum}
 
-<p>\section*{Semesterbericht &amp;uuml;ber das \Semester~\Jahr}
+\section*{Semesterbericht &amp;uuml;ber das \Semester~\Jahr}
 \begin{tabularx}{\textwidth}{@{}llllX}
-Name, Vorname:   &amp;amp; \Nachname, \Vorname &amp;amp; Universit&amp;auml;t         &amp;amp; \University \
-Semesteradresse: &amp;amp;\Strasse~\Hausnummer &amp;amp; Studienfach         &amp;amp; \Studienfach \
-                 &amp;amp;\PLZ~\Ort~~~~~~~     &amp;amp; Semesterzahl        &amp;amp; \Semesteranzahl~von~\Gesamtsemesterzahl \
-                 &amp;amp;                     &amp;amp; Geplanter Abschluss &amp;amp; \Abschluss \
-                 &amp;amp;                     &amp;amp; Vertrauensdozent    &amp;amp; \Vertrauensdozent \
-E-Mail           &amp;amp;\Email               &amp;amp; Referent            &amp;amp; \Referent \
-\end{tabularx}</p>
+Name, Vorname:   &amp;amp; \Nachname, \Vorname &amp;amp; Universit&amp;auml;t         &amp;amp; \University \\
+Semesteradresse: &amp;amp;\Strasse~\Hausnummer &amp;amp; Studienfach         &amp;amp; \Studienfach \\
+                 &amp;amp;\PLZ~\Ort~~~~~~~     &amp;amp; Semesterzahl        &amp;amp; \Semesteranzahl~von~\Gesamtsemesterzahl \\
+                 &amp;amp;                     &amp;amp; Geplanter Abschluss &amp;amp; \Abschluss \\
+                 &amp;amp;                     &amp;amp; Vertrauensdozent    &amp;amp; \Vertrauensdozent \\
+E-Mail           &amp;amp;\Email               &amp;amp; Referent            &amp;amp; \Referent \\
+\end{tabularx}
 
-<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hier bitte Text einf&amp;uuml;gen!                                            %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection<em>{Einleitende Zusammenfassung}
-\subsubsection</em>{1. Auf diesem Stand ist jetzt mein Studium:}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+\subsection*{Einleitende Zusammenfassung}
+\subsubsection*{1. Auf diesem Stand ist jetzt mein Studium:}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-ipsum dolor sit amet.</p>
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
+ipsum dolor sit amet.
 
-<p>\subsubsection*{2. Das war f&amp;uuml;r mich au&amp;szlig;erhalb des Studiums von gro&amp;szlig;er Bedeutung:}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-dolor sit amet.</p>
+\subsubsection*{2. Das war f&amp;uuml;r mich au&amp;szlig;erhalb des Studiums von gro&amp;szlig;er Bedeutung:}
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
+sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
+et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
+accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum 
+dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
+dolor sit amet.   
 
-<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-vero eros et accumsan et iusto odio dignissim qui blandit praesent
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-volutpat.</p>
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
+vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam 
+nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat 
+volutpat.   
 
-<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-consequat, vel illum dolore eu feugiat nulla facilisis at vero eros
-et accumsan et iusto odio dignissim qui blandit praesent luptatum
-zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper 
+suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem 
+vel eum iriure dolor in hendrerit in vulputate velit esse molestie 
+consequat, vel illum dolore eu feugiat nulla facilisis at vero eros 
+et accumsan et iusto odio dignissim qui blandit praesent luptatum 
+zzril delenit augue duis dolore te feugait nulla facilisi.   
 
-<p>Nam liber tempor cum soluta nobis eleifend option congue nihil
-imperdiet doming id quod mazim placerat facer</p>
+Nam liber tempor cum soluta nobis eleifend option congue nihil 
+imperdiet doming id quod mazim placerat facer
 
-<p>\subsubsection*{3. F&amp;uuml;r das n&amp;auml;chste Semester habe ich folgende Pl&amp;auml;ne:}</p>
+\subsubsection*{3. F&amp;uuml;r das n&amp;auml;chste Semester habe ich folgende Pl&amp;auml;ne:}
 
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat, sed diam voluptua. At vero eos et accusam et justo duo
-dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-sanctus est Lorem ipsum dolor sit amet.</p>
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
+erat, sed diam voluptua. At vero eos et accusam et justo duo 
+dolores et ea rebum. Stet clita kasd gubergren, no sea takimata 
+sanctus est Lorem ipsum dolor sit amet.
 
-<p>\newpage
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore
-magna aliquyam:</p>
+\newpage
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+sed diam nonumy eirmod tempor invidunt ut labore et dolore 
+magna aliquyam:
 
-<p>\begin{table}[h]
+\begin{table}[h]
     \begin{tabular}{| l | c | c | l |}
     \hline
-    \textbf{Modulbezeichnung} &amp;amp; \textbf{SWS} &amp;amp; \textbf{LP}  &amp;amp; \textbf{Klausur} \
+    \textbf{Modulbezeichnung} &amp;amp; \textbf{SWS} &amp;amp; \textbf{LP}  &amp;amp; \textbf{Klausur} \\
     \hline
     \hline
-    \rowcolor{yellow} Lineare Algebra und Analytische Geometrie      &amp;amp; 8   &amp;amp; 9   &amp;amp; Im SS 2012 \
-    \rowcolor{yellow} Analysis I                                     &amp;amp; 8   &amp;amp; 9   &amp;amp; Im SS 2012 \
-    \rowcolor{yellow} Grundbegriffe der Informatik                   &amp;amp; 5   &amp;amp; 4   &amp;amp; Am 05. M&amp;auml;rz 2012 \
-    \rowcolor{yellow} Programmieren                                  &amp;amp; 4   &amp;amp; 5   &amp;amp; Abschlussaufgabe l&amp;auml;uft \
-    \rowcolor{LightCyan} Betriebssysteme und Systemarchitektur       &amp;amp; 6   &amp;amp; 6   &amp;amp; Am 26. M&amp;auml;rz 2012 \
-    \rowcolor{LightCyan} Theoretische Grundlagen der Informatik      &amp;amp; 6   &amp;amp; 6   &amp;amp; Benotung steht aus \
-    \rowcolor{LightCyan} Wahrscheinlichkeitstheorie f&amp;uuml;r Informatiker &amp;amp; 3   &amp;amp; 4,5 &amp;amp; mit 1,3 bestanden \
+    \rowcolor{yellow} Lineare Algebra und Analytische Geometrie      &amp;amp; 8   &amp;amp; 9   &amp;amp; Im SS 2012 \\
+    \rowcolor{yellow} Analysis I                                     &amp;amp; 8   &amp;amp; 9   &amp;amp; Im SS 2012 \\
+    \rowcolor{yellow} Grundbegriffe der Informatik                   &amp;amp; 5   &amp;amp; 4   &amp;amp; Am 05. M&amp;auml;rz 2012 \\
+    \rowcolor{yellow} Programmieren                                  &amp;amp; 4   &amp;amp; 5   &amp;amp; Abschlussaufgabe l&amp;auml;uft \\
+    \rowcolor{LightCyan} Betriebssysteme und Systemarchitektur       &amp;amp; 6   &amp;amp; 6   &amp;amp; Am 26. M&amp;auml;rz 2012 \\
+    \rowcolor{LightCyan} Theoretische Grundlagen der Informatik      &amp;amp; 6   &amp;amp; 6   &amp;amp; Benotung steht aus \\
+    \rowcolor{LightCyan} Wahrscheinlichkeitstheorie f&amp;uuml;r Informatiker &amp;amp; 3   &amp;amp; 4,5 &amp;amp; mit 1,3 bestanden \\
     \hline
     \hline
-    Gesamt                                                          &amp;amp; 40  &amp;amp; 43,5 &amp;amp; \
+    Gesamt                                                          &amp;amp; 40  &amp;amp; 43,5 &amp;amp; \\
     \hline
-    \end{tabular}</p>
+    \end{tabular}
 
-<pre><code>\begin{tabular}{| l | l | l | l |}
-\hline
-\cellcolor{yellow} &amp;amp;amp; Teil der Orientierungspr&amp;amp;uuml;fung &amp;amp;amp; \cellcolor{LightCyan}  &amp;amp;amp; Pflichtmodul des 3. Semesters \\
-\hline
-\end{tabular}
+    \begin{tabular}{| l | l | l | l |}
+    \hline
+    \cellcolor{yellow} &amp;amp; Teil der Orientierungspr&amp;uuml;fung &amp;amp; \cellcolor{LightCyan}  &amp;amp; Pflichtmodul des 3. Semesters \\
+    \hline
+    \end{tabular}
+\end{table}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
+erat, 
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
+sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
+et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
+accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
+no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum 
+dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
+dolor sit amet.   
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
+molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
+vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam 
+nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat 
+volutpat.   
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper 
+suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem 
+vel eum iriure dolor in hendrerit in vulputate velit esse molestie 
+consequat, vel illum dolore eu feugiat nulla facilisis at vero eros 
+et accumsan et iusto odio dignissim qui blandit praesent luptatum 
+zzril delenit augue duis dolore te feugait nulla facilisi.   
+
+Nam liber tempor cum soluta nobis eleifend option congue nihil 
+imperdiet doming id quod mazim placerat facer.\\
+\\
+\Ort, der \Datum\\
+\\
+\Vorname~\Nachname
+
+
+\end{document}
 </code></pre>
-
-<p>\end{table}</p>
-
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-erat,
-sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-dolor sit amet.</p>
-
-<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-vero eros et accumsan et iusto odio dignissim qui blandit praesent
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-volutpat.</p>
-
-<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-consequat, vel illum dolore eu feugiat nulla facilisis at vero eros
-et accumsan et iusto odio dignissim qui blandit praesent luptatum
-zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-
-<p>Nam liber tempor cum soluta nobis eleifend option congue nihil
-imperdiet doming id quod mazim placerat facer.\
-\
-\Ort, der \Datum\
-\
-\Vorname~\Nachname</p>
-
-<p>\end{document}
-</p></code></pre>
 </div>
 						</div>
 						<div class="postmeta">Posted in 

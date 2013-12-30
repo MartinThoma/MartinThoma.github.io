@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Why everybody should know about conditional probability</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -93,12 +93,11 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Basics</h2>
 
-
 <p>A probability is a numerical value in [0, 1] that is assigned to events (or lets rather say outcomes of an experiment). A probability can never be less than zero and never be more than one.</p>
 
 <p>The sum of all probabilities of all outcomes of one experiment is always 1.</p>
 
-<p>Example: Your experiment $x$ could be throwing a coin. The outcome of your experiment is either head or tails. So if
+<p>Example: Your experiment $x$ could be throwing a coin. The outcome of your experiment is either head or tails. So if 
 $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
 
 <p>Now you might argue that the coin can also stand on its border. This would result in a different model of the situation with different probabilities, e.g.:</p>
@@ -115,10 +114,9 @@ $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
 
 <h2 id="tocAnchor-1-2">Cancer</h2>
 
-
 <p>Lets say the probability of having cancer is $Pr[C] = 0.01$. This means the probability of not having cancer is $Pr[\neg C] = 0.99$.</p>
 
-<p>Now you have cancer tests. They can either be positive (+) which means they say you have cancer. Or they are negative (-), which means according to the test, you don't have cancer.</p>
+<p>Now you have cancer tests. They can either be positive (+) which means they say you have cancer. Or they are negative (-), which means according to the test, you don't have cancer. </p>
 
 <p>They are not always working as expected. So you get so called "false positives" and "false negatives".</p>
 
@@ -149,7 +147,6 @@ $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
 
 <h2 id="tocAnchor-1-3">Some intermediate results</h2>
 
-
 <p>How likely is a positive / negative test result?
 $\begin{align}
 Pr[+] &amp;= Pr[+|C] \cdot Pr[C] + Pr[+| \neg C] \cdot Pr[\neg C] = 0.207\
@@ -173,7 +170,6 @@ Pr[-] &amp;= Pr[-|C] \cdot Pr[C] + Pr[-| \neg C] \cdot Pr[\neg C] = 0.793
 </tr>
 </table><h2 id="tocAnchor-1-4">Reversing it</h2>
 
-
 <p>It is quite likely that you would like to know how likely it is that you have cancer. Without a test, you know:</p>
 
 <p>$\begin{align}
@@ -196,12 +192,10 @@ When you get a negative results you can be very sure that you don't have cancer.
 
 <h2 id="tocAnchor-1-5">Testing again</h2>
 
-
 <p>A very natural approach to a positive test result might be taking the same test again. How does this influence the probability?</p>
 
-<p>There are four possibilities what could have happened:</p>
-
-<ul><li>You have cancer:
+<p>There are four possibilities what could have happened:
+</p><ul><li>You have cancer:
     <ul><li>Second test was negative</li>
       <li>Second test was positive</li>
     </ul></li>
@@ -213,13 +207,13 @@ When you get a negative results you can be very sure that you don't have cancer.
 $
 \begin{align}
 Pr[++] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[+|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[+|\neg C]\
-       &amp;= 0.477 \neq 0.042849 = 0.207<sup>2</sup> = (Pr[+])<sup>2</sup>\
+       &amp;= 0.477 \neq 0.042849 = 0.207^2 = (Pr[+])^2\
 Pr[+-] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[-|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[-|\neg C] \
        &amp;= 0.01 \cdot 0.9 \cdot 0.1 + 0.99 \cdot 0.2 \cdot 0.8\
        &amp;= 0.1593\
-Pr[C,+,+] &amp;= Pr[C] \cdot Pr[+ | C]^2 = 0.01 \cdot 0.9<sup>2</sup> = 0.0081\
+Pr[C,+,+] &amp;= Pr[C] \cdot Pr[+ | C]^2 = 0.01 \cdot 0.9^2 = 0.0081\
 Pr[C,+,-] &amp;= Pr[C] \cdot Pr[+ | C] \cdot Pr[-|C] = 0.01 \cdot 0.9 \cdot 0.1 = 0.0009\
-Pr[C|++] &amp;= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207<sup>2</sup>} = \frac{9}{530} \approx 0.170\
+Pr[C|++] &amp;= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207^2} = \frac{9}{530} \approx 0.170\
 Pr[C|+-] &amp;= \frac{Pr[C,+,-]}{Pr[+-]} = \frac{0.0009}{0.1593} = \frac{1}{177} \approx 0.006
 \end{align}
 $</p>
@@ -229,7 +223,6 @@ $</p>
 <p>On the other hand: One negative and one positive test is better than no test at all, because without a test you have a probability of 0.01 to have cancer. With both tests, you only have a probability of 0.006.</p>
 
 <h2 id="tocAnchor-1-6">Why probability is important for you</h2>
-
 
 <p>As you might have seen, your intuition about probability is wrong. But we hear numbers all the time. It is important for us to understand them, so we should drop our intuition and learn how to use those numbers.</p>
 						</div>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Linux access rights and attributes</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -120,13 +120,10 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">RWX</h2>
 
-
 <h3 id="tocAnchor-1-1-1">Files</h3>
 
-
-<p>Linux files have three important access rights for files:</p>
-
-<ul><li><strong>R</strong>ead</li>
+<p>Linux files have three important access rights for files:
+</p><ul><li><strong>R</strong>ead</li>
   <li><strong>W</strong>rite</li>
   <li>E<strong>x</strong>ecute</li>
 </ul><p>If you want to mark a file as executable, you can add the x-right:</p>
@@ -136,14 +133,12 @@
 </code></pre>
 </div>
 
-
 <p>When you want to mark a file as readable, you can dd the r-right:</p>
 
 <div class="highlight">
    <pre><code class="bash">chmod +r
 </code></pre>
 </div>
-
 
 <p>You can remove rights in a similar way:</p>
 
@@ -152,19 +147,15 @@
 </code></pre>
 </div>
 
-
-<p>Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two?</p>
+<p>Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two? </p>
 
 <h3 id="tocAnchor-1-1-2">Folders</h3>
 
-
-<p>rwx has a meaning for folders, too:</p>
-
-<ul><li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
+<p>rwx has a meaning for folders, too:
+</p><ul><li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
   <li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
   <li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
 </ul><h2 id="tocAnchor-1-4">User, Group, Others</h2>
-
 
 <p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
 
@@ -194,16 +185,13 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 </code></pre>
 </div>
 
-
 <p>You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.</p>
 
 <p>Did you know that you can search for file permissions with <code>find /home/ -perm 777</code>?</p>
 
 <h2 id="tocAnchor-1-5">SUID, SGID, Sticky Bit</h2>
 
-
 <h3 id="tocAnchor-1-5-1">Files</h3>
-
 
 <p>Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:</p>
 
@@ -218,7 +206,6 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 </code></pre>
 </div>
 
-
 <p>Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":</p>
 
 <div class="highlight">
@@ -228,12 +215,11 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 </code></pre>
 </div>
 
-
 <p>Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.</p>
 
 <p>The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.</p>
 
-<p>The sticky bit seems to be used for programs to stick in memory after it was finished.</p>
+<p>The sticky bit seems to be used for programs to stick in memory after it was finished. </p>
 
 <p>You can set the sticky bit like this:</p>
 
@@ -242,7 +228,6 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 </code></pre>
 </div>
 
-
 <p>or like that:</p>
 
 <div class="highlight">
@@ -250,17 +235,12 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 </code></pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-5-2">Folders</h3>
-
 
 <ul><li>suid: is ignored on UNIX and Linux systems</li>
   <li>sgid: new files and subdirectories created within this folder inherit the folders group ID</li>
   <li>t: when the sticky bit is set, only owners may change the filename or delete files</li>
 </ul><h2 id="tocAnchor-1-8">Type</h2>
-
 
 <p>The first column of <code>ls -l</code> tells you the type of the item:</p>
 
@@ -299,11 +279,7 @@ brw-rw----  1 root disk      7,   0 2013-03-04 10:01 loop0
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-9">stat</h2>
-
 
 <p>You can display quite a lot of information of a file with stat:</p>
 
@@ -319,21 +295,15 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 </code></pre>
 </div>
 
-
 <p>The content of the file is "Hello World." (12 characters)</p>
 
 <h2 id="tocAnchor-1-10">Attributes</h2>
-
 
 <p>According to the manpage of chattr:</p>
 
 <blockquote>The `c', 's',  and `u' attributes are not honored by the ext2 and ext3 filesystems as implemented in the current mainline Linux kernels. These attributes may be implemented in future versions of the ext2 and ext3 filesystems.</blockquote>
 
-
-
-
 <h3 id="tocAnchor-1-10-1">Version</h3>
-
 
 <p>I've just learned that you can give files version-attributes:</p>
 
@@ -343,7 +313,6 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 </code></pre>
 </div>
 
-
 <p>You can set the version like this:</p>
 
 <div class="highlight">
@@ -351,13 +320,9 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 </code></pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-10-2">Append only</h3>
 
-
-<p>This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file.</p>
+<p>This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file. </p>
 
 <p>First of all, I had to use sudo to add this attribute:</p>
 
@@ -365,7 +330,6 @@ Change: 2013-03-04 21:31:51.154184098 +0100
    <pre><code class="bash">sudo chattr +a testfile
 </code></pre>
 </div>
-
 
 <p>Then, I had all permissions:</p>
 
@@ -383,7 +347,6 @@ moose@pc07:~/Desktop/Test<span class="nv">$ </span>lsattr
 </code></pre>
 </div>
 
-
 <p>But I couldn't append to the file with gedit. With bash, it worked fine:</p>
 
 <div class="highlight">
@@ -394,23 +357,19 @@ One more line
 </code></pre>
 </div>
 
-
 <p>So I guess I found another bug in gEdit.</p>
 
 <h3 id="tocAnchor-1-10-3">Immutable</h3>
 
-
 <p>You can mark a file as immutable with <code>sudo chattr +i testfile</code>. It's funny, you can't see that with <code>ls -l</code>, you have to use <code>lsattr</code>. I guess if you manage to get root privileges and want to troll somebody, you could set this bit. I think this might take quite a while until you recognize it.</p>
 
 <h3 id="tocAnchor-1-10-4">Secure deletion and undeletable</h3>
-
 
 <p>When secure deletion is set with <code>chattr +s testfile</code> the operating system overwrites the file with random data when it is deleted.</p>
 
 <p><code>chattr +u testfile</code> makes your file undeletable. This is strange. You can still delete the file with <code>rm</code>, but the system will not overwrite it. I've just <a href="http://unix.stackexchange.com/q/66870/4784">asked a question on SE</a>.</p>
 
 <h3 id="tocAnchor-1-10-5">Synchronous update</h3>
-
 
 <p>when you set <code>chattr +S testfile</code> the file gets directly written to the HDD and not buffered by the kernel cache.</p>
 						</div>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Das Consensus-Verfahren</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,29 +65,26 @@
 						<div class="entry">
                             <p>Mithilfe des Consensus-Verfahrens können Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion $f:{0,1}^n \rightarrow {0,1}$ in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das Überdeckungsproblem noch gelöst werden muss. Dies kann man z.B. mit der <a href="http://martin-thoma.com/das-quine-mccluskey-verfahren/" title="Das Quine-McCluskey-Verfahren">zweiten Quineschen Tabelle</a> machen.</p>
 
-<p>Dazu baut man eine Tabelle auf. Ich nenne sie mal Consensus-Tabelle. Diese hat 4 Spalten:</p>
-
-<ul><li>Nr.</li>
+<p>Dazu baut man eine Tabelle auf. Ich nenne sie mal Consensus-Tabelle. Diese hat 4 Spalten:
+</p><ul><li>Nr.</li>
   <li>Gebildet aus</li>
   <li>Würfel - eine Spalte für jeden der $n$ Parameter der Schaltfunktion $f$</li>
   <li>Gestrichen wegen</li>
 </ul><p>Nun ergibt jeder Minterm der DNF eine Zeile in der Consensus-Tabelle. Die Reihenfolge ist dabei egal. Die Nr. wird fortlaufend von 1 an gesetzt, die Spalte „Gebildet aus“ bleibt erst mal leer. Nun zieht man eine Linie, um die folgenden Zeilen abzutrennen. Diesen abgetrennten Teil nennen ich nun „Block“.</p>
 
-<p>Man vergleicht nun jede Zeile mit den darüber liegenden Zeilen.</p>
+<p>Man vergleicht nun jede Zeile mit den darüber liegenden Zeilen.
+</p><ul><li><em>: Falls an einer bestimmten Stelle nur eine der Zeilen ein don't care hat, wird an dieser Stelle der Wert der anderen Zeile genommen. Diese Spalte zählt also nicht als unterschiedlich.</em></li>
+<li>Unterscheiden sich zwei Zeilen nur an einer Stelle, schreibt man eine neue Zeile in den neuen Block. Diese Zeile hat ein don't care an der Stelle, an der sich die beiden Zeilen unterschieden, eine eigene Nummer. Eventuell überdeckt die neue Zeile beide vorhergehenden. Wegen der don't care-Regelung () muss das jedoch nicht der Fall sein.</li>
+</ul>
+Sobald man alle Zeilen des vorhergehenden Block überprüft hat, kann man wieder eine Linie machen.
 
-<ul><li>*: Falls an einer bestimmten Stelle nur eine der Zeilen ein don't care hat, wird an dieser Stelle der Wert der anderen Zeile genommen. Diese Spalte zählt also nicht als unterschiedlich.</li>
-<li>Unterscheiden sich zwei Zeilen nur an einer Stelle, schreibt man eine neue Zeile in den neuen Block. Diese Zeile hat ein don't care an der Stelle, an der sich die beiden Zeilen unterschieden, eine eigene Nummer. Eventuell überdeckt die neue Zeile beide vorhergehenden. Wegen der don't care-Regelung (*) muss das jedoch nicht der Fall sein.</li>
-</ul><p>Sobald man alle Zeilen des vorhergehenden Block überprüft hat, kann man wieder eine Linie machen.</p>
-
-<p>Das sieht dann etwa so aus (aus Folien von Prof. Dr. Asfour):</p>
-
-<div style="width: 300px" class="wp-caption aligncenter">
+<p>Das sieht dann etwa so aus (aus Folien von Prof. Dr. Asfour):
+</p><div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/01/consensus-verfahren-300x165.png">
       <img src="http://martinthoma.github.io/images/../images/2013/01/consensus-verfahren-300x165.png" alt="" width="300" height="165" class="size-medium wp-image-55531" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
-
 
 <p>Wie man sieht, kann es auch sein, dass eine neue Zeile bereits von einer alten überdeckt wird. Diese Zeilen kann man also direkt streichen.
 Sobald man keine neuen Zeilen / Blöcke mehr bilden kann, ist man fertig. Die Zeilen, die nicht gestrichen wurden, sind Primimplikanten.</p>
@@ -103,7 +100,6 @@ Sobald man keine neuen Zeilen / Blöcke mehr bilden kann, ist man fertig. Die Ze
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Code</h2>
-
 
 <p>Ich finde Algorithmen werden am eindeutigsten durch Implementierungen beschrieben. Hier ist meine für das Consensus-Verfahren:</p>
 
@@ -232,7 +228,6 @@ Sobald man keine neuen Zeilen / Blöcke mehr bilden kann, ist man fertig. Die Ze
 </code></pre>
 </div>
 
-
 <p>Ausgabe:</p>
 
 <div class="highlight">
@@ -259,11 +254,7 @@ Sobald man keine neuen Zeilen / Blöcke mehr bilden kann, ist man fertig. Die Ze
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-2">Quellen</h2>
-
 
 <p>Die Folien von Dr. Asfour (DT-VL12) sowie die Vorlesung (auf <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw#t=31m18s">YouTube</a> verfügbar. Der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw#t=47m30s">interessante Teil</a> beginnt erst sehr spät.). Es wurde sogar <a href="http://www.youtube.com/watch?v=4X1w0B4w65k#t=1h10m38s">später nochmals von Herrn Prof. Dr. Asfour erklärt</a>.</p>
 						</div>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How do hash functions work?</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -109,10 +109,8 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Connect four</h2>
 
-
 <blockquote>Connect Four [...] is a two-player game in which the players first choose a color and then take turns dropping colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one's own discs of the same color next to each other vertically, horizontally, or diagonally before your opponent.
 </blockquote>
-
 
 <p>
    <small>Source: <a href="http://en.wikipedia.org/wiki/Connect_Four">Wikipedia</a></small>
@@ -127,22 +125,16 @@
    <p class="wp-caption-text"></p>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-2">The task</h2>
 
+<p>Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players. </p>
 
-<p>Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players.</p>
-
-<p>This approach has generally two problems:</p>
-
-<ol><li>You have to know how to go through each situation. For connect four it is easy. Both players place their disks in turns and in every turn the current player has at most 7 possibilities. But it is impossible for games like <a href="http://en.wikipedia.org/wiki/Calvinball#Calvinball">Calvinball</a> or <a href="http://en.wikipedia.org/wiki/Mao_(card_game)">Mao</a>.</li>
+<p>This approach has generally two problems:
+</p><ol><li>You have to know how to go through each situation. For connect four it is easy. Both players place their disks in turns and in every turn the current player has at most 7 possibilities. But it is impossible for games like <a href="http://en.wikipedia.org/wiki/Calvinball#Calvinball">Calvinball</a> or <a href="http://en.wikipedia.org/wiki/Mao_(card_game)">Mao</a>.</li>
   <li>The game tree might be HUGE. In this case, you can have $4,531,985,219,092 \approx 4.5 \cdot 10^{12}$ game situations (<a href="http://math.stackexchange.com/a/301128/6876">source</a>). Even if you would need only one bit for each situation, it would require 566.5 GB!</li>
 </ol><p>Anyway, lets say we want to store many unique game situations. Unique means, even if you have hundreds of possible paths to get to a given game situations, you will store this game situation only once.</p>
 
 <h2 id="tocAnchor-1-3">Implementation</h2>
-
 
 <p>First of all, I would like to mention that you can <a href="#How_is_this_realated_to_hash_functions">skip the source code</a>. I've only included it to make it easier to understand what I'm talking about.</p>
 
@@ -171,7 +163,6 @@
 <span class="p">};</span>
 </code></pre>
 </div>
-
 
 <p>You need a check if one player won:</p>
 
@@ -244,7 +235,6 @@
 </code></pre>
 </div>
 
-
 <p>If you need an explanation for this, you should read <a href="http://martin-thoma.com/check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.</p>
 
 <p>And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:</p>
@@ -273,7 +263,6 @@
 <span class="p">}</span>
 </code></pre>
 </div>
-
 
 <p>You need a function that makes all possible moves for the players:</p>
 
@@ -368,22 +357,16 @@
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-4">How is this realated to hash functions?</h2>
 
-
-<p>You might have noticed a few functions that I didn't explain by now:</p>
-
-<ul><li><code>didBoardAlreadyOccur(board)</code>: Checks if a given board is stored in database.</li>
+<p>You might have noticed a few functions that I didn't explain by now:
+</p><ul><li><code>didBoardAlreadyOccur(board)</code>: Checks if a given board is stored in database.</li>
   <li><code>getBoardIndex(board)</code>: This is a function that takes a board and gives a non-negative integer which is characteristic for the given board.</li>
   <li><code>savePreviousID(insertID, lastId, column)</code>: store insertID as a possible next situation for lastId in database</li>
   <li><code>setBoard(insertID, board)</code>: Insert board into database at position insertID</li>
 </ul><p>How would you implement <code>didBoardAlreadyOccur(board)</code>? This function (or insertID) will be the slowest part of the code and will be called VERY often. So it needs to be as fast as possible.</p>
 
 <h2 id="tocAnchor-1-5">A hash function</h2>
-
 
 <p>Most of the time you can create hash functions by mapping values to integers. In my case, I mapped the board - which is a two-dimensional char array - to one integer by thinking of it as a very long number. I think of a red disc as the digit 1, a black disc as the digit 2 and an empty field as 0:</p>
 
@@ -400,16 +383,13 @@
 </code></pre>
 </div>
 
-
-<p>When you want to get the board number, you can get it like this:</p>
-
-<div style="width: 320px" class="wp-caption aligncenter">
+<p>When you want to get the board number, you can get it like this:
+</p><div style="width: 320px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/05/connect-four-to-number.png">
       <img src="http://martinthoma.github.io/images/../images/2013/05/connect-four-to-number.png" alt="" width="320" height="380" class="size-full wp-image-65761" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
-
 
 <p>For most game situations, this number will be much too big to store it in an integer. Also, we would like to get an index for our array so that we know where to store this board. The simplest solution to this problem is to calculate <code>NUMBER % ARRAY_SIZE</code>:</p>
 
@@ -430,27 +410,22 @@
 </code></pre>
 </div>
 
+<p>The function <code>getFirstIndex</code> maps an char Array with BOARD<em>WIDTH * BOARD</em>HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.</p>
 
-<p>The function <code>getFirstIndex</code> maps an char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.</p>
-
-<p>This means, you will have two board situations that map to the same hash number. This is called a "hash collision". When you use the hash number directly as an index for your board, you will have to deal with hash collisions. Some solutions are:</p>
-
-<ul><li>Ignoring the problem: That's boring and not always possible (but simple).</li>
+<p>This means, you will have two board situations that map to the same hash number. This is called a "hash collision". When you use the hash number directly as an index for your board, you will have to deal with hash collisions. Some solutions are:
+</p><ul><li>Ignoring the problem: That's boring and not always possible (but simple).</li>
   <li>Linear probing</li>
   <li>Quadratic probing</li>
 </ul><h2 id="tocAnchor-1-6">Linear probing</h2>
 
+<p>The idea of linear probing is very simple: </p>
 
-<p>The idea of linear probing is very simple:</p>
-
-<p>Inserting a new item:</p>
-
-<ol><li>You look at the index $i$ that your hash function gave you.</li>
+<p>Inserting a new item:
+</p><ol><li>You look at the index $i$ that your hash function gave you.</li>
   <li>If this index is already full, you look at $i+1$</li>
   <li>When you took a look at all slots of your array, you can't insert the new item.</li>
-</ol><p>Searching for an already inserted item:</p>
-
-<ol><li>You look at the index $i$ that your hash function gave you.</li>
+</ol><p>Searching for an already inserted item:
+</p><ol><li>You look at the index $i$ that your hash function gave you.</li>
   <li>If $i$ is empty, you're ready. The item was not inserted.</li>
   <li>If $i$ is not the item you've searched for, you have to look at $i+1$.</li>
   <li>Keep looking at the next item until you find your searched item, you've looked at all items or you find an empty slot.</li>
@@ -462,10 +437,9 @@
 
 <h2 id="tocAnchor-1-7">Quadratic probing</h2>
 
-
 <p>The idea of quadratic probing is the same as for linear probing, but you try to fix the clustering-problem by using a clever way to search for a free spot:</p>
 
-<p>$h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil<sup>2</sup>\right) \bmod~m$</p>
+<p>$h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil^2\right) \bmod~m$</p>
 
 <p>where $h$ is your hash function and $i$ is your i-th try to find a free spot while you have $m$ spots in total.</p>
 
@@ -473,15 +447,13 @@
 
 <h2 id="tocAnchor-1-8">Double hashing</h2>
 
-
 <p>This solution could be the best one, but also the hardest one to implement correctly. You could find a free spot by using a second hash function $h'$ like this:</p>
 
 <p>$h_i(x) = (h(x)+h'(x)\cdot i) ~ \bmod ~ m$</p>
 
-<p>BUT you have to make sure that $Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m<sup>2</sup>}$</p>
+<p>BUT you have to make sure that $Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m^2}$</p>
 
 <h2 id="tocAnchor-1-9">Performance</h2>
-
 
 <p>You can use linear probing, quadratic probing and double hashing in my example and measure how many game situations get stored. The more game situations you can store in the same amount of time, the better:</p>
 
@@ -492,25 +464,20 @@
    <p class="wp-caption-text"></p>
 </div>
 
-
 <p>You can see that linear probing performs much worse than quadratic probing and double hashing. When you compare quadratic probing with double hashing, there seems not to be a big difference. But note that my second hash function is almost the same as the first one. You could probably choose a better second hash function and get better results (suggestions are welcome).</p>
 
 <h2 id="tocAnchor-1-10">Why are hash functions important?</h2>
 
-
 <p>Hash functions help you to map a big amount of data to a small space. They are important, because they are a relevant part of many datastructures. The better they are, the faster will operations on those datastructures work. Better means: Faster to compute or less collisions.</p>
 
-<p>Some datastructures like this are:</p>
-
-<ul><li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html">HashMap</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">HashTable</a> (→ <a href="http://stackoverflow.com/a/40878/562769">difference</a>)</li>
+<p>Some datastructures like this are:
+</p><ul><li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html">HashMap</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">HashTable</a> (→ <a href="http://stackoverflow.com/a/40878/562769">difference</a>)</li>
   <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html">HashSet</a></li>
 </ul><h2 id="tocAnchor-1-11">Final notes</h2>
-
 
 <p>Another resolution for hash collisions is creating a linked list. This means you will not suffer from clustering and you can insert in $\mathcal{O}(1)$. But searching for an element is still in $\mathcal{O}(n)$, where $n$ is the number of elements that were already inserted.</p>
 
 <h2 id="tocAnchor-1-12">Resources</h2>
-
 
 <p>You can find the <a href="https://github.com/MartinThoma/connect-four/tree/master/C">code at GitHub</a>.</p>
 						</div>

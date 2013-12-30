@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Wie f&uuml;hre ich einen Induktionsbeweis?</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -110,13 +110,11 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Prinzip</h2>
 
-
 <p>Der Gedanke hinter dem Induktionsbeweis ist, dass man sehr leicht für ein einzelnes Element zeigen kann, dass eine Aussage gilt. Diese Aussage ist die Behauptung. Dann zeigt man allgemein, wenn die Aussage für eine Zahl gilt muss sie auch für die nächste Zahl gelten.</p>
 
 <p>Wenn man also für n = 1 zeigt dass die Aussage A(n) korrekt ist, dann gilt sie für alle positiven Zahlen.</p>
 
 <h2 id="tocAnchor-1-2">Aufbau</h2>
-
 
 <ul><li><strong>Induktionsanfang</strong> (I.A.): 
 Zeige, dass die Aussage für ein bestimmtes $n_0$ (also z.B. $n_0 = 0$) gilt. Dafür muss man einfach nur einsetzen.</li>
@@ -126,34 +124,27 @@ Zeige, dass die Aussage für ein bestimmtes $n_0$ (also z.B. $n_0 = 0$) gilt. Da
 Ausgehend von I.V. ist zu zeigen, dass die Aussage für $n_0 + 1$ gilt.</li>
 </ul><h2 id="tocAnchor-1-3">Beispiele</h2>
 
-
 <h3 id="tocAnchor-1-3-1">Identitäten</h3>
-
 
 <p>Es gibt viele Identitäten, die sich gut mit einem Induktionsbeweis zeigen lassen:
 Bei den folgenden Identitäten sei $n \in \mathbb{N}$.</p>
 
 <h4>Gaußsche Summenformel</h4>
 
-
 <p><strong>Behauptung</strong>: $\sum<em>{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$
 <strong>Beweis</strong>: durch vollständige Induktion
 <strong>I.A.</strong>: Sei n = 1. Dann: $\sum</em>{k=1}^1 k = 1 = \frac{1}{2} \cdot 1 \cdot (1+1)$
-<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte:
+<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: 
 $\sum<em>{k=1}^n k = \frac{1}{2} \cdot n \cdot (n+1)$
 <strong>I.S.</strong>:
 $\sum</em>{k=1}^{n+1} k = \sum_{k=1}^{n} k + (n+1) \stackrel{I.V.}{=} \frac{1}{2} \cdot n \cdot (n+1) + (n+1) = $
-$= \frac{1}{2} \cdot (n<sup>2</sup> + n) + (n+1) = \frac{1}{2} \cdot (n<sup>2</sup> + 3n + 2) = \frac{1}{2} \cdot (n+1)(n+2) \blacksquare$</p>
+$= \frac{1}{2} \cdot (n^2 + n) + (n+1) = \frac{1}{2} \cdot (n^2 + 3n + 2) = \frac{1}{2} \cdot (n+1)(n+2) \blacksquare$</p>
 
 <h4>Weitere</h4>
-
-
-
 
 <ol type="i" style="list-style-type:lower-roman"><li>$\sum_{k=1}^n k^3 = \frac{1}{4}n^2 (n+1)^2$</li>
   <li>Fibonacci: $f(m+n) = f(n+1) \cdot f(m) + f(n) \cdot f(m-1)$</li>
 </ol><h3 id="tocAnchor-1-3-2">Binomischer Satz</h3>
-
 
 <p>Das folgende habe ich als Mitschrift der Vorlesung "Analysis I" am KIT gemacht:</p>
 
@@ -162,24 +153,22 @@ Seien $a, b \in \mathbb{R}.$ Dann gilt für alle $n \in \mathbb{N}$:
 $(a+b)^{n+1} = (a+b)(a+b)^n = (a+b) \underbrace{\sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k}_\text{Binomischer Lehrsatz}$
 </div>
 
+<p><strong>I.A.</strong>: $n=1: \sum_{k=0}^{1}\binom{1}{k} a^{1-k} b^k = (a+b)^n$</p>
 
-<p><strong>I.A.</strong>: $n=1: \sum_{k=0}^{1}\binom{1}{k} a^{1-k} b<sup>k</sup> = (a+b)<sup>n</sup>$</p>
+<p><strong>I.V.</strong>: Sei $n \in \mathbb{N}$ und es gelte $(a+b)^{n+1} = (a+b)(a+b)^n = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$</p>
 
-<p><strong>I.V.</strong>: Sei $n \in \mathbb{N}$ und es gelte $(a+b)^{n+1} = (a+b)(a+b)<sup>n</sup> = (a+b) \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b<sup>k</sup>$</p>
-
-<p><strong>I.S.</strong>:
+<p><strong>I.S.</strong>: 
 $
-\begin{align}
-(a+b)^{k+1} &amp;= (a+b)(a+b)<sup>n</sup> \
-&amp;= (a+b) \sum<em>{k=0}^{n} \binom{n}{k} a^{n-k} b<sup>k</sup> \
-&amp;= \sum</em>{k=0}^{n} \binom{n}{k} a^{n+1-k} b<sup>k</sup> + \sum<em>{k=0}^n \binom{n}{k} a^{n-k} b^{k+1} \
-&amp;= \underbrace{\binom{n}{0}}</em>{\binom{n+1}{0}} a^{n+1} + \sum<em>{k=1}^n \binom{n}{k} a^{n+1-k} b<sup>k</sup> + \underbrace{\sum</em>{k=0}^{n-1} \binom{n}{k} a^{n-k} b^{k+1}}<em>\text{Vorbemerkung} + \binom{n}{n} b^{n+1} \
-&amp;= \binom{n+1}{0} a^{n+1} + \sum</em>{k=1}^{n} [\binom{n}{k} + \binom{n}{k-1}] a^{n+1} b<sup>k</sup> + \binom{n+1}{n+1} b^{n+1} \
-&amp;= \sum_{k=0}^{n+1} \binom{n+1}{k} a^{n+1-k} b<sup>k</sup>
+\begin{align} 
+(a+b)^{k+1} &amp;= (a+b)(a+b)^n \
+&amp;= (a+b) \sum<em>{k=0}^{n} \binom{n}{k} a^{n-k} b^k \
+&amp;= \sum</em>{k=0}^{n} \binom{n}{k} a^{n+1-k} b^k + \sum<em>{k=0}^n \binom{n}{k} a^{n-k} b^{k+1} \
+&amp;= \underbrace{\binom{n}{0}}</em>{\binom{n+1}{0}} a^{n+1} + \sum<em>{k=1}^n \binom{n}{k} a^{n+1-k} b^k + \underbrace{\sum</em>{k=0}^{n-1} \binom{n}{k} a^{n-k} b^{k+1}}<em>\text{Vorbemerkung} + \binom{n}{n} b^{n+1} \
+&amp;= \binom{n+1}{0} a^{n+1} + \sum</em>{k=1}^{n} [\binom{n}{k} + \binom{n}{k-1}] a^{n+1} b^k + \binom{n+1}{n+1} b^{n+1} \
+&amp;= \sum_{k=0}^{n+1} \binom{n+1}{k} a^{n+1-k} b^k
 \end{align}$</p>
 
 <h3 id="tocAnchor-1-3-3">Rekursive Folgen</h3>
-
 
 <p>Der Grenzwert rekursiv definierter Folgen lässt sich häufig sehr schön mit mehreren Induktionsbeweisen beweisen.</p>
 
@@ -189,11 +178,10 @@ $
   <li>Mache den Ansatz: Sei $a$ der Grenzwert der Folge $(a_n)_{n \in \mathbb{N}}$ mit $a_n = f(a_{n-1})$. Dann gilt: $a = f(a)$. Löse dann nach $a$ auf.</li>
 </ol><p>Eine Folge in der das wunderbar klappt ist folgende:</p>
 
-<p>Sei $(a_n)_{n \in \mathbb{N}}$ eine Folge und definiert durch:
-$a_0 = 2,~~~~~ a_n = \sqrt[3]{a_n<sup>2</sup>+a_n-1}$.</p>
+<p>Sei $(a<em>n)</em>{n \in \mathbb{N}}$ eine Folge und definiert durch:
+$a<em>0 = 2,~~~~~ a</em>n = \sqrt[3]{a<em>n^2+a</em>n-1}$.</p>
 
 <h2 id="tocAnchor-1-7">Strukturelle Induktion</h2>
-
 
 <p>Bei der vollständigen Induktion iteriert man über eine natürliche Zahl und gelangt so, ab einer festen natürlichen Zahl $n_0$ zu jeder beliebigen größeren natürlichen Zahl.</p>
 
@@ -203,9 +191,7 @@ $a_0 = 2,~~~~~ a_n = \sqrt[3]{a_n<sup>2</sup>+a_n-1}$.</p>
 
 <h3 id="tocAnchor-1-7-1">Beispiele</h3>
 
-
 <h4>Voller, vollständiger Binärbaum</h4>
-
 
 <p>Sei G(V, E) ein Binärbaum.</p>
 
@@ -214,23 +200,21 @@ G ist ein voller, vollständiger Binärbaum $: \Leftrightarrow$ G ist ein voller
 
 <p><strong>Behauptung</strong> ${\cal B} (n)$: Jeder volle, vollständige Binärbaum der Höhe $n, n \in \mathbb{N}$ hat $2^{n-1} - 1$ innere Knoten.
 <strong>Beweis</strong>: durch strukturelle Induktion
-<strong>I.A.</strong>: zeige ${\cal B} (1)$.
-Ein voller, vollständiger Binärbaum der Höhe n = 1 besteht nur aus einem Knoten. Er hat also $0 = 2^{n-1} - 1 = 2^{1-1} - 1 = 2<sup>0</sup> - 1 = 1 - 1 = 0$ innere Knoten.
+<strong>I.A.</strong>: zeige ${\cal B} (1)$. 
+Ein voller, vollständiger Binärbaum der Höhe n = 1 besteht nur aus einem Knoten. Er hat also $0 = 2^{n-1} - 1 = 2^{1-1} - 1 = 2^0 - 1 = 1 - 1 = 0$ innere Knoten.
 <strong>I.V.</strong>: Für beliebige, aber feste volle, vollständige Binärbäume G der Höhe n gilt:
 G hat $2^{n-1} - 1$ innere Knoten.
-<strong>I.S.</strong>: zeige ${\cal B} (n+1)$
-Für jeden vollen, vollständigen Binärbaum der Höhe $n+1$ gibt es einen Teilgraphen T, der ein voller, vollständiger Binärbaum der Höhe n ist. $\stackrel{I.V.}{\Rightarrow}$ T hat $2^{n-1} - 1$ innere Knoten. Das sind auch innere Knoten von G. Da die Höhe von G um eins höher ist als die von T und sowohl G als auch T volle, vollstädige Binärbaume sind, kommen zu jedem der $2^{n-1}$ Blätter aus T noch 2 Blätter. Dadurch hat G genau $2^{n-1}$ innere Knoten mehr als T $\Rightarrow$ G hat $2^{n-1}-1+2^{n-1} = 2<sup>n</sup> - 1$ innere Knoten $\blacksquare$</p>
+<strong>I.S.</strong>: zeige ${\cal B} (n+1)$ 
+Für jeden vollen, vollständigen Binärbaum der Höhe $n+1$ gibt es einen Teilgraphen T, der ein voller, vollständiger Binärbaum der Höhe n ist. $\stackrel{I.V.}{\Rightarrow}$ T hat $2^{n-1} - 1$ innere Knoten. Das sind auch innere Knoten von G. Da die Höhe von G um eins höher ist als die von T und sowohl G als auch T volle, vollstädige Binärbaume sind, kommen zu jedem der $2^{n-1}$ Blätter aus T noch 2 Blätter. Dadurch hat G genau $2^{n-1}$ innere Knoten mehr als T $\Rightarrow$ G hat $2^{n-1}-1+2^{n-1} = 2^n - 1$ innere Knoten $\blacksquare$</p>
 
 <h4>Aussagenlogische Ausdrücke</h4>
 
-
 <p>Die Idee habe ich aus dem <a href="http://www.matheboard.de/archive/470377/thread.html">Matheboard</a> von "MoeMoeson". Bei diesem Beweis bin ich mir aber nicht sicher, ob es tatsächlich strukturelle Induktion ist :-/</p>
 
-<p>Definition: Aussagenlogischer Ausdruck</p>
-
-<ol type="i" style="list-style-type: lower-roman;"><li>Jede Variable $p_i, i \in \mathbb{N}$ ist ein aussagenlogischer Ausdruck über V.</li>
-  <li>Sind A und B aussagenlogische Ausdrücke über V, so sind auch $\neg A, A \land B, A \lor B, A \Rightarrow B, A \Leftrightarrow B, (A)$.</li>
-  <li>Ein Wort über V ist nur dann ein aussagenlogischer Ausdruck über V, falls dies aufgrund endlich oftmaliger Anwendung von (i) und (ii) der Fall ist.</li>
+<p>Definition: Aussagenlogischer Ausdruck
+</p><ol type="i" style="list-style-type: lower-roman;"><li>Jede Variable $p_i, i \in \mathbb{N}$ ist ein aussagenlogischer Ausdruck über V.</li>
+  <li>Sind A und B aussagenlogische Ausdrücke über V, so sind auch $\neg A, A \land B, A \lor B, A \Rightarrow B, A \Leftrightarrow B, (A)$.</li>
+  <li>Ein Wort über V ist nur dann ein aussagenlogischer Ausdruck über V, falls dies aufgrund endlich oftmaliger Anwendung von (i) und (ii) der Fall ist.</li>
 </ol><p><strong>Behauptung</strong> Jeder aussagenlogischer Ausdruck endet entweder auf eine Variable oder auf eine schließende Klammer.
 <strong>Beweis</strong>: durch strukturelle Induktion
 <strong>I.A.</strong>: Jeder aussagenlogischer Ausdruck aus (i) endet auf eine Variable.
@@ -240,11 +224,11 @@ A endet auf eine Variable oder eine schließende Klammer.
 
 <p><strong>Behauptung</strong> Für jeden aussagenlogischen Ausdruck A gibt es einen äquivalenten aussagenlogischen Ausdruck B, der nur $\neg$ und $\land$ als Operatoren verwendet.
 <strong>Beweis</strong>: durch strukturelle Induktion
-<strong>I.A.</strong>:
-Seien $p_1, p_2$ aussagenlogische Variablen. Dann gilt:
-$p_1 \lor p_2 = \neg (\neg p_1 \land \neg p_2)$
-$p_1 \Leftrightarrow p_2 = \neg (p_1 \land \neg p_2) \land \neg (\neg p_1 \land p_2)$
-$p_1 \Rightarrow p_2 = p_1 \land \neg p_2$
+<strong>I.A.</strong>: 
+Seien $p<em>1, p</em>2$ aussagenlogische Variablen. Dann gilt:
+$p<em>1 \lor p</em>2 = \neg (\neg p<em>1 \land \neg p</em>2)$
+$p<em>1 \Leftrightarrow p</em>2 = \neg (p<em>1 \land \neg p</em>2) \land \neg (\neg p<em>1 \land p</em>2)$
+$p<em>1 \Rightarrow p</em>2 = p<em>1 \land \neg p</em>2$
 Für alle weiteren Ausdrücke aus (i) und (ii) gilt die Behauptung offensichtlich.</p>
 
 <p><strong>I.V.</strong>: Für beliebige, aber feste aussagenlogische Ausdrücke A gilt:
@@ -252,7 +236,6 @@ Es gibt einen äquivalenten aussagenlogischen Ausdruck B, der nur $\neg$ und $\l
 <strong>I.S.</strong>: Ein aussagenlogischer Ausdruck kann nur durch endlich häufige Anwendung von (i) und (ii) erzeugt werden (vgl. (iii)). (i) und (ii) erfüllen die Bedingung laut I.V.. $\blacksquare$</p>
 
 <h2 id="tocAnchor-1-9">Unendlich - Wann Induktion nicht funktioniert</h2>
-
 
 <p>Mit Induktion kann man Aussagen für beliebig große/kleine ganze Zahlen treffen. Allerdings eben nur für ganze Zahlen. Unendlich ist keine ganze Zahl. Also kann man auch keine Aussagen für "unendliche Aussagen" treffen.</p>
 
@@ -264,32 +247,30 @@ Es gilt: U und V  sind offene Mengen $\Rightarrow U \cap V$ ist offen.*</p>
 
 <p>Nun könnte man den Trugschluss machen, dass der Schnitt unendlich vieler offener Mengen auch offen ist. Der <strong>falsche Induktionsbeweis</strong> würde in etwa so aussehen:</p>
 
-<p><strong>Voraussetungen:</strong> Seien $M_i, i \in \mathbb{N}<em>0$ offene Mengen. Sei M eine Menge und definiert durch $M := \displaystyle \bigcap</em>{i=0}^\infty M_i$.
+<p><strong>Voraussetungen:</strong> Seien $M<em>i, i \in \mathbb{N}</em>0$ offene Mengen. Sei M eine Menge und definiert durch $M := \displaystyle \bigcap<em>{i=0}^\infty M</em>i$.
 <strong>Behauptung</strong>: M ist offen.
 <strong>Beweis</strong>: durch vollständige Induktion
-<strong>I.A.</strong>: Sei n = 1. Dann: $\cap<em>{i=0}^1 M_i = M_0 \cap M_1$ ist laut * offen.
-<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte:
-$\displaystyle \bigcap</em>{i=0}^n M_i$ ist offen.
+<strong>I.A.</strong>: Sei n = 1. Dann: $\cap<em>{i=0}^1 M</em>i = M<em>0 \cap M</em>1$ ist laut * offen.
+<strong>I.V.</strong>: Sei $n \in \mathbb{N}$ beliebig, aber fest und es gelte: 
+$\displaystyle \bigcap<em>{i=0}^n M</em>i$ ist offen.
 <strong>I.S.</strong>:
-$\displaystyle \bigcap<em>{i=0}^{n+1} M_i = \bigcap</em>{i=0}^{n} M_i \cap M<em>{n+1}$. Nun gilt:
-$\displaystyle \bigcap</em>{i=0}^{n} M_i$ ist per I.V. offen.
-$M_{n+1}$ ist per Vorraussetzung offen.
+$\displaystyle \bigcap<em>{i=0}^{n+1} M</em>i = \bigcap<em>{i=0}^{n} M</em>i \cap M<em>{n+1}$. Nun gilt:
+$\displaystyle \bigcap</em>{i=0}^{n} M<em>i$ ist per I.V. offen.
+$M</em>{n+1}$ ist per Vorraussetzung offen.
 Der Schnitt von beiden ist wegen * offen. Da n beliebig groß werden kann, ist auch M offen $\blacksquare$</p>
 
-<p>Allerdings gilt:
+<p>Allerdings gilt: 
 $\displaystyle \bigcap_{n=1}^\infty \left (1 - \frac{1}{n}, 2+\frac{1}{n} \right) = [1, 2]$, also ein Gegenbeispiel.</p>
 
-<p>Der "Beweis" ist also offensichtlich falsch. Wo ist aber der Fehler?
+<p>Der "Beweis" ist also offensichtlich falsch. Wo ist aber der Fehler? 
 Man hat gezeigt, dass beliebig viele Schnitte von offenen Mengen wieder offen sind. Die Behauptung sagt aber, dass unendlich viele Schnitte offener Mengen wieder offen sind. Es gibt also einen unterschied zwischen "beliebig viel" und "unendlich".</p>
 
 <h2 id="tocAnchor-1-10">Weitere Übungen</h2>
-
 
 <ul><li>KIT, GBI: <a href="http://gbi.ira.uka.de/archiv/2008/blatt-uebung2-aufgaben.pdf">Zusatzblatt 2</a>, Übungsaufgabe 16 - <a href="http://gbi.ira.uka.de/archiv/2008/blatt-uebung2-aufgaben.pdf">Lösungen</a></li>
     <li>KIT, GBI: <a href="http://gbi.ira.uka.de/archiv/2008/blatt-uebung3-aufgaben.pdf">Zusatzblatt 3</a>, Übungsaufgabe 26 d) und 38 d) - <a href="http://gbi.ira.uka.de/archiv/2008/blatt-uebung3-loesungen.pdf">Lösungen</a></li>
     <li>Otto Forster: Übungsbuch zur Analysis I, 5. Auflage, S. 3 - 6. ISBN 978-3-8348-1252-0.</li>
 </ul><h2 id="tocAnchor-1-11">Quellen</h2>
-
 
 <ul><li>Otto Forster: Analysis I, 10. Auflage, S. 1 - 11. ISBN 978-3-8348-1251-3. (Sehr zu empfehlen!)</li>
   <li><a href="http://gbi.ira.uka.de/uebungen/uebung-2.pdf">Folien zur GBI-Übung</a> am KIT</li>

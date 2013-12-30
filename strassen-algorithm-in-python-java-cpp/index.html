@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Part II: The Strassen algorithm in Python, Java and C++</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -63,11 +63,10 @@
                         </div>
 			
 						<div class="entry">
-                            <div class="info">This is Part II of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
-<a href="part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
+                            <div class="info">This is Part II of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
+<a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 
-
-<p>The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n<sup>3</sup>)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.</p>
+<p>The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log<em>2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the &lt;a href="http://en.wikipedia.org/wiki/Karatsuba</em>algorithm"&gt;Karatsuba algorithm for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -93,15 +92,13 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">The implementations</h2>
 
-
 <p>As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times :-)
 If you know other languages, you could create a script for these. I focus on Python, Java and C++.</p>
 
 <p>I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four $\frac{n}{2} \times \frac{n}{2}$ matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those $\frac{n}{2} \times \frac{n}{2}$ matrices. You can do this until you have $1 \times 1$ matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.</p>
 
-<p>If you post a solution, please consider these restrictions:</p>
-
-<ul><li><strong>Input</strong>: 
+<p>If you post a solution, please consider these restrictions:
+</p><ul><li><strong>Input</strong>: 
     <ul><li>The input file should get passed with the parameter <code>-i</code>, e.g.: 
     <code>python -i bigMatrix.in</code> or <code>java Shell -i bigMatrix.in</code></li>
       <li>The leaf-size should get passed with <code>-l</code>, e.g.: 
@@ -122,11 +119,9 @@ If you know other languages, you could create a script for these. I focus on Pyt
     <li>The result has to be formatted like the input (tabs for separation of number, \n for marks a new line)</li>
 </ul><h2 id="tocAnchor-1-2">Tests and Setting</h2>
 
-
 <p><a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.</p>
 
 <h2 id="tocAnchor-1-3">Python</h2>
-
 
 <p>I’ve used Python 2.6.5.</p>
 
@@ -301,7 +296,6 @@ If you know other languages, you could create a script for these. I focus on Pyt
 </code></pre>
 </div>
 
-
 <p>The execution-times were the same as with the ikj-algorithm, no matter what the leaf size was:</p>
 
 <div class="highlight">
@@ -315,11 +309,7 @@ LEAF_SIZE   Time
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-4">Java</h2>
-
 
 <p>The Java-code is a little bit long and has three classes. I'll only past the important methods. If you're interested in a full, working example, please look at <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/Java">GitHub</a>.</p>
 
@@ -490,23 +480,15 @@ LEAF_SIZE   Time
 </code></pre>
 </div>
 
-
-<p>Here are the results for different leaf-sizes:</p>
-
-<div style="width: 500px" class="wp-caption aligncenter">
+<p>Here are the results for different leaf-sizes:
+</p><div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/01/bchart-simple.png">
       <img src="http://martinthoma.github.io/images/../images/2013/01/bchart-simple.png" alt="" width="500" height="349" class="size-full wp-image-54901" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-5">C++</h2>
-
-
-
 
 <div class="highlight">
    <pre><code class="cpp"><span class="cp">#include &lt;sstream&gt;</span>
@@ -777,25 +759,19 @@ LEAF_SIZE   Time
 </code></pre>
 </div>
 
-
-<p>For C++, you get those user-times for the different leaf-sizes:</p>
-
-<div style="width: 500px" class="wp-caption aligncenter">
+<p>For C++, you get those user-times for the different leaf-sizes:
+</p><div style="width: 500px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/01/cpp-leaf-size-times.png">
       <img src="http://martinthoma.github.io/images/../images/2013/01/cpp-leaf-size-times.png" alt="" width="500" height="333" class="size-full wp-image-54921" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-6">Conclusion</h2>
 
+<p>As always, C++ is the fastest solution. </p>
 
-<p>As always, C++ is the fastest solution.</p>
-
-<p>I am a little bit surprised, that the LEAF_SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF_SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often any preferably visualize it.</p>
+<p>I am a little bit surprised, that the LEAF<em>SIZE doesn't matter for Python. I think I have used some very slow operations that are much more important than any speed gains or losses due to LEAF</em>SIZE. I guess the list creation might be slow. Does anybody know a tool for performance analysis of Python programs? This tool should be able to track which pieces of code got executed most often any preferably visualize it.</p>
 
 <p>For Java and C++, the Strassen algorithm had better execution times than the ikj-algorithm and it was also better than any library that I could find. The reasons why librarys perform worse than my implementation might be that pure integer matrices are rather rare. Usually you have double-matrices. Maybe you use different algorithms to keep rounding errors as small as possible (Can anybody provide more information to my speculations?)</p>
 

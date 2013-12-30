@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Functional Programming in Python</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -91,7 +91,6 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">lambda</h2>
 
-
 <p>A lambda creates an <a href="http://en.wikipedia.org/wiki/Anonymous_function">anonymous function</a>, that means a function without a name. A lambda may have any number of arguments.</p>
 
 <p>Here are some examples for lambdas:</p>
@@ -102,7 +101,6 @@
 </code></pre>
 </div>
 
-
 <p>Output: 49</p>
 
 <div class="highlight">
@@ -111,7 +109,6 @@
 </code></pre>
 </div>
 
-
 <p>Output: (3, 3, 1, 56, 36)</p>
 
 <div class="highlight">
@@ -119,7 +116,6 @@
 <span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">),</span> <span class="n">h</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre>
 </div>
-
 
 <p>Output: (set([1, 2]), set(['a', 1]), set(['a']), set([1]))</p>
 
@@ -137,7 +133,6 @@ So imagine you would like to make a lambda function like this:</p>
 </code></pre>
 </div>
 
-
 <p>This is the way you would do it:</p>
 
 <div class="highlight">
@@ -145,11 +140,9 @@ So imagine you would like to make a lambda function like this:</p>
 </code></pre>
 </div>
 
-
 <p>(Thanks to <a href="http://eikke.com/python-ifelse-in-lambda/">Ikke's blog</a> for the hint!)</p>
 
 <h2 id="tocAnchor-1-2">map(function, sequence)</h2>
-
 
 <p>Map is a function with two parameters. The first parameter is another function, the second is a sequence. Map returns a list. It only applies function to every item of the sequence.</p>
 
@@ -163,7 +156,6 @@ So imagine you would like to make a lambda function like this:</p>
 </code></pre>
 </div>
 
-
 <p>l = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
 
 <p>This is equivalent to:</p>
@@ -172,7 +164,6 @@ So imagine you would like to make a lambda function like this:</p>
    <pre><code class="python"><span class="n">l</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 </code></pre>
 </div>
-
 
 <p>You can also use more than one list:</p>
 
@@ -183,11 +174,9 @@ So imagine you would like to make a lambda function like this:</p>
 </code></pre>
 </div>
 
-
 <p>Output: [0, -9, -16, -21, -24, -25, -24, -21, -16, -9, 0, 11, 24, 39, 56, 75, 96, 119, 144, 171]</p>
 
 <h2 id="tocAnchor-1-3">reduce(function, sequence)</h2>
-
 
 <p>You can quite often reduce problems to an operation on two elements. Reduce takes two elements from sequence, uses function on them and saves the result. Then it takes the result and another element of the sequence and uses function...</p>
 
@@ -197,7 +186,6 @@ So imagine you would like to make a lambda function like this:</p>
    <pre><code class="python"><span class="n">r</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">63</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </code></pre>
 </div>
-
 
 <p>r = 74</p>
 
@@ -211,13 +199,11 @@ So imagine you would like to make a lambda function like this:</p>
 </code></pre>
 </div>
 
-
 <p>Output: 2
 6
 3628800</p>
 
 <h2 id="tocAnchor-1-4">filter(function, sequence)</h2>
-
 
 <p>filter gets all elements from sequence, where function returns true:</p>
 
@@ -238,13 +224,11 @@ So imagine you would like to make a lambda function like this:</p>
 </code></pre>
 </div>
 
-
 <p>r = [13, 2, 7, 11, 11]</p>
 
 <h2 id="tocAnchor-1-5">Some more examples</h2>
 
-
-<p>Task: What is the sum of digits of $2<sup>n</sup>, n \in \mathbb{N}$?</p>
+<p>Task: What is the sum of digits of $2^n, n \in \mathbb{N}$?</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="n">sumOfDigits</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">exp</span><span class="p">:</span> <span class="nb">reduce</span><span class="p">(</span>
@@ -257,7 +241,6 @@ So imagine you would like to make a lambda function like this:</p>
 <span class="k">print</span><span class="p">(</span><span class="n">sumOfDigits</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>
 </code></pre>
 </div>
-
 
 <p>Output: 4
 8
@@ -281,11 +264,7 @@ So imagine you would like to make a lambda function like this:</p>
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-6">See also</h2>
-
 
 <ul><li>Wikipedia:
     <ul><li><a href="http://en.wikipedia.org/wiki/Lambda_calculus">Lambda calculus</a></li>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Linux Scheduler</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -67,9 +67,6 @@
 						<div class="entry">
                             <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung geändert.</div>
 
-
-
-
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -85,12 +82,13 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Mailinglisten-Beitrag</h2>
 
-
 <p>Der in der Vorlesung vorgestellte $\mathcal{O}(1)$ Scheduler<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> wurde vom 2.6er Linux Kernel bis Version 2.6.23 verwendet und dann durch den sogenannten Completely Fair Scheduler (CFS)<small><sup><a href="#ref2" name="anchor2" id="anchor2">[2]</a></sup></small> abgelöst, der Rot-Schwarz-Bäume verwendet, und daher in $\mathcal{O}(\log(n))$ läuft -- dafür aber komplett fair ist ;-) Beide Scheduler wurden von Ingo Molnár entworfen und größtenteils implementiert. Abgesehen von den Wikipedia Artikeln fand ich auch Ingos eigene Beschreibung<small><sup><a href="#ref3" name="anchor1" id="anchor1">[3]</a></sup></small> sehr interessant.  In der prä-2.6-Ära des Linux Kernels wurde ein Scheduler verwendet, zu dessen Effizienz ich keine Angaben gefunden habe.  Anhand der (ziemlich detaillierten) Beschreibung in Kapitel 10 von „Understanding the Linux Kernel“<small><sup><a href="#ref4" name="anchor4" id="anchor4">[1]</a></sup></small> gehe ich jedoch davon aus, dass es $\mathcal{O}(n)$ gewesen sein muss.  Auch wenn die dort beschriebenen Algorithmen inzwischen mehrfach überholt sind, fand ich das Kapitel sehr lesenswert.</p>
 
 <p>Wie in der Vorlesung vermutet wurde, kann man den Scheduler natürlich konfigurieren.  Dazu ist es aber nicht notwendig, neu zu kompilieren -- noch nicht einmal neu zu booten. Stattdessen kann man (beim CFS) einfach über das /proc Dateisystem in die verschiedenen Dateien in</p>
 
-<p>  <code>/proc/sys/kernel/...</code></p>
+<p>
+   <code>/proc/sys/kernel/...</code>
+</p>
 
 <p>schreiben. Die Änderungen werden instantan wirksam. (Und spätestens zum nächsten Reboot wieder zurückgesetzt, man kann also nicht viel kaputt machen.)  Permanente Änderungen kann man in <code>/etc/sysctl.conf</code> schreiben. (Habe ich noch nicht probiert.)</p>
 
@@ -106,18 +104,12 @@
 
 <h2 id="tocAnchor-1-2">Video</h2>
 
-
-<p>Ich habe mal ein Video von Moritz' Programm gemacht:</p>
-
-<iframe width="420" height="315" src="http://www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen=""></iframe>
-
-
-
+<p>Ich habe mal ein Video von Moritz' Programm gemacht:
+<iframe width="420" height="315" src="http://www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen=""></iframe></p>
 
 <h2 id="tocAnchor-1-3">Referenzen</h2>
 
-
-<p>[1] <a name="ref1" href="#anchor1" id="ref1">↑</a>: „<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>“ in: Wikipedia, the free encyclopedia.  Abgerufen am 13. November 2012. <br />
+<p>[1] <a name="ref1" href="#anchor1" id="ref1">↑</a>: „<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>“ in: Wikipedia, the free encyclopedia.  Abgerufen am 13. November 2012.<br />
 [2] <a name="ref2" href="#anchor2" id="ref2">↑</a>: „<a href="http://en.wikipedia.org/wiki/Completely_Fair_Scheduler">Completely Fair Scheduler</a>“ in: Wikipedia, the free encyclopedia. Abgerufen am 13. November 2012.
 [3] <a name="ref3" href="#anchor3" id="ref3">↑</a>: Ingo Molnár, „<a href="http://people.redhat.com/mingo/cfs-scheduler/sched-design-CFS.txt">This is the CFS scheduler</a>“.  Abgerufen am 13. November 2012.
 [4] <a name="ref4" href="#anchor4" id="ref4">↑</a>: Daniel P. Bovet und Marco Cesati, „<a href="http://oreilly.com/catalog/linuxkernel/chapter/ch10.html">Understanding the Linux Kernel</a>“. O'Reilly, 2000, abgerufen am 13. November 2012.</p>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to parse command line arguments in Python</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -94,19 +94,13 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Argparse</h2>
 
-
 <blockquote>The <a href="http://docs.python.org/library/argparse.html">argparse module</a> makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv. The argparse module also automatically generates help and usage messages and issues errors when users give the program invalid arguments.</blockquote>
 
-
-
-
 <h3 id="tocAnchor-1-1-1">Installation</h3>
-
 
 <p>I had to install <code>python-argparse</code> on my old Ubuntu machine before I could use it.</p>
 
 <h3 id="tocAnchor-1-1-2">Usage</h3>
-
 
 <p>As far as I've just tried it, you can use argparse very similar to optparse. See this <a href="https://github.com/MartinThoma/matrix-multiplication/commit/7af938c54fd2effee3efe74352b76f01d2e817e5#Python/ikjMultiplication.py">diff</a> for my switch from optparse to argparse for a simple script.</p>
 
@@ -133,24 +127,22 @@
 </code></pre>
 </div>
 
-
-<p>Every option has some values like:</p>
-
-<ul><li><a href="http://docs.python.org/library/argparse.html#dest">dest</a>: You will access the value of option with this variable</li>
+<p>Every option has some values like:
+</p><ul><li><a href="http://docs.python.org/library/argparse.html#dest">dest</a>: You will access the value of option with this variable</li>
   <li><a href="http://docs.python.org/library/argparse.html#help">help</a>: This text gets displayed whey someone uses <code>--help</code>.</li>
   <li><a href="http://docs.python.org/library/argparse.html#default">default</a>: If the command line argument was not specified, it will get this default value.</li>
   <li><a href="http://docs.python.org/library/argparse.html#action">action</a>: Actions tell optparse what to do when it encounters an option on the command line. <code>action</code> defaults to <code>store</code>. These actions are available:
     <ul><li><strong>store</strong>: take the next argument (or the remainder of the current argument), ensure that it is of the correct type, and store it to your chosen destination dest.</li>
-      <li><strong>store_true</strong>: store <code>True</code> in dest if this flag was set.</li>
-      <li><strong>store_false</strong>: store <code>False</code> in dest if this flag was set.</li>
-      <li><strong>store_const</strong>: store a constant value</li>
+      <li><strong>store<em>true</em></strong>: store <code>True</code> in dest if this flag was set.</li>
+      <li><strong>storefalse</strong>: store <code>False</code> in dest if this flag was set.</li>
+      <li><strong>store<em>const</em></strong>: store a constant value</li>
       <li><strong>append</strong>: append this option’s argument to a list</li>
       <li><strong>count</strong>: increment a counter by one</li>
       <li><strong>callback</strong>: call a specified function</li>
     </ul></li>
   <li><a href="http://docs.python.org/library/argparse.html#nargs">nargs</a>: ArgumentParser objects usually associate a single command-line argument with a single action to be taken. The nargs keyword argument associates a different number of command-line arguments with a single action.</li>
   <li><a href="http://docs.python.org/library/argparse.html#required">required</a>: Mark a command line argument as non-optional (required).</li>
-  <li><a href="http://docs.python.org/library/argparse.html#choices">choices</a>: Some command-line arguments should be selected from a restricted set of values. These can be handled by passing a container object as the choices keyword argument to add_argument(). When the command line is parsed, argument values will be checked, and an error message will be displayed if the argument was not one of the acceptable values.</li>
+  <li><a href="http://docs.python.org/library/argparse.html#choices">choices</a>: Some command-line arguments should be selected from a restricted set of values. These can be handled by passing a container object as the choices keyword argument to addargument(). When the command line is parsed, argument values will be checked, and an error message will be displayed if the argument was not one of the acceptable values.</li>
   <li><a href="http://docs.python.org/library/argparse.html#type">type</a>: Use this command, if the argument is of another type (e.g. int or float).</li>
 </ul><p>argparse automatically generates a help text. So if you call <code>python myScript.py --help</code> you will get something like that:</p>
 
@@ -165,11 +157,7 @@ optional arguments:
 </code></pre>
 </div>
 
-
-
-
 <h3 id="tocAnchor-1-1-3">Example 1: Fibonacci</h3>
-
 
 <p>It is absolutely no problem to calculate the 100,000st Fibonacci number.</p>
 
@@ -203,13 +191,9 @@ optional arguments:
 </code></pre>
 </div>
 
-
-<p>Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse.</p>
+<p>Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse. </p>
 
 <h3 id="tocAnchor-1-1-4">Example 2: less</h3>
-
-
-
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
@@ -253,19 +237,13 @@ optional arguments:
 </code></pre>
 </div>
 
-
-
-
 <h2 id="tocAnchor-1-6">Optparse</h2>
 
-
 <div class="info">Deprecated since version 2.7: The optparse module is deprecated and will not be developed further; development will continue with the argparse module.</div>
-
 
 <p>Parsing command line arguments with <a href="http://docs.python.org/library/optparse.html">optparse</a> was very easy, but as it is deprecated and argparse works almost the same way, I will not make any examples. Just use argparse.</p>
 
 <h2 id="tocAnchor-1-7">See also</h2>
-
 
 <ul><li><a href="http://stackoverflow.com/q/3217673/562769">Why use argparse rather than optparse?</a></li>
   <li><a href="http://stackoverflow.com/q/8387924/562769">Python argparse and bash completion</a></li>

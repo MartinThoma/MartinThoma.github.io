@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Solving equations of lower unitriangular matrices</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -74,7 +74,7 @@
          <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Example</span></a>
          <ul>
             <li class="toc_level-2 toc_section-2">
-               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">First step: Solve for $x_1$</span></a>
+               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">First step: Solve for $x1$</span></a>
             </li>
             <li class="toc_level-2 toc_section-3">
                <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">Second step: update</span></a>
@@ -99,7 +99,6 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Example</h2>
 
-
 <p>With $n=5$, the problem could look like this:</p>
 
 <p>$\begin{pmatrix}
@@ -108,69 +107,62 @@
 7 &amp; 1 &amp; 1 &amp; 0 &amp; 0\
 8 &amp; 2 &amp; 8 &amp; 1 &amp; 0\
 1 &amp; 8 &amp; 2 &amp; 8 &amp; 1
-\end{pmatrix} \cdot
-\begin{pmatrix} x_1 \ x_2 \ x_3 \ x_4 \ x_5 \end{pmatrix} =
+\end{pmatrix} \cdot 
+\begin{pmatrix} x<em>1 \ x</em>2 \ x<em>3 \ x</em>4 \ x_5 \end{pmatrix} =
 \begin{pmatrix}   3 \ 1   \ 4   \ 1   \ 5   \end{pmatrix}$</p>
 
 <p>This is only a shorthand for:
 $
 \begin{align}
-&amp;1 \cdot x_1 &amp;= 3 \
-&amp;2 \cdot x_1 + 1 \cdot x_2 &amp;= 1\
-&amp;7 \cdot x_1 + 1 \cdot x_2 + 1 \cdot x_3 &amp;= 4\
-&amp;8 \cdot x_1 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\
-&amp;1 \cdot x_1 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
+&amp;1 \cdot x<em>1 &amp;= 3 \
+&amp;2 \cdot x</em>1 + 1 \cdot x<em>2 &amp;= 1\
+&amp;7 \cdot x</em>1 + 1 \cdot x<em>2 + 1 \cdot x</em>3 &amp;= 4\
+&amp;8 \cdot x<em>1 + 2 \cdot x</em>2 + 8 \cdot x<em>3 + 1 \cdot x</em>4 &amp;= 1\
+&amp;1 \cdot x<em>1 + 8 \cdot x</em>2 + 2 \cdot x<em>3 + 8 \cdot x</em>4 + 1 \cdot x_5 &amp;= 5
 \end{align}
 $</p>
 
-<p>This is easy to solve, isn't it?</p>
-
-<h3 id="tocAnchor-1-1-1">First step: Solve for $x_1$</h3>
-
-
-<p>First you see that $x_1 = 3$. Now you replace every occurence of $x_1$ in the system of equations above:</p>
+<p>This is easy to solve, isn't it?
+</p><h3 id="tocAnchor-1-1-1">First step: Solve for $x<em>1$</em></h3>
+First you see that $x1 = 3$. Now you replace every occurence of $x_1$ in the system of equations above:
 
 <p>$
 \begin{align}
 &amp;1 \cdot 3 &amp;= 3 \
-&amp;2 \cdot 3 + 1 \cdot x_2 &amp;= 1\
-&amp;7 \cdot 3 + 1 \cdot x_2 + 1 \cdot x_3 &amp;= 4\
-&amp;8 \cdot 3 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\
-&amp;1 \cdot 3 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
+&amp;2 \cdot 3 + 1 \cdot x<em>2 &amp;= 1\
+&amp;7 \cdot 3 + 1 \cdot x</em>2 + 1 \cdot x<em>3 &amp;= 4\
+&amp;8 \cdot 3 + 2 \cdot x</em>2 + 8 \cdot x<em>3 + 1 \cdot x</em>4 &amp;= 1\
+&amp;1 \cdot 3 + 8 \cdot x<em>2 + 2 \cdot x</em>3 + 8 \cdot x<em>4 + 1 \cdot x</em>5 &amp;= 5
 \end{align}$</p>
 
 <p>Now you make the multiplications and remove the first trivial line.</p>
 
 <p>$
 \begin{align}
-&amp;6 + 1 \cdot x_2 &amp;= 1\
-&amp;21 + 1 \cdot x_2 + 1 \cdot x_3 &amp;= 4\
-&amp;24 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\
-&amp;3 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
+&amp;6 + 1 \cdot x<em>2 &amp;= 1\
+&amp;21 + 1 \cdot x</em>2 + 1 \cdot x<em>3 &amp;= 4\
+&amp;24 + 2 \cdot x</em>2 + 8 \cdot x<em>3 + 1 \cdot x</em>4 &amp;= 1\
+&amp;3 + 8 \cdot x<em>2 + 2 \cdot x</em>3 + 8 \cdot x<em>4 + 1 \cdot x</em>5 &amp;= 5
 \end{align}
 $</p>
 
 <h3 id="tocAnchor-1-1-2">Second step: update</h3>
 
-
 <p>Get the constant factors to the right side of the equations:
 $
 \begin{align}
-&amp;1 \cdot x_2 &amp;= 1-6=-5\
-&amp;1 \cdot x_2 + 1 \cdot x_3 &amp;= 4-21=-17\
-&amp;2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1-24=-23\
-&amp;8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5-3=2
+&amp;1 \cdot x<em>2 &amp;= 1-6=-5\
+&amp;1 \cdot x</em>2 + 1 \cdot x<em>3 &amp;= 4-21=-17\
+&amp;2 \cdot x</em>2 + 8 \cdot x<em>3 + 1 \cdot x</em>4 &amp;= 1-24=-23\
+&amp;8 \cdot x<em>2 + 2 \cdot x</em>3 + 8 \cdot x<em>4 + 1 \cdot x</em>5 &amp;= 5-3=2
 \end{align}
 $</p>
 
-<p>You can now easily see that you're in the same situation as in the first step! Next you will solve for $x_2$, then for $x_3, x_4$ and finally for $x_5$.</p>
+<p>You can now easily see that you're in the same situation as in the first step! Next you will solve for $x<em>2$, then for $x</em>3, x<em>4$ and finally for $x</em>5$.</p>
 
 <p>This is the reason why solving such a system of equations is sometimes called "forward substitution".</p>
 
 <h2 id="tocAnchor-1-4">Python straightforward algorithm</h2>
-
-
-
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
@@ -196,11 +188,9 @@ $</p>
 </code></pre>
 </div>
 
-
 <p>Pretty easy, isn't it? But can we even do better?</p>
 
 <h2 id="tocAnchor-1-5">Even better algorithm</h2>
-
 
 <p>Yes, we can!</p>
 
@@ -228,7 +218,6 @@ $</p>
 </code></pre>
 </div>
 
-
 <p>Now it looks super clean, doesn't it :-)</p>
 
 <p>Keep in mind that you have to store b if you need the values after you've applied this algorithm.
@@ -236,26 +225,24 @@ This is the reason why there here. This algorithm "returns" its value by manipul
 
 <h2 id="tocAnchor-1-6">Time complexity</h2>
 
-
 <p>I'll analyze the second algorithm.</p>
 
 <p>Let's assume that line 7 takes $c$ operations and $n$ is the size of $L \in \mathbb{R}^{n \times n}$.</p>
 
-<p>Then we would have a total of</p>
+<p>Then we would have a total of </p>
 
 <p>$\begin{align}
 \text{Operations} &amp;= \sum<em>{i=1}^n \left ( \sum</em>{j=i+1}^n c \right )\
 &amp;= c \cdot \sum<em>{i=1}^n \left ( \sum</em>{j=i+1}^n 1 \right )\
 &amp;= c \cdot \sum<em>{i=1}^n (n - i)\
 &amp;= c \cdot \left ( \sum</em>{i=1}^n n - \sum_{i=1}^n i \right )\
-&amp;= c \cdot \left ( n<sup>2</sup> - \frac{n<sup>2</sup>+n}{2} \right )\
-&amp;= \frac{c}{2} (n<sup>2</sup> - n)
+&amp;= c \cdot \left ( n^2 - \frac{n^2+n}{2} \right )\
+&amp;= \frac{c}{2} (n^2 - n)
 \end{align}$</p>
 
-<p>So the algorithms time complexity is in $\Theta(n<sup>2</sup>) \subsetneq \mathcal{O}(n<sup>2</sup>)$.</p>
+<p>So the algorithms time complexity is in $\Theta(n^2) \subsetneq \mathcal{O}(n^2)$.</p>
 
 <h2 id="tocAnchor-1-7">Space complexity</h2>
-
 
 <p>Well, thats simple: $\mathcal{O}(1)$!</p>
 
@@ -263,8 +250,7 @@ This is the reason why there here. This algorithm "returns" its value by manipul
 
 <h2 id="tocAnchor-1-8">More improvements</h2>
 
-
-<p>In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal.
+<p>In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal. 
 This means, the following two function calls do give the same b:</p>
 
 <div class="highlight">
@@ -297,7 +283,6 @@ This means, the following two function calls do give the same b:</p>
     <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre>
 </div>
-
 
 <p>So, theoretically, we could store some other information on and above of the diagonal. We also don't change L. Keep this in mind, this might be important in later articles.</p>
 						</div>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Java Puzzle #5: Parallel Programming, Part 2</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -66,39 +66,39 @@
 			
 						<div class="entry">
                             <p>What is the output of the following script:</p>
+<div class="highlight">
+   <pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">globalVar</span><span class="o">;</span>
 
-<pre><code class="java">public class test {
-    public static int globalVar;
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">globalVar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 
-    public static void main(String[] args) {
-        globalVar = 1;
+        <span class="n">MyParallelClass</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyParallelClass</span><span class="o">();</span>
+        <span class="n">MyParallelClass</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyParallelClass</span><span class="o">();</span>
 
-        MyParallelClass a = new MyParallelClass();
-        MyParallelClass b = new MyParallelClass();
+        <span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+        <span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
 
-        new Thread(a).start();
-        new Thread(b).start();
-
-        System.out.println(globalVar);
-    }
-}
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">globalVar</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
+</div><div class="highlight">
+   <pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyParallelClass</span> <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Runnable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-<pre><code class="java">public class MyParallelClass implements java.lang.Runnable {
-    public int counter = 0;
-
-    @Override
-    public void run() {
-        if (test.globalVar &gt; 0) {
-            for (int i = 0; i &lt; 1000000; i++) {
-                counter++;
-            }
-            test.globalVar--;
-        }
-    }
-}
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="na">globalVar</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">counter</span><span class="o">++;</span>
+            <span class="o">}</span>
+            <span class="n">test</span><span class="o">.</span><span class="na">globalVar</span><span class="o">--;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </code></pre>
-
+</div>
 <p>.
 .
 .
@@ -138,11 +138,9 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Answer</h2>
 
-
 <p><code>0</code>, <code>1</code> or <code>-1</code>.</p>
 
 <h2 id="tocAnchor-1-2">Explanaition</h2>
-
 
 <p>First the simple ones:
 <code>0</code> is the result you would expect. One thread executes and reduces <code>globalVar</code> to <code>0</code>, the other one does nothing and then <code>globalVar</code> gets printed.</p>
@@ -151,9 +149,8 @@
 
 <p>Now the most interesting one: <code>-1</code>. This is called a <a href="http://en.wikipedia.org/wiki/Race_condition">race condition</a>. You have to know that <code>globalVar--</code> is not an atomic operation. First you have to get the value, then you have to reduce it and after that you can save the value.</p>
 
-<p>This is an order of execution which would lead to a wrong value:</p>
-
-<table>
+<p>This is an order of execution which would lead to a wrong value:
+</p><table>
    <tr><th>First Thread</th>
 <th>Second Thread</th>
 <th>test.globalVar</th>
@@ -182,11 +179,9 @@ execute all four bytecode commands of "test.globalVar--;"
 </tr>
 </table><h2 id="tocAnchor-1-3">Resolve this problem</h2>
 
-
 <ul><li>Use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a> if you don't want to get <code>1</code> as output.</li>
   <li>If you don't want to get <code>-1</code>, you should take a look at the keyword <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html">synchronised</a>.</li>
 </ul><h2 id="tocAnchor-1-4">A side note</h2>
-
 
 <p>With <code>javap -c MyParallelClass</code> you can view the <a href="http://en.wikipedia.org/wiki/Java_bytecode">bytecode</a> of the class <code>MyParallelClass</code>. It looks like this:</p>
 
@@ -232,8 +227,7 @@ execute all four bytecode commands of "test.globalVar--;"
 </code></pre>
 </div>
 
-
-<p>Some links to the reference: <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--19.html">getstatic</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--21.html">iconst_1</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-_isub.html">isub</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-putstati.html">putstatic</a></p>
+<p>Some links to the reference: <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--19.html">getstatic</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--21.html">iconst<em>1</em></a>, &lt;a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-isub.html"&gt;isub, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-putstati.html">putstatic</a></p>
 
 <p>The interesting part of the bytecode is:</p>
 
@@ -245,11 +239,9 @@ execute all four bytecode commands of "test.globalVar--;"
 </code></pre>
 </div>
 
-
-<p>You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>.</p>
+<p>You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>. </p>
 
 <h2 id="tocAnchor-1-5">See also</h2>
-
 
 <ul><li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/atomic.html">Atomic Access</a> in Java</li>
   <li><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/monitor/Monitor.html">Class Monitor</a></li>

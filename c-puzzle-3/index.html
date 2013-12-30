@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>C Puzzle #3</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312282036.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -74,7 +74,6 @@
 </code></pre>
 </div>
 
-
 <p>.
 .
 .
@@ -107,15 +106,12 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Short answer</h2>
 
-
 <p>-7</p>
 
 <h2 id="tocAnchor-1-2">Long answer</h2>
 
-
 <blockquote>Signed integers are two’s complement binary values that can be used to represent both positive and negative
 integer values.</blockquote>
-
 
 <p>Source: <a href="http://download.intel.com/products/processor/manual/325462.pdf#page=82">Intels IA-32 Architectures Software Developer's Manuals</a>, page 83</p>
 
@@ -135,9 +131,6 @@ integer values.</blockquote>
    <pre><code class="bash">gcc -S -O0 test.c
 </code></pre>
 </div>
-
-
-
 
 <div class="highlight">
    <pre><code class="text"> .file   "test.c"
@@ -172,7 +165,6 @@ main:
 </code></pre>
 </div>
 
-
 <p>In line 18 you can see that the bitshift already happened. When you introduce a variable for <code>a</code>, you can see that the compiler makes use of the assembly command <code>sarl %eax</code> or <code>sarl   $2, %eax</code> when you shift by two.</p>
 
 <p>When you take a look at Oracles <a href="http://docs.oracle.com/cd/E19455-01/806-3773/806-3773.pdf#page=56">IA-32 Assembly Language Reference Manual</a>, page 56, you find:</p>
@@ -181,7 +173,6 @@ main:
 an immediate value and stores the quotient in that byte, word, or long respectively.
 The second variation right shifts by a count value speciﬁed in the CL register. sar
 rounds toward negative inﬁnity; <strong>the high-order bit remains unchanged</strong>.</blockquote>
-
 
 <p>This means, 1111.1111.1111.1111.1111.1111.1111.1001 is correct. And that's -7.</p>
 						</div>
