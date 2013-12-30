@@ -11,13 +11,14 @@ tags:
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 When you have a system of linear congruences like:
-$
+
+$$
 \begin{align}
 x &\equiv 4 \mod 19\\
 x &\equiv 12 \mod 37\\
 x &\equiv 14 \mod 43
 \end{align}
-$
+$$
 
 you can solve it quite easily.
 Johannes Schickling has written a very nice <a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem">JavaScript Application</a> that applies the following algorithm online. I've used his source code to write the following Python code.

@@ -260,13 +260,13 @@ Offiziell nicht Klausurrelevant.
   </li>
   <li>Artikel:
     <ul>
-      <li><a href="http://martin-thoma.com/graphic-filters/">Graphic filters</a>: Mit einem interaktiven Beispiel aller Filter!</li>
-      <li><a href="http://martin-thoma.com/k-nearest-neighbor-clustering-interactive-example/">Clustering-Algorithmen</a>: Mit interaktivem Beispiel</li>
-      <li><a href="http://martin-thoma.com/calculations-with-quaternions/">Calculations with quaternions</a></li>
-      <li><a href="http://martin-thoma.com/calculate-histogram-equalization/">How do I calculate a histogram equalization?</a></li>
-      <li><a href="http://martin-thoma.com/apply-viterbi-aglrithm/">How to apply the Viterbi algorithm</a></li>
-      <li><a href="http://martin-thoma.com/html5/route-planning/route-planning.htm">Interactive example for route planning</a></li>
-      <li><a href="http://martin-thoma.com/word-error-rate-calculation/">Word Error Rate (WER) calculation</a></li>
+      <li><a href="../graphic-filters/">Graphic filters</a>: Mit einem interaktiven Beispiel aller Filter!</li>
+      <li><a href="../k-nearest-neighbor-clustering-interactive-example/">Clustering-Algorithmen</a>: Mit interaktivem Beispiel</li>
+      <li><a href="../calculations-with-quaternions/">Calculations with quaternions</a></li>
+      <li><a href="../calculate-histogram-equalization/">How do I calculate a histogram equalization?</a></li>
+      <li><a href="../apply-viterbi-aglrithm/">How to apply the Viterbi algorithm</a></li>
+      <li><a href="../html5/route-planning/route-planning.htm">Interactive example for route planning</a></li>
+      <li><a href="../word-error-rate-calculation/">Word Error Rate (WER) calculation</a></li>
     </ul>
   </li>
   <li>Grafische Faltung: 
