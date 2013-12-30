@@ -1,4 +1,6 @@
 require 'nokogiri'
+# Source: https://github.com/dafi/jekyll-toc-generator
+# But it was modified!
 
 module Jekyll
   module TOCGenerator

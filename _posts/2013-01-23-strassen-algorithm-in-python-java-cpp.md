@@ -12,8 +12,8 @@ tags:
 - Strassen algorithm
 - matrix multiplication
 ---
-<div class="info">This is Part II of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
-<a href="part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
+<div class="info">This is Part II of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
+<a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 
 The usual matrix multiplication of two $n \times n$ matrices has a time-complexity of $\mathcal{O}(n^3)$. This means, if $n$ doubles, the time for the computation increases by a factor of 8. But you don't have to use that much resources. The <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> has a time complexity of $\mathcal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$. The idea is similar to the <a href="http://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a> for simple multiplication. Basically, you make a tradeof: Instead of one multiplication, you use many additions. As additions are - at least for humans - easier, you might rather like to use many additions. Lets see how the Strassen algortihms execution time compares to the other execution times in Part I. As last time, I'll multiply two $2000 \times 2000$ matrices that have to be read from a file. Everything - reading, calculation and writing the result - counts to the execution time.
 

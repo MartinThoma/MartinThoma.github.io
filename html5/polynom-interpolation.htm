@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Polynomial interpolation - an interactive example</title>
+        <!--<script type="text/x-mathjax-config">
+          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>-->
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u=(("https:" == document.location.protocol) ? "https" : "http") + "://martin-thoma.com/piwik//";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+            g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <!-- End Piwik Code -->
+        <style type="text/css">
+            span.hint {
+	            border-bottom:1px dotted #666;
+            }
+
+            table.setting {
+                margin: 5px;
+                float:left;
+            }
+
+            table.setting caption {
+                background-color: #e0e0e0;
+                font-weight:bold;
+            }
+        </style>
+        <script type="text/javascript" src="math.min.js"></script>
+    </head>
+    <body>
+
+	<form action="#" method="post" onsubmit="return false;">
+		<input type="submit" style="visibility:hidden;">
+        <table class="setting">
+            <caption>coordinate range</caption>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="number" id="Y_MAX" value="10" style="width:50px;"></td>
+                <td>&nbsp;</td>
+
+            </tr>
+            <tr>
+                <td><input type="number" id="X_MIN" value="-10" style="width:50px;"></td>
+                <td style="text-align: center;margin-left: auto;margin-right: auto;"><img src="axis-cross.png" alt="axis"/></td>
+                <td><input type="number" id="X_MAX" value="10" style="width:50px;"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="number" id="Y_MIN" value="-10" style="width:50px;"></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+
+        <table class="setting">
+            <caption>misc</caption>
+            <tr>
+                <td><label for="function" style="color:red;">f(x) =</label> <input type="text" value="sin(x)" id="function"/> <span class="hint" title="Hier kann jede von math.js auswertbare Funktion stehen. Der User muss selbst aufpassen, dass er nicht durch 0 teilt.">?</span></td>
+            </tr>
+            <tr>
+                <td>evaluation steps: <input type="number" min="0" step="0.1" value="0.1" id="evaluationSteps" style="width:50px;" oninput="drawBoard(canvas)"/></td>
+            </tr>
+            <tr>
+                <td><a href="polynom-interpolation.htm">reset</a> - <a href="polynom-interpolation.htm" target="_blank" id="newWindow" onclick="modifyURL()">open in window</a> <a onclick="store()" href="javascript:void(0);"  download="image.png" >save as png</a></td>
+            </tr>
+        </table>
+
+
+        <table class="setting">
+            <caption>ticks</caption>
+            <tr>
+                <th><label for="X_TICKS_STEPS">x</label></th>
+                <td><input type="number" min="0" id="X_TICKS_STEPS" value="1" style="width:50px;" oninput="drawBoard(canvas)"></td>
+            </tr>
+            <tr>
+                <th><label for="Y_TICKS_STEPS">y</label></th>
+                <td><input type="number" min="0" id="Y_TICKS_STEPS" value="1" style="width:50px;" oninput="drawBoard(canvas)"></td>
+            </tr>
+        </table>
+
+        <table class="setting">
+            <caption>interpolation</caption>
+            <tr>
+                <th><label for="X_FROM">from</label></th>
+                <td><input type="number" id="X_FROM" value="-10" style="width:50px;" oninput="drawBoard(canvas)"></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th><label for="X_TO">to</label></th>
+                <td><input type="number" id="X_TO" value="10" style="width:50px;" oninput="drawBoard(canvas)"></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th><label for="N_EVALUATION_POINTS">n</label></th>
+                <td><input type="number" min="1" id="N_EVALUATION_POINTS" value="10" style="width:50px;" oninput="drawBoard(canvas)"></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <th><label for="SHOW_EQUALLY_SPACED" style="color:#00FF00" id="EQUALLY_SPACED_LABEL">equally spaced</label></th>
+                <td><input type="checkbox" id="SHOW_EQUALLY_SPACED" value="10" style="width:50px;" onchange="drawBoard(canvas)"></td>
+                <td><input type="color" id="EQUALLY_SPACED_COLOR" value="#00FF00" style="width:50px;" onchange="drawBoard(canvas)"></td>
+            </tr>
+            <tr>
+                <th><label for="SHOW_TSCHEBYSCHEFF_SPACED" style="color:#FF00FF" id="TSCHEBYSCHEFF_SPACED_LABEL">tschebyscheff spaced</label></th>
+                <td><input type="checkbox" id="SHOW_TSCHEBYSCHEFF_SPACED" value="10" style="width:50px;" onchange="drawBoard(canvas)"></td>
+                <td><input type="color" id="TSCHEBYSCHEFF_SPACED_COLOR" value="#FF00FF" style="width:50px;" onchange="drawBoard(canvas)"></td>
+            </tr>
+            <tr>
+                <th><label for="SHOW_SPLINE_EQUALLY_SPACED" style="color:#FFBB00" id="SPLINE_LABEL">spline interpolation, equally spaced</label></th>
+                <td><input type="checkbox" id="SHOW_SPLINE_EQUALLY_SPACED" value="10" style="width:50px;" onchange="drawBoard(canvas)"></td>
+                <td><input type="color" id="SPLINE_COLOR" value="#FFBB00" style="width:50px;" onchange="drawBoard(canvas)"></td>
+            </tr>
+        </table>
+	</form>
+
+        <canvas id = "myCanvas"
+                width = "512" height = "600" 
+                style = "border:1px solid #000;"
+        > </canvas>
+        <textarea id="pointlist" style="width:550px"></textarea>    
+        <p><span id="polynomial">$p(x) = x^2$</span>
+
+    <script type="text/javascript" src="polynom-interpolation.js"></script>
+</body>
+</html>

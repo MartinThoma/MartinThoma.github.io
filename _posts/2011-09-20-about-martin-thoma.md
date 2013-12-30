@@ -12,7 +12,7 @@ context: about
 
 My name is Martin Thoma. I am a 22 year old student from Karlsruhe, Germany.
 
-Do you want to know more about me? I've created a <a href='http://martin-thoma.com/wp-content/uploads/2013/07/cv-curriculum-vitae.pdf'>short English CV</a> and&nbsp;<a href="http://www.martin-thoma.de/about.htm" rel="me">a longer German CV</a>.
+Do you want to know more about me? I've created a <a href="../pdf/cv-curriculum-vitae.pdf">short English CV</a> and&nbsp;<a href="http://www.martin-thoma.de/about.htm" rel="me">a longer German CV</a>.
 
 <h2>Other Profiles</h2>
 <ul>

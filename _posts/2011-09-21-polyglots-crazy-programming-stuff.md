@@ -167,7 +167,7 @@ def looping(i):
 print looping(1)
 print("You've just executed some Python-Code written by Martin Thoma")
 {% endhighlight %} 
-You can download the file at <a href="http://martin-thoma.com/python/polyglot.py">martin-thoma.com/python/polyglot.py</a>.
+You can download the file at <a href="../python/polyglot.py">martin-thoma.com/python/polyglot.py</a>.
 
 I used three languages in this piece of code: <a href="http://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>, <a href="http://en.wikipedia.org/wiki/Brainfuck">Brainfuck</a> and <a href="http://en.wikipedia.org/wiki/Whitespace_(programming_language)">Whitespace</a>. You can try it with <a href="http://ideone.com/">ideone.com</a>. But please, copy the whole code!
 

@@ -31,14 +31,14 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium betr&auml;gt 6 Semester und
     <th colspan="3" style="background-color:#cdcdcd;">1. Semester</th>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/gbi-klausur/">Grundbegriffe der Informatik</a></td>
+    <td><a href="../gbi-klausur/">Grundbegriffe der Informatik</a></td>
     <td>4</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/abschlussaufgaben-programmieren/">Programmieren</a></td>
+    <td><a href="../abschlussaufgaben-programmieren/">Programmieren</a></td>
     <td>5</td>
-    <td><a href="http://martin-thoma.com/programmieren-tutorium/">Mein Tutorium</a></td>
+    <td><a href="../programmieren-tutorium/">Mein Tutorium</a></td>
   </tr>
   <tr>
     <td>H&ouml;here Mathematik I</td>
@@ -54,17 +54,17 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium betr&auml;gt 6 Semester und
     <th colspan="3" style="background-color:#cdcdcd;">2. Semester</th>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/algorithmen-klausur/">Algorithmen I</a></td>
+    <td><a href="../algorithmen-klausur/">Algorithmen I</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/swt-i-klausur/">Softwaretechnik I</a></td>
+    <td><a href="../swt-i-klausur/">Softwaretechnik I</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/ti-klausur-dt-ro/">Rechnerorganisation</a></td>
+    <td><a href="../ti-klausur-dt-ro/">Rechnerorganisation</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
@@ -82,27 +82,27 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium betr&auml;gt 6 Semester und
     <th colspan="3" style="background-color:#cdcdcd;">3. Semester</th>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/tgi-klausur/">Theoretische Grundlagen der Informatik</a></td>
+    <td><a href="../tgi-klausur/">Theoretische Grundlagen der Informatik</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/pse-am-kit/">Praxis der Software-Entwicklung</a> (PSE)</td>
+    <td><a href="../pse-am-kit/">Praxis der Software-Entwicklung</a> (PSE)</td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/os-klausur/">Betriebssysteme</a></td>
+    <td><a href="../os-klausur/">Betriebssysteme</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/ti-klausur-dt-ro/">Digitaltechnik und Entwurfsverfahren</a></td>
+    <td><a href="../ti-klausur-dt-ro/">Digitaltechnik und Entwurfsverfahren</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/wt-klausur/">Wahrscheinlichkeitstheorie und Statistik</a></td>
+    <td><a href="../wt-klausur/">Wahrscheinlichkeitstheorie und Statistik</a></td>
     <td>4.5</td>
     <td>&nbsp;</td>
   </tr>
@@ -110,17 +110,17 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium betr&auml;gt 6 Semester und
     <th colspan="3" style="background-color:#cdcdcd;">4. Semester</th>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/datenbanksysteme-klausur/">Datenbanksysteme</a></td>
+    <td><a href="../datenbanksysteme-klausur/">Datenbanksysteme</a></td>
     <td>4</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/rechnernetze-klausur/">Rechnernetze</a></td>
+    <td><a href="../rechnernetze-klausur/">Rechnernetze</a></td>
     <td>4</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/numerik-klausur/">Numerik</a></td>
+    <td><a href="../numerik-klausur/">Numerik</a></td>
     <td>4.5</td>
     <td>&nbsp;</td>
   </tr>
@@ -128,7 +128,7 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium betr&auml;gt 6 Semester und
     <th colspan="3" style="background-color:#cdcdcd;">5. Semester</th>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/algorithmen-ii-klausur/">Algorithmen II</a></td>
+    <td><a href="../algorithmen-ii-klausur/">Algorithmen II</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
@@ -152,7 +152,7 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium betr&auml;gt 6 Semester und
   </tr>
 </table>
 
-Ich habe &bdquo;<a href="http://martin-thoma.com/klausur-analysis-i-und-ii/">Analysis I+II</a>&ldquo; anstelle von &bdquo;H&ouml;here Mathematik I+II&ldquo; und &bdquo;<a href="http://martin-thoma.com/klausur-lineare-algebra-i-ii/">Lineare Algebra und analytische Geometrie I+II</a>&ldquo; anstelle von &bdquo;Lineare Algebra I+II&ldquo; geh&ouml;rt. Das sind die Mathematiker-Kurse.
+Ich habe &bdquo;<a href="../klausur-analysis-i-und-ii/">Analysis I+II</a>&ldquo; anstelle von &bdquo;H&ouml;here Mathematik I+II&ldquo; und &bdquo;<a href="../klausur-lineare-algebra-i-ii/">Lineare Algebra und analytische Geometrie I+II</a>&ldquo; anstelle von &bdquo;Lineare Algebra I+II&ldquo; geh&ouml;rt. Das sind die Mathematiker-Kurse.
 
 Wie ihr nun erkannt haben werdet, bleiben $180 - 124 - 6 = 50$ &uuml;brig. Da ich die Mathematiker-Kurse gemacht habe (die jeweils 9 ECTS anstelle von 5 und 4 geben), bei mir sogar nur 41 ECTS. Davon muss man zwei Stammmodule f&uuml;r jeweils 6 ECTS machen. Dann sind es nur noch $50-2 \cdot 6 = 38$ ECTS.
 
@@ -163,9 +163,9 @@ Die Praxis der Softwareentwicklung (PSE) ist &uuml;brigens eine tolle Sache am K
   <li>Computergraphik</li>
   <li>Echtzeitsysteme</li>
   <li>Formale Systeme</li>
-  <li><a href="http://martin-thoma.com/kogsys-klausur/">Kognitive Systeme</a></li>
+  <li><a href="../kogsys-klausur/">Kognitive Systeme</a></li>
   <li>Rechnerstrukturen</li>
-  <li><a href="http://martin-thoma.com/sicherheit-klausur/">Sicherheit</a></li>
+  <li><a href="../sicherheit-klausur/">Sicherheit</a></li>
   <li>Softwaretechnik II</li>
   <li>Telematik</li>
 </ul>
@@ -182,7 +182,7 @@ Von den 4 &uuml;brigen Punkten kann man sich aus vielen interessanten <a href="h
 Ich habe folgendes belegt:
 <table>
   <tr>
-    <td><a href="http://martin-thoma.com/web-engineering/">Web-Engineering</a></td>
+    <td><a href="../web-engineering/">Web-Engineering</a></td>
     <td>4</td>
   </tr>
   <tr>
@@ -222,7 +222,7 @@ Auf Anfrage kann man aber wohl noch weitere machen. So studiert ein Bekannter in
     <td><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/presentations/Diskrete-Mathematik">Mein Vortrag</a> zum Proseminar Diskrete Mathematik</td>
   </tr>
   <tr>
-    <td><a href="http://martin-thoma.com/eaz-klausur/">Einf&uuml;hrung in die Algebra und Zahlentheorie</a></td>
+    <td><a href="../eaz-klausur/">Einf&uuml;hrung in die Algebra und Zahlentheorie</a></td>
     <td>9</td>
   </tr>
   <tr>
@@ -240,7 +240,7 @@ Der Campus ist zusammenh&auml;ngend. Das, was als &bdquo;Campus Nord&ldquo; beze
 
 <h3>Tipps zum Studium</h3>
 <ul>
-  <li>Ganz unbescheiden: <strong>Mein Blog ist toll</strong> :-) Nein, im ernst, wenn du etwas vom Mathe-Stoff nicht verstehst, kann ich dir nur empfehlen mal rein zu schauen und vielleicht die Tags &bdquo;<a href="http://martin-thoma.com/tag/linear-algebra/">linear algebra</a>&ldquo; oder &bdquo;<a href="http://martin-thoma.com/tag/analysis/">analysis</a>&ldquo; zu durchst&ouml;bern. Ich blogge zu relativ vielen Themen, mal auf Deutsch und manchmal auf Englisch, die meistens f&uuml;r einen KIT-Informatik-Studenten von Interesse sind. Eventuell ist auch <a href="http://www.martin-thoma.de/uni.htm">meine kleine Linkliste</a> interessant.</li>
+  <li>Ganz unbescheiden: <strong>Mein Blog ist toll</strong> :-) Nein, im ernst, wenn du etwas vom Mathe-Stoff nicht verstehst, kann ich dir nur empfehlen mal rein zu schauen und vielleicht die Tags &bdquo;<a href="../tag/linear-algebra/">linear algebra</a>&ldquo; oder &bdquo;<a href="../tag/analysis/">analysis</a>&ldquo; zu durchst&ouml;bern. Ich blogge zu relativ vielen Themen, mal auf Deutsch und manchmal auf Englisch, die meistens f&uuml;r einen KIT-Informatik-Studenten von Interesse sind. Eventuell ist auch <a href="http://www.martin-thoma.de/uni.htm">meine kleine Linkliste</a> interessant.</li>
   <li><strong>Mathe ist interessant</strong>, aber wohl nicht jedermanns Sache. Ich denke ein guter Informatiker sollte auch gute Mathe-Kenntnisse haben. Noch kann ich nicht beurteilen, ob sich f&uuml;r mich das Besuchen der Mathe-Kurse (+Klausuren) gelohnt hat. Es war auf jeden Fall deutlich schwerer. Aber ich bin davon &uuml;berzeugt, dass es sich lohnen wird.</li>
   <li><strong>Bleib am Ball</strong>: Gerade in Mathe - egal ob Analysis oder HM - muss man immer versuchen am Ball zu bleiben. Vorbereitung (das Kapitel im Skript lesen) und Nachbereitung (am Abend kurz aufschreiben: Was wurde gemacht? Und dann kontrollieren: Kann ich das auch?) lohnen sich. Bzw., ich habe das im 2. Semester nicht gemacht und es hat sich bei der Klausurvorbereitung ger&auml;cht.</li>
   <li>Die ersten Vorlesungen sind besonders wichtig. In fast allen gibt es ein gutes Skript, das auch online ist. Fast &uuml;berall wird genau das Skript gemacht, nicht mehr und nicht weniger. Aber manchmal werden Dinge im <strong>Skript</strong> eher betont oder vielleicht etwas genauer erkl&auml;rt/ein Beispiel mehr gemacht. Also: Skript direkt am Anfang ausdrucken und immer mitnehmen.</li>

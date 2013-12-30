@@ -21,7 +21,7 @@ Eventually you could connect to friends and let their ratings influence what you
 And, very important, it should let you follow series and/or authors. So you should be able to say "When there is a new book of the 'Harry Potter' series, send me an email!" or "When there is a new book of the 'Harry Potter' series translated to 'German', send me an email!".
 
 <h2>Science and Education Platform</h2>
-Sometimes, scientists get new insights that are able to influence millions. But until such a great invention or discovery is made, hundreds or thousands of people might have thought about the same problem. Today, with <abbr title="Massive open online courses"><a href="https://en.wikipedia.org/wiki/Massive_open_online_course">MOOCs</a></abbr> education in some fields is quite open to a lot of people. <a href="https://www.khanacademy.org/">Khan academy</a> offers many very basic courses, <a href="https://www.coursera.org/">Coursea</a> and <a href="https://www.udacity.com">Udacity</a> a few advanced ones. But the process of creating new content seems to be quite closed. <a href="https://en.wikiversity.org">Wikiversity</a> is more open, but very limited. For example, I think it is not possible to include <a href="http://martin-thoma.com/html5/graphic-filters/graphic-filters.htm">my graphic filter examples</a>. And it is not possible to track progress of students.
+Sometimes, scientists get new insights that are able to influence millions. But until such a great invention or discovery is made, hundreds or thousands of people might have thought about the same problem. Today, with <abbr title="Massive open online courses"><a href="https://en.wikipedia.org/wiki/Massive_open_online_course">MOOCs</a></abbr> education in some fields is quite open to a lot of people. <a href="https://www.khanacademy.org/">Khan academy</a> offers many very basic courses, <a href="https://www.coursera.org/">Coursea</a> and <a href="https://www.udacity.com">Udacity</a> a few advanced ones. But the process of creating new content seems to be quite closed. <a href="https://en.wikiversity.org">Wikiversity</a> is more open, but very limited. For example, I think it is not possible to include <a href="../html5/graphic-filters/graphic-filters.htm">my graphic filter examples</a>. And it is not possible to track progress of students.
 
 I think it is necessary to gamify this. Both, students and educators, should get rewards. They might be only digital, but a student who can see the progress he makes might be much more interested in continuing a course. A teacher who can see the influence he has, who can see how students learn and where problems are might be much better able to improve his content and be motivated to do so. 
 
@@ -92,7 +92,7 @@ It's getting complicated, right? Maybe the processor example is not good, as the
 So every information has also have to carry information about who thinks it is right. And you have to be able to define networks you trust in. Perhaps you could create "people objects" that can also be labeled. "Your" object had to be protected so that only you could add "friend of" labels or "I trust" labels or something like this.
 
 <h2>Chrome</h2>
-I had some <a href="http://martin-thoma.com/how-chrome-could-be-improved-2nd-post/">ideas how to improve Chrome</a>.
+I had some <a href="../how-chrome-could-be-improved-2nd-post/">ideas how to improve Chrome</a>.
 
 <h2>MATE</h2>
 After the changes in desktop environments, <a href="https://en.wikipedia.org/wiki/MATE_(software)">MATE</a> got my favorite desktop environment. Although I was more happy with GNOME 2.6.
@@ -222,7 +222,7 @@ Hmmm ... astonishingly, I can currently not think of more tasks.
 
 <h3>Not so smart phone</h3>
 Do you remember the good old days when your cell phone wasn't essentially a small PC?
-I've bought a smartphone a while ago (<a href="http://martin-thoma.com/nexus-4/">article</a>), but I still see reasons to have a cell phone:
+I've bought a smartphone a while ago (<a href="../nexus-4/">article</a>), but I still see reasons to have a cell phone:
 <ul>
   <li>Battery life: My Motorola W156 had a battery with only 940 mAh, but 465 hours stand-by time. If it had 3100 mAh as the <a href="https://en.wikipedia.org/wiki/Samsung_Galaxy_Note_II">Samsung Galaxy Note II</a>, it would have a standby time of 1534 hours! That are about 64 days!</li>
   <li>Security: Have you ever heard of somebody hacking a device that can only phone and send SMS?</li>

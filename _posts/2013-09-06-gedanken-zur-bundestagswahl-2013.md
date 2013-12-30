@@ -27,7 +27,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 <h3>Piraten</h3>
 <table>
   <tr>
-    <th colspan="2"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/Piratenpartei-logo.png" alt="Logo der Piratenpartei" width="300" height="140" class="size-full wp-image-76414" /></th>
+    <th colspan="2"><img src="../images/2013/09/Piratenpartei-logo.png" alt="Logo der Piratenpartei" width="300" height="140" class="size-full wp-image-76414" /></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -69,7 +69,7 @@ Die Parteien sind aufsteigend nach vermutlichem Ergebnis geordnet.
 <h3>DIE LINKE.</h3>
 <table>
   <tr>
-    <th colspan="2"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/die-linke.png" alt="DIE LINKE." width="250" height="56" class="size-full wp-image-76417" /></th>
+    <th colspan="2"><img src="../images/2013/09/die-linke.png" alt="DIE LINKE." width="250" height="56" class="size-full wp-image-76417" /></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -113,7 +113,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 <h3>FDP</h3>
 <table>
   <tr>
-    <th colspan="2"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/FDP-logo.png" alt="Logo der FDP" width="150" height="137" class="size-full wp-image-76421" /></th>
+    <th colspan="2"><img src="../images/2013/09/FDP-logo.png" alt="Logo der FDP" width="150" height="137" class="size-full wp-image-76421" /></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -150,7 +150,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 <h3>Gr&uuml;ne</h3>
 <table>
   <tr>
-    <th colspan="2"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/gruenen-logo.png" alt="Logo von B&uuml;ndnis 90 - die Gr&uuml;nen" width="180" height="108" class="size-full wp-image-76422" /></th>
+    <th colspan="2"><img src="../images/2013/09/gruenen-logo.png" alt="Logo von B&uuml;ndnis 90 - die Gr&uuml;nen" width="180" height="108" class="size-full wp-image-76422" /></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -196,7 +196,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 <h3>SPD</h3>
 <table>
   <tr>
-    <th colspan="2"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/spd-logo.png" alt="SPD Logo" width="150" height="150" class="size-full wp-image-76423" /></th>
+    <th colspan="2"><img src="../images/2013/09/spd-logo.png" alt="SPD Logo" width="150" height="150" class="size-full wp-image-76423" /></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>
@@ -234,7 +234,7 @@ Ich konnte leider keinen "offiziellen" Wahlwerbespot finden. Aber der folgende C
 <h3>CDU / CSU</h3>
 <table>
   <tr>
-    <th colspan="2"><img src="http://martin-thoma.com/wp-content/uploads/2013/09/cdu-partei.png" alt="CDU - Partei" width="250" height="74" class="size-full wp-image-76418" /></th>
+    <th colspan="2"><img src="../images/2013/09/cdu-partei.png" alt="CDU - Partei" width="250" height="74" class="size-full wp-image-76418" /></th>
   </tr>
   <tr>
     <th>Mitgliederzahl</th>

@@ -16,21 +16,23 @@ module Jekyll
         sqlite_db = 'search.db'
         puts Dir.pwd
         File.delete( sqlite_db ) if File.exists?( sqlite_db )
+        puts "[Info] Deleted old DB. Start creating new one ..."
 
         db = Sequel.sqlite(sqlite_db)         
-        db.run('CREATE TABLE pages(  title text, permalink text, meta_keywords text, meta_description  text, text_content text, search_excerpt text, featured_image text, date text) ;')
+        db.run('CREATE TABLE pages(url text, title text, permalink text, text_content text, search_excerpt text, featured_image text, date text, page_rank) ;')
         db.run('CREATE TABLE tags(  tag text, page int) ;')
         db.run('CREATE TABLE categories(  category text, page int) ;')
-        puts "Deleted old DB. Start creating new one ..."
+        db.run('CREATE TABLE internal_links(  page_from int, page_to int, text text) ;')
+        db.run('CREATE TABLE external_links(  page_from int, page_to text, text text) ;')
 
+        beginning = Time.now
         site.posts.each do |post|
             permalink = "#{site.config['baseurl']}#{post.url}"
-            meta_keywords = ""
-            meta_description = ""
             text = post.content
             search_excerpt = parser.convert(post.excerpt)
-            insert_pages = db["INSERT INTO pages (title, permalink, meta_keywords, meta_description, text_content, search_excerpt, featured_image, date) VALUES (? , ? , ?, ?, ? , ?, ?, ?)", post.title, permalink, meta_keywords, meta_description, text, search_excerpt, post.data["featured_image"], post.data["date"]]
+            insert_pages = db["INSERT INTO pages (url, title, permalink, text_content, search_excerpt, featured_image, date) VALUES (?, ? , ? , ?, ?, ? , ?)", post.url, post.title, permalink, text, search_excerpt, post.data["featured_image"], post.data["date"]]
             postid = insert_pages.insert
+
             post.tags.each do |tag|
                 insert_tags = db["INSERT INTO tags (tag, page) VALUES (?, ?)", tag, postid]
                 insert_tags.insert
@@ -44,7 +46,43 @@ module Jekyll
             end.empty? and begin
                 puts "[Info] '" + post.title + "' has no category."
             end
+
+            doc = Nokogiri::HTML.parse(post.content)
+            links = doc.css('a').map { |link| [link['href'],link.text] }
+            links.each do |link, linktext|
+                if link.nil? || link.start_with?('#')
+                    # This might be an anchor
+                elsif link.start_with?('chrome://')
+                    # chrome link. should probably be a warning, as this will not work
+                elsif link.start_with?('http://') || link.start_with?('https://') || link.start_with?('ftp://')
+                    # external link
+                    insert_link = db["INSERT INTO external_links (page_from, page_to, text) VALUES (?, ?, ?)", postid, link, linktext]
+                    insert_link.insert
+                elsif link.start_with?('../images/') || link.start_with?('../pdf/') || link.start_with?('../html5/') || link.start_with?('../python/')
+                    # images are not relevant to search
+                elsif !link.start_with?('../')
+                    puts "[Warning][Post:"+post.url+"] Link '"+link+"' does not start with '../'"
+                else
+                    # internal link, first search the post id of the target
+                    rows = db.fetch( "SELECT rowid FROM pages WHERE url='"+link[2..-1]+"';" ).all
+                    if rows.nil?
+                        puts "[Warning][Post:"+post.url+"] SELECT with link '"+link+"' resulted in NIL."
+                    elsif rows.count() == 0
+                        puts "[Warning][Post:"+post.url+"] Link with url '"+link+"' has no database entry."
+                    elsif rows.count() > 1
+                        puts "[Warning][Post:"+post.url+"] Link with url '"+link+"' has multiple pages."
+                    elsif
+                        targetid = rows[0][:rowid]
+                    end
+                    targetid=0
+
+                    # insert data
+                    insert_link = db["INSERT INTO internal_links (page_from, page_to, text) VALUES (?, ?, ?)", postid, targetid, linktext]
+                    insert_link.insert
+                end
+            end
         end
+        puts "[Info] Finished building DB after #{Time.now - beginning} seconds"
     end
 
     # Gets a parser object for the parser specified in the configuration
