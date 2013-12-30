@@ -5,6 +5,8 @@
 require 'nokogiri'
 require 'sequel'
 
+# Design decision: URLs should have a trailing slash
+
 module Jekyll
 
   # Jekyll hook - the generate method is called by jekyll
@@ -27,10 +29,10 @@ module Jekyll
 
         beginning = Time.now
         site.posts.each do |post|
-            permalink = "#{site.config['baseurl']}#{post.url}"
+            permalink = "#{site.config['baseurl']}#{post.url}/"
             text = post.content
             search_excerpt = parser.convert(post.excerpt)
-            insert_pages = db["INSERT INTO pages (url, title, permalink, text_content, search_excerpt, featured_image, date) VALUES (?, ? , ? , ?, ?, ? , ?)", post.url, post.title, permalink, text, search_excerpt, post.data["featured_image"], post.data["date"]]
+            insert_pages = db["INSERT INTO pages (url, title, permalink, text_content, search_excerpt, featured_image, date) VALUES (?, ? , ? , ?, ?, ? , ?)", post.url+"/", post.title, permalink, text, search_excerpt, post.data["featured_image"], post.data["date"]]
             postid = insert_pages.insert
 
             post.tags.each do |tag|
@@ -46,6 +48,13 @@ module Jekyll
             end.empty? and begin
                 puts "[Info] '" + post.title + "' has no category."
             end
+        end
+
+        # As every post is now in the database, we can begin to
+        # add link information
+        site.posts.each do |post|
+            rows = db.fetch( "SELECT rowid FROM pages WHERE url='"+post.url+"';" ).all
+            postid = rows[0][:rowid]
 
             doc = Nokogiri::HTML.parse(post.content)
             links = doc.css('a').map { |link| [link['href'],link.text] }

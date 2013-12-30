@@ -19,7 +19,7 @@ if ( $query == ""  || preg_match("/^\s+/",$query) ) {
     $query = "%" . $query . "%" ;
   
     # Currently returns max of 50 results, count to be used for pagination etc
-    $count_stmt = $db->prepare('SELECT count(*) as num_pages FROM pages WHERE title like :search or text_content like :search  or permalink like :search or meta_description like :search or meta_keywords like :search');
+    $count_stmt = $db->prepare('SELECT count(*) as num_pages FROM pages WHERE title like :search or text_content like :search  or permalink like :search');
     $count_stmt->bindValue(':search', $query, SQLITE3_TEXT);
     $count = $count_stmt->execute();
 
@@ -32,7 +32,7 @@ if ( $query == ""  || preg_match("/^\s+/",$query) ) {
         $max_results_text = ($count_result['num_pages'] > 50) ? 'Showing first 50 results of ' : '';
         #echo "<p>$max_results_text{$count_result['num_pages']} $results_text for '$query'.</p>";
 
-        $stmt = $db->prepare('SELECT title, permalink, search_excerpt, featured_image, date FROM pages WHERE title like :search or text_content like :search  or permalink like :search or meta_description like :search or meta_keywords like :search  LIMIT 50');
+        $stmt = $db->prepare('SELECT title, permalink, search_excerpt, featured_image, date FROM pages WHERE title like :search or text_content like :search  or permalink like :search or LIMIT 50');
         $stmt->bindValue(':search', $query, SQLITE3_TEXT);
 
         $result = $stmt->execute();
