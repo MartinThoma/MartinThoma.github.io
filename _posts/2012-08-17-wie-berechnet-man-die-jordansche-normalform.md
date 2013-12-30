@@ -16,7 +16,7 @@ Dieser Artikel beschreibt, wie die Jordansche Normalform einer Matrix sowie die 
 
 Ich werde hier nicht erkl&auml;ren, warum es so funktioniert.
 
-Hier sind zwei <a href="http://martin-thoma.com/jordansche-normalform-2x2-matrizen/" title="Jordansche Normalform: 2&times;2 Matrizen">Beispiele mit 2x2-Matrizen</a> und <a href="http://martin-thoma.com/jordansche-normalform-4x4-matrizen/" title="Jordansche Normalform: 4&times;4 Matrizen">Beispiele mit 4x4-Matrizen</a>.
+Hier sind zwei <a href="../jordansche-normalform-2x2-matrizen/" title="Jordansche Normalform: 2&times;2 Matrizen">Beispiele mit 2x2-Matrizen</a> und <a href="../jordansche-normalform-4x4-matrizen/" title="Jordansche Normalform: 4&times;4 Matrizen">Beispiele mit 4x4-Matrizen</a>.
 
 Gegeben sei eine Matrix $A \in \mathbb{C}^{n \times n}$.
 
@@ -24,7 +24,7 @@ Gegeben sei eine Matrix $A \in \mathbb{C}^{n \times n}$.
 <h3>Charakteristisches Polynom bestimmen</h3>
 Als ersten Schritt muss man das charakteristische Polynom $p_A(\lambda)$ der Matrix $A$ bestimmen.
 
-&rarr; <a href="http://martin-thoma.com/wie-berechnet-man-das-charakteristische-polynom/" title="Wie berechnet man das charakteristische Polynom?">Wie berechnet man das charakteristische Polynom?</a>
+&rarr; <a href="../wie-berechnet-man-das-charakteristische-polynom/" title="Wie berechnet man das charakteristische Polynom?">Wie berechnet man das charakteristische Polynom?</a>
 
 <h3>Zerlegung in Linearfaktoren</h3>
 Die Zerlegung des charakteristischen Polynoms $p_A(\lambda)$ in Linearfaktoren kann ziemlich schwer sein. Daf&uuml;r muss man unbedingt die Mitternachtsformel $\lambda_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ k&ouml;nnen und eventuell wissen, wie eine <a href="http://de.wikipedia.org/wiki/Polynomdivision#Manueller_Ablauf">Polynomdivision</a> funktioniert. Eventuell muss man dazu auch Nullstellen erraten. Wenn es ums raten geht, w&uuml;rde ich folgendes ausprobieren: 0, 1, -1, 2, -2, 3, -3.
@@ -55,7 +55,7 @@ Es gilt:
 $\text{geometrische Vielfachheit des Eigenwertes } \lambda := \dim E_\lambda \leq \text{algebraische Vielfachheit des Eigenwertes } \lambda$ 
 $\dim E_\lambda = \dim \text{Kern}(A - \lambda \cdot I) = \text{Anzahl der Jordank&auml;stchen im Jordanblock zu } \lambda$
 
-&rarr; <a href="http://martin-thoma.com/wie-bestimme-ich-den-kern-einer-linearen-abbildung/" title="Wie bestimme ich den Kern einer linearen Abbildung?">Wie bestimme ich den Kern einer linearen Abbildung?</a>
+&rarr; <a href="../wie-bestimme-ich-den-kern-einer-linearen-abbildung/" title="Wie bestimme ich den Kern einer linearen Abbildung?">Wie bestimme ich den Kern einer linearen Abbildung?</a>
 
 Au&szlig;erdem gilt:
 Die Gr&ouml;&szlig;e des gr&ouml;&szlig;ten Jordank&auml;stchens zum Eigenwert $\lambda_i$ ist gleich der Potenz, mit der der Linearfaktor $(x-\lambda_i)$ im Minimalpolynom (leider NICHT das charakteristische Polynom :-( ) vorkommt.
@@ -107,7 +107,7 @@ Beachte: Man w&auml;hlt nur den Vektor $v_i$, alle anderen Vektoren f&uuml;r die
 
 <h3>Inverse Matrix bestimmen</h3>
 Sobald man $S$ bestimmt hat, muss man nur noch das Inverse davon bestimmen:
-&rarr; <a href="http://martin-thoma.com/wie-bestimme-ich-das-inverse-einer-matrix/" title="Wie bestimme ich das Inverse einer Matrix?">Wie bestimme ich das Inverse einer Matrix?</a>
+&rarr; <a href="../wie-bestimme-ich-das-inverse-einer-matrix/" title="Wie bestimme ich das Inverse einer Matrix?">Wie bestimme ich das Inverse einer Matrix?</a>
 
 <h2>Interessante Eigenschaften der JNF</h2>
 Im Zusammenhang mit der JNF (und einigen Klausuraufgaben) sind mir ein paar erw&auml;hnenswerte Eigenschaften aufgefallen:

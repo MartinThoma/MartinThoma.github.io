@@ -36,22 +36,22 @@ Die akzeptierenden Zust&auml;nde werden von den nicht akzeptierenden getrennt: $
 
 In Schritt 3 gehen wir nun immer wieder die Zeichen "0" und "1" aus $\Sigma$ durch:
 In welche Klassen f&uuml;hrt "0"?
-<a href="http://martin-thoma.com/wp-content/uploads/2012/02/aequivalenzklassen-1.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/aequivalenzklassen-1.png" alt="&Auml;quivalenzklassen - Schritt 1" title="&Auml;quivalenzklassen - Schritt 1" width="220" height="71" class="aligncenter size-full wp-image-13631" /></a>
+<a href="../images/2012/02/aequivalenzklassen-1.png"><img src="../images/2012/02/aequivalenzklassen-1.png" alt="&Auml;quivalenzklassen - Schritt 1" title="&Auml;quivalenzklassen - Schritt 1" width="220" height="71" class="aligncenter size-full wp-image-13631" /></a>
 
 C wird also von $\{S, A, B, E, F\}$ getrennt. Wir haben folgende Klassen:
 $\{C\}, \{D\}, \{S, A, B, E, F\}$
 
 "1" trennt nun "A" von $\{S, B, E, F\}$:
-<a href="http://martin-thoma.com/wp-content/uploads/2012/02/aequivalenzklasse-2.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/aequivalenzklasse-2.png" alt="&Auml;quivalenzklassen - Schritt 2" title="&Auml;quivalenzklassen - Schritt 2" width="246" height="66" class="aligncenter size-full wp-image-13661" /></a>
+<a href="../images/2012/02/aequivalenzklasse-2.png"><img src="../images/2012/02/aequivalenzklasse-2.png" alt="&Auml;quivalenzklassen - Schritt 2" title="&Auml;quivalenzklassen - Schritt 2" width="246" height="66" class="aligncenter size-full wp-image-13661" /></a>
 
 "0" trennt nun "S" von $\{B, E, F\}$:
-<a href="http://martin-thoma.com/wp-content/uploads/2012/02/aequivalenzklasse-3.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/aequivalenzklasse-3.png" alt="&Auml;quivalenzklassen - Schritt 3" title="&Auml;quivalenzklassen - Schritt 3" width="267" height="65" class="aligncenter size-full wp-image-13681" /></a>
+<a href="../images/2012/02/aequivalenzklasse-3.png"><img src="../images/2012/02/aequivalenzklasse-3.png" alt="&Auml;quivalenzklassen - Schritt 3" title="&Auml;quivalenzklassen - Schritt 3" width="267" height="65" class="aligncenter size-full wp-image-13681" /></a>
 
 Wir haben nun die &Auml;quivalenzklassen $\{S\}, \{A\}, \{C\}, \{D\}, \{B, E, F\}$.
 
 Im n&auml;chsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nicht nochmals etwas trennt. Wir sind also fertig. Die Zust&auml;nde B, E und F k&ouml;nnen zu einem zusammengefasst werden. Ich nenne ihn mal T (f&uuml;r Trash, da man in diesem Zustand niemals mehr akzeptieren kann). Damit ist unser minimaler Endlicher Automat folgender:
 
-<a href="http://martin-thoma.com/wp-content/uploads/2012/02/endlicher-automat-minimal.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/02/endlicher-automat-minimal.png" alt="Minimaler Endlicher Automat" title="Minimaler Endlicher Automat" width="346" height="278" class="aligncenter size-full wp-image-13711" /></a>
+<a href="../images/2012/02/endlicher-automat-minimal.png"><img src="../images/2012/02/endlicher-automat-minimal.png" alt="Minimaler Endlicher Automat" title="Minimaler Endlicher Automat" width="346" height="278" class="aligncenter size-full wp-image-13711" /></a>
 
 <h2>LaTeX</h2>
 Das ist der LaTeX-Code f&uuml;r die Automaten:

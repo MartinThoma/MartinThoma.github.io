@@ -21,7 +21,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   <li><a href="http://de.wikipedia.org/wiki/Binomischer_Lehrsatz">Binomischer Lehrsatz</a>: $(a+b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$</li>
   <li><strong>Folgen</strong>:
     <ul>
-      <li><a href="http://martin-thoma.com/konvergenz-von-folgen/">Konvergenz</a></li>
+      <li><a href="../konvergenz-von-folgen/">Konvergenz</a></li>
       <li>(strenge) Monotonie</li>
       <li>Grenzwert</li>
       <li>Divergenz</li>

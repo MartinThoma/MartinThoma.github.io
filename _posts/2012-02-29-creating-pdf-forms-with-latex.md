@@ -8,7 +8,7 @@ categories:
 tags:
 - LaTeX
 ---
-I've just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the <a href='http://martin-thoma.com/wp-content/uploads/2012/02/pdf-form.pdf'>example PDF-file</a>.
+I've just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the <a href='../images/2012/02/pdf-form.pdf'>example PDF-file</a>.
 
 It looks like this in Chromes PDF reader:
 {% caption align="aligncenter" width="421" caption="PDF LaTeX form in Chrome" url="../images/2012/02/pdf-latex-form-chrome.png" alt="PDF LaTeX form in Chrome" title="PDF LaTeX form in Chrome" height="279" class="size-full wp-image-16711" %}

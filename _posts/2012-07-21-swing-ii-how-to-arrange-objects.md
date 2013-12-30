@@ -13,7 +13,7 @@ featured_image: 2012/07/java-thumb.png
 ---
 <h2>Without GUI</h2>
 Objects can be arranged with <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagLayout.html">GridBagLayout</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/GridBagConstraints.html">GridBagConstraints</a>. This is an example:
-<img src="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-grid-bag.png" alt="GridBag example (Java Swing)" title="GridBag example (Java Swing)" width="198" height="199" class="size-full wp-image-33451" />
+<img src="../images/2012/07/java-swing-grid-bag.png" alt="GridBag example (Java Swing)" title="GridBag example (Java Swing)" width="198" height="199" class="size-full wp-image-33451" />
 
 Code:
 {% highlight java %}import java.awt.GridBagConstraints;

@@ -82,7 +82,7 @@ $T_{B1}^S =
 2 &amp; 3 &amp; 1 &amp; 7 \\
 3 &amp; 3 &amp; 4 &amp; 1 \\
 4 &amp; 7 &amp; 1 &amp; 8
-\end{pmatrix}$ (siehe alten <a title="Wie bestimme ich die Basiswechselmatrix?" href="http://martin-thoma.com/wie-bestimme-ich-die-basiswechselmatrix/">Blogpost</a>)
+\end{pmatrix}$ (siehe alten <a title="Wie bestimme ich die Basiswechselmatrix?" href="../wie-bestimme-ich-die-basiswechselmatrix/">Blogpost</a>)
 
 Und die Basiswechselmatrix $T_S^{C1}$ von der Standardbasis in die Basis $C_1$. Das ist das Inverse der Basis $C_1$:
 $T_S^{C1} = \frac{1}{2} \cdot
@@ -90,7 +90,7 @@ $T_S^{C1} = \frac{1}{2} \cdot
 -6 &amp; -2 &amp; 4 \\
 -2 &amp; 3 &amp; -1 \\
 4 &amp; -1 &amp; -1
-\end{pmatrix}$ (siehe <a href="http://martin-thoma.com/?p=13981&amp;preview=true#hnlichkeit">Wolfram|Alpha</a>)
+\end{pmatrix}$ (siehe <a href="../?p=13981&amp;preview=true#hnlichkeit">Wolfram|Alpha</a>)
 
 Insgesamt sieht das dann so aus: $T_S^{C1} \cdot (A_1 \cdot (T_{B1} \cdot x))$. Da f&uuml;r die Matrixmultiplikation das <a href="http://de.wikipedia.org/wiki/Assoziativgesetz">Assoziativgesetz</a> gilt, kann man das vereinfachen:
 
@@ -137,6 +137,6 @@ Der Rang der Abbildungsmatrix entspricht der Dimension des Bildes der Abbildung.
 <h2>Siehe auch</h2>
 <ul>
 	<li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Vektorraum">Vektorraum</a>, <a href="http://de.wikipedia.org/wiki/Abbildungsmatrix">Abbildungsmatrix</a>, <a href="http://de.wikipedia.org/wiki/Rang_(Mathematik)">Rang</a></li>
-	<li><a title="Wie bestimme ich die Basiswechselmatrix?" href="http://martin-thoma.com/wie-bestimme-ich-die-basiswechselmatrix/">Wie bestimme ich die Basiswechselmatrix?</a></li>
+	<li><a title="Wie bestimme ich die Basiswechselmatrix?" href="../wie-bestimme-ich-die-basiswechselmatrix/">Wie bestimme ich die Basiswechselmatrix?</a></li>
 	<li>Skript von Prof. Dr. Leunzinger, ab S. 101 (im passwortgesch&uuml;tzten <a href="https://studium.kit.edu/sites/vab/0x869D2B3648EA0D498D68FE4A6098E555/Vorlesungsunterlagen/Forms/AllItems.aspx">VAB</a>)</li>
 </ul>

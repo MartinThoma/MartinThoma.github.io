@@ -94,6 +94,6 @@ for value in array:
     print "Foreach: %i" % value{% endhighlight %}
 
 <h2>More information</h2>
-If you want to see the code, you can download this <a href='http://martin-thoma.com/wp-content/uploads/2011/12/for-loops.zip'>zip archive</a>.
+If you want to see the code, you can download this <a href='../images/2011/12/for-loops.zip'>zip archive</a>.
 
 It is quite astonishing, but Wikipedia has a very long <a href="http://en.wikipedia.org/wiki/For_loop">article about for loops</a>.

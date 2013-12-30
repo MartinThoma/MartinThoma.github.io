@@ -19,7 +19,7 @@ Here is a neat explanation of SOPA:
 
 <h2>Wikipedia</h2>
 Completely blacked out:
-<a href="http://martin-thoma.com/wp-content/uploads/2012/01/sopa-wikipedia.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/01/sopa-wikipedia-300x141.png" alt="" title="Wikipedia SOPA protests" width="300" height="141" class="aligncenter size-medium wp-image-12401" /></a>
+<a href="../images/2012/01/sopa-wikipedia.png"><img src="../images/2012/01/sopa-wikipedia-300x141.png" alt="" title="Wikipedia SOPA protests" width="300" height="141" class="aligncenter size-medium wp-image-12401" /></a>
 Twitter: #WikipediaBlackout
 
 By the way, if you disable JavaScript you can view Wikipedia as always.

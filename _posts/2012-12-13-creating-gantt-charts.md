@@ -25,7 +25,7 @@ It is easy to use and has a good interface. I can simply define depencies:
 {% caption align="aligncenter" width="300" caption="Gantter Predecessor depency" url="../images/2012/12/gantter-predecessor-depenency-300x138.png" alt="Gantter Predecessor depency" title="" height="138" class="size-medium wp-image-51101" %}
 
 <h3>Export</h3>
-Gantter offers some export options: HTML, <a href="http://martin-thoma.com/?attachment_id=50261">PDF</a>, <a href="http://martin-thoma.com/?attachment_id=50271">PNG</a>, MS-Project (.xml). All export options I've tried are unconvincing. I couldn't save the HTML export, the PDF export was splitted over several pages and the PNG ... well, it's a PNG. As I am currently on a Linux machine, I can't try the MS-Project export.
+Gantter offers some export options: HTML, <a href="../?attachment_id=50261">PDF</a>, <a href="../?attachment_id=50271">PNG</a>, MS-Project (.xml). All export options I've tried are unconvincing. I couldn't save the HTML export, the PDF export was splitted over several pages and the PNG ... well, it's a PNG. As I am currently on a Linux machine, I can't try the MS-Project export.
 
 <h3>Google Drive</h3>
 Gantter also has a Google Drive integration, but it requests these permissions:

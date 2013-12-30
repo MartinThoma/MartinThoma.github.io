@@ -54,4 +54,4 @@ L erf&uuml;llt nicht das Pumping-Lemma $\Rightarrow L \notin {\cal L_3}$.
 Um zu beweisen, dass L das Pumping-Lemma nicht erf&uuml;llt, benutzt man meist einen Widerspruchsbeweis wie oben.
 
 <h2>Material</h2>
-Ich habe mal ein paar <a href='http://martin-thoma.com/wp-content/uploads/2011/11/odgen-pumping.zip'>Beispiele f&uuml;r Ogdens Lemma und das Pumping-Lemma</a> gesammelt.
+Ich habe mal ein paar <a href='../images/2011/11/odgen-pumping.zip'>Beispiele f&uuml;r Ogdens Lemma und das Pumping-Lemma</a> gesammelt.

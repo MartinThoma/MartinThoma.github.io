@@ -20,7 +20,7 @@ F&uuml;r die Klausur in Softwaretechnik I 2012 bei Herrn Prof. Dr. Tichy sollte 
   <li>Was wird zuerst erstellt: Das Lastenheft oder das Pflichtenheft?  &rarr; <a href="http://de.wikipedia.org/wiki/Lastenheft">Antwort</a></li>
   <li>Welche zwei M&ouml;glichkeiten gibt es in Java, um eine Aufgabe parallel auszuf&uuml;hren? Was sind die Vor- und Nachteile?  &rarr; <a href="http://stackoverflow.com/a/11774135/562769">Antwort</a></li>
   <li>Wie nennt man die Schl&uuml;sselw&ouml;rter der Art <code>@Test</code>, <code>@Before</code> und <code>@BeforeClass</code>? Was bewirken diese Schl&uuml;sselw&ouml;rter in JUnit? &rarr; <a href="http://www.vogella.com/articles/JUnit/article.html#usingjunit_annotations">Antwort</a></li>
-  <li>Wozu dient JFrame? &rarr; <a href="http://martin-thoma.com/how-to-use-swing/" title="Swing I: How to use Swing">Antwort</a></li>
+  <li>Wozu dient JFrame? &rarr; <a href="../how-to-use-swing/" title="Swing I: How to use Swing">Antwort</a></li>
 </ul>
 
 <h2>Hinweise</h2>

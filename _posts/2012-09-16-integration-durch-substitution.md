@@ -58,7 +58,7 @@ u  &= \sqrt x\\
 Es gilt:
 $\int_1^4 e^{\sqrt{x}} dx = \int_1^2 e^u 2 u \;\mathrm{d}u = 2 \int_1^2 u \cdot e^u \;\mathrm{d}u$.
 
-Nun wird eine <a href="http://martin-thoma.com/partielle-integration/" title="Partielle Integration">partielle Integration</a> durchgef&uuml;hrt mit $f'(u)=e^u$ und $g(u)=u$:
+Nun wird eine <a href="../partielle-integration/" title="Partielle Integration">partielle Integration</a> durchgef&uuml;hrt mit $f'(u)=e^u$ und $g(u)=u$:
 
 $\begin{align}
 2 \int_1^2 u \cdot e^u \;\mathrm{d}u &= 2 ([e^u \cdot u]_1^2 - \int_1^2 e^u du) \\

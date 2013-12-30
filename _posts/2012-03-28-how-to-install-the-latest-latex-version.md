@@ -56,7 +56,7 @@ If LaTeX is available on your system, you can create the PDF file from this myDo
 
 This will create a .log file, an .aux file
 
-Here is the <a href='http://martin-thoma.com/wp-content/uploads/2012/03/latex-template.zip'>LaTeX template</a> with the resulting PDF.
+Here is the <a href='../images/2012/03/latex-template.zip'>LaTeX template</a> with the resulting PDF.
 
 <h2>Install the latest LaTeX</h2>
 <div class="important">Follow the instructions on <a href="http://tug.org/texlive/acquire-netinstall.html">tug.org</a>.</div>

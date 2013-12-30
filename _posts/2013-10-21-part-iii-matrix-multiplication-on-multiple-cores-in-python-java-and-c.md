@@ -12,7 +12,7 @@ tags:
 - matrix multiplication
 featured_image: 2012/03/Matrix-Inverses.png
 ---
-<div class="info">This is Part III of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
+<div class="info">This is Part III of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
 We got some pretty interesting results for matrix multiplication so far. Now, I would like to get to know in how far performance increases (or decreases) if I make use of multiple cores. I only have two cores, so I hope somebody with a better computer will also run the ikj single core algorithm form part I and the parallel version from this article and post the results as a comment.
 

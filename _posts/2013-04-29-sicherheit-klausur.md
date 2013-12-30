@@ -71,7 +71,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>25.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Lineare Kryptoanalyse, Differentielle Kryptoanalyse, <a href="http://martin-thoma.com/semantische-sicherheit/" title="Semantische Sicherheit">Semantische Sicherheit</a>, <a href="http://martin-thoma.com/sicherheit-klausur/#Fragen">IND-CPA</a>, Feistel-Schema</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Lineare Kryptoanalyse, Differentielle Kryptoanalyse, <a href="../semantische-sicherheit/" title="Semantische Sicherheit">Semantische Sicherheit</a>, <a href="../sicherheit-klausur/#Fragen">IND-CPA</a>, Feistel-Schema</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">VL 03</a></td>
@@ -79,7 +79,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>29.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="128 Bit, 160 Bit und 256 Bit hashes sind &uuml;blich">Hashfunktionen</span>, <a href="http://martin-thoma.com/kollisionsresistente-hashfunktionen-und-einwegfunktionen/">Kollisionsresistenz $\Rightarrow$ Einwegeigenschaft</a>, <span class="hint" title="Beeinflusste MD5, SHA-1, SHA-2. SHA-3 benutzt MD nicht.">Merkle-Damgard-Konstruktion</span> und Length-Extension-Problematik, Birthday Attack, Meet-in-the-Middle-Angriff</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="128 Bit, 160 Bit und 256 Bit hashes sind &uuml;blich">Hashfunktionen</span>, <a href="../kollisionsresistente-hashfunktionen-und-einwegfunktionen/">Kollisionsresistenz $\Rightarrow$ Einwegeigenschaft</a>, <span class="hint" title="Beeinflusste MD5, SHA-1, SHA-2. SHA-3 benutzt MD nicht.">Merkle-Damgard-Konstruktion</span> und Length-Extension-Problematik, Birthday Attack, Meet-in-the-Middle-Angriff</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL04.pdf">VL 04</a></td>

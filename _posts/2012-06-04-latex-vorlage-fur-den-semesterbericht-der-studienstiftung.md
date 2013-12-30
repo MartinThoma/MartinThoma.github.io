@@ -36,7 +36,7 @@ Mit dem Semesterbericht f&uuml;r das WS 2012/2013 soll der Bericht nicht mehr an
 </ol>
 
 <h2>Die Vorlage</h2>
-Hier ist die Vorlage mit Blindtext als <a href='http://martin-thoma.com/wp-content/uploads/2012/06/semesterbericht-ws-2011.pdf'>PDF</a>.
+Hier ist die Vorlage mit Blindtext als <a href='../images/2012/06/semesterbericht-ws-2011.pdf'>PDF</a>.
 
 Makefile:
 {% highlight text %}DOKUMENT = semesterbericht-martin-thoma-ws-2011
@@ -83,7 +83,7 @@ LaTeX:
 \newcommand{\PLZ}{76131}
 \newcommand{\Ort}{Karlsruhe}
 \newcommand{\Email}{info@martin-thoma.de}
-\newcommand{\Vertrauensdozent}{Prof. Dr. <a href='http://martin-thoma.com/wp-content/uploads/2012/06/semesterbericht-ws-2011.pdf'>Semesterbericht WS 2011</a>Mustermann}
+\newcommand{\Vertrauensdozent}{Prof. Dr. <a href='../images/2012/06/semesterbericht-ws-2011.pdf'>Semesterbericht WS 2011</a>Mustermann}
 \newcommand{\Referent}{Dr. Alice Brown}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{ 

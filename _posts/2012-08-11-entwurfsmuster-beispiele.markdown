@@ -64,7 +64,7 @@ public class Bequemlichkeitsklasse {
 ```
 
 <h2>Schablonenmethode</h2>
-Siehe <a href="http://martin-thoma.com/java-puzzle-9-template-method-pattern">Java Puzzle #9: Template method pattern</a>.
+Siehe <a href="../java-puzzle-9-template-method-pattern">Java Puzzle #9: Template method pattern</a>.
 
 <h2>Siehe auch</h2>
 <ul>

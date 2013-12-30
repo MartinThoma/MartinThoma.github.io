@@ -54,7 +54,7 @@ So the solution exists and is unique $\blacksquare$
 <h2>Straight forward interpolating polynomials</h2>
 For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I'll use the matrix $A$ from section "<a href="#Uniqueness">Uniqueness</a>".
 
-You might want to take a look at my article about <a href="http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.
+You might want to take a look at my article about <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.
 
 {% highlight python %}
 #!/usr/bin/env python
@@ -278,12 +278,12 @@ def getGaussSystemForNewton(points):
     return A
 {% endhighlight %}
 
-From my previous posts about <a href="http://martin-thoma.com/solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="http://martin-thoma.com/solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in $\Theta(n^2)$.
+From my previous posts about <a href="../solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="../solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in $\Theta(n^2)$.
 
 According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner%27s_method">Horner's method</a> to evaluate this Polynom in $\mathcal{O}(n)$. But I really don't want to implement this today.
 
 <h2>Interactive example</h2>
-<iframe src="http://martin-thoma.com/html5/polynom-interpolation.htm" width="98%" height="700px"></iframe>
+<iframe src="../html5/polynom-interpolation.htm" width="98%" height="700px"></iframe>
 
 <ul>
   <li>Click to add points.</li>

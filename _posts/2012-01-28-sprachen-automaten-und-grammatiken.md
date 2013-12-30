@@ -40,40 +40,40 @@ Die folgende Tabelle gibt einen &Uuml;berblick &uuml;ber formale Sprachen, die A
 <td style="background-color:#F08080;">0</td>
 <td>semientscheidbar</td>
 <td>alles</td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
 <td>D. <a href="http://de.wikipedia.org/wiki/Turingmaschine">Turingmaschine</a>, ND. Turingmaschine</td>
 </tr>
 <tr>
 <td style="background-color:#90EE90;">1</td>
 <td><a href="http://de.wikipedia.org/wiki/Kontextsensitive_Grammatik">kontextsensitiv</a></td>
 <td>$u \rightarrow v, |a| \leq |v|$</td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
 <td>(ND.?) L&auml;ngenbeschr&auml;nkter Automat</td>
 </tr>
 <tr>
 <td style="background-color:#90EE90;">2</td>
 <td><a href="http://de.wikipedia.org/wiki/Kontextfreie_Grammatik">kontextfrei</a></td>
 <td>$A \rightarrow v$</td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/no.png" alt="no" title="no" width="13" height="13" class="alignnone size-full wp-image-12961" /></td>
 <td>ND. <a href="http://de.wikipedia.org/wiki/Kellerautomat">Kellerautomat</a></td>
 </tr>
 <tr>
 <td style="background-color:#90EE90;">3</td>
 <td><a href="http://de.wikipedia.org/wiki/Regul%C3%A4re_Grammatik">regul&auml;r</a></td>
 <td>$A \rightarrow \varepsilon, A \rightarrow aB$</td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
-<td><img src="http://martin-thoma.com/wp-content/uploads/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
+<td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
 <td><a href="http://de.wikipedia.org/wiki/Endlicher_Automat">Endliche Automaten</a> (<a href="http://de.wikipedia.org/wiki/Moore-Automat">Moore</a>, <a href="http://de.wikipedia.org/wiki/Mealy-Automat">Mealy</a>, <a href="http://de.wikipedia.org/wiki/Akzeptor_(Informatik)">Akzeptoren</a>)</td>
 </tr>
 </table>
@@ -95,7 +95,7 @@ $(L_1 \cup L_2)^C = L_1^C \cap L_2^C$
 Sei L eine Sprache.
 $L \in {\cal L_3} \Leftrightarrow$ Es existiert ein regul&auml;rer Ausdruck f&uuml;r L.
 $L \in {\cal L_3} \Leftrightarrow$ Die Anzahl der &Auml;quivalenzklassen der <a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a> bzgl. der Sprache ist endlich.
-$L \in {\cal L_3} \Rightarrow$ Das <a href="http://martin-thoma.com/beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a> ist erf&uuml;llt.
+$L \in {\cal L_3} \Rightarrow$ Das <a href="../beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a> ist erf&uuml;llt.
 
 F&uuml;r regul&auml;re Sprachen ist das Leerheitsproblem ($L(G) \stackrel{?}{=} \emptyset$) entscheidbar.
 F&uuml;r regul&auml;re Sprachen ist das Endlichkeitsproblem ($L(G) \stackrel{?}{<} \infty$) entscheidbar.

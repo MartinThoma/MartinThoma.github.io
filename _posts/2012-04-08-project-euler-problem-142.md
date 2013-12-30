@@ -126,4 +126,4 @@ $x > y > z > 0 \land a = x + y \implies a \geq 5$.
 With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.
 
 <h2>Material</h2>
-Some material like the LaTeX-file can be found in the <a href='http://martin-thoma.com/wp-content/uploads/2012/04/euler-142.zip'>Project Euler 142 Archive</a>.
+Some material like the LaTeX-file can be found in the <a href='../images/2012/04/euler-142.zip'>Project Euler 142 Archive</a>.

@@ -147,9 +147,9 @@ Distance: 13.00
 <h2>Read also</h2>
 <ul>
   <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Struct_(C_programming_language)">struct (C programming language)</a></li>
-  <li><a href="http://martin-thoma.com/c-operator-overloading/" title="C++ Operator overloading">Operator overloading</a></li>
-  <li><a href="http://martin-thoma.com/a-practical-approach-to-floats/">A practical approach to floats</a>: An example for union</li>
-  <li><a href="http://martin-thoma.com/how-do-hash-functions-work/">Connect four</a>: One usage example for structs</li>
+  <li><a href="../c-operator-overloading/" title="C++ Operator overloading">Operator overloading</a></li>
+  <li><a href="../a-practical-approach-to-floats/">A practical approach to floats</a>: An example for union</li>
+  <li><a href="../how-do-hash-functions-work/">Connect four</a>: One usage example for structs</li>
 </ul>
 
 Is there anything interesting to say about structs?

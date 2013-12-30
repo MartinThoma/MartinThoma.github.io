@@ -9,7 +9,7 @@ tags:
 - WordPress
 featured_image: 2011/09/WordPress-Logo.png
 ---
-Today, I've introduced a new category: My bits and bytes. I wanted to write something about my <a href="http://martin-thoma.com/kitchen-renovation-part-1/">kitchen renovation</a>. Additionally, I thing I will write from time to time about other topics than computer related ones.
+Today, I've introduced a new category: My bits and bytes. I wanted to write something about my <a href="../kitchen-renovation-part-1/">kitchen renovation</a>. Additionally, I thing I will write from time to time about other topics than computer related ones.
 
 As I looked at my categories, I saw that they were ordered lexicographically. But I called my Blog "Code, the Web and Cyberculture", not "Code, Cyberculture and the Web". So I had to change it.
 

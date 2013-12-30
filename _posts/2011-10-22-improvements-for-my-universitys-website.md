@@ -102,7 +102,7 @@ This can be done by modifying the .htaccess-file (for the decision to redirect c
 In many cases you can use the URL which I would prefer, but you're redirected to the other one. This means if a professor is copying the ugly link to his presentation, all students will have to write it down. 
 
 <h3>Helpfull 404 Page</h3>
-At the moment I get only: "404 NOT FOUND". This is not very helpful. You should provide a <a href="http://martin-thoma.com/custom-404-error-pages/" title="Custom 404 error pages">custom 404 error page</a>.
+At the moment I get only: "404 NOT FOUND". This is not very helpful. You should provide a <a href="../custom-404-error-pages/" title="Custom 404 error pages">custom 404 error page</a>.
 
 <h3>Use Feeds</h3>
 I would like to get the latest news about KIT, but I don't want to search for it. I also don't want to look at the homepage of KIT to check if I know the latest content. This should be done with a RSS feed.
@@ -117,7 +117,7 @@ HTML5 input tags can much more than the old ones. You can define <a href="http:/
 
 Examples for pages that could be improved:
 <ul>
-  <li><a href="http://kit.edu">kit.edu</a>: Add <a href="http://martin-thoma.com/search-engine-autodiscovery/" title="Search Engine Autodiscovery">search engine autodiscovery</a></li>
+  <li><a href="http://kit.edu">kit.edu</a>: Add <a href="../search-engine-autodiscovery/" title="Search Engine Autodiscovery">search engine autodiscovery</a></li>
   <li><a href="http://i3vloan.ubka.uni-karlsruhe.de/19466917473783462330/i3v_library/ausleihe/i3v_ausleihe.cgi?opacdb=UBKA_OPAC&session=19466917473783462330&Funktion=Ersterfassung&lang=DE">Register library account</a></li>
   <li><a href="https://studium.kit.edu">studium.kit.edu</a></li>
   <li><a href="http://www.kit.edu/index.php">kit.edu</a> (the search box)</li>

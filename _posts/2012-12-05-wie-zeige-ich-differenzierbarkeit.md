@@ -22,6 +22,6 @@ In diesem Fall wird durch $x \mapsto f'(x)$ eine Funktion $f':I \rightarrow \mat
 </ol>
 </div>
 
-Und wie zeigt man die Existenz dieses Grenzwertes? Das ist eine andere Frage :-P Man sollte sich vielleicht nochmal den Artikel <a href="http://martin-thoma.com/konvergenz-von-folgen/">Konvergenz von Folgen</a> bzw. <a href="http://martin-thoma.com/konvergenz-von-reihen/">Konvergenz von Reihen</a> anschauen.
+Und wie zeigt man die Existenz dieses Grenzwertes? Das ist eine andere Frage :-P Man sollte sich vielleicht nochmal den Artikel <a href="../konvergenz-von-folgen/">Konvergenz von Folgen</a> bzw. <a href="../konvergenz-von-reihen/">Konvergenz von Reihen</a> anschauen.
 
 Ach ja, man kann auch zeigen, dass $\displaystyle \lim_{h \rightarrow 0} \frac{f(x_0+h)-f(x_0)}{h}$ existiert und in $\mathbb{R}$ ist. Das ist &auml;quivalent.

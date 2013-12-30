@@ -33,7 +33,7 @@ Let's search ... hm, seeems as there are some versions:
 {% caption align="aligncenter" width="510" caption="Windows 7 editions" url="../images/2012/12/windows-7-editions.jpg" alt="Windows 7 editions" title="Windows 7 editions" height="510" class="size-full wp-image-50681" %}
 
 And also
-<a href="http://martin-thoma.com/wp-content/uploads/2012/12/windows-7-enterprise.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2012/12/windows-7-enterprise-300x295.jpg" alt="" title="Windows 7 enterprise edition" width="300" height="295" class="aligncenter size-medium wp-image-50691" /></a>
+<a href="../images/2012/12/windows-7-enterprise.jpg"><img src="../images/2012/12/windows-7-enterprise-300x295.jpg" alt="" title="Windows 7 enterprise edition" width="300" height="295" class="aligncenter size-medium wp-image-50691" /></a>
 and Windows 7 Starter, Windows 7 Home Basic. Did I already mention the family pack? It's so complicated ... there is even a Wikipedia page about <a href="http://en.wikipedia.org/wiki/Windows_7_editions">Windows 7 editions</a>!
 
 Find out which version I have (another 15 minutes of searching how to do so):

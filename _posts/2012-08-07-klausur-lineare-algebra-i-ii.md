@@ -23,7 +23,7 @@ In den LA-Klausuren, die ich bisher gesehen habe, hat die vorangehende Teilaufga
 
 <h2>Vorbereitung</h2>
 <h3>Lineare Algebra I</h3>
-Ihr solltet auf jeden Fall die <a href="http://martin-thoma.com/lernkontrolle-lineare-algebra-i/" title="Lernkontrolle: Lineare Algebra I">Lernkontrolle: Lineare Algebra I</a> machen.
+Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" title="Lernkontrolle: Lineare Algebra I">Lernkontrolle: Lineare Algebra I</a> machen.
 
 <h4>Themen</h4>
 <ul>
@@ -59,19 +59,19 @@ Ihr solltet auf jeden Fall die <a href="http://martin-thoma.com/lernkontrolle-li
        </li>
      </ul>
   </li>
-  <li><a href="http://martin-thoma.com/wie-bestimme-ich-das-inverse-einer-matrix/">Wie bestimme ich das Inverse einer Matrix?</a></li>
+  <li><a href="../wie-bestimme-ich-das-inverse-einer-matrix/">Wie bestimme ich das Inverse einer Matrix?</a></li>
   <li><strong>L&ouml;sungstheorie von LGSen</strong> (Gau&szlig;-Algorithmus)</li>
   <li><strong>Eigenwerte</strong>, Eigenvektoren  ($\phi(x) = \lambda x, x \neq 0$)</li>
-  <li>charakteristisches Polynom $\phi|_{[x]} = \lambda_{id_{[x]}}$ - <a href="http://martin-thoma.com/wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a></li>
+  <li>charakteristisches Polynom $\phi|_{[x]} = \lambda_{id_{[x]}}$ - <a href="../wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a></li>
   <li>$\mathbb{K} = \mathbb{C} \leadsto$ <strong>Jordansche Normalform</strong> (Algorithmus)</li>
 </ul>
 
 <h4>Aufgabenstellungen</h4>
 Mit diesen Aufgabentypen sollte man rechnen:
 <ul>
-  <li>Gegeben sind zwei Untervektorr&auml;ume $U, V$ des $\mathbb{R}^4$. Finden Sie jeweils eine Basis von $U, V, U \cap V, U + V$. &rarr; <a href="http://martin-thoma.com/wie-bildet-man-den-schnitt-zweier-vektorraume/">Erkl&auml;rung</a></li>
+  <li>Gegeben sind zwei Untervektorr&auml;ume $U, V$ des $\mathbb{R}^4$. Finden Sie jeweils eine Basis von $U, V, U \cap V, U + V$. &rarr; <a href="../wie-bildet-man-den-schnitt-zweier-vektorraume/">Erkl&auml;rung</a></li>
   <li>Bestimmen Sie alle L&ouml;sungen eines Gleichungssystems (auch in endlichen K&ouml;rpern wie $\mathbb{Z} / 5 \mathbb{Z}$!).</li>
-  <li>Bestimmen Sie die Jordansche Normalform einter Matrix A. &rarr; <a href="http://martin-thoma.com/wie-berechnet-man-die-jordansche-normalform/">Erkl&auml;rung</a></li>
+  <li>Bestimmen Sie die Jordansche Normalform einter Matrix A. &rarr; <a href="../wie-berechnet-man-die-jordansche-normalform/">Erkl&auml;rung</a></li>
 </ul>
 
 <h4>Good to know</h4>
@@ -125,7 +125,7 @@ Mit diesen Aufgabentypen sollte man rechnen:
   <li>Abbildungsmatrizen bzgl. ONB</li>
   <li>$\phi$ s.a. Basis: ONB $\Rightarrow$ Abb. Matrix symmetrisch, aber noch mehr: $\exists$ ONB aus EV mit Abb. Matrix = Diagonalmatrix (Spektralsatz)</li>
   <li>$\phi$ lin. Isometrie, Basis ONB $\Rightarrow$ Abb. Matrix ist orthogonal / unit&auml;r, aber noch mehr: $\exists$ ONB mit Abb. in euklid NF</li>
-  <li><strong><a href="http://martin-thoma.com/berechnung-der-euklidischen-normalform/">Berechnung der euklidischen Normalform</a></strong></li>
+  <li><strong><a href="../berechnung-der-euklidischen-normalform/">Berechnung der euklidischen Normalform</a></strong></li>
   <li>Kiterien f&uuml;r pos. definit (Ist geg. BF $\beta$ ein SP?)</li>
   <li><a href="http://de.wikipedia.org/wiki/Hauptachsentransformation">Hauptachsentransformation</a></li>
   <li>$(V, \langle , \rangle)$ VR mit SP. $\beta = $ Bilinearform  kann man simultan diagonalisieren $\exists$ ONB von $V$, so dass Matrix von $\langle, \rangle E_n$  (nach Definition von ONB)</li>

@@ -10,7 +10,7 @@ tags:
 - Chrome
 featured_image: 2012/04/google-chrome-logo.png
 ---
-Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article <a href="http://martin-thoma.com/how-chrome-could-be-improved/">How Chrome could be improved</a> for Chrome 18 I will also mention what  was realised meanwhile. If you're curious if you have the current version, just visit <a href="chrome://chrome/">chrome://chrome/</a>.
+Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article <a href="../how-chrome-could-be-improved/">How Chrome could be improved</a> for Chrome 18 I will also mention what  was realised meanwhile. If you're curious if you have the current version, just visit <a href="chrome://chrome/">chrome://chrome/</a>.
 
 <h2>Caps lock indicator for password fields</h2>
 It's annoying to have caps lock on while typing passwords. So an indicator is needed.

@@ -98,12 +98,12 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <ul>
   <li><a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/de">Vorlesungswebsite</a></li>
   <li><a href="https://ankiweb.net/shared/info/1756853157">Mein Anki-Deck</a> (digitale Karteikarten)</li>
-  <li><a href="http://martin-thoma.com/mathematische-strukturen/" title="Mathematische Strukturen">&Uuml;berblick &uuml;ber mathematische Strukturen</a></li>
+  <li><a href="../mathematische-strukturen/" title="Mathematische Strukturen">&Uuml;berblick &uuml;ber mathematische Strukturen</a></li>
   <li>StackExchange
     <ul>
       <li>Das Urbild einer Gruppe unter einem Gruppenhomomorphismus ist eine Gruppe (<a href="http://math.stackexchange.com/q/476508/6876">Beweis</a>)</li>
-      <li>Der Stabilisator einer Gruppenoperation ist eine Gruppe (<a href="http://martin-thoma.com/stabilizer-subgroup-subgroup/">Beweis</a>)</li>
-      <li>Der Schnitt von Normalteilern ist wieder ein Normalteiler (<a href="http://martin-thoma.com/intersection-two-normal-subgroups-normal-subgroup/">Beweis</a>)</li>
+      <li>Der Stabilisator einer Gruppenoperation ist eine Gruppe (<a href="../stabilizer-subgroup-subgroup/">Beweis</a>)</li>
+      <li>Der Schnitt von Normalteilern ist wieder ein Normalteiler (<a href="../intersection-two-normal-subgroups-normal-subgroup/">Beweis</a>)</li>
       <li><a href="http://math.stackexchange.com/q/479039/6876">What does &ldquo;characteristic&rdquo; mean in mathematics?</a></li>
       <li>Wie man das Legendre-Symbol einfach berechnet: <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/Calculate-Legendre">Pseudocode</a></li>
       <li><a href="http://math.stackexchange.com/q/482158/6876">How many 3-Sylow groups are in a group of order 126?</a> - Durch die Frage (und die Kommentare) habe ich sehr viel gelernt!</li>

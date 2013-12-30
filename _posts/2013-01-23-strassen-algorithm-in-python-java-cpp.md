@@ -21,7 +21,7 @@ The usual matrix multiplication of two $n \times n$ matrices has a time-complexi
 As last time, I've added the scripts to a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I will use the  I am also happy if you post some of your solutions with running times :-)
 If you know other languages, you could create a script for these. I focus on Python, Java and C++.
 
-I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four $\frac{n}{2} \times \frac{n}{2}$ matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those $\frac{n}{2} \times \frac{n}{2}$ matrices. You can do this until you have $1 \times 1$ matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.
+I have implemented only the Strassen algorithm for this post. Please take a look at Wikipedia for a detailed explanation how this algorithm works. The important idea of the algorithm is that you break both matrices into four $\frac{n}{2} \times \frac{n}{2}$ matrices and multiply them in a clever way. Note that you can also use the Strassen algorithm recursively for those $\frac{n}{2} \times \frac{n}{2}$ matrices. You can do this until you have $1 \times 1$ matrices which are simple numbers. But it does make sense to stop this recursion and use the <a href="../matrix-multiplication-python-java-cpp/#ikj-algorithm">ikj-algorithm</a> as soon as the matrices are small enough. But what exactly is "small enough"? I'll test that. The size when you use the ikj-algorithm is called <code>LEAF_SIZE</code> in my scripts. Note that only leaf sizes of multiples of two matter as the size of the (sub-)matrices that get passed to strassenR are multiples of two.
 
 If you post a solution, please consider these restrictions:
 <ul>
@@ -53,7 +53,7 @@ If you post a solution, please consider these restrictions:
 </ul>
 
 <h2>Tests and Setting</h2>
-<a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.
+<a href="../matrix-multiplication-python-java-cpp/#The_Tests">Tests and setting</a> are the same as in the first part.
 
 <h2>Python</h2>
 I&rsquo;ve used Python 2.6.5.

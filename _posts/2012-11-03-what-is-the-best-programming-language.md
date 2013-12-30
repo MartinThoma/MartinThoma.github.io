@@ -26,7 +26,7 @@ Resizing all jpg-images in a given folder to a maximum resolution of 1600x1600 w
 
 {% highlight bash %}for i in *.JPG;do convert "$i" -resize 1600x1600 "${i%.JPG}-resized.jpg"; done{% endhighlight %}
 
-See <a href="http://martin-thoma.com/converting-files-with-linux/">Converting Files with Linux</a> for more examples.
+See <a href="../converting-files-with-linux/">Converting Files with Linux</a> for more examples.
 <h2>Python</h2>
 Python does a incredibly well job for small problems. I don't have experience with big projects, but some have been done using Python (see list below).
 Python is dynamically typed, offers a lot of functions out of the box and is easy to learn and understand. You might argue that Python is executable Pseudocode as it is so easy to read. Additionally, it offers a very neat library for math functions with <a href="http://docs.scipy.org/doc/">NumPy</a>.
@@ -35,7 +35,7 @@ Examples of Python-Code in applications include:
 <ul>
 	<li><a href="http://security.stackexchange.com/a/2897">PDF malware analysis</a></li>
 	<li><a href="http://en.wikipedia.org/wiki/BitTorrent_(software)">BitTorrent</a></li>
-	<li>My <a href="http://martin-thoma.com/python-one-liners-for-project-euler/">ProjectEuler Snippets</a> :-)</li>
+	<li>My <a href="../python-one-liners-for-project-euler/">ProjectEuler Snippets</a> :-)</li>
 	<li>Scripting within an application:
 <ul>
 	<li><a href="http://en.wikipedia.org/wiki/GIMP">GIMP</a></li>
@@ -66,7 +66,7 @@ Here are some examples for programs written in Java:
 </li>
 </ul>
 <h2>C++</h2>
-C++ is easy to write and blazing-fast. See <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>.
+C++ is easy to write and blazing-fast. See <a href="../matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>.
 
 Some projects done in C++ are:
 <ul>

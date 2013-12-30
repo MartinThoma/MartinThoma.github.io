@@ -20,7 +20,7 @@ I guess many of you might need to plot functions or data once. So I've made one 
 
 Best of all: I didn't use anything which is not in LaTeX :-) (Well, the generation of the CSV-file doesn't count. I just wanted to include such an example for physicists who might need to plot results of experiments).
 
-The complete source is in the <a href='http://martin-thoma.com/wp-content/uploads/2012/07/birthday-paradox.zip'>Birthday Paradox Archive</a>.
+The complete source is in the <a href='../images/2012/07/birthday-paradox.zip'>Birthday Paradox Archive</a>.
 
 <h2>Result</h2>
 {% caption align="aligncenter" width="500" caption="Plot of the birthday paradox" url="../images/2012/07/birthday-paradox.png" alt="Plot of the birthday paradox" title="Plot of the birthday paradox" height="264" class="size-full wp-image-34821" %}
@@ -30,7 +30,7 @@ The following LaTeX-Code used TikZ and PGFplots:
 {% highlight text %}% Plot of the probability that two people out of n people have the
 % same birthday.
 % Author: Martin Thoma
-% Source: http://martin-thoma.com/plotting-graphs-with-pgfplots/
+% Source: ../plotting-graphs-with-pgfplots/
 
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
@@ -112,7 +112,7 @@ svg:
 
 <h2>See also</h2>
 <ul>
-  <li><a href="http://martin-thoma.com/plotting-function-graphs-with-latex/">Plotting function graphs with LaTeX</a></li>
+  <li><a href="../plotting-function-graphs-with-latex/">Plotting function graphs with LaTeX</a></li>
   <li><a href="http://www.texample.net/tikz/examples/tag/plots/">Plotting examples</a></li>
   <li><a href="http://www.texample.net/tikz/examples/area/mathematics/">Mathematics examples</a></li>
   <li><a href="http://tex.stackexchange.com/questions/tagged/pgfplots?sort=votes">tex.stackexchange.com</a></li>

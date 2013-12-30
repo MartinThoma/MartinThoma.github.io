@@ -172,7 +172,7 @@ Will man diese Tabelle in ein KV-Diagramm &uuml;bernehmen, muss man nur die Spal
 {% caption align="aligncenter" width="300" caption="KV-Speed-Zeichnen" url="../images/2013/03/karnaugh-map4-300x236.png" alt="KV-Speed-Zeichnen" title="" height="236" class="size-medium wp-image-63191" %}
 
 Am Ende sieht es so aus:
-<img src="http://martin-thoma.com/wp-content/uploads/2013/03/karnaugh-map1.png" alt="KV-Diagramm" width="512" height="512" class="size-full wp-image-62871" />
+<img src="../images/2013/03/karnaugh-map1.png" alt="KV-Diagramm" width="512" height="512" class="size-full wp-image-62871" />
 
 <h2>Prim- und Kernprimimplikaten</h2>
 Sei $g(w,x,y,z)$ eine Schaltfunktion.

@@ -83,7 +83,7 @@ Where do programs get installed?
   <li>C:\Program Files (x86)</li>
 </ul>
 
-If you have a German system, the explorer will show a German path although the underlying path is English. What the hell? And <a href="http://martin-thoma.com/microsoft-product-flavor-hell/" title="Microsoft product flavor hell">switching languages isn't easy on Microsofts Systems</a>.
+If you have a German system, the explorer will show a German path although the underlying path is English. What the hell? And <a href="../microsoft-product-flavor-hell/" title="Microsoft product flavor hell">switching languages isn't easy on Microsofts Systems</a>.
 
 <h2>Drivers</h2>
 <h3>Installation CD</h3>

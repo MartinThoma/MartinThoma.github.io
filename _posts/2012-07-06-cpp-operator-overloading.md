@@ -319,7 +319,7 @@ int main(){
 
 <h2>See also</h2>
 <ul>
-  <li>A class for <a href="http://martin-thoma.com/fractions-in-cpp">dealing with fractions</a> - which includes 7 examples for operator overloading</li> 
+  <li>A class for <a href="../fractions-in-cpp">dealing with fractions</a> - which includes 7 examples for operator overloading</li> 
   <li><a href="http://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B">Operators in C and C++</a></li>
   <li><a href="http://stackoverflow.com/a/4421715/562769">The General Syntax of operator overloading in C++</a>. sbi, Stack Overflow.</li>
   <li><a href="http://stackoverflow.com/a/4421708/562769">The Three Basic Rules of Operator Overloading in C++</a>. sbi, Stack Overflow.</li>

@@ -76,5 +76,5 @@ $N-TAPE(s(n)) := \{L | \text{Es existiert eine nicht-determinitistische TM, die 
 <h2>Quellen und Material</h2>
 <ul>
   <li><a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi_skript_ws11.pdf">Theoretische Grundlagen der Informatik</a>: Skript von Prof. Dr. Dorothea Wagner</li>
-  <li>Die Bilder stehen hier zur Verf&uuml;gung: <a href='http://martin-thoma.com/wp-content/uploads/2012/02/komplexitaetsklassen-material.zip'>Material zu den Komplexit&auml;tsklassen</a></li>
+  <li>Die Bilder stehen hier zur Verf&uuml;gung: <a href='../images/2012/02/komplexitaetsklassen-material.zip'>Material zu den Komplexit&auml;tsklassen</a></li>
 </ul>

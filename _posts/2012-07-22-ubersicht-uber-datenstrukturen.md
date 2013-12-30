@@ -24,7 +24,7 @@ Charakteristika:
 <h2>Dynamische Arrays</h2>
 Dynamische Arrays sind wie normale Arrays, nur dass sie wachsen k&ouml;nnen. Sobald ein Element eingef&uuml;gt werden soll, dass nicht mehr ins Array passen w&uuml;rde, allokiert man ein doppelt so gro&szlig;es Array und kopiert die Elemente um.
 
-In Java ist es ein <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Vector.html">Vector</a> bzw. eine <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a>, in <a href="http://martin-thoma.com/vectors-in-cpp/" title="Vectors in C++">C++ Vektoren</a>.
+In Java ist es ein <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Vector.html">Vector</a> bzw. eine <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a>, in <a href="../vectors-in-cpp/" title="Vectors in C++">C++ Vektoren</a>.
 
 <h2>Hashtabelle</h2>
 <blockquote>In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) bzw. Streuwerttabelle. Als Indexstruktur werden Hashtabellen verwendet um Datenelemente in einer gro&szlig;en Datenmenge aufzufinden. Zu Hashtabellen alternative Index-Datenstrukturen sind beispielsweise Baumstrukturen (wie etwa ein B+-Baum) und die Skip-List. Hashtabellen zeichnen sich durch einen &uuml;blicherweise konstanten Zeitaufwand bei Einf&uuml;ge- bzw. Entfernen-Operationen aus. Beim Einsatz einer Hashtabelle zur Suche in Datenmengen spricht man auch von einem Hashverfahren oder Streuspeicherverfahren.</blockquote>
@@ -52,7 +52,7 @@ Folgende Begriffe sollte man kennen:
 <h2>Stack</h2>
 {% caption align="alignright" width="101" caption="Stack a capacity of 5 elements and size of 4." url="../images/2012/07/stack-101x300.png" alt="Stack a capacity of 5 elements and size of 4." title="Stack a capacity of 5 elements and size of 4." height="300" class="size-medium wp-image-34421" %}
 
-Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und nat&uuml;rlich gibt es auch in <a href="http://martin-thoma.com/stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.
+Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und nat&uuml;rlich gibt es auch in <a href="../stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.
 
 Wie man am Bild sehr sch&ouml;n sehen kann, definiert ein Stack keine Ordnung &uuml;ber die Elemente. Wenn ein neues Element kommt, wird es auf den Stack gelegt. Man kann auch nur das oberste Element - in diesem Fall a - vom Stack nehmen. Deshalb werden Stacks auch als LIFO-Speicher (<em>L</em>ast <em>I</em>n <em>F</em>irst <em>O</em>ut) bezeichnet.
 
@@ -699,7 +699,7 @@ F&uuml;r einen B-Baum der Ordnung t, $t \geq 2$, gilt:
 
 Die beiden B-B&auml;ume habe ich mit <a href="https://gist.github.com/3159687">diesem Script</a> erstellt.
 
-Mehr zu B-B&auml;umen gibt es in diesem <a href="http://martin-thoma.com/b-baume/" title="B-B&auml;ume">Artikel &uuml;ber B-B&auml;ume</a>.
+Mehr zu B-B&auml;umen gibt es in diesem <a href="../b-baume/" title="B-B&auml;ume">Artikel &uuml;ber B-B&auml;ume</a>.
 
 <h3>Tries</h3>
 {% caption align="aligncenter" width="200" caption="Trie" url="../images/2012/07/trie.png" alt="Trie" title="Trie" height="285" class="size-full wp-image-34621" %}

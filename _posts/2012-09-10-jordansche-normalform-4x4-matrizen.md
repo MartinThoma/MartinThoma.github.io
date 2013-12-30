@@ -11,7 +11,7 @@ tags:
 - Matrix
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
-<div class="info">Hier sind $4 \times 4$ Beispiele zum Hauptartikel <a href="http://martin-thoma.com/wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
+<div class="info">Hier sind $4 \times 4$ Beispiele zum Hauptartikel <a href="../wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
 
 <h2>Beispiel 1</h2>
 Gegeben sei die Matrix $A \in \mathbb{R}^{4 \times 4}$:
@@ -26,7 +26,7 @@ $A := \begin{pmatrix}
 <strong>1. Charakteristisches Polynom berechnen:</strong>
 $p_A(\lambda) = (\lambda - 5) \cdot (\lambda - 4) \cdot (\lambda + 1)^2$.
 
-(&rarr; <a href="http://www.wolframalpha.com/input/?i=%7B%7B1%2C2%2C47%2C11%7D%2C%7B3%2C2%2C8%2C15%7D%2C%7B0%2C0%2C3%2C1%7D%2C%7B0%2C0%2C8%2C1%7D%7D">Wolfram|Alpha</a> und &bdquo;<a href="http://martin-thoma.com/wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a>&ldquo;)
+(&rarr; <a href="http://www.wolframalpha.com/input/?i=%7B%7B1%2C2%2C47%2C11%7D%2C%7B3%2C2%2C8%2C15%7D%2C%7B0%2C0%2C3%2C1%7D%2C%7B0%2C0%2C8%2C1%7D%7D">Wolfram|Alpha</a> und &bdquo;<a href="../wie-berechnet-man-das-charakteristische-polynom/">Wie berechnet man das charakteristische Polynom?</a>&ldquo;)
 
 Daraus folgt: 
 <ul>

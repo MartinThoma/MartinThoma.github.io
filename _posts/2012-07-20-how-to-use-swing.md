@@ -28,7 +28,7 @@ public class test {
 }{% endhighlight %}
 
 You will get:
-<a href="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-JFrame.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-JFrame.png" alt="Java Swing: JFrame" title="Java Swing: JFrame" width="300" height="201" class="size-full wp-image-33311" /></a>
+<a href="../images/2012/07/java-swing-JFrame.png"><img src="../images/2012/07/java-swing-JFrame.png" alt="Java Swing: JFrame" title="Java Swing: JFrame" width="300" height="201" class="size-full wp-image-33311" /></a>
 
 <h3>JPanel</h3>
 You add your elements to a JPanel:
@@ -56,7 +56,7 @@ public class test {
 }{% endhighlight %}
 
 It looks like this:
-<a href="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-jpanel.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/java-swing-jpanel.png" alt="Java Swing: JPanel, JLabel and JButton" title="Java Swing: JPanel, JLabel and JButton" width="300" height="151" class="size-full wp-image-33341" /></a>
+<a href="../images/2012/07/java-swing-jpanel.png"><img src="../images/2012/07/java-swing-jpanel.png" alt="Java Swing: JPanel, JLabel and JButton" title="Java Swing: JPanel, JLabel and JButton" width="300" height="151" class="size-full wp-image-33341" /></a>
 
 <h2>Action Listeners</h2>
 This is the most simple example of an <a href="http://docs.oracle.com/javase/7/docs/api/java/awt/event/ActionListener.html">ActionListener</a>. When you click on the button, it creates a new JFrame.
@@ -103,4 +103,4 @@ public class test {
   <li><a href="http://docs.oracle.com/javase/tutorial/uiswing/">Trail: Creating a GUI With JFC/Swing</a></li>
 </ul>
 
-<div class="info">Continue with part II: <a href="http://martin-thoma.com/swing-ii-how-to-arrange-objects/">How to arrange Objects with Swing</a></div>
+<div class="info">Continue with part II: <a href="../swing-ii-how-to-arrange-objects/">How to arrange Objects with Swing</a></div>

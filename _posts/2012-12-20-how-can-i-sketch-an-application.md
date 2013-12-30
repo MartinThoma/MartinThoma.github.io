@@ -41,7 +41,7 @@ A friend of mine helped me out of my misery. He told me of a product called "<a 
 <h2>Balsamiq</h2>
 Balsamiq is easy to use, has a lot of very intuitive features and is able to generate a linked PDF. This means, you can add links to some parts of the interface and simulate interactivity. The user should have opened the slides in full screen, so that on slide fills the screen. Then you might even think it was an web application.
 
-Here is <a href='http://martin-thoma.com/wp-content/uploads/2012/12/Scientific-publishing.pdf'>an example PDF created with Balsamiq</a>
+Here is <a href='../images/2012/12/Scientific-publishing.pdf'>an example PDF created with Balsamiq</a>
 
 <h3>What's great about Balsamiq</h3>
 Balsamiq was carefully designed, is available (and working!) on Windows 7 and Ubuntu 10.04 and via browser. The learning curve is very well. I keep finding new features as I need them. So I first intuitively found the most important ones and recognized advanced ones later.

@@ -12,7 +12,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 Morgen schreibe ich eine Klausur in Wahrscheinlichkeitstheorie. Zum Gl&uuml;ck d&uuml;rfen wir das Skript und Notizen mitnehmen. 
 
-Diesen netten, kleinen <a href='http://martin-thoma.com/wp-content/uploads/2012/02/wt-cheat-sheet.pdf'>Zettel mit Formeln</a> habe ich gerade erstellt. Falls ihr die LaTeX-Datei anpassen wollt, k&ouml;nnt ihr sie <a href='http://martin-thoma.com/wp-content/uploads/2012/02/wt-cheat-sheet.zip'>hier</a> herunterladen.
+Diesen netten, kleinen <a href='../images/2012/02/wt-cheat-sheet.pdf'>Zettel mit Formeln</a> habe ich gerade erstellt. Falls ihr die LaTeX-Datei anpassen wollt, k&ouml;nnt ihr sie <a href='../images/2012/02/wt-cheat-sheet.zip'>hier</a> herunterladen.
 
 <a href="http://www.math.kit.edu/stoch/lehre/wtinf2011w">Hier</a> noch ein paar Hinweise:
 

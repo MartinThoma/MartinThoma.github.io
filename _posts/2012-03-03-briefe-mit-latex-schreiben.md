@@ -10,9 +10,9 @@ tags:
 - scrlttr2
 featured_image: 2012/01/latex-logo.png
 ---
-Ich muss immer wieder mal K&uuml;ndigungsschreiben aufsetzen. Daf&uuml;r will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage f&uuml;r K&uuml;ndigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung.pdf'>alt</a> und <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung-scrlttr2.pdf'>neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich gro&szlig; ist.
+Ich muss immer wieder mal K&uuml;ndigungsschreiben aufsetzen. Daf&uuml;r will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage f&uuml;r K&uuml;ndigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href='../images/2012/03/kuendigung.pdf'>alt</a> und <a href='../images/2012/03/kuendigung-scrlttr2.pdf'>neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich gro&szlig; ist.
 
-Hier ist das <a href='http://martin-thoma.com/wp-content/uploads/2012/03/kuendigung-archiv.zip'>Archiv</a> mit beiden LaTeX-Dateien, einer Make-Datei und beiden PDF-Dateien.
+Hier ist das <a href='../images/2012/03/kuendigung-archiv.zip'>Archiv</a> mit beiden LaTeX-Dateien, einer Make-Datei und beiden PDF-Dateien.
 
 <h2>LaTeX</h2>
 {% highlight text %}\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}

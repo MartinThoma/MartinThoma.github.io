@@ -14,7 +14,7 @@ Just like before with polynomial interpolation, we have a list of $n+1$ given po
 We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.
 
 <h2>Polynomial interpolation</h2>
-The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="http://martin-thoma.com/html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&evaluationSteps=0.01&X_MIN=-1.5&X_MAX=1.5&Y_MAX=1.2&Y_MIN=-1.2&X_TICKS_STEPS=0.2&Y_TICKS_STEPS=0.2&X_FROM=-1&X_TO=1&N_EVALUATION_POINTS=10&points=%5B%5D&tschebyscheffSwitch=true&equallySwitch=true">interactive example</a>):
+The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="../html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&evaluationSteps=0.01&X_MIN=-1.5&X_MAX=1.5&Y_MAX=1.2&Y_MIN=-1.2&X_TICKS_STEPS=0.2&Y_TICKS_STEPS=0.2&X_FROM=-1&X_TO=1&N_EVALUATION_POINTS=10&points=%5B%5D&tschebyscheffSwitch=true&equallySwitch=true">interactive example</a>):
 
 {% caption align="aligncenter" width="300" caption="Oscillations you get with polynomial interpolation" url="../images/2013/06/polynomial-interpolation-oscillation-300x105.png" alt="Oscillations you get with polynomial interpolation" title="" height="105" class="size-medium wp-image-72001" %}
 

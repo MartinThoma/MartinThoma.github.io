@@ -11,16 +11,16 @@ tags:
 ---
 F&uuml;r die Klausur in den Grundbegriffe der Informatik (GBI) sollte man Folgendes auf jeden Fall wissen:
 <ul>
-  <li>Wie funktionieren Induktionsbeweise? &rarr; <a href="http://martin-thoma.com/wie-fuhre-ich-einen-induktionsbeweis/" title="Wie f&uuml;hre ich einen Induktionsbeweis?">Antwort</a></li>
-  <li>Was ist ein Alphabet, eine formale Sprache und was eine formale Grammatik? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Formale_Sprachen" title="Definitionen aus GBI">Antwort</a></li>
-  <li>Was bedeuten f&uuml;r zwei Formale Sprachen $L_1, L_2$ folgende bin&auml;ren Operationen:$\cdot, \cup, \cap, \setminus, L_1^3, L^+, L^*$? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Formale_Sprachen" title="Definitionen aus GBI">Antwort</a></li>
-  <li>Was ist eine Abbildung, was eine Relation? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
-  <li>Was ist Injektivit&auml;t, Surjektivit&auml;t, Bijektivit&auml;t, Reflexivit&auml;t, Symmetrie, Antisymmetrie und Transitivit&auml;t? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
-  <li>Wie ist eine &Auml;quivalenzrelation, eine Ordnungsrelation, eine Halbordnung und eine Totalordnung definiert? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
-  <li>Wie ist ein minimales Element und wie das kleinste Element einer Halbordnung definiert? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
-  <li>Wie sind die Landau-Symbole $\cal O(f(n)), \Theta(f(n)), \Omega(f(n))$ definiert? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Komplexittstheorie" title="Definitionen aus GBI">Antwort</a> und <a href="http://martin-thoma.com/die-landau-symbole/">Nachtrag</a></li>
+  <li>Wie funktionieren Induktionsbeweise? &rarr; <a href="../wie-fuhre-ich-einen-induktionsbeweis/" title="Wie f&uuml;hre ich einen Induktionsbeweis?">Antwort</a></li>
+  <li>Was ist ein Alphabet, eine formale Sprache und was eine formale Grammatik? &rarr; <a href="../definitionen-aus-gbi/#Formale_Sprachen" title="Definitionen aus GBI">Antwort</a></li>
+  <li>Was bedeuten f&uuml;r zwei Formale Sprachen $L_1, L_2$ folgende bin&auml;ren Operationen:$\cdot, \cup, \cap, \setminus, L_1^3, L^+, L^*$? &rarr; <a href="../definitionen-aus-gbi/#Formale_Sprachen" title="Definitionen aus GBI">Antwort</a></li>
+  <li>Was ist eine Abbildung, was eine Relation? &rarr; <a href="../definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
+  <li>Was ist Injektivit&auml;t, Surjektivit&auml;t, Bijektivit&auml;t, Reflexivit&auml;t, Symmetrie, Antisymmetrie und Transitivit&auml;t? &rarr; <a href="../definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
+  <li>Wie ist eine &Auml;quivalenzrelation, eine Ordnungsrelation, eine Halbordnung und eine Totalordnung definiert? &rarr; <a href="../definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
+  <li>Wie ist ein minimales Element und wie das kleinste Element einer Halbordnung definiert? &rarr; <a href="../definitionen-aus-gbi/#Abbildungen_und_Relationen" title="Definitionen aus GBI">Antwort</a></li>
+  <li>Wie sind die Landau-Symbole $\cal O(f(n)), \Theta(f(n)), \Omega(f(n))$ definiert? &rarr; <a href="../definitionen-aus-gbi/#Komplexittstheorie" title="Definitionen aus GBI">Antwort</a> und <a href="../die-landau-symbole/">Nachtrag</a></li>
   <li>Was ist eine Turingmaschine und wie gibt man eine Konfiguration davon an?</li>
-  <li>Wie ist ein Graph definiert und wie ein Baum? &rarr; <a href="http://martin-thoma.com/definitionen-aus-gbi/#Graphen" title="Definitionen aus GBI">Antwort</a></li>
+  <li>Wie ist ein Graph definiert und wie ein Baum? &rarr; <a href="../definitionen-aus-gbi/#Graphen" title="Definitionen aus GBI">Antwort</a></li>
   <li>Wann sind zwei Graphen isomorph?</li>
   <li>Was ist eine Pfad, eine Schlinge, ein Kreis und ein Zyklus?</li>
   <li>Wann ist ein Graph zusammenh&auml;ngend und wann vollst&auml;ndig / streng zusammenh&auml;ngend?</li>
@@ -66,7 +66,7 @@ Was man auf jeden Fall &uuml;ben sollte, sind die Aufgaben zu Turingmaschinen. D
   <li>r ist Wurzel von $G = (V, E) \Leftrightarrow \forall x \in V : $ Es gibt genau einen Pfad von r nach x.</li> 
 </ul>
 
-Zum &Uuml;ben habe ich mal eine "Klausur" erstellt. Hier ist die <a href='http://martin-thoma.com/wp-content/uploads/2012/02/gbi-klausurvorbereitung.pdf'>PDF</a> und hier die <a href='http://martin-thoma.com/wp-content/uploads/2012/02/gbi-klausurvorbereitung.zip'>LaTeX</a>-Datei.
+Zum &Uuml;ben habe ich mal eine "Klausur" erstellt. Hier ist die <a href='../images/2012/02/gbi-klausurvorbereitung.pdf'>PDF</a> und hier die <a href='../images/2012/02/gbi-klausurvorbereitung.zip'>LaTeX</a>-Datei.
 
 <h3>Gro&szlig;-O-Notation</h3>
 <strong>Beh</strong>: $\mathcal{O}(n!) \nsubseteq \mathcal{O}(2^n)$

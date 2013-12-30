@@ -31,7 +31,7 @@ History: UObject::ConditionalDestroy <- UObject::GetFullName <- DispatchDestroy 
 
 <h2>Some Links</h2>
 <ul>
-  <li><a href="http://www.gamefaqs.com/pc/914986-unreal-tournament-2004/faqs/31756">Team stats</a> by Hammerlock770 (another version is <a href="http://martin-thoma.com/wp-content/uploads/2012/12/ut2004-team-stats.txt">here</a>, if the linked site gets offline)</li>
+  <li><a href="http://www.gamefaqs.com/pc/914986-unreal-tournament-2004/faqs/31756">Team stats</a> by Hammerlock770 (another version is <a href="../images/2012/12/ut2004-team-stats.txt">here</a>, if the linked site gets offline)</li>
   <li><a href="http://ut2004stats.epicgames.com/index.php">UT2004 Stats</a></li>
   <li><a href="http://forums.epicgames.com/forums/249-Unreal-Tournament-2003-2004">Official forum</a></li>
 </ul>

@@ -13,7 +13,7 @@ tags:
 - Lastenheft
 - MetaUML
 ---
-Ich habe gerade mal schnell eine Vorlage f&uuml;r ein Lastenheft mit LaTeX erstellt. Dieses Lastenheft beinhaltet sogar ein kleines Use-Case Beispiel, das mit MetaUML realisiert wurde. Hier ist die <a href='http://martin-thoma.com/wp-content/uploads/2012/04/Lastenheft.pdf'>PDF</a>, hier der <a href='http://martin-thoma.com/wp-content/uploads/2012/04/Lastenheft.zip'>LaTeX-Code</a>. 
+Ich habe gerade mal schnell eine Vorlage f&uuml;r ein Lastenheft mit LaTeX erstellt. Dieses Lastenheft beinhaltet sogar ein kleines Use-Case Beispiel, das mit MetaUML realisiert wurde. Hier ist die <a href='../images/2012/04/Lastenheft.pdf'>PDF</a>, hier der <a href='../images/2012/04/Lastenheft.zip'>LaTeX-Code</a>. 
 
 Das Lastenheft k&ouml;nnt ihr unter Linux einfach mit folgendem Befehl erstellen, wenn ihr in diesem Ordner seid:
 {% highlight bash %}make{% endhighlight %}

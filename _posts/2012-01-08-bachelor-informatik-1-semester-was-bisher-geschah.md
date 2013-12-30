@@ -24,7 +24,7 @@ Einiges h&auml;tte ich bei vielen Modulen schreiben k&ouml;nnen, z.B. der Beweis
   <li><strong>Relationen</strong>: <a href="http://de.wikipedia.org/wiki/Injektivit%C3%A4t">Injektivit&auml;t</a>, <a href="http://de.wikipedia.org/wiki/Surjektivit%C3%A4t">Surjektivit&auml;t</a>, <a href="http://de.wikipedia.org/wiki/Bijektive_Funktion">Bijektivit&auml;t</a>, Linkstotalit&auml;t, Rechtseindeutigkeit, <a href="http://de.wikipedia.org/wiki/Reflexive_Relation">Reflexivit&auml;t</a>, <a href="http://de.wikipedia.org/wiki/Antisymmetrie">Antisymmetrie</a>, <a href="http://de.wikipedia.org/wiki/Symmetrische_Relation">Symmetrie</a>, <a href="http://de.wikipedia.org/wiki/Transitivit%C3%A4t_(Mathematik)">Transitivit&auml;t</a>, <a href="http://de.wikipedia.org/wiki/Ordnungsrelation">Ordnungsrelation</a>, <a href="http://de.wikipedia.org/wiki/%C3%84quivalenzrelation">&Auml;quivalenzrelation</a></li>
   <li><strong>Mengeneigenschaften</strong>: <a href="http://de.wikipedia.org/wiki/Abz%C3%A4hlbarkeit">Abz&auml;hlbarkeit</a>, <a href="http://de.wikipedia.org/wiki/%C3%9Cberabz%C3%A4hlbarkeit">&Uuml;berabz&auml;hlbarkeit</a>, endlich, unendlich, <a href="http://de.wikipedia.org/wiki/Beschr%C3%A4nktheit">Beschr&auml;nktheit</a></li>
   <li><strong>Folgeneigenschaften</strong>: <a href="http://de.wikipedia.org/wiki/Supremum">Supremum</a>, Infimum, Minimum, Maximum, Konvergenz, Divergenz, <a href="http://de.wikipedia.org/wiki/Grenzwert_(Folge)">Grenzwert</a>, Limes superior, Limes inferior, <a href="http://de.wikipedia.org/wiki/Monotonie_(Mathematik)">Monotonie</a></li>
-  <li><a href="http://martin-thoma.com/wie-fuhre-ich-einen-induktionsbeweis/" title="Wie f&uuml;hre ich einen Induktionsbeweis?">Beweis durch vollst&auml;ndige Induktion</a></li>
+  <li><a href="../wie-fuhre-ich-einen-induktionsbeweis/" title="Wie f&uuml;hre ich einen Induktionsbeweis?">Beweis durch vollst&auml;ndige Induktion</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Teilfolge">Teilfolgen</a>, H&auml;ufungswerte</li>
   <li><a href="http://de.wikipedia.org/wiki/Reihe_(Mathematik)">Reihen</a>: Monotoniekriterium, Dreiecksungleichung</li>
   <li><a href="http://de.wikipedia.org/wiki/Umordnung_von_Reihen">Umordnungen</a> und Produktreihen</li>
@@ -122,7 +122,7 @@ Einiges h&auml;tte ich bei vielen Modulen schreiben k&ouml;nnen, z.B. der Beweis
 <ul>
   <li><a href="http://de.wikipedia.org/wiki/Permutation">Permutationen</a> und Transpositionen, <a href="http://de.wikipedia.org/wiki/Identische_Abbildung">Identische Abbildung</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Direkte_Summe#Innere_direkte_Summe">Direkte Summe</a></li>
-  <li><a href="http://martin-thoma.com/wie-bildet-man-den-schnitt-zweier-vektorraume/" title="Wie bildet man den Schnitt zweier Vektorr&auml;ume?">Schnitt zweier Vektorr&auml;ume berechnen</a></li>
+  <li><a href="../wie-bildet-man-den-schnitt-zweier-vektorraume/" title="Wie bildet man den Schnitt zweier Vektorr&auml;ume?">Schnitt zweier Vektorr&auml;ume berechnen</a></li>
   <li>Was bedeuten die folgenden Symbole: $\subseteq, \subset, \subsetneq, \cup, \setminus, \cap, \emptyset$</li>
   <li><a href="http://de.wikipedia.org/wiki/De_Morgan%E2%80%99sche_Gesetze">Regeln von de Morgan</a>: $(A \cup B)^C = A^C \cap B^C$ und $(A \cap B)^C = A^C \cup B^C$</li>
   <li><a href="http://de.wikipedia.org/wiki/Homomorphismus">Homomorphismen</a>, <a href="http://de.wikipedia.org/wiki/Isomorphismus">Isomorphismen</a> (<a href="http://de.wikipedia.org/wiki/Automorphismus">Automorphismus</a>)</li>
@@ -236,7 +236,7 @@ Nur grundlagen in Java:
 <ul>
   <li><a href="http://de.wikipedia.org/wiki/Deterministischer_endlicher_Automat">DEA</a>: $(Q, \Sigma, \delta: Q \times \Sigma \rightarrow Q, s \in Q, F \subseteq Q)$</li>
   <li><a href="http://de.wikipedia.org/wiki/Nichtdeterministischer_endlicher_Automat">NEA</a>: $(Q, \Sigma, \delta: Q \times \Sigma \rightarrow 2^Q, s \in Q, F \subseteq Q)$, wobei $2^Q$ die Potenzmenge von Q ist.</li>
-  <li>&Auml;quivalenz von DEA und NEA sowie die <a href="http://martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" title="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem">Konstruktion</a></li>
+  <li>&Auml;quivalenz von DEA und NEA sowie die <a href="../konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/" title="Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem">Konstruktion</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Turingmaschine">Turingmaschine</a>: $(Q, \Sigma, \square, \Gamma, s \in Q, \delta: Q \times \Gamma \rightarrow Q \times \Gamma \times \{L, R, N\}, F \subseteq Q)$</li>
   <li><a href="http://de.wikipedia.org/wiki/Churchsche_These">Church'che These</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Satz_von_Rice">Satz von Rice</a></li>
@@ -250,7 +250,7 @@ Nur grundlagen in Java:
   <li>Produktsprache: $L_1 \cdot L_2$</li>
   <li>Komplementsprache: $L^C := \Sigma^* \setminus L$</li>
   <li><a href="http://de.wikipedia.org/wiki/Regul%C3%A4re_Sprache">Regul&auml;re Sprachen</a>: Alle von einem DEA erkannten Sprachen.</li>
-  <li><a href="http://martin-thoma.com/beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a></li>
+  <li><a href="../beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Entscheidbarkeit">Entscheidbarkeit</a>, <a href="http://de.wikipedia.org/wiki/Berechenbarkeit">Berechenbarkeit</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Diagonalsprache">Diagonalsprache</a>, <a href="http://de.wikipedia.org/wiki/Halteproblem">Halteproblem</a>, Universelle Sprache, <a href="http://de.wikipedia.org/wiki/Post%27sches_Korrespondenzproblem">Postsches Korrespondenzproblem</a></li>

@@ -14,14 +14,14 @@ featured_image: 2011/09/Tux.png
 find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.
 
 <h2>Very basic usage</h2>
-<a href="http://martin-thoma.com/wp-content/uploads/2011/09/find-basic1.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/09/find-basic1.png" alt="$ find  /home -iname &#039;Tux*&#039;" title="$ find  /home -iname &#039;Tux*&#039;" width="500" height="100" class="alignnone size-full wp-image-2671" /></a>
+<a href="../images/2011/09/find-basic1.png"><img src="../images/2011/09/find-basic1.png" alt="$ find  /home -iname &#039;Tux*&#039;" title="$ find  /home -iname &#039;Tux*&#039;" width="500" height="100" class="alignnone size-full wp-image-2671" /></a>
 
 I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.
 
 <h2>Redirecting errors</h2>
 You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:
 
-<a href="http://martin-thoma.com/wp-content/uploads/2011/09/find-error-redirection.png"><img src="http://martin-thoma.com/wp-content/uploads/2011/09/find-error-redirection.png" alt="find /home -iname &#039;Tux*&#039; 2>/dev/null" title="find /home -iname &#039;Tux*&#039; 2>/dev/null" width="500" height="100" class="alignnone size-full wp-image-2691" /></a>
+<a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname &#039;Tux*&#039; 2>/dev/null" title="find /home -iname &#039;Tux*&#039; 2>/dev/null" width="500" height="100" class="alignnone size-full wp-image-2691" /></a>
 
 <h2>Real life example</h2>
 I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.

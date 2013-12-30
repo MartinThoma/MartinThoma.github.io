@@ -132,6 +132,6 @@ $\delta_2(q, \varepsilon, Z_0^2) = \{(q_F, \varepsilon)\} \text{ f&uuml;r } q \i
 <ul>
     <li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Kellerautomat">Kellerautomat</a></li>
     <li><a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi_skript_ws11.pdf">Theoretische Grundlagen der Informatik</a>: Skript von Prof. Dr. Dorothea Wagner, ab S. 105</li>
-	<li><a href="http://martin-thoma.com/sprachen-automaten-und-grammatiken/" title="Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick">Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick</a></li>
+	<li><a href="../sprachen-automaten-und-grammatiken/" title="Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick">Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick</a></li>
 
 </ul>

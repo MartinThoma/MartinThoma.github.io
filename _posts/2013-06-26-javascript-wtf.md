@@ -360,4 +360,4 @@ When you forget to use <code>var</code> inside of <code>test()</code> you might 
 <h2>See also</h2>
 Do you know some more JavaScript WTFs?
 
-You might also be interested in <a href="http://martin-thoma.com/php-a-strange-language/" title="PHP: A strange language">PHP: A strange language</a>
+You might also be interested in <a href="../php-a-strange-language/" title="PHP: A strange language">PHP: A strange language</a>

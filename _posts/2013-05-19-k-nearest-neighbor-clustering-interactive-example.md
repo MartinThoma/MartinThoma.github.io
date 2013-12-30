@@ -13,7 +13,7 @@ tags:
 - canvas
 featured_image: 2013/05/k-means-interesting-setting-thumb.png
 ---
-<iframe src="http://martin-thoma.com/html5/clustering/clustering.htm" width="98%" height="700px"></iframe>
+<iframe src="../html5/clustering/clustering.htm" width="98%" height="700px"></iframe>
 
 When the circle has exactly the same number of blue / green dots in it, it will be green.
 

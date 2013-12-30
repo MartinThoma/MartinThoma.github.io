@@ -132,7 +132,7 @@ int isBoardFinished(char board[BOARD_WIDTH][BOARD_HEIGHT],
     return NOT_FINISHED;
 }
 {% endhighlight %}
-If you need an explanation for this, you should read <a href="http://martin-thoma.com/check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.
+If you need an explanation for this, you should read <a href="../check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.
 
 And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:
 {% highlight c %}

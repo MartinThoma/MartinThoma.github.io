@@ -243,7 +243,7 @@ Das Skript / die Folien sind im <a href="https://studium.kit.edu/sites/vab/0x876
 
 Folgende Wiki-Artikel und manpages sollte man sich durchlesen:
 <ul>
-  <li><a href="http://de.wikipedia.org/wiki/Unix-Dateirechte">Unix-Dateirechte</a> und <code>chmod</code> sowie <a href="http://martin-thoma.com/linux-access-rights-and-attributes/" title="Linux access rights and attributes">mein Artikel</a>.</li>
+  <li><a href="http://de.wikipedia.org/wiki/Unix-Dateirechte">Unix-Dateirechte</a> und <code>chmod</code> sowie <a href="../linux-access-rights-and-attributes/" title="Linux access rights and attributes">mein Artikel</a>.</li>
 </ul>
 
 Als Buch kann ich neben dem Silberschatz folgendes Empfehlen:

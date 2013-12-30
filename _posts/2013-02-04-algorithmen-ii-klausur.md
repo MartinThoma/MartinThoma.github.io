@@ -222,7 +222,7 @@ Es gilt: $\mathcal{RP} \subseteq \mathcal{BPP} \subseteq \mathcal{PP}$
 
 <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebungsblatt4.pdf">&Uuml;bungsblatt 4</a>, 20.02.2013: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebung4.pdf">L&ouml;sung</a>
 <ul>
-  <li>Wie finde ich heraus, ob sich zwei gegebene Strecken schneiden? &rarr; <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">Antwort</a></li>
+  <li>Wie finde ich heraus, ob sich zwei gegebene Strecken schneiden? &rarr; <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">Antwort</a></li>
 </ul>
 
 <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebungsblatt5.pdf">&Uuml;bungsblatt 5</a>, 22.02.2013: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2012/algo2/uebung5.pdf">L&ouml;sung</a>

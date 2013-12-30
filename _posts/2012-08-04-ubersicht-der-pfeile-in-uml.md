@@ -75,5 +75,5 @@ Der Pfeil mit der ausgef&uuml;llten Spitze ist eine Synchrone Nachricht, der ges
 
 <h2>Siehe auch</h2>
 <ul>
-	<li><a title="How to create UML class diagrams" href="http://martin-thoma.com/how-to-create-uml-class-diagrams/">How to create UML class diagrams</a></li>
+	<li><a title="How to create UML class diagrams" href="../how-to-create-uml-class-diagrams/">How to create UML class diagrams</a></li>
 </ul>

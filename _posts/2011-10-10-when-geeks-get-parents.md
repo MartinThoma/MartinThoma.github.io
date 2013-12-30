@@ -13,9 +13,9 @@ featured_image: 2011/10/baby-ogre-thumb.jpg
 It's so funny what happens when Geeks get parents. 
 
 This is what happens if your dad is a designer:
-<a href="http://martin-thoma.com/wp-content/uploads/2011/10/baby-8.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/baby-8.jpg" alt="Baby" title="Baby" width="519" height="367" class="aligncenter size-full wp-image-5151" /></a>
+<a href="../images/2011/10/baby-8.jpg"><img src="../images/2011/10/baby-8.jpg" alt="Baby" title="Baby" width="519" height="367" class="aligncenter size-full wp-image-5151" /></a>
 
-<a href="http://martin-thoma.com/wp-content/uploads/2011/10/baby-9.jpg"><img src="http://martin-thoma.com/wp-content/uploads/2011/10/baby-9.jpg" alt="Baby 9" title="Baby 9" width="520" height="367" class="aligncenter size-full wp-image-5161" /></a>
+<a href="../images/2011/10/baby-9.jpg"><img src="../images/2011/10/baby-9.jpg" alt="Baby 9" title="Baby 9" width="520" height="367" class="aligncenter size-full wp-image-5161" /></a>
 
 {% caption align="aligncenter" width="520" caption="Baby Batman" url="../images/2011/10/baby-batman.jpg" alt="Baby Batman" title="Baby Batman" height="369" class="size-full wp-image-5171" %}
 

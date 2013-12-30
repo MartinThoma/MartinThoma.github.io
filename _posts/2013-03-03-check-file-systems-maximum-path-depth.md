@@ -81,7 +81,7 @@ cd: error retrieving current directory: getcwd: cannot access
 Strangely, it showed me a path <code>/home/moose/.../one/one/one/one/tw$</code>. No, this is not a typo. It showed tw, not two. So, maybe the path can get only that long?
 Now I created a folder called "three" and one called "this". I entered both of them with cd, both showed <code>/home/moose/.../one/one/th</code>. So I guess this is a problem of Gnome Terminal and not a limitation of the file system.
 
-Let's see what Nautilus does. I <a href="http://martin-thoma.com/cyclic-references-kill-nautilus/" title="Cyclic references kill Nautilus">once got Nautilus to crash</a>, I think I get it another time:
+Let's see what Nautilus does. I <a href="../cyclic-references-kill-nautilus/" title="Cyclic references kill Nautilus">once got Nautilus to crash</a>, I think I get it another time:
 
 Contents, according to nautilus: <code>1,016 items, totalling 4.0 MB</code>
 

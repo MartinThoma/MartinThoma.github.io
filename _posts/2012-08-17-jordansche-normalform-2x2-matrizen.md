@@ -10,7 +10,7 @@ tags:
 - Linear algebra
 featured_image: 2012/08/jordan-normal-form-block1.png
 ---
-<div class="info">Hier sind $2 \times 2$ Beispiele zum Hauptartikel <a href="http://martin-thoma.com/wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
+<div class="info">Hier sind $2 \times 2$ Beispiele zum Hauptartikel <a href="../wie-berechnet-man-die-jordansche-normalform/" title="Wie berechnet man die Jordan&rsquo;sche Normalform?">Wie berechnet man die Jordan&rsquo;sche Normalform?</a>.</div>
 
 <h2>Beispiel 1</h2>
 Gegeben sei die Matrix $A \in \mathbb{R}^{2 \times 2}$:

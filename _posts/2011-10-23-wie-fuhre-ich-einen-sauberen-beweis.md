@@ -57,9 +57,9 @@ Es gilt $M = M_1 \cup M_2 = [3, 5) \cup (1,3) = (1,5)$
 q.e.d.
 
 <h2>Weitere Beweisformen</h2>
-Der <a href="http://martin-thoma.com/wie-fuhre-ich-einen-induktionsbeweis/">Induktionsbeweis</a> ist sehr n&uuml;tzlich, wenn man eine Aussage f&uuml;r Elemente zeigen muss, die einen festen Abstand haben. Also z.B. eine Aussage f&uuml;r die Nat&uuml;rlichen Zahlen oder die ganzen Zahlen.
+Der <a href="../wie-fuhre-ich-einen-induktionsbeweis/">Induktionsbeweis</a> ist sehr n&uuml;tzlich, wenn man eine Aussage f&uuml;r Elemente zeigen muss, die einen festen Abstand haben. Also z.B. eine Aussage f&uuml;r die Nat&uuml;rlichen Zahlen oder die ganzen Zahlen.
 
-Der <a href="http://martin-thoma.com/beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/">Widerspruchsbeweis</a> ist gut geeignet, wenn notwendige, aber nicht hinreichende Kriterien f&uuml;r das Gegenteil der Behauptung nicht erf&uuml;llt sind.
+Der <a href="../beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/">Widerspruchsbeweis</a> ist gut geeignet, wenn notwendige, aber nicht hinreichende Kriterien f&uuml;r das Gegenteil der Behauptung nicht erf&uuml;llt sind.
 
 <h2>Siehe auch</h2>
 <ul>

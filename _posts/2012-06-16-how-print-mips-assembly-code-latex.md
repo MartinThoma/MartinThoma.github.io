@@ -11,7 +11,7 @@ tags:
 - MIPS
 featured_image: 2012/01/latex-logo.png
 ---
-If you like to print highlighted MIPS assembly code in LaTeX, you can use the listings package. Sadly, no MIPS language file exits by default in LaTeX, but awg has created one and provides it on his blog. Just download <a href='http://martin-thoma.com/wp-content/uploads/2012/06/mips.sty_.zip'>mips.sty</a> (thanks to <a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Adam Gordon</a>!) and place it in your project folder. Then you can create a project like this:
+If you like to print highlighted MIPS assembly code in LaTeX, you can use the listings package. Sadly, no MIPS language file exits by default in LaTeX, but awg has created one and provides it on his blog. Just download <a href='../images/2012/06/mips.sty_.zip'>mips.sty</a> (thanks to <a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Adam Gordon</a>!) and place it in your project folder. Then you can create a project like this:
 
 {% caption align="aligncenter" width="512" caption="Highlight MIPS Assembly code with LaTeX listings." url="../images/2012/06/mips-latex-highlight.png" alt="Highlight MIPS Assembly code with LaTeX listings." title="Highlight MIPS Assembly code with LaTeX listings." height="197" class="size-full wp-image-26981" %}
 
@@ -90,7 +90,7 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
 
 <h2>See also</h2>
 <ul>
-  <li><a href="http://martin-thoma.com/how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX"</a></li>
+  <li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX"</a></li>
   <li><a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Typesetting MIPS Assembly Code in LaTeX</a></li>
-  <li><a href="http://martin-thoma.com/add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
+  <li><a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
 </ul>

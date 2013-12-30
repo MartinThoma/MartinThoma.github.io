@@ -17,7 +17,7 @@ Der Burdsch Chalifa war 2010 das h&ouml;chste Geb&auml;ude der Erde. Bis zur Spi
 Angenommen, die Erde w&auml;re eine perfekte Kugel mit einem Radius von 6370 km und die Sicht w&auml;re nicht durch Nebel, Wolken oder sonstige Hindernisse eingeschr&auml;nkt. Aus welcher Entfernung, die man &uuml;ber die Erde direkt zum Burdsch Chalifa zur&uuml;cklegt, k&ouml;nnte man den Burdsch Chalifa maximal sehen?
 
 <h3>Situationsskizze</h3>
-<a href="http://martin-thoma.com/wp-content/uploads/2012/08/earth-skizze.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/earth-skizze.png" alt="" title="Situationsskizze f&uuml;r die Berechnung" width="500" height="553" class="aligncenter size-full wp-image-39311" /></a>
+<a href="../images/2012/08/earth-skizze.png"><img src="../images/2012/08/earth-skizze.png" alt="" title="Situationsskizze f&uuml;r die Berechnung" width="500" height="553" class="aligncenter size-full wp-image-39311" /></a>
 Gesucht ist die L&auml;nge des neongr&uuml;n hervorgehobenen Kreisbogens x.
 
 <h3>Rechenweg</h3>
@@ -42,7 +42,7 @@ Wie weit &ouml;stlich darf das Dorf maximal liegen, damit man die Spitze des Bur
 Hinweis: Es gelten noch immer die gleichen Voraussetzungen wie im ersten Teil der Aufgabe.
 
 <h3>Situationsskizze</h3>
-<a href="http://martin-thoma.com/wp-content/uploads/2012/08/earth-skizze-21.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/08/earth-skizze-21.png" alt="" title="Skizze der Erde" width="500" height="299" class="aligncenter size-full wp-image-39411" /></a>
+<a href="../images/2012/08/earth-skizze-21.png"><img src="../images/2012/08/earth-skizze-21.png" alt="" title="Skizze der Erde" width="500" height="299" class="aligncenter size-full wp-image-39411" /></a>
 
 Gesucht ist die gr&uuml;n eingezeichnete Kurve, die sich &uuml;ber die Erdoberfl&auml;che kr&uuml;mmt. Ihre L&auml;nge sei x.
 Um diese zu berechnen, m&uuml;ssen wir wissen welchen Radius die Kreisfl&auml;che hat, die entsteht, wenn man die Erde am 25. Breitengrad schneidet. Der Radius dieser Kreisfl&auml;che sei $r_{25}$.

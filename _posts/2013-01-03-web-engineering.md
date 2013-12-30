@@ -21,7 +21,7 @@ Herr Dr. Nussbaumer h&auml;lt die Vorlesung sehr interaktiv. Er stellt viele Fra
 Die Struktur unter &bdquo;Vorbereitung&ldquo; richtet sich nach dem Aufbau der Folien.
 
 <h2>Vorbereitung</h2>
-Pr&uuml;fungsprotokolle sind bei der <a href="http://www.fsmi.uni-karlsruhe.de/Studium/Pruefungsprotokolle/">Fachschaft Informatik</a> zu erhalten. <a href="http://martin-thoma.com/wp-content/uploads/2013/01/muendlich-we-2013-martin-thoma.pdf">Mein Pr&uuml;fungsprotokoll</a> ist hier und die <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/kit-muendlich-info">TeX-Quelldateien</a> bekommt ihr nat&uuml;rlich auch.
+Pr&uuml;fungsprotokolle sind bei der <a href="http://www.fsmi.uni-karlsruhe.de/Studium/Pruefungsprotokolle/">Fachschaft Informatik</a> zu erhalten. <a href="../images/2013/01/muendlich-we-2013-martin-thoma.pdf">Mein Pr&uuml;fungsprotokoll</a> ist hier und die <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/kit-muendlich-info">TeX-Quelldateien</a> bekommt ihr nat&uuml;rlich auch.
 
 Im Folgenden sind einige Stichpunkte aufgelistet, die jedem etwas sagen sollten.
 

@@ -10,7 +10,7 @@ tags:
 - C
 featured_image: 2012/03/Matrix-Inverses.png
 ---
-<div class="info">This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>, Part II was about multiplication with the <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/" title="Part II: The Strassen algorithm in Python, Java and C++">Strassen algorithm</a> and Part III will be about parallel matrix multiplication (I didn't write it yet).</div>
+<div class="info">This is Part IV of my matrix multiplication series. Part I was about simple implementations and libraries: <a href="../matrix-multiplication-python-java-cpp/">Performance of Matrix multiplication in Python, Java and C++</a>, Part II was about multiplication with the <a href="../strassen-algorithm-in-python-java-cpp/" title="Part II: The Strassen algorithm in Python, Java and C++">Strassen algorithm</a> and Part III will be about parallel matrix multiplication (I didn't write it yet).</div>
 
 You can always multiply a matrix $J \in \mathbb{R}^{n \times m}$ with its transpose $J^T$, because $J^T \in \mathbb{R}^{m \times n}$. You will get a matrix $C \in \mathbb{R}^{n \times n}$.
 

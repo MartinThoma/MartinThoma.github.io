@@ -165,7 +165,7 @@ You can write Documentation and Unit-Tests at the same time! Take a look at <a h
 
 <h2>The Rest</h2>
 <h3>Lists and Generators</h3>
-I already wrote an article about <a href="http://martin-thoma.com/understanding-python-lists/" title="Understanding Python Lists">Python Lists</a> and <a href="http://martin-thoma.com/python-generators/" title="Python Generators">Python Generators</a>. I love Pythons lists :-)
+I already wrote an article about <a href="../understanding-python-lists/" title="Understanding Python Lists">Python Lists</a> and <a href="../python-generators/" title="Python Generators">Python Generators</a>. I love Pythons lists :-)
 
 <h3>for ... else</h3>
 <strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.

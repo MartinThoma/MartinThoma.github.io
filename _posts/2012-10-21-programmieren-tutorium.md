@@ -37,7 +37,7 @@ Die Einverst&auml;ndniserkl&auml;rung (Disclaimer) k&ouml;nnt ihr <a href="https
 <h2>Tutorials</h2>
 Folgendes textbasierte Tutorial wurde mir von einem Studenten empfohlen: <a href="http://www.java-blog-buch.de/inhaltsverzeichnis/">Java Blog Buch</a>
 
-Aber hier sind <a href="http://martin-thoma.com/learning-java/">Video-Tutorials</a> zu finden.
+Aber hier sind <a href="../learning-java/">Video-Tutorials</a> zu finden.
 
 Ich habe gerade <a href="http://www.javatutorialhub.com/java-platform.html">javatutorialhub.com</a> gefunden. Das erweckt auch einen guten ersten Eindruck.
 
@@ -47,8 +47,8 @@ Auf Udacity, einer Online-Universit&auml;t, gibt es eine <a href="https://www.ud
 Ich habe ein paar Artikel geschrieben, die f&uuml;r euch interessant sein k&ouml;nnten:
 
 <ul>
-  <li><a href="http://martin-thoma.com/tribonacci-folge/">Tribonacci-Folge</a></li>
-  <li><a href="http://martin-thoma.com/how-to-sort-with-java/">How to sort with Java?</a></li>
+  <li><a href="../tribonacci-folge/">Tribonacci-Folge</a></li>
+  <li><a href="../how-to-sort-with-java/">How to sort with Java?</a></li>
 </ul>
 
 <h2>Links</h2>

@@ -8,7 +8,7 @@ categories:
 tags:
 - Digitaltechnik
 ---
-Mithilfe des Consensus-Verfahrens k&ouml;nnen Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}$ in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das &Uuml;berdeckungsproblem noch gel&ouml;st werden muss. Dies kann man z.B. mit der <a href="http://martin-thoma.com/das-quine-mccluskey-verfahren/" title="Das Quine-McCluskey-Verfahren">zweiten Quineschen Tabelle</a> machen.
+Mithilfe des Consensus-Verfahrens k&ouml;nnen Primimplikanten gefunden werden. Dazu braucht man eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}$ in disjunktiver Normalform (DNF). Zu betonen ist, dass man keine Minimalform bekommt, da das &Uuml;berdeckungsproblem noch gel&ouml;st werden muss. Dies kann man z.B. mit der <a href="../das-quine-mccluskey-verfahren/" title="Das Quine-McCluskey-Verfahren">zweiten Quineschen Tabelle</a> machen.
 
 Dazu baut man eine Tabelle auf. Ich nenne sie mal Consensus-Tabelle. Diese hat 4 Spalten:
 <ul>

@@ -15,29 +15,29 @@ featured_image: 2012/04/mr-clean-ad-thumb.jpg
 <table>
 <tr>
 <td>
-<img src="http://martin-thoma.com/wp-content/uploads/2012/04/jobs-in-town-bankautomat.jpg" alt="Jobs in Town Advertising (Bankautomat)" title="Jobs in Town Advertising (Bankautomat)" width="250" height="366" class="size-full wp-image-21571" />
+<img src="../images/2012/04/jobs-in-town-bankautomat.jpg" alt="Jobs in Town Advertising (Bankautomat)" title="Jobs in Town Advertising (Bankautomat)" width="250" height="366" class="size-full wp-image-21571" />
 </td>
 <td>
-<img src="http://martin-thoma.com/wp-content/uploads/2012/04/jobs-in-town-eismaschine.jpg" alt="Jobs in Town Advertising (Eismaschine)" title="Jobs in Town Advertising (Eismaschine)" width="250" height="350" class="size-full wp-image-21581" /></td>
+<img src="../images/2012/04/jobs-in-town-eismaschine.jpg" alt="Jobs in Town Advertising (Eismaschine)" title="Jobs in Town Advertising (Eismaschine)" width="250" height="350" class="size-full wp-image-21581" /></td>
 </tr>
 
 <tr>
 <td>
-<img src="http://martin-thoma.com/wp-content/uploads/2012/04/jobs-in-town-kaffeeautomat.jpg" alt="Jobs in Town Advertising (Kaffeeautomat)" title="Jobs in Town Advertising (Kaffeeautomat)" width="250" height="353" class="size-full wp-image-21591" /></td>
+<img src="../images/2012/04/jobs-in-town-kaffeeautomat.jpg" alt="Jobs in Town Advertising (Kaffeeautomat)" title="Jobs in Town Advertising (Kaffeeautomat)" width="250" height="353" class="size-full wp-image-21591" /></td>
 <td>
-<img src="http://martin-thoma.com/wp-content/uploads/2012/04/jobs-in-town-kinderauto.jpg" alt="Jobs in Town Advertising (Kinderauto)" title="Jobs in Town Advertising (Kinderauto)" width="250" height="345" class="size-full wp-image-21601" /></td>
+<img src="../images/2012/04/jobs-in-town-kinderauto.jpg" alt="Jobs in Town Advertising (Kinderauto)" title="Jobs in Town Advertising (Kinderauto)" width="250" height="345" class="size-full wp-image-21601" /></td>
 </tr>
 
 <tr>
 <td>
-<img src="http://martin-thoma.com/wp-content/uploads/2012/04/jobs-in-town-music-machine-ad.jpg" alt="Jobs in Town Advertising (Music Machine)" title="Jobs in Town Advertising (Music Machine)" width="250" height="344" class="size-full wp-image-21611" /></td>
+<img src="../images/2012/04/jobs-in-town-music-machine-ad.jpg" alt="Jobs in Town Advertising (Music Machine)" title="Jobs in Town Advertising (Music Machine)" width="250" height="344" class="size-full wp-image-21611" /></td>
 <td>
-<img src="http://martin-thoma.com/wp-content/uploads/2012/04/jobs-in-town-tankstelle.jpg" alt="Jobs in Town Advertising (Tankstelle)" title="Jobs in Town Advertising (Tankstelle)" width="250" height="351" class="size-full wp-image-21621" /></td>
+<img src="../images/2012/04/jobs-in-town-tankstelle.jpg" alt="Jobs in Town Advertising (Tankstelle)" title="Jobs in Town Advertising (Tankstelle)" width="250" height="351" class="size-full wp-image-21621" /></td>
 </tr>
 
 <tr>
 <td colspan="2">
-<img src="http://martin-thoma.com/wp-content/uploads/2012/04/jobs-in-town-washing-machine.jpg" alt="Jobs in Town Advertising (Waschmaschine)" title="Jobs in Town Advertising (Waschmaschine)" width="425" height="302" class="size-full wp-image-21631" /></td>
+<img src="../images/2012/04/jobs-in-town-washing-machine.jpg" alt="Jobs in Town Advertising (Waschmaschine)" title="Jobs in Town Advertising (Waschmaschine)" width="425" height="302" class="size-full wp-image-21631" /></td>
 </tr>
 </table>
 

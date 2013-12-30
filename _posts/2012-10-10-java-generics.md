@@ -12,7 +12,7 @@ featured_image: 2012/07/java-thumb.png
 ---
 Some months ago, I had to improve some Java code for university. They gave us a model of a windows like file system and we had to make the code "cleaner". I think I've overdone the application of generics, but it's a nice example for generics ;-)
 
-You can download the <a href="http://martin-thoma.com/wp-content/uploads/2012/10/Filesystem.zip">complete Eclipse project</a>.
+You can download the <a href="../images/2012/10/Filesystem.zip">complete Eclipse project</a>.
 
 <h2>Computer.java</h2>
 {% highlight java %}package edu.kit.filesystem;

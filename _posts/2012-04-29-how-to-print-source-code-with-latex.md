@@ -42,7 +42,7 @@ Here is an minimal example how you could print Source Code with LaTeX:
 {% endhighlight %}
 
 <h3>My Template</h3>
-If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href='http://martin-thoma.com/wp-content/uploads/2012/04/LaTeX-Source-Code.pdf'>PDF-file</a>.
+If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href='../images/2012/04/LaTeX-Source-Code.pdf'>PDF-file</a>.
 {% highlight text %}
 {% raw %}
 \documentclass[a4paper,12pt]{article}
@@ -393,7 +393,7 @@ Lexers:
     YAML (filenames *.yaml, *.yml){% endhighlight %}
 <h3>Example</h3>
 {% caption align="aligncenter" width="613" caption="LaTeX Java Source Code: minted" url="../images/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" title="LaTeX Java Source Code: minted" height="232" class="size-full wp-image-23841" %}
-This is the <a href='http://martin-thoma.com/wp-content/uploads/2012/04/minted-source-code.pdf'>PDF-file</a> produced by the following LaTeX-Code:
+This is the <a href='../images/2012/04/minted-source-code.pdf'>PDF-file</a> produced by the following LaTeX-Code:
 
 {% highlight text %}\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
@@ -413,7 +413,7 @@ This is the <a href='http://martin-thoma.com/wp-content/uploads/2012/04/minted-s
 \end{document}{% endhighlight %}
 
 <h2>Material</h2>
-All files can be found in <a href='http://martin-thoma.com/wp-content/uploads/2012/04/LaTeX-Source-Code.zip'>LaTeX-Source-Code Archive</a>.
+All files can be found in <a href='../images/2012/04/LaTeX-Source-Code.zip'>LaTeX-Source-Code Archive</a>.
 
 <h2>See also</h2>
 <ul>

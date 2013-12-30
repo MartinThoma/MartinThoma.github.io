@@ -128,12 +128,12 @@ out:
 	syscall				# |=> Print plain
     jr      $ra{% endhighlight %}
 
-A syntax-highlighted version of both code pieces is here: <a href='http://martin-thoma.com/wp-content/uploads/2012/06/mips-rot-13-perfect-number.pdf'>MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.
+A syntax-highlighted version of both code pieces is here: <a href='../images/2012/06/mips-rot-13-perfect-number.pdf'>MIPS Assembly Code for a perfect number check and ROT-13 encryption</a>.
 
 <h2>See also</h2>
 <ul>
   <li><a href="https://sourceforge.net/projects/spimsimulator/files/">SPIM MIPS Simulator</a></li>
-  <li><a href="http://martin-thoma.com/how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX">How to print MIPS assembly code in LaTeX</a></li>
-  <li><a href="http://martin-thoma.com/add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
-  <li><a href='http://martin-thoma.com/wp-content/uploads/2012/06/mips-archive.zip'>Archive with MIPS assembly Code and LaTeX file</a></li>
+  <li><a href="../how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX">How to print MIPS assembly code in LaTeX</a></li>
+  <li><a href="../add-mips-syntax-highlighting-gedit/" title="Add MIPS syntax highlighting to gEdit">Add MIPS syntax highlighting to gEdit</a></li>
+  <li><a href='../images/2012/06/mips-archive.zip'>Archive with MIPS assembly Code and LaTeX file</a></li>
 </ul>

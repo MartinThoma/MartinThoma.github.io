@@ -35,7 +35,7 @@ Es ist also beides zu machen, die Shell (der Aufrufer) hat vor dem Verwenden der
 <h2>Tests</h2>
 Ihr <strong>m&uuml;sst</strong> eine Tests.txt mit abgeben. Die ist wie ein Beispiel aufgebaut und sollt wichtige Eingaben / Ausgaben enthalten, die eventuell zu Fehlern f&uuml;hren k&ouml;nnten.
 
-Da ihr sie ja sowieso schreibt, k&ouml;nnt ihr euer Programm auch auf eure Tests.txt &uuml;berpr&uuml;fen. Ich habe mir dazu folgendes kleines <a href='http://martin-thoma.com/wp-content/uploads/2012/03/programmieren-abschlussaufgabe.zip'>Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.
+Da ihr sie ja sowieso schreibt, k&ouml;nnt ihr euer Programm auch auf eure Tests.txt &uuml;berpr&uuml;fen. Ich habe mir dazu folgendes kleines <a href='../images/2012/03/programmieren-abschlussaufgabe.zip'>Python-Script zum Vergleichen</a> gebastelt und vergleiche dann den normalisierten realen Output mit hilfe von <a href="http://wiki.ubuntuusers.de/Meld">Meld</a> mit dem erwartetem Output.
 
 Also folgendes in der Bash:
 {% highlight bash %}python checkTests.py
@@ -101,8 +101,8 @@ Es gab jeweils auf Funktionalit&auml;t und Programmiermethodik 14 Punkte, wobei 
 
 <h2>Meine Abgabe</h2>
 <ul>
-  <li>LittlePraktomat: <a href="http://www.martin-thoma.de/programmieren-little-praktomat/class-diagram/class-diagram.pdf">Klassendiagramm</a> + <a href="http://www.martin-thoma.de/programmieren-little-praktomat/">JavaDoc</a> + <a href='http://martin-thoma.com/wp-content/uploads/2012/03/little-praktomat.zip'>Java Source Code</a></li>
-  <li>Othello: <a href="http://www.martin-thoma.de/programmieren-othello/">JavaDoc</a> + <a href='http://martin-thoma.com/wp-content/uploads/2012/03/othello.zip'>Java Source Code</a></li>
+  <li>LittlePraktomat: <a href="http://www.martin-thoma.de/programmieren-little-praktomat/class-diagram/class-diagram.pdf">Klassendiagramm</a> + <a href="http://www.martin-thoma.de/programmieren-little-praktomat/">JavaDoc</a> + <a href='../images/2012/03/little-praktomat.zip'>Java Source Code</a></li>
+  <li>Othello: <a href="http://www.martin-thoma.de/programmieren-othello/">JavaDoc</a> + <a href='../images/2012/03/othello.zip'>Java Source Code</a></li>
 </ul>
 
 <h3>Fehlerquellen</h3>

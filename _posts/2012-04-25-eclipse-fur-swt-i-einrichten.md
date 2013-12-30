@@ -52,7 +52,7 @@ Als erstes sollte man mal auf "Window" -> "Open Perspective" -> "Java" klicken.
   <li><a href="http://wiki.ubuntuusers.de/Downloads">Ubuntu Downloads</a></li>
   <li><a href="http://wiki.ubuntuusers.de/Java/Installation/Oracle_Java">Oracle Java - Manuelle Installation unter Ubuntu</a>.</li>
   <li>Weitere UbuntuUsers Artikel: <a href="http://wiki.ubuntuusers.de/Eclipse">Eclipse</a>, <a href="http://wiki.ubuntuusers.de/Subversion">Subversion</a></li>
-  <li><a href="http://martin-thoma.com/software-versioning-cheat-sheet/" title="Software Versioning Cheat Sheet">Software Versioning Cheat Sheet (Subversion / GIT)</a></li>
+  <li><a href="../software-versioning-cheat-sheet/" title="Software Versioning Cheat Sheet">Software Versioning Cheat Sheet (Subversion / GIT)</a></li>
   <li>Wikipedia: <a href="http://de.wikipedia.org/wiki/Eclipse_(IDE)">Eclipse</a>, <a href="http://de.wikipedia.org/wiki/Apache_Subversion">Subversion</a></li>
   <li>Wiki Books: <a href="http://de.wikibooks.org/wiki/Java_Standard:_Erste_Schritte">Java Standard: Erste Schritte</a> (habe ich NICHT gelesen! Aber f&uuml;r unsere Physiker ist das eventuell hilfreich.)</li>
 </ul>

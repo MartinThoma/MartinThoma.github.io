@@ -75,7 +75,7 @@ However, it has no Android App and seems not to support export.
 <a href="http://www.bloglines.com/index.html">Bloglines</a> offers an export function! I can't login with Google, but I can import my 109 Feeds. 
 
 It looks like this:
-<a href="http://martin-thoma.com/wp-content/uploads/2013/03/bloglines.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/bloglines-300x184.png" alt="bloglines" width="300" height="184" class="aligncenter size-medium wp-image-61351" /></a>
+<a href="../images/2013/03/bloglines.png"><img src="../images/2013/03/bloglines-300x184.png" alt="bloglines" width="300" height="184" class="aligncenter size-medium wp-image-61351" /></a>
 
 It has no Chrome App and the <a href="https://play.google.com/store/apps/details?id=org.nyquil.rss2bloglines&feature=search_result#?t=W251bGwsMSwyLDEsIm9yZy5ueXF1aWwucnNzMmJsb2dsaW5lcyJd">Android App</a> is possibly not official.
 

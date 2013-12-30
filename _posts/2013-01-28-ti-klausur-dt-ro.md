@@ -36,28 +36,28 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
   </li>
   <li>IEEE 754 Format
     <ul>
-      <li><a href="http://martin-thoma.com/a-practical-approach-to-floats/">A practical approach to floats</a></li>
+      <li><a href="../a-practical-approach-to-floats/">A practical approach to floats</a></li>
       <li>Wie wird NaN dargestellt? Wie wird $-\infty$ und $+\infty$ dargestellt?</li>
       <li>Was ist eine normalisierte Zahl, was eine denormalisierte?</li>
     </ul>
   </li>
   <li>Was ist <span class="hint" title="Alle Ziffern von 0-9 werden im 2er-System dargestellt.">BCD</span>, <span class="hint" title="Die Ziffern von 0-4 werden im 2er-System dargestellt. Dann geht es bei (B)_16 = 1011 weiter.">AIKEN</span> und <span class="hint" title="+3 auf jede Ziffer, dann wie BCD">STIBITZ</span>? Wie werden die Ziffern von 0 - 9 dort dargestellt?</li>
-  <li>Was sind Hamming-Codes? &rarr; <a href="http://martin-thoma.com/error-correcting-codes/">Antwort</a></li>
-  <li>Wie lauten die Huntingtonschen Axiome? &rarr; <a href="http://martin-thoma.com/beweise-aus-der-booleschen-algebra/">Antwort</a></li>
+  <li>Was sind Hamming-Codes? &rarr; <a href="../error-correcting-codes/">Antwort</a></li>
+  <li>Wie lauten die Huntingtonschen Axiome? &rarr; <a href="../beweise-aus-der-booleschen-algebra/">Antwort</a></li>
   <li>Nenne 3 verschiedene vollst&auml;ndige Operatorensysteme. &rarr; <span class="hint" title="(UND, ODER, NOT), (NAND), (NOR)">Antwort</span></li>
   <li>Was sind Primterme, Primimplikanten, Primimplikate, Minterme und Maxterme?</li>
   <li>Was sind DMF, DNF, KMF, KNF?</li>
-  <li>Wie wende ich die Shannon-Zerlegung an? &rarr; <a href="http://martin-thoma.com/wie-wende-ich-die-shannon-zerlegung-an/">Antwort</a></li>
+  <li>Wie wende ich die Shannon-Zerlegung an? &rarr; <a href="../wie-wende-ich-die-shannon-zerlegung-an/">Antwort</a></li>
   <li>Wie minimiere ich Funktionen mit KV-Diagrammen?</li>
-  <li>Wie funktioniert das Quine-McCluskey Verfahren? &rarr; <a href="http://martin-thoma.com/das-quine-mccluskey-verfahren/">Antwort</a></li>
-  <li>Was macht das Consensus-Verfahren? &rarr; <a href="http://martin-thoma.com/das-consensus-verfahren/">Antwort</a></li>
+  <li>Wie funktioniert das Quine-McCluskey Verfahren? &rarr; <a href="../das-quine-mccluskey-verfahren/">Antwort</a></li>
+  <li>Was macht das Consensus-Verfahren? &rarr; <a href="../das-consensus-verfahren/">Antwort</a></li>
   <li>Wie funktioniert das Nelson-Verfahren?</li>
   <li>Was bedeutet selbstleitend und selbstsperrend?</li>
   <li>Was ist <abbr title="metal-oxide-semiconductor field-effect transistor">MOSFET</abbr>? &rarr; <a href="http://commons.wikimedia.org/wiki/File:N-Kanal-MOSFET_(Schema).svg">Aufbau</a></li>
   <li><abbr title="Complementary Metal Oxide Semiconductor">CMOS</abbr>, N-MOS, P-MOS</li>
   <li>Was ist der Unterschied zwischen einem Hasard und einem Hasard-Fehler?</li>
   <li>Woran erkennt man Funktionshasards, woran Strukturhasards?</li>
-  <li>Wie lauten die Ansteuertabellen von D-, T-, JK- und RS-Flipflops? &rarr; <a href="http://martin-thoma.com/flipflops-und-latches/">Antwort</a></li>
+  <li>Wie lauten die Ansteuertabellen von D-, T-, JK- und RS-Flipflops? &rarr; <a href="../flipflops-und-latches/">Antwort</a></li>
   <li>Was macht ein Carry-ripple-Addierer? &rarr; <span class="hint" title="Nutzt zur Addition zweier n-Stelliger Zahlen (n-1) Volladdierer und einen Halbaddierer.">Antwort</span></li>
   <li>Inwiefern stellt der Carry-lookahead-Addierer eine Verbesserung des Carry-ripple-Addierers dar? &rarr; <span class="hint" title="Der Carry-ripple-Addierer rechnet von dem LSB zu dem MSB Schritt f&uuml;r Schritt. Der Carry-Lookahead-Addierer versucht dies zu beschleunigen, indem er die &Uuml;bertr&auml;ge direkt aus den Eingangsvariablen berechnet.">Antwort</span></li>
   <li>Was macht man, wenn bei der Addition zweier BCD-Zahlen eine Pseudotetrade auftritt? &rarr; <span class="hint" title="6 auf die betroffene Tetrade addieren.">Antwort</span></li>

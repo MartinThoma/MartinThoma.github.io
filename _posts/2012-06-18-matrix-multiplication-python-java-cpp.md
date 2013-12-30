@@ -16,12 +16,12 @@ tags:
 - matrix multiplication
 featured_image: 2011/09/Python-Logo.png
 ---
-<div class="info">This is Part I of my matrix multiplication series. <a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
+<div class="info">This is Part I of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
 <a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
 
 This post is about simple implementations of matrix multiplications. The goal of this post is to find out how easy it is to implement a matrix multiplication in Python, Java and C++. Additionally, I want to get to know how good these solutions are.
 
-The second post will be an implementation of the Strassen algorithm for matrix multiplication. <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> does matrix multiplication in $\cal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$ instead of $\cal O(n^3)$. I am quite sure this will outperform almost every other change. See Part II: <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a>.
+The second post will be an implementation of the Strassen algorithm for matrix multiplication. <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> does matrix multiplication in $\cal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$ instead of $\cal O(n^3)$. I am quite sure this will outperform almost every other change. See Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a>.
 
 The third post will be about parallel programming. I have two cores and I want to see if it will be significantly faster if I use both of them.
 
@@ -773,4 +773,4 @@ It was astonishingly difficult to find working code examples for this task for J
   <li><a href="http://stackoverflow.com/questions/11110604/why-is-boosts-matrix-multiplication-slower-than-mine">Why is boosts matrix multiplication slower than mine?</a></li>
 </ul>
 
-<div class="info">Continue reading with Part II: <a href="http://martin-thoma.com/strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a></div>
+<div class="info">Continue reading with Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a></div>

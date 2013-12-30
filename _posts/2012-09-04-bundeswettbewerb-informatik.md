@@ -63,11 +63,11 @@ LaTeX ist toll - aber keine Pflicht. Es werden leider relativ wenige Dokumentati
 <ul>
   <li>Das Ergebnis kann sich sehen lassen, LaTeX sieht einfach sch&ouml;n aus.</li>
   <li>Man kann die Doku in die Versionskontrolle stecken.</li>
-  <li>Man kann Quelltext automatisch einbinden lassen (siehe dazu ein <a href="http://martin-thoma.com/how-to-print-source-code-with-latex/">Blogpost</a> von mir).</li>
-  <li>Und so bekommt man LaTeX: <a href="http://martin-thoma.com/how-to-install-the-latest-latex-version/">How to install the latest LaTeX Version</a>.</li>
+  <li>Man kann Quelltext automatisch einbinden lassen (siehe dazu ein <a href="../how-to-print-source-code-with-latex/">Blogpost</a> von mir).</li>
+  <li>Und so bekommt man LaTeX: <a href="../how-to-install-the-latest-latex-version/">How to install the latest LaTeX Version</a>.</li>
 </ul>
 
-Au&szlig;erdem ist die Kombination <a href="http://martin-thoma.com/latex-versioning-a-great-experience/">LaTeX+Versionskontrolle</a> toll :-)
+Au&szlig;erdem ist die Kombination <a href="../latex-versioning-a-great-experience/">LaTeX+Versionskontrolle</a> toll :-)
 
 <h3>Die CD</h3>
 Ich wei&szlig; leider nicht, warum keine Online-Abgabe m&ouml;glich ist. Vielleicht, weil es einfacher ist. Eventuell aus Sicherheitsgr&uuml;nden. Wenn man Papier und eine CD in der Hand hat, kann es nicht passieren, dass eine Runde im schlimmsten Szenario komplett ausfallen muss, weil der Server abgeraucht ist. Egal wie, ihr m&uuml;sst die CD erstellen. Dazu h&auml;tte ich - aus Sicht eines Korrektors - ein paar Bitten:
@@ -96,7 +96,7 @@ Trotz Doku sind Quelltextkommentare erw&uuml;nscht. Allerdings m&uuml;ssen Stand
 
 <h2>Was sollte man lernen?</h2>
 Falls ihr Informatik studieren wollt oder sp&auml;ter programmieren wollt, sind SVN und GIT unverzichtbar. Au&szlig;erdem werdet ihr wohl mit Java und C++ in Kontakt kommen. Am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a> wird euch beigebracht, wie ihr mit Eclipse und checkstyle umgeht. Aber es wird auch erwartet, dass ihr es nutzt.
-Ich vermute, dass f&uuml;r viele wissenschaftliche Ver&ouml;ffentlichungen im Natur- und Ingenieurswissenschaftlichen Bereich LaTeX kaum wegzudenken ist. (Ach ja: Ihr k&ouml;nnt auch <a href="http://martin-thoma.com/briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> und <a href="http://martin-thoma.com/complex-latex-visualizations-tikz/" title="Complex LaTeX visualizations (Tikz)">komplexe Grafiken mit LaTeX erstellen</a>!)
+Ich vermute, dass f&uuml;r viele wissenschaftliche Ver&ouml;ffentlichungen im Natur- und Ingenieurswissenschaftlichen Bereich LaTeX kaum wegzudenken ist. (Ach ja: Ihr k&ouml;nnt auch <a href="../briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> und <a href="../complex-latex-visualizations-tikz/" title="Complex LaTeX visualizations (Tikz)">komplexe Grafiken mit LaTeX erstellen</a>!)
 
 <h3>Website-Empfehlungen</h3>
 Das meiste, was ihr wissen m&uuml;sst, k&ouml;nnt ihr &uuml;ber Wikipedia lernen. Ich habe mich z.B. mal durch die <a href="http://de.wikipedia.org/wiki/Kategorie:Algorithmus">Kategorie:Algorithmus</a> geklickt. Das ist nicht sonderlich zielf&uuml;hrend und sicher nicht jedermanns Sache, aber so habe ich mir einiges beigebracht. Ob es mir viel genutzt hat, kann ich nur schwer beurteilen.
@@ -105,7 +105,7 @@ Wenn ihr Interessantes rund um die praktische Informatik in kleinen Portionen le
 
 Es gibt &uuml;brigens von einigen Universit&auml;ten Online-Vorlesungen. Ich habe mir damals eine <a href="http://ocw.mit.edu/courses/#electrical-engineering-and-computer-science">Vorlesung vom MIT</a> komplett angesehen (das waren damals zwei Dozenten, von denen einer Prof. John Guttag war). Dieses Semester habe ich vom Stanford <a href="https://class.coursera.org/algo-2012-002/class/index">Algorithms: Design and Analysis</a> durchgearbeitet. Die stellen sogar eine PDF-Urkunde mit deinen Ergebnissen aus. <a href="http://www.udacity.com/">Udacity</a> bietet in der Hinsicht auch interessante Kurse.
 
-Wenn ihr generell am Knobeln Spa&szlig; habt, kann ich sogenannte &bdquo;<a href="http://martin-thoma.com/challenge-websites/">Challenge Websites</a>&ldquo; empfehlen. Die Probleme sind (gr&ouml;&szlig;tenteils) schneller zu l&ouml;sen als beim Bundeswettbewerb und man muss keine Doku schreiben.
+Wenn ihr generell am Knobeln Spa&szlig; habt, kann ich sogenannte &bdquo;<a href="../challenge-websites/">Challenge Websites</a>&ldquo; empfehlen. Die Probleme sind (gr&ouml;&szlig;tenteils) schneller zu l&ouml;sen als beim Bundeswettbewerb und man muss keine Doku schreiben.
 
 <h3>Buchempfehlungen</h3>
 F&uuml;r die zweite Runde kann ich &bdquo;Computers and Intractability: A Guide to the Theory of NP-Completeness&ldquo; (<a href="http://de.wikipedia.org/wiki/Vorlage:BibISBN/0716710455">Link</a>) empfehlen. Es wird in der zweiten Runde h&auml;ufig (immer?) erwartet, dass man auf die Komplexit&auml;t des Problems bzw. das Laufzeitverhalten der eigenen L&ouml;sung eingeht. Wenn man das besonders gut macht, gibt es hin und wieder Bonuspunkte. Wenn ihr dieses Buch - das ganz eindeutig dem Bereich der Theoretischen Informatik zuzuordnen ist und f&uuml;r einen Sch&uuml;ler bestimmt keine leichte Lekt&uuml;re ist - versteht und das Wissen &uuml;bertragen k&ouml;nnt, dann k&ouml;nntet ihr hier Boni erhalten. Aber wie gesagt, das zu verstehen und auf ein konkretes Problem zu &uuml;bertragen ist nicht leicht.

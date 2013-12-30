@@ -11,13 +11,13 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen:
 <ul>
-	<li>Wie sind die Landau-Symbole $\cal O(f(n)), \Theta(f(n)), \Omega(f(n))$ definiert? &rarr; <a title="Definitionen aus GBI" href="http://martin-thoma.com/definitionen-aus-gbi/#Komplexittstheorie">Antwort</a></li>
+	<li>Wie sind die Landau-Symbole $\cal O(f(n)), \Theta(f(n)), \Omega(f(n))$ definiert? &rarr; <a title="Definitionen aus GBI" href="../definitionen-aus-gbi/#Komplexittstheorie">Antwort</a></li>
 	<li>Wie lautet das Master-Theorem? &rarr; <a href="http://de.wikipedia.org/wiki/Master-Theorem#Allgemeine_Form">Antwort</a></li>
 	<li>Wie funktioniert der Bellman-Ford-Algorithmus und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Bellman-Ford-Algorithmus">Antwort</a></li>
 	<li>Wie funktioniert der Dijkstra-Algorithmus und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Dijkstra-Algorithmus">Antwort</a></li>
 	<li>Wie funktioniert der Algorithmus von Kruskal und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Kruskal">Antwort</a></li>
 	<li>Wie funktioniert der Algorithmus von Prim und was macht er? &rarr; <a href="http://de.wikipedia.org/wiki/Algorithmus_von_Prim">Antwort</a></li>
-	<li>Was ist ein Heap, ein B-Baum, ein Digitaler Baum und was ein Suchbaum? &rarr; <a href="http://martin-thoma.com/ubersicht-uber-datenstrukturen/">Antwort</a></li>
+	<li>Was ist ein Heap, ein B-Baum, ein Digitaler Baum und was ein Suchbaum? &rarr; <a href="../ubersicht-uber-datenstrukturen/">Antwort</a></li>
 	<li>Sei $A := $ {Insertionsort, Quicksort, Mergesort, Heapsort, Selectionsort}. Beantworte und begr&uuml;nde f&uuml;r $x \in A$ folgende Fragen:
 <ul>
 	<li>Wie funktioniert x?</li>
@@ -27,7 +27,7 @@ F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen
 	<li>Hat x im Worst-Case optimales Speicherplatzverhalten?</li>
 </ul>
 
-&rarr; <a href="http://martin-thoma.com/ubersicht-uber-sortieralgorithmen/" title="&Uuml;bersicht &uuml;ber Sortieralgorithmen">Antwort</a>
+&rarr; <a href="../ubersicht-uber-sortieralgorithmen/" title="&Uuml;bersicht &uuml;ber Sortieralgorithmen">Antwort</a>
 </li>
 	<li>Wie funktioniert Radixsort? &rarr; <a href="http://de.wikipedia.org/wiki/Radixsort">Antwort</a></li>
 	<li>Warum ist Radixsort und <a href="http://de.wikipedia.org/wiki/Countingsort">Countingsort</a> nur schlecht mit den Sortieralgorithmen aus vergleichbar?</li>

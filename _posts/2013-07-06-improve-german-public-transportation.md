@@ -55,7 +55,7 @@ Google Transit is interesting as they provide <a href="https://developers.google
   <li>Write software that allows bus companies to get their data into Google Transit Format
     <ol>
       <li>Write standard relational SQL database to store the required information</li>
-      <li>Create <abbr title="user interface">UI</abbr> scribbles (e.g. with <a href="http://martin-thoma.com/how-can-i-sketch-an-application/" title="How can I sketch an application?">Balsamiq</a>)</li>
+      <li>Create <abbr title="user interface">UI</abbr> scribbles (e.g. with <a href="../how-can-i-sketch-an-application/" title="How can I sketch an application?">Balsamiq</a>)</li>
       <li>Write software</li>
     </ol>
   </li>

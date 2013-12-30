@@ -61,7 +61,7 @@ beginfig(1);
 endfig;
 end{% endhighlight %}
 
-You have to execute mpost before you can compile LaTeX. A working example is in this <a href='http://martin-thoma.com/wp-content/uploads/2012/05/UML.zip'>UML Archive</a>.
+You have to execute mpost before you can compile LaTeX. A working example is in this <a href='../images/2012/05/UML.zip'>UML Archive</a>.
 
 It looks like that in your generated PDF file:
 {% caption align="aligncenter" width="676" caption="MetaUML class diagram" url="../images/2012/05/MetaUML-class-diagram.png" alt="MetaUML class diagram" title="MetaUML class diagram" height="161" class="size-full wp-image-24271" %}

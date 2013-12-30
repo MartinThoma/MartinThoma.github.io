@@ -94,7 +94,7 @@ console.log(localMediaStream);
 <h2>Interactive example</h2>
 <div class="info">
 You need a webcam for this:
-<a href="http://martin-thoma.com/html5/graphic-filters/graphic-filters.htm" target="_blank">Open demonstration in new window</a>
+<a href="../html5/graphic-filters/graphic-filters.htm" target="_blank">Open demonstration in new window</a>
 </div>
 
 This is what it should look like:

@@ -69,6 +69,6 @@ Here is the LaTeX-Code:
 \end{landscape}
 \end{document}{% endhighlight %}
 
-Here is the <a href='http://martin-thoma.com/wp-content/uploads/2011/10/timetable.sty'>timetable</a> and the <a href='http://martin-thoma.com/wp-content/uploads/2011/10/example.tex'>example timtable in LaTeX</a>.
+Here is the <a href='../images/2011/10/timetable.sty'>timetable</a> and the <a href='../images/2011/10/example.tex'>example timtable in LaTeX</a>.
 If you have a Linux machine, you can create the timetable with this command:
 {% highlight bash %}pdflatex example.tex -output-format=pdf{% endhighlight %}

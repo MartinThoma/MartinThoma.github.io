@@ -11,9 +11,9 @@ tags:
 - Shortfilm
 featured_image: 2012/08/electroshock.png
 ---
-<div class="info">Here is the first part "<a href="http://martin-thoma.com/shortfilms/">Shortfilms</a>".</div>
+<div class="info">Here is the first part "<a href="../shortfilms/">Shortfilms</a>".</div>
 
-Here are some nice shortfilms in high quality. If you missed the first part, here is the article "<a href="http://martin-thoma.com/shortfilms/" title="Shortfilms">shortfilms</a>" (Part I).
+Here are some nice shortfilms in high quality. If you missed the first part, here is the article "<a href="../shortfilms/" title="Shortfilms">shortfilms</a>" (Part I).
 
 <h2>The Last Train</h2>
 <iframe src="http://player.vimeo.com/video/31215588" width="512" height="288" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>

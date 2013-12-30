@@ -137,7 +137,7 @@ if __name__ == "__main__":
 {% endhighlight %}
 
 <h2>A better algorithm</h2>
-Just like for <a href="http://martin-thoma.com/solving-equations-of-unipotent-lower-triangular-matrices/" title="Solving equations of unipotent lower triangular matrices">unipotent lower triangular matrices</a>, we can operate directly on the given input:
+Just like for <a href="../solving-equations-of-unipotent-lower-triangular-matrices/" title="Solving equations of unipotent lower triangular matrices">unipotent lower triangular matrices</a>, we can operate directly on the given input:
 
 {% highlight python %}
 #!/usr/bin/env python

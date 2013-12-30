@@ -17,7 +17,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>17.04.2013</td>
 <td><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/media/kapitel1.pdf">Kapitel 1.1</a></td>
-<td>Wiederholung LGS, <a href="http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gausches Eliminationsverfahren</a>, <a href="http://www.youtube.com/watch?v=MTKkiSCBo74">LR-Zerlegung</a>, Frobeniusmatrix</td>
+<td>Wiederholung LGS, <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gausches Eliminationsverfahren</a>, <a href="http://www.youtube.com/watch?v=MTKkiSCBo74">LR-Zerlegung</a>, Frobeniusmatrix</td>
 </tr>
 <tr>
 <td>24.04.2013</td>
@@ -57,12 +57,12 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 <tr>
 <td>12.06.2013</td>
 <td><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/media/kapitel3a.pdf">Kapitel 3</a> - 3.1.2</td>
-<td>Interpolation von Funktionen mittels Polynomen (&rarr; <a href="http://martin-thoma.com/polynomial-interpolation/" title="Polynomial interpolation">Artikel</a>); Monomdarstellung; Lagrange-Polynome; Newton-Polynome; Dividierende Differenzen</td>
+<td>Interpolation von Funktionen mittels Polynomen (&rarr; <a href="../polynomial-interpolation/" title="Polynomial interpolation">Artikel</a>); Monomdarstellung; Lagrange-Polynome; Newton-Polynome; Dividierende Differenzen</td>
 </tr>
 <tr>
 <td>26.06.2013</td>
 <td><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/media/kapitel3.pdf#page=15">Kapitel 3.2</a> - S. 54, unten</td>
-<td><a href="http://martin-thoma.com/spline-interpolation/" title="Spline interpolation">Kubische Spline-Interpolation</a> &rarr; <a href="http://martin-thoma.com/html5/polynom-interpolation.htm">Visualisierung</a></td>
+<td><a href="../spline-interpolation/" title="Spline interpolation">Kubische Spline-Interpolation</a> &rarr; <a href="../html5/polynom-interpolation.htm">Visualisierung</a></td>
 </tr>
 </table>
 
@@ -105,7 +105,7 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 </tr>
 <tr>
   <td>5</td>
-  <td><a href="http://martin-thoma.com/wie-berechnet-man-die-cholesky-zerlegung/">Cholesky-Zerlegung</a></td>
+  <td><a href="../wie-berechnet-man-die-cholesky-zerlegung/">Cholesky-Zerlegung</a></td>
 </tr>
 <tr>
   <td>6</td>
@@ -137,11 +137,11 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 <ul>
   <li><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/de">Vorlesungswebsite</a></li>
   <li><a href="https://ankiweb.net/shared/info/3163682033">Mein Anki-Deck</a> (erst 12 Karten; es ist noch im Aufbau)</li>
-  <li><a href="http://martin-thoma.com/polynomial-interpolation/">Polynom- und Spline-Interpolation</a>: Ein interaktives Beispiel</li>
+  <li><a href="../polynomial-interpolation/">Polynom- und Spline-Interpolation</a>: Ein interaktives Beispiel</li>
   <li><a href="http://schickling.github.io/algorithms/#/">schickling.github.io</a>: Viele Implementierungen</li>
   <li>Pseudocode
     <ul>
-      <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/Cholesky-Zerlegung">Cholesky-Zerlegung</a>, siehe <a href="http://martin-thoma.com/wie-berechnet-man-die-cholesky-zerlegung/">Artikel</a></li>
+      <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/Cholesky-Zerlegung">Cholesky-Zerlegung</a>, siehe <a href="../wie-berechnet-man-die-cholesky-zerlegung/">Artikel</a></li>
     </ul>
   </li>
   <li>StackExchange:

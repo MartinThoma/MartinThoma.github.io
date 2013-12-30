@@ -24,8 +24,8 @@ Here is the answer:
   <li><strong>Accessibility</strong>: To open LaTeX, you only need a text editor. If you want to complie it, you have to get one of many free LaTeX distributions like TeX-Live. After compiling it you get a PDF. PDFs look always the same, so you don't have the problem of shifted margins.</li>
   <li><strong>Speed</strong>: I can write mathematical formulae much faster with LaTeX than with Word.</li>
   <li><strong>Professional look</strong>: You can quite often see if a presentation / documentation was written with LaTeX or with Word. I think the LaTeX-Documentations do look much more professional.</li>
-  <li><strong>Source Code Inclusion</strong>: You can include and highlight source code directly within LaTeX. No need for copy and paste (see <a href="http://martin-thoma.com/how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a>, <a href="http://martin-thoma.com/how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX">How to print MIPS assembly code in LaTeX</a>)</li>
-  <li><strong>Great Visualizations</strong>: You can create great visualizations directly within LaTeX (see , <a href="http://martin-thoma.com/how-to-draw-a-finite-state-machine/" title="How to draw a finite-state machine">How to draw a finite-state machine</a>, <a href="http://martin-thoma.com/plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a> and <a href="http://martin-thoma.com/complex-latex-visualizations-tikz/" title="Complex LaTeX visualizations (Tikz)">Complex LaTeX visualizations (Tikz)</a>)</li>
+  <li><strong>Source Code Inclusion</strong>: You can include and highlight source code directly within LaTeX. No need for copy and paste (see <a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a>, <a href="../how-print-mips-assembly-code-latex/" title="How to print MIPS assembly code in LaTeX">How to print MIPS assembly code in LaTeX</a>)</li>
+  <li><strong>Great Visualizations</strong>: You can create great visualizations directly within LaTeX (see , <a href="../how-to-draw-a-finite-state-machine/" title="How to draw a finite-state machine">How to draw a finite-state machine</a>, <a href="../plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a> and <a href="../complex-latex-visualizations-tikz/" title="Complex LaTeX visualizations (Tikz)">Complex LaTeX visualizations (Tikz)</a>)</li>
 </ul>
 
 I guess some might not know what a diff is or how it can look like. diff is a program that compares text files. This is an example with two text files. Each of them has 100 paragraphs:
@@ -44,10 +44,10 @@ I guess some might not know what a diff is or how it can look like. diff is a pr
 > Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.{% endhighlight %}
 
 If you use meld it looks like this:
-<a href="http://martin-thoma.com/wp-content/uploads/2012/06/meld-diff.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/06/meld-diff-300x156.png" alt="" title="meld-diff" width="300" height="156" class="aligncenter size-medium wp-image-29051" /></a>
+<a href="../images/2012/06/meld-diff.png"><img src="../images/2012/06/meld-diff-300x156.png" alt="" title="meld-diff" width="300" height="156" class="aligncenter size-medium wp-image-29051" /></a>
 
 <h2>My LaTeX configuration</h2>
-First, you have to install the latest LaTeX-Version: <a href="http://martin-thoma.com/how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>.
+First, you have to install the latest LaTeX-Version: <a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>.
 
 I like editing the source code directly very much. To do so, I use gEdit. When I press Ctrl+M, my LaTeX document gets saved, compiled and the temporary files are thrown away. If you want this, you should follow these instructions.
 

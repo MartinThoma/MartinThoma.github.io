@@ -73,7 +73,7 @@ svg:
 
 <h2>Requirements</h2>
 <ul>
-    <li>LaTeX (<a href="http://martin-thoma.com/how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
+    <li>LaTeX (<a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
     <li>make</li>
     <li>Inkscape</li>
     <li>pdf2svg</li>
@@ -116,12 +116,12 @@ You have to place the Makefile in the same folder as latex-document.tex. If you 
   <li><code>make</code>: Generates a PDF file from latex-document.tex</li>
   <li><code>make svg</code>: Generates a SVG file from the generated PDF file</li>
   <li><code>make transparentGif</code>: Generates a transparent Gif from the PDF file</li>
-  <li><code>make animatedGif</code>: If you have used multiple slides, this will create an animated Gif file. See <a href="http://martin-thoma.com/how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a> for an example.</li>
+  <li><code>make animatedGif</code>: If you have used multiple slides, this will create an animated Gif file. See <a href="../how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a> for an example.</li>
 </ul>
 
 <h2>See also</h2>
 <ul>
-  <li><a href="http://martin-thoma.com/how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
-  <li><a href="http://martin-thoma.com/briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> (A template for letters)</li>
-  <li><a href="http://martin-thoma.com/plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a></li>
+  <li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
+  <li><a href="../briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> (A template for letters)</li>
+  <li><a href="../plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a></li>
 </ul>

@@ -64,7 +64,7 @@ This is a basic presentation:
 {% endhighlight %}
 
 <h2>Style</h2>
-If you want to create nice-looking presentations like <a href="http://martin-thoma.com/wp-content/uploads/2013/03/tutorium-05.pdf">this one</a> or <a href="http://martin-thoma.com/wp-content/uploads/2013/03/google-presentation.pdf">that one</a>, you should probably adjust the style. Here is an overview of the default ones that LaTeX has: <a href="http://deic.uab.es/~iblanes/beamer_gallery/">Beamer theme gallery</a> or <a href="http://latex.simon04.net/">here</a>.
+If you want to create nice-looking presentations like <a href="../images/2013/03/tutorium-05.pdf">this one</a> or <a href="../images/2013/03/google-presentation.pdf">that one</a>, you should probably adjust the style. Here is an overview of the default ones that LaTeX has: <a href="http://deic.uab.es/~iblanes/beamer_gallery/">Beamer theme gallery</a> or <a href="http://latex.simon04.net/">here</a>.
 
 The important commands for changing the appearance, that should get included just after documentclass, are:
 {% highlight text %}
@@ -146,8 +146,8 @@ This is how you get the image it:
 
 <h2>Further reading</h2>
 <ul>
-  <li><a href="http://martin-thoma.com/sizes-in-latex/" title="Sizes in LaTeX">Sizes in LaTeX</a></li>
-  <li><a href="http://martin-thoma.com/how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a></li>
+  <li><a href="../sizes-in-latex/" title="Sizes in LaTeX">Sizes in LaTeX</a></li>
+  <li><a href="../how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a></li>
   <li><a href="http://www.math.umbc.edu/~rouben/beamer/beamer_guide.pdf">UMBC Beamer guide</a></li>
   <li><code>texdoc beameruserguide</code> or <a href="http://www.tex.ac.uk/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf">online</a></li>
 </ul>
