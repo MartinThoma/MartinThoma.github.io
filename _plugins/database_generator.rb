@@ -96,12 +96,10 @@ module Jekyll
                             puts "[Warning][Post:"+post.url+"/] Link with url '"+link+"' has multiple pages."
                         elsif
                             targetid = rows[0][:rowid]
+                            # insert data
+                            insert_link = db["INSERT INTO internal_links (page_from, page_to, text) VALUES (?, ?, ?)", postid, targetid, linktext]
+                            insert_link.insert
                         end
-                        targetid=0
-
-                        # insert data
-                        insert_link = db["INSERT INTO internal_links (page_from, page_to, text) VALUES (?, ?, ?)", postid, targetid, linktext]
-                        insert_link.insert
                     end
                 end
             end
