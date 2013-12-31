@@ -5,7 +5,7 @@ author: Martin Thoma
 date: May 22, 2012
 categories: 
 - Code
-tags: []
+tags:
 - C
 - ICPC
 - TopCoder
