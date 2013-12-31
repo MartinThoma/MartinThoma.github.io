@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Error correcting Codes</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -101,7 +101,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Introduction</h2>
 
-<p>To keep it simple, we make a small example. We have <code>$2^3 = 8$</code> valid messages:</p>
+<p>To keep it simple, we make a small example. We have $2^3 = 8$ valid messages:</p>
 
 <p>Message A: (0, 0, 0)
 Message B: (0, 0, 1)
@@ -112,7 +112,7 @@ Message F: (1, 0, 1)
 Message G: (1, 1, 0)
 Message H: (1, 1, 1)</p>
 
-<p>I will call the set <code>$c_1 := \{A, B, C, D, E, F, G, H\}$</code> of those messages a <strong>code</strong>.</p>
+<p>I will call the set $c_1 := \{A, B, C, D, E, F, G, H\}$ of those messages a <strong>code</strong>.</p>
 
 <p>Now Alice wants to send message A to Bob. If one error occurs, Bob receives either message B, message C or message E. As all of those are valid messages, he might not notice that an error occurred (and even more not be able to correct the error).</p>
 
@@ -132,7 +132,7 @@ Message G': (1, 1, 0, 1, 1, 0)
 Message H': (1, 1, 1, 1, 1, 1)</p>
 
 <p>
-   <code>$c_2 := \{A', B', C', D', E', F', G', H'\}$</code>
+   $c_2 := \{A', B', C', D', E', F', G', H'\}$
 </p>
 
 <p>If Bob gets a message with only one error, he can detect it. But he still isn't able to correct it:
@@ -144,28 +144,28 @@ Alice send Message A and an error occurred at the first (most significant) bit. 
 
 <p>A useful tool is the so called "<a href="http://en.wikipedia.org/wiki/Hamming_distance">Hamming distance</a>". </p>
 
-<p>The set of all 0/1 tuples of the length <code>$n$</code> is called <code>$\mathcal{F}_n$</code>. </p>
+<p>The set of all 0/1 tuples of the length $n$ is called $\mathcal{F}_n$. </p>
 
 <p>Examples: 
-<code>$\begin{align}
+$\begin{align}
     \{A, B, C, D, E, F, G, H\}     &amp;= \mathcal{F}_3\\
 \{A', B', C', D', E', F', G', H'\} &amp;\subsetneq \mathcal{F}_8
-\end{align}$</code></p>
+\end{align}$</p>
 
-<p><code>$A[i]$</code> is the <code>$i$</code>-th bit of a message <code>$A$</code> with <code>$i \in \{0, \dots, (n-1)\}$</code></p>
+<p>$A[i]$ is the $i$-th bit of a message $A$ with $i \in \{0, \dots, (n-1)\}$</p>
 
-<p><code>$\oplus : \{0,1\} \times \{0,1\} \rightarrow \{0,1\}$</code> defined as <code>$\oplus(a, b) := 
+<p>$\oplus : \{0,1\} \times \{0,1\} \rightarrow \{0,1\}$ defined as $\oplus(a, b) := 
 \begin{cases}
  0 &amp; \text{, if } a = b\\
  1 &amp; \text{, if } a \neq b\\
-\end{cases}$</code>.
-(<code>$\oplus$</code> is XOR).</p>
+\end{cases}$.
+($\oplus$ is XOR).</p>
 
-<p>The Hamming distance is a function <code>$h: \mathcal{F}_n \times \mathcal{F}_n \rightarrow \mathbb{N}_0$</code> defined as:
-<code>$\displaystyle h(A, B) := \sum_{i=0}A[i] \oplus B[i]$</code></p>
+<p>The Hamming distance is a function $h: \mathcal{F}_n \times \mathcal{F}_n \rightarrow \mathbb{N}_0$ defined as:
+$\displaystyle h(A, B) := \sum_{i=0}A[i] \oplus B[i]$</p>
 
 <p>The minimum Hamming distance is defined as:
-<code>$\displaystyle h_\text{min}(\text{code}) = \min(\{h(A, B) | A, B \in \text{code}, A \neq B\})$</code></p>
+$\displaystyle h_\text{min}(\text{code}) = \min(\{h(A, B) | A, B \in \text{code}, A \neq B\})$</p>
 
 <h3 id="tocAnchor-1-3-1">First example</h3>
 
@@ -261,7 +261,7 @@ Alice send Message A and an error occurred at the first (most significant) bit. 
   <td>0</td>
 </tr>
 </table><p>
-   <code>$h_\text{min}(c_1) = 1$</code>
+   $h_\text{min}(c_1) = 1$
 </p>
 
 <h3 id="tocAnchor-1-3-2">Second example</h3>
@@ -358,7 +358,7 @@ Alice send Message A and an error occurred at the first (most significant) bit. 
   <td>0</td>
 </tr>
 </table><p>
-   <code>$h_\text{min}(c_2) = 2$</code>
+   $h_\text{min}(c_2) = 2$
 </p>
 
 <h2 id="tocAnchor-1-6">Detection and correction of errors</h2>
@@ -371,17 +371,17 @@ Alice send Message A and an error occurred at the first (most significant) bit. 
 
 `$2e$` is the maximum number of errors that can be detected and `$e$` is the maximum number of errors that can be corrected.</div>
 
-<p>A code with length <code>$n$</code> which has <code>$M$</code> elements and a minimum Hamming distance of <code>$d$</code> is called a <code>$(n, M, d)$</code>-Code.</p>
+<p>A code with length $n$ which has $M$ elements and a minimum Hamming distance of $d$ is called a $(n, M, d)$-Code.</p>
 
-<p>Example: <code>$c_1$</code> is a <code>$(3, 8, 1)$</code> code and <code>$c_2$</code> is a <code>$(6, 8, 2)$</code> code.</p>
+<p>Example: $c_1$ is a $(3, 8, 1)$ code and $c_2$ is a $(6, 8, 2)$ code.</p>
 
 <p>The task of coding thery is:
-You're given a <code>$n$</code> and a <code>$d$</code> and you should find the code words so that M is as high as possible.</p>
+You're given a $n$ and a $d$ and you should find the code words so that M is as high as possible.</p>
 
 <h3 id="tocAnchor-1-6-1">Example of a (6, 8, 3)-Code</h3>
 
 <p>
-   <code>$\begin{align}
+   $\begin{align}
 c_3 = \{&amp;(1,1,1,1,1,1),\\
 &amp;(0,0,0,0,1,1),\\
 &amp;(0,0,1,1,0,0),\\
@@ -391,14 +391,14 @@ c_3 = \{&amp;(1,1,1,1,1,1),\\
 &amp;(1,0,1,0,0,1),\\
 &amp;(1,1,0,0,0,0)\}
 \end{align}
-$</code>
+$
 </p>
 
 <h2 id="tocAnchor-1-8">Hamming codes</h2>
 
-<p><a href="http://en.wikipedia.org/wiki/Hamming_code">Hamming codes</a> are a family of <code>$(2^k - 1, 2^{(2^k -1)-k}, 3), \quad k \geq 2$</code> codes. This means, every hamming code can only correct one error.</p>
+<p><a href="http://en.wikipedia.org/wiki/Hamming_code">Hamming codes</a> are a family of $(2^k - 1, 2^{(2^k -1)-k}, 3), \quad k \geq 2$ codes. This means, every hamming code can only correct one error.</p>
 
-<p>The idea behind Hamming codes is to save in one bit if the number of a fixed set of positions of the message is even or odd. This is called parity and done with XOR. The parity-bit is saved at the end of the message (or, just another point of view: the positions that are powers of two (1, 2, 4, 8, ...) of each message are only parity bits. This are obviously <code>$\lceil \log_2(\text{length of code}) \rceil = \lceil \log(2^k - 1) \rceil = k$</code>).</p>
+<p>The idea behind Hamming codes is to save in one bit if the number of a fixed set of positions of the message is even or odd. This is called parity and done with XOR. The parity-bit is saved at the end of the message (or, just another point of view: the positions that are powers of two (1, 2, 4, 8, ...) of each message are only parity bits. This are obviously $\lceil \log_2(\text{length of code}) \rceil = \lceil \log(2^k - 1) \rceil = k$).</p>
 
 <p>Wikipedia has a really nice image for that:
 </p><div style="width: 500px" class="wp-caption aligncenter">
@@ -409,11 +409,11 @@ $</code>
 </div>
 
 <p>Now, how are the parity-bits calculated?
-Well, think of each messages as a vector in <code>$\{0,1\}^{(2^k - 1) - k}$</code>. Then you define a matrix <code>$G \in \{0,1\}^{2^k - 1} \times \{0,1\}^{(2^k - 1) - k}$</code>. Now you can get the codewords <code>$c$</code> by multiplying the datawords <code>$d$</code> (messages) with <code>$G$</code>:
-<code>$c = G \cdot d$</code>.
+Well, think of each messages as a vector in $\{0,1\}^{(2^k - 1) - k}$. Then you define a matrix $G \in \{0,1\}^{2^k - 1} \times \{0,1\}^{(2^k - 1) - k}$. Now you can get the codewords $c$ by multiplying the datawords $d$ (messages) with $G$:
+$c = G \cdot d$.
 This is the reason why Hamming-Codes are called "linear codes". They can be obtained by a linear function.</p>
 
-<p>How do I get the generator-matrix <code>$G$</code>?
+<p>How do I get the generator-matrix $G$?
 I don't know it and my internet searches didn't reveal any solution. Do you know one?</p>
 						</div>
 						<div class="postmeta">Posted in 

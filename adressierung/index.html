@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Adressierung</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -105,7 +105,7 @@
     <li>Block-Offset</li>
 </ul><p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu legen, der die entsprechende Cache-Zeile durchschaltet.</p>
 
-<p>Es gilt also: Index-Länge in Bit = <code>$\log_2(\text{Cache-Zeilen})$</code></p>
+<p>Es gilt also: Index-Länge in Bit = $\log_2(\text{Cache-Zeilen})$</p>
 
 <p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile landen. Um diese unterscheiden zu können, speichert man folgendes in einer Cache-Zeile:
 </p><ul><li>Tag</li>
@@ -115,7 +115,7 @@
 
 <p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen zusammenfasst, muss gelten:</p>
 
-<p>Größe der Cache-Zeile <code>$= 2^{\text{L&amp;auml;nge des Block-offsets}} \cdot$</code> Größe des Inhalts einer Hauptspeicheradresse</p>
+<p>Größe der Cache-Zeile $= 2^{\text{L&amp;auml;nge des Block-offsets}} \cdot$ Größe des Inhalts einer Hauptspeicheradresse</p>
 
 <p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
 
@@ -123,7 +123,7 @@
 
 <p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt werden.</p>
 
-<p>Bei einem <code>$n$</code>-fach Satzassoziativem Cache gibt es <code>$\frac{\text{Cachzeilen}}{n}$</code> Sätze mit jeweils <code>$n$</code> Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
+<p>Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ Sätze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
 
 <ol><li>Datenwort mit Hauptspeicheradresse x = `$x_\text{tag}$` | `$x_\text{index}$` | `$x_\text{blockoffset}$` wird benötigt</li>
     <li>`$x_\text{index}$` = der zu durchsuchende Satz im Cache<br />

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Semantische Sicherheit</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst <code>$\mathcal{P} \neq \mathcal{NP}$</code> beweisen müsste. Warum das so ist, versuche ich nun zu erläutern.</p>
+                            <p>In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst $\mathcal{P} \neq \mathcal{NP}$ beweisen müsste. Warum das so ist, versuche ich nun zu erläutern.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -86,36 +86,36 @@ Sei `$f:X \rightarrow Y$` eine Funktion.
   <li>Für die Berechnung eines Urbildes `$x$` aus `$y$` existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
 </ul></div>
 
-<p>Es gilt: Wenn eine Einwegfunktion <code>$f$</code> existiert, dann gilt <code>$\mathcal{P} \neq \mathcal{NP}$</code>.</p>
+<p>Es gilt: Wenn eine Einwegfunktion $f$ existiert, dann gilt $\mathcal{P} \neq \mathcal{NP}$.</p>
 
 <p>Warum?</p>
 
-<p>Nun, angenommen es gibt eine Einwegfunktion <code>$f$</code>. Dann sei die formale Sprache <code>$L_f$</code> definiert durch:</p>
+<p>Nun, angenommen es gibt eine Einwegfunktion $f$. Dann sei die formale Sprache $L_f$ definiert durch:</p>
 
 <p>
-   <code>$L_f := \{(\bar x, y) | \exists x: \bar x \text{ ist Pr&amp;auml;fix von } x \text{ und } y = f(x)\}$</code>
+   $L_f := \{(\bar x, y) | \exists x: \bar x \text{ ist Pr&amp;auml;fix von } x \text{ und } y = f(x)\}$
 </p>
 
-<p>Es gilt: <code>$L_f \notin \mathcal{P}$</code>, da für ein gegebenes <code>$y$</code> das zugehörige <code>$x$</code> in polynomialzeit bestimmt werden könnte (wie will man sonst prüfen, ob <code>$\bar x$</code> ein Präfix von <code>$x$</code> ist?)</p>
+<p>Es gilt: $L_f \notin \mathcal{P}$, da für ein gegebenes $y$ das zugehörige $x$ in polynomialzeit bestimmt werden könnte (wie will man sonst prüfen, ob $\bar x$ ein Präfix von $x$ ist?)</p>
 
 <p>Falls jemanden diese Begründung nicht ausreicht ist hier noch ein Beweis von Prof. Hofheinz (Danke!)</p>
 
-<p><strong>Beh.:</strong> <code>$L_f \notin \mathcal{P}$</code>
+<p><strong>Beh.:</strong> $L_f \notin \mathcal{P}$
 <strong>Bew.:</strong> durch Widerspruch
-<u>Annahme.:</u> <code>$L_f \in P$</code>
-<code>$\Rightarrow$</code> Es existiert ein Polyzeit-Algorithmus <code>$\mathcal{A}$</code> für <code>$L_f$</code>, der bei Eingabe <code>$(\bar x, y)$</code> entscheidet, ob ein <code>$x$</code> mit <code>$f(x)=y$</code> und Präfix <code>$\bar x$</code> existiert oder nicht. Dann können wir einen Algorithmus <code>$\mathcal{B}$</code> aus <code>$\mathcal{A}$</code> bauen, der <code>$f$</code> invertiert.</p>
+<u>Annahme.:</u> $L_f \in P$
+$\Rightarrow$ Es existiert ein Polyzeit-Algorithmus $\mathcal{A}$ für $L_f$, der bei Eingabe $(\bar x, y)$ entscheidet, ob ein $x$ mit $f(x)=y$ und Präfix $\bar x$ existiert oder nicht. Dann können wir einen Algorithmus $\mathcal{B}$ aus $\mathcal{A}$ bauen, der $f$ invertiert.</p>
 
-<p>Gegeben <code>$y$</code> verfährt <code>$\mathcal{B}$</code> wie folgt:
-<code>$\mathcal{B}$</code> ruft <code>$\mathcal{A}(0,y)$</code> auf und erfährt so, ob ein Urbild <code>$x$</code> von <code>$y$</code> mit Anfangsbit <code>$0$</code> existiert. Wenn ja, ruft <code>$\mathcal{B}$</code> den Algorithmus <code>$\mathcal{A}(00,y)$</code> auf, wenn nein ruft <code>$\mathcal{B}$</code> den Algorithmus <code>$\mathcal{A}(10,y)$</code> auf usw.</p>
+<p>Gegeben $y$ verfährt $\mathcal{B}$ wie folgt:
+$\mathcal{B}$ ruft $\mathcal{A}(0,y)$ auf und erfährt so, ob ein Urbild $x$ von $y$ mit Anfangsbit $0$ existiert. Wenn ja, ruft $\mathcal{B}$ den Algorithmus $\mathcal{A}(00,y)$ auf, wenn nein ruft $\mathcal{B}$ den Algorithmus $\mathcal{A}(10,y)$ auf usw.</p>
 
-<p>So wird ein Urbild <code>$x$</code> bitweise bestimmt. Ein solches <code>$\mathcal{B}$</code> findet also effizient Urbilder, im Widerspruch zur Einwegannahme über <code>$f \blacksquare$</code></p>
+<p>So wird ein Urbild $x$ bitweise bestimmt. Ein solches $\mathcal{B}$ findet also effizient Urbilder, im Widerspruch zur Einwegannahme über $f \blacksquare$</p>
 
-<p>Aber: Wenn das <code>$x$</code> gegeben ist, dann ist es einfach zu zeigen, dass <code>$y= f(x)$</code> gilt und damit auch, ob <code>$\bar x$</code> ein Präfix von <code>$x$</code> ist. Damit ist <code>$L_f \in \mathcal{NP}$</code>.</p>
+<p>Aber: Wenn das $x$ gegeben ist, dann ist es einfach zu zeigen, dass $y= f(x)$ gilt und damit auch, ob $\bar x$ ein Präfix von $x$ ist. Damit ist $L_f \in \mathcal{NP}$.</p>
 
-<p>Damit gilt: <code>$L_f \in \mathcal{NP} \setminus \mathcal{P}$</code>.
-Wenn aber <code>$\mathcal{NP} \setminus \mathcal{P} \neq \emptyset$</code>, dann gilt insbesondere <code>$\mathcal{P} \neq \mathcal{NP}$</code>.</p>
+<p>Damit gilt: $L_f \in \mathcal{NP} \setminus \mathcal{P}$.
+Wenn aber $\mathcal{NP} \setminus \mathcal{P} \neq \emptyset$, dann gilt insbesondere $\mathcal{P} \neq \mathcal{NP}$.</p>
 
-<p>An dieser Stelle sollte man also einsehen, dass eine Einwegfunktion nach obiger Definition nur existieren kann, wenn <code>$\mathcal{P} \neq \mathcal{NP}$</code> gilt.</p>
+<p>An dieser Stelle sollte man also einsehen, dass eine Einwegfunktion nach obiger Definition nur existieren kann, wenn $\mathcal{P} \neq \mathcal{NP}$ gilt.</p>
 
 <h2 id="tocAnchor-1-2">Semantische Sicherheit</h2>
 
@@ -134,16 +134,16 @@ vernachlässigbar (als Funktion im Sicherheitsparameter `$K$`) ist.
 </div>
 
 <p>Hier ist 
-</p><ul><li><code>$M$</code> eine Nachricht (Message),</li>
-  <li><code>$\text{Enc(K, M)}$</code>  die Verschlüsselung einer konkreten Nachricht <code>$M$</code> mit dem Schlüssel <code>$K$</code>,</li>
-  <li><code>$\varepsilon$</code> eine triviale Information (ich glaube das ist z.B. die Länge des Ciphertextes) und</li>
-  <li><code>$f$</code> extrahiert beliebige Informationen aus dem Plaintext</li>
-</ul><p>Die erste Wahrscheinlichkeit bezeichnet die Möglichkeit, aus dem Ciphertext Informationen der Art <code>$f$</code> über den Plaintext <code>$M$</code> zu erhalten.
+</p><ul><li>$M$ eine Nachricht (Message),</li>
+  <li>$\text{Enc(K, M)}$  die Verschlüsselung einer konkreten Nachricht $M$ mit dem Schlüssel $K$,</li>
+  <li>$\varepsilon$ eine triviale Information (ich glaube das ist z.B. die Länge des Ciphertextes) und</li>
+  <li>$f$ extrahiert beliebige Informationen aus dem Plaintext</li>
+</ul><p>Die erste Wahrscheinlichkeit bezeichnet die Möglichkeit, aus dem Ciphertext Informationen der Art $f$ über den Plaintext $M$ zu erhalten.
 Die zweite Wahrscheinlichkeit bezeichnet die Möglichkeit „aus dem Nichts“ Informationen über eine Nachricht zu erhalten. Damit will man triviale Informationen eliminieren. Insgesamt gibt es also die Wahrscheinlichkeit an, nicht-triviale Informationen aus einer Verschlüsselten Nachricht zu erhalten. Mit effizient ist vermutlich in Polynomialzeit gemeint.</p>
 
-<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren gibt, dann kann man dieses Verfahren als Einwegfunktion nutzen. Wenn eine Einwegfunktion existiert, gilt <code>$\mathcal{P} \neq \mathcal{NP}$</code>. Also folgt:</p>
+<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren gibt, dann kann man dieses Verfahren als Einwegfunktion nutzen. Wenn eine Einwegfunktion existiert, gilt $\mathcal{P} \neq \mathcal{NP}$. Also folgt:</p>
 
-<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren existieren, gilt <code>$\mathcal{P} \neq \mathcal{NP}$</code>. Dies ist aber eines der <a href="http://de.wikipedia.org/wiki/Millennium-Probleme">Millennium-Probleme</a> und noch nicht geklärt.</p>
+<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren existieren, gilt $\mathcal{P} \neq \mathcal{NP}$. Dies ist aber eines der <a href="http://de.wikipedia.org/wiki/Millennium-Probleme">Millennium-Probleme</a> und noch nicht geklärt.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

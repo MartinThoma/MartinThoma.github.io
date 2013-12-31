@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Calculations with quaternions</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,13 +65,13 @@
                         </div>
 			
 						<div class="entry">
-                            <p><a href="https://en.wikipedia.org/wiki/Quaternion">Quaternions</a> are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaterion <code>$h$</code> can be written as a vector or in the form of <code>$h = h_0 + ih_1 + j h_2 + kh_3$</code>, where <code>$i, j$</code> and <code>$k$</code> are related to the <code>$i$</code> in complex numbers. Accordingly <code>$h_0$</code> is often called real part and h<em>1, h</em>2, h_3 are called imaginary part of a quaternion. </p>
+                            <p><a href="https://en.wikipedia.org/wiki/Quaternion">Quaternions</a> are an expansion of the concept of complex numbers on structures with four (instead of two) components. A quaterion $h$ can be written as a vector or in the form of $h = h_0 + ih_1 + j h_2 + kh_3$, where $i, j$ and $k$ are related to the $i$ in complex numbers. Accordingly $h_0$ is often called real part and h<em>1, h</em>2, h_3 are called imaginary part of a quaternion. </p>
 
-<p>For <code>$i, j$</code> and <code>$k$</code> the following rules are applied:</p>
+<p>For $i, j$ and $k$ the following rules are applied:</p>
 
-<p><code>$i^2 = j^2 = k^2 = -1$</code>
+<p>$i^2 = j^2 = k^2 = -1$
 and
-<code>$ijk=-1$</code></p>
+$ijk=-1$</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -105,56 +105,56 @@ and
 </div><h2 id="tocAnchor-1-1">Basic rules</h2>
 
 <p>From these rules follows:
-<code>$\begin{align} ij &amp;= k\\ ji &amp;= -k\\ jk &amp;= i\\ kj &amp;= -i\\ ki &amp;= j\\ ik &amp;= -j \end{align}$</code></p>
+$\begin{align} ij &amp;= k\\ ji &amp;= -k\\ jk &amp;= i\\ kj &amp;= -i\\ ki &amp;= j\\ ik &amp;= -j \end{align}$</p>
 
 <p>(<a href="http://math.stackexchange.com/q/487245/6876">proof</a>)</p>
 
 <h2 id="tocAnchor-1-2">Multiplication</h2>
 
-<p>Now, obviously quaternions multiplication is not commutative: <code>$ij = k \neq -k = ji$</code></p>
+<p>Now, obviously quaternions multiplication is not commutative: $ij = k \neq -k = ji$</p>
 
-<p>But for numbers in <code>$\mathbb{R}$</code>, it is commutative (<a href="http://math.stackexchange.com/q/488271/6876">proof</a>).</p>
+<p>But for numbers in $\mathbb{R}$, it is commutative (<a href="http://math.stackexchange.com/q/488271/6876">proof</a>).</p>
 
 <p>The multiplication is:</p>
 
 <p>
-   <code>$\begin{align}
+   $\begin{align}
 x  y 
 &amp;=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\\
 &amp;+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\\
 &amp;+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\\
 &amp;+( x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0) \mathrm k
-\end{align}$</code>
+\end{align}$
 </p>
 
 <h3 id="tocAnchor-1-2-1">Calculating multiplicative inverse</h3>
 
-<p>This means, when you're given an element <code>$x = x_0 + x_1 \mathrm i + x_2 \mathrm j + x_3 \mathrm k$</code> its inverse <code>$y$</code> can be calculated by solving the following linear system of equations:</p>
+<p>This means, when you're given an element $x = x_0 + x_1 \mathrm i + x_2 \mathrm j + x_3 \mathrm k$ its inverse $y$ can be calculated by solving the following linear system of equations:</p>
 
 <p>
-   <code>$\begin{align}
+   $\begin{align}
 x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &amp;= 1\\
 x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &amp;= 0\\
 x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &amp;= 0\\ 
 x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\\
-\end{align}$</code>
+\end{align}$
 </p>
 
 <p>which can be written as:</p>
 
 <p>
-   <code>$\left(\begin{array}{cccc|c} 
+   $\left(\begin{array}{cccc|c} 
     x_0 &amp; -x_1 &amp; -x_2 &amp; -x_3 &amp; 1\\
     x_1 &amp;  x_0 &amp; -x_3 &amp;  x_2 &amp; 0\\
     x_2 &amp;  x_3 &amp;  x_0 &amp; -x_1 &amp; 0\\
     x_3 &amp; -x_2 &amp;  x_1 &amp;  x_0 &amp; 0
-  \end{array}\right).$</code>
+  \end{array}\right).$
 </p>
 
 <p>According to <a href="http://www.mathworks.de/de/help/aeroblks/quaternioninverse.html">mathworks</a> it is </p>
 
 <p>
-   <code>$y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}$</code>
+   $y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}$
 </p>
 
 <h2 id="tocAnchor-1-4">More</h2>
@@ -163,26 +163,26 @@ x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\\
 
 <p>Just like the complex conjugate is defined as</p>
 
-<p><code>$\overline{z} = a - ib$</code> with <code>$z=a+ib$</code></p>
+<p>$\overline{z} = a - ib$ with $z=a+ib$</p>
 
 <p>the conjugate of quaternions is defined as</p>
 
-<p><code>$\bar x := x_0-x_1\mathrm i-x_2\mathrm j-x_3\mathrm k$</code> with <code>$x=x_0+x_1\mathrm i+x_2\mathrm j+x_3\mathrm k$</code></p>
+<p>$\bar x := x_0-x_1\mathrm i-x_2\mathrm j-x_3\mathrm k$ with $x=x_0+x_1\mathrm i+x_2\mathrm j+x_3\mathrm k$</p>
 
 <h3 id="tocAnchor-1-4-2">Rotating points</h3>
 
 <p>Quaternions can be used to rotate points. It works like this:</p>
 
 <p>
-   <code>$x' = q x \overline{q}$</code>
+   $x' = q x \overline{q}$
 </p>
 
 <p>Pretty simple, isn't it?</p>
 
-<p>For example, if you had the point (2,0,0) and you wanted to rotated it by <code>$q = (\frac{\sqrt{2}}{2}, 0, \frac{\sqrt{2}}{2}, 0)$</code> you would transform (2,0,0) to (2i+0k+0j) and calculate</p>
+<p>For example, if you had the point (2,0,0) and you wanted to rotated it by $q = (\frac{\sqrt{2}}{2}, 0, \frac{\sqrt{2}}{2}, 0)$ you would transform (2,0,0) to (2i+0k+0j) and calculate</p>
 
 <p>
-   <code>$\begin{align}
+   $\begin{align}
 x' &amp;= q x \overline{q}\\
 &amp;= (\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2} \mathrm j) \cdot 2 \mathrm i \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
 &amp;= (\sqrt{2} \mathrm i + \sqrt{2} \mathrm{ji}) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
@@ -191,12 +191,12 @@ x' &amp;= q x \overline{q}\\
 &amp;= \mathrm{i - k -k - i}\\
 &amp;= -2 \mathrm k\\
 &amp;\Rightarrow x' = (0,0,-2)
-\end{align}$</code>
+\end{align}$
 </p>
 
 <h3 id="tocAnchor-1-4-3">Rotation matrix to quaternion</h3>
 
-<p>Let <code>$M$</code> be a rotation matrix and <code>$m_{ij}$</code> be an entry of this matrix.</p>
+<p>Let $M$ be a rotation matrix and $m_{ij}$ be an entry of this matrix.</p>
 
 <h4>General rule</h4>
 
@@ -207,29 +207,29 @@ y &amp;= \frac{m<em>{13} - m</em>{31}}{4s}\
 z &amp;= \frac{m<em>{21} - m</em>{12}}{4s}
 \end{align}</p>
 
-<p>resulting in the quaternion <code>$(s, x, y, z)$</code>.</p>
+<p>resulting in the quaternion $(s, x, y, z)$.</p>
 
 <h4>Special rule</h4>
 
 <p>A rotation matrix</p>
 
 <p>
-   <code>$R_y = \begin{pmatrix}
+   $R_y = \begin{pmatrix}
 \cos(\theta)  &amp; 0 &amp; \sin(\theta)\\
 0             &amp; 1 &amp; 0\\
 -\sin(\theta) &amp; 0 &amp; \cos(\theta)
-\end{pmatrix}$</code>
+\end{pmatrix}$
 </p>
 
 <p>can be transformed to a quaternion</p>
 
 <p>
-   <code>$q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))$</code>
+   $q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))$
 </p>
 
-<p>where <code>$\vec u$</code> describes the axis you rotate by.</p>
+<p>where $\vec u$ describes the axis you rotate by.</p>
 
-<p>In this case <code>$R_y$</code> is the y-axis, so <code>$\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$</code>.</p>
+<p>In this case $R_y$ is the y-axis, so $\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Permutationen und Transpositionen</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -108,31 +108,31 @@
 
 <h3 id="tocAnchor-1-1-2">Allgemeines</h3>
 
-<p>Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} anschaue. Es sind einfach nur drei Objekte, die unterscheidbar sind. Um es einfacher zu machen, gehen wir nun von den Objekten {1, 2, ..., m} aus. Alle Permutationen dieser Objekte bilden eine Gruppe. Diese nennen wir <code>$S_m$</code>.</p>
+<p>Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} anschaue. Es sind einfach nur drei Objekte, die unterscheidbar sind. Um es einfacher zu machen, gehen wir nun von den Objekten {1, 2, ..., m} aus. Alle Permutationen dieser Objekte bilden eine Gruppe. Diese nennen wir $S_m$.</p>
 
-<p>Ein einzelnes Element aus <code>$S_m$</code> wird meist <code>$\pi$</code> oder <code>$\sigma$</code> genannt, also <code>$\pi \in S_m$</code>. Da <code>$\pi$</code> eine Permutation ist, ist es insbesondere eine bijektive Selbstabbildung, also:</p>
+<p>Ein einzelnes Element aus $S_m$ wird meist $\pi$ oder $\sigma$ genannt, also $\pi \in S_m$. Da $\pi$ eine Permutation ist, ist es insbesondere eine bijektive Selbstabbildung, also:</p>
 
-<p><code>$M = {1, ..., m}$</code>
-<code>$\pi: M \rightarrow M$</code>
-<code>$i \mapsto \pi(i)$</code></p>
+<p>$M = {1, ..., m}$
+$\pi: M \rightarrow M$
+$i \mapsto \pi(i)$</p>
 
 <p>Kurz schreibt man auch:
-<code>$\pi = 
+$\pi = 
 \begin{pmatrix} 1 &amp; 2      &amp; 3      &amp; ... &amp; m\\
            \pi(1) &amp; \pi(2) &amp; \pi(3) &amp; ... &amp; \pi(m)
-\end{pmatrix}$</code></p>
+\end{pmatrix}$</p>
 
 <h3 id="tocAnchor-1-1-3">Anzahl der Permutationen</h3>
 
 <p>Wenn ich n Elemente habe, die ich auf n Plätze verteilen muss: Wie viele unterschiedliche Zuordnungen von Elementen zu den Plätzen gibt es?</p>
 
-<p>Die Antwort ist <code>$n! = 1 \cdot 2 \cdot ... (n - 1) \cdot n = \prod_{i=1}^n i$</code>. Für das erste Element sind <code>$n$</code> Plätze frei. Das Zweite kann nur noch auf <code>$(n-1)$</code> Plätze verteilt werden, ... , das letzte hat nur noch einen Platz zur "Auswahl".</p>
+<p>Die Antwort ist $n! = 1 \cdot 2 \cdot ... (n - 1) \cdot n = \prod_{i=1}^n i$. Für das erste Element sind $n$ Plätze frei. Das Zweite kann nur noch auf $(n-1)$ Plätze verteilt werden, ... , das letzte hat nur noch einen Platz zur "Auswahl".</p>
 
 <h3 id="tocAnchor-1-1-4">Erzeugung der Permutationen</h3>
 
-<p>Angenommen, man muss in einem Test <code>$S_3$</code> explizit angeben. Wie geht das? </p>
+<p>Angenommen, man muss in einem Test $S_3$ explizit angeben. Wie geht das? </p>
 
-<p>Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also <code>$3 \cdot 2 \cdot 1 = 6$</code> Permutationen:
+<p>Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also $3 \cdot 2 \cdot 1 = 6$ Permutationen:
 1. _ _ _
 2. _ _ _
 3. _ _ _
@@ -168,7 +168,7 @@
 </table><p>Und nun noch als Menge in der mathematischen Schreibweise aufschreiben:</p>
 
 <p>
-   <code>$S_3 = \left \{
+   $S_3 = \left \{
 \underbrace{\begin{pmatrix}
   1 &amp; 2 &amp; 3 \\
   1 &amp; 2 &amp; 3
@@ -193,87 +193,87 @@
   1 &amp; 2 &amp; 3 \\
   3 &amp; 2 &amp; 1
 \end{pmatrix}}_{\pi_6}
-\right \}$</code>
+\right \}$
 </p>
 
 <h3 id="tocAnchor-1-1-5">Verkettung</h3>
 
-<p>Was passiert, wenn ich die Permuation <code>$\pi_2$</code> mit der Permutation <code>$\pi_3$</code> verkette? Also:
-<code>$\pi_x(i) = \pi_2(\pi_3(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
-3 &amp; 1 &amp; 2 \end{pmatrix} = \pi_6$</code>
+<p>Was passiert, wenn ich die Permuation $\pi_2$ mit der Permutation $\pi_3$ verkette? Also:
+$\pi_x(i) = \pi_2(\pi_3(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
+3 &amp; 1 &amp; 2 \end{pmatrix} = \pi_6$
 Aber:
-<code>$\pi_y(i) = \pi_3(\pi_2(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
-2 &amp; 3 &amp; 1 \end{pmatrix} = \pi_5 \neq \pi_6$</code></p>
+$\pi_y(i) = \pi_3(\pi_2(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\\
+2 &amp; 3 &amp; 1 \end{pmatrix} = \pi_5 \neq \pi_6$</p>
 
 <p>Die Verkettung von Permutationen ist also nicht kommutativ!</p>
 
 <p>Es ergibt sich insgesamt folgende Verknüfungstabelle (gelesen wird: Zeile zuerst, Spalte später):
 </p><table>
    <tr><th style="border-right: 1px solid #000;border-bottom: 1px solid #000;"> </th>
-  <th style="border-bottom: 1px solid #000;"><code>$\pi_1$</code></th>
-  <th style="border-bottom: 1px solid #000;"><code>$\pi_2$</code></th>
-  <th style="border-bottom: 1px solid #000;"><code>$\pi_3$</code></th>
-  <th style="border-bottom: 1px solid #000;"><code>$\pi_4$</code></th>
-  <th style="border-bottom: 1px solid #000;"><code>$\pi_5$</code></th>
-  <th style="border-bottom: 1px solid #000;"><code>$\pi_6$</code></th>
+  <th style="border-bottom: 1px solid #000;">$\pi_1$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi_2$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi_3$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi_4$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi_5$</th>
+  <th style="border-bottom: 1px solid #000;">$\pi_6$</th>
 </tr>
-   <tr><th style="border-right: 1px solid #000;"><code>$\pi_1$</code></th>
-  <td><code>$\pi_1$</code></td>
-  <td><code>$\pi_2$</code></td>
-  <td><code>$\pi_3$</code></td>
-  <td><code>$\pi_4$</code></td>
-  <td><code>$\pi_5$</code></td>
-  <td><code>$\pi_6$</code></td>
+   <tr><th style="border-right: 1px solid #000;">$\pi_1$</th>
+  <td>$\pi_1$</td>
+  <td>$\pi_2$</td>
+  <td>$\pi_3$</td>
+  <td>$\pi_4$</td>
+  <td>$\pi_5$</td>
+  <td>$\pi_6$</td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;"><code>$\pi_2$</code></th>
-  <td><code>$\pi_2$</code></td>
-  <td><code>$\pi_1$</code></td>
-  <td><code>$\pi_5$</code></td>
-  <td><code>$\pi_6$</code></td>
-  <td><code>$\pi_3$</code></td>
-  <td><code>$\pi_4$</code></td>
+   <tr><th style="border-right: 1px solid #000;">$\pi_2$</th>
+  <td>$\pi_2$</td>
+  <td>$\pi_1$</td>
+  <td>$\pi_5$</td>
+  <td>$\pi_6$</td>
+  <td>$\pi_3$</td>
+  <td>$\pi_4$</td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;"><code>$\pi_3$</code></th>
-  <td><code>$\pi_3$</code></td>
-  <td><code>$\pi_4$</code></td>
-  <td><code>$\pi_1$</code></td>
-  <td><code>$\pi_2$</code></td>
-  <td><code>$\pi_6$</code></td>
-  <td><code>$\pi_5$</code></td>
+   <tr><th style="border-right: 1px solid #000;">$\pi_3$</th>
+  <td>$\pi_3$</td>
+  <td>$\pi_4$</td>
+  <td>$\pi_1$</td>
+  <td>$\pi_2$</td>
+  <td>$\pi_6$</td>
+  <td>$\pi_5$</td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;"><code>$\pi_4$</code></th>
-  <td><code>$\pi_4$</code></td>
-  <td><code>$\pi_3$</code></td>
-  <td><code>$\pi_6$</code></td>
-  <td><code>$\pi_5$</code></td>
-  <td><code>$\pi_1$</code></td>
-  <td><code>$\pi_2$</code></td>
+   <tr><th style="border-right: 1px solid #000;">$\pi_4$</th>
+  <td>$\pi_4$</td>
+  <td>$\pi_3$</td>
+  <td>$\pi_6$</td>
+  <td>$\pi_5$</td>
+  <td>$\pi_1$</td>
+  <td>$\pi_2$</td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;"><code>$\pi_5$</code></th>
-  <td><code>$\pi_5$</code></td>
-  <td><code>$\pi_6$</code></td>
-  <td><code>$\pi_2$</code></td>
-  <td><code>$\pi_1$</code></td>
-  <td><code>$\pi_4$</code></td>
-  <td><code>$\pi_3$</code></td>
+   <tr><th style="border-right: 1px solid #000;">$\pi_5$</th>
+  <td>$\pi_5$</td>
+  <td>$\pi_6$</td>
+  <td>$\pi_2$</td>
+  <td>$\pi_1$</td>
+  <td>$\pi_4$</td>
+  <td>$\pi_3$</td>
 </tr>
-   <tr><th style="border-right: 1px solid #000;"><code>$\pi_6$</code></th>
-  <td><code>$\pi_6$</code></td>
-  <td><code>$\pi_5$</code></td>
-  <td><code>$\pi_4$</code></td>
-  <td><code>$\pi_3$</code></td>
-  <td><code>$\pi_2$</code></td>
-  <td><code>$\pi_1$</code></td>
+   <tr><th style="border-right: 1px solid #000;">$\pi_6$</th>
+  <td>$\pi_6$</td>
+  <td>$\pi_5$</td>
+  <td>$\pi_4$</td>
+  <td>$\pi_3$</td>
+  <td>$\pi_2$</td>
+  <td>$\pi_1$</td>
 </tr>
-</table><p>Man sieht nun, und das finde ich durchaus erstaunlich, man landet immer wieder in <code>$S_3$</code>. Durch die Verknüpfung von Permutationen kommt also <em>immer</em> wieder eine Permutation heraus! Das bedeutet, <code>$S_3$</code> ist unter dieser Verknüpfung abgeschlossen. </p>
+</table><p>Man sieht nun, und das finde ich durchaus erstaunlich, man landet immer wieder in $S_3$. Durch die Verknüpfung von Permutationen kommt also <em>immer</em> wieder eine Permutation heraus! Das bedeutet, $S_3$ ist unter dieser Verknüpfung abgeschlossen. </p>
 
-<p>Man kann nun auch noch sehen, jedes Element aus <code>$(S_3, \circ)$</code> ein inverses hat, da in jeder Zeile ein mal <code>$\pi_1$</code> vorkommt.</p>
+<p>Man kann nun auch noch sehen, jedes Element aus $(S_3, \circ)$ ein inverses hat, da in jeder Zeile ein mal $\pi_1$ vorkommt.</p>
 
-<p>Außerdem ist <code>$(S_3, \circ)$</code> assoziativ. </p>
+<p>Außerdem ist $(S_3, \circ)$ assoziativ. </p>
 
-<p>Kurz: <code>$(S_3, \circ)$</code> ist eine Gruppe, die jedoch nicht abelsch ist.</p>
+<p>Kurz: $(S_3, \circ)$ ist eine Gruppe, die jedoch nicht abelsch ist.</p>
 
-<p>Es wurde in der Vorlesung auch gezeigt, dass allgemein <code>$(S_m, \circ)$</code> eine Gruppe ist.</p>
+<p>Es wurde in der Vorlesung auch gezeigt, dass allgemein $(S_m, \circ)$ eine Gruppe ist.</p>
 
 <h3 id="tocAnchor-1-1-6">Die Fehlstandszahl</h3>
 
@@ -281,35 +281,35 @@ Aber:
 
 <h4>Beispiele</h4>
 
-<p><code>$\pi_1 = \begin{pmatrix}
+<p>$\pi_1 = \begin{pmatrix}
   1 &amp; 2 &amp; 3 \\
   1 &amp; 2 &amp; 3
-\end{pmatrix}$</code> hat die Fehlstandszahl 0.</p>
+\end{pmatrix}$ hat die Fehlstandszahl 0.</p>
 
-<p><code>$\pi_2 = \begin{pmatrix}
+<p>$\pi_2 = \begin{pmatrix}
   1 &amp; 2 &amp; 3 \\
   1 &amp; 3 &amp; 2
-\end{pmatrix}$</code> hat die Fehlstandszahl 1, da <code>$i = 2 &lt; 3 = k$</code> gilt, aber <code>$\pi_2(2) = 3 &gt; 2 = \pi_2(3)$</code>.</p>
+\end{pmatrix}$ hat die Fehlstandszahl 1, da $i = 2 &lt; 3 = k$ gilt, aber $\pi_2(2) = 3 &gt; 2 = \pi_2(3)$.</p>
 
-<p><code>$\pi_3 = \begin{pmatrix}
+<p>$\pi_3 = \begin{pmatrix}
   1 &amp; 2 &amp; 3 \\
   2 &amp; 1 &amp; 3
-\end{pmatrix}$</code> hat die Fehlstandszahl 1.</p>
+\end{pmatrix}$ hat die Fehlstandszahl 1.</p>
 
-<p><code>$\pi_4 = \begin{pmatrix}
+<p>$\pi_4 = \begin{pmatrix}
   1 &amp; 2 &amp; 3 \\
   3 &amp; 1 &amp; 2
-\end{pmatrix}$</code> hat die Fehlstandszahl 2.</p>
+\end{pmatrix}$ hat die Fehlstandszahl 2.</p>
 
-<p><code>$\pi_5 = \begin{pmatrix}
+<p>$\pi_5 = \begin{pmatrix}
   1 &amp; 2 &amp; 3 \\
   2 &amp; 3 &amp; 1
-\end{pmatrix}$</code> hat die Fehlstandszahl 2.</p>
+\end{pmatrix}$ hat die Fehlstandszahl 2.</p>
 
-<p><code>$\pi_6 = \begin{pmatrix}
+<p>$\pi_6 = \begin{pmatrix}
   1 &amp; 2 &amp; 3 \\
   3 &amp; 2 &amp; 1
-\end{pmatrix}$</code> hat die Fehlstandszahl 2.</p>
+\end{pmatrix}$ hat die Fehlstandszahl 2.</p>
 
 <h2 id="tocAnchor-1-8">Transposition</h2>
 
@@ -317,25 +317,25 @@ Aber:
 fest gewahlte Zahlen `$i, k \in \{1, 2, ..., m\}$` vertauscht werden, während alle anderen Zahlen fest bleiben.
 Man schreibt fur diese Transposition auch kurz `$(i~k)$`.</div>
 
-<p>Transpositionen werden gerne mit <code>$\tau$</code> abgekürzt.</p>
+<p>Transpositionen werden gerne mit $\tau$ abgekürzt.</p>
 
-<p>Also: <code>$\pi_2 = (2~3), \pi_3=(1~2), \pi_6 = (1~3)$</code> sind Transpositionen.
-<code>$\pi_1, \pi_4, \pi_5$</code> sind keine Transpositionen.</p>
+<p>Also: $\pi_2 = (2~3), \pi_3=(1~2), \pi_6 = (1~3)$ sind Transpositionen.
+$\pi_1, \pi_4, \pi_5$ sind keine Transpositionen.</p>
 
-<p>Es gilt: <code>$\tau \circ \tau = id$</code></p>
+<p>Es gilt: $\tau \circ \tau = id$</p>
 
 <p>wir haben in der Vorlesung gezeigt:
-</p><div class="satz">Jede Permutation <code>$\pi \in S_m, m \geq 2,$</code> lässt sich als Verkettung von Transpositionen darstellen.</div>
+</p><div class="satz">Jede Permutation $\pi \in S_m, m \geq 2,$ lässt sich als Verkettung von Transpositionen darstellen.</div>
 
 <p>Beispiel:
-<code>$\sigma = \begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
-6 &amp; 5 &amp; 4 &amp; 1 &amp; 3 &amp; 2\end{pmatrix} = (1~6) \circ (2~5) \circ (3~4) \circ (4~6) \circ (5~6)$</code></p>
+$\sigma = \begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
+6 &amp; 5 &amp; 4 &amp; 1 &amp; 3 &amp; 2\end{pmatrix} = (1~6) \circ (2~5) \circ (3~4) \circ (4~6) \circ (5~6)$</p>
 
-<p>Gelesen wird das ganze von rechts nach links. Die Transposition <code>$(5~6)$</code> wird also zuerst angewendet. Wie bei Abbildungen die verkettet werden halt auch.</p>
+<p>Gelesen wird das ganze von rechts nach links. Die Transposition $(5~6)$ wird also zuerst angewendet. Wie bei Abbildungen die verkettet werden halt auch.</p>
 
-<p>Die Fehlstandszahl von <code>$\sigma$</code> ist 13 und die Anzahl der Transpositionen ist ungerade.</p>
+<p>Die Fehlstandszahl von $\sigma$ ist 13 und die Anzahl der Transpositionen ist ungerade.</p>
 
-<p>Interessanterweise gilt auch <code>$\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2)$</code>.
+<p>Interessanterweise gilt auch $\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2)$.
 Außerdem kann man beliebig häufig eine Transposition doppelt hinzufügen, da es ja die Identität ist. Die Darstellung einer Permutation als folge von Transpositionen ist also nicht eindeutig.</p>
 
 <h2 id="tocAnchor-1-9">Siehe auch</h2>

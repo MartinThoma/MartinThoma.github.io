@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Kollisionsresistente Hashfunktionen und Einwegfunktionen</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -91,33 +91,33 @@ Jeder effiziente Algorithmus findet nur mit kleiner Wahrscheinlichkeit eine Koll
 </div>
 
 <p>Was heißt „kleine Wahrscheinlichkeit“?
-Nach dem Auswerten der Funktion <code>$H$</code> für <code>$x_1, x_2, \dots x_n$</code> sollte die Wahrscheinlichkeit nicht signifikant höher sein als <code>$\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$</code>
-Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben <code>$2^k$</code> Schubfächer (Funktionswerte) in die wir die <code>$x_i$</code> (Urbilder) einordnen können.</p>
+Nach dem Auswerten der Funktion $H$ für $x_1, x_2, \dots x_n$ sollte die Wahrscheinlichkeit nicht signifikant höher sein als $\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$
+Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben $2^k$ Schubfächer (Funktionswerte) in die wir die $x_i$ (Urbilder) einordnen können.</p>
 
 <h2 id="tocAnchor-1-2">Satz</h2>
 
 <p><strong>Behauptung</strong>: Jede kollisionsresistente Hashfunktion ist eine Einwegfunktion.
 <strong>Beweis</strong>: durch Widerspruch
-Sei <code>$f$</code> eine kollisionsresistente Hashfunktion
-<u>Annahme</u>: <code>$f$</code> ist keine Einwegfunktion</p>
+Sei $f$ eine kollisionsresistente Hashfunktion
+<u>Annahme</u>: $f$ ist keine Einwegfunktion</p>
 
-<p>Dann existiert ein Angreifer <code>$\mathcal{A}$</code>, der für eine Bild <code>$f(x)$</code> ein <code>$x'$</code> findet, sodass <code>$f(x) = f(x')$</code> gilt.</p>
+<p>Dann existiert ein Angreifer $\mathcal{A}$, der für eine Bild $f(x)$ ein $x'$ findet, sodass $f(x) = f(x')$ gilt.</p>
 
-<p>Der Angreifer <code>$\mathcal{B}$</code> macht nichts anderes, als zufällig Werte <code>$x \in \{0,1\}^{2k}$</code> zu wählen, <code>$f(x)$</code> zu berechnen, den Angreifer <code>$\mathcal{A}$</code> auf <code>$f(x)$</code> anzuwenden und zu überprüfen, ob das von <code>$\mathcal{A}$</code> gelieferte <code>$x' \neq x$</code> ist. Sobald das ein mal der Fall ist, hat der Angreifer gewonnen.</p>
+<p>Der Angreifer $\mathcal{B}$ macht nichts anderes, als zufällig Werte $x \in \{0,1\}^{2k}$ zu wählen, $f(x)$ zu berechnen, den Angreifer $\mathcal{A}$ auf $f(x)$ anzuwenden und zu überprüfen, ob das von $\mathcal{A}$ gelieferte $x' \neq x$ ist. Sobald das ein mal der Fall ist, hat der Angreifer gewonnen.</p>
 
-<p>Nun wenden wir <code>$f$</code> auf <code>$x \in \{0,1\}^{2k}$</code> an. Es gilt:</p>
+<p>Nun wenden wir $f$ auf $x \in \{0,1\}^{2k}$ an. Es gilt:</p>
 
-<p><code>$Pr_x[\underbrace{|f^{-1}(f(x))|}_{\substack{\text{Anzahl der Urbilder}\\\text{zum Hashwert} f(x)} } = 1] \leq \frac{2^k}{2^{2k}} = \frac{1}{2^k}$</code>.</p>
+<p>$Pr_x[\underbrace{|f^{-1}(f(x))|}_{\substack{\text{Anzahl der Urbilder}\\\text{zum Hashwert} f(x)} } = 1] \leq \frac{2^k}{2^{2k}} = \frac{1}{2^k}$.</p>
 
-<p>Die <code>$2^k$</code> im Zähler stehen für die Funktionswerte und die <code>$2^{2k}$</code> für die Urbilder.</p>
+<p>Die $2^k$ im Zähler stehen für die Funktionswerte und die $2^{2k}$ für die Urbilder.</p>
 
-<p>Nun ist <code>$\frac{1}{2^k}$</code> eine vernachlässigbare Funktion.</p>
+<p>Nun ist $\frac{1}{2^k}$ eine vernachlässigbare Funktion.</p>
 
-<p><code>$\Rightarrow$</code> Die Wahrscheinlichkeit, dass wir keine Kollsion finden ist vernachlässigbar.</p>
+<p>$\Rightarrow$ Die Wahrscheinlichkeit, dass wir keine Kollsion finden ist vernachlässigbar.</p>
 
-<p><code>$\Rightarrow$</code> Mit signifikanter Wahrscheinlichkeit hat <code>$f(x)$</code> <code>$k \geq 2$</code> Urbilder.</p>
+<p>$\Rightarrow$ Mit signifikanter Wahrscheinlichkeit hat $f(x)$ $k \geq 2$ Urbilder.</p>
 
-<p><code>$\Rightarrow$</code> Die Wahrscheinlichkeit, dass <code>$\mathcal{B}$</code> Kollisionen findet ist etwa <code>$(1-\frac{1}{k}) \cdot m$</code>, wobei <code>$m$</code> die Anzahl der Widerholungen ist.</p>
+<p>$\Rightarrow$ Die Wahrscheinlichkeit, dass $\mathcal{B}$ Kollisionen findet ist etwa $(1-\frac{1}{k}) \cdot m$, wobei $m$ die Anzahl der Widerholungen ist.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

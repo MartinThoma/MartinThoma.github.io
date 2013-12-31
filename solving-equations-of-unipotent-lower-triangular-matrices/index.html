@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Solving equations of lower unitriangular matrices</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Suppose you have an equation like <code>$L \cdot x = b$</code> with <code>$L \in \mathbb{R}^{n \times n}$</code> and <code>$x,b \in \mathbb{R}^n$</code>. <code>$b$</code> and <code>$L$</code> are given and you want to solve for <code>$x$</code>.</p>
+                            <p>Suppose you have an equation like $L \cdot x = b$ with $L \in \mathbb{R}^{n \times n}$ and $x,b \in \mathbb{R}^n$. $b$ and $L$ are given and you want to solve for $x$.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -99,10 +99,10 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Example</h2>
 
-<p>With <code>$n=5$</code>, the problem could look like this:</p>
+<p>With $n=5$, the problem could look like this:</p>
 
 <p>
-   <code>$\begin{pmatrix}
+   $\begin{pmatrix}
 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\
 7 &amp; 1 &amp; 1 &amp; 0 &amp; 0\\
@@ -110,11 +110,11 @@
 1 &amp; 8 &amp; 2 &amp; 8 &amp; 1
 \end{pmatrix} \cdot 
 \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} =
-\begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$</code>
+\begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$
 </p>
 
 <p>This is only a shorthand for:
-<code>$
+$
 \begin{align}
 &amp;1 \cdot x_1 &amp;= 3 \\
 &amp;2 \cdot x_1 + 1 \cdot x_2 &amp;= 1\\
@@ -122,49 +122,49 @@
 &amp;8 \cdot x_1 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\\
 &amp;1 \cdot x_1 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
 \end{align}
-$</code></p>
+$</p>
 
 <p>This is easy to solve, isn't it?
-</p><h3 id="tocAnchor-1-1-1">First step: Solve for <code>$x_1$</code></h3>
-First you see that <code>$x_1 = 3$</code>. Now you replace every occurence of <code>$x_1$</code> in the system of equations above:
+</p><h3 id="tocAnchor-1-1-1">First step: Solve for $x_1$</h3>
+First you see that $x_1 = 3$. Now you replace every occurence of $x_1$ in the system of equations above:
 
 <p>
-   <code>$
+   $
 \begin{align}
 &amp;1 \cdot 3 &amp;= 3 \\
 &amp;2 \cdot 3 + 1 \cdot x_2 &amp;= 1\\
 &amp;7 \cdot 3 + 1 \cdot x_2 + 1 \cdot x_3 &amp;= 4\\
 &amp;8 \cdot 3 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\\
 &amp;1 \cdot 3 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
-\end{align}$</code>
+\end{align}$
 </p>
 
 <p>Now you make the multiplications and remove the first trivial line.</p>
 
 <p>
-   <code>$
+   $
 \begin{align}
 &amp;6 + 1 \cdot x_2 &amp;= 1\\
 &amp;21 + 1 \cdot x_2 + 1 \cdot x_3 &amp;= 4\\
 &amp;24 + 2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1\\
 &amp;3 + 8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5
 \end{align}
-$</code>
+$
 </p>
 
 <h3 id="tocAnchor-1-1-2">Second step: update</h3>
 
 <p>Get the constant factors to the right side of the equations:
-<code>$
+$
 \begin{align}
 &amp;1 \cdot x_2 &amp;= 1-6=-5\\
 &amp;1 \cdot x_2 + 1 \cdot x_3 &amp;= 4-21=-17\\
 &amp;2 \cdot x_2 + 8 \cdot x_3 + 1 \cdot x_4 &amp;= 1-24=-23\\
 &amp;8 \cdot x_2 + 2 \cdot x_3 + 8 \cdot x_4 + 1 \cdot x_5 &amp;= 5-3=2
 \end{align}
-$</code></p>
+$</p>
 
-<p>You can now easily see that you're in the same situation as in the first step! Next you will solve for <code>$x_2$</code>, then for <code>$x_3, x_4$</code> and finally for <code>$x_5$</code>.</p>
+<p>You can now easily see that you're in the same situation as in the first step! Next you will solve for $x_2$, then for $x_3, x_4$ and finally for $x_5$.</p>
 
 <p>This is the reason why solving such a system of equations is sometimes called "forward substitution".</p>
 
@@ -233,28 +233,28 @@ This is the reason why there here. This algorithm "returns" its value by manipul
 
 <p>I'll analyze the second algorithm.</p>
 
-<p>Let's assume that line 7 takes <code>$c$</code> operations and <code>$n$</code> is the size of <code>$L \in \mathbb{R}^{n \times n}$</code>.</p>
+<p>Let's assume that line 7 takes $c$ operations and $n$ is the size of $L \in \mathbb{R}^{n \times n}$.</p>
 
 <p>Then we would have a total of </p>
 
 <p>
-   <code>$\begin{align}
+   $\begin{align}
 \text{Operations} &amp;= \sum_{i=1}^n \left ( \sum_{j=i+1}^n c \right )\\
 &amp;= c \cdot \sum_{i=1}^n \left ( \sum_{j=i+1}^n 1 \right )\\
 &amp;= c \cdot \sum_{i=1}^n (n - i)\\
 &amp;= c \cdot \left ( \sum_{i=1}^n n - \sum_{i=1}^n i \right )\\
 &amp;= c \cdot \left ( n^2 - \frac{n^2+n}{2} \right )\\
 &amp;= \frac{c}{2} (n^2 - n)
-\end{align}$</code>
+\end{align}$
 </p>
 
-<p>So the algorithms time complexity is in <code>$\Theta(n^2) \subsetneq \mathcal{O}(n^2)$</code>.</p>
+<p>So the algorithms time complexity is in $\Theta(n^2) \subsetneq \mathcal{O}(n^2)$.</p>
 
 <h2 id="tocAnchor-1-7">Space complexity</h2>
 
-<p>Well, thats simple: <code>$\mathcal{O}(1)$</code>!</p>
+<p>Well, thats simple: $\mathcal{O}(1)$!</p>
 
-<p>I do ignore the size of the input. So <code>$\mathcal{O}(1)$</code> means: For variable sized input data I do need a constant amount of additional space.</p>
+<p>I do ignore the size of the input. So $\mathcal{O}(1)$ means: For variable sized input data I do need a constant amount of additional space.</p>
 
 <h2 id="tocAnchor-1-8">More improvements</h2>
 

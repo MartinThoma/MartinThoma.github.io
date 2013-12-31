@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Get your programs assembly code and more information</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -146,10 +146,10 @@ This is AT&amp;T Syntax: </p>
 <p><strong>pushl <register></register></strong>: To push the source operand onto the stack<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small>
 <strong>movl <from>, <to></to></from></strong>: moves a long<small><sup><a href="#ref2" name="anchor2" id="anchor2">[2]</a></sup></small>
 <strong>call <function></function></strong>: Calls function (which might be printf, putchar, ...)
-<strong>subl <code>$16, %esp&lt;/strong&gt;: allocate a local variable&lt;small&gt;&lt;sup&gt;&lt;a href="#ref3" name="anchor3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
+<strong>subl $16, %esp&lt;/strong&gt;: allocate a local variable&lt;small&gt;&lt;sup&gt;&lt;a href="#ref3" name="anchor3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
 &lt;strong&gt;ret&lt;/strong&gt;: transfers control back to the place where the current function was called.&lt;small&gt;&lt;sup&gt;&lt;a href="#ref3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
 &lt;strong&gt;leave&lt;/strong&gt;: sets the stack pointer to the base frame address, effectively releasing the whole frame&lt;small&gt;&lt;sup&gt;&lt;a href="#ref4" name="anchor4"&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
-&lt;strong&gt;andl $</code>-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5" id="anchor5">[5]</a></sup></small>
+&lt;strong&gt;andl $-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5" id="anchor5">[5]</a></sup></small>
 <strong>jmp <target></target></strong>: Jump to target label.
 <strong>jbe <target></target></strong>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
 <strong>leal <command-address><store></store></command-address></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9" id="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</p>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Kellerautomat</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -103,48 +103,48 @@
 
 <p>Der <strong>Kellerautomat</strong> ist als 7-Tupel definiert:</p>
 
-<p><code>$(Q, \Sigma, \Gamma, q_0, Z_0, \delta, F)$</code>, wobei
+<p>$(Q, \Sigma, \Gamma, q_0, Z_0, \delta, F)$, wobei
 </p><ul><li>Q: endliche Zustandsmenge</li>
-    <li><code>$\Sigma$</code>: endliches Eingabealphabet</li>
-    <li><code>$\Gamma$</code>: endliches STACK-Alphabet</li>
-    <li><code>$q_0 \in Q$</code>: Anfangszustand</li>
-    <li><code>$Z_0 \in \Gamma$</code>: Initialisierung des STACK</li>
-    <li><code>$\delta: Q \times (\Sigma \cup \{\varepsilon\}) \times \Gamma \rightarrow 2^{Q \times \Gamma^*}$</code>.</li>
-    <li><code>$F \subseteq Q$</code>: Menge der akzeptierenden Endzustände.</li>
+    <li>$\Sigma$: endliches Eingabealphabet</li>
+    <li>$\Gamma$: endliches STACK-Alphabet</li>
+    <li>$q_0 \in Q$: Anfangszustand</li>
+    <li>$Z_0 \in \Gamma$: Initialisierung des STACK</li>
+    <li>$\delta: Q \times (\Sigma \cup \{\varepsilon\}) \times \Gamma \rightarrow 2^{Q \times \Gamma^*}$.</li>
+    <li>$F \subseteq Q$: Menge der akzeptierenden Endzustände.</li>
 </ul><p>Bemerkenswert ist hierbei, dass F leer sein kann. Dies ist möglich, da ein PDA auch durch leeren Stack akzeptieren kann.</p>
 
 <p>Die Zustandsüberführungsfunktion ist etwas umständlich beschrieben. Dort steht, dass jede Regel folgende Form hat:
-<code>$\delta(\text{Zustand}, \text{Eingabesymbol}, \text{Stacksymbol}) = (\text{Neuer Zustand}, \text{Neuer Stack})$</code></p>
+$\delta(\text{Zustand}, \text{Eingabesymbol}, \text{Stacksymbol}) = (\text{Neuer Zustand}, \text{Neuer Stack})$</p>
 
-<p>Die <strong>Konfiguration eines PDA</strong> ist ein Tripel <code>$(q, w, \alpha)$</code>, wobei
-</p><ul><li><code>$q \in Q$</code>: aktueller Zustand</li>
-    <li><code>$w \in \Sigma^*$</code>: der Teil der Eingabe, der noch nicht gelesen wurde</li>
-    <li><code>$\alpha \in \Gamma^*$</code>: der STACK-Inhalt</li>
-</ul><p>Ein PDA ist <strong>deterministisch</strong> <code>$: \Leftrightarrow |\delta(q, a, Z)| + |\delta(q, \varepsilon, Z)| \leq 1 ~~~ \forall_{q \in Q, a \in \Sigma, Z \in \Gamma}$</code>.</p>
+<p>Die <strong>Konfiguration eines PDA</strong> ist ein Tripel $(q, w, \alpha)$, wobei
+</p><ul><li>$q \in Q$: aktueller Zustand</li>
+    <li>$w \in \Sigma^*$: der Teil der Eingabe, der noch nicht gelesen wurde</li>
+    <li>$\alpha \in \Gamma^*$: der STACK-Inhalt</li>
+</ul><p>Ein PDA ist <strong>deterministisch</strong> $: \Leftrightarrow |\delta(q, a, Z)| + |\delta(q, \varepsilon, Z)| \leq 1 ~~~ \forall_{q \in Q, a \in \Sigma, Z \in \Gamma}$.</p>
 
 <h2 id="tocAnchor-1-2">Anschaulich</h2>
 
 <p>Du hast einen Kartenstapel (deine Eingabe, auf der du immer nur ein Zeichen lesen darfst),
-einen Stapel für Notizzettel, wobei am Anfang nur ein Notizzettel dort liegt und immer nur ein Symbol auf dem Zettel steht (dein Stack, der mit <code>$Z_0 \in \Gamma$</code> initialisiert ist),
-einen Zustand und eine Menge Regeln (<code>$\delta$</code>).</p>
+einen Stapel für Notizzettel, wobei am Anfang nur ein Notizzettel dort liegt und immer nur ein Symbol auf dem Zettel steht (dein Stack, der mit $Z_0 \in \Gamma$ initialisiert ist),
+einen Zustand und eine Menge Regeln ($\delta$).</p>
 
 <p>Nun schaust du dir in jedem Schritt die oberste Karte auf dem Kartenstapel an und legst sie weg. Des Weiteren schaust du dir deine oberste Notiz an und legst sie weg und überprüfst deinen Zustand. Aus diesen Informationen schlussfolgerst du, was du als nächstes machst. Du kannst dir aussuchen in welchen Zustand du gehen willst und was du noch auf deinen Notiz-Stapel tun willst. Du kannst auch einfach nichts auf den Notiz-Stapel legen.</p>
 
 <h2 id="tocAnchor-1-3">Beispiele</h2>
 
-<p>Sei <code>$L = \{w \in \{0,1,2\}^* | w = 0^i1^j2^j ~~~ i, j \in \mathbb{N}\}$</code></p>
+<p>Sei $L = \{w \in \{0,1,2\}^* | w = 0^i1^j2^j ~~~ i, j \in \mathbb{N}\}$</p>
 
-<p><code>$(\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)$</code> mit </p>
+<p>$(\{q_0, q_1, q_2\}, \{0, 1, 2\}, \{1, \#\}, q_0, \#, \delta, \emptyset)$ mit </p>
 
-<p><code>$\delta(q_0, 0, \#) = \{(q_0, \#), (q_1, \#)\}, $</code>
-<code>$\delta(q_1, 1, \#) = \{(q_1, 1)\}, $</code>
-<code>$\delta(q_1, 1, 1) = \{(q_1, 11)\}, $</code>
-<code>$\delta(q_1, 2, 1) = \{(q_2, \varepsilon)\}, $</code>
-<code>$\delta(p, a, Z) = \emptyset $</code> sonst.</p>
+<p>$\delta(q_0, 0, \#) = \{(q_0, \#), (q_1, \#)\}, $
+$\delta(q_1, 1, \#) = \{(q_1, 1)\}, $
+$\delta(q_1, 1, 1) = \{(q_1, 11)\}, $
+$\delta(q_1, 2, 1) = \{(q_2, \varepsilon)\}, $
+$\delta(p, a, Z) = \emptyset $ sonst.</p>
 
 <p>Der Kellerautomat akzeptiert durch leeren STACK. Aus diesem Grund legen wir am Anfang auch immer wieder # auf den Stack. Sonst würde der PDA zu früh akzeptieren.</p>
 
-<p>Da <code>$|\delta(q_0, 0, \#) = 2 &gt; 1|$</code> ist dieser Kellerautomat Nicht-Deterministisch.</p>
+<p>Da $|\delta(q_0, 0, \#) = 2 &gt; 1|$ ist dieser Kellerautomat Nicht-Deterministisch.</p>
 
 <h2 id="tocAnchor-1-4">Umformungen</h2>
 
@@ -152,54 +152,54 @@ einen Zustand und eine Menge Regeln (<code>$\delta$</code>).</p>
 
 <p>Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.</p>
 
-<p>Gegeben sei ein Kellerautomat <code>${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$</code> der durch akzeptierenden Endzustand akzeptiert. 
-Wir wollen einen neuen Automaten <code>${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$</code> der durch leeren STACK akzeptiert. </p>
+<p>Gegeben sei ein Kellerautomat ${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$ der durch akzeptierenden Endzustand akzeptiert. 
+Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$ der durch leeren STACK akzeptiert. </p>
 
-<p><strong>Idee</strong>: Wir führen einen neuen Zustand <code>$q_E$</code> ein, bei dessen Erreichen wir den STACK leeren. Um zu verhindern, dass der STACK zwischenzeitlich leer wird, legen wir zu beginn das STACK-Symbol <code>$Z_0^2$</code> ab.</p>
+<p><strong>Idee</strong>: Wir führen einen neuen Zustand $q_E$ ein, bei dessen Erreichen wir den STACK leeren. Um zu verhindern, dass der STACK zwischenzeitlich leer wird, legen wir zu beginn das STACK-Symbol $Z_0^2$ ab.</p>
 
 <p><strong>Formal</strong>:
-<code>$Q_2 := Q_1 \cup \{q_0^2, q_E\}$</code>, wobei <code>$q_0^2$</code> der neue Anfangszustand von <code>${\cal K}_2$</code> ist.
-<code>$\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$</code>, wobei <code>$Z_0^2$</code> den STACK initialisiert.</p>
+$Q_2 := Q_1 \cup \{q_0^2, q_E\}$, wobei $q_0^2$ der neue Anfangszustand von ${\cal K}_2$ ist.
+$\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$, wobei $Z_0^2$ den STACK initialisiert.</p>
 
-<p>Die Menge <code>$\delta_2(q, a, Z)$</code> für <code>$a \in \Sigma \cup \{\varepsilon\}$</code> und <code>$Z \in \Gamma_2$</code> sei durch folgende Bedingungen festgelegt:</p>
+<p>Die Menge $\delta_2(q, a, Z)$ für $a \in \Sigma \cup \{\varepsilon\}$ und $Z \in \Gamma_2$ sei durch folgende Bedingungen festgelegt:</p>
 
 <p>Sorge für die gleiche Anfangssituation:
-<code>$\delta_2(q_0^2, \varepsilon, Z_0^2) = \{(q_0^1, Z_0^1Z_0^2)\}$</code></p>
+$\delta_2(q_0^2, \varepsilon, Z_0^2) = \{(q_0^1, Z_0^1Z_0^2)\}$</p>
 
 <p>Falls der Zustand, das gelesene Zeichen und das STACK-Symbol im "alten" Automaten sind, dann wie gehabt:
-<code>$\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{f&amp;uuml;r } (q \in Q_1, a \neq \varepsilon, Z \in \Gamma_1) \lor (q \in Q_1 \setminus F_1, a = \varepsilon, Z \in \Gamma_1)$</code></p>
+$\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{f&amp;uuml;r } (q \in Q_1, a \neq \varepsilon, Z \in \Gamma_1) \lor (q \in Q_1 \setminus F_1, a = \varepsilon, Z \in \Gamma_1)$</p>
 
 <p>Sorge dafür, dass die STACK-Leerungsregel aufgerufen wird, falls der Zustand akzeptierend ist:
-<code>$\delta_2(q, \varepsilon, Z) = \delta_1(q, \varepsilon, Z) \cup \{(q_E, \varepsilon)\} \text{f&amp;uuml;r } q \in F_1, Z \in \Gamma_2$</code></p>
+$\delta_2(q, \varepsilon, Z) = \delta_1(q, \varepsilon, Z) \cup \{(q_E, \varepsilon)\} \text{f&amp;uuml;r } q \in F_1, Z \in \Gamma_2$</p>
 
 <p>Diese Regel leert den STACK:
-<code>$\delta_2(q_E, \varepsilon, Z) = \{(q_E, \varepsilon)\}  \text{ f&amp;uuml;r } Z \in \Gamma_2$</code></p>
+$\delta_2(q_E, \varepsilon, Z) = \{(q_E, \varepsilon)\}  \text{ f&amp;uuml;r } Z \in \Gamma_2$</p>
 
 <h3 id="tocAnchor-1-4-2">Leerer STACK → akzeptierender Endzustand</h3>
 
 <p>Siehe Skript von Prof. Dr. Dorothea Wagner, S. 107.</p>
 
-<p>Gegeben sei ein Kellerautomat <code>${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$</code> der durch leeren STACK akzeptiert. 
-Wir wollen einen neuen Automaten <code>${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$</code> der durch akzeptierenden Endzustand akzeptiert. </p>
+<p>Gegeben sei ein Kellerautomat ${\cal K}_1 (Q_1, \Sigma, \Gamma_1, \delta_1, q_0^1, Z_0^1, F_1)$ der durch leeren STACK akzeptiert. 
+Wir wollen einen neuen Automaten ${\cal K}_2 (Q_2, \Sigma, \Gamma_2, \delta_2, q_0^2, Z_0^2, F_2)$ der durch akzeptierenden Endzustand akzeptiert. </p>
 
-<p><strong>Idee</strong>: Wir legen ein zusätzliches Symbol <code>$Z_0^2$</code> auf den STACK. Wird <code>$Z_0^2$</code> gelesen, ist der STACK noch nicht leer, aber man kann in einen akzeptierenden Zustand <code>$q_F$</code> wechseln.</p>
+<p><strong>Idee</strong>: Wir legen ein zusätzliches Symbol $Z_0^2$ auf den STACK. Wird $Z_0^2$ gelesen, ist der STACK noch nicht leer, aber man kann in einen akzeptierenden Zustand $q_F$ wechseln.</p>
 
 <p><strong>Formal</strong>:
-<code>$Q_2 := Q_1 \cup \{q_0^2, q_F\}$</code>, wobei <code>$q_0^2$</code> Anfangszustand von <code>${\cal K}_2$</code> ist und <code>$F_2 := \{q_F\}$</code>
-<code>$\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$</code>, wobei <code>$Z_0^2$</code> Initialisierung des STACKS von <code>${\cal K}_2$</code> ist und <code>$\delta_2$</code> festgelegt durch:</p>
+$Q_2 := Q_1 \cup \{q_0^2, q_F\}$, wobei $q_0^2$ Anfangszustand von ${\cal K}_2$ ist und $F_2 := \{q_F\}$
+$\Gamma_2 := \Gamma_1 \cup \{Z_0^2\}$, wobei $Z_0^2$ Initialisierung des STACKS von ${\cal K}_2$ ist und $\delta_2$ festgelegt durch:</p>
 
-<p>Zuerst sorgen wir dafür, dass <code>$Z_0^2$</code> ganz unten im STACK ist:
-<code>$\delta_2(q_0^2, a, X) = 
+<p>Zuerst sorgen wir dafür, dass $Z_0^2$ ganz unten im STACK ist:
+$\delta_2(q_0^2, a, X) = 
 \begin{cases}
 \{q_0^1, Z_0^1, Z_0^2\} &amp; \text{falls } a= \varepsilon \text{ und } X = Z_0^2\\
 \emptyset               &amp; \text{sonst}
-\end{cases}$</code></p>
+\end{cases}$</p>
 
 <p>Dann wie gehabt:
-<code>$\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{, falls } q \in Q_1, a \in \Sigma \cup \{\varepsilon\} \text{ und } Z \in \Gamma_1$</code></p>
+$\delta_2(q, a, Z) = \delta_1(q, a, Z) \text{, falls } q \in Q_1, a \in \Sigma \cup \{\varepsilon\} \text{ und } Z \in \Gamma_1$</p>
 
 <p>Und am Schluss auch akzeptieren:
-<code>$\delta_2(q, \varepsilon, Z_0^2) = \{(q_F, \varepsilon)\} \text{ f&amp;uuml;r } q \in Q_1$</code>.</p>
+$\delta_2(q, \varepsilon, Z_0^2) = \{(q_F, \varepsilon)\} \text{ f&amp;uuml;r } q \in Q_1$.</p>
 
 <h2 id="tocAnchor-1-7">Dies und das</h2>
 

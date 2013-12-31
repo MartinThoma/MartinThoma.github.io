@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Solving equations of upper triangular matrices</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Suppose you have an equation like <code>$R \cdot x = b$</code> with <code>$R \in \mathbb{R}^{n \times n}$</code> and <code>$x,b \in \mathbb{R}^n$</code>. <code>$b$</code> and <code>$R$</code> are given and you want to solve for <code>$x$</code>.</p>
+                            <p>Suppose you have an equation like $R \cdot x = b$ with $R \in \mathbb{R}^{n \times n}$ and $x,b \in \mathbb{R}^n$. $b$ and $R$ are given and you want to solve for $x$.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -102,10 +102,10 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Example</h2>
 
-<p>With <code>$n=5$</code>, the problem could look like this:</p>
+<p>With $n=5$, the problem could look like this:</p>
 
 <p>
-   <code>$\begin{pmatrix}
+   $\begin{pmatrix}
 2 &amp; 7 &amp; 1 &amp; 8 &amp; 2\\
 0 &amp; 8 &amp; 1 &amp; 8 &amp; 2\\
 0 &amp; 0 &amp; 8 &amp; 4 &amp; 5\\
@@ -113,11 +113,11 @@
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 4
 \end{pmatrix} \cdot 
 \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{pmatrix} =
-\begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$</code>
+\begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$
 </p>
 
 <p>This is only a shorthand for:
-<code>$
+$
 \begin{align}
 2 \cdot x_1 + 7 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 + 2 \cdot x_5 &amp;= 3\\
               8 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 + 2 \cdot x_5 &amp;= 1\\
@@ -125,18 +125,18 @@
                                           9 \cdot x_4 + 0 \cdot x_5 &amp;= 1\\
                                                         4 \cdot x_5 &amp;= 5
 \end{align}
-$</code></p>
+$</p>
 
 <h3 id="tocAnchor-1-1-1">First step: Solve for `$x_5$`</h3>
 
-<p>First you see that <code>$x_5 = \frac{5}{4}$</code>. So you divide <code>$b$</code> by the current row.</p>
+<p>First you see that $x_5 = \frac{5}{4}$. So you divide $b$ by the current row.</p>
 
 <div class="important">Don't divide through 0. When you would have to divide by 0 and b is 0, this system has an infinite amount of solutions. When you would have to divide by 0 and b is not 0, then this system has no solution.</div>
 
-<p>Now you replace every occurrence of <code>$x_5$</code> in the system of equations above:</p>
+<p>Now you replace every occurrence of $x_5$ in the system of equations above:</p>
 
 <p>
-   <code>$
+   $
 \begin{align}
 2 \cdot x_1 + 7 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 + 2 \cdot \frac{5}{4} &amp;= 3\\
               8 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 + 2 \cdot \frac{5}{4} &amp;= 1\\
@@ -144,43 +144,43 @@ $</code></p>
                                           9 \cdot x_4 + 0 \cdot \frac{5}{4} &amp;= 1\\
                                                         4 \cdot \frac{5}{4} &amp;= 5
 \end{align}
-$</code>
+$
 </p>
 
 <p>Now you make the multiplications and remove the first trivial line.</p>
 
 <p>
-   <code>$
+   $
 \begin{align}
 2 \cdot x_1 + 7 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 + \frac{5}{2} &amp;= 3\\
               8 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 + \frac{5}{2} &amp;= 1\\
                             8 \cdot x_3 + 4 \cdot x_4 + \frac{25}{4} &amp;= 4\\
                                           9 \cdot x_4 + 0 &amp;= 1\\
 \end{align}
-$</code>
+$
 </p>
 
 <h3 id="tocAnchor-1-1-2">Second step: update</h3>
 
 <p>Get the constant factors to the right side of the equations:
-<code>$
+$
 \begin{align}
 2 \cdot x_1 + 7 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 &amp;= \frac{1}{2} \\
               8 \cdot x_2 + 1 \cdot x_3 + 8 \cdot x_4 &amp;= -\frac{3}{2} \\
                             8 \cdot x_3 + 4 \cdot x_4 &amp;= -\frac{9}{4}\\
                                           9 \cdot x_4 &amp;= 1\\
 \end{align}
-$</code></p>
+$</p>
 
-<p>You're now in the same situation as in the first step. Next you will solve for <code>$x_4$</code>, then for <code>$x_3, x_2$</code> and finally for <code>$x_1$</code>.</p>
+<p>You're now in the same situation as in the first step. Next you will solve for $x_4$, then for $x_3, x_2$ and finally for $x_1$.</p>
 
 <p>This is called "back substitution".</p>
 
 <p><a href="http://www.wolframalpha.com/input/?i=%7B%7B2%2C7%2C1%2C8%2C2%7D%2C%7B0%2C8%2C1%2C8%2C2%7D%2C%7B0%2C0%2C8%2C4%2C5%7D%2C%7B0%2C0%2C0%2C9%2C0%7D%2C%7B0%2C0%2C0%2C0%2C4%7D%7D%5E-1*%7B%7B3%7D%2C%7B1%7D%2C%7B4%7D%2C%7B1%7D%2C%7B5%7D%7D">According to Wolfram|Alpha</a>, the solution is:</p>
 
 <p>
-   <code>$x = \frac{1}{4608} \cdot \begin{pmatrix}4017\\-1182\\-1552\\512\\5760\end{pmatrix} = 
-\begin{pmatrix}\frac{1339}{1536} \\ -\frac{197}{768} \\ -\frac{97}{288} \\ \frac{1}{9} \\ \frac{5}{4}\end{pmatrix}$</code>
+   $x = \frac{1}{4608} \cdot \begin{pmatrix}4017\\-1182\\-1552\\512\\5760\end{pmatrix} = 
+\begin{pmatrix}\frac{1339}{1536} \\ -\frac{197}{768} \\ -\frac{97}{288} \\ \frac{1}{9} \\ \frac{5}{4}\end{pmatrix}$
 </p>
 
 <h2 id="tocAnchor-1-4">Python straightforward algorithm</h2>
@@ -305,14 +305,14 @@ $</code></p>
 
 <p>I'll analyze the second algorithm.</p>
 
-<p>The conversion of our input data is obviously in <code>$\mathcal{O}(n^2)$</code>. Let's only analyse the part after the conversion.</p>
+<p>The conversion of our input data is obviously in $\mathcal{O}(n^2)$. Let's only analyse the part after the conversion.</p>
 
-<p>Assume that there is exactly one solution and that line 15-21 take <code>$c_1$</code> operations and line 24 takes <code>$c_2$</code> operations.</p>
+<p>Assume that there is exactly one solution and that line 15-21 take $c_1$ operations and line 24 takes $c_2$ operations.</p>
 
 <p>Then we would have a total of </p>
 
 <p>
-   <code>$\begin{align}
+   $\begin{align}
 \text{Operations} &amp;= \sum_{i=1}^n \left ( c_1 +  \sum_{j=1}^{i-1} c_2 \right )\\
 &amp;= \sum_{i=1}^n c_1 + \sum_{i=1}^n \sum_{j=1}^{i-1} c_2\\
 &amp;= n \cdot c_1 + c_2 \cdot \left (\sum_{i=1}^n \sum_{j=1}^{i-1} 1 \right )\\
@@ -320,14 +320,14 @@ $</code></p>
 &amp;= n \cdot c_1 + c_2 \cdot \left ((\sum_{i=1}^n i) - (\sum_{i=1}^n 1) \right )\\
 &amp;= n \cdot c_1 + c_2 \cdot \left (\frac{n^2+n}{2} - n \right )\\
 &amp;= n \cdot c_1 + (n^2-n) \cdot \frac{c_2}{2}\\
-\end{align}$</code>
+\end{align}$
 </p>
 
-<p>So the algorithms time complexity is in <code>$\Theta(n^2) \subsetneq \mathcal{O}(n^2)$</code>.</p>
+<p>So the algorithms time complexity is in $\Theta(n^2) \subsetneq \mathcal{O}(n^2)$.</p>
 
 <h2 id="tocAnchor-1-8">Space complexity</h2>
 
-<p>Please note that I take advantage of Pythons dynamic typing system. I think it's difficult to see space complexity in python programs. But when you make the same in C++, you will see that you will need space in <code>$\mathcal{O}(n)$</code> when you do the conversion. Without the conversion, you're in <code>$\mathcal{O}(1)$</code>.</p>
+<p>Please note that I take advantage of Pythons dynamic typing system. I think it's difficult to see space complexity in python programs. But when you make the same in C++, you will see that you will need space in $\mathcal{O}(n)$ when you do the conversion. Without the conversion, you're in $\mathcal{O}(1)$.</p>
 
 <p>I guess you might want to leave this choice to the user of your functions. When he wants better results, he should give the input as Fraction. When he wants to get results rather faster, he should give the input as float.</p>
 

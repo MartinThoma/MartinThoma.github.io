@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Minimierung eines Automaten mittels &Auml;quivalenzklassenkonstruktion</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -88,7 +88,7 @@
 </ol><h2 id="tocAnchor-1-2">Beispiel</h2>
 
 <p>Gegeben sei folgender Endlicher Automat A: 
-<code>$A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})$</code> mit folgender Übergangsfunktion <code>$\sigma$</code>:
+$A = (\{0,1\}, \{S, A, B, C, D, E, F, G, H, I\}, S, \sigma, \{D\})$ mit folgender Übergangsfunktion $\sigma$:
 </p><div style="width: 392px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/02/endlicher-automat-gross.png">
       <img src="http://martinthoma.github.io/images/../images/2012/02/endlicher-automat-gross.png" alt="" width="392" height="389" class="size-full wp-image-13451" />
@@ -99,7 +99,7 @@
 <p>Es ist offensichtlich, dass I nicht erreicht werden kann. Da der Graph gerichtet ist, kann man schnell sehen, dass auch  H und G nicht erreicht werden können. Algorithmisch kann man diese Zustände durch eine Tiefensuche bestimmen.</p>
 
 <p>Nach Schritt 1 haben wir also den Automaten 
-<code>$A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})$</code>:
+$A_1 = (\{0,1\}, \{S, A, B, C, D, E, F\}, S, \sigma, \{D\})$:
 </p><div style="width: 340px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2012/02/endlicher-automat-kleiner.png">
       <img src="http://martinthoma.github.io/images/../images/2012/02/endlicher-automat-kleiner.png" alt="" width="340" height="381" class="size-full wp-image-13471" />
@@ -108,24 +108,24 @@
 </div>
 
 <p>In Schritt 2 erstellen wir also zuerst eine Äquivalenzklasse der Zustände:
-<code>$\{S, A, B, C, D, E, F\}$</code>.</p>
+$\{S, A, B, C, D, E, F\}$.</p>
 
-<p>Die akzeptierenden Zustände werden von den nicht akzeptierenden getrennt: <code>$\{D\}, \{S, A, B, C, E, F\}$</code></p>
+<p>Die akzeptierenden Zustände werden von den nicht akzeptierenden getrennt: $\{D\}, \{S, A, B, C, E, F\}$</p>
 
-<p>In Schritt 3 gehen wir nun immer wieder die Zeichen "0" und "1" aus <code>$\Sigma$</code> durch:
+<p>In Schritt 3 gehen wir nun immer wieder die Zeichen "0" und "1" aus $\Sigma$ durch:
 In welche Klassen führt "0"?
 <a href="../images/2012/02/aequivalenzklassen-1.png"><img src="../images/2012/02/aequivalenzklassen-1.png" alt="Äquivalenzklassen - Schritt 1" title="Äquivalenzklassen - Schritt 1" width="220" height="71" class="aligncenter size-full wp-image-13631" /></a></p>
 
-<p>C wird also von <code>$\{S, A, B, E, F\}$</code> getrennt. Wir haben folgende Klassen:
-<code>$\{C\}, \{D\}, \{S, A, B, E, F\}$</code></p>
+<p>C wird also von $\{S, A, B, E, F\}$ getrennt. Wir haben folgende Klassen:
+$\{C\}, \{D\}, \{S, A, B, E, F\}$</p>
 
-<p>"1" trennt nun "A" von <code>$\{S, B, E, F\}$</code>:
+<p>"1" trennt nun "A" von $\{S, B, E, F\}$:
 <a href="../images/2012/02/aequivalenzklasse-2.png"><img src="../images/2012/02/aequivalenzklasse-2.png" alt="Äquivalenzklassen - Schritt 2" title="Äquivalenzklassen - Schritt 2" width="246" height="66" class="aligncenter size-full wp-image-13661" /></a></p>
 
-<p>"0" trennt nun "S" von <code>$\{B, E, F\}$</code>:
+<p>"0" trennt nun "S" von $\{B, E, F\}$:
 <a href="../images/2012/02/aequivalenzklasse-3.png"><img src="../images/2012/02/aequivalenzklasse-3.png" alt="Äquivalenzklassen - Schritt 3" title="Äquivalenzklassen - Schritt 3" width="267" height="65" class="aligncenter size-full wp-image-13681" /></a></p>
 
-<p>Wir haben nun die Äquivalenzklassen <code>$\{S\}, \{A\}, \{C\}, \{D\}, \{B, E, F\}$</code>.</p>
+<p>Wir haben nun die Äquivalenzklassen $\{S\}, \{A\}, \{C\}, \{D\}, \{B, E, F\}$.</p>
 
 <p>Im nächsten Schritt sehen wir, dass "1" nicht mehr trennt und "0" auch nicht nochmals etwas trennt. Wir sind also fertig. Die Zustände B, E und F können zu einem zusammengefasst werden. Ich nenne ihn mal T (für Trash, da man in diesem Zustand niemals mehr akzeptieren kann). Damit ist unser minimaler Endlicher Automat folgender:</p>
 

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>KV-Diagramme</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -93,11 +93,11 @@
 </div><h2 id="tocAnchor-1-1">Konstruktion aus Schaltfunktion</h2>
 
 <p>Gegeben sei folgende vollständig definierte Schaltfunktion:
-<code>$f(w,x,y,z) := (w \lor \bar y) (\bar w \lor x \lor y) (\bar w \lor \bar x \lor z)$</code></p>
+$f(w,x,y,z) := (w \lor \bar y) (\bar w \lor x \lor y) (\bar w \lor \bar x \lor z)$</p>
 
 <p>Nun kann man eine Funktionstabelle aufstellen:
-</p><ol><li>Dabei schreibt man sich erst das Gerüst hin, also eine Titelzeile mit den vier Variablen <code>$w,x,y,z$</code> und <code>$2^4 = 16$</code> Zeilen für die verschiedenen Funktionswerte. Wir brauchen jeweils eine Spalte für die vier Variablen, eine für den Funktionswert <code>$f(w,x,y,z)$</code> und am besten noch eine mit der Nummer.</li>
-  <li>Nun zählen wir für die vier Variablen binär hoch. Dabei einsprechen die konkatenierten Ziffern der Variablen der Spalte „Nummer“. Ich fine es am einfachsten, dies Spaltenweise zu schreiben. Also 8 Nullen, 8 Einsen für <code>$w$</code>. Dann 4 Nullen, 4 Einsen, 4 Nullen, 4 Einsen für <code>$x$</code> usw.</li>
+</p><ol><li>Dabei schreibt man sich erst das Gerüst hin, also eine Titelzeile mit den vier Variablen $w,x,y,z$ und $2^4 = 16$ Zeilen für die verschiedenen Funktionswerte. Wir brauchen jeweils eine Spalte für die vier Variablen, eine für den Funktionswert $f(w,x,y,z)$ und am besten noch eine mit der Nummer.</li>
+  <li>Nun zählen wir für die vier Variablen binär hoch. Dabei einsprechen die konkatenierten Ziffern der Variablen der Spalte „Nummer“. Ich fine es am einfachsten, dies Spaltenweise zu schreiben. Also 8 Nullen, 8 Einsen für $w$. Dann 4 Nullen, 4 Einsen, 4 Nullen, 4 Einsen für $x$ usw.</li>
 <li>Als letztes schauen wir uns die drei geklammerten Terme von oben an und schauen, wann diese jeweils Null sind. In die entsprechenden Zeilen der Tabelle tragen wir eine Null ein. In alle Übrigen kommt eine Eins.</li>
 </ol><table>
    <thead>
@@ -223,7 +223,7 @@
       <td>1</td>
     </tr>
    </tbody>
-</table><p>Will man diese Tabelle in ein KV-Diagramm übernehmen, muss man nur die Spalte <code>$f(w,x,y,z)$</code> in der richtigen Reihenfolge in die Tabelle füllen. Das macht man, indem man immer bei einem Eckpunkt beginnt und dann eine Z-Form durchgeht:</p>
+</table><p>Will man diese Tabelle in ein KV-Diagramm übernehmen, muss man nur die Spalte $f(w,x,y,z)$ in der richtigen Reihenfolge in die Tabelle füllen. Das macht man, indem man immer bei einem Eckpunkt beginnt und dann eine Z-Form durchgeht:</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/03/karnaugh-map4-300x236.png">
@@ -237,14 +237,14 @@
 
 <h2 id="tocAnchor-1-2">Prim- und Kernprimimplikaten</h2>
 
-<p>Sei <code>$g(w,x,y,z)$</code> eine Schaltfunktion.
-<code>$g$</code> ist ein Implikant von <code>$f:\Leftrightarrow \forall_{(w,x,y,z) \in \{0,1\}^4}: g(w,x,y,z) \Rightarrow f(w,x,y,z)$</code>.</p>
+<p>Sei $g(w,x,y,z)$ eine Schaltfunktion.
+$g$ ist ein Implikant von $f:\Leftrightarrow \forall_{(w,x,y,z) \in \{0,1\}^4}: g(w,x,y,z) \Rightarrow f(w,x,y,z)$.</p>
 
-<p>Ist <code>$g$</code> ist ein Implikant von <code>$f$</code>, so ist <code>$f$</code> ein Implikat von <code>$g$</code>.</p>
+<p>Ist $g$ ist ein Implikant von $f$, so ist $f$ ein Implikat von $g$.</p>
 
-<p>Das kann man nun sehr schön mit dem KV-Diagramm verknüpfen. Wenn man die beiden Funktionen <code>$f$</code> und <code>$g$</code> in das KV-Diagramm einzeichnet, muss <code>$f$</code> überall dort eine 1 haben, wo <code>$g$</code> eine 1 hat.</p>
+<p>Das kann man nun sehr schön mit dem KV-Diagramm verknüpfen. Wenn man die beiden Funktionen $f$ und $g$ in das KV-Diagramm einzeichnet, muss $f$ überall dort eine 1 haben, wo $g$ eine 1 hat.</p>
 
-<p>Was hat es nun mit Primimplikanten auf sich? Wenn man diese Kästchen um 1-Blöcke macht, dann müssen sie jeweils insgesamt genau <code>$2^k, k \in \mathbb{N}_0$</code> Einsen umfassen und dürfen an den Rändern fortgesetz werden (siehe der grüne um 5 und 13). Wenn so ein Block ein Primimplikant ist, darf es keinen größeren Eins-Block geben.</p>
+<p>Was hat es nun mit Primimplikanten auf sich? Wenn man diese Kästchen um 1-Blöcke macht, dann müssen sie jeweils insgesamt genau $2^k, k \in \mathbb{N}_0$ Einsen umfassen und dürfen an den Rändern fortgesetz werden (siehe der grüne um 5 und 13). Wenn so ein Block ein Primimplikant ist, darf es keinen größeren Eins-Block geben.</p>
 
 <p>Beispiel:
 </p><div style="width: 300px" class="wp-caption aligncenter">
@@ -274,15 +274,15 @@
  <li>(8, 12) // 4. Zeile, ist kein Kernprimimplikat</li>
 </ul><h2 id="tocAnchor-1-3">Hasards</h2>
 
-<p>Wie sieht man einen Hasard im KV-Diagramm? Man sucht sich eine Anfangsbelegung und eine Endbelegung. Wenn sich dazwischen <code>$n$</code> Variablen ändern, gibt es <code>$n!$</code> Pfade im KV-Diagram. Ist einer dieser Pfade nicht monoton, so ist dieser Übergang Hasardbehaftet.</p>
+<p>Wie sieht man einen Hasard im KV-Diagramm? Man sucht sich eine Anfangsbelegung und eine Endbelegung. Wenn sich dazwischen $n$ Variablen ändern, gibt es $n!$ Pfade im KV-Diagram. Ist einer dieser Pfade nicht monoton, so ist dieser Übergang Hasardbehaftet.</p>
 
 <p>Nun kann man sich entweder die Funktion selbst im KV-Diagramm anschauen, oder die einzelnen Variablen mit dem Todzeitmodell aufsplitten. Untersucht man ersteres, kann man Funktionshasards finden, bei letzterem Strukturhasards.</p>
 
 <p>Nun kann man jeden Hasard noch aufteilen, je nach dem was der Wert der Funktion mit der Anfangsbelegung A bzw. der Wert der Funktion bei der Endbelegung B ist:
-</p><ul><li><code>$f(A) = 0 \land f(B) = 0 \Rightarrow$</code> Statischer 0-Hasard</li>
-  <li><code>$f(A) = 0 \land f(B) = 1 \Rightarrow$</code> Dynamischer 01-Hasard</li>
-  <li><code>$f(A) = 1 \land f(B) = 0 \Rightarrow$</code> Dynamischer 10-Hasard</li>
-  <li><code>$f(A) = 1 \land f(B) = 1 \Rightarrow$</code> Statischer 1-Hasard</li>
+</p><ul><li>$f(A) = 0 \land f(B) = 0 \Rightarrow$ Statischer 0-Hasard</li>
+  <li>$f(A) = 0 \land f(B) = 1 \Rightarrow$ Dynamischer 01-Hasard</li>
+  <li>$f(A) = 1 \land f(B) = 0 \Rightarrow$ Dynamischer 10-Hasard</li>
+  <li>$f(A) = 1 \land f(B) = 1 \Rightarrow$ Statischer 1-Hasard</li>
 </ul><h3 id="tocAnchor-1-3-1">Beispiel</h3>
 
 <p>Hier ist ein Beispiel für einen dynamischen 1-0-Hasard:</p>

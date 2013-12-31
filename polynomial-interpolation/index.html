@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Polynomial interpolation</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,12 +65,12 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Suppose you have a list of <code>$n+1$</code> given point <code>$(x_i, y_i)$</code> with <code>$i \in \{0, \dots, n\}$</code> and <code>$\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$</code>. </p>
+                            <p>Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$. </p>
 
-<p>Now you want to find a polynomial <code>$\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i$</code> that goes through all of the given points. This means:</p>
+<p>Now you want to find a polynomial $\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i$ that goes through all of the given points. This means:</p>
 
 <p>
-   <code>$\forall i \in \{0, \dots, n\}: p(x_i) = y_i$</code>
+   $\forall i \in \{0, \dots, n\}: p(x_i) = y_i$
 </p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -97,7 +97,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Existence and uniqueness</h2>
 
-<p><strong>Theorem</strong>: When you have a list of <code>$n+1$</code> points with mutually different <code>$x_i$</code> there is exactly one polynom of degree <code>$\leq n$</code> that fits those points.</p>
+<p><strong>Theorem</strong>: When you have a list of $n+1$ points with mutually different $x_i$ there is exactly one polynom of degree $\leq n$ that fits those points.</p>
 
 <p><strong>Proof</strong>:</p>
 
@@ -122,15 +122,15 @@ y<em>0 \
 y</em>n
 \end{pmatrix}$`</p>
 
-<p>A matrix of the form of <code>$A$</code> is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points <code>$x_i$</code> are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).</p>
+<p>A matrix of the form of $A$ is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points $x_i$ are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).</p>
 
-<p>This means, the solution <code>$(a_0 \dots a_n)^T$</code> of this linear equation gives the polynom <code>$p(x) = \sum_{i=0}^n a_i x^i$</code></p>
+<p>This means, the solution $(a_0 \dots a_n)^T$ of this linear equation gives the polynom $p(x) = \sum_{i=0}^n a_i x^i$</p>
 
-<p>So the solution exists and is unique <code>$\blacksquare$</code></p>
+<p>So the solution exists and is unique $\blacksquare$</p>
 
 <h2 id="tocAnchor-1-2">Straight forward interpolating polynomials</h2>
 
-<p>For this algorithm, I'll find the polynomial in its monomial from <code>$p(x) = \sum_{i=0}^n a_i x^i$</code>. I'll use the matrix <code>$A$</code> from section "<a href="#Uniqueness">Uniqueness</a>".</p>
+<p>For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I'll use the matrix $A$ from section "<a href="#Uniqueness">Uniqueness</a>".</p>
 
 <p>You might want to take a look at my article about <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.</p>
 
@@ -237,7 +237,7 @@ y</em>n
 </code></pre>
 </div>
 
-<p>It is also interesting to get the value of <code>$p(x)$</code> at any given point <code>$x \in \mathbb{R}$</code>:</p>
+<p>It is also interesting to get the value of $p(x)$ at any given point $x \in \mathbb{R}$:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="k">def</span> <span class="nf">evaluatePolynomial</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -250,16 +250,16 @@ y</em>n
 </code></pre>
 </div>
 
-<p>Time complexity to get the polynomial: <code>$\frac{1}{3} n^3 + \mathcal{O}(n^2)$</code> (where <code>$n$</code> is the number of points)
-Space complexity for the polynomial: <code>$\mathcal{O}(n^2)$</code> (where <code>$n$</code> is the number of points)</p>
+<p>Time complexity to get the polynomial: $\frac{1}{3} n^3 + \mathcal{O}(n^2)$ (where $n$ is the number of points)
+Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)</p>
 
-<p>Time complexity to evaluate the value of <code>$p(x)$</code> for any <code>$x \in \mathbb{R}$</code>: <code>$\mathcal{O}(n)$</code>.</p>
+<p>Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n)$.</p>
 
 <h2 id="tocAnchor-1-3">Polynomials</h2>
 
-<p><code>$\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$</code> </p>
+<p>$\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$ </p>
 
-<p>So <code>$\mathbb{R}_n[X]$</code> are all polynomials with real coefficients and degree not higher than latex]n<code>$. $</code>\mathbb{R}<em>n[X]<code>$ forms a vector space for $</code>n \in \mathbb{N}</em>0<code>$. The degree of that vector space is $</code>n+1`$.</p>
+<p>So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}<em>n[X]$ forms a vector space for $n \in \mathbb{N}</em>0$. The degree of that vector space is $n+1`$.</p>
 
 <p>What does that mean?</p>
 

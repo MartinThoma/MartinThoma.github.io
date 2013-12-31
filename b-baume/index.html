@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>B-B&auml;ume</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312311139.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -123,7 +123,7 @@
 
 <p>Die folgende Definition ist sinngemäß aus "Introduction to Algorithms" von Thomas H. Cormen übernommen.</p>
 
-<p>Für einen <strong>B-Baum der Ordnung t</strong>, <code>$t \in \mathbb{N} \setminus \{1\}$</code>, gilt:</p>
+<p>Für einen <strong>B-Baum der Ordnung t</strong>, $t \in \mathbb{N} \setminus \{1\}$, gilt:</p>
 
 <ol><li>Jeder Knoten `$x$` hat die folgenden Attribute:
     <ol><li>`$n$`, die Anzahl der Schlüssel die im Knoten `$x$` gespeichert wird,</li>
@@ -162,7 +162,7 @@
 <p>Ein B-Baum der Ordnung t = 2 wird auch <a href="http://de.wikipedia.org/wiki/2-3-4-Baum">2-3-4-Baum</a> genannt, da jeder Knoten entweder 2, 3 oder 4 Kinder hat.</p>
 
 <p>Ich habe ja ausgeschlossen, dass es einen B-Baum der Ordnung t = 1 gibt. Warum eigentlich?
-Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 müssten einzelne Knoten keine Schlüssel haben. Das ist nicht sinnvoll. Also muss <code>$t \geq  2$</code> gelten.</p>
+Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 müssten einzelne Knoten keine Schlüssel haben. Das ist nicht sinnvoll. Also muss $t \geq  2$ gelten.</p>
 
 <h2 id="tocAnchor-1-5">Suchen eines Schlüssels</h2>
 
@@ -188,13 +188,13 @@ Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 müssten einzelne Knoten kein
 <p>Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.</p>
 
 <p>Laut Vorlesung (Folie 97) gilt:
-</p><ul><li>Anzahl Zugriffe auf Hintergrundspeicher maximal: <code>${\cal O}(\log_t(n))$</code></li>
-    <li>Innerhalb eines Knotens: <code>${\cal O}(t)$</code></li>
-    <li>Insgesamt also: <code>${\cal O}(t \cdot \log_t(n))$</code></li>
+</p><ul><li>Anzahl Zugriffe auf Hintergrundspeicher maximal: ${\cal O}(\log_t(n))$</li>
+    <li>Innerhalb eines Knotens: ${\cal O}(t)$</li>
+    <li>Insgesamt also: ${\cal O}(t \cdot \log_t(n))$</li>
 </ul><h2 id="tocAnchor-1-6">Einfügen von Schlüsseln</h2>
 
 <p>Wenn ein Schlüssel in einen B-Baum eingefügt werden soll, dann muss man insebesondere auf Regel (5.1) und (5.2) achten:
-Jeder Knoten enthält n Schlüssel, mit <code>$t-1 \leq n \leq 2t -1$</code>.</p>
+Jeder Knoten enthält n Schlüssel, mit $t-1 \leq n \leq 2t -1$.</p>
 
 <p>Die Idee ist, dass man das Blatt sucht, in dem der Schlüssel sein müsste. Falls noch Platz ist, kann man den Schlüssel einfach einfügen. Falls nicht, muss man das Blatt aufsplitten.</p>
 
@@ -207,7 +207,7 @@ Jeder Knoten enthält n Schlüssel, mit <code>$t-1 \leq n \leq 2t -1$</code>.</p
    <p class="wp-caption-text"></p>
 </div>
 
-<p>In den B-Baum aus Abb. 2 soll nun der Schlüssel <code>16</code> eingefügt werden. In einem B-Baum der Ordnung 2 hat jeder Knoten mindestens einen und höchstens 3 Schlüssel. Egal wo wir also landen würden, es würde noch in diesen Baum passen. Wir landen aber im Knoten rechts unten, da <code>$11 &lt; 16$</code> ist.</p>
+<p>In den B-Baum aus Abb. 2 soll nun der Schlüssel <code>16</code> eingefügt werden. In einem B-Baum der Ordnung 2 hat jeder Knoten mindestens einen und höchstens 3 Schlüssel. Egal wo wir also landen würden, es würde noch in diesen Baum passen. Wir landen aber im Knoten rechts unten, da $11 &lt; 16$ ist.</p>
 
 <p>Das Ergebnis ist also:
 </p><div style="width: 500px" class="wp-caption aligncenter">
@@ -237,7 +237,7 @@ Jeder Knoten enthält n Schlüssel, mit <code>$t-1 \leq n \leq 2t -1$</code>.</p
 
 <p>Natürlich kann es auch passieren, dass beim hochwandern des mittleren Knoten (15 von Abb. 3 nach Abb. 4) der Elternknoten überläuft. Dann muss halt auch dieser gesplittet werden. Wenn die Wurzel überläuft, muss eine neue Wurzel erstellt werden. Dann kann die alte Wurzel gesplittet werden.</p>
 
-<p>Die Laufzeit des Einfügens ist in <code>${\cal O}(t \cdot \log_t(n))$</code>.</p>
+<p>Die Laufzeit des Einfügens ist in ${\cal O}(t \cdot \log_t(n))$.</p>
 
 <h2 id="tocAnchor-1-9">Löschen eines Schlüssels</h2>
 
