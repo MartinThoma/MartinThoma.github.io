@@ -32,7 +32,7 @@ if ( $query == ""  || preg_match("/^\s+/",$query) ) {
         $max_results_text = ($count_result['num_pages'] > 50) ? 'Showing first 50 results of ' : '';
         #echo "<p>$max_results_text{$count_result['num_pages']} $results_text for '$query'.</p>";
 
-        $stmt = $db->prepare('SELECT title, permalink, search_excerpt, featured_image, date FROM pages WHERE title like :search or text_content like :search  or permalink like :search or LIMIT 50');
+        $stmt = $db->prepare('SELECT title, permalink, search_excerpt, featured_image, date FROM pages WHERE title like :search or text_content like :search  or permalink like :search LIMIT 50');
         $stmt->bindValue(':search', $query, SQLITE3_TEXT);
 
         $result = $stmt->execute();
