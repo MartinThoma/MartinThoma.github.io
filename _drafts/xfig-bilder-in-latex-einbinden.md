@@ -38,7 +38,9 @@ Ich habe mit xfig folgendes Bild erstellt:
 [caption id="attachment_63671" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/04/example-image.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/04/example-image-300x257.png" alt="Beispiel zum Testen der Export-Funktionen von xfig" width="300" height="257" class="size-medium wp-image-63671" /></a> Beispiel zum Testen der Export-Funktionen von xfig[/caption]
 
 <h3>LaTeX box (figure boundary)</h3>
-{% highlight text %}\makebox[2.595in]{\rule{0in}{1.596in}}{% endhighlight %}
+```text
+\makebox[2.595in]{\rule{0in}{1.596in}}
+```
 
 Diese Export-Möglichkeit schein nur die Bildgröße zu exportieren.
 
