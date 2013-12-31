@@ -9,7 +9,7 @@ def replaceLatex(file_path):
     #replace $..$ by <div>$..$</div> and $$..$$ by <div>$$..$$</div>
     import re
     # first two dollar signs
-    content = re.sub(r'(?<!\<span\>)\$\$([^\$]*)\$\$', "<div>$$\g<1>$$</div>", content)
+    content = re.sub(r'(?<!\\)\$\$([^\$]*)\$\$', "<div>$$\g<1>$$</div>", content)
     content = re.sub(r'(?<!\<span\>)(?<!\$)\$([^\$]+)\$', "<span>$\g<1>$</span>", content)
 
     #write without whitespace

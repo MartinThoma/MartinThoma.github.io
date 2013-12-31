@@ -76,30 +76,35 @@ Wir suchen also eine neue Abbildungsmatrix $A_1'$, die die gleiche Abbildung bes
 Wenn man das machen will, kann man sich den Vorgang wie eine Ansammlung von Funktionen (im Sinne der Informatik) betrachten. Wir haben eine Funktion, die die Abbildung von der Standardbasis in die Standardbasis beschreibt. Als Input bekommen wir einen Vektor in der Basis $B_1$ und herauskommen soll ein Vektor in der Basis $C_1$. Wir m&uuml;ssen also den Input-Vektor von der Basis $B_1$ in die Standardbasis umwandeln und den Output-Vektor der gegebenen Funktion von der Standardbasis in die Basis $C_1$ konvertieren.
 
 Dazu bestimmen wir zuerst die Basiswechselmatrix $T_S^{B1}$ von der Basis $B_1$ in die Standardbasis. Das ist genau die Basis selbst:
-$T_{B1}^S =
-\begin{pmatrix}
-1 &amp; 1 &amp; 3 &amp; 2 \\
-2 &amp; 3 &amp; 1 &amp; 7 \\
-3 &amp; 3 &amp; 4 &amp; 1 \\
-4 &amp; 7 &amp; 1 &amp; 8
-\end{pmatrix}$ (siehe alten <a title="Wie bestimme ich die Basiswechselmatrix?" href="../wie-bestimme-ich-die-basiswechselmatrix/">Blogpost</a>)
+$$T_{B1}^S = 
+\begin{pmatrix} 
+1 & 1 & 3 & 2 \\ 
+2 & 3 & 1 & 7 \\ 
+3 & 3 & 4 & 1 \\ 
+4 & 7 & 1 & 8 
+\end{pmatrix}$$ (siehe alten <a title="Wie bestimme ich die Basiswechselmatrix?" href="../wie-bestimme-ich-die-basiswechselmatrix/">Blogpost</a>)
 
 Und die Basiswechselmatrix $T_S^{C1}$ von der Standardbasis in die Basis $C_1$. Das ist das Inverse der Basis $C_1$:
-$T_S^{C1} = \frac{1}{2} \cdot
-\begin{pmatrix}
--6 &amp; -2 &amp; 4 \\
--2 &amp; 3 &amp; -1 \\
-4 &amp; -1 &amp; -1
-\end{pmatrix}$ (siehe <a href="../?p=13981&amp;preview=true#hnlichkeit">Wolfram|Alpha</a>)
+
+$$
+T_S^{C1} = \frac{1}{2} \cdot 
+\begin{pmatrix} 
+-6 & -2 & 4 \\ 
+-2 &  3 & -1 \\ 
+4  & -1 & -1 
+\end{pmatrix}
+$$
 
 Insgesamt sieht das dann so aus: $T_S^{C1} \cdot (A_1 \cdot (T_{B1} \cdot x))$. Da f&uuml;r die Matrixmultiplikation das <a href="http://de.wikipedia.org/wiki/Assoziativgesetz">Assoziativgesetz</a> gilt, kann man das vereinfachen:
 
-$A_1' = T_S^{C1} \cdot A_1 \cdot T_{B1}^S =
-\begin{pmatrix}
-110 &amp; 156 &amp; 93 &amp; 195 \\
-10 &amp; 16 &amp; 3 &amp; 15 \\
--50 &amp; -72 &amp; -39 &amp; -87
-\end{pmatrix}$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B-3%2C+-1%2C+2%7D%2C+%7B-1%2C+3%2F2%2C+-1%2F2%7D%2C+%7B2%2C+-1%2F2%2C+-1%2F2%7D%7D+*+%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D+*+%7B%7B1%2C1%2C3%2C2%7D%2C%7B2%2C3%2C1%2C7%7D%2C%7B3%2C3%2C4%2C1%7D%2C%7B4%2C7%2C1%2C8%7D%7D">Wolfram|Alpha</a>)
+$$
+A_1′ = T_S^{C1} \cdot A_1 \cdot T_{B1}^S = 
+\begin{pmatrix} 
+110 & 156 &  93 & 195 \\ 
+ 10 &  16 &   3 &  15 \\ 
+-50 & -72 & -39 & -87 
+\end{pmatrix}
+$$ (siehe <a href="http://www.wolframalpha.com/input/?i=%7B%7B-3%2C+-1%2C+2%7D%2C+%7B-1%2C+3%2F2%2C+-1%2F2%7D%2C+%7B2%2C+-1%2F2%2C+-1%2F2%7D%7D+*+%7B%7B0%2C0%2C0%2C0%7D%2C%7B1%2C2%2C3%2C4%7D%2C%7B5%2C6%2C7%2C8%7D%7D+*+%7B%7B1%2C1%2C3%2C2%7D%2C%7B2%2C3%2C1%2C7%7D%2C%7B3%2C3%2C4%2C1%7D%2C%7B4%2C7%2C1%2C8%7D%7D">Wolfram|Alpha</a>)
 
 Ein Test ob es stimmen kann:
 z.B. sind $\begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}_S = 1 \cdot \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} + 0 \cdot \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix} + 0 \cdot \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1 \end{pmatrix} + 0 \cdot \begin{pmatrix} 2 \\ 7 \\ 1 \\ 8 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}_{B_1} $ und
