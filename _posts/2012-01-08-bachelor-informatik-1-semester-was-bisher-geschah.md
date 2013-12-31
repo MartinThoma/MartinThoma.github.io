@@ -250,7 +250,7 @@ Nur grundlagen in Java:
   <li>Produktsprache: $L_1 \cdot L_2$</li>
   <li>Komplementsprache: $L^C := \Sigma^* \setminus L$</li>
   <li><a href="http://de.wikipedia.org/wiki/Regul%C3%A4re_Sprache">Regul&auml;re Sprachen</a>: Alle von einem DEA erkannten Sprachen.</li>
-  <li><a href="../beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a></li>
+  <li><a href="../pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Entscheidbarkeit">Entscheidbarkeit</a>, <a href="http://de.wikipedia.org/wiki/Berechenbarkeit">Berechenbarkeit</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Diagonalsprache">Diagonalsprache</a>, <a href="http://de.wikipedia.org/wiki/Halteproblem">Halteproblem</a>, Universelle Sprache, <a href="http://de.wikipedia.org/wiki/Post%27sches_Korrespondenzproblem">Postsches Korrespondenzproblem</a></li>

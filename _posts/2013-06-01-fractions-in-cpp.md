@@ -198,6 +198,6 @@ int main() {
 {% endhighlight %}
 
 <h2>See also</h2>
-You might also be interested in my article about <a href="../c-operator-overloading/" title="C++ Operator overloading">operator overloading</a>.
+You might also be interested in my article about <a href="../cpp-operator-overloading/" title="C++ Operator overloading">operator overloading</a>.
 
 Does anybody know if there is an "official" Fraction class?

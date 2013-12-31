@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Sprachen, Automaten und Grammatiken: Ein &Uuml;berblick'
+title: ! 'Sprachen, Automaten und Grammatiken: Ein Überblick'
 author: Martin Thoma
 date: 2012-01-28 10:52:34.000000000 +01:00
 categories:
@@ -14,10 +14,10 @@ tags:
 - TGI
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
 ---
-Die folgende Tabelle gibt einen &Uuml;berblick &uuml;ber formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:
+Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:
 <ul>
-  <li>V: Die Menge der Nicht-Terminale. F&uuml;r sie benutze ich Gro&szlig;buchstaben.</li>
-  <li>$\Sigma$: Die Menge der Terminale. F&uuml;r sie benutze ich Kleinbuchstaben.</li>
+  <li>V: Die Menge der Nicht-Terminale. Für sie benutze ich Gro&szlig;buchstaben.</li>
+  <li>$\Sigma$: Die Menge der Terminale. Für sie benutze ich Kleinbuchstaben.</li>
   <li>P: Die Produktion, also die Regeln mit denen die Grammatik die Sprache erzeugt. Nur diese hat unterschiedliche Bedingungen, je nach dem welchem Typ die Grammatik angeh&ouml;rt.</li>
   <li>S: Das Startsymbol aus $\Sigma$.</li>
 </ul>
@@ -93,17 +93,17 @@ $(L_1 \cup L_2)^C = L_1^C \cap L_2^C$
 
 <h2>Weitere Aussagen</h2>
 Sei L eine Sprache.
-$L \in {\cal L_3} \Leftrightarrow$ Es existiert ein regul&auml;rer Ausdruck f&uuml;r L.
+$L \in {\cal L_3} \Leftrightarrow$ Es existiert ein regul&auml;rer Ausdruck für L.
 $L \in {\cal L_3} \Leftrightarrow$ Die Anzahl der &Auml;quivalenzklassen der <a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a> bzgl. der Sprache ist endlich.
-$L \in {\cal L_3} \Rightarrow$ Das <a href="../beweis-durch-widerspruch-eine-sprache-ist-nicht-regular-pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a> ist erf&uuml;llt.
+$L \in {\cal L_3} \Rightarrow$ Das <a href="../pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regul&auml;r (Pumping-Lemma)">Pumping-Lemma</a> ist erfüllt.
 
-F&uuml;r regul&auml;re Sprachen ist das Leerheitsproblem ($L(G) \stackrel{?}{=} \emptyset$) entscheidbar.
-F&uuml;r regul&auml;re Sprachen ist das Endlichkeitsproblem ($L(G) \stackrel{?}{<} \infty$) entscheidbar.
+Für regul&auml;re Sprachen ist das Leerheitsproblem ($L(G) \stackrel{?}{=} \emptyset$) entscheidbar.
+Für regul&auml;re Sprachen ist das Endlichkeitsproblem ($L(G) \stackrel{?}{<} \infty$) entscheidbar.
 
-F&uuml;r kontextfreie Sprachen ist das Leerheitsproblem entscheidbar.
-F&uuml;r kontextfreie Sprachen ist das Endlichkeitsproblem entscheidbar.
+Für kontextfreie Sprachen ist das Leerheitsproblem entscheidbar.
+Für kontextfreie Sprachen ist das Endlichkeitsproblem entscheidbar.
 
-F&uuml;r Typ 0 und Typ 1 Sprachen ist das Leerheitsproblem nicht entscheidbar.
+Für Typ 0 und Typ 1 Sprachen ist das Leerheitsproblem nicht entscheidbar.
 
 $L \in {\cal L_2} \Leftrightarrow L$ wird von einem nichtdeterministischem Kellerautomaten erkannt.
 

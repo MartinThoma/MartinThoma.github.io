@@ -11,7 +11,7 @@ tags:
 - sorting
 featured_image: 2012/07/java-thumb.png
 ---
-Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use <a href="../c-operator-overloading/#Sorting">operator overloading</a>. I'll now tell you how to do basic sorting with Java. I will not write about <a href="http://www.codinghorror.com/blog/2007/12/sorting-for-humans-natural-sort-order.html">natural language sorting</a> or language-aware sorting. This is only about simple sorting with Java.
+Sorting is a very basic task that every programmer should be able to solve. In Python, you have sort and sorted. In C++, you can use <a href="../cpp-operator-overloading/#Sorting">operator overloading</a>. I'll now tell you how to do basic sorting with Java. I will not write about <a href="http://www.codinghorror.com/blog/2007/12/sorting-for-humans-natural-sort-order.html">natural language sorting</a> or language-aware sorting. This is only about simple sorting with Java.
 
 <h2>Sorting without programming</h2>
 First of all, you have to make sure that you understand how sorting works - without Java, just in the real world.
