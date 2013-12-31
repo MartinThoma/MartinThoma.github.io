@@ -26,7 +26,7 @@ def re_sub(pattern, replacement, string):
 	
 	return re.sub(pattern, _r, string)
 
-def parseCaptions(page):
+def parseCaptions(content):
     """
     [caption id="attachment_76716" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full wp-image-76716" /></a> WER calculation[/caption]
 
@@ -34,9 +34,6 @@ def parseCaptions(page):
 
     {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
     """
-    yaml, content = getYaml(page)
-
-
     import re
 
     pattern = '\[caption(.*?)align="(?P<align>.*?)"(.*?)(caption="(?P<caption>.*?)")?(.*?)\]' + \
@@ -59,7 +56,7 @@ def parseCaptions(page):
 
     content = re_sub(pattern, '{% caption align="\g<align>" width="\g<width>" caption="\g<caption>\g<text>" url="../images/\g<innerurl>" alt="\g<alt>" title="\g<title>" height="\g<height>" class="\g<imgclass>" %}', content)
 
-    return "---" + yaml + "---" + content
+    return content
 
 def pageCodeConversion(page):
     yaml, content = getYaml(page)
@@ -180,7 +177,7 @@ def changeYaml(content):
 
 def forEveryPost(website, operation, development=True):
     from os import listdir
-    directory = "./_posts/"
+    directory = "./_drafts/"
     files = sorted(listdir(directory))
     for f in files:
         filename = directory+f
@@ -211,5 +208,5 @@ if __name__ == "__main__":
     """
 
     # improve things
-    forEveryPost("http://martin-thoma.com/", parseCaptions, False)
+    forEveryPost("http://martin-thoma.com/", pageCodeConversion, False)
     
