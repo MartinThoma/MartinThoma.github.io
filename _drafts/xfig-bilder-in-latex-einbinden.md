@@ -79,7 +79,7 @@ Erzeugt eine .latex-Datei mit folgendem Inhalt:
 \end{picture}%
 ```
 
-Nun muss nur noch \usepackage{color} in die Präambel und die Datei eingebunden werden:
+Nun muss nur noch `\usepackage{color}` in die Präambel und die Datei eingebunden werden:
 
 ```text
 \documentclass[a4paper]{scrreprt}
