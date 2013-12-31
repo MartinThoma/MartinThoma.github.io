@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Spline interpolation</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Just like before with polynomial interpolation, we have a list of <span>$n+1$</span> given point <span>$(x<em>i, y</em>i)$</span> with <span>$x<em>0 &lt; x</em>1 &lt; \dots &lt; x_n$</span>. </p>
+                            <p>Just like before with polynomial interpolation, we have a list of <code>$n+1$</code> given point <code>$(x_i, y_i)$</code> with <code>$x_0 &lt; x_1 &lt; \dots &lt; x_n$</code>. </p>
 
 <p>We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.</p>
 
@@ -105,56 +105,56 @@
 
 <p>A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth. </p>
 
-<p>More formally: Let <span>$s: [x<em>0,x</em>n] \rightarrow \mathbb{R}$</span> be a spline. Then:
-</p><ol style="list-style-type: none;"><li>(S1) <strong>cubic</strong>: <span>$\forall i \in {1, \dots, n}: s|<em>{x</em>{i-1}, x<em>i}$</em></span> is a cubic function</li>
-  <li>(S2) <strong>interpolation</strong>: <span>$\forall i \in {0, \dots, n}: s(xi) = y<em>i$</em></span></li>
-  <li>(S3) <strong>smooth</strong>: <span>$s \in C^2([x0, x<em>n])$</em></span> and <span>$\int{x<em>0}^{x</em>n} s''(x)^2 \mathrm{d}x$</span> is minimal</li> 
-</ol><p>When you use a cubic function <span>$a x^3 + b x^2 + cx + d$</span> for each of the <span>$n$</span> intervals that we got by our <span>$n+1$</span> points, you have <span>$4n$</span> variables that you need to calculate.</p>
+<p>More formally: Let <code>$s: [x_0,x_n] \rightarrow \mathbb{R}$</code> be a spline. Then:
+</p><ol style="list-style-type: none;"><li>(S1) <strong>cubic</strong>: <code>$\forall i \in \{1, \dots, n\}: s|_{x_{i-1}, x_i}$</code> is a cubic function</li>
+  <li>(S2) <strong>interpolation</strong>: <code>$\forall i \in \{0, \dots, n\}: s(x_i) = y_i$</code></li>
+  <li>(S3) <strong>smooth</strong>: <code>$s \in C^2([x_0, x_n])$</code> and <code>$\int_{x_0}^{x_n} s''(x)^2 \mathrm{d}x$</code> is minimal</li> 
+</ol><p>When you use a cubic function <code>$a x^3 + b x^2 + cx + d$</code> for each of the <code>$n$</code> intervals that we got by our <code>$n+1$</code> points, you have <code>$4n$</code> variables that you need to calculate.</p>
 
-<p>Condition (S2) gives two equations per interval which makes <span>$2n$</span> equations of the form:</p>
+<p>Condition (S2) gives two equations per interval which makes <code>$2n$</code> equations of the form:</p>
 
 <p>
-   <span>$
+   <code>$
 \begin{align}
-y<em>i     &amp;= a</em>i x<em>i^3     &amp;&amp;+ b</em>i x<em>i^2     &amp;&amp;+ c</em>i x<em>i     &amp;&amp;+ d</em>i\
-y<em>{i+1} &amp;= a</em>i x<em>{i+1}^3 &amp;&amp;+ b</em>i x<em>{i+1}^2 &amp;&amp;+ c</em>i x<em>{i+1} &amp;&amp;+ d</em>i
+y_i     &amp;= a_i x_i^3     &amp;&amp;+ b_i x_i^2     &amp;&amp;+ c_i x_i     &amp;&amp;+ d_i\\
+y_{i+1} &amp;= a_i x_{i+1}^3 &amp;&amp;+ b_i x_{i+1}^2 &amp;&amp;+ c_i x_{i+1} &amp;&amp;+ d_i
 \end{align}
-$</span>
+$</code>
 </p>
 
-<p>At first glance condition (S3) - <span>$s \in C^2([x<em>0, x</em>n])$</span> - seems to be redundant with (S1) - <span>$s$</span> is piecewise cubic. Every polynomial is in <span>$C^\infty(\mathbb{R})$</span>, so it certainly is in <span>$C^2([x<em>0, x</em>n])$</span>.<br />
-That's correct. But <span>$s$</span> is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us <span>$2n-2$</span> more equations:</p>
+<p>At first glance condition (S3) - <code>$s \in C^2([x_0, x_n])$</code> - seems to be redundant with (S1) - <code>$s$</code> is piecewise cubic. Every polynomial is in <code>$C^\infty(\mathbb{R})$</code>, so it certainly is in <code>$C^2([x_0, x_n])$</code>.<br />
+That's correct. But <code>$s$</code> is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us <code>$2n-2$</code> more equations:</p>
 
 <p>
-   <span>$\displaystyle
+   <code>$\displaystyle
 \begin{align}
-s<em>i' (x</em>{i}) &amp;= s<em>{i+1}'(x</em>{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\
-s<em>i''(x</em>{i}) &amp;= s<em>{i+1}''(x</em>{i}) \;\;\; &amp;&amp;\forall i=1, \dots, n-1
+s_i' (x_{i}) &amp;= s_{i+1}'(x_{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\\
+s_i''(x_{i}) &amp;= s_{i+1}''(x_{i}) \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$</span>
+$</code>
 </p>
 
 <p>which is equivalent to</p>
 
 <p>
-   <span>$\displaystyle
+   <code>$\displaystyle
 \begin{align}
-3a<em>i x</em>i^2 + 2b<em>i x</em>i + c<em>i &amp;= 3a</em>{i+1} x<em>i^2 + 2b</em>{i+1} x<em>i + c</em>{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\
-6a<em>i x</em>i + 2b<em>i &amp;= 6a</em>{i+1} x<em>i + 2b</em>{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1
+3a_i x_i^2 + 2b_i x_i + c_i &amp;= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\\
+6a_i x_i + 2b_i &amp;= 6a_{i+1} x_i + 2b_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$</span>
+$</code>
 </p>
 
-<p>All equations we have are linear. Please note that the variables we want to determine are <span>$a<em>i, b</em>i, c<em>i, d</em>i$</span>. So <span>$x_i^3$</span> is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
+<p>All equations we have are linear. Please note that the variables we want to determine are <code>$a_i, b_i, c_i, d_i$</code>. So <code>$x_i^3$</code> is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
 
-<p>But at the moment, we only have <span>$2n+2\cdot(n-1) = 4n -2$</span> equations, but we have <span>$4n$</span> variables. So we need ancillary conditions to solve this linear system of equations.</p>
+<p>But at the moment, we only have <code>$2n+2\cdot(n-1) = 4n -2$</code> equations, but we have <code>$4n$</code> variables. So we need ancillary conditions to solve this linear system of equations.</p>
 
 <h2 id="tocAnchor-1-3">Possible ancillary conditions</h2>
 
-<ul><li><strong>natural splines</strong>: <span>$s''(x_0) =0, \;\;\; s''(x_n) = 0$</span></li>
-  <li><strong>clamped splines</strong>: <span>$s'(x_0) = f'(x_0),\;\;\; s'(x_n)= f'(x_n)$</span> where <span>$y_0'$</span> and <span>$y_n'$</span> can be any value</li>
-  <li><strong>periodic</strong>: <span>$s'(x_0) = s'(x_n), \;\;\; s''(x_0) = s''(x_n)$</span></li>
-  <li><strong>not-a-knot</strong>: <span>$s_1''' = s_2''', \;\;\; s_{n-1}''' = s_{n}'''$</span></li>
+<ul><li><strong>natural splines</strong>: `$s''(x_0) =0, \;\;\; s''(x_n) = 0$`</li>
+  <li><strong>clamped splines</strong>: `$s'(x_0) = f'(x_0),\;\;\; s'(x_n)= f'(x_n)$` where `$y_0'$` and `$y_n'$` can be any value</li>
+  <li><strong>periodic</strong>: `$s'(x_0) = s'(x_n), \;\;\; s''(x_0) = s''(x_n)$`</li>
+  <li><strong>not-a-knot</strong>: `$s_1''' = s_2''', \;\;\; s_{n-1}''' = s_{n}'''$`</li>
 </ul><p>George MacKerron shows how the results can differ in his article <a href="http://blog.mackerron.com/2011/01/01/javascript-cubic-splines/">Cubic splines in JavaScript (via CoffeeScript)</a>:</p>
 
 <div style="width: 500px" class="wp-caption aligncenter">
@@ -167,9 +167,9 @@ $</span>
 <h2 id="tocAnchor-1-4">Code for natural splines</h2>
 
 <p>I will store splines as a list of maps. Each map is one piece of the spline and has:
-</p><ul><li><span>$u$</span>: Start of the interval</li>
-  <li><span>$v$</span>: End of the interval</li>
-  <li><span>$a,b,c,d$</span>: cubic function <span>$ax^3 + bx^2 + cx +d$</span></li>
+</p><ul><li><code>$u$</code>: Start of the interval</li>
+  <li><code>$v$</code>: End of the interval</li>
+  <li><code>$a,b,c,d$</code>: cubic function <code>$ax^3 + bx^2 + cx +d$</code></li>
 </ul><p>Please note that I didn't test the code below. It's likely that there are errors with indices.</p>
 
 <div class="highlight">

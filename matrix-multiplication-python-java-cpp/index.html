@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Part I: Performance of Matrix multiplication in Python, Java and C++</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -66,11 +66,11 @@
 			
 						<div class="entry">
                             <div class="info">This is Part I of my matrix multiplication series. <a href="../matrix-multiplication-python-java-cpp/">Part I</a> was about simple matrix multiplication algorithms and <a href="../strassen-algorithm-in-python-java-cpp/">Part II</a> was about the Strassen algorithm.
-<a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c">Part III</a> is about parallel matrix multiplication.</div>
+<a href="../part-iii-matrix-multiplication-on-multiple-cores-in-python-java-and-c/">Part III</a> is about parallel matrix multiplication.</div>
 
 <p>This post is about simple implementations of matrix multiplications. The goal of this post is to find out how easy it is to implement a matrix multiplication in Python, Java and C++. Additionally, I want to get to know how good these solutions are.</p>
 
-<p>The second post will be an implementation of the Strassen algorithm for matrix multiplication. <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> does matrix multiplication in <span>$\cal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$</span> instead of <span>$\cal O(n^3)$</span>. I am quite sure this will outperform almost every other change. See Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a>.</p>
+<p>The second post will be an implementation of the Strassen algorithm for matrix multiplication. <a href="http://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> does matrix multiplication in <code>$\cal O(n^{log_2(7)+o(1)}) \approx \cal O(n^{2.807})$</code> instead of <code>$\cal O(n^3)$</code>. I am quite sure this will outperform almost every other change. See Part II: <a href="../strassen-algorithm-in-python-java-cpp/">The Strassen algorithm in Python, Java and C++</a>.</p>
 
 <p>The third post will be about parallel programming. I have two cores and I want to see if it will be significantly faster if I use both of them.</p>
 
@@ -162,7 +162,7 @@ If you know other languages, you could create a script for these. I focus on Pyt
 </ul><p>If you post a solution, please consider these restrictions:
 </p><ul><li><strong>Input</strong>: The input file should get passed with the parameter <code>-i</code>, e.g.: 
     <code>python -i 2000.in</code> or <code>java Shell -i 2000.in</code></li>
-    <li>The standard value for the command line parameter -i should be "2000.in" (a <span>$2000 \times 2000$</span> matrix)</li>
+    <li>The standard value for the command line parameter -i should be "2000.in" (a <code>$2000 \times 2000$</code> matrix)</li>
     <li>The user should <em>not</em> have to give the size of the matrix!</li>
     <li>The two square-matrices that should get multiplied are ...
     <ul><li>... read from a text-file.</li>
@@ -189,7 +189,7 @@ diff result.txt bigMatrix.out
 
 <h2 id="tocAnchor-1-3">The Setting</h2>
 
-<p>I created two "random" matrices <span>$A, B \in \mathbb{N}^{2000 \times 2000}$</span> with this script. The file that was created needs about 29.7 MB and is also in the GIT-Hub repository. But you can also create the matrices with this script:</p>
+<p>I created two "random" matrices <code>$A, B \in \mathbb{N}^{2000 \times 2000}$</code> with this script. The file that was created needs about 29.7 MB and is also in the GIT-Hub repository. But you can also create the matrices with this script:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/python</span>
@@ -446,7 +446,7 @@ sys 0m0.488s
 <p>I am using this Java version:</p>
 
 <div class="highlight">
-   <pre><code class="bash">&lt;span&gt;<span class="nv">$ </span>java -version
+   <pre><code class="bash"><span class="sb">`</span><span class="nv">$ </span>java -version
 java version <span class="s2">"1.6.0_20"</span>
 OpenJDK Runtime Environment <span class="o">(</span>IcedTea6 1.9.13<span class="o">)</span> <span class="o">(</span>6b20-1.9.13-0ubuntu1~10.04.1<span class="o">)</span>
 OpenJDK Server VM <span class="o">(</span>build 19.0-b09, mixed mode<span class="o">)</span>
@@ -743,7 +743,7 @@ sys 0m45.043s
 <p>I have gcc 4.4.3 and compiled everything with these options:</p>
 
 <div class="highlight">
-   <pre><code class="bash">g++ -std<span class="o">=</span>c++98 -Wall -O3 -g myScript.cpp -o <span class="nv">$&lt;</span>/span&gt;<span class="o">(</span>PROBLEM<span class="o">)</span>.out -pedantic
+   <pre><code class="bash">g++ -std<span class="o">=</span>c++98 -Wall -O3 -g myScript.cpp -o <span class="nv">$`</span><span class="o">(</span>PROBLEM<span class="o">)</span>.out -pedantic
 </code></pre>
 </div>
 

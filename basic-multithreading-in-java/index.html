@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Basic Multithreading in Java</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -200,7 +200,7 @@
   <li>Thread 2: Executes completely. Now <code>RaceCondition.bigSum</code> is 2000</li>
   <li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
   <li>Thread 1: Finishes it's execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
-</ul><p>Ok, we can obviously get values in <span>$[\text{BIG}_\text{NR}, \text{NR}_\text{THREADS} \cdot \text{BIG}_\text{NR}]$</span>.</p>
+</ul><p>Ok, we can obviously get values in <code>$[\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$</code>.</p>
 
 <p>Can we get smaller values? Yes, we can!</p>
 
@@ -219,32 +219,32 @@
   <li>Thread 2 loads <code>bigSum</code> = 1</li>
   <li>Thread 1 executes and finishes.</li>
   <li>Thread 2 increases the loaded value from 1 to 2 and writes 2 back.</li>
-</ul><p>You can get all values in <span>$[2, \text{NR}_\text{THREADS} \cdot \text{BIG}_\text{NR}]$</span>!</p>
+</ul><p>You can get all values in <code>$[2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$</code>!</p>
 
 <p>Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.</p>
 
 <h2 id="tocAnchor-1-5">Playing with BASH</h2>
 
 <p>If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments: 
-</p><ul><li><span>$1: The number of times you execute a the program with a fixed number of THREADS</span></li>
-  <li>$2: The maximum number of THREADS you would like to use</li>
-  <li><span>$3: BIG_NR</span></li>
-</ul><p>The script executes the program $$1 \cdot <span>$2$</span> times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
+</p><ul><li><code>$1: The number of times you execute a the program with a fixed number of THREADS&lt;/li&gt;
+  &lt;li&gt;$</code>2: The maximum number of THREADS you would like to use</li>
+  <li>`$3: BIG_NR</li>
+</ul><p>The script executes the program $<code>$1 \cdot</code>$2$` times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
 
 <div class="highlight">
    <pre><code class="bash">rm raceCondition.tmp
 touch raceCondition.tmp
 
-<span class="c"># Up to &lt;span&gt;$2 threads</span>
-<span class="k">for</span> <span class="o">((</span> <span class="nv">threads</span><span class="o">=</span>1<span class="p">;</span>threads&lt;<span class="o">=</span><span class="nv">$&lt;</span>/span&gt;2<span class="p">;</span> threads++<span class="o">))</span>
+<span class="c"># Up to `$2 threads</span>
+<span class="k">for</span> <span class="o">((</span> <span class="nv">threads</span><span class="o">=</span>1<span class="p">;</span>threads&lt;<span class="o">=</span><span class="nv">$`</span>2<span class="p">;</span> threads++<span class="o">))</span>
 <span class="k">do</span>
-<span class="k">    for</span> <span class="o">((</span> <span class="nv">c</span><span class="o">=</span>1<span class="p">;</span> c&lt;<span class="o">=</span>&lt;span&gt;<span class="nv">$1</span><span class="p">;</span> c++ <span class="o">))</span>
+<span class="k">    for</span> <span class="o">((</span> <span class="nv">c</span><span class="o">=</span>1<span class="p">;</span> c&lt;<span class="o">=</span><span class="sb">`</span><span class="nv">$1</span><span class="p">;</span> c++ <span class="o">))</span>
     <span class="k">do</span>
-        <span class="c"># $&lt;/span&gt;threads threads, count up to &lt;span&gt;$3 in each thread</span>
-        <span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java -jar RaceCondition.jar <span class="nv">$&lt;</span>/span&gt;threads &lt;span&gt;<span class="nv">$3</span><span class="sb">`</span>
+        <span class="c"># $`threads threads, count up to `$3 in each thread</span>
+        <span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java -jar RaceCondition.jar <span class="nv">$`</span>threads <span class="sb">`</span><span class="nv">$3</span><span class="sb">`</span>
         <span class="c"># Normalize: thisExecutionSum / number of threads</span>
-        <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span><span class="nv">$&lt;</span>/span&gt;thisExecutionSum -vtotal<span class="o">=</span>&lt;span&gt;<span class="nv">$threads</span> <span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
-        <span class="nb">echo</span> -e <span class="nv">$&lt;</span>/span&gt;threads<span class="s2">"\t"</span><span class="nv">$normalizedSum</span> &gt;&gt; raceCondition.tmp
+        <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span><span class="nv">$`</span>thisExecutionSum -vtotal<span class="o">=</span><span class="sb">`</span><span class="nv">$threads</span> <span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
+        <span class="nb">echo</span> -e <span class="nv">$`</span>threads<span class="s2">"\t"</span><span class="nv">$normalizedSum</span> &gt;&gt; raceCondition.tmp
     <span class="k">done</span>
 <span class="k">done</span>
 </code></pre>

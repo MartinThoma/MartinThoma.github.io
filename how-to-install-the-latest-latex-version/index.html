@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to install the latest LaTeX Version</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -88,7 +88,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">What is LaTeX?</h2>
 
-<p>LaTeX is a document markup language. So with LaTeX you're able to write math formula like <span>$\sum_{i=0}^\infty \frac{1}{2^i} = 2$</span>. The term LaTeX refers only to the language in which documents are written, not to the editor used to write those documents. In order to create a document in LaTeX, a .tex file must be created using some form of text editor. While most text editors can be used to create a LaTeX document, a number of editors have been created specifically for working with LaTeX.</p>
+<p>LaTeX is a document markup language. So with LaTeX you're able to write math formula like <code>$\sum_{i=0}^\infty \frac{1}{2^i} = 2$</code>. The term LaTeX refers only to the language in which documents are written, not to the editor used to write those documents. In order to create a document in LaTeX, a .tex file must be created using some form of text editor. While most text editors can be used to create a LaTeX document, a number of editors have been created specifically for working with LaTeX.</p>
 
 <p>A number of TeX distributions are available, including TeX Live (multiplatform) and MiKTeX (Windows). When I write "LaTeX" I think of "TeX Live".</p>
 
@@ -171,7 +171,7 @@ I
 <p>If you didn't do so, add the path to your PATH (See <a href="http://askubuntu.com/a/60221/10425">How to add a directory to my path?</a>, <a href="http://askubuntu.com/a/60769/10425">How do I add a directory to MANPATH or INFOPATH?</a> and <a href="http://askubuntu.com/a/59127/10425">Reload .profile</a>):</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nv">PATH</span><span class="o">=</span>&lt;span&gt;<span class="nv">$PATH</span>:/usr/local/texlive/2012/bin/i386-linux/
+   <pre><code class="bash"><span class="nv">PATH</span><span class="o">=</span><span class="sb">`</span><span class="nv">$PATH</span>:/usr/local/texlive/2012/bin/i386-linux/
 </code></pre>
 </div>
 
@@ -179,15 +179,15 @@ I
 
 <div class="highlight">
    <pre><code class="text">if [ -d "/usr/local/texlive/2012/bin/i386-linux" ] ; then
-    PATH="/usr/local/texlive/2012/bin/i386-linux:$&lt;/span&gt;PATH"
+    PATH="/usr/local/texlive/2012/bin/i386-linux:$`PATH"
 fi
 
 if [ -d "/usr/local/texlive/2012/texmf/doc/man" ] ; then
-    MANPATH="/usr/local/texlive/2012/texmf/doc/man:&lt;span&gt;$MANPATH"
+    MANPATH="/usr/local/texlive/2012/texmf/doc/man:`$MANPATH"
 fi
 
 if [ -d "/usr/local/texlive/2012/texmf/doc/info" ] ; then
-    INFOPATH="/usr/local/texlive/2012/texmf/doc/info:$&lt;/span&gt;INFOPATH"
+    INFOPATH="/usr/local/texlive/2012/texmf/doc/info:$`INFOPATH"
 fi
 </code></pre>
 </div>
@@ -195,8 +195,8 @@ fi
 <p>edit: I've just installed TeX-Live 2012 and had to do this:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:/usr/bin&lt;span&gt;<span class="nv">$ </span>rm latex
-moose@pc07:/usr/bin<span class="nv">$&lt;</span>/span&gt; sudo ln -s /usr/local/texlive/2012/bin/i386-linux/pdflatex latex
+   <pre><code class="bash">moose@pc07:/usr/bin<span class="sb">`</span><span class="nv">$ </span>rm latex
+moose@pc07:/usr/bin<span class="nv">$`</span> sudo ln -s /usr/local/texlive/2012/bin/i386-linux/pdflatex latex
 </code></pre>
 </div>
 

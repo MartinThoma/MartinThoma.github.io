@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Zero Mean Normalized Cross-Correlation</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -80,7 +80,7 @@
 
 <p>Now you can solve this problem with various techniques.</p>
 
-<p>I want to describe those techniques in a very general way. As the images in other scenarios might have different sizes and you probably don't want to compare whole images, I'll assume you have a part of both image of size <span>$(2n+1) \times (2n+1)$</span>. The pixel in the center has coordinates <span>$(u<em>1, v</em>1)$</span> for the part of the first image and <span>$(u<em>2, v</em>2)$</span> for the second image.</p>
+<p>I want to describe those techniques in a very general way. As the images in other scenarios might have different sizes and you probably don't want to compare whole images, I'll assume you have a part of both image of size <code>$(2n+1) \times (2n+1)$</code>. The pixel in the center has coordinates <code>$(u_1, v_1)$</code> for the part of the first image and <code>$(u_2, v_2)$</code> for the second image.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -100,7 +100,7 @@
 <p>Go through all pixels, get the difference of both and add up the squares:</p>
 
 <p>
-   <span>$\displaystyle SSD(Img<em>1, Img</em>2, u<em>1, v</em>1, u<em>2, v</em>2, n) := \sum<em>{i=-n}^n \sum</em>{j=-n}^n \left ( Img<em>1(u</em>1+i, v<em>1+j) - Img</em>2(u<em>2 + i, v</em>2 + j) \right )^2$</span>
+   <code>$\displaystyle SSD(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \sum_{i=-n}^n \sum_{j=-n}^n \left ( Img_1(u_1+i, v_1+j) - Img_2(u_2 + i, v_2 + j) \right )^2$</code>
 </p>
 
 <p>When SSD is small, both images are very similar. Wehn SSD is 0, the images are identical.</p>
@@ -108,15 +108,15 @@
 <h2 id="tocAnchor-1-2">Zero Mean Normalized Cross-Correlation</h2>
 
 <p>The average gray value is:
-<span>$\displaystyle \overline{Img}(u, v, n) := \frac{1}{(2n+1)^2} \sum<em>{i=-n}^n \sum</em>{j=-n}^n Img(u+i, v+j)$</span></p>
+<code>$\displaystyle \overline{Img}(u, v, n) := \frac{1}{(2n+1)^2} \sum_{i=-n}^n \sum_{j=-n}^n Img(u+i, v+j)$</code></p>
 
 <p>The standard deviation is:
-<span>$\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum<em>{i=-n} \sum</em>{j=-n}^n (Img(u +i, v+j)-\overline{Img}(u, v, n))^2 \right )}$</span></p>
+<code>$\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum_{i=-n} \sum_{j=-n}^n (Img(u +i, v+j)-\overline{Img}(u, v, n))^2 \right )}$</code></p>
 
 <p>The ZNCC is defined as:</p>
 
 <p>
-   <span>$\displaystyle ZNCC(Img<em>1, Img</em>2, u<em>1, v</em>1, u<em>2, v</em>2, n) := \frac{\frac{1}{(2n+1)^2}\sum<em>{i=-n}^n \sum</em>{j=-n}^n \prod<em>{t=1}^2 \left (Img</em>t (u<em>t+i,v</em>t+j) - \overline{Img}(u<em>t, v</em>t, n) \right )}{\sigma<em>1(u</em>1, v<em>1, n) \cdot \sigma</em>2(u<em>2, v</em>2, n)}$</span>
+   <code>$\displaystyle ZNCC(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \frac{\frac{1}{(2n+1)^2}\sum_{i=-n}^n \sum_{j=-n}^n \prod_{t=1}^2 \left (Img_t (u_t+i,v_t+j) - \overline{Img}(u_t, v_t, n) \right )}{\sigma_1(u_1, v_1, n) \cdot \sigma_2(u_2, v_2, n)}$</code>
 </p>
 
 <p>The higher the ZNCC gets, the more are those two images correlated.

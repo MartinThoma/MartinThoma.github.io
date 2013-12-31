@@ -17,7 +17,7 @@ test:
 	# normal build
 	jekyll build --draft
 	# postprocessing
-	./_removeWhitespace.py
+	./_postprocess.py
 	mv search.db _site/search/search.db
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
@@ -34,7 +34,7 @@ deploy:
 	# normal build
 	jekyll build --config _config_prod.yml
 	# postprocessing
-	./_removeWhitespace.py
+	./_postprocess.py
 	mv search.db _site/search/search.db
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
@@ -53,7 +53,7 @@ deploy:
 martinde:
 	make clean
 	jekyll build --config _config_martinde.yml
-	./_removeWhitespace.py
+	./_postprocess.py
 	mv search.db _site/search/search.db
 
 clean:

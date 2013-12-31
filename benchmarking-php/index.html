@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Benchmarking PHP</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -77,8 +77,8 @@
 
 <p>An empty file:</p>
 
-<div class="highlight"><pre><code class="bash">moose@pc07:~&lt;span&gt;<span class="nv">$ </span>ab localhost/empty.php
-This is ApacheBench, Version 2.3 <span class="p">&amp;</span>amp<span class="p">;</span>lt<span class="p">;</span><span class="nv">$&lt;</span>/span&gt;Revision: 655654 &lt;span&gt;<span class="nv">$&amp;</span>amp<span class="p">;</span>gt<span class="p">;</span>
+<div class="highlight"><pre><code class="bash">moose@pc07:~<span class="sb">`</span><span class="nv">$ </span>ab localhost/empty.php
+This is ApacheBench, Version 2.3 <span class="p">&amp;</span>amp<span class="p">;</span>lt<span class="p">;</span><span class="nv">$`</span>Revision: 655654 <span class="sb">`</span><span class="nv">$&amp;</span>amp<span class="p">;</span>gt<span class="p">;</span>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
@@ -123,38 +123,38 @@ Total:          2    2   0.0      2       2
 
 <p>Now I&#39;ll begin the test I&#39;m interested in. It is related to <a href="http://stackoverflow.com/questions/4738605/undefined-offset-with-count" rel="nofollow">this Stackoverflow Question</a>. I&#39;ll make 10000 requests per Benchmark:</p>
 
-<p>[php]for($</span>i=0; <span>$i<5; $</span>i++) {
-    <span>$maximum = max(
-                    @count($</span>MyArray[<span>$i<em>7]),
-                    @count($</span>MyArray[<span>$i</em>7+1]),
-                    @count($</span>MyArray[<span>$i<em>7+2]),
-                    @count($</span>MyArray[<span>$i</em>7+3]),
-                    @count($</span>MyArray[<span>$i<em>7+4]),
-                    @count($</span>MyArray[<span>$i</em>7+5]),
-                    @count($</span>MyArray[<span>$i*7+6])
+<p>[php]for($<code>i=0;</code>$i&lt;5; $<code>i++) {
+</code>$maximum = max(
+                    @count($<code>MyArray[</code>$i<em>7]),
+                    @count($<code>MyArray[</code>$i</em>7+1]),
+                    @count($<code>MyArray[</code>$i<em>7+2]),
+                    @count($<code>MyArray[</code>$i</em>7+3]),
+                    @count($<code>MyArray[</code>$i<em>7+4]),
+                    @count($<code>MyArray[</code>$i</em>7+5]),
+                    @count($<code>MyArray[</code>$i*7+6])
                    );
-    echo $</span>maximum.&#39; &#39;;
+    echo $`maximum.&#39; &#39;;
 }
 [/php]
 1.817 ms </p>
 
-<p>[php]for(<span>$i=0; $</span>i<5; <span>$i++) {
-    $</span>chunk = array<em>intersect</em>key(<span>$MyArray, array($</span>i<em>7=&gt;1, <span>$i</em>7+1=&gt;2, $</span>i<em>7+2=&gt;3, <span>$i</em>7+3=&gt;4, $</span>i<em>7+4=&gt;5, <span>$i</em>7+5=&gt;6));
-    if(count($</span>chunk) &gt; 0){<span>$maximum = max(array_map(&#39;count&#39;, $</span>chunk));} 
-    else {<span>$maximum = 0;}
-    echo $</span>maximum.&#39; &#39;;
+<p>[php]for(<code>$i=0; $</code>i<5; `$i++) {
+    $`chunk = array_intersect_key(`$MyArray, array($`i*7=>1, <code>$i*7+1=&gt;2, $</code>i<em>7+2=&gt;3, <code>$i*7+3=&gt;4, $</code>i</em>7+4=&gt;5, <code>$i*7+5=&gt;6));
+    if(count($</code>chunk) &gt; 0){<code>$maximum = max(array_map(&#39;count&#39;, $</code>chunk));} 
+    else {<code>$maximum = 0;}
+    echo $</code>maximum.&#39; &#39;;
 }
 [/php]
 1.801 ms</p>
 
-<p>[php]for(<span>$i=0;$</span>i<5;<span>$i++){
-    $</span>arr = array();
-    for (<span>$j=0;$</span>j&lt;=6;<span>$j++) {
-        if (isset($</span>MyArray[<span>$i<em>7+$</span>j])) <span>$arr[] = count($</span>MyArray[<span>$i</em>7+$</span>j]);
-        else {<span>$arr[] = 0;}
+<p>[php]for(<code>$i=0;$</code>i&lt;5;<code>$i++){
+    $</code>arr = array();
+    for (<code>$j=0;$</code>j&lt;=6;<code>$j++) {
+        if (isset($</code>MyArray[<code>$i*7+$</code>j])) <code>$arr[] = count($</code>MyArray[<code>$i*7+$</code>j]);
+        else {<code>$arr[] = 0;}
     }
-    $</span>maximum = max(<span>$arr);
-    echo $</span>maximum.&#39; &#39;;
+    $</code>maximum = max(<code>$arr);
+    echo $</code>maximum.&#39; &#39;;
 }
 [/php]
 1.742 ms</p>

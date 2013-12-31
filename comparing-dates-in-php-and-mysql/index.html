@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Comparing Dates in PHP and MySQL</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -105,13 +105,14 @@
 
 <p>PHP knows these time / date formats:
 </p><ul><li>UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are 
-    <ul><li>int <a href="http://www.php.net/manual/en/function.mktime.php">mktime</a>([ int <span>$hour = date("H") [, int $</span>minute = date("i") [, int <span>$second = date("s") [, int $</span>month = date("n") [, int <span>$day = date("j") [, int $</span>year = date("Y") [, int <span>$is<em>dst = -1 ]]]]]]])</em></span></li>
-       <li>int <a href="http://www.php.net/manual/en/function.time.php">time</a>()</li>
-       <li>string <a href="http://www.php.net/manual/en/function.date.php">date</a>( string $format [, int <span>$timestamp = time() ] )</span></li>
-       <li>int <a href="http://www.php.net/manual/en/function.strtotime.php">strtotime</a> ( string $time [, int <span>$now ] )
-I recommend using 'YYYY-MM-DD HH:mm:ss' if possible.</span></li>
-    </ul></li>
-  <li>Associative Arrays. The array looks like this [php]Array
+    <ul><li>int <a href="http://www.php.net/manual/en/function.mktime.php">mktime</a>([ int <code>$hour = date("H") [, int $</code>minute = date("i") [, int <code>$second = date("s") [, int $</code>month = date("n") [, int <code>$day = date("j") [, int $</code>year = date("Y") [, int <code>$is_dst = -1 ]]]]]]])&lt;/li&gt;
+       &lt;li&gt;int &lt;a href="http://www.php.net/manual/en/function.time.php"&gt;time&lt;/a&gt;()&lt;/li&gt;
+       &lt;li&gt;string &lt;a href="http://www.php.net/manual/en/function.date.php"&gt;date&lt;/a&gt;( string $</code>format [, int <code>$timestamp = time() ] )&lt;/li&gt;
+       &lt;li&gt;int &lt;a href="http://www.php.net/manual/en/function.strtotime.php"&gt;strtotime&lt;/a&gt; ( string $</code>time [, int <code>$now ] )
+I recommend using 'YYYY-MM-DD HH:mm:ss' if possible.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Associative Arrays. The array looks like this [php]Array
 (
     [year] =&gt; 2006
     [month] =&gt; 12
@@ -120,15 +121,16 @@ I recommend using 'YYYY-MM-DD HH:mm:ss' if possible.</span></li>
     [minute] =&gt; 0
     [second] =&gt; 0
     [fraction] =&gt; 0.5
-    [warningcount] =&gt; 0
+    [warning_count] =&gt; 0
     [warnings] =&gt; Array()
-    [error<em>count] =&gt; 0
+    [error_count] =&gt; 0
     [errors] =&gt; Array()
-    [is</em>localtime] =&gt; 
+    [is_localtime] =&gt; 
 )[/php]
 The related functions are:
-    <ul><li>array <a href="http://www.php.net/manual/en/function.date-parse.php">date_parse</a> (string $date)</li>
-        <li>array <a href="http://php.net/manual/en/function.getdate.php">getdate</a> ([ int <span>$timestamp = time() ] )</span></li>
+    &lt;ul&gt;
+        &lt;li&gt;array &lt;a href="http://www.php.net/manual/en/function.date-parse.php"&gt;date_parse&lt;/a&gt; (string $</code>date)</li>
+        <li>array <a href="http://php.net/manual/en/function.getdate.php">getdate</a> ([ int `$timestamp = time() ] )</li>
     </ul></li>
   <li><a href="http://php.net/manual/en/class.datetime.php">DateTime Class</a>: This class can do quite a lot. You should read the manual if you're interested in using it.</li>
 </ul><h3 id="tocAnchor-1-1-2">Comparisons</h3>
@@ -138,25 +140,25 @@ The related functions are:
 <p>Comparing Arrays is more interesting. What do you think will the following script print?
 [php]&lt;?php</p>
 
-<p>$d1 = date<em>parse ("2011-05-11");
-<span>$d2 = date</span></em>parse ("2011-05-11 13:00:00");</p>
+<p>$<code>d1 = date_parse ("2011-05-11");
+</code>$d2 = date_parse ("2011-05-11 13:00:00");</p>
 
-<p>print<em>r($d1);
-print</em>r(<span>$d2);</span></p>
+<p>print_r($<code>d1);
+print_r(</code>$d2);</p>
 
-<p>if ($d1 &lt; <span>$d2) {
-    echo '$</span>d1 is less than <span>$d2.';
-} else if ($</span>d1 == <span>$d2) {
-    echo '$</span>d1 is equal to <span>$d2.';
+<p>if ($<code>d1 &lt;</code>$d2) {
+    echo '$<code>d1 is less than</code>$d2.';
+} else if ($<code>d1 ==</code>$d2) {
+    echo '$<code>d1 is equal to</code>$d2.';
 } else {
-    echo '$</span>d1 is greater than <span>$d2.';
-}</span></p>
+    echo '$<code>d1 is greater than</code>$d2.';
+}</p>
 
 <p>?&gt;[/php]</p>
 
-<p>It prints '$d1 is less than <span>$d2.' as 
+<p>It prints '$<code>d1 is less than</code>$d2.' as 
 [php]date<em>parse ("2011-05-11");[/php] is basically the same as 
-[php]date</em>parse ("2011-05-11 00:00:00");[/php]</span></p>
+[php]date</em>parse ("2011-05-11 00:00:00");[/php]</p>
 
 <p>You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as beeing greater. If you use the functions you'll be fine.</p>
 
@@ -213,14 +215,14 @@ Instead you should convert your dates with UNIX</em>TIMESTAMP(your<em>datetime) 
 <h2 id="tocAnchor-1-7">Comparing MySQL types with PHP types</h2>
 
 <p>The simplest way to compare MySQL DATE formats with PHP types is using strtotime(...) or date(...) if needed. If you have a DATETIME and you want to know if it's in the past, you can use
-[php]if (strtotime($datetime) &lt; time()) {
-   echo '<span>$datetime is in the past.';
-}[/php]</span></p>
+[php]if (strtotime($<code>datetime) &lt; time()) {
+   echo '</code>$datetime is in the past.';
+}[/php]</p>
 
 <h2 id="tocAnchor-1-8">From PHP to MySQL</h2>
 
 <p>If you have a date you got via an date input field and want to submit it to MySQL, just use this piece of code:
-[php]$mysqlFormat = date('Y-m-d H:i:s', strtotime($<em>POST['my</em>date']));[/php]</p>
+[php]$`mysqlFormat = date('Y-m-d H:i:s', strtotime($<em>POST['my</em>date']));[/php]</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

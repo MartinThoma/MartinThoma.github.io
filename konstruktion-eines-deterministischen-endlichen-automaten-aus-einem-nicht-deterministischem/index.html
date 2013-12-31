@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,12 +65,12 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck <span>$(a \cup (ab(b)^\text{<em>}ba))^\text{</em>}$</span> ist folgender:
-<span>$Q = {S, q<em>1, q</em>2}$</span>
-<span>$\Sigma = {a, b}$</span>
-<span>$\delta = \text{siehe Grafik}$</span>
-<span>$F = {S}$</span>
-<span>$NEA = \left( Q, \Sigma, \delta, S, F \right)$</span></p>
+                            <p>Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck <code>$(a \cup (ab(b)^\text{*}ba))^\text{*}$</code> ist folgender:
+<code>$Q = \{S, q_1, q_2\}$</code>
+<code>$\Sigma = \{a, b\}$</code>
+<code>$\delta = \text{siehe Grafik}$</code>
+<code>$F = \{S\}$</code>
+<code>$NEA = \left( Q, \Sigma, \delta, S, F \right)$</code></p>
 
 <div style="width: 365px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2011/10/myFiniteStateMachine1.png">
@@ -82,11 +82,11 @@
 <p>Will man daraus nun den endlichen Automaten konstruieren, läuft das im Prinzip über eine Potenzmengenkonstruktion.</p>
 
 <p>Zuerst defnieren wir:
-<span>$\tilde{S} = E(S) = {S}$</span></p>
+<code>$\tilde{S} = E(S) = \{S\}$</code></p>
 
 <p>Dann erstellen wir folgende Tabelle:
 </p><table style="border:1px solid #000;">
-   <tr><th style="border:1px solid #000;"><span>$\tilde{S}$</span></th>
+   <tr><th style="border:1px solid #000;"><code>$\tilde{S}$</code></th>
     <th style="border:1px solid #000;">{S}</th>
   </tr>
    <tr><th style="border:1px solid #000;">a</th>
@@ -97,7 +97,7 @@
   </tr>
 </table><p>Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:
 </p><table style="border:1px solid #000;">
-   <tr><th style="border:1px solid #000;"><span>$\tilde{S}$</span></th>
+   <tr><th style="border:1px solid #000;"><code>$\tilde{S}$</code></th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
   </tr>
@@ -114,29 +114,29 @@ Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealph
 
 <p>Am Ende schaut die Tablle wie folgt aus:
 </p><table style="border:1px solid #000;">
-   <tr><th style="border:1px solid #000;"><span>$\tilde{S}$</span></th>
+   <tr><th style="border:1px solid #000;"><code>$\tilde{S}$</code></th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
-    <th style="border:1px solid #000;"><span>$\emptyset$</span></th>
+    <th style="border:1px solid #000;"><code>$\emptyset$</code></th>
     <th style="border:1px solid #000;">{q2}</th>
     <th style="border:1px solid #000;">{q1, q2}</th>
   </tr>
    <tr><th style="border:1px solid #000;">a
     </th><td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;">{q1, S}</td>
-    <td style="border:1px solid #000;"><span>$\emptyset$</span></td>
-    <td style="border:1px solid #000;"><span>$\emptyset$</span></td>
+    <td style="border:1px solid #000;"><code>$\emptyset$</code></td>
+    <td style="border:1px solid #000;"><code>$\emptyset$</code></td>
     <td style="border:1px solid #000;">{S}</td>
   </tr>
    <tr><th style="border:1px solid #000;">b</th>
-    <td style="border:1px solid #000;"><span>$\emptyset$</span></td>
+    <td style="border:1px solid #000;"><code>$\emptyset$</code></td>
     <td style="border:1px solid #000;">{q2}</td>
-    <td style="border:1px solid #000;"><span>$\emptyset$</span></td>
+    <td style="border:1px solid #000;"><code>$\emptyset$</code></td>
     <td style="border:1px solid #000;">{q1, q2}</td>
     <td style="border:1px solid #000;">{q1, q2}</td>
   </tr>
-</table><p><span>$\tilde{Q} = {{S}, {q<em>1, S}, {q</em>2}, {q<em>1, q</em>2}}$</span>
-<span>$\tilde{F} = {{S}, {q_1, S}}$</span></p>
+</table><p><code>$\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}$</code>
+<code>$\tilde{F} = \{\{S\}, \{q_1, S\}\}$</code></p>
 
 <p>Die Übergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:</p>
 

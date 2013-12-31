@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Linux access rights and attributes</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -160,7 +160,7 @@
 <p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~/Downloads&lt;span&gt;<span class="nv">$ </span>ls -l
+   <pre><code class="bash">moose@pc07:~/Downloads<span class="sb">`</span><span class="nv">$ </span>ls -l
 total 29624
 drwxr-xr-x  8 moose moose     4096 2013-02-22 14:18 algorithms
 -rw-r--r--  1 moose moose    60058 2013-02-11 08:00 args4j-2.0.21.jar
@@ -196,7 +196,7 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 <p>Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:/usr/bin<span class="nv">$&lt;</span>/span&gt; ls -l <span class="p">|</span> grep passwd&lt;span&gt;<span class="err">$</span>
+   <pre><code class="bash">moose@pc07:/usr/bin<span class="nv">$`</span> ls -l <span class="p">|</span> grep passwd<span class="sb">`</span><span class="err">$</span>
 -rwsr-xr-x 1 root   root       53812 2011-02-14 23:11 gpasswd
 -rwxr-xr-x 1 root   root       13612 2012-11-06 21:41 htpasswd
 -rwsr-xr-x 1 root   lpadmin    13540 2012-12-04 16:24 lppasswd
@@ -209,7 +209,7 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 <p>Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:/etc<span class="nv">$&lt;</span>/span&gt; ls -l <span class="p">|</span> grep shadow&lt;span&gt;<span class="err">$</span>
+   <pre><code class="bash">moose@pc07:/etc<span class="nv">$`</span> ls -l <span class="p">|</span> grep shadow<span class="sb">`</span><span class="err">$</span>
 -rw-r-----  1 root    shadow     813 2013-01-24 06:21 gshadow
 -rw-r-----  1 root    shadow    1274 2013-01-24 06:21 shadow
 </code></pre>
@@ -252,7 +252,7 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
   <li>p: pipe</li>
   <li>s: a socket</li>
 </ul><div class="highlight">
-   <pre><code class="bash">moose@pc07:/dev<span class="nv">$&lt;</span>/span&gt; ls -l
+   <pre><code class="bash">moose@pc07:/dev<span class="nv">$`</span> ls -l
 total 0
 crw-------  1 root video    10, 175 2013-03-04 10:01 agpgart
 crw-rw----+ 1 root audio    14,   4 2013-03-04 10:01 audio
@@ -284,7 +284,7 @@ brw-rw----  1 root disk      7,   0 2013-03-04 10:01 loop0
 <p>You can display quite a lot of information of a file with stat:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~/Desktop/Test&lt;span&gt;<span class="nv">$ </span>stat testfile 
+   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="sb">`</span><span class="nv">$ </span>stat testfile 
   File: <span class="sb">`</span>testfile<span class="err">'</span>
   Size: 13          Blocks: 8          IO Block: 4096   regular file
 Device: 801h/2049d  Inode: 923339      Links: 1
@@ -308,7 +308,7 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 <p>I've just learned that you can give files version-attributes:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$&lt;</span>/span&gt; lsattr -v
+   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$`</span> lsattr -v
  1338 -----------------e- ./testfile
 </code></pre>
 </div>
@@ -334,7 +334,7 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 <p>Then, I had all permissions:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~/Desktop/Test&lt;span&gt;<span class="nv">$ </span>stat testfile 
+   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="sb">`</span><span class="nv">$ </span>stat testfile 
   File: <span class="sb">`</span>testfile<span class="err">'</span>
   Size: 13          Blocks: 8          IO Block: 4096   regular file
 Device: 801h/2049d  Inode: 923339      Links: 1
@@ -342,7 +342,7 @@ Access: <span class="o">(</span>0777/-rwxrwxrwx<span class="o">)</span>  Uid: <s
 Access: 2013-03-04 21:31:52.154187243 +0100
 Modify: 2013-03-04 21:31:51.154184098 +0100
 Change: 2013-03-04 21:33:55.154184312 +0100
-moose@pc07:~/Desktop/Test<span class="nv">$&lt;</span>/span&gt; lsattr
+moose@pc07:~/Desktop/Test<span class="nv">$`</span> lsattr
 -----a-----------e- ./testfile
 </code></pre>
 </div>
@@ -350,8 +350,8 @@ moose@pc07:~/Desktop/Test<span class="nv">$&lt;</span>/span&gt; lsattr
 <p>But I couldn't append to the file with gedit. With bash, it worked fine:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~/Desktop/Test&lt;span&gt;<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"One more line "</span> &gt;&gt; testfile 
-moose@pc07:~/Desktop/Test<span class="nv">$&lt;</span>/span&gt; cat testfile 
+   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="sb">`</span><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"One more line "</span> &gt;&gt; testfile 
+moose@pc07:~/Desktop/Test<span class="nv">$`</span> cat testfile 
 Hello World.
 One more line 
 </code></pre>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>SQL Injections</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -110,9 +110,9 @@
 
 <p>The programmers might have created a query that looks like this</p>
 
-<p>[sql]SELECT * FROM <code>movie</code> WHERE title=<span>$_GET['q'][/sql]</span></p>
+<p>[sql]SELECT * FROM <code>movie</code> WHERE title=`$_GET['q'][/sql]</p>
 
-<p>Where <code>$_GET['q']</code> is your query.</p>
+<p>Where <code>$`_GET['q']</code> is your query.</p>
 
 <h2 id="tocAnchor-1-2">Proof of concept</h2>
 
@@ -127,22 +127,22 @@
 
 <p>[php]
 &lt;?
-<span>$mysqlhost = "localhost";
-$</span>mysqluser = "root";
-<span>$mysqlpwd = "asdfasdf";
-$</span>connection = mysql<em>connect(<span>$mysqlhost, $</span>mysqluser, <span>$mysqlpwd) or die
+<code>$mysqlhost = "localhost";
+$</code>mysqluser = "root";
+<code>$mysqlpwd = "asdfasdf";
+$</code>connection = mysql<em>connect(<code>$mysqlhost, $</code>mysqluser, <code>$mysqlpwd) or die
 ("Your connection string was wrong");
-$</span>db</em>selected = mysql<em>select</em>db('imdb', <span>$connection);</span></p>
+$</code>db</em>selected = mysql<em>select</em>db('imdb', `$connection);</p>
 
-<p>$q = <span>$<em>GET['q'];
-if ($</em></span>q != "") {
-    <span>$result = mysqlquery("SELECT * FROM <code>movies</code> WHERE title='$</span>q'");
-    if (!<span>$result) {
+<p>$<code>q =</code>$<em>GET['q'];
+if ($<code>q != "") {
+</code>$result = mysql</em>query("SELECT * FROM <code>movies</code> WHERE title='$<code>q'");
+    if (!</code>$result) {
         die('MySQL query error: ' . mysql<em>error());
     }
-    echo "Found ".mysql</em>num<em>rows($</em></span>result)." movies:<br />";
-    while (<span>$row = mysqlfetch_assoc($</span>result)) {
-        echo <span>$row["id"].": ".$</span>row["title"]."<br />";
+    echo "Found ".mysql</em>num<em>rows($<code>result)." movies:&lt;br/&gt;";
+    while (</code>$row = mysql</em>fetch_assoc($<code>result)) {
+        echo</code>$row["id"].": ".$`row["title"]."<br />";
     }
 }
 ?&gt;</p>

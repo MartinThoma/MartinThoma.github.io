@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to reverse engineer a function</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -123,27 +123,27 @@
 <h2 id="tocAnchor-1-2">Form equations</h2>
 
 <p>A cubic function generally looks like this:
-<span>$f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$</span></p>
+<code>$f(x) = a \cdot x^3 + b \cdot x^2 + c \cdot x + d$</code></p>
 
 <p>You have two points, so they have to fit to this equation:
-(I) <span>$f(79) = 133$</span>
-(II) <span>$f(131) = 20$</span></p>
+(I) <code>$f(79) = 133$</code>
+(II) <code>$f(131) = 20$</code></p>
 
 <p>The derivative has to be zero in a minimum and a maximum, so you know two more equations:
-(III) <span>$f'(79) = 0$</span>
-(IV)  <span>$f'(131) = 0$</span></p>
+(III) <code>$f'(79) = 0$</code>
+(IV)  <code>$f'(131) = 0$</code></p>
 
 <p>Four linear equations and four variables. Now we can solve those equations.</p>
 
 <h2 id="tocAnchor-1-3">Get explicit equations</h2>
 
 <p>As a first step, we write down the equations in an explicit form. You have to know the general derivate of a cubic function:
-<span>$f'(x) = 3 a\cdot x^2 + 2 b \cdot x + c$</span></p>
+<code>$f'(x) = 3 a\cdot x^2 + 2 b \cdot x + c$</code></p>
 
-<p>(I) <span>$493039a + 6241b+79c + d = 133$</span>
-(II) <span>$2352637a + 17689b + 131c + d = 20$</span>
-(III) <span>$18723a + 158 b + c = 0$</span>
-(IV) <span>$51483 a + 262 b + c = 0$</span></p>
+<p>(I) <code>$493039a + 6241b+79c + d = 133$</code>
+(II) <code>$2352637a + 17689b + 131c + d = 20$</code>
+(III) <code>$18723a + 158 b + c = 0$</code>
+(IV) <code>$51483 a + 262 b + c = 0$</code></p>
 
 <h2 id="tocAnchor-1-4">Solve the equations</h2>
 
@@ -210,7 +210,7 @@
         yticklabels={,,}
     ]
       \addplot[name path global=a, domain=55:161, dotted, blue, 
-               thick,samples=500, label=&lt;span&gt;$y=f(x)$&lt;/span&gt;] 
+               thick,samples=500, label=`$y=f(x)$`] 
         {113/132078*x*x*x-11865/44026*x*x+1169437/44026*x-93155207/132078};
       % ( 55 |  82.7344) and (161 | 156.011) are on the graph
       \coordinate (b) at (axis cs: 55,170);

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to check if a point is inside of a polygon?</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Suppose you have a with <span>$n$</span> sides. This is called a <span>$n$</span>-glon.</p>
+                            <p>Suppose you have a with <code>$n$</code> sides. This is called a <code>$n$</code>-glon.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -90,7 +90,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Basics about polygones</h2>
 
-<p>A <span>$n$</span>-glon can be defined by a list of <span>$n$</span> points.</p>
+<p>A <code>$n$</code>-glon can be defined by a list of <code>$n$</code> points.</p>
 
 <p>Note that the order is important:</p>
 
@@ -109,7 +109,7 @@
 
 <h2 id="tocAnchor-1-3">Is a point inside of a n-glon?</h2>
 
-<p>Let <span>$P$</span> be a point and <span>$N = [P<em>1, P</em>2, \dots, P_n]$</span> be a <span>$n$</span>-glon. It is now much more difficult to check if <span>$P$</span> is inside of <span>$N$</span>. The area-approach works for convex <span>$n$</span>-glons, but that's it.</p>
+<p>Let <code>$P$</code> be a point and <code>$N = [P_1, P_2, \dots, P_n]$</code> be a <code>$n$</code>-glon. It is now much more difficult to check if <code>$P$</code> is inside of <code>$N$</code>. The area-approach works for convex <code>$n$</code>-glons, but that's it.</p>
 
 <h3 id="tocAnchor-1-3-1">Count Crossing Line Segments</h3>
 
@@ -122,17 +122,17 @@
    <p class="wp-caption-text">Check if P is inside of N</p>
 </div>
 
-<p>When <span>$P$</span> is inside of <span>$N$</span>, every line <span>$P<em>{1}P, P</em>{2}P, \dots, P<em>{n}P$</em></span> will cross the polygon lines <span>$P{1}P<em>2,P</em>{2}P<em>3, \dots, P</em>{n}P<em>1$</em></span> an even number of times. If P is outside, at least one of the lines <span>$P{i}P$</span> will cross a polygon line <span>$P<em>{j}P</em>{j+1}$</span> once.</p>
+<p>When <code>$P$</code> is inside of <code>$N$</code>, every line <code>$P_{1}P, P_{2}P, \dots, P_{n}P$</code> will cross the polygon lines <code>$P_{1}P_2,P_{2}P_3, \dots, P_{n}P_1$</code> an even number of times. If P is outside, at least one of the lines <code>$P_{i}P$</code> will cross a polygon line <code>$P_{j}P_{j+1}$</code> once.</p>
 
-<p>This means, for every check you have to check <span>$n^2$</span> pairs of line segments for crossings. How you can do that is explained in my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>.</p>
+<p>This means, for every check you have to check <code>$n^2$</code> pairs of line segments for crossings. How you can do that is explained in my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>.</p>
 
-<p>This algorithm is in <span>$\mathcal{O}(n^2)$</span> time complexity (it does need a constant amount of additional space).</p>
+<p>This algorithm is in <code>$\mathcal{O}(n^2)$</code> time complexity (it does need a constant amount of additional space).</p>
 
 <h3 id="tocAnchor-1-3-2">Triangularization</h3>
 
-<p>When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing <span>$N$</span> into triangles. </p>
+<p>When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing <code>$N$</code> into triangles. </p>
 
-<p>That way, you can check for every triangle if <span>$P$</span> is inside of it. I assume that the number of triangles is not bigger than <span>$n$</span>. As the check is in constant time for one triangle, you would have an algorithm that needs <span>$\mathcal{O}(n)$</span> time and space for its checks (+ some preprocessing which is done only once).</p>
+<p>That way, you can check for every triangle if <code>$P$</code> is inside of it. I assume that the number of triangles is not bigger than <code>$n$</code>. As the check is in constant time for one triangle, you would have an algorithm that needs <code>$\mathcal{O}(n)$</code> time and space for its checks (+ some preprocessing which is done only once).</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

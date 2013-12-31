@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Einf&uuml;hrung in die abz&auml;hlende Kombinatorik</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -127,37 +127,29 @@ Eine Permutation davon ist: [1, 2, 5, -7, 3, -1]</p>
    </tr>
    <tr>
       <th>k-Permutation</th>
-      <td>
-         <span>$n^k$</span>
-      </td>
-      <td>
-         <span>$\frac{n!}{(n-k)!}$</span>
-      </td>
+      <td>`$n^k$`</td>
+      <td>`$\frac{n!}{(n-k)!}$`</td>
    </tr>
    <tr>
       <th>k-Kombination</th>
-      <td>
-         <span>$\binom{n-1+k}{k}$</span>
-      </td>
-      <td>
-         <span>$\binom{n}{k}$</span>
-      </td>
+      <td>`$\binom{n-1+k}{k}$`</td>
+      <td>`$\binom{n}{k}$`</td>
    </tr>
 </table><p>Warum stimmt das?</p>
 
-<p>Wenn man n Objekte hat und k-mal eines davon auswählt, wobei die Reihenfolge eine Rolle spielt und man das Objekt danach immer wieder zurück legt (also Wiederholungen haben kann), dann hat man beim ersten mal n verschiedene Wahlmöglichkeiten. Beim zweiten, dritten, ... k.-Zug auch. Es sind also <span>$\underbrace{n \cdot n \cdot ... \cdot n}_\text{k mal} = n^k$</span> Möglichkeiten.</p>
+<p>Wenn man n Objekte hat und k-mal eines davon auswählt, wobei die Reihenfolge eine Rolle spielt und man das Objekt danach immer wieder zurück legt (also Wiederholungen haben kann), dann hat man beim ersten mal n verschiedene Wahlmöglichkeiten. Beim zweiten, dritten, ... k.-Zug auch. Es sind also <code>$\underbrace{n \cdot n \cdot ... \cdot n}_\text{k mal} = n^k$</code> Möglichkeiten.</p>
 
 <p>Wenn man die Objekte nicht wieder zurück legt, die Reihenfolge aber eine Rolle spielt, hat man beim ersten Zug wieder n Möglichkeiten. Beim zweiten Zug sind es (n-1), beim dritten (n-3), ... beim k.-Zug (n-k+1) Möglichkeiten. Also gilt:
-<span>$\underbrace{(n-0) \cdot (n-1) \cdot ... \cdot (n- (k-1))}<em>\text{k Faktoren} = \prod</em>{i=0}^{k-1} (n-i)=  \frac{n!}{(n-k)!}$</span></p>
+<code>$\underbrace{(n-0) \cdot (n-1) \cdot ... \cdot (n- (k-1))}_\text{k Faktoren} = \prod_{i=0}^{k-1} (n-i)=  \frac{n!}{(n-k)!}$</code></p>
 
-<p>Angenommen es spielt nun nur eine Rolle, welche Objekte man ausgewählt hat, aber nicht wann. Dann gibt es, wenn man die Objekte nicht wieder zurücklegt, <span>$\frac{n!}{(n-k)!}$</span> Möglichkeiten, abzüglich der Möglichkeiten, die nur bei Beachtung der Reihenfolge eine Rolle spielen. Das bedeutet, es muss noch durch k! geteilt werden. Das kann man sich klar machen, indem man eine bestimmte Menge an k ausgewählten Objekten betrachtet. Dann muss man entscheiden, welches das erste ist. Dafür gibt es k Möglichkeiten. Für das zweite hat man (k-1) Möglichkeiten, usw. Das Bedeutet, es gibt für diesen Fall <span>$\frac{n!}{(n-k)! \cdot k!} = \binom{n}{k}$</span> Möglichkeiten.</p>
+<p>Angenommen es spielt nun nur eine Rolle, welche Objekte man ausgewählt hat, aber nicht wann. Dann gibt es, wenn man die Objekte nicht wieder zurücklegt, <code>$\frac{n!}{(n-k)!}$</code> Möglichkeiten, abzüglich der Möglichkeiten, die nur bei Beachtung der Reihenfolge eine Rolle spielen. Das bedeutet, es muss noch durch k! geteilt werden. Das kann man sich klar machen, indem man eine bestimmte Menge an k ausgewählten Objekten betrachtet. Dann muss man entscheiden, welches das erste ist. Dafür gibt es k Möglichkeiten. Für das zweite hat man (k-1) Möglichkeiten, usw. Das Bedeutet, es gibt für diesen Fall <code>$\frac{n!}{(n-k)! \cdot k!} = \binom{n}{k}$</code> Möglichkeiten.</p>
 
 <p>Der schwerste Fall sind k-Kombinationen mit zurücklegen. Dafür denkt man sich am besten, dass man eine Liste der Objekte hat. Nun macht man, um die n Objekte zu trennen, zwischen diese (n-1) Sternchen. Die Anzahl wird durch k Striche repräsentiert.
 Nun kann man sich fragen, wie viele Möglichkeiten es gibt diese k Striche und (n-1) Sternchen anzuordnen.  Das sind, wenn man die k Striche auf (n-1)+k Plätze verteilt:
-<span>$\frac{(n-1+k)!}{(n-1)!} \cdot \underbrace{\frac{1}{k!}}_\text{Reihenfolge ist egal} = \frac{(n-1+k)!}{(n-1)!k!}$</span></p>
+<code>$\frac{(n-1+k)!}{(n-1)!} \cdot \underbrace{\frac{1}{k!}}_\text{Reihenfolge ist egal} = \frac{(n-1+k)!}{(n-1)!k!}$</code></p>
 
 <p>Dies entspricht genau dem Binomialkoeffizienten:
-<span>$\binom{n-1+k}{k} = \frac{(n-1+k)!}{k!((n-1+k)-k)!} = \frac{(n-1+k)!}{k!(n-1)!}$</span></p>
+<code>$\binom{n-1+k}{k} = \frac{(n-1+k)!}{k!((n-1+k)-k)!} = \frac{(n-1+k)!}{k!(n-1)!}$</code></p>
 
 <h2 id="tocAnchor-1-6">Siehe auch</h2>
 

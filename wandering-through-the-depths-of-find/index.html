@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Wandering through the depths of find</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -74,16 +74,31 @@
          <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Very basic usage</span></a>
       </li>
       <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Snippets</span></a>
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Redirecting errors</span></a>
       </li>
       <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Further reading</span></a>
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Snippets</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Further reading</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Very basic usage</h2>
 
 <p>
-   <a href="../images/2011/09/find-basic1.png"><img src="../images/2011/09/find-basic1.png" alt="&lt;span&gt;$ find  /home -iname 'Tux&lt;em&gt;'&quot; title=&quot;$&lt;/span&gt; find  /home -iname 'Tux&lt;/em&gt;'&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2671&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;p&gt;I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.&lt;/p&gt;&#10;&#10;&lt;h2&gt;Redirecting errors&lt;/h2&gt;&#10;&#10;&lt;p&gt;You might get some &quot;Permission denied&quot; errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:&lt;/p&gt;&#10;&#10;&lt;p&gt;&lt;a href=" ..="" /><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE&lt;em&gt;USER&lt;/em&gt;TABLE and should now be USER&lt;em&gt;INFO&lt;/em&gt;TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
+   <a href="../images/2011/09/find-basic1.png">
+      <img src="../images/2011/09/find-basic1.png" alt="`$ find  /home -iname 'Tux*'" title="$` find  /home -iname 'Tux*'" width="500" height="100" class="alignnone size-full wp-image-2671" />
+   </a>
+</p>
+
+<p>I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.</p>
+
+<h2 id="tocAnchor-1-2">Redirecting errors</h2>
+
+<p>You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
+
+<p>
+   <a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE&lt;em&gt;USER&lt;/em&gt;TABLE and should now be USER&lt;em&gt;INFO&lt;/em&gt;TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
 </code></pre>
 
 <p>Now the explanation of the different commands:
@@ -100,7 +115,7 @@
 </ul></a>
 </p>
 
-<h2 id="tocAnchor-1-2">Snippets</h2>
+<h2 id="tocAnchor-1-3">Snippets</h2>
 
 <p>move all files in subdirectories to a single directory:</p>
 
@@ -112,7 +127,7 @@
 <p>find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:</p>
 
 <div class="highlight">
-   <pre><code class="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print &lt;span&gt;$5 ":\t" $&lt;/span&gt;8 }'</span>
+   <pre><code class="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print `$5 ":\t" $`8 }'</span>
 </code></pre>
 </div>
 
@@ -123,7 +138,7 @@
 </code></pre>
 </div>
 
-<h2 id="tocAnchor-1-3">Further reading</h2>
+<h2 id="tocAnchor-1-4">Further reading</h2>
 
 <p>Note that you should use grep if you want to search for patterns in single files.</p>
 

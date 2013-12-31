@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Get your programs assembly code and more information</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -77,7 +77,7 @@
                <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Pointers</span></a>
             </li>
             <li class="toc_level-2 toc_section-3">
-               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">$ Dollar and % Percentage signs</span></a>
+               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">`$ Dollar and % Percentage signs</span></a>
             </li>
             <li class="toc_level-2 toc_section-4">
                <a href="#tocAnchor-1-1-3"><span class="tocnumber">1.3</span> <span class="toctext">Instruction</span></a>
@@ -137,21 +137,19 @@ This is AT&amp;T Syntax: </p>
   <li><strong>%eax</strong>: Accumulator</li>
 </ul><p>The size of the eax register will always be 32 bit, regardless of the system's register size.<small><sup><a href="#ref6">[6]</a></sup></small></p>
 
-<h3 id="tocAnchor-1-1-2">
-   <span>$ Dollar and % Percentage signs</span>
-</h3>
+<h3 id="tocAnchor-1-1-2">`$ Dollar and % Percentage signs</h3>
 
-<p>$i, with <span>$i \in mathbb{N}$</span>, is a constant and percentages mean registers.<small><sup><a href="#ref10" name="anchor10" id="anchor10">[10]</a></sup></small><small><sup><a href="#ref10" name="anchor11" id="anchor11">[11]</a></sup></small></p>
+<p>$<code>i, with</code>$i \in mathbb{N}$`, is a constant and percentages mean registers.<small><sup><a href="#ref10" name="anchor10" id="anchor10">[10]</a></sup></small><small><sup><a href="#ref10" name="anchor11" id="anchor11">[11]</a></sup></small></p>
 
 <h3 id="tocAnchor-1-1-3">Instruction</h3>
 
 <p><strong>pushl <register></register></strong>: To push the source operand onto the stack<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small>
 <strong>movl <from>, <to></to></from></strong>: moves a long<small><sup><a href="#ref2" name="anchor2" id="anchor2">[2]</a></sup></small>
 <strong>call <function></function></strong>: Calls function (which might be printf, putchar, ...)
-<strong>subl <span>$16, %esp</span></strong>: allocate a local variable<small><sup><a href="#ref3" name="anchor3" id="anchor3">[3]</a></sup></small>
-<strong>ret</strong>: transfers control back to the place where the current function was called.<small><sup><a href="#ref3">[3]</a></sup></small>
-<strong>leave</strong>: sets the stack pointer to the base frame address, effectively releasing the whole frame<small><sup><a href="#ref4" name="anchor4" id="anchor4">[4]</a></sup></small>
-<strong>andl $-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5" id="anchor5">[5]</a></sup></small>
+<strong>subl <code>$16, %esp&lt;/strong&gt;: allocate a local variable&lt;small&gt;&lt;sup&gt;&lt;a href="#ref3" name="anchor3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
+&lt;strong&gt;ret&lt;/strong&gt;: transfers control back to the place where the current function was called.&lt;small&gt;&lt;sup&gt;&lt;a href="#ref3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
+&lt;strong&gt;leave&lt;/strong&gt;: sets the stack pointer to the base frame address, effectively releasing the whole frame&lt;small&gt;&lt;sup&gt;&lt;a href="#ref4" name="anchor4"&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
+&lt;strong&gt;andl $</code>-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5" id="anchor5">[5]</a></sup></small>
 <strong>jmp <target></target></strong>: Jump to target label.
 <strong>jbe <target></target></strong>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
 <strong>leal <command-address><store></store></command-address></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9" id="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</p>
@@ -204,13 +202,13 @@ This is AT&amp;T Syntax: </p>
 main:
     pushl   %ebp
     movl    %esp, %ebp
-    andl    &lt;span&gt;$-16, %esp
-    subl    $&lt;/span&gt;16, %esp
-    movl    &lt;span&gt;$.LC0, %eax
-    movl    $&lt;/span&gt;56154, 4(%esp)
+    andl    `$-16, %esp
+    subl    $`16, %esp
+    movl    `$.LC0, %eax
+    movl    $`56154, 4(%esp)
     movl    %eax, (%esp)
     call    printf
-    movl    &lt;span&gt;$0, %eax
+    movl    `$0, %eax
     leave
     ret
     .size   main, .-main
@@ -411,16 +409,16 @@ fib:
     pushl   %ebp
     movl    %esp, %ebp
     pushl   %ebx
-    subl    $&lt;/span&gt;20, %esp
-    cmpl    &lt;span&gt;$1, 8(%ebp)
+    subl    $`20, %esp
+    cmpl    `$1, 8(%ebp)
     jbe .L2
     movl    8(%ebp), %eax
-    subl    $&lt;/span&gt;1, %eax
+    subl    $`1, %eax
     movl    %eax, (%esp)
     call    fib
     movl    %eax, %ebx
     movl    8(%ebp), %eax
-    subl    &lt;span&gt;$2, %eax
+    subl    `$2, %eax
     movl    %eax, (%esp)
     call    fib
     leal    (%ebx,%eax), %eax
@@ -428,7 +426,7 @@ fib:
 .L2:
     movl    8(%ebp), %eax
 .L3:
-    addl    $&lt;/span&gt;20, %esp
+    addl    $`20, %esp
     popl    %ebx
     popl    %ebp
     ret
@@ -442,15 +440,15 @@ fib:
 main:
     pushl   %ebp
     movl    %esp, %ebp
-    andl    &lt;span&gt;$-16, %esp
-    subl    $&lt;/span&gt;16, %esp
-    movl    &lt;span&gt;$13, (%esp)
+    andl    `$-16, %esp
+    subl    $`16, %esp
+    movl    `$13, (%esp)
     call    fib
-    movl    $&lt;/span&gt;.LC0, %edx
+    movl    $`.LC0, %edx
     movl    %eax, 4(%esp)
     movl    %edx, (%esp)
     call    printf
-    movl    &lt;span&gt;$0, %eax
+    movl    `$0, %eax
     leave
     ret
     .size   main, .-main
@@ -466,13 +464,13 @@ main:
   <li><a name="ref3" href="#anchor3" id="ref3">↑</a>: <a href="http://linuxgazette.net/issue94/ramankutty.html">From C To Assembly Language </a>. Hiran Ramankutty, Linux Gazett, Issue 94.</li>
   <li><a name="ref4" href="#anchor4" id="ref4">↑</a>: <a href="http://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly">About leave in x86 assembly</a>. zneak, Stackoverflow.</li>
   <li><a name="ref5" href="#anchor5" id="ref5">↑</a>: <a href="http://stackoverflow.com/a/1317324/562769">GCC's assembly output of an empty program on x86, win32</a>. nos, Stackoverflow.</li>
-  <li><a name="ref6" href="#anchor6" id="ref6">↑</a>: <a href="http://stackoverflow.com/a/1898896/562769">Why would one use “movl $1, %eax” as opposed to, say, “movb <span>$1, %eax”</span></a>. Jason, Stackoverflow.</li>
+  <li><a name="ref6" href="#anchor6" id="ref6">↑</a>: <a href="http://stackoverflow.com/a/1898896/562769">Why would one use “movl $`1, %eax” as opposed to, say, “movb `$1, %eax”</a>. Jason, Stackoverflow.</li>
   <li><a name="ref7" href="#anchor7" id="ref7">↑</a>: <a href="http://en.literateprograms.org/Fibonacci_numbers_%28C%29#Recursive">Fibonacci numbers (C)</a>. Literate Programs.</li>
   <li><a name="ref8" href="#anchor8" id="ref8">↑</a>: <a href="http://wpage.unina.it/rcanonic/didattica/ce1/docs/68000.pdf">
 The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
   <li><a name="ref9" href="#anchor9" id="ref9">↑</a>: <a href="http://stackoverflow.com/questions/4003894/leal-assembler-instruction">LEAL Assembler instruction</a>. Nils Pipenbrinck, Stackoverflow</li>
   <li><a name="ref10" href="#anchor10" id="ref10">↑</a>: <a href="http://stackoverflow.com/a/5367004/562769">What does this dollar sign mean in __asm?</a>. Zimbabao, Stackoverflow</li>
-  <li><a name="ref11" href="#anchor11" id="ref11">↑</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
+  <li><a name="ref11" href="#anchor11" id="ref11">↑</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($`) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
 </ol>
 						</div>
 						<div class="postmeta">Posted in 

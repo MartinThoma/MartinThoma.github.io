@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Solving linear equations with Gaussian elimination</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,27 +65,27 @@
                         </div>
 			
 						<div class="entry">
-                            <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector <span>$b$</span> changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
+                            <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector `$b$` changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
 
-<p>Suppose you have a system of <span>$n \in \mathbb{N<em>{\geq 1}}$</em></span> linear equations and variables <span>$x1, x<em>2, \dots, x</em>n \in \mathbb{R}$</span>:</p>
+<p>Suppose you have a system of <code>$n \in \mathbb{N_{\geq 1}}$</code> linear equations and variables <code>$x_1, x_2, \dots, x_n \in \mathbb{R}$</code>:</p>
 
 <p>
-   <span>$
+   <code>$
 \begin{align}
-a<em>{1,1} \cdot x</em>1 + a<em>{1,2} x</em>2 + \dots + a<em>{1,n} \cdot x</em>{n} &amp;= b<em>1\
-a</em>{2,1} \cdot x<em>1 + a</em>{2,2} x<em>2 + \dots + a</em>{2,n} \cdot x<em>{n} &amp;= b</em>2\
-\vdots &amp;= \vdots\
-a<em>{n,1} \cdot x</em>1 + a<em>{n,2} x</em>2 + \dots + a<em>{n,n} \cdot x</em>{n} &amp;= b_n
+a_{1,1} \cdot x_1 + a_{1,2} x_2 + \dots + a_{1,n} \cdot x_{n} &amp;= b_1\\
+a_{2,1} \cdot x_1 + a_{2,2} x_2 + \dots + a_{2,n} \cdot x_{n} &amp;= b_2\\
+\vdots &amp;= \vdots\\
+a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 \end{align}
-$</span>
+$</code>
 </p>
 
-<p>All factors <span>$a<em>{i,j} \in \mathbb{R}$</em></span> for <span>$i,j \in 1, \dots, n$</span> can be written in one matrix <span>$A \in \mathbb{R}^{n \times n}$</span> and all <span>$bi$</span> can be written as a vector <span>$b$</span>. You combine all <span>$x_i$</span> in the same way to a vector <span>$x$</span>.</p>
+<p>All factors <code>$a_{i,j} \in \mathbb{R}$</code> for <code>$i,j \in 1, \dots, n$</code> can be written in one matrix <code>$A \in \mathbb{R}^{n \times n}$</code> and all <code>$b_i$</code> can be written as a vector <code>$b$</code>. You combine all <code>$x_i$</code> in the same way to a vector <code>$x$</code>.</p>
 
 <p>So you can write the system of equations as:</p>
 
 <p>
-   <span>$A \cdot x = b$</span>
+   <code>$A \cdot x = b$</code>
 </p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -117,17 +117,17 @@ $</span>
    </ul>
 </div><h2 id="tocAnchor-1-1">How Gaussian elimination works</h2>
 
-<p>First, you write <span>$A$</span> and <span>$b$</span> in an augmented matrix <span>$A|b$</span>:</p>
+<p>First, you write <code>$A$</code> and <code>$b$</code> in an augmented matrix <code>$A|b$</code>:</p>
 
 <p>
-   <span>$
+   <code>$
   \left(\begin{array}{cccc|c}
-    a<em>{1,1} &amp; a</em>{1,2} &amp; \dots  &amp; a<em>{1,n} &amp; b</em>1\
-    a<em>{2,1} &amp; a</em>{2,2} &amp; \dots  &amp; a<em>{2,n} &amp; b</em>2\
-    \vdots  &amp; \vdots  &amp; \ddots  &amp; \vdots  &amp; \vdots \
-    a<em>{n,1} &amp; a</em>{n,2} &amp; \dots &amp; a<em>{n,n}  &amp; b</em>n
+    a_{1,1} &amp; a_{1,2} &amp; \dots  &amp; a_{1,n} &amp; b_1\\
+    a_{2,1} &amp; a_{2,2} &amp; \dots  &amp; a_{2,n} &amp; b_2\\
+    \vdots  &amp; \vdots  &amp; \ddots  &amp; \vdots  &amp; \vdots \\
+    a_{n,1} &amp; a_{n,2} &amp; \dots &amp; a_{n,n}  &amp; b_n
   \end{array}\right).
-$</span>
+$</code>
 </p>
 
 <p>On this matrix you may make exactly three operations:</p>
@@ -138,15 +138,15 @@ $</span>
 </ul><p>You want to get a triangular matrix. So you subsequently eliminate one variable from the system of equations until you have a matrix like this:</p>
 
 <p>
-   <span>$
+   <code>$
   \left(\begin{array}{ccccc|c}
-    a<em>{1,1} &amp; a</em>{1,2} &amp; a<em>{1,3} &amp; \dots &amp; a</em>{1,n} &amp; b<em>1\
-          0 &amp; a</em>{2,2} &amp; a<em>{2,3} &amp; \dots &amp; a</em>{2,n} &amp; b<em>2\
-          0 &amp;       0 &amp; a</em>{3,3} &amp; \dots &amp; a<em>{3,n} &amp; b</em>3\
-    \vdots  &amp; \vdots  &amp; \ddots  &amp; \ddots&amp; \vdots  &amp; \vdots\
-          0 &amp;       0 &amp;  \dots  &amp;     0 &amp; a<em>{3,n} &amp; b</em>n\
+    a_{1,1} &amp; a_{1,2} &amp; a_{1,3} &amp; \dots &amp; a_{1,n} &amp; b_1\\
+          0 &amp; a_{2,2} &amp; a_{2,3} &amp; \dots &amp; a_{2,n} &amp; b_2\\
+          0 &amp;       0 &amp; a_{3,3} &amp; \dots &amp; a_{3,n} &amp; b_3\\
+    \vdots  &amp; \vdots  &amp; \ddots  &amp; \ddots&amp; \vdots  &amp; \vdots\\
+          0 &amp;       0 &amp;  \dots  &amp;     0 &amp; a_{3,n} &amp; b_n\\
   \end{array}\right).
-$</span>
+$</code>
 </p>
 
 <p>It's actually quite simple to get this form:</p>
@@ -413,20 +413,20 @@ Result: 0 -1 1
 
 <h3 id="tocAnchor-1-5-1">Time complexity</h3>
 
-<p>Time complexity is in <span>$\mathcal{O}(n^3)$</span> (lines 44 - 53):
-<span>$
+<p>Time complexity is in <code>$\mathcal{O}(n^3)$</code> (lines 44 - 53):
+<code>$
 \begin{align}
-Operations &amp;= \sum<em>{i=0}^{n-1} \sum</em>{k=i+1}^{n-1} \sum<em>{j=i}^{n} 1\
-&amp;= \sum</em>{i=0}^{n-1} \sum<em>{k=i+1}^{n-1} (n-i+1) \
-&amp;= \left (\sum</em>{i=0}^{n-1} \sum<em>{k=i+1}^{n-1} (n+1) \right ) - \left (\sum</em>{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\
-&amp;= \dots \
-&amp;= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\
+Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
+&amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
+&amp;= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\\
+&amp;= \dots \\
+&amp;= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\\
 &amp;= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
-\end{align}$</span></p>
+\end{align}$</code></p>
 
 <h3 id="tocAnchor-1-5-2">Space complexity</h3>
 
-<p>Space complexity of this implementation is in <span>$\mathcal{O}(n)$</span>, but you can easily come down to <span>$\mathcal{O}(1)$</span> when you use <code>A[n]</code> for storing <code>x</code>.</p>
+<p>Space complexity of this implementation is in <code>$\mathcal{O}(n)$</code>, but you can easily come down to <code>$\mathcal{O}(1)$</code> when you use <code>A[n]</code> for storing <code>x</code>.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

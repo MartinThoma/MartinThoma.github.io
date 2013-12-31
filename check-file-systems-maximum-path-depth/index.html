@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Check File Systems maximum path depth</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -115,7 +115,7 @@
 <p>Now run it:</p>
 
 <div class="highlight">
-   <pre><code class="bash">&lt;span&gt;<span class="nv">$ </span><span class="nb">time</span> ./createDirectories 
+   <pre><code class="bash"><span class="sb">`</span><span class="nv">$ </span><span class="nb">time</span> ./createDirectories 
 
 <span class="k">return </span>code      : -1
 Created sub-directories : 1018
@@ -130,15 +130,15 @@ sys 0m0.180s
 <p>Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nv">$&lt;</span>/span&gt; <span class="nb">cd </span>one/one/one .... one/
-&lt;span&gt;<span class="nv">$ </span>mkdir two
-<span class="nv">$&lt;</span>/span&gt; <span class="nb">cd </span>two
+   <pre><code class="bash"><span class="nv">$`</span> <span class="nb">cd </span>one/one/one .... one/
+<span class="sb">`</span><span class="nv">$ </span>mkdir two
+<span class="nv">$`</span> <span class="nb">cd </span>two
 <span class="nb">cd</span>: error retrieving current directory: getcwd: cannot access 
     parent directories: File name too long
 </code></pre>
 </div>
 
-<p>Strangely, it showed me a path <code>/home/moose/.../one/one/one/one/tw<span>$</span></code>. No, this is not a typo. It showed tw, not two. So, maybe the path can get only that long?
+<p>Strangely, it showed me a path <code>/home/moose/.../one/one/one/one/tw`$</code>. No, this is not a typo. It showed tw, not two. So, maybe the path can get only that long?
 Now I created a folder called "three" and one called "this". I entered both of them with cd, both showed <code>/home/moose/.../one/one/th</code>. So I guess this is a problem of Gnome Terminal and not a limitation of the file system.</p>
 
 <p>Let's see what Nautilus does. I <a href="../cyclic-references-kill-nautilus/" title="Cyclic references kill Nautilus">once got Nautilus to crash</a>, I think I get it another time:</p>
@@ -150,7 +150,7 @@ Now I created a folder called "three" and one called "this". I entered both of t
 <p>When I use a single character for sub-directories, I get:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$&lt;</span>/span&gt; ./createDirectories 
+   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$`</span> ./createDirectories 
 <span class="k">return </span>code      : -1
 Created sub-directories : 2036
 length of pathname  : 4096

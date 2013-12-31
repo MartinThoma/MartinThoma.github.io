@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Project Euler: Problem 142</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -72,7 +72,7 @@
 <p>Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself. </p>
 
 <p>The task is:
-</p><blockquote>Find the smallest x + y + z with integers <span>$x &gt; y &gt; z &gt; 0$</span> such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
+</p><blockquote>Find the smallest x + y + z with integers <code>$x &gt; y &gt; z &gt; 0$</code> such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
 
 <p>I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
 
@@ -128,43 +128,43 @@
 <h2 id="tocAnchor-1-2">Apply some math</h2>
 
 <p>You can formalize the task like this:
-Find the smallest <span>$x, y, z \in \mathbb{N}$</span>, so that:
-</p><ol><li><span>$x &gt; y &gt; z &gt; 0$</span></li>
-  <li><span>$a = x + y$</span></li>
-  <li><span>$b = x - y$</span></li>
-  <li><span>$c = x + z$</span></li>
-  <li><span>$d = x - z$</span></li>
-  <li><span>$e = y + z$</span></li>
-  <li><span>$f = y - z$</span></li>
-</ol><p>With <span>$a, b, c, d, e, f \in Squares$</span>.</p>
+Find the smallest <code>$x, y, z \in \mathbb{N}$</code>, so that:
+</p><ol><li><code>$x &gt; y &gt; z &gt; 0$</code></li>
+  <li><code>$a = x + y$</code></li>
+  <li><code>$b = x - y$</code></li>
+  <li><code>$c = x + z$</code></li>
+  <li><code>$d = x - z$</code></li>
+  <li><code>$e = y + z$</code></li>
+  <li><code>$f = y - z$</code></li>
+</ol><p>With <code>$a, b, c, d, e, f \in Squares$</code>.</p>
 
 <p>Now you can make the following conclusions:
-</p><ol><li><span>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</span></li>
-  <li><span>$\overset{A.1, A.4, A.5}{\implies} c &gt; d$</span></li>
-  <li><span>$\overset{A.1, A.6, A.7}{\implies} e &gt; f$</span></li>
-</ol><ol><li><p><span>$a &gt; c$</span>:
-<span>$y &gt; z$</span>
-<span>$\Leftrightarrow x + y &gt; x + z$</span>
-<span>$\Leftrightarrow a &gt; c$</span></p></li>
-<li><p><span>$c &gt; e$</span>:
-<span>$x &gt; y$</span>
-<span>$\Leftrightarrow x + z &gt; y + z$</span>
-<span>$c &gt; e$</span></p></li>
+</p><ol><li><code>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</code></li>
+  <li><code>$\overset{A.1, A.4, A.5}{\implies} c &gt; d$</code></li>
+  <li><code>$\overset{A.1, A.6, A.7}{\implies} e &gt; f$</code></li>
+</ol><ol><li><p><code>$a &gt; c$</code>:
+<code>$y &gt; z$</code>
+<code>$\Leftrightarrow x + y &gt; x + z$</code>
+<code>$\Leftrightarrow a &gt; c$</code></p></li>
+<li><p><code>$c &gt; e$</code>:
+<code>$x &gt; y$</code>
+<code>$\Leftrightarrow x + z &gt; y + z$</code>
+<code>$c &gt; e$</code></p></li>
 <li><p>a is the biggest element (see B.1, B.4, B.6)</p></li>
-<li><p><span>$b &lt; c$</span>:
-<span>$-y &lt; z$</span>
-<span>$\Leftrightarrow x - y &lt; x + z$</span>
-<span>$b &lt; c$</span></p></li>
+<li><p><code>$b &lt; c$</code>:
+<code>$-y &lt; z$</code>
+<code>$\Leftrightarrow x - y &lt; x + z$</code>
+<code>$b &lt; c$</code></p></li>
 <li><p>c is the second biggest element (see B.7, B.2, B.5, B.8)</p></li>
-<li><p><span>$b &lt; d$</span>:
-<span>$ y &gt; z$</span>
-<span>$\Leftrightarrow -y &lt; -z$</span>
-<span>$\Leftrightarrow x - y &lt; x - z$</span>
-<span>$b &lt; d$</span></p></li>
-<li><p><span>$d &gt; f$</span>:
-<span>$ x &gt; y$</span>
-<span>$\Leftrightarrow x - z &gt; y - z$</span>
-<span>$d &gt; f$</span></p></li>
+<li><p><code>$b &lt; d$</code>:
+<code>$ y &gt; z$</code>
+<code>$\Leftrightarrow -y &lt; -z$</code>
+<code>$\Leftrightarrow x - y &lt; x - z$</code>
+<code>$b &lt; d$</code></p></li>
+<li><p><code>$d &gt; f$</code>:
+<code>$ x &gt; y$</code>
+<code>$\Leftrightarrow x - z &gt; y - z$</code>
+<code>$d &gt; f$</code></p></li>
 <li><p>I can't tell anything about the relationship between:
 </p><ul><li>d and e</li>
 <li>b and f</li>
@@ -180,10 +180,10 @@ Find the smallest <span>$x, y, z \in \mathbb{N}$</span>, so that:
 
 <p>You also know:</p>
 
-<p><span>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$</span>
+<p><code>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$</code>
 The same argumentation can be used for (c, d) and (e, f).</p>
 
-<p><span>$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$</span>.</p>
+<p><code>$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$</code>.</p>
 
 <p>With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.</p>
 

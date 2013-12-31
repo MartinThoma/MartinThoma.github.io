@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Tricks with .htaccess </title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -144,9 +144,9 @@ Prevent Hot Linking</h2>
 
 <div class="highlight">
    <pre><code class="bash">RewriteEngine on
-RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^&lt;span&gt;<span class="err">$</span>
-RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^http://<span class="o">(</span>www.<span class="o">)</span>?your-domain.com/.*<span class="nv">$&lt;</span>/span&gt; <span class="o">[</span>NC<span class="o">]</span>
-RewriteRule <span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpe?g<span class="p">|</span>png<span class="o">)</span>&lt;span&gt;<span class="nv">$ </span>- <span class="o">[</span>F<span class="o">]</span>
+RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^<span class="sb">`</span><span class="err">$</span>
+RewriteCond %<span class="o">{</span>HTTP_REFERER<span class="o">}</span> !^http://<span class="o">(</span>www.<span class="o">)</span>?your-domain.com/.*<span class="nv">$`</span> <span class="o">[</span>NC<span class="o">]</span>
+RewriteRule <span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpe?g<span class="p">|</span>png<span class="o">)</span><span class="sb">`</span><span class="nv">$ </span>- <span class="o">[</span>F<span class="o">]</span>
 </code></pre>
 </div>
 
@@ -156,7 +156,7 @@ Prevent Direct Access</h2>
 <p>If you include some files with PHP, you might want that others can't access this file directly. So add the following to your .htaccess-file:</p>
 
 <div class="highlight">
-   <pre><code class="bash">&lt;FilesMatch <span class="s2">"\.(inc)\.(php)$&lt;/span&gt;"</span>&gt;
+   <pre><code class="bash">&lt;FilesMatch <span class="s2">"\.(inc)\.(php)$`"</span>&gt;
     Order deny,allow
     Deny from all
 &lt;/FilesMatch&gt;

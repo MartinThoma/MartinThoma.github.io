@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to analyze Mailman archives</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312310128.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -100,25 +100,25 @@
 <h2 id="tocAnchor-1-2">Rename archives</h2>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="k">for </span>file in *.txt.gz<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%.txt.gz}.txt"</span><span class="p">;</span> <span class="k">done</span>
+   <pre><code class="bash"><span class="k">for </span>file in *.txt.gz<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%.txt.gz}.txt"</span><span class="p">;</span> <span class="k">done</span>
 </code></pre>
 </div>
 
 <p>To make them sortable:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="k">for </span>file in *January.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%January.txt}01.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *February.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%February.txt}02.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *March.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%March.txt}03.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *April.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%January.txt}04.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *May.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%May.txt}05.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *June.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%June.txt}06.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *July.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%July.txt}07.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *August.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%August.txt}08.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *September.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%September.txt}09.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *October.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%October.txt}10.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *November.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%November.txt}11.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for </span>file in *December.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"&lt;span&gt;$file"</span> <span class="s2">"$&lt;/span&gt;{file%December.txt}12.txt"</span><span class="p">;</span> <span class="k">done</span>
+   <pre><code class="bash"><span class="k">for </span>file in *January.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%January.txt}01.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *February.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%February.txt}02.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *March.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%March.txt}03.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *April.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%January.txt}04.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *May.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%May.txt}05.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *June.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%June.txt}06.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *July.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%July.txt}07.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *August.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%August.txt}08.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *September.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%September.txt}09.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *October.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%October.txt}10.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *November.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%November.txt}11.txt"</span><span class="p">;</span> <span class="k">done</span>
+<span class="k">for </span>file in *December.txt<span class="p">;</span> <span class="k">do </span>mv <span class="s2">"`$file"</span> <span class="s2">"$`{file%December.txt}12.txt"</span><span class="p">;</span> <span class="k">done</span>
 </code></pre>
 </div>
 
