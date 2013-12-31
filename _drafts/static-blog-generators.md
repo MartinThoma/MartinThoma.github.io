@@ -5,8 +5,9 @@ author: Martin Thoma
 date: 2013-11-24 04:22:57
 categories: 
 - The Web
-tags: []
-featured_image: 
+tags:
+- Jekyll
+featured_image: 2013/12/jekyll-thumbnail.png
 ---
 I currently want to get my mind clear about static blog generators.
 

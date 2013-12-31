@@ -11,7 +11,7 @@ featured_image:
 ---
 Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows you to step back to any point of the software and to develop simultaniously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.
 
-Here is a little cheat sheet how to use SVN. I will demonstrate some on my Google Code OpenSource project <a href="code.google.com/p/community-chess/">Community Chess</a>.
+Here is a little cheat sheet how to use SVN. I will demonstrate some on my Google Code OpenSource project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.
 
 All commands are executed while I'm in my local working copy of the repository.
 

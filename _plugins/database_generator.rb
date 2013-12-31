@@ -39,7 +39,7 @@ module Jekyll
                 insert_tags = db["INSERT INTO tags (tag, page) VALUES (?, ?)", tag, postid]
                 insert_tags.insert
             end.empty? and begin
-                puts "[Info] '" + post.title + "' has no tags."
+                puts "[Info]["+post.url+"/] '" + post.title + "' has no tags."
             end
 
             post.categories.each do |category|

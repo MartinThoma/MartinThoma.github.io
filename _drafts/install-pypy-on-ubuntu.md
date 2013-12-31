@@ -13,7 +13,7 @@ featured_image: 2011/09/Ubuntu-Logo.png
 If you want to install a package on a Ubuntu machine, you should check the following (in this order):
 <ul>
   <li>Is the package in the repository? - <code>apt-cache search pypy</code></li>
-  <li>Does a PPA exist? - just <a href="google.com/?q=ppa+pypy">Google it</a> - yes, <a href="https://launchpad.net/~pypy/+archive/ppa">they have a PPA</a>.</li>
+  <li>Does a PPA exist? - just <a href="https://www.google.com/?q=ppa+pypy">Google it</a> - yes, <a href="https://launchpad.net/~pypy/+archive/ppa">they have a PPA</a>.</li>
   <li><a href="http://pypy.org/download.html#building-from-source">Compile it yourself</a>.</li>
 </ul>
 
