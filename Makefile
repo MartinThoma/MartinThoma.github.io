@@ -18,7 +18,7 @@ test:
 	jekyll build --draft
 	# postprocessing
 	./_postprocess.py
-	mv search.db _site/search/search.db
+	-test -e search.db || mv search.db _site/search/search.db
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
 	# remove temporary files
@@ -35,7 +35,7 @@ deploy:
 	jekyll build --config _config_prod.yml
 	# postprocessing
 	./_postprocess.py
-	mv search.db _site/search/search.db
+	-test -e search.db || mv search.db _site/search/search.db
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
 	# remove temporary files
@@ -54,7 +54,7 @@ martinde:
 	make clean
 	jekyll build --config _config_martinde.yml
 	./_postprocess.py
-	mv search.db _site/search/search.db
+	-test -e search.db || mv search.db _site/search/search.db
 
 clean:
 	rm -rf _site
