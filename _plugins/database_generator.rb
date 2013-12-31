@@ -81,8 +81,8 @@ module Jekyll
                         # external link
                         insert_link = db["INSERT INTO external_links (page_from, page_to, text) VALUES (?, ?, ?)", postid, link, linktext]
                         insert_link.insert
-                    elsif link.start_with?('../images/') || link.start_with?('../pdf/') || link.start_with?('../html5/') || link.start_with?('../python/')
-                        # images are not relevant to search
+                    elsif link.start_with?('../images/') || link.start_with?('../pdf/') || link.start_with?('../html5/') || link.start_with?('../python/') || link.start_with?('../tag/') || link.start_with?('../category/') || link.start_with?('../author/')
+                        # images and automatically generated pages are not relevant to search
                     elsif !link.start_with?('../')
                         puts "[Warning][Post:"+post.url+"/] Link '"+link+"' does not start with '../'"
                     else
