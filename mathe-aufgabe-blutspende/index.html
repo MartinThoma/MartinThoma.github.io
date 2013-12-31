@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Mathe-Aufgabe: Blutspende</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -107,39 +107,50 @@
 
 <h3 id="tocAnchor-1-2-1">Die ersten Werte</h3>
 
-<p>$f: \mathbb{N}<em>0 \rightarrow \mathbb{R}</em>0^+$ sei die Menge des ursprünglichen Blutes in Liter, das nach $x$ Spenden gespendet wurde:</p>
+<p><span>$f: \mathbb{N}<em>0 \rightarrow \mathbb{R}</em>0^+$</span> sei die Menge des ursprünglichen Blutes in Liter, das nach <span>$x$</span> Spenden gespendet wurde:</p>
 
-<p>$f(0) = 0$</p>
+<p>
+   <span>$f(0) = 0$</span>
+</p>
 
 <p>Beim ersten mal Blutspenden wird ein halber Liter des ursprünglichen Blutes gespendet:</p>
 
-<p>$f(1) = 0{,}5 + f(0)$</p>
+<p>
+   <span>$f(1) = 0{,}5 + f(0)$</span>
+</p>
 
 <p>Beim zweiten mal Blutspenden werden 0,45 Liter des ursprünglichen Blutes gespendet:</p>
 
-<p>$f(2) = \frac{5-0{,}5}{5} \cdot 0{,}5 \text{ Liter} + f(1) + f(0) = 0{,}95 \text{ Liter}$</p>
+<p>
+   <span>$f(2) = \frac{5-0{,}5}{5} \cdot 0{,}5 \text{ Liter} + f(1) + f(0) = 0{,}95 \text{ Liter}$</span>
+</p>
 
 <p>Beim dritten mal Blutspenden werden 0,405 Liter des ursprünglichen Blutes gespendet:</p>
 
-<p>$f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}$</p>
+<p>
+   <span>$f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}$</span>
+</p>
 
 <h3 id="tocAnchor-1-2-2">Eine rekursive Formel</h3>
 
-<p>$
+<p>
+   <span>$
         \begin{align}
             f(1) &amp;= 0{,}5 \
             f(x) &amp;= \overbrace{\underbrace{\frac{5-f(x-1)}{5}}_{\text{Anteil}} \cdot 0{,}5}^{\text{neue Blutmenge}} + f(x-1) \
                  &amp;= 0{,}5 - \frac{1}{10} \cdot f(x-1) + f(x-1) \
                  &amp;=  0{,}5 + \frac{9}{10} \cdot f(x-1)
         \end{align}
-$</p>
+$</span>
+</p>
 
 <p>Dabei gilt:
 </p><ul><li>0,5 ist die gespendete Blutmenge in Liter einer Spende</li>
-  <li>$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$</li>
+  <li><span>$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$</span></li>
 </ul><h3 id="tocAnchor-1-2-3">Auflösen der Rekursion</h3>
 
-<p>$
+<p>
+   <span>$
         \begin{align}
              f(4) &amp;= 0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5))\
                   &amp;= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5)\
@@ -147,11 +158,13 @@ $</p>
                   &amp;= 0{,}5 \cdot (1 + \frac{9}{10} + (\frac{9}{10})^2 + (\frac{9}{10})^3)\
               f(x)&amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i
         \end{align}
-$</p>
+$</span>
+</p>
 
 <h3 id="tocAnchor-1-2-4">Auflösen des Summensymbols</h3>
 
-<p>$
+<p>
+   <span>$
         \begin{align}
             f(x) &amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i\
                  &amp;= \frac{1}{2}\cdot (\frac{0{,}9^{x+1} - 1}{0{,}9 - 1})\
@@ -159,11 +172,13 @@ $</p>
                  &amp;= -5 \cdot 0{,}9^{x+1} + 5\
                  &amp;= 5 \cdot (1 - 0{,}9^{x+1})
         \end{align}
-$</p>
+$</span>
+</p>
 
 <h2 id="tocAnchor-1-7">Lösung</h2>
 
-<p>$
+<p>
+   <span>$
         \begin{align}
             0{,}95 \cdot 5 &amp;= 5 \cdot (1- 0{,}9^{x+1})\
                     0{,}95 &amp;= 1 - 0{,}9^{x+1}\
@@ -172,7 +187,8 @@ $</p>
                      x  &amp;= \frac{\ln(0,05)}{\ln(0{,}9)} - 1\
                      x  &amp;= 27{,}43
         \end{align}
-$</p>
+$</span>
+</p>
 
 <h2 id="tocAnchor-1-8">Antwort</h2>
 
@@ -345,6 +361,7 @@ $</p>
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -365,7 +382,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

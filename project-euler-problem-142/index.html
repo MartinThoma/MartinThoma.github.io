@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Project Euler: Problem 142</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -72,7 +72,7 @@
 <p>Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself. </p>
 
 <p>The task is:
-</p><blockquote>Find the smallest x + y + z with integers $x &gt; y &gt; z &gt; 0$ such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
+</p><blockquote>Find the smallest x + y + z with integers <span>$x &gt; y &gt; z &gt; 0$</span> such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
 
 <p>I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
 
@@ -128,43 +128,43 @@
 <h2 id="tocAnchor-1-2">Apply some math</h2>
 
 <p>You can formalize the task like this:
-Find the smallest $x, y, z \in \mathbb{N}$, so that:
-</p><ol><li>$x &gt; y &gt; z &gt; 0$</li>
-  <li>$a = x + y$</li>
-  <li>$b = x - y$</li>
-  <li>$c = x + z$</li>
-  <li>$d = x - z$</li>
-  <li>$e = y + z$</li>
-  <li>$f = y - z$</li>
-</ol><p>With $a, b, c, d, e, f \in Squares$.</p>
+Find the smallest <span>$x, y, z \in \mathbb{N}$</span>, so that:
+</p><ol><li><span>$x &gt; y &gt; z &gt; 0$</span></li>
+  <li><span>$a = x + y$</span></li>
+  <li><span>$b = x - y$</span></li>
+  <li><span>$c = x + z$</span></li>
+  <li><span>$d = x - z$</span></li>
+  <li><span>$e = y + z$</span></li>
+  <li><span>$f = y - z$</span></li>
+</ol><p>With <span>$a, b, c, d, e, f \in Squares$</span>.</p>
 
 <p>Now you can make the following conclusions:
-</p><ol><li>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</li>
-  <li>$\overset{A.1, A.4, A.5}{\implies} c &gt; d$</li>
-  <li>$\overset{A.1, A.6, A.7}{\implies} e &gt; f$</li>
-</ol><ol><li><p>$a &gt; c$:
-$y &gt; z$
-$\Leftrightarrow x + y &gt; x + z$
-$\Leftrightarrow a &gt; c$</p></li>
-<li><p>$c &gt; e$:
-$x &gt; y$
-$\Leftrightarrow x + z &gt; y + z$
-$c &gt; e$</p></li>
+</p><ol><li><span>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</span></li>
+  <li><span>$\overset{A.1, A.4, A.5}{\implies} c &gt; d$</span></li>
+  <li><span>$\overset{A.1, A.6, A.7}{\implies} e &gt; f$</span></li>
+</ol><ol><li><p><span>$a &gt; c$</span>:
+<span>$y &gt; z$</span>
+<span>$\Leftrightarrow x + y &gt; x + z$</span>
+<span>$\Leftrightarrow a &gt; c$</span></p></li>
+<li><p><span>$c &gt; e$</span>:
+<span>$x &gt; y$</span>
+<span>$\Leftrightarrow x + z &gt; y + z$</span>
+<span>$c &gt; e$</span></p></li>
 <li><p>a is the biggest element (see B.1, B.4, B.6)</p></li>
-<li><p>$b &lt; c$:
-$-y &lt; z$
-$\Leftrightarrow x - y &lt; x + z$
-$b &lt; c$</p></li>
+<li><p><span>$b &lt; c$</span>:
+<span>$-y &lt; z$</span>
+<span>$\Leftrightarrow x - y &lt; x + z$</span>
+<span>$b &lt; c$</span></p></li>
 <li><p>c is the second biggest element (see B.7, B.2, B.5, B.8)</p></li>
-<li><p>$b &lt; d$:
-$ y &gt; z$
-$\Leftrightarrow -y &lt; -z$
-$\Leftrightarrow x - y &lt; x - z$
-$b &lt; d$</p></li>
-<li><p>$d &gt; f$:
-$ x &gt; y$
-$\Leftrightarrow x - z &gt; y - z$
-$d &gt; f$</p></li>
+<li><p><span>$b &lt; d$</span>:
+<span>$ y &gt; z$</span>
+<span>$\Leftrightarrow -y &lt; -z$</span>
+<span>$\Leftrightarrow x - y &lt; x - z$</span>
+<span>$b &lt; d$</span></p></li>
+<li><p><span>$d &gt; f$</span>:
+<span>$ x &gt; y$</span>
+<span>$\Leftrightarrow x - z &gt; y - z$</span>
+<span>$d &gt; f$</span></p></li>
 <li><p>I can't tell anything about the relationship between:
 </p><ul><li>d and e</li>
 <li>b and f</li>
@@ -180,16 +180,16 @@ $d &gt; f$</p></li>
 
 <p>You also know:</p>
 
-<p>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$
+<p><span>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$</span>
 The same argumentation can be used for (c, d) and (e, f).</p>
 
-<p>$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$.</p>
+<p><span>$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$</span>.</p>
 
 <p>With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.</p>
 
 <h2 id="tocAnchor-1-3">Material</h2>
 
-<p>Some material like the LaTeX-file can be found in the <a href="http://martin-thoma.com/wp-content/uploads/2012/04/euler-142.zip">Project Euler 142 Archive</a>.</p>
+<p>Some material like the LaTeX-file can be found in the <a href="../images/2012/04/euler-142.zip">Project Euler 142 Archive</a>.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -364,6 +364,7 @@ The same argumentation can be used for (c, d) and (e, f).</p>
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -384,7 +385,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

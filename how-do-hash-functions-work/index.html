@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How do hash functions work?</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -131,7 +131,7 @@
 
 <p>This approach has generally two problems:
 </p><ol><li>You have to know how to go through each situation. For connect four it is easy. Both players place their disks in turns and in every turn the current player has at most 7 possibilities. But it is impossible for games like <a href="http://en.wikipedia.org/wiki/Calvinball#Calvinball">Calvinball</a> or <a href="http://en.wikipedia.org/wiki/Mao_(card_game)">Mao</a>.</li>
-  <li>The game tree might be HUGE. In this case, you can have $4,531,985,219,092 \approx 4.5 \cdot 10^{12}$ game situations (<a href="http://math.stackexchange.com/a/301128/6876">source</a>). Even if you would need only one bit for each situation, it would require 566.5 GB!</li>
+  <li>The game tree might be HUGE. In this case, you can have <span>$4,531,985,219,092 \approx 4.5 \cdot 10^{12}$</span> game situations (<a href="http://math.stackexchange.com/a/301128/6876">source</a>). Even if you would need only one bit for each situation, it would require 566.5 GB!</li>
 </ol><p>Anyway, lets say we want to store many unique game situations. Unique means, even if you have hundreds of possible paths to get to a given game situations, you will store this game situation only once.</p>
 
 <h2 id="tocAnchor-1-3">Implementation</h2>
@@ -235,7 +235,7 @@
 </code></pre>
 </div>
 
-<p>If you need an explanation for this, you should read <a href="http://martin-thoma.com/check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.</p>
+<p>If you need an explanation for this, you should read <a href="../check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.</p>
 
 <p>And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:</p>
 
@@ -410,7 +410,7 @@
 </code></pre>
 </div>
 
-<p>The function <code>getFirstIndex</code> maps an char Array with BOARD<em>WIDTH * BOARD</em>HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.</p>
+<p>The function <code>getFirstIndex</code> maps an char Array with BOARD<em>WIDTH * BOARD</em>HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is <span>$3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$</span>. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are <span>$4.5 \cdot 10^{12}$</span> game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.</p>
 
 <p>This means, you will have two board situations that map to the same hash number. This is called a "hash collision". When you use the hash number directly as an index for your board, you will have to deal with hash collisions. Some solutions are:
 </p><ul><li>Ignoring the problem: That's boring and not always possible (but simple).</li>
@@ -421,13 +421,13 @@
 <p>The idea of linear probing is very simple: </p>
 
 <p>Inserting a new item:
-</p><ol><li>You look at the index $i$ that your hash function gave you.</li>
-  <li>If this index is already full, you look at $i+1$</li>
+</p><ol><li>You look at the index <span>$i$</span> that your hash function gave you.</li>
+  <li>If this index is already full, you look at <span>$i+1$</span></li>
   <li>When you took a look at all slots of your array, you can't insert the new item.</li>
 </ol><p>Searching for an already inserted item:
-</p><ol><li>You look at the index $i$ that your hash function gave you.</li>
-  <li>If $i$ is empty, you're ready. The item was not inserted.</li>
-  <li>If $i$ is not the item you've searched for, you have to look at $i+1$.</li>
+</p><ol><li>You look at the index <span>$i$</span> that your hash function gave you.</li>
+  <li>If <span>$i$</span> is empty, you're ready. The item was not inserted.</li>
+  <li>If <span>$i$</span> is not the item you've searched for, you have to look at <span>$i+1$</span>.</li>
   <li>Keep looking at the next item until you find your searched item, you've looked at all items or you find an empty slot.</li>
 </ol><p>Deleting is complicated. You have to look at all items after the deleted one, remove them from your array and insert them again. That's not good.</p>
 
@@ -439,19 +439,23 @@
 
 <p>The idea of quadratic probing is the same as for linear probing, but you try to fix the clustering-problem by using a clever way to search for a free spot:</p>
 
-<p>$h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil^2\right) \bmod~m$</p>
+<p>
+   <span>$h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil^2\right) \bmod~m$</span>
+</p>
 
-<p>where $h$ is your hash function and $i$ is your i-th try to find a free spot while you have $m$ spots in total.</p>
+<p>where <span>$h$</span> is your hash function and <span>$i$</span> is your i-th try to find a free spot while you have <span>$m$</span> spots in total.</p>
 
 <p>This one also suffers from clustering, but it's not as bad as with linear clustering.</p>
 
 <h2 id="tocAnchor-1-8">Double hashing</h2>
 
-<p>This solution could be the best one, but also the hardest one to implement correctly. You could find a free spot by using a second hash function $h'$ like this:</p>
+<p>This solution could be the best one, but also the hardest one to implement correctly. You could find a free spot by using a second hash function <span>$h'$</span> like this:</p>
 
-<p>$h_i(x) = (h(x)+h'(x)\cdot i) ~ \bmod ~ m$</p>
+<p>
+   <span>$h_i(x) = (h(x)+h'(x)\cdot i) ~ \bmod ~ m$</span>
+</p>
 
-<p>BUT you have to make sure that $Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m^2}$</p>
+<p>BUT you have to make sure that <span>$Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m^2}$</span></p>
 
 <h2 id="tocAnchor-1-9">Performance</h2>
 
@@ -475,7 +479,7 @@
   <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html">HashSet</a></li>
 </ul><h2 id="tocAnchor-1-11">Final notes</h2>
 
-<p>Another resolution for hash collisions is creating a linked list. This means you will not suffer from clustering and you can insert in $\mathcal{O}(1)$. But searching for an element is still in $\mathcal{O}(n)$, where $n$ is the number of elements that were already inserted.</p>
+<p>Another resolution for hash collisions is creating a linked list. This means you will not suffer from clustering and you can insert in <span>$\mathcal{O}(1)$</span>. But searching for an element is still in <span>$\mathcal{O}(n)$</span>, where <span>$n$</span> is the number of elements that were already inserted.</p>
 
 <h2 id="tocAnchor-1-12">Resources</h2>
 
@@ -663,6 +667,7 @@
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -683,7 +688,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

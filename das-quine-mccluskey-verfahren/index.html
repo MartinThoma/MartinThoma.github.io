@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Das Quine-McCluskey-Verfahren</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -82,11 +82,11 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Verfahren</h2>
 
-<p><strong>Gegeben</strong>: Eine Schaltfunktion $f:{0,1}^n \rightarrow {0,1}, \; n \in \mathbb{N}$
+<p><strong>Gegeben</strong>: Eine Schaltfunktion <span>$f:{0,1}^n \rightarrow {0,1}, \; n \in \mathbb{N}$</span>
 <strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten 
-</p><ul><li>„Nr.“, die bei 0 beginnt und bis $2^n - 1$ geht.</li>
-  <li>Eine Spalte pro Funktionsparameter (z.B. $a, b, c, ...$)</li>
-  <li>Eine Spalte für den Funktionswert $f(a,b,c,...)$</li>
+</p><ul><li>„Nr.“, die bei 0 beginnt und bis <span>$2^n - 1$</span> geht.</li>
+  <li>Eine Spalte pro Funktionsparameter (z.B. <span>$a, b, c, ...$</span>)</li>
+  <li>Eine Spalte für den Funktionswert <span>$f(a,b,c,...)$</span></li>
 </ul><p><strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung. </p>
 
 <p>Sie hat die Spalten
@@ -96,15 +96,15 @@
 </ul>
 In der ersten Quineschen Tabelle stehen nur noch die Zeilen, deren Funktionswert 1 ist. Das sind die sogenannten Minterme. Zusätzlich sind sie nach Anzahl der 1er geordnet.
 
-<p><strong>Schritt 3</strong>: $i$-tes Zusammenfassen</p>
+<p><strong>Schritt 3</strong>: <span>$i$</span>-tes Zusammenfassen</p>
 
-<p>Nun erstellt man die erste Quinesche Tabelle $i$-ter Ordnung. Also beim ersten mal erster Ordnung, beim zweiten Mal zweiter Ordnung, ...
-Diese Tabellen haben alle die gleichen Spalten und die Zeilen-Anzahl kann sowohl wachsen als auch schrumpfen. Das $i$ gibt dabei die Anzahl der „don't care“ Stellen an, also der Stellen die sowohl 0 als auch 1 sein können.</p>
+<p>Nun erstellt man die erste Quinesche Tabelle <span>$i$</span>-ter Ordnung. Also beim ersten mal erster Ordnung, beim zweiten Mal zweiter Ordnung, ...
+Diese Tabellen haben alle die gleichen Spalten und die Zeilen-Anzahl kann sowohl wachsen als auch schrumpfen. Das <span>$i$</span> gibt dabei die Anzahl der „don't care“ Stellen an, also der Stellen die sowohl 0 als auch 1 sein können.</p>
 
-<p>Um aus der ersten Quinesche Tabelle $(i-1)$-ter Ordnung die rsten Quinesche Tabelle $i$-ter Ordnung zu erstellen, geht man wie folgt vor:
+<p>Um aus der ersten Quinesche Tabelle <span>$(i-1)$</span>-ter Ordnung die rsten Quinesche Tabelle <span>$i$</span>-ter Ordnung zu erstellen, geht man wie folgt vor:
 </p><ul><li>Vergleiche alle Zeilen, in denen sich die Anzahl der 1er um genau 1 unterscheidet:
-    <ul><li>Unterscheiden sich Zeile Nr. x und Zeile Nr. y an nur einer Stelle, so schreibe in die Tabelle $i$ter Ordnung eine neue Zeile. Die Nummer dieser Zeile ist „x, y“ und sie hat an der Stelle, an der sich die Zeilen x und y unterschieden, ein don't care.</li>
-      <li>Hake die Zeilen x und y in der Tabelle $(i-1)$-ter Ordnung ab</li>
+    <ul><li>Unterscheiden sich Zeile Nr. x und Zeile Nr. y an nur einer Stelle, so schreibe in die Tabelle <span>$i$</span>ter Ordnung eine neue Zeile. Die Nummer dieser Zeile ist „x, y“ und sie hat an der Stelle, an der sich die Zeilen x und y unterschieden, ein don't care.</li>
+      <li>Hake die Zeilen x und y in der Tabelle <span>$(i-1)$</span>-ter Ordnung ab</li>
     </ul></li>
 </ul><p>Es ist möglich, das Zeilen nicht abgehakt werden, weil sie sich mit keiner Zeile zusammenfassen lassen. Das ist ok.
 Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fertig. Falls noch eine Möglich ist, geht man wieder in Schritt 3.</p>
@@ -142,10 +142,12 @@ Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fe
 <p><strong>Aufgabe</strong>:
 Gegeben sei die Schaltfunktion</p>
 
-<p>$g(d,c,b,a) := dc \bar b a \lor d \bar c ba \lor d \bar c \bar b a \lor \bar d ca \lor dcb$</p>
+<p>
+   <span>$g(d,c,b,a) := dc \bar b a \lor d \bar c ba \lor d \bar c \bar b a \lor \bar d ca \lor dcb$</span>
+</p>
 
-<ol><li>Bestimmen Sie alle Primimplikanten von $g$ mit Hilfe der 1. Quineschen Tabelle des Quine-McCluskey-Verfahrens.</li>
-  <li>Geben Sie die Überdeckungstabelle (2. Quinesche Tabelle) für die gefundenen Primimpikanten an (ohne Vereinfachung). Lesen Sie eine disjunktive Minimalform von $g$ ab.</li>
+<ol><li>Bestimmen Sie alle Primimplikanten von <span>$g$</span> mit Hilfe der 1. Quineschen Tabelle des Quine-McCluskey-Verfahrens.</li>
+  <li>Geben Sie die Überdeckungstabelle (2. Quinesche Tabelle) für die gefundenen Primimpikanten an (ohne Vereinfachung). Lesen Sie eine disjunktive Minimalform von <span>$g$</span> ab.</li>
 </ol><p><strong>Lösung</strong>:
 (Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)
 </p><div style="width: 300px" class="wp-caption aligncenter">
@@ -333,6 +335,7 @@ Gegeben sei die Schaltfunktion</p>
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -353,7 +356,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

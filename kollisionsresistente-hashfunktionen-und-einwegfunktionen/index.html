@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Kollisionsresistente Hashfunktionen und Einwegfunktionen</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -78,46 +78,46 @@
 </div><h2 id="tocAnchor-1-1">Definitionen</h2>
 
 <div class="definition">
-Sei $f:X \rightarrow Y$ eine Funktion.
-$f$ heißt eine Einwegfunktion, genau dann wenn für alle $x \in X$ gilt:
-<ul><li>$y := f(x)$ kann in Polynomialzeit berechnet werden</li>
-  <li>Für die Berechnung eines Urbildes $x$ aus $y$ existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
+Sei <span>$f:X \rightarrow Y$</span> eine Funktion.
+<span>$f$</span> heißt eine Einwegfunktion, genau dann wenn für alle <span>$x \in X$</span> gilt:
+<ul><li><span>$y := f(x)$</span> kann in Polynomialzeit berechnet werden</li>
+  <li>Für die Berechnung eines Urbildes <span>$x$</span> aus <span>$y$</span> existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
 </ul></div>
 
 <div class="definition">
-Eine Funktion $H:\{0,1\}^* \rightarrow \{0,1\}^k$ heißt <strong>kollisionsresistente Hashfunktion</strong>, wenn gilt:
+Eine Funktion <span>$H:\{0,1\}^* \rightarrow \{0,1\}^k$</span> heißt <strong>kollisionsresistente Hashfunktion</strong>, wenn gilt:
 
 Jeder effiziente Algorithmus findet nur mit kleiner Wahrscheinlichkeit eine Kollision. 
 </div>
 
 <p>Was heißt „kleine Wahrscheinlichkeit“?
-Nach dem Auswerten der Funktion $H$ für $x<em>1, x</em>2, \dots x<em>n$ sollte die Wahrscheinlichkeit nicht signifikant höher sein als $\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$
-Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben $2^k$ Schubfächer (Funktionswerte) in die wir die $x</em>i$ (Urbilder) einordnen können.</p>
+Nach dem Auswerten der Funktion <span>$H$</span> für <span>$x<em>1, x</em>2, \dots x<em>n$</em></span> sollte die Wahrscheinlichkeit nicht signifikant höher sein als <span>$\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$</span>
+Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben <span>$2^k$</span> Schubfächer (Funktionswerte) in die wir die <span>$xi$</span> (Urbilder) einordnen können.</p>
 
 <h2 id="tocAnchor-1-2">Satz</h2>
 
 <p><strong>Behauptung</strong>: Jede kollisionsresistente Hashfunktion ist eine Einwegfunktion.
 <strong>Beweis</strong>: durch Widerspruch
-Sei $f$ eine kollisionsresistente Hashfunktion
-<u>Annahme</u>: $f$ ist keine Einwegfunktion</p>
+Sei <span>$f$</span> eine kollisionsresistente Hashfunktion
+<u>Annahme</u>: <span>$f$</span> ist keine Einwegfunktion</p>
 
-<p>Dann existiert ein Angreifer $\mathcal{A}$, der für eine Bild $f(x)$ ein $x'$ findet, sodass $f(x) = f(x')$ gilt.</p>
+<p>Dann existiert ein Angreifer <span>$\mathcal{A}$</span>, der für eine Bild <span>$f(x)$</span> ein <span>$x'$</span> findet, sodass <span>$f(x) = f(x')$</span> gilt.</p>
 
-<p>Der Angreifer $\mathcal{B}$ macht nichts anderes, als zufällig Werte $x \in {0,1}^{2k}$ zu wählen, $f(x)$ zu berechnen, den Angreifer $\mathcal{A}$ auf $f(x)$ anzuwenden und zu überprüfen, ob das von $\mathcal{A}$ gelieferte $x' \neq x$ ist. Sobald das ein mal der Fall ist, hat der Angreifer gewonnen.</p>
+<p>Der Angreifer <span>$\mathcal{B}$</span> macht nichts anderes, als zufällig Werte <span>$x \in {0,1}^{2k}$</span> zu wählen, <span>$f(x)$</span> zu berechnen, den Angreifer <span>$\mathcal{A}$</span> auf <span>$f(x)$</span> anzuwenden und zu überprüfen, ob das von <span>$\mathcal{A}$</span> gelieferte <span>$x' \neq x$</span> ist. Sobald das ein mal der Fall ist, hat der Angreifer gewonnen.</p>
 
-<p>Nun wenden wir $f$ auf $x \in {0,1}^{2k}$ an. Es gilt:</p>
+<p>Nun wenden wir <span>$f$</span> auf <span>$x \in {0,1}^{2k}$</span> an. Es gilt:</p>
 
-<p>$Pr<em>x[\underbrace{|f^{-1}(f(x))|}</em>{\substack{\text{Anzahl der Urbilder}\\text{zum Hashwert} f(x)} } = 1] \leq \frac{2^k}{2^{2k}} = \frac{1}{2^k}$.</p>
+<p><span>$Pr<em>x[\underbrace{|f^{-1}(f(x))|}</em>{\substack{\text{Anzahl der Urbilder}\\text{zum Hashwert} f(x)} } = 1] \leq \frac{2^k}{2^{2k}} = \frac{1}{2^k}$</span>.</p>
 
-<p>Die $2^k$ im Zähler stehen für die Funktionswerte und die $2^{2k}$ für die Urbilder.</p>
+<p>Die <span>$2^k$</span> im Zähler stehen für die Funktionswerte und die <span>$2^{2k}$</span> für die Urbilder.</p>
 
-<p>Nun ist $\frac{1}{2^k}$ eine vernachlässigbare Funktion.</p>
+<p>Nun ist <span>$\frac{1}{2^k}$</span> eine vernachlässigbare Funktion.</p>
 
-<p>$\Rightarrow$ Die Wahrscheinlichkeit, dass wir keine Kollsion finden ist vernachlässigbar.</p>
+<p><span>$\Rightarrow$</span> Die Wahrscheinlichkeit, dass wir keine Kollsion finden ist vernachlässigbar.</p>
 
-<p>$\Rightarrow$ Mit signifikanter Wahrscheinlichkeit hat $f(x)$ $k \geq 2$ Urbilder.</p>
+<p><span>$\Rightarrow$</span> Mit signifikanter Wahrscheinlichkeit hat <span>$f(x)$</span> <span>$k \geq 2$</span> Urbilder.</p>
 
-<p>$\Rightarrow$ Die Wahrscheinlichkeit, dass $\mathcal{B}$ Kollisionen findet ist etwa $(1-\frac{1}{k}) \cdot m$, wobei $m$ die Anzahl der Widerholungen ist.</p>
+<p><span>$\Rightarrow$</span> Die Wahrscheinlichkeit, dass <span>$\mathcal{B}$</span> Kollisionen findet ist etwa <span>$(1-\frac{1}{k}) \cdot m$</span>, wobei <span>$m$</span> die Anzahl der Widerholungen ist.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -286,6 +286,7 @@ Sei $f$ eine kollisionsresistente Hashfunktion
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -306,7 +307,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

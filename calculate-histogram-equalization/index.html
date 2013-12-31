@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How do I calculate a Histogram equalization?</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -67,10 +67,12 @@
 						<div class="entry">
                             <p>Let's say you have the following greyscale image:</p>
 
-<p>$A = \begin{pmatrix}
+<p>
+   <span>$A = \begin{pmatrix}
 255 &amp; 50 &amp; 255\
 0   &amp; 50 &amp; 50
-\end{pmatrix}$</p>
+\end{pmatrix}$</span>
+</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -90,48 +92,58 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Histogram</h2>
 
-<p>Now the histogram is a function $H: [0,255] \rightarrow \mathbb{N}_0$. </p>
+<p>Now the histogram is a function <span>$H: [0,255] \rightarrow \mathbb{N}_0$</span>. </p>
 
-<p>The histogram of $A$ is</p>
+<p>The histogram of <span>$A$</span> is</p>
 
-<p>$H(x) := \begin{cases}
+<p>
+   <span>$H(x) := \begin{cases}
 1 &amp;\text{, if } x = 0\
 3 &amp;\text{, if } x = 50\
 2 &amp;\text{, if } x = 255
-\end{cases}$</p>
+\end{cases}$</span>
+</p>
 
 <h2 id="tocAnchor-1-2">Accumulated histogram</h2>
 
-<p>The accumulated histogram $H<em>\alpha: [0,255] \rightarrow \mathbb{N}</em>0$ is defined as</p>
+<p>The accumulated histogram <span>$H<em>\alpha: [0,255] \rightarrow \mathbb{N}</em>0$</span> is defined as</p>
 
-<p>$H<em>\alpha(x) := \sum</em>{i=0}^x H(i)$</p>
+<p>
+   <span>$H<em>\alpha(x) := \sum</em>{i=0}^x H(i)$</span>
+</p>
 
 <p>This means, in the given example you get</p>
 
-<p>$H_\alpha(x) := \begin{cases}
+<p>
+   <span>$H_\alpha(x) := \begin{cases}
 1 &amp;\text{, if } x &lt; 50\
 4 &amp;\text{, if } 50 \leq x &lt; 255\
 6 &amp;\text{, if } x = 255
-\end{cases}$</p>
+\end{cases}$</span>
+</p>
 
 <h2 id="tocAnchor-1-3">Normalized histogram</h2>
 
-<p>The normalized histogram is defined as $H<em>n(x) := \mathrm{round}(\frac{255}{w \cdot h} \cdot H</em>\alpha(x))$ where $w$ is the width of the image and $h$ is the height of the image.</p>
+<p>The normalized histogram is defined as <span>$H<em>n(x) := \mathrm{round}(\frac{255}{w \cdot h} \cdot H</em>\alpha(x))$</span> where <span>$w$</span> is the width of the image and <span>$h$</span> is the height of the image.</p>
 
 <p>In our example it's:</p>
 
-<p>$H_n(x) := \begin{cases}
+<p>
+   <span>$H_n(x) := \begin{cases}
 43 &amp;\text{, if } x &lt; 50\
 170 &amp;\text{, if } 50 \leq x &lt; 255\
 255 &amp;\text{, if } x = 255
-\end{cases}$</p>
+\end{cases}$</span>
+</p>
 
 <p>So the resulting image is</p>
 
-<p>$A = \begin{pmatrix}
+<p>
+   <span>$A = \begin{pmatrix}
 255 &amp; 170 &amp; 255\
 43  &amp; 170 &amp; 170
-\end{pmatrix}$</p>
+\end{pmatrix}$</span>
+</p>
 
 <h2 id="tocAnchor-1-4">See also</h2>
 
@@ -306,6 +318,7 @@
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -326,7 +339,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Plotting graphs with PGFplots (LaTeX and Tikz)</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -72,7 +72,7 @@
   <li>The red line was drawn with a mathematical function.</li>
 </ul><p>Best of all: I didn't use anything which is not in LaTeX :-) (Well, the generation of the CSV-file doesn't count. I just wanted to include such an example for physicists who might need to plot results of experiments).</p>
 
-<p>The complete source is in the <a href="http://martin-thoma.com/wp-content/uploads/2012/07/birthday-paradox.zip">Birthday Paradox Archive</a>.</p>
+<p>The complete source is in the <a href="../images/2012/07/birthday-paradox.zip">Birthday Paradox Archive</a>.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -104,7 +104,7 @@
    <pre><code class="text">% Plot of the probability that two people out of n people have the
 % same birthday.
 % Author: Martin Thoma
-% Source: http://martin-thoma.com/plotting-graphs-with-pgfplots/
+% Source: ../plotting-graphs-with-pgfplots/
 
 \documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
@@ -162,37 +162,37 @@ DENSITY = 300
 WIDTH = 500
 
 make:
-    pdflatex $(SOURCE).tex -output-format=pdf
+    pdflatex &lt;span&gt;$(SOURCE).tex -output-format=pdf
     make clean
 
 clean:
-    rm -rf  $(TARGET) *.class *.html *.log *.aux
+    rm -rf  $&lt;/span&gt;(TARGET) *.class *.html *.log *.aux
 
 gif:
-    pdfcrop $(SOURCE).pdf
-    convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
+    pdfcrop &lt;span&gt;$(SOURCE).pdf
+    convert -verbose -delay $&lt;/span&gt;(DELAY) -loop 0 -density &lt;span&gt;$(DENSITY) $&lt;/span&gt;(SOURCE)-crop.pdf &lt;span&gt;$(SOURCE).gif
     make clean
 
 png:
     make
     make svg
-    inkscape $(SOURCE).svg -w $(WIDTH) --export-png=$(SOURCE).png
+    inkscape $&lt;/span&gt;(SOURCE).svg -w &lt;span&gt;$(WIDTH) --export-png=$&lt;/span&gt;(SOURCE).png
 
 transparentGif:
-    convert $(SOURCE).pdf -transparent white result.gif
+    convert &lt;span&gt;$(SOURCE).pdf -transparent white result.gif
     make clean
 
 svg:
-    #inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
-    pdf2svg $(SOURCE).pdf $(SOURCE).svg
+    #inkscape $&lt;/span&gt;(SOURCE).pdf --export-plain-svg=&lt;span&gt;$(SOURCE).svg
+    pdf2svg $&lt;/span&gt;(SOURCE).pdf &lt;span&gt;$(SOURCE).svg
     # Necessary, as pdf2svg does not always create valid svgs:
-    inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg
+    inkscape $&lt;/span&gt;(SOURCE).svg --export-plain-svg=$(SOURCE).svg
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">See also</h2>
 
-<ul><li><a href="http://martin-thoma.com/plotting-function-graphs-with-latex/">Plotting function graphs with LaTeX</a></li>
+<ul><li><a href="../plotting-function-graphs-with-latex/">Plotting function graphs with LaTeX</a></li>
   <li><a href="http://www.texample.net/tikz/examples/tag/plots/">Plotting examples</a></li>
   <li><a href="http://www.texample.net/tikz/examples/area/mathematics/">Mathematics examples</a></li>
   <li><a href="http://tex.stackexchange.com/questions/tagged/pgfplots?sort=votes">tex.stackexchange.com</a></li>
@@ -368,6 +368,7 @@ svg:
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -388,7 +389,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

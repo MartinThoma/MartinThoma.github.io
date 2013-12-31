@@ -9,15 +9,38 @@ push:
 
 test:
 	make clean
+	# add folder to save not-preprocessed posts
+	mkdir -p _postStorage
+	cp _posts/* _postStorage/
+	# do preprocessing
+	./_preprocess.py
+	# normal build
 	jekyll build --draft
+	# postprocessing
 	./_removeWhitespace.py
 	mv search.db _site/search/search.db
+	# restore pre-preprocessing state
+	cp _postStorage/* _posts/
+	# remove temporary files
+	rm -rf _postStorage
 
 deploy:
 	make push
+	# add folder to save not-preprocessed posts
+	mkdir -p _postStorage
+	cp _posts/* _postStorage/
+	# do preprocessing
+	./_preprocess.py
+	# normal build
 	jekyll build --config _config_prod.yml
+	# postprocessing
 	./_removeWhitespace.py
 	mv search.db _site/search/search.db
+	# restore pre-preprocessing state
+	cp _postStorage/* _posts/
+	# remove temporary files
+	rm -rf _postStorage
+	# upload files to github
 	git checkout master
 	git rm -qr .
 	cp -r _site/. .

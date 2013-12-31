@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>SQL Injections</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -110,7 +110,7 @@
 
 <p>The programmers might have created a query that looks like this</p>
 
-<p>[sql]SELECT * FROM <code>movie</code> WHERE title=$_GET['q'][/sql]</p>
+<p>[sql]SELECT * FROM <code>movie</code> WHERE title=<span>$_GET['q'][/sql]</span></p>
 
 <p>Where <code>$_GET['q']</code> is your query.</p>
 
@@ -127,22 +127,22 @@
 
 <p>[php]
 &lt;?
-$mysqlhost = "localhost";
-$mysqluser = "root";
-$mysqlpwd = "asdfasdf";
-$connection = mysql<em>connect($mysqlhost, $mysqluser, $mysqlpwd) or die
+<span>$mysqlhost = "localhost";
+$</span>mysqluser = "root";
+<span>$mysqlpwd = "asdfasdf";
+$</span>connection = mysql<em>connect(<span>$mysqlhost, $</span>mysqluser, <span>$mysqlpwd) or die
 ("Your connection string was wrong");
-$db</em>selected = mysql<em>select</em>db('imdb', $connection);</p>
+$</span>db</em>selected = mysql<em>select</em>db('imdb', <span>$connection);</span></p>
 
-<p>$q = $<em>GET['q'];
-if ($q != "") {
-    $result = mysql</em>query("SELECT * FROM <code>movies</code> WHERE title='$q'");
-    if (!$result) {
+<p>$q = <span>$<em>GET['q'];
+if ($</em></span>q != "") {
+    <span>$result = mysqlquery("SELECT * FROM <code>movies</code> WHERE title='$</span>q'");
+    if (!<span>$result) {
         die('MySQL query error: ' . mysql<em>error());
     }
-    echo "Found ".mysql</em>num<em>rows($result)." movies:<br />";
-    while ($row = mysql</em>fetch_assoc($result)) {
-        echo $row["id"].": ".$row["title"]."<br />";
+    echo "Found ".mysql</em>num<em>rows($</em></span>result)." movies:<br />";
+    while (<span>$row = mysqlfetch_assoc($</span>result)) {
+        echo <span>$row["id"].": ".$</span>row["title"]."<br />";
     }
 }
 ?&gt;</p>
@@ -260,7 +260,7 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
   <li>Switch of <a href="http://php.net/manual/en/function.error-reporting.php">error reporting</a> (this makes attacks more difficult, but doesn't prevent them)</li>
 </ul><h2 id="tocAnchor-1-5">See also</h2>
 
-<ul><li><a href="http://martin-thoma.com/challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself :-)</li>
+<ul><li><a href="../challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself :-)</li>
 </ul>
 						</div>
 						<div class="postmeta">Posted in 
@@ -442,6 +442,7 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -462,7 +463,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

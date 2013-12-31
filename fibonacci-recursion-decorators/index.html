@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Fibonacci, recursion and decorators</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -67,12 +67,14 @@
 						<div class="entry">
                             <p>I think everybody who learned something about recursion has seen the Fibonacci sequence:</p>
 
-<p>$
+<p>
+   <span>$
 f(n) := \begin{cases}
 n               &amp;\text{if } n \leq 1\
 f(n-1) + f(n-2) &amp;\text{otherwise}
 \end{cases}
-$</p>
+$</span>
+</p>
 
 <p>The simplest solution to get this number is:</p>
 
@@ -118,14 +120,16 @@ $</p>
 </tr>
 </table><p>To be exact, the number of calls of the fib-function is:</p>
 
-<p>$
+<p>
+   <span>$
 f(n) := \begin{cases}
 1               &amp;\text{if } n \leq 1\
 f(n-1) + f(n-2) + 1 &amp;\text{otherwise}
 \end{cases}
-$</p>
+$</span>
+</p>
 
-<p>This means the dumb function is in $\mathcal{O}(2^n)$! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
+<p>This means the dumb function is in <span>$\mathcal{O}(2^n)$</span>! (I'm not quite sure, but this I think this is not only time complexity, but also space complexity. I think it is not <a href="https://en.wikipedia.org/wiki/Tail_recursion">tail recursive</a>, so the complete stackframe has to be saved.)</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -145,7 +149,7 @@ $</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Memorization with decorators</h2>
 
-<p>One way to solve the problem much faster (in fact in $\mathcal{O}(n)$ time and space complexity) by storing values we already calculated.</p>
+<p>One way to solve the problem much faster (in fact in <span>$\mathcal{O}(n)$</span> time and space complexity) by storing values we already calculated.</p>
 
 <p>A very neat way to achieve this are decorators. It might be a common problem that you have a recursive, mathematical function with no side effects. So you can write a wrapper that checks if the value has already been calculated. If not, the function proceeds as usual. It it has already been calculated, you can simply look it up:</p>
 
@@ -194,9 +198,9 @@ $</p>
 
 <p>The formula of Moivre-Binet gives a closed form for calculating fibonacci numbers:</p>
 
-<p>$\varphi = \frac{\sqrt{5}+1}{2}$
-$\psi = 1 - \varphi$
-$f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
+<p><span>$\varphi = \frac{\sqrt{5}+1}{2}$</span>
+<span>$\psi = 1 - \varphi$</span>
+<span>$f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</span></p>
 
 <p>Although this is mathematically exact, it will not work on computers due to a fixed floating point precision. Lets check how long it works:</p>
 
@@ -242,7 +246,7 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
 
 <blockquote>The 72-th fibonacci number is 498454011879264. Moivre-Binet gives due to precicion error 498454011879265 (delta=1).</blockquote>
 
-<p>This is a reason to prefer the $\mathcal{O}(n)$ solution over the $\mathcal{O}(1)$ solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
+<p>This is a reason to prefer the <span>$\mathcal{O}(n)$</span> solution over the <span>$\mathcal{O}(1)$</span> solution. If you're only exact for 72 numbers, you could also simply store them. Looking number up form an array is always faster than any calculation.</p>
 
 <h2 id="tocAnchor-1-3">Very high numbers</h2>
 
@@ -435,6 +439,7 @@ $f(n) = \frac{\varphi^n - \psi^n}{\phi - \psi}$</p>
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -455,7 +460,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>My LaTeX Tikz Template</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -143,33 +143,33 @@ DELAY = 80
 DENSITY = 300
 
 make:
-    pdflatex $(SOURCE).tex -output-format=pdf
+    pdflatex &lt;span&gt;$(SOURCE).tex -output-format=pdf
     make clean
 
 clean:
-    rm -rf  $(TARGET) *.class *.html *.log *.aux
+    rm -rf  $&lt;/span&gt;(TARGET) *.class *.html *.log *.aux
 
 animatedGif:
-    pdfcrop $(SOURCE).pdf
-    convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
+    pdfcrop &lt;span&gt;$(SOURCE).pdf
+    convert -verbose -delay $&lt;/span&gt;(DELAY) -loop 0 -density &lt;span&gt;$(DENSITY) $&lt;/span&gt;(SOURCE)-crop.pdf &lt;span&gt;$(SOURCE).gif
     make clean
 
 transparentGif:
-    convert $(SOURCE).pdf -transparent white result.gif
+    convert $&lt;/span&gt;(SOURCE).pdf -transparent white result.gif
     make clean
 
 svg:
-    pdf2svg $(SOURCE).pdf $(SOURCE).svg
+    pdf2svg &lt;span&gt;$(SOURCE).pdf $&lt;/span&gt;(SOURCE).svg
     # Necessary, as pdf2svg does not always create valid svgs:
-    inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg
+    inkscape &lt;span&gt;$(SOURCE).svg --export-plain-svg=$&lt;/span&gt;(SOURCE).svg
     # Alternatively, only this one (produces worse results):
-    #inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
+    #inkscape &lt;span&gt;$(SOURCE).pdf --export-plain-svg=$&lt;/span&gt;(SOURCE).svg
 </code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Requirements</h2>
 
-<ul><li>LaTeX (<a href="http://martin-thoma.com/how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
+<ul><li>LaTeX (<a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
     <li>make</li>
     <li>Inkscape</li>
     <li>pdf2svg</li>
@@ -226,12 +226,12 @@ This program built <span class="k">for </span>i486-pc-linux-gnu
 </p><ul><li><code>make</code>: Generates a PDF file from latex-document.tex</li>
   <li><code>make svg</code>: Generates a SVG file from the generated PDF file</li>
   <li><code>make transparentGif</code>: Generates a transparent Gif from the PDF file</li>
-  <li><code>make animatedGif</code>: If you have used multiple slides, this will create an animated Gif file. See <a href="http://martin-thoma.com/how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a> for an example.</li>
+  <li><code>make animatedGif</code>: If you have used multiple slides, this will create an animated Gif file. See <a href="../how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a> for an example.</li>
 </ul><h2 id="tocAnchor-1-7">See also</h2>
 
-<ul><li><a href="http://martin-thoma.com/how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
-  <li><a href="http://martin-thoma.com/briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> (A template for letters)</li>
-  <li><a href="http://martin-thoma.com/plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a></li>
+<ul><li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
+  <li><a href="../briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> (A template for letters)</li>
+  <li><a href="../plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a></li>
 </ul>
 						</div>
 						<div class="postmeta">Posted in 
@@ -404,6 +404,7 @@ This program built <span class="k">for </span>i486-pc-linux-gnu
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -424,7 +425,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

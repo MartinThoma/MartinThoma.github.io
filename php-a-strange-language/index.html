@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>PHP: A strange language</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -130,19 +130,19 @@ Source: <a href="http://stackoverflow.com/q/13228306/562769">StackOverflow.com</
 
 <h3 id="tocAnchor-1-1-3">Order of Arguments</h3>
 
-<p>[php]strpos ( string $haystack , mixed $needle [...] )
-stristr ( string $haystack , mixed $needle [...] )
-in<em>array ( mixed $needle , array $haystack [...] )
-array</em>search ( mixed $needle , array $haystack [...] )[/php]</p>
+<p>[php]strpos ( string <span>$haystack , mixed $</span>needle [...] )
+stristr ( string <span>$haystack , mixed $</span>needle [...] )
+in<em>array ( mixed <span>$needle , array $</span>haystack [...] )
+array</em>search ( mixed <span>$needle , array $</span>haystack [...] )[/php]</p>
 
 <h2 id="tocAnchor-1-5">Sorting</h2>
 
-<p>[php]function pivot($arr) {
-    return ($arr[0] + end($arr)) / 2;
-}</p>
+<p>[php]function pivot(<span>$arr) {
+    return ($</span>arr[0] + end(<span>$arr)) / 2;
+}</span></p>
 
 <p>$arr = array(1, 5, 7, 2, 3, 4, 8, 9, 6);
-echo pivot(sort($arr));[/php]</p>
+echo pivot(sort(<span>$arr));[/php]</span></p>
 
 <p>This doesn't work. If you don't know why, you should take a look at <a href="http://php.net/manual/de/function.sort.php">sort</a>.</p>
 
@@ -152,16 +152,16 @@ echo pivot(sort($arr));[/php]</p>
 
 <h2 id="tocAnchor-1-7">Argument order</h2>
 
-<p>[php]mktime  ([$hour [, $minute [, $second [, $month  [, $day  [, $year  [, $is_dst]]]]]]])[/php]</p>
+<p>[php]mktime  ([$hour [, <span>$minute [, $</span>second [, <span>$month  [, $</span>day  [, <span>$year  [, $</span>is_dst]]]]]]])[/php]</p>
 
 <h2 id="tocAnchor-1-8">array_fill</h2>
 
-<p><a href="http://php.net/manual/en/function.array-fill.php">array_fill</a> doesn't allow 0 as $number.
-[php]&lt;?php</p>
+<p><a href="http://php.net/manual/en/function.array-fill.php">array_fill</a> doesn't allow 0 as <span>$number.
+[php]&lt;?php</span></p>
 
 <p>$number = 2;
-$arr = array<em>fill(0, $number, 42);
-print</em>r($arr);</p>
+<span>$arr = array<em>fill(0, $</em></span>number, 42);
+printr(<span>$arr);</span></p>
 
 <p>?&gt;[/php]
 Array ( [0] =&gt; 42 [1] =&gt; 42 )</p>
@@ -173,9 +173,9 @@ Array ( [0] =&gt; 42 [1] =&gt; 42 )</p>
 <p>[php]&lt;?php</p>
 
 <p>$array = array('foo', 'bar');
-var<em>dump($array);
-foreach ($array as &amp;$foo);
-var</em>dump($array);</p>
+var<em>dump(<span>$array);
+foreach ($</span>array as &amp;<span>$foo);
+var</span></em>dump($array);</p>
 
 <p>?&gt;[/php]
 Output:</p>
@@ -197,17 +197,21 @@ array(2) {
 
 <p>[php]&lt;?php</p>
 
-<p>$a = array('7.1');</p>
+<p>
+   <span>$a = array('7.1');</span>
+</p>
 
 <p>$arr1 = array(
   'foo' =&gt; 'foo',
   'bar' =&gt; 'bar',
 );</p>
 
-<p>$arr2 = array(
+<p>
+   <span>$arr2 = array(
   'bar' =&gt; 'bar',
   'foo' =&gt; 'foo',
-);</p>
+);</span>
+</p>
 
 <p>if ("a")  {echo "This ";}
 if (true) {echo "is ";}
@@ -217,16 +221,16 @@ if (010 == 8 ) {echo "is ";}
 if ("8" == 8 ) {echo "also ";}
 if (array(0)) {echo "true. ";}
 if ($x = 1)  {echo "Like ";}
-if (in_array('7.10', $a)) {echo "that ";}
-if ($arr1 == $arr2) {echo "one ";}
-if (0 == 'x') {echo "is true.";}</p>
+if (in_array('7.10', <span>$a)) {echo "that ";}
+if ($</span>arr1 == <span>$arr2) {echo "one ";}
+if (0 == 'x') {echo "is true.";}</span></p>
 
 <p>if ("")      {echo "false ";}
 if (0)       {echo "false";}
 if (08)      {echo "false";}
 if (array()) {echo "false";}
 if ($x = 0)  {echo "false";}
-if ($arr1 === $arr2) {echo "false";}</p>
+if (<span>$arr1 === $</span>arr2) {echo "false";}</p>
 
 <p>?&gt;[/php]</p>
 
@@ -237,18 +241,20 @@ if ($arr1 === $arr2) {echo "false";}</p>
 <p>PHP converts strings automatically to a float if it is possible. This might lead to problems. See this example from <a href="http://phpsadness.com/sad/47">phpsadness</a>:
 [php]&lt;?php</p>
 
-<p>$password = "ximaz";</p>
+<p>
+   <span>$password = "ximaz";</span>
+</p>
 
 <p>$hash = "61529519452809720693702583126814"; // = md5("ximaz")</p>
 
-<p>if (md5($password) == $hash) {
+<p>if (md5(<span>$password) == $</span>hash) {
   print "Allowed!\n";
 }</p>
 
-<p>$wrong<em>hash = "61529519452809720000000000000000";
-if ($wrong</em>hash == $hash) {
+<p><span>$wrong<em>hash = "61529519452809720000000000000000";
+if ($</em></span>wronghash == <span>$hash) {
   print "Wrong hash got correct!\n";
-}</p>
+}</span></p>
 
 <p>?&gt;[/php]</p>
 
@@ -261,22 +267,22 @@ if ($wrong</em>hash == $hash) {
 
 <p>Try to guess what the following prints:
 [php]&lt;?php
-for ($i = 'a'; $i &lt;= 'z'; ++$i) echo "$i ";</p>
+for ($i = 'a'; <span>$i &lt;= 'z'; ++$</span>i) echo "<span>$i ";</span></p>
 
 <p>// I just need four NULLs to demo this.
 $a = array_fill(0, 4, NULL);</p>
 
-<p>$a[0]++;
-++$a[1];
-$a[2]--;
---$a[3];</p>
+<p><span>$a[0]++;
+++$</span>a[1];
+<span>$a[2]--;
+--$</span>a[3];</p>
 
-<p>var_dump($a);</p>
+<p>var_dump(<span>$a);</span></p>
 
 <p>$b[0]++;
-++$b[1];
-$b[2]--;
---$b[3];</p>
+++<span>$b[1];
+$</span>b[2]--;
+--<span>$b[3];</span></p>
 
 <p>var_dump($b);
 ?&gt;[/php]</p>
@@ -303,16 +309,16 @@ array(4) {
 
 <h2 id="tocAnchor-1-13">Function names are NOT case sensitive</h2>
 
-<blockquote>[php]function add($a, $b)
+<blockquote>[php]function add(<span>$a, $</span>b)
 {
-    return $a + $b;
+    return <span>$a + $</span>b;
 }
 
-$foo = add(1, 2);
-$Foo = Add(3, 4);
+<span>$foo = add(1, 2);
+$</span>Foo = Add(3, 4);
 
-echo "foo is $foo"; // outputs foo is 3
-echo "Foo is $Foo"; // outputs Foo is 7[/php]</blockquote>
+echo "foo is <span>$foo"; // outputs foo is 3
+echo "Foo is $</span>Foo"; // outputs Foo is 7[/php]</blockquote>
 
 <p>Source: <a href="http://stackoverflow.com/a/2006635/562769">StackOverflow</a></p>
 
@@ -493,6 +499,7 @@ echo "Foo is $Foo"; // outputs Foo is 7[/php]</blockquote>
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -513,7 +520,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

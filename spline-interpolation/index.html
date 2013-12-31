@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Spline interpolation</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,7 +65,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Just like before with polynomial interpolation, we have a list of $n+1$ given point $(x<em>i, y</em>i)$ with $x<em>0 &lt; x</em>1 &lt; \dots &lt; x_n$. </p>
+                            <p>Just like before with polynomial interpolation, we have a list of <span>$n+1$</span> given point <span>$(x<em>i, y</em>i)$</span> with <span>$x<em>0 &lt; x</em>1 &lt; \dots &lt; x_n$</span>. </p>
 
 <p>We want to find a function that goes through those points and approximates the underlying function that produced that points as good as possible.</p>
 
@@ -90,7 +90,7 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Polynomial interpolation</h2>
 
-<p>The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="http://martin-thoma.com/html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&amp;evaluationSteps=0.01&amp;X_MIN=-1.5&amp;X_MAX=1.5&amp;Y_MAX=1.2&amp;Y_MIN=-1.2&amp;X_TICKS_STEPS=0.2&amp;Y_TICKS_STEPS=0.2&amp;X_FROM=-1&amp;X_TO=1&amp;N_EVALUATION_POINTS=10&amp;points=%5B%5D&amp;tschebyscheffSwitch=true&amp;equallySwitch=true">interactive example</a>):</p>
+<p>The problem of polynomial interpolation were oscillations at the end of the interval you wanted to interpolate (see <a href="../html5/polynom-interpolation.htm?function=1%2F(25*x*x%2B1)&amp;evaluationSteps=0.01&amp;X_MIN=-1.5&amp;X_MAX=1.5&amp;Y_MAX=1.2&amp;Y_MIN=-1.2&amp;X_TICKS_STEPS=0.2&amp;Y_TICKS_STEPS=0.2&amp;X_FROM=-1&amp;X_TO=1&amp;N_EVALUATION_POINTS=10&amp;points=%5B%5D&amp;tschebyscheffSwitch=true&amp;equallySwitch=true">interactive example</a>):</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martinthoma.github.io/images/../images/2013/06/polynomial-interpolation-oscillation-300x105.png">
@@ -105,50 +105,56 @@
 
 <p>A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth. </p>
 
-<p>More formally: Let $s: [x<em>0,x</em>n] \rightarrow \mathbb{R}$ be a spline. Then:
-</p><ol style="list-style-type: none;"><li>(S1) <strong>cubic</strong>: $\forall i \in {1, \dots, n}: s|<em>{x</em>{i-1}, x<em>i}$ is a cubic function</em></li>
-  <li>(S2) <strong>interpolation</strong>: $\forall i \in {0, \dots, n}: s(xi) = y<em>i$</em></li>
-  <li>(S3) <strong>smooth</strong>: $s \in C^2([x0, x<em>n])$ and $\int</em>{x<em>0}^{x</em>n} s''(x)^2 \mathrm{d}x$ is minimal</li> 
-</ol><p>When you use a cubic function $a x^3 + b x^2 + cx + d$ for each of the $n$ intervals that we got by our $n+1$ points, you have $4n$ variables that you need to calculate.</p>
+<p>More formally: Let <span>$s: [x<em>0,x</em>n] \rightarrow \mathbb{R}$</span> be a spline. Then:
+</p><ol style="list-style-type: none;"><li>(S1) <strong>cubic</strong>: <span>$\forall i \in {1, \dots, n}: s|<em>{x</em>{i-1}, x<em>i}$</em></span> is a cubic function</li>
+  <li>(S2) <strong>interpolation</strong>: <span>$\forall i \in {0, \dots, n}: s(xi) = y<em>i$</em></span></li>
+  <li>(S3) <strong>smooth</strong>: <span>$s \in C^2([x0, x<em>n])$</em></span> and <span>$\int{x<em>0}^{x</em>n} s''(x)^2 \mathrm{d}x$</span> is minimal</li> 
+</ol><p>When you use a cubic function <span>$a x^3 + b x^2 + cx + d$</span> for each of the <span>$n$</span> intervals that we got by our <span>$n+1$</span> points, you have <span>$4n$</span> variables that you need to calculate.</p>
 
-<p>Condition (S2) gives two equations per interval which makes $2n$ equations of the form:</p>
+<p>Condition (S2) gives two equations per interval which makes <span>$2n$</span> equations of the form:</p>
 
-<p>$
+<p>
+   <span>$
 \begin{align}
 y<em>i     &amp;= a</em>i x<em>i^3     &amp;&amp;+ b</em>i x<em>i^2     &amp;&amp;+ c</em>i x<em>i     &amp;&amp;+ d</em>i\
 y<em>{i+1} &amp;= a</em>i x<em>{i+1}^3 &amp;&amp;+ b</em>i x<em>{i+1}^2 &amp;&amp;+ c</em>i x<em>{i+1} &amp;&amp;+ d</em>i
 \end{align}
-$</p>
+$</span>
+</p>
 
-<p>At first glance condition (S3) - $s \in C^2([x<em>0, x</em>n])$ - seems to be redundant with (S1) - $s$ is piecewise cubic. Every polynomial is in $C^\infty(\mathbb{R})$, so it certainly is in $C^2([x<em>0, x</em>n])$.<br />
-That's correct. But $s$ is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us $2n-2$ more equations:</p>
+<p>At first glance condition (S3) - <span>$s \in C^2([x<em>0, x</em>n])$</span> - seems to be redundant with (S1) - <span>$s$</span> is piecewise cubic. Every polynomial is in <span>$C^\infty(\mathbb{R})$</span>, so it certainly is in <span>$C^2([x<em>0, x</em>n])$</span>.<br />
+That's correct. But <span>$s$</span> is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us <span>$2n-2$</span> more equations:</p>
 
-<p>$\displaystyle
+<p>
+   <span>$\displaystyle
 \begin{align}
 s<em>i' (x</em>{i}) &amp;= s<em>{i+1}'(x</em>{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\
 s<em>i''(x</em>{i}) &amp;= s<em>{i+1}''(x</em>{i}) \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$</p>
+$</span>
+</p>
 
 <p>which is equivalent to</p>
 
-<p>$\displaystyle
+<p>
+   <span>$\displaystyle
 \begin{align}
 3a<em>i x</em>i^2 + 2b<em>i x</em>i + c<em>i &amp;= 3a</em>{i+1} x<em>i^2 + 2b</em>{i+1} x<em>i + c</em>{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\
 6a<em>i x</em>i + 2b<em>i &amp;= 6a</em>{i+1} x<em>i + 2b</em>{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$</p>
+$</span>
+</p>
 
-<p>All equations we have are linear. Please note that the variables we want to determine are $a<em>i, b</em>i, c<em>i, d</em>i$. So $x_i^3$ is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
+<p>All equations we have are linear. Please note that the variables we want to determine are <span>$a<em>i, b</em>i, c<em>i, d</em>i$</span>. So <span>$x_i^3$</span> is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
 
-<p>But at the moment, we only have $2n+2\cdot(n-1) = 4n -2$ equations, but we have $4n$ variables. So we need ancillary conditions to solve this linear system of equations.</p>
+<p>But at the moment, we only have <span>$2n+2\cdot(n-1) = 4n -2$</span> equations, but we have <span>$4n$</span> variables. So we need ancillary conditions to solve this linear system of equations.</p>
 
 <h2 id="tocAnchor-1-3">Possible ancillary conditions</h2>
 
-<ul><li><strong>natural splines</strong>: $s''(x_0) =0, \;\;\; s''(x_n) = 0$</li>
-  <li><strong>clamped splines</strong>: $s'(x_0) = f'(x_0),\;\;\; s'(x_n)= f'(x_n)$ where $y_0'$ and $y_n'$ can be any value</li>
-  <li><strong>periodic</strong>: $s'(x_0) = s'(x_n), \;\;\; s''(x_0) = s''(x_n)$</li>
-  <li><strong>not-a-knot</strong>: $s_1''' = s_2''', \;\;\; s_{n-1}''' = s_{n}'''$</li>
+<ul><li><strong>natural splines</strong>: <span>$s''(x_0) =0, \;\;\; s''(x_n) = 0$</span></li>
+  <li><strong>clamped splines</strong>: <span>$s'(x_0) = f'(x_0),\;\;\; s'(x_n)= f'(x_n)$</span> where <span>$y_0'$</span> and <span>$y_n'$</span> can be any value</li>
+  <li><strong>periodic</strong>: <span>$s'(x_0) = s'(x_n), \;\;\; s''(x_0) = s''(x_n)$</span></li>
+  <li><strong>not-a-knot</strong>: <span>$s_1''' = s_2''', \;\;\; s_{n-1}''' = s_{n}'''$</span></li>
 </ul><p>George MacKerron shows how the results can differ in his article <a href="http://blog.mackerron.com/2011/01/01/javascript-cubic-splines/">Cubic splines in JavaScript (via CoffeeScript)</a>:</p>
 
 <div style="width: 500px" class="wp-caption aligncenter">
@@ -161,9 +167,9 @@ $</p>
 <h2 id="tocAnchor-1-4">Code for natural splines</h2>
 
 <p>I will store splines as a list of maps. Each map is one piece of the spline and has:
-</p><ul><li>$u$: Start of the interval</li>
-  <li>$v$: End of the interval</li>
-  <li>$a,b,c,d$: cubic function $ax^3 + bx^2 + cx +d$</li>
+</p><ul><li><span>$u$</span>: Start of the interval</li>
+  <li><span>$v$</span>: End of the interval</li>
+  <li><span>$a,b,c,d$</span>: cubic function <span>$ax^3 + bx^2 + cx +d$</span></li>
 </ul><p>Please note that I didn't test the code below. It's likely that there are errors with indices.</p>
 
 <div class="highlight">
@@ -442,6 +448,7 @@ $</p>
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -462,7 +469,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

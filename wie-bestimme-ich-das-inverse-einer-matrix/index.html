@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Wie bestimme ich das Inverse einer Matrix?</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -65,9 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>Nicht alle Matrizen sind invertierbar. Matrizen, die invertierbar sind, nennt man auch regulär. Die Menge aller invertierbaren $n \times n$–Matrizen über einem Grundkörper (oder Grundring) K bildet eine Gruppe bezüglich der Matrixmultiplikation, die allgemeine lineare Gruppe $GL_n(K)$.</p>
+                            <p>Nicht alle Matrizen sind invertierbar. Matrizen, die invertierbar sind, nennt man auch regulär. Die Menge aller invertierbaren <span>$n \times n$</span>–Matrizen über einem Grundkörper (oder Grundring) K bildet eine Gruppe bezüglich der Matrixmultiplikation, die allgemeine lineare Gruppe <span>$GL_n(K)$</span>.</p>
 
-<p>Das Inverse einer Matrix A wird berechnet, indem eine Matrix (A|E) gebildet wird und mit dem Gaußschem Eliminationsverfahren in $(E | A^{-1})$ aufgelöst wird.</p>
+<p>Das Inverse einer Matrix A wird berechnet, indem eine Matrix (A|E) gebildet wird und mit dem Gaußschem Eliminationsverfahren in <span>$(E | A^{-1})$</span> aufgelöst wird.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -91,7 +91,8 @@
 
 <h3 id="tocAnchor-1-1-1">Ein Inverses existiert</h3>
 
-<p>$\left( \begin{array}{c c c c | c c c c} 
+<p>
+   <span>$\left( \begin{array}{c c c c | c c c c} 
   4 &amp; 2 &amp; 4 &amp; 2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \ 
   3 &amp; 1 &amp; 4 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0\ 
   2 &amp; 7 &amp; 1 &amp; 8 &amp; 0 &amp; 0 &amp; 1 &amp; 0\ 
@@ -102,36 +103,37 @@
   0 &amp; -\frac{1}{2} &amp; 1 &amp; -\frac{1}{2} &amp; -\frac{3}{4} &amp; 1 &amp; 0 &amp; 0\ 
   0 &amp; 6 &amp; -1 &amp; 7 &amp; -\frac{1}{2} &amp; 0 &amp; 1 &amp; 0\ 
   0 &amp; 1 &amp; 1 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 1 
-\end{array} \right)$</p>
+\end{array} \right)$</span>
+</p>
 
-<p>$\rightsquigarrow^* 
+<p><span>$\rightsquigarrow^* 
 \frac{1}{8}
 \begin{pmatrix}
 12  &amp; -12 &amp; -2 &amp;   2 \
 -16 &amp;  18 &amp;  5 &amp; -13 \
  -8 &amp;  10 &amp;  1 &amp;  -1 \
  12 &amp; -14 &amp; -3 &amp;  11
-\end{pmatrix}$
+\end{pmatrix}$</span>
 (siehe <a href="http://www.wolframalpha.com/input/?i=Inverse%5B%7B%7B4%2C2%2C4%2C2%7D%2C%7B3%2C1%2C4%2C1%7D%2C%7B2%2C7%2C1%2C8%7D%2C%7B0%2C1%2C1%2C2%7D%7D%5D">Wolfram|Alpha</a>)</p>
 
 <h3 id="tocAnchor-1-1-2">Kein Inverses existiert</h3>
 
 <p>Matrizen, zu denen kein Inverses existiert, werden singulär genannt. Das ist ein Beispiel:
-$\begin{pmatrix}
+<span>$\begin{pmatrix}
  1 &amp; 0 &amp; 0 &amp; 0 \
  0 &amp; 1 &amp; 0 &amp; 0 \
  0 &amp; 0 &amp; 1 &amp; 0 \
  0 &amp; 0 &amp; 1 &amp; 0
-\end{pmatrix}$ (siehe <a href="http://www.wolframalpha.com/input/?i=Inverse%5B%7B%7B1%2C0%2C0%2C0%7D%2C%7B0%2C1%2C0%2C0%7D%2C%7B0%2C0%2C1%2C0%7D%2C%7B0%2C0%2C1%2C0%7D%7D%5D">Wolfram|Alpha</a>)
+\end{pmatrix}$</span> (siehe <a href="http://www.wolframalpha.com/input/?i=Inverse%5B%7B%7B1%2C0%2C0%2C0%7D%2C%7B0%2C1%2C0%2C0%7D%2C%7B0%2C0%2C1%2C0%7D%2C%7B0%2C0%2C1%2C0%7D%7D%5D">Wolfram|Alpha</a>)
 Sobald also erkennbar ist, dass beim Eliminationsverfahren eine Nullzeile auftritt, kann man abbrechen.</p>
 
 <p>Matrizen, die nicht quadratisch sind, haben kein Inverses:
-$\begin{pmatrix}
+<span>$\begin{pmatrix}
  1 &amp; 0 &amp; 0 \
  0 &amp; 1 &amp; 0 \
  0 &amp; 0 &amp; 1 \
  0 &amp; 0 &amp; 2
-\end{pmatrix}$
+\end{pmatrix}$</span>
 (siehe <a href="http://www.wolframalpha.com/input/?i=Inverse%5B%7B%7B1%2C0%2C0%7D%2C%7B0%2C1%2C0%7D%2C%7B0%2C0%2C1%7D%2C%7B0%2C0%2C2%7D%7D%5D">Wolfram|Alpha</a>)</p>
 
 <h2 id="tocAnchor-1-4">Siehe auch</h2>
@@ -316,6 +318,7 @@ $\begin{pmatrix}
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -336,7 +339,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

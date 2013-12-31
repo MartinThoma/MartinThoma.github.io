@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Search</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -66,7 +66,7 @@ if ( $query == ""  || preg_match("/^\s+/",$query) ) {
     $query = "%" . $query . "%" ;
   
     # Currently returns max of 50 results, count to be used for pagination etc
-    $count_stmt = $db->prepare('SELECT count(*) as num_pages FROM pages WHERE title like :search or text_content like :search  or permalink like :search or meta_description like :search or meta_keywords like :search');
+    $count_stmt = $db->prepare('SELECT count(*) as num_pages FROM pages WHERE title like :search or text_content like :search  or permalink like :search');
     $count_stmt->bindValue(':search', $query, SQLITE3_TEXT);
     $count = $count_stmt->execute();
 
@@ -79,7 +79,7 @@ if ( $query == ""  || preg_match("/^\s+/",$query) ) {
         $max_results_text = ($count_result['num_pages'] > 50) ? 'Showing first 50 results of ' : '';
         #echo "<p>$max_results_text{$count_result['num_pages']} $results_text for '$query'.</p>";
 
-        $stmt = $db->prepare('SELECT title, permalink, search_excerpt, featured_image, date FROM pages WHERE title like :search or text_content like :search  or permalink like :search or meta_description like :search or meta_keywords like :search  LIMIT 50');
+        $stmt = $db->prepare('SELECT title, permalink, search_excerpt, featured_image, date FROM pages WHERE title like :search or text_content like :search  or permalink like :search or LIMIT 50');
         $stmt->bindValue(':search', $query, SQLITE3_TEXT);
 
         $result = $stmt->execute();
@@ -245,6 +245,7 @@ if ( $query == ""  || preg_match("/^\s+/",$query) ) {
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -265,7 +266,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

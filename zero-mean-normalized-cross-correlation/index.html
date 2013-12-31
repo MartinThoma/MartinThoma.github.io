@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Zero Mean Normalized Cross-Correlation</title>
-    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312291907.min.css" type="text/css" media="screen" />
+    <link link rel="stylesheet" href="http://martinthoma.github.io/css/201312301845.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martinthoma.github.io/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martinthoma.github.io/favicon.ico" type="image/x-icon" />
@@ -80,7 +80,7 @@
 
 <p>Now you can solve this problem with various techniques.</p>
 
-<p>I want to describe those techniques in a very general way. As the images in other scenarios might have different sizes and you probably don't want to compare whole images, I'll assume you have a part of both image of size $(2n+1) \times (2n+1)$. The pixel in the center has coordinates $(u<em>1, v</em>1)$ for the part of the first image and $(u<em>2, v</em>2)$ for the second image.</p>
+<p>I want to describe those techniques in a very general way. As the images in other scenarios might have different sizes and you probably don't want to compare whole images, I'll assume you have a part of both image of size <span>$(2n+1) \times (2n+1)$</span>. The pixel in the center has coordinates <span>$(u<em>1, v</em>1)$</span> for the part of the first image and <span>$(u<em>2, v</em>2)$</span> for the second image.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -99,21 +99,25 @@
 
 <p>Go through all pixels, get the difference of both and add up the squares:</p>
 
-<p>$\displaystyle SSD(Img<em>1, Img</em>2, u<em>1, v</em>1, u<em>2, v</em>2, n) := \sum<em>{i=-n}^n \sum</em>{j=-n}^n \left ( Img<em>1(u</em>1+i, v<em>1+j) - Img</em>2(u<em>2 + i, v</em>2 + j) \right )^2$</p>
+<p>
+   <span>$\displaystyle SSD(Img<em>1, Img</em>2, u<em>1, v</em>1, u<em>2, v</em>2, n) := \sum<em>{i=-n}^n \sum</em>{j=-n}^n \left ( Img<em>1(u</em>1+i, v<em>1+j) - Img</em>2(u<em>2 + i, v</em>2 + j) \right )^2$</span>
+</p>
 
 <p>When SSD is small, both images are very similar. Wehn SSD is 0, the images are identical.</p>
 
 <h2 id="tocAnchor-1-2">Zero Mean Normalized Cross-Correlation</h2>
 
 <p>The average gray value is:
-$\displaystyle \overline{Img}(u, v, n) := \frac{1}{(2n+1)^2} \sum<em>{i=-n}^n \sum</em>{j=-n}^n Img(u+i, v+j)$</p>
+<span>$\displaystyle \overline{Img}(u, v, n) := \frac{1}{(2n+1)^2} \sum<em>{i=-n}^n \sum</em>{j=-n}^n Img(u+i, v+j)$</span></p>
 
 <p>The standard deviation is:
-$\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum<em>{i=-n} \sum</em>{j=-n}^n (Img(u +i, v+j)-\overline{Img}(u, v, n))^2 \right )}$</p>
+<span>$\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum<em>{i=-n} \sum</em>{j=-n}^n (Img(u +i, v+j)-\overline{Img}(u, v, n))^2 \right )}$</span></p>
 
 <p>The ZNCC is defined as:</p>
 
-<p>$\displaystyle ZNCC(Img<em>1, Img</em>2, u<em>1, v</em>1, u<em>2, v</em>2, n) := \frac{\frac{1}{(2n+1)^2}\sum<em>{i=-n}^n \sum</em>{j=-n}^n \prod<em>{t=1}^2 \left (Img</em>t (u<em>t+i,v</em>t+j) - \overline{Img}(u<em>t, v</em>t, n) \right )}{\sigma<em>1(u</em>1, v<em>1, n) \cdot \sigma</em>2(u<em>2, v</em>2, n)}$</p>
+<p>
+   <span>$\displaystyle ZNCC(Img<em>1, Img</em>2, u<em>1, v</em>1, u<em>2, v</em>2, n) := \frac{\frac{1}{(2n+1)^2}\sum<em>{i=-n}^n \sum</em>{j=-n}^n \prod<em>{t=1}^2 \left (Img</em>t (u<em>t+i,v</em>t+j) - \overline{Img}(u<em>t, v</em>t, n) \right )}{\sigma<em>1(u</em>1, v<em>1, n) \cdot \sigma</em>2(u<em>2, v</em>2, n)}$</span>
+</p>
 
 <p>The higher the ZNCC gets, the more are those two images correlated.
 (I think the value is always in [0, 1])</p>
@@ -338,6 +342,7 @@ $\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum<em>{i=-n}
 	</div><!--/wrapper-->
 <!-- type: footer -->
 <!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
 <!--
 MathJax.Hub.Config({
@@ -358,7 +363,6 @@ MathJax.Hub.Queue(function() {
 });
 // -->
 </script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */
