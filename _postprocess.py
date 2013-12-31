@@ -23,7 +23,7 @@ def removeFencedLatex(file_path):
         content = f.read()
 
     #replace whitespace
-    singleDollar = re.compile('<code>$(.*?)$</code>', re.DOTALL)
+    singleDollar = re.compile('<code>\$(.*?)\$</code>', re.DOTALL)
     if re.findall(singleDollar, content):
         content = re.sub(singleDollar, '$\g<1>$', content)
 
