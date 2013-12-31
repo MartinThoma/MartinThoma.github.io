@@ -1,4 +1,8 @@
 # Source: https://github.com/cobbler/jekyll-dynamic-search
+# Issue:
+# Generating search data for 6940 words
+# error: "\xC3" from ASCII-8BIT to UTF-8. Use --trace to view backtrace
+#
 # Copyright (c) 2012 by James Cammarata <jimi@sngx.net>
 # 
 # Permission is hereby granted, free of charge, to any person obtaining 
