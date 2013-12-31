@@ -45,7 +45,7 @@ Diese Export-Möglichkeit schein nur die Bildgröße zu exportieren.
 <h3>LaTeX image</h3>
 Erzeugt eine .latex-Datei mit folgendem Inhalt:
 
-{% highlight text %}
+```text
 \setlength{\unitlength}{4144sp}%
 %
 \begingroup\makeatletter\ifx\SetFigFont\undefined%
@@ -75,11 +75,11 @@ Erzeugt eine .latex-Datei mit folgendem Inhalt:
 \put(1936,-1231){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}CO}%
 }}}}
 \end{picture}%
-{% endhighlight %}
+```
 
 Nun muss nur noch \usepackage{color} in die Präambel und die Datei eingebunden werden:
 
-{% highlight text %}
+```text
 \documentclass[a4paper]{scrreprt}
 \usepackage{graphicx}
 \usepackage{graphics}
@@ -102,7 +102,7 @@ takimata sanctus est Lorem ipsum dolor sit amet.
     \input{exampleImage.latex} 
 \end{figure}
 \end{document}
-{% endhighlight %}
+```
 
 Allerdings fällt auf, dass der Mathmode escapt wird.
 
@@ -110,7 +110,7 @@ Allerdings fällt auf, dass der Mathmode escapt wird.
 Hier werden zwei Dateien erstellt. Eine <code>.pdf_t</code> und eine <code>.pdf</code>.
 
 Eingebunden wird das ganze so:
-{% highlight text %}
+```text
 \documentclass{article}
 \usepackage{graphicx}
 
@@ -136,7 +136,7 @@ takimata sanctus est Lorem ipsum dolor sit amet.
     \end{center}
 \end{figure}
 \end{document}
-{% endhighlight %}
+```
 
 <h2>Dies und das</h2>
 Wenn man neue Texte erstellt, sollte man das „Special Flag“ direkt einstellen. Man kann es nicht später hinzufügen:
