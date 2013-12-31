@@ -5,7 +5,9 @@ author: Martin Thoma
 date: 2012-06-23 12:37:04
 categories: 
 - Code
-tags: []
+tags:
+- LaTeX
+- CSV
 featured_image: 2012/01/latex-logo.png
 ---
 I am currently analyzing how fast matrix multiplications are. I execute the program with this command:

@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2012-02-21 03:49:58
 categories: 
 - Cyberculture
-tags: []
+tags:
+- Science
 featured_image: 
 ---
 Today, I've heard the first time of "Citizen Science Projects". The idea behind that is quite simple: Some tasks of researchers are very simple. Everybody can do them

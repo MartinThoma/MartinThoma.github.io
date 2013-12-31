@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2013-11-23 12:37:19
 categories: 
 - Cyberculture
-tags: []
+tags:
+- bug
 featured_image: 2012/06/mars-climate-orbiter.jpg
 ---
 <h2>Mars Climate Oribiter</h2>

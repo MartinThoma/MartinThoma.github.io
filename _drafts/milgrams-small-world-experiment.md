@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Milgram&#8217;s Small World Experiment
+title: Milgram's Small World Experiment
 author: Martin Thoma
 date: 2012-07-05 10:29:54
 categories: 
 - Cyberculture
-tags: []
+tags:
+- Experiment
 featured_image: 2012/07/web-graph-thumb.jpg
 ---
 

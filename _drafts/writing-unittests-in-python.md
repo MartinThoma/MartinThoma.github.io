@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2012-07-07 09:21:46
 categories: 
 - Code
-tags: []
+tags:
+- Python
 featured_image: 2011/09/Python-Logo.png
 ---
 Python offers a package called "unittest" which allows writing unittests in Python. I will only give small examples. If you want to learn how to create Unittests, you should probably read the <a href="http://docs.python.org/library/unittest.html">documentation</a>.

@@ -46,7 +46,7 @@ module Jekyll
                 insert_category = db["INSERT INTO categories (category, page) VALUES (?, ?)", category, postid]
                 insert_category.insert
             end.empty? and begin
-                puts "[Info] '" + post.title + "' has no category."
+                puts "[Info]["+post.url+"/] '" + post.title + "' has no category."
             end
         end
 

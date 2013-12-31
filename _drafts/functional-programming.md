@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2012-06-05 09:26:43
 categories: 
 - Cyberculture
-tags: []
+tags:
+- Programming
 featured_image: 
 ---
 Some days ago I've talked to a friend who didn't know what's so special about functional programming languages and why any problem should be easier to solve with them. I couldn't give a satisfactory reply, so I'll try it now.

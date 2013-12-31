@@ -6,7 +6,7 @@ date: 2012-09-07 05:59:55
 categories: 
 - Code
 tags: 
-- #glpk
+- GLPK
 featured_image: 2012/09/gnu-head-sm.png
 ---
 GLPK, the GNU Linear Programming Kit, is a piece of software which solves linear optimization problems. You only have to modell the problem.
