@@ -10,12 +10,12 @@ tags:
 - mathematics
 featured_image: 2012/01/vector-space.png
 ---
-Zu jeder regulären Matrix [latex]A \in \mathbb{GL}(n, \mathbb{R})[/latex] existieren orthogonale Matrizen [latex]O_1, O_2 \in O(n)[/latex] und eine positiv definite Diagonalmatrix D, so dass gilt: [latex]A = O_1 \cdot D \cdot O_2[/latex].
+Zu jeder regulären Matrix $A \in \mathbb{GL}(n, \mathbb{R})$ existieren orthogonale Matrizen $O_1, O_2 \in O(n)$ und eine positiv definite Diagonalmatrix D, so dass gilt: $A = O_1 \cdot D \cdot O_2$.
 
 <h2>Wie berechnet man die Cartan-Zerlegung?</h2>
 <h3>2 x 2 - Matrizen</h3>
-Für [latex]2 \times 2[/latex]-Matrizen kann ich nicht nur ein Kochrezept, sondern gleich eine allgemeine Lösungsformel angeben :-)
-Gegeben sei eine [latex]2 \times 2[/latex]-Matrix, deren Cartan-Zerlegung wir bestimmen wollen
+Für $2 \times 2$-Matrizen kann ich nicht nur ein Kochrezept, sondern gleich eine allgemeine Lösungsformel angeben :-)
+Gegeben sei eine $2 \times 2$-Matrix, deren Cartan-Zerlegung wir bestimmen wollen
 
 <h2>Siehe auch</h2>
 <ul>

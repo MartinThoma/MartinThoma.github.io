@@ -12,16 +12,16 @@ featured_image:
 For a Bayes filter, you need training data. So you need emails that are labeled as "ham" and others that are labeled as "spam".
 
 <h2>Laplace smoothing</h2>
-I will use Laplace smoothing. This means, for every probability you add [latex]k[/latex] to the numerator and [latex]k \cdot d[/latex] to the denominator. [latex]k \in \mathbb{N}[/latex] is a smoothing factor (e.g. [latex]k=1[/latex]) and [latex]d \in \mathbb{N}[/latex] is the number of categories(so the number of different probabilities you could calculate).
+I will use Laplace smoothing. This means, for every probability you add $k$ to the numerator and $k \cdot d$ to the denominator. $k \in \mathbb{N}$ is a smoothing factor (e.g. $k=1$) and $d \in \mathbb{N}$ is the number of categories(so the number of different probabilities you could calculate).
 
 <h2>Bayes filter</h2>
-You have a message [latex]M[/latex] and want to know if it is spam. So you want to calculate [latex]P(Spam|M)[/latex]. Let [latex]M[i][/latex] be the [latex]i[/latex]-th word in [latex]M[/latex]. You do it like this:
+You have a message $M$ and want to know if it is spam. So you want to calculate $P(Spam|M)$. Let $M[i]$ be the $i$-th word in $M$. You do it like this:
 
-[latex]\begin{align}
+$\begin{align}
 A &= P(Spam) \cdot P(M[1]|Spam) \cdot P(M[2]|Spam) \cdot \dots \cdot  \cdot P(M[n]|Spam)\\
 B &= P(Ham) \cdot P(M[1]|Ham) \cdot P(M[2]|Ham) \cdot \dots \cdot  \cdot P(M[n]|Ham)\\
 P(Spam|M) &= \frac{A}{A+B}
-\end{align}[/latex]
+\end{align}$
 
 
 <h2>See also</h2>

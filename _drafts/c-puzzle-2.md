@@ -1,13 +1,13 @@
 ---
 layout: post
-title: C Puzzle #2
+title: "C Puzzle #2"
 author: Martin Thoma
-date: 2012-05-23 06:19:04
+date: May 23, 2012
 categories: 
 - Code
-tags: 
+tags: []
 - C
-featured_image: 2012/05/C.png
+featured_image: http://martin-thoma.com/wp-content/uploads/2012/05/C.png
 ---
 What does the following Code?
 

@@ -41,13 +41,13 @@ I had
 	<li>88 files which could be cached by the browser and</li>
 	<li>3660 CSS rules which were not used.</li>
 </ul>
-[caption id="attachment_1231" align="alignnone" width="630" caption="Benchmark Before adding a Plugin: Audit"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Benchmark-Before-Audit.png"><img class="size-full wp-image-1231" title="Benchmark Before: Audit" src="http://martin-thoma.com/wp-content/uploads/2011/09/Benchmark-Before-Audit.png" alt="Benchmark Before: Audit" width="630" height="385" /></a>[/caption]
+{% caption align="alignnone" width="630" caption="" url="../images/2011/09/Benchmark-Before-Audit.png" alt="Benchmark Before: Audit" title="" height="385" class="size-full wp-image-1231" title="Benchmark Before: Audit" %}
 
 The page took about 17 seconds to load (rendering + downloading):
 
-[caption id="attachment_1251" align="alignnone" width="604" caption="Benchmark Before adding a Plugin: Timeline"]<a href="http://martin-thoma.com/wp-content/uploads/2011/09/Benchmark-Before-Timeline.png"><img class="size-large wp-image-1251 " title="Benchmark Before: Timeline" src="http://martin-thoma.com/wp-content/uploads/2011/09/Benchmark-Before-Timeline-1024x408.png" alt="Benchmark Before adding a Plugin: Timeline" width="604" height="240" /></a>[/caption]
+{% caption align="alignnone" width="604" caption="" url="../images/2011/09/Benchmark-Before-Timeline-1024x408.png" alt="Benchmark Before adding a Plugin: Timeline" title="" height="240" class="size-large wp-image-1251 " title="Benchmark Before: Timeline" %}
 
-[bash]moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
+{% highlight bash %}moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
 This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -102,7 +102,7 @@ Percentage of the requests served within a certain time (ms)
   95%      1
   98%      2
   99%      2
- 100%      6 (longest request)[/bash]
+ 100%      6 (longest request){% endhighlight %}
 
 <h2>Results after installing WP Super Cache</h2>
 <a title="WP Super Cache" href="http://wordpress.org/extend/plugins/wp-super-cache/">WP Super Cache</a> has 2.5 million downloads and 1028 ratings gave in average 4 stars. Quite good.
@@ -110,9 +110,9 @@ Percentage of the requests served within a certain time (ms)
 However, this plugin neither supports minification nor 
 
 I had to enable mod_headers and mod_expires via 
-[bash]sudo a2enmod headers
+{% highlight bash %}sudo a2enmod headers
 sudo a2enmod expires
-sudo /etc/init.d/apache2 restart[/bash]
+sudo /etc/init.d/apache2 restart{% endhighlight %}
 
 I've installed it and used those settings:
 <ul>
@@ -140,7 +140,7 @@ The reason for this might be, that I hadn't been able to log out.
 
 The timeline showed that loading the page was much faster: Only about 15 seconds to load and render the page. The page could be viewed after a second or two, of course.
 
-[bash]moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
+{% highlight bash %}moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
 This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -197,7 +197,7 @@ Percentage of the requests served within a certain time (ms)
   95%      1
   98%      1
   99%      2
- 100%      4 (longest request)[/bash]
+ 100%      4 (longest request){% endhighlight %}
 
 
 
@@ -212,7 +212,7 @@ This plugin support minification, caching and using CDN. Lets see the results:
 </ul>
 
 The page is now downloaded and rendered after 15 seconds.
-[bash]moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
+{% highlight bash %}moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
 This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
@@ -327,7 +327,7 @@ Percentage of the requests served within a certain time (ms)
   95%      1
   98%      2
   99%      3
- 100%      8 (longest request)[/bash]
+ 100%      8 (longest request){% endhighlight %}
 
 
 <h2>Results after Quick Cache</h2>

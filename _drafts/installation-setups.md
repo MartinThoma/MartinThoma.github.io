@@ -31,4 +31,4 @@ I am always deleting every kind of data of my old partition.
 and restart
 
 <h3>Installing everything</h3>
-[bash]dpkg -s mysql-server[/bash]
+{% highlight bash %}dpkg -s mysql-server{% endhighlight %}

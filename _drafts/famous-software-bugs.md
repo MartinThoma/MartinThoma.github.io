@@ -9,7 +9,7 @@ tags: []
 featured_image: 2012/06/mars-climate-orbiter.jpg
 ---
 <h2>Mars Climate Oribiter</h2>
-[caption id="attachment_28651" align="alignright" width="128"]<a href="http://martin-thoma.com/wp-content/uploads/2012/06/mars-climate-orbiter.jpg"><img class="size-full wp-image-28651 " title="Mars Climate Oribiter" src="http://martin-thoma.com/wp-content/uploads/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Oribiter" width="128" height="128" /></a> Mars Climate Oribiter[/caption]
+{% caption align="alignright" width="128" caption="Mars Climate Oribiter" url="../images/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Oribiter" title="" height="128" class="size-full wp-image-28651 " title="Mars Climate Oribiter" %}
 <strong>Type of Bug</strong>: Bad specification
 <strong>Description</strong>:  The flight system software on the Mars Climate Orbiter was written to calculate thruster performance using the <em>metric unit</em> Newtons (N), while the ground crew was entering course correction and thruster data using the <em>Imperial measure</em> Pound-force (lbf).
 <strong>Outcome</strong>: The cost of the mission was $327.6 million total for both orbiter and lander, $193.1 million for spacecraft development, $91.7 million for launching it, and $42.8 million for mission operations.

@@ -36,39 +36,39 @@ Der Lehrling ist also derjenige, der das Problem trickreich macht, wenn man nich
 
 <h2>Mücke und Elefant</h2>
 <h3>Aufgabenstellung</h3>
-<blockquote>Sei [latex]x[/latex] das Gewicht des Elefanten und [latex]y[/latex] das Gewicht der Mücke. Sei [latex]d[/latex] der Unterschied.
+<blockquote>Sei $x$ das Gewicht des Elefanten und $y$ das Gewicht der Mücke. Sei $d$ der Unterschied.
 
-[latex]\begin{align}
+$\begin{align}
 x             &= y + d | \cdot (x-y)\\
 x^2 - xy      &= xy + xd - y^2 - yd | -xd \\
 x^2 - xy - xd &= xy - y^2 - yd\\
 x(x-y-d)      &= y \cdot (x-y-d) |:(x-y-d)\\
 x             &=y
-\end{align}[/latex]
+\end{align}$
 
 Das Gewicht der Mücke ist also gleich dem Gewicht des Elefanten!</blockquote>
 Quelle: <a href="http://dsm-faq.wikidot.com/denksport">dsm-faq.wikidot.com/denksport</a>
 
 <h3>Auflösung</h3>
-Es empfiehlt sich, wie immer bei Umformungen, sich klar zu machen durch was man teilt. Es gilt: [latex](x-y-d) = 0[/latex], es wurde also durch 0 geteilt. Dabei passieren schlimme Dinge. Unter anderem kann man aus einer Mücke einen Elefanten machen ;-)
+Es empfiehlt sich, wie immer bei Umformungen, sich klar zu machen durch was man teilt. Es gilt: $(x-y-d) = 0$, es wurde also durch 0 geteilt. Dabei passieren schlimme Dinge. Unter anderem kann man aus einer Mücke einen Elefanten machen ;-)
 
 <h2>Jeder Mensch hat sein Idealgewicht</h2>
 <h3>Aufgabenstellung</h3>
-Sei [latex]x[/latex] das Körpergewicht in kg eines Menschen, [latex]y[/latex] sein Idealgewicht und [latex]u[/latex] das Übergewicht. Bei Untergewicht kann u also auch negativ sein!
+Sei $x$ das Körpergewicht in kg eines Menschen, $y$ sein Idealgewicht und $u$ das Übergewicht. Bei Untergewicht kann u also auch negativ sein!
 
 Dann gilt offensichtlich:
-[latex]x = y + u[/latex]
+$x = y + u$
 
 Nun kann man umformen:
-[latex]\begin{align}
+$\begin{align}
                 x             &= y + u | \cdot (x - y)\\
 \Leftrightarrow x^2 - xy      &= xy + xu - y^2 - uy | -xu\\
 \Leftrightarrow x^2 - xy - xu &= xy - y^2 - uy\\
 \Leftrightarrow x \cdot (x - y - u) &= y \cdot (x - y - u) | : (x-y-u)\\
 \Leftrightarrow x &= y
-\end{align}[/latex]
+\end{align}$
 
 Jeder Mensch hat also sein Idealgewicht!
 
 <h3>Auflösung</h3>
-Das Problem der Umformung ist das Gleiche wie oben: [latex](x-y-u) = 0[/latex].
+Das Problem der Umformung ist das Gleiche wie oben: $(x-y-u) = 0$.

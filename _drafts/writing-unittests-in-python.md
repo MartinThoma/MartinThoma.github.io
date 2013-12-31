@@ -19,7 +19,7 @@ unittest supports test automation, sharing of setup and shutdown code for tests,
 
 <h2>First very basic example</h2>
 This is a unittest for simple <a href="https://github.com/MartinThoma/matrix-multiplication/blob/master/Python/ikjMultiplication.py">ikj Matrix Multiplication</a>:
-[python]#!/usr/bin/python
+{% highlight python %}#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import unittest
@@ -39,16 +39,16 @@ class TestCase(unittest.TestCase):
         self.assertEqual(C, [[19,67,38],[43,104,71], [12,23,18]])
         
 if __name__ == '__main__':
-    unittest.main()[/python]
+    unittest.main(){% endhighlight %}
 
 The important part is <a href="http://docs.python.org/library/unittest.html#unittest.TestCase.assertEqual">self.assertEquals</a>.
 
 When you run this unittest, you get this output:
-[bash]..
+{% highlight bash %}..
 ----------------------------------------------------------------------
 Ran 2 tests in 0.000s
 
-OK[/bash]
+OK{% endhighlight %}
 
 <h2>See also</h2>
 <ul>

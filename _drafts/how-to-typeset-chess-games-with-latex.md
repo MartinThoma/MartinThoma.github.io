@@ -11,9 +11,9 @@ featured_image:
 ---
 <h2>Chessboard</h2>
 <h3>Simple example</h3>
-[caption id="attachment_44411" align="aligncenter" width="296"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/chess-chessboard-simple-example.png"><img class="size-full wp-image-44411 " title="Chessboard - simple example" src="http://martin-thoma.com/wp-content/uploads/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example" width="296" height="268" /></a> Chessboard - simple example[/caption]
+{% caption align="aligncenter" width="296" caption="Chessboard - simple example" url="../images/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example" title="" height="268" class="size-full wp-image-44411 " title="Chessboard - simple example" %}
 
-[text]\documentclass{article}
+{% highlight text %}\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{5mm}
 
@@ -26,15 +26,15 @@ featured_image:
             showmover]
 
 \end{preview}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 
 
 From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</a>.
 <h2>Skak</h2>
 <h3>Simple example</h3>
-[caption id="attachment_44401" align="aligncenter" width="254"]<a href="http://martin-thoma.com/wp-content/uploads/2012/09/chess-skak-simple-example.png"><img class="size-full wp-image-44401 " title="Simple example with skak" src="http://martin-thoma.com/wp-content/uploads/2012/09/chess-skak-simple-example.png" alt="Simple example with skak" width="254" height="289" /></a> Simple example with skak[/caption]
+{% caption align="aligncenter" width="254" caption="Simple example with skak" url="../images/2012/09/chess-skak-simple-example.png" alt="Simple example with skak" title="" height="289" class="size-full wp-image-44401 " title="Simple example with skak" %}
 
-[text]\documentclass{article}
+{% highlight text %}\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{5mm}
 
@@ -51,7 +51,7 @@ From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</
 \showboard
 
 \end{preview}
-\end{document}[/text]
+\end{document}{% endhighlight %}
 <h2>See also</h2>
 <ul>
   <li><a href="ftp://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/macros/latex/contrib/chessboard/chessboard.pdf">Chessboard documentation</a></li>

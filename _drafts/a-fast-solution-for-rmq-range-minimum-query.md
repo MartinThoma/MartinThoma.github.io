@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A fast solution for RMQ &#8211; Range Minimum Query
+title: A fast solution for Range Minimum Query
 author: Martin Thoma
 date: 2012-05-22 11:48:43
 categories: 

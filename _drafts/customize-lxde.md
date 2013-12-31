@@ -60,10 +60,10 @@ Terminal=false
 Type=Application
 MimeType=text/plain
 Categories=GTK;Utility;TextEditor;
-[/text]
+{% endhighlight %}
 
 Or like this:
-[text]moose@pc08:/usr/share/applications$ cat filezilla.desktop 
+{% highlight text %}moose@pc08:/usr/share/applications$ cat filezilla.desktop 
 [Desktop Entry]
 Name=FileZilla
 GenericName=FTP client
@@ -77,4 +77,4 @@ Terminal=false
 Icon=filezilla
 Type=Application
 Categories=Network;FileTransfer;
-Version=1.0[/text]
+Version=1.0{% endhighlight %}

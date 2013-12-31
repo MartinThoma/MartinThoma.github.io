@@ -54,7 +54,7 @@ Now your list of pairs should look like this:
 So we have 15 lines and 13 intersections. 
 
 <h2>What is an intersection?</h2>
-<div class="definition">Two lines [latex]a, b[/latex] intersect [latex]:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b[/latex]</div>
+<div class="definition">Two lines $a, b$ intersect $:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b$</div>
 
 This means, all of the following images show intersecting lines:
 [gallery columns="3" ids="53261,53271,53281,53291,53301"]
@@ -62,21 +62,21 @@ This means, all of the following images show intersecting lines:
 You might want to read my article <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters returns if they intersect.
 
 <h2>How many intersections can exist?</h2>
-Let [latex]n[/latex] be the number of lines.
+Let $n$ be the number of lines.
 
-[latex]n=1[/latex]: If you have only one line, there is obviously no intersection. A line can only intersect with another line
+$n=1$: If you have only one line, there is obviously no intersection. A line can only intersect with another line
 
-[latex]n=2[/latex]: The new line can only intersect with lines that are already there. So there is one new intersection.
+$n=2$: The new line can only intersect with lines that are already there. So there is one new intersection.
 
-[latex]n=3[/latex]: As before, the new line can only intersect with existing lines. So you get at most two new intersection points. As the old lines can only have 1 intersection point at most, you have a maximum of 3 intersection points.
+$n=3$: As before, the new line can only intersect with existing lines. So you get at most two new intersection points. As the old lines can only have 1 intersection point at most, you have a maximum of 3 intersection points.
 
-I guess you noticed the pattern. The maximum of intersection points of [latex]n[/latex] is [latex]\displaystyle \sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - 2n + 1 + n -1}{2} = \frac{n^2-n}{2}[/latex]
+I guess you noticed the pattern. The maximum of intersection points of $n$ is $\displaystyle \sum_{i=1}^{n-1} i = \frac{(n-1)^2 + (n-1)}{2} = \frac{n^2 - 2n + 1 + n -1}{2} = \frac{n^2-n}{2}$
 
 At the moment, this is only an upper border. We didn't prove that you can actually get that much intersections. We only showed that you can't get more intersections.
 
 <h2>A simple solution</h2>
 
-I know how to check if two line segments intersect (see <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect">article</a>). But lets say I have [latex]n[/latex] line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:
+I know how to check if two line segments intersect (see <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect">article</a>). But lets say I have $n$ line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:
 
 <h3>First way to think about it</h3>
 <ul>
@@ -86,10 +86,10 @@ I know how to check if two line segments intersect (see <a href="http://martin-t
 <li>I check if the (n-1)-th line crosses the n-th line.</li>
 </ul>
 
-So I have to do [latex](n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2} [/latex]checks.
+So I have to do $(n-1) + (n-2) + \dots + 1 = \sum_{i=1}^{n-1} i = \frac{(n-1)^2+(n-1)}{2} = \frac{n^2-n}{2} $checks.
 
 <h3>Second way to think about it</h3>
-I don't care about order. I have to do every check. So when I have $n$ elements and I want to choose [latex]\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}[/latex]
+I don't care about order. I have to do every check. So when I have $n$ elements and I want to choose $\binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n \cdot (n-1)}{2} = \frac{n^2-n}{2}$
 
 <h2>Sweep-Line algorithm</h2>
 The sweep line algorithm for checking intersections in a set of line segments goes through the image from left to right. When the sweep line (which is only a x-coordinate!) goes over a new line segment, it adds this to a datastructure. When the sweep line comes over an end of a line segment, it removes the line segment from this data structure.

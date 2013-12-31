@@ -9,4 +9,4 @@ tags:
 - Linear algebra
 featured_image: 2012/01/vector-space.png
 ---
-Sei V ein euklidischer VR und [latex]\phi:V \rightarrow V[/latex] eine Isometrie. Sei A die Abbildungsmatrix von [latex]\phi[/latex]. Dann existiert eine Orthonormalbasis [latex]\tilde B[/latex], sodass gilt:
+Sei V ein euklidischer VR und $\phi:V \rightarrow V$ eine Isometrie. Sei A die Abbildungsmatrix von $\phi$. Dann existiert eine Orthonormalbasis $\tilde B$, sodass gilt:

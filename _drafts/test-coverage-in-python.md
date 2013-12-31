@@ -16,8 +16,8 @@ The coverage script helps you to get to know how much of your code is covered by
 Just follow <a href="http://nedbatchelder.com/code/coverage/install.html">these instructions</a>.
 
 After that, try if it worked:
-[bash]$ coverage --version
+{% highlight bash %}$ coverage --version
 Coverage.py, version 3.5.2.  http://nedbatchelder.com/code/coverage
-[/bash]
+{% endhighlight %}
 
 <h2>Usage</h2>

@@ -14,24 +14,24 @@ featured_image: 2013/03/android-thumb.png
 
 <h2>Installation</h2>
 <h3>Android Virtual Device Manager</h3>
-[bash]sudo apt-get install openjdk-7-jre openjdk-7-jdk icedtea-7-plugin eclipse[/bash]
+{% highlight bash %}sudo apt-get install openjdk-7-jre openjdk-7-jdk icedtea-7-plugin eclipse{% endhighlight %}
 
 Download Android SDK:
-[bash]wget http://dl.google.com/android/android-sdk_r21.1-linux.tgz[/bash]
+{% highlight bash %}wget http://dl.google.com/android/android-sdk_r21.1-linux.tgz{% endhighlight %}
 
 Extract it:
-[bash]tar -xvzf android-sdk_r21.1-linux.tgz[/bash]
+{% highlight bash %}tar -xvzf android-sdk_r21.1-linux.tgz{% endhighlight %}
 
-[bash]cd android-sdk-linux/tools/
-./android[/bash]
+{% highlight bash %}cd android-sdk-linux/tools/
+./android{% endhighlight %}
 
 Open <code>~/.bashrc</code> for editing and add:
 
-[text]export PATH=${PATH}:~/android-sdk-linux/tools
-export PATH=${PATH}:~/android-sdk-linux/platform-tools[/text]
+{% highlight text %}export PATH=${PATH}:~/android-sdk-linux/tools
+export PATH=${PATH}:~/android-sdk-linux/platform-tools{% endhighlight %}
 
 Now you can start Android Virtual Device Manager with this command:
-[bash]android avd[/bash]
+{% highlight bash %}android avd{% endhighlight %}
 
 <h3>Eclipse ADT-Plugin</h3>
 Here is a good explanation <a href="http://developer.android.com/sdk/installing/installing-adt.html">how to install the Eclipse ADT plugin</a>.

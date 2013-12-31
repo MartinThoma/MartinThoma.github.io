@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tutorial: Translating Web Applications with gettext
+title: Translating Web Applications with gettext
 author: Martin Thoma
 date: 2011-10-26 09:05:09
 categories: 

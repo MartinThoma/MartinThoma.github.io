@@ -14,17 +14,17 @@ featured_image: 2013/06/three-color-example-graph.png
 The <span style="font-variant: small-caps;">Vertex Coloring</span> problem can be described like this:
 <div class="definition">
 <span style="font-variant: small-caps;">Vertex Coloring</span>
-Let [latex]G = (V, E)[/latex] be an undirected graph.
+Let $G = (V, E)$ be an undirected graph.
 
-Find a function [latex]f: V \rightarrow \{1, \dots, n\}, n \in \mathbb{N}[/latex] such that: 
+Find a function $f: V \rightarrow \{1, \dots, n\}, n \in \mathbb{N}$ such that: 
 
-[latex]\forall e=\{v_1, v_2\} \in E: f(v_1) \neq f(v_2)[/latex].
+$\forall e=\{v_1, v_2\} \in E: f(v_1) \neq f(v_2)$.
 
 
-Minimize [latex]n[/latex].
+Minimize $n$.
 </div>
 
-If [latex]n[/latex] is minimal for [latex]G[/latex], it is called the chromatic number [latex]\chi(G)[/latex].
+If $n$ is minimal for $G$, it is called the chromatic number $\chi(G)$.
 
 What does that mean?
 
@@ -37,11 +37,11 @@ All of the following graphs show valid thee colorings:
 
 <h2>Interesting facts</h2>
 <ul>
-  <li>[latex]1 \leq \chi(G) \leq |V|[/latex]: You need at least one color and you could color all vertices with a different color</li>
-  <li>[latex]\chi(K_n) = n[/latex]: All <abbr title="all vertices are connected with all other vertices.">complete graphs</abbr> with [latex]n[/latex] vertices need exactly [latex]n[/latex] colors. One color for each vertex.</li>
+  <li>$1 \leq \chi(G) \leq |V|$: You need at least one color and you could color all vertices with a different color</li>
+  <li>$\chi(K_n) = n$: All <abbr title="all vertices are connected with all other vertices.">complete graphs</abbr> with $n$ vertices need exactly $n$ colors. One color for each vertex.</li>
   <li>Every planar graph can be colored with 4 colors (see <a href="http://en.wikipedia.org/wiki/Four_color_theorem">four color theorem</a>).</li>
   <li>Determining if a graph can be colored with 2 colors is equivalent to determining whether or not the graph is bipartite. This can be checked in polynomial time. You simply start with one vertex, give it color 1 and all adjacent vertices color 2. Then all adjacent vertices of color 2 have to have color 1, ...</li>
-  <li><span style="font-variant: small-caps;">Vertex Coloring</span> is in [latex]\mathcal{NPC}[/latex].</li>
+  <li><span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$.</li>
   <li>All triangle-free planar graphs can be 3-colored. You can get this coloring in linear time (<a href="http://en.wikipedia.org/wiki/Gr%C3%B6tzsch's_theorem#Computational_complexity">source</a>).</li>
 </ul>
 
@@ -51,7 +51,7 @@ I think learning from errors is important. This is the reason why I share the fo
 <h3>First WRONG try: Fix adjacent vertices</h3>
 [caption id="attachment_69891" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/06/Vertex-coloring.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/06/Vertex-coloring.png" alt="A vertex coloring algorithm that does not work" width="512" height="281" class="size-full wp-image-69891" /></a> A vertex coloring algorithm that does not work[/caption]
 
-The time complexity of this algorithm is in [latex]\mathcal{O}(|V|^2)[/latex]. This should make you suspicious, as <span style="font-variant: small-caps;">Vertex Coloring</span> is in [latex]\mathcal{NPC}[/latex]. So if it was correct, it would solve the <a href="http://en.wikipedia.org/wiki/P_versus_NP_problem">P vs. NP problem</a> which is worth a million dollars. 
+The time complexity of this algorithm is in $\mathcal{O}(|V|^2)$. This should make you suspicious, as <span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$. So if it was correct, it would solve the <a href="http://en.wikipedia.org/wiki/P_versus_NP_problem">P vs. NP problem</a> which is worth a million dollars. 
 
 But an example why it doesn't work is better. Just try it for the following graph:
 
@@ -73,7 +73,7 @@ It's always a good idea to think about brute force algorithms. On the one hand, 
 Here is a brute force algorithm for the vertex coloring problem
 [caption id="attachment_70001" align="aligncenter" width="512"]<a href="http://martin-thoma.com/wp-content/uploads/2013/06/Vertex-coloring-brute-force.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/06/Vertex-coloring-brute-force.png" alt="Brute force a minimal vertex coloring" width="512" height="333" class="size-full wp-image-70001" /></a> Brute force a minimal vertex coloring[/caption]
 
-You need [latex]\sum_{i=2}^n i^n[/latex] steps at maximum. Wow. This is MUCH. Even when you only want to check if [latex]i[/latex] colors are enough, you need [latex]i^n[/latex].
+You need $\sum_{i=2}^n i^n$ steps at maximum. Wow. This is MUCH. Even when you only want to check if $i$ colors are enough, you need $i^n$.
 
 You could use the second algorithm to get a better upper bound and try the next smaller ones. As soon as you don't get valid colorings, you know that the number of colors you've used in the last valid coloring was the minimum number.
 
@@ -95,9 +95,9 @@ Another great example is the following:
 
 Here is the proof system. You give the two balls to your friend so that he is holding one in each hand. You can see the balls at this point, but you don't tell him which is which. Your friend then puts both hands behind his back. Next, he either switches the balls between his hands, or leaves them be, with probability 1/2 each. Finally, he brings them out from behind his back. You now have to "guess" whether or not he switched the balls.
 
-By looking at their colors, you can of course say with certainty whether or not he switched them. On the other hand, if they were the same color and hence indistinguishable, there is no way you could guess correctly with probability higher than [latex]\frac{1}{2}[/latex].
+By looking at their colors, you can of course say with certainty whether or not he switched them. On the other hand, if they were the same color and hence indistinguishable, there is no way you could guess correctly with probability higher than $\frac{1}{2}$.
 
-If you and your friend repeat this "proof" [latex]t[/latex] times (for large [latex]t[/latex]), your friend should become convinced that the balls are indeed differently colored; otherwise, the probability that you would have succeeded at identifying all the switch/non-switches is at most [latex]2^{-t}[/latex]. Furthermore, the proof is "zero-knowledge" because your friend never learns which ball is green and which is red; indeed, he gains no knowledge about how to distinguish the balls.</blockquote>
+If you and your friend repeat this "proof" $t$ times (for large $t$), your friend should become convinced that the balls are indeed differently colored; otherwise, the probability that you would have succeeded at identifying all the switch/non-switches is at most $2^{-t}$. Furthermore, the proof is "zero-knowledge" because your friend never learns which ball is green and which is red; indeed, he gains no knowledge about how to distinguish the balls.</blockquote>
 Source: <a href="http://mathoverflow.net/questions/22624/example-of-a-good-zero-knowledge-proof/22628#22628">mathoverflow.net</a>
 
 Lets make this more concrete. Say you want to authenticate somebody. This person is identified as the "only" person who knows a three-coloring of a big graph. This makes him/her special.

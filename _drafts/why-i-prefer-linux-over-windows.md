@@ -37,13 +37,13 @@ Where do I find answers to Windows questions? I have tried <a href="http://super
 
 <h2>Repositories</h2>
 When I want to install <code>something</code>on my Ubuntu machine, I simply type:
-[bash]sudo apt-get install something[/bash]
+{% highlight bash %}sudo apt-get install something{% endhighlight %}
 
 When I want to install something on Windows, I have to Google for it. When I find a tool which seems to fit, I have to find out if it is for free or if it's only a trial version. Then I need to find a way to download it and make sure that it's not malware. 
 
 When I want to update all software I have on my linux machine, I type:
-[bash]sudo apt-get update
-sudo apt-get upgrade[/bash]
+{% highlight bash %}sudo apt-get update
+sudo apt-get upgrade{% endhighlight %}
 After this command, my system and every single piece of software I have installed is updated. The updates are automatically installed in the background. A restart might be necessary, but until the restart is done the old software is used.
 
 On Windows, I have to:

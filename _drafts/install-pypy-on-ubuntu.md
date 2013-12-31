@@ -23,25 +23,25 @@ First, you need the name. It is on the page of the PPA in this box:
 [caption id="attachment_32781" align="alignnone" width="510"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/Adding-this-PPA.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/Adding-this-PPA.png" alt="Adding-this-PPA" title="Adding-this-PPA" width="510" height="147" class="size-full wp-image-32781" /></a> ppa:pypy/ppa is what you need[/caption]
 
 Then you have to go to the terminal and enter:
-[bash]sudo add-apt-repository ppa:pypy/ppa[/bash]
+{% highlight bash %}sudo add-apt-repository ppa:pypy/ppa{% endhighlight %}
 
 You might see something like:
-[bash]Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /etc/apt/secring.gpg --trustdb-name /etc/apt/trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --keyserver keyserver.ubuntu.com --recv 2862D0785AFACD8C65B23DB0251104D968854915
+{% highlight bash %}Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /etc/apt/secring.gpg --trustdb-name /etc/apt/trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --keyserver keyserver.ubuntu.com --recv 2862D0785AFACD8C65B23DB0251104D968854915
 gpg: requesting key 68854915 from hkp server keyserver.ubuntu.com
 gpg: key 68854915: public key &quot;Launchpad pypy-1.2&quot; imported
 gpg: Total number processed: 1
-gpg:               imported: 1  (RSA: 1)[/bash]
+gpg:               imported: 1  (RSA: 1){% endhighlight %}
 
 Then you execute these commands:
-[bash]sudo apt-get update
-sudo apt-get install pypy[/bash]
+{% highlight bash %}sudo apt-get update
+sudo apt-get install pypy{% endhighlight %}
 
 That's it. Easy, isn't it? (Easy as Py :D )
 
 The version seems to be quite old. The current one is 1.9 (see <a href="http://en.wikipedia.org/wiki/PyPy">Wiki</a>).
-[bash]moose@pc07:~$ pypy --version
+{% highlight bash %}moose@pc07:~$ pypy --version
 Python 2.5.2 (75347, Jul 02 2010, 01:38:39)
-[PyPy 1.3.0][/bash]
+[PyPy 1.3.0]{% endhighlight %}
 
 
 <h2>See also</h2>

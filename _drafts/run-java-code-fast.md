@@ -12,7 +12,7 @@ featured_image: 2011/11/java-programming.png
 ---
 <h2>Compile Java with GCJ</h2>
 You can compile Java Code to a binary with GCJ. It works like this:
-[bash]gcj --main=Shell Shell.java[/bash]
+{% highlight bash %}gcj --main=Shell Shell.java{% endhighlight %}
 
 If you get <code>gcj undefined reference to `main'</code> you didn't provide the (correct) <code>--main</code>.
 If you get <code>exec 'ecj1': execvp</code>, you probably typed <code>gcc</code> instead of <code>gcj</code>.

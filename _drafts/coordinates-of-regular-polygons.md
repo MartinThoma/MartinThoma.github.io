@@ -13,10 +13,10 @@ I've just wondered if there is any way to get nice coordinates for regular polyg
 I define:
 
 <ul>
-    <li>natural numbers [latex]\mathbb{N}[/latex] are best</li>
-    <li>decimal fractions that are not periodical for decimal and binary (a subset of [latex]\mathbb{Q}[/latex])</li>
+    <li>natural numbers $\mathbb{N}$ are best</li>
+    <li>decimal fractions that are not periodical for decimal and binary (a subset of $\mathbb{Q}$)</li>
     <li>the closer you come with a double to the real coordinates, the better</li>
-    <li>ugly are irrational numbers ([latex]\mathbb{R} \setminus \mathbb{Q}[/latex])</li>
+    <li>ugly are irrational numbers ($\mathbb{R} \setminus \mathbb{Q}$)</li>
 </ul>
 
 I think the first two are actually the same. When I have a fraction, I can scale my polygon up and get natural numbers.

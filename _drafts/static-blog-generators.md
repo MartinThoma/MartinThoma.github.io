@@ -53,9 +53,9 @@ Services:
 </table>
 
 <h3>Setting a new website up</h3>
-[bash]jekyll new my-awesome-site
+{% highlight bash %}jekyll new my-awesome-site
 cd my-awesome-site
-jekyll serve[/bash]
+jekyll serve{% endhighlight %}
 
 Open <a href="http://localhost:4000">http://localhost:4000</a> in a browser
 

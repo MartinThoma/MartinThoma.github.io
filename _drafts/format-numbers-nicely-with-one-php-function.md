@@ -32,7 +32,7 @@ echo &quot;&lt;br/&gt;&quot;;
 echo number_format(pow(8,64)).&quot;&lt;br/&gt;&quot;;
 
 ?&gt;[/php]
-[text]123
+{% highlight text %}123
 -123
 
 1,234,567,890
@@ -44,7 +44,7 @@ echo number_format(pow(8,64)).&quot;&lt;br/&gt;&quot;;
 123
 -123
 
-6,277,101,735,386,680,763,835,789,423,207,666,416,102,355,444,464,034,512,896[/text]
+6,277,101,735,386,680,763,835,789,423,207,666,416,102,355,444,464,034,512,896{% endhighlight %}
 
 The first problem I see is the conversion into Octal (0000000000123 get 83), the second is the missing scientific notation (6.27 &middot; 10<pow>57</pow> instead of 6,277,101,735,386,680,763,835,789,423,207,666,416,102,355,444,464,034,512,896)
 

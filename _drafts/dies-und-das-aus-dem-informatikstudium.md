@@ -9,7 +9,7 @@ tags: []
 featured_image: 2011/11/computer-fix-it-guy.jpg
 ---
 <h2>XOR ist kommutativ und assoziativ</h2>
-<a href="http://de.wikipedia.org/wiki/Kontravalenz">XOR</a> ist auf [latex]\mathbb{Z}/ 2 \mathbb{Z}[/latex] folgendermaßen definiert: 
+<a href="http://de.wikipedia.org/wiki/Kontravalenz">XOR</a> ist auf $\mathbb{Z}/ 2 \mathbb{Z}$ folgendermaßen definiert: 
 <table>
 <tr>
   <th>a</th><th>b</th>
@@ -33,7 +33,7 @@ featured_image: 2011/11/computer-fix-it-guy.jpg
 </tr>
 </table>
 
-Direkt aus dieser Tabelle folgt, dass XOR <a href="http://de.wikipedia.org/wiki/Kommutativgesetz">kommutativ</a> ist. Es gilt also: [latex]a~XOR~b = b~XOR~a[/latex].
+Direkt aus dieser Tabelle folgt, dass XOR <a href="http://de.wikipedia.org/wiki/Kommutativgesetz">kommutativ</a> ist. Es gilt also: $a~XOR~b = b~XOR~a$.
 
 Stellt man die folgende Tabelle auf, sieht man das XOR auch assoziativ ist:
 <table>
@@ -102,8 +102,8 @@ Stellt man die folgende Tabelle auf, sieht man das XOR auch assoziativ ist:
 </tr>
 </table>
 
-Das bedeutet: [latex](a~XOR~b)~XOR~c = a~XOR~(b~XOR~c)[/latex]
+Das bedeutet: $(a~XOR~b)~XOR~c = a~XOR~(b~XOR~c)$
 
 Aus alldem zusammen folgt: Wenn man n Variablen mit XOR verknüpft, kann man sich die Ausführungsreihenfolge aussuchen. Man braucht eigentlich sogar nur die 1er Zählen und diese Zahl modulo 2 nehmen.
 
-Das Symbol dafür ist übrigens, laut meinem Skript für Lineare Algebra von Prof. Dr. Leuzinger, [latex]\veebar[/latex].
+Das Symbol dafür ist übrigens, laut meinem Skript für Lineare Algebra von Prof. Dr. Leuzinger, $\veebar$.
