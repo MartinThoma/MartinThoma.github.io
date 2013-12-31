@@ -177,6 +177,12 @@ http://www.mzlinux.org/?q=node/435
 
 ### JavaScript solutions ###
 One JavaScript solution I've found is [lunr](https://github.com/slashdotdash/jekyll-lunr-js-search).
+This one is really bad as it copies the whole body to a json file.
+This json file has to be loaded before it works. But my posts total
+at the moment to 2MB. I'm pretty sure my readers don't want to wait
+until 2MB are downloaded. So this one does only work for smaller
+websites.
+
 But there are [other solutions](http://christian-fei.com/simple-jekyll-search-jquery-plugin/), [too](http://forrst.com/posts/Static_site_e_g_Jekyll_search_with_JQuery-zL9).
 
 
