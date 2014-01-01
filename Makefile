@@ -14,7 +14,7 @@ test:
 	cp _posts/* _postStorage/
 	# do preprocessing
 	./_preprocess.py
-	# normal build
+	# draft build
 	jekyll build --draft
 	# postprocessing
 	./_postprocess.py
@@ -53,6 +53,18 @@ deploy:
 martinde:
 	make clean
 	jekyll build --config _config_martinde.yml
+	./_postprocess.py
+	-@[ -e "search.db" ] && mv -f search.db _site/search/search.db
+
+martincom:
+	make clean
+	# add folder to save not-preprocessed posts
+	mkdir -p _postStorage
+	cp _posts/* _postStorage/
+	# do preprocessing
+	./_preprocess.py
+    #build
+	jekyll build --config _config_martincom.yml
 	./_postprocess.py
 	-@[ -e "search.db" ] && mv -f search.db _site/search/search.db
 
