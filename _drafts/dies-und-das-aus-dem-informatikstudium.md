@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2012-08-07 07:21:09
 categories: 
 - German posts
-tags: []
+tags:
+- Computer Science
 featured_image: 2011/11/computer-fix-it-guy.jpg
 ---
 <h2>XOR ist kommutativ und assoziativ</h2>

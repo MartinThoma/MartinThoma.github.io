@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2012-11-12 04:19:06
 categories: 
 - Code
-tags: []
+tags:
+- Programming
 featured_image: 
 ---
 A week ago I had to write a CV and I wanted to include programming languages. It makes sense to give hints how good I am in different languages, so I tried find a short way to do so.

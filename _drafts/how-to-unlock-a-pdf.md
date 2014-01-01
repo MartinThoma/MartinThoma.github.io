@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2012-03-14 07:06:03
 categories: 
 - Cyberculture
-tags: []
+tags:
+- PDF
 featured_image: 
 ---
 I've recently found some PDF files where I could not copy the text. This is how you could unlock it.

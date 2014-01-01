@@ -5,7 +5,8 @@ author: Martin Thoma
 date: 2013-03-07 05:19:43
 categories: 
 - Cyberculture
-tags: []
+tags:
+- mathematics
 featured_image: 
 ---
 I've just wondered if there is any way to get nice coordinates for regular polygons. Now, what does nice mean?
