@@ -6,7 +6,7 @@ date: 2012-05-04 07:58:58
 categories: 
 - Code
 tags: 
-- C
+- C++
 featured_image: 
 ---
 C++ is amazingly fast. I took part in Google Code Jam - <a href="http://martin-thoma.com/google-code-jam-2012-round-1a-2012/" title="Google Code Jam 2012 – Round 1A 2012">Round 1A 2012</a> and solved one problem with Python. It took 30 mintues and 4.479 seconds for the large input set!
