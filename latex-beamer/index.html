@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>LaTeX Beamer</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401020632.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401021301.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -108,48 +108,44 @@
 </div><h2 id="tocAnchor-1-1">Basics</h2>
 
 <p>This is a basic presentation:</p>
-
 <div class="highlight">
-   <pre><code class="text">\documentclass{beamer}
-\usetheme{Frankfurt}
-\usepackage{hyperref}
-\usepackage[utf8]{inputenc} % this is needed for german umlauts
-\usepackage[english]{babel} % this is needed for german umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output 
-                            % of umlauts in pdf
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>beamer<span class="nb">}</span>
+<span class="k">\usetheme</span><span class="nb">{</span>Frankfurt<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[english]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output </span>
+                            <span class="c">% of umlauts in pdf</span>
 
-\begin{document}
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 
-\title{The title of your presentation}
-\subtitle{A subtitle}
-\author{Martin Thoma}
-\date{25. March 2013}
-\subject{Computer Science}
+<span class="k">\title</span><span class="nb">{</span>The title of your presentation<span class="nb">}</span>
+<span class="k">\subtitle</span><span class="nb">{</span>A subtitle<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span>Martin Thoma<span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span>25. March 2013<span class="nb">}</span>
+<span class="k">\subject</span><span class="nb">{</span>Computer Science<span class="nb">}</span>
 
-\frame{\titlepage}
+<span class="k">\frame</span><span class="nb">{</span><span class="k">\titlepage</span><span class="nb">}</span>
 
-\section{Introduction}
-\subsection{A subsection!}
-\begin{frame}{Slide title}
+<span class="k">\section</span><span class="nb">{</span>Introduction<span class="nb">}</span>
+<span class="k">\subsection</span><span class="nb">{</span>A subsection!<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>Slide title<span class="nb">}</span>
     Slide content
-\end{frame}
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
 
-\end{document}
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-2">Style</h2>
 
 <p>If you want to create nice-looking presentations like <a href="../images/2013/03/tutorium-05.pdf">this one</a> or <a href="../images/2013/03/google-presentation.pdf">that one</a>, you should probably adjust the style. Here is an overview of the default ones that LaTeX has: <a href="http://deic.uab.es/~iblanes/beamer_gallery/">Beamer theme gallery</a> or <a href="http://latex.simon04.net/">here</a>.</p>
 
 <p>The important commands for changing the appearance, that should get included just after documentclass, are:</p>
-
 <div class="highlight">
-   <pre><code class="text">\usetheme{Frankfurt}
-\usecolortheme{default}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\usetheme</span><span class="nb">{</span>Frankfurt<span class="nb">}</span>
+<span class="k">\usecolortheme</span><span class="nb">{</span>default<span class="nb">}</span>
 </code></pre>
 </div>
-
 <p>When you're from KIT, you should use the <a href="https://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen">KIT theme</a>.</p>
 
 <p>Here are some screenshots:
@@ -170,47 +166,43 @@
   <li>\visible</li>
   <li>\onslide and \only</li>
 </ul><p>You can use it like this:</p>
-
 <div class="highlight">
-   <pre><code class="text">\begin{frame}{Another title}
-    Some text\\
-    \uncover&lt;2-&gt;{Uncover me on slide 2 (-)\\}
-    \visible&lt;3-&gt;{visible from slide 3 on (-)\\}
-    \only&lt;4-&gt;{only from slide 4 (-)\\} 
-    \onslide&lt;5-&gt;{on slide 5 and further (-)\\}
-    \uncover&lt;6&gt;{Uncover me on slide 6 \\}
-    \visible&lt;7&gt;{visible on 7\\}
-    \only&lt;8&gt;{only on slide 8 \\} 
-    \alt&lt;8&gt;{I am on slide 8\\}{I am not on slide 8\\}
-    \onslide&lt;9&gt;{on slide 9\\}
-\end{frame}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>Another title<span class="nb">}</span>
+    Some text<span class="k">\\</span>
+    <span class="k">\uncover</span>&lt;2-&gt;<span class="nb">{</span>Uncover me on slide 2 (-)<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\visible</span>&lt;3-&gt;<span class="nb">{</span>visible from slide 3 on (-)<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\only</span>&lt;4-&gt;<span class="nb">{</span>only from slide 4 (-)<span class="k">\\</span><span class="nb">}</span> 
+    <span class="k">\onslide</span>&lt;5-&gt;<span class="nb">{</span>on slide 5 and further (-)<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\uncover</span>&lt;6&gt;<span class="nb">{</span>Uncover me on slide 6 <span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\visible</span>&lt;7&gt;<span class="nb">{</span>visible on 7<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\only</span>&lt;8&gt;<span class="nb">{</span>only on slide 8 <span class="k">\\</span><span class="nb">}</span> 
+    <span class="k">\alt</span>&lt;8&gt;<span class="nb">{</span>I am on slide 8<span class="k">\\</span><span class="nb">}{</span>I am not on slide 8<span class="k">\\</span><span class="nb">}</span>
+    <span class="k">\onslide</span>&lt;9&gt;<span class="nb">{</span>on slide 9<span class="k">\\</span><span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
 </code></pre>
 </div>
+<p>Note that the numbers work like <code>\uncover&lt;n-m&gt;{ELEMENT}</code>. If no <code>m</code> 
+is specified, ELEMENT is visible until end of this frame.</p>
 
-<p>Note that the numbers work like <code>\uncover<n-m>{ELEMENT}</n-m></code>. If no <code>m</code> is specified, ELEMENT is visible until end of this frame.</p>
-
-<p>When you have a list and you want to uncover it element by element, you can use this:</p>
-
+<p>When you have a list and you want to uncover it element by element, 
+you can use this:</p>
 <div class="highlight">
-   <pre><code class="text">\begin{itemize}&lt;+-&gt;
-    \item one
-    \item two
-    \item three
-\end{itemize}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>&lt;+-&gt;
+    <span class="k">\item</span> one
+    <span class="k">\item</span> two
+    <span class="k">\item</span> three
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-5">Blocks</h2>
 
 <p>You can use <code>block</code>, <code>exampleblock</code> or <code>alertblock</code> inside your frame:</p>
-
 <div class="highlight">
-   <pre><code class="text">\begin{exampleblock}{Test}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>exampleblock<span class="nb">}{</span>Test<span class="nb">}</span>
   This is my text.
-\end{exampleblock}
+<span class="k">\end</span><span class="nb">{</span>exampleblock<span class="nb">}</span>
 </code></pre>
 </div>
-
 <p>It looks like this:
 </p><div style="width: 300px" class="wp-caption aligncenter">
    <a href="http://martin-thoma.com/images/../images/2013/03/latex-beamer-block-300x117.png">
@@ -226,14 +218,12 @@
 <p>You need <code>\usepackage{graphicx}</code> in your preamble.</p>
 
 <p>This is how you get the image it:</p>
-
 <div class="highlight">
-   <pre><code class="text">\begin{frame}{My frame title}
-    \includegraphics[width=\textwidth, height=0.8\textheight, keepaspectratio]{../relative/path/image.jpg}
-\end{frame}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}{</span>My frame title<span class="nb">}</span>
+    <span class="k">\includegraphics</span><span class="na">[width=\textwidth, height=0.8\textheight, keepaspectratio]</span><span class="nb">{</span>../relative/path/image.jpg<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-7">Further reading</h2>
 
 <ul><li><a href="../sizes-in-latex/" title="Sizes in LaTeX">Sizes in LaTeX</a></li>

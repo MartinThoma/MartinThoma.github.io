@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to print Source Code with LaTeX</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401020632.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401021301.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -114,53 +114,50 @@
 </div>
 
 <p>Here is an minimal example how you could print Source Code with LaTeX:
-<a id="more"></a><a id="more-23541"></a></p>
-
-<div class="highlight">
-   <pre><code class="text">\documentclass[a4paper,12pt]{article}
+<a id="more"></a><a id="more-23541"></a>
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
 \usepackage[ngerman]{babel} % this is needed for german umlauts
 % this is needed for correct output of umlauts in pdf
-\usepackage[T1]{fontenc}    
+\usepackage[T1]{fontenc}<br />
 \usepackage[margin=2.5cm]{geometry} %layout
-\usepackage{listings} % needed for the inclusion of source code
+\usepackage{listings} % needed for the inclusion of source code</p>
 
-% this is needed for forms and links within the text
-\usepackage{hyperref}  
+<p>% this is needed for forms and links within the text
+\usepackage{hyperref}  </p>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % THE DOCUMENT BEGINS                      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
     \lstinputlisting[language=Java]{Othello.java}
 \end{document}
-</code></pre>
-</div>
+```</p>
 
 <h3 id="tocAnchor-1-1-2">My Template</h3>
 
-<p>If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href="../images/2012/04/LaTeX-Source-Code.pdf">PDF-file</a>.</p>
-
-<div class="highlight">
-   <pre><code class="text">\documentclass[a4paper,12pt]{article}
+<p>If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href="../images/2012/04/LaTeX-Source-Code.pdf">PDF-file</a>.
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
 \usepackage[ngerman]{babel} % this is needed for german umlauts
 \usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 \usepackage[margin=2.5cm]{geometry} %layout
-\usepackage{listings} % needed for the inclusion of source code
+\usepackage{listings} % needed for the inclusion of source code</p>
 
-% the following is needed for syntax highlighting
-\usepackage{color}
- 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
+<p>% the following is needed for syntax highlighting
+\usepackage{color}</p>
+
+<p>\definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{mauve}{rgb}{0.58,0,0.82}</p>
 
-\lstset{ %
+<p>\lstset{ %
   language=Java,                  % the language of the code
   basicstyle=\footnotesize,       % the size of the fonts that are used for the code
   numbers=left,                   % where to put the line-numbers
@@ -183,39 +180,38 @@
   keywordstyle=\color{blue},          % keyword style
   commentstyle=\color{dkgreen},       % comment style
   stringstyle=\color{mauve},         % string literal style
-  escapeinside={\%*}{*)},            % if you want to add a comment within your code
+  escapeinside={\%<em>}{</em>)},            % if you want to add a comment within your code
   morekeywords={*,...}               % if you want to add more keywords to the set
-}
+}</p>
 
-% this is needed for forms and links within the text
-\usepackage{hyperref}  
+<p>% this is needed for forms and links within the text
+\usepackage{hyperref}  </p>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Variablen                                                          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\authorName}{Martin Thoma}
 \newcommand{\tags}{\authorName, my, tags}
 \title{This is the title}
 \author{\authorName}
-\date{\today}
+\date{\today}</p>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PDF Meta information                                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{
   pdfauthor   = {\authorName},
   pdfkeywords = {\tags},
   pdftitle    = {This is the title}
-} 
+} </p>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % THE DOCUMENT BEGINS                                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
     \lstinputlisting[language=Java]{Othello.java}
 \end{document}
-</code></pre>
-</div>
+```</p>
 
 <h3 id="tocAnchor-1-1-3">Supported Languages</h3>
 
@@ -236,31 +232,26 @@ ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, <strong>R/3 6.10</strong>), ACSL, Ada
 
 <h2 id="tocAnchor-1-5">minted</h2>
 
-<p>Minted needs the package pygments:</p>
-
-<div class="highlight">
-   <pre><code class="bash">sudo apt-get install python-pygments
-</code></pre>
-</div>
+<p>Minted needs the package pygments:
+<code>bash
+sudo apt-get install python-pygments
+</code></p>
 
 <h3 id="tocAnchor-1-5-1">Supported Languages</h3>
 
-<p>Minted supports quite a lot of languages. You can get the supported languages with this command:</p>
+<p>Minted supports quite a lot of languages. You can get the supported languages with this command:
+<code>bash
+moose@pc07:~$ pygmentize -L lexers
+</code></p>
 
-<div class="highlight">
-   <pre><code class="bash">moose@pc07:~<span class="nv">$ </span>pygmentize -L lexers
-</code></pre>
-</div>
+<p>This is my output:
+```text
+Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.</p>
 
-<p>This is my output:</p>
-
-<div class="highlight">
-   <pre><code class="text">Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
-
-Lexers:
+<p>Lexers:
 ~~~~~~~
 * Cucumber, cucumber, Gherkin, gherkin:
-    Gherkin (filenames *.feature)
+    Gherkin (filenames <em>.feature)
 * abap:
     ABAP (filenames *.abap)
 * antlr:
@@ -384,7 +375,7 @@ Lexers:
 * lua:
     Lua (filenames *.lua)
 * make, makefile, mf, bsdmake:
-    Makefile (filenames *.mak, Makefile, makefile, Makefile.*, GNUmakefile)
+    Makefile (filenames *.mak, Makefile, makefile, Makefile.</em>, GNUmakefile)
 * mako:
     Mako (filenames *.mao)
 * mako:
@@ -493,47 +484,41 @@ Lexers:
     VB.net (filenames *.vb, *.bas)
 * vim:
     VimL (filenames *.vim, .vimrc)
-[...] (a lot of XML) [...]
+<a href="a%20lot%20of%20XML">...</a> [...]
 * xml:
     XML (filenames *.xml, *.xsl, *.rss, *.xslt, *.xsd, *.wsdl)
 * xslt:
     XSLT (filenames *.xsl, *.xslt)
 * yaml:
     YAML (filenames *.yaml, *.yml)
-</code></pre>
-</div>
-
-<h3 id="tocAnchor-1-5-2">Example</h3>
-
+```
+</p><h3 id="tocAnchor-1-5-2">Example</h3>
 <div style="width: 613px" class="wp-caption aligncenter">
    <a href="http://martin-thoma.com/images/../images/2012/04/latex-java-source-minted.png">
       <img src="http://martin-thoma.com/images/../images/2012/04/latex-java-source-minted.png" alt="" width="613" height="232" class="size-full wp-image-23841" />
    </a>
    <p class="wp-caption-text"></p>
 </div>
-
-<p>This is the <a href="../images/2012/04/minted-source-code.pdf">PDF-file</a> produced by the following LaTeX-Code:</p>
-
+This is the <a href="../images/2012/04/minted-source-code.pdf">PDF-file</a> produced by the following LaTeX-Code:
 <div class="highlight">
-   <pre><code class="text">\documentclass[a4paper,12pt]{article}
-\usepackage{amssymb} % needed for math
-\usepackage{amsmath} % needed for math
-\usepackage[utf8]{inputenc} % this is needed for german umlauts
-\usepackage[ngerman]{babel} % this is needed for german umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage[margin=2cm]{geometry} %layout
-\usepackage{minted} % needed for the inclusion of source code
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
+<span class="k">\usepackage</span><span class="na">[margin=2cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
+<span class="k">\usepackage</span><span class="nb">{</span>minted<span class="nb">}</span> <span class="c">% needed for the inclusion of source code</span>
 
-\begin{document}
-\renewcommand{\theFancyVerbLine}{
-  \sffamily\textcolor[rgb]{0.5,0.5,0.5}{\scriptsize\arabic{FancyVerbLine}}}
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\theFancyVerbLine</span><span class="nb">}{</span>
+  <span class="k">\sffamily\textcolor</span><span class="na">[rgb]</span><span class="nb">{</span>0.5,0.5,0.5<span class="nb">}{</span><span class="k">\scriptsize\arabic</span><span class="nb">{</span>FancyVerbLine<span class="nb">}}}</span>
 
-\inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Othello.java]{java}{Othello.java}
+<span class="k">\inputminted</span><span class="na">[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Othello.java]</span><span class="nb">{</span>java<span class="nb">}{</span>Othello.java<span class="nb">}</span>
 
-\end{document}
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-8">Material</h2>
 
 <p>All files can be found in <a href="../images/2012/04/LaTeX-Source-Code.zip">LaTeX-Source-Code Archive</a>.</p>
@@ -543,12 +528,10 @@ Lexers:
 <ul><li>WikiBook: <a href="http://en.wikibooks.org/wiki/LaTeX/Packages/Listings">LaTeX/Packages/Listings</a></li>
   <li><a href="ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/listings/listings.pdf">CTAN lisings documentation</a></li>
   <li><a href="http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/macros/latex/contrib/minted/minted.pdf">CTAN minted documentation</a></li>
-</ul><p>You might also want to try</p>
-
-<div class="highlight">
-   <pre><code class="bash">texdoc listings
-</code></pre>
-</div>
+</ul><p>You might also want to try
+<code>bash
+texdoc listings
+</code></p>
 
 <p>This command will show a manual as a PDF.</p>
 						</div>

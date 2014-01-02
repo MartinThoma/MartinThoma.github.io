@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Make your Bash more useful</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401020632.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401021301.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -65,8 +65,9 @@
                         </div>
 			
 						<div class="entry">
-                            <p>I just had the problem, that the bash prompt of my universities computer I've connected to via SSH looked like this:
-<code>bash-4.0`$</code></p>
+                            <p>I just had the problem, that the bash prompt of my universities 
+computer I've connected to via SSH looked like this:
+<code>bash-4.0</code>$`</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -80,32 +81,30 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Change the prompt</h2>
 
-<p>I think it's much more useful to see the path you're currently using. To get the current path in your bash promt, you have to add the following snippet to your <code>.bashrc</code>:</p>
-
+<p>I think it's much more useful to see the path you're currently using.
+To get the current path in your bash promt, you have to add the 
+following snippet to your <code>.bashrc</code>:</p>
 <div class="highlight">
-   <pre><code class="text"># This will limit the path to 30 characters.
-PROMPT_COMMAND='if [ $`{#PWD} -gt 30 ]; then 
-myPWD=`${PWD:0:12}...
-$`{PWD:`${#PWD}-15}; else myPWD=$`PWD; fi'
-PS1="\u@\h \`$myPWD$` "
+   <pre><code class="bash language-bash" data-lang="bash"><span class="c"># This will limit the path to 30 characters.</span>
+<span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">'if [ $`{#PWD} -gt 30 ]; then </span>
+<span class="s1">myPWD=`${PWD:0:12}...</span>
+<span class="s1">$`{PWD:`${#PWD}-15}; else myPWD=$`PWD; fi'</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s2">"\u@\h \`$myPWD$` "</span>
 </code></pre>
 </div>
-
 <p>(Source: <a href="http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">cyberciti.biz</a>)</p>
 
-<p>Reload your bash config with <code>source .bashrc</code> and you should instantly see the changes.</p>
+<p>Reload your bash config with <code>source .bashrc</code> and you should 
+instantly see the changes.</p>
 
 <h2 id="tocAnchor-1-2">Aliases</h2>
-
 <div class="highlight">
-   <pre><code class="text"># Add color to ls
-alias ls="ls --color"
+   <pre><code class="bash language-bash" data-lang="bash"><span class="c"># Add color to ls</span>
+<span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s2">"ls --color"</span>
 </code></pre>
-</div>
-
-<div class="highlight">
-   <pre><code class="text"># simply update an svn-repository
-alias swt='svn up /home/moose/Studium/SWT'
+</div><div class="highlight">
+   <pre><code class="bash language-bash" data-lang="bash"><span class="c"># simply update an svn-repository</span>
+<span class="nb">alias </span><span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
 </code></pre>
 </div>
 						</div>
