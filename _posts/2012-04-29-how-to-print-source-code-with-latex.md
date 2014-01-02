@@ -37,7 +37,6 @@ Here is an minimal example how you could print Source Code with LaTeX:
 \begin{document}
 	\lstinputlisting[language=Java]{Othello.java}
 \end{document}
-{% endraw %}
 ```
 
 <h3>My Template</h3>
