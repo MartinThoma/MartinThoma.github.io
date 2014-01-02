@@ -207,6 +207,10 @@ websites.
 
 But there are [other solutions](http://christian-fei.com/simple-jekyll-search-jquery-plugin/), [too](http://forrst.com/posts/Static_site_e_g_Jekyll_search_with_JQuery-zL9).
 
+# Templates #
+Jekyll uses Liquid as a templating language. It is similar to Django
+templates. [Here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
+is a short introduction to Liquid.
 
 ## Some tests ##
 I like <a href="http://tools.pingdom.com/fpt/">Pingdom Tools</a> to get some information about my site (number of requests, load time, page size, ...).
