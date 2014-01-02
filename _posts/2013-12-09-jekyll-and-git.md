@@ -101,6 +101,18 @@ Now update this branch to the server:
 git push -u origin source
 ```
 
+### Custom Domain ###
+If you want to host your content at GitHub, but have a custom Domain
+like `martin-thoma.com` instead of `martinthoma.github.io`, you
+have to:
+
+1. Ask your provider (in my case "Knallhart") to add an A-record to
+   Github ()
+2. Add a file called `CNAME` with content `martin-thoma.com`
+   (yes, without `http://`) to the root of your directory
+
+GitHub also offers some help on [setting up a custom domain with Pages](https://help.github.com/articles/setting-up-a-custom-domain-with-pages).
+
 ## FTP Server ##
 If you have your own FTP server, you probably want to use it.
 
@@ -167,7 +179,17 @@ juicer install yui_compressor
 I've included small images as base64 (used [this online tool](http://webcodertools.com/imagetobase64converter/Create)). According to [caniuse](http://caniuse.com/datauri) it's quite save to use.
 
 ## Site Search ##
-Site search is a real problem.
+Site search is a real problem. I've seen three solutions so far:
+
+1. **Dynamic Search**: You can add a dynamic part to your statically
+   generated website. For example, I create a `search/index.php` and
+   a SQLite database.
+2. **Static JavaScript**: Create a JSON file or something similar and
+   search dynamically with JavaScript in it.
+3. **External Search Engines**: You could use a search engine for 
+   searching your site, of course.
+   * Hosted by you:
+   * Commercial: Google, Bing
 
 http://www.businessguide.co.uk/blog/jekyll-search-ways-to-search-a-static-site/
 
