@@ -17,8 +17,7 @@ I often need to print source code. Some years ago for a German competition calle
 {% caption align="aligncenter" width="590" caption="LaTeX Java Source Code: listings" url="../images/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings" title="LaTeX Java Source Code: listings" height="185" class="size-full wp-image-23851" %}
 Here is an minimal example how you could print Source Code with LaTeX:
 <a id="more"></a><a id="more-23541"></a>
-{% highlight text %}
-{% raw %}
+```latex
 \documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
@@ -39,12 +38,11 @@ Here is an minimal example how you could print Source Code with LaTeX:
 	\lstinputlisting[language=Java]{Othello.java}
 \end{document}
 {% endraw %}
-{% endhighlight %}
+```
 
 <h3>My Template</h3>
 If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href='../images/2012/04/LaTeX-Source-Code.pdf'>PDF-file</a>.
-{% highlight text %}
-{% raw %}
+```latex
 \documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
@@ -115,8 +113,7 @@ If you want to customize a little bit more and if you want to get highlighted (c
 \begin{document}
 	\lstinputlisting[language=Java]{Othello.java}
 \end{document}
-{% endraw %}
-{% endhighlight %}
+```
 
 <h3>Supported Languages</h3>
 The LaTeX listings package provides quite a lot of language and dialects. Each bold dialect is the default dialect:
@@ -139,14 +136,19 @@ ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, <strong>R/3 6.10</strong>), ACSL, Ada
 
 <h2>minted</h2>
 Minted needs the package pygments:
-{% highlight bash %}sudo apt-get install python-pygments{% endhighlight %}
+```bash
+sudo apt-get install python-pygments
+```
 
 <h3>Supported Languages</h3>
 Minted supports quite a lot of languages. You can get the supported languages with this command:
-{% highlight bash %}moose@pc07:~$ pygmentize -L lexers{% endhighlight %}
+```bash
+moose@pc07:~$ pygmentize -L lexers
+```
 
 This is my output:
-{% highlight text %}Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
+```text
+Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
 
 Lexers:
 ~~~~~~~
@@ -390,12 +392,14 @@ Lexers:
 * xslt:
     XSLT (filenames *.xsl, *.xslt)
 * yaml:
-    YAML (filenames *.yaml, *.yml){% endhighlight %}
+    YAML (filenames *.yaml, *.yml)
+```
 <h3>Example</h3>
 {% caption align="aligncenter" width="613" caption="LaTeX Java Source Code: minted" url="../images/2012/04/latex-java-source-minted.png" alt="LaTeX Java Source Code: minted" title="LaTeX Java Source Code: minted" height="232" class="size-full wp-image-23841" %}
 This is the <a href='../images/2012/04/minted-source-code.pdf'>PDF-file</a> produced by the following LaTeX-Code:
 
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -410,7 +414,8 @@ This is the <a href='../images/2012/04/minted-source-code.pdf'>PDF-file</a> prod
 
 \inputminted[linenos, numbersep=5pt, tabsize=4, frame=lines, label=Othello.java]{java}{Othello.java}
 
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>Material</h2>
 All files can be found in <a href='../images/2012/04/LaTeX-Source-Code.zip'>LaTeX-Source-Code Archive</a>.
@@ -423,6 +428,8 @@ All files can be found in <a href='../images/2012/04/LaTeX-Source-Code.zip'>LaTe
 </ul>
 
 You might also want to try
-{% highlight bash %}texdoc listings{% endhighlight %}
+```bash
+texdoc listings
+```
 
 This command will show a manual as a PDF.

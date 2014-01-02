@@ -12,11 +12,14 @@ featured_image: 2012/01/latex-logo.png
 It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. 
 
 I have used this command to generate the PDF-file:
-{% highlight bash %}pdflatex latex.tex -output-format=pdf{% endhighlight %}
+```bash
+pdflatex latex.tex -output-format=pdf
+```
 
 <h2>gnuplot</h2>
 {% caption align="aligncenter" width="300" caption="gnuplot" url="../images/2012/01/gnuplot-300x246.png" alt="gnuplot" title="gnuplot" height="246" class="size-medium wp-image-12781" %}
-{% highlight text %}\documentclass{article}
+```latex
+\documentclass{article}
 
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -29,11 +32,13 @@ I have used this command to generate the PDF-file:
             node[pin=180:{$4x^2-5$}]{};
         \end{axis}
     \end{tikzpicture}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>tikzpicture</h2>
 {% caption align="aligncenter" width="180" caption="tikzpicture" url="../images/2012/01/tikzpicture1-180x300.png" alt="tikzpicture" title="tikzpicture" height="300" class="size-medium wp-image-12821" %}
-{% highlight text %}\documentclass{article}
+```latex
+\documentclass{article}
  
 \usepackage{tikz}
  
@@ -52,11 +57,13 @@ I have used this command to generate the PDF-file:
           \draw [domain=1/4:2/4,orange] plot (\x,2*4-4*4*\x);
           \draw [domain=2/4:1.5,orange] plot (\x,0);
     \end{tikzpicture}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>Floating text</h2>
 If you want to wrap the text around the graph, you can use wrapfigure:
-{% highlight text %}\documentclass{article}
+```latex
+\documentclass{article}
 
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -80,7 +87,8 @@ If you want to wrap the text around the graph, you can use wrapfigure:
 \end{wrapfigure}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue dictum elit. Morbi ultricies laoreet massa, sed sagittis lorem laoreet et. Donec at erat non sem tristique rutrum vel vel justo. Vestibulum tincidunt pulvinar mi, a congue purus dignissim vel. Ut porttitor dignissim neque eget rutrum. Nunc gravida varius semper. Quisque et purus quam. Quisque ultricies tristique magna sit amet egestas. Mauris bibendum lacus semper justo consectetur blandit vitae non nisi. Etiam non augue nec est facilisis tempor. Nullam non diam vel erat fermentum gravida. Proin tincidunt turpis lobortis ante elementum suscipit. Curabitur congue, dolor fringilla feugiat blandit, quam libero euismod purus, eget commodo erat nibh a augue. Vestibulum ut tellus ac arcu semper facilisis.
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>PSTricks</h2>
 I have found <a href="http://www.tn-home.de/Tobias/Soft/TeX/TUG040611/presentation.pdf">some</a> <a href="http://en.wikipedia.org/wiki/PSTricks">very</a> <a href="http://www.siart.de/typografie/pstricks_20030809.pdf">nice</a> <a href="http://mirror.informatik.uni-mannheim.de/pub/mirrors/tex-archive/graphics/pstricks/contrib/pst-3dplot/pst-3dplot-doc.pdf">example</a> <a href="http://www.ursoswald.ch/LaTeXGraphics/pstricks/pstricks.html">images</a>, but no working LaTeX-Code.

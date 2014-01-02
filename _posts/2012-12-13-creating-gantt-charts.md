@@ -75,7 +75,8 @@ Update: These Trac-Plugins are crap. The Gantt-Chart that was created looks ugly
 <h3>pgfgantt</h3>
 This piece of LaTeX:
 
-{% highlight text %}\documentclass{article}
+```latex
+\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{pgfgantt}
@@ -94,7 +95,8 @@ This piece of LaTeX:
     \ganttlink{elem3}{elem4}
     \end{ganttchart}
 \end{preview}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 generates this Gantt chart:
 
@@ -104,7 +106,8 @@ Source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/doc
 
 <h3>Another LaTeX Gantt chart solution</h3>
 This source:
-{% highlight text %}\documentclass{article}
+```latex
+\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{gantt}
@@ -127,7 +130,8 @@ This source:
     \ganttbarcon{another consecutive task}{8}{2}
   \end{gantt}
 \end{preview}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 creates
 

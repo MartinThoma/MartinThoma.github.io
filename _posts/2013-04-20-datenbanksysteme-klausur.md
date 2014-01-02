@@ -84,13 +84,17 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
 <h2>SQL</h2>
-{% highlight text %}create view MG as 
+```sql
+create view MG as 
 select Mitarbeiter, Gehalt
 from MGA
-where Gehalt > 70{% endhighlight %}
+where Gehalt > 70
+```
 
-{% highlight text %}insert into MG
-values ('Alice', 90){% endhighlight %}
+```sql
+insert into MG
+values ('Alice', 90)
+```
 
 <h2>Fragen</h2>
 <div class="question">

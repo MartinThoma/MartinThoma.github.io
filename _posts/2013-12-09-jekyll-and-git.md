@@ -12,9 +12,15 @@ tags:
 featured_image: 2013/12/jekyll-thumbnail.png
 ---
 
-You've probably noticed that I didn't write any posts the last few weeks. The reason is that I've migrated my WordPress Blog to Jekyll. This means it takes some source files and generates purely static pages from that. The generation process is independant of user requests.
+You've probably noticed that I didn't write any posts the last few 
+weeks. The reason is that I've migrated my WordPress Blog to Jekyll. 
+This means it takes some source files and generates purely static 
+pages from that. The generation process is independant of user 
+requests.
 
-[Jekyll](http://jekyllrb.com/) is a static blog generator.
+[Jekyll](http://jekyllrb.com/) is a static blog generator, just like
+[Pelican](http://blog.getpelican.com/), [Hyde](http://ringce.com/hyde),
+[nanoc](http://nanoc.ws/) and [Octopress](http://octopress.org/).
 
 ## Jekyll compared with WordPress ##
 Jekyll is a static site generator. This means you have the

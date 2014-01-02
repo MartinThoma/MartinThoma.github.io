@@ -14,7 +14,8 @@ featured_image: 2012/07/java-thumb.png
 ---
 What is the output of the following Java Snippet:
 
-{% highlight java %}public class MyParallelClass implements java.lang.Runnable {
+```java
+public class MyParallelClass implements java.lang.Runnable {
     public String name;
 
     public myParallelTry(String name) {
@@ -25,9 +26,11 @@ What is the output of the following Java Snippet:
     public void run() {
         System.out.println(name);
     }
-}{% endhighlight %}
+}
+```
 
-{% highlight java %}public class test {
+```java
+public class test {
     public static void main(String[] args) {
         MyParallelClass a = new MyParallelClass("A");
         MyParallelClass b = new MyParallelClass("B");
@@ -54,7 +57,8 @@ What is the output of the following Java Snippet:
         new Thread(c).start();
         new Thread(d).start();
     }
-}{% endhighlight %}
+}
+```
 
 .
 .
@@ -89,7 +93,8 @@ What is the output of the following Java Snippet:
 <th>Third Try</th>
 </tr>
 <tr>
-<td>{% highlight text %}A
+<td>```text
+A
 C
 B
 -
@@ -108,28 +113,9 @@ D
 B
 B
 D
-{% endhighlight %}</td>
-<td>{% highlight text %}A
-B
-C
--
-D
+```</td>
+<td>```text
 A
-B
-C
--
-D
-A
-B
-C
--
-D
-A
-B
-C
-D
-{% endhighlight %}</td>
-<td>{% highlight text %}A
 B
 C
 -
@@ -148,14 +134,36 @@ A
 B
 C
 D
-{% endhighlight %}</td>
+```</td>
+<td>```text
+A
+B
+C
+-
+D
+A
+B
+C
+-
+D
+A
+B
+C
+-
+D
+A
+B
+C
+D
+```</td>
 </tr>
 </table>
 
 <h2>Explanation</h2>
 If you start threads like this, you don't get any guarantee that they will finish their execution in order. If you want them to execute in block of four, you could use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a>:
 
-{% highlight java %}public class test {
+```java
+public class test {
     public static void main(String[] args) {
         myParallelTry a = new myParallelTry("A");
         myParallelTry b = new myParallelTry("B");
@@ -214,7 +222,8 @@ If you start threads like this, you don't get any guarantee that they will finis
             e.printStackTrace();
         }
     }
-}{% endhighlight %}
+}
+```
 
 <table>
 <tr>
@@ -223,7 +232,8 @@ If you start threads like this, you don't get any guarantee that they will finis
 <th>Third Try</th>
 </tr>
 <tr>
-<td>{% highlight text %}A
+<td>```text
+A
 B
 D
 C
@@ -242,27 +252,9 @@ A
 B
 C
 D
-{% endhighlight %}</td>
-<td>{% highlight text %}A
-B
-C
-D
--
+```</td>
+<td>```text
 A
-B
-C
-D
--
-A
-B
-C
-D
--
-A
-B
-C
-D{% endhighlight %}</td>
-<td>{% highlight text %}A
 B
 C
 D
@@ -280,6 +272,26 @@ D
 A
 B
 C
-D{% endhighlight %}</td>
+D```</td>
+<td>```text
+A
+B
+C
+D
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D
+-
+A
+B
+C
+D```</td>
 </tr>
 </table>

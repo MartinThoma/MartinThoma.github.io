@@ -16,17 +16,20 @@ It is possible to write music with LaTeX. My girlfriend was quite surprised of t
 
 <h2>Symbols</h2>
 {% caption align="aligncenter" width="512" caption="Some basic music symbols" url="../images/2012/08/music-notes.png" alt="Some basic music symbols" title="Some basic music symbols" height="42" class="size-full wp-image-37171" %}
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{wasysym}
 \begin{document}
 \eighthnote ~~~ \halfnote ~~~ \twonotes ~~~ \fullnote ~~~ 
 \quarternote ~~~ $\natural$ ~~~ $\flat$ ~~~ $\sharp$
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 The harmony package offers some additional symbols:
 {% caption align="aligncenter" width="512" caption="music symbols form the LaTeX-harmony package" url="../images/2012/08/latex-music-harmony.png" alt="music symbols form the LaTeX-harmony package" title="music symbols form the LaTeX-harmony package" height="331" class="size-full wp-image-37181" %}
 
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{harmony}
 
 \begin{document}
@@ -35,12 +38,14 @@ The harmony package offers some additional symbols:
     \Ganz ~~~ \GaPa ~~~ \Halb ~~~ \HaPa ~~~ \Pu ~~~ \Sech \\
     \SechBL ~~~ \SechBl ~~~ \SechBR  ~~~ \SePa ~~~ \UB ~~~ \Vier \\
     \ViPa ~~~ \VM ~~~ \Zwdr ~~~ \ZwPa
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>musixtex</h2>
 {% caption align="aligncenter" width="512" caption="musixtex example" url="../images/2012/08/latex-musixtex.png" alt="musixtex example" title="musixtex example" height="139" class="size-full wp-image-37221" %}
 
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{musixtex}
 
 \begin{document}
@@ -48,15 +53,19 @@ The harmony package offers some additional symbols:
     \begin{music}\trebleclef\end{music}
     - a simple example\\
     for the \LaTeX{} package musixtex.
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>ABC</h2>
 <h3>Preparation</h3>
 You have to have ABC installed. For Ubuntu-Users:
-{% highlight bash %}sudo apt-get install abcm2ps{% endhighlight %}
+```bash
+sudo apt-get install abcm2ps
+```
 
 <h3>Example</h3>
-{% highlight text %}\documentclass[a4paper]{article}
+```latex
+\documentclass[a4paper]{article}
 \usepackage{abc}
 
 \begin{document}
@@ -66,10 +75,13 @@ You have to have ABC installed. For Ubuntu-Users:
         K: C % scale: C major
         "Text"c2 G4 | (3FED c4 G2 |
     \end{abc}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 compile with
-{% highlight bash %}pdflatex --shell-escape myTexFile.tex{% endhighlight %}
+```bash
+pdflatex --shell-escape myTexFile.tex
+```
 
 to get this:
 {% caption align="aligncenter" width="477" caption="ABC example for creating music sheets with LaTeX" url="../images/2012/07/abc-example.png" alt="ABC example for creating music sheets with LaTeX" title="ABC example for creating music sheets with LaTeX" height="113" class="size-full wp-image-33701" %}
@@ -80,13 +92,16 @@ to get this:
 Make sure that you have installed <a href="http://en.wikipedia.org/wiki/GNU_LilyPond">GNU LilyPond</a> and LaTeX. 
 
 Ubuntu-Users have to type
-{% highlight bash %}sudo apt-get install lilypond{% endhighlight %}
+```bash
+sudo apt-get install lilypond
+```
 to install Lilypond.
 
 <h3>Example</h3>
 <h4>From the Documentation</h4>
 Save the following source as <code>lilybook.lytex</code>:
-{% highlight text %}\documentclass[a4paper]{article}
+```latex
+\documentclass[a4paper]{article}
 
 \begin{document}
     Documents for \verb+lilypond-book+ may freely mix music and text.
@@ -105,14 +120,18 @@ Save the following source as <code>lilybook.lytex</code>:
 
     Larger examples can be put into a separate file, and introduced 
     with \verb+\lilypondfile+.
-\end{document}{% endhighlight %}
+\end{document}
+```
+
 Compile it with these commands:
-{% highlight bash %}lilypond-book --output=out --pdf lilybook.lytex
+```bash
+lilypond-book --output=out --pdf lilybook.lytex
 cd out/
 pdflatex lilybook
 mv lilybook.pdf ../lilybook.pdf
 cd ..
-rm -rf out{% endhighlight %}
+rm -rf out
+```
 
 For simplification, you can save this as <code>compile.sh</code>, execute <code>chmod +x compile.sh</code> and now you only have to enter <code>./compile.sh</code> to generate the PDF.
 
