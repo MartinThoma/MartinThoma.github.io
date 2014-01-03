@@ -207,7 +207,10 @@ Site search is a real problem. I've seen three solutions so far:
 3. **External Search Engines**: You could use a search engine for 
    searching your site, of course.
    * Hosted by you:
-   * Commercial: Google, Bing
+   * Commercial
+        * [Google Custom Search](https://www.google.com/cse)
+        * [Index Den](http://www.indexden.com/): Has no direct support
+          to parse your website
 
 http://www.businessguide.co.uk/blog/jekyll-search-ways-to-search-a-static-site/
 
@@ -223,7 +226,8 @@ at the moment to 2MB. I'm pretty sure my readers don't want to wait
 until 2MB are downloaded. So this one does only work for smaller
 websites.
 
-But there are [other solutions](http://christian-fei.com/simple-jekyll-search-jquery-plugin/), [too](http://forrst.com/posts/Static_site_e_g_Jekyll_search_with_JQuery-zL9).
+[Christan Fei's solution](http://christian-fei.com/simple-jekyll-search-jquery-plugin/)
+does only search in the title and category.
 
 # Templates #
 Jekyll uses Liquid as a templating language. It is similar to Django
