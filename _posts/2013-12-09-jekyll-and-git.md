@@ -84,6 +84,7 @@ Reasons for WordPress:
 2. Call it `[Username].github.io`.
 
 ### Branches ###
+The way to use Jekyll with GitHub is by using branches.
 Go to your Git repository that cointains your blog:
 
 ```bash
@@ -107,13 +108,24 @@ Now update this branch to the server:
 git push -u origin source
 ```
 
+When you enter
+
+```bash
+git checkout . master
+```
+
+you will switch to the `master` brach. The same way you can switch
+to the `source` branch. After you've entered the command, you can
+look at the folder in your file system. There will only be the data
+of the current branch.
+
 ### Custom Domain ###
 If you want to host your content at GitHub, but have a custom Domain
 like `martin-thoma.com` instead of `martinthoma.github.io`, you
 have to:
 
 1. Ask your provider (in my case "Knallhart") to add an A-record to
-   Github ()
+   Github.
 2. Add a file called `CNAME` with content `martin-thoma.com`
    (yes, without `http://`) to the root of your directory
 
