@@ -80,6 +80,7 @@ sudo apt-get install abcm2ps
 ```
 
 compile with
+
 ```bash
 pdflatex --shell-escape myTexFile.tex
 ```
@@ -93,9 +94,11 @@ to get this:
 Make sure that you have installed <a href="http://en.wikipedia.org/wiki/GNU_LilyPond">GNU LilyPond</a> and LaTeX. 
 
 Ubuntu-Users have to type
+
 ```bash
 sudo apt-get install lilypond
 ```
+
 to install Lilypond.
 
 <h3>Example</h3>
