@@ -99,7 +99,8 @@ to install Lilypond.
 
 <h3>Example</h3>
 <h4>From the Documentation</h4>
-Save the following source as <code>lilybook.lytex</code>:
+Save the following source as `lilybook.lytex`:
+
 ```latex
 \documentclass[a4paper]{article}
 
@@ -124,6 +125,7 @@ Save the following source as <code>lilybook.lytex</code>:
 ```
 
 Compile it with these commands:
+
 ```bash
 lilypond-book --output=out --pdf lilybook.lytex
 cd out/
