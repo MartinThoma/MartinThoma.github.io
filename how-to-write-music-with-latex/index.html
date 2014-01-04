@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>How to write music with LaTeX</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401041423.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401041429.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -212,42 +212,40 @@ to install Lilypond.</p>
 
 <h4>From the Documentation</h4>
 
-<p>Save the following source as <code>lilybook.lytex</code>:
-```latex
-\documentclass[a4paper]{article}</p>
-
-<p>\begin{document}
-    Documents for \verb+lilypond-book+ may freely mix music and text.
-    For example,</p>
+<p>Save the following source as <code>lilybook.lytex</code>:</p>
 <div class="highlight">
-   <pre><code class="text language-text" data-lang="text">\begin{lilypond}
-    \relative c' {
-      c2 g'2 \times 2/3 { f8 e d } c'2 g4
-    }
-\end{lilypond}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>article<span class="nb">}</span>
 
-Options are put in brackets.
-\begin[fragment,quote,staffsize=26,verbatim]{lilypond}
-  c'4 f16
-\end{lilypond}
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+    Documents for <span class="k">\verb</span>+lilypond-book+ may freely mix music and text.
+    For example,
 
-Larger examples can be put into a separate file, and introduced 
-with \verb+\lilypondfile+.
+    <span class="k">\begin</span><span class="nb">{</span>lilypond<span class="nb">}</span>
+        <span class="k">\relative</span> c' <span class="nb">{</span>
+          c2 g'2 <span class="k">\times</span> 2/3 <span class="nb">{</span> f8 e d <span class="nb">}</span> c'2 g4
+        <span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>lilypond<span class="nb">}</span>
+
+    Options are put in brackets.
+    <span class="k">\begin</span><span class="na">[fragment,quote,staffsize=26,verbatim]</span><span class="nb">{</span>lilypond<span class="nb">}</span>
+      c'4 f16
+    <span class="k">\end</span><span class="nb">{</span>lilypond<span class="nb">}</span>
+
+    Larger examples can be put into a separate file, and introduced 
+    with <span class="k">\verb</span>+<span class="k">\lilypondfile</span>+.
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-<p>\end{document}
-```</p>
-
-<p>Compile it with these commands:
-<code>bash
-lilypond-book --output=out --pdf lilybook.lytex
-cd out/
+<p>Compile it with these commands:</p>
+<div class="highlight">
+   <pre><code class="bash language-bash" data-lang="bash">lilypond-book --output<span class="o">=</span>out --pdf lilybook.lytex
+<span class="nb">cd </span>out/
 pdflatex lilybook
 mv lilybook.pdf ../lilybook.pdf
-cd ..
+<span class="nb">cd</span> ..
 rm -rf out
-</code></p>
-
+</code></pre>
+</div>
 <p>For simplification, you can save this as <code>compile.sh</code>, execute <code>chmod +x compile.sh</code> and now you only have to enter <code>./compile.sh</code> to generate the PDF.</p>
 
 <p>Output:
