@@ -33,6 +33,26 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 <td style="border-bottom:1px solid black;">Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/12_FunktionaleProgrammierung.pdf">12</a></td>
 <td style="border-bottom:1px solid black;">Haskell: zipWith, short circuit evaluation, foldl, foldr, Unendliche Listen, Typen, Polymorphie</td>
 </tr>
+<tr>
+<td style="border-bottom:1px solid black;">06.11.2013</td>
+<td style="border-bottom:1px solid black;"></td>
+<td style="border-bottom:1px solid black;">Backtracking, Algebraische und rekursive Datentypen, map for trees, Typklassen</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">08.11.2013</td>
+<td style="border-bottom:1px solid black;"></td>
+<td style="border-bottom:1px solid black;">Typklassen, Monaden</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">13.11.2013</td>
+<td style="border-bottom:1px solid black;"></td>
+<td style="border-bottom:1px solid black;">Sichtbarkeitsbereich $\subseteq$ Gültigkeitsbereich; $\alpha$ / $\eta$-Äqivalenz, Redex; Funktion, die sich als eigenes Argument nimmt; $\lambda$-Klakül ist Turing-Mächtig</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">29.11.2013</td>
+<td style="border-bottom:1px solid black;">Logische Programmierung</td>
+<td style="border-bottom:1px solid black;">Prolog</td>
+</tr>
 </table>
 
 ### Übungsblätter ###
