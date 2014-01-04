@@ -11,12 +11,12 @@ tags:
 - Programmierparadigmen
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 geh&ouml;rt.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 gehört.</div>
 
 Der Artikel wird bis zur Klausur laufend aktualisiert.
 
-<h2>Behandelter Stoff</h2>
-<h3>Vorlesung</h3>
+## Behandelter Stoff ##
+### Vorlesung ###
 <table>
 <tr>
 <td style="border-bottom:1px solid black;">23.10.2013</td>
@@ -26,7 +26,7 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 <tr>
 <td style="border-bottom:1px solid black;">25.10.2013</td>
 <td style="border-bottom:1px solid black;">Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/11_FunktionaleProgrammierung.pdf">11</a></td>
-<td style="border-bottom:1px solid black;">Haskell: filter, map, iter, foldr, foldl, Currying, Extensionalit&auml;tsprinzip, Kombinatoren (Summe, Produkt), flatten, cons, zip</td>
+<td style="border-bottom:1px solid black;">Haskell: filter, map, iter, foldr, foldl, Currying, Extensionalitätsprinzip, Kombinatoren (Summe, Produkt), flatten, cons, zip</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;">30.10.2013</td>
@@ -35,38 +35,54 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 </tr>
 </table>
 
-<h3>&Uuml;bungsbl&auml;tter</h3>
+### Übungsblätter ###
 <table>
   <tr>
-    <th>&Uuml;bungsblatt</th>
+    <th>Übungsblatt</th>
     <th>Inhalt</th>
   </tr>
   <tr>
-    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt0.pdf" rel="nofollow">&Uuml;B 0</a>: Haskell</td>
+    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt0.pdf" rel="nofollow">ÜB 0</a>: Haskell</td>
     <td>Haskell installieren (siehe <a href="http://wiki.ubuntuusers.de/Haskell">UbuntuUsers</a>), Maximum dreier Zahlen berechnen</td>
   </tr>
   <tr>
-    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt1.pdf" rel="nofollow">&Uuml;B 1</a>: Rekursive Funktionen in Haskell</td>
+    <td><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/blaetter/blatt1.pdf" rel="nofollow">ÜB 1</a>: Rekursive Funktionen in Haskell</td>
     <td>Potenzen, Primzahlen, Sortieren</td>
   </tr>
 </table>
 
+### Tutorium ###
+#### 16.12.2013 ####
 
-<h2>Material</h2>
+```haskell
+let f = \ x.plus x x in f (f c_2)    ^= (\ f. f (f c_2)) (\x. plus x x)
+```
+
+`let` wird wegen dem Typsystem benötigt (`let` ist polymorph, 
+$\lambda$-Term nicht).
+
+```haskell
+let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
+    f: \alpha_5 -> int
+    f: \forall \alpha_5. \alpha_5 \rightarrow int 
+```
+
+
+## Material ##
 <ul>
-  <li><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Vorlesungswebsite</a> und <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">&Uuml;bungsbl&auml;tter</a></li>
+  <li><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Vorlesungswebsite</a> und <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Übungsblätter</a></li>
   <li>Ein <a href="https://ankiweb.net/shared/info/3121773115">Anki-Deck</a> (NICHT meines!)</li>
 </ul>
 
-<h2>&Uuml;bungsbetrieb</h2>
+<h2>Übungsbetrieb</h2>
 <ul>
-<li>Wo sind die &Uuml;bungsbl&auml;tter: <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Link</a></li>
+<li>Wo sind die Übungsblätter: <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Link</a></li>
 <li>Abgabeform: ?</li>
 <li>Abgabe: ?</li>
-<li>R&uuml;cknahme: ?</li>
-<li>Turnus: w&ouml;chentlich, erscheint am Donnerstag</li>
-<li>&Uuml;bungsschein verpflichtend: Es gibt keinen &Uuml;bungsschein.</li>
-<li>Bonus durch &Uuml;bungsschein: Es gibt keinen Klausurbonus.</li>
+<li>Rücknahme: ?</li>
+<li>Turnus: wöchentlich, erscheint am Donnerstag</li>
+<li>Übungsschein verpflichtend: Es gibt keinen Übungsschein.</li>
+<li>Bonus durch Übungsschein: Es gibt keinen Klausurbonus.</li>
 </ul>
 
 <h2>Termine und Klausurablauf</h2>
@@ -74,17 +90,17 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 <strong>Ort</strong>: steht noch nicht fest (Stand: 10.12.2013)
 <strong>Punkte</strong>: ?
 <strong>Bestehensgrenze</strong>: ?
-<strong>&Uuml;bungsschein</strong>: Gibt es nicht.
+<strong>Übungsschein</strong>: Gibt es nicht.
 <strong>Bonuspunkte</strong>: Gibt es nicht.
 <strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 10.12.2013)
 <strong>Einsicht</strong>: steht noch nicht fest (Stand: 10.12.2013)
 <strong>Erlaubte Hilfsmittel</strong>: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
-<blockquote>Erlaubte Hilfsmittel f&uuml;r die Klausur sind alle Quellen in Papierform, insbesondere
+<blockquote>Erlaubte Hilfsmittel für die Klausur sind alle Quellen in Papierform, insbesondere
 <ul>
 <li>Vorlesungsfolien der Veranstaltung Programmierparadigmen</li>
-<li>&Uuml;bungszettel und Beispiell&ouml;sungen der Veranstaltung Programmierparadigmen</li>
-<li>B&uuml;cher, Ausdrucke und beliebige eigenen Aufzeichnungen</li>
+<li>Übungszettel und Beispiellösungen der Veranstaltung Programmierparadigmen</li>
+<li>Bücher, Ausdrucke und beliebige eigenen Aufzeichnungen</li>
 </ul>
 </blockquote>
 
