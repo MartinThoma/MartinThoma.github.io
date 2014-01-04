@@ -59,6 +59,7 @@ The harmony package offers some additional symbols:
 <h2>ABC</h2>
 <h3>Preparation</h3>
 You have to have ABC installed. For Ubuntu-Users:
+
 ```bash
 sudo apt-get install abcm2ps
 ```

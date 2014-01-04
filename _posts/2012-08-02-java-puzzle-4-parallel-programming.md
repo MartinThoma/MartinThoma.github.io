@@ -95,7 +95,7 @@ public class test {
 <tr>
 <td>
 
-```text
+{% highlight text %}
 A
 C
 B
@@ -115,12 +115,12 @@ D
 B
 B
 D
-```
+{% endhighlight %}
 
 </td>
 <td>
 
-```text
+{% highlight text %}
 A
 B
 C
@@ -140,7 +140,7 @@ A
 B
 C
 D
-```
+{% endhighlight %}
 
 </td>
 <td>

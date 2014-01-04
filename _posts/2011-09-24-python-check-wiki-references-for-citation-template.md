@@ -24,7 +24,7 @@ So I try to fix all manual styled citations when I edit an article. Doing this m
 should be 
 
 ```html
-<ref>{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}</ref>
+<ref>{% raw %}{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}{% endraw %}</ref>
 ```
 
 ```html
@@ -34,7 +34,7 @@ should be
 should be 
 
 ```html
-{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}
+<ref>{% raw %}{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}{% endraw %}</ref>
 ```
 
 So, all that has to be done is 
