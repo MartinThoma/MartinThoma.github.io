@@ -37,7 +37,12 @@ Oh-my-ZSH is a plugin for ZSH. I think this plugin is very good and makes a big 
 
 <h2>ZSH and Bash</h2>
 Here are some differences. On the left side is zsh, on the right is bash:
-[gallery columns="2" link="file" ids="76663,76664,76665,76666"]
+{% gallery columns="2" %}
+    76663
+    76664
+    76665
+    76666
+{% endgallery %}
 
 I like the time command of bash more, but that's it. All other interactions are either almost the same or better in zsh. I especially like that zsh doesn't print everything again when you autocomplete with tab. And it also autocompletes when you make an capitalization error.
 
