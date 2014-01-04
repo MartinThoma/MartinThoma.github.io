@@ -108,9 +108,11 @@ At the moment I get only: "404 NOT FOUND". This is not very helpful. You should 
 I would like to get the latest news about KIT, but I don't want to search for it. I also don't want to look at the homepage of KIT to check if I know the latest content. This should be done with a RSS feed.
 
 The start page should have an auto-detectable RSS-Feed. It can be added with the following HTML-Tag in the head-section of the document:
-[html]<link rel="alternate" type="application/rss+xml" 
+```html
+<link rel="alternate" type="application/rss+xml" 
   title="KIT News Feed" 
-  href="/rss/" />[/html]
+  href="/rss/" />
+```
 
 <h2>Use HTML5 input tags</h2>
 HTML5 input tags can much more than the old ones. You can define <a href="http://www.w3schools.com/html5/att_input_autofocus.asp">autofocus</a> for the first element, <a href="http://www.w3schools.com/html5/att_input_placeholder.asp">placeholders</a>, <a href="http://www.w3schools.com/html5/att_input_autocomplete.asp">autocomplete</a>=off for password fields at the registration, <a href="http://www.w3schools.com/html5/att_input_pattern.asp">patterns</a> for clients side validation and <a href="http://www.w3schools.com/html5/att_input_type.asp">much more types</a> than text and password. Old browsers automatically fall back into a simple text input field.

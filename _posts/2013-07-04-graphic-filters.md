@@ -23,7 +23,7 @@ You need:
 
 This is the bare minimum HTML code you need for valid HTML:
 
-[html]
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +36,7 @@ This is the bare minimum HTML code you need for valid HTML:
 		</script>
 	</body>
 </html>
-[/html]
+```
 
 <h3>JavaScript</h3>
 Important functions / datastructures are:
@@ -47,7 +47,7 @@ Important functions / datastructures are:
 
 A starting point for your code might be:
 
-{% highlight javascript %}
+```javascript
 'use strict';
 
 var video = document.querySelector("#vid");
@@ -89,7 +89,7 @@ navigator.getUserMedia({video:true}, function (stream) {
     localMediaStream = stream;
 }, onCameraFail);
 console.log(localMediaStream);
-{% endhighlight %}
+```
 
 <h2>Interactive example</h2>
 <div class="info">

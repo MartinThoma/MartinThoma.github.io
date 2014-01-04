@@ -20,7 +20,8 @@ Firefox gives you the possibility to add such a search engine to your browser:
 <a href="http://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> is a collection of technologies. This project aims to create a standard for publishing the metadata which describes a search engine: name, description, URL-pattern, language, ...
 
 A <abbr title="OpenSearch Description Document">OSSD</abbr> looks like this:
-[xml]<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+```xml
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
     <ShortName>Example</ShortName>
     <Description>My example search engine</Description>
     <InputEncoding>UTF-8</InputEncoding>
@@ -29,13 +30,16 @@ A <abbr title="OpenSearch Description Document">OSSD</abbr> looks like this:
     </Image>
     <Url type="text/html" 
          template="http://example.org/index.html#search={searchTerms}"/>
-</OpenSearchDescription>[/xml]
+</OpenSearchDescription>
+```
 
 The browser needs a hint where it can find the OSSD. So you have to add the following tag to your website:
-[xml]<link title = "Example" 
+```xml
+<link title = "Example" 
       type  = "application/opensearchdescription+xml" 
       rel   = "search" 
-      href  = "http://example.org/opensearch.xml">[/xml]
+      href  = "http://example.org/opensearch.xml">
+```
 
 Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+. 
 
@@ -53,16 +57,21 @@ Chrome also adds the sites internal search engine automatically. Did you ever no
 
 {% caption align="aligncenter" width="656" caption="Google Chrome Search - Search with the websites internal search engine" url="../images/2011/10/google-chrome-search-2.png" alt="Google Chrome Search - Search with the websites internal search engine" title="Google Chrome Search - Search with the websites internal search engine" height="30" class="size-full wp-image-6851" %}
 
-Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type "search" or of the type "text" with the name "s":
-[html]<form>
+Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type `search` or of the type `text` with the name `s`:
+
+```html
+<form>
   <input type="search" name="s" />
-</form>[/html]
+</form>
+```
 
 or
 
-[html]<form>
+```html
+<form>
   <input type="text" name="s" />
-</form>[/html]
+</form>
+```
 
 <h2>Drawbacks</h2>
 <ul>

@@ -17,15 +17,25 @@ So I try to fix all manual styled citations when I edit an article. Doing this m
 
 <h2>Examples</h2>
 
-[html]<ref>[http://peter.mapledesign.co.uk/weblog/archives/python-is-slow Python is... slow?] December 21st, 2004 &mdash; Peter Bowyer&rsquo;s weblog]</ref>[/html]
+```html
+<ref>[http://peter.mapledesign.co.uk/weblog/archives/python-is-slow Python is... slow?] December 21st, 2004 &mdash; Peter Bowyer&rsquo;s weblog]</ref>
+```
 
 should be 
 
-[html]<ref>{% raw  %}{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}{% endraw  %}</ref>[/html]
+```html
+<ref>{{Citation |url=http://peter.mapledesign.co.uk/weblog/archives/python-is-slow |title=Python is... slow? |accessdate=September 24, 2011}}</ref>
+```
 
-[html]<ref>[http://www.nongnu.org/pydbc/ Contracts for Python], PyDBC</ref>[/html]
+```html
+<ref>[http://www.nongnu.org/pydbc/ Contracts for Python], PyDBC</ref>
+```
+
 should be 
-[html]{% raw  %}{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}{% endraw  %}[/html]
+
+```html
+{{Citation |url=http://www.nongnu.org/pydbc/ |title=Contracts for Python |accessdate=September 24, 2011}}
+```
 
 So, all that has to be done is 
 <ol>
