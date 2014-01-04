@@ -20,4 +20,7 @@ So I've called them, they apologized and promised to send me book no. 4.
 Three days later, I've got a book of "The Dresden Files": Book no 5!
 
 <h3>Wrong cover</h3>
-[gallery columns="2" ids="69291,69301" size="medium"]
+{% gallery columns="2" size="medium"%}
+    69291
+    69301
+{% endgallery %}
