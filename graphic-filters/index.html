@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Graphic filters</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401041352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401041405.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -93,26 +93,29 @@
 </p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><canvas></canvas></a></li>
   <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><video></video></a></li>
 </ul><p>This is the bare minimum HTML code you need for valid HTML:</p>
-
-<p>[html]
-&lt;!DOCTYPE html&gt;
-
-    </p>
-        <title>Some title</title><video autoplay="" id="vid" style="display:none;"></video><canvas id="canvas" width="640" height="480"></canvas><script type="text/javascript" src="graphic-filter.js">
-<![CDATA[
-        ]]>
-</script>
-[/html]
-
+<div class="highlight">
+   <pre><code class="html language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Some title<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;video</span> <span class="na">autoplay</span> <span class="na">id=</span><span class="s">"vid"</span> <span class="na">style=</span><span class="s">"display:none;"</span><span class="nt">&gt;&lt;/video&gt;</span>
+        <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"canvas"</span> <span class="na">width=</span><span class="s">"640"</span> <span class="na">height=</span><span class="s">"480"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+        <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"graphic-filter.js"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
 <h3 id="tocAnchor-1-1-2">JavaScript</h3>
 
 <p>Important functions / datastructures are:
 </p><ul><li><a href="https://developer.mozilla.org/en-US/docs/WebRTC/navigator.getUserMedia">getUserMedia</a>: see <a href="http://caniuse.com/stream">support by browsers</a></li>
   <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a>: WTF? The image is a ONE dimensional array of integers in 0, ..., 255. So the first 4 array elements describe the pixel (0|0) with its RGBA value</li>
 </ul><p>A starting point for your code might be:</p>
-
 <div class="highlight">
-   <pre><code class="javascript"><span class="s1">'use strict'</span><span class="p">;</span>
+   <pre><code class="javascript language-javascript" data-lang="javascript"><span class="s1">'use strict'</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#vid"</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#canvas'</span><span class="p">);</span>
@@ -155,9 +158,8 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">localMediaStream</span><span class="p">);</span>
 </code></pre>
 </div>
-
-
 <h2 id="tocAnchor-1-4">Interactive example</h2>
+
 <div class="info">
 You need a webcam for this:
 <a href="../html5/graphic-filters/graphic-filters.htm" target="_blank">Open demonstration in new window</a>

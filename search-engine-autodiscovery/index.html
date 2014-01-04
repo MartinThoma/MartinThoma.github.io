@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Search Engine Autodiscovery</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401041352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401041405.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -98,12 +98,26 @@ Firefox gives you the possibility to add such a search engine to your browser:
 <p><a href="http://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> is a collection of technologies. This project aims to create a standard for publishing the metadata which describes a search engine: name, description, URL-pattern, language, ...</p>
 
 <p>A <abbr title="OpenSearch Description Document">OSSD</abbr> looks like this:
-[xml]<opensearchdescription xmlns="http://a9.com/-/spec/opensearch/1.1/"><shortname>Example</shortname><description>My example search engine</description><inputencoding>UTF-8</inputencoding><image height="16" width="16" type="image/x-icon">
+<code>xml
+&lt;OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"&gt;
+    &lt;ShortName&gt;Example&lt;/ShortName&gt;
+    &lt;Description&gt;My example search engine&lt;/Description&gt;
+    &lt;InputEncoding&gt;UTF-8&lt;/InputEncoding&gt;
+    &lt;Image height="16" width="16" type="image/x-icon"&gt;
         http://example.org/favicon.ico
-    </image><url type="text/html" template="http://example.org/index.html#search={searchTerms}"></url></opensearchdescription>[/xml]</p>
+    &lt;/Image&gt;
+    &lt;Url type="text/html" 
+         template="http://example.org/index.html#search={searchTerms}"/&gt;
+&lt;/OpenSearchDescription&gt;
+</code></p>
 
 <p>The browser needs a hint where it can find the OSSD. So you have to add the following tag to your website:
-[xml]<link title="Example" type="application/opensearchdescription+xml" rel="search" href="http://example.org/opensearch.xml" />[/xml]</p>
+<code>xml
+&lt;link title = "Example" 
+      type  = "application/opensearchdescription+xml" 
+      rel   = "search" 
+      href  = "http://example.org/opensearch.xml"&gt;
+</code></p>
 
 <p>Now you can add the websites internal search engine automatically to Chrome and easily to Firefox and Internet Explorer 8+. </p>
 
@@ -141,15 +155,20 @@ Firefox gives you the possibility to add such a search engine to your browser:
    <p class="wp-caption-text"></p>
 </div>
 
-<p>Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type "search" or of the type "text" with the name "s":
-[html]</p><form>
-  <input type="search" name="s" /></form>[/html]
-
+<p>Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type <code>search</code> or of the type <code>text</code> with the name <code>s</code>:</p>
+<div class="highlight">
+   <pre><code class="html language-html" data-lang="html"><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">name=</span><span class="s">"s"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
 <p>or</p>
-
-<p>[html]</p><form>
-  <input type="text" name="s" /></form>[/html]
-
+<div class="highlight">
+   <pre><code class="html language-html" data-lang="html"><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"s"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
 <h2 id="tocAnchor-1-3">Drawbacks</h2>
 
 <ul><li>It seems as if Safari didn't support OSSD natively. (14.04.2011)</li>
