@@ -3,7 +3,8 @@ layout: search
 title: "Search"
 ---
 
-<?php 
+<?php
+// Call this file "index.php" and place it in a folder called "search"
 $db = new SQLite3('search.db', SQLITE3_OPEN_READONLY);
 
 $query = $_GET['s'];
