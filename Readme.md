@@ -10,6 +10,7 @@ TODO
 * Fix posts
   - http://martinthoma.github.io/check-point-inside-polygon/ (LaTeX)
   - http://martinthoma.github.io/word-error-rate-calculation/ (LaTeX)
+  - http://martin-thoma.com/python-check-wiki-references-for-citation-template/ (Gist)
 
 Improve
 ========
