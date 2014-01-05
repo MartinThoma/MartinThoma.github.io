@@ -18,7 +18,6 @@ test:
 	jekyll build --draft
 	# postprocessing
 	./_postprocess.py
-	-@[ -e "search.db" ] && mv -f search.db _site/search/search.db
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
 	# remove temporary files
@@ -35,7 +34,6 @@ deploy:
 	jekyll build --config _config_prod.yml
 	# postprocessing
 	./_postprocess.py
-	-@[ -e "search.db" ] && mv -f search.db _site/search/search.db
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
 	# remove temporary files
@@ -49,24 +47,6 @@ deploy:
 	git commit -m "misc"
 	git push origin master
 	git checkout source
-
-martinde:
-	make clean
-	jekyll build --config _config_martinde.yml
-	./_postprocess.py
-	-@[ -e "search.db" ] && mv -f search.db _site/search/search.db
-
-martincom:
-	make clean
-	# add folder to save not-preprocessed posts
-	mkdir -p _postStorage
-	cp _posts/* _postStorage/
-	# do preprocessing
-	./_preprocess.py
-    #build
-	jekyll build --config _config_martincom.yml
-	./_postprocess.py
-	-@[ -e "search.db" ] && mv -f search.db _site/search/search.db
 
 clean:
 	rm -rf _site
