@@ -76,6 +76,10 @@ Reasons for WordPress:
       pages per default, the plugins that provide tags don't have 
       paginated tag index pages. The same problem occurs when it comes
       to categories or authors.</li>
+  <li>**Timed posts**: I did not use timed posts very often, but
+      it is very easy to create them with WordPress. With Jekyll,
+      on the other hand, you have to know how to create cronjobs.
+      And your computer has to be running.</li>
 </ul>
 
 ## GitHub ##
