@@ -10,7 +10,7 @@ layout: nil
     <priority>1.0</priority>
   </url>
   {% for post in site.posts %}
-    {% if post.url contains '/page/' %}
+    {% if post.url contains '/page/' or post.url contains '/tag/' or post.url contains '/category/' %}
     {% else %}
     <url>
       <loc>{{ site.baseurl }}{{ post.url }}</loc>
@@ -27,7 +27,7 @@ layout: nil
     {% endif %}
   {% endfor %}
   {% for page in site.pages %}
-    {% if page.url contains '/page/' %}
+    {% if page.url contains '/page/' or page.url contains '/tag/' or page.url contains '/category/' %}
     {% else %}
   <url>
     <loc>{{ site.baseurl }}{{ page.url }}</loc>
