@@ -2,6 +2,7 @@ TODO
 =====
 
 * replace category names (whitespaces by -)
+* replace tag names (whitespace by -)
 * add missing featured images to posts
 * add pagination for category pages / tag pages
 * add site search
