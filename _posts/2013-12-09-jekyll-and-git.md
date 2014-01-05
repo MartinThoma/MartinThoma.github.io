@@ -205,7 +205,7 @@ Site search is a real problem. I've seen three solutions so far:
 
 1. **Dynamic Search**: You can add a dynamic part to your statically
    generated website. For example, I create a `search/index.php` and
-   a SQLite database.
+   a SQLite database like it was [described here](http://www.businessguide.co.uk/blog/jekyll-search-ways-to-search-a-static-site/).
 2. **Static JavaScript**: Create a JSON file or something similar and
    search dynamically with JavaScript in it.
 3. **External Search Engines**: You could use a search engine for 
@@ -215,10 +215,6 @@ Site search is a real problem. I've seen three solutions so far:
         * [Google Custom Search](https://www.google.com/cse)
         * [Index Den](http://www.indexden.com/): Has no direct support
           to parse your website
-
-http://www.businessguide.co.uk/blog/jekyll-search-ways-to-search-a-static-site/
-
-http://www.mzlinux.org/?q=node/435
 
 ### PHP+SQLite ###
 
@@ -248,6 +244,10 @@ is a short introduction to Liquid.
 * Speed: Could be better...
   * [tools.pingdom.com](http://tools.pingdom.com/)
   * [PageSpeed](http://developers.google.com/speed/pagespeed/insights/?url=martin-thoma.com) 72 on mobile and 85 on desktop
+* More:
+  * [Mobile readyness](http://ready.mobi/launch.jsp?locale=en_EN#fragment-1)
+  * [Load test](http://loadimpact.com/)
+  * [Alexa](http://www.alexa.com/siteinfo/martin-thoma.com)
 
 ## Resources ##
 * <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a>
