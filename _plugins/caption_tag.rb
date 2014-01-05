@@ -1,9 +1,14 @@
-# Title: Caption tag
-# Author: Martin Thoma, http://martin-thoma.com
+# A Liquid tag for Jekyll sites that allows easy creation of captioned
+# images like they are in WordPress.
 #
-# Searches for:
+# Author: Martin Thoma (info@martin-thoma.de)
+# Source: https://github.com/MartinThoma/jekyll-caption-tag
+# Version: 1.0
+#
+# Example usage:
 #   {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="/images/2013/11/WER-calculation.png" %}
-# and replaces it with:
+#
+# Plugin replaces the template above with:
 #    <div style="width: 510px" class="wp-caption aligncenter">
 #        <a href="/images/2013/11/WER-calculation.png">
 #            <img src="/images/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full">
@@ -37,7 +42,7 @@ module Jekyll
         @hash = parse_attrs(@text)
         "<div style=\"width: #{@hash['width']}px\" class=\"wp-caption #{@hash['align']}\">" +
         "<a href=\"" + context.registers[:site].config['baseurl'] + "/images/#{@hash['url']}\">" +
-            "<img src=\"" + context.registers[:site].config['baseurl'] + "/images/#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\">" +
+            "<img src=\"" + context.registers[:site].config['baseurl'] + "/images/#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\"/>" +
         "</a>" +
         "<p class=\"wp-caption-text\">#{@hash['text']}</p>" +
         "</div>"
