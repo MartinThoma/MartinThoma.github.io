@@ -239,9 +239,12 @@ templates. [Here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
 is a short introduction to Liquid.
 
 ## Some tests ##
-I like <a href="http://tools.pingdom.com/fpt/">Pingdom Tools</a> to get some information about my site (number of requests, load time, page size, ...).
-
-<a href="http://whichloadsfaster.com/">WichLoadsFaster.com</a> is also nice, because it lets me compare my old site to my new site.
+* [validator.w3.org](http://validator.w3.org/check?uri=martin-thoma.com):
+  My site is HTML-valid. The error that this validator shows is caused
+  by an bug inside of the validator itself.
+* [jigsaw.w3.org](http://jigsaw.w3.org/css-validator/validator?uri=martin-thoma.com):
+  My site is CSS-valid.
+* [tools.pingdom.com](http://tools.pingdom.com/): The speed could be better
 
 ## Resources ##
 * <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a>

@@ -41,8 +41,8 @@ module Jekyll
     def render(context)
         @hash = parse_attrs(@text)
         "<div style=\"width: #{@hash['width']}px\" class=\"wp-caption #{@hash['align']}\">" +
-        "<a href=\"" + context.registers[:site].config['baseurl'] + "/images/#{@hash['url']}\">" +
-            "<img src=\"" + context.registers[:site].config['baseurl'] + "/images/#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\"/>" +
+        "<a href=\"#{@hash['url']}\">" +
+            "<img src=\"#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\"/>" +
         "</a>" +
         "<p class=\"wp-caption-text\">#{@hash['text']}</p>" +
         "</div>"
