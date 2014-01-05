@@ -233,7 +233,7 @@ websites.
 [Christan Fei's solution](http://christian-fei.com/simple-jekyll-search-jquery-plugin/)
 does only search in the title and category.
 
-# Templates #
+## Templates ##
 Jekyll uses Liquid as a templating language. It is similar to Django
 templates. [Here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
 is a short introduction to Liquid.
