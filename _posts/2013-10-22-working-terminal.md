@@ -58,3 +58,6 @@ might already have typed something like the following:
 grep --exclude-dir=".svn" "searchterm" *
 grep -rI "onlytextSearchterm" .
 ```
+
+An alternative to `grep` is `ack` (for Ubuntu users: `ack-grep`).
+See [beyondgrep.com](http://beyondgrep.com/).
