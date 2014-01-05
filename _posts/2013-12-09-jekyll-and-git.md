@@ -239,12 +239,15 @@ templates. [Here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
 is a short introduction to Liquid.
 
 ## Some tests ##
-* [validator.w3.org](http://validator.w3.org/check?uri=martin-thoma.com):
-  My site is HTML-valid. The error that this validator shows is caused
-  by an bug inside of the validator itself.
-* [jigsaw.w3.org](http://jigsaw.w3.org/css-validator/validator?uri=martin-thoma.com):
+* Validation
+  * [validator.w3.org](http://validator.w3.org/check?uri=martin-thoma.com):
+    My site is HTML-valid. The error that this validator shows is caused
+    by an bug inside of the validator itself.
+  * [jigsaw.w3.org](http://jigsaw.w3.org/css-validator/validator?uri=martin-thoma.com):
   My site is CSS-valid.
-* [tools.pingdom.com](http://tools.pingdom.com/): The speed could be better
+* Speed: Could be better...
+  * [tools.pingdom.com](http://tools.pingdom.com/)
+  * [PageSpeed](http://developers.google.com/speed/pagespeed/insights/?url=martin-thoma.com) 72 on mobile and 85 on desktop
 
 ## Resources ##
 * <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a>
