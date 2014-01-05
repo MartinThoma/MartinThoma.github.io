@@ -38,10 +38,10 @@ Oh-my-ZSH is a plugin for ZSH. I think this plugin is very good and makes a big 
 ## ZSH and Bash ##
 Here are some differences. On the left side is zsh, on the right is bash:
 {% gallery columns="2" %}
-    76663
-    76664
-    76665
-    76666
+    ../images/2013/10/bash-vs-zsh-cd.png    "Bash vs zsh: cd command completion"
+    ../images/2013/10/bash-vs-zsh-git.png   "Bash vs zsh: Git prompt indicator"
+    ../images/2013/10/bash-vs-zsh-spelling-correction.png   "Bash vs zsh: Spelling correction"
+    ../images/2013/10/bash-vs-zsh-time.png  "Bash vs zsh: time command"
 {% endgallery %}
 
 I like the time command of bash more, but that's it. All other interactions are either almost the same or better in zsh. I especially like that zsh doesn't print everything again when you autocomplete with tab. And it also autocompletes when you make an capitalization error.
