@@ -4,7 +4,7 @@
 module Jekyll
   module SlugifyFilter
     def slugify(input)
-        @loweredInput = input.downcase.gsub('/[ ]/', ' ' => '-')
+        @loweredInput = input.downcase.gsub(' ', '-')
         return @loweredInput
     end
   end
