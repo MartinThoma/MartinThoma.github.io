@@ -23,7 +23,7 @@ ZSH and Bash are both Unix shells. A shell is a command line interpreter that pr
 
 Command line describes the textual way you interact with the computer. When you're in a graphical user interface situation you interact by manipulating windows with your keyboard/mouse. When you're in a text-based user interface situation, you interact by entering commands in a line (hence command line).
 
-<h2>Oh-my-ZSH Installation</h2>
+## Oh-my-ZSH Installation ##
 Oh-my-ZSH is a plugin for ZSH. I think this plugin is very good and makes a big difference to Bash. So when you look at the screenshots below, keep in mind that this is not a "plain vanilla" zsh.
 
 <ul>
@@ -35,7 +35,7 @@ Oh-my-ZSH is a plugin for ZSH. I think this plugin is very good and makes a big 
   <li>Make ZSH your default Shell in MATE Terminal (<a href="http://askubuntu.com/a/342342/10425">description</a>) and eventually <code>sudo chsh -s /usr/bin/zsh username</code></li>
 </ul>
 
-<h2>ZSH and Bash</h2>
+## ZSH and Bash ##
 Here are some differences. On the left side is zsh, on the right is bash:
 {% gallery columns="2" %}
     76663
@@ -48,3 +48,13 @@ I like the time command of bash more, but that's it. All other interactions are 
 
 I also begin to like the Git-specific prompt indicators:
 {% caption align="aligncenter" width="236" caption="ZSH 'git add' indicator" url="../images/2013/10/oh-my-zsh-git-added.png" alt="ZSH 'git add' indicator" height="42" class="size-full wp-image-76671" %}
+
+## Some usefull tools ##
+### ack ###
+You might already know `grep`. And if you've worked with it, you 
+might already have typed something like the following:
+
+```bash
+grep --exclude-dir=".svn" "searchterm" *
+grep -rI "onlytextSearchterm" .
+```
