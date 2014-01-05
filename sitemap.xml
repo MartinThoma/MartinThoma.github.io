@@ -10,7 +10,8 @@ layout: nil
     <priority>1.0</priority>
   </url>
   {% for post in site.posts %}
-    {% if !(post.url contains '/page/') %}
+    {% if post.url contains '/page/' %}
+    {% else %}
     <url>
       <loc>{{ site.baseurl }}{{ post.url }}</loc>
       {% if post.lastmod == null %}
@@ -26,7 +27,8 @@ layout: nil
     {% endif %}
   {% endfor %}
   {% for page in site.pages %}
-    {% if !(page.url contains '/page/') %}
+    {% if post.url contains '/page/' %}
+    {% else %}
   <url>
     <loc>{{ site.baseurl }}{{ page.url }}</loc>
     {% if page.sitemap.lastmod %}
