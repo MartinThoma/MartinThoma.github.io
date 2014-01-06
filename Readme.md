@@ -18,6 +18,7 @@ TODO
   - http://martin-thoma.com/semantische-sicherheit/
   - http://martin-thoma.com/how-to-search-for-mathematical-symbols-in-latex/
   - http://martin-thoma.com/latex-versioning-a-great-experience/
+* Markdown rendered within fenced code tag: http://martin-thoma.com/how-to-print-source-code-with-latex/
 
 Improve
 ========

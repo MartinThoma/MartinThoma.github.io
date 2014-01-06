@@ -6,7 +6,7 @@
     
 
     <title>How to draw a finite-state machine</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401062354.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070010.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -164,61 +164,63 @@
 
 <p>If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.</p>
 
-<p>This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:
-```latex
-\documentclass{scrartcl}
-\usepackage{tikz}
-\usetikzlibrary{arrows,automata}</p>
+<p>This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:</p>
+<div class="highlight">
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
 
-<p>\begin{document}
-\begin{tikzpicture}[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
-  \node<a href="S">initial,state,accepting</a>      {$S$};
-  \node<a href="q1">state</a> [right of=S]  {$q_1$};
-  \node<a href="q2">state</a> [right of=q1] {$q_2$};</p>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+  <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span>`<span class="s">$</span><span class="nb">S</span><span class="s">$</span>`<span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span>`<span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span>`<span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span>`<span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span>`<span class="nb">}</span>;
 
-<p>\path<a href="S">-&gt;</a>  edge [loop above] node {a} (S)
-             edge              node {a} (q1)
-        (q1) edge [bend left]  node {a} (S)
-             edge              node {b} (q2)
-        (q2) edge [loop above] node {b} (q2)
-             edge [bend left]  node {b} (q1);
-\end{tikzpicture}
-\end{document}
-```</p>
 
-<p>This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:
-<code>bash
-pdflatex latexsheet.tex -output-format=pdf
-</code></p>
+  <span class="k">\path</span><span class="na">[-&gt;]</span> (S)  edge [loop above] node <span class="nb">{</span>a<span class="nb">}</span> (S)
+             edge              node <span class="nb">{</span>a<span class="nb">}</span> (q1)
+        (q1) edge [bend left]  node <span class="nb">{</span>a<span class="nb">}</span> (S)
+             edge              node <span class="nb">{</span>b<span class="nb">}</span> (q2)
+        (q2) edge [loop above] node <span class="nb">{</span>b<span class="nb">}</span> (q2)
+             edge [bend left]  node <span class="nb">{</span>b<span class="nb">}</span> (q1);
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</code></pre>
+</div>
+<p>This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:</p>
+<div class="highlight">
+   <pre><code class="bash language-bash" data-lang="bash">pdflatex latexsheet.tex -output-format<span class="o">=</span>pdf
+</code></pre>
+</div>
+<p>If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:</p>
 
-<p>If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
-</p><div style="width: 400px" class="wp-caption aligncenter">
+<div style="width: 400px" class="wp-caption aligncenter">
    <a href="../images/2011/10/latex-finite-state-machine.png">
       <img src="../images/2011/10/latex-finite-state-machine.png" alt="" width="400" height="147" class="size-full wp-image-13421" />
    </a>
    <p class="wp-caption-text">Finite-state-machine with LaTeX</p>
 </div>
-```latex
-\documentclass{scrartcl}
-\usepackage{tikz}
-\usetikzlibrary{arrows,automata}
+<div class="highlight">
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
 
-<p>\begin{document}
-\begin{tikzpicture}[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
-  \node<a href="S">initial,state,accepting</a>      {$S$};
-  \node<a href="q1">state</a> [right of=S]  {$q_1$};
-  \node<a href="q2">state</a> [right of=q1] {$q_2$};</p>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+  <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span>`<span class="s">$</span><span class="nb">S</span><span class="s">$</span>`<span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span>`<span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span>`<span class="nb">}</span>;
+  <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span>`<span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span>`<span class="nb">}</span>;
 
-<p>\path<a href="S">-&gt;</a>  edge [loop above] node {a} (S);
-  \path<a href="S">-&gt;, dashed</a>  edge              node {a} (q1);
-  \path<a href="q1">-&gt;, dotted</a> edge [bend left]  node {a} (S);
-  \path<a href="q1">-&gt;&gt;, dotted</a> edge             node {b} (q2);
-  \path              (q2) edge [loop above] node {b} (q2)
-             edge [bend left]  node {b} (q1);
-\end{tikzpicture}
-\end{document}
-```</p>
-
+  <span class="k">\path</span><span class="na">[-&gt;]</span>          (S)  edge [loop above] node <span class="nb">{</span>a<span class="nb">}</span> (S);
+  <span class="k">\path</span><span class="na">[-&gt;, dashed]</span>  (S)  edge              node <span class="nb">{</span>a<span class="nb">}</span> (q1);
+  <span class="k">\path</span><span class="na">[-&gt;, dotted]</span>  (q1) edge [bend left]  node <span class="nb">{</span>a<span class="nb">}</span> (S);
+  <span class="k">\path</span><span class="na">[-&gt;&gt;, dotted]</span> (q1) edge             node <span class="nb">{</span>b<span class="nb">}</span> (q2);
+  <span class="k">\path</span>              (q2) edge [loop above] node <span class="nb">{</span>b<span class="nb">}</span> (q2)
+             edge [bend left]  node <span class="nb">{</span>b<span class="nb">}</span> (q1);
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</code></pre>
+</div>
 <h3 id="tocAnchor-1-3-1">Markov models</h3>
 <div class="highlight">
    <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
