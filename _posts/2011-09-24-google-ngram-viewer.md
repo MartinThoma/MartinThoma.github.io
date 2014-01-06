@@ -20,14 +20,14 @@ Google has published the Ngram Viewer. This is a tool which allows the user to s
 
 Here is an example search:
 
-{% caption align="alignnone" width="300" caption="" url="../images/2011/09/Google-Ngram-Viewer-germany-france-300x113.png" alt="Google Ngram Viewer: Germany vs France"  height="113" class="size-medium wp-image-1971" title="Google Ngram Viewer: Germany vs France" %}
+{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Germany vs France" url="../images/2011/09/Google-Ngram-Viewer-germany-france-300x113.png" alt="Google Ngram Viewer: Germany vs France"  height="113" class="size-medium wp-image-1971"  %}
 
 The x-axis shows the years, the y-axis shows the percentage of the specified ngram of all ngrams.
 Don't bother with the numbers. If one curve is higher than the other, more books contained the specified Ngram.
 
 My example shows that the term "France" was more often in books than "Germany". Why is this the case? My first thought was that in the time of the two world wars more books should have been written about Germany. The answer is simply that I wrote "germany" instead of "Germany". So it's case sensitive:
 
-{% caption align="alignnone" width="300" caption="" url="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png" alt="Google Ngram Viewer: Germany vs. France vs. Third-Reich"  height="112" class="size-medium wp-image-1981" title="Google Ngram Viewer: Germany vs. France vs. Third-Reich" %}
+{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Germany vs. France vs. Third-Reich" url="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png" alt="Google Ngram Viewer: Germany vs. France vs. Third-Reich"  height="112" class="size-medium wp-image-1981"  %}
 
 You can compare how successfull some books are:
 {% caption align="alignnone" width="300" caption="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" url="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png" alt="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" title="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" height="112" class="size-medium wp-image-2001" %}

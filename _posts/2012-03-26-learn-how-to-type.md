@@ -10,6 +10,6 @@ tags:
 - ten finger type
 featured_image: 2012/03/learn-how-to-type-thumb.png
 ---
-{% caption align="aligncenter" width="476" caption="" url="../images/2012/03/keybr.png" alt="keybr - learn how to type"  height="246" class=" wp-image-19691   " title="keybr" %}
+{% caption align="aligncenter" width="476" caption="keybr" url="../images/2012/03/keybr.png" alt="keybr - learn how to type"  height="246" class=" wp-image-19691   "  %}
 
 <a href="http://keybr.com/">keybr.com</a> is another service that helps you to learn how to type.
