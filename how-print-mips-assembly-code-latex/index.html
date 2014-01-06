@@ -6,7 +6,7 @@
     
 
     <title>How to print MIPS assembly code in LaTeX</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401061359.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401061540.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -74,82 +74,80 @@
    </a>
    <p class="wp-caption-text">Highlight MIPS Assembly code with LaTeX listings.</p>
 </div>
-
 <div class="highlight">
-   <pre><code class="text">\documentclass[a4paper,12pt]{article}
-\usepackage{amssymb} % needed for math
-\usepackage{amsmath} % needed for math
-\usepackage[utf8]{inputenc} % this is needed for german umlauts
-\usepackage[ngerman]{babel} % this is needed for german umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage[margin=2.5cm]{geometry} %layout
-\usepackage{listings} % needed for the inclusion of source code
-\usepackage{mips}
- 
-% the following is needed for syntax highlighting
-\usepackage{color}
-  
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
- 
-\lstset{ %
-  language=[mips]Assembler,       % the language of the code
-  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
-  numbers=left,                   % where to put the line-numbers
-  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
-                                  % will be numbered
-  numbersep=5pt,                  % how far the line-numbers are from the code
-  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
-  showspaces=false,               % show spaces adding particular underscores
-  showstringspaces=false,         % underline spaces within strings
-  showtabs=false,                 % show tabs within strings adding particular underscores
-  frame=single,                   % adds a frame around the code
-  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
-  tabsize=4,                      % sets default tabsize to 2 spaces
-  captionpos=b,                   % sets the caption-position to bottom
-  breaklines=true,                % sets automatic line breaking
-  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
-  title=\lstname,                 % show the filename of files included with \lstinputlisting;
-                                  % also try caption instead of title
-  keywordstyle=\color{blue},          % keyword style
-  commentstyle=\color{dkgreen},       % comment style
-  stringstyle=\color{mauve},         % string literal style
-  escapeinside={\%*}{*)},            % if you want to add a comment within your code
-  morekeywords={*,...}               % if you want to add more keywords to the set
-}
- 
-% this is needed for forms and links within the text
-\usepackage{hyperref}  
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Variablen                                                          %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\authorName}{Martin Thoma}
-\newcommand{\tags}{\authorName, my, tags}
-\title{Aufgabe 5}
-\author{\authorName}
-\date{\today}
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PDF Meta information                                               %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hypersetup{
-  pdfauthor   = {\authorName},
-  pdfkeywords = {\tags},
-  pdftitle    = {This is the title}
-} 
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THE DOCUMENT BEGINS                                                %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
-    \lstinputlisting{aufgabe-5.s}
-\end{document}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
+<span class="k">\usepackage</span><span class="na">[margin=2.5cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
+<span class="k">\usepackage</span><span class="nb">{</span>listings<span class="nb">}</span> <span class="c">% needed for the inclusion of source code</span>
+<span class="k">\usepackage</span><span class="nb">{</span>mips<span class="nb">}</span>
+
+<span class="c">% the following is needed for syntax highlighting</span>
+<span class="k">\usepackage</span><span class="nb">{</span>color<span class="nb">}</span>
+
+<span class="k">\definecolor</span><span class="nb">{</span>dkgreen<span class="nb">}{</span>rgb<span class="nb">}{</span>0,0.6,0<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>gray<span class="nb">}{</span>rgb<span class="nb">}{</span>0.5,0.5,0.5<span class="nb">}</span>
+<span class="k">\definecolor</span><span class="nb">{</span>mauve<span class="nb">}{</span>rgb<span class="nb">}{</span>0.58,0,0.82<span class="nb">}</span>
+
+<span class="k">\lstset</span><span class="nb">{</span> <span class="c">%</span>
+  language=[mips]Assembler,       <span class="c">% the language of the code</span>
+  basicstyle=<span class="k">\footnotesize</span>,       <span class="c">% the size of the fonts that are used for the code</span>
+  numbers=left,                   <span class="c">% where to put the line-numbers</span>
+  numberstyle=<span class="k">\tiny\color</span><span class="nb">{</span>gray<span class="nb">}</span>,  <span class="c">% the style that is used for the line-numbers</span>
+  stepnumber=1,                   <span class="c">% the step between two line-numbers. If it's 1, each line </span>
+                                  <span class="c">% will be numbered</span>
+  numbersep=5pt,                  <span class="c">% how far the line-numbers are from the code</span>
+  backgroundcolor=<span class="k">\color</span><span class="nb">{</span>white<span class="nb">}</span>,  <span class="c">% choose the background color. You must add \usepackage{color}</span>
+  showspaces=false,               <span class="c">% show spaces adding particular underscores</span>
+  showstringspaces=false,         <span class="c">% underline spaces within strings</span>
+  showtabs=false,                 <span class="c">% show tabs within strings adding particular underscores</span>
+  frame=single,                   <span class="c">% adds a frame around the code</span>
+  rulecolor=<span class="k">\color</span><span class="nb">{</span>black<span class="nb">}</span>,        <span class="c">% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))</span>
+  tabsize=4,                      <span class="c">% sets default tabsize to 2 spaces</span>
+  captionpos=b,                   <span class="c">% sets the caption-position to bottom</span>
+  breaklines=true,                <span class="c">% sets automatic line breaking</span>
+  breakatwhitespace=false,        <span class="c">% sets if automatic breaks should only happen at whitespace</span>
+  title=<span class="k">\lstname</span>,                 <span class="c">% show the filename of files included with \lstinputlisting;</span>
+                                  <span class="c">% also try caption instead of title</span>
+  keywordstyle=<span class="k">\color</span><span class="nb">{</span>blue<span class="nb">}</span>,          <span class="c">% keyword style</span>
+  commentstyle=<span class="k">\color</span><span class="nb">{</span>dkgreen<span class="nb">}</span>,       <span class="c">% comment style</span>
+  stringstyle=<span class="k">\color</span><span class="nb">{</span>mauve<span class="nb">}</span>,         <span class="c">% string literal style</span>
+  escapeinside=<span class="nb">{</span><span class="k">\%*</span><span class="nb">}{</span>*)<span class="nb">}</span>,            <span class="c">% if you want to add a comment within your code</span>
+  morekeywords=<span class="nb">{</span>*,...<span class="nb">}</span>               <span class="c">% if you want to add more keywords to the set</span>
+<span class="nb">}</span>
+
+<span class="c">% this is needed for forms and links within the text</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>  
+
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% Variablen                                                          %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\authorName</span><span class="nb">}{</span>Martin Thoma<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\tags</span><span class="nb">}{</span><span class="k">\authorName</span>, my, tags<span class="nb">}</span>
+<span class="k">\title</span><span class="nb">{</span>Aufgabe 5<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span><span class="k">\authorName</span><span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
+
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% PDF Meta information                                               %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\hypersetup</span><span class="nb">{</span>
+  pdfauthor   = <span class="nb">{</span><span class="k">\authorName</span><span class="nb">}</span>,
+  pdfkeywords = <span class="nb">{</span><span class="k">\tags</span><span class="nb">}</span>,
+  pdftitle    = <span class="nb">{</span>This is the title<span class="nb">}</span>
+<span class="nb">}</span> 
+
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% THE DOCUMENT BEGINS                                                %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+    <span class="k">\lstinputlisting</span><span class="nb">{</span>aufgabe-5.s<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">

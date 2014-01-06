@@ -6,7 +6,7 @@
     
 
     <title>LaTeX-Vorlage f&uuml;r den Semesterbericht der Studienstiftung</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401061359.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401061540.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -80,14 +80,7 @@
          <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Wer bekommt wann den Studienbericht?</span></a>
          <ul>
             <li class="toc_level-2 toc_section-3">
-               <a href="#tocAnchor-1-2-1"><span class="tocnumber">2.1</span> <span class="toctext">Wer ist mein zuständiger Referent bzw. mein Vertrauensdozent?
-Logge dich im daidalosnet ein.
-  Klicke rechts unten auf "Meine Einstellungen".
-  Klicke auf "Gespeicherte Daten".
-  Nun sollte "Referent/in" sowie "aktueller Vertrauensdozent" dort stehen.
-Die Vorlage
-
-</span></a>
+               <a href="#tocAnchor-1-2-1"><span class="tocnumber">2.1</span> <span class="toctext">Wer ist mein zuständiger Referent bzw. mein Vertrauensdozent?</span></a>
             </li>
          </ul>
       </li>
@@ -110,113 +103,111 @@ Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studi
 
 <blockquote>Bitte laden Sie Ihren Bericht als PDF-Dokument im Daidalosnet hoch. Sie finden die Eingabemaske in Ihrem eigenen Kurzprofil ("<strong>Meine Einstellungen</strong>" unten rechts) - hier ist in der unteren Bildschirmhälfte die Rubrik "<strong>Studienberichte</strong>" zu finden. Wenn Sie hier einen als "offen" gekennzeichneten Eintrag finden, müssen Sie uns einen Bericht zukommen lassen - bitte folgen Sie dem Link in der Zeile unter "offen", um zur Eingabemaske zu gelangen. Sowohl Ihr/e Referent/in als auch Ihr/e Vertrauensdozent/in erhalten automatisch eine Kopie des Berichts per E-Mail.</blockquote>
 
-<p></p><h3 id="tocAnchor-1-2-1">Wer ist mein zuständiger Referent bzw. mein Vertrauensdozent?
+<h3 id="tocAnchor-1-2-1">Wer ist mein zuständiger Referent bzw. mein Vertrauensdozent?</h3>
+
 <ol><li>Logge dich im <a href="https://www.daidalosnet.de/">daidalosnet</a> ein.</li>
   <li>Klicke rechts unten auf "Meine Einstellungen".</li>
   <li>Klicke auf "Gespeicherte Daten".</li>
   <li>Nun sollte "Referent/in" sowie "aktueller Vertrauensdozent" dort stehen.</li>
 </ol><h2 id="tocAnchor-1-4">Die Vorlage</h2>
 
-</h3><p>Hier ist die Vorlage mit Blindtext als <a href="../images/2012/06/semesterbericht-ws-2011.pdf">PDF</a>.</p>
+<p>Hier ist die Vorlage mit Blindtext als <a href="../images/2012/06/semesterbericht-ws-2011.pdf">PDF</a>.</p>
 
 <p>Makefile:</p>
-
 <div class="highlight">
-   <pre><code class="text">DOKUMENT = semesterbericht-martin-thoma-ws-2011
+   <pre><code class="basemake language-basemake" data-lang="basemake"><span class="nv">DOKUMENT</span> <span class="o">=</span> semesterbericht-martin-thoma-ws-2011
 
-make:
-    pdflatex `$(DOKUMENT).tex -output-format=pdf
-    pdflatex $`(DOKUMENT).tex -output-format=pdf
+<span class="nf">make</span><span class="o">:</span>
+    pdflatex <span class="sb">`</span><span class="k">$(</span>DOKUMENT<span class="k">)</span>.tex -output-format<span class="o">=</span>pdf
+    pdflatex <span class="nv">$`</span><span class="o">(</span>DOKUMENT<span class="o">)</span>.tex -output-format<span class="o">=</span>pdf
     make clean
 
-clean:
-    rm -rf  $(TARGET) *.class *.html *.log *.aux *.out
+<span class="nf">clean</span><span class="o">:</span>
+    rm -rf  <span class="k">$(</span>TARGET<span class="k">)</span> *.class *.html *.log *.aux *.out
 </code></pre>
 </div>
-
 <p>LaTeX:</p>
-
 <div class="highlight">
-   <pre><code class="text">\documentclass[a4paper,12pt]{article}
-\usepackage{amssymb} % needed for math
-\usepackage{amsmath} % needed for math
-\usepackage[utf8]{inputenc} % this is needed for umlauts
-\usepackage[ngerman]{babel} % this is needed for umlauts
-\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-\usepackage[margin=2.5cm]{geometry} %layout
-\usepackage{fancyhdr}  % needed for the footer
-\usepackage{lastpage}  % needed for the footer
-\usepackage{hyperref}  % links im text
-\usepackage{color, colortbl}  % farbige Tabellenzellen
-\usepackage{tabularx}
-\clubpenalty  = 10000 % Schusterjungen verhindern
-\widowpenalty = 10000 % Hurenkinder verhindern
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
+<span class="k">\usepackage</span><span class="na">[margin=2.5cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
+<span class="k">\usepackage</span><span class="nb">{</span>fancyhdr<span class="nb">}</span>  <span class="c">% needed for the footer</span>
+<span class="k">\usepackage</span><span class="nb">{</span>lastpage<span class="nb">}</span>  <span class="c">% needed for the footer</span>
+<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>  <span class="c">% links im text</span>
+<span class="k">\usepackage</span><span class="nb">{</span>color, colortbl<span class="nb">}</span>  <span class="c">% farbige Tabellenzellen</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tabularx<span class="nb">}</span>
+<span class="k">\clubpenalty</span>  = 10000 <span class="c">% Schusterjungen verhindern</span>
+<span class="k">\widowpenalty</span> = 10000 <span class="c">% Hurenkinder verhindern</span>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hier eigene Daten einf&amp;uuml;gen                                       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Jahr}{2011/2012}          % Typ: "2011 / 2012" oder "2012"
-\newcommand{\Semester}{Wintersemester} % "Wintersemester" oder "Sommersemester"
-\newcommand{\Datum}{\today}            % Wann wurde der Bericht erstellt?
-\newcommand{\Semesteranzahl}{1}        % Das Fachsemester als Zahl
-\newcommand{\Gesamtsemesterzahl}{6}    % Die gesamte Anzahl an Semestern
-\newcommand{\Abschluss}{Bachelor}
-\newcommand{\Studienfach}{Informatik}
-\newcommand{\University}{KIT}
-\newcommand{\Nachname}{Thoma}
-\newcommand{\Vorname}{Martin}
-\newcommand{\Strasse}{Musterstra&amp;szlig;e}
-\newcommand{\Hausnummer}{123}
-\newcommand{\PLZ}{76131}
-\newcommand{\Ort}{Karlsruhe}
-\newcommand{\Email}{info@martin-thoma.de}
-\newcommand{\Vertrauensdozent}{Prof. Dr. &lt;a href='../images/2012/06/semesterbericht-ws-2011.pdf'&gt;Semesterbericht WS 2011&lt;/a&gt;Mustermann}
-\newcommand{\Referent}{Dr. Alice Brown}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hypersetup{ 
-  pdfauthor   = {\Vorname~\Nachname}, 
-  pdfkeywords = {Studienstiftung; KIT; \Vorname~\Nachname}, 
-  pdftitle    = {Semesterbericht von~\Vorname~\Nachname~-~\Semester~\Jahr} 
-} 
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% Hier eigene Daten einf&amp;uuml;gen                                       %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Jahr</span><span class="nb">}{</span>2011/2012<span class="nb">}</span>          <span class="c">% Typ: "2011 / 2012" oder "2012"</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Semester</span><span class="nb">}{</span>Wintersemester<span class="nb">}</span> <span class="c">% "Wintersemester" oder "Sommersemester"</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Datum</span><span class="nb">}{</span><span class="k">\today</span><span class="nb">}</span>            <span class="c">% Wann wurde der Bericht erstellt?</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Semesteranzahl</span><span class="nb">}{</span>1<span class="nb">}</span>        <span class="c">% Das Fachsemester als Zahl</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Gesamtsemesterzahl</span><span class="nb">}{</span>6<span class="nb">}</span>    <span class="c">% Die gesamte Anzahl an Semestern</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Abschluss</span><span class="nb">}{</span>Bachelor<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Studienfach</span><span class="nb">}{</span>Informatik<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\University</span><span class="nb">}{</span>KIT<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Nachname</span><span class="nb">}{</span>Thoma<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Vorname</span><span class="nb">}{</span>Martin<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Strasse</span><span class="nb">}{</span>Musterstra<span class="nb">&amp;</span>szlig;e<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Hausnummer</span><span class="nb">}{</span>123<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\PLZ</span><span class="nb">}{</span>76131<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Ort</span><span class="nb">}{</span>Karlsruhe<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Email</span><span class="nb">}{</span>info@martin-thoma.de<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Vertrauensdozent</span><span class="nb">}{</span>Prof. Dr. &lt;a href='../images/2012/06/semesterbericht-ws-2011.pdf'&gt;Semesterbericht WS 2011&lt;/a&gt;Mustermann<span class="nb">}</span>
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Referent</span><span class="nb">}{</span>Dr. Alice Brown<span class="nb">}</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\hypersetup</span><span class="nb">{</span> 
+  pdfauthor   = <span class="nb">{</span><span class="k">\Vorname</span>~<span class="k">\Nachname</span><span class="nb">}</span>, 
+  pdfkeywords = <span class="nb">{</span>Studienstiftung; KIT; <span class="k">\Vorname</span>~<span class="k">\Nachname</span><span class="nb">}</span>, 
+  pdftitle    = <span class="nb">{</span>Semesterbericht von~<span class="k">\Vorname</span>~<span class="k">\Nachname</span>~-~<span class="k">\Semester</span>~<span class="k">\Jahr</span><span class="nb">}</span> 
+<span class="nb">}</span> 
 
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\fancyfoot[R]{Seite~\thepage~von \pageref{LastPage}}
+<span class="k">\pagestyle</span><span class="nb">{</span>fancy<span class="nb">}</span>
+<span class="k">\fancyhf</span><span class="nb">{}</span>
+<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\headrulewidth</span><span class="nb">}{</span>0pt<span class="nb">}</span>
+<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\footrulewidth</span><span class="nb">}{</span>0pt<span class="nb">}</span>
+<span class="k">\fancyfoot</span><span class="na">[R]</span><span class="nb">{</span>Seite~<span class="k">\thepage</span>~von <span class="k">\pageref</span><span class="nb">{</span>LastPage<span class="nb">}}</span>
 
-\definecolor{LightCyan}{rgb}{0.88,1,1}
+<span class="k">\definecolor</span><span class="nb">{</span>LightCyan<span class="nb">}{</span>rgb<span class="nb">}{</span>0.88,1,1<span class="nb">}</span>
 
-\pagenumbering{arabic}
+<span class="k">\pagenumbering</span><span class="nb">{</span>arabic<span class="nb">}</span>
 
-\begin{document}
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 
-\title{Semesterbericht &amp;uuml;ber das \Semester \Jahr}
-\author{\Vorname \Nachname}
-\date{\Datum}
+<span class="k">\title</span><span class="nb">{</span>Semesterbericht <span class="nb">&amp;</span>uuml;ber das <span class="k">\Semester</span> <span class="k">\Jahr</span><span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span><span class="k">\Vorname</span> <span class="k">\Nachname</span><span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span><span class="k">\Datum</span><span class="nb">}</span>
 
-\section*{Semesterbericht &amp;uuml;ber das \Semester~\Jahr}
-\begin{tabularx}{\textwidth}{@{}llllX}
-Name, Vorname:   &amp;amp; \Nachname, \Vorname &amp;amp; Universit&amp;auml;t         &amp;amp; \University \\
-Semesteradresse: &amp;amp;\Strasse~\Hausnummer &amp;amp; Studienfach         &amp;amp; \Studienfach \\
-                 &amp;amp;\PLZ~\Ort~~~~~~~     &amp;amp; Semesterzahl        &amp;amp; \Semesteranzahl~von~\Gesamtsemesterzahl \\
-                 &amp;amp;                     &amp;amp; Geplanter Abschluss &amp;amp; \Abschluss \\
-                 &amp;amp;                     &amp;amp; Vertrauensdozent    &amp;amp; \Vertrauensdozent \\
-E-Mail           &amp;amp;\Email               &amp;amp; Referent            &amp;amp; \Referent \\
-\end{tabularx}
+<span class="k">\section*</span><span class="nb">{</span>Semesterbericht <span class="nb">&amp;</span>uuml;ber das <span class="k">\Semester</span>~<span class="k">\Jahr</span><span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabularx<span class="nb">}{</span><span class="k">\textwidth</span><span class="nb">}{</span>@<span class="nb">{}</span>llllX<span class="nb">}</span>
+Name, Vorname:   <span class="nb">&amp;</span>amp; <span class="k">\Nachname</span>, <span class="k">\Vorname</span> <span class="nb">&amp;</span>amp; Universit<span class="nb">&amp;</span>auml;t         <span class="nb">&amp;</span>amp; <span class="k">\University</span> <span class="k">\\</span>
+Semesteradresse: <span class="nb">&amp;</span>amp;<span class="k">\Strasse</span>~<span class="k">\Hausnummer</span> <span class="nb">&amp;</span>amp; Studienfach         <span class="nb">&amp;</span>amp; <span class="k">\Studienfach</span> <span class="k">\\</span>
+                 <span class="nb">&amp;</span>amp;<span class="k">\PLZ</span>~<span class="k">\Ort</span>~~~~~~~     <span class="nb">&amp;</span>amp; Semesterzahl        <span class="nb">&amp;</span>amp; <span class="k">\Semesteranzahl</span>~von~<span class="k">\Gesamtsemesterzahl</span> <span class="k">\\</span>
+                 <span class="nb">&amp;</span>amp;                     <span class="nb">&amp;</span>amp; Geplanter Abschluss <span class="nb">&amp;</span>amp; <span class="k">\Abschluss</span> <span class="k">\\</span>
+                 <span class="nb">&amp;</span>amp;                     <span class="nb">&amp;</span>amp; Vertrauensdozent    <span class="nb">&amp;</span>amp; <span class="k">\Vertrauensdozent</span> <span class="k">\\</span>
+E-Mail           <span class="nb">&amp;</span>amp;<span class="k">\Email</span>               <span class="nb">&amp;</span>amp; Referent            <span class="nb">&amp;</span>amp; <span class="k">\Referent</span> <span class="k">\\</span>
+<span class="k">\end</span><span class="nb">{</span>tabularx<span class="nb">}</span>
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hier bitte Text einf&amp;uuml;gen!                                            %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Einleitende Zusammenfassung}
-\subsubsection*{1. Auf diesem Stand ist jetzt mein Studium:}
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% Hier bitte Text einf&amp;uuml;gen!                                            %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="k">\subsection*</span><span class="nb">{</span>Einleitende Zusammenfassung<span class="nb">}</span>
+<span class="k">\subsubsection*</span><span class="nb">{</span>1. Auf diesem Stand ist jetzt mein Studium:<span class="nb">}</span>
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
 rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
 ipsum dolor sit amet.
 
-\subsubsection*{2. Das war f&amp;uuml;r mich au&amp;szlig;erhalb des Studiums von gro&amp;szlig;er Bedeutung:}
+<span class="k">\subsubsection*</span><span class="nb">{</span>2. Das war f<span class="nb">&amp;</span>uuml;r mich au<span class="nb">&amp;</span>szlig;erhalb des Studiums von gro<span class="nb">&amp;</span>szlig;er Bedeutung:<span class="nb">}</span>
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
@@ -250,7 +241,7 @@ zzril delenit augue duis dolore te feugait nulla facilisi.
 Nam liber tempor cum soluta nobis eleifend option congue nihil 
 imperdiet doming id quod mazim placerat facer
 
-\subsubsection*{3. F&amp;uuml;r das n&amp;auml;chste Semester habe ich folgende Pl&amp;auml;ne:}
+<span class="k">\subsubsection*</span><span class="nb">{</span>3. F<span class="nb">&amp;</span>uuml;r das n<span class="nb">&amp;</span>auml;chste Semester habe ich folgende Pl<span class="nb">&amp;</span>auml;ne:<span class="nb">}</span>
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
@@ -258,36 +249,36 @@ erat, sed diam voluptua. At vero eos et accusam et justo duo
 dolores et ea rebum. Stet clita kasd gubergren, no sea takimata 
 sanctus est Lorem ipsum dolor sit amet.
 
-\newpage
+<span class="k">\newpage</span>
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
 sed diam nonumy eirmod tempor invidunt ut labore et dolore 
 magna aliquyam:
 
-\begin{table}[h]
-    \begin{tabular}{| l | c | c | l |}
-    \hline
-    \textbf{Modulbezeichnung} &amp;amp; \textbf{SWS} &amp;amp; \textbf{LP}  &amp;amp; \textbf{Klausur} \\
-    \hline
-    \hline
-    \rowcolor{yellow} Lineare Algebra und Analytische Geometrie      &amp;amp; 8   &amp;amp; 9   &amp;amp; Im SS 2012 \\
-    \rowcolor{yellow} Analysis I                                     &amp;amp; 8   &amp;amp; 9   &amp;amp; Im SS 2012 \\
-    \rowcolor{yellow} Grundbegriffe der Informatik                   &amp;amp; 5   &amp;amp; 4   &amp;amp; Am 05. M&amp;auml;rz 2012 \\
-    \rowcolor{yellow} Programmieren                                  &amp;amp; 4   &amp;amp; 5   &amp;amp; Abschlussaufgabe l&amp;auml;uft \\
-    \rowcolor{LightCyan} Betriebssysteme und Systemarchitektur       &amp;amp; 6   &amp;amp; 6   &amp;amp; Am 26. M&amp;auml;rz 2012 \\
-    \rowcolor{LightCyan} Theoretische Grundlagen der Informatik      &amp;amp; 6   &amp;amp; 6   &amp;amp; Benotung steht aus \\
-    \rowcolor{LightCyan} Wahrscheinlichkeitstheorie f&amp;uuml;r Informatiker &amp;amp; 3   &amp;amp; 4,5 &amp;amp; mit 1,3 bestanden \\
-    \hline
-    \hline
-    Gesamt                                                          &amp;amp; 40  &amp;amp; 43,5 &amp;amp; \\
-    \hline
-    \end{tabular}
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[h]
+    <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>| l | c | c | l |<span class="nb">}</span>
+    <span class="k">\hline</span>
+    <span class="k">\textbf</span><span class="nb">{</span>Modulbezeichnung<span class="nb">}</span> <span class="nb">&amp;</span>amp; <span class="k">\textbf</span><span class="nb">{</span>SWS<span class="nb">}</span> <span class="nb">&amp;</span>amp; <span class="k">\textbf</span><span class="nb">{</span>LP<span class="nb">}</span>  <span class="nb">&amp;</span>amp; <span class="k">\textbf</span><span class="nb">{</span>Klausur<span class="nb">}</span> <span class="k">\\</span>
+    <span class="k">\hline</span>
+    <span class="k">\hline</span>
+    <span class="k">\rowcolor</span><span class="nb">{</span>yellow<span class="nb">}</span> Lineare Algebra und Analytische Geometrie      <span class="nb">&amp;</span>amp; 8   <span class="nb">&amp;</span>amp; 9   <span class="nb">&amp;</span>amp; Im SS 2012 <span class="k">\\</span>
+    <span class="k">\rowcolor</span><span class="nb">{</span>yellow<span class="nb">}</span> Analysis I                                     <span class="nb">&amp;</span>amp; 8   <span class="nb">&amp;</span>amp; 9   <span class="nb">&amp;</span>amp; Im SS 2012 <span class="k">\\</span>
+    <span class="k">\rowcolor</span><span class="nb">{</span>yellow<span class="nb">}</span> Grundbegriffe der Informatik                   <span class="nb">&amp;</span>amp; 5   <span class="nb">&amp;</span>amp; 4   <span class="nb">&amp;</span>amp; Am 05. M<span class="nb">&amp;</span>auml;rz 2012 <span class="k">\\</span>
+    <span class="k">\rowcolor</span><span class="nb">{</span>yellow<span class="nb">}</span> Programmieren                                  <span class="nb">&amp;</span>amp; 4   <span class="nb">&amp;</span>amp; 5   <span class="nb">&amp;</span>amp; Abschlussaufgabe l<span class="nb">&amp;</span>auml;uft <span class="k">\\</span>
+    <span class="k">\rowcolor</span><span class="nb">{</span>LightCyan<span class="nb">}</span> Betriebssysteme und Systemarchitektur       <span class="nb">&amp;</span>amp; 6   <span class="nb">&amp;</span>amp; 6   <span class="nb">&amp;</span>amp; Am 26. M<span class="nb">&amp;</span>auml;rz 2012 <span class="k">\\</span>
+    <span class="k">\rowcolor</span><span class="nb">{</span>LightCyan<span class="nb">}</span> Theoretische Grundlagen der Informatik      <span class="nb">&amp;</span>amp; 6   <span class="nb">&amp;</span>amp; 6   <span class="nb">&amp;</span>amp; Benotung steht aus <span class="k">\\</span>
+    <span class="k">\rowcolor</span><span class="nb">{</span>LightCyan<span class="nb">}</span> Wahrscheinlichkeitstheorie f<span class="nb">&amp;</span>uuml;r Informatiker <span class="nb">&amp;</span>amp; 3   <span class="nb">&amp;</span>amp; 4,5 <span class="nb">&amp;</span>amp; mit 1,3 bestanden <span class="k">\\</span>
+    <span class="k">\hline</span>
+    <span class="k">\hline</span>
+    Gesamt                                                          <span class="nb">&amp;</span>amp; 40  <span class="nb">&amp;</span>amp; 43,5 <span class="nb">&amp;</span>amp; <span class="k">\\</span>
+    <span class="k">\hline</span>
+    <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
 
-    \begin{tabular}{| l | l | l | l |}
-    \hline
-    \cellcolor{yellow} &amp;amp; Teil der Orientierungspr&amp;uuml;fung &amp;amp; \cellcolor{LightCyan}  &amp;amp; Pflichtmodul des 3. Semesters \\
-    \hline
-    \end{tabular}
-\end{table}
+    <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>| l | l | l | l |<span class="nb">}</span>
+    <span class="k">\hline</span>
+    <span class="k">\cellcolor</span><span class="nb">{</span>yellow<span class="nb">}</span> <span class="nb">&amp;</span>amp; Teil der Orientierungspr<span class="nb">&amp;</span>uuml;fung <span class="nb">&amp;</span>amp; <span class="k">\cellcolor</span><span class="nb">{</span>LightCyan<span class="nb">}</span>  <span class="nb">&amp;</span>amp; Pflichtmodul des 3. Semesters <span class="k">\\</span>
+    <span class="k">\hline</span>
+    <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
@@ -321,14 +312,14 @@ et accumsan et iusto odio dignissim qui blandit praesent luptatum
 zzril delenit augue duis dolore te feugait nulla facilisi.   
 
 Nam liber tempor cum soluta nobis eleifend option congue nihil 
-imperdiet doming id quod mazim placerat facer.\\
-\\
-\Ort, der \Datum\\
-\\
-\Vorname~\Nachname
+imperdiet doming id quod mazim placerat facer.<span class="k">\\</span>
+<span class="k">\\</span>
+<span class="k">\Ort</span>, der <span class="k">\Datum\\</span>
+<span class="k">\\</span>
+<span class="k">\Vorname</span>~<span class="k">\Nachname</span>
 
 
-\end{document}
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
 						</div>

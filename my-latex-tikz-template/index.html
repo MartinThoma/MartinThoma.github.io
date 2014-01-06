@@ -6,7 +6,7 @@
     
 
     <title>My LaTeX Tikz Template</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401061359.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401061540.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -98,76 +98,70 @@
 </div><h2 id="tocAnchor-1-1">The templates</h2>
 
 <h3 id="tocAnchor-1-1-1">latex-document.tex</h3>
-
 <div class="highlight">
-   <pre><code class="text">\documentclass[varwidth=true, border=2pt]{standalone}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[varwidth=true, border=2pt]</span><span class="nb">{</span>standalone<span class="nb">}</span>
 
-\usepackage{tikz}
-\usetikzlibrary{arrows,positioning} 
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,positioning<span class="nb">}</span> 
 
-\begin{document}
-\begin{tikzpicture}
-    % Your Codes should be here
-\end{tikzpicture}
-\end{document}
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+    <span class="c">% Your Codes should be here</span>
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-
 <h4>Standalone</h4>
 
 <h4>Preview-Environment</h4>
-
 <div class="highlight">
-   <pre><code class="text">\documentclass{article}
-\usepackage[pdftex,active,tightpage]{preview}
-\setlength\PreviewBorder{2mm}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[pdftex,active,tightpage]</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\setlength\PreviewBorder</span><span class="nb">{</span>2mm<span class="nb">}</span>
 
-\usepackage{tikz}
-\usetikzlibrary{arrows,positioning} 
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,positioning<span class="nb">}</span> 
 
-\begin{document}
-\begin{preview}
-\begin{tikzpicture}
-    % Your Codes should be here
-\end{tikzpicture}
-\end{preview}
-\end{document}
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+    <span class="c">% Your Codes should be here</span>
+<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>preview<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-
 <h3 id="tocAnchor-1-1-2">Makefile</h3>
-
 <div class="highlight">
-   <pre><code class="text">SOURCE = latex-document.tex
+   <pre><code class="basemake language-basemake" data-lang="basemake"><span class="nv">SOURCE</span> <span class="o">=</span> latex-document.tex
 
-DELAY = 80
-DENSITY = 300
+<span class="nv">DELAY</span> <span class="o">=</span> 80
+<span class="nv">DENSITY</span> <span class="o">=</span> 300
 
-make:
-    pdflatex `$(SOURCE).tex -output-format=pdf
+<span class="nf">make</span><span class="o">:</span>
+    pdflatex <span class="sb">`</span><span class="k">$(</span>SOURCE<span class="k">)</span>.tex -output-format<span class="o">=</span>pdf
     make clean
 
-clean:
-    rm -rf  $`(TARGET) *.class *.html *.log *.aux
+<span class="nf">clean</span><span class="o">:</span>
+    rm -rf  <span class="nv">$`</span><span class="o">(</span>TARGET<span class="o">)</span> *.class *.html *.log *.aux
 
-animatedGif:
-    pdfcrop `$(SOURCE).pdf
-    convert -verbose -delay $`(DELAY) -loop 0 -density `$(DENSITY) $`(SOURCE)-crop.pdf `$(SOURCE).gif
+<span class="nf">animatedGif</span><span class="o">:</span>
+    pdfcrop <span class="sb">`</span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf
+    convert -verbose -delay <span class="nv">$`</span><span class="o">(</span>DELAY<span class="o">)</span> -loop 0 -density <span class="sb">`</span><span class="k">$(</span>DENSITY<span class="k">)</span> <span class="nv">$`</span><span class="o">(</span>SOURCE<span class="o">)</span>-crop.pdf <span class="sb">`</span><span class="k">$(</span>SOURCE<span class="k">)</span>.gif
     make clean
 
-transparentGif:
-    convert $`(SOURCE).pdf -transparent white result.gif
+<span class="nf">transparentGif</span><span class="o">:</span>
+    convert <span class="nv">$`</span><span class="o">(</span>SOURCE<span class="o">)</span>.pdf -transparent white result.gif
     make clean
 
-svg:
-    pdf2svg `$(SOURCE).pdf $`(SOURCE).svg
-    # Necessary, as pdf2svg does not always create valid svgs:
-    inkscape `$(SOURCE).svg --export-plain-svg=$`(SOURCE).svg
-    # Alternatively, only this one (produces worse results):
-    #inkscape `$(SOURCE).pdf --export-plain-svg=$`(SOURCE).svg
+<span class="nf">svg</span><span class="o">:</span>
+    pdf2svg <span class="sb">`</span><span class="k">$(</span>SOURCE<span class="k">)</span>.pdf <span class="nv">$`</span><span class="o">(</span>SOURCE<span class="o">)</span>.svg
+    <span class="c"># Necessary, as pdf2svg does not always create valid svgs:</span>
+    inkscape <span class="sb">`</span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg --export-plain-svg<span class="o">=</span><span class="nv">$`</span><span class="o">(</span>SOURCE<span class="o">)</span>.svg
+    <span class="c"># Alternatively, only this one (produces worse results):</span>
+    <span class="c">#inkscape `$(SOURCE).pdf --export-plain-svg=$`(SOURCE).svg</span>
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-4">Requirements</h2>
 
 <ul><li>LaTeX (<a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
@@ -177,9 +171,8 @@ svg:
 </ul><h2 id="tocAnchor-1-5">Test if you meet these requirements</h2>
 
 <p>Make sure that you have a valid LaTeX installation. <code>pdflatex --version</code> should output something like:</p>
-
 <div class="highlight">
-   <pre><code class="bash">pdfTeX 3.1415926-2.3-1.40.12 <span class="o">(</span>TeX Live 2011<span class="o">)</span>
+   <pre><code class="bash language-bash" data-lang="bash">pdfTeX 3.1415926-2.3-1.40.12 <span class="o">(</span>TeX Live 2011<span class="o">)</span>
 kpathsea version 6.0.1
 Copyright 2011 Peter Breitenlohner <span class="o">(</span>eTeX<span class="o">)</span>/Han The Thanh <span class="o">(</span>pdfTeX<span class="o">)</span>.
 There is NO warranty.  Redistribution of this software is
@@ -193,11 +186,9 @@ Compiled with zlib 1.2.5<span class="p">;</span> using zlib 1.2.5
 Compiled with xpdf version 3.02pl5
 </code></pre>
 </div>
-
 <p>Make sure you can execute Makefiles. <code>make --version</code> should output something like this:</p>
-
 <div class="highlight">
-   <pre><code class="bash">GNU Make 3.81
+   <pre><code class="bash language-bash" data-lang="bash">GNU Make 3.81
 Copyright <span class="o">(</span>C<span class="o">)</span> 2006  Free Software Foundation, Inc.
 This is free software<span class="p">;</span> see the <span class="nb">source </span><span class="k">for </span>copying conditions.
 There is NO warranty<span class="p">;</span> not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A
@@ -206,7 +197,6 @@ PARTICULAR PURPOSE.
 This program built <span class="k">for </span>i486-pc-linux-gnu
 </code></pre>
 </div>
-
 <p>The command <code>inkscape --version</code> should return:</p>
 
 <div class="highlight">

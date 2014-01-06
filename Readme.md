@@ -11,6 +11,9 @@ TODO
 * Fix posts
   - http://martin-thoma.com/python-check-wiki-references-for-citation-template/ (Gist)
   - http://martin-thoma.com/semantische-sicherheit/ (Abostrophes)
+  - http://martin-thoma.com/how-to-search-for-mathematical-symbols-in-latex/ (Abostrophes)
+  - http://martin-thoma.com/latex-versioning-a-great-experience/ (Abostrophes)
+  - http://martin-thoma.com/complex-latex-visualizations-tikz/ (Only insert toc when there are at least 3 elements)
 
 Improve
 ========
