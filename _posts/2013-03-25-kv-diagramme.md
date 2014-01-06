@@ -169,7 +169,7 @@ Nun kann man eine Funktionstabelle aufstellen:
 
 Will man diese Tabelle in ein KV-Diagramm &uuml;bernehmen, muss man nur die Spalte $f(w,x,y,z)$ in der richtigen Reihenfolge in die Tabelle f&uuml;llen. Das macht man, indem man immer bei einem Eckpunkt beginnt und dann eine Z-Form durchgeht:
 
-{% caption align="aligncenter" width="300" caption="KV-Speed-Zeichnen" url="../images/2013/03/karnaugh-map4-300x236.png" alt="KV-Speed-Zeichnen" title="" height="236" class="size-medium wp-image-63191" %}
+{% caption align="aligncenter" width="300" caption="KV-Speed-Zeichnen" url="../images/2013/03/karnaugh-map4-300x236.png" alt="KV-Speed-Zeichnen"  height="236" class="size-medium wp-image-63191" %}
 
 Am Ende sieht es so aus:
 <img src="../images/2013/03/karnaugh-map1.png" alt="KV-Diagramm" width="512" height="512" class="size-full wp-image-62871" />
@@ -186,7 +186,7 @@ Das kann man nun sehr sch&ouml;n mit dem KV-Diagramm verkn&uuml;pfen. Wenn man d
 Was hat es nun mit Primimplikanten auf sich? Wenn man diese K&auml;stchen um 1-Bl&ouml;cke macht, dann m&uuml;ssen sie jeweils insgesamt genau $2^k, k \in \mathbb{N}_0$ Einsen umfassen und d&uuml;rfen an den R&auml;ndern fortgesetz werden (siehe der gr&uuml;ne um 5 und 13). Wenn so ein Block ein Primimplikant ist, darf es keinen gr&ouml;&szlig;eren Eins-Block geben.
 
 Beispiel:
-{% caption align="aligncenter" width="300" caption="KV-Diagramm - Beispiel mit Primimplikanten" url="../images/2013/03/karnaugh-map2-300x300.png" alt="KV-Diagramm - Beispiel mit Primimplikanten" title="" height="300" class="size-medium wp-image-62901" %}
+{% caption align="aligncenter" width="300" caption="KV-Diagramm - Beispiel mit Primimplikanten" url="../images/2013/03/karnaugh-map2-300x300.png" alt="KV-Diagramm - Beispiel mit Primimplikanten"  height="300" class="size-medium wp-image-62901" %}
 
 Das Rosa-K&auml;stchen ist ein Implikant. Es ist jedoch kein Primimplikant, da das blaue K&auml;stchen gr&ouml;&szlig;er ist. Bis auf das rosa K&auml;stchen und das braune K&auml;stchen sind alle eingezeichenten K&auml;stchen Primimplikanten sein. Es gibt keine weiteren Primimplikanten in dieser Funktion.
 
@@ -228,11 +228,11 @@ Nun kann man jeden Hasard noch aufteilen, je nach dem was der Wert der Funktion 
 <h3>Beispiel</h3>
 Hier ist ein Beispiel f&uuml;r einen dynamischen 1-0-Hasard:
 
-{% caption align="aligncenter" width="300" caption="Beispiel eines dynamischen 1-0-Hasards" url="../images/2013/03/karnaugh-map3-300x251.png" alt="Beispiel eines dynamischen 1-0-Hasards" title="" height="251" class="size-medium wp-image-63011" %}
+{% caption align="aligncenter" width="300" caption="Beispiel eines dynamischen 1-0-Hasards" url="../images/2013/03/karnaugh-map3-300x251.png" alt="Beispiel eines dynamischen 1-0-Hasards"  height="251" class="size-medium wp-image-63011" %}
 
 <h2>Fallstricke</h2>
 Bei dem Suchen nach Eins- oder Nullbl&ouml;cken darf man an den Spiegelachsen springen:
 
-{% caption align="aligncenter" width="300" caption="KV Diagramm: Fallstrick 1<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a>" url="../images/2013/03/kv-diagramm-fallstrick-1-300x180.png" alt="KV Diagramm: Fallstrick 1" title="" height="180" class="size-medium wp-image-63151" %}
+{% caption align="aligncenter" width="300" caption="KV Diagramm: Fallstrick 1<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a>" url="../images/2013/03/kv-diagramm-fallstrick-1-300x180.png" alt="KV Diagramm: Fallstrick 1"  height="180" class="size-medium wp-image-63151" %}
 
-{% caption align="aligncenter" width="300" caption="KV Diagramm: Fallstrick 2<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a>" url="../images/2013/03/kv-diagramm-fallstrick-2-300x173.png" alt="KV Diagramm: Fallstrick 2" title="" height="173" class="size-medium wp-image-63161" %}
+{% caption align="aligncenter" width="300" caption="KV Diagramm: Fallstrick 2<br />Quelle: <a href='http://ti.ira.uka.de/Klausur/AlteKlausuren/m_ss_10.pdf#page=2'>Klausur vom SS 2010 (KIT)</a>" url="../images/2013/03/kv-diagramm-fallstrick-2-300x173.png" alt="KV Diagramm: Fallstrick 2"  height="173" class="size-medium wp-image-63161" %}

@@ -59,7 +59,7 @@ public boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
 If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.
 
 <h2>The algorithm</h2>
-{% caption align="aligncenter" width="500" caption="Flowchart how to check if two lines intersect" url="../images/2013/02/flowchart.png" alt="Flowchart how to check if two lines intersect" title="" height="228" class="size-full wp-image-57771" %}
+{% caption align="aligncenter" width="500" caption="Flowchart how to check if two lines intersect" url="../images/2013/02/flowchart.png" alt="Flowchart how to check if two lines intersect"  height="228" class="size-full wp-image-57771" %}
 
 Looks quite simple, doesn't it?
 

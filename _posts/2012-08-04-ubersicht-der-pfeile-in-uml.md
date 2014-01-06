@@ -13,7 +13,7 @@ featured_image: 2012/05/UML-thumb.png
 Folgende Pfeile werden in UML verwendet:
 <h2>Klassendiagramme</h2>
 <h3>Vererbung</h3>
-{% caption align="alignright" width="77" caption="Class B erbt von Class A; Class A ist die Oberklasse" url="../images/2012/07/UML-vererbung.png" alt="Class B erbt von Class A; Class A ist die Oberklasse" title="" height="135" class="size-full wp-image-32841 " title="Class B erbt von Class A; Class A ist die Oberklasse" %}
+{% caption align="alignright" width="77" caption="Class B erbt von Class A; Class A ist die Oberklasse" url="../images/2012/07/UML-vererbung.png" alt="Class B erbt von Class A; Class A ist die Oberklasse"  height="135" class="size-full wp-image-32841 " title="Class B erbt von Class A; Class A ist die Oberklasse" %}
 Die <a href="http://de.wikipedia.org/wiki/Vererbung_(Programmierung)">Vererbung</a> ist eines der wichtigsten Prinzipien der objektorientierten Programmierung. Sie zeigt eine "ist ein"-Beziehung an.
 
 Beispiele sind:
@@ -26,7 +26,7 @@ Beispiele sind:
 Beachte dass <code>Auto</code> hier sowohl von <code>Luxusgut</code>, als auch von <code>Fortbewegungsmittel</code> erbt. Das geht in manchen Programmiersprachen (C++, Python), in anderen nicht (Java). 
 
 <h3>Assoziation</h3>
-{% caption align="alignright" width="77" caption="Assoziation" url="../images/2012/07/UML-assoziation.png" alt="Assoziation" title="" height="154" class="size-full wp-image-32901 " title="Assoziation" %}
+{% caption align="alignright" width="77" caption="Assoziation" url="../images/2012/07/UML-assoziation.png" alt="Assoziation"  height="154" class="size-full wp-image-32901 " title="Assoziation" %}
 
 Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation</a>zeigt eine Verbindung an, z.B.:
 <ul>
@@ -36,7 +36,7 @@ Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)">Assoziation</a>zeig
 </ul>
 In einer Datenbank w&uuml;rde man f&uuml;r diese Relationen eine weitere Tabelle erstellen. Also eine Tabelle f&uuml;r Personen, eine f&uuml;r Termine und eine f&uuml;r Person-Termin-Verkn&uuml;pfungen.
 <h3>Aggregation</h3>
-{% caption align="alignright" width="77" caption="Aggregation" url="../images/2012/07/UML-aggregation.png" alt="Aggregation" title="" height="155" class="size-full wp-image-32871 " title="Aggregation" %}
+{% caption align="alignright" width="77" caption="Aggregation" url="../images/2012/07/UML-aggregation.png" alt="Aggregation"  height="155" class="size-full wp-image-32871 " title="Aggregation" %}
 
 Die <a href="http://de.wikipedia.org/wiki/Assoziation_(UML)#Aggregation">Aggregation</a> ist eine spezielle Assoziation. Sie zeigt eine "hat"-Beziehung an. Dabei ist die Richtung wichtig und sollte angezeigt werden.
 
@@ -47,7 +47,7 @@ Aggregationen sind z.B.:
 	<li>Buchladen hat B&uuml;cher</li>
 </ul>
 <h3>Komposition</h3>
-{% caption align="alignright" width="77" caption="Komposition" url="../images/2012/07/UML-komposition.png" alt="Komposition" title="" height="155" class="size-full wp-image-32891 " title="Komposition" %}
+{% caption align="alignright" width="77" caption="Komposition" url="../images/2012/07/UML-komposition.png" alt="Komposition"  height="155" class="size-full wp-image-32891 " title="Komposition" %}
 
 Die <a href="http://de.wikipedia.org/wiki/Komposition_(UML)#Komposition">Komposition</a> zeigt eine notwendige "ist-Teil-von" Beziehung an. Das Teil kann also nicht ohne das Ganze existieren.
 

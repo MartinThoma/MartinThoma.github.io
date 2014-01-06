@@ -88,9 +88,9 @@ Oncee you've read the task, you should understand some very basic ideas:
   <li>When your target is above the ground, you can let the diamond slide down to calculate the size of the basis.</li>
 </ul>
 
-{% caption align="aligncenter" width="512" caption="You have to get those yellow diamonds first, before you can get the orange one." url="../images/2013/05/falling-diamonds-base.jpg" alt="A basis for diamonds" title="" height="323" class="size-full wp-image-65431" %}
+{% caption align="aligncenter" width="512" caption="You have to get those yellow diamonds first, before you can get the orange one." url="../images/2013/05/falling-diamonds-base.jpg" alt="A basis for diamonds"  height="323" class="size-full wp-image-65431" %}
 
-{% caption align="aligncenter" width="512" caption="Let Diamonds slide down" url="../images/2013/05/falling-diamonds-slide.jpg" alt="Let Diamonds slide down" title="" height="254" class="size-full wp-image-65441" %}
+{% caption align="aligncenter" width="512" caption="Let Diamonds slide down" url="../images/2013/05/falling-diamonds-slide.jpg" alt="Let Diamonds slide down"  height="254" class="size-full wp-image-65441" %}
 
 Note that you don't have to calculate a probabilty for the yellow pyramids. You get those with probability of 1.
 

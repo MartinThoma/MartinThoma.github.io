@@ -134,7 +134,7 @@ You can use <code>block</code>, <code>exampleblock</code> or <code>alertblock</c
 ```
 
 It looks like this:
-{% caption align="aligncenter" width="300" caption="LaTeX Beamer blocks: block, exampleblock, alertblock" url="../images/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock" title="" height="117" class="size-medium wp-image-59391" %}
+{% caption align="aligncenter" width="300" caption="LaTeX Beamer blocks: block, exampleblock, alertblock" url="../images/2013/03/latex-beamer-block-300x117.png" alt="LaTeX Beamer blocks: block, exampleblock, alertblock"  height="117" class="size-medium wp-image-59391" %}
 
 <h2>Images</h2>
 Quite often, you want to have one big image.

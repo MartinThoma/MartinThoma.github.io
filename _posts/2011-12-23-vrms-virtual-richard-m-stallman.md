@@ -11,7 +11,7 @@ tags:
 - OpenSource
 featured_image: 2011/12/Richard-Stallman1.jpg
 ---
-{% caption align="alignright" width="200" caption="" url="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" title="" height="300" class="size-medium wp-image-10141 " title="Richard Stallman" %}
+{% caption align="alignright" width="200" caption="" url="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman"  height="300" class="size-medium wp-image-10141 " title="Richard Stallman" %}
 
 I've just installed vrms - the virtual richard stallman :D
 

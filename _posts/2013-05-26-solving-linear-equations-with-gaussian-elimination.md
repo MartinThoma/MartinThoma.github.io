@@ -67,7 +67,7 @@ $
 
 It's actually quite simple to get this form:
 
-{% caption align="aligncenter" width="500" caption="Pseudocode for Gaussian elimination" url="../images/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination" title="" height="772" class="size-full wp-image-68071" %}
+{% caption align="aligncenter" width="500" caption="Pseudocode for Gaussian elimination" url="../images/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination"  height="772" class="size-full wp-image-68071" %}
 
 <h2>C++ Code</h2>
 {% highlight cpp %}

@@ -28,7 +28,7 @@ Man vergleicht nun jede Zeile mit den dar&uuml;ber liegenden Zeilen.
 Sobald man alle Zeilen des vorhergehenden Block &uuml;berpr&uuml;ft hat, kann man wieder eine Linie machen.
 
 Das sieht dann etwa so aus (aus Folien von Prof. Dr. Asfour):
-{% caption align="aligncenter" width="300" caption="Consensus-Verfahren" url="../images/2013/01/consensus-verfahren-300x165.png" alt="Consensus-Verfahren" title="" height="165" class="size-medium wp-image-55531" %}
+{% caption align="aligncenter" width="300" caption="Consensus-Verfahren" url="../images/2013/01/consensus-verfahren-300x165.png" alt="Consensus-Verfahren"  height="165" class="size-medium wp-image-55531" %}
 
 Wie man sieht, kann es auch sein, dass eine neue Zeile bereits von einer alten &uuml;berdeckt wird. Diese Zeilen kann man also direkt streichen.
 Sobald man keine neuen Zeilen / Bl&ouml;cke mehr bilden kann, ist man fertig. Die Zeilen, die nicht gestrichen wurden, sind Primimplikanten.

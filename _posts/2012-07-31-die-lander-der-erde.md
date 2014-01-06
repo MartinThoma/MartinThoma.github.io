@@ -10,7 +10,7 @@ tags:
 - Geography
 featured_image: 2012/07/laender-der-erde1.png
 ---
-{% caption align="aligncenter" width="482" caption="L&auml;nder der Erde" url="../images/2012/07/laender-der-erde.png" alt="L&auml;nder der Erde" title="" height="280" class=" wp-image-35581 " title="L&auml;nder der Erde" %}
+{% caption align="aligncenter" width="482" caption="L&auml;nder der Erde" url="../images/2012/07/laender-der-erde.png" alt="L&auml;nder der Erde"  height="280" class=" wp-image-35581 " title="L&auml;nder der Erde" %}
 
 Hier ist ein <a href="http://www.jetpunk.com/quizzes/lander-der-welt-quiz">Spiel</a>, bei dem man die L&auml;nder der Erde eingeben muss. Es ist schon erschreckent, wie viele wei&szlig;e Flecken hier sind.
 

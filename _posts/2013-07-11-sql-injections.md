@@ -18,11 +18,11 @@ featured_image: 2013/07/blackhat.png
 <h2>Example: IMDb</h2>
 Take a look at <a href="http://www.imdb.com/">IMDb</a>. Users can search for movies by title:
 
-{% caption align="aligncenter" width="300" caption="IMDb: User Interface to search for a movie by title" url="../images/2013/07/imdb-harry-potter-query-300x194.png" alt="IMDb: User Interface to search for a movie by title" title="" height="194" class="size-medium wp-image-73911" %}
+{% caption align="aligncenter" width="300" caption="IMDb: User Interface to search for a movie by title" url="../images/2013/07/imdb-harry-potter-query-300x194.png" alt="IMDb: User Interface to search for a movie by title"  height="194" class="size-medium wp-image-73911" %}
 
 When you search for "Harry Potter" for example, the following happens:
 
-{% caption align="aligncenter" width="300" caption="Search query within URL and results" url="../images/2013/07/imdb-search-query-300x156.png" alt="Search query within URL and results" title="" height="156" class="size-medium wp-image-73921" %}
+{% caption align="aligncenter" width="300" caption="Search query within URL and results" url="../images/2013/07/imdb-search-query-300x156.png" alt="Search query within URL and results"  height="156" class="size-medium wp-image-73921" %}
 
 You obviously interacted with imdb.com in a very dynamic way. The output of the website depends on what you typed in and IMDb has to search in its database for your search terms.
 
@@ -102,11 +102,11 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
 
 Now go to <a href="http://localhost/hack.php">http://localhost/hack.php</a>. It should look like this:
 
-{% caption align="aligncenter" width="300" caption="Screenshot of my minimal example" url="../images/2013/07/hack-screenshot-300x85.png" alt="Screenshot of my minimal example" title="" height="85" class="size-medium wp-image-73971" %}
+{% caption align="aligncenter" width="300" caption="Screenshot of my minimal example" url="../images/2013/07/hack-screenshot-300x85.png" alt="Screenshot of my minimal example"  height="85" class="size-medium wp-image-73971" %}
 
 When you search for "Harry Potter" it should show you "1: Harry Potter". Note that there could be a lot of information, but I wanted to keep this example as small as possible.
 
-{% caption align="aligncenter" width="300" caption="Normal use of the web service" url="../images/2013/07/hack-normal-use-300x77.png" alt="Normal use of the web service" title="" height="77" class="size-medium wp-image-73981" %}
+{% caption align="aligncenter" width="300" caption="Normal use of the web service" url="../images/2013/07/hack-normal-use-300x77.png" alt="Normal use of the web service"  height="77" class="size-medium wp-image-73981" %}
 
 This resulted in the following query:
 
@@ -114,7 +114,7 @@ This resulted in the following query:
 
 But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:
 
-{% caption align="aligncenter" width="300" caption="What a hacker could do" url="../images/2013/07/hack-hacky-use-300x94.png" alt="What a hacker could do" title="" height="94" class="size-medium wp-image-73991" %}
+{% caption align="aligncenter" width="300" caption="What a hacker could do" url="../images/2013/07/hack-hacky-use-300x94.png" alt="What a hacker could do"  height="94" class="size-medium wp-image-73991" %}
 
 Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:
 
@@ -126,11 +126,11 @@ which results in this query:
 
 which gives:
 
-{% caption align="aligncenter" width="268" caption="Attacker got all table names" url="../images/2013/07/sql-injection-example-268x300.png" alt="Attacker got all table names" title="" height="300" class="size-medium wp-image-74001" %}
+{% caption align="aligncenter" width="268" caption="Attacker got all table names" url="../images/2013/07/sql-injection-example-268x300.png" alt="Attacker got all table names"  height="300" class="size-medium wp-image-74001" %}
 
 This way, the attacker gets all table names from all databases on this machine. So he essentially can get everything stored in your database. And, of course, after getting everything he could drop it:
 
-{% caption align="aligncenter" width="300" caption="xkcd 327: Exploits of a mom" url="../images/2013/07/exploits_of_a_mom-300x92.png" alt="xkcd 327: Exploits of a mom" title="" height="92" class="size-medium wp-image-74011" %}
+{% caption align="aligncenter" width="300" caption="xkcd 327: Exploits of a mom" url="../images/2013/07/exploits_of_a_mom-300x92.png" alt="xkcd 327: Exploits of a mom"  height="92" class="size-medium wp-image-74011" %}
 
 <h2>History</h2>
 Just a few famous examples to show you that this happens all the time:

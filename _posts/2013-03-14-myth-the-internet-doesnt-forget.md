@@ -20,7 +20,7 @@ Let's see the stats:
   <li>22 are gone for other reasons</li>
 </ul>
 
-{% caption align="aligncenter" width="300" caption="YouTube Video is not available in Germany because of GEMA" url="../images/2013/03/youtube-gema-300x134.png" alt="YouTube Video is not available in Germany because of GEMA" title="" height="134" class="size-medium wp-image-60991" %}
+{% caption align="aligncenter" width="300" caption="YouTube Video is not available in Germany because of GEMA" url="../images/2013/03/youtube-gema-300x134.png" alt="YouTube Video is not available in Germany because of GEMA"  height="134" class="size-medium wp-image-60991" %}
 
 <table>
   <thead>

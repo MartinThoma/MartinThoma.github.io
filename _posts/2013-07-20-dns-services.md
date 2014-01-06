@@ -23,7 +23,7 @@ nameserver 208.67.220.220
 <h2>namebench</h2>
 A programm called <a href="https://code.google.com/p/namebench">namebench</a>  checks how fast several DNS configurations would be for you.
 
-{% caption align="aligncenter" width="300" caption="namebench" url="../images/2013/03/namebench-300x222.png" alt="namebench" title="" height="222" class="size-medium wp-image-62241" %}
+{% caption align="aligncenter" width="300" caption="namebench" url="../images/2013/03/namebench-300x222.png" alt="namebench"  height="222" class="size-medium wp-image-62241" %}
 
 <h2>Further reading</h2>
 <ul>

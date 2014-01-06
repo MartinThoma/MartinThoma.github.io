@@ -251,7 +251,7 @@ Bei Replay-Angriffen f&auml;ngt der Angreifer einen Teil der Kommunikation von A
 <div class="answer">
 Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion von kryptographischen Hash-Funktionen. Sie funktioniert so:
 
-{% caption align="aligncenter" width="300" caption="Merkle-Damgard-Konstruktion<br />Quelle: <a href='http://commons.wikimedia.org/wiki/File:Merkle-Damgard_hash_big.svg'>Wikipedia</a>" url="../images/2013/04/merkle-damgard-300x139.png" alt="Merkle-Damgard-Konstruktion" title="" height="139" class="size-medium wp-image-74091" %}
+{% caption align="aligncenter" width="300" caption="Merkle-Damgard-Konstruktion<br />Quelle: <a href='http://commons.wikimedia.org/wiki/File:Merkle-Damgard_hash_big.svg'>Wikipedia</a>" url="../images/2013/04/merkle-damgard-300x139.png" alt="Merkle-Damgard-Konstruktion"  height="139" class="size-medium wp-image-74091" %}
 </div>
 </div>
 
@@ -366,11 +366,11 @@ Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,
 
 <h2>Diverses</h2>
 <h3>TLS Handshake</h3>
-{% caption align="aligncenter" width="512" caption="TLS Handshake" url="../images/2013/04/tls-handshake.jpg" alt="TLS Handshake" title="" height="449" class="size-full wp-image-74511" %}
+{% caption align="aligncenter" width="512" caption="TLS Handshake" url="../images/2013/04/tls-handshake.jpg" alt="TLS Handshake"  height="449" class="size-full wp-image-74511" %}
 
 <h3>Change Cipher Spec Drop</h3>
 Ein Angriff auf verschl&uuml;sselte Verbindungen:
-{% caption align="aligncenter" width="512" caption="Change cipher spec drop" url="../images/2013/04/change-cipher-spec-drop.jpg" alt="Change cipher spec drop" title="" height="275" class="size-full wp-image-74501" %}
+{% caption align="aligncenter" width="512" caption="Change cipher spec drop" url="../images/2013/04/change-cipher-spec-drop.jpg" alt="Change cipher spec drop"  height="275" class="size-full wp-image-74501" %}
 
 
 <h2>Material</h2>
@@ -428,4 +428,4 @@ Sind noch nicht drau&szlig;en (Stand: 30.07.2013)
 
 Sind nun drau&szlig;en (Stand: 09.08.2013): <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_HK-Ergebnis.pdf">Vorl&auml;ufige Ergebnisse als PDF</a>
 
-{% caption align="aligncenter" width="300" caption="Ergebnis der Sicherheitsklausur" url="../images/2013/04/ergebnis-sicherheit-300x227.png" alt="Ergebnis der Sicherheitsklausur" title="" height="227" class="size-medium wp-image-75851" %}
+{% caption align="aligncenter" width="300" caption="Ergebnis der Sicherheitsklausur" url="../images/2013/04/ergebnis-sicherheit-300x227.png" alt="Ergebnis der Sicherheitsklausur"  height="227" class="size-medium wp-image-75851" %}

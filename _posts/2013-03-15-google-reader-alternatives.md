@@ -35,14 +35,14 @@ Now, I am interested in alternatives. They should
 <h3>The Old Reader</h3>
 <a href="http://theoldreader.com/">The Old Reader</a> is a web service that wants to provide the same service as Google did before.
 
-{% caption align="aligncenter" width="300" caption="The Old Reader" url="../images/2013/03/theoldreader.com-feeds-import-300x175.png" alt="The Old Reader" title="" height="175" class="size-medium wp-image-61231" %}
+{% caption align="aligncenter" width="300" caption="The Old Reader" url="../images/2013/03/theoldreader.com-feeds-import-300x175.png" alt="The Old Reader"  height="175" class="size-medium wp-image-61231" %}
 
 Looks pretty good, doesn't it? But it currently displays the message "There are 27283 users in the import queue ahead of you."
 
 <h3>BazQux Reader</h3>
 <a href="http://bazqux.com/">BazQux Reader</a> seemed to be a real alternative. It allowed me to sign in with Google, import my subscriptions and it looked familiar:
 
-{% caption align="aligncenter" width="300" caption="BazQux Reader" url="../images/2013/03/bazqux.com_-300x222.png" alt="BazQux Reader" title="" height="222" class="size-medium wp-image-61261" %}
+{% caption align="aligncenter" width="300" caption="BazQux Reader" url="../images/2013/03/bazqux.com_-300x222.png" alt="BazQux Reader"  height="222" class="size-medium wp-image-61261" %}
 
 Another point for BazQux: It supports OPML-Export (Click on the icon at the top right corner &rarr; Subscriptions &rarr; Export OPML)
 
@@ -58,7 +58,7 @@ But now the drawbacks:
 
 <a href="http://www.bloglovin.com/">Bloglovin'</a> is another WebService that looks very nice and is free, seems to be a real alternative. While importing my subscriptions, I got a 504 Gateway Time-out, but it imported my feeds anyway.
 
-{% caption align="aligncenter" width="300" caption="bloglovin" url="../images/2013/03/bloglovin-300x210.png" alt="bloglovin" title="" height="210" class="size-medium wp-image-61271" %}
+{% caption align="aligncenter" width="300" caption="bloglovin" url="../images/2013/03/bloglovin-300x210.png" alt="bloglovin"  height="210" class="size-medium wp-image-61271" %}
 
 The service seems to be free, they have an <a href="https://play.google.com/store/apps/details?id=se.yo.android.bloglovin">Android App</a> and an <a href="https://itunes.apple.com/app/bloglovin/id421818340?mt=8">iPhone App</a>, but no Google Chrome App and I can't sign in with Google.
 
@@ -67,7 +67,7 @@ Bloglovin' does not provide an export function.
 <h3>Good Noows</h3>
 It seems to get better. <a href="http://goodnoows.com/">Good Noows</a> lets me sign in with Google, offers an import function and has a <a href="https://chrome.google.com/webstore/detail/good-noows/deegloljmdbfbjhlimieancmcfombgjj?utm_source=chrome-ntp-icon">Chrome App</a>. I seems to be free.
 
-{% caption align="aligncenter" width="300" caption="Good Noows" url="../images/2013/03/goodnoows-300x183.png" alt="Good Noows" title="" height="183" class="size-medium wp-image-61291" %}
+{% caption align="aligncenter" width="300" caption="Good Noows" url="../images/2013/03/goodnoows-300x183.png" alt="Good Noows"  height="183" class="size-medium wp-image-61291" %}
 
 However, it has no Android App and seems not to support export.
 
@@ -83,7 +83,7 @@ It has no Chrome App and the <a href="https://play.google.com/store/apps/details
 <h3>Selfoss</h3>
 <a href="http://selfoss.aditu.de/">Selfoss</a> gives you the possibility to host your RSS-Aggregator by yourself. It looks quite good, requires only PHP 5.3 and MySQL and mobiles are supported.
 
-{% caption align="aligncenter" width="300" caption="Screenshot of selfoss" url="../images/2013/03/selfoss-300x203.png" alt="Screenshot of selfoss" title="" height="203" class="size-medium wp-image-68361" %}
+{% caption align="aligncenter" width="300" caption="Screenshot of selfoss" url="../images/2013/03/selfoss-300x203.png" alt="Screenshot of selfoss"  height="203" class="size-medium wp-image-68361" %}
 
 <ul>
   <li>Selfoss: <a href="https://github.com/SSilence/selfoss">GitHub</a>, <a href="http://selfoss.aditu.de/">Download</a></li>

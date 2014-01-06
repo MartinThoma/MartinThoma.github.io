@@ -44,6 +44,6 @@ XPS is an alternative for PDF. It lacks program support compared to PDF.
 After a quick search, I found <a href="http://www.cutepdf.com/Products/CutePDF/writer.asp">CutePDF</a>. Seems to work, but I don't give any malware-freeness-guarantees.
 
 Although I don't know if there is malware, there is definitely some spam content:
-{% caption align="aligncenter" width="518" caption="Windows 7: Install another browser toolbar" url="../images/2012/12/windows-7-browser-toolbar.png" alt="Windows 7: Install another browser toolbar" title="" height="413" class="size-full wp-image-52891" %}
+{% caption align="aligncenter" width="518" caption="Windows 7: Install another browser toolbar" url="../images/2012/12/windows-7-browser-toolbar.png" alt="Windows 7: Install another browser toolbar"  height="413" class="size-full wp-image-52891" %}
 
 Why can't it simply only install a PDF-printer without getting annoyed with toolbars? I never had this problem on Linux...

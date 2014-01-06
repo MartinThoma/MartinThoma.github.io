@@ -43,7 +43,7 @@ Usage example:
 </ul>
 
 <h2>Math</h2>
-{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes" title="" height="145" class="size-full wp-image-45931 " title="Sizes of different math modes" %}
+{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes"  height="145" class="size-full wp-image-45931 " title="Sizes of different math modes" %}
 Usage example:
 <code>$\scriptstyle \lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n$</code>
 <ul>

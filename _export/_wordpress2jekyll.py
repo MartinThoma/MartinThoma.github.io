@@ -177,7 +177,7 @@ def changeYaml(content):
 
 def forEveryPost(website, operation, development=True):
     from os import listdir
-    directory = "./_drafts/"
+    directory = "./_posts/"
     files = sorted(listdir(directory))
     for f in files:
         filename = directory+f
@@ -194,6 +194,13 @@ def forEveryPost(website, operation, development=True):
             #print(newContent)
             print("#"*80)
 
+def captionRemoveDeprecated(page):
+    yaml, content = getYaml(page)
+
+    pattern = re.compile("{% caption(?P<before>.*?)caption=\"(?P<caption>.*?)\"(?P<between>.*?)title=\"\"(?P<after>.*?)%}")
+    content = re.sub(pattern, '{% caption\g<before>caption=\"\g<caption>\"\g<between>\g<after>%}', content)
+    return "---" + yaml + "---" + content
+
 if __name__ == "__main__":
     """
     from argparse import ArgumentParser
@@ -208,5 +215,5 @@ if __name__ == "__main__":
     """
 
     # improve things
-    forEveryPost("http://martin-thoma.com/", pageCodeConversion, False)
+    forEveryPost("http://martin-thoma.com/", captionRemoveDeprecated, False)
     

@@ -17,7 +17,7 @@ If you are the owner of one of these websites and don't want me to publish your 
 <h2>We are the 99%</h2>
 <a href="http://en.wikipedia.org/wiki/We_are_the_99%25">We are the 99%</a> is a political slogan of "Occupy" protesters. It refers to the vast concentration of wealth among the top 1% of income earners compared to the other 99%, and indicates that most people are paying the price for the mistakes of a tiny minority.
 
-{% caption align="aligncenter" width="300" caption="" url="../images/2011/12/99-percent-300x217.jpg" alt="We are the 99% - Caricature from mattbors.com" title="" height="217" class="size-medium wp-image-10371 " title="We are the 99% - Caricature from mattbors.com" %}
+{% caption align="aligncenter" width="300" caption="" url="../images/2011/12/99-percent-300x217.jpg" alt="We are the 99% - Caricature from mattbors.com"  height="217" class="size-medium wp-image-10371 " title="We are the 99% - Caricature from mattbors.com" %}
 (mattbors.com has some more caricatures from the occupy protesters)
 
 {% caption align="aligncenter" width="300" caption="Wall Street - Demonstrators vs. Bankers (from&nbsp;<a href=http://www.startribune.com/opinion/131177628.html>Startribune.com</a>)" url="../images/2011/12/wall-street-demonstrators-bankers-300x227.jpg" alt="Wall Street - Demonstrators vs. Bankers" title="Wall Street - Demonstrators vs. Bankers" height="227" class="size-medium wp-image-10391" %}

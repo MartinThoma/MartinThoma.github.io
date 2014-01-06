@@ -191,7 +191,7 @@ Ein bisschen was zu <a href="http://en.wikipedia.org/wiki/Join_(SQL)">JOIN</a> s
 
 Ich habe &uuml;brigens das folgende Captcha bekomme:
 
-{% caption align="aligncenter" width="293" caption="Datenbanksysteme - Captcha" url="../images/2013/04/captcha-db.png" alt="Datenbanksysteme - Captcha" title="" height="221" class="size-full wp-image-70581" %}
+{% caption align="aligncenter" width="293" caption="Datenbanksysteme - Captcha" url="../images/2013/04/captcha-db.png" alt="Datenbanksysteme - Captcha"  height="221" class="size-full wp-image-70581" %}
 
 Wie zur H&ouml;lle soll man das l&ouml;sen? Ich hatte auf &bdquo;448444&ldquo; getippt, aber das war falsch.
 

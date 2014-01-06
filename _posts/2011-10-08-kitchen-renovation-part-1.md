@@ -22,37 +22,37 @@ The flat is shared by students. My hirer told me that he will pay all cost of ma
 	<li>The tube for hot water was loose.</li>
 </ul>
 <h3>Some photos</h3>
-{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/kitchen-before-countertop.jpg" alt="Old countertop of our kitchen" title="" height="450" class="size-full wp-image-4281" title="Old countertop of our kitchen" %}
+{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/kitchen-before-countertop.jpg" alt="Old countertop of our kitchen"  height="450" class="size-full wp-image-4281" title="Old countertop of our kitchen" %}
 
-{% caption align="aligncenter" width="375" caption="" url="../images/2011/10/kitchen-before-countertop-old.jpg" alt="The old countertop" title="" height="500" class="size-full wp-image-4301" title="The old countertop" %}
+{% caption align="aligncenter" width="375" caption="" url="../images/2011/10/kitchen-before-countertop-old.jpg" alt="The old countertop"  height="500" class="size-full wp-image-4301" title="The old countertop" %}
 
-{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/kitchen-before-countertop-old-top.jpg" alt="Top of the old countertop" title="" height="450" class="size-full wp-image-4331" title="Top of the old countertop" %}
+{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/kitchen-before-countertop-old-top.jpg" alt="Top of the old countertop"  height="450" class="size-full wp-image-4331" title="Top of the old countertop" %}
 <h2>Plans</h2>
-{% caption align="aligncenter" width="674" caption="" url="../images/2011/10/kitchen-before-plan.png" alt="Kitchen before renovation" title="" height="458" class="size-full wp-image-4551" title="Kitchen before renovation" %}
+{% caption align="aligncenter" width="674" caption="" url="../images/2011/10/kitchen-before-plan.png" alt="Kitchen before renovation"  height="458" class="size-full wp-image-4551" title="Kitchen before renovation" %}
 
-{% caption align="aligncenter" width="675" caption="" url="../images/2011/10/kitchen-after-plan.png" alt="Kitchen after renovation" title="" height="459" class="size-full wp-image-4561" title="Kitchen after renovation" %}
+{% caption align="aligncenter" width="675" caption="" url="../images/2011/10/kitchen-after-plan.png" alt="Kitchen after renovation"  height="459" class="size-full wp-image-4561" title="Kitchen after renovation" %}
 <h2>The renovation</h2>
 <h3>Tools</h3>
 I needed quite a lot of tools. I had to buy most of them when I saw that I couldn't continue without them:
 
-{% caption align="aligncenter" width="400" caption="" url="../images/2011/10/tool-drilling-machine.jpg" alt="Drilling machine" title="" height="255" class="size-full wp-image-4571" title="Drilling machine" %}
+{% caption align="aligncenter" width="400" caption="" url="../images/2011/10/tool-drilling-machine.jpg" alt="Drilling machine"  height="255" class="size-full wp-image-4571" title="Drilling machine" %}
 
-{% caption align="aligncenter" width="400" caption="" url="../images/2011/10/tool-plumber-wrench.jpg" alt="Plumber wrench" title="" height="127" class="size-full wp-image-4581" title="Plumber wrench" %}
+{% caption align="aligncenter" width="400" caption="" url="../images/2011/10/tool-plumber-wrench.jpg" alt="Plumber wrench"  height="127" class="size-full wp-image-4581" title="Plumber wrench" %}
 
-{% caption align="aligncenter" width="400" caption="" url="../images/2011/10/tool-screwdriver.jpg" alt="Screwdrivers" title="" height="198" class="size-full wp-image-4591" title="Screwdrivers" %}
+{% caption align="aligncenter" width="400" caption="" url="../images/2011/10/tool-screwdriver.jpg" alt="Screwdrivers"  height="198" class="size-full wp-image-4591" title="Screwdrivers" %}
 
-{% caption align="aligncenter" width="500" caption="" url="../images/2011/10/tool-silicone-cartridge.jpg" alt="Silicone cartridge" title="" height="254" class="size-full wp-image-4611" title="Silicone cartridge" %}
+{% caption align="aligncenter" width="500" caption="" url="../images/2011/10/tool-silicone-cartridge.jpg" alt="Silicone cartridge"  height="254" class="size-full wp-image-4611" title="Silicone cartridge" %}
 
-{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/tool-spirit-level.jpg" alt="Spirit level" title="" height="120" class="size-full wp-image-4621" title="Spirit level" %}
+{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/tool-spirit-level.jpg" alt="Spirit level"  height="120" class="size-full wp-image-4621" title="Spirit level" %}
 
-{% caption align="aligncenter" width="290" caption="" url="../images/2011/10/tool-wrench.jpg" alt="Wrench" title="" height="350" class="size-full wp-image-4631" title="Wrench" %}
+{% caption align="aligncenter" width="290" caption="" url="../images/2011/10/tool-wrench.jpg" alt="Wrench"  height="350" class="size-full wp-image-4631" title="Wrench" %}
 
 Additionally I needed a hammer to get the wall plugs into the wall, some different screws and wall plugs, pliers, some tubes and some <a href="http://en.wikipedia.org/wiki/O-ring">O-rings</a>.
 
 <h3>Photos while working</h3>
-{% caption align="aligncenter" width="196" caption="" url="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg" alt="Crooked wall" title="" height="300" class="size-medium wp-image-4641 " title="Crooked wall" %}
+{% caption align="aligncenter" width="196" caption="" url="../images/2011/10/kitchen-working-crooked-wall2-196x300.jpg" alt="Crooked wall"  height="300" class="size-medium wp-image-4641 " title="Crooked wall" %}
 
-{% caption align="aligncenter" width="225" caption="" url="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes" title="" height="300" class="size-medium wp-image-4671  " title="Heating pipes" %}
+{% caption align="aligncenter" width="225" caption="" url="../images/2011/10/kitchen-after-heating-pipe-225x300.jpg" alt="Heating pipes"  height="300" class="size-medium wp-image-4671  " title="Heating pipes" %}
 
 {% caption align="aligncenter" width="300" caption="To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at it&#039;s place." url="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine" title="Washing machine" height="225" class="size-medium wp-image-4741" %}
 
@@ -73,7 +73,7 @@ Additionally I needed a hammer to get the wall plugs into the wall, some differe
 {% caption align="aligncenter" width="300" caption="Adding a baseboard was one of the last steps. This small piece of would should prevent water from touching the wallpaper. Moreover it looks nice :-)" url="../images/2011/10/kitchen-after-baseboard-300x225.jpg" alt="Adding a baseboard" title="Adding a baseboard" height="225" class="size-medium wp-image-4781" %}
 
 <h2>The new kitchen</h2>
-{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/kitchen-after.png" alt="Kitchen after renovation" title="" height="450" class="size-full wp-image-4651" title="Kitchen after renovation" %}
+{% caption align="aligncenter" width="600" caption="" url="../images/2011/10/kitchen-after.png" alt="Kitchen after renovation"  height="450" class="size-full wp-image-4651" title="Kitchen after renovation" %}
 
 {% caption align="aligncenter" width="300" caption="Exact work: It fitted only with a few milimeters left. Good that I added some space to make sure it will fit. If I made the plate exactly as big as it could have been according to my first plan, I would have been in trouble." url="../images/2011/10/kitchen-after-exact-work-300x225.jpg" alt="Exact work: It fitted only with a few milimeters left" title="Exact work: It fitted only with a few milimeters left" height="225" class="size-medium wp-image-4771" %}
 

@@ -18,7 +18,7 @@ Some programming languages are very good at some tasks. I don't know any that is
 
 This comic illustrates what I mean:
 
-{% caption align="alignnone" width="582" caption="A fair test" url="../images/2012/07/testing_cartoon.jpg" alt="A fair test - comic - illustration - cartoon - caricature" title="" height="402" class="size-full wp-image-32731 " title="A fair test" %}
+{% caption align="alignnone" width="582" caption="A fair test" url="../images/2012/07/testing_cartoon.jpg" alt="A fair test - comic - illustration - cartoon - caricature"  height="402" class="size-full wp-image-32731 " title="A fair test" %}
 <h2>Bash</h2>
 The bash is great for tiny tasks where other programs are involved.
 <h3>Example</h3>

@@ -98,7 +98,7 @@ You need a webcam for this:
 </div>
 
 This is what it should look like:
-{% caption align="aligncenter" width="664" caption="Webcam example" url="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" title="" height="395" class="size-full wp-image-72801" %}
+{% caption align="aligncenter" width="664" caption="Webcam example" url="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example"  height="395" class="size-full wp-image-72801" %}
 
 And it gives these results:
 {% gallery %}
@@ -109,7 +109,7 @@ And it gives these results:
 
 By the way, you can check if a website is currently accessing your webcam (with Google Chrome):
 
-{% caption align="aligncenter" width="370" caption="Webcam indicator on tab in Google Chrome" url="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" title="" height="125" class="size-full wp-image-72811" %}
+{% caption align="aligncenter" width="370" caption="Webcam indicator on tab in Google Chrome" url="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome"  height="125" class="size-full wp-image-72811" %}
 
 If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":
-{% caption align="aligncenter" width="180" caption="Enamble Web-RTC in Chrome for Android" url="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" title="" height="300" class="size-medium wp-image-73191" %}
+{% caption align="aligncenter" width="180" caption="Enamble Web-RTC in Chrome for Android" url="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android"  height="300" class="size-medium wp-image-73191" %}

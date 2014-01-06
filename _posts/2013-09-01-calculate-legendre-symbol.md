@@ -11,7 +11,7 @@ tags:
 featured_image: 2013/08/algebra-thumb.jpg
 ---
 <h2>Pseudocode</h2>
-{% caption align="aligncenter" width="500" caption="Pseudocode: Calculate Legendre symbol" url="../images/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol" title="" height="528" class="size-full wp-image-76379" %}
+{% caption align="aligncenter" width="500" caption="Pseudocode: Calculate Legendre symbol" url="../images/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol"  height="528" class="size-full wp-image-76379" %}
 
 <h2>Python</h2>
 {% highlight python %}

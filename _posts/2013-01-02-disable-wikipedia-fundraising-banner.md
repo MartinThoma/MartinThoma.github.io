@@ -12,10 +12,10 @@ featured_image: 2011/09/Wikipedia-logo.png
 ---
 I didn't spend this year for Wikipedia because of the advertising. It really got on my nerves:
 
-{% caption align="aligncenter" width="300" caption="Wikipedia advertising - Fundraising campaign" url="../images/2013/01/wikipedia-advertising-300x85.png" alt="Wikipedia advertising - Fundraising campaign" title="" height="85" class="size-medium wp-image-53041" %}
+{% caption align="aligncenter" width="300" caption="Wikipedia advertising - Fundraising campaign" url="../images/2013/01/wikipedia-advertising-300x85.png" alt="Wikipedia advertising - Fundraising campaign"  height="85" class="size-medium wp-image-53041" %}
 
 But you can simply disable it:
-{% caption align="aligncenter" width="300" caption="How to disable Wikipedia fundraiser" url="../images/2013/01/wikipedia-disable-fundraiser-300x153.png" alt="How to disable Wikipedia fundraiser" title="" height="153" class="size-medium wp-image-53051" %}
+{% caption align="aligncenter" width="300" caption="How to disable Wikipedia fundraiser" url="../images/2013/01/wikipedia-disable-fundraiser-300x153.png" alt="How to disable Wikipedia fundraiser"  height="153" class="size-medium wp-image-53051" %}
 
 You only have to go to:
 

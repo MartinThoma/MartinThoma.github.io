@@ -24,7 +24,7 @@ you can solve it quite easily.
 Johannes Schickling has written a very nice <a href="http://schickling.github.io/algorithms/#/chinese-remainder-theorem">JavaScript Application</a> that applies the following algorithm online. I've used his source code to write the following Python code.
 
 <h2>Pseudocode</h2>
-{% caption align="aligncenter" width="500" caption="Solve a system of linear congruences" url="../images/2013/09/SolveLinearCongruences.png" alt="Solve a system of linear congruences" title="" height="247" class="size-full wp-image-76382" %}
+{% caption align="aligncenter" width="500" caption="Solve a system of linear congruences" url="../images/2013/09/SolveLinearCongruences.png" alt="Solve a system of linear congruences"  height="247" class="size-full wp-image-76382" %}
 
 <h2>Python</h2>
 {% highlight python %}

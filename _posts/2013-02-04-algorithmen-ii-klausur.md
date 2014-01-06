@@ -283,4 +283,4 @@ Update vom 09.03.2013: Einsicht ist am Dienstag, den 19. Marz von 15:00 bis 17:
 und am Donnerstag, den 4. April von 15:00 bis 17:00 jeweils in Raum 301 im Infobau 50.34</li>
 </ul>
 
-{% caption align="aligncenter" width="300" caption="Algorithmen II - Ergebnis-Statistik" url="../images/2013/02/algorithmen-2-stats-300x190.png" alt="Algorithmen II - Ergebnis-Statistik" title="" height="190" class="size-medium wp-image-62061" %}
+{% caption align="aligncenter" width="300" caption="Algorithmen II - Ergebnis-Statistik" url="../images/2013/02/algorithmen-2-stats-300x190.png" alt="Algorithmen II - Ergebnis-Statistik"  height="190" class="size-medium wp-image-62061" %}
