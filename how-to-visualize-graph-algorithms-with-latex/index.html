@@ -6,7 +6,7 @@
     
 
     <title>How to visualize Graph algorithms with LaTeX</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401062344.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401062354.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -99,9 +99,6 @@ This animation was automatically created. See <a href="../images/2012/05/LaTeX-e
       <li class="toc_level-1 toc_section-6">
          <a href="#tocAnchor-1-6"><span class="tocnumber">2</span> <span class="toctext">The whole, working template</span></a>
       </li>
-      <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">3</span> <span class="toctext">Resources</span></a>
-      </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">The ideas</h2>
 
@@ -109,53 +106,49 @@ This animation was automatically created. See <a href="../images/2012/05/LaTeX-e
 
 <p>If you want to visualize a graph algorithm, you should first try to get the image of the graph with Tikz. 
 First include all packages / create the general structure of the document:</p>
-
 <div class="highlight">
-   <pre><code class="python">\<span class="n">documentclass</span><span class="p">[</span><span class="n">hyperref</span><span class="o">=</span><span class="p">{</span><span class="n">pdfpagelabels</span><span class="o">=</span><span class="n">false</span><span class="p">}]{</span><span class="n">beamer</span><span class="p">}</span>
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">lmodern</span><span class="p">}</span>
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[hyperref={pdfpagelabels=false}]</span><span class="nb">{</span>beamer<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>lmodern<span class="nb">}</span>
 
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">utf8</span><span class="p">]{</span><span class="n">inputenc</span><span class="p">}</span> <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">german</span> <span class="n">umlauts</span>
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">ngerman</span><span class="p">]{</span><span class="n">babel</span><span class="p">}</span> <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">german</span> <span class="n">umlauts</span>
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">T1</span><span class="p">]{</span><span class="n">fontenc</span><span class="p">}</span>    <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">correct</span> <span class="n">output</span> <span class="n">of</span> <span class="n">umlauts</span> <span class="ow">in</span> <span class="n">pdf</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
 
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">verbatim</span><span class="p">}</span>
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">tikz</span><span class="p">}</span>
-\<span class="n">usetikzlibrary</span><span class="p">{</span><span class="n">arrows</span><span class="p">,</span><span class="n">shapes</span><span class="p">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>verbatim<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,shapes<span class="nb">}</span>
 
-<span class="o">%</span> <span class="n">see</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">deic</span><span class="o">.</span><span class="n">uab</span><span class="o">.</span><span class="n">es</span><span class="o">/~</span><span class="n">iblanes</span><span class="o">/</span><span class="n">beamer_gallery</span><span class="o">/</span><span class="n">index_by_theme</span><span class="o">.</span><span class="n">html</span>
-\<span class="n">usetheme</span><span class="p">{</span><span class="n">Frankfurt</span><span class="p">}</span>
-\<span class="n">usefonttheme</span><span class="p">{</span><span class="n">professionalfonts</span><span class="p">}</span>
+<span class="c">% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html</span>
+<span class="k">\usetheme</span><span class="nb">{</span>Frankfurt<span class="nb">}</span>
+<span class="k">\usefonttheme</span><span class="nb">{</span>professionalfonts<span class="nb">}</span>
 
-\<span class="n">begin</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
-\<span class="n">begin</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-    <span class="n">Your</span> <span class="n">content</span> <span class="n">will</span> <span class="n">be</span> <span class="n">here</span><span class="o">.</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>
+    Your content will be here.
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-
 <p>Simple graphs could look like this:</p>
-
 <div class="highlight">
-   <pre><code class="python">\<span class="n">begin</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-    \<span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}[</span><span class="o">-&gt;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span><span class="n">swap</span><span class="p">]</span>
-        <span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$a (this is text)$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$b$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$c$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$d$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$d$`</span><span class="p">};</span>
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[-&gt;,scale=1.8, auto,swap]
+        <span class="c">% Draw the vertices.</span>
+        <span class="k">\node</span> (a) at (0,0) <span class="nb">{</span>`<span class="s">$</span><span class="nb">a </span><span class="o">(</span><span class="nb">this is text</span><span class="o">)</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (b) at (0,1) <span class="nb">{</span>`<span class="s">$</span><span class="nb">b</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (c) at (1,1) <span class="nb">{</span>`<span class="s">$</span><span class="nb">c</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (d) at (1,0) <span class="nb">{</span>`<span class="s">$</span><span class="nb">d</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (e) at (3,1) <span class="nb">{</span>`<span class="s">$</span><span class="nb">d</span><span class="s">$</span>`<span class="nb">}</span>;
 
-        <span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="p">);</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">c</span><span class="p">);</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="p">);</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">a</span><span class="p">);</span>
-    \<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
+        <span class="c">% Connect vertices with edges and draw weights</span>
+        <span class="k">\path</span> (a) edge node <span class="nb">{}</span> (b);
+        <span class="k">\path</span> (b) edge node <span class="nb">{}</span> (c);
+        <span class="k">\path</span> (c) edge node <span class="nb">{}</span> (d);
+        <span class="k">\path</span> (d) edge node <span class="nb">{}</span> (a);
+    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
 </code></pre>
 </div>
-
 <p>You should get something similar to this:
 </p><div style="width: 300px" class="wp-caption aligncenter">
    <a href="../images/2012/05/simple-example-graph-300x105.png">
@@ -169,202 +162,196 @@ First include all packages / create the general structure of the document:</p>
 <p>Animations can be created with Tikz by working with layers. You don't want to redraw the whole graph every time. Most of the time you want to overlay/underlay some parts of the graph. This can be achieved by declaring a new layer:</p>
 
 <div class="highlight">
-   <pre><code class="python">\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">NAME</span><span class="p">}</span>
+   <pre><code class="latex"><span class="k">\pgfdeclarelayer</span><span class="nb">{</span>NAME<span class="nb">}</span>
 </code></pre>
 </div>
 
 <p>Then you need to tell PGF which layers are to use in the next figure:</p>
 
 <div class="highlight">
-   <pre><code class="python">\<span class="n">pgfsetlayers</span><span class="p">{</span><span class="n">LAYER</span> <span class="n">LIST</span><span class="p">}</span>
+   <pre><code class="latex"><span class="k">\pgfsetlayers</span><span class="nb">{</span>LAYER LIST<span class="nb">}</span>
 </code></pre>
 </div>
 
 <p>The layer main should always be part of the list. Here is an example:</p>
 
 <div class="highlight">
-   <pre><code class="python">\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">background</span><span class="p">}</span>
-\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">foreground</span><span class="p">}</span>
-\<span class="n">pgfsetlayers</span><span class="p">{</span><span class="n">background</span><span class="p">,</span><span class="n">main</span><span class="p">,</span><span class="n">foreground</span><span class="p">}</span>
+   <pre><code class="latex"><span class="k">\pgfdeclarelayer</span><span class="nb">{</span>background<span class="nb">}</span>
+<span class="k">\pgfdeclarelayer</span><span class="nb">{</span>foreground<span class="nb">}</span>
+<span class="k">\pgfsetlayers</span><span class="nb">{</span>background,main,foreground<span class="nb">}</span>
 </code></pre>
 </div>
 
 <p>Now the magic begins. You consecutively add frames to the layer:</p>
-
 <div class="highlight">
-   <pre><code class="python">   \<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
-        \<span class="n">path</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-        \<span class="n">path</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-        \<span class="n">path</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-    \<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
+   <pre><code class="latex language-latex" data-lang="latex">    <span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>background<span class="nb">}</span>
+        <span class="k">\path</span>&lt;2-&gt;[draw,line width=5pt,-,red!50] (a.center) edge node <span class="nb">{}</span> (b.center);
+        <span class="k">\path</span>&lt;10-&gt;[draw,line width=5pt,-,red!50] (b.center) edge node <span class="nb">{}</span> (d.center);
+        <span class="k">\path</span>&lt;12-&gt;[draw,line width=5pt,-,red!50] (d.center) edge node <span class="nb">{}</span> (e.center);
+    <span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
 </code></pre>
 </div>
-
 <p>The number (2, 10 and 12 in this example) indicate the frame in which it should be added. This is the absolute frame, but 1 is the first frame of the figure environment!</p>
 
 <h3 id="tocAnchor-1-1-3">Status quo</h3>
-
 <div class="highlight">
-   <pre><code class="python">\<span class="n">documentclass</span><span class="p">[</span><span class="n">hyperref</span><span class="o">=</span><span class="p">{</span><span class="n">pdfpagelabels</span><span class="o">=</span><span class="n">false</span><span class="p">}]{</span><span class="n">beamer</span><span class="p">}</span>
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">lmodern</span><span class="p">}</span>
- 
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">utf8</span><span class="p">]{</span><span class="n">inputenc</span><span class="p">}</span> <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">german</span> <span class="n">umlauts</span>
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">ngerman</span><span class="p">]{</span><span class="n">babel</span><span class="p">}</span> <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">german</span> <span class="n">umlauts</span>
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">T1</span><span class="p">]{</span><span class="n">fontenc</span><span class="p">}</span>    <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">correct</span> <span class="n">output</span> <span class="n">of</span> <span class="n">umlauts</span> <span class="ow">in</span> <span class="n">pdf</span>
- 
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">verbatim</span><span class="p">}</span>
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">tikz</span><span class="p">}</span>
-\<span class="n">usetikzlibrary</span><span class="p">{</span><span class="n">arrows</span><span class="p">,</span><span class="n">shapes</span><span class="p">}</span>
- 
-<span class="o">%</span> <span class="n">see</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">deic</span><span class="o">.</span><span class="n">uab</span><span class="o">.</span><span class="n">es</span><span class="o">/~</span><span class="n">iblanes</span><span class="o">/</span><span class="n">beamer_gallery</span><span class="o">/</span><span class="n">index_by_theme</span><span class="o">.</span><span class="n">html</span>
-\<span class="n">usetheme</span><span class="p">{</span><span class="n">Frankfurt</span><span class="p">}</span>
-\<span class="n">usefonttheme</span><span class="p">{</span><span class="n">professionalfonts</span><span class="p">}</span>
- 
-\<span class="n">begin</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[hyperref={pdfpagelabels=false}]</span><span class="nb">{</span>beamer<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>lmodern<span class="nb">}</span>
 
-\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">background</span><span class="p">}</span>
-\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">foreground</span><span class="p">}</span>
-\<span class="n">pgfsetlayers</span><span class="p">{</span><span class="n">background</span><span class="p">,</span><span class="n">main</span><span class="p">,</span><span class="n">foreground</span><span class="p">}</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
 
-\<span class="n">begin</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-\<span class="n">begin</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-    \<span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}[</span><span class="o">-&gt;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span><span class="n">swap</span><span class="p">]</span>
-        <span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$a (this is text)$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$b$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$c$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$d$`</span><span class="p">};</span>
-        \<span class="n">node</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="n">at</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="sb">`$d$`</span><span class="p">};</span>
- 
-        <span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="p">);</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">c</span><span class="p">);</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="p">);</span>
-        \<span class="n">path</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="k">\usepackage</span><span class="nb">{</span>verbatim<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,shapes<span class="nb">}</span>
 
-        \<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
-            \<span class="n">path</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-            \<span class="n">path</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-            \<span class="n">path</span><span class="o">&lt;</span><span class="mi">12</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span> <span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-        \<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
-    \<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
+<span class="c">% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html</span>
+<span class="k">\usetheme</span><span class="nb">{</span>Frankfurt<span class="nb">}</span>
+<span class="k">\usefonttheme</span><span class="nb">{</span>professionalfonts<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="k">\pgfdeclarelayer</span><span class="nb">{</span>background<span class="nb">}</span>
+<span class="k">\pgfdeclarelayer</span><span class="nb">{</span>foreground<span class="nb">}</span>
+<span class="k">\pgfsetlayers</span><span class="nb">{</span>background,main,foreground<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[-&gt;,scale=1.8, auto,swap]
+        <span class="c">% Draw the vertices.</span>
+        <span class="k">\node</span> (a) at (0,0) <span class="nb">{</span>`<span class="s">$</span><span class="nb">a </span><span class="o">(</span><span class="nb">this is text</span><span class="o">)</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (b) at (0,1) <span class="nb">{</span>`<span class="s">$</span><span class="nb">b</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (c) at (1,1) <span class="nb">{</span>`<span class="s">$</span><span class="nb">c</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (d) at (1,0) <span class="nb">{</span>`<span class="s">$</span><span class="nb">d</span><span class="s">$</span>`<span class="nb">}</span>;
+        <span class="k">\node</span> (e) at (3,1) <span class="nb">{</span>`<span class="s">$</span><span class="nb">d</span><span class="s">$</span>`<span class="nb">}</span>;
+
+        <span class="c">% Connect vertices with edges and draw weights</span>
+        <span class="k">\path</span> (a) edge node <span class="nb">{}</span> (b);
+        <span class="k">\path</span> (b) edge node <span class="nb">{}</span> (c);
+        <span class="k">\path</span> (c) edge node <span class="nb">{}</span> (d);
+        <span class="k">\path</span> (d) edge node <span class="nb">{}</span> (a);
+
+        <span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>background<span class="nb">}</span>
+            <span class="k">\path</span>&lt;2-&gt;[draw,line width=5pt,-,red!50] (a.center) edge node <span class="nb">{}</span> (b.center);
+            <span class="k">\path</span>&lt;10-&gt;[draw,line width=5pt,-,red!50] (b.center) edge node <span class="nb">{}</span> (d.center);
+            <span class="k">\path</span>&lt;12-&gt;[draw,line width=5pt,-,red!50] (d.center) edge node <span class="nb">{}</span> (e.center);
+        <span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-
 <h3 id="tocAnchor-1-1-4">Simplify it</h3>
 
 <p>You can make some definitions, e.g.:</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span>
+   <pre><code class="latex">draw,line width=5pt,-,red!50
 </code></pre>
 </div>
 
 <p>can be replaced by</p>
 
 <div class="highlight">
-   <pre><code class="python">\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">selected</span> <span class="n">edge</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span>
+   <pre><code class="latex"><span class="k">\tikzstyle</span><span class="nb">{</span>selected edge<span class="nb">}</span> = [draw,line width=5pt,-,red!50]
 </code></pre>
 </div>
 
 <p>You can make loops:</p>
-
 <div class="highlight">
-   <pre><code class="python">   <span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span>
-    \<span class="n">foreach</span> \<span class="n">pos</span> <span class="o">/</span> \<span class="n">identifier</span> <span class="o">/</span> \<span class="n">name</span> <span class="ow">in</span> <span class="p">{{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">a</span> <span class="p">(</span><span class="n">this</span> <span class="ow">is</span> <span class="n">text</span><span class="p">)},</span> 
-        <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="n">b</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">c</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="n">d</span><span class="p">},</span> <span class="p">{(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">d</span><span class="p">}}</span>
-        \<span class="n">node</span> <span class="p">(</span>\<span class="n">identifier</span><span class="p">)</span> <span class="n">at</span> \<span class="n">pos</span> <span class="p">{</span><span class="sb">`$\name$`</span><span class="p">};</span>
+   <pre><code class="latex language-latex" data-lang="latex">    <span class="c">% Draw the vertices.</span>
+    <span class="k">\foreach</span> <span class="k">\pos</span> / <span class="k">\identifier</span> / <span class="k">\name</span> in <span class="nb">{{</span>(0,0)/a/a (this is text)<span class="nb">}</span>, 
+        <span class="nb">{</span>(0,1)/b/b<span class="nb">}</span>, <span class="nb">{</span>(1,1)/c/c<span class="nb">}</span>, <span class="nb">{</span>(1,0)/d/d<span class="nb">}</span>, <span class="nb">{</span>(3,1)/e/d<span class="nb">}}</span>
+        <span class="k">\node</span> (<span class="k">\identifier</span>) at <span class="k">\pos</span> <span class="nb">{</span>`<span class="s">$</span><span class="nv">\name</span><span class="s">$</span>`<span class="nb">}</span>;
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-6">The whole, working template</h2>
-
 <div class="highlight">
-   <pre><code class="python">\<span class="n">documentclass</span><span class="p">[</span><span class="n">hyperref</span><span class="o">=</span><span class="p">{</span><span class="n">pdfpagelabels</span><span class="o">=</span><span class="n">false</span><span class="p">}]{</span><span class="n">beamer</span><span class="p">}</span>
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">lmodern</span><span class="p">}</span>
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[hyperref={pdfpagelabels=false}]</span><span class="nb">{</span>beamer<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>lmodern<span class="nb">}</span>
 
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">utf8</span><span class="p">]{</span><span class="n">inputenc</span><span class="p">}</span> <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">german</span> <span class="n">umlauts</span>
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">ngerman</span><span class="p">]{</span><span class="n">babel</span><span class="p">}</span> <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">german</span> <span class="n">umlauts</span>
-\<span class="n">usepackage</span><span class="p">[</span><span class="n">T1</span><span class="p">]{</span><span class="n">fontenc</span><span class="p">}</span>    <span class="o">%</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">correct</span> <span class="n">output</span> <span class="n">of</span> <span class="n">umlauts</span> <span class="ow">in</span> <span class="n">pdf</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
 
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">verbatim</span><span class="p">}</span>
-\<span class="n">usepackage</span><span class="p">{</span><span class="n">tikz</span><span class="p">}</span>
-\<span class="n">usetikzlibrary</span><span class="p">{</span><span class="n">arrows</span><span class="p">,</span><span class="n">shapes</span><span class="p">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>verbatim<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,shapes<span class="nb">}</span>
 
-<span class="o">%</span> <span class="n">Define</span> <span class="n">some</span> <span class="n">styles</span> <span class="k">for</span> <span class="n">graphs</span>
-\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">vertex</span><span class="p">}</span><span class="o">=</span><span class="p">[</span><span class="n">circle</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="n">black</span><span class="err">!</span><span class="mi">25</span><span class="p">,</span><span class="n">minimum</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="n">pt</span><span class="p">,</span><span class="n">inner</span> <span class="n">sep</span><span class="o">=</span><span class="mi">0</span><span class="n">pt</span><span class="p">]</span>
-\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">selected</span> <span class="n">vertex</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">vertex</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">red</span><span class="err">!</span><span class="mi">24</span><span class="p">]</span>
-\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">blue</span> <span class="n">vertex</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">vertex</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">blue</span><span class="err">!</span><span class="mi">24</span><span class="p">]</span>
-\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">edge</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">thick</span><span class="p">,</span><span class="o">-</span><span class="p">]</span>
-\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">weight</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">font</span><span class="o">=</span>\<span class="n">small</span><span class="p">]</span>
-\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">selected</span> <span class="n">edge</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">red</span><span class="err">!</span><span class="mi">50</span><span class="p">]</span>
-\<span class="n">tikzstyle</span><span class="p">{</span><span class="n">ignored</span> <span class="n">edge</span><span class="p">}</span> <span class="o">=</span> <span class="p">[</span><span class="n">draw</span><span class="p">,</span><span class="n">line</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="n">pt</span><span class="p">,</span><span class="o">-</span><span class="p">,</span><span class="n">black</span><span class="err">!</span><span class="mi">20</span><span class="p">]</span>
+<span class="c">% Define some styles for graphs</span>
+<span class="k">\tikzstyle</span><span class="nb">{</span>vertex<span class="nb">}</span>=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+<span class="k">\tikzstyle</span><span class="nb">{</span>selected vertex<span class="nb">}</span> = [vertex, fill=red!24]
+<span class="k">\tikzstyle</span><span class="nb">{</span>blue vertex<span class="nb">}</span> = [vertex, fill=blue!24]
+<span class="k">\tikzstyle</span><span class="nb">{</span>edge<span class="nb">}</span> = [draw,thick,-]
+<span class="k">\tikzstyle</span><span class="nb">{</span>weight<span class="nb">}</span> = [font=<span class="k">\small</span>]
+<span class="k">\tikzstyle</span><span class="nb">{</span>selected edge<span class="nb">}</span> = [draw,line width=5pt,-,red!50]
+<span class="k">\tikzstyle</span><span class="nb">{</span>ignored edge<span class="nb">}</span> = [draw,line width=5pt,-,black!20]
 
-<span class="o">%</span> <span class="n">see</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">deic</span><span class="o">.</span><span class="n">uab</span><span class="o">.</span><span class="n">es</span><span class="o">/~</span><span class="n">iblanes</span><span class="o">/</span><span class="n">beamer_gallery</span><span class="o">/</span><span class="n">index_by_theme</span><span class="o">.</span><span class="n">html</span>
-\<span class="n">usetheme</span><span class="p">{</span><span class="n">Frankfurt</span><span class="p">}</span>
-\<span class="n">usefonttheme</span><span class="p">{</span><span class="n">professionalfonts</span><span class="p">}</span>
+<span class="c">% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html</span>
+<span class="k">\usetheme</span><span class="nb">{</span>Frankfurt<span class="nb">}</span>
+<span class="k">\usefonttheme</span><span class="nb">{</span>professionalfonts<span class="nb">}</span>
 
-<span class="o">%</span> <span class="n">disables</span> <span class="n">bottom</span> <span class="n">navigation</span> <span class="n">bar</span>
-\<span class="n">beamertemplatenavigationsymbolsempty</span>
+<span class="c">% disables bottom navigation bar</span>
+<span class="k">\beamertemplatenavigationsymbolsempty</span>
 
-<span class="o">%</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">tex</span><span class="o">.</span><span class="n">stackexchange</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">questions</span><span class="o">/</span><span class="mi">23727</span><span class="o">/</span><span class="n">converting</span><span class="o">-</span><span class="n">beamer</span><span class="o">-</span><span class="n">slides</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">animated</span><span class="o">-</span><span class="n">images</span>
-\<span class="n">setbeamertemplate</span><span class="p">{</span><span class="n">navigation</span> <span class="n">symbols</span><span class="p">}{}</span><span class="o">%</span>
+<span class="c">% http://tex.stackexchange.com/questions/23727/converting-beamer-slides-to-animated-images</span>
+<span class="k">\setbeamertemplate</span><span class="nb">{</span>navigation symbols<span class="nb">}{}</span><span class="c">%</span>
 
-\<span class="n">begin</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
-\<span class="n">pgfdeclarelayer</span><span class="p">{</span><span class="n">background</span><span class="p">}</span>
-\<span class="n">pgfsetlayers</span><span class="p">{</span><span class="n">background</span><span class="p">,</span><span class="n">main</span><span class="p">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\pgfdeclarelayer</span><span class="nb">{</span>background<span class="nb">}</span>
+<span class="k">\pgfsetlayers</span><span class="nb">{</span>background,main<span class="nb">}</span>
 
-\<span class="n">begin</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-    \<span class="n">begin</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-        \<span class="n">begin</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}[</span><span class="o">-&gt;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span><span class="n">swap</span><span class="p">]</span>
-            <span class="o">%</span> <span class="n">Draw</span> <span class="n">the</span> <span class="n">vertices</span><span class="o">.</span> <span class="n">First</span> <span class="n">you</span> <span class="n">define</span> <span class="n">a</span> <span class="nb">list</span><span class="o">.</span>
-            \<span class="n">foreach</span> \<span class="n">pos</span><span class="o">/</span>\<span class="n">name</span> <span class="ow">in</span> <span class="p">{{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="p">},</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="p">},</span> <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">c</span><span class="p">},</span>
-                                    <span class="p">{(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">},</span> <span class="p">{(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">e</span><span class="p">},</span> <span class="p">{(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">},</span> 
-                                    <span class="p">{(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">g</span><span class="p">},</span> <span class="p">{(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">h</span><span class="p">},</span> <span class="p">{(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">i</span><span class="p">},</span>
-                                    <span class="p">{(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">j</span><span class="p">}}</span>
-                \<span class="n">node</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="p">(</span>\<span class="n">name</span><span class="p">)</span> <span class="n">at</span> \<span class="n">pos</span> <span class="p">{</span><span class="sb">`$\name$`</span><span class="p">};</span>
+<span class="k">\begin</span><span class="nb">{</span>frame<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
+        <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[-&gt;,scale=1.8, auto,swap]
+            <span class="c">% Draw the vertices. First you define a list.</span>
+            <span class="k">\foreach</span> <span class="k">\pos</span>/<span class="k">\name</span> in <span class="nb">{{</span>(0,0)/a<span class="nb">}</span>, <span class="nb">{</span>(0,2)/b<span class="nb">}</span>, <span class="nb">{</span>(1,2)/c<span class="nb">}</span>,
+                                    <span class="nb">{</span>(1,0)/d<span class="nb">}</span>, <span class="nb">{</span>(2,1)/e<span class="nb">}</span>, <span class="nb">{</span>(3,1)/f<span class="nb">}</span>, 
+                                    <span class="nb">{</span>(4,2)/g<span class="nb">}</span>, <span class="nb">{</span>(5,2)/h<span class="nb">}</span>, <span class="nb">{</span>(4,0)/i<span class="nb">}</span>,
+                                    <span class="nb">{</span>(5,0)/j<span class="nb">}}</span>
+                <span class="k">\node</span><span class="na">[vertex]</span> (<span class="k">\name</span>) at <span class="k">\pos</span> <span class="nb">{</span>`<span class="s">$</span><span class="nv">\name</span><span class="s">$</span>`<span class="nb">}</span>;
 
-            <span class="o">%</span> <span class="n">Connect</span> <span class="n">vertices</span> <span class="k">with</span> <span class="n">edges</span> <span class="ow">and</span> <span class="n">draw</span> <span class="n">weights</span>
-            \<span class="n">foreach</span> \<span class="n">source</span><span class="o">/</span> \<span class="n">dest</span> <span class="o">/</span>\<span class="n">pos</span> <span class="ow">in</span> <span class="p">{</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="p">,</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="p">,</span>
-                                        <span class="n">c</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="p">,</span>
-                                        <span class="n">e</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="p">,</span>
-                                        <span class="n">g</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="n">bend</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span>
-                                        <span class="n">g</span><span class="o">/</span><span class="n">h</span><span class="o">/</span><span class="p">,</span> <span class="n">h</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="p">,</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="p">}</span>
-                \<span class="n">path</span> <span class="p">(</span>\<span class="n">source</span><span class="p">)</span> <span class="n">edge</span> <span class="p">[</span>\<span class="n">pos</span><span class="p">]</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span>\<span class="n">dest</span><span class="p">);</span>
+            <span class="c">% Connect vertices with edges and draw weights</span>
+            <span class="k">\foreach</span> <span class="k">\source</span>/ <span class="k">\dest</span> /<span class="k">\pos</span> in <span class="nb">{</span>a/b/, b/c/, c/d/, d/a/,
+                                        c/e/bend left, d/e/, e/c/,
+                                        e/f/, f/g/, f/i/,
+                                        g/f/bend right, i/f/bend left,
+                                        g/h/, h/j/, j/i/, i/g/<span class="nb">}</span>
+                <span class="k">\path</span> (<span class="k">\source</span>) edge [<span class="k">\pos</span>] node <span class="nb">{}</span> (<span class="k">\dest</span>);
 
-            <span class="o">%</span> <span class="n">Start</span> <span class="n">animating</span> <span class="n">the</span> <span class="n">edge</span> <span class="n">selection</span><span class="o">.</span> 
-            <span class="o">%</span> <span class="n">For</span> <span class="n">convenience</span> <span class="n">we</span> <span class="n">use</span> <span class="n">a</span> <span class="n">background</span> <span class="n">layer</span> <span class="n">to</span> 
-            <span class="o">%</span> <span class="n">highlight</span> <span class="n">edges</span><span class="o">.</span> <span class="n">This</span> <span class="n">way</span> <span class="n">we</span> <span class="n">don</span><span class="s">'t have to worry about </span>
-            <span class="o">%</span> <span class="n">the</span> <span class="n">highlighting</span> <span class="n">covering</span> <span class="n">weight</span> <span class="n">labels</span><span class="o">.</span> 
-            \<span class="n">begin</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}{</span><span class="n">background</span><span class="p">}</span>
-                \<span class="n">foreach</span> \<span class="n">source</span> <span class="o">/</span> \<span class="n">dest</span> <span class="o">/</span> \<span class="n">fr</span> <span class="o">/</span> \<span class="n">pos</span> <span class="ow">in</span> <span class="p">{</span><span class="n">d</span><span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="p">,</span>
-                        <span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="p">,</span> <span class="n">c</span><span class="o">/</span><span class="n">d</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">5</span><span class="o">/</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="p">,</span> 
-                        <span class="n">c</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">,</span> <span class="n">e</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">8</span><span class="o">/</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="mi">9</span><span class="o">/</span><span class="p">,</span>
-                        <span class="n">g</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="n">bend</span> <span class="n">right</span><span class="p">,</span> <span class="n">f</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">g</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="p">,</span> <span class="n">g</span><span class="o">/</span><span class="n">h</span><span class="o">/</span><span class="mi">13</span><span class="o">/</span><span class="p">,</span> 
-                        <span class="n">h</span><span class="o">/</span><span class="n">j</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="p">,</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="o">/</span><span class="mi">15</span><span class="o">/</span><span class="p">,</span> <span class="n">i</span><span class="o">/</span><span class="n">f</span><span class="o">/</span><span class="mi">16</span><span class="o">/</span><span class="n">bend</span> <span class="n">left</span><span class="p">}</span>
-                    \<span class="n">path</span><span class="o">&lt;</span>\<span class="n">fr</span><span class="o">-&gt;</span><span class="p">[</span><span class="n">selected</span> <span class="n">edge</span><span class="p">]</span> <span class="p">(</span>\<span class="n">source</span><span class="o">.</span><span class="n">center</span><span class="p">)</span> <span class="n">edge</span> 
-                                        <span class="p">[</span>\<span class="n">pos</span><span class="p">]</span> <span class="n">node</span> <span class="p">{}</span> <span class="p">(</span>\<span class="n">dest</span><span class="o">.</span><span class="n">center</span><span class="p">);</span>
-            \<span class="n">end</span><span class="p">{</span><span class="n">pgfonlayer</span><span class="p">}</span>
-        \<span class="n">end</span><span class="p">{</span><span class="n">tikzpicture</span><span class="p">}</span>
-    \<span class="n">end</span><span class="p">{</span><span class="n">figure</span><span class="p">}</span>
-    <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consetetur</span> <span class="n">sadipscing</span> <span class="n">elitr</span><span class="p">,</span> 
-    <span class="n">sed</span> <span class="n">diam</span> <span class="n">nonumy</span> <span class="n">eirmod</span> <span class="n">tempor</span> <span class="n">invidunt</span> <span class="n">ut</span> <span class="n">labore</span> <span class="n">et</span> <span class="n">dolore</span>
-    <span class="n">magna</span> <span class="n">aliquyam</span> <span class="n">erat</span><span class="p">,</span> <span class="n">sed</span> <span class="n">diam</span> <span class="n">voluptua</span><span class="o">.</span> <span class="n">At</span> <span class="n">vero</span> <span class="n">eos</span> <span class="n">et</span> 
-    <span class="n">accusam</span> <span class="n">et</span><span class="o">.</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">frame</span><span class="p">}</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">document</span><span class="p">}</span>
+            <span class="c">% Start animating the edge selection. </span>
+            <span class="c">% For convenience we use a background layer to </span>
+            <span class="c">% highlight edges. This way we don't have to worry about </span>
+            <span class="c">% the highlighting covering weight labels. </span>
+            <span class="k">\begin</span><span class="nb">{</span>pgfonlayer<span class="nb">}{</span>background<span class="nb">}</span>
+                <span class="k">\foreach</span> <span class="k">\source</span> / <span class="k">\dest</span> / <span class="k">\fr</span> / <span class="k">\pos</span> in <span class="nb">{</span>d/a/1/,
+                        a/b/2/, b/c/3/, c/d/4/, d/e/5/, e/c/6/, 
+                        c/e/7/bend left, e/f/8/, f/g/9/,
+                        g/f/10/bend right, f/i/11/, i/g/12/, g/h/13/, 
+                        h/j/14/, j/i/15/, i/f/16/bend left<span class="nb">}</span>
+                    <span class="k">\path</span>&lt;<span class="k">\fr</span>-&gt;[selected edge] (<span class="k">\source</span>.center) edge 
+                                        [<span class="k">\pos</span>] node <span class="nb">{}</span> (<span class="k">\dest</span>.center);
+            <span class="k">\end</span><span class="nb">{</span>pgfonlayer<span class="nb">}</span>
+        <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+    <span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+    sed diam nonumy eirmod tempor invidunt ut labore et dolore
+    magna aliquyam erat, sed diam voluptua. At vero eos et 
+    accusam et.
+<span class="k">\end</span><span class="nb">{</span>frame<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+```latex
+
+&lt;h2&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://paws.wcu.edu/tsfoguel/tikzpgfmanual.pdf"&gt;TikZ and pgf: Manual for version 1.18&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://www.texample.net/tikz/examples/"&gt;TeXamples.net&lt;/a&gt;: Great page with many Tikz-Examples&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://www.tex.ac.uk/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf"&gt;The beamer class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
 </div>
-
-<h2 id="tocAnchor-1-7">Resources</h2>
-
-<ul><li><a href="http://paws.wcu.edu/tsfoguel/tikzpgfmanual.pdf">TikZ and pgf: Manual for version 1.18</a></li>
-  <li><a href="http://www.texample.net/tikz/examples/">TeXamples.net</a>: Great page with many Tikz-Examples</li>
-  <li><a href="http://www.tex.ac.uk/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf">The beamer class</a></li>
-</ul>
 						</div>
 						<div class="postmeta">Posted in 
                             

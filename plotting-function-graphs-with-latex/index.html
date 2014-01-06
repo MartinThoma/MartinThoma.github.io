@@ -6,7 +6,7 @@
     
 
     <title>Plotting function graphs with LaTeX</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401062344.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401062354.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -68,11 +68,11 @@
 						<div class="entry">
                             <p>It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. </p>
 
-<p>I have used this command to generate the PDF-file:
-<code>bash
-pdflatex latex.tex -output-format=pdf
-</code></p>
-
+<p>I have used this command to generate the PDF-file:</p>
+<div class="highlight">
+   <pre><code class="bash language-bash" data-lang="bash">pdflatex latex.tex -output-format<span class="o">=</span>pdf
+</code></pre>
+</div>
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -150,37 +150,35 @@ pdflatex latex.tex -output-format=pdf
 </div>
 <h2 id="tocAnchor-1-3">Floating text</h2>
 
-<p>If you want to wrap the text around the graph, you can use wrapfigure:
-```latex
-\documentclass{article}</p>
-
-<p>\usepackage{tikz}
-\usepackage{pgfplots}
-\usepackage{wrapfig}</p>
-
-<p>\begin{document}
-\begin{wrapfigure}{r}{.2\textwidth}
-  \begin{center}
-    \begin{tikzpicture}
-          \draw<a href="-0.5,0">-&gt;</a> -- (2,0) node[right] {$x$};
-          \draw<a href="0,-0.5">-&gt;</a> -- (0,4) node[above] {$y$};
-          \draw [domain=0:1/3,red] plot (\x,3<em>3</em>\x);
-          \draw [domain=1/3:2/3,red] plot (\x,2<em>3-3</em>3*\x);
-          \draw [domain=2/3:1.5,red] plot (\x,0);</p>
+<p>If you want to wrap the text around the graph, you can use wrapfigure:</p>
 <div class="highlight">
-   <pre><code class="text language-text" data-lang="text">      \draw [domain=0:1/4,orange] plot (\x,4*4*\x);
-      \draw [domain=1/4:2/4,orange] plot (\x,2*4-4*4*\x);
-      \draw [domain=2/4:1.5,orange] plot (\x,0);
-\end{tikzpicture}
+   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>pgfplots<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>wrapfig<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>wrapfigure<span class="nb">}{</span>r<span class="nb">}{</span>.2<span class="k">\textwidth</span><span class="nb">}</span>
+  <span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+          <span class="k">\draw</span><span class="na">[-&gt;]</span> (-0.5,0) -- (2,0) node[right] <span class="nb">{</span>`<span class="s">$</span><span class="nb">x</span><span class="s">$</span>`<span class="nb">}</span>;
+          <span class="k">\draw</span><span class="na">[-&gt;]</span> (0,-0.5) -- (0,4) node[above] <span class="nb">{</span>`<span class="s">$</span><span class="nb">y</span><span class="s">$</span>`<span class="nb">}</span>;
+          <span class="k">\draw</span> [domain=0:1/3,red] plot (<span class="k">\x</span>,3*3*<span class="k">\x</span>);
+          <span class="k">\draw</span> [domain=1/3:2/3,red] plot (<span class="k">\x</span>,2*3-3*3*<span class="k">\x</span>);
+          <span class="k">\draw</span> [domain=2/3:1.5,red] plot (<span class="k">\x</span>,0);
+
+          <span class="k">\draw</span> [domain=0:1/4,orange] plot (<span class="k">\x</span>,4*4*<span class="k">\x</span>);
+          <span class="k">\draw</span> [domain=1/4:2/4,orange] plot (<span class="k">\x</span>,2*4-4*4*<span class="k">\x</span>);
+          <span class="k">\draw</span> [domain=2/4:1.5,orange] plot (<span class="k">\x</span>,0);
+    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+  <span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>wrapfigure<span class="nb">}</span>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue dictum elit. Morbi ultricies laoreet massa, sed sagittis lorem laoreet et. Donec at erat non sem tristique rutrum vel vel justo. Vestibulum tincidunt pulvinar mi, a congue purus dignissim vel. Ut porttitor dignissim neque eget rutrum. Nunc gravida varius semper. Quisque et purus quam. Quisque ultricies tristique magna sit amet egestas. Mauris bibendum lacus semper justo consectetur blandit vitae non nisi. Etiam non augue nec est facilisis tempor. Nullam non diam vel erat fermentum gravida. Proin tincidunt turpis lobortis ante elementum suscipit. Curabitur congue, dolor fringilla feugiat blandit, quam libero euismod purus, eget commodo erat nibh a augue. Vestibulum ut tellus ac arcu semper facilisis.
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre>
 </div>
-<p>\end{center}
-\end{wrapfigure}</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue dictum elit. Morbi ultricies laoreet massa, sed sagittis lorem laoreet et. Donec at erat non sem tristique rutrum vel vel justo. Vestibulum tincidunt pulvinar mi, a congue purus dignissim vel. Ut porttitor dignissim neque eget rutrum. Nunc gravida varius semper. Quisque et purus quam. Quisque ultricies tristique magna sit amet egestas. Mauris bibendum lacus semper justo consectetur blandit vitae non nisi. Etiam non augue nec est facilisis tempor. Nullam non diam vel erat fermentum gravida. Proin tincidunt turpis lobortis ante elementum suscipit. Curabitur congue, dolor fringilla feugiat blandit, quam libero euismod purus, eget commodo erat nibh a augue. Vestibulum ut tellus ac arcu semper facilisis.
-\end{document}
-```</p>
-
 <h2 id="tocAnchor-1-4">PSTricks</h2>
 
 <p>I have found <a href="http://www.tn-home.de/Tobias/Soft/TeX/TUG040611/presentation.pdf">some</a> <a href="http://en.wikipedia.org/wiki/PSTricks">very</a> <a href="http://www.siart.de/typografie/pstricks_20030809.pdf">nice</a> <a href="http://mirror.informatik.uni-mannheim.de/pub/mirrors/tex-archive/graphics/pstricks/contrib/pst-3dplot/pst-3dplot-doc.pdf">example</a> <a href="http://www.ursoswald.ch/LaTeXGraphics/pstricks/pstricks.html">images</a>, but no working LaTeX-Code.</p>
