@@ -12,6 +12,7 @@ featured_image: 2012/01/latex-logo.png
 It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. 
 
 I have used this command to generate the PDF-file:
+
 ```bash
 pdflatex latex.tex -output-format=pdf
 ```
@@ -62,6 +63,7 @@ pdflatex latex.tex -output-format=pdf
 
 <h2>Floating text</h2>
 If you want to wrap the text around the graph, you can use wrapfigure:
+
 ```latex
 \documentclass{article}
 

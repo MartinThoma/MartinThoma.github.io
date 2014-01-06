@@ -18,7 +18,9 @@ A number of TeX distributions are available, including TeX Live (multiplatform) 
 
 <h2>LaTeX: an Hello World example</h2>
 This is the template I use when I want to write a minimal LaTeX PDF document. You can use it as an example.
-{% highlight text %}\documentclass[a4paper,10pt]{article}
+
+```latex
+\documentclass[a4paper,10pt]{article}
 \usepackage{amssymb}		% needed for math
 \usepackage{amsmath}		% needed for math
 \usepackage{amsthm}   		% needed for proof environment
@@ -49,10 +51,14 @@ Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie co
 
 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
 
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 If LaTeX is available on your system, you can create the PDF file from this myDocument.tex file with this command:
-{% highlight bash %}pdflatex myDocument.tex -output-format=pdf{% endhighlight %}
+
+```bash
+pdflatex myDocument.tex -output-format=pdf
+```
 
 This will create a .log file, an .aux file
 
@@ -63,14 +69,19 @@ Here is the <a href='../images/2012/03/latex-template.zip'>LaTeX template</a> wi
 It's a Network installation, so it will need Internet access. It needs to download about 2 GB so it will take some time. But everything is done automatically.
 
 You should remove your old installation before you start the new one:
-{% highlight bash %}sudo apt-get purge texlive-*
-sudo apt-get autoremove{% endhighlight %}
 
-{% highlight bash %}wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+```bash
+sudo apt-get purge texlive-*
+sudo apt-get autoremove
+```
+
+```bash
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -zxvf install-tl-unx.tar.gz
 cd install-tl-*
 sudo ./install-tl
-I{% endhighlight %}
+I
+```
 
 
 After you've started your installation, you can choose options (O). Then you should choose "create symlinks in standard directories" (L).

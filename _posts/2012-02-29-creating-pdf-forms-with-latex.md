@@ -13,7 +13,8 @@ I've just stumbled across a full, working example how to create a html form with
 It looks like this in Chromes PDF reader:
 {% caption align="aligncenter" width="421" caption="PDF LaTeX form in Chrome" url="../images/2012/02/pdf-latex-form-chrome.png" alt="PDF LaTeX form in Chrome"  height="279" class="size-full wp-image-16711" %}
 
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -65,7 +66,8 @@ Sex: 	\>
 \hfill ~\\
 \end{Form}
 
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 You can save this as pdf-form.tex and run this command in Linux:
 {% highlight bash %}pdflatex pdf-form.tex -output-format=pdf{% endhighlight %}

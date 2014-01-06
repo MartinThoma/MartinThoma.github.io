@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LaTeX-Vorlage f&uuml;r den Semesterbericht der Studienstiftung
+title: LaTeX-Vorlage für den Semesterbericht der Studienstiftung
 author: Martin Thoma
 date: 2012-06-04 07:31:36.000000000 +02:00
 categories:
@@ -10,24 +10,24 @@ tags:
 - Studienstiftung
 featured_image: 2012/06/Studienstiftung-Logo.png
 ---
-Stipendiaten der Studienstiftung des deutschen Volkes m&uuml;ssen jedes Semester einen Studienbericht schreiben. 
+Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben. 
 
-Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen m&uuml;ssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschl&auml;ge habt, k&ouml;nnt ihr mir gerne eine Email schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.
+Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine Email schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.
 
 <h2>Wozu dient der Semesterbericht?</h2>
 Im Daidalosnet steht dazu:
 
-<blockquote>Der Studienbericht bietet Gelegenheit, &uuml;ber die wesentlichen Inhalte und Erfahrungen des letzten Semesters nachzudenken sowie die beiden Leser - den Vertrauensdozenten und den Referenten - zu informieren und an Reflexionen und Bewertungen teilnehmen zu lassen. Ohne die Berichte w&auml;re die Studienstiftung weniger oder kaum in der Lage, ein aktuelles Wissenschaftliches Programm zu bieten und die Stipendiaten verl&auml;sslich zu beraten.
-Nach der Lekt&uuml;re des Berichtes sollten die Leser ein Bild vom Verlauf des Studiums und von fachlichen und au&szlig;erfachlichen Aktivit&auml;ten gewonnen haben. Ein Umfang von zwei bis drei Seiten ist angemessen.</blockquote>
+<blockquote>Der Studienbericht bietet Gelegenheit, über die wesentlichen Inhalte und Erfahrungen des letzten Semesters nachzudenken sowie die beiden Leser - den Vertrauensdozenten und den Referenten - zu informieren und an Reflexionen und Bewertungen teilnehmen zu lassen. Ohne die Berichte wäre die Studienstiftung weniger oder kaum in der Lage, ein aktuelles Wissenschaftliches Programm zu bieten und die Stipendiaten verlässlich zu beraten.
+Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studiums und von fachlichen und au&szlig;erfachlichen Aktivitäten gewonnen haben. Ein Umfang von zwei bis drei Seiten ist angemessen.</blockquote>
 
 <h2>Wer bekommt wann den Studienbericht?</h2>
-<blockquote>Stipendiaten, die endg&uuml;ltig in die Studienstiftung aufgenommen worden sind, schreiben Jahresberichte jeweils zum <strong>1. August</strong>. Stipendiaten vor der endg&uuml;ltigen Aufnahme schreiben Semesterberichte, jeweils zum <strong>1. M&auml;rz</strong> und zum 1. August.</blockquote>
+<blockquote>Stipendiaten, die endgültig in die Studienstiftung aufgenommen worden sind, schreiben Jahresberichte jeweils zum <strong>1. August</strong>. Stipendiaten vor der endgültigen Aufnahme schreiben Semesterberichte, jeweils zum <strong>1. März</strong> und zum 1. August.</blockquote>
 
-Mit dem Semesterbericht f&uuml;r das WS 2012/2013 soll der Bericht nicht mehr an den zust&auml;ndigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden: 
+Mit dem Semesterbericht für das WS 2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden: 
 
-<blockquote>Bitte laden Sie Ihren Bericht als PDF-Dokument im Daidalosnet hoch. Sie finden die Eingabemaske in Ihrem eigenen Kurzprofil ("<strong>Meine Einstellungen</strong>" unten rechts) - hier ist in der unteren Bildschirmh&auml;lfte die Rubrik "<strong>Studienberichte</strong>" zu finden. Wenn Sie hier einen als "offen" gekennzeichneten Eintrag finden, m&uuml;ssen Sie uns einen Bericht zukommen lassen - bitte folgen Sie dem Link in der Zeile unter "offen", um zur Eingabemaske zu gelangen. Sowohl Ihr/e Referent/in als auch Ihr/e Vertrauensdozent/in erhalten automatisch eine Kopie des Berichts per E-Mail.</blockquote>
+<blockquote>Bitte laden Sie Ihren Bericht als PDF-Dokument im Daidalosnet hoch. Sie finden die Eingabemaske in Ihrem eigenen Kurzprofil ("<strong>Meine Einstellungen</strong>" unten rechts) - hier ist in der unteren Bildschirmhälfte die Rubrik "<strong>Studienberichte</strong>" zu finden. Wenn Sie hier einen als "offen" gekennzeichneten Eintrag finden, müssen Sie uns einen Bericht zukommen lassen - bitte folgen Sie dem Link in der Zeile unter "offen", um zur Eingabemaske zu gelangen. Sowohl Ihr/e Referent/in als auch Ihr/e Vertrauensdozent/in erhalten automatisch eine Kopie des Berichts per E-Mail.</blockquote>
 
-<h3>Wer ist mein zust&auml;ndiger Referent bzw. mein Vertrauensdozent?</h3>
+<h3>Wer ist mein zuständiger Referent bzw. mein Vertrauensdozent?</h3>
 <ol>
   <li>Logge dich im <a href="https://www.daidalosnet.de/">daidalosnet</a> ein.</li>
   <li>Klicke rechts unten auf "Meine Einstellungen".</li>
@@ -71,7 +71,7 @@ LaTeX:
 \widowpenalty = 10000 % Hurenkinder verhindern
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hier eigene Daten einf&uuml;gen										%
+% Hier eigene Daten einfügen										%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Jahr}{2011/2012}          % Typ: "2011 / 2012" oder "2012"
 \newcommand{\Semester}{Wintersemester} % "Wintersemester" oder "Sommersemester"
@@ -109,13 +109,13 @@ LaTeX:
 
 \begin{document}
 
-\title{Semesterbericht &uuml;ber das \Semester \Jahr}
+\title{Semesterbericht über das \Semester \Jahr}
 \author{\Vorname \Nachname}
 \date{\Datum}
 
-\section*{Semesterbericht &uuml;ber das \Semester~\Jahr}
+\section*{Semesterbericht über das \Semester~\Jahr}
 \begin{tabularx}{\textwidth}{@{}llllX}
-Name, Vorname:   & \Nachname, \Vorname & Universit&auml;t         & \University \\
+Name, Vorname:   & \Nachname, \Vorname & Universität         & \University \\
 Semesteradresse: &\Strasse~\Hausnummer & Studienfach         & \Studienfach \\
                  &\PLZ~\Ort~~~~~~~     & Semesterzahl        & \Semesteranzahl~von~\Gesamtsemesterzahl \\
                  &                     & Geplanter Abschluss & \Abschluss \\
@@ -124,7 +124,7 @@ E-Mail           &\Email               & Referent            & \Referent \\
 \end{tabularx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Hier bitte Text einf&uuml;gen!										    %
+% Hier bitte Text einfügen!										    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Einleitende Zusammenfassung}
 \subsubsection*{1. Auf diesem Stand ist jetzt mein Studium:}
@@ -134,7 +134,7 @@ sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
 rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
 ipsum dolor sit amet.
 
-\subsubsection*{2. Das war f&uuml;r mich au&szlig;erhalb des Studiums von gro&szlig;er Bedeutung:}
+\subsubsection*{2. Das war für mich au&szlig;erhalb des Studiums von gro&szlig;er Bedeutung:}
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
 sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
@@ -168,7 +168,7 @@ zzril delenit augue duis dolore te feugait nulla facilisi.
 Nam liber tempor cum soluta nobis eleifend option congue nihil 
 imperdiet doming id quod mazim placerat facer
 
-\subsubsection*{3. F&uuml;r das n&auml;chste Semester habe ich folgende Pl&auml;ne:}
+\subsubsection*{3. Für das nächste Semester habe ich folgende Pläne:}
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
@@ -189,11 +189,11 @@ magna aliquyam:
 	\hline
 	\rowcolor{yellow} Lineare Algebra und Analytische Geometrie      & 8   & 9   & Im SS 2012 \\
 	\rowcolor{yellow} Analysis I                                     & 8   & 9   & Im SS 2012 \\
-	\rowcolor{yellow} Grundbegriffe der Informatik                   & 5   & 4   & Am 05. M&auml;rz 2012 \\
-	\rowcolor{yellow} Programmieren                                  & 4   & 5   & Abschlussaufgabe l&auml;uft \\
-	\rowcolor{LightCyan} Betriebssysteme und Systemarchitektur       & 6   & 6   & Am 26. M&auml;rz 2012 \\
+	\rowcolor{yellow} Grundbegriffe der Informatik                   & 5   & 4   & Am 05. März 2012 \\
+	\rowcolor{yellow} Programmieren                                  & 4   & 5   & Abschlussaufgabe läuft \\
+	\rowcolor{LightCyan} Betriebssysteme und Systemarchitektur       & 6   & 6   & Am 26. März 2012 \\
 	\rowcolor{LightCyan} Theoretische Grundlagen der Informatik      & 6   & 6   & Benotung steht aus \\
-	\rowcolor{LightCyan} Wahrscheinlichkeitstheorie f&uuml;r Informatiker & 3   & 4,5 & mit 1,3 bestanden \\
+	\rowcolor{LightCyan} Wahrscheinlichkeitstheorie für Informatiker & 3   & 4,5 & mit 1,3 bestanden \\
 	\hline
 	\hline
 	Gesamt                                                          & 40  & 43,5 & \\
@@ -202,7 +202,7 @@ magna aliquyam:
 
 	\begin{tabular}{| l | l | l | l |}
 	\hline
-	\cellcolor{yellow} & Teil der Orientierungspr&uuml;fung & \cellcolor{LightCyan}  & Pflichtmodul des 3. Semesters \\
+	\cellcolor{yellow} & Teil der Orientierungsprüfung & \cellcolor{LightCyan}  & Pflichtmodul des 3. Semesters \\
 	\hline
 	\end{tabular}
 \end{table}

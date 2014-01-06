@@ -19,7 +19,9 @@ This animation was automatically created. See <a href='../images/2012/05/LaTeX-e
 <h3>Draw the Graph</h3>
 If you want to visualize a graph algorithm, you should first try to get the image of the graph with Tikz. 
 First include all packages / create the general structure of the document:
-{% highlight python %}\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+
+```latex
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
 
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -38,10 +40,13 @@ First include all packages / create the general structure of the document:
 \begin{frame}
 	Your content will be here.
 \end{frame}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 Simple graphs could look like this:
-{% highlight python %}\begin{figure}
+
+```latex
+\begin{figure}
 	\begin{tikzpicture}[->,scale=1.8, auto,swap]
 		% Draw the vertices.
 		\node (a) at (0,0) {$a (this is text)$};
@@ -56,31 +61,37 @@ Simple graphs could look like this:
 		\path (c) edge node {} (d);
 		\path (d) edge node {} (a);
 	\end{tikzpicture}
-\end{figure}{% endhighlight %}
+\end{figure}
+```
 
 You should get something similar to this:
 {% caption align="aligncenter" width="300" caption="Simple example graph created with LaTeX and Tikz" url="../images/2012/05/simple-example-graph-300x105.png" alt="Simple example graph created with LaTeX and Tikz"  height="105" class="size-medium wp-image-24691" %}
 
 <h3>Animate</h3>
 Animations can be created with Tikz by working with layers. You don't want to redraw the whole graph every time. Most of the time you want to overlay/underlay some parts of the graph. This can be achieved by declaring a new layer:
-{% highlight python %}\pgfdeclarelayer{NAME}{% endhighlight %}
+{% highlight latex %}\pgfdeclarelayer{NAME}{% endhighlight %}
 Then you need to tell PGF which layers are to use in the next figure:
-{% highlight python %}\pgfsetlayers{LAYER LIST}{% endhighlight %}
+{% highlight latex %}\pgfsetlayers{LAYER LIST}{% endhighlight %}
 The layer main should always be part of the list. Here is an example:
-{% highlight python %}\pgfdeclarelayer{background}
+{% highlight latex %}\pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}{% endhighlight %}
 
 Now the magic begins. You consecutively add frames to the layer:
-{% highlight python %}	\begin{pgfonlayer}{background}
+
+```latex
+	\begin{pgfonlayer}{background}
 		\path<2->[draw,line width=5pt,-,red!50] (a.center) edge node {} (b.center);
 		\path<10->[draw,line width=5pt,-,red!50] (b.center) edge node {} (d.center);
 		\path<12->[draw,line width=5pt,-,red!50] (d.center) edge node {} (e.center);
-	\end{pgfonlayer}{% endhighlight %}
+	\end{pgfonlayer}
+```
+
 The number (2, 10 and 12 in this example) indicate the frame in which it should be added. This is the absolute frame, but 1 is the first frame of the figure environment!
 
 <h3>Status quo</h3>
-{% highlight python %}\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+```latex
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
  
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -125,23 +136,28 @@ The number (2, 10 and 12 in this example) indicate the frame in which it should 
     \end{tikzpicture}
 \end{figure}
 \end{frame}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h3>Simplify it</h3>
 You can make some definitions, e.g.:
-{% highlight python %}draw,line width=5pt,-,red!50{% endhighlight %}
+{% highlight latex %}draw,line width=5pt,-,red!50{% endhighlight %}
 can be replaced by
-{% highlight python %}\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]{% endhighlight %}
+{% highlight latex %}\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]{% endhighlight %}
 
 You can make loops:
-{% highlight python %}{% raw %}	% Draw the vertices.
+
+```latex
+{% raw %}	% Draw the vertices.
 	\foreach \pos / \identifier / \name in {{(0,0)/a/a (this is text)}, 
 		{(0,1)/b/b}, {(1,1)/c/c}, {(1,0)/d/d}, {(3,1)/e/d}}
-		\node (\identifier) at \pos {$\name$};{% endraw %}{% endhighlight %}
+		\node (\identifier) at \pos {$\name$};{% endraw %}
+```
 
 
 <h2>The whole, working template</h2>
-{% highlight python %}\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+```latex
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
 
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -213,7 +229,8 @@ You can make loops:
 	magna aliquyam erat, sed diam voluptua. At vero eos et 
 	accusam et.
 \end{frame}
-\end{document}{% endhighlight %}
+\end{document}
+```latex
 
 <h2>Resources</h2>
 <ul>

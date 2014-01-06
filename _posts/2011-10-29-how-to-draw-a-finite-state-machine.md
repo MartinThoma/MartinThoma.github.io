@@ -46,7 +46,8 @@ dot -Tpng fsm.gv -o myFiniteStateMachine.png
 ```
 
 <h2>Deterministic finite-state machine</h2>
-{% caption align="alignleft" width="528" caption="Deterministic finite-state machine" url="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine"  height="248" class="size-full wp-image-8171" %}
+
+{% caption align="aligncenter" width="528" caption="Deterministic finite-state machine" url="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine"  height="248" class="size-full wp-image-8171" %}
 
 ```latex
 digraph finite_state_machine {

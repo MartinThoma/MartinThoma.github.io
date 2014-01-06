@@ -17,6 +17,7 @@ I often need to print source code. Some years ago for a German competition calle
 {% caption align="aligncenter" width="590" caption="LaTeX Java Source Code: listings" url="../images/2012/04/latex-java-source-listings.png" alt="LaTeX Java Source Code: listings"  height="185" class="size-full wp-image-23851" %}
 Here is an minimal example how you could print Source Code with LaTeX:
 <a id="more"></a><a id="more-23541"></a>
+
 ```latex
 \documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
@@ -41,6 +42,7 @@ Here is an minimal example how you could print Source Code with LaTeX:
 
 <h3>My Template</h3>
 If you want to customize a little bit more and if you want to get highlighted (colorized) source code, you could use the following template. It looks like this as a <a href='../images/2012/04/LaTeX-Source-Code.pdf'>PDF-file</a>.
+
 ```latex
 \documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
@@ -135,17 +137,20 @@ ABAP (R/2 4.3, R/2 5.0, R/3 3.1, R/3 4.6C, <strong>R/3 6.10</strong>), ACSL, Ada
 
 <h2>minted</h2>
 Minted needs the package pygments:
+
 ```bash
 sudo apt-get install python-pygments
 ```
 
 <h3>Supported Languages</h3>
 Minted supports quite a lot of languages. You can get the supported languages with this command:
+
 ```bash
 moose@pc07:~$ pygmentize -L lexers
 ```
 
 This is my output:
+
 ```text
 Pygments version 1.2.2, (c) 2006-2008 by Georg Brandl.
 
@@ -427,6 +432,7 @@ All files can be found in <a href='../images/2012/04/LaTeX-Source-Code.zip'>LaTe
 </ul>
 
 You might also want to try
+
 ```bash
 texdoc listings
 ```
