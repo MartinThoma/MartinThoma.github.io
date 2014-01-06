@@ -10,7 +10,7 @@ TODO
   - e.g. 2013-03-16-c-puzzle-3.html (http://martinthoma.github.io/c-puzzle-3/)
 * Fix posts
   - http://martin-thoma.com/python-check-wiki-references-for-citation-template/ (Gist)
-  - http://localhost/blog/_site/semantische-sicherheit/ (Abostrophes)
+  - http://martin-thoma.com/semantische-sicherheit/ (Abostrophes)
 
 Improve
 ========

@@ -6,7 +6,7 @@
     
 
     <title>Check x-in-a-row for board games</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401051950.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401061116.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -68,9 +68,44 @@
 						<div class="entry">
                             <p>In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.</p>
 
-<p>[gallery ids="54621,54611,54601"]</p>
-
-<div id="toc_container" class="toc_light_blue no_bullets">
+<ul class="gallery mw-gallery-traditional">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;">
+               <a href="../images/2013/01/tic-tac-toe.png" class="image">
+                  <img src="../images/2013/01/tic-tac-toe.png" alt="" width="120" height="108" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Tic Tac Toe</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;">
+               <a href="../images/2013/01/battleships.png" class="image">
+                  <img src="../images/2013/01/battleships.png" alt="" width="120" height="108" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Battleships</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;">
+               <a href="../images/2013/01/queens-moves.png" class="image">
+                  <img src="../images/2013/01/queens-moves.png" alt="" width="120" height="108" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Moves of the queen in chess</div>
+      </div>
+   </li>
+</ul><div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -83,20 +118,17 @@
 </div><h2 id="tocAnchor-1-1">isOnBoard(int x, int y)</h2>
 
 <p>You should create a method that checks if a coordinate is on your board. This can be as simple as this:</p>
-
 <div class="highlight">
-   <pre><code class="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOnBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
+   <pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isOnBoard</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">height</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-2">Diagonal, horizontal and vertical</h2>
 
 <p>You can create a method like this:</p>
-
 <div class="highlight">
-   <pre><code class="java"><span class="cm">/**</span>
+   <pre><code class="java language-java" data-lang="java"><span class="cm">/**</span>
 <span class="cm"> * This method checks XYZ and does XYZ.</span>
 <span class="cm"> * </span>
 <span class="cm"> * @param player the current player</span>
@@ -121,22 +153,20 @@
 <span class="o">}</span>
 </code></pre>
 </div>
-
 <p>What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change doXYZ() and checkXYZ. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.</p>
 
 <p>Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.height)</code> and even add in the inner loop something. So some calls will be out of bound. But because of <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a> this works. I don't bother about ends, I simply include the critical parts. Most of the time, it is not much work to check if the call is within the boundary, but finding (and fixing) a bug is much work. Yes, I know, this is more efficient if you use the correct boundaries. But it's only a constant in time difference. And I guess this constant is very small for most games.</p>
 
 <p>Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:</p>
-
 <div class="highlight">
-   <pre><code class="java"><span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top right</span>
+   <pre><code class="java language-java" data-lang="java"><span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top right</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// top left</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// vertical</span>
 <span class="n">myBoardAction</span><span class="o">(</span><span class="n">player</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// horizontal</span>
 </code></pre>
 </div>
-
-<p>This is enough. You don't need more, as you go through the whole board. No need to write redundant code :-)</p>
+<p>This is enough. You don't need more, as you go through the whole board. 
+No need to write redundant code :-)</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
