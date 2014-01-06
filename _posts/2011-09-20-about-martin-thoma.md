@@ -6,6 +6,8 @@ date: 2011-09-21 18:35:30.000000000 +02:00
 categories: []
 tags: []
 context: about
+gplus: https://plus.google.com/+MartinThoma/about
+twitter: https://twitter.com/#!/themoosemind
 ---
 
 <div style="width: 144px" class="wp-caption alignright"><a href="../images/2011/09/Martin_Thoma_web_thumb.jpg"><img class="size-full" title="Martin Thoma" src="../images/2011/09/Martin_Thoma_web_thumb.jpg" alt="Martin Thoma" width="134" height="200"></a><p class="wp-caption-text">Martin Thoma</p></div>
@@ -16,6 +18,6 @@ Do you want to know more about me? I've created a <a href="../pdf/cv-curriculum-
 
 <h2>Other Profiles</h2>
 <ul>
-	<li><a href="https://plus.google.com/116515806655836046525/posts" rel="me">Google+</a></li>
-	<li><a href="https://twitter.com/#!/themoosemind" rel="me">Twitter</a></li>
+	<li><a href="{{ page.gplus }}" rel="me">Google+</a></li>
+	<li><a href="{{ page.twitter }}" rel="me">Twitter</a></li>
 </ul>
