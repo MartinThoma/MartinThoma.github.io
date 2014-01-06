@@ -82,6 +82,7 @@ digraph finite_state_machine {
 If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.
 
 This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:
+
 ```latex
 \documentclass{scrartcl}
 \usepackage{tikz}
@@ -105,12 +106,15 @@ This is the most minimalistic version I could create. It is equivalent to the no
 ```
 
 This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:
+
 ```bash
 pdflatex latexsheet.tex -output-format=pdf
 ```
 
 If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
+
 {% caption align="aligncenter" width="400" caption="Finite-state-machine with LaTeX" url="../images/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX"  height="147" class="size-full wp-image-13421" %}
+
 ```latex
 \documentclass{scrartcl}
 \usepackage{tikz}
