@@ -2,11 +2,13 @@ TODO
 =====
 
 * add pagination for category pages / tag pages
+* Semantic anchors created by TOC
 * Newlines
-  - z.B. 2013-03-16-c-puzzle-3.html (http://martinthoma.github.io/c-puzzle-3/)
+  - e.g. 2013-03-16-c-puzzle-3.html (http://martinthoma.github.io/c-puzzle-3/)
+* Don't check for Latex ($...$) inside of highlight environment or
+  fenced code blocks
+  - e.g. 2013-03-16-c-puzzle-3.html (http://martinthoma.github.io/c-puzzle-3/)
 * Fix posts
-  - http://martinthoma.github.io/check-point-inside-polygon/ (LaTeX)
-  - http://martinthoma.github.io/word-error-rate-calculation/ (LaTeX)
   - http://martin-thoma.com/python-check-wiki-references-for-citation-template/ (Gist)
   - http://localhost/blog/_site/semantische-sicherheit/ (Abostrophes)
 

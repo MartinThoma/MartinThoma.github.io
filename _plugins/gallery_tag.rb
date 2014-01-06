@@ -1,8 +1,8 @@
-# A Liquid tag for Jekyll sites that allows easy creation of image
-# galleries
+# A Liquid tag for Jekyll sites that allows easy creation of 
+# wikpedia-style image galleries.
 #
 # Author: Martin Thoma (info@martin-thoma.de)
-# Source: https://github.com/MartinThoma/MartinThoma.github.io/blob/source/_plugins/gallery_tag.rb
+# Source: https://github.com/MartinThoma/jekyll-gallery-tag
 # Version: 1.0
 #
 # Example usage:
