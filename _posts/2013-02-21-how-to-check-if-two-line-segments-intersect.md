@@ -35,7 +35,7 @@ First of all, we should think about how lines can be arranged:
 <h2>Bounding boxes</h2>
 You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:
 
-{% caption align="aligncenter" width="250" caption="Two line segments with their bounding boxes" url="../images/2013/02/line-segments-bounding-box-250x300.png" alt="Two line segments with their bounding boxes" title="" height="300" class="size-medium wp-image-57731" %}
+{% caption align="aligncenter" width="250" caption="Two line segments with their bounding boxes" url="../images/2013/02/line-segments-bounding-box-250x300.png" alt="Two line segments with their bounding boxes" caption="Two line segments with their bounding boxes" height="300" class="size-medium wp-image-57731" %}
 
 With this image in mind, it is obvious that the bounding boxes need to intersect if the lines should intersect. At this point you have to make a decision: If the endpoint of one line is on the other line, is this an intersection? I think so. If two lines have at least one point in common, they intersect. If two bounding boxes have at least one point in common, they intersect.
 
@@ -86,76 +86,84 @@ $
 $
 
 Ok, now you can check if a point is on a line:
-{% highlight java %}    /**
-     * Checks if a Point is on a line
-     * @param a line (interpreted as line, although given as line
-     *                segment)
-     * @param b point
-     * @return <code>true</code> if point is on line, otherwise
-     *         <code>false</code>
-     */
-    public boolean isPointOnLine(LineSegment a, Point b) {
-        // Move the image, so that a.first is on (0|0)
-        LineSegment aTmp = new LineSegment(new Point(0, 0), new Point(
-                a.second.x - a.first.x, a.second.y - a.first.y));
-        Point bTmp = new Point(b.x - a.first.x, b.y - a.first.y);
-        double r = crossProduct(aTmp.second, bTmp);
-        return Math.abs(r) < EPSILON;
-    }{% endhighlight %}
+```java
+/**
+ * Checks if a Point is on a line
+ * @param a line (interpreted as line, although given as line
+ *                segment)
+ * @param b point
+ * @return <code>true</code> if point is on line, otherwise
+ *         <code>false</code>
+ */
+public boolean isPointOnLine(LineSegment a, Point b) {
+    // Move the image, so that a.first is on (0|0)
+    LineSegment aTmp = new LineSegment(new Point(0, 0), new Point(
+            a.second.x - a.first.x, a.second.y - a.first.y));
+    Point bTmp = new Point(b.x - a.first.x, b.y - a.first.y);
+    double r = crossProduct(aTmp.second, bTmp);
+    return Math.abs(r) < EPSILON;
+}
+```
 
 The second cool characteristic of the cross product is that it can be used to determine if a point b is left or right of the line through the origin and a point a:
 
-{% highlight java %}    /**
-     * Checks if a point is right of a line. If the point is on the
-     * line, it is not right of the line.
-     * @param a line segment interpreted as a line
-     * @param b the point
-     * @return <code>true</code> if the point is right of the line,
-     *         <code>false</code> otherwise
-     */
-    public boolean isPointRightOfLine(LineSegment a, Point b) {
-        // Move the image, so that a.first is on (0|0)
-        LineSegment aTmp = new LineSegment(new Point(0, 0), new Point(
-                a.second.x - a.first.x, a.second.y - a.first.y));
-        Point bTmp = new Point(b.x - a.first.x, b.y - a.first.y);
-        return crossProduct(aTmp.second, bTmp) < 0;
-    }{% endhighlight %}
+```java
+/**
+ * Checks if a point is right of a line. If the point is on the
+ * line, it is not right of the line.
+ * @param a line segment interpreted as a line
+ * @param b the point
+ * @return <code>true</code> if the point is right of the line,
+ *         <code>false</code> otherwise
+ */
+public boolean isPointRightOfLine(LineSegment a, Point b) {
+    // Move the image, so that a.first is on (0|0)
+    LineSegment aTmp = new LineSegment(new Point(0, 0), new Point(
+            a.second.x - a.first.x, a.second.y - a.first.y));
+    Point bTmp = new Point(b.x - a.first.x, b.y - a.first.y);
+    return crossProduct(aTmp.second, bTmp) < 0;
+}
+```
 
 When we have one line $a$ through the origin and one line segment $b$, you can check if $b$ crosses $a$ by checking if the end points of $b$ are on different sides of $a$:
 
-{% highlight java %}    /**
-     * Check if line segment first touches or crosses the line that is 
-     * defined by line segment second.
-     *
-     * @param first line segment interpreted as line
-     * @param second line segment
-     * @return <code>true</code> if line segment first touches or
-     *                           crosses line second,
-     *         <code>false</code> otherwise.
-     */
-    public boolean lineSegmentTouchesOrCrossesLine(LineSegment a,
-            LineSegment b) {
-        return isPointOnLine(a, b.first)
-                || isPointOnLine(a, b.second)
-                || (isPointRightOfLine(a, b.first) ^ 
-                    isPointRightOfLine(a, b.second));
-    }{% endhighlight %}
+```java
+/**
+ * Check if line segment first touches or crosses the line that is 
+ * defined by line segment second.
+ *
+ * @param first line segment interpreted as line
+ * @param second line segment
+ * @return <code>true</code> if line segment first touches or
+ *                           crosses line second,
+ *         <code>false</code> otherwise.
+ */
+public boolean lineSegmentTouchesOrCrossesLine(LineSegment a,
+        LineSegment b) {
+    return isPointOnLine(a, b.first)
+            || isPointOnLine(a, b.second)
+            || (isPointRightOfLine(a, b.first) ^ 
+                isPointRightOfLine(a, b.second));
+}
+```
 
 Now you have everything you need:
-{% highlight java %}    /**
-     * Check if line segments intersect
-     * @param a first line segment
-     * @param b second line segment
-     * @return <code>true</code> if lines do intersect,
-     *         <code>false</code> otherwise
-     */
-    public boolean doLinesIntersect(LineSegment a, LineSegment b) {
-        Point[] box1 = a.getBoundingBox();
-        Point[] box2 = b.getBoundingBox();
-        return doBoundingBoxesIntersect(box1, box2)
-                &amp;&amp; lineSegmentTouchesOrCrossesLine(a, b)
-                &amp;&amp; lineSegmentTouchesOrCrossesLine(b, a);
-    }{% endhighlight %}
+```java
+/**
+ * Check if line segments intersect
+ * @param a first line segment
+ * @param b second line segment
+ * @return <code>true</code> if lines do intersect,
+ *         <code>false</code> otherwise
+ */
+public boolean doLinesIntersect(LineSegment a, LineSegment b) {
+    Point[] box1 = a.getBoundingBox();
+    Point[] box2 = b.getBoundingBox();
+    return doBoundingBoxesIntersect(box1, box2)
+            &amp;&amp; lineSegmentTouchesOrCrossesLine(a, b)
+            &amp;&amp; lineSegmentTouchesOrCrossesLine(b, a);
+}
+```
 
 By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesIntersect(box1, box2)</code>. All other tests still pass if you remove this function.
 
@@ -169,7 +177,7 @@ I did this with JavaScript:
 </iframe>
 
 This is the code that checks for line segments:
-{% highlight javascript %}
+```javascript
 /** You know that lines a and b have an intersection and now you
     want to get it!
 */
@@ -293,7 +301,7 @@ function getIntersection(a, b) {
 
     return {"first": {"x":x1, "y":y1}, "second": {"x":x2, "y":y2}};
 }
-{% endhighlight %}
+```
 
 <h2>TL;DR</h2>
 The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:

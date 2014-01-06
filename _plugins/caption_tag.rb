@@ -40,11 +40,28 @@ module Jekyll
 
     def render(context)
         @hash = parse_attrs(@text)
+
+        if @hash.has_key('text') && @hash.has_key('caption')
+            puts "[Warning][] One caption Liquid tag has both, 'text' and 'caption' attribute. Using 'caption' is better.".
+        end
+
+        if @hash.has_key('title') && @hash.has_key('caption')
+            puts "[Warning][] One caption Liquid tag has both, 'title' and 'caption' attribute. Using 'caption' is better.".
+        end
+
+        if @hash.has_key('text') && !@hash.has_key('caption')
+            @hash['caption'] = @hash['text']
+        end
+
+        if @hash.has_key('title') && !@hash.has_key('caption')
+            @hash['caption'] = @hash['title']
+        end
+
         "<div style=\"width: #{@hash['width']}px\" class=\"wp-caption #{@hash['align']}\">" +
         "<a href=\"#{@hash['url']}\">" +
             "<img src=\"#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\"/>" +
         "</a>" +
-        "<p class=\"wp-caption-text\">#{@hash['text']}</p>" +
+        "<p class=\"wp-caption-text\">#{@hash['caption']}</p>" +
         "</div>"
     end
   end

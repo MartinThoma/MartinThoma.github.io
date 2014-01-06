@@ -101,7 +101,11 @@ This is what it should look like:
 {% caption align="aligncenter" width="664" caption="Webcam example" url="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" title="" height="395" class="size-full wp-image-72801" %}
 
 And it gives these results:
-[gallery ids="72871,72861,72831"]
+{% gallery %}
+    ../images/2013/07/prewitt-x-filter-example.png  "Prewitt x-filter example"
+    ../images/2013/07/prewitt-y-filter-example.png  "Prewitt y-filter example"
+    ../images/2013/07/laplace-filter-example.png    "Laplace filter example"
+{% endgallery %}
 
 By the way, you can check if a website is currently accessing your webcam (with Google Chrome):
 
