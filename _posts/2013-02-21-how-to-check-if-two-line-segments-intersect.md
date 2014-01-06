@@ -30,7 +30,7 @@ First of all, we should think about how lines can be arranged:
     ../images/2013/02/line-segments-f6.png  "Testcase F6"   "F6: Both line segments are close together"
     ../images/2013/02/line-segments-f7.png  "Testcase F7"   "F7: Both lines are horizontal"
     ../images/2013/02/line-segments-f8.png  "Testcase F8"   "F8: Like F6"
-{% gallery %}
+{% endgallery %}
 
 <h2>Bounding boxes</h2>
 You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:
