@@ -27,7 +27,7 @@ Mit dem Semesterbericht f&uuml;r das WS 2012/2013 soll der Bericht nicht mehr an
 
 <blockquote>Bitte laden Sie Ihren Bericht als PDF-Dokument im Daidalosnet hoch. Sie finden die Eingabemaske in Ihrem eigenen Kurzprofil ("<strong>Meine Einstellungen</strong>" unten rechts) - hier ist in der unteren Bildschirmh&auml;lfte die Rubrik "<strong>Studienberichte</strong>" zu finden. Wenn Sie hier einen als "offen" gekennzeichneten Eintrag finden, m&uuml;ssen Sie uns einen Bericht zukommen lassen - bitte folgen Sie dem Link in der Zeile unter "offen", um zur Eingabemaske zu gelangen. Sowohl Ihr/e Referent/in als auch Ihr/e Vertrauensdozent/in erhalten automatisch eine Kopie des Berichts per E-Mail.</blockquote>
 
-<h3>Wer ist mein zust&auml;ndiger Referent bzw. mein Vertrauensdozent?</h2>
+<h3>Wer ist mein zust&auml;ndiger Referent bzw. mein Vertrauensdozent?</h3>
 <ol>
   <li>Logge dich im <a href="https://www.daidalosnet.de/">daidalosnet</a> ein.</li>
   <li>Klicke rechts unten auf "Meine Einstellungen".</li>
@@ -39,7 +39,9 @@ Mit dem Semesterbericht f&uuml;r das WS 2012/2013 soll der Bericht nicht mehr an
 Hier ist die Vorlage mit Blindtext als <a href='../images/2012/06/semesterbericht-ws-2011.pdf'>PDF</a>.
 
 Makefile:
-{% highlight text %}DOKUMENT = semesterbericht-martin-thoma-ws-2011
+
+```basemake
+DOKUMENT = semesterbericht-martin-thoma-ws-2011
 
 make:
 	pdflatex $(DOKUMENT).tex -output-format=pdf
@@ -47,10 +49,13 @@ make:
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out{% endhighlight %}
+	rm -rf  $(TARGET) *.class *.html *.log *.aux *.out
+```
 
 LaTeX:
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for umlauts
@@ -241,4 +246,5 @@ imperdiet doming id quod mazim placerat facer.\\
 \Vorname~\Nachname
 
 
-\end{document}{% endhighlight %}
+\end{document}
+```

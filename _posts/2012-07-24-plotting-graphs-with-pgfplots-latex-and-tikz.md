@@ -27,6 +27,7 @@ The complete source is in the <a href='../images/2012/07/birthday-paradox.zip'>B
 
 <h2>LaTeX-Code</h2>
 The following LaTeX-Code used TikZ and PGFplots:
+
 ```latex
 % Plot of the probability that two people out of n people have the
 % same birthday.
@@ -80,6 +81,7 @@ The following LaTeX-Code used TikZ and PGFplots:
 ```
 
 I generate the images directly with this Makefile:
+
 ```basemake
 SOURCE = birthday-paradox
 DELAY = 80

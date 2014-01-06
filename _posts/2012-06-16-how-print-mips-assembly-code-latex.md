@@ -15,7 +15,8 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
 
 {% caption align="aligncenter" width="512" caption="Highlight MIPS Assembly code with LaTeX listings." url="../images/2012/06/mips-latex-highlight.png" alt="Highlight MIPS Assembly code with LaTeX listings."  height="197" class="size-full wp-image-26981" %}
 
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{amssymb} % needed for math
 \usepackage{amsmath} % needed for math
 \usepackage[utf8]{inputenc} % this is needed for german umlauts
@@ -85,7 +86,8 @@ If you like to print highlighted MIPS assembly code in LaTeX, you can use the li
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
     \lstinputlisting{aufgabe-5.s}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 
 <h2>See also</h2>

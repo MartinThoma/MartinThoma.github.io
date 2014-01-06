@@ -54,12 +54,16 @@ I like editing the source code directly very much. To do so, I use gEdit. When I
 <ul>
  <li>Create a "Makefile" (a file called this way) with this content in the folder where your LaTeX file is:</li>
 </ul>
-{% highlight text %}make:
+
+```basemake
+make:
 	pdflatex matrix.tex -output-format=pdf
 	make clean
 
 clean:
-	rm -rf  $(TARGET) *.class *.html *.log *.aux{% endhighlight %}
+	rm -rf  $(TARGET) *.class *.html *.log *.aux
+```
+
 <ul>
   <li>Enable the Plugin "External Tools"</li>
   <li>Go to Preferences &rarr; Plugins &rarr; External Tools &rarr; Configure Plugin</li>

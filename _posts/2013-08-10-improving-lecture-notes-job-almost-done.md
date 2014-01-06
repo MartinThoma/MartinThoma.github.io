@@ -34,8 +34,13 @@ Total number of files and folders: <code>find . | wc -l</code>
   <li>Revision 30: 1488</li>
 </ul>
 
-How often did I change files: <code>svn log -qvr 1:HEAD|perl -nle 'print if /^Changed paths:/ ... /^-+$/ and /^\s/' \
-    | sort | uniq -c | sort -n</code> (<a href="http://wirespeed.wordpress.com/2011/06/08/subversion-how-many-times-has-a-file-been-modified/">source</a>):
+How often did I change files (<a href="http://wirespeed.wordpress.com/2011/06/08/subversion-how-many-times-has-a-file-been-modified/">source</a>):
+
+```bash
+svn log -qvr 1:HEAD|perl -nle 'print if /^Changed paths:/ ... /^-+$/ and /^\s/' \
+    | sort | uniq -c | sort -n
+``` 
+
 {% highlight bash %}
       1    M /ti1.bib
       2    M /

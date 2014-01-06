@@ -49,7 +49,9 @@ Remove nodes of areas that have to many or where you don't want to have this gra
 As soon as you're finished, you should save your signature as SVG (if you want to edit it later) and as PDF (for LaTeX).
 
 <h2>LaTeX</h2>
-{% highlight text %}\documentclass[a4paper,12pt]{article}
+
+```latex
+\documentclass[a4paper,12pt]{article}
 \usepackage{pdfpages}  % needed for includepdf
 
 \begin{document}
@@ -75,7 +77,8 @@ repudiare eam et.\\
 \\
 \includegraphics[height=10mm]{max-mustermann-cropped-signature.pdf}\\
 Max Mustermann
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h2>Result</h2>
 The result looks like this:

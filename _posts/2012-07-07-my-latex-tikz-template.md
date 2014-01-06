@@ -14,7 +14,9 @@ Sometimes I would like to create a single picture with Tikz for later usage on W
 
 <h2>The templates</h2>
 <h3>latex-document.tex</h3>
-{% highlight text %}\documentclass[varwidth=true, border=2pt]{standalone}
+
+```latex
+\documentclass[varwidth=true, border=2pt]{standalone}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning} 
@@ -23,11 +25,14 @@ Sometimes I would like to create a single picture with Tikz for later usage on W
 \begin{tikzpicture}
     % Your Codes should be here
 \end{tikzpicture}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h4>Standalone</h4>
 <h4>Preview-Environment</h4>
-{% highlight text %}\documentclass{article}
+
+```latex
+\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 
@@ -40,10 +45,13 @@ Sometimes I would like to create a single picture with Tikz for later usage on W
     % Your Codes should be here
 \end{tikzpicture}
 \end{preview}
-\end{document}{% endhighlight %}
+\end{document}
+```
 
 <h3>Makefile</h3>
-{% highlight text %}SOURCE = latex-document.tex
+
+```basemake
+SOURCE = latex-document.tex
 
 DELAY = 80
 DENSITY = 300
@@ -69,7 +77,8 @@ svg:
 	# Necessary, as pdf2svg does not always create valid svgs:
 	inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg
 	# Alternatively, only this one (produces worse results):
-	#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg{% endhighlight %}
+	#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
+```
 
 <h2>Requirements</h2>
 <ul>
@@ -81,7 +90,9 @@ svg:
 
 <h2>Test if you meet these requirements</h2>
 Make sure that you have a valid LaTeX installation. <code>pdflatex --version</code> should output something like:
-{% highlight bash %}pdfTeX 3.1415926-2.3-1.40.12 (TeX Live 2011)
+
+```bash
+pdfTeX 3.1415926-2.3-1.40.12 (TeX Live 2011)
 kpathsea version 6.0.1
 Copyright 2011 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 There is NO warranty.  Redistribution of this software is
@@ -93,16 +104,19 @@ Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 Compiled with libpng 1.5.2; using libpng 1.5.2
 Compiled with zlib 1.2.5; using zlib 1.2.5
 Compiled with xpdf version 3.02pl5
-{% endhighlight %}
+```
 
 Make sure you can execute Makefiles. <code>make --version</code> should output something like this:
-{% highlight bash %}GNU Make 3.81
+
+```bash
+GNU Make 3.81
 Copyright (C) 2006  Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.
 There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.
 
-This program built for i486-pc-linux-gnu{% endhighlight %}
+This program built for i486-pc-linux-gnu
+```
 
 The command <code>inkscape --version</code> should return:
 {% highlight bash %}Inkscape 0.47 r22583 (Apr  4 2010){% endhighlight %}
