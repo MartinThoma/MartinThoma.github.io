@@ -10,10 +10,14 @@ TODO
   - e.g. 2013-03-16-c-puzzle-3.html (http://martinthoma.github.io/c-puzzle-3/)
 * Fix posts
   - http://martin-thoma.com/python-check-wiki-references-for-citation-template/ (Gist)
-  - http://martin-thoma.com/semantische-sicherheit/ (Abostrophes)
-  - http://martin-thoma.com/how-to-search-for-mathematical-symbols-in-latex/ (Abostrophes)
-  - http://martin-thoma.com/latex-versioning-a-great-experience/ (Abostrophes)
-  - http://martin-thoma.com/complex-latex-visualizations-tikz/ (Only insert toc when there are at least 3 elements)
+* Only insert toc when there are at least 3 elements:
+  - http://martin-thoma.com/complex-latex-visualizations-tikz/
+  - http://martin-thoma.com/how-print-mips-assembly-code-latex/
+* Abostrophes:
+  - http://martin-thoma.com/plotting-graphs-with-pgfplots-latex-and-tikz/
+  - http://martin-thoma.com/semantische-sicherheit/
+  - http://martin-thoma.com/how-to-search-for-mathematical-symbols-in-latex/
+  - http://martin-thoma.com/latex-versioning-a-great-experience/
 
 Improve
 ========

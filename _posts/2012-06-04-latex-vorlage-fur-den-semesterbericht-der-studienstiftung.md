@@ -115,12 +115,12 @@ LaTeX:
 
 \section*{Semesterbericht &uuml;ber das \Semester~\Jahr}
 \begin{tabularx}{\textwidth}{@{}llllX}
-Name, Vorname:   &amp; \Nachname, \Vorname &amp; Universit&auml;t         &amp; \University \\
-Semesteradresse: &amp;\Strasse~\Hausnummer &amp; Studienfach         &amp; \Studienfach \\
-                 &amp;\PLZ~\Ort~~~~~~~     &amp; Semesterzahl        &amp; \Semesteranzahl~von~\Gesamtsemesterzahl \\
-                 &amp;                     &amp; Geplanter Abschluss &amp; \Abschluss \\
-                 &amp;                     &amp; Vertrauensdozent    &amp; \Vertrauensdozent \\
-E-Mail           &amp;\Email               &amp; Referent            &amp; \Referent \\
+Name, Vorname:   & \Nachname, \Vorname & Universit&auml;t         & \University \\
+Semesteradresse: &\Strasse~\Hausnummer & Studienfach         & \Studienfach \\
+                 &\PLZ~\Ort~~~~~~~     & Semesterzahl        & \Semesteranzahl~von~\Gesamtsemesterzahl \\
+                 &                     & Geplanter Abschluss & \Abschluss \\
+                 &                     & Vertrauensdozent    & \Vertrauensdozent \\
+E-Mail           &\Email               & Referent            & \Referent \\
 \end{tabularx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,25 +184,25 @@ magna aliquyam:
 \begin{table}[h]
 	\begin{tabular}{| l | c | c | l |}
 	\hline
-	\textbf{Modulbezeichnung} &amp; \textbf{SWS} &amp; \textbf{LP}  &amp; \textbf{Klausur} \\
+	\textbf{Modulbezeichnung} & \textbf{SWS} & \textbf{LP}  & \textbf{Klausur} \\
 	\hline
 	\hline
-	\rowcolor{yellow} Lineare Algebra und Analytische Geometrie      &amp; 8   &amp; 9   &amp; Im SS 2012 \\
-	\rowcolor{yellow} Analysis I                                     &amp; 8   &amp; 9   &amp; Im SS 2012 \\
-	\rowcolor{yellow} Grundbegriffe der Informatik                   &amp; 5   &amp; 4   &amp; Am 05. M&auml;rz 2012 \\
-	\rowcolor{yellow} Programmieren                                  &amp; 4   &amp; 5   &amp; Abschlussaufgabe l&auml;uft \\
-	\rowcolor{LightCyan} Betriebssysteme und Systemarchitektur       &amp; 6   &amp; 6   &amp; Am 26. M&auml;rz 2012 \\
-	\rowcolor{LightCyan} Theoretische Grundlagen der Informatik      &amp; 6   &amp; 6   &amp; Benotung steht aus \\
-	\rowcolor{LightCyan} Wahrscheinlichkeitstheorie f&uuml;r Informatiker &amp; 3   &amp; 4,5 &amp; mit 1,3 bestanden \\
+	\rowcolor{yellow} Lineare Algebra und Analytische Geometrie      & 8   & 9   & Im SS 2012 \\
+	\rowcolor{yellow} Analysis I                                     & 8   & 9   & Im SS 2012 \\
+	\rowcolor{yellow} Grundbegriffe der Informatik                   & 5   & 4   & Am 05. M&auml;rz 2012 \\
+	\rowcolor{yellow} Programmieren                                  & 4   & 5   & Abschlussaufgabe l&auml;uft \\
+	\rowcolor{LightCyan} Betriebssysteme und Systemarchitektur       & 6   & 6   & Am 26. M&auml;rz 2012 \\
+	\rowcolor{LightCyan} Theoretische Grundlagen der Informatik      & 6   & 6   & Benotung steht aus \\
+	\rowcolor{LightCyan} Wahrscheinlichkeitstheorie f&uuml;r Informatiker & 3   & 4,5 & mit 1,3 bestanden \\
 	\hline
 	\hline
-	Gesamt                                                          &amp; 40  &amp; 43,5 &amp; \\
+	Gesamt                                                          & 40  & 43,5 & \\
 	\hline
 	\end{tabular}
 
 	\begin{tabular}{| l | l | l | l |}
 	\hline
-	\cellcolor{yellow} &amp; Teil der Orientierungspr&uuml;fung &amp; \cellcolor{LightCyan}  &amp; Pflichtmodul des 3. Semesters \\
+	\cellcolor{yellow} & Teil der Orientierungspr&uuml;fung & \cellcolor{LightCyan}  & Pflichtmodul des 3. Semesters \\
 	\hline
 	\end{tabular}
 \end{table}
