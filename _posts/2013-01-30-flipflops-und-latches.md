@@ -15,7 +15,10 @@ Flipflops und Latches sind 1-bit Datenspeicher. Es gibt sie als synchrone und al
 
 Interesannt sind vor allem die Ansteuertabellen. Dabei darf man sich nicht von der Art, wie diese aufgeschrieben werden, verwirren lassen: $q^t$ ist der Zustand des Flipflops zum Zeitpunkt $t$. Analog dazu ist $q^{t+1}$ der Zustand des Flipflops zum Zeitpunkt $t+1$. Nun steht rechts in der Tabelle, welche Signale man braucht um den Zustand $q^{t+1}$ zu erreichen, wenn man im Zustand $q^t$ ist.
 
-[gallery ids="55771,55781"]
+{% gallery %}
+    ../images/2013/01/d-latch.png   "D-Latch"
+    ../images/2013/01/d-flipflop1.png   "D-Flipflop"
+{% endgallery %}
 
 <h2>D-Flipflops</h2>
 <abbr title="Delay-Flipflops">D-Flipflops</abbr> ignorieren im Prinzip den aktuellen Zustand und setzt den neuen Zustand einfach auf das d-Signal.

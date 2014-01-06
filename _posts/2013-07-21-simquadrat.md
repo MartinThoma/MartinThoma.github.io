@@ -26,11 +26,19 @@ Die Bestellung auf <a href="https://www.simquadrat.de/signup">simquadrat.de</a> 
 
 Nach drei Schritten ist man wirklich fertig. Die beiden Emails, die man dann bekommt, sind auch sch&ouml;n kurz:
 
-[gallery columns="2" ids="74551,74561"]
+{% gallery columns="2" %}
+    ../images/2013/07/simquadrat-bestaetigung.png   "Simquadrat: Bestätigung"
+    ../images/2013/07/simquadrat-rechnung.png   "Simquadrat: Rechnung"
+{% endgallery %}
 
 Nach wenigen Tagen ist dann die Simkarte angekommen:
 
-[gallery link="file" ids="74571,74581,74591"]
+{% gallery %}
+    ../images/2013/07/simquadrat-brief-1.jpg    "Brief, Seite 1"
+    ../images/2013/07/simquadrat-brief-2.jpg    "Brief, Seite 2"
+    ../images/2013/07/sipgate-simkarte.jpg  "Simkarte von Sipgate"
+{% endgallery %}
+
 
 Wie man sieht, bekommt man eine Simkarte, wo man sich die richtige Gr&ouml;&szlig;e herausbrechen kann. Micro- und Mini-Simkarten gehen also (bei Nano-Sim f&uuml;rs iPhone bin ich mir nicht sicher, aber ich glaube auch das konnte man angeben).
 

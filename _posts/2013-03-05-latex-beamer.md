@@ -76,7 +76,12 @@ The important commands for changing the appearance, that should get included jus
 When you're from KIT, you should use the <a href="https://sdqweb.ipd.kit.edu/wiki/Dokumentvorlagen">KIT theme</a>.
 
 Here are some screenshots:
-[gallery size="medium" columns="2" ids="59471,59461,59441,59451"]
+{% gallery size="medium" columns="2" %}
+    ../images/2013/03/English-Titlepage.png "LaTeX Beamer: Example of a titlepage"
+    ../images/2013/03/programmieren-tutorium-titlepage.png  "LaTeX Beamer: Example of a titlepage"
+    ../images/2013/03/latex-beamer-quelltext-minted.png "LaTeX Beamer: Example of source code"
+    ../images/2013/03/latex-beamer-uncover-list.png "LaTeX Beamer: Example of a slide"
+{% endgallery %}
 
 <h2>Sections and subsections</h2>
 Take a look at the slides I've included above. Do you notice the little bubbles at the bottom that indicate how many slides are left?

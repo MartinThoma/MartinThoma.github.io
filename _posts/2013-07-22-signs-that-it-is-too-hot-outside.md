@@ -11,7 +11,10 @@ tags:
 - hot
 featured_image: 2013/07/wetter1.png
 ---
-[gallery ids="74781,75651"]
+{% gallery %}
+    ../images/2013/07/wetter.png    "Weather map"
+    ../images/2013/07/wetterkarte-2013-07-26.png    "Wetterkarte vom 26.07.2013"
+{% endgallery %}
 
 <h2>See also</h2>
 <ul>

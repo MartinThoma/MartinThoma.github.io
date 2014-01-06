@@ -57,7 +57,13 @@ So we have 15 lines and 13 intersections.
 <div class="definition">Two lines $a, b$ intersect $:\Leftrightarrow \exists \text{Point} P: P \in a \land P \in b$</div>
 
 This means, all of the following images show intersecting lines:
-[gallery columns="3" ids="53261,53271,53281,53291,53301"]
+{% gallery columns="3" %}
+    ../images/2013/01/intersecting-lines-1.png  "Intersecting lines: #1"
+    ../images/2013/01/intersecting-lines-2.png  "Intersecting lines: #2"
+    ../images/2013/01/intersecting-lines-3.png  "Intersecting lines: #3"
+    ../images/2013/01/intersecting-lines-4.png  "Intersecting lines: #4"
+    ../images/2013/01/intersecting-lines-5.png  "Intersecting lines: #5"
+{% endgallery %}
 
 You might want to read my article <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters returns if they intersect.
 

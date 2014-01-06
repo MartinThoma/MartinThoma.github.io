@@ -15,11 +15,17 @@ On July 1, 2013, Google will retire Google Reader (<a href="http://googleblog.bl
 <h2>How I used Google Reader</h2>
 Most important for me was the Chrome plugin:
 
-[gallery columns="2" size="medium" ids="61401,61391"]
+{% gallery columns="2" size="medium" %}
+    ../images/2013/03/google-reader-icon.png    "Google Reader in Chrome - Icon indicates number of new items"
+    ../images/2013/03/google-reader-chrome-popup.png    "Google Reader in Chrome - Show all new items"
+{% endgallery %}
 
 The website offered a nice, clean way to administrate my 109 Feeds. Last (and least) the Android App. I don't have my smartphone long enough to really use this app, but it is one of 10 Apps I've currently installed.
 
-[gallery columns="2" size="medium" ids="61421,61411"]
+{% gallery columns="2" size="medium" %}
+    ../images/2013/03/google-reader-website.png "Google Reader Website"
+    ../images/2013/03/google-reader-android-app.png "Google Reader Android App"
+{% endgallery %}
 
 Now, I am interested in alternatives. They should
 <ul>
