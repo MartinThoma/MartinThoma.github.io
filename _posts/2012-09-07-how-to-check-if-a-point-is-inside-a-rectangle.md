@@ -25,7 +25,7 @@ If the point is in the rectangle, it divides it into four rectangles:
 
 If P is not inside of ABCD, you end up with somethink like this:
 
-{% caption align="aligncenter" width="512" caption="Point is outside of rectangle" url="../images/2012/09/rectangle-3.png" alt="Point is outside of rectangle "  height="409" class="size-full wp-image-43661 " title="Point is outside of rectangle " %}
+{% caption align="aligncenter" width="512" caption="Point is outside of rectangle" url="../images/2012/09/rectangle-3.png" alt="Point is outside of rectangle "  height="409" class="size-full wp-image-43661 "  %}
 
 You might note that the area of the four triangles in is bigger than the area of the rectangle. So if the area is bigger, you know that the point is outside of the rectangle.
 

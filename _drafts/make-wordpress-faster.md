@@ -45,7 +45,7 @@ I had
 
 The page took about 17 seconds to load (rendering + downloading):
 
-{% caption align="alignnone" width="604" caption="enchmark Before adding a Plugin: Timeline" url="../images/2011/09/Benchmark-Before-Timeline-1024x408.png" alt="Benchmark Before adding a Plugin: Timeline" height="240" class="size-large wp-image-1251 " title="Benchmark Before: Timeline" %}
+{% caption align="alignnone" width="604" caption="enchmark Before adding a Plugin: Timeline" url="../images/2011/09/Benchmark-Before-Timeline-1024x408.png" alt="Benchmark Before adding a Plugin: Timeline" height="240" class="size-large wp-image-1251 "  %}
 
 {% highlight bash %}moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
 This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;

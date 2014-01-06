@@ -26,7 +26,7 @@ I don't know where I can change the language in Windows 7, so lets search in the
 [10 minutes pass]
 
 Well, lets google for the right way to achieve a simple language change:
-{% caption align="aligncenter" width="512" caption="Google search for language change in Windows. About 5 minutes." url="../images/2012/12/google-search-language-change.png" alt="Google search for language change in Windows" title="Google search for language change in Windows" height="400" class="size-full wp-image-50661" %}
+{% caption align="aligncenter" width="512" caption="Google search for language change in Windows. About 5 minutes." url="../images/2012/12/google-search-language-change.png" alt="Google search for language change in Windows"  height="400" class="size-full wp-image-50661" %}
 
 So, it seems as if I needed Windows 7 Ultimate or Windows 7 Enterprise edition. Which version do I have?
 Let's search ... hm, seeems as there are some versions:

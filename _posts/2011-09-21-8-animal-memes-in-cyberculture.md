@@ -28,7 +28,7 @@ Animals are quite often in some web memes:
 <object width="512" height="341" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="flashvars" value="host=picasaweb.google.com&amp;hl=de&amp;feat=flashalbum&amp;RGB=0x000000&amp;feed=http%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fthemoosemind%2Falbumid%2F5444766564208572833%3Falt%3Drss%26kind%3Dphoto%26hl%3Dde" /><param name="pluginspage" value="http://www.macromedia.com/go/getflashplayer" /><param name="src" value="http://picasaweb.google.com/s/c/bin/slideshow.swf" /><embed width="512" height="341" type="application/x-shockwave-flash" src="http://picasaweb.google.com/s/c/bin/slideshow.swf" flashvars="host=picasaweb.google.com&amp;hl=de&amp;feat=flashalbum&amp;RGB=0x000000&amp;feed=http%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fthemoosemind%2Falbumid%2F5444766564208572833%3Falt%3Drss%26kind%3Dphoto%26hl%3Dde" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>
 
 <h2>Kung Fu Bear</h2>
-{% caption align="alignnone" width="320" caption="Ize knowz kung fu!" url="../images/2011/09/kungfu-bear.jpg" alt="Ize knowz kung fu!" title="Kung Fu Bear" height="300" class="size-medium wp-image-381"  %}
+{% caption align="alignnone" width="320" caption="Ize knowz kung fu!" url="../images/2011/09/kungfu-bear.jpg" alt="Ize knowz kung fu!"  height="300" class="size-medium wp-image-381"  %}
 
 <h2>Paranoid Parrot</h2>
 {% caption align="alignnone" width="300" caption="Paranoid Parrot" url="../images/2011/09/Paranoid-Parrot-300x233.jpg" alt="Paranoid Parrot"  height="233" class="size-medium wp-image-411"  %}

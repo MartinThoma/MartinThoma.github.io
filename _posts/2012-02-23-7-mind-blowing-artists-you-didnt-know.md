@@ -12,7 +12,7 @@ tags:
 <a href="http://en.wikipedia.org/wiki/Anamorphosis">Anamorphosis</a> is a distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image. 
 
 Here is a good example by <a href="http://www.varini.org/">Felice Varini</a>:
-{% caption align="aligncenter" width="512" caption="Anamorphic Art - Source: illusion.scene360.com" url="../images/2012/02/anamorphic-art.png" alt="Anamorphic Art" title="Anamorphic Art" height="524" class="size-full wp-image-15541" %}
+{% caption align="aligncenter" width="512" caption="Anamorphic Art - Source: illusion.scene360.com" url="../images/2012/02/anamorphic-art.png" alt="Anamorphic Art"  height="524" class="size-full wp-image-15541" %}
 
 <h2>Pavement Drawings</h2>
 Pavement Drawings can be combined with anamorphic art. One great artist I've found is <a href="http://www.julianbeever.net/pave.htm">Julian Beever</a>. Here is one example:

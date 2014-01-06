@@ -64,13 +64,13 @@ What&rsquo;s the difference between drug dealers and computer programmers?
 </tr>
 </table>
 
-{% caption align="aligncenter" width="413" caption="xkcd: Compiling" url="http://imgs.xkcd.com/comics/compiling.png" alt="Compiling" title="Compiling" height="360" class="" %}
+{% caption align="aligncenter" width="413" caption="xkcd: Compiling" url="http://imgs.xkcd.com/comics/compiling.png" alt="Compiling"  height="360" class="" %}
 
 ME: You should really think about a new monitor.
 CLIENT: I would, but I don&rsquo;t want to lose my icons. 
 (Source: Clients From Hell)
 
-{% caption align="aligncenter" width="282" caption="Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a>" url="../images/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose" title="Computer Science Major" height="300" class="size-medium" %}
+{% caption align="aligncenter" width="282" caption="Computer Science Major - possibly from <a href=http://abstrusegoose.com/a/206.htm>abstrusegoose</a>" url="../images/2012/03/computer-science-major-282x300.png" alt="Computer Science Major - possibly from abstrusegoose"  height="300" class="size-medium" %}
 
 There are 10 types of people: those who understand binary, and those who do not understand it.
 

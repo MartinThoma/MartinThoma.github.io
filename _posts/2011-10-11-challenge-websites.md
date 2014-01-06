@@ -88,11 +88,11 @@ Almost every challenge could also be in the "Information Gathering" category. Wh
 
 Basic tasks are to get to know something about the owner of a specific website or about the content of a website a few years ago.
 <h2>Some examples</h2>
-{% caption align="aligncenter" width="300" caption="<a href='http://www.bright-shadows.net/'>www.bright-shadows.net</a> - The Back Sheep" url="../images/2011/10/bright-shadows-300x138.png" alt="Bright Shadows - The Back Sheep" title="Bright Shadows - The Back Sheep" height="138" class="size-medium wp-image-5301" %}
+{% caption align="aligncenter" width="300" caption="<a href='http://www.bright-shadows.net/'>www.bright-shadows.net</a> - The Back Sheep" url="../images/2011/10/bright-shadows-300x138.png" alt="Bright Shadows - The Back Sheep"  height="138" class="size-medium wp-image-5301" %}
 
-{% caption align="aligncenter" width="300" caption="<a href='http://www.hacker.org/'>hacker.org</a>" url="../images/2011/10/hacker.org_-300x175.png" alt="hacker.org" title="hacker.org" height="175" class="size-medium wp-image-5311" %}
+{% caption align="aligncenter" width="300" caption="<a href='http://www.hacker.org/'>hacker.org</a>" url="../images/2011/10/hacker.org_-300x175.png" alt="hacker.org"  height="175" class="size-medium wp-image-5311" %}
 
-{% caption align="aligncenter" width="300" caption="<a href='http://www.wechall.net/'>WeChall</a>" url="../images/2011/10/wechall-300x140.png" alt="WeChall" title="WeChall" height="140" class="size-medium wp-image-5321" %}
+{% caption align="aligncenter" width="300" caption="<a href='http://www.wechall.net/'>WeChall</a>" url="../images/2011/10/wechall-300x140.png" alt="WeChall"  height="140" class="size-medium wp-image-5321" %}
 
 
 <a href="http://projecteuler.net/">ProjectEuler</a> - for people who are interested in math challenges:

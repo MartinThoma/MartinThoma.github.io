@@ -13,7 +13,7 @@ Some identities are really astonishing:
 <h2>Geometry #1</h2>
 $\sin^2(\alpha) + \cos^2(\alpha) = 1$
 
-{% caption align="aligncenter" width="500" caption="Triangle with γ = 90°" url="../images/2012/09/right-triangle.png" alt="Rechtwinklinges Dreieck mit γ = 90°" title="" height="289" class="size-full wp-image-44511 " title="Rechtwinklinges Dreieck mit γ = 90°" %}
+{% caption align="aligncenter" width="500" caption="Triangle with γ = 90°" url="../images/2012/09/right-triangle.png" alt="Rechtwinklinges Dreieck mit γ = 90°"  height="289" class="size-full wp-image-44511 " title="Rechtwinklinges Dreieck mit γ = 90°" %}
 
 
 

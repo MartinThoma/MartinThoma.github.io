@@ -19,7 +19,7 @@ This is what happens if your dad is a designer:
 
 {% caption align="aligncenter" width="520" caption="Baby Batman" url="../images/2011/10/baby-batman.jpg" alt="Baby Batman"  height="369" class="size-full wp-image-5171" %}
 
-{% caption align="aligncenter" width="519" caption="Baby <a href='http://en.wikipedia.org/wiki/Terry_Gene_Bollea'>Hulk Hogan</a>" url="../images/2011/10/baby-hogan.jpg" alt="Baby Hulk Hogan" title="Baby Hulk Hogan" height="368" class="size-full wp-image-5181" %}
+{% caption align="aligncenter" width="519" caption="Baby <a href='http://en.wikipedia.org/wiki/Terry_Gene_Bollea'>Hulk Hogan</a>" url="../images/2011/10/baby-hogan.jpg" alt="Baby Hulk Hogan"  height="368" class="size-full wp-image-5181" %}
 
 {% caption align="aligncenter" width="521" caption="Baby Ogre" url="../images/2011/10/baby-ogre.jpg" alt="Baby Ogre"  height="368" class="size-full wp-image-5191" %}
 
@@ -30,12 +30,12 @@ This is what happens if your dad is a designer:
 The Original (or at least the highest resolution I found) is <a href="http://sneezl.com/wp-content/uploads/2008/04/graphic-designer-baby.pdf">here as PDF</a>.
 
 Giving your child some funny T-shirts is also quite common:
-{% caption align="aligncenter" width="400" caption="Baby Geek: No! (found on <a href='http://www.zazzle.de/lieblingswort_ist_no_chemie_aussenseiter_baby_ones_tshirt-235215790093704490'>zazzle</a>)" url="../images/2011/10/geek-baby-no.jpg" alt="Baby Geek: No!" title="Baby Geek: No!" height="400" class="size-full wp-image-5251" %}
+{% caption align="aligncenter" width="400" caption="Baby Geek: No! (found on <a href='http://www.zazzle.de/lieblingswort_ist_no_chemie_aussenseiter_baby_ones_tshirt-235215790093704490'>zazzle</a>)" url="../images/2011/10/geek-baby-no.jpg" alt="Baby Geek: No!"  height="400" class="size-full wp-image-5251" %}
 
-{% caption align="aligncenter" width="325" caption="It seems like someone liked RPGs <a href='http://postmortemstudios.wordpress.com/2011/09/12/sowygo1-a-geek-is-born/'>here</a> :-)" url="../images/2011/10/geek-baby-rpg.jpg" alt="RPG Geek Baby" title="RPG Geek Baby" height="433" class="size-full" %}
+{% caption align="aligncenter" width="325" caption="It seems like someone liked RPGs <a href='http://postmortemstudios.wordpress.com/2011/09/12/sowygo1-a-geek-is-born/'>here</a> :-)" url="../images/2011/10/geek-baby-rpg.jpg" alt="RPG Geek Baby"  height="433" class="size-full" %}
 
 A friend of mine just shared this photo:
-{% caption align="aligncenter" width="320" caption="Twins: Copy and Paste. Thanks to Ren&eacute; for sharing" url="../images/2011/10/geek-twins.jpg" alt="Twins: Copy and Paste" title="Twins: Copy and Paste" height="238" class="size-full" %}
+{% caption align="aligncenter" width="320" caption="Twins: Copy and Paste. Thanks to Ren&eacute; for sharing" url="../images/2011/10/geek-twins.jpg" alt="Twins: Copy and Paste"  height="238" class="size-full" %}
 
 
 

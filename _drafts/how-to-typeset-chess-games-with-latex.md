@@ -11,7 +11,7 @@ featured_image:
 ---
 <h2>Chessboard</h2>
 <h3>Simple example</h3>
-{% caption align="aligncenter" width="296" caption="Chessboard - simple example" url="../images/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example" title="" height="268" class="size-full wp-image-44411 "  %}
+{% caption align="aligncenter" width="296" caption="Chessboard - simple example" url="../images/2012/09/chess-chessboard-simple-example.png" alt="Chessboard - simple example"  height="268" class="size-full wp-image-44411 "  %}
 
 {% highlight text %}\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
@@ -32,7 +32,7 @@ featured_image:
 From <a href="http://tex.stackexchange.com/a/54192/5645">tex.stackexchange.com</a>.
 <h2>Skak</h2>
 <h3>Simple example</h3>
-{% caption align="aligncenter" width="254" caption="Simple example with skak" url="../images/2012/09/chess-skak-simple-example.png" alt="Simple example with skak" title="" height="289" class="size-full wp-image-44401 "  %}
+{% caption align="aligncenter" width="254" caption="Simple example with skak" url="../images/2012/09/chess-skak-simple-example.png" alt="Simple example with skak"  height="289" class="size-full wp-image-44401 "  %}
 
 {% highlight text %}\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}

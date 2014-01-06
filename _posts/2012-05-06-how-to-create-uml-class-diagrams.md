@@ -20,7 +20,7 @@ Take a look at these screenshots:
 
 {% caption align="aligncenter" width="676" caption="Edit class properties in Dia" url="../images/2012/05/dia-class-properties.png" alt="Edit class properties in Dia"  height="589" class="size-full wp-image-24221" %}
 
-{% caption align="aligncenter" width="454" caption="Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!" url="../images/2012/05/dia-association.png" alt="Customizing associations in Dia" title="Customizing associations in Dia" height="447" class="size-full wp-image-24231" %}
+{% caption align="aligncenter" width="454" caption="Customizing associations in Dia - adding multiplicities is so much easier in Dia than in MetaUML!" url="../images/2012/05/dia-association.png" alt="Customizing associations in Dia"  height="447" class="size-full wp-image-24231" %}
 
 {% caption align="aligncenter" width="519" caption="A quick example for a class diagram created with Dia" url="../images/2012/05/Dia-ClassDiagram.png" alt="A quick example for a class diagram created with Dia"  height="104" class="size-full wp-image-24251" %}
 
