@@ -75,7 +75,13 @@ module Jekyll
                     csv.each_with_object({}) do |words, attrs|
                         if words.count() >= 1
                             words.push("") # make sure this one has at least two elements
-                            src, alt, *rest = words
+                            src, gallerytext, *rest = words
+                            if rest.count() == 0
+                                alt = gallerytext
+                            else
+                                alt = rest[0]
+                            end
+
                             rendered += '<li class="gallerybox" style="width: 155px">'
                             rendered += '<div style="width: 155px">'
                             rendered += '<div class="thumb" style="width: 150px;">'
@@ -85,7 +91,7 @@ module Jekyll
                             rendered += '</a>'
                             rendered += '</div>'
                             rendered += '</div>'
-                            rendered += '<div class="gallerytext">'+alt+'</div>'
+                            rendered += '<div class="gallerytext">'+gallerytext+'</div>'
                             rendered += '</div>'
                             rendered += '</li>'
                         end

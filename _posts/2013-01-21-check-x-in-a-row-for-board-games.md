@@ -12,19 +12,26 @@ featured_image: 2013/01/queens-moves.png
 ---
 In board games, you have quite often the situation that you want to check something in different directions. Most of the time, the implementation I see for situations like this is very redundant and prone to off-by-one errors. Some simple ideas can improve the quality of codes (code that is easier to understand and less <abbr title="lines of code">loc</abbr>) and reduce the probability of tiny mistakes.
 
-[gallery ids="54621,54611,54601"]
+{% gallery %}
+    ../images/2013/01/tic-tac-toe.png   "Tic Tac Toe"
+    ../images/2013/01/battleships.png   "Battleships"
+    ../images/2013/01/queens-moves.png  "Moves of the queen in chess"
+{% endgallery %}
 
 <h2>isOnBoard(int x, int y)</h2>
 You should create a method that checks if a coordinate is on your board. This can be as simple as this:
 
-{% highlight java %}public boolean isOnBoard(int x, int y) {
+```java
+public boolean isOnBoard(int x, int y) {
     return 0 <= x &amp;&amp; x < width &amp;&amp; 0 <= y &amp;&amp; y < height;
-}{% endhighlight %}
+}
+```
 
 <h2>Diagonal, horizontal and vertical</h2>
 You can create a method like this:
 
-{% highlight java %}/**
+```java
+/**
  * This method checks XYZ and does XYZ.
  * 
  * @param player the current player
@@ -46,7 +53,8 @@ private void myBoardAction(Player player, int xDir, int yDir) {
             }
         }
     }
-}{% endhighlight %}
+}
+```
 
 What's so special about it? Well, note how the <code>xDir</code> and <code>yDir</code> parameters change the behavior of the method. If you want to move only to the right, you will call <code>myBoardAction(player, 1, 0)</code>. If you want to go to the top left, you will call <code>myBoardAction(player, -1, 1)</code>. Of course, you can't simply take this piece of code and only change doXYZ() and checkXYZ. You will have to change the starting and and position and maybe add a break. But this thought can be applied to board games quite nice.
 
@@ -54,9 +62,12 @@ Please also note that I go from <code>(0|0)</code> to <code>(board.width|board.h
 
 Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:
 
-{% highlight java %}myBoardAction(player, 1, 1); // top right
+```java
+myBoardAction(player, 1, 1); // top right
 myBoardAction(player,-1, 1); // top left
 myBoardAction(player, 1, 0); // vertical
-myBoardAction(player, 0, 1); // horizontal{% endhighlight %}
+myBoardAction(player, 0, 1); // horizontal
+```
 
-This is enough. You don't need more, as you go through the whole board. No need to write redundant code :-)
+This is enough. You don't need more, as you go through the whole board. 
+No need to write redundant code :-)

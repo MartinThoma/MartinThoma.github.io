@@ -15,7 +15,22 @@ You have to line segments and you want to know if they intersect. I'll give you 
 <h2>Test cases</h2>
 First of all, we should think about how lines can be arranged:
 
-[gallery columns="4" ids="57661,57671,57681,57691,57701,57711,57581,57591,57601,57611,57621,57631,57641,57651"]
+{% gallery columns="4" %}
+    ../images/2013/02/line-segments-t1.png  "Testcase T1"   "T1: One line is horizontal, one vertical and they cross"
+    ../images/2013/02/line-segments-t2.png  "Testcase T2"   "T2: An endpoint of one line segment is on the other line segment"
+    ../images/2013/02/line-segments-t3.png  "Testcase T3"   "T3: Similar to T4, but with negative coordiantes"
+    ../images/2013/02/line-segments-t4.png  "Testcase T4"   "T4: One line is horizontal, one vertical and an end point is on one line"
+    ../images/2013/02/line-segments-t5.png  "Testcase T5"   "T5: One line is on the other line"
+    ../images/2013/02/line-segments-t6.png  "Testcase T6"   "T6: Line segements are identical"
+    ../images/2013/02/line-segments-f1.png  "Testcase F1"   "F1: In parallel, close together, one line is completely inside the bounding box of the other line"
+    ../images/2013/02/line-segments-f2.png  "Testcase F2"   "F2: Both lines are parallel."
+    ../images/2013/02/line-segments-f3.png  "Testcase F3"   "F3: Both lines are horizontal."
+    ../images/2013/02/line-segments-f4.png  "Testcase F4"   "F4: One line is horizontal, one vertical. They don't cross."
+    ../images/2013/02/line-segments-f5.png  "Testcase F5"   "F5: Both line segments are on one line, but they don't intersect"
+    ../images/2013/02/line-segments-f6.png  "Testcase F6"   "F6: Both line segments are close together"
+    ../images/2013/02/line-segments-f7.png  "Testcase F7"   "F7: Both lines are horizontal"
+    ../images/2013/02/line-segments-f8.png  "Testcase F8"   "F8: Like F6"
+{% gallery %}
 
 <h2>Bounding boxes</h2>
 You can draw boxes around line segments such that the edges of the boxes are in parallel to the coordinate axes:
