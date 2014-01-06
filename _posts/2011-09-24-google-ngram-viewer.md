@@ -30,13 +30,13 @@ My example shows that the term "France" was more often in books than "Germany". 
 {% caption align="alignnone" width="300" caption="Google Ngram Viewer: Germany vs. France vs. Third-Reich" url="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png" alt="Google Ngram Viewer: Germany vs. France vs. Third-Reich"  height="112" class="size-medium wp-image-1981"  %}
 
 You can compare how successfull some books are:
-{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" url="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png" alt="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" title="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" height="112" class="size-medium wp-image-2001" %}
+{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" url="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png" alt="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code"  height="112" class="size-medium wp-image-2001" %}
 
 Quite interesting is also the interest in famous physicists:
-{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Famous physicists" url="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png" alt="Google Ngram Viewer: Famous physicists" title="Google Ngram Viewer: Famous physicists" height="113" class="size-medium wp-image-2011" %}
+{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Famous physicists" url="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png" alt="Google Ngram Viewer: Famous physicists"  height="113" class="size-medium wp-image-2011" %}
 
 You can try all sort of things:
-{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Happy" url="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png" alt="Google Ngram Viewer: Happy" title="Google Ngram Viewer: Happy" height="111" class="size-medium wp-image-2031" %}
+{% caption align="alignnone" width="300" caption="Google Ngram Viewer: Happy" url="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png" alt="Google Ngram Viewer: Happy"  height="111" class="size-medium wp-image-2031" %}
 
 Did you get some interesting results? Please post a link!
 

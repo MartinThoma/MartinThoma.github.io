@@ -16,11 +16,11 @@ Google Chorme is the browser of my choice. It is fast, has developer tools and l
 Sometimes I watch a movie while I play a flash game. Some flash games don't offer an option to mute them. So I would like to get the possibility to disable sound for one tab.
 
 It could look like this.
-{% caption align="aligncenter" width="300" caption="Disable the sound of a tab" url="../images/2012/04/disable-tab-sound-300x172.png" alt="Disable the sound of a tab" title="Disable the sound of a tab" height="172" class="size-medium wp-image-20981" %}
+{% caption align="aligncenter" width="300" caption="Disable the sound of a tab" url="../images/2012/04/disable-tab-sound-300x172.png" alt="Disable the sound of a tab"  height="172" class="size-medium wp-image-20981" %}
 
 <h2>Spell checker</h2>
 I write Blogs in German and in English. So I would like a spell-checker option at the bottom-left corner to switch languages:
-{% caption align="aligncenter" width="698" caption="Spell checker" url="../images/2012/04/spell-checker.png" alt="Spell checker" title="Spell checker" height="91" class="size-full wp-image-21021" %}
+{% caption align="aligncenter" width="698" caption="Spell checker" url="../images/2012/04/spell-checker.png" alt="Spell checker"  height="91" class="size-full wp-image-21021" %}
 
 <h2>HTML5 Form Elements</h2>
 HTML5 brought many cool new form elements to the web. If you like, take a look at <a href="http://www.martin-thoma.de/html5/input.php">my list of HTML5 input types</a>. Chrome should support all of them!
@@ -28,10 +28,10 @@ Note that Chrome does support these types according to <a href="http://html5test
 
 By the way, at the moment Chrome scores 385 points + 13 bonus points. The best browser currently scores 425 points + 25 bonus points.
 
-{% caption align="aligncenter" width="172" caption="Opera 11.01 Native date input type" url="../images/2012/04/opera-11.01-date.png" alt="Opera 11.01 Native date input type" title="Opera 11.01 Native date input type" height="250" class="size-full wp-image-21051" %}
+{% caption align="aligncenter" width="172" caption="Opera 11.01 Native date input type" url="../images/2012/04/opera-11.01-date.png" alt="Opera 11.01 Native date input type"  height="250" class="size-full wp-image-21051" %}
 
 <h2>Internal PDF-Reader</h2>
-{% caption align="aligncenter" width="300" caption="Internal PDF reader of Chrome" url="../images/2012/04/internal-pdf-reader-300x218.png" alt="Internal PDF reader of Chrome" title="Internal PDF reader of Chrome" height="218" class="size-medium wp-image-21001" %}
+{% caption align="aligncenter" width="300" caption="Internal PDF reader of Chrome" url="../images/2012/04/internal-pdf-reader-300x218.png" alt="Internal PDF reader of Chrome"  height="218" class="size-medium wp-image-21001" %}
 <h3>Rotate PDF</h3>
 Some PDF files I receive are rotated by 90&deg;. It would be great if I could, as in every PDF viewer, rotate this. A common shortcut is Ctrl+Arrow key.
 
@@ -45,7 +45,7 @@ Auto-Disable extensions for https. Only PayPal, Amazon, Ebay, GMail and my bank 
 <h3>Password Reuse Visualizer</h3>
 Firefox offers a tool which helps to identify passwords, that get reused often. It is called "<a href="https://addons.mozilla.org/de/firefox/addon/password-reuse-visualizer/">Password Reuse Visualizer</a>" and looks like this:
 
-{% caption align="aligncenter" width="300" caption="Password Reuse Visualizer" url="../images/2012/04/password-reuse.png" alt="Password Reuse Visualizer" title="Password Reuse Visualizer" height="269" class="size-full wp-image-21101" %}
+{% caption align="aligncenter" width="300" caption="Password Reuse Visualizer" url="../images/2012/04/password-reuse.png" alt="Password Reuse Visualizer"  height="269" class="size-full wp-image-21101" %}
 
 <h2>Material</h2>
 I've used <a href="http://www.famfamfam.com/lab/icons/silk/">famfamfam slik icons</a>. For the menus I've used Sans, 14pt, no hinting but Antialiasing. If someone has better options, it would be great if you posted it as a comment.

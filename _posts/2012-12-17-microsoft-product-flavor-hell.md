@@ -30,17 +30,17 @@ Well, lets google for the right way to achieve a simple language change:
 
 So, it seems as if I needed Windows 7 Ultimate or Windows 7 Enterprise edition. Which version do I have?
 Let's search ... hm, seeems as there are some versions:
-{% caption align="aligncenter" width="510" caption="Windows 7 editions" url="../images/2012/12/windows-7-editions.jpg" alt="Windows 7 editions" title="Windows 7 editions" height="510" class="size-full wp-image-50681" %}
+{% caption align="aligncenter" width="510" caption="Windows 7 editions" url="../images/2012/12/windows-7-editions.jpg" alt="Windows 7 editions"  height="510" class="size-full wp-image-50681" %}
 
 And also
 <a href="../images/2012/12/windows-7-enterprise.jpg"><img src="../images/2012/12/windows-7-enterprise-300x295.jpg" alt="" title="Windows 7 enterprise edition" width="300" height="295" class="aligncenter size-medium wp-image-50691" /></a>
 and Windows 7 Starter, Windows 7 Home Basic. Did I already mention the family pack? It's so complicated ... there is even a Wikipedia page about <a href="http://en.wikipedia.org/wiki/Windows_7_editions">Windows 7 editions</a>!
 
 Find out which version I have (another 15 minutes of searching how to do so):
-{% caption align="aligncenter" width="432" caption="winver search" url="../images/2012/12/winver-search.png" alt="winver search" title="winver search" height="573" class="size-full wp-image-50641" %}
+{% caption align="aligncenter" width="432" caption="winver search" url="../images/2012/12/winver-search.png" alt="winver search"  height="573" class="size-full wp-image-50641" %}
 
 And finally:
-{% caption align="aligncenter" width="474" caption="winver" url="../images/2012/12/winver.png" alt="winver" title="winver" height="412" class="size-full wp-image-50651" %}
+{% caption align="aligncenter" width="474" caption="winver" url="../images/2012/12/winver.png" alt="winver"  height="412" class="size-full wp-image-50651" %}
 
 Aaaaargh! I don't have the right edition to be able to change my language to English. I have to reinstall the whole system to get it in English!
 
@@ -48,7 +48,7 @@ Well, but as there are so many different editions, there have to be some differe
 [5 minutes later] 
 Oh, Microsoft offers some nice-looking information at <a href="http://windows.microsoft.com/en-US/windows7/products/compare">windows.microsoft.com</a>:
 
-{% caption align="aligncenter" width="300" caption="Windows 7 editions differences" url="../images/2012/12/windows-7-editions-differences-300x152.png" alt="Windows 7 editions differences" title="Windows 7 editions differences" height="152" class="size-medium wp-image-50731" %}
+{% caption align="aligncenter" width="300" caption="Windows 7 editions differences" url="../images/2012/12/windows-7-editions-differences-300x152.png" alt="Windows 7 editions differences"  height="152" class="size-medium wp-image-50731" %}
 
 What the #$@&%*!? Why do they write down similarities? I don't want to know what's the same, I want to know the difference! 
 And even the similarities are meaningless. 

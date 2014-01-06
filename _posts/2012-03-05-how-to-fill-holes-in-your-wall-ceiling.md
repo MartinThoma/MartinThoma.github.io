@@ -30,7 +30,7 @@ The guy at the hardware store suggested to use acrylic paint. So I did. These we
 <table>
 <tr>
 <td>{% caption align="aligncenter" width="150" caption="Masking tape and putty knife" url="../images/2012/03/kreppband-japanspachtel-150x150.jpg" alt="Kreppband und Japanspachtel" title="Kreppband und Japanspachtel" height="150" class="size-thumbnail wp-image-17231" %}</td>
-<td>{% caption align="aligncenter" width="150" caption="Acrylic paint" url="../images/2012/03/maler-acryl-150x150.jpg" alt="Acrylic paint" title="Acrylic paint" height="150" class="size-thumbnail wp-image-17241" %}</td>
+<td>{% caption align="aligncenter" width="150" caption="Acrylic paint" url="../images/2012/03/maler-acryl-150x150.jpg" alt="Acrylic paint"  height="150" class="size-thumbnail wp-image-17241" %}</td>
 </tr>
 </table>
 

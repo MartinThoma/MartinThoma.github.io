@@ -17,7 +17,7 @@ pdflatex latex.tex -output-format=pdf
 ```
 
 <h2>gnuplot</h2>
-{% caption align="aligncenter" width="300" caption="gnuplot" url="../images/2012/01/gnuplot-300x246.png" alt="gnuplot" title="gnuplot" height="246" class="size-medium wp-image-12781" %}
+{% caption align="aligncenter" width="300" caption="gnuplot" url="../images/2012/01/gnuplot-300x246.png" alt="gnuplot"  height="246" class="size-medium wp-image-12781" %}
 ```latex
 \documentclass{article}
 
@@ -36,7 +36,7 @@ pdflatex latex.tex -output-format=pdf
 ```
 
 <h2>tikzpicture</h2>
-{% caption align="aligncenter" width="180" caption="tikzpicture" url="../images/2012/01/tikzpicture1-180x300.png" alt="tikzpicture" title="tikzpicture" height="300" class="size-medium wp-image-12821" %}
+{% caption align="aligncenter" width="180" caption="tikzpicture" url="../images/2012/01/tikzpicture1-180x300.png" alt="tikzpicture"  height="300" class="size-medium wp-image-12821" %}
 ```latex
 \documentclass{article}
  

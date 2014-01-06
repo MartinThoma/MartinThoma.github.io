@@ -10,7 +10,7 @@ tags:
 - JavaScript Game
 featured_image: 2011/10/z-type-168x300.png
 ---
-{% caption align="aligncenter" width="168" caption="Z-Type" url="../images/2011/10/z-type-168x300.png" alt="Z-Type" title="Z-Type" height="300" class="size-medium wp-image-3311" %}
+{% caption align="aligncenter" width="168" caption="Z-Type" url="../images/2011/10/z-type-168x300.png" alt="Z-Type"  height="300" class="size-medium wp-image-3311" %}
 
 <b>Go to the Game</b>: <a href="http://www.phoboslab.org/ztype/" rel="nofollow">www.phoboslab.org/ztype</a>
 <b>Task</b>: Survive as long as possible

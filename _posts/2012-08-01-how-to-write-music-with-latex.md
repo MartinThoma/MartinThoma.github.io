@@ -15,7 +15,7 @@ featured_image: 2012/08/latex-music-thumb.png
 It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to <del datetime="2012-08-01T08:01:06+00:00">write a little tutorial</del> show some examples. 
 
 <h2>Symbols</h2>
-{% caption align="aligncenter" width="512" caption="Some basic music symbols" url="../images/2012/08/music-notes.png" alt="Some basic music symbols" title="Some basic music symbols" height="42" class="size-full wp-image-37171" %}
+{% caption align="aligncenter" width="512" caption="Some basic music symbols" url="../images/2012/08/music-notes.png" alt="Some basic music symbols"  height="42" class="size-full wp-image-37171" %}
 ```latex
 \documentclass[a4paper,12pt]{article}
 \usepackage{wasysym}
@@ -26,7 +26,7 @@ It is possible to write music with LaTeX. My girlfriend was quite surprised of t
 ```
 
 The harmony package offers some additional symbols:
-{% caption align="aligncenter" width="512" caption="music symbols form the LaTeX-harmony package" url="../images/2012/08/latex-music-harmony.png" alt="music symbols form the LaTeX-harmony package" title="music symbols form the LaTeX-harmony package" height="331" class="size-full wp-image-37181" %}
+{% caption align="aligncenter" width="512" caption="music symbols form the LaTeX-harmony package" url="../images/2012/08/latex-music-harmony.png" alt="music symbols form the LaTeX-harmony package"  height="331" class="size-full wp-image-37181" %}
 
 ```latex
 \documentclass[a4paper,12pt]{article}
@@ -42,7 +42,7 @@ The harmony package offers some additional symbols:
 ```
 
 <h2>musixtex</h2>
-{% caption align="aligncenter" width="512" caption="musixtex example" url="../images/2012/08/latex-musixtex.png" alt="musixtex example" title="musixtex example" height="139" class="size-full wp-image-37221" %}
+{% caption align="aligncenter" width="512" caption="musixtex example" url="../images/2012/08/latex-musixtex.png" alt="musixtex example"  height="139" class="size-full wp-image-37221" %}
 
 ```latex
 \documentclass[a4paper,12pt]{article}
@@ -86,7 +86,7 @@ pdflatex --shell-escape myTexFile.tex
 ```
 
 to get this:
-{% caption align="aligncenter" width="477" caption="ABC example for creating music sheets with LaTeX" url="../images/2012/07/abc-example.png" alt="ABC example for creating music sheets with LaTeX" title="ABC example for creating music sheets with LaTeX" height="113" class="size-full wp-image-33701" %}
+{% caption align="aligncenter" width="477" caption="ABC example for creating music sheets with LaTeX" url="../images/2012/07/abc-example.png" alt="ABC example for creating music sheets with LaTeX"  height="113" class="size-full wp-image-33701" %}
 
 
 <h2>LilyPond</h2>
@@ -142,7 +142,7 @@ rm -rf out
 For simplification, you can save this as <code>compile.sh</code>, execute <code>chmod +x compile.sh</code> and now you only have to enter <code>./compile.sh</code> to generate the PDF.
 
 Output:
-{% caption align="aligncenter" width="594" caption="Lilypond example - output was a PDF" url="../images/2012/07/lilypond-example.png" alt="Lilypond example - output was a PDF" title="Lilypond example - output was a PDF" height="362" class="size-full wp-image-33661" %}
+{% caption align="aligncenter" width="594" caption="Lilypond example - output was a PDF" url="../images/2012/07/lilypond-example.png" alt="Lilypond example - output was a PDF"  height="362" class="size-full wp-image-33661" %}
 
 <h2>Further Reading</h2>
 <ul>

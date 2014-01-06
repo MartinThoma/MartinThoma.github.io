@@ -197,7 +197,7 @@ def forEveryPost(website, operation, development=True):
 def captionRemoveDeprecated(page):
     yaml, content = getYaml(page)
 
-    pattern = re.compile("{% caption(?P<before>.*?)caption=\"\"(?P<between>.*?)title=\"(?P<caption>.*?)\"(?P<after>.*?)%}")
+    pattern = re.compile("{% caption(?P<before>.*?)caption=\"(?P<caption>.*?)\"(?P<between>.*?)text=\"(?P=caption)\"(?P<after>.*?)%}")
     content = re.sub(pattern, '{% caption\g<before>caption=\"\g<caption>\"\g<between>\g<after>%}', content)
     return "---" + yaml + "---" + content
 

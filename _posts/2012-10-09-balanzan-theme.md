@@ -18,7 +18,7 @@ sudo apt-get update
 sudo apt-get install bisigi-themes{% endhighlight %}
 
 <h2>Impression</h2>
-{% caption align="aligncenter" width="300" caption="Impression of the Balanzan Theme" url="../images/2012/10/balazan-font-300x247.png" alt="Impression of the Balanzan Theme" title="Impression of the Balanzan Theme" height="247" class="size-medium wp-image-46561" %}
+{% caption align="aligncenter" width="300" caption="Impression of the Balanzan Theme" url="../images/2012/10/balazan-font-300x247.png" alt="Impression of the Balanzan Theme"  height="247" class="size-medium wp-image-46561" %}
 
 <h2>Color Theme</h2>
 <h3>LXDE</h3>
@@ -54,11 +54,11 @@ sudo apt-get install bisigi-themes{% endhighlight %}
 Download <a href="https://launchpad.net/~bisigi/+archive/ppa/+files/balanzan-theme_1.8.1.natty.ppa1.tar.gz">the whole package</a>, go to <code>balazan-theme/icons</code> and look into <code>balazan.tar.bz2</code>.
 
 Here are some of the icons:
-{% caption align="aligncenter" width="459" caption="Balanzan Icons" url="../images/2012/10/balazan-icons.png" alt="Balanzan Icons" title="Balanzan Icons" height="465" class="size-full wp-image-46541" %}
+{% caption align="aligncenter" width="459" caption="Balanzan Icons" url="../images/2012/10/balazan-icons.png" alt="Balanzan Icons"  height="465" class="size-full wp-image-46541" %}
 
 <h2>Background</h2>
 The background is based on "<a href="http://ubuntu.damianvila.com/">Lion Claar</a>" background by Dami&aacute;n Vila:
 
-{% caption align="alignright" width="150" caption="Balanzan 4:3 wallpaper" url="../images/2012/10/balanzan_4_3-150x150.png" alt="Balanzan 4:3 wallpaper" title="Balanzan 4:3 wallpaper" height="150" class="size-thumbnail wp-image-46491" %}
+{% caption align="alignright" width="150" caption="Balanzan 4:3 wallpaper" url="../images/2012/10/balanzan_4_3-150x150.png" alt="Balanzan 4:3 wallpaper"  height="150" class="size-thumbnail wp-image-46491" %}
 
-{% caption align="aligncenter" width="150" caption="Balanzan 16:9 wallpaper" url="../images/2012/10/balanzan-150x150.png" alt="Balanzan 16:9 wallpaper" title="Balanzan 16:9 wallpaper" height="150" class="size-thumbnail wp-image-46481" %}
+{% caption align="aligncenter" width="150" caption="Balanzan 16:9 wallpaper" url="../images/2012/10/balanzan-150x150.png" alt="Balanzan 16:9 wallpaper"  height="150" class="size-thumbnail wp-image-46481" %}

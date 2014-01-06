@@ -9,7 +9,7 @@ tags:
 - JavaScript Game
 featured_image: 2011/10/marblerun-thumb.png
 ---
-{% caption align="alignleft" width="584" caption="Marble Run" url="../images/2011/10/marblerun.png" alt="Marble Run" title="Marble Run" height="558" class="size-full wp-image-7181" %}
+{% caption align="alignleft" width="584" caption="Marble Run" url="../images/2011/10/marblerun.png" alt="Marble Run"  height="558" class="size-full wp-image-7181" %}
 
 <b>Go to the Game</b>: <a href="http://marblerun.at/tracks/new" rel="nofollow">marblerun.at</a>
 <b>Task</b>: Create a Track for that little red dot, which is as long as possible.

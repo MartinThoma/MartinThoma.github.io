@@ -23,7 +23,7 @@ This means: I have a total of 3952 MB <a href="http://en.wikipedia.org/wiki/Rand
 <h2>top</h2>
 top will give you something like Windows' task manager in the command line. If you press "M" it gets sorted by memory utilization:
 
-{% caption align="aligncenter" width="500" caption="top sorted by memory utilization" url="../images/2012/02/top-memory.png" alt="top sorted by memory utilization" title="top sorted by memory utilization" height="497" class="size-full wp-image-13591" %}
+{% caption align="aligncenter" width="500" caption="top sorted by memory utilization" url="../images/2012/02/top-memory.png" alt="top sorted by memory utilization"  height="497" class="size-full wp-image-13591" %}
 
 <h2>pmap</h2>
 pmap reports a memory map of a process. Lets make an example. Eclipse has the process ID (pid) 4526 at the moment.

@@ -13,7 +13,7 @@ featured_image: 2012/01/latex-logo.png
 <h2>Detexify</h2>
 The easiest way to search for a math symbol is <a href="http://detexify.kirelabs.org/classify.html">Detexify</a>. This webservices allows you to draw the symbol. It looks like this:
 
-{% caption align="aligncenter" width="512" caption="Detexify - A webservice for finding LaTeX symbols." url="../images/2012/07/detexify.png" alt="Detexify - A webservice for finding LaTeX symbols." title="Detexify - A webservice for finding LaTeX symbols." height="332" class="size-full wp-image-31471" %}
+{% caption align="aligncenter" width="512" caption="Detexify - A webservice for finding LaTeX symbols." url="../images/2012/07/detexify.png" alt="Detexify - A webservice for finding LaTeX symbols."  height="332" class="size-full wp-image-31471" %}
 
 <h2>Symbol tables</h2>
 <h3>Arrows</h3>

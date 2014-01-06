@@ -46,7 +46,7 @@ dot -Tpng fsm.gv -o myFiniteStateMachine.png
 ```
 
 <h2>Deterministic finite-state machine</h2>
-{% caption align="alignleft" width="528" caption="Deterministic finite-state machine" url="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine" title="Deterministic finite-state machine" height="248" class="size-full wp-image-8171" %}
+{% caption align="alignleft" width="528" caption="Deterministic finite-state machine" url="../images/2011/10/deterministic-finite-state-machine.png" alt="Deterministic finite-state machine"  height="248" class="size-full wp-image-8171" %}
 
 ```latex
 digraph finite_state_machine {
@@ -109,7 +109,7 @@ pdflatex latexsheet.tex -output-format=pdf
 ```
 
 If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:
-{% caption align="aligncenter" width="400" caption="Finite-state-machine with LaTeX" url="../images/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX" title="Finite-state-machine with LaTeX" height="147" class="size-full wp-image-13421" %}
+{% caption align="aligncenter" width="400" caption="Finite-state-machine with LaTeX" url="../images/2011/10/latex-finite-state-machine.png" alt="Finite-state-machine with LaTeX"  height="147" class="size-full wp-image-13421" %}
 ```latex
 \documentclass{scrartcl}
 \usepackage{tikz}

@@ -14,7 +14,7 @@ featured_image: 2011/10/firefox-add-search-engine-thumb.png
 ---
 Recently I read a very good post about search engine autodiscovery <a href="http://www.knallisworld.de/blog/2011/04/14/autodiscovery-der-searchengine-in-google-chrome-opensearch/">by Jan Phillip</a>. Did you know that many browsers can detect an internal search engine automatically? 
 Firefox gives you the possibility to add such a search engine to your browser:
-{% caption align="aligncenter" width="294" caption="Firefox: Add search engine detected via autodiscovery" url="../images/2011/10/firefox-add-search-engine.png" alt="Firefox: Add search engine detected via autodiscovery" title="Firefox: Add search engine detected via autodiscovery" height="236" class="size-full wp-image-6921" %}
+{% caption align="aligncenter" width="294" caption="Firefox: Add search engine detected via autodiscovery" url="../images/2011/10/firefox-add-search-engine.png" alt="Firefox: Add search engine detected via autodiscovery"  height="236" class="size-full wp-image-6921" %}
 
 <h2>OpenSearch</h2>
 <a href="http://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> is a collection of technologies. This project aims to create a standard for publishing the metadata which describes a search engine: name, description, URL-pattern, language, ...
@@ -49,13 +49,13 @@ Additionally, you can add this little piece of JavaScript to tell Firefox 2+ and
 <h2>Google Chrome Autodiscovery</h2>
 Google doesn't provide a <abbr title="user interface">UI</abbr> for adding an internal search engine. Instead, you can add it via Settings:
 
-{% caption align="aligncenter" width="300" caption="Add Search Engines via Settings in Google Chrome" url="../images/2011/10/google-chrome-add-search-300x206.png" alt="Add Search Engines via Settings in Google Chrome" title="Add Search Engines via Settings in Google Chrome" height="206" class="size-medium wp-image-6891" %}
+{% caption align="aligncenter" width="300" caption="Add Search Engines via Settings in Google Chrome" url="../images/2011/10/google-chrome-add-search-300x206.png" alt="Add Search Engines via Settings in Google Chrome"  height="206" class="size-medium wp-image-6891" %}
 
 Chrome also adds the sites internal search engine automatically. Did you ever notice this? Here are some screenshots:
 
-{% caption align="aligncenter" width="659" caption="Google Chrome Search - Hit tab to search this site" url="../images/2011/10/google-chrome-search-1.png" alt="Google Chrome Search - Hit tab to search this site" title="Google Chrome Search - Hit tab to search this site" height="31" class="size-full wp-image-6841" %}
+{% caption align="aligncenter" width="659" caption="Google Chrome Search - Hit tab to search this site" url="../images/2011/10/google-chrome-search-1.png" alt="Google Chrome Search - Hit tab to search this site"  height="31" class="size-full wp-image-6841" %}
 
-{% caption align="aligncenter" width="656" caption="Google Chrome Search - Search with the websites internal search engine" url="../images/2011/10/google-chrome-search-2.png" alt="Google Chrome Search - Search with the websites internal search engine" title="Google Chrome Search - Search with the websites internal search engine" height="30" class="size-full wp-image-6851" %}
+{% caption align="aligncenter" width="656" caption="Google Chrome Search - Search with the websites internal search engine" url="../images/2011/10/google-chrome-search-2.png" alt="Google Chrome Search - Search with the websites internal search engine"  height="30" class="size-full wp-image-6851" %}
 
 Interestingly the auto discovery only works if the search engine is at the homepage. You have to have either an input field of the type `search` or of the type `text` with the name `s`:
 

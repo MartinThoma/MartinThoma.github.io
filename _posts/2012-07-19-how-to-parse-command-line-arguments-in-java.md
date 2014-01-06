@@ -32,7 +32,7 @@ You can add this as an external jar to Eclipse:
 </ol>
 
 Now it should look like this:
-{% caption align="aligncenter" width="300" caption="Project properties in Eclipse - Libraries" url="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" alt="Project properties in Eclipse - Libraries" title="Project properties in Eclipse - Libraries" height="214" class="size-medium wp-image-33151" %}
+{% caption align="aligncenter" width="300" caption="Project properties in Eclipse - Libraries" url="../images/2012/07/java-eclipse-project-properties-libraries-300x214.png" alt="Project properties in Eclipse - Libraries"  height="214" class="size-medium wp-image-33151" %}
 
 Now you have to click on "Add External Jar" and add the args4j.jar file.
 
@@ -140,7 +140,7 @@ If you just want to test if you have the required packages, copy this piece of c
 }{% endhighlight %}
 
 If you get the following error, you don't have the required <code>org.apache.commons.cli</code>:
-{% caption align="aligncenter" width="431" caption="Java error mentioned by Eclipse: Missing org.apache.commons.cli" url="../images/2012/07/java-eclipse-cli-lib-error.png" alt="Java error mentioned by Eclipse: Missing org.apache.commons.cli" title="Java error mentioned by Eclipse: Missing org.apache.commons.cli" height="89" class="size-full wp-image-33201" %}
+{% caption align="aligncenter" width="431" caption="Java error mentioned by Eclipse: Missing org.apache.commons.cli" url="../images/2012/07/java-eclipse-cli-lib-error.png" alt="Java error mentioned by Eclipse: Missing org.apache.commons.cli"  height="89" class="size-full wp-image-33201" %}
 
 <h3>Usage examples</h3>
 I have not found a single, complete and working usage example.

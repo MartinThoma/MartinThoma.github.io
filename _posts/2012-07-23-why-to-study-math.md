@@ -34,14 +34,14 @@ If you are interested in natural science, you will defenitely need math. Here ar
 Although I guess you could continue this list, but the most important reason is that it teaches you how to think logically.
 
 <h2>Jobs are better</h2>
-{% caption align="aligncenter" width="395" caption="What you earn with a math-degree ;-)" url="../images/2012/07/reddit-math-degree.png" alt="What you earn with a math-degree ;-)" title="What you earn with a math-degree ;-)" height="398" class="size-full wp-image-34701" %}
+{% caption align="aligncenter" width="395" caption="What you earn with a math-degree ;-)" url="../images/2012/07/reddit-math-degree.png" alt="What you earn with a math-degree ;-)"  height="398" class="size-full wp-image-34701" %}
 
 <h2>Math is worth a lot of money</h2>
 <iframe width="512" height="384" src="http://www.youtube.com/embed/BbX44YSsQ2I" frameborder="0" allowfullscreen></iframe>
 
 <h2>Math is fun</h2>
-{% caption align="aligncenter" width="400" caption="Only topologists really understand this joke, I guess..." url="../images/2012/07/topologist-cup.jpg" alt="Only topologists really understand this joke, I guess..." title="Only topologists really understand this joke, I guess..." height="300" class="size-full wp-image-34721" %}
+{% caption align="aligncenter" width="400" caption="Only topologists really understand this joke, I guess..." url="../images/2012/07/topologist-cup.jpg" alt="Only topologists really understand this joke, I guess..."  height="300" class="size-full wp-image-34721" %}
 
-{% caption align="aligncenter" width="640" caption="The top 10 signs you&rsquo;re a mathematician/computer scientist" url="../images/2012/07/456-top-10-signs-you-are-a-mathematician.png" alt="The top 10 signs you&rsquo;re a mathematician/computer scientist" title="The top 10 signs you&rsquo;re a mathematician/computer scientist" height="303" class="size-full wp-image-34741" %}
+{% caption align="aligncenter" width="640" caption="The top 10 signs you&rsquo;re a mathematician/computer scientist" url="../images/2012/07/456-top-10-signs-you-are-a-mathematician.png" alt="The top 10 signs you&rsquo;re a mathematician/computer scientist"  height="303" class="size-full wp-image-34741" %}
 
 <iframe width="512" height="288" src="http://www.youtube.com/embed/mpITo-RN-bY" frameborder="0" allowfullscreen></iframe>

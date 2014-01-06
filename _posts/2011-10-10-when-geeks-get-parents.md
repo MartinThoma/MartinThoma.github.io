@@ -17,15 +17,15 @@ This is what happens if your dad is a designer:
 
 <a href="../images/2011/10/baby-9.jpg"><img src="../images/2011/10/baby-9.jpg" alt="Baby 9" title="Baby 9" width="520" height="367" class="aligncenter size-full wp-image-5161" /></a>
 
-{% caption align="aligncenter" width="520" caption="Baby Batman" url="../images/2011/10/baby-batman.jpg" alt="Baby Batman" title="Baby Batman" height="369" class="size-full wp-image-5171" %}
+{% caption align="aligncenter" width="520" caption="Baby Batman" url="../images/2011/10/baby-batman.jpg" alt="Baby Batman"  height="369" class="size-full wp-image-5171" %}
 
 {% caption align="aligncenter" width="519" caption="Baby <a href='http://en.wikipedia.org/wiki/Terry_Gene_Bollea'>Hulk Hogan</a>" url="../images/2011/10/baby-hogan.jpg" alt="Baby Hulk Hogan" title="Baby Hulk Hogan" height="368" class="size-full wp-image-5181" %}
 
-{% caption align="aligncenter" width="521" caption="Baby Ogre" url="../images/2011/10/baby-ogre.jpg" alt="Baby Ogre" title="Baby Ogre" height="368" class="size-full wp-image-5191" %}
+{% caption align="aligncenter" width="521" caption="Baby Ogre" url="../images/2011/10/baby-ogre.jpg" alt="Baby Ogre"  height="368" class="size-full wp-image-5191" %}
 
-{% caption align="aligncenter" width="521" caption="Baby Soldier" url="../images/2011/10/baby-soldier.jpg" alt="Baby Soldier" title="Baby Soldier" height="368" class="size-full wp-image-5201" %}
+{% caption align="aligncenter" width="521" caption="Baby Soldier" url="../images/2011/10/baby-soldier.jpg" alt="Baby Soldier"  height="368" class="size-full wp-image-5201" %}
 
-{% caption align="aligncenter" width="520" caption="Baby Vampire" url="../images/2011/10/baby-vampire.jpg" alt="Baby Vampire" title="Baby Vampire" height="369" class="size-full wp-image-5211" %}
+{% caption align="aligncenter" width="520" caption="Baby Vampire" url="../images/2011/10/baby-vampire.jpg" alt="Baby Vampire"  height="369" class="size-full wp-image-5211" %}
 
 The Original (or at least the highest resolution I found) is <a href="http://sneezl.com/wp-content/uploads/2008/04/graphic-designer-baby.pdf">here as PDF</a>.
 

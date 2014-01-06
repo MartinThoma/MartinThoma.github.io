@@ -58,6 +58,6 @@ T&ndash;Z: Daimler (Geb. 10.21)
 </ul>
 
 <h2>Klausurergebnisse</h2>
-{% caption align="aligncenter" width="800" caption="Klausurergebnisse f&uuml;r SWT I" url="../images/2012/08/swt-1-klausur.png" alt="Klausurergebnisse f&uuml;r SWT I" title="Klausurergebnisse f&uuml;r SWT I" height="455" class="size-full wp-image-39581" %}
+{% caption align="aligncenter" width="800" caption="Klausurergebnisse f&uuml;r SWT I" url="../images/2012/08/swt-1-klausur.png" alt="Klausurergebnisse f&uuml;r SWT I"  height="455" class="size-full wp-image-39581" %}
 
 <strong>Klausureinsicht</strong>: Montag, den 13.08.2012 von 14:00 bis 16:00 Uhr, SR 348, Infobau

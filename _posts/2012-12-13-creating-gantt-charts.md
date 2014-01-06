@@ -18,7 +18,7 @@ I am currently involved in a software project and I should create a Gantt chart.
 <a href="https://app.gantter.com">Gantter</a> is a free online tool that allows you to create Gantt charts.
 
 It looks like this:
-{% caption align="aligncenter" width="300" caption="Overview of Gantter" url="../images/2012/12/gantter-overview-300x138.png" alt="Overview of Gantter" title="Overview of Gantter" height="138" class="size-medium wp-image-50231" %}
+{% caption align="aligncenter" width="300" caption="Overview of Gantter" url="../images/2012/12/gantter-overview-300x138.png" alt="Overview of Gantter"  height="138" class="size-medium wp-image-50231" %}
 
 It is easy to use and has a good interface. I can simply define depencies:
 
@@ -29,7 +29,7 @@ Gantter offers some export options: HTML, <a href="../pdf/UpToDatE-Implementieru
 
 <h3>Google Drive</h3>
 Gantter also has a Google Drive integration, but it requests these permissions:
-{% caption align="aligncenter" width="470" caption="Google Drive permissions requested by Gantter" url="../images/2012/12/gantter-google-drive-files.png" alt="Google Drive permissions requested by Gantter" title="Google Drive permissions requested by Gantter" height="471" class="size-full wp-image-50241" %}
+{% caption align="aligncenter" width="470" caption="Google Drive permissions requested by Gantter" url="../images/2012/12/gantter-google-drive-files.png" alt="Google Drive permissions requested by Gantter"  height="471" class="size-full wp-image-50241" %}
 
 I have contacted them today (11.12.2012) and asked why they want these permissions. I'll update this post as soon as I get an answer.
 
@@ -38,21 +38,21 @@ My recommendation: Don't give them those rights! You can create an account witho
 <h2>GanttProject</h2>
 <a href="http://www.ganttproject.biz/">GanttProject</a> is a Java Gantt chart program (as you might have noticed because of the SWING design):
 
-{% caption align="aligncenter" width="300" caption="GanttProject - Overview" url="../images/2012/12/GanttProject-300x201.png" alt="GanttProject - Overview" title="GanttProject - Overview" height="201" class="size-medium wp-image-50361" %}
+{% caption align="aligncenter" width="300" caption="GanttProject - Overview" url="../images/2012/12/GanttProject-300x201.png" alt="GanttProject - Overview"  height="201" class="size-medium wp-image-50361" %}
 
 It's quite good, but sometimes I got the feeling that it doesn't instantly response. It's perhaps imagination as I always think that of Java projects.
 
 The HTML-export is not so good. It basically converts the chart to an image and embeds this into a HTML page. This is not what I thought of! This way, you can't search or copy the tasks. You also can't see more information about the task.
 
-{% caption align="aligncenter" width="300" caption="GanttProject export function" url="../images/2012/12/GanttProject-export-300x80.png" alt="GanttProject export function" title="GanttProject export function" height="80" class="size-medium wp-image-50371" %}
+{% caption align="aligncenter" width="300" caption="GanttProject export function" url="../images/2012/12/GanttProject-export-300x80.png" alt="GanttProject export function"  height="80" class="size-medium wp-image-50371" %}
 
 <h2>GNOME Planner</h2>
 <a href="https://live.gnome.org/Planner">Planner</a> is part of GNOME.
 
-{% caption align="aligncenter" width="300" caption="Planner - Overview" url="../images/2012/12/Planner-300x157.png" alt="Planner - Overview" title="Planner - Overview" height="157" class="size-medium wp-image-50291" %}
+{% caption align="aligncenter" width="300" caption="Planner - Overview" url="../images/2012/12/Planner-300x157.png" alt="Planner - Overview"  height="157" class="size-medium wp-image-50291" %}
 
 This is how you create a new task:
-{% caption align="aligncenter" width="300" caption="Planner: Create a new task" url="../images/2012/12/Planner-new-task-300x275.png" alt="Planner: Create a new task" title="Planner: Create a new task" height="275" class="size-medium wp-image-50381" %}
+{% caption align="aligncenter" width="300" caption="Planner: Create a new task" url="../images/2012/12/Planner-new-task-300x275.png" alt="Planner: Create a new task"  height="275" class="size-medium wp-image-50381" %}
 
 It is very annoying that you always have to click on "Change", then on "As soon as possible" change it to "fixed date" and then you can click on a date. Why don't you allow the user to click on a date and when he does, change it automatically to "fixed date"?
 
@@ -61,11 +61,11 @@ The HTML-export is good, but I would also like to click on a tasks' bar and get 
 <h2>Trac jsGantt plugin</h2>
 You can let Trac automatically create a Gantt chart with <a href="http://trac-hacks.org/wiki/TracJsGanttPlugin">Trac jsGantt plugin</a>. According to this link, it should look like this:
 
-{% caption align="aligncenter" width="300" caption="jsGanttSample" url="../images/2012/12/jsGanttSample-300x150.png" alt="jsGanttSample" title="jsGanttSample" height="150" class="size-medium wp-image-50511" %}
+{% caption align="aligncenter" width="300" caption="jsGanttSample" url="../images/2012/12/jsGanttSample-300x150.png" alt="jsGanttSample"  height="150" class="size-medium wp-image-50511" %}
 
 I knew that I had to install the <a href="http://trac-hacks.org/wiki/MasterTicketsPlugin">MasterTicketsPlugin</a> to make it possible to add ticket dependencies. With that, it looked like this:
 
-{% caption align="aligncenter" width="300" caption="jsGantt only with MasterTicketsPlugin" url="../images/2012/12/jsGantt-without-plugins-300x205.png" alt="jsGantt only with MasterTicketsPlugin" title="jsGantt only with MasterTicketsPlugin" height="205" class="size-medium wp-image-50521" %}
+{% caption align="aligncenter" width="300" caption="jsGantt only with MasterTicketsPlugin" url="../images/2012/12/jsGantt-without-plugins-300x205.png" alt="jsGantt only with MasterTicketsPlugin"  height="205" class="size-medium wp-image-50521" %}
 
 Not quite what I've expected. So I guess I will also need <a href="http://trac-hacks.org/wiki/SubticketsPlugin">SubticketsPlugin</a> and <a href="http://trac-hacks.org/wiki/TimingAndEstimationPlugin">TimingAndEstimationPlugin</a>.
 
@@ -100,7 +100,7 @@ This piece of LaTeX:
 
 generates this Gantt chart:
 
-{% caption align="aligncenter" width="500" caption="LaTeX: pgfgantt for creating Gantt charts" url="../images/2012/12/gantt-pgf.png" alt="LaTeX: pgfgantt for creating Gantt charts" title="LaTeX: pgfgantt for creating Gantt charts" height="447" class="size-full wp-image-50541" %}
+{% caption align="aligncenter" width="500" caption="LaTeX: pgfgantt for creating Gantt charts" url="../images/2012/12/gantt-pgf.png" alt="LaTeX: pgfgantt for creating Gantt charts"  height="447" class="size-full wp-image-50541" %}
 
 Source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/gantt-pgf">here</a>.
 
@@ -135,7 +135,7 @@ This source:
 
 creates
 
-{% caption align="aligncenter" width="500" caption="Another Gantt solution" url="../images/2012/12/gantt.png" alt="Another Gantt solution" title="Another Gantt solution" height="240" class="size-full wp-image-50551" %}
+{% caption align="aligncenter" width="500" caption="Another Gantt solution" url="../images/2012/12/gantt.png" alt="Another Gantt solution"  height="240" class="size-full wp-image-50551" %}
 
 Full source is <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/gantt">here</a>.
 

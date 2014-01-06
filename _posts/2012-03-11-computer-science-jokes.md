@@ -18,7 +18,7 @@ featured_image: 2012/03/face-grin-fun-joke-thumb.png
 Programming is like sex:
 One mistake and you have to support it for the rest of your life.
 
-{% caption align="aligncenter" width="484" caption="Write 500 words on board with C++" url="../images/2012/03/write-500-words-count-cpp.jpg" alt="Write 500 words on board with C++" title="Write 500 words on board with C++" height="162" class="size-full wp-image-18111" %}
+{% caption align="aligncenter" width="484" caption="Write 500 words on board with C++" url="../images/2012/03/write-500-words-count-cpp.jpg" alt="Write 500 words on board with C++"  height="162" class="size-full wp-image-18111" %}
 
 What&rsquo;s the difference between drug dealers and computer programmers?
 <table>
@@ -74,7 +74,7 @@ CLIENT: I would, but I don&rsquo;t want to lose my icons.
 
 There are 10 types of people: those who understand binary, and those who do not understand it.
 
-{% caption align="aligncenter" width="300" caption="Why people seem to have freetime" url="../images/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime" title="Why people seem to have freetime" height="248" class="size-medium" %}
+{% caption align="aligncenter" width="300" caption="Why people seem to have freetime" url="../images/2012/03/why-people-seem-to-have-freetime-300x248.png" alt="Why people seem to have freetime"  height="248" class="size-medium" %}
 
 <h2>More Jokes!</h2>
 <ul>

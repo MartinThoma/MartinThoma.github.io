@@ -14,7 +14,7 @@ featured_image: 2012/05/CPP-thumb.png
 ---
 <a href="http://en.wikipedia.org/wiki/Goto">GOTO</a> is a statement of the early beginnings of programming. It is rarely used in high-level code today. Code that makes use of it is called <a href="http://en.wikipedia.org/wiki/Spaghetti_code">Spaghetti code</a> by some people. I have almost never seen goto statements in code, so I've been curious about them.
 
-{% caption align="aligncenter" width="533" caption="GOTO from xkcd.com" url="../images/2012/07/xkcd-goto.png" alt="GOTO from xkcd.com"  height="145" class=" wp-image-30341  " title="GOTO from xkcd.com" %}
+{% caption align="aligncenter" width="533" caption="GOTO from xkcd.com" url="../images/2012/07/xkcd-goto.png" alt="GOTO from xkcd.com"  height="145" class=" wp-image-30341  "  %}
 
 <h2>Python</h2>
 Python does NOT offer GOTO. However, somebody made a GOTO module for April Fools' Day. See <a href="http://stackoverflow.com/q/6959360/562769">`goto` in Python</a> if you're still interested.

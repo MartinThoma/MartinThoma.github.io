@@ -11,7 +11,7 @@ tags:
 - Wettbewerb
 featured_image: 2012/09/bwinf-thumb.png
 ---
-{% caption align="alignright" width="128" caption="Logo des BwInf" url="../images/2012/09/bwinf-thumb.png" alt="Logo des BwInf" title="Logo des BwInf" height="128" class="size-full wp-image-43131" %}Die erste Runde des 31. Bundeswettbewerb Informatik (kurz: BwInf) begann heute. Das bedeutet, bis zum 03.12.2012 haben Sch&uuml;ler mal wieder die Chance zu zeigen, was sie in der Informatik drauf haben. Es gibt keine verpflichtende Anmeldung, nur die Einsendung. Wenn ihr diesen Beitrag also vor dem 03.12.2012 lest, k&ouml;nnt ihr noch teilnehmen.
+{% caption align="alignright" width="128" caption="Logo des BwInf" url="../images/2012/09/bwinf-thumb.png" alt="Logo des BwInf"  height="128" class="size-full wp-image-43131" %}Die erste Runde des 31. Bundeswettbewerb Informatik (kurz: BwInf) begann heute. Das bedeutet, bis zum 03.12.2012 haben Sch&uuml;ler mal wieder die Chance zu zeigen, was sie in der Informatik drauf haben. Es gibt keine verpflichtende Anmeldung, nur die Einsendung. Wenn ihr diesen Beitrag also vor dem 03.12.2012 lest, k&ouml;nnt ihr noch teilnehmen.
 
 Die offiziellen Informationen zum Wettbewerb, dessen <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=629">Ablauf</a>, die <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=628">Teilnahmebedingungen</a> und die <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=1161">Aufgaben</a> gibt es auf <a href="http://www.bundeswettbewerb-informatik.de/">bundeswettbewerb-informatik.de</a>. Das Folgende ist inoffiziell; es sind meine pers&ouml;nlichen Erfahrungen.
 

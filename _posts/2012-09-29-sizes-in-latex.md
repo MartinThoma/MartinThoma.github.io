@@ -13,7 +13,7 @@ featured_image: 2012/09/tikz-sizes-thumb.png
 Here is an overview of sizes in LaTeX:
 
 <h2>TikZ</h2>
-{% caption align="aligncenter" width="500" caption="TikZ thicknes" url="../images/2012/09/tikz-sizes.png" alt="TikZ thicknes" title="TikZ thicknes" height="503" class="size-full" %}
+{% caption align="aligncenter" width="500" caption="TikZ thicknes" url="../images/2012/09/tikz-sizes.png" alt="TikZ thicknes"  height="503" class="size-full" %}
 Usage example:
 <code>\draw[ultra thick, blue,dashed](a -| current plot begin) -- (a);</code>
 <ul>
@@ -43,7 +43,7 @@ Usage example:
 </ul>
 
 <h2>Math</h2>
-{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes"  height="145" class="size-full wp-image-45931 " title="Sizes of different math modes" %}
+{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes"  height="145" class="size-full wp-image-45931 "  %}
 Usage example:
 <code>$\scriptstyle \lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n$</code>
 <ul>

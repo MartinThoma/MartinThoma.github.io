@@ -13,7 +13,7 @@ featured_image: 2012/09/math-euklidische-normalform1.png
 ---
 Die euklidische Normalform einer linearen Isometrie, manchmal auch lineare Normalform gennant, hat folgende Gestalt:
 
-{% caption align="aligncenter" width="512" caption="Euklidische Normalform" url="../images/2012/09/math-euklidische-normalform.png" alt="Euklidische Normalform"  height="291" class="size-full wp-image-43911 " title="Euklidische Normalform" %}
+{% caption align="aligncenter" width="512" caption="Euklidische Normalform" url="../images/2012/09/math-euklidische-normalform.png" alt="Euklidische Normalform"  height="291" class="size-full wp-image-43911 "  %}
 
 Bei einer $n \times n$-Matrix gilt also folgende Gleichung:
 $n = p + q + 2r$

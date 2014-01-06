@@ -13,17 +13,17 @@ featured_image: 2012/08/cubic-function-thumb.png
 I am currently improving many articles on Wikipedia as a preparation for some math exams. And I recently started to create images with LaTeX / TikZ. 
 
 Today, I've found <a href="http://commons.wikimedia.org/wiki/File:Intermediatevaluetheorem.png">this image</a> in the article about the Intermediate value theorem:
-{% caption align="aligncenter" width="327" caption="Pixel-image of a function from Wikipedia" url="../images/2012/08/Intermediatevaluetheorem.png" alt="Pixel-image of a function from Wikipedia" title="Pixel-image of a function from Wikipedia" height="266" class="size-full wp-image-42411" %}
+{% caption align="aligncenter" width="327" caption="Pixel-image of a function from Wikipedia" url="../images/2012/08/Intermediatevaluetheorem.png" alt="Pixel-image of a function from Wikipedia"  height="266" class="size-full wp-image-42411" %}
 
 <h2>Get special points</h2>
 As a first step, you should open the image with <a href="http://en.wikipedia.org/wiki/GIMP">GIMP</a> (or any other editor of your choice) and find the pixel-coordinates of special points:
-{% caption align="aligncenter" width="512" caption="Cubic function in GIMP" url="../images/2012/08/function-in-gimp.png" alt="Cubic function in GIMP" title="Cubic function in GIMP" height="391" class="size-full wp-image-42441" %}
+{% caption align="aligncenter" width="512" caption="Cubic function in GIMP" url="../images/2012/08/function-in-gimp.png" alt="Cubic function in GIMP"  height="391" class="size-full wp-image-42441" %}
 
 <del datetime="2012-08-30T08:36:40+00:00">This function has a maximum at (123 | 105) and a minimum at (172 | 218)</del> ... well, thats not correct. Note that the axis of GIMP starts at the upper left. So the y-axis is wrong.
 
 I have cropped and flipped the image vertically. Now you can read the minimum / maximum coordinates with GIMP:
 
-{% caption align="aligncenter" width="512" caption="Cubic function cropped and flipped vertically" url="../images/2012/08/gimp-function-cropped-flipped.png" alt="Cubic function cropped and flipped vertically" title="Cubic function cropped and flipped vertically" height="507" class="size-full wp-image-42631" %}
+{% caption align="aligncenter" width="512" caption="Cubic function cropped and flipped vertically" url="../images/2012/08/gimp-function-cropped-flipped.png" alt="Cubic function cropped and flipped vertically"  height="507" class="size-full wp-image-42631" %}
 
 The local maximum is at (79 | 133) and the local minimum is at (131 | 20).
 
@@ -54,10 +54,10 @@ $f'(x) = 3 a\cdot x^2 + 2 b \cdot x + c$
 Now you have to solve the equations. I took <a href="http://www.wolframalpha.com/input/?i=493039*a%2B6241*b%2B79*c%2Bd%3D133%2C+2352637*a%2B17689*b%2B131*c%2Bd%3D20%2C+18723*a%2B158*b%2Bc%3D0%2C+51483*a%2B262*b%2Bc%3D0">Wolfram|Alpha</a>, because the numbers are really ugly. If you like to do it by hand, you have to know how to use the <a href="http://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian algorithm</a>.
 
 Here is the exact solution:
-{% caption align="aligncenter" width="512" caption="Exact solution of a cubic function with Wolfram|Alpah" url="../images/2012/08/wolframalpha-solution-cubic-function.png" alt="Exact solution of a cubic function with Wolfram|Alpah" title="Exact solution of a cubic function with Wolfram|Alpah" height="70" class="size-full wp-image-42461" %}
+{% caption align="aligncenter" width="512" caption="Exact solution of a cubic function with Wolfram|Alpah" url="../images/2012/08/wolframalpha-solution-cubic-function.png" alt="Exact solution of a cubic function with Wolfram|Alpah"  height="70" class="size-full wp-image-42461" %}
 
 And here is an approximation:
-{% caption align="aligncenter" width="512" caption="Approximate form with Wolfram|Alpha" url="../images/2012/08/wolframalpha-aproximate-form.png" alt="Approximate form with Wolfram|Alpha" title="Approximate form with Wolfram|Alpha" height="57" class="size-full wp-image-42471" %}
+{% caption align="aligncenter" width="512" caption="Approximate form with Wolfram|Alpha" url="../images/2012/08/wolframalpha-aproximate-form.png" alt="Approximate form with Wolfram|Alpha"  height="57" class="size-full wp-image-42471" %}
 
 <h2>The LaTeX Code</h2>
 {% highlight text %}\documentclass{article}
@@ -126,4 +126,4 @@ And here is an approximation:
 \end{document}{% endhighlight %}
 
 <h2>The result</h2>
-{% caption align="aligncenter" width="500" caption="Cubic function intermediate value theorem - Result" url="../images/2012/08/cubic-function-intermediate-value-theorem.png" alt="Cubic function intermediate value theorem - Result" title="Cubic function intermediate value theorem - Result" height="383" class="size-full wp-image-42491" %}
+{% caption align="aligncenter" width="500" caption="Cubic function intermediate value theorem - Result" url="../images/2012/08/cubic-function-intermediate-value-theorem.png" alt="Cubic function intermediate value theorem - Result"  height="383" class="size-full wp-image-42491" %}
