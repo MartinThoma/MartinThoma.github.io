@@ -217,8 +217,6 @@ array(4) {
 
 <h2>Function names are NOT case sensitive</h2>
 
-<blockquote>
-
 ```php
 function add($a, $b)
 {
@@ -232,7 +230,6 @@ echo "foo is $foo"; // outputs foo is 3
 echo "Foo is $Foo"; // outputs Foo is 7
 ```
 
-</blockquote>
 Source: <a href="http://stackoverflow.com/a/2006635/562769">StackOverflow</a>
 
 

@@ -143,8 +143,8 @@ Adjust the path and execute it within Eclipse.
 <h2>PHP</h2>
 Input / output: 
 <ul>
-  <li>$fp = <a href="http://php.net/manual/en/function.fopen.php">fopen</a> (<a href="http://php.net/manual/en/reserved.variables.argv.php">$argv[1]</a>, 'r'): Open file pointer to file in first command line argument</li>
-  <li>string <a href="http://php.net/manual/en/function.fgets.php">fgets</a> ($fp): Read one line</li>
+  <li>\$fp = <a href="http://php.net/manual/en/function.fopen.php">fopen</a> (<a href="http://php.net/manual/en/reserved.variables.argv.php">$argv[1]</a>, 'r'): Open file pointer to file in first command line argument</li>
+  <li>string <a href="http://php.net/manual/en/function.fgets.php">fgets</a> (\$fp): Read one line</li>
 </ul>
 
 Execute:
