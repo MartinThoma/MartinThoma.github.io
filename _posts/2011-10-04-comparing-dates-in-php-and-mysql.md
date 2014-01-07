@@ -18,10 +18,10 @@ PHP knows these time / date formats:
 <ul>
   <li>UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are 
     <ul>
-       <li>int <a href="http://www.php.net/manual/en/function.mktime.php">`mktime([ int $hour = date("H") [, int $minute = date("i") [, int $second = date("s") [, int $month = date("n") [, int $day = date("j") [, int $year = date("Y") [, int $is_dst = -1 ]]]]]]])`</a></li>
+       <li>int <a href="http://www.php.net/manual/en/function.mktime.php">`mktime([ int \$hour = date("H") [, int \$minute = date("i") [, int \$second = date("s") [, int \$month = date("n") [, int \$day = date("j") [, int \$year = date("Y") [, int \$is_dst = -1 ]]]]]]])`</a></li>
        <li>int <a href="http://www.php.net/manual/en/function.time.php">`time()`</a></li>
-       <li>string <a href="http://www.php.net/manual/en/function.date.php">`date( string $format [, int $timestamp = time() ] )`</a></li>
-       <li>int <a href="http://www.php.net/manual/en/function.strtotime.php">`strtotime( string $time [, int $now ] )`</a>
+       <li>string <a href="http://www.php.net/manual/en/function.date.php">`date( string \$format [, int $timestamp = time() ] )`</a></li>
+       <li>int <a href="http://www.php.net/manual/en/function.strtotime.php">`strtotime( string \$time [, int \$now ] )`</a>
 I recommend using `YYYY-MM-DD HH:mm:ss` if possible.</li>
     </ul>
   </li>
