@@ -18,4 +18,4 @@ http://stackoverflow.com/questions/8611050/does-encrypting-a-password-multiple-t
 http://stackoverflow.com/questions/348109/is-double-hashing-a-password-less-secure-than-just-hashing-it-once
 http://stackoverflow.com/questions/6774345/md5-security-is-fine
 http://crypto.stackexchange.com/questions/6403/md5-would-multiple-hashings-increase-security
-http://martin-thoma.com/php-a-strange-language/
+<a href="../php-a-strange-language/">PHP: A strange Language</a>

@@ -45,7 +45,7 @@ f(m + 1, n - 1) + 1 & \text{, falls } n \neq 1 \\
 f(1, m - 1)         & \text{sonst}
 \end{cases}$
 Diese Abbildung sieht wie folgt aus:
-[caption id="attachment_20501" align="aligncenter" width="322" caption="Abbildung, die N x N auf N abbildet"]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/countable-set-n-times-n.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/03/countable-set-n-times-n.png" alt="Function that transforms N times N to N" title="Function that transforms N times N to N" width="322" height="288" class="size-full wp-image-20501" /></a>[/caption]
+[caption id="attachment_20501" align="aligncenter" width="322" caption="Abbildung, die N x N auf N abbildet"]<a href="../images/2012/03/countable-set-n-times-n.png"><img src="../images/2012/03/countable-set-n-times-n.png" alt="Function that transforms N times N to N" title="Function that transforms N times N to N" width="322" height="288" class="size-full wp-image-20501" /></a>[/caption]
 
 Ich finde es ist intuitiv klar, dass diese Funktion bijektiv ist. Hat jemand dafür einen sauberen Beweis?
 
@@ -57,4 +57,4 @@ Jede Zahl $x \in \mathbb{Q}^+$ kann  mit zwei natürlichen Zahlen dargestellt we
 $f(m, n) := \frac{m}{n}$. Diese Abbildung ist offensichtlich surjektiv. $\blacksquare$
 
 <h2>Material</h2>
-Die LaTeX-Dateien für die Bilder sind in diesem <a href='http://martin-thoma.com/wp-content/uploads/2012/03/countable-sets.zip'>Archiv</a> zu finden.
+Die LaTeX-Dateien für die Bilder sind in diesem <a href='http://martin-thoma.com/wp-content/uploads/2012/03/countable-sets.zip'>Archiv</a> zu finden.<!--TODO-->

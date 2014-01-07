@@ -15,7 +15,7 @@ I've recently found some PDF files where I could not copy the text. This is how 
 
 <h2>Unlock PDF</h2>
 <h3>Print to File</h3>
-[caption id="attachment_18921" align="aligncenter" width="300" caption="print to file"]<a href="http://martin-thoma.com/wp-content/uploads/2012/03/print-to-file.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/03/print-to-file-300x253.png" alt="print to file" title="print to file" width="300" height="253" class="size-medium wp-image-18921" /></a>[/caption]
+[caption id="attachment_18921" align="aligncenter" width="300" caption="print to file"]<a href="../images/2012/03/print-to-file.png"><img src="../images/2012/03/print-to-file-300x253.png" alt="print to file" title="print to file" width="300" height="253" class="size-medium wp-image-18921" /></a>[/caption]
 
 <h3>Web Services</h3>
 <ul>

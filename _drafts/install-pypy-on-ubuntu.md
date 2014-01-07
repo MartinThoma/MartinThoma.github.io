@@ -20,7 +20,7 @@ If you want to install a package on a Ubuntu machine, you should check the follo
 If the version in the repository is to old (that's too often the case :-( ) and the project has no PPA, you might have to compile it yourself. Most of the time, this is very simple. Just <code>./configure</code>, then <code>make</code> and <code>make install</code>. I will not explain this as I want to focus on installing a PPA.
 
 First, you need the name. It is on the page of the PPA in this box:
-[caption id="attachment_32781" align="alignnone" width="510"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/Adding-this-PPA.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/Adding-this-PPA.png" alt="Adding-this-PPA" title="Adding-this-PPA" width="510" height="147" class="size-full wp-image-32781" /></a> ppa:pypy/ppa is what you need[/caption]
+[caption id="attachment_32781" align="alignnone" width="510"]<a href="../images/2012/07/Adding-this-PPA.png"><img src="../images/2012/07/Adding-this-PPA.png" alt="Adding-this-PPA" title="Adding-this-PPA" width="510" height="147" class="size-full wp-image-32781" /></a> ppa:pypy/ppa is what you need[/caption]
 
 Then you have to go to the terminal and enter:
 {% highlight bash %}sudo add-apt-repository ppa:pypy/ppa{% endhighlight %}

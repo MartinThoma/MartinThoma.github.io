@@ -15,7 +15,7 @@ Did you ever wonder if your wireless Internet access was secure? Do you want to 
 
 I've closed the browser and started Wireshark on my Ubuntu 10.04 (Linux) system. Then I've started my Windows 7 computer, logged in and did nothing for one hour on both computers. Wireshark 6759 packages in this hour. It looks like this:
 
-[caption id="attachment_56401" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/02/wireshark-screenshot.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/wireshark-screenshot-300x157.png" alt="Screenshot of Wireshark" width="300" height="157" class="size-medium wp-image-56401" /></a> Screenshot of Wireshark[/caption]
+[caption id="attachment_56401" align="aligncenter" width="300"]<a href="../images/2013/02/wireshark-screenshot.png"><img src="../images/2013/02/wireshark-screenshot-300x157.png" alt="Screenshot of Wireshark" width="300" height="157" class="size-medium wp-image-56401" /></a> Screenshot of Wireshark[/caption]
 
 <h2>How to filter packages</h2>
 <ul>
@@ -33,7 +33,7 @@ The WLAN MAC addresses (hardware address) might also be interesting:
 
 First of all, I would like to get to know how many packages were not sent by one of those three addresses. So I have to use the filter box, located at the top left:
 
-[caption id="attachment_56411" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/02/wireshark-filter.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/02/wireshark-filter-300x104.png" alt="Filter packages with Wireshark" width="300" height="104" class="size-medium wp-image-56411" /></a> Filter packages with Wireshark[/caption]
+[caption id="attachment_56411" align="aligncenter" width="300"]<a href="../images/2013/02/wireshark-filter.png"><img src="../images/2013/02/wireshark-filter-300x104.png" alt="Filter packages with Wireshark" width="300" height="104" class="size-medium wp-image-56411" /></a> Filter packages with Wireshark[/caption]
 
 Wireshark allows very simple, logical filtering. You can do comparisons with <code>==</code> or <code>!=</code> and you can connect expressions with <code>&&</code>.
 

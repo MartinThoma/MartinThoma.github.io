@@ -12,9 +12,10 @@ featured_image: 2012/07/latex-sphere.png
 I have just found some interesting examples for 3D-Images done completely in LaTeX.
 
 <h2>Sphere</h2>
-[caption id="attachment_33601" align="aligncenter" width="128"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/latex-sphere.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/latex-sphere.png" alt="Sphere created with LaTeX (Tikz)" title="Sphere created with LaTeX (Tikz)" width="128" height="128" class="size-full wp-image-33601" /></a> Sphere created with LaTeX (Tikz)[/caption]
+[caption id="attachment_33601" align="aligncenter" width="128"]<a href="../images/2012/07/latex-sphere.png"><img src="../images/2012/07/latex-sphere.png" alt="Sphere created with LaTeX (Tikz)" title="Sphere created with LaTeX (Tikz)" width="128" height="128" class="size-full wp-image-33601" /></a> Sphere created with LaTeX (Tikz)[/caption]
 
-{% highlight text %}\documentclass{article}
+```latex
+\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}
 \setlength\PreviewBorder{2mm}
 \usepackage{tikz}
@@ -51,12 +52,14 @@ I have just found some interesting examples for 3D-Images done completely in LaT
 
 \end{tikzpicture}
 \end{preview}
-\end{document}{% endhighlight %}
+\end{document}
+```
+
 Source: <a href="http://www.latex-community.org/know-how/440-tikz-3dplot">latex-community.org</a>
 
 <h2>Circular Cone</h2>
 This one is actually a little bit cheated. It uses only 2D-Geometry:
-[caption id="attachment_33611" align="aligncenter" width="305"]<a href="http://martin-thoma.com/wp-content/uploads/2012/07/latex-circular-cone.png"><img src="http://martin-thoma.com/wp-content/uploads/2012/07/latex-circular-cone.png" alt="Circular Cone done with LaTeX (Tikz)" title="Circular Cone done with LaTeX (Tikz)" width="305" height="382" class="size-full wp-image-33611" /></a> Circular Cone done with LaTeX (Tikz)[/caption]
+[caption id="attachment_33611" align="aligncenter" width="305"]<a href="../images/2012/07/latex-circular-cone.png"><img src="../images/2012/07/latex-circular-cone.png" alt="Circular Cone done with LaTeX (Tikz)" title="Circular Cone done with LaTeX (Tikz)" width="305" height="382" class="size-full wp-image-33611" /></a> Circular Cone done with LaTeX (Tikz)[/caption]
 
 {% highlight text %}\documentclass{article}
 \usepackage[pdftex,active,tightpage]{preview}

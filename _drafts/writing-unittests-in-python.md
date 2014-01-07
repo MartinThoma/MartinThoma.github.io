@@ -54,5 +54,5 @@ OK{% endhighlight %}
 <h2>See also</h2>
 <ul>
   <li>Documentation: <a href="http://docs.python.org/library/unittest.html">unittest — Unit testing framework</a></li>
-  <li><a href="http://martin-thoma.com/matrix-multiplication-python-java-cpp/" title="Part I: Performance of Matrix multiplication in Python, Java and C++">Part I: Performance of Matrix multiplication in Python, Java and C++</a></li>
+  <li><a href="../matrix-multiplication-python-java-cpp/" title="Part I: Performance of Matrix multiplication in Python, Java and C++">Part I: Performance of Matrix multiplication in Python, Java and C++</a></li>
 </ul>

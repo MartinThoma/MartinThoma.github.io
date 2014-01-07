@@ -47,7 +47,7 @@ The list of lines might be something like this:
 </table>
 
 You can visualize the given lines like this:
-[caption id="attachment_53231" align="aligncenter" width="500"]<a href="http://martin-thoma.com/wp-content/uploads/2013/01/lines-intersections.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/01/lines-intersections.png" alt="Some lines" width="500" height="201" class="size-full wp-image-53231" /></a> Some lines[/caption]
+[caption id="attachment_53231" align="aligncenter" width="500"]<a href="../images/2013/01/lines-intersections.png"><img src="../images/2013/01/lines-intersections.png" alt="Some lines" width="500" height="201" class="size-full wp-image-53231" /></a> Some lines[/caption]
 
 Now your list of pairs should look like this:
 [[a, b], [a, c], [a, d], [d, g], [e, b], [e, c], [e, d], [e, f], [e, g], [f, g], [k, l], [m, n], [h, o]]
@@ -65,7 +65,7 @@ This means, all of the following images show intersecting lines:
     ../images/2013/01/intersecting-lines-5.png  "Intersecting lines: #5"
 {% endgallery %}
 
-You might want to read my article <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters returns if they intersect.
+You might want to read my article <a href="../how-to-check-if-two-line-segments-intersect/" title="How to check if two line segments intersect">How to check if two line segments intersect</a>, as we need a method that gets two line segments as parameters returns if they intersect.
 
 <h2>How many intersections can exist?</h2>
 Let $n$ be the number of lines.
@@ -82,7 +82,7 @@ At the moment, this is only an upper border. We didn't prove that you can actual
 
 <h2>A simple solution</h2>
 
-I know how to check if two line segments intersect (see <a href="http://martin-thoma.com/how-to-check-if-two-line-segments-intersect">article</a>). But lets say I have $n$ line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:
+I know how to check if two line segments intersect (see <a href="../how-to-check-if-two-line-segments-intersect">article</a>). But lets say I have $n$ line segments and you want to find every pair of lines that intersect. You could simply go through each combination of pairs:
 
 <h3>First way to think about it</h3>
 <ul>

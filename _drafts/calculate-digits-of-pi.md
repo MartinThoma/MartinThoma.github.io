@@ -13,7 +13,7 @@ featured_image: 2013/05/circle-diameter-radius.png
 ---
 Pi can be defined as the ratio between circumference and diameter:
 
-[caption id="attachment_68531" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/05/circle-diameter-radius1.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/05/circle-diameter-radius1-300x300.png" alt="Circle, diameter, radius and circumference" width="300" height="300" class="size-medium wp-image-68531" /></a> Circle, diameter, radius and circumference[/caption]
+[caption id="attachment_68531" align="aligncenter" width="300"]<a href="../images/2013/05/circle-diameter-radius1.png"><img src="../images/2013/05/circle-diameter-radius1-300x300.png" alt="Circle, diameter, radius and circumference" width="300" height="300" class="size-medium wp-image-68531" /></a> Circle, diameter, radius and circumference[/caption]
 
 It's first digits are:
 

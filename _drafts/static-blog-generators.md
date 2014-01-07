@@ -60,7 +60,7 @@ cd my-awesome-site
 jekyll serve
 ```
 
-Open <a href="http://localhost:4000">http://localhost:4000</a> in a browser
+Open `http://localhost:4000` in a browser.
 
 <h2>Hyde</h2>
 

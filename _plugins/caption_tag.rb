@@ -57,7 +57,9 @@ module Jekyll
             @hash['caption'] = @hash['title']
         end
 
-        "<div style=\"width: #{@hash['width']}px\" class=\"wp-caption #{@hash['align']}\">" +
+        @divWidth = (@hash['width'].to_i+10).to_s
+
+        "<div style=\"width: #{@divWidth}px\" class=\"wp-caption #{@hash['align']}\">" +
         "<a href=\"#{@hash['url']}\">" +
             "<img src=\"#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\"/>" +
         "</a>" +

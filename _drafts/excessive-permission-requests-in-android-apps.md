@@ -9,7 +9,7 @@ tags:
 - Android
 featured_image: 2013/03/android-thumb.png
 ---
-Some days ago I got <a href="http://martin-thoma.com/nexus-4/" title="Nexus 4">my first Android device</a>. Of course, I've installed some apps and I've noticed a problem with many apps: They request too many rights. It's quite difficult for a customer to decide if permission requests are ok.
+Some days ago I got <a href="../nexus-4/" title="Nexus 4">my first Android device</a>. Of course, I've installed some apps and I've noticed a problem with many apps: They request too many rights. It's quite difficult for a customer to decide if permission requests are ok.
 
 <h2>Permissions - When they are necessary</h2>
 <table>

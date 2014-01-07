@@ -11,7 +11,7 @@ tags:
 - Project Euler
 featured_image: 2012/04/leonhard-euler.jpg
 ---
-You can learn quite a lot by solving challenges from <a href="http://martin-thoma.com/challenge-websites/" title="Challenge Websites">challenge websites</a>. Here are some problems I've recently solved and topics which I think can be practiced with those challenges.
+You can learn quite a lot by solving challenges from <a href="../challenge-websites/" title="Challenge Websites">challenge websites</a>. Here are some problems I've recently solved and topics which I think can be practiced with those challenges.
 
 My solutions (that are linked below) can often be improved in performance and code style. But I think they might show somebody who wants to learn quite good how to use stuff. You can look at them when you've solved the challenge. (And because of the weird forum post deletion rules of Project Euler, they might completely disappear).
 

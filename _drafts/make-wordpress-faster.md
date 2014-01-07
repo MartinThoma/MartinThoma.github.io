@@ -15,13 +15,13 @@ Speed is important. On the one hand Google uses site speed for its page ranking.
 
 So, how do you make your Blog faster? Many plugins are available, but I guess its not a good idea to add all of them. I want to test the speed of my blog and get some data. I will decide which plugins I will install on basis of this data.
 <h2>Testing environement</h2>
-I don't want to get trouble with this blog, so I will <a title="Setting up WordPress" href="http://martin-thoma.com/setting-up-wordpress/">set up WordPress</a> with the same configuration on my local machine. This is also a good idea, as I will not have different results just because of a variable speed of my internet connection.
+I don't want to get trouble with this blog, so I will <a title="Setting up WordPress" href="../setting-up-wordpress/">set up WordPress</a> with the same configuration on my local machine. This is also a good idea, as I will not have different results just because of a variable speed of my internet connection.
 
 I will set up wordpress three times with exactly the same setup to assure that every plugin get the same chance.
 <h2>Benchmarking</h2>
 The first tool of my choice are the built-in Chrome developer tools. They are very simmilar to Firefox' Firebug with YSlow.
 
-The second is <a title="Benchmarking PHP" href="http://martin-thoma.com/benchmarking-php/">ApacheBench</a>, a program which is available for Linux as "ab".
+The second is <a title="Benchmarking PHP" href="../benchmarking-php/">ApacheBench</a>, a program which is available for Linux as "ab".
 <h2>How do these Plugins work?</h2>
 Several possibilites exists with which you can make WordPress faster:
 <ul>

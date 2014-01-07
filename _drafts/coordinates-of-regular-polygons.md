@@ -25,7 +25,7 @@ I think the first two are actually the same. When I have a fraction, I can scale
 <h2>Triangle</h2>
 First try:
 
-[caption id="attachment_59981" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/03/triangle-regular.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/03/triangle-regular-300x290.png" alt="A regular triangle with ugly coordinates" width="300" height="290" class="size-medium wp-image-59981" /></a> A regular triangle with ugly coordinates[/caption]
+[caption id="attachment_59981" align="aligncenter" width="300"]<a href="../images/2013/03/triangle-regular.png"><img src="../images/2013/03/triangle-regular-300x290.png" alt="A regular triangle with ugly coordinates" width="300" height="290" class="size-medium wp-image-59981" /></a> A regular triangle with ugly coordinates[/caption]
 
 Actually, it is not possible to get integer coordinates (<a href="http://math.stackexchange.com/a/105387/6876">source</a>).
 
