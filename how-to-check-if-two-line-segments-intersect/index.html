@@ -7,7 +7,7 @@
     
 
     <title>How to check if two line segments intersect</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401072053.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401072119.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -318,45 +318,52 @@
 
 <p>Well, you might notice that you need to check if one line intersects with a given line segment. To check this, you have to understand one cool idea:</p>
 
-<p>You can definie a cross product for points: 
-$\begin{align}
+<p>You can definie a cross product for points:</p>
+
+<p>
+   $$\begin{align}
   \times_P&amp;: Point \times Point \rightarrow \mathbb{R}\\
   \times_P(a, b) &amp;:= a.x \cdot b.y - b.x \cdot a.y;
-\end{align}$</p>
+\end{align}$$
+</p>
 
-<p>This cross product has one nice characteristics:
-$a \times_P b = 0 \Leftrightarrow a$ and $b$ are on one line through origin</p>
+<p>This cross product has one nice characteristics:</p>
 
-<p>You can verify this. If you take two points on a line through origin, they have the same slope $\frac{\Delta y}{\Delta x}$:
-$
+<p>$a \times_P b = 0 \Leftrightarrow a$ and $b$ are on one line through origin</p>
+
+<p>You can verify this. If you take two points on a line through origin, they have the same slope $\frac{\Delta y}{\Delta x}$:</p>
+
+<p>
+   $$
 \begin{align}
   0 &amp;= a \times_P b\\
 \Leftrightarrow 0 &amp;= a.x \cdot b.y - b.x \cdot a.y\\
 \Leftrightarrow b.x \cdot a.y &amp;= a.x \cdot b.y\\
 \Leftrightarrow \frac{a.y}{a.x} &amp;= \frac{b.y}{b.x}
 \end{align}
-$</p>
+$$
+</p>
 
-<p>Ok, now you can check if a point is on a line:
-<code>java
-/**
- * Checks if a Point is on a line
- * @param a line (interpreted as line, although given as line
- *                segment)
- * @param b point
- * @return &lt;code&gt;true&lt;/code&gt; if point is on line, otherwise
- *         &lt;code&gt;false&lt;/code&gt;
- */
-public boolean isPointOnLine(LineSegment a, Point b) {
-    // Move the image, so that a.first is on (0|0)
-    LineSegment aTmp = new LineSegment(new Point(0, 0), new Point(
-            a.second.x - a.first.x, a.second.y - a.first.y));
-    Point bTmp = new Point(b.x - a.first.x, b.y - a.first.y);
-    double r = crossProduct(aTmp.second, bTmp);
-    return Math.abs(r) &lt; EPSILON;
-}
-</code></p>
-
+<p>Ok, now you can check if a point is on a line:</p>
+<div class="highlight">
+   <pre><code class="java language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * Checks if a Point is on a line</span>
+<span class="cm"> * @param a line (interpreted as line, although given as line</span>
+<span class="cm"> *                segment)</span>
+<span class="cm"> * @param b point</span>
+<span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if point is on line, otherwise</span>
+<span class="cm"> *         &lt;code&gt;false&lt;/code&gt;</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isPointOnLine</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">Point</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Move the image, so that a.first is on (0|0)</span>
+    <span class="n">LineSegment</span> <span class="n">aTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineSegment</span><span class="o">(</span><span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span>
+            <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="na">second</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">));</span>
+    <span class="n">Point</span> <span class="n">bTmp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">x</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="na">first</span><span class="o">.</span><span class="na">y</span><span class="o">);</span>
+    <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="n">crossProduct</span><span class="o">(</span><span class="n">aTmp</span><span class="o">.</span><span class="na">second</span><span class="o">,</span> <span class="n">bTmp</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">r</span><span class="o">)</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 <p>The second cool characteristic of the cross product is that it can be used to determine if a point b is left or right of the line through the origin and a point a:</p>
 <div class="highlight">
    <pre><code class="java language-java" data-lang="java"><span class="cm">/**</span>
@@ -397,24 +404,24 @@ public boolean isPointOnLine(LineSegment a, Point b) {
 <span class="o">}</span>
 </code></pre>
 </div>
-<p>Now you have everything you need:
-<code>java
-/**
- * Check if line segments intersect
- * @param a first line segment
- * @param b second line segment
- * @return &lt;code&gt;true&lt;/code&gt; if lines do intersect,
- *         &lt;code&gt;false&lt;/code&gt; otherwise
- */
-public boolean doLinesIntersect(LineSegment a, LineSegment b) {
-    Point[] box1 = a.getBoundingBox();
-    Point[] box2 = b.getBoundingBox();
-    return doBoundingBoxesIntersect(box1, box2)
-            &amp;&amp; lineSegmentTouchesOrCrossesLine(a, b)
-            &amp;&amp; lineSegmentTouchesOrCrossesLine(b, a);
-}
-</code></p>
-
+<p>Now you have everything you need:</p>
+<div class="highlight">
+   <pre><code class="java language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * Check if line segments intersect</span>
+<span class="cm"> * @param a first line segment</span>
+<span class="cm"> * @param b second line segment</span>
+<span class="cm"> * @return &lt;code&gt;true&lt;/code&gt; if lines do intersect,</span>
+<span class="cm"> *         &lt;code&gt;false&lt;/code&gt; otherwise</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">doLinesIntersect</span><span class="o">(</span><span class="n">LineSegment</span> <span class="n">a</span><span class="o">,</span> <span class="n">LineSegment</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Point</span><span class="o">[]</span> <span class="n">box1</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">getBoundingBox</span><span class="o">();</span>
+    <span class="n">Point</span><span class="o">[]</span> <span class="n">box2</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getBoundingBox</span><span class="o">();</span>
+    <span class="k">return</span> <span class="nf">doBoundingBoxesIntersect</span><span class="o">(</span><span class="n">box1</span><span class="o">,</span> <span class="n">box2</span><span class="o">)</span>
+            <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>
+            <span class="o">&amp;&amp;</span> <span class="n">lineSegmentTouchesOrCrossesLine</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
 <p>By the way, testcase F5 is the only reason why you need <code>doBoundingBoxesIntersect(box1, box2)</code>. All other tests still pass if you remove this function.</p>
 
 <h2 id="tocAnchor-1-5">Where do two line segments intersect?</h2>
@@ -427,135 +434,133 @@ The intersection could be a line or only a point. </p>
   <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen. Die Seite ist <a href="../html5/line-segment-intersection/">hier</a>.</p>
 </iframe></p>
 
-<p>This is the code that checks for line segments:
-```javascript
-/** You know that lines a and b have an intersection and now you
-    want to get it!
-<em>/
-function getIntersection(a, b) {
-    /</em> the intersection [(x1,y1), (x2, y2)]
-       it might be a line or a single point. If it is a line,
-       then x1 = x2 and y1 = y2.  */
-    var x1, y1, x2, y2;</p>
-
-<p>if (a["first"]["x"] == a["second"]["x"]) {
-        // Case (A)
-        // As a is a perfect vertical line, it cannot be represented
-        // nicely in a mathematical way. But we directly know that
-        //
-        x1 = a["first"]["x"];
-        x2 = x1;
-        if (b["first"]["x"] == b["second"]["x"]) {
-            // Case (AA): all x are the same!
-            // Normalize
-            if(a["first"]["y"] &gt; a["second"]["y"]) {
-                a = {"first": a["second"], "second": a["first"]};
-            }
-            if(b["first"]["y"] &gt; b["second"]["y"]) {
-                b = {"first": b["second"], "second": b["first"]};
-            }
-            if(a["first"]["y"] &gt; b["first"]["y"]) {
-                var tmp = a;
-                a = b;
-                b = tmp;
-            }</p>
+<p>This is the code that checks for line segments:</p>
 <div class="highlight">
-   <pre><code class="text language-text" data-lang="text">        // Now we know that the y-value of a["first"] is the 
-        // lowest of all 4 y values
-        // this means, we are either in case (AAA):
-        //   a: x--------------x
-        //   b:    x---------------x
-        // or in case (AAB)
-        //   a: x--------------x
-        //   b:    x-------x
-        // in both cases:
-        // get the relavant y intervall
-        y1 = b["first"]["y"];
-        y2 = Math.min(a["second"]["y"], b["second"]["y"]);
-    } else {
-        // Case (AB)
-        // we can mathematically represent line b as
-        //     y = m*x + t &lt;=&gt; t = y - m*x
-        // m = (y1-y2)/(x1-x2)
-        var m, t;
-        m = (b["first"]["y"] - b["second"]["y"])/
-            (b["first"]["x"] - b["second"]["x"]);
-        t = b["first"]["y"] - m*b["first"]["x"];
-        y1 = m*x1 + t;
-        y2 = y1
-    }
-} else if (b["first"]["x"] == b["second"]["x"]) {
-    // Case (B)
-    // essentially the same as Case (AB), but with
-    // a and b switched
-    x1 = b["first"]["x"];
-    x2 = x1;
+   <pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/** You know that lines a and b have an intersection and now you</span>
+<span class="cm">    want to get it!</span>
+<span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">getIntersection</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* the intersection [(x1,y1), (x2, y2)]</span>
+<span class="cm">       it might be a line or a single point. If it is a line,</span>
+<span class="cm">       then x1 = x2 and y1 = y2.  */</span>
+    <span class="kd">var</span> <span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">;</span>
 
-    var tmp = a;
-    a = b;
-    b = tmp;
+   <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">==</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+        <span class="c1">// Case (A)</span>
+        <span class="c1">// As a is a perfect vertical line, it cannot be represented</span>
+        <span class="c1">// nicely in a mathematical way. But we directly know that</span>
+        <span class="c1">//</span>
+        <span class="nx">x1</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">x2</span> <span class="o">=</span> <span class="nx">x1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">==</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+            <span class="c1">// Case (AA): all x are the same!</span>
+            <span class="c1">// Normalize</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+                <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+                <span class="nx">b</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
+            <span class="p">}</span>
 
-    var m, t;
-    m = (b["first"]["y"] - b["second"]["y"])/
-        (b["first"]["x"] - b["second"]["x"]);
-    t = b["first"]["y"] - m*b["first"]["x"];
-    y1 = m*x1 + t;
-    y2 = y1
-} else {
-    // Case (C)
-    // Both lines can be represented mathematically
-    var ma, mb, ta, tb;
-    ma = (a["first"]["y"] - a["second"]["y"])/
-         (a["first"]["x"] - a["second"]["x"]);
-    mb = (b["first"]["y"] - b["second"]["y"])/
-         (b["first"]["x"] - b["second"]["x"]);
-    ta = a["first"]["y"] - ma*a["first"]["x"];
-    tb = b["first"]["y"] - mb*b["first"]["x"];
-    if (ma == mb) {
-        // Case (CA)
-        // both lines are in parallel. As we know that they 
-        // intersect, the intersection could be a line
-        // when we rotated this, it would be the same situation 
-        // as in case (AA)
+            <span class="c1">// Now we know that the y-value of a["first"] is the </span>
+            <span class="c1">// lowest of all 4 y values</span>
+            <span class="c1">// this means, we are either in case (AAA):</span>
+            <span class="c1">//   a: x--------------x</span>
+            <span class="c1">//   b:    x---------------x</span>
+            <span class="c1">// or in case (AAB)</span>
+            <span class="c1">//   a: x--------------x</span>
+            <span class="c1">//   b:    x-------x</span>
+            <span class="c1">// in both cases:</span>
+            <span class="c1">// get the relavant y intervall</span>
+            <span class="nx">y1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">];</span>
+            <span class="nx">y2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">],</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Case (AB)</span>
+            <span class="c1">// we can mathematically represent line b as</span>
+            <span class="c1">//     y = m*x + t &lt;=&gt; t = y - m*x</span>
+            <span class="c1">// m = (y1-y2)/(x1-x2)</span>
+            <span class="kd">var</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">t</span><span class="p">;</span>
+            <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+                <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+            <span class="nx">t</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+            <span class="nx">y1</span> <span class="o">=</span> <span class="nx">m</span><span class="o">*</span><span class="nx">x1</span> <span class="o">+</span> <span class="nx">t</span><span class="p">;</span>
+            <span class="nx">y2</span> <span class="o">=</span> <span class="nx">y1</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">==</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+        <span class="c1">// Case (B)</span>
+        <span class="c1">// essentially the same as Case (AB), but with</span>
+        <span class="c1">// a and b switched</span>
+        <span class="nx">x1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">x2</span> <span class="o">=</span> <span class="nx">x1</span><span class="p">;</span>
 
-        // Normalize
-        if(a["first"]["x"] &gt; a["second"]["x"]) {
-            a = {"first": a["second"], "second": a["first"]};
-        }
-        if(b["first"]["x"] &gt; b["second"]["x"]) {
-            b = {"first": b["second"], "second": b["first"]};
-        }
-        if(a["first"]["x"] &gt; b["first"]["x"]) {
-            var tmp = a;
-            a = b;
-            b = tmp;
-        }
+        <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+        <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+        <span class="nx">b</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
 
-        // get the relavant x intervall
-        x1 = b["first"]["x"];
-        x2 = Math.min(a["second"]["x"], b["second"]["x"]);
-        y1 = ma*x1+ta;
-        y2 = ma*x2+ta;
-    } else {
-        // Case (CB): only a point as intersection:
-        // y = ma*x+ta
-        // y = mb*x+tb
-        // ma*x + ta = mb*x + tb
-        // (ma-mb)*x = tb - ta
-        // x = (tb - ta)/(ma-mb)
-        x1 = (tb-ta)/(ma-mb);
-        y1 = ma*x1+ta;
-        x2 = x1;
-        y2 = y1;
-    }
-}
+        <span class="kd">var</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">t</span><span class="p">;</span>
+        <span class="nx">m</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+            <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+        <span class="nx">t</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">m</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">y1</span> <span class="o">=</span> <span class="nx">m</span><span class="o">*</span><span class="nx">x1</span> <span class="o">+</span> <span class="nx">t</span><span class="p">;</span>
+        <span class="nx">y2</span> <span class="o">=</span> <span class="nx">y1</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Case (C)</span>
+        <span class="c1">// Both lines can be represented mathematically</span>
+        <span class="kd">var</span> <span class="nx">ma</span><span class="p">,</span> <span class="nx">mb</span><span class="p">,</span> <span class="nx">ta</span><span class="p">,</span> <span class="nx">tb</span><span class="p">;</span>
+        <span class="nx">ma</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+             <span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+        <span class="nx">mb</span> <span class="o">=</span> <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">])</span><span class="o">/</span>
+             <span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+        <span class="nx">ta</span> <span class="o">=</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="nx">tb</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">-</span> <span class="nx">mb</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ma</span> <span class="o">==</span> <span class="nx">mb</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Case (CA)</span>
+            <span class="c1">// both lines are in parallel. As we know that they </span>
+            <span class="c1">// intersect, the intersection could be a line</span>
+            <span class="c1">// when we rotated this, it would be the same situation </span>
+            <span class="c1">// as in case (AA)</span>
 
-return {"first": {"x":x1, "y":y1}, "second": {"x":x2, "y":y2}};
+            <span class="c1">// Normalize</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+                <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">],</span> <span class="s2">"second"</span><span class="o">:</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">]};</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">])</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+                <span class="nx">a</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+                <span class="nx">b</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// get the relavant x intervall</span>
+            <span class="nx">x1</span> <span class="o">=</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"first"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">];</span>
+            <span class="nx">x2</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">],</span> <span class="nx">b</span><span class="p">[</span><span class="s2">"second"</span><span class="p">][</span><span class="s2">"x"</span><span class="p">]);</span>
+            <span class="nx">y1</span> <span class="o">=</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">x1</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
+            <span class="nx">y2</span> <span class="o">=</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">x2</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Case (CB): only a point as intersection:</span>
+            <span class="c1">// y = ma*x+ta</span>
+            <span class="c1">// y = mb*x+tb</span>
+            <span class="c1">// ma*x + ta = mb*x + tb</span>
+            <span class="c1">// (ma-mb)*x = tb - ta</span>
+            <span class="c1">// x = (tb - ta)/(ma-mb)</span>
+            <span class="nx">x1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">tb</span><span class="o">-</span><span class="nx">ta</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nx">ma</span><span class="o">-</span><span class="nx">mb</span><span class="p">);</span>
+            <span class="nx">y1</span> <span class="o">=</span> <span class="nx">ma</span><span class="o">*</span><span class="nx">x1</span><span class="o">+</span><span class="nx">ta</span><span class="p">;</span>
+            <span class="nx">x2</span> <span class="o">=</span> <span class="nx">x1</span><span class="p">;</span>
+            <span class="nx">y2</span> <span class="o">=</span> <span class="nx">y1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"first"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x1</span><span class="p">,</span> <span class="s2">"y"</span><span class="o">:</span><span class="nx">y1</span><span class="p">},</span> <span class="s2">"second"</span><span class="o">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="o">:</span><span class="nx">x2</span><span class="p">,</span> <span class="s2">"y"</span><span class="o">:</span><span class="nx">y2</span><span class="p">}};</span>
+<span class="p">}</span>
 </code></pre>
 </div>
-<p>}
-```</p>
-
 <h2 id="tocAnchor-1-6">TL;DR</h2>
 
 <p>The complete, tested code is on <a href="https://github.com/MartinThoma/algorithms/tree/master/crossingLineCheck/Geometry/src">GitHub</a>. Here is the most important part:</p>
