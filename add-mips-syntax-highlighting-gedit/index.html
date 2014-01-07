@@ -6,7 +6,7 @@
     
 
     <title>Add MIPS syntax highlighting to gEdit</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070815.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401071131.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -75,205 +75,210 @@
 
 <p>Source: GITHub: <a href="https://github.com/Xodarap/Mips-Assembly-Syntax-Highlighting">Xodarap / Mips-Assembly-Syntax-Highlighting</a></p>
 
-<p>Copy and paste the following:
-[xml]&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!--</p>
-
-<p>Author: Ben West
- Copyright (C) 2010 Ben West
- edited by Martin Thoma</p>
-
-<p>This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Library General Public
- License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later version.</p>
-
-<p>This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Library General Public License for more details.</p>
-
-<p>You should have received a copy of the GNU Library General Public
- License along with this library; if not, write to the
- Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- Boston, MA 02111-1307, USA.</p>
-
-<p>--&gt;
-&lt;!--
-    Somewhat copied and pasted from nasm.lang
---&gt;
-<language id="mal" _name="MAL" version="2.0" _section="Others"><metadata><property name="mimetypes">text/mal</property><property name="globs">*.s</property><property name="line-comment-start">#</property></metadata></language></p>
+<p>Copy and paste the following:</p>
 <div class="highlight">
-   <pre><code class="text language-text" data-lang="text">&lt;styles&gt;
-    &lt;style id="comment"             _name="Comment"                 map-to="def:comment"/&gt;
-    &lt;style id="error"               _name="Error"                   map-to="def:error"/&gt;
-    &lt;style id="string"              _name="String"                  map-to="def:string"/&gt;
-    &lt;style id="preprocessor"        _name="Preprocessor"            map-to="def:preprocessor"/&gt;
-    &lt;style id="opcode"              _name="Opcode"                  map-to="def:keyword"/&gt;
-    &lt;style id="register"            _name="Register"                map-to="def:special-char"/&gt;
-    &lt;style id="type"                _name="Data Type"               map-to="def:type"/&gt;
-    &lt;style id="escaped-character"   _name="Escaped Character"       map-to="def:special-char"/&gt;
-    &lt;style id="decimal"             _name="Decimal number"      map-to="def:decimal"/&gt;
-    &lt;style id="hexadecimal"     _name="Hexadecimal number"  map-to="def:base-n-integer"/&gt;
-&lt;style id="label"       _name="Label"           map-to="def:identifier" /&gt;
-&lt;/styles&gt;
+   <pre><code class="xml language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="c">&lt;!--</span>
 
-&lt;default-regex-options case-sensitive="false"/&gt;
+<span class="c"> Author: Ben West</span>
+<span class="c"> Copyright (C) 2010 Ben West</span>
+<span class="c"> edited by Martin Thoma</span>
 
-&lt;definitions&gt;
-    &lt;define-regex id="escaped-character" extended="true"&gt;
-        \\(      # leading backslash
-        [\\\"\'] # escaped character
-        )
-    &lt;/define-regex&gt;
+<span class="c"> This library is free software; you can redistribute it and/or</span>
+<span class="c"> modify it under the terms of the GNU Library General Public</span>
+<span class="c"> License as published by the Free Software Foundation; either</span>
+<span class="c"> version 2 of the License, or (at your option) any later version.</span>
 
-    &lt;context id="mal"&gt;
-        &lt;include&gt;   
-    &lt;context id="preprocessor" style-ref="preprocessor"&gt;
-        &lt;prefix&gt;^\.&lt;/prefix&gt;
-        &lt;keyword&gt;data&lt;/keyword&gt;
-        &lt;keyword&gt;text&lt;/keyword&gt;
-    &lt;/context&gt;
+<span class="c"> This library is distributed in the hope that it will be useful,</span>
+<span class="c"> but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
+<span class="c"> Library General Public License for more details.</span>
 
-            &lt;context id="comment" style-ref="comment" end-at-line-end="true"&gt;
-                &lt;start&gt;#&lt;/start&gt;
-                &lt;include&gt;
-                  &lt;context ref="def:in-line-comment"/&gt;
-                &lt;/include&gt;
-            &lt;/context&gt;
+<span class="c"> You should have received a copy of the GNU Library General Public</span>
+<span class="c"> License along with this library; if not, write to the</span>
+<span class="c"> Free Software Foundation, Inc., 59 Temple Place - Suite 330,</span>
+<span class="c"> Boston, MA 02111-1307, USA.</span>
 
-            &lt;context id="string" style-ref="string" end-at-line-end="true"&gt;
-                &lt;start&gt;"&lt;/start&gt;
-                &lt;end&gt;"&lt;/end&gt;
-                &lt;include&gt;
-                    &lt;context id="escaped-characterw" style-ref="escaped-character"&gt;
-                        &lt;match&gt;\%{escaped-character}&lt;/match&gt;
-                    &lt;/context&gt;
-                &lt;/include&gt;
-            &lt;/context&gt;
-            &lt;context id="string2" style-ref="string" end-at-line-end="true"&gt;
-                &lt;start&gt;'&lt;/start&gt;
-                &lt;end&gt;'&lt;/end&gt;
-                &lt;include&gt;
-                    &lt;context id="escaped-characters" style-ref="escaped-character"&gt;
-                        &lt;match&gt;\%{escaped-character}&lt;/match&gt;
-                    &lt;/context&gt;
-                &lt;/include&gt;
-            &lt;/context&gt;
+<span class="c">--&gt;</span>
+<span class="c">&lt;!--</span>
+<span class="c">    Somewhat copied and pasted from nasm.lang</span>
+<span class="c">--&gt;</span>
+<span class="nt">&lt;language</span> <span class="na">id=</span><span class="s">"mal"</span> <span class="na">_name=</span><span class="s">"MAL"</span> <span class="na">version=</span><span class="s">"2.0"</span> <span class="na">_section=</span><span class="s">"Others"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;metadata&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"mimetypes"</span><span class="nt">&gt;</span>text/mal<span class="nt">&lt;/property&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"globs"</span><span class="nt">&gt;</span>*.s<span class="nt">&lt;/property&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"line-comment-start"</span><span class="nt">&gt;</span>#<span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/metadata&gt;</span>
+
+    <span class="nt">&lt;styles&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"comment"</span>             <span class="na">_name=</span><span class="s">"Comment"</span>                 <span class="na">map-to=</span><span class="s">"def:comment"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"error"</span>               <span class="na">_name=</span><span class="s">"Error"</span>                   <span class="na">map-to=</span><span class="s">"def:error"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"string"</span>              <span class="na">_name=</span><span class="s">"String"</span>                  <span class="na">map-to=</span><span class="s">"def:string"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"preprocessor"</span>        <span class="na">_name=</span><span class="s">"Preprocessor"</span>            <span class="na">map-to=</span><span class="s">"def:preprocessor"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"opcode"</span>              <span class="na">_name=</span><span class="s">"Opcode"</span>                  <span class="na">map-to=</span><span class="s">"def:keyword"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"register"</span>            <span class="na">_name=</span><span class="s">"Register"</span>                <span class="na">map-to=</span><span class="s">"def:special-char"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"type"</span>                <span class="na">_name=</span><span class="s">"Data Type"</span>               <span class="na">map-to=</span><span class="s">"def:type"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"escaped-character"</span>   <span class="na">_name=</span><span class="s">"Escaped Character"</span>       <span class="na">map-to=</span><span class="s">"def:special-char"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"decimal"</span>             <span class="na">_name=</span><span class="s">"Decimal number"</span>      <span class="na">map-to=</span><span class="s">"def:decimal"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"hexadecimal"</span>     <span class="na">_name=</span><span class="s">"Hexadecimal number"</span>  <span class="na">map-to=</span><span class="s">"def:base-n-integer"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;style</span> <span class="na">id=</span><span class="s">"label"</span>       <span class="na">_name=</span><span class="s">"Label"</span>           <span class="na">map-to=</span><span class="s">"def:identifier"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/styles&gt;</span>
+
+    <span class="nt">&lt;default-regex-options</span> <span class="na">case-sensitive=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;definitions&gt;</span>
+        <span class="nt">&lt;define-regex</span> <span class="na">id=</span><span class="s">"escaped-character"</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            \\(      # leading backslash
+            [\\\"\'] # escaped character
+            )
+        <span class="nt">&lt;/define-regex&gt;</span>
+
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"mal"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;include&gt;</span>   
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"preprocessor"</span> <span class="na">style-ref=</span><span class="s">"preprocessor"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;prefix&gt;</span>^\.<span class="nt">&lt;/prefix&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>data<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>text<span class="nt">&lt;/keyword&gt;</span>
+        <span class="nt">&lt;/context&gt;</span>
+
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"comment"</span> <span class="na">style-ref=</span><span class="s">"comment"</span> <span class="na">end-at-line-end=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;start&gt;</span>#<span class="nt">&lt;/start&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>
+                      <span class="nt">&lt;context</span> <span class="na">ref=</span><span class="s">"def:in-line-comment"</span><span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
+
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"string"</span> <span class="na">style-ref=</span><span class="s">"string"</span> <span class="na">end-at-line-end=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;start&gt;</span>"<span class="nt">&lt;/start&gt;</span>
+                    <span class="nt">&lt;end&gt;</span>"<span class="nt">&lt;/end&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>
+                        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"escaped-characterw"</span> <span class="na">style-ref=</span><span class="s">"escaped-character"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;match&gt;</span>\%{escaped-character}<span class="nt">&lt;/match&gt;</span>
+                        <span class="nt">&lt;/context&gt;</span>
+                    <span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"string2"</span> <span class="na">style-ref=</span><span class="s">"string"</span> <span class="na">end-at-line-end=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;start&gt;</span>'<span class="nt">&lt;/start&gt;</span>
+                    <span class="nt">&lt;end&gt;</span>'<span class="nt">&lt;/end&gt;</span>
+                    <span class="nt">&lt;include&gt;</span>
+                        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"escaped-characters"</span> <span class="na">style-ref=</span><span class="s">"escaped-character"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;match&gt;</span>\%{escaped-character}<span class="nt">&lt;/match&gt;</span>
+                        <span class="nt">&lt;/context&gt;</span>
+                    <span class="nt">&lt;/include&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
 
 
-        &lt;context id="hexadecimal-number" style-ref="hexadecimal"&gt;
-            &lt;match extended="true"&gt;
-        (?&amp;amp;lt;![\w\.])
-        [+-]?0x[0-9a-fA-F]+
-        (?![\w\.])
-            &lt;/match&gt;
-        &lt;/context&gt;
+            <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"hexadecimal-number"</span> <span class="na">style-ref=</span><span class="s">"hexadecimal"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            (?<span class="ni">&amp;amp;</span>lt;![\w\.])
+            [+-]?0x[0-9a-fA-F]+
+            (?![\w\.])
+                <span class="nt">&lt;/match&gt;</span>
+            <span class="nt">&lt;/context&gt;</span>
 
-            &lt;context id="decimal" style-ref="decimal"&gt;
-                &lt;match extended="true"&gt;
-                    (?&amp;amp;lt;![\w\.])
-                    [0-9]+
-                    (?![\w\.])
-                &lt;/match&gt;
-            &lt;/context&gt;
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"decimal"</span> <span class="na">style-ref=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                        (?<span class="ni">&amp;amp;</span>lt;![\w\.])
+                        [0-9]+
+                        (?![\w\.])
+                    <span class="nt">&lt;/match&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>
 
-            &lt;context id="registers" style-ref="register"&gt;           
-        &lt;match extended="true"&gt;
-            (\$
-                (
-                    \d|[12]\d|3[12]|
-                    (ra)|
-                    ([vk][01])|
-                    (a[0-3t])|
-                    (t[0-9])|
-                    (s[0-7p])|
-                    ([gsf]p)|
-                    (zero)
-                )
-            )\b
-        &lt;/match&gt;            
-            &lt;/context&gt;
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"registers"</span> <span class="na">style-ref=</span><span class="s">"register"</span><span class="nt">&gt;</span>           
+            <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                (\$
+                    (
+                        \d|[12]\d|3[12]|
+                        (ra)|
+                        ([vk][01])|
+                        (a[0-3t])|
+                        (t[0-9])|
+                        (s[0-7p])|
+                        ([gsf]p)|
+                        (zero)
+                    )
+                )\b
+            <span class="nt">&lt;/match&gt;</span>            
+                <span class="nt">&lt;/context&gt;</span>
 
-    &lt;context id="label" style-ref="label"&gt;
-        &lt;match extended="true"&gt;
-            ^\w+:
-        &lt;/match&gt;
-    &lt;/context&gt;
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"label"</span> <span class="na">style-ref=</span><span class="s">"label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;match</span> <span class="na">extended=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+                ^\w+:
+            <span class="nt">&lt;/match&gt;</span>
+        <span class="nt">&lt;/context&gt;</span>
 
-            &lt;!-- Opcodes --&gt;
-    &lt;context id="opcodes_simple" style-ref="opcode"&gt;
-        &lt;!-- MAL Opcodes --&gt;
-        &lt;keyword&gt;la&lt;/keyword&gt;
-        &lt;keyword&gt;li&lt;/keyword&gt;
-        &lt;keyword&gt;lw&lt;/keyword&gt;
-        &lt;keyword&gt;lb&lt;/keyword&gt;
-        &lt;keyword&gt;lbu&lt;/keyword&gt;
-        &lt;keyword&gt;sw&lt;/keyword&gt;
-        &lt;keyword&gt;sb&lt;/keyword&gt;
-        &lt;keyword&gt;add(\.s)?&lt;/keyword&gt;
-        &lt;keyword&gt;sub(\.s)?&lt;/keyword&gt;
-        &lt;keyword&gt;mul(\.s)?&lt;/keyword&gt;
-        &lt;keyword&gt;div(\.s)?&lt;/keyword&gt;
-        &lt;keyword&gt;rem&lt;/keyword&gt;
-        &lt;keyword&gt;and&lt;/keyword&gt;
-        &lt;keyword&gt;or&lt;/keyword&gt;
-        &lt;keyword&gt;xor&lt;/keyword&gt;
-        &lt;keyword&gt;nor&lt;/keyword&gt;
-        &lt;keyword&gt;not&lt;/keyword&gt;
-        &lt;keyword&gt;move&lt;/keyword&gt;
-        &lt;keyword&gt;sll&lt;/keyword&gt;
-        &lt;keyword&gt;srl&lt;/keyword&gt;
-        &lt;keyword&gt;sra&lt;/keyword&gt;
-        &lt;keyword&gt;l\.s&lt;/keyword&gt;
-        &lt;keyword&gt;s\.s&lt;/keyword&gt;
-        &lt;keyword&gt;mov\.s&lt;/keyword&gt;
-        &lt;keyword&gt;cvt\.s\.w&lt;/keyword&gt;
-        &lt;keyword&gt;cvt\.w\.s&lt;/keyword&gt;
-        &lt;keyword&gt;mfc0&lt;/keyword&gt;
-        &lt;keyword&gt;mtc0&lt;/keyword&gt;
-        &lt;keyword&gt;mfc1&lt;/keyword&gt;
-        &lt;keyword&gt;mtc1&lt;/keyword&gt;
-        &lt;keyword&gt;b&lt;/keyword&gt;
-        &lt;keyword&gt;beq&lt;/keyword&gt;
-        &lt;keyword&gt;bne&lt;/keyword&gt;
-        &lt;keyword&gt;blt&lt;/keyword&gt;
-        &lt;keyword&gt;bgt&lt;/keyword&gt;
-        &lt;keyword&gt;ble&lt;/keyword&gt;
-        &lt;keyword&gt;bge&lt;/keyword&gt;
-        &lt;keyword&gt;bltz&lt;/keyword&gt;
-        &lt;keyword&gt;bgtz&lt;/keyword&gt;
-        &lt;keyword&gt;blez&lt;/keyword&gt;
-        &lt;keyword&gt;bgez&lt;/keyword&gt;
-        &lt;keyword&gt;bnez&lt;/keyword&gt;
-        &lt;keyword&gt;beqz&lt;/keyword&gt;
-        &lt;keyword&gt;j&lt;/keyword&gt;
-        &lt;keyword&gt;jr&lt;/keyword&gt;
-        &lt;keyword&gt;jal&lt;/keyword&gt;
-        &lt;keyword&gt;jalr&lt;/keyword&gt;
-        &lt;keyword&gt;getc&lt;/keyword&gt;
-        &lt;keyword&gt;putc&lt;/keyword&gt;
-        &lt;keyword&gt;puts&lt;/keyword&gt;
-        &lt;keyword&gt;done&lt;/keyword&gt;
-        &lt;keyword&gt;syscall&lt;/keyword&gt;
-        &lt;keyword&gt;andi&lt;/keyword&gt;
-            &lt;/context&gt;                               
+                <span class="c">&lt;!-- Opcodes --&gt;</span>
+        <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"opcodes_simple"</span> <span class="na">style-ref=</span><span class="s">"opcode"</span><span class="nt">&gt;</span>
+            <span class="c">&lt;!-- MAL Opcodes --&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>la<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>li<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>lw<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>lb<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>lbu<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sw<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sb<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>add(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sub(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mul(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>div(\.s)?<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>rem<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>and<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>or<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>xor<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>nor<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>not<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>move<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sll<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>srl<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>sra<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>l\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>s\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mov\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>cvt\.s\.w<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>cvt\.w\.s<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mfc0<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mtc0<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mfc1<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>mtc1<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>b<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>beq<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bne<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>blt<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bgt<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>ble<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bge<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bltz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bgtz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>blez<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bgez<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>bnez<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>beqz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>j<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>jr<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>jal<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>jalr<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>getc<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>putc<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>puts<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>done<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>syscall<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>andi<span class="nt">&lt;/keyword&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>                               
 
-            &lt;context id="types" style-ref="type"&gt;
-        &lt;prefix&gt;\.&lt;/prefix&gt;
-        &lt;keyword&gt;byte&lt;/keyword&gt;
-        &lt;keyword&gt;word&lt;/keyword&gt;
-        &lt;keyword&gt;asciiz&lt;/keyword&gt;
-        &lt;keyword&gt;ascii&lt;/keyword&gt;
-        &lt;keyword&gt;float&lt;/keyword&gt;
-            &lt;/context&gt;         
-        &lt;/include&gt;
-    &lt;/context&gt;
-&lt;/definitions&gt;
+                <span class="nt">&lt;context</span> <span class="na">id=</span><span class="s">"types"</span> <span class="na">style-ref=</span><span class="s">"type"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;prefix&gt;</span>\.<span class="nt">&lt;/prefix&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>byte<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>word<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>asciiz<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>ascii<span class="nt">&lt;/keyword&gt;</span>
+            <span class="nt">&lt;keyword&gt;</span>float<span class="nt">&lt;/keyword&gt;</span>
+                <span class="nt">&lt;/context&gt;</span>         
+            <span class="nt">&lt;/include&gt;</span>
+        <span class="nt">&lt;/context&gt;</span>
+    <span class="nt">&lt;/definitions&gt;</span>
+<span class="nt">&lt;/language&gt;</span>
 </code></pre>
 </div>
-<p>[/xml]</p>
-
 <p>That's it.</p>
 
 <h2 id="tocAnchor-1-1">See also</h2>

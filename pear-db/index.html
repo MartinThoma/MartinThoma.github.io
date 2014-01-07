@@ -6,7 +6,7 @@
     
 
     <title>PHP: PEAR MDB2</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070815.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401071131.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -94,9 +94,11 @@
 </code></pre>
 </div>
 
-<p>You can check if it is installed with <a href="http://php.net/manual/en/function.phpinfo.php">phpinfo()</a>:
-[php]&lt;?php phpinfo();?&gt;[/php]</p>
-
+<p>You can check if it is installed with <a href="http://php.net/manual/en/function.phpinfo.php">phpinfo()</a>:</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nb">phpinfo</span><span class="p">();</span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
 <p>Something like <strong>.:/usr/share/php:/usr/share/pear</strong> should be in your <strong>include_path</strong>.</p>
 
 <h2 id="tocAnchor-1-2">Install PEAR MDB2</h2>
@@ -121,29 +123,35 @@
 
 <p>It's sad, but only including <strong>MDB2.php</strong> shows 5 "Deprecated"-messages and 6 warings because of "Strict Standards".</p>
 
-<p>You can easily connect to the database:
-[php]require_once "MDB2.php";</p>
-
-<p>$db   = new MDB2();
-$dsn  = "mysql://chessuser:localpass@localhost/chess";
-$mdb2 = MDB2::factory($dsn);
-`$mdb2-&gt;setFetchMode(MDB2<em>FETCHMODE</em>ASSOC);[/php]</p>
-
-<p>It is also very easy to fetch some data:
-[php]$<code>sql    = 'SELECT * FROM</code>chess<em>users<code>';
-</code>$result = $<code>mdb2-&gt;query(</code>$sql);
-while ($<code>row =</code>$result-&gt;fetchRow()) {
-    print</em>r($<code>row);
-}[/php]
-or 
-[php]</code>$sql    = 'SELECT * FROM <code>chess_users</code>';
-$<code>data =</code>$mdb2-&gt;queryAll($<code>sql);
-print_r(</code>$data);[/php]</p>
-
-<p>This results in:</p>
-
+<p>You can easily connect to the database:</p>
 <div class="highlight">
-   <pre><code class="text">Array
+   <pre><code class="php language-php" data-lang="php"><span class="x">require_once "MDB2.php";</span>
+
+<span class="x">``$db   = new MDB2();</span>
+<span class="x">$``dsn  = "mysql://chessuser:localpass@localhost/chess";</span>
+<span class="x">``$mdb2 = MDB2::factory($``dsn);</span>
+<span class="x">``$mdb2-&gt;setFetchMode(MDB2_FETCHMODE_ASSOC);</span>
+</code></pre>
+</div>
+<p>It is also very easy to fetch some data:</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="x">$``sql    = 'SELECT * FROM `chess_users`';</span>
+<span class="x">``$result = $``mdb2-&gt;query(``$sql);</span>
+<span class="x">while ($``row = ``$result-&gt;fetchRow()) {</span>
+<span class="x">    print_r($``row);</span>
+<span class="x">}</span>
+</code></pre>
+</div>
+<p>or </p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="x">``$sql    = 'SELECT * FROM `chess_users`';</span>
+<span class="x">$``data = ``$mdb2-&gt;queryAll($``sql);</span>
+<span class="x">print_r(``$data);</span>
+</code></pre>
+</div>
+<p>This results in:</p>
+<div class="highlight">
+   <pre><code class="text language-text" data-lang="text">Array
 (
     [user_id] =&gt; 1
     [user_name] =&gt; abc
@@ -159,13 +167,14 @@ Array
 )
 </code></pre>
 </div>
-
-<p>You can set limits via MDB2:
-[php]$<code>sql    = 'SELECT * FROM</code>chess<em>users<code>';
-</code>$mdb2-&gt;setLimit(1);
-$<code>data =</code>$mdb2-&gt;queryAll($`sql);
-print</em>r($data);[/php]</p>
-
+<p>You can set limits via MDB2:</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="x">$``sql    = 'SELECT * FROM `chess_users`';</span>
+<span class="x">``$mdb2-&gt;setLimit(1);</span>
+<span class="x">$``data = ``$mdb2-&gt;queryAll($``sql);</span>
+<span class="x">print_r($data);</span>
+</code></pre>
+</div>
 <p>MDB2 offers lots of other features like choosing a (non)persistent connection, prepared statements or debuggin option. If you're interested in PEAR MDB2 I recommend to take a look at installationwiki.org.</p>
 
 <h2 id="tocAnchor-1-4">Sources</h2>

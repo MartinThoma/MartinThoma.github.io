@@ -6,7 +6,7 @@
     
 
     <title>Google Code Jam &ndash; Round 1A 2013</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070815.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401071131.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -83,34 +83,33 @@
 <h2 id="tocAnchor-1-1">Bullseye</h2>
 
 <h3 id="tocAnchor-1-1-1">Small</h3>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?</span>
 
-<p>[php]
-&lt;?</p>
+<span class="k">function</span> <span class="nf">solve</span><span class="p">(</span><span class="sb">`$r, $`</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sb">`$circles = 0;</span>
+<span class="sb">    while($`</span><span class="nx">t</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="sb">`$circles++;</span>
+<span class="sb">        $`</span><span class="nx">t</span> <span class="o">-=</span> <span class="p">(</span><span class="sb">`$r+1)*($`</span><span class="nx">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="sb">`$r*$`</span><span class="nx">r</span><span class="p">;</span>
+        <span class="sb">`$r += 2;</span>
+<span class="sb">    }</span>
+<span class="sb">    return floor($`</span><span class="nx">circles</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p>function solve($r, $t) {
-    $circles = 0;
-    while($t &gt;= 0) {
-        $circles++;
-        $t -= ($r+1)*($r+1)-$r*$r;
-        $r += 2;
-    }
-    return floor($circles) - 1;
-}</p>
+<span class="sb">`$fp = fopen ($`</span><span class="nx">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'r'</span><span class="p">);</span>
+<span class="sb">`$testcases = fgets ($`</span><span class="nx">fp</span><span class="p">);</span>
+<span class="sb">`$caseNr=0;</span>
+<span class="sb">while($`</span><span class="nx">line</span> <span class="o">=</span> <span class="nb">fgets</span> <span class="p">(</span><span class="sb">`$fp)) {</span>
+<span class="sb">    $`</span><span class="nx">caseNr</span><span class="o">++</span><span class="p">;</span>
+    <span class="sb">`$a = explode(' ', $`</span><span class="nx">line</span><span class="p">);</span>
+    <span class="sb">`$r = $`</span><span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="sb">`$t = $`</span><span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="s2">"Case #`</span><span class="si">$caseNr</span><span class="s2">: "</span><span class="o">.</span><span class="nx">solve</span><span class="p">(</span><span class="err">$</span><span class="sb">`r, `</span><span class="nv">$t</span><span class="p">)</span><span class="o">.</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
 
-<p>$fp = fopen ($argv[1], 'r');
-$testcases = fgets ($fp);
-$caseNr=0;
-while($line = fgets ($fp)) {
-    $caseNr++;
-    $a = explode(' ', $line);
-    $r = $a[0];
-    $t = $a[1];
-    echo "Case #$caseNr: ".solve($r, `$t)."\n";</p>
-
-<p>}
-?&gt;
-[/php]</p>
-
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
 <h3 id="tocAnchor-1-1-2">Large</h3>
 
 <p><em>Argh</em> I've copied the wrong equation from my pad to my computer </p>

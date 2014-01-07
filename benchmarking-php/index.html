@@ -6,7 +6,7 @@
     
 
     <title>Benchmarking PHP</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070815.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401071131.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -122,42 +122,39 @@ Total:          2    2   0.0      2       2
 <p>With a document of two bytes, I get 1.324 ms. A HTML-Document with 300 kB has 4.287 ms.</p>
 
 <p>Now I&#39;ll begin the test I&#39;m interested in. It is related to <a href="http://stackoverflow.com/questions/4738605/undefined-offset-with-count" rel="nofollow">this Stackoverflow Question</a>. I&#39;ll make 10000 requests per Benchmark:</p>
-
-<p>[php]for($<code>i=0;</code>$i&lt;5; $<code>i++) {
-</code>$maximum = max(
-                    @count($<code>MyArray[</code>$i<em>7]),
-                    @count($<code>MyArray[</code>$i</em>7+1]),
-                    @count($<code>MyArray[</code>$i<em>7+2]),
-                    @count($<code>MyArray[</code>$i</em>7+3]),
-                    @count($<code>MyArray[</code>$i<em>7+4]),
-                    @count($<code>MyArray[</code>$i</em>7+5]),
-                    @count($<code>MyArray[</code>$i*7+6])
-                   );
-    echo $`maximum.&#39; &#39;;
-}
-[/php]
-1.817 ms </p>
-
-<p>[php]for($i=0; $i<5; `$i++) {
-    $`chunk = array_intersect_key(`$MyArray, array($`i*7=>1, $i*7+1=&gt;2, $i<em>7+2=&gt;3, $i*7+3=&gt;4, $i</em>7+4=&gt;5, $i*7+5=&gt;6));
-    if(count($chunk) &gt; 0){$maximum = max(array_map(&#39;count&#39;, $chunk));} 
-    else {$maximum = 0;}
-    echo $maximum.&#39; &#39;;
-}
-[/php]
-1.801 ms</p>
-
-<p>[php]for($i=0;$i&lt;5;$i++){
-    $arr = array();
-    for ($j=0;$j&lt;=6;$j++) {
-        if (isset($MyArray[$i*7+$j])) $arr[] = count($MyArray[$i*7+$j]);
-        else {$arr[] = 0;}
-    }
-    $maximum = max($arr);
-    echo $maximum.&#39; &#39;;
-}
-[/php]
-1.742 ms</p>
+<div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">for($`i=0; `$i&lt;5; $`i++) {</span>
+<span class="x">    `$maximum = max(</span>
+<span class="x">                    @count($`MyArray[`$i*7]),</span>
+<span class="x">                    @count($`MyArray[`$i*7+1]),</span>
+<span class="x">                    @count($`MyArray[`$i*7+2]),</span>
+<span class="x">                    @count($`MyArray[`$i*7+3]),</span>
+<span class="x">                    @count($`MyArray[`$i*7+4]),</span>
+<span class="x">                    @count($`MyArray[`$i*7+5]),</span>
+<span class="x">                    @count($`MyArray[`$i*7+6])</span>
+<span class="x">                   );</span>
+<span class="x">    echo $`maximum.&#39; &#39;;</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>1.817 ms </p>
+<div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">for(`$i=0; $`i&lt;5; `$i++) {</span>
+<span class="x">    $`chunk = array_intersect_key(`$MyArray, array($`i*7=&gt;1, `$i*7+1=&gt;2, $`i*7+2=&gt;3, `$i*7+3=&gt;4, $`i*7+4=&gt;5, `$i*7+5=&gt;6));</span>
+<span class="x">    if(count($`chunk) &gt; 0){`$maximum = max(array_map(&#39;count&#39;, $`chunk));} </span>
+<span class="x">    else {`$maximum = 0;}</span>
+<span class="x">    echo $`maximum.&#39; &#39;;</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>1.801 ms</p>
+<div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">for(`$i=0;$`i&lt;5;`$i++){</span>
+<span class="x">    $`arr = array();</span>
+<span class="x">    for (`$j=0;$`j&lt;=6;`$j++) {</span>
+<span class="x">        if (isset($`MyArray[`$i*7+$`j])) `$arr[] = count($`MyArray[`$i*7+$`j]);</span>
+<span class="x">        else {`$arr[] = 0;}</span>
+<span class="x">    }</span>
+<span class="x">    $`maximum = max(`$arr);</span>
+<span class="x">    echo $`maximum.&#39; &#39;;</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>1.742 ms</p>
 
 						</div>
 						<div class="postmeta">Posted in 

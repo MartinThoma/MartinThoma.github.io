@@ -6,7 +6,7 @@
     
 
     <title>SQL Injections</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070815.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401071131.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -109,10 +109,11 @@
 <p>You obviously interacted with imdb.com in a very dynamic way. The output of the website depends on what you typed in and IMDb has to search in its database for your search terms.</p>
 
 <p>The programmers might have created a query that looks like this</p>
-
-<p>[sql]SELECT * FROM <code>movie</code> WHERE title=`$_GET['q'][/sql]</p>
-
-<p>Where $`_GET['q']</code> is your query.</p>
+<div class="highlight">
+   <pre><code class="sql language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=`</span><span class="err">$</span><span class="n">_GET</span><span class="p">[</span><span class="s1">'q'</span><span class="p">]</span>
+</code></pre>
+</div>
+<p>Where <code>$`_GET['q']</code> is your query.</p>
 
 <h2 id="tocAnchor-1-2">Proof of concept</h2>
 
@@ -124,61 +125,60 @@
 </ul><p>When you search for "LAMP" (for Linux users) or for "WAMP" (for Windows users) you find a lot of information how to install this.</p>
 
 <p>Place the following as <code>hack.php</code> in your web servers directory (might be <code>/var/www</code>):</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?</span>
+<span class="sb">`$mysqlhost = "localhost";</span>
+<span class="sb">$`</span><span class="nx">mysqluser</span> <span class="o">=</span> <span class="s2">"root"</span><span class="p">;</span>
+<span class="sb">`$mysqlpwd = "asdfasdf";</span>
+<span class="sb">$`</span><span class="nx">connection</span> <span class="o">=</span> <span class="nb">mysql_connect</span><span class="p">(</span><span class="sb">`$mysqlhost, $`</span><span class="nx">mysqluser</span><span class="p">,</span> <span class="sb">`$mysqlpwd) or die</span>
+<span class="sb">("Your connection string was wrong");</span>
+<span class="sb">$`</span><span class="nx">db_selected</span> <span class="o">=</span> <span class="nb">mysql_select_db</span><span class="p">(</span><span class="s1">'imdb'</span><span class="p">,</span> <span class="sb">`$connection);</span>
 
-<p>[php]
-&lt;?
-<code>$mysqlhost = "localhost";
-$mysqluser = "root";
-$mysqlpwd = "asdfasdf";
-$connection = mysql<em>connect($mysqlhost, $mysqluser, $mysqlpwd) or die
-("Your connection string was wrong");
-$db</em>selected = mysql<em>select</em>db('imdb', `$connection);</p>
+<span class="sb">$`</span><span class="nx">q</span> <span class="o">=</span> <span class="sb">`$_GET['q'];</span>
+<span class="sb">if ($`</span><span class="nx">q</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+    <span class="sb">`$result = mysql_query("SELECT * FROM `</span><span class="nx">movies</span><span class="sb">` WHERE title='$`</span><span class="nx">q</span><span class="s1">'");</span>
+<span class="s1">    if (!`$result) {</span>
+<span class="s1">        die('</span><span class="nx">MySQL</span> <span class="nx">query</span> <span class="nx">error</span><span class="o">:</span> <span class="err">'</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="s2">"Found "</span><span class="o">.</span><span class="nb">mysql_num_rows</span><span class="p">(</span><span class="err">$</span><span class="sb">`result)." movies:&lt;br/&gt;";</span>
+<span class="sb">    while (`</span><span class="nv">$row</span> <span class="o">=</span> <span class="nb">mysql_fetch_assoc</span><span class="p">(</span><span class="err">$</span><span class="sb">`result)) {</span>
+<span class="sb">        echo `</span><span class="nv">$row</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="o">.</span><span class="s2">": "</span><span class="o">.</span><span class="err">$`</span><span class="nx">row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span><span class="o">.</span><span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
 
-<p>$<code>q =</code>$<em>GET['q'];
-if ($<code>q != "") {
-</code>$result = mysql</em>query("SELECT * FROM <code>movies</code> WHERE title='$<code>q'");
-    if (!</code>$result) {
-        die('MySQL query error: ' . mysql<em>error());
-    }
-    echo "Found ".mysql</em>num<em>rows($<code>result)." movies:&lt;br/&gt;";
-    while (</code>$row = mysql</em>fetch_assoc($<code>result)) {
-        echo</code>$row["id"].": ".$`row["title"]."<br />";
-    }
-}
-?&gt;</p>
-
-<form method="get" action="hack.php">
-  <input type="text" name="q" /><input type="submit" /></form>
-
-<p>[/php]</p>
-
+<span class="x">&lt;form method="get" action="hack.php"&gt;</span>
+<span class="x">  &lt;input type="text" name="q"/&gt;</span>
+<span class="x">  &lt;input type="submit" /&gt;</span>
+<span class="x">&lt;/form&gt;</span>
+</code></pre>
+</div>
 <p>Now create a database called <code>imdb</code> with PHPMyAdmin and execute the following SQL:</p>
+<div class="highlight">
+   <pre><code class="sql language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">title</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 
-<p>[sql]
-CREATE TABLE IF NOT EXISTS <code>movies</code> (
-  <code>id</code> int(11) NOT NULL AUTO<em>INCREMENT,
-  <code>title</code> varchar(255) NOT NULL,
-  PRIMARY KEY (<code>id</code>)
-) AUTO</em>INCREMENT=4;</p>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Harry Potter'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'Lord of the Rings'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'Rise of the Silver Surfer'</span><span class="p">);</span>
 
-<p>INSERT INTO <code>movies</code> (<code>id</code>, <code>title</code>) VALUES
-(1, 'Harry Potter'),
-(2, 'Lord of the Rings'),
-(3, 'Rise of the Silver Surfer');</p>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">username</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">password</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">email</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">3</span> <span class="p">;</span>
 
-<p>CREATE TABLE IF NOT EXISTS <code>users</code> (
-  <code>id</code> int(11) NOT NULL AUTO<em>INCREMENT,
-  <code>username</code> varchar(255) NOT NULL,
-  <code>password</code> varchar(32) NOT NULL,
-  <code>email</code> varchar(255) NOT NULL,
-  PRIMARY KEY (<code>id</code>)
-) AUTO</em>INCREMENT=3 ;</p>
-
-<p>INSERT INTO <code>users</code> (<code>id</code>, <code>username</code>, <code>password</code>, <code>email</code>) VALUES
-(1, 'admin', 'qewrtqwert', 'admin@imdb.com'),
-(2, 'user', 'secret', 'mylittlepony@stupid.com');
-[/sql]</p>
-
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">password</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">email</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'admin'</span><span class="p">,</span> <span class="s1">'qewrtqwert'</span><span class="p">,</span> <span class="s1">'admin@imdb.com'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="s1">'mylittlepony@stupid.com'</span><span class="p">);</span>
+</code></pre>
+</div>
 <p>Now go to <a href="http://localhost/hack.php">http://localhost/hack.php</a>. It should look like this:</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
@@ -198,9 +198,10 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
 </div>
 
 <p>This resulted in the following query:</p>
-
-<p>[sql]SELECT * FROM <code>movies</code> WHERE title='Harry Potter'[/sql]</p>
-
+<div class="highlight">
+   <pre><code class="sql language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Harry Potter'</span>
+</code></pre>
+</div>
 <p>But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:</p>
 
 <div style="width: 300px" class="wp-caption aligncenter">
@@ -211,13 +212,15 @@ CREATE TABLE IF NOT EXISTS <code>movies</code> (
 </div>
 
 <p>Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:</p>
-
-<p>[sql]' UNION SELECT table<em>name, table</em>type FROM information_schema.tables WHERE '1'='1[/sql]</p>
-
+<div class="highlight">
+   <pre><code class="sql language-sql" data-lang="sql"><span class="s1">' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '</span><span class="mi">1</span><span class="s1">'='</span><span class="mi">1</span>
+</code></pre>
+</div>
 <p>which results in this query:</p>
-
-<p>[sql]SELECT * FROM <code>movies</code> WHERE title='' UNION SELECT table<em>name, table</em>type FROM information_schema.tables WHERE '1'='1'[/sql]</p>
-
+<div class="highlight">
+   <pre><code class="sql language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">table_name</span><span class="p">,</span> <span class="n">table_type</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">WHERE</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span>
+</code></pre>
+</div>
 <p>which gives:</p>
 
 <div style="width: 268px" class="wp-caption aligncenter">

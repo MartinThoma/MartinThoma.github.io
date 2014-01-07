@@ -6,7 +6,7 @@
     
 
     <title>PHP: A strange language</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070815.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401071131.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -117,11 +117,14 @@
 
 <h3 id="tocAnchor-1-1-1">Starting and ending PHP</h3>
 
-<p>The following snippet is valid PHP-code:
-[php]&lt;?php 
-    
-?&gt;[/php]
-Source: <a href="http://stackoverflow.com/q/13228306/562769">StackOverflow.com</a> (You can find some explanations there.)</p>
+<p>The following snippet is valid PHP-code:</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+    <span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>Source: <a href="http://stackoverflow.com/q/13228306/562769">StackOverflow.com</a> (You can find some explanations there.)</p>
 
 <h3 id="tocAnchor-1-1-2">Underscores</h3>
 
@@ -129,21 +132,23 @@ Source: <a href="http://stackoverflow.com/q/13228306/562769">StackOverflow.com</
 <a href="http://php.net/gettype">gettype</a> vs. <a href="http://php.net/get_class">get_class</a></p>
 
 <h3 id="tocAnchor-1-1-3">Order of Arguments</h3>
-
-<p>[php]strpos ( string $haystack , mixed $needle [...] )
-stristr ( string $haystack , mixed $needle [...] )
-in<em>array ( mixed $needle , array $haystack [...] )
-array</em>search ( mixed $needle , array $haystack [...] )[/php]</p>
-
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="x">strpos ( string `$haystack , mixed $`needle [...] )</span>
+<span class="x">stristr ( string `$haystack , mixed $`needle [...] )</span>
+<span class="x">in_array ( mixed `$needle , array $`haystack [...] )</span>
+<span class="x">array_search ( mixed `$needle , array $`haystack [...] )</span>
+</code></pre>
+</div>
 <h2 id="tocAnchor-1-5">Sorting</h2>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="x">function pivot(`$arr) {</span>
+<span class="x">    return ($`arr[0] + end(`$arr)) / 2;</span>
+<span class="x">}</span>
 
-<p>[php]function pivot($arr) {
-    return ($arr[0] + end(`$arr)) / 2;
-}</p>
-
-<p>$<code>arr = array(1, 5, 7, 2, 3, 4, 8, 9, 6);
-echo pivot(sort(</code>$arr));[/php]</p>
-
+<span class="x">$`arr = array(1, 5, 7, 2, 3, 4, 8, 9, 6);</span>
+<span class="x">echo pivot(sort(`$arr));</span>
+</code></pre>
+</div>
 <p>This doesn't work. If you don't know why, you should take a look at <a href="http://php.net/manual/de/function.sort.php">sort</a>.</p>
 
 <h2 id="tocAnchor-1-6">PHP Logo</h2>
@@ -151,34 +156,40 @@ echo pivot(sort(</code>$arr));[/php]</p>
 <p>Add '?=PHPE9568F34-D428-11d2-A769-00AA001ACF42' to any PHP script and take a look at the output. For example at <a href="http://en.wikipedia.org/wiki/Main_Page?=PHPE9568F34-D428-11d2-A769-00AA001ACF42">Wikipedia</a>.</p>
 
 <h2 id="tocAnchor-1-7">Argument order</h2>
-
-<p>[php]mktime  ([$<code>hour [,</code>$minute [, $<code>second [,</code>$month  [, $<code>day  [,</code>$year  [, $`is_dst]]]]]]])[/php]</p>
-
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="x">mktime  ([$`hour [, `$minute [, $`second [, `$month  [, $`day  [, `$year  [, $`is_dst]]]]]]])</span>
+</code></pre>
+</div>
 <h2 id="tocAnchor-1-8">array_fill</h2>
 
-<p><a href="http://php.net/manual/en/function.array-fill.php">array_fill</a> doesn't allow 0 as `$number.
-[php]&lt;?php</p>
+<p><a href="http://php.net/manual/en/function.array-fill.php">array_fill</a> doesn't allow 0 as `$number.</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<p>$<code>number = 2;
-</code>$arr = array_fill(0, $<code>number, 42);
-print_r(</code>$arr);</p>
+<span class="err">$</span><span class="sb">`number = 2;</span>
+<span class="sb">`</span><span class="nv">$arr</span> <span class="o">=</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="err">$</span><span class="sb">`number, 42);</span>
+<span class="sb">print_r(`</span><span class="nv">$arr</span><span class="p">);</span>
 
-<p>?&gt;[/php]
-Array ( [0] =&gt; 42 [1] =&gt; 42 )</p>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>Array ( [0] =&gt; 42 [1] =&gt; 42 )</p>
 
 <h2 id="tocAnchor-1-9">Strange loop</h2>
 
 <p>Loops themselves should not change anything. So take a look at this:</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<p>[php]&lt;?php</p>
+<span class="err">$</span><span class="sb">`array = array('foo', 'bar');</span>
+<span class="sb">var_dump(`</span><span class="nv">$array</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="err">$</span><span class="sb">`array as &amp;amp;`</span><span class="nv">$foo</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="err">$`</span><span class="k">array</span><span class="p">);</span>
 
-<p>$<code>array = array('foo', 'bar');
-var_dump(</code>$array);
-foreach ($<code>array as &amp;amp;</code>$foo);
-var_dump($`array);</p>
-
-<p>?&gt;[/php]
-Output:</p>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>Output:</p>
 
 <div class="highlight">
    <pre><code class="text">array(2) {
@@ -194,64 +205,67 @@ array(2) {
 </div>
 
 <h2 id="tocAnchor-1-10">Boolean evaluation</h2>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<p>[php]&lt;?php</p>
+<span class="sb">`$a = array('7.1');</span>
 
-<p>`$a = array('7.1');</p>
+<span class="sb">$`</span><span class="nx">arr1</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'foo'</span><span class="p">,</span>
+  <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
+<span class="p">);</span>
 
-<p>$`arr1 = array(
-  'foo' =&gt; 'foo',
-  'bar' =&gt; 'bar',
-);</p>
+<span class="sb">`$arr2 = array(</span>
+<span class="sb">  'bar' =&gt; 'bar',</span>
+<span class="sb">  'foo' =&gt; 'foo',</span>
+<span class="sb">);</span>
 
-<p>`$arr2 = array(
-  'bar' =&gt; 'bar',
-  'foo' =&gt; 'foo',
-);</p>
+<span class="sb">if ("a")  {echo "This ";}</span>
+<span class="sb">if (true) {echo "is ";}</span>
+<span class="sb">if (9)    {echo "PHP. ";}</span>
+<span class="sb">if (07)   {echo "Oktal ";}</span>
+<span class="sb">if (010 == 8 ) {echo "is ";}</span>
+<span class="sb">if ("8" == 8 ) {echo "also ";}</span>
+<span class="sb">if (array(0)) {echo "true. ";}</span>
+<span class="sb">if ($`</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"Like "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s1">'7.10'</span><span class="p">,</span> <span class="sb">`$a)) {echo "that ";}</span>
+<span class="sb">if ($`</span><span class="nx">arr1</span> <span class="o">==</span> <span class="sb">`$arr2) {echo "one ";}</span>
+<span class="sb">if (0 == 'x') {echo "is true.";}</span>
 
-<p>if ("a")  {echo "This ";}
-if (true) {echo "is ";}
-if (9)    {echo "PHP. ";}
-if (07)   {echo "Oktal ";}
-if (010 == 8 ) {echo "is ";}
-if ("8" == 8 ) {echo "also ";}
-if (array(0)) {echo "true. ";}
-if ($<code>x = 1)  {echo "Like ";}
-if (in_array('7.10',</code>$a)) {echo "that ";}
-if ($<code>arr1 ==</code>$arr2) {echo "one ";}
-if (0 == 'x') {echo "is true.";}</p>
+<span class="sb">if ("")      {echo "false ";}</span>
+<span class="sb">if (0)       {echo "false";}</span>
+<span class="sb">if (08)      {echo "false";}</span>
+<span class="sb">if (array()) {echo "false";}</span>
+<span class="sb">if ($`</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="sb">`$arr1 === $`</span><span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
 
-<p>if ("")      {echo "false ";}
-if (0)       {echo "false";}
-if (08)      {echo "false";}
-if (array()) {echo "false";}
-if ($<code>x = 0)  {echo "false";}
-if (</code>$arr1 === $`arr2) {echo "false";}</p>
-
-<p>?&gt;[/php]</p>
-
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
 <h2 id="tocAnchor-1-11">Automatic conversion</h2>
 
 <div class="info">This one seems to be fixed. It doesn't work in PHP Version 5.4.6-1ubuntu1.2 (released 16.08.2012). It was a problem in PHP 5.3.5 (released 06.01.2011)</div>
 
-<p>PHP converts strings automatically to a float if it is possible. This might lead to problems. See this example from <a href="http://phpsadness.com/sad/47">phpsadness</a>:
-[php]&lt;?php</p>
+<p>PHP converts strings automatically to a float if it is possible. This might lead to problems. See this example from <a href="http://phpsadness.com/sad/47">phpsadness</a>:</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<p>`$password = "ximaz";</p>
+<span class="sb">`$password = "ximaz";</span>
 
-<p>$`hash = "61529519452809720693702583126814"; // = md5("ximaz")</p>
+<span class="sb">$`</span><span class="nb">hash</span> <span class="o">=</span> <span class="s2">"61529519452809720693702583126814"</span><span class="p">;</span> <span class="c1">// = md5("ximaz")</span>
 
-<p>if (md5($password) == $hash) {
-  print "Allowed!\n";
-}</p>
+<span class="k">if</span> <span class="p">(</span><span class="nb">md5</span><span class="p">(</span><span class="sb">`$password) == $`</span><span class="nb">hash</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">print</span> <span class="s2">"Allowed!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p>$wrong_hash = "61529519452809720000000000000000";
-if ($wrong_hash == `$hash) {
-  print "Wrong hash got correct!\n";
-}</p>
+<span class="sb">`$wrong_hash = "61529519452809720000000000000000";</span>
+<span class="sb">if ($`</span><span class="nx">wrong_hash</span> <span class="o">==</span> <span class="err">`</span><span class="nv">$hash</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">print</span> <span class="s2">"Wrong hash got correct!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p>?&gt;[/php]</p>
-
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
 <p>See also:
 </p><ul><li><a href="http://php.net/language.operators.comparison">Comparison Operators</a></li>
   <li><a href="https://bugs.php.net/bug.php?id=54547">Bug #54547: wrong equality of string numbers</a></li>
@@ -259,28 +273,30 @@ if ($wrong_hash == `$hash) {
   <li><a href="http://de.wikipedia.org/wiki/Versionsgeschichte_von_PHP">Versionsgeschichte von PHP</a> (German)</li>
 </ul><h2 id="tocAnchor-1-12">Make a Guess</h2>
 
-<p>Try to guess what the following prints:
-[php]&lt;?php
-for ($<code>i = 'a';</code>$i &lt;= 'z'; ++$<code>i) echo "</code>$i ";</p>
+<p>Try to guess what the following prints:</p>
+<div class="highlight">
+   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">for</span> <span class="p">(</span><span class="err">$</span><span class="sb">`i = 'a'; `</span><span class="nv">$i</span> <span class="o">&lt;=</span> <span class="s1">'z'</span><span class="p">;</span> <span class="o">++</span><span class="err">$</span><span class="sb">`i) echo "`</span><span class="nv">$i</span> <span class="s2">";</span>
 
-<p>// I just need four NULLs to demo this.
-$`a = array_fill(0, 4, NULL);</p>
+<span class="s2">// I just need four NULLs to demo this.</span>
+<span class="s2">$`a = array_fill(0, 4, NULL);</span>
 
-<p>$a[0]++;
-++$a[1];
-$a[2]--;
---$a[3];</p>
+<span class="s2">`</span><span class="si">$a[0]</span><span class="s2">++;</span>
+<span class="s2">++$`a[1];</span>
+<span class="s2">`</span><span class="si">$a[2]</span><span class="s2">--;</span>
+<span class="s2">--$`a[3];</span>
 
-<p>var_dump(`$a);</p>
+<span class="s2">var_dump(`</span><span class="si">$a</span><span class="s2">);</span>
 
-<p>$<code>b[0]++;
-++</code>$b[1];
-$<code>b[2]--;
---</code>$b[3];</p>
+<span class="s2">$`b[0]++;</span>
+<span class="s2">++`</span><span class="si">$b[1]</span><span class="s2">;</span>
+<span class="s2">$`b[2]--;</span>
+<span class="s2">--`</span><span class="si">$b[3]</span><span class="s2">;</span>
 
-<p>var_dump($`b);
-?&gt;[/php]</p>
-
+<span class="s2">var_dump($`b);</span>
+<span class="s2">?&gt;</span>
+</code></pre>
+</div>
 <p>Did you guess the following?</p>
 
 <div class="highlight">
@@ -303,7 +319,10 @@ array(4) {
 
 <h2 id="tocAnchor-1-13">Function names are NOT case sensitive</h2>
 
-<blockquote>[php]function add(`$a, $`b)
+<blockquote>
+
+```php
+function add(`$a, $`b)
 {
     return `$a + $`b;
 }
@@ -312,7 +331,10 @@ array(4) {
 $`Foo = Add(3, 4);
 
 echo "foo is `$foo"; // outputs foo is 3
-echo "Foo is $`Foo"; // outputs Foo is 7[/php]</blockquote>
+echo "Foo is $`Foo"; // outputs Foo is 7
+```
+
+</blockquote>
 
 <p>Source: <a href="http://stackoverflow.com/a/2006635/562769">StackOverflow</a></p>
 
