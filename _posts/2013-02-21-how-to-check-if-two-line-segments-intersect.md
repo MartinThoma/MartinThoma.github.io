@@ -66,26 +66,30 @@ Looks quite simple, doesn't it?
 <h3>Cross product</h3>
 Well, you might notice that you need to check if one line intersects with a given line segment. To check this, you have to understand one cool idea:
 
-You can definie a cross product for points: 
-$\begin{align}
+You can definie a cross product for points:
+
+$$\begin{align}
   \times_P&: Point \times Point \rightarrow \mathbb{R}\\
   \times_P(a, b) &:= a.x \cdot b.y - b.x \cdot a.y;
-\end{align}$
+\end{align}$$
 
 This cross product has one nice characteristics:
-$a \times_P b = 0 \Leftrightarrow a$ and $b$ are on one line through origin</li>
+
+$a \times_P b = 0 \Leftrightarrow a$ and $b$ are on one line through origin
 
 You can verify this. If you take two points on a line through origin, they have the same slope $\frac{\Delta y}{\Delta x}$:
-$
+
+$$
 \begin{align}
   0 &= a \times_P b\\
 \Leftrightarrow 0 &= a.x \cdot b.y - b.x \cdot a.y\\
 \Leftrightarrow b.x \cdot a.y &= a.x \cdot b.y\\
 \Leftrightarrow \frac{a.y}{a.x} &= \frac{b.y}{b.x}
 \end{align}
-$
+$$
 
 Ok, now you can check if a point is on a line:
+
 ```java
 /**
  * Checks if a Point is on a line
@@ -148,6 +152,7 @@ public boolean lineSegmentTouchesOrCrossesLine(LineSegment a,
 ```
 
 Now you have everything you need:
+
 ```java
 /**
  * Check if line segments intersect
@@ -177,6 +182,7 @@ I did this with JavaScript:
 </iframe>
 
 This is the code that checks for line segments:
+
 ```javascript
 /** You know that lines a and b have an intersection and now you
     want to get it!
