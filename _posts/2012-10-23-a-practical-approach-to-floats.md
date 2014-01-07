@@ -34,7 +34,7 @@ void printValue(union myUnion u) {
 	printf("Bits\t\t:\t");
 	for (int i = 31; i >= 0; i--) {
 		printf("%i", (u.i >> i) % 2);
-		if (i != 0 &amp;&amp; i % 4 == 0) {
+		if (i != 0 && i % 4 == 0) {
 			printf(".");
 		}
 		if (i == 31 || i == 23) {
@@ -45,7 +45,7 @@ void printValue(union myUnion u) {
 }
 
 void setSign(union myUnion *u, char sign) {
-	u->i = (u->i &amp; (0xffffffff - (1 << 31))) + (sign << 31);
+	u->i = (u->i & (0xffffffff - (1 << 31))) + (sign << 31);
 }
 
 /**
@@ -56,14 +56,14 @@ void setSign(union myUnion *u, char sign) {
  * Otherwise NaN.
  */
 void setExponent(union myUnion *u, char exponent) {
-	u->i = (u->i &amp; (0xffffffff - (0xff << 23))) + (exponent << 23);
+	u->i = (u->i & (0xffffffff - (0xff << 23))) + (exponent << 23);
 }
 
 /**
  * The mantissa has 23 bits.
  */
 void setMantissa(union myUnion *u, int mantissa) {
-	u->i = (u->i &amp; (0xffffffff - (0xff << 0))) + (mantissa << 0);
+	u->i = (u->i & (0xffffffff - (0xff << 0))) + (mantissa << 0);
 }
 
 int main() {
@@ -71,9 +71,9 @@ int main() {
 	
 	printf("Manual guessing\n");
 	testVar.i = 0;
-	setSign(&amp;testVar, 1);
-	setExponent(&amp;testVar, 0x01);
-	setMantissa(&amp;testVar, 0x00);
+	setSign(&testVar, 1);
+	setExponent(&testVar, 0x01);
+	setMantissa(&testVar, 0x00);
 	printValue(testVar);
 
 	printf("What does UINT_MAX evaluate to?\n");

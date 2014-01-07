@@ -176,7 +176,7 @@ void makeTurns(char board[BOARD_WIDTH][BOARD_HEIGHT],
         int height = BOARD_HEIGHT - 1;
 
         // the disc falls down
-        while (height >= 0 &amp;&amp; board[column][height] == EMPTY) {
+        while (height >= 0 && board[column][height] == EMPTY) {
             height--;
         }
         height++;
@@ -211,7 +211,7 @@ void makeTurns(char board[BOARD_WIDTH][BOARD_HEIGHT],
                     exit(MAXIMUM_SITUATIONS_REACHED_EXIT_STATUS);
                 }
 
-                if (REGISTERED_MOD > 0 &amp;&amp;
+                if (REGISTERED_MOD > 0 &&
                     registeredSituations % REGISTERED_MOD == 0) {
                     giveCurrentInformation();
                 }

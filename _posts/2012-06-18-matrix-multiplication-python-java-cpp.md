@@ -7,7 +7,7 @@ categories:
 - Code
 tags:
 - Python
-- C
+- CPP
 - Java
 - Linear algebra
 - NumPy

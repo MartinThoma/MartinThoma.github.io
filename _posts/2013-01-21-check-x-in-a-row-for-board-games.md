@@ -23,7 +23,7 @@ You should create a method that checks if a coordinate is on your board. This ca
 
 ```java
 public boolean isOnBoard(int x, int y) {
-    return 0 <= x &amp;&amp; x < width &amp;&amp; 0 <= y &amp;&amp; y < height;
+    return 0 <= x && x < width && 0 <= y && y < height;
 }
 ```
 
@@ -47,7 +47,7 @@ private void myBoardAction(Player player, int xDir, int yDir) {
         for (int y = 0; y < board.height; y++) {
             for (int c = 0; c < SOME_CONSTANT; c++) {
                 if (board.isOnBoard(x + c * xDir, y + c * yDir)
-                   &amp;&amp; board.checkXYZ(x + c * xDir, y + c * yDir)) {
+                   && board.checkXYZ(x + c * xDir, y + c * yDir)) {
                     doXYZ();
                 }
             }

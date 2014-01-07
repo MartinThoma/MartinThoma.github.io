@@ -6,7 +6,7 @@ date: 2012-07-06 16:00:22.000000000 +02:00
 categories:
 - Code
 tags:
-- C
+- CPP
 featured_image: 2012/05/CPP-thumb.png
 ---
 Operator overloading is heavily used in math. One of the most famous examples I know is "+". If you add two elements from $\mathbb{N}$ you will use the same character "+" as you use for adding two numbers from $\mathbb{R}$. You even use the plus-sign if you add matrices (which is obviously something different than adding single numbers).
@@ -42,7 +42,7 @@ typedef struct person {
 } Person;
 
 // "toString" for C++
-std::ostream&amp; operator<<(std::ostream &amp;strm, const person &amp;a) {
+std::ostream& operator<<(std::ostream &strm, const person &a) {
   return strm << "Person(" << a.prename << " " << a.surname << ", " 
               << a.age << ")";
 }
@@ -86,7 +86,7 @@ typedef struct person {
 } Person;
 
 // ".equals()" for C++
-bool operator<(const Person&amp; a, const Person&amp; b){
+bool operator<(const Person& a, const Person& b){
     if (!(a.prename == b.prename)) {
         return a.prename < b.prename;
     } else if (!(a.surname < b.surname)) {
@@ -97,7 +97,7 @@ bool operator<(const Person&amp; a, const Person&amp; b){
 }
 
 // "toString" for C++
-std::ostream&amp; operator<<(std::ostream &amp;strm, const person &amp;a) {
+std::ostream& operator<<(std::ostream &strm, const person &a) {
   return strm << "Person(" << a.prename << " " << a.surname << ", " 
               << a.age << ")";
 }
@@ -122,7 +122,7 @@ int main(){
 By the way, if you don't define <code><</code> you get something like this:
 {% highlight cpp %}In file included from /usr/include/c++/4.4/algorithm:62,
                  from operators.cpp:2:
-/usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;const _Tp&amp; std::__median(const _Tp&amp;, const _Tp&amp;, const _Tp&amp;) [with _Tp = person]&rsquo;:
+/usr/include/c++/4.4/bits/stl_algo.h: In function &lsquo;const _Tp& std::__median(const _Tp&, const _Tp&, const _Tp&) [with _Tp = person]&rsquo;:
 /usr/include/c++/4.4/bits/stl_algo.h:2268:   instantiated from &lsquo;void std::__introsort_loop(_RandomAccessIterator, _RandomAccessIterator, _Size) [with _RandomAccessIterator = Person*, _Size = int]&rsquo;
 /usr/include/c++/4.4/bits/stl_algo.h:5220:   instantiated from &lsquo;void std::sort(_RAIter, _RAIter) [with _RAIter = Person*]&rsquo;
 operators.cpp:34:   instantiated from here
@@ -195,7 +195,7 @@ typedef struct person {
 } Person;
  
 // "comperator" for C++
-bool operator==(const Person&amp; a, const Person&amp; b){
+bool operator==(const Person& a, const Person& b){
     return a.age == 30;
 }
  

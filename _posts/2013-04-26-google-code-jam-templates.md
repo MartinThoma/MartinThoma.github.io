@@ -88,8 +88,8 @@ public class DancingWithGoogle {
 			Arrays.fill(maxBest[i], -1);
 
 		for (int A = 0; A <= 10; A++)
-			for (int B = A; B <= 10 &amp;&amp; B <= A + 2; B++)
-				for (int C = B; C <= 10 &amp;&amp; C <= A + 2; C++) {
+			for (int B = A; B <= 10 && B <= A + 2; B++)
+				for (int C = B; C <= 10 && C <= A + 2; C++) {
 					int tot = A + B + C, sur = (C - A == 2 ? 1 : 0);
 					maxBest[tot][sur] = Math.max(maxBest[tot][sur], C);
 				}

@@ -9,9 +9,9 @@ tags:
 - Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Sicherheit&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.iks.kit.edu/index.php?id=hofheinz">Jun.-Prof. Hofheinz</a> im Sommersemester 2013 geh&ouml;rt.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Sicherheit&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.iks.kit.edu/index.php?id=hofheinz">Jun.-Prof. Hofheinz</a> im Sommersemester 2013 gehört.</div>
 
-An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
+An diesem Artikel wird natürlich noch gearbeitet.
 
 <h2>Behandelter Stoff</h2>
 <table>
@@ -26,11 +26,11 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>22.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Symmetrische Verschl&uuml;sselungen; Stromchiffren; Blockchiffren (DES, AES); <span class="hint" title="ECB, CBC, CFB, OFB"><a href="http://commons.wikimedia.org/wiki/User:MartinThoma#Betriebsmodi">Betriebsmodi</a></span>:
+<td rowspan="2" style="border-bottom:1px solid black;">Symmetrische Verschlüsselungen; Stromchiffren; Blockchiffren (DES, AES); <span class="hint" title="ECB, CBC, CFB, OFB"><a href="http://commons.wikimedia.org/wiki/User:MartinThoma#Betriebsmodi">Betriebsmodi</a></span>:
     <table>
       <tr>
         <th rowspan="2">Modus</th>
-        <th rowspan="2">Verschl&uuml;sselung<br/>Entschl&uuml;sselung</th>
+        <th rowspan="2">Verschlüsselung<br/>Entschlüsselung</th>
         <th colspan="2">Parallelisierbarkeit</th>
       </tr>
       <tr>
@@ -79,7 +79,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>29.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="128 Bit, 160 Bit und 256 Bit hashes sind &uuml;blich">Hashfunktionen</span>, <a href="../kollisionsresistente-hashfunktionen-und-einwegfunktionen/">Kollisionsresistenz $\Rightarrow$ Einwegeigenschaft</a>, <span class="hint" title="Beeinflusste MD5, SHA-1, SHA-2. SHA-3 benutzt MD nicht.">Merkle-Damgard-Konstruktion</span> und Length-Extension-Problematik, Birthday Attack, Meet-in-the-Middle-Angriff</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="128 Bit, 160 Bit und 256 Bit hashes sind üblich">Hashfunktionen</span>, <a href="../kollisionsresistente-hashfunktionen-und-einwegfunktionen/">Kollisionsresistenz $\Rightarrow$ Einwegeigenschaft</a>, <span class="hint" title="Beeinflusste MD5, SHA-1, SHA-2. SHA-3 benutzt MD nicht.">Merkle-Damgard-Konstruktion</span> und Length-Extension-Problematik, Birthday Attack, Meet-in-the-Middle-Angriff</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL04.pdf">VL 04</a></td>
@@ -87,7 +87,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>06.05.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Public-Key-Verschl&uuml;sselung (Idee, RSA); Meet-in-the-Middle-Angriff f&uuml;r Hashfunktionen</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Public-Key-Verschlüsselung (Idee, RSA); Meet-in-the-Middle-Angriff für Hashfunktionen</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL05.pdf">VL 05</a></td>
@@ -95,7 +95,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>13.05.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Rest Public-Key-Verschl&uuml;sselung (ElGamal, Vergleich RSA/ElGamal), Symmetrische Authentifikation von Nachrichten (Sicherheitsmodell, Hash-then-Sign, <abbr title="Pseudorandom functions">PRFs</abbr>, <abbr title="Hash-based message authentication code">HMAC</abbr>), <a href="http://de.wikipedia.org/wiki/Message_Authentication_Code">MAC</a></td>
+<td rowspan="2" style="border-bottom:1px solid black;">Rest Public-Key-Verschlüsselung (ElGamal, Vergleich RSA/ElGamal), Symmetrische Authentifikation von Nachrichten (Sicherheitsmodell, Hash-then-Sign, <abbr title="Pseudorandom functions">PRFs</abbr>, <abbr title="Hash-based message authentication code">HMAC</abbr>), <a href="http://de.wikipedia.org/wiki/Message_Authentication_Code">MAC</a></td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL06.pdf">VL 06</a></td>
@@ -111,7 +111,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>03.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Schl&uuml;sselaustausch (<span class="hint" title="Kommunikation &uuml;ber Key Center. Wichtig ist vor allem ein Zeitstempel.">Kerberos</span>, TLS, Angriffe)</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Schlüsselaustausch (<span class="hint" title="Kommunikation über Key Center. Wichtig ist vor allem ein Zeitstempel.">Kerberos</span>, TLS, Angriffe)</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL08.pdf">VL 08</a></td>
@@ -119,7 +119,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>10.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Schl&uuml;sselaustausch (TLS-Angriffe, weitere Verfahren), Identifikationsprotokolle</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Schlüsselaustausch (TLS-Angriffe, weitere Verfahren), Identifikationsprotokolle</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL09.pdf">VL 09</a></td>
@@ -143,7 +143,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>24.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Nutzerauthentifikation (W&ouml;rterbuchangriffe, interaktive Authentifikation, positionsbasierte Kryptographie); Rainbowtables; LM-Hashes</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Nutzerauthentifikation (Wörterbuchangriffe, interaktive Authentifikation, positionsbasierte Kryptographie); Rainbowtables; LM-Hashes</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL12.pdf">VL 12</a></td>
@@ -160,7 +160,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>01.07.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Zugriffskontrolle (Bell-LaPadula, Chinese Wall), Analyse gr&ouml;&szlig;erer Systeme</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Zugriffskontrolle (Bell-LaPadula, Chinese Wall), Analyse grö&szlig;erer Systeme</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL14.pdf">VL 14</a></td>
@@ -168,7 +168,7 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>08.07.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Analyse gr&ouml;&szlig;erer Systeme, h&auml;ufige Sicherheitsprobleme</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Analyse grö&szlig;erer Systeme, häufige Sicherheitsprobleme</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL15.pdf">VL 15</a></td>
@@ -176,34 +176,34 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 <tr>
 <td>11.07.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">H&auml;ufige Sicherheitsprobleme</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Häufige Sicherheitsprobleme</td>
 </tr> 
 <tr>
 <td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL16.pdf">VL 16</a></td>
 </tr>
 </table>
 
-Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
+Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
-<h2>Definitionen und S&auml;tze</h2>
+<h2>Definitionen und Sätze</h2>
 <div class="definition">
-Eine &uuml;ber $k$ parametrisierte Funktion $H$ ist <strong>kollisionsresistent</strong>, wenn jeder PPT-Algorithmus nur mit h&ouml;chstens vernachl&auml;ssigbarer Wahrscheinlichkeit eine Kollision findet.
+Eine über $k$ parametrisierte Funktion $H$ ist <strong>kollisionsresistent</strong>, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit eine Kollision findet.
 
-F&uuml;r jeden PPT-Algorithmus $\mathcal{A}$ ist
+Für jeden PPT-Algorithmus $\mathcal{A}$ ist
 
 $Adv^{cr}_{H,\mathcal{A}}(k) := Pr[(X,X') \leftarrow \mathcal{A}(1^k): X \neq X' \land H_k(X) = H_k(X')]$
 
-vernachl&auml;ssigbar.
+vernachlässigbar.
 </div>
 
 <div class="definition">
-Eine &uuml;ber $k$ parametrisierte Funktion $H$ ist eine <strong>Einwegfunktion</strong> bzgl. der Urbildverteilung $\mathcal{X}_k$, wenn jeder PPT-Algorithmus nur mit h&ouml;chstens vernachl&auml;ssigbarer Wahrscheinlichkeit ein Urbild eines gegebenen, aus $\mathcal{X}_k$ gezogenen Bildes findet.
+Eine über $k$ parametrisierte Funktion $H$ ist eine <strong>Einwegfunktion</strong> bzgl. der Urbildverteilung $\mathcal{X}_k$, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit ein Urbild eines gegebenen, aus $\mathcal{X}_k$ gezogenen Bildes findet.
 
-F&uuml;r jeden PPT-Algorithmus $\mathcal{A}$ ist 
+Für jeden PPT-Algorithmus $\mathcal{A}$ ist 
 
 $Adv^{cr}_{H,\mathcal{A}}(k) := Pr[X' \leftarrow \mathcal{A}(1^k, H(X)): H(X) = H(X')]$
 
-vernachl&auml;ssigbar, wobei $X \leftarrow \mathcal{X}_k$ gew&auml;hlt wurde.
+vernachlässigbar, wobei $X \leftarrow \mathcal{X}_k$ gewählt wurde.
 </div>
 
 <div class="theorem">
@@ -216,21 +216,21 @@ Ist $f$ eine kollisionsresistente Hashfunktion, so ist die Merkle&ndash;Damg&ari
 
 <div class="theorem">
 Hash-Then-Sign-Paradigma: Sei (Sig, Ver) EUF-CMA-sicher und H eine kollisionsresistente Hashfunktion.
-Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M), $\sigma$) erkl&auml;rte <abbr title="Message Authentification Code">MAC</abbr> EUF-CMA-sicher.
+Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M), $\sigma$) erklärte <abbr title="Message Authentification Code">MAC</abbr> EUF-CMA-sicher.
 </div>
 
 <h2>Fragen</h2>
 <div class="question">
-<span class="question">Wann ist ein Verschl&uuml;sselungsschema IND-CPA-sicher?</span>
+<span class="question">Wann ist ein Verschlüsselungsschema IND-CPA-sicher?</span>
 <div class="answer">
-IND-CPA bedeutet &bdquo;indistinguishability under chosen-plaintext attacks&ldquo;. Ein Verschl&uuml;sselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgew&auml;hlten Klartexten unterscheiden kann.
+IND-CPA bedeutet &bdquo;indistinguishability under chosen-plaintext attacks&ldquo;. Ein Verschlüsselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgewählten Klartexten unterscheiden kann.
 </div>
 </div>
 
 <div class="question">
 <span class="question">Wann ist eine Signatur EUF-CMA-sicher?</span>
 <div class="answer">
-EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&ldquo;. Eine Signatur ist genau dann EUF-CMA-Sicher, wenn alle PPT-Angreifer $\mathcal{A}$ folgendes Spiel nur vernachl&auml;ssigbar oft gewinnen:
+EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&ldquo;. Eine Signatur ist genau dann EUF-CMA-Sicher, wenn alle PPT-Angreifer $\mathcal{A}$ folgendes Spiel nur vernachlässigbar oft gewinnen:
 <ul>
   <li>$\mathcal{A}$ hat Zugriff auf ein $Sig(K, \cdot)$-Orakel</li>
   <li>$\mathcal{A}$ gibt als Ausgabe $(M^*, \sigma^*)$</li>
@@ -242,7 +242,7 @@ EUF-CMA bedeutet &bdquo;existentially unforgeable under chosen-message attacks&l
 <div class="question">
 <span class="question">Was sind Replay-Angriffe?</span>
 <div class="answer">
-Bei Replay-Angriffen f&auml;ngt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Sp&auml;ter schickt er diesen Teil ohne weitere Bearbeitung an einen der Beiden.
+Bei Replay-Angriffen fängt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Später schickt er diesen Teil ohne weitere Bearbeitung an einen der Beiden.
 </div>
 </div>
 
@@ -261,24 +261,24 @@ Die Merkle&ndash;Damg&aring;rd-Konstruktion ist eine Methode zur Konstruktion vo
 <ol>
   <li>Generiere zwei Primzahlen $p, q \in \mathbb{P}$</li>
   <li>Berechne $n := p \cdot q$ und $\varphi(n) = (p-1) \cdot (q-1)$</li>
-  <li>W&auml;hle $e$, sodass gilt: $ggT(e, \varphi(n)) = 1$ und $1 < e < \varphi(n)$</li>
+  <li>Wähle $e$, sodass gilt: $ggT(e, \varphi(n)) = 1$ und $1 < e < \varphi(n)$</li>
   <li>Berechne $d$, sodass gilt: $e \cdot d \equiv 1 \mod \varphi(n)$</li>
 </ol>
 
-Verschl&uuml;sselung einer Nachricht $m$: $c = m^{e} \mod n$
-Verschl&uuml;sselung eines Ciphertextes $c$: $m = c^{d} \mod n$
+Verschlüsselung einer Nachricht $m$: $c = m^{e} \mod n$
+Verschlüsselung eines Ciphertextes $c$: $m = c^{d} \mod n$
 </div>
 </div>
 
 <div class="question">
 <span class="question">Welches Problem birgt ein kleines $e$ beim RSA-Verfahren?</span>
 <div class="answer">
-Folgender Angriff ist f&uuml;r $e=3$ m&ouml;glich:
+Folgender Angriff ist für $e=3$ möglich:
 <ul>
   <li>Nachricht $m$ wird an 3 Benutzer geschickt</li>
-  <li>Angreifer kennt Chiffrate f&uuml;r $N_1, N_2, N_3$.</li>
-  <li>Chinesischer Restsatz f&uuml;r $m^3 \mod N_1 N_2 N_3$.</li>
-  <li>Wurzelziehen &uuml;ber $\mathbb{Z}$ liefert $m$</li>
+  <li>Angreifer kennt Chiffrate für $N_1, N_2, N_3$.</li>
+  <li>Chinesischer Restsatz für $m^3 \mod N_1 N_2 N_3$.</li>
+  <li>Wurzelziehen über $\mathbb{Z}$ liefert $m$</li>
 </ul>
 </div>
 </div>
@@ -287,7 +287,7 @@ Folgender Angriff ist f&uuml;r $e=3$ m&ouml;glich:
 <div class="question">
 <span class="question">Was ist damit gemeint, wenn man sagt &bdquo;RSA ist Homomorph&ldquo;?</span>
 <div class="answer">
-Homomorphie ist folgende (unerw&uuml;nschte) Eigenschaft:
+Homomorphie ist folgende (unerwünschte) Eigenschaft:
 
 $\begin{align}
 Enc(pk, m_1) \cdot Enc(pk, m_2) &= m_1^e \cdot m_2^e\\
@@ -296,7 +296,7 @@ Enc(pk, m_1) \cdot Enc(pk, m_2) &= m_1^e \cdot m_2^e\\
 \end{align}$
 
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
-Angenommen bei einer Auktion werden die gebotenen Geldbetr&auml;ge verschl&uuml;sselt. Dann kann ein Angreifer das Chiffrat (g&uuml;ltig) ver&auml;ndern. So kann er den Geldbetrag ohne Probleme verdoppeln.
+Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.
 </div>
 </div>
 
@@ -313,21 +313,21 @@ $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 <span class="question">Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</span>
 <div class="answer">
 <ol>
-  <li>W&auml;hle eine zyklische Gruppe $\mathbb{G} = \langle g \rangle$.</li>
-  <li>$pk = (\mathbb{G}, g, g^x)$, $sk=(\mathbb{G}, g, x)$, wobei $x$ zuf&auml;llig gew&auml;hlt wird.</li>
+  <li>Wähle eine zyklische Gruppe $\mathbb{G} = \langle g \rangle$.</li>
+  <li>$pk = (\mathbb{G}, g, g^x)$, $sk=(\mathbb{G}, g, x)$, wobei $x$ zufällig gewählt wird.</li>
 </ol>
 
-Verschl&uuml;sselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zuf&auml;lligem $y$ &rarr; Verschl&uuml;sselung ist zuf&auml;llig!
-Verschl&uuml;sselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
+Verschlüsselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zufälligem $y$ &rarr; Verschlüsselung ist zufällig!
+Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
 </div>
 </div>
 
 <div class="question">
-<span class="question">Wie funktioniert das Kerberos-Schl&uuml;sselaustauschprotokoll?</span>
+<span class="question">Wie funktioniert das Kerberos-Schlüsselaustauschprotokoll?</span>
 <div class="answer">
 <ul>
-  <li>Alice schreibt dem <abbr title="Key Center">KC</abbr>, dass Alice und Bob gerne einen Schl&uuml;sselaustausch vornehmen wollen.</li>
-  <li>Das KC schickt Alice ihren Schl&uuml;ssel $K_A$, den sie f&uuml;r die Kommunikation mit Bob verwenden kann. Zus&auml;tzlich wird ein Zeitstempel $T_{KC}$, eine G&uuml;ltigkeitsdauer $L$ sowie ein frischer Schl&uuml;ssel $K$ &uuml;bertragen.</li>
+  <li>Alice schreibt dem <abbr title="Key Center">KC</abbr>, dass Alice und Bob gerne einen Schlüsselaustausch vornehmen wollen.</li>
+  <li>Das KC schickt Alice ihren Schlüssel $K_A$, den sie für die Kommunikation mit Bob verwenden kann. Zusätzlich wird ein Zeitstempel $T_{KC}$, eine Gültigkeitsdauer $L$ sowie ein frischer Schlüssel $K$ übertragen.</li>
   <li>TODO!!!!</li>
 </ul>
 
@@ -337,16 +337,16 @@ Ein <a href="http://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a>
 
 
 <div class="question">
-<span class="question">Warum kann es schlecht f&uuml;r die Sicherheit sein, wenn man komprimiert?</span>
+<span class="question">Warum kann es schlecht für die Sicherheit sein, wenn man komprimiert?</span>
 <div class="answer">
-Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor der Kompression hinzuf&uuml;gen. Wenn der Ciphertext deutlich weniger w&auml;chst als er an Text hinzugef&uuml;gt hat, kann er vermuten, dass er den Text erraten hat. (&rarr; CRIME-Angriff)
+Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor der Kompression hinzufügen. Wenn der Ciphertext deutlich weniger wächst als er an Text hinzugefügt hat, kann er vermuten, dass er den Text erraten hat. (&rarr; CRIME-Angriff)
 </div>
 </div>
 
 <div class="question">
 <span class="question">Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</span>
 <div class="answer">
-Ein Angreifer kann die Klartextnachricht &auml;ndern. Wenn er wei&szlig; (oder zumindest ahnt) was der Klartext ist, kann er daf&uuml;r sorgen, dass ein Klartext gleicher L&auml;nge seiner Wahl bei der Entschl&uuml;sselung herauskommt.
+Ein Angreifer kann die Klartextnachricht ändern. Wenn er wei&szlig; (oder zumindest ahnt) was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
 </div>
 </div>
 
@@ -369,7 +369,7 @@ Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,
 {% caption align="aligncenter" width="512" caption="TLS Handshake" url="../images/2013/04/tls-handshake.jpg" alt="TLS Handshake"  height="449" class="size-full wp-image-74511" %}
 
 <h3>Change Cipher Spec Drop</h3>
-Ein Angriff auf verschl&uuml;sselte Verbindungen:
+Ein Angriff auf verschlüsselte Verbindungen:
 {% caption align="aligncenter" width="512" caption="Change cipher spec drop" url="../images/2013/04/change-cipher-spec-drop.jpg" alt="Change cipher spec drop"  height="275" class="size-full wp-image-74501" %}
 
 
@@ -399,22 +399,22 @@ Bisher gab es meist 6 Aufgaben mit jeweils 10 Punkten:
 
 <ol>
   <li>Blockchiffren und <a href="http://commons.wikimedia.org/wiki/User:MartinThoma#Betriebsmodi">Betriebsmodi</a></li>
-  <li>ElGamal / <a href="http://de.wikipedia.org/wiki/Diffie-Hellman-Schl%C3%BCsselaustausch">Diffie-Hellman-Schl&uuml;sselaustausch</a></li>
+  <li>ElGamal / <a href="http://de.wikipedia.org/wiki/Diffie-Hellman-Schl%C3%BCsselaustausch">Diffie-Hellman-Schlüsselaustausch</a></li>
   <li>RSA; RSA-OAEP</li>
   <li>Kerberos / Feistel / (H)MAC</li>
   <li>Bell-LaPadula / Chinese Wall</li>
   <li>Multiple Choice</li>
 </ol>
 
-<h2>&Uuml;bungsbetrieb</h2>
-Es gibt &Uuml;bungsbl&auml;tter auf der Vorlesungswebsite, aber keinen &Uuml;bungsschein, keine Abgaben und keine Bonuspunkte.
+<h2>Übungsbetrieb</h2>
+Es gibt Übungsblätter auf der Vorlesungswebsite, aber keinen Übungsschein, keine Abgaben und keine Bonuspunkte.
 
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: Freitag, den 26. Juli 2013 von 14:00 bis 15:00 Uhr (Klausur dauerte eine Stunde)
 <strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im H.S.a.F)
 <strong>Punkte</strong>: 60
 <strong>Bestehensgrenze</strong>: 20
-<strong>&Uuml;bungsschein</strong>: Nein
+<strong>Übungsschein</strong>: Nein
 <strong>Bonuspunkte</strong>: Nein
 
 <h2>Nicht vergessen</h2>
@@ -426,6 +426,6 @@ Es gibt &Uuml;bungsbl&auml;tter auf der Vorlesungswebsite, aber keinen &Uuml;bun
 <h2>Ergebnisse</h2>
 Sind noch nicht drau&szlig;en (Stand: 30.07.2013)
 
-Sind nun drau&szlig;en (Stand: 09.08.2013): <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_HK-Ergebnis.pdf">Vorl&auml;ufige Ergebnisse als PDF</a>
+Sind nun drau&szlig;en (Stand: 09.08.2013): <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_HK-Ergebnis.pdf">Vorläufige Ergebnisse als PDF</a>
 
 {% caption align="aligncenter" width="300" caption="Ergebnis der Sicherheitsklausur" url="../images/2013/04/ergebnis-sicherheit-300x227.png" alt="Ergebnis der Sicherheitsklausur"  height="227" class="size-medium wp-image-75851" %}

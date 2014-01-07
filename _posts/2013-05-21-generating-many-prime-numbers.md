@@ -180,10 +180,10 @@ void sieveOfEratosthenes(unsigned long n) {
     vector<bool> primesEratosthenes (n+1, true);
 
     unsigned long tmp = 2;
-    fwrite(&amp;tmp, sizeof(unsigned long),1, pFile);
+    fwrite(&tmp, sizeof(unsigned long),1, pFile);
     for (unsigned long i=3; i<n; i+=2) {
         if (primesEratosthenes[i] == true) {
-            fwrite(&amp;i, sizeof(unsigned long),1, pFile);
+            fwrite(&i, sizeof(unsigned long),1, pFile);
      
             for (unsigned long j=2; j*i<=n; j++) {
                 primesEratosthenes[j*i] = false;
@@ -232,7 +232,7 @@ int main(int argc, char* argv[]) {
         long long x;
         size_t read;
         while (!feof(pFile)) {
-            read = fread(&amp;x, sizeof(long long), 1, pFile);
+            read = fread(&x, sizeof(long long), 1, pFile);
             (void) read;
             if (feof(pFile)){
                 break; // otherwise it duplicates the last entry
@@ -262,10 +262,10 @@ void sieveOfEratosthenes(long long n) {
     vector<bool> primesEratosthenes (n+1, true);
  
     long long tmp = 2;
-    fwrite(&amp;tmp, sizeof(long long),1, pFile);
+    fwrite(&tmp, sizeof(long long),1, pFile);
     for (long long i=3; i<n; i+=2) {
         if (primesEratosthenes[i]) {
-            fwrite(&amp;i, sizeof(long long), 1, pFile);
+            fwrite(&i, sizeof(long long), 1, pFile);
       
             for (long long j=i*i; j<=n; j+=i) {
                 primesEratosthenes[j] = false;
@@ -329,17 +329,17 @@ void sieveOfAtkin(long long limit) {
         long long xSquare = x*x;
 		for (long long y = 1; y <= root; y++) {
 			long long n = (4*xSquare)+(y*y);
-			if (n <= limit &amp;&amp; (n % 12 == 1 || n % 12 == 5)) {
+			if (n <= limit && (n % 12 == 1 || n % 12 == 5)) {
                 is_prime[n] = !is_prime[n];
             }
 
 			n = (3*xSquare)+(y*y);
-			if (n <= limit &amp;&amp; n % 12 == 7) {
+			if (n <= limit && n % 12 == 7) {
                 is_prime[n] = !is_prime[n];
             }
 
 			n = (3*xSquare)-(y*y);
-			if (x > y &amp;&amp; n <= limit &amp;&amp; n % 12 == 11) {
+			if (x > y && n <= limit && n % 12 == 11) {
                 is_prime[n] = !is_prime[n];
             }
 		}
@@ -360,13 +360,13 @@ void sieveOfAtkin(long long limit) {
 
     // Output primes
     long long primTmp = 2;
-    fwrite(&amp;primTmp, sizeof(long long), 1, pFile);
+    fwrite(&primTmp, sizeof(long long), 1, pFile);
     primTmp = 3;
-    fwrite(&amp;primTmp, sizeof(long long), 1, pFile);
+    fwrite(&primTmp, sizeof(long long), 1, pFile);
 
 	for (long long n = 5; n < limit; n++) {
 		if (is_prime[n]) {
-            fwrite(&amp;n, sizeof(long long), 1, pFile);
+            fwrite(&n, sizeof(long long), 1, pFile);
 		}
 	}
 

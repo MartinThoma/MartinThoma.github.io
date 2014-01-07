@@ -19,7 +19,7 @@ They look like this:
 Once in a while, I would like to search if a topic was already discussed. Here is how you can do it:
 
 <h2>Download archives</h2>
-{% highlight bash %}wget --save-cookies cookie.txt --post-data 'username=user&amp;password=pass' -A gz -m -p -E -k -K -np https://lists.abc.org/mailman/blub/{% endhighlight %}
+{% highlight bash %}wget --save-cookies cookie.txt --post-data 'username=user&password=pass' -A gz -m -p -E -k -K -np https://lists.abc.org/mailman/blub/{% endhighlight %}
 
 <h2>Rename archives</h2>
 {% highlight bash %}for file in *.txt.gz; do mv "$file" "${file%.txt.gz}.txt"; done{% endhighlight %}

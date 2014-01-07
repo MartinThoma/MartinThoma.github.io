@@ -6,7 +6,7 @@ date: 2012-05-28 12:40:52.000000000 +02:00
 categories:
 - Code
 tags:
-- C
+- CPP
 - STL
 - Vector
 featured_image: 2012/05/CPP-thumb.png

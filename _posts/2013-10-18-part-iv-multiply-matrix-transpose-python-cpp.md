@@ -86,13 +86,13 @@ int getMatrixM(string filename) {
 	return count(line.begin(), line.end(), '\t') + 1;
 }
 
-void read(string filename, vector< vector<double> > &amp;A) {
+void read(string filename, vector< vector<double> > &A) {
 	string line;
 	FILE* matrixfile = freopen(filename.c_str(), "r", stdin);
 
 	int i = 0, j;
     double a;
-	while (getline(cin, line) &amp;&amp; !line.empty()) {
+	while (getline(cin, line) && !line.empty()) {
 		istringstream iss(line);
 		j = 0;
 		while (iss >> a) {
@@ -106,9 +106,9 @@ void read(string filename, vector< vector<double> > &amp;A) {
 }
 
 vector< vector<double> > ikjalgorithmTranspose(
-                                   vector< vector<double> > &amp;J, 
-								   vector< vector<double> > &amp;T,
-								   vector< vector<double> > &amp;R, 
+                                   vector< vector<double> > &J, 
+								   vector< vector<double> > &T,
+								   vector< vector<double> > &R, 
                                    int n, int m) {
 	for (register int i = 0; i < n; i++) {
 		for (register int k = 0; k < m; k++) {
@@ -127,8 +127,8 @@ vector< vector<double> > ikjalgorithmTranspose(
 	return R;
 }
 
-void transpose(vector< vector<double> > &amp;A, 
-               vector< vector<double> > &amp;B, int n, int m) {
+void transpose(vector< vector<double> > &A, 
+               vector< vector<double> > &B, int n, int m) {
     for (int i=0; i < n; i++) {
         for (int j=0; j < m; j++) {
             B[j][i] = A[i][j];
@@ -136,7 +136,7 @@ void transpose(vector< vector<double> > &amp;A,
     }
 }
 
-void printMatrix(vector< vector<double> > &amp;matrix, int n) {
+void printMatrix(vector< vector<double> > &matrix, int n) {
 	for (int i=0; i < n; i++) {
 		for (int j=0; j < n; j++) {
 			if (j != 0) {
@@ -179,8 +179,8 @@ sys	0m1.812s
 <h3>Direct multiplication</h3>
 One might think that transposing first is a bad idea, because you can do this:
 {% highlight cpp %}
-vector< vector<double> > ikjDirect(vector< vector<double> > &amp;J, 
-								   vector< vector<double> > &amp;R, 
+vector< vector<double> > ikjDirect(vector< vector<double> > &J, 
+								   vector< vector<double> > &R, 
                                    int n, int m) {
 	for (register int i = 0; i < n; i++) {
 		for (register int k = 0; k < m; k++) {

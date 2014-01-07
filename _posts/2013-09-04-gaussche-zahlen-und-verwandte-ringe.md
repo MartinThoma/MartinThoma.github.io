@@ -9,7 +9,7 @@ tags:
 - Algebra
 featured_image: 2013/08/algebra-thumb.jpg
 ---
-Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enth&auml;lt.
+Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enthält.
 Sei $A := \{a + b \sqrt{z} | a, b \in \mathbb{Z}\}$.
 
 <strong>Behauptung</strong>: $\mathbb{Z}[\sqrt{z}] = A$
@@ -18,8 +18,8 @@ Sei $A := \{a + b \sqrt{z} | a, b \in \mathbb{Z}\}$.
 Zuerst zeige ich $\mathbb{Z}[\sqrt{z}] \supseteq A$:
 
 <ul>
-<li>$\mathbb{Z}[\sqrt{z}]$ enth&auml;lt $\mathbb{Z} \Rightarrow \{a \in \mathbb{Z}\} \subseteq \mathbb{Z}[\sqrt{z}]$</li>
-<li>$\mathbb{Z}[\sqrt{z}]$ enth&auml;lt $\sqrt{z} \Rightarrow \{\sqrt{z}\} \subseteq \mathbb{Z}[\sqrt{z}]$</li>
+<li>$\mathbb{Z}[\sqrt{z}]$ enthält $\mathbb{Z} \Rightarrow \{a \in \mathbb{Z}\} \subseteq \mathbb{Z}[\sqrt{z}]$</li>
+<li>$\mathbb{Z}[\sqrt{z}]$ enthält $\sqrt{z} \Rightarrow \{\sqrt{z}\} \subseteq \mathbb{Z}[\sqrt{z}]$</li>
 <li>$\mathbb{Z}[\sqrt{z}]$ ist ein Ring, also ist $(\mathbb{Z}[\sqrt{z}], +)$ eine abelsche Gruppe.</li>
 <li>$\Rightarrow A \subseteq \mathbb{Z}[\sqrt{z}]$</li>
 </ul>

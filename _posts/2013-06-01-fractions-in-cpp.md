@@ -94,14 +94,14 @@ class Fraction {
         operator double() {return ((double)numerator)/denominator;}
 };
 
-Fraction operator+(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+Fraction operator+(const Fraction& lhs, const Fraction& rhs) {
     Fraction tmp(lhs.numerator*rhs.denominator
                 +rhs.numerator*lhs.denominator,
                 lhs.denominator*rhs.denominator);
     return tmp;
 }
 
-Fraction operator+=(Fraction&amp; lhs, const Fraction&amp; rhs) {
+Fraction operator+=(Fraction& lhs, const Fraction& rhs) {
     Fraction tmp(lhs.numerator*rhs.denominator
                 +rhs.numerator*lhs.denominator,
                 lhs.denominator*rhs.denominator);
@@ -109,14 +109,14 @@ Fraction operator+=(Fraction&amp; lhs, const Fraction&amp; rhs) {
     return lhs;
 }
 
-Fraction operator-(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+Fraction operator-(const Fraction& lhs, const Fraction& rhs) {
     Fraction tmp(lhs.numerator*rhs.denominator
                 -rhs.numerator*lhs.denominator,
                 lhs.denominator*rhs.denominator);
     return tmp;
 }
 
-Fraction operator-=(Fraction&amp; lhs, const Fraction&amp; rhs) {
+Fraction operator-=(Fraction& lhs, const Fraction& rhs) {
     Fraction tmp(lhs.numerator*rhs.denominator
                 -rhs.numerator*lhs.denominator,
                 lhs.denominator*rhs.denominator);
@@ -124,36 +124,36 @@ Fraction operator-=(Fraction&amp; lhs, const Fraction&amp; rhs) {
     return lhs;
 }
 
-Fraction operator*(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+Fraction operator*(const Fraction& lhs, const Fraction& rhs) {
     Fraction tmp(lhs.numerator*rhs.numerator,
                lhs.denominator*rhs.denominator);
     return tmp;
 }
 
-Fraction operator*=(Fraction&amp; lhs, const Fraction&amp; rhs) {
+Fraction operator*=(Fraction& lhs, const Fraction& rhs) {
     Fraction tmp(lhs.numerator*rhs.numerator,
                lhs.denominator*rhs.denominator);
     lhs = tmp;
     return lhs;
 }
 
-Fraction operator*(int lhs, const Fraction&amp; rhs) {
+Fraction operator*(int lhs, const Fraction& rhs) {
     Fraction tmp(lhs*rhs.numerator,rhs.denominator);
     return tmp;
 }
 
-Fraction operator*(const Fraction&amp; rhs, int lhs) {
+Fraction operator*(const Fraction& rhs, int lhs) {
     Fraction tmp(lhs*rhs.numerator,rhs.denominator);
     return tmp;
 }
 
-Fraction operator/(const Fraction&amp; lhs, const Fraction&amp; rhs) {
+Fraction operator/(const Fraction& lhs, const Fraction& rhs) {
     Fraction tmp(lhs.numerator*rhs.denominator,
                  lhs.denominator*rhs.numerator);
     return tmp;
 }
 
-std::ostream&amp; operator<<(std::ostream &amp;strm, const Fraction &amp;a) {
+std::ostream& operator<<(std::ostream &strm, const Fraction &a) {
     if (a.denominator == 1) {
         strm << a.numerator;
     } else {

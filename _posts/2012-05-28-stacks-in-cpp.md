@@ -6,7 +6,7 @@ date: 2012-05-28 11:45:40.000000000 +02:00
 categories:
 - Code
 tags:
-- C
+- CPP
 - Stack
 - STL
 featured_image: 2012/05/CPP-thumb.png

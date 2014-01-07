@@ -424,30 +424,30 @@ using namespace std;
 
 /*
  * Implementation of the strassen algorithm, similar to 
- * http://en.wikipedia.org/w/index.php?title=Strassen_algorithm&amp;oldid=498910018#Source_code_of_the_Strassen_algorithm_in_C_language
+ * http://en.wikipedia.org/w/index.php?title=Strassen_algorithm&oldid=498910018#Source_code_of_the_Strassen_algorithm_in_C_language
  */
  
-void strassen(vector< vector<int> > &amp;A, 
-              vector< vector<int> > &amp;B, 
-              vector< vector<int> > &amp;C, unsigned int tam);
+void strassen(vector< vector<int> > &A, 
+              vector< vector<int> > &B, 
+              vector< vector<int> > &C, unsigned int tam);
 unsigned int nextPowerOfTwo(int n);
-void strassenR(vector< vector<int> > &amp;A, 
-              vector< vector<int> > &amp;B, 
-              vector< vector<int> > &amp;C, 
+void strassenR(vector< vector<int> > &A, 
+              vector< vector<int> > &B, 
+              vector< vector<int> > &C, 
               int tam);
-void sum(vector< vector<int> > &amp;A, 
-         vector< vector<int> > &amp;B, 
-         vector< vector<int> > &amp;C, int tam);
-void subtract(vector< vector<int> > &amp;A, 
-              vector< vector<int> > &amp;B, 
-              vector< vector<int> > &amp;C, int tam);
+void sum(vector< vector<int> > &A, 
+         vector< vector<int> > &B, 
+         vector< vector<int> > &C, int tam);
+void subtract(vector< vector<int> > &A, 
+              vector< vector<int> > &B, 
+              vector< vector<int> > &C, int tam);
 
 void printMatrix(vector< vector<int> > matrix, int n);
-void read(string filename, vector< vector<int> > &amp;A, vector< vector<int> > &amp;B);
+void read(string filename, vector< vector<int> > &A, vector< vector<int> > &B);
 
 void ikjalgorithm(vector< vector<int> > A, 
                                    vector< vector<int> > B,
-                                   vector< vector<int> > &amp;C, int n) {
+                                   vector< vector<int> > &C, int n) {
     for (int i = 0; i < n; i++) {
         for (int k = 0; k < n; k++) {
             for (int j = 0; j < n; j++) {
@@ -457,9 +457,9 @@ void ikjalgorithm(vector< vector<int> > A,
     }
 }
 
-void strassenR(vector< vector<int> > &amp;A, 
-              vector< vector<int> > &amp;B, 
-              vector< vector<int> > &amp;C, int tam) {
+void strassenR(vector< vector<int> > &A, 
+              vector< vector<int> > &B, 
+              vector< vector<int> > &C, int tam) {
     if (tam <= leafsize) {
         ikjalgorithm(A, B, C, tam);
         return;
@@ -549,9 +549,9 @@ unsigned int nextPowerOfTwo(int n) {
     return pow(2, int(ceil(log2(n))));
 }
 
-void strassen(vector< vector<int> > &amp;A, 
-              vector< vector<int> > &amp;B, 
-              vector< vector<int> > &amp;C, unsigned int n) {
+void strassen(vector< vector<int> > &A, 
+              vector< vector<int> > &B, 
+              vector< vector<int> > &C, unsigned int n) {
     //unsigned int n = tam;
     unsigned int m = nextPowerOfTwo(n);
     vector<int> inner(m);
@@ -572,9 +572,9 @@ void strassen(vector< vector<int> > &amp;A,
     }
 }
 
-void sum(vector< vector<int> > &amp;A, 
-         vector< vector<int> > &amp;B, 
-         vector< vector<int> > &amp;C, int tam) {
+void sum(vector< vector<int> > &A, 
+         vector< vector<int> > &B, 
+         vector< vector<int> > &C, int tam) {
     int i, j;
  
     for (i = 0; i < tam; i++) {
@@ -584,9 +584,9 @@ void sum(vector< vector<int> > &amp;A,
     }
 }
 
-void subtract(vector< vector<int> > &amp;A, 
-              vector< vector<int> > &amp;B, 
-              vector< vector<int> > &amp;C, int tam) {
+void subtract(vector< vector<int> > &A, 
+              vector< vector<int> > &B, 
+              vector< vector<int> > &C, int tam) {
     int i, j;
  
     for (i = 0; i < tam; i++) {
@@ -604,7 +604,7 @@ int getMatrixSize(string filename) {
     return count(line.begin(), line.end(), '\t') + 1;
 }
 
-void read(string filename, vector< vector<int> > &amp;A, vector< vector<int> > &amp;B) {
+void read(string filename, vector< vector<int> > &A, vector< vector<int> > &B) {
     string line;
     FILE* matrixfile = freopen(filename.c_str(), "r", stdin);
     
@@ -614,7 +614,7 @@ void read(string filename, vector< vector<int> > &amp;A, vector< vector<int> > &
     }
 
     int i = 0, j, a;
-    while (getline(cin, line) &amp;&amp; !line.empty()) {
+    while (getline(cin, line) && !line.empty()) {
         istringstream iss(line);
         j = 0;
         while (iss >> a) {

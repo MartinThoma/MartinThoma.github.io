@@ -205,7 +205,7 @@ unsigned long long nextCollatz(unsigned long long n) {
 
 void insertCollatz(unsigned long long i){
     if (collatz.find(i) == collatz.end()) {
-        if (SHOW_DICT_CREATION &amp;&amp; !SURPRESS_OUTPUT) {
+        if (SHOW_DICT_CREATION && !SURPRESS_OUTPUT) {
             cout << i << " is not in collatz:" << endl;
         }
 
@@ -240,13 +240,13 @@ void insertCollatz(unsigned long long i){
 
             current = *it;
 
-            if (SHOW_DICT_CREATION &amp;&amp; !SURPRESS_OUTPUT) {
+            if (SHOW_DICT_CREATION && !SURPRESS_OUTPUT) {
                 cout << "\tinserted " << *it << "->" << el.next << endl;
             }
         }
 
         return;
-    } else if (SHOW_DICT_CREATION &amp;&amp; !SURPRESS_OUTPUT) {
+    } else if (SHOW_DICT_CREATION && !SURPRESS_OUTPUT) {
         cout << i << " was already in collatz." << endl;
     }
 }

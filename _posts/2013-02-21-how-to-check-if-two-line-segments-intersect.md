@@ -51,9 +51,9 @@ It is much easier to check if two bounding boxes intersect. It's simply:
  */
 public boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
     return a[0].x <= b[1].x 
-        &amp;&amp; a[1].x >= b[0].x 
-        &amp;&amp; a[0].y <= b[1].y
-        &amp;&amp; a[1].y >= b[0].y;
+        && a[1].x >= b[0].x 
+        && a[0].y <= b[1].y
+        && a[1].y >= b[0].y;
 }{% endhighlight %}
 
 If you have difficulties to understand why this works, take a look at this great <a href="http://silentmatt.com/rectangle-intersection/">animation for this formula</a>.
@@ -160,8 +160,8 @@ public boolean doLinesIntersect(LineSegment a, LineSegment b) {
     Point[] box1 = a.getBoundingBox();
     Point[] box2 = b.getBoundingBox();
     return doBoundingBoxesIntersect(box1, box2)
-            &amp;&amp; lineSegmentTouchesOrCrossesLine(a, b)
-            &amp;&amp; lineSegmentTouchesOrCrossesLine(b, a);
+            && lineSegmentTouchesOrCrossesLine(a, b)
+            && lineSegmentTouchesOrCrossesLine(b, a);
 }
 ```
 
@@ -329,8 +329,8 @@ The complete, tested code is on <a href="https://github.com/MartinThoma/algorith
      *         <code>false</code> otherwise.
      */
     public static boolean doBoundingBoxesIntersect(Point[] a, Point[] b) {
-        return a[0].x <= b[1].x &amp;&amp; a[1].x >= b[0].x &amp;&amp; a[0].y <= b[1].y
-                &amp;&amp; a[1].y >= b[0].y;
+        return a[0].x <= b[1].x && a[1].x >= b[0].x && a[0].y <= b[1].y
+                && a[1].y >= b[0].y;
     }
 
     /**
@@ -395,8 +395,8 @@ The complete, tested code is on <a href="https://github.com/MartinThoma/algorith
         Point[] box1 = a.getBoundingBox();
         Point[] box2 = b.getBoundingBox();
         return doBoundingBoxesIntersect(box1, box2)
-                &amp;&amp; lineSegmentTouchesOrCrossesLine(a, b)
-                &amp;&amp; lineSegmentTouchesOrCrossesLine(b, a);
+                && lineSegmentTouchesOrCrossesLine(a, b)
+                && lineSegmentTouchesOrCrossesLine(b, a);
     }
 }
 {% endhighlight %}

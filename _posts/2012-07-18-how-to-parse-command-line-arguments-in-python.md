@@ -81,7 +81,7 @@ def mul(A, B):
 
 def pow(A, n):
     if n == 1:     return A
-    if n &amp; 1 == 0: return pow(mul(A, A), n//2)
+    if n & 1 == 0: return pow(mul(A, A), n//2)
     else:          return mul(A, pow(mul(A, A), (n-1)//2))
 
 def fib(n):
@@ -111,7 +111,7 @@ def mul(A, B):
  
 def pow(A, n):
     if n == 1:     return A
-    if n &amp; 1 == 0: return pow(mul(A, A), n//2)
+    if n & 1 == 0: return pow(mul(A, A), n//2)
     else:          return mul(A, pow(mul(A, A), (n-1)//2))
  
 def fib(n):

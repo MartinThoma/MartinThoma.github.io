@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesung &bdquo;Einf&uuml;hrung in Rechnernetze&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://pcs.tm.kit.edu/21_beigl.php">Prof. Dr. Beigl</a> im Sommersemester 2013 geh&ouml;rt.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in Rechnernetze&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://pcs.tm.kit.edu/21_beigl.php">Prof. Dr. Beigl</a> im Sommersemester 2013 gehört.</div>
 
 <h2>Behandelter Stoff</h2>
 <table>
@@ -24,7 +24,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>24.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Email, <span class="hint" title="hochgradig gecachetes hirarchisches Datenbanksystem">DNS</span>, dig, nslookup, Peer-to-Peer-Netzwerke, Bootstrapping-Problem, ISO-/OSI-Schichtenmodell, <span class="hint" title="Service Access Points">SAPs</span>; Dienstgeber/-bringer, -funktionalit&auml;t, -nehmer, -primitiv, -leistung; Request, Indication, Response, Confirm; <span class="hint" title="Quality of Service">QoS</span></td>
+<td rowspan="2" style="border-bottom:1px solid black;">Email, <span class="hint" title="hochgradig gecachetes hirarchisches Datenbanksystem">DNS</span>, dig, nslookup, Peer-to-Peer-Netzwerke, Bootstrapping-Problem, ISO-/OSI-Schichtenmodell, <span class="hint" title="Service Access Points">SAPs</span>; Dienstgeber/-bringer, -funktionalität, -nehmer, -primitiv, -leistung; Request, Indication, Response, Confirm; <span class="hint" title="Quality of Service">QoS</span></td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/02_Architekturen_Rechnernetze.pdf">Kapitel 2</a>, Folie 18</td>
@@ -40,7 +40,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>21.05.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;"><a href="http://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung">CRC</a>, Generatorpolynome, Vorw&auml;rtsfehlerkorrektur, Sequenznummern, Quittung, Stop-and-wait</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><a href="http://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung">CRC</a>, Generatorpolynome, Vorwärtsfehlerkorrektur, Sequenznummern, Quittung, Stop-and-wait</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;">?</td>
@@ -64,7 +64,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>12.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">&Uuml;bungsblatt 2: <abbr title="Automatic Repeat Request">ARQ</abbr>: Best&auml;tigter Dienst (JA), Zuverl&auml;ssiger Dienst (JA, wenn...); Stop-and-Wait;</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Übungsblatt 2: <abbr title="Automatic Repeat Request">ARQ</abbr>: Bestätigter Dienst (JA), Zuverlässiger Dienst (JA, wenn...); Stop-and-Wait;</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;">?</td>
@@ -80,7 +80,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>25.06.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Broadcast-Routing: Dateneinheit wird f&uuml;r jedes System erstellt; Hot-Potato; Potential des Missbrauchs (&rarr; <a href="https://www.youtube.com/watch?v=AOEQ9GteWbg">The Internet could crash. We need a Plan B.</a>); Outlaw-detection; Distanz-Vector-Routing; Link-State-Routing</td>
+<td rowspan="2" style="border-bottom:1px solid black;">Broadcast-Routing: Dateneinheit wird für jedes System erstellt; Hot-Potato; Potential des Missbrauchs (&rarr; <a href="https://www.youtube.com/watch?v=AOEQ9GteWbg">The Internet could crash. We need a Plan B.</a>); Outlaw-detection; Distanz-Vector-Routing; Link-State-Routing</td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;">7-44</td>
@@ -95,9 +95,9 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 </tr>
 </table>
 
-Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
+Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
-<h3>&Uuml;bersicht &uuml;ber Dienstprimitive</h3>
+<h3>Übersicht über Dienstprimitive</h3>
 <table>
 <tr>
  <th>Name</th>
@@ -109,7 +109,7 @@ Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail
  <td>Physical (Ph)</td>
  <td>Connect (Con)</td>
  <td>Request (Req)</td>
- <td colspan="7">Abh&auml;ngig vom Dienst</td>
+ <td colspan="7">Abhängig vom Dienst</td>
 </tr>
 <tr>
  <td>Data Link (DL)</td>
@@ -145,12 +145,12 @@ Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail
 
 <h2>Fragen</h2>
 <div class="question">
-<span class="question">Welche Qualit&auml;tsparameter sind f&uuml;r Rechnernetze denkbar?</span>
+<span class="question">Welche Qualitätsparameter sind für Rechnernetze denkbar?</span>
 <div class="answer">
 <ul>
   <li>Angemessenheit</li>
   <li>Technische Leistung (Antwortzeit, Datenrate)</li>
-  <li>Zuverl&auml;ssigkeit</li>
+  <li>Zuverlässigkeit</li>
   <li>Sicherheit</li>
   <li>Kosten</li>
 </ul>
@@ -162,22 +162,22 @@ Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">Vorlesungswebsite</a></li>
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Forum/AllItems.aspx">Forum</a></li>
   <li><a href="https://ankiweb.net/shared/info/1739663871">Mein Anki-Deck</a></li>
-  <li>Ein <a href="http://www.youtube.com/watch?v=0apqZ4jsGmI">Video &uuml;ber CRC</a></li>
+  <li>Ein <a href="http://www.youtube.com/watch?v=0apqZ4jsGmI">Video über CRC</a></li>
   <li>Der Wikipedia-Artikel <a href="http://de.wikipedia.org/wiki/Routing">Routing</a> beinhaltet viele wichtige Informationen.</li>
   <li><a href="http://packetcrafter.wordpress.com/2011/02/13/tcp-flags-hackers-playground/">TCP flags: Hackers Playground</a></li>
 </ul>
 
 <h2>Aufbau der Klausur</h2>
-H&auml;ufige Aufgabenstellungen sind:
+Häufige Aufgabenstellungen sind:
 <ul>
   <li>Berechnen einer Subnetzmaske bzw. ob eine IP-Adresse in einem gegebenem Subnetz enthalten ist</li>
-  <li>CRC berechnen / &uuml;berpr&uuml;fen ob CRC korrekt ist</li>
+  <li>CRC berechnen / überprüfen ob CRC korrekt ist</li>
   <li>Distanz-Vektor Algorithmus (Bellman-Ford) durchgehen</li>
   <li>Protokollablauf durchspielen</li>
 </ul>
 
-<h2>&Uuml;bungsbetrieb</h2>
-&Uuml;bungsbl&auml;tter sind <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Forms/AllItems.aspx?RootFolder=%2fsites%2fvab%2f0x2E18BE2A290A424EB98916CA7A6FF3FD%2fVorlesungsunterlagen%2fUebung&FolderCTID=&View=%7bF9CB46E3-13F6-4910-9A2E-BF24D999D119%7d">hier</a>.
+<h2>Übungsbetrieb</h2>
+Übungsblätter sind <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Forms/AllItems.aspx?RootFolder=%2fsites%2fvab%2f0x2E18BE2A290A424EB98916CA7A6FF3FD%2fVorlesungsunterlagen%2fUebung&FolderCTID=&View=%7bF9CB46E3-13F6-4910-9A2E-BF24D999D119%7d">hier</a>.
 
 <h2>Termine und Klausurablauf</h2>
 <strong>Datum</strong>: Donnerstag, den 1. August 2013 von 14:00 bis 15:00 Uhr
@@ -196,7 +196,7 @@ H&auml;ufige Aufgabenstellungen sind:
 <tr>
   <td>Audimax B (30.95, EG)</td>
   <td>Gassenschmidt</td>
-  <td>L&ouml;ffler</td>
+  <td>Löffler</td>
 </tr>
 <tr>
   <td style="background-color:#cdcdcd">HSaF (50.35, EG)</td>
@@ -219,7 +219,7 @@ H&auml;ufige Aufgabenstellungen sind:
   <th>Note</th>
   <th>von</th>
   <th>bis</th>
-  <th>Bereichsgr&ouml;&szlig;e</th>
+  <th>Bereichsgrö&szlig;e</th>
 </tr>
 <tr>
   <th>1,0</th>
@@ -288,7 +288,7 @@ H&auml;ufige Aufgabenstellungen sind:
   <td>12,75</td>
 </tr>
 </table>
-<strong>&Uuml;bungsschein</strong>: Nein
+<strong>Übungsschein</strong>: Nein
 <strong>Bonuspunkte</strong>: Nein
 
 <h2>Nicht vergessen</h2>

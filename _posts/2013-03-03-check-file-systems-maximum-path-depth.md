@@ -38,7 +38,7 @@ int main () {
     returnCode = 0;
     int maxDir = 1000000;
 
-    while(i < maxDir &amp;&amp; returnCode == 0) {
+    while(i < maxDir && returnCode == 0) {
         char *newName = malloc(strlen(pathname)+strlen(ext)+1);
         strcpy(newName, pathname);
         strcat(newName, ext);
@@ -137,7 +137,7 @@ int main () {
     returnCode = 0;
     int maxDir = 1000000;
 
-    while(i < maxDir &amp;&amp; returnCode == 0) {
+    while(i < maxDir && returnCode == 0) {
         // get unique name
         char *foldername = malloc(50+1);
         gen_random(foldername, 50);
