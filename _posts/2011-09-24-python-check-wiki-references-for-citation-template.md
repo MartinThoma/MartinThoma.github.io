@@ -109,10 +109,14 @@ def getRef(page):
     pattern = "(<ref>\[.+?</ref>)"
     prog = re.compile(pattern)
     m    = re.findall(pattern, page)
-    return m[/python]
+    return m
+```
 
 Now the single references have to get parsed and the user has to confirm or edit the results:
-[python]import readline
+
+```python
+{% raw %}
+import readline
 from datetime import date
 
 def rlinput(prompt, prefill=''):
@@ -147,11 +151,13 @@ def improve(references, page):
         print ""
 
     return page
+{% endraw %}
 ```
 
 Here is the full script:
 
 ```python
+{% raw %}
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
  
@@ -259,6 +265,7 @@ if __name__ == '__main__':
     f.write(page)
     f.close()
     print("Page has been written to %s." % options.filename)
+{% endraw %}
 ```
 
 This can be improved in several ways:
