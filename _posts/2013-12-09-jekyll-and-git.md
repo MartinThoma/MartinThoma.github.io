@@ -252,7 +252,7 @@ is a short introduction to Liquid.
   * [Mobile readyness](http://ready.mobi/launch.jsp?locale=en_EN#fragment-1)
   * [Load test](http://loadimpact.com/)
   * [Alexa](http://www.alexa.com/siteinfo/martin-thoma.com)
-  * [Twitter card validator](https://dev.twitter.com/docs/cards/validation/validator)
+  * [Twitter card validator](https://dev.twitter.com/docs/cards/validation/validator) (more about [Twitter cards](https://dev.twitter.com/cards))
 
 ## Resources ##
 * <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a>

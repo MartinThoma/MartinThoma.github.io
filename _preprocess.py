@@ -6,10 +6,23 @@ def replaceLatex(file_path):
     with open(file_path) as f:
         content = f.read()
 
-    #replace $..$ by <div>$..$</div> and $$..$$ by <div>$$..$$</div>
+    """Replace $..$ by `$..$` and $$..$$ by `$$..$$`, but
+        * Don't replace \$ (\ should escape)
+        * Don't replace if one of the patterns above is in code blocks:
+            ```
+            ....
+            ...   $...$
+            ```
+          or
+            {% highlight [some language] %}
+            ... 
+            ...  $...$
+            {% endhighlight %}
+    """
     import re
-    # first two dollar signs
-    content = re.sub(r'(?<!\\)\$\$([^\$]*)\$\$', "`\n$$\g<1>$$`", content)
+    # first two dollar signs environment
+    content = re.sub(r'(?<![\\])\$\$([^\$]+)\$\$', "`\n$$\g<1>$$`", content)
+    # then one dollar sign environment
     content = re.sub(r'(?<!\<span\>)(?<!\$)\$([^\$]+)\$', "`$\g<1>$`", content)
 
     #write without whitespace
