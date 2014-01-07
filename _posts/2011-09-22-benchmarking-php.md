@@ -66,7 +66,8 @@ With a document of two bytes, I get 1.324 ms. A HTML-Document with 300 kB has 4.
 
 Now I'll begin the test I'm interested in. It is related to <a href="http://stackoverflow.com/questions/4738605/undefined-offset-with-count" rel="nofollow">this Stackoverflow Question</a>. I'll make 10000 requests per Benchmark:
 
-[php]for($i=0; $i<5; $i++) {
+```php
+for($i=0; $i<5; $i++) {
     $maximum = max(
                     @count($MyArray[$i*7]),
                     @count($MyArray[$i*7+1]),
@@ -78,19 +79,23 @@ Now I'll begin the test I'm interested in. It is related to <a href="http://stac
                    );
     echo $maximum.' ';
 }
-[/php]
+```
+
 1.817 ms 
 
-[php]for($i=0; $i<5; $i++) {
+```php
+for($i=0; $i<5; $i++) {
     $chunk = array_intersect_key($MyArray, array($i*7=>1, $i*7+1=>2, $i*7+2=>3, $i*7+3=>4, $i*7+4=>5, $i*7+5=>6));
     if(count($chunk) > 0){$maximum = max(array_map('count', $chunk));} 
     else {$maximum = 0;}
     echo $maximum.' ';
 }
-[/php]
+```
+
 1.801 ms
 
-[php]for($i=0;$i<5;$i++){
+```php
+for($i=0;$i<5;$i++){
     $arr = array();
     for ($j=0;$j<=6;$j++) {
         if (isset($MyArray[$i*7+$j])) $arr[] = count($MyArray[$i*7+$j]);
@@ -99,5 +104,6 @@ Now I'll begin the test I'm interested in. It is related to <a href="http://stac
     $maximum = max($arr);
     echo $maximum.' ';
 }
-[/php]
+```
+
 1.742 ms

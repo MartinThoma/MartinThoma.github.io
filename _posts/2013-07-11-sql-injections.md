@@ -28,7 +28,9 @@ You obviously interacted with imdb.com in a very dynamic way. The output of the 
 
 The programmers might have created a query that looks like this
 
-[sql]SELECT * FROM `movie` WHERE title=$_GET['q'][/sql]
+```sql
+SELECT * FROM `movie` WHERE title=$_GET['q']
+```
 
 Where <code>$_GET['q']</code> is your query.
 
@@ -45,7 +47,7 @@ When you search for "LAMP" (for Linux users) or for "WAMP" (for Windows users) y
 
 Place the following as <code>hack.php</code> in your web servers directory (might be <code>/var/www</code>):
 
-[php]
+```php
 <?
 $mysqlhost = "localhost";
 $mysqluser = "root";
@@ -71,11 +73,11 @@ if ($q != "") {
   <input type="text" name="q"/>
   <input type="submit" />
 </form>
-[/php]
+```
 
 Now create a database called <code>imdb</code> with PHPMyAdmin and execute the following SQL:
 
-[sql]
+```sql
 CREATE TABLE IF NOT EXISTS `movies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -98,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
 (1, 'admin', 'qewrtqwert', 'admin@imdb.com'),
 (2, 'user', 'secret', 'mylittlepony@stupid.com');
-[/sql]
+```
 
 Now go to <a href="http://localhost/hack.php">http://localhost/hack.php</a>. It should look like this:
 
@@ -110,7 +112,9 @@ When you search for "Harry Potter" it should show you "1: Harry Potter". Note th
 
 This resulted in the following query:
 
-[sql]SELECT * FROM `movies` WHERE title='Harry Potter'[/sql]
+```sql
+SELECT * FROM `movies` WHERE title='Harry Potter'
+```
 
 But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:
 
@@ -118,11 +122,15 @@ But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:
 
 Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:
 
-[sql]' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '1'='1[/sql]
+```sql
+' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '1'='1
+```
 
 which results in this query:
 
-[sql]SELECT * FROM `movies` WHERE title='' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '1'='1'[/sql]
+```sql
+SELECT * FROM `movies` WHERE title='' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '1'='1'
+```
 
 which gives:
 

@@ -81,17 +81,21 @@ for (var value in array) {
 }{% endhighlight %}
 
 <h3>PHP</h3>
-[php]$array = array(0, 1, 2, 3, 4);
+```php
+$array = array(0, 1, 2, 3, 4);
 
 foreach ($array as $key=>$value) {
     echo "Foreach: $value<br/>";
-}[/php]
+}
+```
 
 <h3>Python</h3>
-{% highlight python %}array = [0, 1, 2, 3, 4]
+```python
+array = [0, 1, 2, 3, 4]
 
 for value in array:
-    print "Foreach: %i" % value{% endhighlight %}
+    print "Foreach: %i" % value
+```
 
 <h2>More information</h2>
 If you want to see the code, you can download this <a href='../images/2011/12/for-loops.zip'>zip archive</a>.

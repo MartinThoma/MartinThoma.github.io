@@ -13,9 +13,13 @@ featured_image: 2011/10/PHP-logo.png
 <h2>Inconsistency</h2>
 <h3>Starting and ending PHP</h3>
 The following snippet is valid PHP-code:
-[php]<?php 
+
+```php
+<?php 
     </script>
-?>[/php]
+?>
+```
+
 Source: <a href="http://stackoverflow.com/q/13228306/562769">StackOverflow.com</a> (You can find some explanations there.)
 
 <h3>Underscores</h3>
@@ -23,18 +27,23 @@ Some functions use underscores between words, while others do not:
 <a href="http://php.net/gettype">gettype</a> vs. <a href="http://php.net/get_class">get_class</a>
 
 <h3>Order of Arguments</h3>
-[php]strpos ( string $haystack , mixed $needle [...] )
+
+```php
+strpos ( string $haystack , mixed $needle [...] )
 stristr ( string $haystack , mixed $needle [...] )
 in_array ( mixed $needle , array $haystack [...] )
-array_search ( mixed $needle , array $haystack [...] )[/php]
+array_search ( mixed $needle , array $haystack [...] )
+```
 
 <h2>Sorting</h2>
-[php]function pivot($arr) {
+```php
+function pivot($arr) {
     return ($arr[0] + end($arr)) / 2;
 }
 
 $arr = array(1, 5, 7, 2, 3, 4, 8, 9, 6);
-echo pivot(sort($arr));[/php]
+echo pivot(sort($arr));
+```
 
 This doesn't work. If you don't know why, you should take a look at <a href="http://php.net/manual/de/function.sort.php">sort</a>.
 
@@ -42,30 +51,40 @@ This doesn't work. If you don't know why, you should take a look at <a href="htt
 Add '?=PHPE9568F34-D428-11d2-A769-00AA001ACF42' to any PHP script and take a look at the output. For example at <a href="http://en.wikipedia.org/wiki/Main_Page?=PHPE9568F34-D428-11d2-A769-00AA001ACF42">Wikipedia</a>.
 
 <h2>Argument order</h2>
-[php]mktime  ([$hour [, $minute [, $second [, $month  [, $day  [, $year  [, $is_dst]]]]]]])[/php]
+
+```php
+mktime  ([$hour [, $minute [, $second [, $month  [, $day  [, $year  [, $is_dst]]]]]]])
+```
 
 <h2>array_fill</h2>
 <a href="http://php.net/manual/en/function.array-fill.php">array_fill</a> doesn't allow 0 as $number.
-[php]<?php
+
+```php
+<?php
 
 $number = 2;
 $arr = array_fill(0, $number, 42);
 print_r($arr);
 
-?>[/php]
+?>
+```
+
 Array ( [0] => 42 [1] => 42 )
 
 <h2>Strange loop</h2>
 Loops themselves should not change anything. So take a look at this:
 
-[php]<?php
+```php
+<?php
 
 $array = array('foo', 'bar');
 var_dump($array);
 foreach ($array as &amp;$foo);
 var_dump($array);
 
-?>[/php]
+?>
+```
+
 Output:
 {% highlight text %}
 array(2) {
@@ -80,7 +99,8 @@ array(2) {
 {% endhighlight %}
 
 <h2>Boolean evaluation</h2>
-[php]<?php
+```php
+<?php
 
 $a = array('7.1');
 
@@ -113,13 +133,16 @@ if (array()) {echo "false";}
 if ($x = 0)  {echo "false";}
 if ($arr1 === $arr2) {echo "false";}
 
-?>[/php]
+?>
+```
 
 <h2>Automatic conversion</h2>
 <div class="info">This one seems to be fixed. It doesn't work in PHP Version 5.4.6-1ubuntu1.2 (released 16.08.2012). It was a problem in PHP 5.3.5 (released 06.01.2011)</div>
 
 PHP converts strings automatically to a float if it is possible. This might lead to problems. See this example from <a href="http://phpsadness.com/sad/47">phpsadness</a>:
-[php]<?php
+
+```php
+<?php
 
 $password = "ximaz";
 
@@ -134,7 +157,8 @@ if ($wrong_hash == $hash) {
   print "Wrong hash got correct!\n";
 }
 
-?>[/php]
+?>
+```
 
 See also:
 <ul>
@@ -146,7 +170,9 @@ See also:
 
 <h2>Make a Guess</h2>
 Try to guess what the following prints:
-[php]<?php
+
+```php
+<?php
 for ($i = 'a'; $i <= 'z'; ++$i) echo "$i ";
  
 // I just need four NULLs to demo this.
@@ -165,7 +191,8 @@ $b[2]--;
 --$b[3];
  
 var_dump($b);
-?>[/php]
+?>
+```
 
 Did you guess the following?
 
@@ -190,7 +217,10 @@ array(4) {
 
 <h2>Function names are NOT case sensitive</h2>
 
-<blockquote>[php]function add($a, $b)
+<blockquote>
+
+```php
+function add($a, $b)
 {
     return $a + $b;
 }
@@ -199,7 +229,10 @@ $foo = add(1, 2);
 $Foo = Add(3, 4);
 
 echo "foo is $foo"; // outputs foo is 3
-echo "Foo is $Foo"; // outputs Foo is 7[/php]</blockquote>
+echo "Foo is $Foo"; // outputs Foo is 7
+```
+
+</blockquote>
 Source: <a href="http://stackoverflow.com/a/2006635/562769">StackOverflow</a>
 
 

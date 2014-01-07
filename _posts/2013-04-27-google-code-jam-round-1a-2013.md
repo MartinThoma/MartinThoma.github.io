@@ -38,7 +38,7 @@ I'm too slow for Google Code Jam *sigh*. Nevertheless, here are my solutions:
 
 <h2>Bullseye</h2>
 <h3>Small</h3>
-[php]
+```php
 <?
 
 function solve($r, $t) {
@@ -63,7 +63,7 @@ while($line = fgets ($fp)) {
 
 }
 ?>
-[/php]
+```
 
 <h3>Large</h3>
 *Argh* I've copied the wrong equation from my pad to my computer 

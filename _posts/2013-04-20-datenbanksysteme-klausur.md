@@ -178,12 +178,14 @@ das korrekte Ergebnistupel durch ausprobieren herausbekommen. Im Portal wird das
 <div class="question">
 <span class="question">Wie kann man bei der ORACLE-Datenbank die Anzahl der ausgegebenen Zeilen beschr&auml;nken (LIMIT)?</span>
 <div class="answer">
-[sql]
+
+```sql
 SELECT *
 FROM  
 ( your selection ) 
 WHERE ROWNUM <= 5
-[/sql]
+```
+
 </div>
 </div>
 

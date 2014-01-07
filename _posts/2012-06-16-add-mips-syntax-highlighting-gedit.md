@@ -22,7 +22,9 @@ Create the following file: <code>/usr/share/gtksourceview-2.0/language-specs/sal
 Source: GITHub: <a href="https://github.com/Xodarap/Mips-Assembly-Syntax-Highlighting">Xodarap / Mips-Assembly-Syntax-Highlighting</a>
 
 Copy and paste the following:
-[xml]<?xml version="1.0" encoding="UTF-8"?>
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
  Author: Ben West
@@ -221,7 +223,8 @@ Copy and paste the following:
             </include>
         </context>
     </definitions>
-</language>[/xml]
+</language>
+```
 
 That's it.
 

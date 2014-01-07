@@ -25,7 +25,10 @@ PHP knows these time / date formats:
 I recommend using 'YYYY-MM-DD HH:mm:ss' if possible.</li>
     </ul>
   </li>
-  <li>Associative Arrays. The array looks like this [php]Array
+  <li>Associative Arrays. The array looks like this 
+
+```php
+Array
 (
     [year] => 2006
     [month] => 12
@@ -39,7 +42,9 @@ I recommend using 'YYYY-MM-DD HH:mm:ss' if possible.</li>
     [error_count] => 0
     [errors] => Array()
     [is_localtime] => 
-)[/php]
+)
+```
+
 The related functions are:
     <ul>
         <li>array <a href="http://www.php.net/manual/en/function.date-parse.php">date_parse</a> (string $date)</li>
@@ -53,7 +58,9 @@ The related functions are:
 Comparing UNIX Timestamps is like comparing integers. No problem. 
 
 Comparing Arrays is more interesting. What do you think will the following script print?
-[php]<?php
+
+```php
+<?php
 
 $d1 = date_parse ("2011-05-11");
 $d2 = date_parse ("2011-05-11 13:00:00");
@@ -69,11 +76,20 @@ if ($d1 < $d2) {
     echo '$d1 is greater than $d2.';
 }
 
-?>[/php]
+?>
+```
 
 It prints '$d1 is less than $d2.' as 
-[php]date_parse ("2011-05-11");[/php] is basically the same as 
-[php]date_parse ("2011-05-11 00:00:00");[/php]
+
+```php
+date_parse ("2011-05-11");
+```
+
+is basically the same as 
+
+```php
+date_parse ("2011-05-11 00:00:00");
+```
 
 You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as beeing greater. If you use the functions you'll be fine.
 
@@ -112,24 +128,44 @@ mysql> SELECT UNIX_TIMESTAMP(`my_datetime_row`) FROM `my_table`
 
 <h3>Comparisons</h3>
 You can compare two DATETIMEs like this:
-[sql]SELECT `my_row` FROM `my_table` WHEN `datetime1` < `datetime2`[/sql]
+
+```sql
+SELECT `my_row` FROM `my_table` WHEN `datetime1` < `datetime2`
+```
 
 It's of course not problem if you compare two UNIX Timestamps which are stored as integers in the database:
-[sql]SELECT `my_row` FROM `my_table` WHEN `int1` < `int2`[/sql]
+
+```sql
+SELECT `my_row` FROM `my_table` WHEN `int1` < `int2`
+```
 
 But what happens if you compare a DATETIME with a Timestamp (integer)?
-[sql]SELECT `my_row` FROM `my_table` WHEN `datetime1` < UNIX_TIMESTAMP()[/sql]
+
+```sql
+SELECT `my_row` FROM `my_table` WHEN `datetime1` < UNIX_TIMESTAMP()
+```
+
 This is basically:
-[sql]SELECT `my_row` FROM `my_table` WHEN `datetime1` < 1317750167[/sql]
+
+```sql
+SELECT `my_row` FROM `my_table` WHEN `datetime1` < 1317750167
+```
+
 And it compares the "integered" DATETIME 20111004210710 for 2011-10-04 21:07:10 with 1317750167. This is obviously crap. Don't do it. Never.
 Instead you should convert your dates with UNIX_TIMESTAMP(your_datetime) or  FROM_UNIXTIME(unix_timestamp).
 
 <h2>Comparing MySQL types with PHP types</h2>
 The simplest way to compare MySQL DATE formats with PHP types is using strtotime(...) or date(...) if needed. If you have a DATETIME and you want to know if it's in the past, you can use
-[php]if (strtotime($datetime) < time()) {
+
+```php
+if (strtotime($datetime) < time()) {
    echo '$datetime is in the past.';
-}[/php]
+}
+```
 
 <h2>From PHP to MySQL</h2>
 If you have a date you got via an date input field and want to submit it to MySQL, just use this piece of code:
-[php]$mysqlFormat = date('Y-m-d H:i:s', strtotime($_POST['my_date']));[/php]
+
+```php
+$mysqlFormat = date('Y-m-d H:i:s', strtotime($_POST['my_date']));
+```
