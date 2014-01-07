@@ -9,7 +9,7 @@
                     <div class="post type-post status-publish format-standard hentry clearfix" id="post-76726">
                         <h2 class="title entry-title">{{ page.title }}</h2>
 			            <div class="postdate">
-                            <span>{% assign d = page.date | date: "%d" | plus:'0' %}
+                            <time datetime="{{ page.date | date_to_xmlschema }}">{% assign d = page.date | date: "%d" | plus:'0' %}
                                 {{ page.date | date: "%B" }} 
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st
@@ -18,7 +18,7 @@
                                   {% else %}{{ d }}th
                                   {% endcase %}, 
                                 {{ page.date | date: "%Y" }}
-                            </span>
+                            </time>
                             <!-- TODO<span><a href="check-point-inside-polygon/#respond" title="Comment on How to check if a point is inside of a polygon?">No Comments</a></span>-->
                         </div>
 			
