@@ -10,6 +10,7 @@ tags:
 - GitHub
 - rsync
 featured_image: 2013/12/jekyll-thumbnail.png
+description: Jekyll, a static blog generator, is nice for several reasons. Those reasons and some hints how to migrate from WordPress to Jekyll are provided below.
 ---
 
 You've probably noticed that I didn't write any posts the last few 
@@ -21,6 +22,9 @@ requests.
 [Jekyll](http://jekyllrb.com/) is a static blog generator, just like
 [Pelican](http://blog.getpelican.com/), [Hyde](http://ringce.com/hyde),
 [nanoc](http://nanoc.ws/) and [Octopress](http://octopress.org/).
+
+I've spend about 40-80 hours to migrate from WordPress to Jekyll.
+And I'm not done jet.
 
 ## Jekyll compared with WordPress ##
 Jekyll is a static site generator. This means you have the
@@ -248,6 +252,7 @@ is a short introduction to Liquid.
   * [Mobile readyness](http://ready.mobi/launch.jsp?locale=en_EN#fragment-1)
   * [Load test](http://loadimpact.com/)
   * [Alexa](http://www.alexa.com/siteinfo/martin-thoma.com)
+  * [Twitter card validator](https://dev.twitter.com/docs/cards/validation/validator)
 
 ## Resources ##
 * <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a>
