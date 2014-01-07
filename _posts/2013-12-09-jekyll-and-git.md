@@ -249,6 +249,7 @@ is a short introduction to Liquid.
   * [Alexa](http://www.alexa.com/siteinfo/martin-thoma.com)
   * [Google Structured Data Testing Tool](http://www.google.com/webmasters/tools/richsnippets): Test if google can extract the author from your blog posts
   * [Twitter card validator](https://dev.twitter.com/docs/cards/validation/validator) (more about [Twitter cards](https://dev.twitter.com/cards))
+  * [Nibbler](http://nibbler.silktide.com/reports/martin-thoma.com): This one tests quite a lot.
 
 I've also used LinkChecker to check if all new links are valid. I've found quite a lot of old links and replaced them with new links.
 
