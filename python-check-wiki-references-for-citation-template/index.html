@@ -6,7 +6,7 @@
     
 
     <title>Python: Check Wiki-references for citation template</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070748.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401070815.min.css" type="text/css" media="screen" />
 
     <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
     <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
@@ -69,17 +69,7 @@
 
 <p>So I try to fix all manual styled citations when I edit an article. Doing this manually is quite time intensive. This is the reason why I wrote a little Python-script.</p>
 
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Downloading wiki source code</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">Examples</h2>
+<h2 id="tocAnchor-1-1">Examples</h2>
 <div class="highlight">
    <pre><code class="html language-html" data-lang="html"><span class="nt">&lt;ref&gt;</span>[http://peter.mapledesign.co.uk/weblog/archives/python-is-slow Python is... slow?] December 21st, 2004 <span class="ni">&amp;mdash;</span> Peter Bowyer<span class="ni">&amp;rsquo;</span>s weblog]<span class="nt">&lt;/ref&gt;</span>
 </code></pre>
@@ -106,16 +96,218 @@
 </ol><h2 id="tocAnchor-1-2">Downloading wiki source code</h2>
 
 <p>Wikipedia offers an <a href="http://en.wikipedia.org/w/api.php" title="Wikipedia API">API</a> for accessing the needed information. I will use this API and Pythons <a href="http://docs.python.org/library/optparse.html">optparse</a>, <a href="http://www.crummy.com/software/BeautifulSoup/documentation.html">BeautifulSoup</a> and <a href="http://docs.python.org/library/htmlparser.html">HTMLParser</a> to get the raw wiki text in UTF-8 encoding:</p>
+<div class="highlight">
+   <pre><code class="python language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
 
-<script src="https://gist.github.com/5555251.js">
-<![CDATA[ ]]>
-</script><p>We are now able to access the needed information. Now we need to get the references without templates. To do so, I will use the <a href="http://docs.python.org/library/re.html">Python re module</a>:</p>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulStoneSoup</span>
+<span class="kn">import</span> <span class="nn">HTMLParser</span>
 
-<script src="https://gist.github.com/5555251.js">
-<![CDATA[ ]]>
-</script><p>Here is the full script:
-<script src="https://gist.github.com/5555251.js"><![CDATA[ ]]></script></p>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">"-l"</span><span class="p">,</span> <span class="s">"--lemma"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"lemma"</span><span class="p">,</span>
+                       <span class="n">default</span><span class="o">=</span><span class="s">"Python"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">"string"</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s">"Which lemma should be checked?"</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">"-m"</span><span class="p">,</span> <span class="s">"--language"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"language"</span><span class="p">,</span>
+                       <span class="n">default</span><span class="o">=</span><span class="s">"en"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">"string"</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s">"Which langauge should be used "</span> <span class="o">+</span>
+                            <span class="s">"(english wiki, geman wiki, ... )"</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">"-v"</span><span class="p">,</span> <span class="s">"--verbose"</span><span class="p">,</span>
+                  <span class="n">action</span><span class="o">=</span><span class="s">"store_true"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"verbose"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">"Show more information."</span><span class="p">)</span>
+<span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
+<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s">"en"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">"xml"</span><span class="p">):</span>
+    <span class="sd">""" Get the Wikipedia Source Text (not the HTML source code) </span>
+
+<span class="sd">        format:xml,json, ...</span>
+<span class="sd">        language:en, de, ...</span>
+
+<span class="sd">        Returns None if page doesn't exist</span>
+<span class="sd">    """</span>
+    <span class="n">lemma</span>     <span class="o">=</span> <span class="n">lemma</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span> <span class="s">"_"</span><span class="p">)</span>
+    <span class="n">url</span>       <span class="o">=</span> <span class="s">'http://'</span> <span class="o">+</span> <span class="n">language</span> <span class="o">+</span> <span class="s">'.wikipedia.org/w/api.php'</span> <span class="o">+</span> \
+                <span class="s">'?action=query&amp;format='</span> <span class="o">+</span> <span class="n">format</span> <span class="o">+</span> \
+                <span class="s">'&amp;prop=revisions&amp;rvprop=content'</span> <span class="o">+</span> \
+                <span class="s">'&amp;titles='</span> <span class="o">+</span> <span class="n">lemma</span>
+    <span class="n">request</span>   <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">handle</span>    <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="n">text</span>      <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">format</span> <span class="o">==</span> <span class="s">'xml'</span><span class="p">:</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulStoneSoup</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">rev</span>  <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">rev</span>
+        <span class="k">if</span> <span class="n">rev</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">rev</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">HTMLParser</span><span class="o">.</span><span class="n">HTMLParser</span><span class="p">()</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="s">"utf-8"</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="n">text</span>
+</code></pre>
+</div>
+<p>We are now able to access the needed information. Now we need to get the references without templates. To do so, I will use the <a href="http://docs.python.org/library/re.html">Python re module</a>:</p>
+<div class="highlight">
+   <pre><code class="python language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">getRef</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
+    <span class="sd">""" Get all references without templates """</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s">"(&lt;ref&gt;\[.+?&lt;/ref&gt;)"</span>
+    <span class="n">prog</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+    <span class="n">m</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span>
+</code></pre>
+</div>
+<p>Now the single references have to get parsed and the user has to confirm or edit the results:</p>
+<div class="highlight">
+   <pre><code class="python language-python" data-lang="python"><span class="kn">import</span> <span class="nn">readline</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="k">def</span> <span class="nf">rlinput</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prefill</span><span class="o">=</span><span class="s">''</span><span class="p">):</span>
+    <span class="sd">""" Promt the user for input, but prefill it. """</span>
+    <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">readline</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">prefill</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+      <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">improve</span><span class="p">(</span><span class="n">references</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+    <span class="sd">""" Try to guess the right formatation for each reference and ask </span>
+<span class="sd">        the user to confirm or edit the formatation of the reference. """</span>
+
+    <span class="n">urlPattern</span> <span class="o">=</span> <span class="s">"http.+? "</span>
+    <span class="n">urlPatternCompiled</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">urlPattern</span><span class="p">)</span>
+
+    <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">accessdate</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%B </span><span class="si">%d</span><span class="s">, %Y"</span><span class="p">))</span>
+
+
+    <span class="k">for</span> <span class="n">refOld</span> <span class="ow">in</span> <span class="n">references</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">urlPatternCompiled</span><span class="p">,</span> <span class="n">refOld</span><span class="p">)</span>
+        <span class="n">refNew</span> <span class="o">=</span> <span class="s">"&lt;ref&gt;{{Citation "</span> <span class="o">+</span> \
+                 <span class="s">"|url="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> \
+                 <span class="s">"|title= "</span> <span class="o">+</span> \
+                 <span class="s">"|accessdate="</span>  <span class="o">+</span> <span class="n">accessdate</span> <span class="o">+</span> \
+                 <span class="s">"}}&lt;/ref&gt;"</span>
+
+        <span class="n">refNew</span> <span class="o">=</span> <span class="n">rlinput</span><span class="p">(</span><span class="n">refOld</span> <span class="o">+</span> <span class="s">" (old):</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">refOld</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">""</span>
+
+    <span class="k">return</span> <span class="n">page</span>
+</code></pre>
+</div>
+<p>Here is the full script:</p>
+<div class="highlight">
+   <pre><code class="python language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">from</span> <span class="nn">optparse</span> <span class="kn">import</span> <span class="n">OptionParser</span>
+<span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulStoneSoup</span>
+<span class="kn">import</span> <span class="nn">HTMLParser</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">readline</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">OptionParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">"-l"</span><span class="p">,</span> <span class="s">"--lemma"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"lemma"</span><span class="p">,</span>
+                       <span class="n">default</span><span class="o">=</span><span class="s">"Python"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">"string"</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s">"Which lemma should be checked?"</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">"-f"</span><span class="p">,</span> <span class="s">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"filename"</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">"write corrected wiki source code to FILE"</span><span class="p">,</span> 
+                  <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">"wikioutput.txt"</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">"-m"</span><span class="p">,</span> <span class="s">"--language"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"language"</span><span class="p">,</span>
+                       <span class="n">default</span><span class="o">=</span><span class="s">"en"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">"string"</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s">"Which langauge should be used "</span> <span class="o">+</span>
+                            <span class="s">"(english wiki, geman wiki, ... )"</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s">"-v"</span><span class="p">,</span> <span class="s">"--verbose"</span><span class="p">,</span>
+                  <span class="n">action</span><span class="o">=</span><span class="s">"store_true"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"verbose"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                  <span class="n">help</span><span class="o">=</span><span class="s">"Show more information."</span><span class="p">)</span>
+<span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">lemma</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s">"en"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">"xml"</span><span class="p">):</span>
+    <span class="sd">""" Get the Wikipedia Source Text (not the HTML source code) </span>
+
+<span class="sd">        format:xml,json, ...</span>
+<span class="sd">        language:en, de, ...</span>
+
+<span class="sd">        Returns None if page doesn't exist</span>
+<span class="sd">    """</span>
+    <span class="n">lemma</span>     <span class="o">=</span> <span class="n">lemma</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span> <span class="s">"_"</span><span class="p">)</span>
+    <span class="n">url</span>       <span class="o">=</span> <span class="s">'http://'</span> <span class="o">+</span> <span class="n">language</span> <span class="o">+</span> <span class="s">'.wikipedia.org/w/api.php'</span> <span class="o">+</span> \
+                <span class="s">'?action=query&amp;format='</span> <span class="o">+</span> <span class="n">format</span> <span class="o">+</span> \
+                <span class="s">'&amp;prop=revisions&amp;rvprop=content'</span> <span class="o">+</span> \
+                <span class="s">'&amp;titles='</span> <span class="o">+</span> <span class="n">lemma</span>
+    <span class="n">request</span>   <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">handle</span>    <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="n">text</span>      <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">format</span> <span class="o">==</span> <span class="s">'xml'</span><span class="p">:</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulStoneSoup</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">rev</span>  <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">rev</span>
+        <span class="k">if</span> <span class="n">rev</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">rev</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">HTMLParser</span><span class="o">.</span><span class="n">HTMLParser</span><span class="p">()</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="s">"utf-8"</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+<span class="k">def</span> <span class="nf">getRef</span><span class="p">(</span><span class="n">page</span><span class="p">):</span>
+    <span class="sd">""" Get all references without templates """</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s">"(&lt;ref&gt;\[.+?&lt;/ref&gt;)"</span>
+    <span class="n">prog</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+    <span class="n">m</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">def</span> <span class="nf">rlinput</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">prefill</span><span class="o">=</span><span class="s">''</span><span class="p">):</span>
+    <span class="sd">""" Promt the user for input, but prefill it. """</span>
+    <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">readline</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">prefill</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nb">raw_input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+      <span class="n">readline</span><span class="o">.</span><span class="n">set_startup_hook</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">improve</span><span class="p">(</span><span class="n">references</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
+    <span class="sd">""" Try to guess the right formatation for each reference and ask </span>
+<span class="sd">        the user to confirm or edit the formatation of the reference. """</span>
+
+    <span class="n">urlPattern</span> <span class="o">=</span> <span class="s">"http.+? "</span>
+    <span class="n">urlPatternCompiled</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">urlPattern</span><span class="p">)</span>
+
+    <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="n">accessdate</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%B </span><span class="si">%d</span><span class="s">, %Y"</span><span class="p">))</span>
+
+
+    <span class="k">for</span> <span class="n">refOld</span> <span class="ow">in</span> <span class="n">references</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">urlPatternCompiled</span><span class="p">,</span> <span class="n">refOld</span><span class="p">)</span>
+        <span class="n">refNew</span> <span class="o">=</span> <span class="s">"&lt;ref&gt;{{Citation "</span> <span class="o">+</span> \
+                 <span class="s">"|url="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> \
+                 <span class="s">"|title= "</span> <span class="o">+</span> \
+                 <span class="s">"|accessdate="</span>  <span class="o">+</span> <span class="n">accessdate</span> <span class="o">+</span> \
+                 <span class="s">"}}&lt;/ref&gt;"</span>
+
+        <span class="n">refNew</span> <span class="o">=</span> <span class="n">rlinput</span><span class="p">(</span><span class="n">refOld</span> <span class="o">+</span> <span class="s">" (old):</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">refOld</span><span class="p">,</span> <span class="n">refNew</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">""</span>
+
+    <span class="k">return</span> <span class="n">page</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"If you need more parameters like 'date': "</span> <span class="o">+</span> \
+          <span class="s">"http://en.wikipedia.org/wiki/Template:Citation#"</span> <span class="o">+</span> \
+          <span class="s">"Full_citation_parameters"</span><span class="p">)</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">lemma</span><span class="p">)</span>
+    <span class="n">references</span> <span class="o">=</span> <span class="n">getRef</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">improve</span><span class="p">(</span><span class="n">references</span><span class="p">,</span> <span class="n">page</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Page has been written to </span><span class="si">%s</span><span class="s">."</span> <span class="o">%</span> <span class="n">options</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+</code></pre>
+</div>
 <p>This can be improved in several ways:
 </p><ul><li>Checking automatically the title / dead links</li>
     <li>Trying to find the publication date automatically</li>
