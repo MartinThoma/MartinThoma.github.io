@@ -27,9 +27,12 @@ Some paradigms may be combined. C++ is called a "imperative, object-oriented (cl
 <h2>Some examples</h2>
 <h3>Haskell</h3>
 On an Ubuntu machine, you need to install the <strong>ghc6</strong> package. Then save the following as fib.hs:
-[scala]fib 0 = 0
+
+```scala
+fib 0 = 0
 fib 1 = 1
-fib n = fib (n-1) + fib (n-2)[/scala]
+fib n = fib (n-1) + fib (n-2)
+```
 
 
 
