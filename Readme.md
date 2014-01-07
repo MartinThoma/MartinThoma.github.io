@@ -14,14 +14,16 @@ TODO
   - http://martin-thoma.com/latex-versioning-a-great-experience/
   - All posts tagged with "PHP"
 * Markdown rendered within fenced code tag: http://martin-thoma.com/how-to-print-source-code-with-latex/
+* Fix posts:
+  - http://martin-thoma.com/comparing-dates-in-php-and-mysql/
 
 Improve
 ========
 * Site speed
-** Minify results
-** Combine CSS / JS files
-** Remove JS files if possible
-** Remove parts of JS that are not used
+  * Minify results
+  * Combine CSS / JS files
+  * Remove JS files if possible
+  * Remove parts of JS that are not used
 * Excerpts
 * Tag Cloud
 
