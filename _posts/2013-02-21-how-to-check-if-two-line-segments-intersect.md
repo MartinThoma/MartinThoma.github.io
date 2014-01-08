@@ -177,6 +177,7 @@ When you know that two line segments intersect, you can also calculate the inter
 The intersection could be a line or only a point. 
 
 I did this with JavaScript:
+
 <iframe src="../html5/line-segment-intersection/" width="800" height="600">
   <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen. Die Seite ist <a href="../html5/line-segment-intersection/">hier</a>.</p>
 </iframe>
