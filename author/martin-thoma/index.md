@@ -16,7 +16,7 @@ twitter: https://twitter.com/#!/themoosemind
 
 <p>Do you want to know more about me? I've created a <a href="../../pdf/cv-curriculum-vitae.pdf">short English CV</a> and <a href="http://www.martin-thoma.de/about.htm" rel="me">a longer German CV</a>.</p>
 
-<p><small>(This page was last updated on <time class="updated" datetime="{% assign d = page.path | file_date | date: "%d" | plus:'0' %}
+<p><small>(This page was last updated on <time class="updated" datetime="{{ page.path | file_date | date_to_xmlschema }}">{% assign d = page.path | file_date | date: "%d" | plus:'0' %}
                                 {{ page.path | file_date | date: "%B" }} 
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st,
@@ -24,7 +24,7 @@ twitter: https://twitter.com/#!/themoosemind
                                   {% when 3 or 23 %}{{ d }}rd,
                                   {% else %}{{ d }}th,
                                   {% endcase %}
-                                {{ page.path | file_date | date: "%Y" }}">{{ page.path | file_date | date_to_string }}</time>).</small></p>
+                                {{ page.path | file_date | date: "%Y" }}</time>).</small></p>
 
 <h2>Other Profiles</h2>
 <ul>
