@@ -9,10 +9,10 @@ context: about
 gplus: https://plus.google.com/+MartinThoma/about
 twitter: https://twitter.com/#!/themoosemind
 ---
+<div class="vcard">
+{% caption align="alignright" width="134" height="200" alt="Martin Thoma" caption="Martin Thoma" url="../../images/2011/09/Martin_Thoma_web_thumb.jpg" class="size-full photo" %}
 
-{% caption align="alignright" width="134" height="200" alt="Martin Thoma" caption="Martin Thoma" url="../../images/2011/09/Martin_Thoma_web_thumb.jpg" class="size-full" %}
-
-My name is Martin Thoma. I am a 22 year old student from Karlsruhe, Germany.
+My name is <span class="fn">Martin Thoma</span>. I am a <time class="dt-bday" value="1990-04-28">23 year</time> old student from <span class="locality">Karlsruhe, Germany</span>.
 
 Do you want to know more about me? I've created a <a href="../../pdf/cv-curriculum-vitae.pdf">short English CV</a> and <a href="http://www.martin-thoma.de/about.htm" rel="me">a longer German CV</a>.
 
@@ -21,3 +21,4 @@ Do you want to know more about me? I've created a <a href="../../pdf/cv-curricul
 	<li><a href="{{ page.gplus }}" rel="me">Google+</a></li>
 	<li><a href="{{ page.twitter }}" rel="me">Twitter</a></li>
 </ul>
+</div>
