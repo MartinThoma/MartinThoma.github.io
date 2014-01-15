@@ -39,8 +39,7 @@ def find_sum_of_cubes():
     """
     def has_sum_of_cubes_property(n):
         digits = map(int, list(str(n)))
-        s = sum(map(lambda n: n**3, digits))
-        return s == n
+        return sum(map(lambda n: n**3, digits)) == n
     return list(filter(has_sum_of_cubes_property, range(2917)))
 
 if __name__ == "__main__":
