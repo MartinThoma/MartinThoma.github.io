@@ -8,6 +8,7 @@ categories:
 tags:
 - Python
 - mathematics
+- riddle
 featured_image: 2014/01/math-riddle-thumb.png
 ---
 
@@ -18,15 +19,13 @@ Find all numbers with the following property:
 
 $$N = \sum_{k=0}^n a_k \cdot 10^k = \sum a_k^3$$
 
-I call this "*-property".
-
 Lower and upper bounds
 ======================
-* The lower bound is 0
+* The lower bound is $0$
 * The upper bound is $2916$ since $4\cdot 9^3 = 2916$
 
 You can find better upper bounds, but as we've just reduced the 
-possible number space to only 2917 numbers, it doesn't really matter
+possible number space to only 2917 numbers, it doesn't really matter.
 
 Find all solutions
 ==================
