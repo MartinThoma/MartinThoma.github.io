@@ -37,13 +37,11 @@ def find_sum_of_cubes():
     """Returns all numbers N with the following property
         N = \sum_{k=0}^n a_k \cdot 10^k = \sum a_k^3
     """
-    def sum_of_cubes_check(n):
+    def has_sum_of_cubes_property(n):
         digits = map(int, list(str(n)))
         s = sum(map(lambda n: n**3, digits))
         return s == n
-
-    i=0
-    return list(filter(sum_of_cubes_check, range(2917)))
+    return list(filter(has_sum_of_cubes_property, range(2917)))
 
 if __name__ == "__main__":
     print(find_sum_of_cubes())
