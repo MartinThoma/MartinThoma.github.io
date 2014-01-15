@@ -7,7 +7,7 @@
     
 
     <title>Sum of cubed digits riddle</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401151141.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401151148.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -91,13 +91,11 @@ possible number space to only 2917 numbers, it doesn&#39;t really matter.</p>
     <span class="sd">&quot;&quot;&quot;Returns all numbers N with the following property</span>
 <span class="sd">        N = \sum_{k=0}^n a_k \cdot 10^k = \sum a_k^3</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">sum_of_cubes_check</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">has_sum_of_cubes_property</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">digits</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
         <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">digits</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">n</span>
-
-    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">sum_of_cubes_check</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2917</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">has_sum_of_cubes_property</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2917</span><span class="p">)))</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">find_sum_of_cubes</span><span class="p">())</span>
