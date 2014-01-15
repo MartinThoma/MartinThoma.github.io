@@ -6,8 +6,11 @@
     
     
 
+    
+
+
     <title>Wandering through the depths of find</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401151159.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401151833.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -100,7 +103,7 @@
 <p>You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
 
 <p>
-   <a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE&lt;em&gt;USER&lt;/em&gt;TABLE and should now be USER&lt;em&gt;INFO&lt;/em&gt;TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
+   <a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span>
 </code></pre>
 
 <p>Now the explanation of the different commands:
@@ -113,7 +116,7 @@
 </ul><strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.
 <strong>sed:</strong>
 <ul><li>-i: edit the given file in-place. If you would not use -i, it would just print everything in standard output</li>
-    <li>/g: edit the file globaly. If you would not use g, sed would only replace the first occurence of SOFTWARE<em>USER</em>TABLE</li>
+    <li>/g: edit the file globaly. If you would not use g, sed would only replace the first occurence of SOFTWARE_USER_TABLE</li>
 </ul></a>
 </p>
 

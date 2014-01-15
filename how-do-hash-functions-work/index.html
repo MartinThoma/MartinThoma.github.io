@@ -6,8 +6,11 @@
     
     
 
+    
+
+
     <title>How do hash functions work?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401151159.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401151833.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -412,7 +415,7 @@
 </code></pre>
 </div>
 
-<p>The function <code>getFirstIndex</code> maps an char Array with BOARD<em>WIDTH * BOARD</em>HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.</p>
+<p>The function <code>getFirstIndex</code> maps an char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.</p>
 
 <p>This means, you will have two board situations that map to the same hash number. This is called a "hash collision". When you use the hash number directly as an index for your board, you will have to deal with hash collisions. Some solutions are:
 </p><ul><li>Ignoring the problem: That's boring and not always possible (but simple).</li>
