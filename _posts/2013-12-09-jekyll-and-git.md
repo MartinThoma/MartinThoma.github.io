@@ -243,6 +243,9 @@ is a short introduction to Liquid.
 * Speed: Could be better...
   * [tools.pingdom.com](http://tools.pingdom.com/)
   * [PageSpeed](http://developers.google.com/speed/pagespeed/insights/?url=martin-thoma.com) 72 on mobile and 85 on desktop
+* Accessiblity:
+  * [wave.webaim.org](http://wave.webaim.org/report#/http%3A%2F%2Fmartin-thoma.com%2F)
+  * [Functional Accessibility Evaluator](http://fae.cita.uiuc.edu/report/14396f38bc6546f6/)
 * More:
   * [Mobile readyness](http://ready.mobi/launch.jsp?locale=en_EN#fragment-1)
   * [Load test](http://loadimpact.com/)
