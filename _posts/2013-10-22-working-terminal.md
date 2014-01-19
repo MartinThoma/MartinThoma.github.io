@@ -13,6 +13,7 @@ tags:
 - Terminal
 - Shell
 featured_image: 2011/09/Gnome-Terminal.png
+alias: [/working-terminal/bash-vs-zsh-spelling-correction/index.html,/working-terminal/bash-vs-zsh-time/]
 ---
 I've just switched from <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> to <a href="https://en.wikipedia.org/wiki/Z_shell">ZSH</a> because of <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-ZSH</a>. I think this is just the right time to explain the words Shell, command line, Terminal, Bash and ZSH.
 
