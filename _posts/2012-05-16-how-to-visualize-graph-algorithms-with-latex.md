@@ -230,7 +230,7 @@ You can make loops:
 	accusam et.
 \end{frame}
 \end{document}
-```latex
+```
 
 <h2>Resources</h2>
 <ul>
