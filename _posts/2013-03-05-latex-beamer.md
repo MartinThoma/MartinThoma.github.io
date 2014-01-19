@@ -91,12 +91,10 @@ You get the text over the bubbles with <code>\section{Your text}</code> and the 
 <h2>Reveal information</h2>
 You might want to try those commands to hide and reveal information:
 
-<ul>
-  <li>\pause</li>
-  <li>\uncover</li>
-  <li>\visible</li>
-  <li>\onslide and \only</li>
-</ul>
+* `\pause`
+* `\uncover`
+* `\visible`
+* `\onslide` and `\only`
 
 You can use it like this:
 
