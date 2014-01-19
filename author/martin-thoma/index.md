@@ -8,6 +8,7 @@ tags: []
 context: about
 gplus: https://plus.google.com/+MartinThoma/about
 twitter: https://twitter.com/#!/themoosemind
+alias: /author/moose/index.html
 ---
 <div class="vcard">
 {% caption align="alignright" width="134" height="200" alt="Martin Thoma" caption="Martin Thoma" url="../../images/2011/09/Martin_Thoma_web_thumb.jpg" class="size-full photo" %}
