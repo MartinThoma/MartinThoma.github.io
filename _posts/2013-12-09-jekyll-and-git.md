@@ -179,7 +179,7 @@ Similar to [Matthias](http://bloerg.net/2013/03/07/using-kramdown-instead-of-mar
 I would like to share a feature matrix of Markdown parsers included
 into Jekyll. I have used `jekyll 1.4.3` to create the following table.
 I've used [this page](../formatting-strings-python/) to see if fenced
-code blocks and pygments is working and [that page]() for LaTeX.
+code blocks and pygments is working and [that page](../solve-linear-congruence-equations/) for LaTeX.
 Everything was tested with [this site](https://github.com/MartinThoma/MartinThoma.github.io).
 
 |                    | `redcarpet` | `rdiscount` | `kramdown` | `maruko` |
@@ -187,7 +187,7 @@ Everything was tested with [this site](https://github.com/MartinThoma/MartinThom
 | LaTeX              |  ✓          |             |            |          |
 | Fenced code blocks |  ✓          |             |            |          |
 | Pygments           |  ✓          |             |            |          |
-| Site generation    |  173.21s    |             |            |          |
+| Site generation    |  176.90s    |             |            |          |
 
 ### Linebreaks and newline ###
 Linebreaks are an issue. Sometimes I want to get a `<br/>`, sometimes
