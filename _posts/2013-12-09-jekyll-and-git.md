@@ -182,12 +182,15 @@ I've used [this page](../formatting-strings-python/) to see if fenced
 code blocks and pygments is working and [that page](../solve-linear-congruence-equations/) for LaTeX.
 Everything was tested with [this site](https://github.com/MartinThoma/MartinThoma.github.io).
 
-|                    | `redcarpet` | `rdiscount` | `kramdown` | `maruko` |
+|                    | `redcarpet` | `rdiscount` | `kramdown` | `maruku` |
 |--------------------|-------------|-------------|------------|----------|
-| LaTeX              |  ✓          | ✓           |            |          |
-| Fenced code blocks |  ✓          | ✓           |            |          |
-| Pygments           |  ✓          | ✓           |            |          |
-| Site generation    |  176.90s    | 165.41s     |            |          |
+| LaTeX              |  ✓          | ✓           | ✓          | ?        |
+| Fenced code blocks |  ✓          | ✓           | ~          | ?        |
+| Pygments           |  ✓          | ✓           | ✓          | ?        |
+| Site generation    |  176.90s    | 165.41s     | 293.26s    | ?        |
+
+Kramdown destroyed some fenced code blocks (but not all) and maruku
+did not even compile my site at all.
 
 ### Linebreaks and newline ###
 Linebreaks are an issue. Sometimes I want to get a `<br/>`, sometimes
