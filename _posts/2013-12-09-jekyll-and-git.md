@@ -172,7 +172,22 @@ after curly braces.
 
 Other Markdown parsers are `maruku` (which has a 
 [Multiple lines for HTML &lt;li&gt;-tag](https://github.com/bhollis/maruku/issues/121)
-issue) and `kramdown` (which is slow).
+issue) and `kramdown` (which is slow and does not handle fenced
+code blocks and LaTeX correctly).
+
+Similar to [Matthias](http://bloerg.net/2013/03/07/using-kramdown-instead-of-maruku.html)
+I would like to share a feature matrix of Markdown parsers included
+into Jekyll. I have used `jekyll 1.4.3` to create the following table.
+I've used [this page](../formatting-strings-python/) to see if fenced
+code blocks and pygments is working and [that page]() for LaTeX.
+Everything was tested with [this site](https://github.com/MartinThoma/MartinThoma.github.io).
+
+|                    | `redcarpet` | `rdiscount` | `kramdown` | `maruko` |
+|--------------------|-------------|-------------|------------|----------|
+| LaTeX              |  ✓          |             |            |          |
+| Fenced code blocks |  ✓          |             |            |          |
+| Pygments           |  ✓          |             |            |          |
+| Site generation    |  173.21s    |             |            |          |
 
 ### Linebreaks and newline ###
 Linebreaks are an issue. Sometimes I want to get a `<br/>`, sometimes
