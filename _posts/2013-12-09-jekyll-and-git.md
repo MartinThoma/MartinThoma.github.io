@@ -184,10 +184,10 @@ Everything was tested with [this site](https://github.com/MartinThoma/MartinThom
 
 |                    | `redcarpet` | `rdiscount` | `kramdown` | `maruko` |
 |--------------------|-------------|-------------|------------|----------|
-| LaTeX              |  ✓          |             |            |          |
-| Fenced code blocks |  ✓          |             |            |          |
-| Pygments           |  ✓          |             |            |          |
-| Site generation    |  176.90s    |             |            |          |
+| LaTeX              |  ✓          | ✓           |            |          |
+| Fenced code blocks |  ✓          | ✓           |            |          |
+| Pygments           |  ✓          | ✓           |            |          |
+| Site generation    |  176.90s    | 165.41s     |            |          |
 
 ### Linebreaks and newline ###
 Linebreaks are an issue. Sometimes I want to get a `<br/>`, sometimes
