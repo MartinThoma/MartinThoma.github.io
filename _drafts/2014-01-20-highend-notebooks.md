@@ -47,13 +47,24 @@ a high end notebook this time. Some required features are:
 
 ### Samsung Serie 9 ###
 
-* I could not find any difference between `900X4C A09` and `900X4C A0A`
-  except that the `900X4C A0A` costs 1699 Euro and the `900X4C A09`
-  costs 1999 Euro
+The next few lines show the difference of the `900X4C A0A` to...
+
+* `900X3D-A02`: Seems to be the same as
+   Samsung ATIV Book 9. [Intel Core i5-3337U](http://ark.intel.com/products/72055),
+   4 GB DDR3-RAM 1333MHz, 128 GB SSD. Costs 948.36 Euro.
+* `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, not 2x2 WLAN, ca 1200 Euro
+* `900X4C A09`: Costs 1999 Euro (any other difference?)
+* `900X4D A03` has also 15" Display, but only 4GB RAM and a
+   [Intel Core i5-3317U](http://ark.intel.com/products/65707) and a
+   128 GB SSD. But it
+   costs only 799 Euro.
+
+* All `X3A` seem to have 13.3" displays.
 
 ## Notebooks that did not meet the criteria ##
 
 Display is too small:
+
 * Chromebook Pixel has only 12.85"
 * XPS 13 has only 13.3"
 * Asus Zenbook has only 13.3"
@@ -64,6 +75,9 @@ Display is too small:
 * XPS 15 (L501X)
 * XPS 15 (L502X)
 * XPS 15z
+* ATIV Book 8 870Z5E X04
+* ATIV Book 8 880Z5E X01
+* ATIV Book 9 900X4D K01
 * HP Envy 15 https://en.wikipedia.org/wiki/HP_Envy#Current_models
 * https://en.wikipedia.org/wiki/Category:IBM_laptops
 * https://en.wikipedia.org/wiki/Category:Lenovo_laptops
