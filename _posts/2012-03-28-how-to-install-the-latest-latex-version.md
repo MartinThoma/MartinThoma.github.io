@@ -9,14 +9,14 @@ tags:
 - LaTeX
 featured_image: 2012/01/latex-logo.png
 ---
-I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2012. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.
+I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2013. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.
 
-<h2>What is LaTeX?</h2>
+## What is LaTeX? ##
 LaTeX is a document markup language. So with LaTeX you're able to write math formula like $\sum_{i=0}^\infty \frac{1}{2^i} = 2$. The term LaTeX refers only to the language in which documents are written, not to the editor used to write those documents. In order to create a document in LaTeX, a .tex file must be created using some form of text editor. While most text editors can be used to create a LaTeX document, a number of editors have been created specifically for working with LaTeX.
 
 A number of TeX distributions are available, including TeX Live (multiplatform) and MiKTeX (Windows). When I write "LaTeX" I think of "TeX Live".
 
-<h2>LaTeX: an Hello World example</h2>
+## LaTeX: an Hello World example ##
 This is the template I use when I want to write a minimal LaTeX PDF document. You can use it as an example.
 
 ```latex
@@ -64,7 +64,7 @@ This will create a .log file, an .aux file
 
 Here is the <a href='../images/2012/03/latex-template.zip'>LaTeX template</a> with the resulting PDF.
 
-<h2>Install the latest LaTeX</h2>
+## Install the latest LaTeX ##
 <div class="important">Follow the instructions on <a href="http://tug.org/texlive/acquire-netinstall.html">tug.org</a>.</div>
 It's a Network installation, so it will need Internet access. It needs to download about 2 GB so it will take some time. But everything is done automatically.
 
@@ -87,30 +87,38 @@ I
 After you've started your installation, you can choose options (O). Then you should choose "create symlinks in standard directories" (L).
 
 If you didn't do so, add the path to your PATH (See <a href="http://askubuntu.com/a/60221/10425">How to add a directory to my path?</a>, <a href="http://askubuntu.com/a/60769/10425">How do I add a directory to MANPATH or INFOPATH?</a> and <a href="http://askubuntu.com/a/59127/10425">Reload .profile</a>):
-{% highlight bash %}PATH=$PATH:/usr/local/texlive/2012/bin/i386-linux/{% endhighlight %}
+
+```bash
+PATH=$PATH:/usr/local/texlive/2013/bin/i386-linux/
+```
 
 That's it. So my <code>.profile</code> got these additional lines:
 
-{% highlight text %}
-if [ -d "/usr/local/texlive/2012/bin/i386-linux" ] ; then
-    PATH="/usr/local/texlive/2012/bin/i386-linux:$PATH"
+```text
+if [ -d "/usr/local/texlive/2013/bin/i386-linux" ] ; then
+    PATH="/usr/local/texlive/2013/bin/i386-linux:$PATH"
 fi
 
-if [ -d "/usr/local/texlive/2012/texmf/doc/man" ] ; then
-    MANPATH="/usr/local/texlive/2012/texmf/doc/man:$MANPATH"
+if [ -d "/usr/local/texlive/2013/texmf/doc/man" ] ; then
+    MANPATH="/usr/local/texlive/2013/texmf/doc/man:$MANPATH"
 fi
 
-if [ -d "/usr/local/texlive/2012/texmf/doc/info" ] ; then
-    INFOPATH="/usr/local/texlive/2012/texmf/doc/info:$INFOPATH"
+if [ -d "/usr/local/texlive/2013/texmf/doc/info" ] ; then
+    INFOPATH="/usr/local/texlive/2013/texmf/doc/info:$INFOPATH"
 fi
-{% endhighlight %}
+```
 
-edit: I've just installed TeX-Live 2012 and had to do this:
-{% highlight bash %}moose@pc07:/usr/bin$ rm latex
-moose@pc07:/usr/bin$ sudo ln -s /usr/local/texlive/2012/bin/i386-linux/pdflatex latex{% endhighlight %}
+edit: I've just installed TeX-Live 2013 and had to do this:
 
-You can try if your installation works by <code>latex --version</code>:
-{% highlight text %}pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
+```bash
+moose@pc07:/usr/bin$ rm latex
+moose@pc07:/usr/bin$ sudo ln -s /usr/local/texlive/2013/bin/i386-linux/pdflatex latex
+```
+
+You can try if your installation works by `latex --version`:
+
+```text
+pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
 kpathsea version 5.0.0
 Copyright 2009 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 There is NO warranty.  Redistribution of this software is
@@ -122,17 +130,22 @@ Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 Compiled with libpng 1.2.42; using libpng 1.2.42
 Compiled with zlib 1.2.3.3; using zlib 1.2.3.3
 Compiled with poppler version 0.12.4
-{% endhighlight %}
+```
 
 If an old version is shown, you might want to see where it is located:
-{% highlight bash %}which latex{% endhighlight %}
 
-<h2>Update</h2>
-{% highlight bash %}cd /usr/local/texlive/2012/bin/i386-linux
+```bash
+which latex
+```
+
+## Update ##
+```bash
+cd /usr/local/texlive/2013/bin/i386-linux
 sudo ./tlmgr update --self
-sudo ./tlmgr update --all{% endhighlight %}
+sudo ./tlmgr update --all
+```
 
-<h2>See also</h2>
+## See also ##
 <ul>
   <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/LaTeX">LaTeX</a>, <a href="http://en.wikipedia.org/wiki/TeX_Live">TeX Live</a></li>
   <li>Wikibooks: <a href="http://en.wikibooks.org/wiki/LaTeX">LaTeX</a>, <a href="http://de.wikibooks.org/wiki/LaTeX-Kompendium">LaTeX-Kompendium</a> (German)</li>
