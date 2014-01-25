@@ -53,6 +53,7 @@ If possible, I will give the debian package names in the following list:
   * `sudo apt-get install balanzan-theme`
 * Other
   * `libreoffice`
+  * `curl`
 * DRM-caused (I want to watch DVDs!)
   * `ubuntu-restricted-extras libdvdcss2 libdvdread4 libdvdnav4 w32codecs`
   * `totem banshee mplayer rythmbox`
