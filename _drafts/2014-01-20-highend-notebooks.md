@@ -49,6 +49,11 @@ a high end notebook this time. Some required features are:
 | Keyboard           | ?                  | ?                                   | ?                                  |
 | Noise              | ?                  | ?                                   | ?                                  |
 
+   {% gallery columns="2" %}
+       ../images/2014/01/samsung-serie-9-keyboard-layout.png "Samsung Series 9"
+       ../images/2014/01/macbook-pro-retina-keyboard-layout.jpg "Macbook Pro"
+   {% endgallery %}
+
 ### Samsung Alternatives ###
 #### Serie 9 ####
 The next few lines show the difference of the `900X4C A0A` to...
