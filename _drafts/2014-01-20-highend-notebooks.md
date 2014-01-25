@@ -27,26 +27,30 @@ a high end notebook this time. Some required features are:
 * At least 3 hours running time on battery
 * It has to be silent
 
-|                    | Samsung Notebook Serie 9            | Macbook  Pro                       |
-|--------------------|-------------------------------------|------------------------------------|
-| Model              | 900X4C A0A                          |                                    |
-| Price              | 1699 Euro                           | 1999 Euro                          |
-| Dimensions         | 356.9 x 237 x 14.9 mm               | 358.9 x 247.1 x 18 mm              |
-| Weight (B x D x H) | 1.58 kg                             | 2.02 kg                            |
-| CPU                | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
-| Display Size       | 15"                                 | 15.4"                              |
-| Display Resolution | 1.600 x 900                         |                                    |
-| Display more       | Matt LED-Display, 400 Nit           |                                    |
-| RAM                | 2 x 4 GB DDR3 1.600 MHz             | 8 GB 1600 MHz DDR3L                |
-| Disk               | 512 GB SSD                          | 256 SSD                            |
-| Network            | RJ45 with adapter and 1.000 Mbit/s  |                                    |
-| Wireless           | 802.11a/b/g/n (2 x 2), WiDi         |                                    |
-| Bluetooth          | 4.0                                 |                                    |
-| Akku               | 8.200 mAh, up to 10h                |                                    |
-| USB                | 2 x USB 3.0, 1 x USB 2.0            |                                    |
+|                    | Asus Zenbook       | Samsung Notebook Serie 9            | Macbook  Pro                       |
+|--------------------|--------------------|-------------------------------------|------------------------------------|
+| Model              | UX51VZ-DB114H      | 900X4C A0A                          |                                    |
+| Price              | 1380 Euro          | 1699 Euro                           | 1999 Euro                          |
+| Dimensions         | 380 x 254 x 20     | 356.9 x 237 x 14.9 mm               | 358.9 x 247.1 x 18 mm              |
+| Weight (B x D x H) | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
+| CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
+| Display Size       | 15.6"              | 15"                                 | 15.4"                              |
+| Display Resolution | 2880x1620          | 1.600 x 900                         | ?                                  |
+| Display more       | glare              | Matt LED-Display, 400 Nit           | ?                                  |
+| RAM                | 8 GB DDR3, 1600 MHz| 2 x 4 GB DDR3 1.600 MHz             | 8 GB 1600 MHz DDR3L                |
+| Disk               | 256 SSD            | 512 GB SSD                          | 256 SSD                            |
+| Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | ?                                  |
+| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2 x 2), WiDi         | ?                                  |
+| Bluetooth          | 4.0                | 4.0                                 | ?                                  |
+| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | ?                                  |
+| USB                | 3 x USB 3.0        | 2 x USB 3.0, 1 x USB 2.0            | ?                                  |
+| Card Reader        | 2in1 (SD/MMC)      | ?                                   | ?                                  |
+| Linux-Support      | ?                  | ?                                   | ?                                  |
+| Keyboard           | ?                  | ?                                   | ?                                  |
+| Noise              | ?                  | ?                                   | ?                                  |
 
-### Samsung Serie 9 ###
-
+### Samsung Alternatives ###
+#### Serie 9 ####
 The next few lines show the difference of the `900X4C A0A` to...
 
 * `900X3D-A02`: Seems to be the same as
@@ -60,6 +64,11 @@ The next few lines show the difference of the `900X4C A0A` to...
    costs only 799 Euro.
 
 * All `X3A` seem to have 13.3" displays.
+
+#### ATIV Book 8 ####
+On a first glance, the Samsung ATIV Book 8 NP880Z5E-X01 looked quite
+promising. But it doesn't have an SSD, it weights 2.54 kg, but has
+no optical drive.
 
 ## Notebooks that did not meet the criteria ##
 
