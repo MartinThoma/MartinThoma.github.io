@@ -31,8 +31,8 @@ a high end notebook this time. Some required features are:
 |--------------------|--------------------|-------------------------------------|------------------------------------|
 | Model              | UX51VZ-DB114H      | 900X4C A0A                          |                                    |
 | Price              | 1380 Euro          | 1699 Euro                           | 1999 Euro                          |
-| Dimensions         | 380 x 254 x 20     | 356.9 x 237 x 14.9 mm               | 358.9 x 247.1 x 18 mm              |
-| Weight (B x D x H) | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
+| Dimensions (B x D x H)| 380 x 254 x 20  | 356.9 x 237 x 14.9 mm               | 358.9 x 247.1 x 18 mm              |
+| Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
 | CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
 | Display Resolution | 2880x1620          | 1.600 x 900                         | ?                                  |
@@ -62,6 +62,7 @@ The next few lines show the difference of the `900X4C A0A` to...
    Samsung ATIV Book 9. [Intel Core i5-3337U](http://ark.intel.com/products/72055),
    4 GB DDR3-RAM 1333MHz, 128 GB SSD. Costs 948.36 Euro.
 * `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, not 2x2 WLAN, ca 1200 Euro
+* `900X4C A06`: 256 GB SSD, 15.6" Display, 1629 Euro
 * `900X4C A09`: Costs 1999 Euro (any other difference?)
 * `900X4D A03` has also 15" Display, but only 4GB RAM and a
    [Intel Core i5-3317U](http://ark.intel.com/products/65707) and a
@@ -84,15 +85,18 @@ Display is too small:
 * Asus Zenbook has only 13.3"
 
 ## Ideas ##
+* Tuxedo Book BC1503 - [linux-onlineshop.de](http://www.linux-onlineshop.de/Linux-Hardware/Linux-Notebooks/15-6-Zoll/Tuxedo-Book-BC1503-15-6-matt-Full-HD-IPS-Intel-HD-4600-Grafik-drei-HDD-SSD-bis-Intel-Core-i7-4900MQ-bis-16GB-RAM-DVD-Blu-Ray-Brenner.geek)
 * Asus N550JV-CN201H
+* ASUS Zenbook UX51VZ-CN035H ([notebookinfo.de](http://www.notebookinfo.de/produkte/asus-zenbook-ux51vz-cn035h/90nwoc212n11b35d551y/00012967/#Uebersicht))
 * Aspire TimelineU M5 Ultrabook ([notebookcheck.com](http://www.notebookcheck.com/Acer-Aspire-TimelineU-M5-Ultrabook-ab-800-Euro-im-Handel.77122.0.html))
 * HP Envy 6-1000sg ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-Envy-6-1000sg-Ultrabook.79719.0.html))
+* HP EliteBook 8570p-B6Q03EA-ABD ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-EliteBook-8570p-B6Q03EA-ABD-Notebook.81801.0.html))
 * XPS 15 (L501X)
 * XPS 15 (L502X)
 * XPS 15z
 * ATIV Book 8 870Z5E X04
 * ATIV Book 8 880Z5E X01
-* ATIV Book 9 900X4D K01
+* ATIV Book 9 900X4D K01 ([notebookinfo.de](http://www.notebookinfo.de/produkte/samsung-ativ-book-9-900x4d-k01/np900x4d-k01de/00016092/#Datenblatt))
 * HP Envy 15 https://en.wikipedia.org/wiki/HP_Envy#Current_models
 * https://en.wikipedia.org/wiki/Category:IBM_laptops
 * https://en.wikipedia.org/wiki/Category:Lenovo_laptops
