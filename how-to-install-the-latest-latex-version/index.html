@@ -12,7 +12,7 @@
 
 
     <title>How to install the latest LaTeX Version</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201401192133.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201401241501.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -73,7 +73,7 @@
                         </div>
 			
 						<div class="entry">
-                            <p>I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2012. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.</p>
+                            <p>I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2013. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -169,41 +169,34 @@ I
 <p>After you've started your installation, you can choose options (O). Then you should choose "create symlinks in standard directories" (L).</p>
 
 <p>If you didn't do so, add the path to your PATH (See <a href="http://askubuntu.com/a/60221/10425">How to add a directory to my path?</a>, <a href="http://askubuntu.com/a/60769/10425">How do I add a directory to MANPATH or INFOPATH?</a> and <a href="http://askubuntu.com/a/59127/10425">Reload .profile</a>):</p>
-
 <div class="highlight">
-   <pre><code class="bash"><span class="nv">PATH</span><span class="o">=</span><span class="sb">`</span><span class="nv">$PATH</span>:/usr/local/texlive/2012/bin/i386-linux/
+   <pre><code class="bash language-bash" data-lang="bash"><span class="nv">PATH</span><span class="o">=</span><span class="sb">`</span><span class="nv">$PATH</span>:/usr/local/texlive/2013/bin/i386-linux/
 </code></pre>
 </div>
-
 <p>That's it. So my <code>.profile</code> got these additional lines:</p>
-
 <div class="highlight">
-   <pre><code class="text">if [ -d "/usr/local/texlive/2012/bin/i386-linux" ] ; then
-    PATH="/usr/local/texlive/2012/bin/i386-linux:$`PATH"
+   <pre><code class="text language-text" data-lang="text">if [ -d "/usr/local/texlive/2013/bin/i386-linux" ] ; then
+    PATH="/usr/local/texlive/2013/bin/i386-linux:$`PATH"
 fi
 
-if [ -d "/usr/local/texlive/2012/texmf/doc/man" ] ; then
-    MANPATH="/usr/local/texlive/2012/texmf/doc/man:`$MANPATH"
+if [ -d "/usr/local/texlive/2013/texmf/doc/man" ] ; then
+    MANPATH="/usr/local/texlive/2013/texmf/doc/man:`$MANPATH"
 fi
 
-if [ -d "/usr/local/texlive/2012/texmf/doc/info" ] ; then
-    INFOPATH="/usr/local/texlive/2012/texmf/doc/info:$`INFOPATH"
+if [ -d "/usr/local/texlive/2013/texmf/doc/info" ] ; then
+    INFOPATH="/usr/local/texlive/2013/texmf/doc/info:$`INFOPATH"
 fi
 </code></pre>
 </div>
-
-<p>edit: I've just installed TeX-Live 2012 and had to do this:</p>
-
+<p>edit: I've just installed TeX-Live 2013 and had to do this:</p>
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:/usr/bin<span class="sb">`</span><span class="nv">$ </span>rm latex
-moose@pc07:/usr/bin<span class="nv">$`</span> sudo ln -s /usr/local/texlive/2012/bin/i386-linux/pdflatex latex
+   <pre><code class="bash language-bash" data-lang="bash">moose@pc07:/usr/bin<span class="sb">`</span><span class="nv">$ </span>rm latex
+moose@pc07:/usr/bin<span class="nv">$`</span> sudo ln -s /usr/local/texlive/2013/bin/i386-linux/pdflatex latex
 </code></pre>
 </div>
-
 <p>You can try if your installation works by <code>latex --version</code>:</p>
-
 <div class="highlight">
-   <pre><code class="text">pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
+   <pre><code class="text language-text" data-lang="text">pdfTeX 3.1415926-1.40.10-2.2 (TeX Live 2009/Debian)
 kpathsea version 5.0.0
 Copyright 2009 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
 There is NO warranty.  Redistribution of this software is
@@ -217,23 +210,18 @@ Compiled with zlib 1.2.3.3; using zlib 1.2.3.3
 Compiled with poppler version 0.12.4
 </code></pre>
 </div>
-
 <p>If an old version is shown, you might want to see where it is located:</p>
-
 <div class="highlight">
-   <pre><code class="bash">which latex
+   <pre><code class="bash language-bash" data-lang="bash">which latex
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-4">Update</h2>
-
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">cd</span> /usr/local/texlive/2012/bin/i386-linux
+   <pre><code class="bash language-bash" data-lang="bash"><span class="nb">cd</span> /usr/local/texlive/2013/bin/i386-linux
 sudo ./tlmgr update --self
 sudo ./tlmgr update --all
 </code></pre>
 </div>
-
 <h2 id="tocAnchor-1-5">See also</h2>
 
 <ul><li>Wikipedia: <a href="http://en.wikipedia.org/wiki/LaTeX">LaTeX</a>, <a href="http://en.wikipedia.org/wiki/TeX_Live">TeX Live</a></li>
@@ -347,7 +335,7 @@ sudo ./tlmgr update --all
 <a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
 <a style='font-size: 204.83%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/linux/' title='13 topics'>Linux</a>
+<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
 <a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
 <a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
