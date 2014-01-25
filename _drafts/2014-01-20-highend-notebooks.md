@@ -36,7 +36,7 @@ a high end notebook this time. Some required features are:
 | CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
 | Display Resolution | 2880x1620          | 1.600 x 900                         | ?                                  |
-| Display more       | glare              | Matt LED-Display, 400 Nit           | ?                                  |
+| Display more       | glossy             | Matt LED-Display, 400 Nit           | ?                                  |
 | RAM                | 8 GB DDR3, 1600 MHz| 2 x 4 GB DDR3 1.600 MHz             | 8 GB 1600 MHz DDR3L                |
 | Disk               | 256 SSD            | 512 GB SSD                          | 256 SSD                            |
 | Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | ?                                  |
@@ -79,6 +79,7 @@ Display is too small:
 * Asus Zenbook has only 13.3"
 
 ## Ideas ##
+* Asus N550JV-CN201H
 * Aspire TimelineU M5 Ultrabook ([notebookcheck.com](http://www.notebookcheck.com/Acer-Aspire-TimelineU-M5-Ultrabook-ab-800-Euro-im-Handel.77122.0.html))
 * HP Envy 6-1000sg ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-Envy-6-1000sg-Ultrabook.79719.0.html))
 * XPS 15 (L501X)

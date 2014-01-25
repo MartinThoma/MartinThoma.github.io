@@ -53,6 +53,26 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 <td style="border-bottom:1px solid black;">Logische Programmierung</td>
 <td style="border-bottom:1px solid black;">Prolog</td>
 </tr>
+<tr>
+<td style="border-bottom:1px solid black;">10.01.2014</td>
+<td style="border-bottom:1px solid black;">Scala</td>
+<td style="border-bottom:1px solid black;">Kein `;`, weniger verbose als Java, ...</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">15.01.2014</td>
+<td style="border-bottom:1px solid black;">Scala</td>
+<td style="border-bottom:1px solid black;">Concurrency in Scala: Actors, react; MPI, OpenMP</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">22.01.2014</td>
+<td style="border-bottom:1px solid black;">-</td>
+<td style="border-bottom:1px solid black;">X10: async, val, var</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid black;">24.01.2014</td>
+<td style="border-bottom:1px solid black;">-</td>
+<td style="border-bottom:1px solid black;">C (<abbr title="Immer aus Hauptspeicher, nie aus Cache holen">volatile</abbr>)</td>
+</tr>
 </table>
 
 ### Übungsblätter ###
