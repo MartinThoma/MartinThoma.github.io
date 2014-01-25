@@ -22,11 +22,13 @@ When I reinstall my computer, I usually do these following steps:
 If possible, I will give the debian package names in the following list:
 
 * [LaTeX](../how-to-install-the-latest-latex-version/)
+  * gnuplot
 * [Google Chrome](https://www.google.com/intl/de/chrome/browser/)
 * Multimedia
   * [`vlc`](http://www.videolan.org/vlc/): A very good DVD player
   * [OnlineTvRecorder](http://wiki.ubuntuusers.de/OnlineTvRecorder) and especially [OTR-Verwaltung](http://wiki.ubuntuusers.de/OTR-Verwaltung)
      * `avidemux wine mplayer`
+  * `sudo add-apt-repository ppa:clipgrab-team && sudo apt-get update && sudo apt-get install clipgrab`
 * Graphics
   * [`gimp`](http://www.gimp.org/)
   * [`inkscape`](http://www.inkscape.org/)
@@ -42,12 +44,17 @@ If possible, I will give the debian package names in the following list:
   * `eclipse`
   * `sqlitebrowser`
   * `tcl`
-  * `phpmyadmin`
+  * `phpmyadmin selfhtml`
   * `meld diffpdf`
+* Themes
+  * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en)
+  * `sudo add-apt-repository ppa:bisigi && sudo apt-get update`
+  * `sudo apt-get install bisigi-themes`
+  * `sudo apt-get install balanzan-theme`
 * Other
   * `libreoffice`
 * DRM-caused (I want to watch DVDs!)
-  * `ubuntu-restricted-extras libdvdcss2 libdvdread4 libdvdnav4`
+  * `ubuntu-restricted-extras libdvdcss2 libdvdread4 libdvdnav4 w32codecs`
   * `totem banshee mplayer rythmbox`
 
 ## Configure ##
