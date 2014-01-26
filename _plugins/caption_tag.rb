@@ -16,7 +16,8 @@
 #        <p class="wp-caption-text">WER calculation</p>
 #    </div>
 
-require 'csv' 
+require 'csv'
+require 'dimensions'
 
 module Jekyll
   class CaptionTag < Liquid::Tag
@@ -58,6 +59,7 @@ module Jekyll
         end
 
         @divWidth = (@hash['width'].to_i+10).to_s
+        puts Dimensions.dimensions(@hash['url'])
 
         "<div style=\"width: #{@divWidth}px\" class=\"wp-caption #{@hash['align']}\">" +
         "<a href=\"#{@hash['url']}\">" +
