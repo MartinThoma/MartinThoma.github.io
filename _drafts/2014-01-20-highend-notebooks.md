@@ -49,10 +49,10 @@ a high end notebook this time. Some required features are:
 | Keyboard           | ?                  | ?                                   | ?                                  |
 | Noise              | ?                  | ?                                   | ?                                  |
 
-   {% gallery columns="2" %}
-       ../images/2014/01/samsung-serie-9-keyboard-layout.png "Samsung Series 9"
-       ../images/2014/01/macbook-pro-retina-keyboard-layout.jpg "Macbook Pro"
-   {% endgallery %}
+{% gallery columns="2" %}
+   ../images/2014/01/samsung-serie-9-keyboard-layout.png   "Samsung Series 9"
+   ../images/2014/01/macbook-pro-retina-keyboard-layout.jpg   "Macbook Pro"
+{% endgallery %}
 
 ### Samsung Alternatives ###
 #### Serie 9 ####
@@ -61,13 +61,18 @@ The next few lines show the difference of the `900X4C A0A` to...
 * `900X3D-A02`: Seems to be the same as
    Samsung ATIV Book 9. [Intel Core i5-3337U](http://ark.intel.com/products/72055),
    4 GB DDR3-RAM 1333MHz, 128 GB SSD. Costs 948.36 Euro.
-* `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, not 2x2 WLAN, ca 1200 Euro
+* `NP900X4C-A01CA`: Intel Core i5-3317U, 128GB SSD, no Dualband
+* `NP900X4C-A02DE`: Seems not to be available any longer
+* `900X3C A03`: 3610 mAh, 1399 Euro
+* `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, no Dualband, ca 1200 Euro
 * `900X4C A06`: 256 GB SSD, 15.6" Display, 1629 Euro
 * `900X4C A09`: Costs 1999 Euro (any other difference?)
 * `900X4D A03` has also 15" Display, but only 4GB RAM and a
    [Intel Core i5-3317U](http://ark.intel.com/products/65707) and a
    128 GB SSD. But it
    costs only 799 Euro.
+* `900X4D K01`: Intel Core i5-3337U, 128 GB SSD, 8400 mAh, Dual Band, 997 Euro
+
 
 * All `X3A` seem to have 13.3" displays.
 
