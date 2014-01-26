@@ -20,12 +20,13 @@ a high end notebook this time. Some required features are:
 * USB 4.0 port for USB-Stick
 * [Bluetooth v4.0](https://en.wikipedia.org/wiki/Bluetooth#Bluetooth_Smart_.28v4.0.29)
 * At least 4GB of RAM
-* At least 80GB of HDD space
+* At least 80GB SSD
 * Less than 2.5kg
-* At least 15" display size with a resolution of at least 1366x768
+* At least 15" display size with a resolution of at least 1366x768; not glossy
+* It has to have dual band WLAN, sometimes also called 2x2 WLAN. I really want to have a good connectivity.
 * Good Keyboard
 * At least 3 hours running time on battery
-* It has to be silent
+* It has to be silent (less than 30 db(A) in normal mode)
 
 |                    | Asus Zenbook       | Samsung Notebook Serie 9            | Macbook  Pro                       |
 |--------------------|--------------------|-------------------------------------|------------------------------------|
@@ -61,11 +62,15 @@ The next few lines show the difference of the `900X4C A0A` to...
 * `900X3D-A02`: Seems to be the same as
    Samsung ATIV Book 9. [Intel Core i5-3337U](http://ark.intel.com/products/72055),
    4 GB DDR3-RAM 1333MHz, 128 GB SSD. Costs 948.36 Euro.
-* `NP900X4C-A01CA`: Intel Core i5-3317U, 128GB SSD, no Dualband
-* `NP900X4C-A02DE`: Seems not to be available any longer
+* `NP900X4C-A01`: Intel Core i5-3317U, 128GB SSD, no Dualband
+* `NP900X4C-A02`: Seems not to be available any longer
+* `900X3C-A01`: 13.3" Display
 * `900X3C A03`: 3610 mAh, 1399 Euro
+* `900X4B-A01`: Intel Core i7 2637M, 1999 Euro
+* `900X4C-A04`: Intel Core i5 3317U, 1999 Euro
 * `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, no Dualband, ca 1200 Euro
 * `900X4C A06`: 256 GB SSD, 15.6" Display, 1629 Euro
+* `900X3C A07`: 13.3"
 * `900X4C A09`: Costs 1999 Euro (any other difference?)
 * `900X4D A03` has also 15" Display, but only 4GB RAM and a
    [Intel Core i5-3317U](http://ark.intel.com/products/65707) and a
@@ -81,6 +86,8 @@ On a first glance, the Samsung ATIV Book 8 NP880Z5E-X01 looked quite
 promising. But it doesn't have an SSD, it weights 2.54 kg, but has
 no optical drive.
 
+* Samsung ATIV 870Z5E-X03DE
+
 ## Notebooks that did not meet the criteria ##
 
 Display is too small:
@@ -91,7 +98,7 @@ Display is too small:
 
 ## Ideas ##
 * Tuxedo Book BC1503 - [linux-onlineshop.de](http://www.linux-onlineshop.de/Linux-Hardware/Linux-Notebooks/15-6-Zoll/Tuxedo-Book-BC1503-15-6-matt-Full-HD-IPS-Intel-HD-4600-Grafik-drei-HDD-SSD-bis-Intel-Core-i7-4900MQ-bis-16GB-RAM-DVD-Blu-Ray-Brenner.geek)
-* Asus N550JV-CN201H
+* Asus N550JV-CN201H - [notebookcheck.com](http://www.notebookcheck.com/Test-Asus-N550JV-CN201H-Notebook.97649.0.html)
 * ASUS Zenbook UX51VZ-CN035H ([notebookinfo.de](http://www.notebookinfo.de/produkte/asus-zenbook-ux51vz-cn035h/90nwoc212n11b35d551y/00012967/#Uebersicht))
 * Aspire TimelineU M5 Ultrabook ([notebookcheck.com](http://www.notebookcheck.com/Acer-Aspire-TimelineU-M5-Ultrabook-ab-800-Euro-im-Handel.77122.0.html))
 * HP Envy 6-1000sg ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-Envy-6-1000sg-Ultrabook.79719.0.html))
@@ -99,6 +106,7 @@ Display is too small:
 * XPS 15 (L501X)
 * XPS 15 (L502X)
 * XPS 15z
+* XPS 15 9530 - http://www.notebookcheck.com/Test-Dell-XPS-15-9530-Late-2013-Notebook.105963.0.html
 * ATIV Book 8 870Z5E X04
 * ATIV Book 8 880Z5E X01
 * ATIV Book 9 900X4D K01 ([notebookinfo.de](http://www.notebookinfo.de/produkte/samsung-ativ-book-9-900x4d-k01/np900x4d-k01de/00016092/#Datenblatt))
@@ -111,3 +119,9 @@ Display is too small:
 * Asus Zenbook U500VZ - http://www.onlinekosten.de/news/artikel/49396/0/Asus-Windows-8-Tablets-und-15-Zoll-Zenbook
 * http://www.onlinekosten.de/news/artikel/52673/1/Toshiba-und-Asus-Neue-Business-Notebooks-mit-UMTS-oder-Auto-Backup
 * http://www.onlinekosten.de/news/artikel/49435/0/HP-kuendigt-schlankes-schickes-Windows-8-Tablet-an
+* Fujitsu Lifebook E753
+* Acer Aspire M3-581TG
+* Acer TravelMate 6594eG-464G50Mikk
+* Acer Aspire V5-573G-54208G50aii
+* Fujitsu Lifebook E753 Premium
+* Asus PU500CA-XO002X -- Leise! ca 1000 Euro, [notebookcheck.net](http://www.notebookcheck.net/Review-Asus-PU500CA-XO002X-Notebook.94051.0.html)
