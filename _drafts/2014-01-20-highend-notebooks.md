@@ -96,7 +96,7 @@ it is very silent.
 |                    | Asus Zenbook       | Asus Zenbook          | Asus Zenbook          | 
 |--------------------|--------------------|-----------------------|-----------------------|
 | Model              | UX51VZ-CN035H      | UX51VZ-DB114H         | U500VZ                |
-| Price              | 1390               | 138 0 Euro            | 1350 Euro             |
+| Price              | 1390               | 1380 Euro             | 1350 Euro             |
 | Dimensions (B x D x H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     | 
 | Weight             | 2.2 kg             | 2.2 kg                | 2.2 kg                | 
 | CPU                |Intel Core i7-3612QM| Intel Core i7 3632QM  | Intel Core i7-3612QM  |
@@ -145,7 +145,7 @@ it is very silent.
 
 ## Dell ##
 
-|                    | XPS 15               | | 
+|                    | XPS 15               | (None) | 
 |--------------------|----------------------|-|
 | Model              | 9530-1906            | |
 | Price              | 1711  Euro           | |
@@ -174,7 +174,7 @@ it is very silent.
 
 ## Fujitsu ##
 
-|                    | Fujitsu Lifebook   | | 
+|                    | Fujitsu Lifebook   | (None) | 
 |--------------------|--------------------|-|
 | Model              | E753               | |
 | Price              | 1759  Euro         | |
@@ -199,7 +199,7 @@ it is very silent.
 
 ## HP ##
 
-|                    | HP Envy 15            | | 
+|                    | HP Envy 15            | (None) | 
 |--------------------|-----------------------|-|
 | Model              | J011SG                | |
 | Price              | 811 Euro              | |
