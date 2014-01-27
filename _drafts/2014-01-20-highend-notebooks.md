@@ -93,7 +93,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 |                    | Asus Zenbook       | Asus Zenbook          | Asus Zenbook          | 
 |--------------------|--------------------|-----------------------|-----------------------|
 | Model              | UX51VZ-CN035H      | UX51VZ-DB114H         | U500VZ                |
-| Price              | 1390               | 1380 Euro             | 1350 Euro             |
+| Price              | 1390 Euro          | 1380 Euro             | 1350 Euro             |
 | Dimensions (B x D x H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     | 
 | Weight             | 2.2 kg             | 2.2 kg                | 2.2 kg                | 
 | CPU                |Intel Core i7-3612QM| Intel Core i7 3632QM  | Intel Core i7-3612QM  |
@@ -118,7 +118,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 |                    | Asus                  | Asus             |
 |--------------------|-----------------------|------------------|
 | Model              | PU500CA-XO002X        | N550JV-CN201H    |
-| Price              | 998 Euro              | 1099             |
+| Price              | 998 Euro              | 1099 1390        |
 | Dimensions (B × D × H)| 383 × 257 × 22.5 mm| 383 × 255 × 27   |
 | Weight             | 1.96 kg               | 2.7 kg           |
 | CPU                | Intel Core i5-3317U   | Intel Core i7-4700HQ |
