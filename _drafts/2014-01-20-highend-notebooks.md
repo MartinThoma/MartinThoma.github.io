@@ -63,28 +63,28 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
 ## Acer ## 
 
-|                    | Acer Aspire         |  | 
-|--------------------|---------------------|--|
-| Model              | V5-573G-54208G50aii |  |
-| Price              | 649  Euro           |  |
-| Dimensions (B × D × H)| 382 × 256 × 18   |  | 
-| Weight             | 2.04 kg             |  | 
-| CPU                | Intel Core i5-4200U |  |
-| Display Size       | 15.6"               |  | 
-| Display Resolution | 1920 × 1080         |  |
-| Display more       | not glossy          |  |
-| RAM                | 8 GB DDR3, 1600 MHz |  | 
-| Disk               | 1000 GB HDD         |  |
-| Network            | 10/100/1000MBit     |  | 
-| Wireless           |                     |  |
-| WLAN-Chip          | Atheros AR5BWB222   |  |
-| Bluetooth          | 4.0                 |  |
-| Akku               | 3560 mAh            |  |
-| USB                | 1× USB 3.0, 2× USB 2.0 |  |
-| Card Reader        | SD                  |  |
-| Linux-Support      | ?                   |  |
-| Keyboard           | Chiclet-Keyboard    |  |
-| Noise              | 33.3 dB             |  |
+|                    | Acer Aspire            |
+|--------------------|------------------------|
+| Model              | V5-573G-54208G50aii    |
+| Price              | 649  Euro              |
+| Dimensions (B × D × H)| 382 × 256 × 18      |
+| Weight             | 2.04 kg                |
+| CPU                | Intel Core i5-4200U    |
+| Display Size       | 15.6"                  |
+| Display Resolution | 1920 × 1080            |
+| Display more       | not glossy             |
+| RAM                | 8 GB DDR3, 1600 MHz    |
+| Disk               | 1000 GB HDD            |
+| Network            | 10/100/1000MBit        |
+| Wireless           |                        |
+| WLAN-Chip          | Atheros AR5BWB222      |
+| Bluetooth          | 4.0                    |
+| Akku               | 3560 mAh               |
+| USB                | 1× USB 3.0, 2× USB 2.0 | 
+| Card Reader        | SD                     |
+| Linux-Support      | ?                      |
+| Keyboard           | Chiclet-Keyboard       |
+| Noise              | 33.3 dB                |
 
 * Die Acer Aspire TimelineU M5 haben alle eine zu niedrige Auflösung
 
@@ -145,28 +145,28 @@ it is very silent.
 
 ## Dell ##
 
-|                    | XPS 15               | (None) | 
-|--------------------|----------------------|-|
-| Model              | 9530-1906            | |
-| Price              | 1711  Euro           | |
-| Dimensions (B × D × H)| 372 × 254 × 18    | | 
-| Weight             | 2.02 kg              | | 
-| CPU                | Intel Core i7-4702HQ | |
-| Display Size       | 15.6"                | | 
-| Display Resolution | 3200x1800            | |
-| Display more       |                      | |
-| RAM                | 8 GB DDR3L, 1600 MHz | | 
-| Disk               | 512 GB SSD           | |
-| Network            | (no RJ45)            | | 
-| Wireless           | 802.11 ac, 2x2       | |
-| WLAN-Chip          | Intel AC 7260        | |
-| Bluetooth          | 4.0                  | |
-| Akku               | ?                    | |
-| USB                | 3× USB 3.0           | |
-| Card Reader        | SD, SDIO, SDXC       | |
-| Linux-Support      | ?                    | |
-| Keyboard           | Chiclet-Keyboard     | |
-| Noise              | 29.8 dB, 42.1 dB max | |
+|                    | XPS 15               |
+|--------------------|----------------------|
+| Model              | 9530-1906            |
+| Price              | 1711  Euro           |
+| Dimensions (B × D × H)| 372 × 254 × 18    |
+| Weight             | 2.02 kg              |
+| CPU                | Intel Core i7-4702HQ |
+| Display Size       | 15.6"                |
+| Display Resolution | 3200x1800            |
+| Display more       |                      |
+| RAM                | 8 GB DDR3L, 1600 MHz |
+| Disk               | 512 GB SSD           |
+| Network            | (no RJ45)            |
+| Wireless           | 802.11 ac, 2x2       |
+| WLAN-Chip          | Intel AC 7260        |
+| Bluetooth          | 4.0                  |
+| Akku               | ?                    |
+| USB                | 3× USB 3.0           |
+| Card Reader        | SD, SDIO, SDXC       |
+| Linux-Support      | ?                    |
+| Keyboard           | Chiclet-Keyboard     |
+| Noise              | 29.8 dB, 42.1 dB max | 
 
 * XPS 15 (L501X)
 * XPS 15 (L502X)
@@ -174,53 +174,53 @@ it is very silent.
 
 ## Fujitsu ##
 
-|                    | Fujitsu Lifebook   | (None) | 
-|--------------------|--------------------|-|
-| Model              | E753               | |
-| Price              | 1759  Euro         | |
-| Dimensions (B × D × H)| 374 × 374 × 20  | | 
-| Weight             | 1.99 kg            | | 
-| CPU                | Intel Core i7-3632QM | |
-| Display Size       | 15.6"              | | 
-| Display Resolution | 1920 × 1080        | |
-| Display more       | not glossy         | |
-| RAM                | 8 GB DDR3          | | 
-| Disk               | 256 GB SSD         | |
-| Network            | 10/100/1000MBit    | | 
-| Wireless           | 802.11 a/b/g/n     | |
-| WLAN-Chip          | Centrino Advanced-N 6235 | |
-| Bluetooth          | 4.0                | |
-| Akku               | 6700 mAh           | |
-| USB                | 3× USB 3.0         | |
-| Card Reader        | SD                 | |
-| Linux-Support      | ?                  | |
-| Keyboard           | Chiclet-Keyboard   | |
-| Noise              | 33.3 dB            | |
+|                    | Fujitsu Lifebook   |
+|--------------------|--------------------|
+| Model              | E753               |
+| Price              | 1759  Euro         |
+| Dimensions (B × D × H)| 374 × 374 × 20  |
+| Weight             | 1.99 kg            |
+| CPU                | Intel Core i7-3632QM |
+| Display Size       | 15.6"              |
+| Display Resolution | 1920 × 1080        |
+| Display more       | not glossy         |
+| RAM                | 8 GB DDR3          |
+| Disk               | 256 GB SSD         |
+| Network            | 10/100/1000MBit    |
+| Wireless           | 802.11 a/b/g/n     |
+| WLAN-Chip          | Centrino Advanced-N 6235 |
+| Bluetooth          | 4.0                |
+| Akku               | 6700 mAh           |
+| USB                | 3× USB 3.0         |
+| Card Reader        | SD                 |
+| Linux-Support      | ?                  |
+| Keyboard           | Chiclet-Keyboard   |
+| Noise              | 33.3 dB            |
 
 ## HP ##
 
-|                    | HP Envy 15            | (None) | 
-|--------------------|-----------------------|-|
-| Model              | J011SG                | |
-| Price              | 811 Euro              | |
-| Dimensions (B × D × H)| 380 × 251 × 28     | | 
-| Weight             | 2.19 kg               | | 
-| CPU                | Intel Core i5-4200M   | |
-| Display Size       | 15.6"                 | | 
-| Display Resolution | 1920x1080             | |
-| Display more       |                       | |
-| RAM                | 12 GB DDR3L, 1600 MHz | | 
-| Disk               | 1000 GB               | |
-| Network            | 10/100/1000 RJ-45     | | 
-| Wireless           | 802.11b/g/n           | |
-| WLAN-Chip          | Intel AC 7260         | |
-| Bluetooth          | 4.0                   | |
-| Akku               | ?                     | |
-| USB                | 4× USB 3.0            | |
-| Card Reader        | SD                    | |
-| Linux-Support      | ?                     | |
-| Keyboard           | with numblock         | |
-| Noise              | ?                     | |
+|                    | HP Envy 15            |
+|--------------------|-----------------------|
+| Model              | J011SG                |
+| Price              | 811 Euro              |
+| Dimensions (B × D × H)| 380 × 251 × 28     |
+| Weight             | 2.19 kg               |
+| CPU                | Intel Core i5-4200M   |
+| Display Size       | 15.6"                 | 
+| Display Resolution | 1920x1080             |
+| Display more       |                       |
+| RAM                | 12 GB DDR3L, 1600 MHz |
+| Disk               | 1000 GB               |
+| Network            | 10/100/1000 RJ-45     |
+| Wireless           | 802.11b/g/n           |
+| WLAN-Chip          | Intel AC 7260         |
+| Bluetooth          | 4.0                   |
+| Akku               | ?                     |
+| USB                | 4× USB 3.0            |
+| Card Reader        | SD                    |
+| Linux-Support      | ?                     |
+| Keyboard           | with numblock         |
+| Noise              | ?                     |
 
 * HP Envy 6-1000sg seems not to be available on Amazon  ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-Envy-6-1000sg-Ultrabook.79719.0.html))
 *  ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-EliteBook-8570p-B6Q03EA-ABD-Notebook.81801.0.html))
