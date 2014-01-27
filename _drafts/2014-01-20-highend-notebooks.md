@@ -52,7 +52,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
 | Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | up to 7h                           |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              | 2× USB 3.0                         |
-| SD Card Reader     | ✔                  | ?                                   | SDXC                               |
+| SD Card Reader     | ✔                  | ✔                                   | ✔                                  |
 | Linux-Support      | ?                  | ?                                   | ?                                  |
 | Keyboard           | ?                  | Chiclet-keyboard without numblock   | Chiclet-Keyboard                   |
 | Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   | 29.4 dB in normal mode, 47.4 dB max|
