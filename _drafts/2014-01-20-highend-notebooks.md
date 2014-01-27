@@ -21,8 +21,8 @@ a high end notebook this time. Some required features are:
 * [Bluetooth v4.0](https://en.wikipedia.org/wiki/Bluetooth#Bluetooth_Smart_.28v4.0.29)
 * At least 4GB of RAM
 * At least 80GB SSD
-* Less than 2.5kg
-* At least 15" display size with a resolution of more than 1366x768 (I am very close to the screen and I don't want to be able to see single pixels); the screen should be not glossy, because I would like to work outside in the summer
+* Less than 2.5kg: Currently, it happens quite often that I don't take my notebook with me because it is too heavy (2.5kg + 0.2kg for the power supply unit).
+* At least 15" display size with a resolution of more than 1366x768 (I am very close to the screen and I don't want to be able to see single pixels); the screen should be not glossy, because I would like to work outside in the summer.
 * It has to have dual band WLAN, sometimes also called 2x2 WLAN. I really want to have a good connectivity.
 * Good Keyboard (no numblock required)
 * At least 4 hours running time on battery. It it is less than 6 hours, then the weight of the notebook plus its power supply pack has to be less than 2.5kg
@@ -34,18 +34,20 @@ By the way, while searching for notebooks I discovered that much of
 the data on Amazon is wrong. See for example the dimensions of
 the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
+## Current Favorites ##
+
 |                    | Asus Zenbook       | Samsung Notebook Serie 9            | Macbook  Pro                       |
 |--------------------|--------------------|-------------------------------------|------------------------------------|
-| Model              | UX51VZ-DB114H      | 900X4C A0A                          | Retina 15"                         |
-| Price              | 1380 Euro          | 1699 Euro                           | 1999 Euro                          |
+| Model              | UX51VZ-DB114H      | 900X4D K01                          | Retina 15"                         |
+| Price              | 1380 Euro          |  995 Euro                           | 1999 Euro                          |
 | Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               | 358.9 × 247.1 × 18 mm              |
 | Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
-| CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | [Intel Core i7 2760QM](http://ark.intel.com/products/53474) |
+| CPU                | Intel Core i7 3632QM | [Intel Core i5-3337U](http://ark.intel.com/products/72055) | [Intel Core i7 2760QM](http://ark.intel.com/products/53474) |
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
 | Display Resolution | 2880×1620          | 1600×900                            | 2880×1800                          |
 | Display more       | glossy             | not glossy, LED-Display, 400 Nit    | ?                                  |
-| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3 1.600 MHz              | 8 GB 1600 MHz DDR3L                |
-| Disk               | 256 SSD            | 512 GB SSD                          | 256 SSD                            |
+| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3  SDRAM1.600 MHz        | 8 GB 1600 MHz DDR3L                |
+| Disk               | 256 SSD            | 128 GB SSD                          | 256 SSD                            |
 | Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | ?                                  |
 | Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           | 802.11a/b/g/n                      |
 | WLAN-Chip          | ?                  | ?                                   | ?                                  |
@@ -53,7 +55,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | up to 7h                           |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              | 2× USB 3.0                         |
 | SD Card Reader     | ✔                  | ✔                                   | ✔                                  |
-| Linux-Support      | ?                  | ?                                   | ?                                  |
+| Linux-Support      | ?                  | partially ([^1],[^2], [^3])         | ?                                  |
 | Keyboard           | ?                  | Chiclet-keyboard without numblock   | Chiclet-Keyboard                   |
 | Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   | 29.4 dB in normal mode, 47.4 dB max|
 
@@ -94,7 +96,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 |--------------------|--------------------|-----------------------|-----------------------|
 | Model              | UX51VZ-CN035H      | UX51VZ-DB114H         | U500VZ                |
 | Price              | 1390 Euro          | 1380 Euro             | 1350 Euro             |
-| Dimensions (B x D x H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     | 
+| Dimensions (B × D × H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     | 
 | Weight             | 2.2 kg             | 2.2 kg                | 2.2 kg                | 
 | CPU                |Intel Core i7-3612QM| Intel Core i7 3632QM  | Intel Core i7-3612QM  |
 | Display Size       | 15.6"              | 15.6"                 | 15.6"                 | 
@@ -223,27 +225,18 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 ### Serie 9 ###
 The next few lines show the difference of the `900X4C A0A` to...
 
-* `900X3D-A02`: Seems to be the same as
-   Samsung ATIV Book 9. [Intel Core i5-3337U](http://ark.intel.com/products/72055),
-   4 GB DDR3-RAM 1333MHz, 128 GB SSD. Costs 948.36 Euro.
 * `NP900X4C-A01`: Intel Core i5-3317U, 128GB SSD, no Dualband
-* `NP900X4C-A02`: Seems not to be available any longer
-* `900X3C-A01`: 13.3" Display
 * `900X3C A03`: 3610 mAh, 1399 Euro
 * `900X4B-A01`: Intel Core i7 2637M, 1999 Euro
 * `900X4C-A04`: Intel Core i5 3317U, 1999 Euro
 * `900X4C-A05`: Intel Core i5 3317U, 128GB SSD, no Dualband, ca 1200 Euro
 * `900X4C A06`: 256 GB SSD, 15.6" Display, 1629 Euro
-* `900X3C A07`: 13.3"
 * `900X4C A09`: Costs 1999 Euro (any other difference?)
 * `900X4D A03` has also 15" Display, but only 4GB RAM and a
    [Intel Core i5-3317U](http://ark.intel.com/products/65707) and a
    128 GB SSD. But it
    costs only 799 Euro.
 * `900X4D K01`: Intel Core i5-3337U, 128 GB SSD, 8400 mAh, Dual Band, 997 Euro
-
-
-* All `X3A` seem to have 13.3" displays.
 
 #### Other ####
 On a first glance, the Samsung ATIV Book 8 NP880Z5E-X01 looked quite
@@ -265,6 +258,10 @@ Display is too small:
 * XPS 13 has only 13.3"
 * Asus Zenbook has only 13.3"
 * Lenovo IdeaPad U300s have only 13.3"
+* All `Samsung Series 9 X3A` seem to have 13.3" displays
+* `Samsung Series 9 900X3D-A02`: 13.3"
+* `Samsung Series 9 900X3C-A01`: 13.3"
+* `Samsung Series 9 900X3C A07`: 13.3"
 
 Too low resolution:
 
@@ -280,6 +277,7 @@ To heavy:
 
 Availability: seems not to be available on Amazon
 
+* Samsung Serie 9 NP900X4C-A02
 * Sony Vaio SV-E1511V1EW 
 * Sony Vaio VGN-TX2
 * HP Envy 6-1000sg
@@ -315,3 +313,9 @@ what you could do better:
 * Provide a possibility to compare your products.
 * Provide a possibility to filter your products by technical specification.
 * Add an image of your product to Wikipedia Commons
+
+## References ##
+
+[^1] [Linux and the Samsung Series 9 NP900X3C](http://blog.jospoortvliet.com/2012/09/linux-and-samsung-series-9-np900x3c.html): A review for the NP900X3C and openSUSE on 24th or September, 2012.
+[^2] [Samsung Series 9 - Ubuntu Community Page](https://help.ubuntu.com/community/SamsungSeries9)
+[^3] [Linux auf Samsung Series 9 2012](http://www.sump.org/blog/213)
