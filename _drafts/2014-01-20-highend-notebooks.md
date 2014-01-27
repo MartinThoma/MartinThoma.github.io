@@ -17,17 +17,21 @@ notebook. As I use my notebook quite often, I'm would like to have
 a high end notebook this time. Some required features are:
 
 * Ubuntu has to be supported completely, especially WLAN, Sound and Bluetooth.
-* USB 4.0 port for USB-Stick
+* USB 3.0 port
 * [Bluetooth v4.0](https://en.wikipedia.org/wiki/Bluetooth#Bluetooth_Smart_.28v4.0.29)
 * At least 4GB of RAM
 * At least 80GB SSD
 * Less than 2.5kg
 * At least 15" display size with a resolution of more than 1366x768; not glossy
 * It has to have dual band WLAN, sometimes also called 2x2 WLAN. I really want to have a good connectivity.
-* Good Keyboard
-* At least 3 hours running time on battery
+* Good Keyboard (no numblock required)
+* At least 4 hours running time on battery. It it is less than 6 hours, then the weight of the notebook plus its power supply pack has to be less than 2.5kg
 * It has to be silent (less than 30 db(A) in normal mode)
 * <kbd>Ctrl</kbd> at the lower left (so: no thinkpads)
+
+By the way, while searching for notebooks I discovered that much of
+the data on Amazon is wrong. See for example the dimensions of
+the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
 |                    | Asus Zenbook       | Samsung Notebook Serie 9            | Macbook  Pro                       |
 |--------------------|--------------------|-------------------------------------|------------------------------------|
@@ -37,12 +41,13 @@ a high end notebook this time. Some required features are:
 | Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
 | CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
-| Display Resolution | 2880×1620          | 1600×900                            | 2880×1800                        |
+| Display Resolution | 2880×1620          | 1600×900                            | 2880×1800                          |
 | Display more       | glossy             | not glossy, LED-Display, 400 Nit    | ?                                  |
-| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3 1.600 MHz             | 8 GB 1600 MHz DDR3L                |
+| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3 1.600 MHz              | 8 GB 1600 MHz DDR3L                |
 | Disk               | 256 SSD            | 512 GB SSD                          | 256 SSD                            |
 | Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | ?                                  |
-| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi          | 802.11a/b/g/n                       |
+| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           | 802.11a/b/g/n                      |
+| WLAN-Chip          | ?                  | ?                                   | ?                                  |
 | Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
 | Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | up to 7h                           |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              | 2× USB 3.0                         |
@@ -71,7 +76,8 @@ a high end notebook this time. Some required features are:
 | RAM                | 8 GB DDR3, 1600 MHz |  | 
 | Disk               | 1000 GB HDD         |  |
 | Network            | 10/100/1000MBit     |  | 
-| Wireless           | Atheros AR5BWB222   |  |
+| Wireless           |                     |  |
+| WLAN-Chip          | Atheros AR5BWB222   |  |
 | Bluetooth          | 4.0                 |  |
 | Akku               | 3560 mAh            |  |
 | USB                | 1× USB 3.0, 2× USB 2.0 |  |
@@ -101,6 +107,7 @@ it is very silent.
 | Disk               | 256 SSD            | 256 SSD               | 512 GB SSD            |
 | Network            | 10/100/1000, RJ45  | ?                     | ?                     | 
 | Wireless           | 802.11a/g/n, 2×2 WiDi | 802.11a/g/n, WiDi  | 802.11a/b/g/n, 2×2    |
+| WLAN-Chip          | ?                  | ?                     | ?                     |
 | Bluetooth          | 4.0                | 4.0                   | 4.0                   |
 | Akku               | ?                  | 4750 mAh              | 4750 mAh              |
 | USB                | 3× USB 3.0         | 3× USB 3.0            | 2× USB 3.0            |
@@ -138,10 +145,32 @@ it is very silent.
 
 ## Dell ##
 
+|                    | XPS 15               | | 
+|--------------------|----------------------|-|
+| Model              | 9530-1906            | |
+| Price              | 1711  Euro           | |
+| Dimensions (B × D × H)| 372 × 254 × 18    | | 
+| Weight             | 2.02 kg              | | 
+| CPU                | Intel Core i7-4702HQ | |
+| Display Size       | 15.6"                | | 
+| Display Resolution | 3200x1800            | |
+| Display more       |                      | |
+| RAM                | 8 GB DDR3L, 1600 MHz | | 
+| Disk               | 512 GB SSD           | |
+| Network            | (no RJ45)            | | 
+| Wireless           | 802.11 ac, 2x2       | |
+| WLAN-Chip          | Intel AC 7260        | |
+| Bluetooth          | 4.0                  | |
+| Akku               | ?                    | |
+| USB                | 3× USB 3.0           | |
+| Card Reader        | SD, SDIO, SDXC       | |
+| Linux-Support      | ?                    | |
+| Keyboard           | Chiclet-Keyboard     | |
+| Noise              | 29.8 dB, 42.1 dB max | |
+
 * XPS 15 (L501X)
 * XPS 15 (L502X)
 * XPS 15z
-* XPS 15 9530 - http://www.notebookcheck.com/Test-Dell-XPS-15-9530-Late-2013-Notebook.105963.0.html
 
 ## Fujitsu ##
 
@@ -170,9 +199,32 @@ it is very silent.
 
 ## HP ##
 
-* HP Envy 6-1000sg ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-Envy-6-1000sg-Ultrabook.79719.0.html))
-* HP EliteBook 8570p-B6Q03EA-ABD ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-EliteBook-8570p-B6Q03EA-ABD-Notebook.81801.0.html))
-* HP Envy 15 https://en.wikipedia.org/wiki/HP_Envy#Current_models
+|                    | HP Envy 15            | | 
+|--------------------|-----------------------|-|
+| Model              | J011SG                | |
+| Price              | 811 Euro              | |
+| Dimensions (B × D × H)| 380 × 251 × 28     | | 
+| Weight             | 2.19 kg               | | 
+| CPU                | Intel Core i5-4200M   | |
+| Display Size       | 15.6"                 | | 
+| Display Resolution | 1920x1080             | |
+| Display more       |                       | |
+| RAM                | 12 GB DDR3L, 1600 MHz | | 
+| Disk               | 1000 GB               | |
+| Network            | 10/100/1000 RJ-45     | | 
+| Wireless           | 802.11b/g/n           | |
+| WLAN-Chip          | Intel AC 7260         | |
+| Bluetooth          | 4.0                   | |
+| Akku               | ?                     | |
+| USB                | 4× USB 3.0            | |
+| Card Reader        | SD                    | |
+| Linux-Support      | ?                     | |
+| Keyboard           | with numblock         | |
+| Noise              | ?                     | |
+
+* HP Envy 6-1000sg seems not to be available on Amazon  ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-Envy-6-1000sg-Ultrabook.79719.0.html))
+*  ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-EliteBook-8570p-B6Q03EA-ABD-Notebook.81801.0.html))
+* HP EliteBook 8570p-B6Q03EA-ABD weights 2.91 kg
 
 ## Samsung ##
 ### Serie 9 ###
@@ -219,10 +271,21 @@ Display is too small:
 * Chromebook Pixel has only 12.85"
 * XPS 13 has only 13.3"
 * Asus Zenbook has only 13.3"
+* Lenovo IdeaPad U300s have only 13.3"
 
 Too low resolution:
 
 * Acer TravelMate 6594eG-464G50Mikk
+
+To heavy:
+
+* Lenovo IdeaPad Y510p: 2.89 kg
+* Sony Vaio VPC-F21Z1E/BI: 3.17 kg
+
+Availability: seems not to be available on Amazon
+
+* Sony Vaio SV-E1511V1EW 
+* Sony Vaio VGN-TX2
 
 Other:
 
@@ -230,7 +293,23 @@ Other:
 
 ## Ideas ##
 * Tuxedo Book BC1503 - [linux-onlineshop.de](http://www.linux-onlineshop.de/Linux-Hardware/Linux-Notebooks/15-6-Zoll/Tuxedo-Book-BC1503-15-6-matt-Full-HD-IPS-Intel-HD-4600-Grafik-drei-HDD-SSD-bis-Intel-Core-i7-4900MQ-bis-16GB-RAM-DVD-Blu-Ray-Brenner.geek)
-* https://en.wikipedia.org/wiki/Category:IBM_laptops
-* https://en.wikipedia.org/wiki/Category:Lenovo_laptops
-* https://en.wikipedia.org/wiki/Category:Vaio_laptops
-* http://www.onlinekosten.de/news/artikel/49435/0/HP-kuendigt-schlankes-schickes-Windows-8-Tablet-an
+
+## Dear Notebook-Producers ##
+After searching so much for notebooks, I have some hints for you 
+what you could do better:
+
+* Add a single specification page for each notebook. This page should include at least:
+  * Weight in kg and dimensions in mm
+  * Battery life in mAh
+  * Display (size, glossy / non-glossy, supported resolutions)
+  * Exact CPU name (not only Intel i5 - if it varies, list all possible CPUs)
+  * Disk (size, SSD or not)
+  * Wireless support (IEEE 802.11 supported standards? Dual band? Bluetooth? Bluetooth version?)
+  * Keyboard: Does it have a numblock? Backlit?
+  * Does it have a DVD-Player / Burner? Blue-Ray?
+  * Image of the notebook
+* The specification page can include
+  * Noise in dB
+* Explain your version names!
+* Provide a possibility to compare your products
+* Provide a possibility to filter your products by technical specification
