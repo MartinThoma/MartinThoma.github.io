@@ -22,7 +22,7 @@ a high end notebook this time. Some required features are:
 * At least 4GB of RAM
 * At least 80GB SSD
 * Less than 2.5kg: Currently, it happens quite often that I don't take my notebook with me because it is too heavy (2.5kg + 0.2kg for the power supply unit).
-* At least 15" display size with a resolution of more than 1366x768 (I am very close to the screen and I don't want to be able to see single pixels); the screen should be not glossy, because I would like to work outside in the summer.
+* At least 15" display size with a resolution of more than 1366x768 (I am very close to the screen and I don't want to be able to see single pixels); the screen should not glare, because I would like to work outside in the summer.
 * It has to have dual band WLAN, sometimes also called 2x2 WLAN. I really want to have a good connectivity.
 * Good Keyboard (no numblock required)
 * At least 4 hours running time on battery. It it is less than 6 hours, then the weight of the notebook plus its power supply pack has to be less than 2.5kg
@@ -45,10 +45,11 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | CPU                | Intel Core i7 3632QM | [Intel Core i5-3337U](http://ark.intel.com/products/72055) | [Intel Core i7 2760QM](http://ark.intel.com/products/53474) |
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
 | Display Resolution | 2880×1620          | 1600×900                            | 2880×1800                          |
-| Display more       | glossy             | not glossy, LED-Display, 400 Nit    | ?                                  |
+| Display more       |                    | LED-Display, 400 Nit                |                                    |
+| Matte display      | ✘                  | ✔                                   | ✔                                  |
 | RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3  SDRAM1.600 MHz        | 8 GB 1600 MHz DDR3L                |
 | Disk               | 256 SSD            | 128 GB SSD                          | 256 SSD                            |
-| Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | ?                                  |
+| Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | no RJ45                            |
 | Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           | 802.11a/b/g/n                      |
 | WLAN-Chip          | ?                  | ?                                   | ?                                  |
 | Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
@@ -75,7 +76,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | CPU                | Intel Core i5-4200U    |
 | Display Size       | 15.6"                  |
 | Display Resolution | 1920 × 1080            |
-| Display more       | not glossy             |
+| Matte display      | ✔                      |
 | RAM                | 8 GB DDR3, 1600 MHz    |
 | Disk               | 1000 GB HDD            |
 | Network            | 10/100/1000MBit        |
@@ -85,7 +86,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Akku               | 3560 mAh               |
 | USB                | 1× USB 3.0, 2× USB 2.0 | 
 | SD Card Reader     | ✔                      |
-| Linux-Support      | ?                      |
+| Linux-Support      | ✔                      |
 | Keyboard           | Chiclet-Keyboard       |
 | Noise              | 33.3 dB                |
 
@@ -101,7 +102,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | CPU                |Intel Core i7-3612QM| Intel Core i7 3632QM  | Intel Core i7-3612QM  |
 | Display Size       | 15.6"              | 15.6"                 | 15.6"                 | 
 | Display Resolution |1920×1080           | 2880×1620             | 1920×1080             |
-| Display more       | not glossy         | glossy                | not glossy            |
+| Matte display      | ✔                  | ✘                     | ✔                     |
 | RAM                | 8 GB DDR3, 1600 MHz| 8 GB DDR3, 1600 MHz   | 4 GB                  | 
 | Disk               | 256 SSD            | 256 SSD               | 512 GB SSD            |
 | Network            | 10/100/1000, RJ45  | ?                     | ?                     | 
@@ -126,7 +127,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | CPU                | Intel Core i5-3317U   | Intel Core i7-4700HQ |
 | Display Size       | 15.6"                 | 15.6"            |
 | Display Resolution | 1366 × 768            | 1920 × 1080      |
-| Display more       | not glossy            | not glossy       |
+| Matte display      | ✔                     | ✔                |
 | RAM                | 4 GB                  | 8GB DDR3         |
 | Disk               | 524 GB                | 1000 GB HDD      |
 | Network            | ?                     | ?                |
@@ -151,7 +152,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | CPU                | Intel Core i7-4702HQ |
 | Display Size       | 15.6"                |
 | Display Resolution | 3200x1800            |
-| Display more       |                      |
+| Matte display      | ?                    |
 | RAM                | 8 GB DDR3L, 1600 MHz |
 | Disk               | 512 GB SSD           |
 | Network            | (no RJ45)            |
@@ -180,7 +181,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | CPU                | Intel Core i7-3632QM |
 | Display Size       | 15.6"              |
 | Display Resolution | 1920 × 1080        |
-| Display more       | not glossy         |
+| Matte display      | ✔                  |
 | RAM                | 8 GB DDR3          |
 | Disk               | 256 GB SSD         |
 | Network            | 10/100/1000MBit    |
@@ -205,14 +206,14 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | CPU                | Intel Core i5-4200M   |
 | Display Size       | 15.6"                 | 
 | Display Resolution | 1920x1080             |
-| Display more       |                       |
+| Matte display      | ✘                     |
 | RAM                | 12 GB DDR3L, 1600 MHz |
 | Disk               | 1000 GB               |
 | Network            | 10/100/1000 RJ-45     |
 | Wireless           | 802.11b/g/n           |
 | WLAN-Chip          | Intel AC 7260         |
 | Bluetooth          | 4.0                   |
-| Akku               | ?                     |
+| Akku               | 2200 mAh              |
 | USB                | 4× USB 3.0            |
 | SD Card Reader     | ✔                     |
 | Linux-Support      | ?                     |
@@ -296,7 +297,7 @@ what you could do better:
 * Add a single specification page for each notebook. This page should include at least:
   * Weight in kg and dimensions in mm
   * Battery life in mAh
-  * Display (size, glossy / non-glossy, supported resolutions)
+  * Display (size, glare or matte display, supported resolutions)
   * Exact CPU name (not only Intel i5 - if it varies, list all possible CPUs)
   * Disk (size, SSD or not)
   * Wireless support (IEEE 802.11 supported standards? Dual band? Bluetooth? Bluetooth version?)
