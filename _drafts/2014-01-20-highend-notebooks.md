@@ -36,7 +36,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
 |                    | Asus Zenbook       | Samsung Notebook Serie 9            | Macbook  Pro                       |
 |--------------------|--------------------|-------------------------------------|------------------------------------|
-| Model              | UX51VZ-DB114H      | 900X4C A0A                          |                                    |
+| Model              | UX51VZ-DB114H      | 900X4C A0A                          | Retina 15"                         |
 | Price              | 1380 Euro          | 1699 Euro                           | 1999 Euro                          |
 | Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               | 358.9 × 247.1 × 18 mm              |
 | Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
