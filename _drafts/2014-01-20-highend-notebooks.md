@@ -61,7 +61,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
    ../images/2014/01/macbook-pro-retina-keyboard-layout.jpg   "Macbook Pro"
 {% endgallery %}
 
-## Acer ## 
+## Acer ##
 
 |                    | Acer Aspire            |
 |--------------------|------------------------|
@@ -90,8 +90,6 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
 ## Asus ##
 ### Asus Zenbooks ###
-According to tests from [notebookcheck.net](http://www.notebookcheck.net/Review-Asus-PU500CA-XO002X-Notebook.94051.0.html)
-it is very silent.
 
 |                    | Asus Zenbook       | Asus Zenbook          | Asus Zenbook          | 
 |--------------------|--------------------|-----------------------|-----------------------|
@@ -117,6 +115,7 @@ it is very silent.
 | Noise              | ?                  | ?                     | 34 dB in normal mode, 42 dB max |
 
 ### Asus PU500CA-XO002X and Asus N550JV-CN201H ###
+
 |                    | Asus                  | Asus             |
 |--------------------|-----------------------|------------------|
 | Model              | PU500CA-XO002X        | N550JV-CN201H    |
@@ -139,9 +138,6 @@ it is very silent.
 | Linux-Support      | ?                     | ?                |
 | Keyboard           | Chiclet-Keyboard with Numblock      | Chiclet-Keyboard with Numblock      |
 | Noise              | 30.7 dB in normal mode, 38.4 dB max | 32.9 dB in normal mode, 38 dB max   |
-
-### More ###
-* Asuspro PU500 has a too low resolution (see [notebookcheck](http://www.notebookcheck.com/Asus-15-6-Zoll-Business-Notebook-Asuspro-PU500-ab-670-Euro.92085.0.html))
 
 ## Dell ##
 
@@ -276,6 +272,7 @@ Display is too small:
 Too low resolution:
 
 * Acer TravelMate 6594eG-464G50Mikk
+* Asuspro PU500
 
 To heavy:
 
@@ -307,9 +304,13 @@ what you could do better:
   * Wireless support (IEEE 802.11 supported standards? Dual band? Bluetooth? Bluetooth version?)
   * Keyboard: Does it have a numblock? Backlit?
   * Does it have a DVD-Player / Burner? Blue-Ray?
+  * Webcam (resolution)
+  * Microphone
+  * Sensors (GPS)
   * Image of the notebook
-* The specification page can include
+* A good specification page would include:
   * Noise in dB
+  * Information about Linux support (especially Debian)
 * Explain your version names!
-* Provide a possibility to compare your products
-* Provide a possibility to filter your products by technical specification
+* Provide a possibility to compare your products.
+* Provide a possibility to filter your products by technical specification.
