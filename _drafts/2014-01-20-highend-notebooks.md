@@ -37,19 +37,19 @@ a high end notebook this time. Some required features are:
 | Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
 | CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
-| Display Resolution | 2880x1620          | 1.600 x 900                         | ?                                  |
-| Display more       | glossy             | Matt LED-Display, 400 Nit           | ?                                  |
+| Display Resolution | 2880x1620          | 1600 x 900                          | 2880-by-1800                       |
+| Display more       | glossy             | not glossy, LED-Display, 400 Nit    | ?                                  |
 | RAM                | 8 GB DDR3, 1600 MHz| 2 x 4 GB DDR3 1.600 MHz             | 8 GB 1600 MHz DDR3L                |
 | Disk               | 256 SSD            | 512 GB SSD                          | 256 SSD                            |
 | Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | ?                                  |
-| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2 x 2), WiDi         | ?                                  |
-| Bluetooth          | 4.0                | 4.0                                 | ?                                  |
-| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | ?                                  |
-| USB                | 3 x USB 3.0        | 2 x USB 3.0, 1 x USB 2.0            | ?                                  |
-| Card Reader        | 2in1 (SD/MMC)      | ?                                   | ?                                  |
+| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2 x 2), WiDi         | 802.11a/b/g/n                      |
+| Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
+| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | up to 7h                           |
+| USB                | 3x USB 3.0         | 2x USB 3.0, 1x USB 2.0              | 2x USB 3.0                         |
+| Card Reader        | 2in1 (SD/MMC)      | ?                                   | SDXC                               |
 | Linux-Support      | ?                  | ?                                   | ?                                  |
-| Keyboard           | ?                  | ?                                   | ?                                  |
-| Noise              | ?                  | ?                                   | ?                                  |
+| Keyboard           | ?                  | Chiclet-keyboard without numblock   | Chiclet-Keyboard                   |
+| Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   | 29.4 dB in normal mode, 47.4 dB max|
 
 {% gallery columns="2" %}
    ../images/2014/01/samsung-serie-9-keyboard-layout.png   "Samsung Series 9"
@@ -58,27 +58,27 @@ a high end notebook this time. Some required features are:
 
 ## Acer ## 
 
-|                    | Acer Aspire        | | 
-|--------------------|--------------------|-|
-| Model              | V5-573G-54208G50aii| |
-| Price              | 649  Euro          | |
-| Dimensions (B x D x H)| 382 x 256 x 18  | | 
-| Weight             | 2.04 kg            | | 
-| CPU                | Intel Core i5-4200U| |
-| Display Size       | 15.6"              | | 
-| Display Resolution | 1920 x 1080        | |
-| Display more       | not glossy         | |
-| RAM                | 8 GB DDR3, 1600 MHz| | 
-| Disk               | 1000 GB HDD        | |
-| Network            | 10/100/1000MBit    | | 
-| Wireless           | Atheros AR5BWB222  | |
-| Bluetooth          | 4.0                | |
-| Akku               | 3560 mAh           | |
+|                    | Acer Aspire         | | 
+|--------------------|---------------------|-|
+| Model              | V5-573G-54208G50aii | |
+| Price              | 649  Euro           | |
+| Dimensions (B x D x H)| 382 x 256 x 18   | | 
+| Weight             | 2.04 kg             | | 
+| CPU                | Intel Core i5-4200U | |
+| Display Size       | 15.6"               | | 
+| Display Resolution | 1920 x 1080         | |
+| Display more       | not glossy          | |
+| RAM                | 8 GB DDR3, 1600 MHz | | 
+| Disk               | 1000 GB HDD         | |
+| Network            | 10/100/1000MBit     | | 
+| Wireless           | Atheros AR5BWB222   | |
+| Bluetooth          | 4.0                 | |
+| Akku               | 3560 mAh            | |
 | USB                | 1 x USB 3.0, 2x USB 2.0 | |
-| Card Reader        | SD                 | |
-| Linux-Support      | ?                  | |
-| Keyboard           | Chiclet-Tastatur   | |
-| Noise              | 33.3 dB            | |
+| Card Reader        | SD                  | |
+| Linux-Support      | ?                   | |
+| Keyboard           | Chiclet-Keyboard    | |
+| Noise              | 33.3 dB             | |
 
 * Aspire TimelineU M5 Ultrabook ([notebookcheck.com](http://www.notebookcheck.com/Acer-Aspire-TimelineU-M5-Ultrabook-ab-800-Euro-im-Handel.77122.0.html))
 
@@ -151,7 +151,7 @@ it is very silent.
 | Price              | 1759  Euro         | |
 | Dimensions (B x D x H)| 374 x 374 x 20  | | 
 | Weight             | 1.99 kg            | | 
-| CPU                | Intel Core i7-3632QM| |
+| CPU                | Intel Core i7-3632QM | |
 | Display Size       | 15.6"              | | 
 | Display Resolution | 1920 x 1080        | |
 | Display more       | not glossy         | |
@@ -165,7 +165,7 @@ it is very silent.
 | USB                | 3 x USB 3.0        | |
 | Card Reader        | SD                 | |
 | Linux-Support      | ?                  | |
-| Keyboard           | Chiclet-Tastatur   | |
+| Keyboard           | Chiclet-Keyboard   | |
 | Noise              | 33.3 dB            | |
 
 ## HP ##
