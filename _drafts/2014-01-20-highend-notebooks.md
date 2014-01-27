@@ -33,19 +33,19 @@ a high end notebook this time. Some required features are:
 |--------------------|--------------------|-------------------------------------|------------------------------------|
 | Model              | UX51VZ-DB114H      | 900X4C A0A                          |                                    |
 | Price              | 1380 Euro          | 1699 Euro                           | 1999 Euro                          |
-| Dimensions (B x D x H)| 380 x 254 x 20  | 356.9 x 237 x 14.9 mm               | 358.9 x 247.1 x 18 mm              |
+| Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               | 358.9 × 247.1 × 18 mm              |
 | Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
 | CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
-| Display Resolution | 2880x1620          | 1600 x 900                          | 2880-by-1800                       |
+| Display Resolution | 2880×1620          | 1600×900                            | 2880×1800                        |
 | Display more       | glossy             | not glossy, LED-Display, 400 Nit    | ?                                  |
-| RAM                | 8 GB DDR3, 1600 MHz| 2 x 4 GB DDR3 1.600 MHz             | 8 GB 1600 MHz DDR3L                |
+| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3 1.600 MHz             | 8 GB 1600 MHz DDR3L                |
 | Disk               | 256 SSD            | 512 GB SSD                          | 256 SSD                            |
 | Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | ?                                  |
-| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2 x 2), WiDi         | 802.11a/b/g/n                      |
+| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi          | 802.11a/b/g/n                       |
 | Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
 | Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | up to 7h                           |
-| USB                | 3x USB 3.0         | 2x USB 3.0, 1x USB 2.0              | 2x USB 3.0                         |
+| USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              | 2× USB 3.0                         |
 | Card Reader        | 2in1 (SD/MMC)      | ?                                   | SDXC                               |
 | Linux-Support      | ?                  | ?                                   | ?                                  |
 | Keyboard           | ?                  | Chiclet-keyboard without numblock   | Chiclet-Keyboard                   |
@@ -58,29 +58,29 @@ a high end notebook this time. Some required features are:
 
 ## Acer ## 
 
-|                    | Acer Aspire         | | 
-|--------------------|---------------------|-|
-| Model              | V5-573G-54208G50aii | |
-| Price              | 649  Euro           | |
-| Dimensions (B x D x H)| 382 x 256 x 18   | | 
-| Weight             | 2.04 kg             | | 
-| CPU                | Intel Core i5-4200U | |
-| Display Size       | 15.6"               | | 
-| Display Resolution | 1920 x 1080         | |
-| Display more       | not glossy          | |
-| RAM                | 8 GB DDR3, 1600 MHz | | 
-| Disk               | 1000 GB HDD         | |
-| Network            | 10/100/1000MBit     | | 
-| Wireless           | Atheros AR5BWB222   | |
-| Bluetooth          | 4.0                 | |
-| Akku               | 3560 mAh            | |
-| USB                | 1 x USB 3.0, 2x USB 2.0 | |
-| Card Reader        | SD                  | |
-| Linux-Support      | ?                   | |
-| Keyboard           | Chiclet-Keyboard    | |
-| Noise              | 33.3 dB             | |
+|                    | Acer Aspire         |  | 
+|--------------------|---------------------|--|
+| Model              | V5-573G-54208G50aii |  |
+| Price              | 649  Euro           |  |
+| Dimensions (B × D × H)| 382 × 256 × 18   |  | 
+| Weight             | 2.04 kg             |  | 
+| CPU                | Intel Core i5-4200U |  |
+| Display Size       | 15.6"               |  | 
+| Display Resolution | 1920 × 1080         |  |
+| Display more       | not glossy          |  |
+| RAM                | 8 GB DDR3, 1600 MHz |  | 
+| Disk               | 1000 GB HDD         |  |
+| Network            | 10/100/1000MBit     |  | 
+| Wireless           | Atheros AR5BWB222   |  |
+| Bluetooth          | 4.0                 |  |
+| Akku               | 3560 mAh            |  |
+| USB                | 1× USB 3.0, 2× USB 2.0 |  |
+| Card Reader        | SD                  |  |
+| Linux-Support      | ?                   |  |
+| Keyboard           | Chiclet-Keyboard    |  |
+| Noise              | 33.3 dB             |  |
 
-* Aspire TimelineU M5 Ultrabook ([notebookcheck.com](http://www.notebookcheck.com/Acer-Aspire-TimelineU-M5-Ultrabook-ab-800-Euro-im-Handel.77122.0.html))
+* Die Acer Aspire TimelineU M5 haben alle eine zu niedrige Auflösung
 
 ## Asus ##
 ### Asus Zenbooks ###
@@ -91,19 +91,19 @@ it is very silent.
 |--------------------|--------------------|-----------------------|-----------------------|
 | Model              | UX51VZ-CN035H      | UX51VZ-DB114H         | U500VZ                |
 | Price              | 1390               | 138 0 Euro            | 1350 Euro             |
-| Dimensions (B x D x H)| 380 x 254 x 20  | 380 x 254 x 20        | 380 x 254 x 20 mm     | 
+| Dimensions (B x D x H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     | 
 | Weight             | 2.2 kg             | 2.2 kg                | 2.2 kg                | 
 | CPU                |Intel Core i7-3612QM| Intel Core i7 3632QM  | Intel Core i7-3612QM  |
 | Display Size       | 15.6"              | 15.6"                 | 15.6"                 | 
-| Display Resolution |1920 x 1080         | 2880x1620             | 1920 x 1080           |
+| Display Resolution |1920×1080           | 2880×1620             | 1920×1080             |
 | Display more       | not glossy         | glossy                | not glossy            |
 | RAM                | 8 GB DDR3, 1600 MHz| 8 GB DDR3, 1600 MHz   | 4 GB                  | 
 | Disk               | 256 SSD            | 256 SSD               | 512 GB SSD            |
 | Network            | 10/100/1000, RJ45  | ?                     | ?                     | 
-| Wireless           | 802.11a/g/n, 2x2 WiDi | 802.11a/g/n, WiDi  | 802.11a/b/g/n, 2x2    |
+| Wireless           | 802.11a/g/n, 2×2 WiDi | 802.11a/g/n, WiDi  | 802.11a/b/g/n, 2×2    |
 | Bluetooth          | 4.0                | 4.0                   | 4.0                   |
 | Akku               | ?                  | 4750 mAh              | 4750 mAh              |
-| USB                | 3 x USB 3.0        | 3 x USB 3.0           | 2 x USB 3.0           |
+| USB                | 3× USB 3.0         | 3× USB 3.0            | 2× USB 3.0            |
 | Card Reader        | 2in1 (SD/MMC)      | 2in1 (SD/MMC)         | 4in1 ((SD/SDHC/SDXC/MMC) |
 | Linux-Support      | ?                  | ?                     | ?                                   |
 | Keyboard           | ?                  | ?                     | Chiclet-Keyboard with Numblock      |
@@ -114,11 +114,11 @@ it is very silent.
 |--------------------|-----------------------|------------------|
 | Model              | PU500CA-XO002X        | N550JV-CN201H    |
 | Price              | 998 Euro              | 1099             |
-| Dimensions (B x D x H)| 383 x 257 x 22.5 mm| 383 x 255 x 27   |
+| Dimensions (B × D × H)| 383 × 257 × 22.5 mm| 383 × 255 × 27   |
 | Weight             | 1.96 kg               | 2.7 kg           |
 | CPU                | Intel Core i5-3317U   | Intel Core i7-4700HQ |
 | Display Size       | 15.6"                 | 15.6"            |
-| Display Resolution | 1366 x 768            | 1920 x 1080      |
+| Display Resolution | 1366 × 768            | 1920 × 1080      |
 | Display more       | not glossy            | not glossy       |
 | RAM                | 4 GB                  | 8GB DDR3         |
 | Disk               | 524 GB                | 1000 GB HDD      |
@@ -127,7 +127,7 @@ it is very silent.
 | WLAN-Chip          |                       | Atheros (AR9485) |
 | Bluetooth          | 4.0                   | 4.0              |
 | Akku               | 4000 mAh, up to 7h    | 4000 mAh         |
-| USB                | 1x USB 3.0            | 2x USB 3.0       |
+| USB                | 1× USB 3.0            | 2× USB 3.0       |
 | Card Reader        | SD, MMC               | SD, MMC          |
 | Linux-Support      | ?                     | ?                |
 | Keyboard           | Chiclet-Keyboard with Numblock      | Chiclet-Keyboard with Numblock      |
@@ -149,11 +149,11 @@ it is very silent.
 |--------------------|--------------------|-|
 | Model              | E753               | |
 | Price              | 1759  Euro         | |
-| Dimensions (B x D x H)| 374 x 374 x 20  | | 
+| Dimensions (B × D × H)| 374 × 374 × 20  | | 
 | Weight             | 1.99 kg            | | 
 | CPU                | Intel Core i7-3632QM | |
 | Display Size       | 15.6"              | | 
-| Display Resolution | 1920 x 1080        | |
+| Display Resolution | 1920 × 1080        | |
 | Display more       | not glossy         | |
 | RAM                | 8 GB DDR3          | | 
 | Disk               | 256 GB SSD         | |
@@ -162,7 +162,7 @@ it is very silent.
 | WLAN-Chip          | Centrino Advanced-N 6235 | |
 | Bluetooth          | 4.0                | |
 | Akku               | 6700 mAh           | |
-| USB                | 3 x USB 3.0        | |
+| USB                | 3× USB 3.0         | |
 | Card Reader        | SD                 | |
 | Linux-Support      | ?                  | |
 | Keyboard           | Chiclet-Keyboard   | |
