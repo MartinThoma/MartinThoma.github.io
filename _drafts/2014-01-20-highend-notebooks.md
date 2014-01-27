@@ -2,14 +2,14 @@
 layout: post
 title: Highend Notebooks
 author: Martin Thoma
-date: 2014-01-22 14:39
+date: 2014-01-27 14:39
 categories:
 - Cyberculture
 tags:
 - Notebook
 - Hardware
 - Review
-featured_image: 
+featured_image: 2014/01/samsung-series-9-thumbnail.png
 ---
 My [Acer Travelmate 5744Z](../review-des-acer-travelmate-5744z/)
 seems to get broken in soon, so I'm currently looking for a new
@@ -22,12 +22,13 @@ a high end notebook this time. Some required features are:
 * At least 4GB of RAM
 * At least 80GB SSD
 * Less than 2.5kg
-* At least 15" display size with a resolution of more than 1366x768; not glossy
+* At least 15" display size with a resolution of more than 1366x768 (I am very close to the screen and I don't want to be able to see single pixels); the screen should be not glossy, because I would like to work outside in the summer
 * It has to have dual band WLAN, sometimes also called 2x2 WLAN. I really want to have a good connectivity.
 * Good Keyboard (no numblock required)
 * At least 4 hours running time on battery. It it is less than 6 hours, then the weight of the notebook plus its power supply pack has to be less than 2.5kg
 * It has to be silent (less than 30 db(A) in normal mode)
 * <kbd>Ctrl</kbd> at the lower left (so: no thinkpads)
+* A SD-Card Reader would be nice. I don't care about other card readers.
 
 By the way, while searching for notebooks I discovered that much of
 the data on Amazon is wrong. See for example the dimensions of
@@ -39,7 +40,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Price              | 1380 Euro          | 1699 Euro                           | 1999 Euro                          |
 | Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               | 358.9 × 247.1 × 18 mm              |
 | Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
-| CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | i7|
+| CPU                | Intel Core i7 3632QM | [Intel Core i7-3517U](http://ark.intel.com/products/65714/Intel-Core-i7-3517U-Processor-4M-Cache-up-to-3_00-GHz) | [Intel Core i7 2760QM](http://ark.intel.com/products/53474) |
 | Display Size       | 15.6"              | 15"                                 | 15.4"                              |
 | Display Resolution | 2880×1620          | 1600×900                            | 2880×1800                          |
 | Display more       | glossy             | not glossy, LED-Display, 400 Nit    | ?                                  |
@@ -51,7 +52,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
 | Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | up to 7h                           |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              | 2× USB 3.0                         |
-| Card Reader        | 2in1 (SD/MMC)      | ?                                   | SDXC                               |
+| SD Card Reader     | ✔                  | ?                                   | SDXC                               |
 | Linux-Support      | ?                  | ?                                   | ?                                  |
 | Keyboard           | ?                  | Chiclet-keyboard without numblock   | Chiclet-Keyboard                   |
 | Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   | 29.4 dB in normal mode, 47.4 dB max|
@@ -81,12 +82,10 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                    |
 | Akku               | 3560 mAh               |
 | USB                | 1× USB 3.0, 2× USB 2.0 | 
-| Card Reader        | SD                     |
+| SD Card Reader     | ✔                      |
 | Linux-Support      | ?                      |
 | Keyboard           | Chiclet-Keyboard       |
 | Noise              | 33.3 dB                |
-
-* Die Acer Aspire TimelineU M5 haben alle eine zu niedrige Auflösung
 
 ## Asus ##
 ### Asus Zenbooks ###
@@ -109,7 +108,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                | 4.0                   | 4.0                   |
 | Akku               | ?                  | 4750 mAh              | 4750 mAh              |
 | USB                | 3× USB 3.0         | 3× USB 3.0            | 2× USB 3.0            |
-| Card Reader        | 2in1 (SD/MMC)      | 2in1 (SD/MMC)         | 4in1 ((SD/SDHC/SDXC/MMC) |
+| SD Card Reader     | ✔                  | ✔                     | ✔                     |
 | Linux-Support      | ?                  | ?                     | ?                                   |
 | Keyboard           | ?                  | ?                     | Chiclet-Keyboard with Numblock      |
 | Noise              | ?                  | ?                     | 34 dB in normal mode, 42 dB max |
@@ -134,7 +133,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                   | 4.0              |
 | Akku               | 4000 mAh, up to 7h    | 4000 mAh         |
 | USB                | 1× USB 3.0            | 2× USB 3.0       |
-| Card Reader        | SD, MMC               | SD, MMC          |
+| SD Card Reader     | ✔                     | ✔                |
 | Linux-Support      | ?                     | ?                |
 | Keyboard           | Chiclet-Keyboard with Numblock      | Chiclet-Keyboard with Numblock      |
 | Noise              | 30.7 dB in normal mode, 38.4 dB max | 32.9 dB in normal mode, 38 dB max   |
@@ -159,7 +158,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                  |
 | Akku               | ?                    |
 | USB                | 3× USB 3.0           |
-| Card Reader        | SD, SDIO, SDXC       |
+| SD Card Reader     | ✔                    |
 | Linux-Support      | ?                    |
 | Keyboard           | Chiclet-Keyboard     |
 | Noise              | 29.8 dB, 42.1 dB max | 
@@ -188,7 +187,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                |
 | Akku               | 6700 mAh           |
 | USB                | 3× USB 3.0         |
-| Card Reader        | SD                 |
+| SD Card Reader     | ✔                  |
 | Linux-Support      | ?                  |
 | Keyboard           | Chiclet-Keyboard   |
 | Noise              | 33.3 dB            |
@@ -213,14 +212,12 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                   |
 | Akku               | ?                     |
 | USB                | 4× USB 3.0            |
-| Card Reader        | SD                    |
+| SD Card Reader     | ✔                     |
 | Linux-Support      | ?                     |
 | Keyboard           | with numblock         |
 | Noise              | ?                     |
 
-* HP Envy 6-1000sg seems not to be available on Amazon  ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-Envy-6-1000sg-Ultrabook.79719.0.html))
-*  ([notebookcheck.com](http://www.notebookcheck.com/Test-HP-EliteBook-8570p-B6Q03EA-ABD-Notebook.81801.0.html))
-* HP EliteBook 8570p-B6Q03EA-ABD weights 2.91 kg
+
 
 ## Samsung ##
 ### Serie 9 ###
@@ -273,16 +270,19 @@ Too low resolution:
 
 * Acer TravelMate 6594eG-464G50Mikk
 * Asuspro PU500
+* All Acer Aspire TimelineU M5
 
 To heavy:
 
 * Lenovo IdeaPad Y510p: 2.89 kg
+* HP EliteBook 8570p-B6Q03EA-ABD: 2.91 kg
 * Sony Vaio VPC-F21Z1E/BI: 3.17 kg
 
 Availability: seems not to be available on Amazon
 
 * Sony Vaio SV-E1511V1EW 
 * Sony Vaio VGN-TX2
+* HP Envy 6-1000sg
 
 Other:
 
@@ -314,3 +314,4 @@ what you could do better:
 * Explain your version names!
 * Provide a possibility to compare your products.
 * Provide a possibility to filter your products by technical specification.
+* Add an image of your product to Wikipedia Commons
