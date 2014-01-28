@@ -13,22 +13,53 @@ featured_image: 2014/01/samsung-series-9-thumbnail.png
 ---
 My [Acer Travelmate 5744Z](../review-des-acer-travelmate-5744z/)
 seems to get broken in soon, so I'm currently looking for a new
-notebook. As I use my notebook quite often, I'm would like to have
-a high end notebook this time. Some required features are:
+notebook. As I use my notebook quite often and as this is the third
+notebook within three years that is not usable any longer
+(the screen of the first is defect and the graphic card / WLAN of the
+second does not work propperly with the new Linux kernel), I'm would like to have
+a high end notebook this time. I hope that I not have to think about
+notebooks for at least 5 years after that.
 
-* Ubuntu has to be supported completely, especially WLAN, Sound and Bluetooth.
-* USB 3.0 port
-* [Bluetooth v4.0](https://en.wikipedia.org/wiki/Bluetooth#Bluetooth_Smart_.28v4.0.29)
-* At least 4GB of RAM
-* At least 80GB SSD
-* Less than 2.5kg: Currently, it happens quite often that I don't take my notebook with me because it is too heavy (2.5kg + 0.2kg for the power supply unit).
-* At least 15" display size with a resolution of more than 1366x768 (I am very close to the screen and I don't want to be able to see single pixels); the screen should not glare, because I would like to work outside in the summer.
-* It has to have dual band WLAN, sometimes also called 2x2 WLAN. I really want to have a good connectivity.
-* Good Keyboard (no numblock required)
-* At least 4 hours running time on battery. It it is less than 6 hours, then the weight of the notebook plus its power supply pack has to be less than 2.5kg
-* It has to be silent (less than 30 db(A) in normal mode)
-* <kbd>Ctrl</kbd> at the lower left (so: no thinkpads)
-* A SD-Card Reader would be nice. I don't care about other card readers.
+## Requirements ##
+I work quite a lot with the computer, so the keyboard and the display
+have to be good. What does good mean? Well, the display has to be
+**at least 15"** and as I don't want to see my pixels any longer it
+has to have a **higher resolution than 1366×768**. But it has to be
+**smaller than 30cm × 38cm** to fit into my knapsack. A reason why
+I do not always have my current notebook with me is that it is
+too heavy with about 2.5kg and does only run for about 3.5h. The new 
+one should be **lighter than 2.5kg** and **run at least 4h**.
+
+**Ubuntu** has to be supported completely, especially WLAN, sound and 
+Bluetooth. Speaking of Bluetooth, I want **Bluetooth 4.0**, because
+it introduced a low energy protocol that might be usefull for notebooks.
+As I live in a city and as I access the internet via my neighbors 
+WLAN (thank you!), I need a good connection: **Dual band and 802.11a/b/g/n**
+need to be supported by the notebook. (Dual band is sometimes also called 2x2).
+
+I use it mainly for writing blog articles, LaTeX stuff and some 
+Python programming and watching movies. I download movies via 
+Online TV Recorder which sums up quite soon. Transfering this to my
+external HDD always takes a lot of time. The new notebook should
+support **USB 3.0** to speed this up. As I don't have to store
+anything large, **80 GB SSD** is enough. It should be a SSD, because
+they consume less power, are more durable and are more silent.
+
+I need at least **4GB RAM** because ... well, did you ever try to
+use Eclipse for Java+JBoss programming with less than 4GB? I don't
+want to have that again.
+
+It would be nice if I could use the notebook outside in the summer
+which means it has to have a **bright matte display**.
+
+I want a silent notebook, because I'm very sensitive to noise. 
+My current notebook has **less than 30 dB in normal mode** (no heavy load). 
+That should set the mark.
+
+Another keyboard-thing: <kbd>Ctrl</kbd> at the lower left (→ no thinkpads).
+
+A SD-Card Reader would be nice, but it is not required. Just like
+a RJ-45 for network cables and a DVD drive you can get it via USB.
 
 By the way, while searching for notebooks I discovered that much of
 the data on Amazon is wrong. See for example the dimensions of
@@ -36,29 +67,29 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
 ## Current Favorites ##
 
-|                    | Asus Zenbook       | Samsung Notebook Serie 9            | Tuxedo Book                        |
-|--------------------|--------------------|-------------------------------------|------------------------------------|
-| Model              | UX51VZ-DB114H      | 900X4D K01                          | BC1503                             |
-| Price              | 1380 Euro          |  995 Euro                           |  763 Euro                          |
-| Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               |  374 × 252 × 31 mm                 |
-| Weight             | 2.2 kg             | 1.58 kg                             |  2.4 kg                            |
-| CPU                | Intel Core i7 3632QM | [Intel Core i5-3337U](http://ark.intel.com/products/72055) | [Intel Core i5 4200M](http://ark.intel.com/products/76348) |
-| Display Size       | 15.6"              | 15"                                 | 15.6"                              |
-| Display Resolution | 2880×1620          | 1600×900                            | 1920×1080                          |
-| Display more       |                    | LED-Display, 400 Nit                | IPS-Display                        |
-| Matte display      | ✘                  | ✔                                   | ✔                                  |
-| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3  SDRAM1.600 MHz        | 1×8 GB 1600 MHz                    |
-| Disk               | 256 SSD            | 128 GB SSD                          | 120 SSD (Samsung EVO / SATA III)   |
-| Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | has RJ45 built-in, 10/100/1000     |
-| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           | 802.11 ac/a/b/g/n                  |
-| WLAN-Chip          | ?                  | ?                                   | Intel Dual AC7260                  |
-| Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
-| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | 62,16 Wh, up to 6h                 |
-| USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              | 2× USB 3.0                         |
-| SD Card Reader     | ✔                  | ✔                                   | ✔                                  |
-| Linux-Support      | ?                  | partially ([^1],[^2], [^3])         | shipped with Linux Mint :-)        |
-| Keyboard           | ?                  | Chiclet-keyboard without numblock   | ?                                  |
-| Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   | ?                                  |
+|                    | Asus Zenbook       | Samsung Notebook Serie 9            |
+|--------------------|--------------------|-------------------------------------|
+| Model              | UX51VZ-DB114H      | 900X4D K01                          |
+| Price              | 1380 Euro          |  995 Euro                           |
+| Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               |
+| Weight             | 2.2 kg             | 1.58 kg                             |
+| CPU                | Intel Core i7 3632QM | [Intel Core i5-3337U](http://ark.intel.com/products/72055) |
+| Display Size       | 15.6"              | 15"                                 |
+| Display Resolution | 2880×1620          | 1600×900                            |
+| Display more       |                    | LED-Display, 400 Nit                |
+| Matte display      | ✘                  | ✔                                   |
+| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3  SDRAM1.600 MHz        |
+| Disk               | 256 SSD            | 128 GB SSD                          |
+| Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  |
+| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           |
+| WLAN-Chip          | ?                  | ?                                   |
+| Bluetooth          | 4.0                | 4.0                                 |
+| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 |
+| USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              |
+| SD Card Reader     | ✔                  | ✔                                   |
+| Linux-Support      | ?                  | partially ([^1],[^2], [^3])         |
+| Keyboard           | ?                  | Chiclet-keyboard without numblock   |
+| Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   |
 
 {% gallery columns="2" %}
    ../images/2014/01/samsung-serie-9-keyboard-layout.png   "Samsung Series 9"
@@ -265,6 +296,33 @@ The next few lines show the difference of the `900X4C A0A` to...
    costs only 799 Euro.
 * `900X4D K01`: Intel Core i5-3337U, 128 GB SSD, 8400 mAh, Dual Band, 997 Euro
 
+## Tuxedo ##
+
+|                    | Tuxedo Book                        |
+|--------------------|------------------------------------|
+| Model              | BC1503                             |
+| Price              |  763 Euro                          |
+| Dimensions (B × D × H)|  374 × 252 × 31 mm              |
+| Weight             |  2.4 kg                            |
+| CPU                | [Intel Core i5 4200M](http://ark.intel.com/products/76348) |
+| Display Size       | 15.6"                              |
+| Display Resolution | 1920×1080                          |
+| Display more       | IPS-Display                        |
+| Matte display      | ✔                                  |
+| RAM                | 1×8 GB 1600 MHz                    |
+| Disk               | 120 SSD (Samsung EVO / SATA III)   |
+| Network            | has RJ45 built-in, 10/100/1000     |
+| Wireless           | 802.11 ac/a/b/g/n                  |
+| WLAN-Chip          | Intel Dual AC7260                  |
+| Bluetooth          | 4.0                                |
+| Akku               | 62,16 Wh, 2.5h[^4]                 |
+| USB                | 2× USB 3.0                         |
+| SD Card Reader     | ✔                                  |
+| Linux-Support      | shipped with Linux Mint :-)        |
+| Keyboard           | ?                                  |
+| Noise              | Laut[^4]                           |
+
+
 #### Other ####
 On a first glance, the Samsung ATIV Book 8 NP880Z5E-X01 looked quite
 promising. But it doesn't have an SSD, it weights 2.54 kg, but has
@@ -343,3 +401,4 @@ what you could do better:
 [^1] [Linux and the Samsung Series 9 NP900X3C](http://blog.jospoortvliet.com/2012/09/linux-and-samsung-series-9-np900x3c.html): A review for the NP900X3C and openSUSE on 24th or September, 2012.
 [^2] [Samsung Series 9 - Ubuntu Community Page](https://help.ubuntu.com/community/SamsungSeries9)
 [^3] [Linux auf Samsung Series 9 2012](http://www.sump.org/blog/213)
+[^4] [Tuxedo Book DC1502 im Test](http://www.pcwelt.de/produkte/Tuxedo-Book_DC1502-Standard-Notebook-Test-8115776.html)
