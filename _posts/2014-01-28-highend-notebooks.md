@@ -262,9 +262,13 @@ both of my favorites.
 | Keyboard           | Chiclet-Keyboard     |
 | Noise              | 29.8 dB, 42.1 dB max | 
 
+There seem to be other versions of the XPS 15:
+
 * XPS 15 (L501X)
 * XPS 15 (L502X)
 * XPS 15z
+
+However, I was not able to find any specification of those.
 
 ## Fujitsu ##
 
@@ -334,6 +338,26 @@ The next few lines show the difference of the `900X4C A0A` to...
    128 GB SSD. But it
    costs only 799 Euro.
 * `900X4D K01`: Intel Core i5-3337U, 128 GB SSD, 8400 mAh, Dual Band, 997 Euro
+
+### Samsung ATIV Book 9 2014 Edition ###
+* 15.6" Touch-Display with a resolution of 1920 x 1080
+* 14h running time
+* 1.78 kg
+* dual-core Intel Core i5 or i7 chips (Haswell, natch) with Intel HD Graphics 4400
+* 8GB RAM
+* 128GB (for Core i5) and 256GB (for Core i7) SSD
+* Good audio qualit: 24-bit, 192kHz audio
+* 2x USB 3.0, 1x other USB
+* HDMI out, mini VGA, an SD card reader
+* 720p webcam 
+
+Release date should be mid 2014.
+
+#### Sources ####
+
+* [techradar.com](http://www.techradar.com/reviews/pc-mac/laptops-portable-pcs/laptops-and-netbooks/samsung-ativ-book-9-2014-edition-1212115/review)
+* [notebookcheck.de](http://www.notebookcheck.com/Samsung-praesentiert-Notebook-Ativ-Book-9-2014-Edition.108498.0.html)
+
 
 ## Tuxedo ##
 
