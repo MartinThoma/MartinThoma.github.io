@@ -56,7 +56,7 @@ I want a silent notebook, because I'm very sensitive to noise.
 My current notebook has **less than 30 dB in normal mode** (no heavy load). 
 That should set the mark.
 
-Another keyboard-thing: <kbd>Ctrl</kbd> at the lower left (→ no thinkpads).
+Another keyboard-thing: <kbd>Ctrl</kbd> has to be at the lower left (→ no thinkpads).
 
 A SD-Card Reader would be nice, but it is not required. Just like
 a RJ-45 for network cables and a DVD drive you can get it via USB.
