@@ -36,29 +36,29 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 
 ## Current Favorites ##
 
-|                    | Asus Zenbook       | Samsung Notebook Serie 9            | Macbook  Pro                       |
+|                    | Asus Zenbook       | Samsung Notebook Serie 9            | Tuxedo Book                        |
 |--------------------|--------------------|-------------------------------------|------------------------------------|
-| Model              | UX51VZ-DB114H      | 900X4D K01                          | Retina 15"                         |
-| Price              | 1380 Euro          |  995 Euro                           | 1999 Euro                          |
-| Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               | 358.9 × 247.1 × 18 mm              |
-| Weight             | 2.2 kg             | 1.58 kg                             | 2.02 kg                            |
-| CPU                | Intel Core i7 3632QM | [Intel Core i5-3337U](http://ark.intel.com/products/72055) | [Intel Core i7 2760QM](http://ark.intel.com/products/53474) |
-| Display Size       | 15.6"              | 15"                                 | 15.4"                              |
-| Display Resolution | 2880×1620          | 1600×900                            | 2880×1800                          |
-| Display more       |                    | LED-Display, 400 Nit                |                                    |
+| Model              | UX51VZ-DB114H      | 900X4D K01                          | BC1503                             |
+| Price              | 1380 Euro          |  995 Euro                           |  763 Euro                          |
+| Dimensions (B × D × H)| 380 × 254 × 20  | 356.9 × 237 × 14.9 mm               |  374 × 252 × 31 mm                 |
+| Weight             | 2.2 kg             | 1.58 kg                             |  2.4 kg                            |
+| CPU                | Intel Core i7 3632QM | [Intel Core i5-3337U](http://ark.intel.com/products/72055) | [Intel Core i5 4200M](http://ark.intel.com/products/76348) |
+| Display Size       | 15.6"              | 15"                                 | 15.6"                              |
+| Display Resolution | 2880×1620          | 1600×900                            | 1920×1080                          |
+| Display more       |                    | LED-Display, 400 Nit                | IPS-Display                        |
 | Matte display      | ✘                  | ✔                                   | ✔                                  |
-| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3  SDRAM1.600 MHz        | 8 GB 1600 MHz DDR3L                |
-| Disk               | 256 SSD            | 128 GB SSD                          | 256 SSD                            |
-| Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | no RJ45                            |
-| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           | 802.11a/b/g/n                      |
-| WLAN-Chip          | ?                  | ?                                   | ?                                  |
+| RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3  SDRAM1.600 MHz        | 1×8 GB 1600 MHz                    |
+| Disk               | 256 SSD            | 128 GB SSD                          | 120 SSD (Samsung EVO / SATA III)   |
+| Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  | has RJ45 built-in, 10/100/1000     |
+| Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           | 802.11 ac/a/b/g/n                  |
+| WLAN-Chip          | ?                  | ?                                   | Intel Dual AC7260                  |
 | Bluetooth          | 4.0                | 4.0                                 | 4.0                                |
-| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | up to 7h                           |
+| Akku               | 4750 mAh           | 8200 mAh, up to 10h                 | 62,16 Wh, up to 6h                 |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              | 2× USB 3.0                         |
 | SD Card Reader     | ✔                  | ✔                                   | ✔                                  |
-| Linux-Support      | ?                  | partially ([^1],[^2], [^3])         | ?                                  |
-| Keyboard           | ?                  | Chiclet-keyboard without numblock   | Chiclet-Keyboard                   |
-| Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   | 29.4 dB in normal mode, 47.4 dB max|
+| Linux-Support      | ?                  | partially ([^1],[^2], [^3])         | shipped with Linux Mint :-)        |
+| Keyboard           | ?                  | Chiclet-keyboard without numblock   | ?                                  |
+| Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   | ?                                  |
 
 {% gallery columns="2" %}
    ../images/2014/01/samsung-serie-9-keyboard-layout.png   "Samsung Series 9"
@@ -90,6 +90,32 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Keyboard           | Chiclet-Keyboard       |
 | Noise              | 33.3 dB                |
 
+## Apple ##
+
+|                    | Macbook  Pro                       |
+|--------------------|------------------------------------|
+| Model              | Retina 15"                         |
+| Price              | 1999 Euro                          |
+| Dimensions (B × D × H)| 358.9 × 247.1 × 18 mm              |
+| Weight             | 2.02 kg                            |
+| CPU                | [Intel Core i7 2760QM](http://ark.intel.com/products/53474) |
+| Display Size       | 15.4"                              |
+| Display Resolution | 2880×1800                          |
+| Display more       |                                    |
+| Matte display      | ✔                                  |
+| RAM                | 8 GB 1600 MHz DDR3L                |
+| Disk               | 256 SSD                            |
+| Network            | no RJ45                            |
+| Wireless           | 802.11a/b/g/n                      |
+| WLAN-Chip          | ?                                  |
+| Bluetooth          | 4.0                                |
+| Akku               | up to 7h                           |
+| USB                | 2× USB 3.0                         |
+| SD Card Reader     | ✔                                  |
+| Linux-Support      | ?                                  |
+| Keyboard           | Chiclet-Keyboard                   |
+| Noise              | 29.4 dB in normal mode, 47.4 dB max|
+
 ## Asus ##
 ### Asus Zenbooks ###
 
@@ -112,8 +138,8 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Akku               | ?                  | 4750 mAh              | 4750 mAh              |
 | USB                | 3× USB 3.0         | 3× USB 3.0            | 2× USB 3.0            |
 | SD Card Reader     | ✔                  | ✔                     | ✔                     |
-| Linux-Support      | ?                  | ?                     | ?                                   |
-| Keyboard           | ?                  | ?                     | Chiclet-Keyboard with Numblock      |
+| Linux-Support      | ?                  | ?                     | ?                               |
+| Keyboard           | ?                  | ?                     | Chiclet-Keyboard with Numblock  |
 | Noise              | ?                  | ?                     | 34 dB in normal mode, 42 dB max |
 
 ### Asus PU500CA-XO002X and Asus N550JV-CN201H ###
@@ -180,7 +206,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Weight             | 1.99 kg            |
 | CPU                | Intel Core i7-3632QM |
 | Display Size       | 15.6"              |
-| Display Resolution | 1920 × 1080        |
+| Display Resolution | 1920×1080          |
 | Matte display      | ✔                  |
 | RAM                | 8 GB DDR3          |
 | Disk               | 256 GB SSD         |
@@ -205,7 +231,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Weight             | 2.19 kg               |
 | CPU                | Intel Core i5-4200M   |
 | Display Size       | 15.6"                 | 
-| Display Resolution | 1920x1080             |
+| Display Resolution | 1920×1080             |
 | Matte display      | ✘                     |
 | RAM                | 12 GB DDR3L, 1600 MHz |
 | Disk               | 1000 GB               |
@@ -286,9 +312,6 @@ Availability: seems not to be available on Amazon
 Other:
 
 * Acer Aspire M3-581TG: Too loud, only 667MHz RAM
-
-## Ideas ##
-* Tuxedo Book BC1503 - [linux-onlineshop.de](http://www.linux-onlineshop.de/Linux-Hardware/Linux-Notebooks/15-6-Zoll/Tuxedo-Book-BC1503-15-6-matt-Full-HD-IPS-Intel-HD-4600-Grafik-drei-HDD-SSD-bis-Intel-Core-i7-4900MQ-bis-16GB-RAM-DVD-Blu-Ray-Brenner.geek)
 
 ## Dear Notebook-Producers ##
 After searching so much for notebooks, I have some hints for you 
