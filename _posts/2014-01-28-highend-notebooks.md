@@ -2,7 +2,7 @@
 layout: post
 title: Highend Notebooks
 author: Martin Thoma
-date: 2014-01-27 14:39
+date: 2014-01-28 16:00
 categories:
 - Cyberculture
 tags:
@@ -61,11 +61,21 @@ Another keyboard-thing: <kbd>Ctrl</kbd> at the lower left (→ no thinkpads).
 A SD-Card Reader would be nice, but it is not required. Just like
 a RJ-45 for network cables and a DVD drive you can get it via USB.
 
+I robust case is also important. I had troubles working in the train,
+because the screen was whipping as hell. But this is not a hard 
+requirement for me as I don't work in trains that often.
+
+## Current Favorites ##
+I've looked at a lot of notebooks and I did mainly focus on the 
+technical specification and not at the price (I guess I might work
+about 10h every day in front of this machine. A good, working 
+notebook is very important to me). However, when I see some notebooks
+that are ok according to the specs from above, I will take the cheaper 
+one.
+
 By the way, while searching for notebooks I discovered that much of
 the data on Amazon is wrong. See for example the dimensions of
 the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
-
-## Current Favorites ##
 
 |                    | Asus Zenbook       | Samsung Notebook Serie 9            |
 |--------------------|--------------------|-------------------------------------|
@@ -82,7 +92,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Disk               | 256 SSD            | 128 GB SSD                          |
 | Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  |
 | Wireless           | 802.11a/g/n, WiDi  | 802.11a/b/g/n (2×2), WiDi           |
-| WLAN-Chip          | ?                  | ?                                   |
+| WLAN-Chip          | ?                  | Intel Wireless-N 7260               |
 | Bluetooth          | 4.0                | 4.0                                 |
 | Akku               | 4750 mAh           | 8200 mAh, up to 10h                 |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              |
@@ -95,6 +105,32 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
    ../images/2014/01/samsung-serie-9-keyboard-layout.png   "Samsung Series 9"
    ../images/2014/01/macbook-pro-retina-keyboard-layout.jpg   "Macbook Pro"
 {% endgallery %}
+
+The WLAN chipset of the Samsung Serie 9 seems to cause trouble with
+Linux, but it also seems to be solved by a firmware update.[^5]
+But one hint seems to be important:
+
+> Before you install Linux on a Samsung Serie 9, make sure you update the firmware, 
+> because that's only possible with Windows.
+
+
+Asus Zenbook seems also to work almost out of the box.[^6]
+I've just learned that you can use
+
+```bash
+sudo dmidecode -s system-product-name
+```
+
+to determine your exact laptop product name.
+
+In the following, I will give you an overview of the notebooks I took
+a look at. I think all of them are very good.
+
+In many cases I will need some more equipment:
+
+* MicroHDMI 2 VGA adapter: Samsung AA-AH2NMHB/E for 29.90 Euro
+* USB Ethernet adapter: "Cable Matters - SuperSpeed USB 3.0" for 16 Euro
+* External DVD burner: Samsung SE-208DB for 30 Euro works with DVD±R Dual layer disks and DVD±RW disks. Is there anything more important to look at?
 
 ## Acer ##
 
@@ -147,6 +183,9 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Keyboard           | Chiclet-Keyboard                   |
 | Noise              | 29.4 dB in normal mode, 47.4 dB max|
 
+Although the hardware looks very nice, it is still comparable with
+both of my favorites.
+
 ## Asus ##
 ### Asus Zenbooks ###
 
@@ -178,7 +217,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 |                    | Asus                  | Asus             |
 |--------------------|-----------------------|------------------|
 | Model              | PU500CA-XO002X        | N550JV-CN201H    |
-| Price              | 998 Euro              | 1099 1390        |
+| Price              | 998 Euro              | 1099             |
 | Dimensions (B × D × H)| 383 × 257 × 22.5 mm| 383 × 255 × 27   |
 | Weight             | 1.96 kg               | 2.7 kg           |
 | CPU                | Intel Core i5-3317U   | Intel Core i7-4700HQ |
@@ -343,10 +382,10 @@ Display is too small:
 * XPS 13 has only 13.3"
 * Asus Zenbook has only 13.3"
 * Lenovo IdeaPad U300s have only 13.3"
-* All `Samsung Series 9 X3A` seem to have 13.3" displays
-* `Samsung Series 9 900X3D-A02`: 13.3"
-* `Samsung Series 9 900X3C-A01`: 13.3"
-* `Samsung Series 9 900X3C A07`: 13.3"
+* All Samsung Series 9 X3A seem to have 13.3" displays
+* Samsung Series 9 900X3D-A02: 13.3"
+* Samsung Series 9 900X3C-A01: 13.3"
+* Samsung Series 9 900X3C A07: 13.3"
 
 Too low resolution:
 
@@ -392,7 +431,7 @@ what you could do better:
   * Noise in dB
   * Information about Linux support (especially Debian)
 * Explain your version names!
-* Provide a possibility to compare your products.
+* Provide a possibility to compare your products like Intel does with [ark.intel.com](http://ark.intel.com/) for its processors
 * Provide a possibility to filter your products by technical specification.
 * Add an image of your product to Wikipedia Commons
 
@@ -402,3 +441,5 @@ what you could do better:
 [^2] [Samsung Series 9 - Ubuntu Community Page](https://help.ubuntu.com/community/SamsungSeries9)
 [^3] [Linux auf Samsung Series 9 2012](http://www.sump.org/blog/213)
 [^4] [Tuxedo Book DC1502 im Test](http://www.pcwelt.de/produkte/Tuxedo-Book_DC1502-Standard-Notebook-Test-8115776.html)
+[^5] [No wireless with Intel Centrino Advanced-N 7260](http://askubuntu.com/questions/322511/no-wireless-with-intel-centrino-advanced-n-7260)
+[^6] [AsusZenbook - Ubuntu Community Page](https://help.ubuntu.com/community/AsusZenbook)
