@@ -83,20 +83,20 @@ You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color code
 
 int main()
 {
-    printf("&#92;&#48;33[30m%s&#92;&#48;33[0m\n", "black?");
-    printf("&#92;&#48;33[31m%s&#92;&#48;33[0m\n", "red");
-    printf("&#92;&#48;33[32m%s&#92;&#48;33[0m\n", "lime");
-    printf("&#92;&#48;33[33m%s&#92;&#48;33[0m\n", "yellow");
-    printf("&#92;&#48;33[34m%s&#92;&#48;33[0m\n", "blue");
-    printf("&#92;&#48;33[35m%s&#92;&#48;33[0m\n", "gray");
-    printf("&#92;&#48;33[36m%s&#92;&#48;33[0m\n", "blue");
-    printf("&#92;&#48;33[37m%s&#92;&#48;33[0m\n", "light gray");
-    printf("&#92;&#48;33[38m%s&#92;&#48;33[0m\n", "black?");
-    printf("&#92;&#48;33[39m%s&#92;&#48;33[0m\n", "black?");
-    printf("&#92;&#48;33[41m%s&#92;&#48;33[0m\n", "red background");
-    printf("&#92;&#48;33[1;34m%s&#92;&#48;33[0m\n", "bold and blue");
-    printf("&#92;&#48;33[4m%s&#92;&#48;33[0m\n", "underlined");
-    printf("&#92;&#48;33[9m%s&#92;&#48;33[0m\n", "strike");
+    printf("\\033[30m%s\\033[0m\n", "black?");
+    printf("\\033[31m%s\\033[0m\n", "red");
+    printf("\\033[32m%s\\033[0m\n", "lime");
+    printf("\\033[33m%s\\033[0m\n", "yellow");
+    printf("\\033[34m%s\\033[0m\n", "blue");
+    printf("\\033[35m%s\\033[0m\n", "gray");
+    printf("\\033[36m%s\\033[0m\n", "blue");
+    printf("\\033[37m%s\\033[0m\n", "light gray");
+    printf("\\033[38m%s\\033[0m\n", "black?");
+    printf("\\033[39m%s\\033[0m\n", "black?");
+    printf("\\033[41m%s\\033[0m\n", "red background");
+    printf("\\033[1;34m%s\\033[0m\n", "bold and blue");
+    printf("\\033[4m%s\\033[0m\n", "underlined");
+    printf("\\033[9m%s\\033[0m\n", "strike");
     return 0;
 }{% endhighlight %}
 
