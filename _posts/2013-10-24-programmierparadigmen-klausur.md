@@ -10,6 +10,7 @@ tags:
 - Klausur
 - Programmierparadigmen
 featured_image: 2012/02/klausur-test-thumbnail.jpg
+alias: /programmierparadigmen/index.html
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 gehört.</div>
 
@@ -110,6 +111,7 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 
 ## Material ##
 <ul>
+  <li><a href="https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Programmierparadigmen/Programmierparadigmen.pdf?raw=true">Inoffizielles Skript</a> in A5 (<a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Programmierparadigmen">LaTeX-Quellen</a>): Wer das gerne für ca. 10 Euro in SW gedruckt mit Klebebindung hätte, soll mir eine Email schreiben</li>
   <li><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Vorlesungswebsite</a> und <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Übungsblätter</a></li>
   <li>Ein <a href="https://ankiweb.net/shared/info/3121773115">Anki-Deck</a> (NICHT meines!)</li>
 </ul>
