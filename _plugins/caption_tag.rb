@@ -6,12 +6,12 @@
     # Version: 1.2
     #
     # Example usage:
-    #   {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="/images/2013/11/WER-calculation.png" %}
+    #   {% caption align="aligncenter" width="500" alt="WER calculation" text="WER calculation" url="../images/2013/11/WER-calculation.png" %}
     #
     # Plugin replaces the template above with:
     #    <div style="width: 510px" class="wp-caption aligncenter">
-    #        <a href="/images/2013/11/WER-calculation.png">
-    #            <img src="/images/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full">
+    #        <a href="../images/2013/11/WER-calculation.png">
+    #            <img src="../images/2013/11/WER-calculation.png" alt="WER calculation" width="500" height="494" class="size-full">
     #        </a>
     #        <p class="wp-caption-text">WER calculation</p>
     #    </div>
@@ -59,8 +59,7 @@
             end
 
             @divWidth = (@hash['width'].to_i+10).to_s
-
-            puts context.registers["page"]["path"]
+            puts context.registers["page"].inspect
             #Dimensions.dimensions(@hash['url'])
 
             "<div style=\"width: #{@divWidth}px\" class=\"wp-caption #{@hash['align']}\">" +
