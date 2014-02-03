@@ -17,7 +17,9 @@
     #    </div>
 
     require 'csv'
-    #require 'dimensions'
+    require 'dimensions'
+    require 'RMagick'
+    require 'fileutils'
 
     module Jekyll
       class CaptionTag < Liquid::Tag
@@ -59,8 +61,41 @@
             end
 
             @divWidth = (@hash['width'].to_i+10).to_s
-            puts context.registers.inspect
-            #Dimensions.dimensions(@hash['url'])
+
+            if false
+                current_post_path = File.join(context.registers[:site].config['source'], context.registers[:page]["path"])
+                current_post_folder_path = File.dirname(current_post_path)
+                img_path = File.join(current_post_folder_path, @hash['url'])
+                # TODO: check if img_path actually contains an image
+                width, height = Dimensions.dimensions(img_path)
+                if width > @hash['width'].to_i
+                    @hash['height'] = "800"
+                    puts "[Info] Image was bigger than it should be. Start resizing."
+                    puts "[Info] Image path:"+img_path.inspect
+                    puts "[Info] Image width:"+width.to_s()
+                    puts "[Info] Image height:"+height.to_s()
+                    puts post.name
+
+                    # TODO: Filename should have image size encoded ... eventually some users migh have different sizes of one image
+                    destination_path = File.join(context.registers[:site].config['destination'], context.registers[:page]["path"])
+                    destination_img_path = File.join(destination_path, @hash['url'])
+                    destination_img_path_folder = File.dirname(destination_img_path)
+                    new_filename = File.join(destination_img_path_folder, "captions/" + File.basename(img_path))
+                    puts "[Info] new_filename" + new_filename.inspect
+
+                    # Create folder if not exists
+                    dirname = File.dirname(new_filename)
+                    unless File.directory?(dirname)
+                      FileUtils.mkdir_p(dirname)
+                    end
+
+                    image = Magick::Image.read(img_path).first
+                    image.change_geometry!(@hash['width']+"x"+@hash['height']) { |cols, rows, img|
+                        newimg = img.resize(cols, rows)
+                        newimg.write(new_filename)
+                    }
+                end
+            end
 
             "<div style=\"width: #{@divWidth}px\" class=\"wp-caption #{@hash['align']}\">" +
             "<a href=\"#{@hash['url']}\">" +
