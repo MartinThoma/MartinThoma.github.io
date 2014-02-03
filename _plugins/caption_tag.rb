@@ -74,7 +74,7 @@
                     puts "[Info] Image path:"+img_path.inspect
                     puts "[Info] Image width:"+width.to_s()
                     puts "[Info] Image height:"+height.to_s()
-                    puts post.name
+                    puts "[Info] post.name:?"
 
                     # TODO: Filename should have image size encoded ... eventually some users migh have different sizes of one image
                     destination_path = File.join(context.registers[:site].config['destination'], context.registers[:page]["path"])
