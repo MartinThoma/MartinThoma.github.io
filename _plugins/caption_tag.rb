@@ -59,7 +59,7 @@
             end
 
             @divWidth = (@hash['width'].to_i+10).to_s
-            puts context.registers["page"].inspect
+            puts context.registers.inspect
             #Dimensions.dimensions(@hash['url'])
 
             "<div style=\"width: #{@divWidth}px\" class=\"wp-caption #{@hash['align']}\">" +
