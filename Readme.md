@@ -16,6 +16,7 @@ TODO
 * Markdown rendered within fenced code tag: http://martin-thoma.com/how-to-print-source-code-with-latex/
 * Fix posts:
   - http://martin-thoma.com/comparing-dates-in-php-and-mysql/
+  - http://martin-thoma.com/algorithmen-ii-klausur/ (LaTeX)
 * Apply CSS Rules from [CSS Wizardry](https://github.com/csswizardry/CSS-Guidelines)
 
 Improve
