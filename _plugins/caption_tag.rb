@@ -42,9 +42,15 @@
         end
 
         def get_image_path(site_source, page_path, img_src)
-            current_post_path = File.join(site_source, page_path)
-            current_post_folder_path = File.dirname(current_post_path)
-            return File.expand_path(File.join(current_post_folder_path, img_src))
+            if img_src.include?('://')
+                # TODO:download to local storage
+                new_path = img_src
+            else
+                current_post_path = File.join(site_source, page_path)
+                current_post_folder_path = File.dirname(current_post_path)
+                new_path = File.expand_path(File.join(current_post_folder_path, img_src))
+            end
+            return new_path
         end
 
         def get_online_url(site_source, baseurl, new_filename)
