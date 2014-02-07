@@ -41,6 +41,24 @@
           end
         end
 
+        def get_image_path(site_source, page_path, img_src)
+            current_post_path = File.join(site_source, page_path)
+            current_post_folder_path = File.dirname(current_post_path)
+            return File.expand_path(File.join(current_post_folder_path, img_src))
+        end
+
+        def get_online_url(site_source, baseurl, new_filename)
+            dest = File.join(baseurl, new_filename[site_source.length..-1])
+            return dest
+        end
+
+        def get_destination_path(site_source, post_path, img_src)
+            destination_path = File.join(site_source, "/captions")
+            destination_img_path = File.join(destination_path, File.basename(img_src))
+            new_filename = File.expand_path(destination_img_path)
+            return new_filename
+        end
+
         def render(context)
             @hash = parse_attrs(@text)
 
@@ -60,33 +78,23 @@
                 @hash['caption'] = @hash['title']
             end
 
+            @hash['orig-url'] = @hash['url']
+
             @divWidth = (@hash['width'].to_i+10).to_s
 
-            if false
-                current_post_path = File.join(context.registers[:site].config['source'], context.registers[:page]["path"])
-                current_post_folder_path = File.dirname(current_post_path)
-                img_path = File.join(current_post_folder_path, @hash['url'])
-                # TODO: check if img_path actually contains an image
+            img_path = get_image_path(context.registers[:site].config['source'], context.registers[:page]["path"], @hash['url'])
+            # TODO: check if img_path actually contains an image
+            if File.exist?(img_path)
                 width, height = Dimensions.dimensions(img_path)
+
                 if width > @hash['width'].to_i
                     @hash['height'] = "800"
-                    puts "[Info] Image was bigger than it should be. Start resizing."
-                    puts "[Info] Image path:"+img_path.inspect
-                    puts "[Info] Image width:"+width.to_s()
-                    puts "[Info] Image height:"+height.to_s()
-                    puts "[Info] post.name:?"
-
-                    # TODO: Filename should have image size encoded ... eventually some users migh have different sizes of one image
-                    destination_path = File.join(context.registers[:site].config['destination'], context.registers[:page]["path"])
-                    destination_img_path = File.join(destination_path, @hash['url'])
-                    destination_img_path_folder = File.dirname(destination_img_path)
-                    new_filename = File.join(destination_img_path_folder, "captions/" + File.basename(img_path))
-                    puts "[Info] new_filename" + new_filename.inspect
+                    new_filename = get_destination_path(context.registers[:site].config['source'], context.registers[:page]["path"], @hash['url'])
 
                     # Create folder if not exists
                     dirname = File.dirname(new_filename)
                     unless File.directory?(dirname)
-                      FileUtils.mkdir_p(dirname)
+                        FileUtils.mkdir_p(dirname)
                     end
 
                     image = Magick::Image.read(img_path).first
@@ -94,11 +102,17 @@
                         newimg = img.resize(cols, rows)
                         newimg.write(new_filename)
                     }
+                    width, height = Dimensions.dimensions(new_filename)
+                    @hash['width']  = width.to_s()
+                    @hash['height'] = height.to_s()
+                    @hash['url'] = get_online_url(context.registers[:site].config['source'],context.registers[:site].config['baseurl'], new_filename)
                 end
+            else
+                puts "[Warning] " + img_path + " does not exist."
             end
 
             "<div style=\"width: #{@divWidth}px\" class=\"wp-caption #{@hash['align']}\">" +
-            "<a href=\"#{@hash['url']}\">" +
+            "<a href=\"#{@hash['orig-url']}\">" +
                 "<img src=\"#{@hash['url']}\" alt=\"#{@hash['text']}\" width=\"#{@hash['width']}\" height=\"#{@hash['height']}\" class=\"#{@hash['class']}\"/>" +
             "</a>" +
             "<p class=\"wp-caption-text\">#{@hash['caption']}</p>" +
