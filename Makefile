@@ -38,6 +38,7 @@ deploy:
 	cp _postStorage/* _posts/
 	# remove temporary files
 	rm -rf _postStorage
+	rm -rf captions
 	# upload files to github
 	git checkout master
 	git rm -qr .
