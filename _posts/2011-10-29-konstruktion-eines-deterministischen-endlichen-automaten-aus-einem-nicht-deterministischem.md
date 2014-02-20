@@ -10,6 +10,7 @@ tags:
 - Abstract machine
 - Theoretical computer science
 featured_image: 2011/10/deterministic-finite-state-machine-thumb.png
+alias: /potenzmengenkonstruktion/index.html
 ---
 Der nicht-deterministische endliche Automat zu dem regul&auml;rem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:
 $Q = \{S, q_1, q_2\}$
