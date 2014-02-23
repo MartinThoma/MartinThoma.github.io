@@ -116,7 +116,13 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
   <li>Ein <a href="https://ankiweb.net/shared/info/3121773115">Anki-Deck</a> (NICHT meines!)</li>
 </ul>
 
-<h2>Übungsbetrieb</h2>
+## Klausurvorbereitung
+* [H-99: Ninety-Nine Haskell Problems](http://www.haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems)
+* [P-99: Ninety-Nine Prolog Problems](https://sites.google.com/site/prologsite/prolog-problems)
+* [S-99: Ninety-Nine Scala Problems](http://aperiodic.net/phil/scala/s-99/)
+
+## Übungsbetrieb
+
 <ul>
 <li>Wo sind die Übungsblätter: <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Link</a></li>
 <li>Abgabeform: ?</li>
