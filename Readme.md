@@ -46,4 +46,4 @@ Although there is a `jekyll` package on Debian-Systems, you should not install i
 
 Then
 
-    sudo gem install juicer jekyll
+    sudo gem install juicer jekyll dimensions
