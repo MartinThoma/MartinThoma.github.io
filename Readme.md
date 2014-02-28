@@ -42,6 +42,8 @@ First:
 
     sudo apt-get install rubygems ruby-dev
 
+Although there is a `jekyll` package on Debian-Systems, you should not install it. Rather do it this way:
+
 Then
 
     sudo gem install juicer jekyll
