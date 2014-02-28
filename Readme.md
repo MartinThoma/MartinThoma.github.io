@@ -35,3 +35,13 @@ Testen
 * WordPress "Caption" tags
 * RSS Feed
 * Disquss für Kommentare
+
+Required
+========
+First:
+
+    sudo apt-get install rubygems ruby-dev
+
+Then
+
+    sudo gem install juicer jekyll
