@@ -8,6 +8,7 @@ categories:
 tags:
 - LaTeX
 featured_image: 2012/01/latex-logo.png
+alias: /install-latex/index.html
 ---
 I recently had <a href="http://tex.stackexchange.com/questions/49543/how-can-i-place-numbers-into-marks-of-a-plot">some problems</a> with TikZ because of my outdated LaTeX-Version. Ubuntu does only provide TeX Live 2009. The latest one is TeX Live 2013. As Ubuntu doesn't provide the latest LaTeX-Code, I'll explain how to install it by yourself on an Ubuntu System.
 
@@ -97,6 +98,10 @@ That's it. So my <code>.profile</code> got these additional lines:
 ```text
 if [ -d "/usr/local/texlive/2013/bin/i386-linux" ] ; then
     PATH="/usr/local/texlive/2013/bin/i386-linux:$PATH"
+fi
+
+if [ -d "/usr/local/texlive/2013/bin/x86_64-linux" ] ; then
+    PATH="/usr/local/texlive/2013/bin/x86_64-linux:$PATH"
 fi
 
 if [ -d "/usr/local/texlive/2013/texmf/doc/man" ] ; then
