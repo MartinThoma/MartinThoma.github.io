@@ -53,4 +53,4 @@ deploy:
 	git checkout source
 
 clean:
-	rm -rf _site captions
+	rm -rf _site
