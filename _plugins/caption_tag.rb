@@ -112,6 +112,8 @@
                     @hash['width']  = width.to_s()
                     @hash['height'] = height.to_s()
                     @hash['url'] = get_online_url(context.registers[:site].config['source'],context.registers[:site].config['baseurl'], new_filename)
+                elsif width < @hash['width'].to_i
+                    @hash['width'] = width.to_s
                 end
             else
                 puts "[Warning] " + img_path + " does not exist."
