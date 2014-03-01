@@ -20,8 +20,11 @@ test:
 	./_postprocess.py
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
+	mv captions/ _site/
 	# remove temporary files
 	rm -rf _postStorage
+	# move files to localhost
+	cp -r _site/* /var/www/blog
 
 deploy:
 	make push
@@ -36,9 +39,9 @@ deploy:
 	./_postprocess.py
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
+	mv captions/ _site/
 	# remove temporary files
 	rm -rf _postStorage
-	rm -rf captions
 	# upload files to github
 	git checkout master
 	git rm -qr .
@@ -50,4 +53,4 @@ deploy:
 	git checkout source
 
 clean:
-	rm -rf _site
+	rm -rf _site captions
