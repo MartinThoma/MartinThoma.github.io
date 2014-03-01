@@ -46,11 +46,11 @@ deploy:
 	git checkout master
 	git rm -qr .
 	cp -r _site/. .
-	make clean
+	make clean #attention!
 	git add -A
 	git commit -m "misc"
 	git push origin master
 	git checkout source
 
 clean:
-	rm -rf _site captions
+	rm -rf _site
