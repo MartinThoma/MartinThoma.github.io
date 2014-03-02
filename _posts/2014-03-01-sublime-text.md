@@ -138,6 +138,15 @@ Now compare it to this:
 
 Chrome tabs look much cleaner, don't they? Many others seem to think that, too ([source](http://sublimetext.userecho.com/topic/19361-move-tabs-to-the-title-bar-like-in-google-chrome/)).
 
+## Line Wrapping
+
+Sublime Text 3 does wrap points and commas to the next line:
+
+{% caption align="aligncenter" width="500" alt="line wrapping" text="line wrapping" url="../images/2014/03/sublime-word-wrapping.png" %}
+
+This behaviour is bad and not liked by the community ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=5214))
+
+
 ## More
 * [Documentation](https://www.sublimetext.com/docs/3/)
 * [colorsublime.com](http://colorsublime.com/): Lots of themes
