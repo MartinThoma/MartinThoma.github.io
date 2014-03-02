@@ -125,9 +125,9 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 
 <ul>
 <li>Wo sind die Übungsblätter: <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Link</a></li>
-<li>Abgabeform: ?</li>
-<li>Abgabe: ?</li>
-<li>Rücknahme: ?</li>
+<li>Abgabeform: auf Papier und via E-Mail</li>
+<li>Abgabe: Datum steht auf den Übungsblättern; Ort: Kasten im Keller des Infobaus</li>
+<li>Rücknahme: im Tutorium</li>
 <li>Turnus: wöchentlich, erscheint am Donnerstag</li>
 <li>Übungsschein verpflichtend: Es gibt keinen Übungsschein.</li>
 <li>Bonus durch Übungsschein: Es gibt keinen Klausurbonus.</li>
