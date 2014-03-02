@@ -52,6 +52,7 @@ If possible, I will give the debian package names in the following list:
   * `sudo apt-get install bisigi-themes`
   * `sudo apt-get install balanzan-theme`
 * Other
+  * [`sublime_text`](http://martin-thoma.com/sublime-text/)
   * `libreoffice`
   * `curl`
 * DRM-caused (I want to watch DVDs!)
@@ -59,6 +60,13 @@ If possible, I will give the debian package names in the following list:
   * `totem banshee mplayer rythmbox`
 
 ## Configure ##
+
+### Set standards
+
+```bash
+update-alternatives --config editor
+update-alternatives --config x-www-browser
+```
 
 ### DRM-Stuff ###
 ```bash
@@ -138,3 +146,6 @@ autocmd BufWritePost *.cpp execute '!astyle --style=java --indent=spaces %'
 ```text
 *.pdf diff=pdfdiff
 ```
+
+## Data
+Download / copy all data back from GitHub / external HDDs to my internal HDD.

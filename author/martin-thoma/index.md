@@ -8,6 +8,7 @@ tags: []
 context: about
 gplus: https://plus.google.com/+MartinThoma/about
 twitter: https://twitter.com/#!/themoosemind
+stackoverflow: http://stackoverflow.com/users/562769/moose
 alias: /author/moose/index.html
 ---
 <div class="vcard">
@@ -31,5 +32,6 @@ alias: /author/moose/index.html
 <ul>
 	<li><a href="{{ page.gplus }}" rel="me">Google+</a></li>
 	<li><a href="{{ page.twitter }}" rel="me">Twitter</a></li>
+    <li><a href="{{ page.stackoverflow }}" rel="me">StackOverflow</a></li>
 </ul>
 </div>
