@@ -61,7 +61,6 @@ Here is what I have changed:
 	"translate_tabs_to_spaces": false,
 	"use_tab_stops": false
 }
-
 ```
 
 ## Plugins
@@ -100,7 +99,10 @@ I have these:
 
 ```text
 [
-{ "keys": ["ctrl+shift+r"], "command": "reindent" , "args": { "single_line": false } }
+{ "keys": ["ctrl+shift+r"], "command": "reindent", "args": { "single_line": false } },
+{ "keys": ["shift+tab"], "command": "unindent", "args": {"single_line":true} },
+{ "keys": ["ctrl+7"], "command": "toggle_comment", "args": { "block": false } },
+{ "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": true } }
 ]
 ```
 
