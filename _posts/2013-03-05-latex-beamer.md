@@ -120,7 +120,7 @@ When you have a list and you want to uncover it element by element,
 you can use this:
 
 ```latex
-\begin{itemize}<+->
+\begin{itemize}[<+->]
     \item one
     \item two
     \item three
