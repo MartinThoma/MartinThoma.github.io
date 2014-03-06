@@ -48,10 +48,6 @@ Here is what I have changed:
 	"font_face": "Ubuntu Mono",
 	"font_size": 13,
 	"highlight_line": true,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
 	"rulers":
 	[
 		80,
@@ -62,6 +58,8 @@ Here is what I have changed:
 	"use_tab_stops": false
 }
 ```
+
+Note that you have to install the color scheme and the font ([source](http://font.ubuntu.com/)) to use it.
 
 ## Plugins
 ### Package Control
