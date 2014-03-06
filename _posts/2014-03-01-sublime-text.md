@@ -81,6 +81,13 @@ brackets on the left side. It looks like this:
 
 {% caption align="aligncenter" width="500" alt="Highlight braces" text="Highlight braces" url="../images/2014/03/sublime-braces.png" %}
 
+### Alignment
+[Sublime Alignment](http://wbond.net/sublime_packages/alignment) gives you the
+possibility to mark text, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>a</kbd> to
+align:
+
+{% caption align="aligncenter" width="500" alt="automatical alignment" text="automatical alignment" url="../images/2014/03/sublime-align.gif" %}
+
 
 ## Themes
 First of all, make sure you have installed the `Colorsublime` package.
