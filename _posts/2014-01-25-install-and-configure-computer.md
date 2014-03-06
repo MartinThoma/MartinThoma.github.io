@@ -22,7 +22,8 @@ When I reinstall my computer, I usually do these following steps:
 If possible, I will give the debian package names in the following list:
 
 * [LaTeX](../how-to-install-the-latest-latex-version/)
-  * gnuplot
+  * `gnuplot`
+  * `pdf2svg`
 * [Google Chrome](https://www.google.com/intl/de/chrome/browser/)
 * Multimedia
   * [`vlc`](http://www.videolan.org/vlc/): A very good DVD player
@@ -47,10 +48,7 @@ If possible, I will give the debian package names in the following list:
   * `phpmyadmin selfhtml`
   * `meld diffpdf`
 * Themes
-  * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en)
-  * `sudo add-apt-repository ppa:bisigi && sudo apt-get update`
-  * `sudo apt-get install bisigi-themes`
-  * `sudo apt-get install balanzan-theme`
+  * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
 * Other
   * [`sublime_text`](http://martin-thoma.com/sublime-text/)
   * `libreoffice`
