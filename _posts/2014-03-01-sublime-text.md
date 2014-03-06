@@ -88,7 +88,6 @@ align:
 
 {% caption align="aligncenter" width="500" alt="automatical alignment" text="automatical alignment" url="../images/2014/03/sublime-align.gif" %}
 
-
 ## Themes
 First of all, make sure you have installed the `Colorsublime` package.
 After you have it, you can press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
