@@ -42,8 +42,9 @@ Usage example:
 	<li><code>\Huge</code></li>
 </ul>
 
-<h2>Math</h2>
-{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes"  height="145" class="size-full wp-image-45931 "  %}
+## Math
+### Formulas
+{% caption align="aligncenter" width="309" caption="Sizes of different math modes" url="../images/2012/09/latex-math-sizes.png" alt="Sizes of different math modes"  height="145" class="size-full wp-image-45931"  %}
 Usage example:
 <code>$\scriptstyle \lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n$</code>
 <ul>
@@ -52,3 +53,15 @@ Usage example:
 	<li><code>\textstyle</code></li>
 	<li><code>\displaystyle</code></li>
 </ul>
+
+### Parentheses
+The size of brackets `[ ]`, (curly) braces `{ }` and parentheses `( )` can be 
+adjusted with these commands:
+
+```latex
+\[-1+x ( x \big( 1+ x\Big(2 + x \bigg(3+ x\Bigg(4+x \Bigg) \bigg) \Big) \big) )\]
+```
+
+The result will look like this
+
+{% caption align="aligncenter" width="500" caption="Sizes of parentheses" url="../images/2012/09/latex-parentheses-sizes.png" alt="Sizes of parentheses" class="size-full" %}
