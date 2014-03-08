@@ -69,6 +69,7 @@ Some stuff is nice to have, but not really essential:
 
 * Some default commands like `help`, `time`, `pwd`, `cd` and `echo`.
 * <kbd>Ctrl</kbd> + <kbd>D</kbd> as a shortcut for exiting.
+* <kbd>Ctrl</kbd> + <kbd>C</kbd> should stop the current command.
 * The configuration file should be stored in the home folder of the user and it should be called `.[name]rc`. The dot makes the file invisible by convention and 'rc' means 'resource configuration'.
 * The prompt configuration should be easy. Some patterns that are used quite often are 
   * `\w` for the working directory, where `$HOME` gets abbreviated with `~`

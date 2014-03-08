@@ -139,6 +139,16 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 <strong>Datum</strong>: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/))<br/>
 <strong>Ort</strong>: steht noch nicht fest (Stand: 08.03.2014)<br/>
 <strong>Punkte</strong>: 120<br/>
+<strong>Punkteverteilung</strong>:
+
+* 20 Punkte: Haskell
+* 10 Punkte: Typinferenz
+* 10 Punkte: Logische Programmierung
+* 4 Punkte: C
+* 4 Punkte: X10
+* 12 Punkte: Scala
+* 8 Punkte: Compilerbau
+
 <strong>Bestehensgrenze</strong>: ?<br/>
 <strong>Übungsschein</strong>: Gibt es nicht.<br/>
 <strong>Bonuspunkte</strong>: Gibt es nicht.<br/>
