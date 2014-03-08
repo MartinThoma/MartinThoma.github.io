@@ -119,7 +119,9 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 ## Klausurvorbereitung
 * [H-99: Ninety-Nine Haskell Problems](http://www.haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems)
 * [P-99: Ninety-Nine Prolog Problems](https://sites.google.com/site/prologsite/prolog-problems)
-* [S-99: Ninety-Nine Scala Problems](http://aperiodic.net/phil/scala/s-99/)
+* Scala
+  * [S-99: Ninety-Nine Scala Problems](http://aperiodic.net/phil/scala/s-99/)
+  * [Learning Scala](http://joelabrahamsson.com/learning-scala/) by Joel Abrahamsson
 
 ## Übungsbetrieb
 
