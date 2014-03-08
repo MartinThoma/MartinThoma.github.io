@@ -135,15 +135,15 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 <li>Bonus durch Übungsschein: Es gibt keinen Klausurbonus.</li>
 </ul>
 
-<h2>Termine und Klausurablauf</h2>
+## Termine und Klausurablauf
 <strong>Datum</strong>: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/))<br/>
-<strong>Ort</strong>: steht noch nicht fest (Stand: 02.03.2014)<br/>
-<strong>Punkte</strong>: vermutlich 80 - 120<br/>
+<strong>Ort</strong>: steht noch nicht fest (Stand: 08.03.2014)<br/>
+<strong>Punkte</strong>: 120<br/>
 <strong>Bestehensgrenze</strong>: ?<br/>
 <strong>Übungsschein</strong>: Gibt es nicht.<br/>
 <strong>Bonuspunkte</strong>: Gibt es nicht.<br/>
-<strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 02.03.2014)<br/>
-<strong>Einsicht</strong>: steht noch nicht fest (Stand: 02.03.2014)<br/>
+<strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 08.03.2014)<br/>
+<strong>Einsicht</strong>: steht noch nicht fest (Stand: 08.03.2014)<br/>
 <strong>Erlaubte Hilfsmittel</strong>: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
 <blockquote>Erlaubte Hilfsmittel für die Klausur sind alle Quellen in Papierform, insbesondere
@@ -155,4 +155,4 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 </blockquote>
 
 <h2>Ergebnisse</h2>
-Stehen noch nicht fest (Stand: 02.03.2014).
+Stehen noch nicht fest (Stand: 08.03.2014).
