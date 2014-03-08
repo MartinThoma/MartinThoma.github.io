@@ -75,6 +75,7 @@ Some stuff is nice to have, but not really essential:
   * `\u` the username
   * `\h` the hostname
   * Using colors for different parts
+* Navigation with <kbd>Pos 1</kbd> and <kbd>End</kbd> should work
 
 ## Ranking
 Here is how some shells rank. Please note, that it's very difficult to check
