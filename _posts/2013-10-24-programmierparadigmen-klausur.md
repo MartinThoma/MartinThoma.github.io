@@ -110,11 +110,11 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 
 
 ## Material ##
-<ul>
-  <li><a href="https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Programmierparadigmen/Programmierparadigmen.pdf?raw=true">Inoffizielles Skript</a> in A5 (<a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Programmierparadigmen">LaTeX-Quellen</a>): Wer das gerne für ca. 10 Euro in SW gedruckt mit Klebebindung hätte, soll mir eine Email schreiben</li>
-  <li><a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Vorlesungswebsite</a> und <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Übungsblätter</a></li>
-  <li>Ein <a href="https://ankiweb.net/shared/info/3121773115">Anki-Deck</a> (NICHT meines!)</li>
-</ul>
+* [Inoffizielles Skript](https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Programmierparadigmen/Programmierparadigmen.pdf?raw=true) in A5 ([LaTeX-Quellen](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Programmierparadigmen)): Wer das gerne für ca. 10 Euro in SW gedruckt mit Ringbindung hätte, soll mir eine Email schreiben
+* [Vorlesungswebsite](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/) und [Übungsblätter](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen)
+* Ein [Anki-Deck](https://ankiweb.net/shared/info/3121773115) (NICHT meines!)
+* Stackexchange:
+  * [What is the meaning of M ⊨ φ?](http://math.stackexchange.com/q/704401/6876)
 
 ## Klausurvorbereitung
 * [H-99: Ninety-Nine Haskell Problems](http://www.haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems)

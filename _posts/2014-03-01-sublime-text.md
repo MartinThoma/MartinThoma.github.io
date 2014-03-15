@@ -62,6 +62,7 @@ Here is what I have changed:
 Note that you have to install the color scheme and the font ([source](http://font.ubuntu.com/)) to use it.
 
 ## Plugins
+
 ### Package Control
 The [`Package Control`](https://sublime.wbond.net/) plugin should definitely be installed. It makes installation of other packages so much easier. After you have installed it, you can press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 to get this dialog:
@@ -110,6 +111,17 @@ I have these:
 ]
 ```
 
+## Custom snippets
+
+Snippets are a very cool feature of <abbr title="Sublime Text">ST</abbr>. They
+allow you to enter some text, press <kbd>Tab</kbd> and get whatever you wanted.
+So you could create a new <tt>.tex</tt> document, enter <tt>article</tt>, press
+<kbd>Tab</kbd> and get a template for a LaTeX document of the article document 
+class.
+
+A tutorial how to create a snippet for the <tt>article</tt> document class
+was written Jonathan Page: [Creating Snippets in Sublime Text 2 for LaTeX](http://economistry.com/2013/01/creating-snippets-in-sublime-text-2-for-latex/)
+
 ## Buildin Keybindings
 
 <kbd>Ctrl</kbd> + <kbd>p</kbd>: Goto file
@@ -133,6 +145,7 @@ I have these:
 
 
 ## What could be better
+
 ### Chrome-like Tabs
 Look at this:
 
