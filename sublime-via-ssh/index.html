@@ -12,7 +12,7 @@
 
 
     <title>How to use Sublime Text via SSH</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201403202145.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201403202158.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -97,19 +97,17 @@ Sublime Text.</p>
 
 <ol><li>Install and start Sublime Text.</li>
     <li>Install the <code>rsub</code> package via Package Controll.</li>
-    <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add this:
-
-
-<div class="highlight"><pre><code class="text">Host myname
-  Hostname pc123.your.network.com
-  User mthoma
-  RemoteForward 52698 127.0.0.1:52698
-</code></pre></div>
-
-
-You can add more information like `User yourusername`.</li>
+    <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add 
+        the code from below. You can add more information like `User yourusername`.</li>
     <li>Start SSH with <code>ssh myname</code>.</li>
-</ol><h2 id="tocAnchor-1-2">Server-Side steps</h2>
+</ol><p>This is how the <code>config</code> file should look like:</p>
+<div class="highlight">
+   <pre><code class="text language-text" data-lang="text">Host myname
+  Hostname pc123.your.network.com
+  RemoteForward 52698 127.0.0.1:52698
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-2">Server-Side steps</h2>
 
 <ol start="5"><li>Download the <code>rmate</code> script:
 
@@ -122,10 +120,10 @@ You can add more information like `User yourusername`.</li>
 
 <p>It's not so nice to open files with <code>~/rmate filename</code> all the time. You can
 use <code>rmate filename</code> after executing this command:</p>
-
-<p>
-   <code>sudo ln -s ~/rmate /usr/local/bin/rmate</code>
-</p>
+<div class="highlight">
+   <pre><code class="bash language-bash" data-lang="bash">sudo ln -s ~/rmate /usr/local/bin/rmate
+</code></pre>
+</div>
 						</div>
 						<div class="postmeta">Posted in 
                             
