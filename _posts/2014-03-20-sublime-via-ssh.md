@@ -23,18 +23,18 @@ Sublime Text.
 <ol>
     <li>Install and start Sublime Text.</li>
     <li>Install the <code>rsub</code> package via Package Controll.</li>
-    <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add this:
-
-{% highlight text %}
-Host myname
-  Hostname pc123.your.network.com
-  User mthoma
-  RemoteForward 52698 127.0.0.1:52698
-{% endhighlight %}
-
-You can add more information like `User yourusername`.</li>
+    <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add 
+        the code from below. You can add more information like `User yourusername`.</li>
     <li>Start SSH with <code>ssh myname</code>.</li>
 </ol>
+
+This is how the `config` file should look like:
+
+```text
+Host myname
+  Hostname pc123.your.network.com
+  RemoteForward 52698 127.0.0.1:52698
+```
 
 ## Server-Side steps
 
@@ -52,4 +52,6 @@ curl https://raw.github.com/aurora/rmate/master/rmate > rmate
 It's not so nice to open files with `~/rmate filename` all the time. You can
 use `rmate filename` after executing this command:
 
-`sudo ln -s ~/rmate /usr/local/bin/rmate`
+```bash
+sudo ln -s ~/rmate /usr/local/bin/rmate
+```
