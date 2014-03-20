@@ -7,6 +7,7 @@ categories:
 - Code
 tags:
 - Sublime Text
+- SSH
 featured_image: logos/sublime-text.png
 ---
 
