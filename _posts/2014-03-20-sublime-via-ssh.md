@@ -24,7 +24,7 @@ Sublime Text.
     <li>Install and start Sublime Text.</li>
     <li>Install the <code>rsub</code> package via Package Controll.</li>
     <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add 
-        the code from below. You can add more information like `User yourusername`.</li>
+        the code from below.</li>
     <li>Start SSH with <code>ssh myname</code>.</li>
 </ol>
 
@@ -35,6 +35,8 @@ Host myname
   Hostname pc123.your.network.com
   RemoteForward 52698 127.0.0.1:52698
 ```
+
+ You can add more information like `User yourusername` to this file.
 
 ## Server-Side steps
 
