@@ -19,26 +19,34 @@ Sublime Text.
 
 ## Preparation on your computer
 
-1. Install and start Sublime Text
-2. Open `~/.ssh/config`. Create it if id does not exist yet. Add this:
-
-```text
+<ul>
+    <li>Install and start Sublime Text.</li>
+    <li>Install the <code>rsub</code> package via Package Controll.</li>
+    <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add this:
+{% highlight text %}
 Host myname
   Hostname pc123.your.network.com
   User mthoma
   RemoteForward 52698 127.0.0.1:52698
-```
-
-You can add more information like `User yourusername`.
-
-3. Start SSH with `ssh myname`.
+{% endhighlight %}
+You can add more information like `User yourusername`.</li>
+    <li>Start SSH with <code>ssh myname</code>.</li>
+</ul>
 
 ## Server-Side steps
 
-4. Download the `rmate` script:
-
-```bash
+<ul start="5">
+    <li>Download the <code>rmate</code> script:
+{% highlight bash %}
 curl https://raw.github.com/aurora/rmate/master/rmate > rmate
-```
+{% endhighlight %}
+    </li>
+    <li>Execute `./rmate yourfile`. It will open in your local Sublime Text!</li>
+</ul>
 
-5. Execute `./rmate yourfile`. It will open in your local Sublime Text!
+## Improvements
+
+It's not so nice to open files with `~/rmate filename` all the time. You can
+use `rmate filename` after the following steps:
+
+1. `sudo ln -s ~/rmate /usr/local/bin/rmate`
