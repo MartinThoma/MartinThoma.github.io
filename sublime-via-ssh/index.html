@@ -12,7 +12,7 @@
 
 
     <title>How to use Sublime Text via SSH</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201403201723.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201403202112.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -80,28 +80,48 @@ computer via SSH. But there is a way!</p>
 <p>In the following, I will expain the simplest way how to remote edit files with
 Sublime Text.</p>
 
-<h2 id="tocAnchor-1-1">Preparation on your computer</h2>
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Preparation on your computer</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Server-Side steps</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-3">
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Improvements</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Preparation on your computer</h2>
 
-<ol><li>Install and start Sublime Text</li>
-<li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add this:</li>
-</ol><div class="highlight">
-   <pre><code class="text language-text" data-lang="text">Host myname
+<ul><li>Install and start Sublime Text.</li>
+    <li>Install the <code>rsub</code> package via Package Controll.</li>
+    <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add this:
+
+<div class="highlight"><pre><code class="text">Host myname
   Hostname pc123.your.network.com
   User mthoma
   RemoteForward 52698 127.0.0.1:52698
-</code></pre>
-</div>
-<p>You can add more information like <code>User yourusername</code>.</p>
+</code></pre></div>
 
-<ol><li>Start SSH with <code>ssh myname</code>.</li>
-</ol><h2 id="tocAnchor-1-2">Server-Side steps</h2>
+You can add more information like `User yourusername`.</li>
+    <li>Start SSH with <code>ssh myname</code>.</li>
+</ul><h2 id="tocAnchor-1-2">Server-Side steps</h2>
 
-<ol><li>Download the <code>rmate</code> script:</li>
-</ol><div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">curl https://raw.github.com/aurora/rmate/master/rmate &gt; rmate
-</code></pre>
-</div>
-<ol><li>Execute <code>./rmate yourfile</code>. It will open in your local Sublime Text!</li>
+<ul start="5"><li>Download the <code>rmate</code> script:
+
+<div class="highlight"><pre><code class="bash">curl https://raw.github.com/aurora/rmate/master/rmate &gt; rmate
+</code></pre></div>
+
+    </li>
+    <li>Execute `./rmate yourfile`. It will open in your local Sublime Text!</li>
+</ul><h2 id="tocAnchor-1-3">Improvements</h2>
+
+<p>It's not so nice to open files with <code>~/rmate filename</code> all the time. You can
+use <code>rmate filename</code> after the following steps:</p>
+
+<ol><li><code>sudo ln -s ~/rmate /usr/local/bin/rmate</code></li>
 </ol>
 						</div>
 						<div class="postmeta">Posted in 
