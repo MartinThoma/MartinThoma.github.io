@@ -39,12 +39,10 @@ Host myname
 ## Server-Side steps
 
 <ol start="5">
-    <li>Download the <code>rmate</code> script:
-{% highlight bash %}
-curl https://raw.github.com/aurora/rmate/master/rmate > rmate
-{% endhighlight %}
+    <li>Download the <code>rmate</code> script:<br/>
+<code>curl https://raw.github.com/aurora/rmate/master/rmate &gt; rmate</code>
     </li>
-    <li>Execute `./rmate yourfile`. It will open in your local Sublime Text!</li>
+    <li>Execute <code>./rmate yourfile</code>. It will open in your local Sublime Text!</li>
 </ol>
 
 ## Improvements
