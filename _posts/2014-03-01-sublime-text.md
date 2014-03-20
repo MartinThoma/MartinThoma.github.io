@@ -61,6 +61,16 @@ Here is what I have changed:
 
 Note that you have to install the color scheme and the font ([source](http://font.ubuntu.com/)) to use it.
 
+## Command Palette
+
+You can get to the command palette by <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
+This opens such a dialog:
+
+{% caption align="aligncenter" width="500" alt="Command Palette" text="automatical alignment" url="../images/2014/03/sublime-command-palette.png" %}
+
+This will do a fuzzy search through all elements in the menu. So you don't need
+to use <kbd>Alt</kbd> + arrow keys no longer. I love it :-)
+
 ## Plugins
 
 ### Package Control
@@ -169,3 +179,4 @@ This behaviour is bad and not liked by the community ([source](http://www.sublim
 * [Documentation](https://www.sublimetext.com/docs/3/)
 * [colorsublime.com](http://colorsublime.com/): Lots of themes
 * [tmtheme-editor.herokuapp.com](http://tmtheme-editor.herokuapp.com/#/theme/Chrome%20DevTools): Adjust your theme online
+* [Sublime Text 2 Video Tutorials](https://www.youtube.com/watch?v=5AV9zJH2n_Y&index=2&list=PLmJpVU-TdmVtTLooKvX3jcrOziPjlWrD4): A series of 32 video tutorials for Sublime Text 2. At least the first few are the same in ST 3.
