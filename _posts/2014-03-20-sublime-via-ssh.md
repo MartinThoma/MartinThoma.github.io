@@ -49,9 +49,43 @@ Host myname
 
 ## Improvements
 
+These steps have to be done server-side.
+
+### With Root access
 It's not so nice to open files with `~/rmate filename` all the time. You can
 use `rmate filename` after executing this command:
 
 ```bash
-sudo ln -s ~/rmate /usr/local/bin/rmate
+# This creates a symlink
+sudo ln -s ~/rmate /usr/local/bin/
+```
+
+You can use other paths than `/usr/local/bin/`. Look at your `PATH` for candidates:
+
+```bash
+echo $PATH
+```
+
+### Without Root access
+When you don't have root access, you can't create a symlink for most (eventually even all)
+folders in your `PATH`. But you can expand your `PATH`:
+
+```bash
+mkdir -p ~/bin        # create folder if it doesn't exist
+ln -s ~/rmate ~/bin/  # create symlink
+```
+
+Now expand your `PATH` so that it includes `~/bin`. There are at least two ways
+to do so:
+
+* You can directly edit your shells `.rc` file (e. g. `.bashrc`, `.zshrc`, `.cshrc`, ...) or
+* you can edit your `.profile`
+
+As many shells source `.profile` I'll explain this way. First, open `~/.profile`.
+Then add
+
+```bash
+if [ -d "/usr/local/texlive/2013/bin/i386-linux" ] ; then
+    PATH="$PATH:$HOME/bin"
+fi
 ```
