@@ -85,7 +85,9 @@ As many shells source `.profile` I'll explain this way. First, open `~/.profile`
 Then add
 
 ```bash
+# First check if that folder exists
 if [ -d "$HOME/bin" ] ; then
+    # Add your home folder to the end of the current path
     PATH="$PATH:$HOME/bin"
 fi
 ```
