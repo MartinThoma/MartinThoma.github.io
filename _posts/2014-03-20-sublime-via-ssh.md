@@ -85,7 +85,7 @@ As many shells source `.profile` I'll explain this way. First, open `~/.profile`
 Then add
 
 ```bash
-if [ -d "/usr/local/texlive/2013/bin/i386-linux" ] ; then
+if [ -d "$HOME/bin" ] ; then
     PATH="$PATH:$HOME/bin"
 fi
 ```
