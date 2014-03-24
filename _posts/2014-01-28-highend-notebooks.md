@@ -187,6 +187,7 @@ Although the hardware looks very nice, it is still comparable with
 both of my favorites.
 
 ## Asus ##
+
 ### Asus Zenbooks ###
 
 |                    | Asus Zenbook       | Asus Zenbook          | Asus Zenbook          | 
@@ -323,6 +324,7 @@ However, I was not able to find any specification of those.
 
 
 ## Samsung ##
+
 ### Serie 9 ###
 The next few lines show the difference of the `900X4C A0A` to...
 
@@ -340,14 +342,33 @@ The next few lines show the difference of the `900X4C A0A` to...
 * `900X4D K01`: Intel Core i5-3337U, 128 GB SSD, 8400 mAh, Dual Band, 997 Euro
 
 ### Samsung ATIV Book 9 2014 Edition ###
-* 15.6" Touch-Display with a resolution of 1920 x 1080
-* 14h running time
-* 1.78 kg
-* dual-core Intel Core i5 or i7 chips (Haswell, natch) with Intel HD Graphics 4400
-* 8GB RAM
-* 128GB (for Core i5) and 256GB (for Core i7) SSD
-* Good audio qualit: 24-bit, 192kHz audio
-* 2x USB 3.0, 1x other USB
+
+|                    | Samsung ATIV Book 9 2014 Edition   |
+|--------------------|------------------------------------|
+| Model              | NP930X5J-K01DE                     |
+| Price              |  1599 Euro                         |
+| Dimensions (B × D × H)|  ? × ? × 14.9 mm                |
+| Weight             |  1.78 kg                           |
+| CPU                | [Intel Core i7-4500U](http://ark.intel.com/products/75460) |
+| Display Size       | 15.6"                              |
+| Display Resolution | 1920×1080                          |
+| Display more       | Touch-Display                      |
+| Matte display      | ✘                                 |
+| RAM                | 8 GB ? MHz                         |
+| Disk               | 256GB SSD                          |
+| Network            | RJ45 with adapter and 1.000 Mbit/s |
+| Wireless           | 802.11 ac (2x2) ([source](http://de.samsung.com/webdownloads/pressedownloads/Presseinformation_Samsung_ATIV_Book_9_Edition_2014_1.pdf)) |
+| WLAN-Chip          | ?                                  |
+| Bluetooth          | 4.0                                |
+| Akku               | ?, 14h                             |
+| USB                | 2× USB 3.0, 1 × USB 2.0            |
+| SD Card Reader     | ✔                                 |
+| Linux-Support      | ?                                  |
+| Keyboard           | Chiclet-keyboard                   |
+| Noise              | ?                                  |
+
+
+* Good audio qualit: 24-bit, 192kHz audio, 2x 2W
 * HDMI out, mini VGA, an SD card reader
 * 720p webcam 
 
@@ -371,7 +392,7 @@ Release date should be mid 2014.
 | Display Size       | 15.6"                              |
 | Display Resolution | 1920×1080                          |
 | Display more       | IPS-Display                        |
-| Matte display      | ✔                                  |
+| Matte display      | ✔                                 |
 | RAM                | 1×8 GB 1600 MHz                    |
 | Disk               | 120 SSD (Samsung EVO / SATA III)   |
 | Network            | has RJ45 built-in, 10/100/1000     |
@@ -380,7 +401,7 @@ Release date should be mid 2014.
 | Bluetooth          | 4.0                                |
 | Akku               | 62,16 Wh, 2.5h[^4]                 |
 | USB                | 2× USB 3.0                         |
-| SD Card Reader     | ✔                                  |
+| SD Card Reader     | ✔                                 |
 | Linux-Support      | shipped with Linux Mint :-)        |
 | Keyboard           | ?                                  |
 | Noise              | Laut[^4]                           |
