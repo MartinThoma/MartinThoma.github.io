@@ -12,7 +12,7 @@ tags:
 featured_image: logos/blender-open-movie.png
 ---
 
-[Blender](https://en.wikipedia.org/wiki/Blender_(software)) is an open source software that allows you to create animations.
+Blender is an open source software that allows you to create animations.
 The [Blender Foundation](https://en.wikipedia.org/wiki/Blender_Foundation)
 is a non-profit organization that helps to develop blender.
 

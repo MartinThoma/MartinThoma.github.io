@@ -4,11 +4,11 @@ title: Blender Open Movies
 author: Martin Thoma
 date: 2012-12-22 17:00:46.000000000 +01:00
 categories:
-- The Web
+- Cyberculture
 tags:
+- Blender
 - Video
 - movie
-- Blender
 featured_image: logos/blender-open-movie.png
 ---
 <h2>Big Buck Bunny</h2>
