@@ -87,7 +87,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Display Size       | 15.6"              | 15"                                 |
 | Display Resolution | 2880×1620          | 1600×900                            |
 | Display more       |                    | LED-Display, 400 Nit                |
-| Matte display      | ✘                  | ✔                                   |
+| Matte display      | ✘                  | ✔                                  |
 | RAM                | 8 GB DDR3, 1600 MHz| 2× 4 GB DDR3  SDRAM1.600 MHz        |
 | Disk               | 256 SSD            | 128 GB SSD                          |
 | Network            | ?                  | RJ45 with adapter and 1.000 Mbit/s  |
@@ -96,7 +96,7 @@ the HP EliteBook 8570p-B6Q03EA-ABD (51.6 x 34.2 x 7.8 cm according to Amazon).
 | Bluetooth          | 4.0                | 4.0                                 |
 | Akku               | 4750 mAh           | 8200 mAh, up to 10h                 |
 | USB                | 3× USB 3.0         | 2× USB 3.0, 1× USB 2.0              |
-| SD Card Reader     | ✔                  | ✔                                   |
+| SD Card Reader     | ✔                  | ✔                                  |
 | Linux-Support      | ?                  | partially ([^1],[^2], [^3])         |
 | Keyboard           | ?                  | Chiclet-keyboard without numblock   |
 | Noise              | ?                  | 29.5 dB in normal mode, 40 dB max   |
@@ -372,7 +372,7 @@ The next few lines show the difference of the `900X4C A0A` to...
 * HDMI out, mini VGA, an SD card reader
 * 720p webcam 
 
-Release date should be mid 2014.
+Release date should be 28.03.2014 ((source)[http://www.arlt.com/Notebook/Ultrabooks/Samsung/Samsung-ATIV-Book-9-NP930X5J-K01DE-2014-Edition.html]).
 
 #### Sources ####
 
