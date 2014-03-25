@@ -12,6 +12,7 @@ tags:
 Folgende Aufgabe gab es (sinngem&auml;&szlig;) f&uuml;r das Modul &bdquo;Programmieren&ldquo; im zweiten &Uuml;bungsblatt 2012:
 
 Sei $(a_n)_{n \in \mathbb{N}}$ eine Folge und definiert durch:
+
 $a_n := \begin{cases}
 1 &\text{, falls } n \in \{0,1,2\}\\
 a_{n-1} + a_{n-2} + a_{n-3} & \text{, falls } n \geq 3

@@ -9,6 +9,7 @@ tags:
 - Video
 - movie
 - Blender
+featured_image: logos/blender-open-movie.png
 ---
 <h2>Big Buck Bunny</h2>
 <iframe width="512" height="288" src="http://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
