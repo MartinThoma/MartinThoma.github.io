@@ -43,7 +43,7 @@ Foundation has started a [Crowdfunding Campaign](https://cloud.blender.org/goose
 ## Current campaign status
 You can see the current campaign status [here](http://gooseberry.blender.org/#stats).
 
-By now (25th of March, 13:37) there are 809 that supported this campaign and
+By now (25th of March, 13:37) there are 809 people that supported this campaign and
 65,780 Euro were pledged.
 
 Let me know in comments when you supported the campaing: [support now](https://cloud.blender.org/gooseberry/pledge).
