@@ -372,7 +372,7 @@ The next few lines show the difference of the `900X4C A0A` to...
 * HDMI out, mini VGA, an SD card reader
 * 720p webcam 
 
-Release date should be 28.03.2014 ((source)[http://www.arlt.com/Notebook/Ultrabooks/Samsung/Samsung-ATIV-Book-9-NP930X5J-K01DE-2014-Edition.html]).
+Release date should be 28.03.2014 ([source](http://www.arlt.com/Notebook/Ultrabooks/Samsung/Samsung-ATIV-Book-9-NP930X5J-K01DE-2014-Edition.html)).
 
 #### Sources ####
 
