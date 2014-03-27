@@ -15,20 +15,22 @@ The Panasonic Lumix TZ41 is currently the best camera in the compact segment.
 
 ## Technical specification
 
-| Name          | Panasonic Lumix TZ41      |
-|---------------|---------------------------|
-| Model         | Panasonic DMC-TZ41EG-K    |
-| Price         | 259.03 Euro               |
-| Dimensions    | 108.3 × 58.9 × 27.7 mm    |
-| Weight        | 198g                      |
-| Zoom          | 20×                       |
-| Battery Power | 1250mAh                   |
-| GPS Sensor    | ✔                        |
-| Sensor        | 1/2.3" MOS Sensor with 18.9 Megapixel |
-| Video         | 1920 x 1080 full HD video |
-| Wi-Fi         | ✔                        |
-| NFC           | ✔                        |
-| LCD Monitor   | ✔                        |
+| Name             | Panasonic Lumix TZ41      |
+|------------------|---------------------------|
+| Model            | Panasonic DMC-TZ41EG-K    |
+| Price            | 259.03 Euro               |
+| Dimensions       | 108.3 × 58.9 × 27.7 mm    |
+| Weight           | 198g                      |
+| Zoom             | 20×                       |
+| optical image stabilization | ✔              |
+| Battery Power    | 1250mAh                   |
+| GPS Sensor       | ✔                        |
+| Sensor           | 1/2.3" MOS Sensor with 18.9 Megapixel |
+| Video            | 1920 x 1080 full HD video |
+| Wi-Fi            | ✔                        |
+| NFC              | ✔                        |
+| LCD Monitor      | ✔                        |
+| Internal Storage | 12 MB                     |
 
 This camera is the same as the 'DMC TZ40' which has an [official data sheet](http://www.panasonic.com/au/consumer/imaging/lumix-cameras/dmc-tz40.specs.html) and [digitalkamera.de](http://www.digitalkamera.de/Kamera/Panasonic/Lumix_DMC-TZ41.aspx).
 

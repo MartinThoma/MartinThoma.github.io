@@ -72,22 +72,25 @@ module Jekyll
 
     def get_online_url(site_source, baseurl, new_filename)
         dest = File.join(baseurl, new_filename[site_source.length..-1])
-        
-        if File.exits?(dest)
-            i = 0
-            do
-                i += 1
-                dest = File.join(baseurl, new_filename[site_source.length..-1]+"-"+i.to_s)
-            while File.exits?(dest)
-        end
-
         return dest
     end
 
     def get_destination_path(site_source, post_path, img_src)
         destination_path = File.join(site_source, "/captions")
-        destination_img_path = File.join(destination_path, File.basename(img_src))
+        ext  = File.extname(img_src)
+        base = File.basename(img_src, ext)
+        destination_img_path = File.join(destination_path, base + ext)
         new_filename = File.expand_path(destination_img_path)
+
+        if File.exists?(new_filename)
+            i = 1
+            begin
+                i += 1
+                destination_img_path = File.join(destination_path, base + "-" + i.to_s + ext)
+                new_filename = File.expand_path(destination_img_path)
+            end while File.exists?(new_filename)
+        end
+        
         return new_filename
     end
 
