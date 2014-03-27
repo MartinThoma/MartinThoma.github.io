@@ -31,6 +31,9 @@
 #   </ul>
 
 require 'csv'
+require 'dimensions'
+require 'RMagick'
+require 'fileutils'
 
 module Jekyll
   class GalleryTag < Liquid::Block
@@ -55,11 +58,44 @@ module Jekyll
       end
     end
 
+    def get_image_path(site_source, page_path, img_src)
+        if img_src.include?('://')
+            # TODO:download to local storage
+            new_path = img_src
+        else
+            current_post_path = File.join(site_source, page_path)
+            current_post_folder_path = File.dirname(current_post_path)
+            new_path = File.expand_path(File.join(current_post_folder_path, img_src))
+        end
+        return new_path
+    end
+
+    def get_online_url(site_source, baseurl, new_filename)
+        dest = File.join(baseurl, new_filename[site_source.length..-1])
+        
+        if File.exits?(dest)
+            i = 0
+            do
+                i += 1
+                dest = File.join(baseurl, new_filename[site_source.length..-1]+"-"+i.to_s)
+            while File.exits?(dest)
+        end
+
+        return dest
+    end
+
+    def get_destination_path(site_source, post_path, img_src)
+        destination_path = File.join(site_source, "/captions")
+        destination_img_path = File.join(destination_path, File.basename(img_src))
+        new_filename = File.expand_path(destination_img_path)
+        return new_filename
+    end
+
     def render(context)
         galleryAttributes = parse_attrs(@markup)
         if galleryAttributes.has_key?("columns")
             width = (163*(galleryAttributes["columns"].to_i)).to_s
-            rendered = '<ul class="gallery mw-gallery-traditional" style="max-width: '+width+'px;">'
+            rendered = '<ul class="gallery mw-gallery-traditional" style="max-width: '+width+'px; width: '+width+'px;">'
         else
             rendered = '<ul class="gallery mw-gallery-traditional">'
         end
@@ -73,6 +109,7 @@ module Jekyll
                     options = { col_sep: ' ', row_sep: '\n', quote_char: '"' }
                     csv = CSV.new line, options
                     csv.each_with_object({}) do |words, attrs|
+                        @hash = {}
                         if words.count() >= 1
                             words.push("") # make sure this one has at least two elements
                             src, gallerytext, *rest = words
@@ -82,12 +119,49 @@ module Jekyll
                                 alt = rest[0]
                             end
 
+                            @hash['url'] = src
+                            @hash['width'] = "120"
+                            @hash['height'] = "120"
+                            @hash['orig-url'] = @hash['url']
+
+                            @divWidth = (@hash['width'].to_i+10).to_s
+
+                            img_path = get_image_path(context.registers[:site].config['source'], context.registers[:page]["path"], src)
+
+                            # TODO: check if img_path actually contains an image
+                            if File.exist?(img_path)
+                                width, height = Dimensions.dimensions(img_path)
+
+                                if width > @hash['width'].to_i
+                                    new_filename = get_destination_path(context.registers[:site].config['source'], context.registers[:page]["path"], @hash['url'])
+
+                                    # Create folder if not exists
+                                    dirname = File.dirname(new_filename)
+                                    unless File.directory?(dirname)
+                                        FileUtils.mkdir_p(dirname)
+                                    end
+                                    image = Magick::Image.read(img_path).first
+                                    image.change_geometry!(@hash['width']+"x"+@hash['height']) { |cols, rows, img|
+                                        newimg = img.resize(cols, rows)
+                                        newimg.write(new_filename)
+                                    }
+                                    width, height = Dimensions.dimensions(new_filename)
+                                    @hash['width']  = width.to_s()
+                                    @hash['height'] = height.to_s()
+                                    @hash['url'] = get_online_url(context.registers[:site].config['source'],context.registers[:site].config['baseurl'], new_filename)
+                                elsif width < @hash['width'].to_i
+                                    @hash['width'] = width.to_s
+                                end
+                            else
+                                puts "[Warning] " + img_path + " does not exist."
+                            end
+
                             rendered += '<li class="gallerybox" style="width: 155px">'
                             rendered += '<div style="width: 155px">'
                             rendered += '<div class="thumb" style="width: 150px;">'
                             rendered += '<div style="margin:21px auto;height: 113px;line-height: 150px;">'
-                            rendered += '<a href="'+src+'" class="image">'
-                            rendered += '<img src="'+src+'" alt="'+alt+'" style="max-width: 120px; max-height: 120px;"/>'
+                            rendered += "<a href=\"#{@hash['orig-url']}\" class=\"image\">"
+                            rendered += '<img src="'+@hash['url']+'" alt="'+alt+'" style="max-width: 120px; max-height: 120px;"/>'
                             rendered += '</a>'
                             rendered += '</div>'
                             rendered += '</div>'

@@ -82,38 +82,81 @@ works like this:
 1. Connect camera with SD card in it to the computer.
 2. Start gpsasist.exe with wine
 
-{% gallery %}
-    ../images/2014/gpsasist.exe.png         "gpsasist.exe"
-    ../images/2014/gps-assist-tool          "gps-assist-tool"
-    ../images/2014/gps-update-completed.png "update completed"
-    ../images/2014/gps-assist-settings      "Settings"
+{% gallery columns="4" %}
+    ../images/2014/03/gpsasist.exe.png         "gpsasist.exe"
+    ../images/2014/03/gps-assist-tool.png      "gps-assist-tool"
+    ../images/2014/03/gps-update-completed.png "update completed"
+    ../images/2014/03/gps-assist-settings.png  "Settings"
 {% endgallery %}
+
+### LUMIX Map Tool
+
+The LUMIX Map Tool should allow you to copy maps with information about the 
+environment on your camera. It looks like this:
+
+{% gallery columns="4" %}
+    ../images/2014/03/lumix-map-tool.png
+    ../images/2014/03/lumix-map-tool-no-drive-detection.png
+{% endgallery %}
+
+The drive detection for the SD card doesn't work on Linux as you can see in the 
+second image. So I've have written a Linux version of that program which can be
+found on [GitHub](https://github.com/MartinThoma/lumix_map_tool).
 
 ## Example photographs
 
 To compare the quality of the Panasonic Lumix DMC-TZ41 I have shot some photographs
 with my old Casio Lumix Exilim EX-Z200.
 
-{% gallery %}
+{% gallery columns="4" %}
     ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg
     ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg
 {% endgallery %}
 
 ### Macro photographs
 
+{% gallery columns="4" %}
+    ../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg       "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg  "Exilim"
+{% endgallery %}
+
+### Normal range photographs
+
+{% gallery columns="4" %}
+    ../images/2014/03/casio-exilim-ex-z200/bank.jpg               "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg          "Exilim"
+    ../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg      "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg "Exilim"
+    ../images/2014/03/casio-exilim-ex-z200/schlossplatz.jpg      "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg "Exilim"
+    ../images/2014/03/casio-exilim-ex-z200/springbrunnen-ganz.jpg      "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg "Exilim"
+{% endgallery %}
+
+{% gallery columns="4" %}
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/relief.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/poor-light-conditions.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/taube-fliegt.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-1.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-2.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-3.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/enterich-4.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/ente-1.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/ente-2.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-1.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/ente-und-enterich-2.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/fassade.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/fassade-statue.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen.jpg
+{% endgallery %}
+
 ### Long-range photographs
 
-{% gallery %}
-    ../images/2014/03/casio-exilim-ex-z200/bank.jpg         "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg    "Exilim"
-{% endgallery %}
-
-{% gallery %}
-    ../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg         "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg    "Exilim"
-{% endgallery %}
-
-{% gallery %}
-    ../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg         "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg    "Exilim"
+{% gallery columns="4" %}
+    ../images/2014/03/casio-exilim-ex-z200/ente-zoom.jpg      "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg "Exilim"
+    ../images/2014/03/casio-exilim-ex-z200/schlosstor-zoom.jpg      "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg "Exilim"
+    ../images/2014/03/casio-exilim-ex-z200/schloss-zoom-spitze.jpg      "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg "Exilim"
 {% endgallery %}

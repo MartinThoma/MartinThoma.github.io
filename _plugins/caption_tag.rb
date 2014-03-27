@@ -55,6 +55,15 @@ module Jekyll
 
     def get_online_url(site_source, baseurl, new_filename)
         dest = File.join(baseurl, new_filename[site_source.length..-1])
+        
+        if File.exits?(dest)
+            i = 0
+            do
+                i += 1
+                dest = File.join(baseurl, new_filename[site_source.length..-1]+"-"+i.to_s)
+            while File.exits?(dest)
+        end
+
         return dest
     end
 
