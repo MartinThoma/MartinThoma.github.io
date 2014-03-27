@@ -24,10 +24,19 @@ I am also very interested in Web based conversions.
 <h2>Image Files</h2>
 If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.
 
-<b>Resize Images to a maximum resolution</b>
-{% highlight bash %}convert "OldPicture.jpg" -resize 1600x1600 "NewPicture.jpg"{% endhighlight %}
+**Resize Images to a maximum resolution**
 
-<b>Create a Black-and-white picture and compress it</b>: 
+```bash
+convert "OldPicture.jpg" -resize 1600x1600 "NewPicture.jpg"
+```
+
+You can also do this for a whole folder. Just go into that folder and:
+
+```bash
+for i in *.jpg; do convert $i -resize 1600x1600 $i; done
+```
+
+**Create a Black-and-white picture and compress it**
 {% highlight bash %}djpeg "OldPicture.jpg" | ppmtopgm | cjpeg -qual 70 >"NewPicture.jpg"{% endhighlight %}
 
 <b>Rename Pictures</b>:

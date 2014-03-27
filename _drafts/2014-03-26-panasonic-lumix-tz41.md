@@ -1,0 +1,119 @@
+---
+layout: post
+title: Panasonic Lumix DMC-TZ41
+author: Martin Thoma
+date: 2014-03-20 21:09
+categories:
+- Cyberculture
+tags:
+- Review
+- Camera
+featured_image: 2014/03/panasonic-lumix-tz41.jpg
+---
+
+The Panasonic Lumix TZ41 is currently the best camera in the compact segment.
+
+## Technical specification
+
+| Name          | Panasonic Lumix TZ41      |
+|---------------|---------------------------|
+| Model         | Panasonic DMC-TZ41EG-K    |
+| Price         | 259.03 Euro               |
+| Dimensions    | 108.3 × 58.9 × 27.7 mm    |
+| Weight        | 198g                      |
+| Zoom          | 20×                       |
+| Battery Power | 1250mAh                   |
+| GPS Sensor    | ✔                        |
+| Sensor        | 1/2.3" MOS Sensor with 18.9 Megapixel |
+| Video         | 1920 x 1080 full HD video |
+| Wi-Fi         | ✔                        |
+| NFC           | ✔                        |
+| LCD Monitor   | ✔                        |
+
+This camera is the same as the 'DMC TZ40' which has an [official data sheet](http://www.panasonic.com/au/consumer/imaging/lumix-cameras/dmc-tz40.specs.html) and [digitalkamera.de](http://www.digitalkamera.de/Kamera/Panasonic/Lumix_DMC-TZ41.aspx).
+
+### Model name
+
+| Panasonic | Meaning              | Alternatives                   |
+|-----------|----------------------|--------------------------------|
+| [Lumix](https://en.wikipedia.org/wiki/Lumix) | Compact cameras |           |
+| DMC       | ?                    |                                |
+| TZ        | Traveler Zoom        | SZ, TS, GM, LX                 |
+| 41        |                      | 40 seems to be the same as 41; 60, ... |
+| EG        | European Union model |                                |
+| K         | Black colored        | W = White, R = Red, S = Silver |
+
+## Critic
+
+### Charger
+
+Panasonic doesn't use the standard european charger / cable combination that is
+used for smartphones.
+
+{% caption align="aligncenter" width="500" alt="Loading works via microUSB, but not via standard charger." text="Loading works via microUSB, but not via standard charger." url="../images/2014/03/panasonic-lumix-tz-41-charger.jpg" %}
+
+{% caption align="aligncenter" width="500" alt="Panasonic does not use standard microUSB2USB cables for charging / data exchange" text="Panasonic does not use standard microUSB2USB cables for charging / data exchange" url="../images/2014/03/panasonic-cable-standard-cable.jpg" %}
+
+### Software
+
+The software is not available for Linux.
+
+## Linux
+
+```bash
+moose@pc08$ cat /etc/issue
+Linux Mint 16 Petra
+moose@pc08$ uname -a
+Linux pc08 3.11.0-12-generic #19-Ubuntu SMP Wed Oct 9 16:20:46 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+and the camera as a USB device:
+
+```bash
+moose@pc08$ lsusb
+Bus 001 Device 006: ID 04da:2372 Panasonic (Matsushita) Lumix Camera (Storage mode)
+```
+
+### GPS Assist Tool
+
+The GPS Assist Tool seems to update the camera internal GPS information. It 
+works like this:
+
+1. Connect camera with SD card in it to the computer.
+2. Start gpsasist.exe with wine
+
+{% gallery %}
+    ../images/2014/gpsasist.exe.png         "gpsasist.exe"
+    ../images/2014/gps-assist-tool          "gps-assist-tool"
+    ../images/2014/gps-update-completed.png "update completed"
+    ../images/2014/gps-assist-settings      "Settings"
+{% endgallery %}
+
+## Example photographs
+
+To compare the quality of the Panasonic Lumix DMC-TZ41 I have shot some photographs
+with my old Casio Lumix Exilim EX-Z200.
+
+{% gallery %}
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg
+{% endgallery %}
+
+### Macro photographs
+
+### Long-range photographs
+
+{% gallery %}
+    ../images/2014/03/casio-exilim-ex-z200/bank.jpg         "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg    "Exilim"
+{% endgallery %}
+
+{% gallery %}
+    ../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg         "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg    "Exilim"
+{% endgallery %}
+
+{% gallery %}
+    ../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg         "Casio"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg    "Exilim"
+{% endgallery %}
