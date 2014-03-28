@@ -9,16 +9,23 @@ tags:
 - Review
 - Camera
 featured_image: 2014/03/panasonic-lumix-tz41.jpg
+itemtype: http://schema.org/Review
 ---
 
-The Panasonic Lumix TZ41 is currently the best camera in the compact segment.
+{% caption align="alignright" width="500" alt="Panasonic Lumix TZ41" text="Panasonic Lumix TZ41" url="../images/2014/03/panasonic-lumix-tz41.jpg" %}
+
+The <span itemprop="name">Panasonic Lumix TZ41</span> is currently the best 
+camera in the compact segment.
+
+<span itemprop="description">The TZ41 offers an excellent 20× zoom that is usable due to optical image 
+stabilization. It is compact, leightweight and has a reasonably-sized battery.</span>
 
 ## Technical specification
 
 | Name             | Panasonic Lumix TZ41      |
 |------------------|---------------------------|
 | Model            | Panasonic DMC-TZ41EG-K    |
-| Price            | 259.03 Euro               |
+| Price            | <span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price">259.03</span> <span itemprop="priceCurrency">Euro</span></span> |
 | Dimensions       | 108.3 × 58.9 × 27.7 mm    |
 | Weight           | 198g                      |
 | Zoom             | 20×                       |
@@ -82,7 +89,7 @@ The GPS Assist Tool seems to update the camera internal GPS information. It
 works like this:
 
 1. Connect camera with SD card in it to the computer.
-2. Start gpsasist.exe with wine
+2. Start gpsasist.exe with wine.
 
 {% gallery columns="4" %}
     ../images/2014/03/gpsasist.exe.png         "gpsasist.exe"
@@ -110,29 +117,25 @@ found on [GitHub](https://github.com/MartinThoma/lumix_map_tool).
 To compare the quality of the Panasonic Lumix DMC-TZ41 I have shot some photographs
 with my old Casio Lumix Exilim EX-Z200.
 
-{% gallery columns="4" %}
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg
-{% endgallery %}
-
 ### Macro photographs
 
 {% gallery columns="4" %}
     ../images/2014/03/casio-exilim-ex-z200/blume-blau-1.jpg       "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg  "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-blau-1.jpg  "TZ41"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-glare.jpg   "TZ41"
 {% endgallery %}
 
 ### Normal range photographs
 
 {% gallery columns="4" %}
     ../images/2014/03/casio-exilim-ex-z200/bank.jpg               "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg          "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/bank.jpg          "TZ41"
     ../images/2014/03/casio-exilim-ex-z200/blume-front-unschaerfe.jpg      "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/blume-front-unschaerfe.jpg "TZ41"
     ../images/2014/03/casio-exilim-ex-z200/schlossplatz.jpg      "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/schlossplatz.jpg "TZ41"
     ../images/2014/03/casio-exilim-ex-z200/springbrunnen-ganz.jpg      "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/springbrunnen-ganz.jpg "TZ41"
 {% endgallery %}
 
 {% gallery columns="4" %}
@@ -156,9 +159,9 @@ with my old Casio Lumix Exilim EX-Z200.
 
 {% gallery columns="4" %}
     ../images/2014/03/casio-exilim-ex-z200/ente-zoom.jpg      "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/ente-zoom.jpg "TZ41"
     ../images/2014/03/casio-exilim-ex-z200/schlosstor-zoom.jpg      "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/schlosstor-zoom.jpg "TZ41"
     ../images/2014/03/casio-exilim-ex-z200/schloss-zoom-spitze.jpg      "Casio"
-    ../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg "Exilim"
+    ../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg "TZ41"
 {% endgallery %}
