@@ -177,6 +177,6 @@ This is the reason why I <span itemprop="reviewRating" itemscope itemtype="http:
 
 Good German resources are:
 
-* [](http://www.chip.de/artikel/Panasonic-Lumix_DMC-TZ41-Digitalkamera-Test_60063203.html)
+* [Chip.de](http://www.chip.de/artikel/Panasonic-Lumix_DMC-TZ41-Digitalkamera-Test_60063203.html): A review with some comparisons to other cameras.
 * [Panasonic Lumix DMC-TZ41 - Mein Fazit](https://www.youtube.com/watch?v=4v2vLMihcOg):
   A very detailed video review.
