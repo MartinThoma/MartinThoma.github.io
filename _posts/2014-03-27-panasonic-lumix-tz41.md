@@ -2,7 +2,7 @@
 layout: post
 title: Panasonic Lumix DMC-TZ41
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-03-27 22:31
 categories:
 - Cyberculture
 tags:
@@ -39,7 +39,7 @@ This camera is the same as the 'DMC TZ40' which has an [official data sheet](htt
 | Panasonic | Meaning              | Alternatives                   |
 |-----------|----------------------|--------------------------------|
 | [Lumix](https://en.wikipedia.org/wiki/Lumix) | Compact cameras |           |
-| DMC       | ?                    |                                |
+| DMC       | [Digital Media Camera](http://photo.stackexchange.com/q/49043/27076) |      |
 | TZ        | Traveler Zoom        | SZ, TS, GM, LX                 |
 | 41        |                      | 40 seems to be the same as 41; 60, ... |
 | EG        | European Union model |                                |
