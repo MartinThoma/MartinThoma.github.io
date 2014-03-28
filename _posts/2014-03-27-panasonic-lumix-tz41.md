@@ -12,7 +12,7 @@ featured_image: 2014/03/panasonic-lumix-tz41.jpg
 itemtype: http://schema.org/Review
 ---
 
-{% caption align="alignright" width="500" alt="Panasonic Lumix TZ41" text="Panasonic Lumix TZ41" url="../images/2014/03/panasonic-lumix-tz41.jpg" %}
+{% caption align="alignright" width="128" alt="Panasonic Lumix TZ41" text="Panasonic Lumix TZ41" url="../images/2014/03/panasonic-lumix-tz41.jpg" %}
 
 The <span itemprop="name">Panasonic Lumix TZ41</span> is currently the best 
 camera in the compact segment.
@@ -165,3 +165,11 @@ with my old Casio Lumix Exilim EX-Z200.
     ../images/2014/03/casio-exilim-ex-z200/schloss-zoom-spitze.jpg      "Casio"
     ../images/2014/03/panasonic-lumix-dmc-tz-41/schloss-zoom-spitze.jpg "TZ41"
 {% endgallery %}
+
+## Conclusion
+Overall, the Panasonic Lumix TZ41 is a great camera. But the lack of a standard
+charger and a standard cable as well as the missing Linux software is a downer. 
+This is the reason why I
+<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+<meta itemprop="worstRating" content = "1">
+give it <span itemprop="ratingValue">4</span>/<span itemprop="bestRating">5</span> stars.</div>
