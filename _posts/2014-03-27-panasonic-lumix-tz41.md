@@ -39,7 +39,8 @@ stabilization. It is compact, leightweight and has a reasonably-sized battery.</
 | LCD Monitor      | ✔                        |
 | Internal Storage | 12 MB                     |
 
-This camera is the same as the 'DMC TZ40' which has an [official data sheet](http://www.panasonic.com/au/consumer/imaging/lumix-cameras/dmc-tz40.specs.html) and [digitalkamera.de](http://www.digitalkamera.de/Kamera/Panasonic/Lumix_DMC-TZ41.aspx).
+This camera is the same as the '<span itemprop="alternateName">TZ40</span>' which 
+has an [<span itemprop="sameAs">official data sheet</span>](http://www.panasonic.com/au/consumer/imaging/lumix-cameras/dmc-tz40.specs.html) and [digitalkamera.de](http://www.digitalkamera.de/Kamera/Panasonic/Lumix_DMC-TZ41.aspx).
 
 ### Model name
 
@@ -171,3 +172,11 @@ Overall, the Panasonic Lumix TZ41 is a great camera. But the lack of a standard
 charger and a standard cable as well as the missing Linux software is a downer. 
 This is the reason why I <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
 <meta itemprop="worstRating" content = "1"> give it <span itemprop="ratingValue">4</span>/<span itemprop="bestRating">5</span> stars.</span>
+
+## More Information
+
+Good German resources are:
+
+* [](http://www.chip.de/artikel/Panasonic-Lumix_DMC-TZ41-Digitalkamera-Test_60063203.html)
+* [Panasonic Lumix DMC-TZ41 - Mein Fazit](https://www.youtube.com/watch?v=4v2vLMihcOg):
+  A very detailed video review.
