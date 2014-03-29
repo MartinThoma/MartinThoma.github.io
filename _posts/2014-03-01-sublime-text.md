@@ -174,6 +174,15 @@ Sublime Text 3 does wrap points and commas to the next line:
 
 This behaviour is bad and not liked by the community ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=5214)).
 
+### Support for Tooltips
+
+It would be absolutely great for many plugins like linters if they could make
+use of tooltips.
+
+> > Any news on tooltip and sidebar API? Are you planning to implement this (ever? :mrgreen: )
+> It's something I very much want to get done, but at this stage I don't know when that will be.
+
+Source: [Sublime Text Forum: Sublime Text 3 Beta](http://www.sublimetext.com/forum/viewtopic.php?f=2&t=10780&p=42383&hilit=+tooltip#p42383)
 
 ## More
 * [Documentation](https://www.sublimetext.com/docs/3/)

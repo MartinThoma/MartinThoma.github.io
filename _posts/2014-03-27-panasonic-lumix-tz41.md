@@ -170,8 +170,8 @@ with my old Casio Lumix Exilim EX-Z200.
 ## Conclusion
 Overall, the Panasonic Lumix TZ41 is a great camera. But the lack of a standard
 charger and a standard cable as well as the missing Linux software is a downer. 
-This is the reason why I <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-<meta itemprop="worstRating" content = "1"> give it <span itemprop="ratingValue">4</span>/<span itemprop="bestRating">5</span> stars.</span>
+This is the reason why I <span itemprop="reviewRating" rel="v:rating" itemscope itemtype="http://schema.org/Rating">
+<meta itemprop="worstRating" content = "1" property="v:worst" > give it <span itemprop="ratingValue" property="v:rating">4</span>/<span itemprop="bestRating" property="v:best">5</span> stars.</span>
 
 ## More Information
 
