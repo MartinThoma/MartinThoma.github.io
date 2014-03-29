@@ -358,7 +358,7 @@ The next few lines show the difference of the `900X4C A0A` to...
 | Disk               | 256GB SSD                          |
 | Network            | RJ45 with adapter and 1.000 Mbit/s |
 | Wireless           | 802.11 ac (2x2) ([source](http://de.samsung.com/webdownloads/pressedownloads/Presseinformation_Samsung_ATIV_Book_9_Edition_2014_1.pdf)) |
-| WLAN-Chip          | ?                                  |
+| WLAN-Chip          | Intel Wireless-AC 7260, 802.11 ac  |
 | Bluetooth          | 4.0                                |
 | Akku               | ?, 14h                             |
 | USB                | 2× USB 3.0, 1 × USB 2.0            |
