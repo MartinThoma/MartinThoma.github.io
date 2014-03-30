@@ -25,59 +25,59 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
     <th>Inhalt</th>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">23.10.2013</td>
-<td style="border-bottom:1px solid black;">Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/10_FunktionaleProgrammierung.pdf">10</a></td>
-<td style="border-bottom:1px solid black;">Haskell: Quicksort, Listen, <a href="http://learnyouahaskell.com/higher-order-functions#maps-and-filters">Filter</a>, <a href="http://www.haskell.org/haskellwiki/Syntactic_sugar/Cons">Cons-Operator</a></td>
+<td>23.10.2013</td>
+<td>Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/10_FunktionaleProgrammierung.pdf">10</a></td>
+<td>Haskell: Quicksort, Listen, <a href="http://learnyouahaskell.com/higher-order-functions#maps-and-filters">Filter</a>, <a href="http://www.haskell.org/haskellwiki/Syntactic_sugar/Cons">Cons-Operator</a></td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">25.10.2013</td>
-<td style="border-bottom:1px solid black;">Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/11_FunktionaleProgrammierung.pdf">11</a></td>
-<td style="border-bottom:1px solid black;">Haskell: filter, map, iter, foldr, foldl, Currying, Extensionalitätsprinzip, Kombinatoren (Summe, Produkt), flatten, cons, zip</td>
+<td>25.10.2013</td>
+<td>Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/11_FunktionaleProgrammierung.pdf">11</a></td>
+<td>Haskell: filter, map, iter, foldr, foldl, Currying, Extensionalitätsprinzip, Kombinatoren (Summe, Produkt), flatten, cons, zip</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">30.10.2013</td>
-<td style="border-bottom:1px solid black;">Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/12_FunktionaleProgrammierung.pdf">12</a></td>
-<td style="border-bottom:1px solid black;">Haskell: zipWith, short circuit evaluation, foldl, foldr, Unendliche Listen, Typen, Polymorphie</td>
+<td>30.10.2013</td>
+<td>Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/12_FunktionaleProgrammierung.pdf">12</a></td>
+<td>Haskell: zipWith, short circuit evaluation, foldl, foldr, Unendliche Listen, Typen, Polymorphie</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">06.11.2013</td>
-<td style="border-bottom:1px solid black;"></td>
-<td style="border-bottom:1px solid black;">Backtracking, Algebraische und rekursive Datentypen, map for trees, Typklassen</td>
+<td>06.11.2013</td>
+<td></td>
+<td>Backtracking, Algebraische und rekursive Datentypen, map for trees, Typklassen</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">08.11.2013</td>
-<td style="border-bottom:1px solid black;"></td>
-<td style="border-bottom:1px solid black;">Typklassen, Monaden</td>
+<td>08.11.2013</td>
+<td>&nbsp;</td>
+<td>Typklassen, Monaden</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">13.11.2013</td>
-<td style="border-bottom:1px solid black;"></td>
-<td style="border-bottom:1px solid black;">Sichtbarkeitsbereich $\subseteq$ Gültigkeitsbereich; $\alpha$ / $\eta$-Äqivalenz, Redex; Funktion, die sich als eigenes Argument nimmt; $\lambda$-Klakül ist Turing-Mächtig</td>
+<td>13.11.2013</td>
+<td>&nbsp;</td>
+<td>Sichtbarkeitsbereich $\subseteq$ Gültigkeitsbereich; $\alpha$ / $\eta$-Äqivalenz, Redex; Funktion, die sich als eigenes Argument nimmt; $\lambda$-Klakül ist Turing-Mächtig</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">29.11.2013</td>
-<td style="border-bottom:1px solid black;">Logische Programmierung</td>
-<td style="border-bottom:1px solid black;">Prolog</td>
+<td>29.11.2013</td>
+<td>Logische Programmierung</td>
+<td>Prolog</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">10.01.2014</td>
-<td style="border-bottom:1px solid black;">Scala</td>
-<td style="border-bottom:1px solid black;">Kein `;`, weniger verbose als Java, ...</td>
+<td>10.01.2014</td>
+<td>Scala</td>
+<td>Kein `;`, weniger verbose als Java, ...</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">15.01.2014</td>
-<td style="border-bottom:1px solid black;">Scala</td>
-<td style="border-bottom:1px solid black;">Concurrency in Scala: Actors, react; MPI, OpenMP</td>
+<td>15.01.2014</td>
+<td>Scala</td>
+<td>Concurrency in Scala: Actors, react; MPI, OpenMP</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">22.01.2014</td>
-<td style="border-bottom:1px solid black;">-</td>
-<td style="border-bottom:1px solid black;">X10: async, val, var</td>
+<td>22.01.2014</td>
+<td>-</td>
+<td>X10: async, val, var</td>
 </tr>
 <tr>
-<td style="border-bottom:1px solid black;">24.01.2014</td>
-<td style="border-bottom:1px solid black;">-</td>
-<td style="border-bottom:1px solid black;">C (<abbr title="Immer aus Hauptspeicher, nie aus Cache holen">volatile</abbr>)</td>
+<td>24.01.2014</td>
+<td>-</td>
+<td>C (<abbr title="Immer aus Hauptspeicher, nie aus Cache holen">volatile</abbr>)</td>
 </tr>
 </table>
 
@@ -130,21 +130,19 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 
 ## Übungsbetrieb
 
-<ul>
-<li>Wo sind die Übungsblätter: <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen">Link</a></li>
-<li>Abgabeform: auf Papier und via E-Mail</li>
-<li>Abgabe: Datum steht auf den Übungsblättern; Ort: Kasten im Keller des Infobaus</li>
-<li>Rücknahme: im Tutorium</li>
-<li>Turnus: wöchentlich, erscheint am Donnerstag</li>
-<li>Übungsschein verpflichtend: Es gibt keinen Übungsschein.</li>
-<li>Bonus durch Übungsschein: Es gibt keinen Klausurbonus.</li>
-</ul>
+* Wo sind die Übungsblätter: [Link](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen)
+* Abgabeform: auf Papier und via E-Mail
+* Abgabe: Datum steht auf den Übungsblättern; Ort: Kasten im Keller des Infobaus
+* Rücknahme: im Tutorium
+* Turnus: wöchentlich, erscheint am Donnerstag.
+* Übungsschein verpflichtend: Es gibt keinen Übungsschein.
+* Bonus durch Übungsschein: Es gibt keinen Klausurbonus.
 
 ## Termine und Klausurablauf
-<strong>Datum</strong>: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/))<br/>
-<strong>Ort</strong>: Audimax ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/#klausuren)])<br/>
-<strong>Punkte</strong>: 120<br/>
-<strong>Punkteverteilung</strong>: Vermutlich etwas in dieser Richtung:
+**Datum**: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/))<br/>
+**Ort**: Audimax ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/#klausuren)])<br/>
+**Punkte**: 120<br/>
+**Punkteverteilung**: Vermutlich etwas in dieser Richtung:
 
 * 25 Punkte: Haskell / Scala
 * 20 Punkte: Logische Programmierung
@@ -157,9 +155,9 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: Gibt es nicht.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
-<strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 30.03.2014)<br/>
-<strong>Einsicht</strong>: steht noch nicht fest (Stand: 30.03.2014)<br/>
-<strong>Erlaubte Hilfsmittel</strong>: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
+**Ergebnisse**: steht noch nicht fest (Stand: 30.03.2014)<br/>
+**Einsicht**: steht noch nicht fest (Stand: 30.03.2014)<br/>
+**Erlaubte Hilfsmittel**: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
 <blockquote>Erlaubte Hilfsmittel für die Klausur sind alle Quellen in Papierform, insbesondere
 <ul>
@@ -169,5 +167,5 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 </ul>
 </blockquote>
 
-<h2>Ergebnisse</h2>
+## Ergebnisse
 Stehen noch nicht fest (Stand: 30.03.2014).
