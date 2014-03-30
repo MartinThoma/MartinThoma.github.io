@@ -20,6 +20,11 @@ Der Artikel wird bis zur Klausur laufend aktualisiert.
 ### Vorlesung ###
 <table>
 <tr>
+    <th>Datum</th>
+    <th>Kapitel</th>
+    <th>Inhalt</th>
+</tr>
+<tr>
 <td style="border-bottom:1px solid black;">23.10.2013</td>
 <td style="border-bottom:1px solid black;">Funktionale Programmierung <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/intern/10_FunktionaleProgrammierung.pdf">10</a></td>
 <td style="border-bottom:1px solid black;">Haskell: Quicksort, Listen, <a href="http://learnyouahaskell.com/higher-order-functions#maps-and-filters">Filter</a>, <a href="http://www.haskell.org/haskellwiki/Syntactic_sugar/Cons">Cons-Operator</a></td>
@@ -137,7 +142,7 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 
 ## Termine und Klausurablauf
 <strong>Datum</strong>: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/))<br/>
-<strong>Ort</strong>: steht noch nicht fest (Stand: 08.03.2014)<br/>
+<strong>Ort</strong>: Audimax ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/#klausuren)])<br/>
 <strong>Punkte</strong>: 120<br/>
 <strong>Punkteverteilung</strong>: Vermutlich etwas in dieser Richtung:
 
@@ -149,11 +154,11 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 * 10 Punkte: X10
 * 20 Punkte: Compilerbau
 
-<strong>Bestehensgrenze</strong>: ?<br/>
-<strong>Übungsschein</strong>: Gibt es nicht.<br/>
-<strong>Bonuspunkte</strong>: Gibt es nicht.<br/>
-<strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 08.03.2014)<br/>
-<strong>Einsicht</strong>: steht noch nicht fest (Stand: 08.03.2014)<br/>
+**Bestehensgrenze**: ?<br/>
+**Übungsschein**: Gibt es nicht.<br/>
+**Bonuspunkte**: Gibt es nicht.<br/>
+<strong>Ergebnisse</strong>: steht noch nicht fest (Stand: 30.03.2014)<br/>
+<strong>Einsicht</strong>: steht noch nicht fest (Stand: 30.03.2014)<br/>
 <strong>Erlaubte Hilfsmittel</strong>: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
 <blockquote>Erlaubte Hilfsmittel für die Klausur sind alle Quellen in Papierform, insbesondere
@@ -165,4 +170,4 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 </blockquote>
 
 <h2>Ergebnisse</h2>
-Stehen noch nicht fest (Stand: 08.03.2014).
+Stehen noch nicht fest (Stand: 30.03.2014).
