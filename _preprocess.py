@@ -35,5 +35,5 @@ for root, dirnames, filenames in os.walk('./_posts/'):
   for filename in fnmatch.filter(filenames, '*'):
       files.append(os.path.join(root, filename))
 
-for filename in files:
-    replaceLatex(filename)
+#for filename in files:
+#    replaceLatex(filename)

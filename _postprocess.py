@@ -22,12 +22,11 @@ def removeFencedLatex(file_path):
     with open(file_path) as f:
         content = f.read()
 
-    #replace whitespace
+    #replace code tags
     singleDollar = re.compile('<code>\s*\$(.*?)\$\s*</code>', re.DOTALL)
     if re.findall(singleDollar, content):
         content = re.sub(singleDollar, '$\g<1>$', content)
 
-    #write without whitespace
     with open(file_path,'w') as f:
         f.write(content)
 
@@ -39,4 +38,4 @@ for root, dirnames, filenames in os.walk('_site/'):
 
 for filename in files:
     removeWhitespace(filename)
-    removeFencedLatex(filename)
+    #removeFencedLatex(filename)

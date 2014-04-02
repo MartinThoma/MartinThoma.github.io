@@ -72,8 +72,8 @@ module Jekyll
         [name, weight, count]
       end
 
-      # shuffle the [tag name, tag weight] pairs
-      #weight.sort_by! { rand }
+      # sort by tag to avoid unnecessary differences in appearance
+      weight.sort_by! { |k|k[0] }
 
       # reduce the Array of [tag name, tag weight] pairs to HTML
       weight.reduce("") do |html, tag|
