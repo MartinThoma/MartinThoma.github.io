@@ -34,8 +34,6 @@ Improve
 * &lt; <
 * &quot; "
 
-* `$ und $`
-
 Testen
 =======
 * WordPress "Caption" tags
