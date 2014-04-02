@@ -38,4 +38,4 @@ for root, dirnames, filenames in os.walk('_site/'):
 
 for filename in files:
     removeWhitespace(filename)
-    #removeFencedLatex(filename)
+    removeFencedLatex(filename)

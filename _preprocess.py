@@ -25,6 +25,18 @@ def replaceLatex(file_path):
     # then one dollar sign environment
     content = re.sub(r'(?<!\<span\>)(?<!\$)\$([^\$]+)\$', "`$\g<1>$`", content)
 
+    content = content.split("\n")
+    is_in_codeblock = False
+
+    for i, line in enumerate(content):
+        if line.startswith("```"):
+            is_in_codeblock = not is_in_codeblock
+        elif is_in_codeblock:
+            content[i] = content[i].replace("`$", "$")
+            content[i] = content[i].replace("$`", "$")
+
+    content = "\n".join(content)
+
     #write without whitespace
     with open(file_path,'w') as f:
         f.write(content)
@@ -35,5 +47,5 @@ for root, dirnames, filenames in os.walk('./_posts/'):
   for filename in fnmatch.filter(filenames, '*'):
       files.append(os.path.join(root, filename))
 
-#for filename in files:
-#    replaceLatex(filename)
+for filename in files:
+    replaceLatex(filename)

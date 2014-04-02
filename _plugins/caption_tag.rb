@@ -128,7 +128,7 @@ module Jekyll
                 @hash['width'] = width.to_s
             end
         else
-            puts "[Warning] " + img_path + " does not exist."
+            puts "[Warning] " + img_path + " does not exist (in " + context.registers[:page]["path"] + ")"
         end
 
         "<div style=\"width: #{@divWidth}px\" class=\"wp-caption #{@hash['align']}\">" +
