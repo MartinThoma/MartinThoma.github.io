@@ -120,6 +120,12 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 * Ein [Anki-Deck](https://ankiweb.net/shared/info/3121773115) (NICHT meines!)
 * Stackexchange:
   * [What is the meaning of M ⊨ φ?](http://math.stackexchange.com/q/704401/6876)
+  * [How can I compile the x10 example?](http://stackoverflow.com/q/22283936/562769)
+  * [What is the difference of 'async' before or after 'for' in X10?](http://stackoverflow.com/q/22643004/562769)
+  * [How do I generate and print Fibonacci numbers in X10?](http://stackoverflow.com/q/22709063/562769)
+  * [What is the difference between ifne and ifnonnull?](http://stackoverflow.com/q/22731293/562769)
+  * [Haskell list comprehension - list of all list splits](http://stackoverflow.com/q/22594719/562769)
+  * [How can I ask questions on a family tree in Prolog?](http://stackoverflow.com/q/22177931/562769)
 
 ## Klausurvorbereitung
 * [H-99: Ninety-Nine Haskell Problems](http://www.haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems)
@@ -140,7 +146,7 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 
 ## Termine und Klausurablauf
 **Datum**: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/))<br/>
-**Ort**: Audimax ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/#klausuren)])<br/>
+**Ort**: Audimax ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/#klausuren))<br/>
 **Punkte**: 120<br/>
 **Punkteverteilung**: Vermutlich etwas in dieser Richtung:
 

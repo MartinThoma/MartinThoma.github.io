@@ -1,20 +1,16 @@
 ---
 layout: post
-title: TCL
+title: 12 Rules of Tcl
 author: Martin Thoma
 date: 2014-01-28 23:11
 categories:
 - Code
 tags:
-- TCL
+- Tcl
 - Programming language
 featured_image: 2014/01/tcl-logo.png
 ---
 
-TCL is an imperative, interpreted, dynamically typed programming language. The
-**T**ool **C**ommand **L**anguage appeared in 1988.
-
-## 12 Rules ##
 Quoted from [wiki.tcl.tk/10259](http://wiki.tcl.tk/10259).
 
 The following rules define the syntax and semantics of the Tcl language:
@@ -98,18 +94,3 @@ set y [set x 0][incr x][incr x]
 ```
 
 will always set the variable `y` to the value, `012`.
-
-### [12] Substitution and word boundaries
-Substitutions do not affect the word boundaries of a command, except for argument expansion as specified in rule [5]. For example, during variable substitution the entire value of the variable becomes part of a single word, even if the variable's value contains spaces.
-
-## Examples ##
-### Loop over a list ###
-```tcl
-% foreach element {1 2 3} {
-    puts $element
-}
-```
-
-## Argument parsing ##
-See [`itfParseArgv`](http://www.cs.cmu.edu/~tanja/Lectures/JRTkDoc/OldDoc/interface/parseArgv.html)
-
