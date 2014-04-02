@@ -12,7 +12,7 @@
 
 
     <title>PHP: PEAR MDB2</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021121.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021246.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -135,26 +135,26 @@
 <div class="highlight">
    <pre><code class="php language-php" data-lang="php"><span class="x">require_once "MDB2.php";</span>
 
-<span class="x">`$db   = new MDB2();</span>
-<span class="x">$`dsn  = "mysql://chessuser:localpass@localhost/chess";</span>
-<span class="x">`$mdb2 = MDB2::factory($`dsn);</span>
-<span class="x">`$mdb2-&gt;setFetchMode(MDB2_FETCHMODE_ASSOC);</span>
+<span class="x">$db   = new MDB2();</span>
+<span class="x">$dsn  = "mysql://chessuser:localpass@localhost/chess";</span>
+<span class="x">$mdb2 = MDB2::factory($dsn);</span>
+<span class="x">$mdb2-&gt;setFetchMode(MDB2_FETCHMODE_ASSOC);</span>
 </code></pre>
 </div>
 <p>It is also very easy to fetch some data:</p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="x">$`sql    = 'SELECT * FROM `chess_users`';</span>
-<span class="x">`$result = $`mdb2-&gt;query(`$sql);</span>
-<span class="x">while ($`row = `$result-&gt;fetchRow()) {</span>
-<span class="x">    print_r($`row);</span>
+   <pre><code class="php language-php" data-lang="php"><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
+<span class="x">$result = $mdb2-&gt;query($sql);</span>
+<span class="x">while ($row = $result-&gt;fetchRow()) {</span>
+<span class="x">    print_r($row);</span>
 <span class="x">}</span>
 </code></pre>
 </div>
 <p>or </p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="x">`$sql    = 'SELECT * FROM `chess_users`';</span>
-<span class="x">$`data = `$mdb2-&gt;queryAll($`sql);</span>
-<span class="x">print_r(`$data);</span>
+   <pre><code class="php language-php" data-lang="php"><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
+<span class="x">$data = $mdb2-&gt;queryAll($sql);</span>
+<span class="x">print_r($data);</span>
 </code></pre>
 </div>
 <p>This results in:</p>
@@ -177,9 +177,9 @@ Array
 </div>
 <p>You can set limits via MDB2:</p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="x">$`sql    = 'SELECT * FROM `chess_users`';</span>
-<span class="x">`$mdb2-&gt;setLimit(1);</span>
-<span class="x">$`data = `$mdb2-&gt;queryAll($`sql);</span>
+   <pre><code class="php language-php" data-lang="php"><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
+<span class="x">$mdb2-&gt;setLimit(1);</span>
+<span class="x">$data = $mdb2-&gt;queryAll($sql);</span>
 <span class="x">print_r($data);</span>
 </code></pre>
 </div>
