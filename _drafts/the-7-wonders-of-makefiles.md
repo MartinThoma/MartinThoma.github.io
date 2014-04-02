@@ -14,7 +14,8 @@ Makefiles are great. They provide a very simple tool for executing some folder-s
 
 A Makefile usually looks like this:
 
-{% highlight bash %}CC=     gcc
+```bash
+CC=     gcc
 LD=     ld
 CFLAGS= -W -Wall -Werror -std=c99
 TARGET= processes
@@ -30,49 +31,64 @@ $(TARGET)-sol: $(subst $(TARGET),$(TARGET)-solution,$(OBJ))
 
 $(TARGET)-solution.o:
 	@test -f $(TARGET)-solution.c \
-	|| { echo &quot;Download solution tarball.&quot; &gt;&amp;2; false; }
+	|| { echo "Download solution tarball." >&amp;2; false; }
 	$(CC) $(CFLAGS) -c $(TARGET)-solution.c
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $&lt;
+	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -rf $(TARGET) $(TARGET)-sol *.o{% endhighlight %}
+	rm -rf $(TARGET) $(TARGET)-sol *.o
+```
 
 Here is some useful information about these files.
 
-<h2>Remember the TAB</h2>
+## Remember the TAB
 Makefiles use TABS in front of the commands, not spaces.
-<h2>Two Dollars are better than one</h2>
+
+## Two Dollars are better than one
 If you want to use Bash Variables, you have to use $$varname instead of $varname.
 
-<h2>Variables: Recursive expansion</h2>
+## Variables: Recursive expansion
 You can create variables in Bash like this:
-{% highlight bash %}variable = value{% endhighlight %}
+
+```bash
+variable = value
+```
 
 And you access them like this:
-{% highlight bash %}echo $(variable){% endhighlight %}
+
+```bash
+echo $(variable)
+```
 
 But it gets really strange if you assign variable to other variables:
-{% highlight bash %}first  = $(second)
+
+```bash
+first  = $(second)
 second = $(third)
 third  = Huh?
 
-all:;echo $(first){% endhighlight %}
+all:;echo $(first)
+```
+
 This prints "Huh?".
 
 More about variables <a href="http://www.gnu.org/software/make/manual/make.html#Flavors">here</a>.
 
-<h2>Useful Examples</h2>
-{% highlight bash %}make:
+## Useful Examples
+```bash
+make:
 	# Check files
 	checkstyle -c /home/moose/Downloads/Progr_WS11_Checkstyle1.xml -r .
 	# Create zip for upload
-	find . -name &quot;*.java&quot; -type f -print | zip ~/blatt3.zip -@
+	find . -name "*.java" -type f -print | zip ~/blatt3.zip -@
 clean:
 	rm -rf  *.class
-	rm -rf  *.o{% endhighlight %}
-<h2>Further reading</h2>
+	rm -rf  *.o
+```
+
+## Further reading
 <ul>
 	<li><a href="http://en.wikipedia.org/wiki/Make_(software)">Wikipedia</a></li>
     <li>Freies Magazin, Mai 2012: <a href="http://www.freiesmagazin.de/freiesMagazin-2012-05">Selbstgebacken 3: make</a></li>

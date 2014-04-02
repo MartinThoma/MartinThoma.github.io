@@ -28,7 +28,7 @@ Then you have to go to the terminal and enter:
 You might see something like:
 {% highlight bash %}Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /etc/apt/secring.gpg --trustdb-name /etc/apt/trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --keyserver keyserver.ubuntu.com --recv 2862D0785AFACD8C65B23DB0251104D968854915
 gpg: requesting key 68854915 from hkp server keyserver.ubuntu.com
-gpg: key 68854915: public key &quot;Launchpad pypy-1.2&quot; imported
+gpg: key 68854915: public key "Launchpad pypy-1.2" imported
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1){% endhighlight %}
 

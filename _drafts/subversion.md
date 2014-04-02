@@ -48,7 +48,7 @@ If svn status gives you an exclamation mark (!), you might have deleted a file w
 
 <h3>I'm fine: Upload it!</h3>
 This is the command you use, if you want to send the changes you made on your working copy to the repository:
-{% highlight bash %}svn commit -m &quot;Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed&quot; --username themoosemind@gmail.com{% endhighlight %}
+{% highlight bash %}svn commit -m "Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed" --username themoosemind@gmail.com{% endhighlight %}
 
 <h2>Watch changes</h2>
 <h3>General</h3>

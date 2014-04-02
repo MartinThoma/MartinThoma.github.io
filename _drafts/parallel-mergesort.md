@@ -25,30 +25,30 @@ from random import randint
 def generateNumbers(min=-1000, max=1000, n=1000000):
     f = open('numbers.txt', 'wb')
     for i in xrange(n):
-        f.write(str(randint(min,1000)) + &quot;\n&quot;)
+        f.write(str(randint(min,1000)) + "\n")
     f.close()
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == "__main__":
     from argparse import ArgumentParser
      
     parser = ArgumentParser()
      
     # Add more options if you like
-    parser.add_argument(&quot;-f&quot;, &quot;--file&quot;, dest=&quot;myFilenameVariable&quot;,
-                      help=&quot;write report to FILE&quot;, metavar=&quot;FILE&quot;)
-    parser.add_argument(&quot;-n&quot;, metavar='N', type=int, dest=&quot;n&quot;, 
-                        default=1000000, help=&quot;The number of &quot;
-                        + &quot;numbers you want to generate.&quot;)
-    parser.add_argument(&quot;-min&quot;, metavar='N', type=int, dest=&quot;min&quot;, 
-                        default=-1000, help=&quot;The minimum number &quot;
-                        + &quot;that might get generated.&quot;)
-    parser.add_argument(&quot;-max&quot;, metavar='N', type=int, dest=&quot;max&quot;, 
-                        default=1000, help=&quot;The maximum number that &quot;
-                        + &quot;might get generated.&quot;)
+    parser.add_argument("-f", "--file", dest="myFilenameVariable",
+                      help="write report to FILE", metavar="FILE")
+    parser.add_argument("-n", metavar='N', type=int, dest="n", 
+                        default=1000000, help="The number of "
+                        + "numbers you want to generate.")
+    parser.add_argument("-min", metavar='N', type=int, dest="min", 
+                        default=-1000, help="The minimum number "
+                        + "that might get generated.")
+    parser.add_argument("-max", metavar='N', type=int, dest="max", 
+                        default=1000, help="The maximum number that "
+                        + "might get generated.")
     args = parser.parse_args()
-    print(&quot;Started generating&quot;)
+    print("Started generating")
     generateNumbers(args.min, args.max, args.n)
-    print(&quot;Generating %i numbers finished&quot; % args.n){% endhighlight %}
+    print("Generating %i numbers finished" % args.n){% endhighlight %}
 
 I generated 100,000,000 numbers (this is a 418.8 MB file!).
 
@@ -71,7 +71,7 @@ This time, I got some unexpected problem:
 Not enough heap space.
 Got 38647475 numbers.
 java.lang.OutOfMemoryError: Java heap space
-Exception in thread &quot;main&quot; java.lang.reflect.InvocationTargetException
+Exception in thread "main" java.lang.reflect.InvocationTargetException
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

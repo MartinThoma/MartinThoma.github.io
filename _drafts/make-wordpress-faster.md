@@ -47,8 +47,9 @@ The page took about 17 seconds to load (rendering + downloading):
 
 {% caption align="alignnone" width="604" caption="enchmark Before adding a Plugin: Timeline" url="../images/2011/09/Benchmark-Before-Timeline-1024x408.png" alt="Benchmark Before adding a Plugin: Timeline" height="240" class="size-large wp-image-1251 "  %}
 
-{% highlight bash %}moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
-This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+{% highlight bash %}
+moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
@@ -102,7 +103,8 @@ Percentage of the requests served within a certain time (ms)
   95%      1
   98%      2
   99%      2
- 100%      6 (longest request){% endhighlight %}
+ 100%      6 (longest request)
+{% endhighlight %}
 
 <h2>Results after installing WP Super Cache</h2>
 <a title="WP Super Cache" href="http://wordpress.org/extend/plugins/wp-super-cache/">WP Super Cache</a> has 2.5 million downloads and 1028 ratings gave in average 4 stars. Quite good.
@@ -140,8 +142,9 @@ The reason for this might be, that I hadn't been able to log out.
 
 The timeline showed that loading the page was much faster: Only about 15 seconds to load and render the page. The page could be viewed after a second or two, of course.
 
-{% highlight bash %}moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
-This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+{% highlight bash %}
+moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
@@ -197,7 +200,8 @@ Percentage of the requests served within a certain time (ms)
   95%      1
   98%      1
   99%      2
- 100%      4 (longest request){% endhighlight %}
+ 100%      4 (longest request)
+ {% endhighlight %}
 
 
 
@@ -213,7 +217,7 @@ This plugin support minification, caching and using CDN. Lets see the results:
 
 The page is now downloaded and rendered after 15 seconds.
 {% highlight bash %}moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-wpsupercache
-This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
@@ -273,7 +277,7 @@ Percentage of the requests served within a certain time (ms)
 moose@pc08:~$ chmod 755 /var/www/wordpress-W3TotalCache/wp-content
 moose@pc08:~$ chmod 777 /var/www/wordpress-W3TotalCache/wp-content
 moose@pc08:~$ ab -n 1000 -c 1 localhost/wordpress-W3TotalCache
-This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 

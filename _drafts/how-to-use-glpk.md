@@ -11,14 +11,16 @@ featured_image: 2012/09/gnu-head-sm.png
 ---
 GLPK, the GNU Linear Programming Kit, is a piece of software which solves linear optimization problems. You only have to modell the problem.
 
-<h2>Assignment problem</h2>
+## Assignment problem
 The <a href="http://en.wikipedia.org/wiki/Assignment_problem">assignment problem</a>
 
 This file is in the examples of GLPK
-[c]param m, integer, &gt; 0;
+
+```c
+param m, integer, > 0;
 /* number of agents */
 
-param n, integer, &gt; 0;
+param n, integer, > 0;
 /* number of tasks */
 
 set I := 1..m;
@@ -27,15 +29,15 @@ set I := 1..m;
 set J := 1..n;
 /* set of tasks */
 
-param c{i in I, j in J}, &gt;= 0;
+param c{i in I, j in J}, >= 0;
 /* cost of allocating task j to agent i */
 
-var x{i in I, j in J}, &gt;= 0;
+var x{i in I, j in J}, >= 0;
 /* x[i,j] = 1 means task j is assigned to agent i
    note that variables x[i,j] are binary, however, there is no need to
    declare them so due to the totally unimodular constraint matrix */
 
-s.t. phi{i in I}: sum{j in J} x[i,j] &lt;= 1;
+s.t. phi{i in I}: sum{j in J} x[i,j] <= 1;
 /* each agent can perform at most one task */
 
 s.t. psi{j in J}: sum{i in I} x[i,j] = 1;
@@ -46,13 +48,13 @@ minimize obj: sum{i in I, j in J} c[i,j] * x[i,j];
 
 solve;
 
-printf &quot;\n&quot;;
-printf &quot;Agent  Task       Cost\n&quot;;
-printf{i in I} &quot;%5d %5d %10g\n&quot;, i, sum{j in J} j * x[i,j],
+printf "\n";
+printf "Agent  Task       Cost\n";
+printf{i in I} "%5d %5d %10g\n", i, sum{j in J} j * x[i,j],
    sum{j in J} c[i,j] * x[i,j];
-printf &quot;----------------------\n&quot;;
-printf &quot;     Total: %10g\n&quot;, sum{i in I, j in J} c[i,j] * x[i,j];
-printf &quot;\n&quot;;
+printf "----------------------\n";
+printf "     Total: %10g\n", sum{i in I, j in J} c[i,j] * x[i,j];
+printf "\n";
 
 data;
 
@@ -74,9 +76,10 @@ param c : 1  2  3  4  5  6  7  8 :=
       7  16 34 38  3 34 40 22 24
       8  26 20  5 17 45 31 37 43 ;
 
-end;[/c]
+end;
+```
 
-<h2>See also</h2>
+## See also
 <ul>
   <li><a href="http://www.gnu.org/software/glpk/">GLPK Documentation</a></li>
   <li>IBM: <a href="http://www.ibm.com/developerworks/linux/library/l-glpk1/">Introduction to linear optimization</a>, <a href="http://www.ibm.com/developerworks/linux/library/l-glpk2/">Intermediate problems in linear programming</a>, <a href="http://www.ibm.com/developerworks/linux/library/l-glpk3/">Advanced problems and elegant solutions</a></li>

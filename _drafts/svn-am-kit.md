@@ -18,7 +18,7 @@ Syntax (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.import.html">H
 {% highlight bash %}svn import [PATH] URL{% endhighlight %}
 
 Beispiel:
-{% highlight bash %}svn import -m &quot;Initial import of the BankAccountReader project.&quot; /home/swt-user/BankAccountReader https://svnserver.informatik.kit.edu/stud/svn/s_thoma/trunk/BankAccountReader{% endhighlight %}
+{% highlight bash %}svn import -m "Initial import of the BankAccountReader project." /home/swt-user/BankAccountReader https://svnserver.informatik.kit.edu/stud/svn/s_thoma/trunk/BankAccountReader{% endhighlight %}
 
 <h2>Checkout</h2>
 Syntax (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.checkout.html">Hilfe</a>):
@@ -69,7 +69,7 @@ Syntax (<a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.commit.html">H
 {% highlight bash %}svn commit [PATH...]{% endhighlight %}
 
 Beispiel:
-{% highlight bash %}svn commit -m &quot;restructuring directory structure&quot;
+{% highlight bash %}svn commit -m "restructuring directory structure"
 Adding         BankAccountReader
 Deleting       BankAccountReader/svn-commit.tmp
 Deleting       src

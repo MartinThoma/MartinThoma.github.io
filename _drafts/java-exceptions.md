@@ -16,11 +16,13 @@ featured_image: 2011/11/java-programming.png
 
 
 <h2>How to throw an exception</h2>
-{% highlight java %}public void myMethod( String s ) {
+{% highlight java %}
+public void myMethod( String s ) {
   if (!isStringValid(s)) {
-    throw new IllegalArgumentException(&quot;This string is not valid!&quot;);
+    throw new IllegalArgumentException("This string is not valid!");
   }
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 <h2>Common Exceptions</h2>
 IllegalArgumentException: One argument of the current method hasn't the form it should have.

@@ -23,16 +23,16 @@ In the following, I will try to calculate as many digits as I can.
 
 <h2>math.h</h2>
 {% highlight cpp %}
-#include &lt;stdio.h&gt;
+#include <stdio.h>
  
 using namespace std;
 
 #define _USE_MATH_DEFINES 
-#include &lt;math.h&gt;
+#include <math.h>
 
 int main(int argc, char* argv[]) {
-    printf(&quot;%.60f\n&quot;, atan(1)*4);
-    printf(&quot;%.60f\n&quot;, M_PI);
+    printf("%.60f\n", atan(1)*4);
+    printf("%.60f\n", M_PI);
     return 0;
 }
 {% endhighlight %}
@@ -55,25 +55,27 @@ $\displaystyle \pi = 4 \cdot \sum_{n=0}^\infty \, \frac{(-1)^n}{2n+1}$
 You get this by knowing that $\tan(\frac{\pi}{4}) = 1 \Leftrightarrow \pi = 4 \cdot \tan^{-1}(1)$ and making a <a href="http://en.wikipedia.org/wiki/Taylor_series">Taylor series</a>.
 
 Which can be implemented like this:
+
 {% highlight cpp %}
-#include &lt;stdio.h&gt;
+#include <stdio.h>
  
 using namespace std;
 
 int main(int argc, char* argv[]) {
     double pi = 0;
     int sign = 1.0;
-    for(int i=1;i&lt;2000;i+=2){
+    for(int i=1;i<2000;i+=2){
         pi = pi + sign*4.0/i;
         sign *= -1;
     }
 
-    printf(&quot;%.60f\n&quot;, pi);
+    printf("%.60f\n", pi);
     return 0;
 }
 {% endhighlight %}
 
 This gives (pi is below):
+
 {% highlight text %}
 3.14|0592653839790138192711310693994164466857910156250000000000
 3.14|15926535897932384626433832795028841971...
