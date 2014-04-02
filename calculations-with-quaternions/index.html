@@ -12,7 +12,7 @@
 
 
     <title>Calculations with quaternions</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -113,7 +113,7 @@ $ijk=-1$</p>
 </div><h2 id="tocAnchor-1-1">Basic rules</h2>
 
 <p>From these rules follows:
-$\begin{align} ij &amp;= k\ ji &amp;= -k\ jk &amp;= i\ kj &amp;= -i\ ki &amp;= j\ ik &amp;= -j \end{align}$</p>
+$\begin{align} ij &amp;= k\\ ji &amp;= -k\\ jk &amp;= i\\ kj &amp;= -i\\ ki &amp;= j\\ ik &amp;= -j \end{align}$</p>
 
 <p>(<a href="http://math.stackexchange.com/q/487245/6876">proof</a>)</p>
 
@@ -125,37 +125,45 @@ $\begin{align} ij &amp;= k\ ji &amp;= -k\ jk &amp;= i\ kj &amp;= -i\ ki &amp;= j
 
 <p>The multiplication is:</p>
 
-<p>$\begin{align}
+<p>
+   $\begin{align}
 x  y 
-&amp;=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\
-&amp;+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\
-&amp;+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\
+&amp;=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\\
+&amp;+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\\
+&amp;+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\\
 &amp;+( x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0) \mathrm k
-\end{align}$</p>
+\end{align}$
+</p>
 
 <h3 id="tocAnchor-1-2-1">Calculating multiplicative inverse</h3>
 
 <p>This means, when you're given an element $x = x_0 + x_1 \mathrm i + x_2 \mathrm j + x_3 \mathrm k$ its inverse $y$ can be calculated by solving the following linear system of equations:</p>
 
-<p>$\begin{align}
-x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &amp;= 1\
-x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &amp;= 0\
-x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &amp;= 0\ 
-x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\
-\end{align}$</p>
+<p>
+   $\begin{align}
+x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &amp;= 1\\
+x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &amp;= 0\\
+x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &amp;= 0\\ 
+x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\\
+\end{align}$
+</p>
 
 <p>which can be written as:</p>
 
-<p>$\left(\begin{array}{cccc|c} 
-    x_0 &amp; -x_1 &amp; -x_2 &amp; -x_3 &amp; 1\
-    x_1 &amp;  x_0 &amp; -x_3 &amp;  x_2 &amp; 0\
-    x_2 &amp;  x_3 &amp;  x_0 &amp; -x_1 &amp; 0\
+<p>
+   $\left(\begin{array}{cccc|c} 
+    x_0 &amp; -x_1 &amp; -x_2 &amp; -x_3 &amp; 1\\
+    x_1 &amp;  x_0 &amp; -x_3 &amp;  x_2 &amp; 0\\
+    x_2 &amp;  x_3 &amp;  x_0 &amp; -x_1 &amp; 0\\
     x_3 &amp; -x_2 &amp;  x_1 &amp;  x_0 &amp; 0
-  \end{array}\right).$</p>
+  \end{array}\right).$
+</p>
 
 <p>According to <a href="http://www.mathworks.de/de/help/aeroblks/quaternioninverse.html">mathworks</a> it is </p>
 
-<p>$y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}$</p>
+<p>
+   $y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}$
+</p>
 
 <h2 id="tocAnchor-1-4">More</h2>
 
@@ -173,22 +181,26 @@ x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\
 
 <p>Quaternions can be used to rotate points. It works like this:</p>
 
-<p>$x' = q x \overline{q}$</p>
+<p>
+   $x' = q x \overline{q}$
+</p>
 
 <p>Pretty simple, isn't it?</p>
 
 <p>For example, if you had the point (2,0,0) and you wanted to rotated it by $q = (\frac{\sqrt{2}}{2}, 0, \frac{\sqrt{2}}{2}, 0)$ you would transform (2,0,0) to (2i+0k+0j) and calculate</p>
 
-<p>$\begin{align}
-x' &amp;= q x \overline{q}\
-&amp;= (\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2} \mathrm j) \cdot 2 \mathrm i \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\
-&amp;= (\sqrt{2} \mathrm i + \sqrt{2} \mathrm{ji}) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\
-&amp;= (\sqrt{2} \mathrm i - \sqrt{2} \mathrm k) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\
-&amp;= \mathrm i - \mathrm{ij} - \mathrm k + \mathrm{kj}\
-&amp;= \mathrm{i - k -k - i}\
-&amp;= -2 \mathrm k\
+<p>
+   $\begin{align}
+x' &amp;= q x \overline{q}\\
+&amp;= (\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2} \mathrm j) \cdot 2 \mathrm i \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
+&amp;= (\sqrt{2} \mathrm i + \sqrt{2} \mathrm{ji}) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
+&amp;= (\sqrt{2} \mathrm i - \sqrt{2} \mathrm k) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
+&amp;= \mathrm i - \mathrm{ij} - \mathrm k + \mathrm{kj}\\
+&amp;= \mathrm{i - k -k - i}\\
+&amp;= -2 \mathrm k\\
 &amp;\Rightarrow x' = (0,0,-2)
-\end{align}$</p>
+\end{align}$
+</p>
 
 <h3 id="tocAnchor-1-4-3">Rotation matrix to quaternion</h3>
 
@@ -209,19 +221,23 @@ z &amp;= \frac{m_{21} - m_{12}}{4s}
 
 <p>A rotation matrix</p>
 
-<p>$R_y = \begin{pmatrix}
-\cos(\theta)  &amp; 0 &amp; \sin(\theta)\
-0             &amp; 1 &amp; 0\
+<p>
+   $R_y = \begin{pmatrix}
+\cos(\theta)  &amp; 0 &amp; \sin(\theta)\\
+0             &amp; 1 &amp; 0\\
 -\sin(\theta) &amp; 0 &amp; \cos(\theta)
-\end{pmatrix}$</p>
+\end{pmatrix}$
+</p>
 
 <p>can be transformed to a quaternion</p>
 
-<p>$q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))$</p>
+<p>
+   $q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))$
+</p>
 
 <p>where $\vec u$ describes the axis you rotate by.</p>
 
-<p>In this case $R_y$ is the y-axis, so $\vec u = \begin{pmatrix}0\1\0\end{pmatrix}$.</p>
+<p>In this case $R_y$ is the y-axis, so $\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             

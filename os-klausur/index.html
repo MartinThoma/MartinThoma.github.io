@@ -12,7 +12,7 @@
 
 
     <title>Betriebssysteme Klausur</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -188,7 +188,7 @@ Quelle: <a href="http://wiki.answers.com/Q/What_is_the_difference_between_Page_a
 <ul><li>Mutual exclusion: Eine Ressource kann nicht gleichzeitig von mehreren Prozessen benutzt werden</li>
 <li>Hold and wait: Ein Prozess, der bereits mindestens eine Ressource hält, wartet auf mindestens eine andere Ressource</li>
 <li>No preemption: Zugeteilte Ressourcen können einem Prozess nicht wieder entzogen werden. Er muss diese selbst freigeben.</li>
-<li>Circular wait: Es gibt eine Menge von Prozessen $\{P_0, P_1, \dots, P_n\}$, wobei $P_0$ auf eine Ressource wartet, die $P_1$ hält, $P_1$ auf eine Ressource wartet, die $P_2$ hält, ..., $P_n$ auf eine Ressource wartet, die $P_0$ hält.</li>
+<li>Circular wait: Es gibt eine Menge von Prozessen `$\{P_0, P_1, \dots, P_n\}$`, wobei `$P_0$` auf eine Ressource wartet, die `$P_1$` hält, `$P_1$` auf eine Ressource wartet, die `$P_2$` hält, ..., `$P_n$` auf eine Ressource wartet, die `$P_0$` hält.</li>
 </ul></div>
 
 <p></p></div>
@@ -236,13 +236,13 @@ Falls man es wirklich genau wissen will, sollte man wohl die <a href="http://www
 <span class="question">Einstufige Seitentabellen sind deutlich einfacher zu verstehen und zu implementieren. Warum verwendet man sie nicht auf 64 Bit Systemen?</span>
 <div class="answer">Sie würden zu viel Speicher benötigen. Es wird eine Seitentabelle pro Prozess benötigt. Die Größe einer einstufigen Seitentabelle berechnet sich wie folgt:
 
-Sei $m$ die Größe des Hauptspeichers in Byte, $p$ die Größe einer Seite in Byte und $a$ die Anzahl der zusätzlichen Bit pro Seite (Access Control bits, validity. Siehe <a href="http://unix.stackexchange.com/q/68148/4784">StackExchange</a>). 
+Sei `$m$` die Größe des Hauptspeichers in Byte, `$p$` die Größe einer Seite in Byte und `$a$` die Anzahl der zusätzlichen Bit pro Seite (Access Control bits, validity. Siehe <a href="http://unix.stackexchange.com/q/68148/4784">StackExchange</a>). 
 Dann gilt:
 
 Größe der Seitentabelle = Größe eines Seiteneintrages · Anzahl der Seiten
-$= \lceil \frac{\log_2(\frac{m}{p}) + a}{8}\rceil \text{Byte} \cdot \frac{2^{64} \text{ Byte}}{p \text{ Byte}}$
+`$= \lceil \frac{\log_2(\frac{m}{p}) + a}{8}\rceil \text{Byte} \cdot \frac{2^{64} \text{ Byte}}{p \text{ Byte}}$`
 
-Typischerweise gilt: $m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$, $p = 4096 \text{ Byte}$ und $a = 8$. Daraus folgt eine Seitengröße von 4 Byte und 4.503.599.627.370.496 Seiten. Das ergibt eine Seitentabellengröße von 16 Petabyte.
+Typischerweise gilt: `$m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byte}$`, `$p = 4096 \text{ Byte}$` und `$a = 8$`. Daraus folgt eine Seitengröße von 4 Byte und 4.503.599.627.370.496 Seiten. Das ergibt eine Seitentabellengröße von 16 Petabyte.
 </div>
 
 <p></p></div>
@@ -266,15 +266,15 @@ Typischerweise gilt: $m = 4 GB = 4 \cdot 2^{30} \text{ Byte} = 2^{32} \text{ Byt
 <div class="question">
 <span class="question">Wie groß kann eine Datei maximal werden, wenn man Inodes mit jeweils einem indirekten, doppelt indirektem und dreifach indirektem Block hat?</span>
 <div class="answer">
-Sei $b$ die Größe eines Blocks in Byte und ein Zeiger belege 4 Byte.
+Sei `$b$` die Größe eines Blocks in Byte und ein Zeiger belege 4 Byte.
 Dann berechnet sich die maximale Dateigröße in Byte wie folgt:
-$12 \cdot b + \frac{b}{4} \cdot b+ \frac{\frac{b}{4} \cdot b}{4} \cdot b + \frac{\frac{\frac{b}{4} \cdot b}{4} \cdot b}{4} \cdot b = 12 \cdot b + \frac{b^2}{4} + \frac{b^3}{16} + \frac{b^4}{64}$
+`$12 \cdot b + \frac{b}{4} \cdot b+ \frac{\frac{b}{4} \cdot b}{4} \cdot b + \frac{\frac{\frac{b}{4} \cdot b}{4} \cdot b}{4} \cdot b = 12 \cdot b + \frac{b^2}{4} + \frac{b^3}{16} + \frac{b^4}{64}$`
 
 Bei einer Blockgröße von 1024 Byte sind das 17,25 GB (<a href="http://www.wolframalpha.com/input/?i=12*1024%2B1024%5E2%2F4%2B1024%5E3%2F16%2B1024%5E4%2F64+byte">Rechnung</a>), bei einer Blockgröße von 4096 Byte sogar 4,40 TB (<a href="http://www.wolframalpha.com/input/?i=12*4096%2B4096%5E2%2F4%2B4096%5E3%2F16%2B4096%5E4%2F64+byte">Rechnung</a>)!
 
 Wenn ihr Linux habt, könnt ihr diese Werte so herausfinden:
 
-<div class="highlight"><pre><code class="bash">moose@pc08 ~ <span class="nv">$ </span>df
+<div class="highlight"><pre><code class="bash">moose@pc08 ~ <span class="sb">`</span><span class="nv">$ </span>df
 Filesystem     1K-blocks     Used Available Use% Mounted on
 /dev/sda1      303869280 16418288 272015268   6% /
 udev             1889040        4   1889036   1% /dev
@@ -282,7 +282,7 @@ tmpfs             758712      988    757724   1% /run
 none                5120        0      5120   0% /run/lock
 none             1896772      772   1896000   1% /run/shm
 none              102400        8    102392   1% /run/user
-moose@pc08 ~ <span class="nv">$ </span>sudo tune2fs -l /dev/sda1 <span class="p">|</span> grep <span class="s1">'Block size'</span>
+moose@pc08 ~ <span class="nv">$`</span> sudo tune2fs -l /dev/sda1 <span class="p">|</span> grep <span class="s1">'Block size'</span>
 Block size:               4096
 </code></pre></div>
 

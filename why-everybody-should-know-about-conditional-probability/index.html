@@ -12,7 +12,7 @@
 
 
     <title>Why everybody should know about conditional probability</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -114,11 +114,15 @@ $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
 
 <p>Another very important rule is Bayes rule:</p>
 
-<p>$Pr[A|B] = \frac{Pr[B|A] \cdot Pr[A]}{Pr[B]}$</p>
+<p>
+   $Pr[A|B] = \frac{Pr[B|A] \cdot Pr[A]}{Pr[B]}$
+</p>
 
 <p>This works also with more variables:</p>
 
-<p>$Pr[A|BC] = \frac{Pr[B|AC] \cdot Pr[A|C]}{Pr[B|C]}$</p>
+<p>
+   $Pr[A|BC] = \frac{Pr[B|AC] \cdot Pr[A|C]}{Pr[B|C]}$
+</p>
 
 <h2 id="tocAnchor-1-2">Cancer</h2>
 
@@ -139,17 +143,17 @@ $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
 <p>So you can draw this table:</p>
 
 <table class="wikitable" style="width:auto;">
-   <tr><th>$Pr[\text{Testresult}|\text{Cancer}]$</th>
-  <th>$C$</th>
-  <th>$\neg C$</th>
+   <tr><th>`$Pr[\text{Testresult}|\text{Cancer}]$`</th>
+  <th>`$C$`</th>
+  <th>`$\neg C$`</th>
 </tr>
-   <tr><th>$+$</th>
-  <td style="background-color:lime;">$0.9$</td>
-  <td style="background-color:red;">$0.2$</td>
+   <tr><th>`$+$`</th>
+  <td style="background-color:lime;">`$0.9$`</td>
+  <td style="background-color:red;">`$0.2$`</td>
 </tr>
-   <tr><th>$-$</th>
-  <td style="background-color:red;">$0.1$</td>
-  <td style="background-color:lime;">$0.8$</td>
+   <tr><th>`$-$`</th>
+  <td style="background-color:red;">`$0.1$`</td>
+  <td style="background-color:lime;">`$0.8$`</td>
 </tr>
 </table><p>You can see that the correct results are much more likely than the wrong ones.</p>
 
@@ -157,42 +161,46 @@ $Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
 
 <p>How likely is a positive / negative test result?
 $\begin{align}
-Pr[+] &amp;= Pr[+|C] \cdot Pr[C] + Pr[+| \neg C] \cdot Pr[\neg C] = 0.207\
+Pr[+] &amp;= Pr[+|C] \cdot Pr[C] + Pr[+| \neg C] \cdot Pr[\neg C] = 0.207\\
 Pr[-] &amp;= Pr[-|C] \cdot Pr[C] + Pr[-| \neg C] \cdot Pr[\neg C] = 0.793
 \end{align}$</p>
 
 <p>How likely are the combinations? (This time you don't know if you have cancer):</p>
 
 <table class="wikitable" style="width:auto;">
-   <tr><th>$Pr[\text{Testresult}, \text{Cancer}]$</th>
-  <th>$C$</th>
-  <th>$\neg C$</th>
+   <tr><th>`$Pr[\text{Testresult}, \text{Cancer}]$`</th>
+  <th>`$C$`</th>
+  <th>`$\neg C$`</th>
 </tr>
-   <tr><th>$+$</th>
-  <td>$0.009$</td>
-  <td>$0.198$</td>
+   <tr><th>`$+$`</th>
+  <td>`$0.009$`</td>
+  <td>`$0.198$`</td>
 </tr>
-   <tr><th>$-$</th>
-  <td>$0.001$</td>
-  <td>$0.792$</td>
+   <tr><th>`$-$`</th>
+  <td>`$0.001$`</td>
+  <td>`$0.792$`</td>
 </tr>
 </table><h2 id="tocAnchor-1-4">Reversing it</h2>
 
 <p>It is quite likely that you would like to know how likely it is that you have cancer. Without a test, you know:</p>
 
-<p>$\begin{align}
-Pr[C]      &amp;= 0.01\
+<p>
+   $\begin{align}
+Pr[C]      &amp;= 0.01\\
 Pr[\neg C] &amp;= 0.99
-\end{align}$</p>
+\end{align}$
+</p>
 
 <p>Now you get a positive test result. How likely is it that you have cancer? In other words: Calculate $Pr[C|+]$</p>
 
-<p>$\begin{align}
-Pr[C|+]      &amp;= \frac{Pr[C, +]}{Pr[+]} = \frac{0.009}{0.207} = \frac{1}{23} \approx 0.043\
-Pr[\neg C|+] &amp;= 1 - \frac{1}{23} = \frac{22}{23} \approx 0.957\
-Pr[C|-]      &amp;= \frac{0.001}{0.793} = \frac{1}{793} \approx 0.001\
+<p>
+   $\begin{align}
+Pr[C|+]      &amp;= \frac{Pr[C, +]}{Pr[+]} = \frac{0.009}{0.207} = \frac{1}{23} \approx 0.043\\
+Pr[\neg C|+] &amp;= 1 - \frac{1}{23} = \frac{22}{23} \approx 0.957\\
+Pr[C|-]      &amp;= \frac{0.001}{0.793} = \frac{1}{793} \approx 0.001\\
 Pr[\neg C|-] &amp;= 1 - \frac{1}{793} = \frac{792}{793} \approx 0.999
-\end{align}$</p>
+\end{align}$
+</p>
 
 <p>How would you interpret these results? I'd say:
 When you get a positive result you shouldn't really worry. But perhaps you should make other tests.
@@ -214,14 +222,14 @@ When you get a negative results you can be very sure that you don't have cancer.
 </ul><p>First of all, I compare some intermediate results
 $
 \begin{align}
-Pr[++] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[+|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[+|\neg C]\
-       &amp;= 0.477 \neq 0.042849 = 0.207^2 = (Pr[+])^2\
-Pr[+-] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[-|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[-|\neg C] \
-       &amp;= 0.01 \cdot 0.9 \cdot 0.1 + 0.99 \cdot 0.2 \cdot 0.8\
-       &amp;= 0.1593\
-Pr[C,+,+] &amp;= Pr[C] \cdot Pr[+ | C]^2 = 0.01 \cdot 0.9^2 = 0.0081\
-Pr[C,+,-] &amp;= Pr[C] \cdot Pr[+ | C] \cdot Pr[-|C] = 0.01 \cdot 0.9 \cdot 0.1 = 0.0009\
-Pr[C|++] &amp;= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207^2} = \frac{9}{530} \approx 0.170\
+Pr[++] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[+|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[+|\neg C]\\
+       &amp;= 0.477 \neq 0.042849 = 0.207^2 = (Pr[+])^2\\
+Pr[+-] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[-|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[-|\neg C] \\
+       &amp;= 0.01 \cdot 0.9 \cdot 0.1 + 0.99 \cdot 0.2 \cdot 0.8\\
+       &amp;= 0.1593\\
+Pr[C,+,+] &amp;= Pr[C] \cdot Pr[+ | C]^2 = 0.01 \cdot 0.9^2 = 0.0081\\
+Pr[C,+,-] &amp;= Pr[C] \cdot Pr[+ | C] \cdot Pr[-|C] = 0.01 \cdot 0.9 \cdot 0.1 = 0.0009\\
+Pr[C|++] &amp;= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207^2} = \frac{9}{530} \approx 0.170\\
 Pr[C|+-] &amp;= \frac{Pr[C,+,-]}{Pr[+-]} = \frac{0.0009}{0.1593} = \frac{1}{177} \approx 0.006
 \end{align}
 $</p>

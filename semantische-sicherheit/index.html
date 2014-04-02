@@ -12,7 +12,7 @@
 
 
     <title>Semantische Sicherheit</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -75,13 +75,13 @@
 						<div class="entry">
                             <p>In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst $\mathcal{P} \neq \mathcal{NP}$ beweisen müsste. Warum das so ist, versuche ich nun zu erläutern.</p>
 
-<h2 id="tocAnchor-1-1">Einwegfunktionen und $\mathcal{P} \neq \mathcal{NP}$</h2>
+<h2 id="tocAnchor-1-1">Einwegfunktionen und `$\mathcal{P} \neq \mathcal{NP}$`</h2>
 
 <div class="definition">
-Sei $f:X \rightarrow Y$ eine Funktion.
-$f$ heißt eine Einwegfunktion, genau dann wenn für alle $x \in X$ gilt:
-<ul><li>$y := f(x)$ kann in Polynomialzeit berechnet werden</li>
-  <li>Für die Berechnung eines Urbildes $x$ aus $y$ existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
+Sei `$f:X \rightarrow Y$` eine Funktion.
+`$f$` heißt eine Einwegfunktion, genau dann wenn für alle `$x \in X$` gilt:
+<ul><li>`$y := f(x)$` kann in Polynomialzeit berechnet werden</li>
+  <li>Für die Berechnung eines Urbildes `$x$` aus `$y$` existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
 </ul></div>
 
 <p>Es gilt: Wenn eine Einwegfunktion $f$ existiert, dann gilt $\mathcal{P} \neq \mathcal{NP}$.</p>
@@ -90,7 +90,9 @@ $f$ heißt eine Einwegfunktion, genau dann wenn für alle $x \in X$ gilt:
 
 <p>Nun, angenommen es gibt eine Einwegfunktion $f$. Dann sei die formale Sprache $L_f$ definiert durch:</p>
 
-<p>$L_f := {(\bar x, y) | \exists x: \bar x \text{ ist Präfix von } x \text{ und } y = f(x)}$</p>
+<p>
+   $L_f := \{(\bar x, y) | \exists x: \bar x \text{ ist Präfix von } x \text{ und } y = f(x)\}$
+</p>
 
 <p>Es gilt: $L_f \notin \mathcal{P}$, da für ein gegebenes $y$ das zugehörige $x$ in polynomialzeit bestimmt werden könnte (wie will man sonst prüfen, ob $\bar x$ ein Präfix von $x$ ist?)</p>
 
@@ -122,11 +124,11 @@ Wenn aber $\mathcal{NP} \setminus \mathcal{P} \neq \emptyset$, dann gilt insbeso
 <p>Herr Prof. Hofheinz hat folgende informelle Definition von Semantischer Sicherheit in der Vorlesung gegeben:</p>
 
 <div class="definition">
-Ein symmetrisches Verschlüsselungsverfahren ist semantisch sicher, wenn es für jede $M$-Verteilung, jede Funktion $f$ und jeden PPT-Algorithmus $\mathcal{A}$ einen PPT-Algorithmus $\mathcal{B}$ gibt, so dass
+Ein symmetrisches Verschlüsselungsverfahren ist semantisch sicher, wenn es für jede `$M$`-Verteilung, jede Funktion `$f$` und jeden PPT-Algorithmus `$\mathcal{A}$` einen PPT-Algorithmus `$\mathcal{B}$` gibt, so dass
 
-$Pr \left [\mathcal{A}^{\text{Enc}(K, \cdot)}(\text{Enc}(K, M)) = f(M) \right ] - Pr [\mathcal{B}(\varepsilon) = f(M)]$
+`$Pr \left [\mathcal{A}^{\text{Enc}(K, \cdot)}(\text{Enc}(K, M)) = f(M) \right ] - Pr [\mathcal{B}(\varepsilon) = f(M)]$`
 
-vernachlässigbar (als Funktion im Sicherheitsparameter $K$) ist.
+vernachlässigbar (als Funktion im Sicherheitsparameter `$K$`) ist.
 </div>
 
 <p>Hier ist 

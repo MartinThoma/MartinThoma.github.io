@@ -12,7 +12,7 @@
 
 
     <title>Wie wendet man den Transformationssatz an?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -82,16 +82,15 @@
 <p><strong>Aufgabe</strong>: Berechne $\int_Y f(x) dy$ falls es existiert.
 <strong>Vorgehensweise:</strong>
 </p><ol type="i" style="list-style-type:lower-roman;"><li>Zeige $f$ integrierbar oder $f \geq 0$ auf $Y$</li>
-   <li>Finde $A \in \mathfrak{B}_d$ und $\phi: A \rightarrow \mathbb{R}^d$ mit $\phi(A) = Y$ und den obigen Eigenschaften<br />
-$\phi$ sollte so gewählt sein, dass die späteren Rechenwege relativ einfach werden.</li>
+   <li>Finde $A \in \mathfrak{B}_d$ und $\phi: A \rightarrow \mathbb{R}^d$ mit $\phi(A) = Y$ und den obigen Eigenschaften<br />$\phi$ sollte so gewählt sein, dass die späteren Rechenwege relativ einfach werden.</li>
     <li>Berechne $\int_{Y} f(y) dy = \int_{\phi(A)} f(y) dy = \int_{A} f(\phi(x)) |\det (\phi'(x)) | dx$</li>
 </ol><h2 id="tocAnchor-1-1">Beispiele</h2>
 
-<p>Sei $Y := {(x,y) \in \mathbb{R}^2 | 1 \leq | (2,2) - (x,y)| \leq 2}$.
-Setze $\phi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit $\phi(r, \varphi) := \begin{pmatrix}2\2\end{pmatrix} + r \cdot \begin{pmatrix}\cos(\varphi)\ \sin(\varphi) \end{pmatrix}$</p>
+<p>Sei $Y := \{(x,y) \in \mathbb{R}^2 | 1 \leq \| (2,2) - (x,y)\| \leq 2\}$.
+Setze $\phi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit $\phi(r, \varphi) := \begin{pmatrix}2\\2\end{pmatrix} + r \cdot \begin{pmatrix}\cos(\varphi)\\ \sin(\varphi) \end{pmatrix}$</p>
 
 <p>$\phi \in C^1(\mathbb{R}^2, \mathbb{R}^2)$ und für $r \in \mathbb{R}$ gilt $\det \phi'(r, \varphi) = \det \left ( \begin{array}{cc}
-\cos(\varphi) &amp; - r \sin(\varphi)\
+\cos(\varphi) &amp; - r \sin(\varphi)\\
 \sin(\varphi) &amp; r \cos (\varphi)
 \end{array} \right ) = r$</p>
 
@@ -103,11 +102,11 @@ Setze $\phi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit $\phi(r, \varphi) := \b
 
 <p>Außerdem: 
 $\begin{align}
-\int_Y f(y) dy &amp;= \int_\phi(A) f(y) dy \
-&amp;\stackrel{Tr}{=} \int_A f(\phi(r, \varphi)) |\det \phi'(r, \varphi)| d(r, \varphi) \
-&amp;= \int_A r(2 + r \cos(y) - 2 - r \sin(\varphi)) d(r, \varphi) \
-&amp;= \int_1^2 (\int_0^{2\pi} r^2 (\cos \varphi - \sin \varphi d \varphi) dr \
-&amp;= \underbrace{(\int_1^2 r^2 dr)}_{&lt; \infty} \underbrace{(\int_0^{2\pi} \cos \varphi - \sin \varphi d \varphi)}_{= 0}\
+\int_Y f(y) dy &amp;= \int_\phi(A) f(y) dy \\
+&amp;\stackrel{Tr}{=} \int_A f(\phi(r, \varphi)) |\det \phi'(r, \varphi)| d(r, \varphi) \\
+&amp;= \int_A r(2 + r \cos(y) - 2 - r \sin(\varphi)) d(r, \varphi) \\
+&amp;= \int_1^2 (\int_0^{2\pi} r^2 (\cos \varphi - \sin \varphi d \varphi) dr \\
+&amp;= \underbrace{(\int_1^2 r^2 dr)}_{&lt; \infty} \underbrace{(\int_0^{2\pi} \cos \varphi - \sin \varphi d \varphi)}_{= 0}\\
 &amp;= 0
 \end{align}$</p>
 						</div>

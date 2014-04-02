@@ -12,7 +12,7 @@
 
 
     <title>How do I calculate a Histogram equalization?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -75,10 +75,12 @@
 						<div class="entry">
                             <p>Let's say you have the following greyscale image:</p>
 
-<p>$A = \begin{pmatrix}
-255 &amp; 50 &amp; 255\
+<p>
+   $A = \begin{pmatrix}
+255 &amp; 50 &amp; 255\\
 0   &amp; 50 &amp; 50
-\end{pmatrix}$</p>
+\end{pmatrix}$
+</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -102,25 +104,31 @@
 
 <p>The histogram of $A$ is</p>
 
-<p>$H(x) := \begin{cases}
-1 &amp;\text{, if } x = 0\
-3 &amp;\text{, if } x = 50\
+<p>
+   $H(x) := \begin{cases}
+1 &amp;\text{, if } x = 0\\
+3 &amp;\text{, if } x = 50\\
 2 &amp;\text{, if } x = 255
-\end{cases}$</p>
+\end{cases}$
+</p>
 
 <h2 id="tocAnchor-1-2">Accumulated histogram</h2>
 
 <p>The accumulated histogram $H_\alpha: [0,255] \rightarrow \mathbb{N}_0$ is defined as</p>
 
-<p>$H_\alpha(x) := \sum_{i=0}^x H(i)$</p>
+<p>
+   $H_\alpha(x) := \sum_{i=0}^x H(i)$
+</p>
 
 <p>This means, in the given example you get</p>
 
-<p>$H_\alpha(x) := \begin{cases}
-1 &amp;\text{, if } x &lt; 50\
-4 &amp;\text{, if } 50 \leq x &lt; 255\
+<p>
+   $H_\alpha(x) := \begin{cases}
+1 &amp;\text{, if } x &lt; 50\\
+4 &amp;\text{, if } 50 \leq x &lt; 255\\
 6 &amp;\text{, if } x = 255
-\end{cases}$</p>
+\end{cases}$
+</p>
 
 <h2 id="tocAnchor-1-3">Normalized histogram</h2>
 
@@ -128,18 +136,22 @@
 
 <p>In our example it's:</p>
 
-<p>$H_n(x) := \begin{cases}
-43 &amp;\text{, if } x &lt; 50\
-170 &amp;\text{, if } 50 \leq x &lt; 255\
+<p>
+   $H_n(x) := \begin{cases}
+43 &amp;\text{, if } x &lt; 50\\
+170 &amp;\text{, if } 50 \leq x &lt; 255\\
 255 &amp;\text{, if } x = 255
-\end{cases}$</p>
+\end{cases}$
+</p>
 
 <p>So the resulting image is</p>
 
-<p>$A = \begin{pmatrix}
-255 &amp; 170 &amp; 255\
+<p>
+   $A = \begin{pmatrix}
+255 &amp; 170 &amp; 255\\
 43  &amp; 170 &amp; 170
-\end{pmatrix}$</p>
+\end{pmatrix}$
+</p>
 
 <h2 id="tocAnchor-1-4">See also</h2>
 

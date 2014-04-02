@@ -12,7 +12,7 @@
 
 
     <title>Zero Mean Normalized Cross-Correlation</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -107,7 +107,9 @@
 
 <p>Go through all pixels, get the difference of both and add up the squares:</p>
 
-<p>$\displaystyle SSD(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \sum_{i=-n}^n \sum_{j=-n}^n \left ( Img_1(u_1+i, v_1+j) - Img_2(u_2 + i, v_2 + j) \right )^2$</p>
+<p>
+   $\displaystyle SSD(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \sum_{i=-n}^n \sum_{j=-n}^n \left ( Img_1(u_1+i, v_1+j) - Img_2(u_2 + i, v_2 + j) \right )^2$
+</p>
 
 <p>When SSD is small, both images are very similar. Wehn SSD is 0, the images are identical.</p>
 
@@ -121,7 +123,9 @@ $\displaystyle \sigma(u, v, n) := \sqrt{\frac{1}{(2n+1)^2} \left (\sum_{i=-n} \s
 
 <p>The ZNCC is defined as:</p>
 
-<p>$\displaystyle ZNCC(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \frac{\frac{1}{(2n+1)^2}\sum_{i=-n}^n \sum_{j=-n}^n \prod_{t=1}^2 \left (Img_t (u_t+i,v_t+j) - \overline{Img}(u_t, v_t, n) \right )}{\sigma_1(u_1, v_1, n) \cdot \sigma_2(u_2, v_2, n)}$</p>
+<p>
+   $\displaystyle ZNCC(Img_1, Img_2, u_1, v_1, u_2, v_2, n) := \frac{\frac{1}{(2n+1)^2}\sum_{i=-n}^n \sum_{j=-n}^n \prod_{t=1}^2 \left (Img_t (u_t+i,v_t+j) - \overline{Img}(u_t, v_t, n) \right )}{\sigma_1(u_1, v_1, n) \cdot \sigma_2(u_2, v_2, n)}$
+</p>
 
 <p>The higher the ZNCC gets, the more are those two images correlated.
 (I think the value is always in [0, 1])</p>

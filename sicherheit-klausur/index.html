@@ -12,7 +12,7 @@
 
 
     <title>Sicherheit-Klausur</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -135,19 +135,19 @@
       </tr><tr><th>verschl.</th>
         <th>entschl.</th>
       </tr><tr><td>ECB</td>
-        <td>$c_i = ENC(K, m_i)$<br />$m_i = DEC(K, m_i)$</td>
+        <td>`$c_i = ENC(K, m_i)$`<br />`$m_i = DEC(K, m_i)$`</td>
         <td>Ja</td>
         <td>Ja</td>
       </tr><tr><td>CBC</td>
-        <td>$c_i = ENC(K, m_i \oplus c_{i-1})$<br />$m_i = DEC(K, c_i) \oplus c_{i-1}$</td>
+        <td>`$c_i = ENC(K, m_i \oplus c_{i-1})$`<br />`$m_i = DEC(K, c_i) \oplus c_{i-1}$`</td>
         <td>Nein</td>
         <td>Ja</td>
       </tr><tr><td>CFB</td>
-        <td>$c_i = m_i \oplus ENC(K, c_{i-1})$<br />$m_i = c_i \oplus ENC(K, c_{i-1})$</td>
+        <td>`$c_i = m_i \oplus ENC(K, c_{i-1})$`<br />`$m_i = c_i \oplus ENC(K, c_{i-1})$`</td>
         <td>Nein</td>
         <td>Ja</td>
       </tr><tr><td>OFB</td>
-        <td>$c_i = m_i \oplus ENC(K, IV)^i$<br />$m_i = c_i \oplus ENC(K, IV)^i$</td>
+        <td>`$c_i = m_i \oplus ENC(K, IV)^i$`<br />`$m_i = c_i \oplus ENC(K, IV)^i$`</td>
         <td>Nein</td>
         <td>Nein</td>
       </tr></table><a href="http://commons.wikimedia.org/wiki/File:DES-main-network.png">DES-Feistelstruktur</a>
@@ -161,7 +161,7 @@
    <tr><td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">VL 03</a></td>
 </tr>
    <tr><td>29.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="128 Bit, 160 Bit und 256 Bit hashes sind üblich">Hashfunktionen</span>, <a href="../kollisionsresistente-hashfunktionen-und-einwegfunktionen/">Kollisionsresistenz $\Rightarrow$ Einwegeigenschaft</a>, <span class="hint" title="Beeinflusste MD5, SHA-1, SHA-2. SHA-3 benutzt MD nicht.">Merkle-Damgard-Konstruktion</span> und Length-Extension-Problematik, Birthday Attack, Meet-in-the-Middle-Angriff</td>
+<td rowspan="2" style="border-bottom:1px solid black;"><span class="hint" title="128 Bit, 160 Bit und 256 Bit hashes sind üblich">Hashfunktionen</span>, <a href="../kollisionsresistente-hashfunktionen-und-einwegfunktionen/">Kollisionsresistenz `$\Rightarrow$` Einwegeigenschaft</a>, <span class="hint" title="Beeinflusste MD5, SHA-1, SHA-2. SHA-3 benutzt MD nicht.">Merkle-Damgard-Konstruktion</span> und Length-Extension-Problematik, Birthday Attack, Meet-in-the-Middle-Angriff</td>
 </tr>
    <tr><td style="border-bottom:1px solid black;"><a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL04.pdf">VL 04</a></td>
 </tr>
@@ -230,36 +230,36 @@
 <h2 id="tocAnchor-1-2">Definitionen und Sätze</h2>
 
 <div class="definition">
-Eine über $k$ parametrisierte Funktion $H$ ist <strong>kollisionsresistent</strong>, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit eine Kollision findet.
+Eine über `$k$` parametrisierte Funktion `$H$` ist <strong>kollisionsresistent</strong>, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit eine Kollision findet.
 
-Für jeden PPT-Algorithmus $\mathcal{A}$ ist
+Für jeden PPT-Algorithmus `$\mathcal{A}$` ist
 
-$Adv^{cr}_{H,\mathcal{A}}(k) := Pr[(X,X') \leftarrow \mathcal{A}(1^k): X \neq X' \land H_k(X) = H_k(X')]$
+`$Adv^{cr}_{H,\mathcal{A}}(k) := Pr[(X,X') \leftarrow \mathcal{A}(1^k): X \neq X' \land H_k(X) = H_k(X')]$`
 
 vernachlässigbar.
 </div>
 
 <div class="definition">
-Eine über $k$ parametrisierte Funktion $H$ ist eine <strong>Einwegfunktion</strong> bzgl. der Urbildverteilung $\mathcal{X}_k$, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit ein Urbild eines gegebenen, aus $\mathcal{X}_k$ gezogenen Bildes findet.
+Eine über `$k$` parametrisierte Funktion `$H$` ist eine <strong>Einwegfunktion</strong> bzgl. der Urbildverteilung `$\mathcal{X}_k$`, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit ein Urbild eines gegebenen, aus `$\mathcal{X}_k$` gezogenen Bildes findet.
 
-Für jeden PPT-Algorithmus $\mathcal{A}$ ist 
+Für jeden PPT-Algorithmus `$\mathcal{A}$` ist 
 
-$Adv^{cr}_{H,\mathcal{A}}(k) := Pr[X' \leftarrow \mathcal{A}(1^k, H(X)): H(X) = H(X')]$
+`$Adv^{cr}_{H,\mathcal{A}}(k) := Pr[X' \leftarrow \mathcal{A}(1^k, H(X)): H(X) = H(X')]$`
 
-vernachlässigbar, wobei $X \leftarrow \mathcal{X}_k$ gewählt wurde.
+vernachlässigbar, wobei `$X \leftarrow \mathcal{X}_k$` gewählt wurde.
 </div>
 
 <div class="theorem">
-Jede kollisionsresistente Hashfunktion $H:\{0,1\}^* \rightarrow \{0,1\}^k$ ist eine Einwegfunktion bzgl. der Gleichverteilung auf $\{0,1\}^{2k}$.
+Jede kollisionsresistente Hashfunktion `$H:\{0,1\}^* \rightarrow \{0,1\}^k$` ist eine Einwegfunktion bzgl. der Gleichverteilung auf `$\{0,1\}^{2k}$`.
 </div>
 
 <div class="theorem">
-Ist $f$ eine kollisionsresistente Hashfunktion, so ist die Merkle–Damgård-Konstruktion mit $f$ kollisionsresistent.
+Ist `$f$` eine kollisionsresistente Hashfunktion, so ist die Merkle–Damgård-Konstruktion mit `$f$` kollisionsresistent.
 </div>
 
 <div class="theorem">
 Hash-Then-Sign-Paradigma: Sei (Sig, Ver) EUF-CMA-sicher und H eine kollisionsresistente Hashfunktion.
-Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M), $\sigma$) erklärte <abbr title="Message Authentification Code">MAC</abbr> EUF-CMA-sicher.
+Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, `$\sigma$`) = Ver(K, H(M), `$\sigma$`) erklärte <abbr title="Message Authentification Code">MAC</abbr> EUF-CMA-sicher.
 </div>
 
 <h2 id="tocAnchor-1-3">Fragen</h2>
@@ -267,7 +267,7 @@ Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, $\sigma$) = Ver(K, H(M)
 <div class="question">
 <span class="question">Wann ist ein Verschlüsselungsschema IND-CPA-sicher?</span>
 <div class="answer">
-IND-CPA bedeutet „indistinguishability under chosen-plaintext attacks“. Ein Verschlüsselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer $\mathcal{A}$ Chiffrate von selbstgewählten Klartexten unterscheiden kann.
+IND-CPA bedeutet „indistinguishability under chosen-plaintext attacks“. Ein Verschlüsselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer `$\mathcal{A}$` Chiffrate von selbstgewählten Klartexten unterscheiden kann.
 </div>
 
 <p></p></div>
@@ -275,10 +275,10 @@ IND-CPA bedeutet „indistinguishability under chosen-plaintext attacks“. Ein 
 <div class="question">
 <span class="question">Wann ist eine Signatur EUF-CMA-sicher?</span>
 <div class="answer">
-EUF-CMA bedeutet „existentially unforgeable under chosen-message attacks“. Eine Signatur ist genau dann EUF-CMA-Sicher, wenn alle PPT-Angreifer $\mathcal{A}$ folgendes Spiel nur vernachlässigbar oft gewinnen:
-<ul><li>$\mathcal{A}$ hat Zugriff auf ein $Sig(K, \cdot)$-Orakel</li>
-  <li>$\mathcal{A}$ gibt als Ausgabe $(M^*, \sigma^*)$</li>
-  <li>$\mathcal{A}$ gewinnt, wenn $Ver(K, M^*, \sigma^*) = 1$ und $M^*$ „frisch“ ist</li>
+EUF-CMA bedeutet „existentially unforgeable under chosen-message attacks“. Eine Signatur ist genau dann EUF-CMA-Sicher, wenn alle PPT-Angreifer `$\mathcal{A}$` folgendes Spiel nur vernachlässigbar oft gewinnen:
+<ul><li>`$\mathcal{A}$` hat Zugriff auf ein `$Sig(K, \cdot)$`-Orakel</li>
+  <li>`$\mathcal{A}$` gibt als Ausgabe `$(M^*, \sigma^*)$`</li>
+  <li>`$\mathcal{A}$` gewinnt, wenn `$Ver(K, M^*, \sigma^*) = 1$` und `$M^*$` „frisch“ ist</li>
 </ul></div>
 
 <p></p></div>
@@ -304,26 +304,26 @@ Die Merkle–Damgård-Konstruktion ist eine Methode zur Konstruktion von kryptog
 <div class="question">
 <span class="question">Wie funktioniert RSA?</span>
 <div class="answer">
-<ol><li>Generiere zwei Primzahlen $p, q \in \mathbb{P}$</li>
-  <li>Berechne $n := p \cdot q$ und $\varphi(n) = (p-1) \cdot (q-1)$</li>
-  <li>Wähle $e$, sodass gilt: $ggT(e, \varphi(n)) = 1$ und $1 
-  </li><li>Berechne $d$, sodass gilt: $e \cdot d \equiv 1 \mod \varphi(n)$</li>
+<ol><li>Generiere zwei Primzahlen `$p, q \in \mathbb{P}$`</li>
+  <li>Berechne `$n := p \cdot q$` und `$\varphi(n) = (p-1) \cdot (q-1)$`</li>
+  <li>Wähle `$e$`, sodass gilt: `$ggT(e, \varphi(n)) = 1$` und `$1 
+  </li><li>Berechne `$d$`, sodass gilt: `$e \cdot d \equiv 1 \mod \varphi(n)$`</li>
 </ol>
 
-Verschlüsselung einer Nachricht $m$: $c = m^{e} \mod n$
-Verschlüsselung eines Ciphertextes $c$: $m = c^{d} \mod n$
+Verschlüsselung einer Nachricht `$m$`: `$c = m^{e} \mod n$`
+Verschlüsselung eines Ciphertextes `$c$`: `$m = c^{d} \mod n$`
 </div>
 
 <p></p></div>
 
 <div class="question">
-<span class="question">Welches Problem birgt ein kleines $e$ beim RSA-Verfahren?</span>
+<span class="question">Welches Problem birgt ein kleines `$e$` beim RSA-Verfahren?</span>
 <div class="answer">
-Folgender Angriff ist für $e=3$ möglich:
-<ul><li>Nachricht $m$ wird an 3 Benutzer geschickt</li>
-  <li>Angreifer kennt Chiffrate für $N_1, N_2, N_3$.</li>
-  <li>Chinesischer Restsatz für $m^3 \mod N_1 N_2 N_3$.</li>
-  <li>Wurzelziehen über $\mathbb{Z}$ liefert $m$</li>
+Folgender Angriff ist für `$e=3$` möglich:
+<ul><li>Nachricht `$m$` wird an 3 Benutzer geschickt</li>
+  <li>Angreifer kennt Chiffrate für `$N_1, N_2, N_3$`.</li>
+  <li>Chinesischer Restsatz für `$m^3 \mod N_1 N_2 N_3$`.</li>
+  <li>Wurzelziehen über `$\mathbb{Z}$` liefert `$m$`</li>
 </ul></div>
 
 <p></p></div>
@@ -333,11 +333,11 @@ Folgender Angriff ist für $e=3$ möglich:
 <div class="answer">
 Homomorphie ist folgende (unerwünschte) Eigenschaft:
 
-$\begin{align}
+`$\begin{align}
 Enc(pk, m_1) \cdot Enc(pk, m_2) &amp;= m_1^e \cdot m_2^e\\
 &amp;= (m_1 \cdot m_2)^e \\
 &amp;= Enc(pk, m_1 \cdot m_2)
-\end{align}$
+\end{align}$`
 
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
 Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.
@@ -350,7 +350,7 @@ Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. D
 <div class="answer">
 Spezielle symmetrische Signaturen, die wie folgt aufgebaut sind:
 
-$Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
+`$Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$`
 </div>
 
 <p></p></div>
@@ -358,12 +358,12 @@ $Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$
 <div class="question">
 <span class="question">Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</span>
 <div class="answer">
-<ol><li>Wähle eine zyklische Gruppe $\mathbb{G} = \langle g \rangle$.</li>
-  <li>$pk = (\mathbb{G}, g, g^x)$, $sk=(\mathbb{G}, g, x)$, wobei $x$ zufällig gewählt wird.</li>
+<ol><li>Wähle eine zyklische Gruppe `$\mathbb{G} = \langle g \rangle$`.</li>
+  <li>`$pk = (\mathbb{G}, g, g^x)$`, `$sk=(\mathbb{G}, g, x)$`, wobei `$x$` zufällig gewählt wird.</li>
 </ol>
 
-Verschlüsselung einer Nachricht $m$: $Enc(pk, m) = (g^y, g^{xy} \cdot m)$ mit zufälligem $y$ → Verschlüsselung ist zufällig!
-Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$
+Verschlüsselung einer Nachricht `$m$`: `$Enc(pk, m) = (g^y, g^{xy} \cdot m)$` mit zufälligem `$y$` → Verschlüsselung ist zufällig!
+Verschlüsselung eines Ciphertextes `$c$`: `$Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$`
 </div>
 
 <p></p></div>
@@ -372,7 +372,7 @@ Verschlüsselung eines Ciphertextes $c$: $Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \fra
 <span class="question">Wie funktioniert das Kerberos-Schlüsselaustauschprotokoll?</span>
 <div class="answer">
 <ul><li>Alice schreibt dem <abbr title="Key Center">KC</abbr>, dass Alice und Bob gerne einen Schlüsselaustausch vornehmen wollen.</li>
-  <li>Das KC schickt Alice ihren Schlüssel $K_A$, den sie für die Kommunikation mit Bob verwenden kann. Zusätzlich wird ein Zeitstempel $T_{KC}$, eine Gültigkeitsdauer $L$ sowie ein frischer Schlüssel $K$ übertragen.</li>
+  <li>Das KC schickt Alice ihren Schlüssel `$K_A$`, den sie für die Kommunikation mit Bob verwenden kann. Zusätzlich wird ein Zeitstempel `$T_{KC}$`, eine Gültigkeitsdauer `$L$` sowie ein frischer Schlüssel `$K$` übertragen.</li>
   <li>TODO!!!!</li>
 </ul>
 
@@ -408,7 +408,7 @@ Eine Blockciffre im CBC-Modus
 <div class="question">
 <span class="question">Nennen Sie Verfahren, die EUF-CMA-sicher sind.</span>
 <div class="answer">
-Sei PRF: $\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$ eine PRF und $H:\{0,1\}^* \rightarrow \{0,1\}^k$ eine kollisionsresistente Hashfunktion. Dann ist der durch $Sig(K, M) = PRF(K, H(M))$ gegebene MAC EUF-CMA-sicher.
+Sei PRF: `$\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$` eine PRF und `$H:\{0,1\}^* \rightarrow \{0,1\}^k$` eine kollisionsresistente Hashfunktion. Dann ist der durch `$Sig(K, M) = PRF(K, H(M))$` gegebene MAC EUF-CMA-sicher.
 </div>
 
 <p></p></div>

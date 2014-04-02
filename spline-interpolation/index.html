@@ -12,7 +12,7 @@
 
 
     <title>Spline interpolation</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -114,38 +114,44 @@
 <p>A way to solve this problem are splines. A spline is a piecewise-defined function that goes through some points (aka knots) and is smooth. </p>
 
 <p>More formally: Let $s: [x_0,x_n] \rightarrow \mathbb{R}$ be a spline. Then:
-</p><ol style="list-style-type: none;"><li>(S1) <strong>cubic</strong>: $\forall i \in {1, \dots, n}: s|_{x_{i-1}, x_i}$ is a cubic function</li>
-  <li>(S2) <strong>interpolation</strong>: $\forall i \in {0, \dots, n}: s(x_i) = y_i$</li>
+</p><ol style="list-style-type: none;"><li>(S1) <strong>cubic</strong>: $\forall i \in \{1, \dots, n\}: s|_{x_{i-1}, x_i}$ is a cubic function</li>
+  <li>(S2) <strong>interpolation</strong>: $\forall i \in \{0, \dots, n\}: s(x_i) = y_i$</li>
   <li>(S3) <strong>smooth</strong>: $s \in C^2([x_0, x_n])$ and $\int_{x_0}^{x_n} s''(x)^2 \mathrm{d}x$ is minimal</li> 
 </ol><p>When you use a cubic function $a x^3 + b x^2 + cx + d$ for each of the $n$ intervals that we got by our $n+1$ points, you have $4n$ variables that you need to calculate.</p>
 
 <p>Condition (S2) gives two equations per interval which makes $2n$ equations of the form:</p>
 
-<p>$
+<p>
+   $
 \begin{align}
-y_i     &amp;= a_i x_i^3     &amp;&amp;+ b_i x_i^2     &amp;&amp;+ c_i x_i     &amp;&amp;+ d_i\
+y_i     &amp;= a_i x_i^3     &amp;&amp;+ b_i x_i^2     &amp;&amp;+ c_i x_i     &amp;&amp;+ d_i\\
 y_{i+1} &amp;= a_i x_{i+1}^3 &amp;&amp;+ b_i x_{i+1}^2 &amp;&amp;+ c_i x_{i+1} &amp;&amp;+ d_i
 \end{align}
-$</p>
+$
+</p>
 
 <p>At first glance condition (S3) - $s \in C^2([x_0, x_n])$ - seems to be redundant with (S1) - $s$ is piecewise cubic. Every polynomial is in $C^\infty(\mathbb{R})$, so it certainly is in $C^2([x_0, x_n])$.<br />
 That's correct. But $s$ is not a polynomial. It's only piecewise-defined as a polynomial. That makes a difference at the ends of the intervals. And it gives us $2n-2$ more equations:</p>
 
-<p>$\displaystyle
+<p>
+   $\displaystyle
 \begin{align}
-s_i' (x_{i}) &amp;= s_{i+1}'(x_{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\
+s_i' (x_{i}) &amp;= s_{i+1}'(x_{i}) \;\;\;  &amp;&amp;\forall i=1, \dots, n-1\\
 s_i''(x_{i}) &amp;= s_{i+1}''(x_{i}) \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$</p>
+$
+</p>
 
 <p>which is equivalent to</p>
 
-<p>$\displaystyle
+<p>
+   $\displaystyle
 \begin{align}
-3a_i x_i^2 + 2b_i x_i + c_i &amp;= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\
+3a_i x_i^2 + 2b_i x_i + c_i &amp;= 3a_{i+1} x_i^2 + 2b_{i+1} x_i + c_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1\\
 6a_i x_i + 2b_i &amp;= 6a_{i+1} x_i + 2b_{i+1} \;\;\; &amp;&amp;\forall i=1, \dots, n-1
 \end{align}
-$</p>
+$
+</p>
 
 <p>All equations we have are linear. Please note that the variables we want to determine are $a_i, b_i, c_i, d_i$. So $x_i^3$ is simply a multiplicative constant that we have to evaluate before we solve our system of equations.</p>
 
@@ -153,10 +159,10 @@ $</p>
 
 <h2 id="tocAnchor-1-3">Possible ancillary conditions</h2>
 
-<ul><li><strong>natural splines</strong>: $s''(x_0) =0, \;\;\; s''(x_n) = 0$</li>
-  <li><strong>clamped splines</strong>: $s'(x_0) = f'(x_0),\;\;\; s'(x_n)= f'(x_n)$ where $y_0'$ and $y_n'$ can be any value</li>
-  <li><strong>periodic</strong>: $s'(x_0) = s'(x_n), \;\;\; s''(x_0) = s''(x_n)$</li>
-  <li><strong>not-a-knot</strong>: $s_1''' = s_2''', \;\;\; s_{n-1}''' = s_{n}'''$</li>
+<ul><li><strong>natural splines</strong>: `$s''(x_0) =0, \;\;\; s''(x_n) = 0$`</li>
+  <li><strong>clamped splines</strong>: `$s'(x_0) = f'(x_0),\;\;\; s'(x_n)= f'(x_n)$` where `$y_0'$` and `$y_n'$` can be any value</li>
+  <li><strong>periodic</strong>: `$s'(x_0) = s'(x_n), \;\;\; s''(x_0) = s''(x_n)$`</li>
+  <li><strong>not-a-knot</strong>: `$s_1''' = s_2''', \;\;\; s_{n-1}''' = s_{n}'''$`</li>
 </ul><p>George MacKerron shows how the results can differ in his article <a href="http://blog.mackerron.com/2011/01/01/javascript-cubic-splines/">Cubic splines in JavaScript (via CoffeeScript)</a>:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">

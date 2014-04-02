@@ -12,7 +12,7 @@
 
 
     <title>When is matrix multiplication commutative?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -77,22 +77,24 @@
 
 <p>$A, B \in R^{2 \times 2}$
 $A := \begin{pmatrix} 
- 1 &amp; 2 \
+ 1 &amp; 2 \\
  3 &amp; 4
 \end{pmatrix}$
 $B := \begin{pmatrix} 
- 5 &amp; 6 \
+ 5 &amp; 6 \\
  7 &amp; 8
 \end{pmatrix}$</p>
 
-<p>$A \cdot B = \begin{pmatrix} 
- 19 &amp; 22 \
+<p>
+   $A \cdot B = \begin{pmatrix} 
+ 19 &amp; 22 \\
  43 &amp; 50
 \end{pmatrix} \neq 
 \begin{pmatrix} 
- 23 &amp; 34 \
+ 23 &amp; 34 \\
  31 &amp; 46
-\end{pmatrix} = B \cdot A$</p>
+\end{pmatrix} = B \cdot A$
+</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -123,74 +125,84 @@ $B := \begin{pmatrix}
    </ul>
 </div><h2 id="tocAnchor-1-1">When is 2x2 matrix multiplication commutative?</h2>
 
-<p>$\begin{pmatrix} 
- a &amp; b \
+<p>
+   $\begin{pmatrix} 
+ a &amp; b \\
  c &amp; d
 \end{pmatrix} \cdot 
 \begin{pmatrix} 
- e &amp; f \
+ e &amp; f \\
  g &amp; h
 \end{pmatrix} = 
 \begin{pmatrix}
-ae + bg &amp; af + bh \
+ae + bg &amp; af + bh \\
 ce + dg &amp; cf + dh
-\end{pmatrix}$</p>
+\end{pmatrix}$
+</p>
 
-<p>$\begin{pmatrix} 
- e &amp; f \
+<p>
+   $\begin{pmatrix} 
+ e &amp; f \\
  g &amp; h
 \end{pmatrix} \cdot
 \begin{pmatrix} 
- a &amp; b \
+ a &amp; b \\
  c &amp; d
 \end{pmatrix} = 
 \begin{pmatrix}
-ae + cf &amp; be + df \
+ae + cf &amp; be + df \\
 ag + ch &amp; bg + dh
-\end{pmatrix}$</p>
+\end{pmatrix}$
+</p>
 
 <p>So you get four equations:
 $\begin{eqnarray*}
-I)   &amp; ae + bg &amp;= ae + cf &amp;\Leftrightarrow bg = cf \
-II)  &amp; af + bh &amp;= be + df\
-III) &amp; ce + dg &amp;= ag + ch\
+I)   &amp; ae + bg &amp;= ae + cf &amp;\Leftrightarrow bg = cf \\
+II)  &amp; af + bh &amp;= be + df\\
+III) &amp; ce + dg &amp;= ag + ch\\
 IV)  &amp; cf + dh &amp;= bg + dh &amp;\Leftrightarrow cf = bg
 \end{eqnarray*}$</p>
 
 <p>You might note that (I) is the same as (IV). So you have those equations:
 $\begin{eqnarray*}
-I)   &amp; bg = cf \
-II)  &amp; af + bh &amp;= be + df &amp; \Leftrightarrow f (a - d) = b (e - h)\
+I)   &amp; bg = cf \\
+II)  &amp; af + bh &amp;= be + df &amp; \Leftrightarrow f (a - d) = b (e - h)\\
 III) &amp; ce + dg &amp;= ag + ch &amp; \Leftrightarrow g (a - d) = c (e - h)
 \end{eqnarray*}$</p>
 
 <h3 id="tocAnchor-1-1-1">Case #1: a != d and e != h</h3>
 
-<p>$\begin{eqnarray*}
-I)   &amp; bg          &amp;= cf \
+<p>
+   $\begin{eqnarray*}
+I)   &amp; bg          &amp;= cf \\
 II)  &amp; \frac{f}{g} &amp;= \frac{b}{c} \Leftrightarrow cf = bg
-\end{eqnarray*}$</p>
+\end{eqnarray*}$
+</p>
 
 <p>Now (I) and (II) are essentially the same. So we only demand that $ bg = cf$ and $a \neq d$ and $e \neq h$ for commutative matrix multiplication of $2 \times 2$ matrices.</p>
 
 <h3 id="tocAnchor-1-1-2">Case #2.1: a == d</h3>
 
-<p>$\begin{eqnarray*}
-I)   &amp; bg &amp;= cf \
-II)  &amp; 0  &amp;= b (e - h)\
+<p>
+   $\begin{eqnarray*}
+I)   &amp; bg &amp;= cf \\
+II)  &amp; 0  &amp;= b (e - h)\\
 III) &amp; 0  &amp;= c (e - h)
-\end{eqnarray*}$</p>
+\end{eqnarray*}$
+</p>
 
 <p>So you end up with:
 ($e = h$ and $bg = cf$) or ($b = c = 0$)</p>
 
 <h3 id="tocAnchor-1-1-3">Case #2.2: e == h</h3>
 
-<p>$\begin{eqnarray*}
-I)   &amp; bg &amp;= cf \
-II)  &amp; f (a - d) &amp;= 0\
+<p>
+   $\begin{eqnarray*}
+I)   &amp; bg &amp;= cf \\
+II)  &amp; f (a - d) &amp;= 0\\
 III) &amp; g (a - d) &amp;= 0
-\end{eqnarray*}$</p>
+\end{eqnarray*}$
+</p>
 
 <p>So you end up with:
 ($a = d$ and $bg = cf$) or ($f = g = 0$)</p>
@@ -210,27 +222,29 @@ III) &amp; g (a - d) &amp;= 0
 <strong>Proof</strong>:
 As A and B are simultaneous diagonalizable, a matrix $T \in \mathbb{R}^{n \times n}$ exists, such that $D_A = S^{-1} \cdot A \cdot S$ and $D_B = S^{-1} \cdot B \cdot S$ with $D_A$ and $D_B$ are diagonal matrices.</p>
 
-<p>$
+<p>
+   $
 \begin{align}
-\Rightarrow A \cdot B &amp;= S \cdot D_A S^{-1} \cdot  S \cdot D_B \cdot S^{-1} \
-&amp;= S \cdot D_A \cdot D_B \cdot S^{-1} \
-&amp;= S \cdot D_B \cdot D_A \cdot S^{-1} \
-&amp;= S \cdot D_B \cdot S^{-1} \cdot  S \cdot D_A \cdot S^{-1} \
+\Rightarrow A \cdot B &amp;= S \cdot D_A S^{-1} \cdot  S \cdot D_B \cdot S^{-1} \\
+&amp;= S \cdot D_A \cdot D_B \cdot S^{-1} \\
+&amp;= S \cdot D_B \cdot D_A \cdot S^{-1} \\
+&amp;= S \cdot D_B \cdot S^{-1} \cdot  S \cdot D_A \cdot S^{-1} \\
 &amp;= B \cdot A \blacksquare
 \end{align} 
-$</p>
+$
+</p>
 
 <p><strong>Statement</strong>: $A \cdot B = B \cdot A \nRightarrow A, B \in \mathbb{R}^{n \times n}$ are simultaneous diagonalizable.
 <strong>Proof</strong>: by Counter-Example
-$\begin{pmatrix}0 &amp; 1 \
+$\begin{pmatrix}0 &amp; 1 \\
 0 &amp; 0\end{pmatrix} \cdot
-\begin{pmatrix}1 &amp; 0 \
+\begin{pmatrix}1 &amp; 0 \\
 0 &amp; 1\end{pmatrix} = 
-\begin{pmatrix}1 &amp; 0 \
+\begin{pmatrix}1 &amp; 0 \\
 0 &amp; 1\end{pmatrix} \cdot 
-\begin{pmatrix}0 &amp; 1 \
+\begin{pmatrix}0 &amp; 1 \\
 0 &amp; 0\end{pmatrix}$, but
-$\begin{pmatrix}0 &amp; 1 \
+$\begin{pmatrix}0 &amp; 1 \\
 0 &amp; 0\end{pmatrix}$ is not diagonalizable. $\blacksquare$</p>
 
 <h2 id="tocAnchor-1-7">See also</h2>

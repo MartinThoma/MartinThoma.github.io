@@ -12,7 +12,7 @@
 
 
     <title>How do hash functions work?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -447,7 +447,9 @@
 
 <p>The idea of quadratic probing is the same as for linear probing, but you try to fix the clustering-problem by using a clever way to search for a free spot:</p>
 
-<p>$h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil^2\right) \bmod~m$</p>
+<p>
+   $h_i(x) = \left(h(x) + (-1)^{i+1} \cdot \left\lceil\frac{i}{2}\right\rceil^2\right) \bmod~m$
+</p>
 
 <p>where $h$ is your hash function and $i$ is your i-th try to find a free spot while you have $m$ spots in total.</p>
 
@@ -457,7 +459,9 @@
 
 <p>This solution could be the best one, but also the hardest one to implement correctly. You could find a free spot by using a second hash function $h'$ like this:</p>
 
-<p>$h_i(x) = (h(x)+h'(x)\cdot i) ~ \bmod ~ m$</p>
+<p>
+   $h_i(x) = (h(x)+h'(x)\cdot i) ~ \bmod ~ m$
+</p>
 
 <p>BUT you have to make sure that $Pr[h(x)=h(y) \land h'(x)=h'(y)] = \frac{1}{m^2}$</p>
 

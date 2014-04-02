@@ -12,7 +12,7 @@
 
 
     <title>TI-Klausur (DT & RO)</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021316.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021334.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -166,7 +166,7 @@
   <li>Cache-Speicher</li>
 </ul><p><strong>Begriffe</strong>
 </p><ul><li>Was sind Tristate-Treiber? → <span class="hint" title="Gatterform, die nicht nur Hi und Lo weiterleiten kann, sondern auch einen dritten, gegen Spannungen beider Polaritäten, hochohmigen Zustand haben können. Dadurch kann z.B. ein Baustein vom Bus abgetrennt werden. Sie dienen zum Abschalten des gleichzeitigen Zugriffs mehrerer Komponenten auf Systembusse.">Antwort</span></li>
-  <li>Was ist der Unterschied zwischen <span class="hint" title="Symbolische Repräsentation der Maschinensprache, die für den Menschen verständlich und anschaulich ist, z.B. add $s2, $s1, $s0">Assembler</span>, <span class="hint" title="Repräsentation von Anweisungen, die für einen Mikroprozessor unmittelbar verständlich sind, z.B. 00000000110000100011000000100001">Maschinensprache</span> und Mikrobefehlen?</li>
+  <li>Was ist der Unterschied zwischen <span class="hint" title="Symbolische Repräsentation der Maschinensprache, die für den Menschen verständlich und anschaulich ist, z.B. add `$s2, $`s1, `$s0">Assembler</span>, <span class="hint" title="Repräsentation von Anweisungen, die für einen Mikroprozessor unmittelbar verständlich sind, z.B. 00000000110000100011000000100001">Maschinensprache</span> und Mikrobefehlen?</li>
   <li>Wofür stehen RISC und CISC und was sind Beispiele? → <span class="hint" title="Reduced Instruction Set Computer (z.B. MIPS), Complex Instruction Set Computer (z.B. x86)">Antwort</span></li>
   <li>Was ist ein User/System Bit, was ein Trace Bit und was ein Decimal bit? → <span class="hint" title="Das User/System bit bestimmt, ob sich das System im eingeschränkten User-Modus oder im uneingeschränktem Systemmodus befindet. Das Trace Bit erlaubt Befehlsabarbeitung im Einzelschritt-Modus zum Debuggen und das Decimal Bit entscheidet, ob Dual oder BCD gerechnet wird.">Antwort</span></li>
   <li>Welche Informationen können im Statusregister des Rechnewerkes stehen? → <span class="hint" title="Carry, Overflow, Zero, Sign, ...">Antwort</span></li>
@@ -207,9 +207,9 @@
 <p>Typ-R Befehle sind arithmetisch-logische Befehle wie add, sub, and, or sowie Vergleichsbefehle wie <abbr title="set on less than">slt</abbr>.</p>
 
 <p>Typ-I Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
-<code>lw $rt, imm($rs)</code>
-<code>sw $rt, imm($rs)</code>
-<code>beq $rs, $rt, immediate</code>: Hier wird immediate als 16-Bit vorzeichenbehaftete Zahl interpretiert und als Offset benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + immediate</p>
+<code>lw $<code>rt, imm(</code>$rs)</code>
+<code>sw $<code>rt, imm(</code>$rs)</code>
+<code>beq $<code>rs,</code>$rt, immediate</code>: Hier wird immediate als 16-Bit vorzeichenbehaftete Zahl interpretiert und als Offset benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + immediate</p>
 
 <h4>Grundlegende Befehle</h4>
 
@@ -220,20 +220,20 @@
     </tr>
    </thead>
    <tbody>
-      <tr><td>li $t0, 9</td>
+      <tr><td>li $`t0, 9</td>
       <td>load immediate: Lädt eine Konstante in ein Register</td>
     </tr>
-      <tr><td>sll $rd, $rd, shamt</td>
-      <td>shift left logical: $rd = $rs 
+      <tr><td>sll `$rd, $`rd, shamt</td>
+      <td>shift left logical: `$rd = $`rs 
     </td></tr>
       <tr><td>ble Rsrc1, Src2, label</td>
       <td>Branch on Less Than Equal: Rsrc1 ≤ Src2</td>
     </tr>
-      <tr><td>bne $rs, $rt, imm</td>
-      <td>Branch on not equal: if($rs!=$rt) PC = PC + imm  (imm could also be a label)</td>
+      <tr><td>bne `$rs, $`rt, imm</td>
+      <td>Branch on not equal: if(`$rs!=$`rt) PC = PC + imm  (imm could also be a label)</td>
     </tr>
-      <tr><td>slti $rt, $rs, imm</td>
-      <td>Store less than immediate: if($rs 
+      <tr><td>slti `$rt, $`rs, imm</td>
+      <td>Store less than immediate: if(`$rs 
     </td></tr>
       <tr><td>la Rdest, address</td>
       <td>Load computed address, not the contents of the location, into register Rdest</td>
