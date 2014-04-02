@@ -52,8 +52,8 @@ I've understood it after I saw this on the German Wikipedia:
 
 $$
 \begin{align}
-m &= |r|\\
-n &= |h|\\
+m &= |r|\\\\
+n &= |h|\\\\
 \end{align}
 $$
 
