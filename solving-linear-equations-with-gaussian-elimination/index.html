@@ -12,7 +12,7 @@
 
 
     <title>Solving linear equations with Gaussian elimination</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021111.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021121.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -64,37 +64,33 @@
                     <article class="post type-post format-standard hentry clearfix ">
                         <h2 class="title entry-title">Solving linear equations with Gaussian elimination</h2>
 			            <div class="postdate entry-date">
-                            <time datetime="2013-05-25T22:01:30Z">
+                            <time datetime="2013-05-26T00:01:30+02:00">
                                 May 
-                                25th,
+                                26th,
                                   
                                 2013
                             </time>
                         </div>
 			
 						<div class="entry">
-                            <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector `$b$` changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
+                            <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
 
 <p>Suppose you have a system of $n \in \mathbb{N_{\geq 1}}$ linear equations and variables $x_1, x_2, \dots, x_n \in \mathbb{R}$:</p>
 
-<p>
-   $
+<p>$
 \begin{align}
-a_{1,1} \cdot x_1 + a_{1,2} x_2 + \dots + a_{1,n} \cdot x_{n} &amp;= b_1\\
-a_{2,1} \cdot x_1 + a_{2,2} x_2 + \dots + a_{2,n} \cdot x_{n} &amp;= b_2\\
-\vdots &amp;= \vdots\\
+a_{1,1} \cdot x_1 + a_{1,2} x_2 + \dots + a_{1,n} \cdot x_{n} &amp;= b_1\
+a_{2,1} \cdot x_1 + a_{2,2} x_2 + \dots + a_{2,n} \cdot x_{n} &amp;= b_2\
+\vdots &amp;= \vdots\
 a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 \end{align}
-$
-</p>
+$</p>
 
 <p>All factors $a_{i,j} \in \mathbb{R}$ for $i,j \in 1, \dots, n$ can be written in one matrix $A \in \mathbb{R}^{n \times n}$ and all $b_i$ can be written as a vector $b$. You combine all $x_i$ in the same way to a vector $x$.</p>
 
 <p>So you can write the system of equations as:</p>
 
-<p>
-   $A \cdot x = b$
-</p>
+<p>$A \cdot x = b$</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -127,16 +123,14 @@ $
 
 <p>First, you write $A$ and $b$ in an augmented matrix $A|b$:</p>
 
-<p>
-   $
+<p>$
   \left(\begin{array}{cccc|c}
-    a_{1,1} &amp; a_{1,2} &amp; \dots  &amp; a_{1,n} &amp; b_1\\
-    a_{2,1} &amp; a_{2,2} &amp; \dots  &amp; a_{2,n} &amp; b_2\\
-    \vdots  &amp; \vdots  &amp; \ddots  &amp; \vdots  &amp; \vdots \\
+    a_{1,1} &amp; a_{1,2} &amp; \dots  &amp; a_{1,n} &amp; b_1\
+    a_{2,1} &amp; a_{2,2} &amp; \dots  &amp; a_{2,n} &amp; b_2\
+    \vdots  &amp; \vdots  &amp; \ddots  &amp; \vdots  &amp; \vdots \
     a_{n,1} &amp; a_{n,2} &amp; \dots &amp; a_{n,n}  &amp; b_n
   \end{array}\right).
-$
-</p>
+$</p>
 
 <p>On this matrix you may make exactly three operations:</p>
 
@@ -145,17 +139,15 @@ $
   <li>Multiply every factor of one row with a constant</li>
 </ul><p>You want to get a triangular matrix. So you subsequently eliminate one variable from the system of equations until you have a matrix like this:</p>
 
-<p>
-   $
+<p>$
   \left(\begin{array}{ccccc|c}
-    a_{1,1} &amp; a_{1,2} &amp; a_{1,3} &amp; \dots &amp; a_{1,n} &amp; b_1\\
-          0 &amp; a_{2,2} &amp; a_{2,3} &amp; \dots &amp; a_{2,n} &amp; b_2\\
-          0 &amp;       0 &amp; a_{3,3} &amp; \dots &amp; a_{3,n} &amp; b_3\\
-    \vdots  &amp; \vdots  &amp; \ddots  &amp; \ddots&amp; \vdots  &amp; \vdots\\
-          0 &amp;       0 &amp;  \dots  &amp;     0 &amp; a_{3,n} &amp; b_n\\
+    a_{1,1} &amp; a_{1,2} &amp; a_{1,3} &amp; \dots &amp; a_{1,n} &amp; b_1\
+          0 &amp; a_{2,2} &amp; a_{2,3} &amp; \dots &amp; a_{2,n} &amp; b_2\
+          0 &amp;       0 &amp; a_{3,3} &amp; \dots &amp; a_{3,n} &amp; b_3\
+    \vdots  &amp; \vdots  &amp; \ddots  &amp; \ddots&amp; \vdots  &amp; \vdots\
+          0 &amp;       0 &amp;  \dots  &amp;     0 &amp; a_{3,n} &amp; b_n\
   \end{array}\right).
-$
-</p>
+$</p>
 
 <p>It's actually quite simple to get this form:</p>
 
@@ -424,11 +416,11 @@ Result: 0 -1 1
 <p>Time complexity is in $\mathcal{O}(n^3)$ (lines 44 - 53):
 $
 \begin{align}
-Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
-&amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
-&amp;= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\\
-&amp;= \dots \\
-&amp;= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\\
+Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\
+&amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \
+&amp;= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\
+&amp;= \dots \
+&amp;= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\
 &amp;= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
 \end{align}$</p>
 
@@ -450,9 +442,9 @@ Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
                             
                                 , <a href="http://martin-thoma.com/tag/cpp/">CPP</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-05-25 22:01:30 UTC">
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-05-26 00:01:30 +0200">
                                 May 
-                                25th
+                                26th
                                   , 
                                 2013</span></span></div>
 
@@ -540,55 +532,55 @@ Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
-<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
-<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+                        <div class="tagcloud"><a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
 <a style='font-size: 204.83%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
-<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
-<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
-<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
+<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
-<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
 <a style='font-size: 151.11%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
 <a style='font-size: 175.15%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
+<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
 </div>
                     </li>
                 </ul>

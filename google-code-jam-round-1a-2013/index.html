@@ -12,7 +12,7 @@
 
 
     <title>Google Code Jam &ndash; Round 1A 2013</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021111.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021121.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -64,7 +64,7 @@
                     <article class="post type-post format-standard hentry clearfix ">
                         <h2 class="title entry-title">Google Code Jam &ndash; Round 1A 2013</h2>
 			            <div class="postdate entry-date">
-                            <time datetime="2013-04-27T05:15:17Z">
+                            <time datetime="2013-04-27T07:15:17+02:00">
                                 April 
                                 27th,
                                   
@@ -94,25 +94,25 @@
 <div class="highlight">
    <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?</span>
 
-<span class="k">function</span> <span class="nf">solve</span><span class="p">(</span><span class="sb">`$r, $`</span><span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
-    <span class="sb">`$circles = 0;</span>
-<span class="sb">    while($`</span><span class="nx">t</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="sb">`$circles++;</span>
-<span class="sb">        $`</span><span class="nx">t</span> <span class="o">-=</span> <span class="p">(</span><span class="sb">`$r+1)*($`</span><span class="nx">r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="sb">`$r*$`</span><span class="nx">r</span><span class="p">;</span>
-        <span class="sb">`$r += 2;</span>
-<span class="sb">    }</span>
-<span class="sb">    return floor($`</span><span class="nx">circles</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">function</span> <span class="nf">solve</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$circles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="nv">$t</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$circles</span><span class="o">++</span><span class="p">;</span>
+        <span class="nv">$t</span> <span class="o">-=</span> <span class="p">(</span><span class="nv">$r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nv">$r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nv">$r</span><span class="o">*</span><span class="nv">$r</span><span class="p">;</span>
+        <span class="nv">$r</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">floor</span><span class="p">(</span><span class="nv">$circles</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="sb">`$fp = fopen ($`</span><span class="nx">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'r'</span><span class="p">);</span>
-<span class="sb">`$testcases = fgets ($`</span><span class="nx">fp</span><span class="p">);</span>
-<span class="sb">`$caseNr=0;</span>
-<span class="sb">while($`</span><span class="nx">line</span> <span class="o">=</span> <span class="nb">fgets</span> <span class="p">(</span><span class="sb">`$fp)) {</span>
-<span class="sb">    $`</span><span class="nx">caseNr</span><span class="o">++</span><span class="p">;</span>
-    <span class="sb">`$a = explode(' ', $`</span><span class="nx">line</span><span class="p">);</span>
-    <span class="sb">`$r = $`</span><span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="sb">`$t = $`</span><span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-    <span class="k">echo</span> <span class="s2">"Case #`</span><span class="si">$caseNr</span><span class="s2">: "</span><span class="o">.</span><span class="nx">solve</span><span class="p">(</span><span class="err">$</span><span class="sb">`r, `</span><span class="nv">$t</span><span class="p">)</span><span class="o">.</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span> <span class="p">(</span><span class="nv">$argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'r'</span><span class="p">);</span>
+<span class="nv">$testcases</span> <span class="o">=</span> <span class="nb">fgets</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+<span class="nv">$caseNr</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="nv">$line</span> <span class="o">=</span> <span class="nb">fgets</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$caseNr</span><span class="o">++</span><span class="p">;</span>
+    <span class="nv">$a</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="nv">$line</span><span class="p">);</span>
+    <span class="nv">$r</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nv">$t</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="s2">"Case #</span><span class="si">$caseNr</span><span class="s2">: "</span><span class="o">.</span><span class="nx">solve</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$t</span><span class="p">)</span><span class="o">.</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
 
 <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
@@ -123,20 +123,20 @@
 <p><em>Argh</em> I've copied the wrong equation from my pad to my computer </p>
 
 <p>You basically have to solve this:
-$<code>\begin{align}
-t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
-\Leftrightarrow t - (x+1)(2x+2r+1) &amp;\geq 0 \\
-\Leftrightarrow (-2)x^2 + (2r+3)x + (t-2r-1) &amp;\geq 0 \\
-\Rightarrow x_{1,2} = 0 \Leftrightarrow x_{1,2} &amp;= \frac{1}{-4} \cdot (-(2r+3) \pm \sqrt{(2r+3)^2-4(-2)(t-2r-1)}) \\
-&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r^2+12r+9+8(t-2r-1)})\\
-&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r^2+12r+9+8t-16r-8})\\
-&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r^2-4r+1+8t})\\
-&amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\\
-&amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\\
+$\begin{align}
+t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\
+\Leftrightarrow t - (x+1)(2x+2r+1) &amp;\geq 0 \
+\Leftrightarrow (-2)x^2 + (2r+3)x + (t-2r-1) &amp;\geq 0 \
+\Rightarrow x_{1,2} = 0 \Leftrightarrow x_{1,2} &amp;= \frac{1}{-4} \cdot (-(2r+3) \pm \sqrt{(2r+3)^2-4(-2)(t-2r-1)}) \
+&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r^2+12r+9+8(t-2r-1)})\
+&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r^2+12r+9+8t-16r-8})\
+&amp;= -\frac{1}{4} \cdot (-2r-3 \pm \sqrt{4r^2-4r+1+8t})\
+&amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\
+&amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\
 \end{align}
-</code>$</p>
+$</p>
 
-<p>I have to know that $<code>1 \leq r</code>$ and $<code>1 \geq x \in \mathbb{N}</code>$. So you have to round $`x_1, x_2$ to the nearest solution.</p>
+<p>I have to know that $1 \leq r$ and $1 \geq x \in \mathbb{N}$. So you have to round $x_1, x_2$ to the nearest solution.</p>
 
 <p>Did you know that Python has (in numpy) a method to calculate roots of a quadratic equation? See <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.roots.html">numpy.roots</a> for reference.</p>
 
@@ -271,7 +271,7 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
                             
                                 , <a href="http://martin-thoma.com/tag/itertools/">itertools</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-04-27 05:15:17 UTC">
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-04-27 07:15:17 +0200">
                                 April 
                                 27th
                                   , 
@@ -361,55 +361,55 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
-<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
-<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+                        <div class="tagcloud"><a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
 <a style='font-size: 204.83%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
-<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
-<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
-<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
+<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
-<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
 <a style='font-size: 151.11%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
 <a style='font-size: 175.15%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
+<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
 </div>
                     </li>
                 </ul>

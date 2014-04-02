@@ -12,7 +12,7 @@
 
 
     <title>Get your programs assembly code and more information</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021111.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021121.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -64,7 +64,7 @@
                     <article class="post type-post format-standard hentry clearfix ">
                         <h2 class="title entry-title">Get your programs assembly code and more information</h2>
 			            <div class="postdate entry-date">
-                            <time datetime="2012-03-01T18:40:43Z">
+                            <time datetime="2012-03-01T19:40:43+01:00">
                                 March 
                                 1st,
                                   
@@ -85,7 +85,7 @@
                <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Pointers</span></a>
             </li>
             <li class="toc_level-2 toc_section-3">
-               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">`$ Dollar and % Percentage signs</span></a>
+               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">$ Dollar and % Percentage signs</span></a>
             </li>
             <li class="toc_level-2 toc_section-4">
                <a href="#tocAnchor-1-1-3"><span class="tocnumber">1.3</span> <span class="toctext">Instruction</span></a>
@@ -145,19 +145,19 @@ This is AT&amp;T Syntax: </p>
   <li><strong>%eax</strong>: Accumulator</li>
 </ul><p>The size of the eax register will always be 32 bit, regardless of the system's register size.<small><sup><a href="#ref6">[6]</a></sup></small></p>
 
-<h3 id="tocAnchor-1-1-2">`$ Dollar and % Percentage signs</h3>
+<h3 id="tocAnchor-1-1-2">$ Dollar and % Percentage signs</h3>
 
-<p>$<code>i, with</code>$i \in mathbb{N}$`, is a constant and percentages mean registers.<small><sup><a href="#ref10" name="anchor10" id="anchor10">[10]</a></sup></small><small><sup><a href="#ref10" name="anchor11" id="anchor11">[11]</a></sup></small></p>
+<p>$i, with $i \in mathbb{N}$, is a constant and percentages mean registers.<small><sup><a href="#ref10" name="anchor10" id="anchor10">[10]</a></sup></small><small><sup><a href="#ref10" name="anchor11" id="anchor11">[11]</a></sup></small></p>
 
 <h3 id="tocAnchor-1-1-3">Instruction</h3>
 
 <p><strong>pushl <register></register></strong>: To push the source operand onto the stack<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small>
 <strong>movl <from>, <to></to></from></strong>: moves a long<small><sup><a href="#ref2" name="anchor2" id="anchor2">[2]</a></sup></small>
 <strong>call <function></function></strong>: Calls function (which might be printf, putchar, ...)
-<strong>subl $16, %esp&lt;/strong&gt;: allocate a local variable&lt;small&gt;&lt;sup&gt;&lt;a href="#ref3" name="anchor3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
-&lt;strong&gt;ret&lt;/strong&gt;: transfers control back to the place where the current function was called.&lt;small&gt;&lt;sup&gt;&lt;a href="#ref3"&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
-&lt;strong&gt;leave&lt;/strong&gt;: sets the stack pointer to the base frame address, effectively releasing the whole frame&lt;small&gt;&lt;sup&gt;&lt;a href="#ref4" name="anchor4"&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/small&gt;
-&lt;strong&gt;andl $-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5" id="anchor5">[5]</a></sup></small>
+<strong>subl $16, %esp</strong>: allocate a local variable<small><sup><a href="#ref3" name="anchor3" id="anchor3">[3]</a></sup></small>
+<strong>ret</strong>: transfers control back to the place where the current function was called.<small><sup><a href="#ref3">[3]</a></sup></small>
+<strong>leave</strong>: sets the stack pointer to the base frame address, effectively releasing the whole frame<small><sup><a href="#ref4" name="anchor4" id="anchor4">[4]</a></sup></small>
+<strong>andl $-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5" id="anchor5">[5]</a></sup></small>
 <strong>jmp <target></target></strong>: Jump to target label.
 <strong>jbe <target></target></strong>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
 <strong>leal <command-address><store></store></command-address></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9" id="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</p>
@@ -210,13 +210,13 @@ This is AT&amp;T Syntax: </p>
 main:
     pushl   %ebp
     movl    %esp, %ebp
-    andl    `$-16, %esp
-    subl    $`16, %esp
-    movl    `$.LC0, %eax
-    movl    $`56154, 4(%esp)
+    andl    $-16, %esp
+    subl    $16, %esp
+    movl    $.LC0, %eax
+    movl    $56154, 4(%esp)
     movl    %eax, (%esp)
     call    printf
-    movl    `$0, %eax
+    movl    $0, %eax
     leave
     ret
     .size   main, .-main
@@ -417,16 +417,16 @@ fib:
     pushl   %ebp
     movl    %esp, %ebp
     pushl   %ebx
-    subl    $`20, %esp
-    cmpl    `$1, 8(%ebp)
+    subl    $20, %esp
+    cmpl    $1, 8(%ebp)
     jbe .L2
     movl    8(%ebp), %eax
-    subl    $`1, %eax
+    subl    $1, %eax
     movl    %eax, (%esp)
     call    fib
     movl    %eax, %ebx
     movl    8(%ebp), %eax
-    subl    `$2, %eax
+    subl    $2, %eax
     movl    %eax, (%esp)
     call    fib
     leal    (%ebx,%eax), %eax
@@ -434,7 +434,7 @@ fib:
 .L2:
     movl    8(%ebp), %eax
 .L3:
-    addl    $`20, %esp
+    addl    $20, %esp
     popl    %ebx
     popl    %ebp
     ret
@@ -448,15 +448,15 @@ fib:
 main:
     pushl   %ebp
     movl    %esp, %ebp
-    andl    `$-16, %esp
-    subl    $`16, %esp
-    movl    `$13, (%esp)
+    andl    $-16, %esp
+    subl    $16, %esp
+    movl    $13, (%esp)
     call    fib
-    movl    $`.LC0, %edx
+    movl    $.LC0, %edx
     movl    %eax, 4(%esp)
     movl    %edx, (%esp)
     call    printf
-    movl    `$0, %eax
+    movl    $0, %eax
     leave
     ret
     .size   main, .-main
@@ -472,13 +472,13 @@ main:
   <li><a name="ref3" href="#anchor3" id="ref3">↑</a>: <a href="http://linuxgazette.net/issue94/ramankutty.html">From C To Assembly Language </a>. Hiran Ramankutty, Linux Gazett, Issue 94.</li>
   <li><a name="ref4" href="#anchor4" id="ref4">↑</a>: <a href="http://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly">About leave in x86 assembly</a>. zneak, Stackoverflow.</li>
   <li><a name="ref5" href="#anchor5" id="ref5">↑</a>: <a href="http://stackoverflow.com/a/1317324/562769">GCC's assembly output of an empty program on x86, win32</a>. nos, Stackoverflow.</li>
-  <li><a name="ref6" href="#anchor6" id="ref6">↑</a>: <a href="http://stackoverflow.com/a/1898896/562769">Why would one use “movl $`1, %eax” as opposed to, say, “movb `$1, %eax”</a>. Jason, Stackoverflow.</li>
+  <li><a name="ref6" href="#anchor6" id="ref6">↑</a>: <a href="http://stackoverflow.com/a/1898896/562769">Why would one use “movl $1, %eax” as opposed to, say, “movb $1, %eax”</a>. Jason, Stackoverflow.</li>
   <li><a name="ref7" href="#anchor7" id="ref7">↑</a>: <a href="http://en.literateprograms.org/Fibonacci_numbers_%28C%29#Recursive">Fibonacci numbers (C)</a>. Literate Programs.</li>
   <li><a name="ref8" href="#anchor8" id="ref8">↑</a>: <a href="http://wpage.unina.it/rcanonic/didattica/ce1/docs/68000.pdf">
 The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
   <li><a name="ref9" href="#anchor9" id="ref9">↑</a>: <a href="http://stackoverflow.com/questions/4003894/leal-assembler-instruction">LEAL Assembler instruction</a>. Nils Pipenbrinck, Stackoverflow</li>
   <li><a name="ref10" href="#anchor10" id="ref10">↑</a>: <a href="http://stackoverflow.com/a/5367004/562769">What does this dollar sign mean in __asm?</a>. Zimbabao, Stackoverflow</li>
-  <li><a name="ref11" href="#anchor11" id="ref11">↑</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($`) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
+  <li><a name="ref11" href="#anchor11" id="ref11">↑</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
 </ol>
 						</div>
 						<div class="postmeta">Posted in 
@@ -492,7 +492,7 @@ The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
                             
                                 , <a href="http://martin-thoma.com/tag/assembly-language/">Assembly language</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-03-01 18:40:43 UTC">
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-03-01 19:40:43 +0100">
                                 March 
                                 1st
                                   , 
@@ -582,55 +582,55 @@ The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
-<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
-<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+                        <div class="tagcloud"><a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
 <a style='font-size: 204.83%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
-<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
-<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
-<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
+<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
-<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
 <a style='font-size: 151.11%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
 <a style='font-size: 175.15%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
+<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
 </div>
                     </li>
                 </ul>

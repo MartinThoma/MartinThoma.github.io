@@ -29,6 +29,12 @@ Improve
 * Excerpts
 * Tag Cloud
 
+* WordPress migration:
+* &gt; >
+* &lt; <
+* &quot; "
+
+* `$ und $`
 
 Testen
 =======

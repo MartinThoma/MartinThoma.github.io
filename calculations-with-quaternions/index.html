@@ -12,7 +12,7 @@
 
 
     <title>Calculations with quaternions</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021111.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021121.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -64,7 +64,7 @@
                     <article class="post type-post format-standard hentry clearfix ">
                         <h2 class="title entry-title">Calculations with quaternions</h2>
 			            <div class="postdate entry-date">
-                            <time datetime="2013-09-09T12:45:17Z">
+                            <time datetime="2013-09-09T14:45:17+02:00">
                                 September 
                                 9th,
                                   
@@ -113,7 +113,7 @@ $ijk=-1$</p>
 </div><h2 id="tocAnchor-1-1">Basic rules</h2>
 
 <p>From these rules follows:
-$\begin{align} ij &amp;= k\\ ji &amp;= -k\\ jk &amp;= i\\ kj &amp;= -i\\ ki &amp;= j\\ ik &amp;= -j \end{align}$</p>
+$\begin{align} ij &amp;= k\ ji &amp;= -k\ jk &amp;= i\ kj &amp;= -i\ ki &amp;= j\ ik &amp;= -j \end{align}$</p>
 
 <p>(<a href="http://math.stackexchange.com/q/487245/6876">proof</a>)</p>
 
@@ -125,45 +125,37 @@ $\begin{align} ij &amp;= k\\ ji &amp;= -k\\ jk &amp;= i\\ kj &amp;= -i\\ ki &amp
 
 <p>The multiplication is:</p>
 
-<p>
-   $\begin{align}
+<p>$\begin{align}
 x  y 
-&amp;=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\\
-&amp;+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\\
-&amp;+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\\
+&amp;=( x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3)\
+&amp;+( x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2) \mathrm i\
+&amp;+( x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1) \mathrm j\
 &amp;+( x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0) \mathrm k
-\end{align}$
-</p>
+\end{align}$</p>
 
 <h3 id="tocAnchor-1-2-1">Calculating multiplicative inverse</h3>
 
 <p>This means, when you're given an element $x = x_0 + x_1 \mathrm i + x_2 \mathrm j + x_3 \mathrm k$ its inverse $y$ can be calculated by solving the following linear system of equations:</p>
 
-<p>
-   $\begin{align}
-x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &amp;= 1\\
-x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &amp;= 0\\
-x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &amp;= 0\\ 
-x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\\
-\end{align}$
-</p>
+<p>$\begin{align}
+x_0 y_0 - x_1 y_1 - x_2 y_2 - x_3 y_3 &amp;= 1\
+x_0 y_1 + x_1 y_0 + x_2 y_3 - x_3 y_2 &amp;= 0\
+x_0 y_2 - x_1 y_3 + x_2 y_0 + x_3 y_1 &amp;= 0\ 
+x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\
+\end{align}$</p>
 
 <p>which can be written as:</p>
 
-<p>
-   $\left(\begin{array}{cccc|c} 
-    x_0 &amp; -x_1 &amp; -x_2 &amp; -x_3 &amp; 1\\
-    x_1 &amp;  x_0 &amp; -x_3 &amp;  x_2 &amp; 0\\
-    x_2 &amp;  x_3 &amp;  x_0 &amp; -x_1 &amp; 0\\
+<p>$\left(\begin{array}{cccc|c} 
+    x_0 &amp; -x_1 &amp; -x_2 &amp; -x_3 &amp; 1\
+    x_1 &amp;  x_0 &amp; -x_3 &amp;  x_2 &amp; 0\
+    x_2 &amp;  x_3 &amp;  x_0 &amp; -x_1 &amp; 0\
     x_3 &amp; -x_2 &amp;  x_1 &amp;  x_0 &amp; 0
-  \end{array}\right).$
-</p>
+  \end{array}\right).$</p>
 
 <p>According to <a href="http://www.mathworks.de/de/help/aeroblks/quaternioninverse.html">mathworks</a> it is </p>
 
-<p>
-   $y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}$
-</p>
+<p>$y = \frac{x_0 - \mathrm i x_1 - \mathrm j x_2 - \mathrm k x_3}{x_0^2 + x_1^2 + x_2^2 + x_3^2}$</p>
 
 <h2 id="tocAnchor-1-4">More</h2>
 
@@ -181,26 +173,22 @@ x_0 y_3 + x_1 y_2 - x_2 y_1 + x_3 y_0 &amp;= 0\\
 
 <p>Quaternions can be used to rotate points. It works like this:</p>
 
-<p>
-   $x' = q x \overline{q}$
-</p>
+<p>$x' = q x \overline{q}$</p>
 
 <p>Pretty simple, isn't it?</p>
 
 <p>For example, if you had the point (2,0,0) and you wanted to rotated it by $q = (\frac{\sqrt{2}}{2}, 0, \frac{\sqrt{2}}{2}, 0)$ you would transform (2,0,0) to (2i+0k+0j) and calculate</p>
 
-<p>
-   $\begin{align}
-x' &amp;= q x \overline{q}\\
-&amp;= (\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2} \mathrm j) \cdot 2 \mathrm i \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
-&amp;= (\sqrt{2} \mathrm i + \sqrt{2} \mathrm{ji}) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
-&amp;= (\sqrt{2} \mathrm i - \sqrt{2} \mathrm k) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\\
-&amp;= \mathrm i - \mathrm{ij} - \mathrm k + \mathrm{kj}\\
-&amp;= \mathrm{i - k -k - i}\\
-&amp;= -2 \mathrm k\\
+<p>$\begin{align}
+x' &amp;= q x \overline{q}\
+&amp;= (\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2} \mathrm j) \cdot 2 \mathrm i \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\
+&amp;= (\sqrt{2} \mathrm i + \sqrt{2} \mathrm{ji}) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\
+&amp;= (\sqrt{2} \mathrm i - \sqrt{2} \mathrm k) \cdot (\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2} \mathrm j)\
+&amp;= \mathrm i - \mathrm{ij} - \mathrm k + \mathrm{kj}\
+&amp;= \mathrm{i - k -k - i}\
+&amp;= -2 \mathrm k\
 &amp;\Rightarrow x' = (0,0,-2)
-\end{align}$
-</p>
+\end{align}$</p>
 
 <h3 id="tocAnchor-1-4-3">Rotation matrix to quaternion</h3>
 
@@ -221,23 +209,19 @@ z &amp;= \frac{m_{21} - m_{12}}{4s}
 
 <p>A rotation matrix</p>
 
-<p>
-   $R_y = \begin{pmatrix}
-\cos(\theta)  &amp; 0 &amp; \sin(\theta)\\
-0             &amp; 1 &amp; 0\\
+<p>$R_y = \begin{pmatrix}
+\cos(\theta)  &amp; 0 &amp; \sin(\theta)\
+0             &amp; 1 &amp; 0\
 -\sin(\theta) &amp; 0 &amp; \cos(\theta)
-\end{pmatrix}$
-</p>
+\end{pmatrix}$</p>
 
 <p>can be transformed to a quaternion</p>
 
-<p>
-   $q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))$
-</p>
+<p>$q = (\cos(\frac{\theta}{2}), \vec u \sin (\frac{\theta}{2}))$</p>
 
 <p>where $\vec u$ describes the axis you rotate by.</p>
 
-<p>In this case $R_y$ is the y-axis, so $\vec u = \begin{pmatrix}0\\1\\0\end{pmatrix}$.</p>
+<p>In this case $R_y$ is the y-axis, so $\vec u = \begin{pmatrix}0\1\0\end{pmatrix}$.</p>
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -247,7 +231,7 @@ z &amp;= \frac{m_{21} - m_{12}}{4s}
                                 
                                     <a href="http://martin-thoma.com/tag/quaternions/">quaternions</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-09-09 12:45:17 UTC">
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-09-09 14:45:17 +0200">
                                 September 
                                 9th
                                   , 
@@ -337,55 +321,55 @@ z &amp;= \frac{m_{21} - m_{12}}{4s}
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
-<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
-<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+                        <div class="tagcloud"><a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
 <a style='font-size: 204.83%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
-<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
-<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
-<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
+<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
-<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
 <a style='font-size: 151.11%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
 <a style='font-size: 175.15%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
+<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
 </div>
                     </li>
                 </ul>

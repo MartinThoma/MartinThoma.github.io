@@ -12,7 +12,7 @@
 
 
     <title>Mathe-Aufgabe: Blutspende</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021111.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404021121.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -64,7 +64,7 @@
                     <article class="post type-post format-standard hentry clearfix ">
                         <h2 class="title entry-title">Mathe-Aufgabe: Blutspende</h2>
 			            <div class="postdate entry-date">
-                            <time datetime="2012-08-14T15:00:16Z">
+                            <time datetime="2012-08-14T17:00:16+02:00">
                                 August 
                                 14th,
                                   
@@ -117,86 +117,70 @@
 
 <p>$f: \mathbb{N}_0 \rightarrow \mathbb{R}_0^+$ sei die Menge des ursprünglichen Blutes in Liter, das nach $x$ Spenden gespendet wurde:</p>
 
-<p>
-   $f(0) = 0$
-</p>
+<p>$f(0) = 0$</p>
 
 <p>Beim ersten mal Blutspenden wird ein halber Liter des ursprünglichen Blutes gespendet:</p>
 
-<p>
-   $f(1) = 0{,}5 + f(0)$
-</p>
+<p>$f(1) = 0{,}5 + f(0)$</p>
 
 <p>Beim zweiten mal Blutspenden werden 0,45 Liter des ursprünglichen Blutes gespendet:</p>
 
-<p>
-   $f(2) = \frac{5-0{,}5}{5} \cdot 0{,}5 \text{ Liter} + f(1) + f(0) = 0{,}95 \text{ Liter}$
-</p>
+<p>$f(2) = \frac{5-0{,}5}{5} \cdot 0{,}5 \text{ Liter} + f(1) + f(0) = 0{,}95 \text{ Liter}$</p>
 
 <p>Beim dritten mal Blutspenden werden 0,405 Liter des ursprünglichen Blutes gespendet:</p>
 
-<p>
-   $f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}$
-</p>
+<p>$f(3) = \frac{5-0{,}95}{5} \cdot 0{,}5 \text{ Liter} + f(2) + f(1) + f(0) = 1{,}355 \text{ Liter}$</p>
 
 <h3 id="tocAnchor-1-2-2">Eine rekursive Formel</h3>
 
-<p>
-   $
+<p>$
         \begin{align}
-            f(1) &amp;= 0{,}5 \\
-            f(x) &amp;= \overbrace{\underbrace{\frac{5-f(x-1)}{5}}_{\text{Anteil}} \cdot 0{,}5}^{\text{neue Blutmenge}} + f(x-1) \\
-                 &amp;= 0{,}5 - \frac{1}{10} \cdot f(x-1) + f(x-1) \\
+            f(1) &amp;= 0{,}5 \
+            f(x) &amp;= \overbrace{\underbrace{\frac{5-f(x-1)}{5}}_{\text{Anteil}} \cdot 0{,}5}^{\text{neue Blutmenge}} + f(x-1) \
+                 &amp;= 0{,}5 - \frac{1}{10} \cdot f(x-1) + f(x-1) \
                  &amp;=  0{,}5 + \frac{9}{10} \cdot f(x-1)
         \end{align}
-$
-</p>
+$</p>
 
 <p>Dabei gilt:
 </p><ul><li>0,5 ist die gespendete Blutmenge in Liter einer Spende</li>
   <li>$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$</li>
 </ul><h3 id="tocAnchor-1-2-3">Auflösen der Rekursion</h3>
 
-<p>
-   $
+<p>$
         \begin{align}
-             f(4) &amp;= 0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5))\\
-                  &amp;= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5)\\
-                  &amp;= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot 0{,}5 + (\frac{9}{10})^3 \cdot 0{,}5\\
-                  &amp;= 0{,}5 \cdot (1 + \frac{9}{10} + (\frac{9}{10})^2 + (\frac{9}{10})^3)\\
+             f(4) &amp;= 0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5))\
+                  &amp;= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot (0{,}5 + \frac{9}{10} \cdot 0{,}5)\
+                  &amp;= 0{,}5 + \frac{9}{10} \cdot 0{,}5 + (\frac{9}{10})^2 \cdot 0{,}5 + (\frac{9}{10})^3 \cdot 0{,}5\
+                  &amp;= 0{,}5 \cdot (1 + \frac{9}{10} + (\frac{9}{10})^2 + (\frac{9}{10})^3)\
               f(x)&amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i
         \end{align}
-$
-</p>
+$</p>
 
 <h3 id="tocAnchor-1-2-4">Auflösen des Summensymbols</h3>
 
-<p>
-   $
+<p>$
         \begin{align}
-            f(x) &amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i\\
-                 &amp;= \frac{1}{2}\cdot (\frac{0{,}9^{x+1} - 1}{0{,}9 - 1})\\
-                 &amp;= \frac{1}{2}\cdot (-10 \cdot 0{,}9^{x+1} + 10)\\
-                 &amp;= -5 \cdot 0{,}9^{x+1} + 5\\
+            f(x) &amp;= \frac{1}{2} \cdot \sum_{i=0}^{x} (\frac{9}{10})^i\
+                 &amp;= \frac{1}{2}\cdot (\frac{0{,}9^{x+1} - 1}{0{,}9 - 1})\
+                 &amp;= \frac{1}{2}\cdot (-10 \cdot 0{,}9^{x+1} + 10)\
+                 &amp;= -5 \cdot 0{,}9^{x+1} + 5\
                  &amp;= 5 \cdot (1 - 0{,}9^{x+1})
         \end{align}
-$
-</p>
+$</p>
 
 <h2 id="tocAnchor-1-7">Lösung</h2>
 
-<p>
-   $
+<p>$
         \begin{align}
-            0{,}95 \cdot 5 &amp;= 5 \cdot (1- 0{,}9^{x+1})\\
-                    0{,}95 &amp;= 1 - 0{,}9^{x+1}\\
-              0{,}9^{x+1} &amp;= 0{,}05\\
-    \ln(0{,}9) \cdot {x+1} &amp;= \ln(0{,}05) \\
-                     x  &amp;= \frac{\ln(0,05)}{\ln(0{,}9)} - 1\\
+            0{,}95 \cdot 5 &amp;= 5 \cdot (1- 0{,}9^{x+1})\
+                    0{,}95 &amp;= 1 - 0{,}9^{x+1}\
+              0{,}9^{x+1} &amp;= 0{,}05\
+    \ln(0{,}9) \cdot {x+1} &amp;= \ln(0{,}05) \
+                     x  &amp;= \frac{\ln(0,05)}{\ln(0{,}9)} - 1\
                      x  &amp;= 27{,}43
         \end{align}
-$
-</p>
+$</p>
 
 <h2 id="tocAnchor-1-8">Antwort</h2>
 
@@ -210,7 +194,7 @@ $
                                 
                                     <a href="http://martin-thoma.com/tag/mathematics/">mathematics</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-08-14 15:00:16 UTC">
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-08-14 17:00:16 +0200">
                                 August 
                                 14th
                                   , 
@@ -300,55 +284,55 @@ $
                     </li>
                     <li id="tag_cloud-3" class="widget widget_tag_cloud">
                         <h2 class="widgettitle">Tags</h2>
-                        <div class="tagcloud"><a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
-<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
-<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+                        <div class="tagcloud"><a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
 <a style='font-size: 204.83%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
-<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
-<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
-<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
-<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
-<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/it-security/' title='8 topics'>IT-Security</a>
+<a style='font-size: 238.57%' href='http://martin-thoma.com/tag/java/' title='34 topics'>Java</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
+<a style='font-size: 164.06%' href='http://martin-thoma.com/tag/kit/' title='13 topics'>KIT</a>
+<a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
+<a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 249.21%' href='http://martin-thoma.com/tag/python/' title='39 topics'>Python</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
-<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.85%' href='http://martin-thoma.com/tag/video/' title='12 topics'>Video</a>
+<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/vimeo/' title='8 topics'>Vimeo</a>
+<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
 <a style='font-size: 151.11%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/algorithms/' title='7 topics'>algorithms</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/analysis/' title='6 topics'>analysis</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/javascript/' title='5 topics'>JavaScript</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
-<a style='font-size: 143.72%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
-<a style='font-size: 135.56%' href='http://martin-thoma.com/tag/web-development/' title='9 topics'>Web Development</a>
+<a style='font-size: 169.80%' href='http://martin-thoma.com/tag/funny/' title='14 topics'>funny</a>
 <a style='font-size: 175.15%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wikipedia/' title='5 topics'>Wikipedia</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
 <a style='font-size: 143.72%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
-<a style='font-size: 126.43%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
-<a style='font-size: 116.08%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
-<a style='font-size: 104.13%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
-<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/mathematics/' title='51 topics'>mathematics</a>
+<a style='font-size: 201.23%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
 </div>
                     </li>
                 </ul>
