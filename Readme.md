@@ -27,18 +27,11 @@ Improve
   * Remove JS files if possible
   * Remove parts of JS that are not used
 * Excerpts
-* Tag Cloud
-
-* WordPress migration:
-* &gt; >
-* &lt; <
-* &quot; "
 
 Testen
 =======
 * WordPress "Caption" tags
 * RSS Feed
-* Disquss für Kommentare
 
 Required
 ========
