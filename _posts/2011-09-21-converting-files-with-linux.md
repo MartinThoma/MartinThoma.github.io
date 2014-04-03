@@ -36,6 +36,13 @@ You can also do this for a whole folder. Just go into that folder and:
 for i in *.jpg; do convert $i -resize 1600x1600 $i; done
 ```
 
+In case you have just taken many photos of a document and you want to send it 
+as a single PDF via email. Thats the way to go:
+
+```bash
+for i in *.JPG; do convert $i -resize 1200x1200 $i; done; convert *.JPG merged.pdf
+```
+
 **Create a Black-and-white picture and compress it**
 {% highlight bash %}djpeg "OldPicture.jpg" | ppmtopgm | cjpeg -qual 70 >"NewPicture.jpg"{% endhighlight %}
 
