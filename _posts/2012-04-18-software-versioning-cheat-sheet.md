@@ -39,7 +39,10 @@ Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".
 
 <h3>Nice diffs</h3>
 You can modify your config file:
-{% highlight bash %}gedit ~/.subversion/config{% endhighlight %}
+
+```bash
+gedit ~/.subversion/config
+```
 
 and change <code>diff-cmd</code> to <code>meld</code>.
 
@@ -48,16 +51,31 @@ and change <code>diff-cmd</code> to <code>meld</code>.
 
 compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).
 
-<h2>Git</h2>
-<h3>Nice diffs</h3>
-If you want a GUI for <code>git diff</code>, then you should do the following:
+## Git
+
+### Global configuration
+
+```bash
+$ git config --global user.name "Martin Thoma"
+$ git config --global user.email info@martin-thoma.de
+$ git config --global color.ui true
+```
+
+### Nice diffs
+If you want a GUI for `git diff`, then you should do the following:
 
 Install meld:
-{% highlight bash %}sudo apt-get install meld{% endhighlight %}
 
-Got to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:
-{% highlight bash %}#!/bin/bash
-meld "$2" "$5"{% endhighlight %}
+```bash
+sudo apt-get install meld
+```
+
+Got to `/bin` and create a Shell-Script called **git-meld** with the following content:
+
+```bash
+#!/bin/bash
+meld "$2" "$5"
+```
 
 Make it executable:
 {% highlight bash %}chmod +x git-meld{% endhighlight %}
