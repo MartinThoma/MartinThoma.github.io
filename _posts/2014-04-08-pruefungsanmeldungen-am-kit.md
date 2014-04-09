@@ -279,6 +279,24 @@ und
 </div>
 ```
 
+## Weitere Probleme der Prüfungsorganisation
+
+In diesem Artikel will ich nur die Prüfungsverwaltung diskutieren. Dennoch
+sollte darauf hingewiesen werden, dass weiteres nicht gerade optimal gelöst ist:
+
+* Die Anmeldung zur Prüfung wird sehr unterschiedlich freigeschaltet. Warum ist
+  es nicht möglich, das bereits zu Semesterbegin bereits folgendes bekannt ist:
+  * Zeitpunkt der Prüfung
+  * Letztmöglicher Zeitpunkt der Anmeldung
+  * Letztmöglicher Zeitpunkt der Abmeldung
+* Die Einsicht ist immer blöd. Da sich die Prüfungstermine größtenteils in der
+  vorlesungsfreien Zeit befinden und darin aber stark gestreut sind (manche sind
+  zu Beginn, manche in der Mitte, manche am Ende) sind die Zeitpunkte, zu denen
+  man als Student Ferien hat sehr stark eingeschränkt. Wenn man dann erst nach
+  der Klausur erfährt, wann die Einsicht sein wird, kann man Ferien komplett
+  vergessen, weil man in Karlsruhe bleiben muss um auf den Termin der Einsicht
+  zu warten.
+
 ## Schlusswort
 
 Welche Vorteile hat das beschriebene Verfahren gegenüber der momentanen Situation?
