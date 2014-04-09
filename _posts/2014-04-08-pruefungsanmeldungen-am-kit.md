@@ -282,20 +282,30 @@ und
 ## Weitere Probleme der Prüfungsorganisation
 
 In diesem Artikel will ich nur die Prüfungsverwaltung diskutieren. Dennoch
-sollte darauf hingewiesen werden, dass weiteres nicht gerade optimal gelöst ist:
+sollte darauf hingewiesen werden, dass Weiteres nicht gerade optimal gelöst ist:
 
-* Die Anmeldung zur Prüfung wird sehr unterschiedlich freigeschaltet. Warum ist
-  es nicht möglich, das bereits zu Semesterbegin bereits folgendes bekannt ist:
+* Die **Anmeldungsfreischaltung** der Prüfungen finden zu sehr unterschiedlichen
+  Zeitpunkten statt. Bereits zu Semesterbegin sollte  folgendes bekannt sein:
   * Zeitpunkt der Prüfung
   * Letztmöglicher Zeitpunkt der Anmeldung
   * Letztmöglicher Zeitpunkt der Abmeldung
-* Die Einsicht ist immer blöd. Da sich die Prüfungstermine größtenteils in der
-  vorlesungsfreien Zeit befinden und darin aber stark gestreut sind (manche sind
-  zu Beginn, manche in der Mitte, manche am Ende) sind die Zeitpunkte, zu denen
+* Die **Einsicht** ist immer schlecht organisiert. Da sich die Prüfungstermine
+  größtenteils in der vorlesungsfreien Zeit befinden und darin aber stark 
+  gestreut sind (manche sind zu Beginn, manche in der Mitte, manche am Ende)
+  sind die Zeitpunkte, zu denen
   man als Student Ferien hat sehr stark eingeschränkt. Wenn man dann erst nach
   der Klausur erfährt, wann die Einsicht sein wird, kann man Ferien komplett
   vergessen, weil man in Karlsruhe bleiben muss um auf den Termin der Einsicht
-  zu warten.
+  zu warten.<br/>
+  Bei den Physikern ist wenigstens die Korrektur immer sehr schnell, sodass man
+  davon ausgehen kann, dass die Einsicht wenige Tage nach der Prüfung statt
+  findet. Bei den Informatikern ... naja, da hat man ja noch Glück wenn sie im
+  selben Monat ist. Und man es dann rechtzeitig erfährt.
+* **Lösungen und Notengrenzen** sind nicht in jeder einsicht vorhanden bzw.
+  klar. Gerade wenn nicht klar ist, mit welcher Punktzahl man welche Note
+  bekommt könnte ein Fehler passieren, den man nicht überprüfen kann. Nach
+  diesen Informationen sollte man nicht in der Einsicht fragen müssen. Sie
+  sollten in der Einsicht direkt verfügbar sein.
 
 ## Schlusswort
 
