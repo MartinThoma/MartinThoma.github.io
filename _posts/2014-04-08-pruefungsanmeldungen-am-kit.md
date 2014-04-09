@@ -55,17 +55,20 @@ Diese E-Mail soll folgendes beinhalten:
 * Alle Prüfungen (mit Name, Termin der Prüfung, letzter An- und Abmeldetermin),
   zu den der Student angemeldet ist.
 * Der volle Name und die Matrikelnummer des Studenten.
-* Das Datum der E-Mail
+* Das Datum der E-Mail.
 
 Diese E-Mail soll mit einem offiziellen KIT Schlüssel signiert werden.
 Dies könnte z.B. mit PGP gemacht werden und würde dann etwa so aussehen:
 
 > -----BEGIN PGP SIGNED MESSAGE-----<br/>
 > Hash: SHA1<br/>
-> Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014, 12:34 Uhr zu folgenden
-> Prüfungen angemeldet:<br/>
+> <br/>
+> Student: Martin Thoma (Matrikelnummer: 1612345)<br/>
+> Zeitpunkt: 08.04.2014, 12:34:56 Uhr<br/>
+> Angemeldete Prüfungen:<br/>
 > * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br/>
 > * Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br/>
+> <br/>
 > -----BEGIN PGP SIGNATURE-----<br/>
 > Version: GnuPG v1.4.14 (GNU/Linux)<br/>
 > <br/>
@@ -96,27 +99,13 @@ Student von der Prüfung abmeldet, bekommt er einen Text, z. B. etwas in dieser
 Richtung:
 
 > Ich, Martin Thoma (Matrikelnummer: 1612345), melde mich hiermit 
-> am 08.04.2014 um 12:34 Uhr von der Prüfung "Programmierparadigmen" 
+> am 08.04.2014 um 12:34:56 Uhr von der Prüfung "Programmierparadigmen" 
 > (Prüfungsdatum: 10.04.2014) ab.
 
 Diese muss er mit seinem privaten Schlüssel signieren. Die Uni muss daher den
 öffentlichen Schlüssel des Studenten kennen und diesem zugeordnet haben.
 Sobald die Abmeldung eingegangen ist, wird innerhalb von 24h eine Bestätigung
-an den Studenten verschickt:
-
-> -----BEGIN PGP SIGNED MESSAGE-----<br/>
-> Hash: SHA1<br/>
-> Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014 um 12:34 Uhr zu folgenden
-> Prüfungen angemeldet:<br/>
-> * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br/>
-> * Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br/>
-> -----BEGIN PGP SIGNATURE-----<br/>
-> Version: GnuPG v1.4.14 (GNU/Linux)<br/>
-> <br/>
-> iEYEARECAAYFAlNDzBoACgkQO3Q6GUuCW82z+ACfamkVC/S8HIpASH8F0ZGVbVW1<br/>
-> rgwAn2cRvNeDN3pZVTpvNWV1vYK9f1fI<br/>
-> =3DvZU7<br/>
-> -----END PGP SIGNATURE-----
+an den Studenten verschickt, die von der oben beschriebenen Form ist.
 
 oder auch eine Fehlermitteilung:
 
@@ -258,22 +247,22 @@ und
 ```html
 <div class="content_full_portal">
     <h1>Prüfungsanmeldung</h1>
-    Signieren Sie folgende Nachricht mit ihrem Schlüssel:<br/>
+    Signieren Sie folgende Nachricht mit ihrem Schlüssel:<br>
 
-    <a href="">Nachricht als Textdatei herunterladen</a><br/>
+    <a href="">Nachricht als Textdatei herunterladen</a><br>
 
-    oder<br/>
+    oder<br>
 
-    Nachricht zum kopieren:<br/>
-    <textarea style="width: 800px;height: 60px;">Hiermit melde ich, Martin Thoma (Matrikelnummer: 1612345), mich heute (28.03.2014) zur Prüfung 'Programmierparadigmen', die am 10.04.2014 statt findet, an. Mir ist bekannt, dass der letzte Zeitpunkt der Abmeldung am 08.04.2014 ist.</textarea>
+    Nachricht zum kopieren:<br>
+    <textarea style="width: 800px;height: 60px;">Hiermit melde ich, Martin Thoma (Matrikelnummer: 1612345), mich heute (28.03.2014, 12:34:56 Uhr) zur Prüfung 'Programmierparadigmen', die am 10.04.2014 statt findet, an. Mir ist bekannt, dass der letzte Zeitpunkt der Abmeldung am 08.04.2014 ist.</textarea>
     <h2>Anmeldung durchführen</h2>
     <form>
-        <label for="filet">Signierte Bestätigung als Textdatei hochladen:</label><br/>
-        <input type="file" id="filet"><br/>
+        <label for="filet">Signierte Bestätigung als Textdatei hochladen:</label><br>
+        <input type="file" id="filet"><br>
 
-        <p>oder signierte Bestätigung direkt einfügen:<br/></p>
+        <p>oder signierte Bestätigung direkt einfügen:<br></p>
         <label for="textareat"></label>
-        <textarea id="textareat" style="width: 800px;height: 60px;"></textarea><br/>
+        <textarea id="textareat" style="width: 800px;height: 60px;"></textarea><br>
         <input type="submit">
     </form>
 </div>
