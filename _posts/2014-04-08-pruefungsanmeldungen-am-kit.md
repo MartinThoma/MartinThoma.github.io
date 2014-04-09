@@ -62,7 +62,7 @@ Dies könnte z.B. mit PGP gemacht werden und würde dann etwa so aussehen:
 
 > -----BEGIN PGP SIGNED MESSAGE-----<br/>
 > Hash: SHA1<br/>
-> Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014 zu folgenden
+> Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014, 12:34 Uhr zu folgenden
 > Prüfungen angemeldet:<br/>
 > * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br/>
 > * Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br/>
@@ -96,7 +96,7 @@ Student von der Prüfung abmeldet, bekommt er einen Text, z. B. etwas in dieser
 Richtung:
 
 > Ich, Martin Thoma (Matrikelnummer: 1612345), melde mich hiermit 
-> am 08.04.2014 von der Prüfung "Programmierparadigmen" 
+> am 08.04.2014 um 12:34 Uhr von der Prüfung "Programmierparadigmen" 
 > (Prüfungsdatum: 10.04.2014) ab.
 
 Diese muss er mit seinem privaten Schlüssel signieren. Die Uni muss daher den
@@ -106,7 +106,7 @@ an den Studenten verschickt:
 
 > -----BEGIN PGP SIGNED MESSAGE-----<br/>
 > Hash: SHA1<br/>
-> Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014 zu folgenden
+> Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014 um 12:34 Uhr zu folgenden
 > Prüfungen angemeldet:<br/>
 > * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br/>
 > * Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br/>
@@ -284,11 +284,13 @@ und
 In diesem Artikel will ich nur die Prüfungsverwaltung diskutieren. Dennoch
 sollte darauf hingewiesen werden, dass Weiteres nicht gerade optimal gelöst ist:
 
-* Die **Anmeldungsfreischaltung** der Prüfungen finden zu sehr unterschiedlichen
-  Zeitpunkten statt. Bereits zu Semesterbegin sollte  folgendes bekannt sein:
+* **Informationspolitik**: Bereits zu Semesterbegin sollte  folgendes bekannt sein:
   * Zeitpunkt der Prüfung
   * Letztmöglicher Zeitpunkt der Anmeldung
   * Letztmöglicher Zeitpunkt der Abmeldung
+* Die **Anmeldungsfreischaltung** der Prüfungen finden zu sehr unterschiedlichen
+  Zeitpunkten statt. Die Anmeldung sollte breits zu Semesterbegin für alle
+  Klausuren möglich sein.
 * Die **Einsicht** ist immer schlecht organisiert. Da sich die Prüfungstermine
   größtenteils in der vorlesungsfreien Zeit befinden und darin aber stark 
   gestreut sind (manche sind zu Beginn, manche in der Mitte, manche am Ende)
