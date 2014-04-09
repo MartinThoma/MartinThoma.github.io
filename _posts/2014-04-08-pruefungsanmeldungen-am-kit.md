@@ -10,8 +10,8 @@ tags:
 featured_image: logos/kit.png
 ---
 
-<!-- <div class="info">This article is about an idea how to give students the
-possibility to proof that they were registered for an exam.</div> -->
+<div class="info">This article is about an idea how to give students the
+possibility to proof that they were registered for an exam.</div>
 
 gerade ist mir aufgefallen, dass ich nicht zur Prüfung "Programmierparadigmen"
 angemeldet bin. Dabei war ich mir relativ sicher, mich sogar am ersten Tag
@@ -34,6 +34,18 @@ durchzusetzen. Wie das genau funktionieren soll, wird im Folgenden erklärt.
 
 ### Ausführlich
 Zur Verbesserung dieser Situation schlage ich folgendes vor:
+
+Studenten sollen die Möglichkeit bekommen, einen öffentlichen Schlüssel
+hochzuladen:
+
+{% caption align="aligncenter" width="500" alt="Einen Schlüssel hinzufügen" text="Einen Schlüssel hinzufügen" url="../images/2014/04/kit-pgp-personal-data.png" %}
+
+{% caption align="aligncenter" width="500" alt="Einen Schlüssel hinzufügen" text="Einen Schlüssel hinzufügen" url="../images/2014/04/kit-pgp-personal-management.png" %}
+
+Mit diesem signieren sie Prüfungsanmeldungen:
+
+{% caption align="aligncenter" width="500" alt="Prüfungsanmeldung signieren" text="Prüfungsanmeldung signieren" url="../images/2014/04/kit-pgp-pruefungsanmeldung-signieren.png" %}
+
 Bei jeder Prüfungsanmeldung soll innerhalb von 24h eine E-Mail in Textform
 (keine PDF) an u****@student.kit.edu, also die KIT E-Mail-Adresse des Studenten,
 geschickt werden, der sich angemeldet hat.
@@ -160,12 +172,6 @@ Es ist für folgende Systeme verfügbar:
 Eine weitere Erklärung ist im [Piratenwiki](https://wiki.piratenpartei.de/PGP).
 
 ## Einfügen ins System
-
-{% caption align="aligncenter" width="500" alt="Einen Schlüssel hinzufügen" text="Einen Schlüssel hinzufügen" url="../images/2014/04/kit-pgp-personal-data.png" %}
-
-{% caption align="aligncenter" width="500" alt="Einen Schlüssel hinzufügen" text="Einen Schlüssel hinzufügen" url="../images/2014/04/kit-pgp-personal-management.png" %}
-
-
 Die Website [wechall.net](http://www.wechall.net/) bietet die Möglichkeit,
 einen PGP-Schlüssel hochzuladen. Sobald man das gemacht hat, werden dort alle
 Nachrichten mit dem öffentlichen Schlüssel verschlüsselt. Der Quellcode der
@@ -209,7 +215,7 @@ Sollte jemand den Vorschlag modifizieren wollen, hier ist das HTML dazu:
                 <form action="/account" method="post" enctype="multipart/form-data">
                     <table>
                         <tbody>
-                            <tr><td>Öffentlichen als Datei Schlüssel hochladen</td><td>
+                            <tr><td>Öffentlichen Schlüssel als Datei hochladen</td><td>
                             </td><td><input type="file" name="gpg_file"></td></tr>
                             <tr><td colspan="3">oder hier einfügen</td></tr>
                             <tr><td colspan="3"><textarea id="gpg_paste" name="gpg_paste" cols="80" rows="8"></textarea></td></tr>
@@ -247,9 +253,43 @@ Sollte jemand den Vorschlag modifizieren wollen, hier ist das HTML dazu:
     </div>
 ```
 
+und
+
+```html
+<div class="content_full_portal">
+    <h1>Prüfungsanmeldung</h1>
+    Signieren Sie folgende Nachricht mit ihrem Schlüssel:<br/>
+
+    <a href="">Nachricht als Textdatei herunterladen</a><br/>
+
+    oder<br/>
+
+    Nachricht zum kopieren:<br/>
+    <textarea style="width: 800px;height: 60px;">Hiermit melde ich, Martin Thoma (Matrikelnummer: 1612345), mich heute (28.03.2014) zur Prüfung 'Programmierparadigmen', die am 10.04.2014 statt findet, an. Mir ist bekannt, dass der letzte Zeitpunkt der Abmeldung am 08.04.2014 ist.</textarea>
+    <h2>Anmeldung durchführen</h2>
+    <form>
+        <label for="filet">Signierte Bestätigung als Textdatei hochladen:</label><br/>
+        <input type="file" id="filet"><br/>
+
+        <p>oder signierte Bestätigung direkt einfügen:<br/></p>
+        <label for="textareat"></label>
+        <textarea id="textareat" style="width: 800px;height: 60px;"></textarea><br/>
+        <input type="submit">
+    </form>
+</div>
+```
+
 ## Schlusswort
-Selbst wenn man das mit der Abmeldung nicht macht, hätte man als Student
-zumindest ein bisschen was in der Hand. Im Gegensatz zu der momentanen
-Situation, wo wir absolut nichts belegen können.
+
+Welche Vorteile hat das beschriebene Verfahren gegenüber der momentanen Situation?
+
+* Studenten können beweisen, dass sie zur Prüfung angemeldet sind / nicht sind
+* Prüfer können beweise, dass Studenten angemeldet sind / nicht sind
+
+Selbst wenn man den Teil mit der asymmetrischen Verschlüsselung nicht macht, hätte man als Student
+zumindest ein bisschen was in der Hand und einen Mechanismus, der automatisch
+Feedback gibt, ob alles geklappt hat. Im Gegensatz zu der momentanen
+Situation, wo wir absolut nichts belegen können und man sehr leicht übersehen
+kann, wenn etwas bei der Anmeldung schief gegangen ist.
 
 **Was haltet ihr davon? Hattet ihr auch schon solche Probleme mit der Prüfungsanmeldung?**
