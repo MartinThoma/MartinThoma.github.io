@@ -12,7 +12,7 @@
 
 
     <title>Prüfungsverwaltung am KIT</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201404091410.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201404091449.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -169,17 +169,18 @@ geschickt werden, der sich angemeldet hat.</p>
 <ul><li>Alle Prüfungen (mit Name, Termin der Prüfung, letzter An- und Abmeldetermin),
 zu den der Student angemeldet ist.</li>
 <li>Der volle Name und die Matrikelnummer des Studenten.</li>
-<li>Das Datum der E-Mail</li>
+<li>Das Datum der E-Mail.</li>
 </ul><p>Diese E-Mail soll mit einem offiziellen KIT Schlüssel signiert werden.
 Dies könnte z.B. mit PGP gemacht werden und würde dann etwa so aussehen:</p>
 
 <blockquote>
 <p>-----BEGIN PGP SIGNED MESSAGE-----<br />
-Hash: SHA1<br />
-Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014, 12:34 Uhr zu folgenden
-Prüfungen angemeldet:<br />
+Hash: SHA1<br /><br />
+Student: Martin Thoma (Matrikelnummer: 1612345)<br />
+Zeitpunkt: 08.04.2014, 12:34:56 Uhr<br />
+Angemeldete Prüfungen:<br />
 * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br />
-* Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br />
+* Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br /><br />
 -----BEGIN PGP SIGNATURE-----<br />
 Version: GnuPG v1.4.14 (GNU/Linux)<br /><br />
 iEYEARECAAYFAlNDzBoACgkQO3Q6GUuCW82z+ACfamkVC/S8HIpASH8F0ZGVbVW1<br />
@@ -212,29 +213,14 @@ Richtung:</p>
 
 <blockquote>
 <p>Ich, Martin Thoma (Matrikelnummer: 1612345), melde mich hiermit 
-am 08.04.2014 um 12:34 Uhr von der Prüfung "Programmierparadigmen" 
+am 08.04.2014 um 12:34:56 Uhr von der Prüfung "Programmierparadigmen" 
 (Prüfungsdatum: 10.04.2014) ab.</p>
 </blockquote>
 
 <p>Diese muss er mit seinem privaten Schlüssel signieren. Die Uni muss daher den
 öffentlichen Schlüssel des Studenten kennen und diesem zugeordnet haben.
 Sobald die Abmeldung eingegangen ist, wird innerhalb von 24h eine Bestätigung
-an den Studenten verschickt:</p>
-
-<blockquote>
-<p>-----BEGIN PGP SIGNED MESSAGE-----<br />
-Hash: SHA1<br />
-Martin Thoma (Matrikelnummer: 1612345) ist am 08.04.2014 um 12:34 Uhr zu folgenden
-Prüfungen angemeldet:<br />
-* Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br />
-* Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br />
------BEGIN PGP SIGNATURE-----<br />
-Version: GnuPG v1.4.14 (GNU/Linux)<br /><br />
-iEYEARECAAYFAlNDzBoACgkQO3Q6GUuCW82z+ACfamkVC/S8HIpASH8F0ZGVbVW1<br />
-rgwAn2cRvNeDN3pZVTpvNWV1vYK9f1fI<br />
-=3DvZU7<br />
------END PGP SIGNATURE-----</p>
-</blockquote>
+an den Studenten verschickt, die von der oben beschriebenen Form ist.</p>
 
 <p>oder auch eine Fehlermitteilung:</p>
 
@@ -379,22 +365,22 @@ aussehen:</p>
 <div class="highlight">
    <pre><code class="html language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content_full_portal"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h1&gt;</span>Prüfungsanmeldung<span class="nt">&lt;/h1&gt;</span>
-    Signieren Sie folgende Nachricht mit ihrem Schlüssel:<span class="nt">&lt;br/&gt;</span>
+    Signieren Sie folgende Nachricht mit ihrem Schlüssel:<span class="nt">&lt;br&gt;</span>
 
-    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>Nachricht als Textdatei herunterladen<span class="nt">&lt;/a&gt;&lt;br/&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>Nachricht als Textdatei herunterladen<span class="nt">&lt;/a&gt;&lt;br&gt;</span>
 
-    oder<span class="nt">&lt;br/&gt;</span>
+    oder<span class="nt">&lt;br&gt;</span>
 
-    Nachricht zum kopieren:<span class="nt">&lt;br/&gt;</span>
-    <span class="nt">&lt;textarea</span> <span class="na">style=</span><span class="s">"width: 800px;height: 60px;"</span><span class="nt">&gt;</span>Hiermit melde ich, Martin Thoma (Matrikelnummer: 1612345), mich heute (28.03.2014) zur Prüfung 'Programmierparadigmen', die am 10.04.2014 statt findet, an. Mir ist bekannt, dass der letzte Zeitpunkt der Abmeldung am 08.04.2014 ist.<span class="nt">&lt;/textarea&gt;</span>
+    Nachricht zum kopieren:<span class="nt">&lt;br&gt;</span>
+    <span class="nt">&lt;textarea</span> <span class="na">style=</span><span class="s">"width: 800px;height: 60px;"</span><span class="nt">&gt;</span>Hiermit melde ich, Martin Thoma (Matrikelnummer: 1612345), mich heute (28.03.2014, 12:34:56 Uhr) zur Prüfung 'Programmierparadigmen', die am 10.04.2014 statt findet, an. Mir ist bekannt, dass der letzte Zeitpunkt der Abmeldung am 08.04.2014 ist.<span class="nt">&lt;/textarea&gt;</span>
     <span class="nt">&lt;h2&gt;</span>Anmeldung durchführen<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;form&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"filet"</span><span class="nt">&gt;</span>Signierte Bestätigung als Textdatei hochladen:<span class="nt">&lt;/label&gt;&lt;br/&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">id=</span><span class="s">"filet"</span><span class="nt">&gt;&lt;br/&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"filet"</span><span class="nt">&gt;</span>Signierte Bestätigung als Textdatei hochladen:<span class="nt">&lt;/label&gt;&lt;br&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">id=</span><span class="s">"filet"</span><span class="nt">&gt;&lt;br&gt;</span>
 
-        <span class="nt">&lt;p&gt;</span>oder signierte Bestätigung direkt einfügen:<span class="nt">&lt;br/&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>oder signierte Bestätigung direkt einfügen:<span class="nt">&lt;br&gt;&lt;/p&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"textareat"</span><span class="nt">&gt;&lt;/label&gt;</span>
-        <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"textareat"</span> <span class="na">style=</span><span class="s">"width: 800px;height: 60px;"</span><span class="nt">&gt;&lt;/textarea&gt;&lt;br/&gt;</span>
+        <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"textareat"</span> <span class="na">style=</span><span class="s">"width: 800px;height: 60px;"</span><span class="nt">&gt;&lt;/textarea&gt;&lt;br&gt;</span>
         <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;/form&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
