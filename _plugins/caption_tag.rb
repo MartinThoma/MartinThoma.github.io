@@ -25,7 +25,7 @@ require 'yaml'
 require 'logger'
 
 $logger = Logger.new(STDOUT)
-$logger.level = Logger::WARN
+$logger.level = Logger::WARN ## Other loggin levels are: DEBUG, INFO, ERROR
 
 module Jekyll
   class CaptionTag < Liquid::Tag
