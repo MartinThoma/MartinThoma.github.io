@@ -11,7 +11,7 @@ featured_image:
 ---
 The following article describes how to draw speech bubbles like this:
 
-{% caption align="aligncenter" width="500" alt="Speech bubbles" text="Speech bubbles" url="/images/2013/11/WER-calculation.png" %}
+{% caption align="aligncenter" width="500" alt="Speech bubbles" text="Speech bubbles" url="../images/2013/11/WER-calculation.png" %}
 
 The nice icon is from [Wikipedia Commons](https://commons.wikimedia.org/wiki/File:Crystal_Clear_app_personal.png)
 and part of the Crystal Clear project by Everaldo Coelho.
@@ -42,14 +42,15 @@ Now it should looke like this:
 ## Indicator ##
 To add the "indicator" that shows who spoke, press <kbd>Shift</kbd>
 + <kbd>F6</kbd> and add a triangle that overlaps with the box:
-{% caption align="aligncenter" width="512" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-3.png" %}
+
+{% caption align="aligncenter" width="315" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-3.png" %}
 
 Then press <kbd>F2</kbd> to modify the path by nodes. Add some controll
 nodes in between by double-clicking on the path in between:
 
-{% caption align="aligncenter" width="512" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-4.png" %}
+{% caption align="aligncenter" width="315" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-4.png" %}
 
 Then delete them. Now you have those round curves that can be manipulated
 with the little circles:
 
-{% caption align="aligncenter" width="512" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-5.png" %}
+{% caption align="aligncenter" width="315" alt="Speech bubbles" text="Preparation" url="../images/2014/01/inkscape-speech-bubble-step-5.png" %}

@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS "openpgp_keys" (
 
 oder graphisch:
 
-{% caption align="aligncenter" width="500" alt="openpgp_keys Tabelle" text="openpgp_keys Tabelle" url="../images/2014/04/openpgp_keys.png" %}
+{% caption align="aligncenter" width="188" alt="openpgp_keys Tabelle" text="openpgp_keys Tabelle" url="../images/2014/04/openpgp_keys.png" %}
 
 ### Ressourcen
 

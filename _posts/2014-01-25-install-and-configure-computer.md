@@ -76,7 +76,7 @@ I like the old menu bar quite a lot. It opens instantly and is customizable:
 You can get it back in MATE by doing a right-click on the menu. Then click on
 "add to panel":
 
-{% caption align="aligncenter" width="500" alt="Add to panel" text="Add to panel" url="../images/2014/03/mate-add-to-panel.png" %}
+{% caption align="aligncenter" width="287" alt="Add to panel" text="Add to panel" url="../images/2014/03/mate-add-to-panel.png" %}
 
 After that, the following dialog will pop up. Choose "Menu Bar"
 

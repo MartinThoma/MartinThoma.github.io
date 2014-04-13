@@ -14,8 +14,6 @@ alias: /programmierparadigmen/index.html
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 gehört.</div>
 
-Der Artikel wird bis zur Klausur laufend aktualisiert.
-
 ## Behandelter Stoff ##
 ### Vorlesung ###
 <table>
@@ -161,8 +159,8 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: Gibt es nicht.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
-**Ergebnisse**: steht noch nicht fest (Stand: 30.03.2014)<br/>
-**Einsicht**: steht noch nicht fest (Stand: 30.03.2014)<br/>
+**Ergebnisse**: steht noch nicht fest (Stand: 13.04.2014)<br/>
+**Einsicht**: steht noch nicht fest (Stand: 13.04.2014)<br/>
 **Erlaubte Hilfsmittel**: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
 <blockquote>Erlaubte Hilfsmittel für die Klausur sind alle Quellen in Papierform, insbesondere
@@ -174,4 +172,4 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 </blockquote>
 
 ## Ergebnisse
-Stehen noch nicht fest (Stand: 30.03.2014).
+Stehen noch nicht fest (Stand: 13.04.2014).
