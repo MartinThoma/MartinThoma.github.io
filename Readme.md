@@ -38,6 +38,7 @@ Required
 First:
 
     sudo apt-get install rubygems ruby-dev
+    sudo juicer install yui_compressor
 
 Although there is a `jekyll` package on Debian-Systems, you should not install it. Rather do it this way:
 

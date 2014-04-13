@@ -26,6 +26,11 @@ test:
 	# move files to localhost
 	cp -r _site/* /var/www/blog
 
+tinytest:
+	make clean
+	jekyll build --draft --trace
+	cp -r _site/* /var/www/blog
+
 deploy:
 	make push
 	# add folder to save not-preprocessed posts
