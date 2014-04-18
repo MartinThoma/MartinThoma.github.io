@@ -3,7 +3,7 @@
 #
 # Author: Martin Thoma (info@martin-thoma.de)
 # Source: https://github.com/MartinThoma/jekyll-caption-tag
-# Version: 1.7
+# Version: 1.8
 #
 # Example usage:
 #   {% caption align="aligncenter" width="500" alt="WER calculation" caption="WER calculation" url="../images/2014/03/lolcat.jpg" %}
@@ -195,6 +195,13 @@ module Jekyll
         @caption_folder = context.registers[:site].config['caption_folder'] || "/captions"
 
         @attributes = parse_attrs(@text)
+
+        if !@attributes.has_key?('url')
+            $logger.error("Image in post '" +
+                          context.registers[:page]["path"] +
+                          "' has no 'url' attribute.")
+            exit
+        end
 
         if @attributes.has_key?('text') && @attributes.has_key?('caption')
             $logger.warn("[" + context.environments.first["page"]["url"] +"] " +
