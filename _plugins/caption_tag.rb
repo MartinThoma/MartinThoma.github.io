@@ -154,8 +154,7 @@ module Jekyll
     # * *Returns*    :
     #   - e.g.  http://localhost/blog/captions/lolcat.jpg
     def get_online_url(baseurl, new_filename)
-        dest = File.join(baseurl, @caption_folder, File.basename(new_filename))
-        return dest
+        File.join(baseurl, @caption_folder, File.basename(new_filename))
     end
 
 
