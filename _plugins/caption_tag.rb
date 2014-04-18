@@ -288,8 +288,10 @@ module Jekyll
                              "(in "+ context.environments.first["page"]["url"] +
                              " for "+original_image_path+")")
                 @attributes['width'] = orig_width.to_s
+                @attributes['caption_url'] = @attributes['url']
             else
                 $logger.info("Scaled width = original width. Nothing to do.")
+                @attributes['caption_url'] = @attributes['url']
             end
         else
             $logger.warn(original_image_path + " does not exist (in " +
