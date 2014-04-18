@@ -148,15 +148,13 @@ module Jekyll
     # Returns the url of the image where it will be online.
     #
     # * *Args*    :
-    #   - +site_source+:: 
-    #    e.g. '/home/moose/Downloads/MartinThoma.github.io'
     #   - +baseurl+:: e.g. 'http://localhost/blog' or 'http://martin-thoma.com'
     #   - +new_filename+:: e.g.
     #         '/home/moose/Downloads/MartinThoma.github.io/captions/lolcat.jpg'
     # * *Returns*    :
     #   - e.g.  http://localhost/blog/captions/lolcat.jpg
-    def get_online_url(site_source, baseurl, new_filename)
-        dest = File.join(baseurl, new_filename[site_source.length..-1])
+    def get_online_url(baseurl, new_filename)
+        dest = File.join(baseurl, @caption_folder, File.basename(new_filename))
         return dest
     end
 
