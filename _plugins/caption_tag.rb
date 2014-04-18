@@ -274,7 +274,6 @@ module Jekyll
                 @attributes['caption_height'] = @attributes['caption_height'].to_s
 
                 @attributes['caption_url'] = get_online_url(
-                                context.registers[:site].config['source'],
                                 context.registers[:site].config['baseurl'],
                                 new_filename)
             elsif orig_width < @attributes['width'].to_i
