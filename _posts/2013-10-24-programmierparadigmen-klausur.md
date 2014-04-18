@@ -159,8 +159,8 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: Gibt es nicht.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
-**Ergebnisse**: steht noch nicht fest (Stand: 13.04.2014)<br/>
-**Einsicht**: steht noch nicht fest (Stand: 13.04.2014)<br/>
+**Ergebnisse**: stehen seit dem 17.04.2014 fest<br/>
+**Einsicht**: am Mittwoch den 30.04.2014, 14:00 Uhr - 16:00 in Raum 010, Informatik Gebäude (Geb. 50.34)  (bekanntgegeben über [Vorlesungswebsite](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/index.php) am 17.04.2014)<br/>
 **Erlaubte Hilfsmittel**: (siehe <a href="http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/">Website</a>)
 
 <blockquote>Erlaubte Hilfsmittel für die Klausur sind alle Quellen in Papierform, insbesondere
@@ -172,4 +172,4 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 </blockquote>
 
 ## Ergebnisse
-Stehen noch nicht fest (Stand: 13.04.2014).
+Stehen seit dem 17.04.2014 fest.
