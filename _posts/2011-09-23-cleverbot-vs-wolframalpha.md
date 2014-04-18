@@ -19,9 +19,9 @@ I was curious how Cleverbot would answer when I compared it to <a href="http://w
 
 Here are two of my conversations:
 
-{% caption align="aligncenter" width="500" alt="Cleverbot" text="Cleverbot" url="../images/2011/09/Cleverbot.png" %}
+{% caption align="aligncenter" width="500" alt="Cleverbot" caption="Cleverbot" src="../images/2011/09/Cleverbot.png" %}
 
-{% caption align="aligncenter" width="500" alt="Cleverbot" text="Cleverbot" url="../images/2011/09/Cleverbot-2.png" %}
+{% caption align="aligncenter" width="500" alt="Cleverbot" caption="Cleverbot" src="../images/2011/09/Cleverbot-2.png" %}
 
 This Cleverbot isn't very clever...
 
