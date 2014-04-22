@@ -21,11 +21,12 @@ Ich kann als Tipp f&uuml;r die Klausur noch sagen:
 Wenn du eine Aufgabe (b) machst, &uuml;berleg dir, ob dir die Ergebnisse aus (a) helfen k&ouml;nnen!
 In den LA-Klausuren, die ich bisher gesehen habe, hat die vorangehende Teilaufgabe sehr h&auml;ufig eine Hilfestellung geboten.
 
-<h2>Vorbereitung</h2>
-<h3>Lineare Algebra I</h3>
+## Vorbereitung
+
+### Lineare Algebra I
 Ihr solltet auf jeden Fall die <a href="../lernkontrolle-lineare-algebra-i/" title="Lernkontrolle: Lineare Algebra I">Lernkontrolle: Lineare Algebra I</a> machen.
 
-<h4>Themen</h4>
+#### Themen
 <ul>
   <li><strong>Gruppen</strong>: Untergruppe, Homomorphismus/Isomorphismus, $GL(n, \mathbb{K})$</li>
   <li><strong>K&ouml;rper</strong>: $\mathbb{R}, \mathbb{C}, \mathbb{Z}/p\mathbb{Z}$ (insbesondere $p=2$)</li>
@@ -139,13 +140,13 @@ $\operatorname{Aff}(\mathbb{R}^n), \mathrm{Iso}(\mathbb{R}^n)$ Gruppe der Affini
 Es empfiehlt sich, einen Lernplan aufzustellen. Wenn ich die &Uuml;bungsbl&auml;tter mache, dann lese ich mir zuerst die relevanten Kapitel im <a href="https://studium.kit.edu/sites/vab/0x40F0348A9ACDCE49A96EEE39EB076112/Vorlesungsunterlagen/Forms/AllItems.aspx">Skript</a> durch.
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Donnerstag, den 13. September 2012 von 08:00 bis 13:00 Uhr 
-<strong>Ort</strong>: bei mir: <strike>Neue Chemie</strike> H&ouml;rsaal am Fasanengarten (&rarr; <a href="http://www.math.kit.edu/iag2/lehre/la2mathe20122012s/media/hoersaele-1.pdf">H&ouml;rsaaleinteilung</a>)
-<strong>Dauer</strong>: 2 h LA I, 1 h Pause, 2 h LA II
-<strong>Punkte</strong>: 6 Aufgaben &agrave; 4 Punkte f&uuml;r LA I, 6 Aufgaben &agrave; 4 Punkte f&uuml;r LA II
-<strong>Geschwindigkeit</strong>: $\frac{5 \text{ Minuten}}{\text{Punkt}}$
-<strong>&Uuml;bungsschein</strong>: Noch nicht im Studierendenportal (Stand: 11.09.2012)
-<strong>Bonuspunkte</strong>: Gibt es nicht.
+<strong>Datum</strong>: Donnerstag, den 13. September 2012 von 08:00 bis 13:00 Uhr<br/>
+<strong>Ort</strong>: bei mir: <strike>Neue Chemie</strike> H&ouml;rsaal am Fasanengarten (&rarr; <a href="http://www.math.kit.edu/iag2/lehre/la2mathe20122012s/media/hoersaele-1.pdf">H&ouml;rsaaleinteilung</a>)<br/>
+<strong>Dauer</strong>: 2 h LA I, 1 h Pause, 2 h LA II<br/>
+<strong>Punkte</strong>: 6 Aufgaben &agrave; 4 Punkte f&uuml;r LA I, 6 Aufgaben &agrave; 4 Punkte f&uuml;r LA II<br/>
+<strong>Geschwindigkeit</strong>: $\frac{5 \text{ Minuten}}{\text{Punkt}}$<br/>
+<strong>&Uuml;bungsschein</strong>: Noch nicht im Studierendenportal (Stand: 11.09.2012)<br/>
+<strong>Bonuspunkte</strong>: Gibt es nicht.<br/>
 
 <strong>Nicht vergessen</strong>:
 <ul>
@@ -159,7 +160,7 @@ Ein paar interessante Aussagen:
 <blockquote>In den letzten Jahren wurde jeweils im LA I und in LA II der beste Teil doppelt bepunktet</blockquote>
 <blockquote>Es gab bisher nur eine Gesamtnote f&uuml;r LA I und II, man musste die beiden Tests also nicht einzeln bestehen.</blockquote>
 
-<h2>Ergebnisse</h2>
+## Ergebnisse
 Ich habe den &Uuml;bungsleiter mal angeschrieben. Das war seine Antwort:
 <blockquote>
 Der Termin ist normalerweise in der ersten Vorlesungswoche. Er wird auf der Kurshomepage rechtzeitig bekannt gegeben.

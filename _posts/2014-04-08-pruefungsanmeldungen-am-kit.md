@@ -13,7 +13,7 @@ featured_image: logos/kit.png
 <!-- <div class="info">This article is about an idea how to give students the
 possibility to proof that they were registered for an exam.</div> -->
 
-gerade ist mir aufgefallen, dass ich nicht zur Prüfung "Programmierparadigmen"
+Gerade ist mir aufgefallen, dass ich nicht zur Prüfung "Programmierparadigmen"
 angemeldet bin. Dabei war ich mir relativ sicher, mich sogar am ersten Tag
 angemeldet zu haben, als die Anmeldung freigeschaltet wurde.
 
