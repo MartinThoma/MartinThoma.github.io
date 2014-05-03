@@ -24,7 +24,7 @@
 #             </a>
 #           </div>
 #         </div>
-#         <div class="gallerytext">"Bash</div>
+#         <div class="gallerytext">Bash</div>
 #       </div>
 #     </li>
 #     ...
