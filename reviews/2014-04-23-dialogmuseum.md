@@ -7,6 +7,7 @@ categories:
 - Review
 tags:
 - Review
+- Museum
 featured_image: 
 ---
 

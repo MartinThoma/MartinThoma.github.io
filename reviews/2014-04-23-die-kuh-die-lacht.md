@@ -7,6 +7,7 @@ categories:
 - Review
 tags:
 - Review
+- Restaurant
 featured_image: 
 ---
 

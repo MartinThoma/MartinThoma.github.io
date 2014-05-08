@@ -4,9 +4,10 @@ title: Arena Villa am Wasserpark
 author: Martin Thoma
 date: 2014-03-20 21:09
 categories:
-- Code
+- Review
 tags:
-- Python
+- Review
+- Hotel
 featured_image: 
 ---
 

@@ -7,6 +7,7 @@ categories:
 - Review
 tags:
 - Review
+- Öffentlicher Platz
 featured_image:
 ---
 
