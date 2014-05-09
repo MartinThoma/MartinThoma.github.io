@@ -10,4 +10,4 @@ tags:
 featured_image: logos/sublime-text.png
 ---
 
-{% directory_listing Further reading: %}
+You have to enter the complete path, e. g. [2014-04-22-arena-villa-am-wasserpark.html](2014-04-22-arena-villa-am-wasserpark).

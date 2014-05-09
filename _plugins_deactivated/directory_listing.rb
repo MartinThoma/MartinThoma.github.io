@@ -12,6 +12,9 @@
 #
 # Source: http://simon.heimlicher.com/articles/2012/02/01/jekyll-directory-listing
 
+# Problem:
+# error: uninitialized constant Jekyll::IncludeListingTag::TemplateWrapper. Use --trace to view backtrace
+
 require 'pathname'
 
 module Jekyll
