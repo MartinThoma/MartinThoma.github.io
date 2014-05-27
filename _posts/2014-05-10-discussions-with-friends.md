@@ -108,7 +108,7 @@ Speaking of honesty, there is a similar DON'T: Don't say something like
 
 I hear this so often in political debates by amateurs who have read something
 about discussions. By agreeing you make it easier for your discussion partner
-to agree you (he can't disagree when you agree you, can he?), but it should be
+to agree with you (he can't disagree when you agree with him, can he?), but it should be
 a honest way to agree. It's a very bad step to fake agreement.
 
 ## Group dynamics

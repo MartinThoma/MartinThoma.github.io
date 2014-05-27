@@ -7,19 +7,21 @@ categories:
 - Code
 tags:
 - PHP
+- SQL
 - Salt
 - Hash
 - MD5
+- Bootstrap
 featured_image: logos/php.png
 ---
 
 The following few lines explain how to create a sign-in system today. It
 explains how to create hashes, how to sign-in and what to store.
 
-## Prerequesites
+## Requirements
 
 * Either (PHP >=5.5) or (PHP >= 5.3.7 and [password_compat](https://github.com/ircmaxell/password_compat))
-* Any SQL based database
+* Any SQL database
 
 ## What to store
 
@@ -52,21 +54,32 @@ The user enters a the username. While he does so, he should get feedback if the
 username does already exist. Something like
 
 ```html
-<form action="" method="post">
-    <label for="display_name">Display name</label>
-    <input type="text" placeholder="John Smith" id="display_name" name="display_name" />
-
-    <label for="email">Email</label>
-    <input type="email" placeholder="john.smith@gmail.com" id="email" name="email" />
-
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password"/>
-
-    <input type="submit" />
+<form action="" method="post" role="form">
+    <div class="form-group">
+        <label for="display_name">Display name</label>
+        <input type="text" class="form-control" pattern=".{3,60}" required
+               placeholder="John Smith"
+               id="display_name" name="display_name" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" maxlength="255" required
+               placeholder="john.smith@gmail.com"
+               id="email" name="email" />
+        <p class="help-block">You're Email address will only be used for
+           the sign-in process. I will neither share your Email address nor
+           send you spam.</p>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" pattern=".{5,60}" required
+               id="password" name="password"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 ```
 
-TODO: JavaScript to check if display name is already taken.
+You could eventually add a JavaScript check if username was already taken.
 
 ```sql
 INSERT INTO  `wm_users` (
@@ -111,7 +124,7 @@ Add a page `activate.php` which does
 if (isset($_GET['email']) && isset($_GET['code'])) {
     $sql = "UPDATE `wm_users` ".
            "SET status = 'activated' ".
-           "WHERE `email` = :email AND `activation_code` = :code";
+           "WHERE `email` = :email AND `confirmation_code` = :code";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $_GET['email'], PDO::PARAM_STR);
     $stmt->bindParam(':code', $_GET['code'], PDO::PARAM_STR);
@@ -127,14 +140,20 @@ if (isset($_GET['email']) && isset($_GET['code'])) {
 ## Sign in
 
 ```html
-<form action="signin.php" method="post">
-    <label for="email">Email</label>
-    <input type="email" placeholder="john.smith@gmail.com" id="email" name="email" />
+<form action="signin.php" method="post" role="form">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" maxlength="255"
+               placeholder="john.smith@gmail.com"
+               id="email" name="email" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" maxlength="60"
+               id="password" name="password"/>
+    </div>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password"/>
-
-    <input type="submit" />
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 ```
 
@@ -152,11 +171,15 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $user = $stmt->fetchObject();
 
     if ($user->id > 0 && password_verify($_POST['password'], $row->password)) {
-        $_SESSION['uid'] = $user->id;
-        $_SESSION['display_name'] = $row->display_name;
-        $_SESSION['upass'] = $upass;
-        $_SESSION['is_logged_in'] = true;
-        return true;
+        if ($user->status == 'activated') {
+            $_SESSION['uid'] = $user->id;
+            $_SESSION['display_name'] = $row->display_name;
+            $_SESSION['upass'] = $upass;
+            $_SESSION['is_logged_in'] = true;
+            return true;
+        } else {
+            echo "Your account is deactivated.";
+        }
     } else {
         $_SESSION['is_logged_in'] = false;
         $_SESSION['uid'] = NULL;
@@ -172,16 +195,22 @@ See [`session_destroy`](http://www.php.net/manual/en/function.session-destroy.ph
 
 ## Password reset
 
+Users forget passwords, so you have to be able to reset them.
+
 HTML:
 
 ```html
 <h1>Reset password</h1>
 
-<form action="reset.php" method="post">
-    <label for="email">Email</label>
-    <input type="email" placeholder="john.smith@gmail.com" id="email" name="email" />
+<form action="reset.php" method="get" role="form">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" maxlength="60"
+               placeholder="john.smith@gmail.com"
+               id="email" name="email" />
+    </div>
 
-    <input type="submit" />
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 ```
 
@@ -194,23 +223,24 @@ get on your users nerves by resetting the password (or at least trying to do so)
 
 function generate_message($email, $confirmation_code) {
     return "Hello [username],\n".
-           "Your reset link is http://example.com/reset/?email=$email&code=$confirmation_code";
+           "Your reset link is ".
+           "http://example.com/reset/?email=$email&code=$confirmation_code";
 }
 
 
-if (isset($_POST['email'])) {
+if (isset($_GET['email'])) {
     $sql = "UPDATE `wm_users` ".
-           "SET `activation_code` = :code ".
+           "SET `confirmation_code` = :code ".
            "WHERE `email` = :email AND status = 'activated';";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
-    $confirmation_code = md5(rand())
-    $stmt->bindParam(':code', confirmation_code, PDO::PARAM_STR);
-    $result = $stmt->execute();
-    if ($result->rowCount() == 1) {
+    $confirmation_code = md5(rand());
+    $stmt->bindParam(':code', $confirmation_code, PDO::PARAM_STR);
+    $stmt->execute();
+    if ($stmt->rowCount() == 1) {
         mail($_POST['email'],
              "Password reset",
-             generate_message($_POST['email'], confirmation_code)
+             generate_message($_POST['email'], $confirmation_code)
         );
         echo "An email has been sent with a confirmation code to reset your password.";
     }
@@ -227,5 +257,6 @@ if (isset($_GET['code'])) {
 
 * PHP Manual
   * [`password_hash`](http://www.php.net/manual/en/function.password-hash.php)
+    and [`password_verify`](http://www.php.net/manual/en/function.password-verify.php)
   * [FAQ: Safe Password Hashing](http://www.php.net/manual/en/faq.passwords.php)
 * [What column type/length should I use for storing a Bcrypt hashed password in a Database?](http://stackoverflow.com/q/5881169/562769)
