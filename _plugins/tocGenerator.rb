@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 require 'nokogiri'
 # Source: https://github.com/dafi/jekyll-toc-generator
 # But it was modified!

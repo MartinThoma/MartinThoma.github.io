@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # Alias Generator for Posts.
 #
 # Generates redirect pages for posts with aliases set in the YAML Front Matter.

@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # Title: Cateogry Slug tag
 # Author: Martin Thoma, http://martin-thoma.com
 

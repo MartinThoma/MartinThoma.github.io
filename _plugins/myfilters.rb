@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 module Jekyll
   module MyFilters
     def file_date(input)

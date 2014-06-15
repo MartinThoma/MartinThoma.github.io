@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # Copyright (C) 2011 Anurag Priyam - MIT License
 # Source: https://gist.github.com/yeban/2290195
 

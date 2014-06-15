@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 # A Liquid tag for Jekyll sites that allows easy creation of captioned
 # images like they are in WordPress.
 #
