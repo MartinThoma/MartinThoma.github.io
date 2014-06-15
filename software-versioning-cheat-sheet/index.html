@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/04/svn-git-logo.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/04/svn-git-logo.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Software Versioning Cheat Sheet</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -78,8 +80,7 @@
 <p>If you're at the KIT and you have SWT, then you'll probably need this command:</p>
 
 <div class="highlight">
-   <pre><code class="bash">svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1
-</code></pre>
+   <pre><code class="bash">svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1</code></pre>
 </div>
 
 <p>You will be asked for a password. I hope you remember it.</p>
@@ -125,22 +126,19 @@
 </div><h2 id="tocAnchor-1-1">SVN</h2>
 
 <div class="highlight">
-   <pre><code class="bash">svn co URL LocalTarget --username yourUserName
-</code></pre>
+   <pre><code class="bash">svn co URL LocalTarget --username yourUserName</code></pre>
 </div>
 
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">svn checkout</a></p>
 
 <div class="highlight">
-   <pre><code class="bash">svn up
-</code></pre>
+   <pre><code class="bash">svn up</code></pre>
 </div>
 
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.update.html">svn update</a></p>
 
 <div class="highlight">
-   <pre><code class="bash">svn log -l 4
-</code></pre>
+   <pre><code class="bash">svn log -l 4</code></pre>
 </div>
 
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a></p>
@@ -150,15 +148,18 @@
 <p>You can update a SVN repository with this command:</p>
 
 <div class="highlight">
-   <pre><code class="bash">svn up <span class="o">[</span>path<span class="o">]</span>
-</code></pre>
+   <pre><code class="bash">svn up <span class="o">[</span>path<span class="o">]</span></code></pre>
 </div>
 
 <p>If you need to execute the command often, you might want to define an alias. aliases are shorthands for long commands in the bash. To create a permanent one, add the following line to your ~/.bashrc file:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">alias </span><span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
-</code></pre>
+   <pre><code class="bash">
+         <span class="nb">alias </span>
+         <span class="nv">swt</span>
+         <span class="o">=</span>
+         <span class="s1">'svn up /home/moose/Studium/SWT'</span>
+      </code></pre>
 </div>
 
 <p>Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".</p>
@@ -167,7 +168,7 @@
 
 <p>You can modify your config file:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">gedit ~/.subversion/config
+   <pre><code class="language-bash" data-lang="bash">gedit ~/.subversion/config
 </code></pre>
 </div>
 <p>and change <code>diff-cmd</code> to <code>meld</code>.</p>
@@ -175,8 +176,7 @@
 <h3 id="tocAnchor-1-1-3">Compare revisions</h3>
 
 <div class="highlight">
-   <pre><code class="bash">svn diff -r 63:64
-</code></pre>
+   <pre><code class="bash">svn diff -r 63:64</code></pre>
 </div>
 
 <p>compares revision number 63 with revision number 64 with the tool you defined (see Nice diffs).</p>
@@ -185,7 +185,7 @@
 
 <h3 id="tocAnchor-1-5-1">Global configuration</h3>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>git config --global user.name <span class="s2">"Martin Thoma"</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git config --global user.name <span class="s2">"Martin Thoma"</span>
 <span class="nv">$ </span>git config --global user.email info@martin-thoma.de
 <span class="nv">$ </span>git config --global color.ui <span class="nb">true</span>
 </code></pre>
@@ -196,27 +196,25 @@
 
 <p>Install meld:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">sudo apt-get install meld
+   <pre><code class="language-bash" data-lang="bash">sudo apt-get install meld
 </code></pre>
 </div>
 <p>Got to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
 meld <span class="s2">"$2"</span> <span class="s2">"$5"</span>
 </code></pre>
 </div>
 <p>Make it executable:</p>
 
 <div class="highlight">
-   <pre><code class="bash">chmod +x git-meld
-</code></pre>
+   <pre><code class="bash">chmod +x git-meld</code></pre>
 </div>
 
 <p>Add it to your git configuration:</p>
 
 <div class="highlight">
-   <pre><code class="bash">git config --global diff.external git-meld
-</code></pre>
+   <pre><code class="bash">git config --global diff.external git-meld</code></pre>
 </div>
 
 <p>Enjoy this experience when entering <code>git diff</code>:
@@ -239,8 +237,7 @@ meld <span class="s2">"$2"</span> <span class="s2">"$5"</span>
    <pre><code class="bash"><span class="nb">cd</span> ~/.ssh
 ssh-keygen -t rsa -C <span class="s2">"info@martin-thoma.de"</span>
 git config --global user.name <span class="s2">"Martin Thoma"</span>
-git config --global user.email info@martin-thoma.de
-</code></pre>
+git config --global user.email info@martin-thoma.de</code></pre>
 </div>
 
 <h4>Clone</h4>
@@ -248,8 +245,7 @@ git config --global user.email info@martin-thoma.de
 <p>Clone a GITHub repository:</p>
 
 <div class="highlight">
-   <pre><code class="bash">git clone git@github.com:MartinThoma/matrix-multiplication.git
-</code></pre>
+   <pre><code class="bash">git clone git@github.com:MartinThoma/matrix-multiplication.git</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-5-4">Snippets</h3>
@@ -257,23 +253,23 @@ git config --global user.email info@martin-thoma.de
 <p>Reset a single file to the latest revision on the server:</p>
 
 <div class="highlight">
-   <pre><code class="bash">git checkout HEAD file/to/restore
-</code></pre>
+   <pre><code class="bash">git checkout HEAD file/to/restore</code></pre>
 </div>
 
 <p>Get the latest diff:</p>
 
 <div class="highlight">
-   <pre><code class="bash">git diff HEAD @<span class="o">{</span>1<span class="o">}</span>
-</code></pre>
+   <pre><code class="bash">git diff HEAD @<span class="o">{</span>1<span class="o">}</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-10">Resources</h2>
 
-<ul><li><a href="http://svnbook.red-bean.com/en/1.6/">Version Control with Subversion</a>: a great explanation how to use subversion, e.g. <a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.export.html">svn export</a></li>
+<ul>
+  <li><a href="http://svnbook.red-bean.com/en/1.6/">Version Control with Subversion</a>: a great explanation how to use subversion, e.g. <a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.export.html">svn export</a></li>
   <li>StackOverflow: <a href="http://stackoverflow.com/questions/3233059/basic-subversion-question">Which files should be put under version controll?</a></li>
   <li>GitHub:  <a href="http://help.github.com/remotes/">Remotes</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -402,7 +398,7 @@ git config --global user.email info@martin-thoma.de
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

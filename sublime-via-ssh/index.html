@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/logos/sublime-text.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/logos/sublime-text.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>How to use Sublime Text via SSH</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -103,14 +105,17 @@ Sublime Text.</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Preparation on your computer</h2>
 
-<ol><li>Install and start Sublime Text.</li>
+<ol>
+    <li>Install and start Sublime Text.</li>
     <li>Install the <code>rsub</code> package via Package Controll.</li>
     <li>Open <code>~/.ssh/config</code>. Create it if id does not exist yet. Add 
         the code from below.</li>
     <li>Start SSH with <code>ssh myname</code>.</li>
-</ol><p>This is how the <code>config</code> file should look like:</p>
+</ol>
+
+<p>This is how the <code>config</code> file should look like:</p>
 <div class="highlight">
-   <pre><code class="text language-text" data-lang="text">Host myname
+   <pre><code class="language-text" data-lang="text">Host myname
   Hostname pc123.your.network.com
   RemoteForward 52698 127.0.0.1:52698
 </code></pre>
@@ -119,10 +124,14 @@ Sublime Text.</p>
 
 <h2 id="tocAnchor-1-2">Server-Side steps</h2>
 
-<ol start="5"><li>Download the <code>rmate</code> script:<br /><code>curl https://raw.github.com/aurora/rmate/master/rmate &gt; rmate</code>
+<ol start="5">
+    <li>Download the <code>rmate</code> script:<br />
+<code>curl https://raw.github.com/aurora/rmate/master/rmate &gt; rmate</code>
     </li>
     <li>Execute <code>./rmate yourfile</code>. It will open in your local Sublime Text!</li>
-</ol><h2 id="tocAnchor-1-3">Improvements</h2>
+</ol>
+
+<h2 id="tocAnchor-1-3">Improvements</h2>
 
 <p>These steps have to be done server-side.</p>
 
@@ -131,13 +140,13 @@ Sublime Text.</p>
 <p>It's not so nice to open files with <code>~/rmate filename</code> all the time. You can
 use <code>rmate filename</code> after executing this command:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash"><span class="c"># This creates a symlink</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="c"># This creates a symlink</span>
 sudo ln -s ~/rmate /usr/local/bin/
 </code></pre>
 </div>
 <p>You can use other paths than <code>/usr/local/bin/</code>. Look at your <code>PATH</code> for candidates:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$PATH</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$PATH</span>
 </code></pre>
 </div>
 <h3 id="tocAnchor-1-3-2">Without Root access</h3>
@@ -145,19 +154,22 @@ sudo ln -s ~/rmate /usr/local/bin/
 <p>When you don't have root access, you can't create a symlink for most (eventually even all)
 folders in your <code>PATH</code>. But you can expand your <code>PATH</code>:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">mkdir -p ~/bin        <span class="c"># create folder if it doesn't exist</span>
+   <pre><code class="language-bash" data-lang="bash">mkdir -p ~/bin        <span class="c"># create folder if it doesn't exist</span>
 ln -s ~/rmate ~/bin/  <span class="c"># create symlink</span>
 </code></pre>
 </div>
 <p>Now expand your <code>PATH</code> so that it includes <code>~/bin</code>. There are at least two ways
 to do so:</p>
 
-<ul><li>You can directly edit your shells <code>.rc</code> file (e. g. <code>.bashrc</code>, <code>.zshrc</code>, <code>.cshrc</code>, ...) or</li>
+<ul>
+<li>You can directly edit your shells <code>.rc</code> file (e. g. <code>.bashrc</code>, <code>.zshrc</code>, <code>.cshrc</code>, ...) or</li>
 <li>you can edit your <code>.profile</code></li>
-</ul><p>As many shells source <code>.profile</code> I'll explain this way. First, open <code>~/.profile</code>.
+</ul>
+
+<p>As many shells source <code>.profile</code> I'll explain this way. First, open <code>~/.profile</code>.
 Then add</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash"><span class="c"># First check if that folder exists</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="c"># First check if that folder exists</span>
 <span class="k">if</span> <span class="o">[</span> -d <span class="s2">"$HOME/bin"</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
     <span class="c"># Add your home folder to the end of the current path</span>
     <span class="nv">PATH</span><span class="o">=</span><span class="s2">"$PATH:$HOME/bin"</span>
@@ -286,7 +298,7 @@ Then add</p>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/07/java-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/07/java-thumb.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>How to sort with Java</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -110,18 +112,26 @@
 <p>First of all, you have to make sure that you understand how sorting works - without Java, just in the real world.</p>
 
 <p>What you need:
-</p><ul><li>A container $C$ of objects</li>
+</p><ul>
+  <li>A container $C$ of objects</li>
   <li>A way to compare two objects of the list at a time. The comparison, lets call it $\leq$ needs to satisfy the following conditions:
-     <ul><li><a href="http://en.wikipedia.org/wiki/Total_relation">totality</a>: $\forall x, y \in C: x \leq y \lor y \leq x$</li>
+     <ul>
+       <li><a href="http://en.wikipedia.org/wiki/Total_relation">totality</a>: $\forall x, y \in C: x \leq y \lor y \leq x$</li>
        <li><a href="http://en.wikipedia.org/wiki/Antisymmetric_relation">antisymmetry</a>: $\forall x,y \in C: x \leq y \land y \leq x \Rightarrow x = y$</li>
        <li><a href="http://en.wikipedia.org/wiki/Transitive_relation">transitivity</a>: $\forall x,y,z \in C: x \leq y \land y \leq z \Rightarrow x \leq z$</li>
-     </ul></li>
-</ul><p>Just think about what you sort in your everyday life:
-</p><ul><li>Numbers</li>
+     </ul>
+  </li>
+</ul>
+
+<p>Just think about what you sort in your everyday life:
+</p><ul>
+  <li>Numbers</li>
   <li>Words</li>
   <li><a href="http://en.wikipedia.org/wiki/List_of_countries_by_population">Contries by population</a></li>
   <li>Playing cards</li>
-</ul><p>You can apply different algorithms like <a href="http://en.wikipedia.org/wiki/Selection_sort">selection sort</a> which you would use for numbers or <a href="http://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a> which you would use for card games. No matter what algorithm you use, you need to be able to compare the elements. </p>
+</ul>
+
+<p>You can apply different algorithms like <a href="http://en.wikipedia.org/wiki/Selection_sort">selection sort</a> which you would use for numbers or <a href="http://en.wikipedia.org/wiki/Insertion_sort">insertion sort</a> which you would use for card games. No matter what algorithm you use, you need to be able to compare the elements. </p>
 
 <p>Note that you can compare some objects, like countries, by many measures. You could look at the population, the birth rate or the area. No matter what you use to compare, the this will not influence the way you sort.</p>
 
@@ -146,16 +156,14 @@
         <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">myList</span><span class="o">);</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">myList</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Output:</p>
 
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>I, think, therefore, I, am<span class="o">]</span>
-<span class="o">[</span>I, I, am, therefore, think<span class="o">]</span>
-</code></pre>
+<span class="o">[</span>I, I, am, therefore, think<span class="o">]</span></code></pre>
 </div>
 
 <p>Note that I didn't write a Comparator or implement Comparable as String has one by default.
@@ -179,8 +187,7 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">myStrings</span><span class="o">);</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">myStrings</span><span class="o">));</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Interface Comparable</h2>
@@ -213,8 +220,7 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">": "</span> <span class="o">+</span> <span class="n">population</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Main.java</p>
@@ -236,16 +242,14 @@ Don't mix <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection
         <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">europe</span><span class="o">);</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">europe</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Output:</p>
 
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
-<span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
-</code></pre>
+<span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span></code></pre>
 </div>
 
 <p>You should definitely add JavaDoc and comment what you've compared.
@@ -254,11 +258,10 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <p>You can also use compareTo() within compareTo():</p>
 
 <div class="highlight">
-   <pre><code class="java">    <span class="nd">@Override</span>
+   <pre><code class="java"><span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Country</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
-    <span class="o">}</span>
-</code></pre>
+    <span class="o">}</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">Comparator</h2>
@@ -287,8 +290,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
         <span class="o">}</span>
     <span class="o">}</span>
 
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>and you would use it like this in the Main.java:</p>
@@ -314,8 +316,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
         <span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">europe</span><span class="o">,</span> <span class="k">new</span> <span class="n">PopulationDensityComperator</span><span class="o">());</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">europe</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Your output would be:</p>
@@ -323,8 +324,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
-<span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span>
-</code></pre>
+<span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span></code></pre>
 </div>
 
 <h3 id="tocAnchor-1-5-2">Internal (anonymous) Comparator</h3>
@@ -367,8 +367,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
         <span class="o">});</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">europe</span><span class="o">);</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Your output would be:</p>
@@ -376,20 +375,24 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <div class="highlight">
    <pre><code class="bash"><span class="o">[</span>Germany: 81903000, France: 64667000, Norway: 4985900, Sweden: 9514406, Spain: 47212990, Switzerland: 8014000, Monaco: 36371<span class="o">]</span>
 <span class="o">[</span>France: 64667000, Germany: 81903000, Monaco: 36371, Norway: 4985900, Spain: 47212990, Sweden: 9514406, Switzerland: 8014000<span class="o">]</span>
-<span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span>
-</code></pre>
+<span class="o">[</span>Norway: 4985900, Sweden: 9514406, Spain: 47212990, France: 64667000, Switzerland: 8014000, Germany: 81903000, Monaco: 36371<span class="o">]</span></code></pre>
 </div>
 
 <p>I don't recommend this way for some reasons:
-</p><ul><li>It is more likely that your code gets more difficult to read</li>
+</p><ul>
+  <li>It is more likely that your code gets more difficult to read</li>
   <li>It's more difficult to reuse your code (you can't use the same Comparator in another location)</li>
   <li>It's more difficult to extend your code</li>
-</ul><p>An argument for such an Comparator might be, that it is easier to read. But this is only an argument if the Comparator is very short.</p>
+</ul>
+
+<p>An argument for such an Comparator might be, that it is easier to read. But this is only an argument if the Comparator is very short.</p>
 
 <h2 id="tocAnchor-1-8">More examples</h2>
 
-<ul><li>StackOverflow: <a href="http://stackoverflow.com/q/3718383/562769">java class implements comparable</a></li>
+<ul>
+  <li>StackOverflow: <a href="http://stackoverflow.com/q/3718383/562769">java class implements comparable</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -515,7 +518,7 @@ Note that it would sort the list in reverse order if you switched <code>this.pop
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

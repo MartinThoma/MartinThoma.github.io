@@ -8,9 +8,10 @@
 
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>C Puzzle #3</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -76,8 +77,7 @@
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="o">&gt;&gt;</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>.
@@ -124,12 +124,11 @@ integer values.</blockquote>
 <p>Lets get the assembly code:</p>
 
 <div class="highlight">
-   <pre><code class="bash">gcc -S -O0 test.c
-</code></pre>
+   <pre><code class="bash">gcc -S -O0 test.c</code></pre>
 </div>
 
 <div class="highlight">
-   <pre><code class="text"> .file   "test.c"
+   <pre><code class="text">.file    "test.c"
     .section    .rodata
 .LC0:
     .string "%i\n"
@@ -157,8 +156,7 @@ main:
 .LFE0:
     .size   main, .-main
     .ident  "GCC: (Ubuntu/Linaro 4.7.2-2ubuntu1) 4.7.2"
-    .section    .note.GNU-stack,"",@progbits
-</code></pre>
+    .section    .note.GNU-stack,"",@progbits</code></pre>
 </div>
 
 <p>In line 18 you can see that the bitshift already happened. When you introduce a variable for <code>a</code>, you can see that the compiler makes use of the assembly command <code>sarl %eax</code> or <code>sarl   $2, %eax</code> when you shift by two.</p>
@@ -171,6 +169,7 @@ The second variation right shifts by a count value speciﬁed in the CL register
 rounds toward negative inﬁnity; <strong>the high-order bit remains unchanged</strong>.</blockquote>
 
 <p>This means, 1111.1111.1111.1111.1111.1111.1111.1001 is correct. And that's -7.</p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -293,7 +292,7 @@ rounds toward negative inﬁnity; <strong>the high-order bit remains unchanged</
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

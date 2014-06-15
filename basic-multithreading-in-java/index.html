@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2013/02/multithreading.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2013/02/multithreading.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Basic Multithreading in Java</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -76,9 +78,12 @@
                             <p>A lot of computing power is wasted in many programs as most programs use only one core. If your program is computation intensive, you might want to put some extra effort in your program and make use of this wasted computing power.</p>
 
 <p>There are two ways to execute your code on multiple cores: Multiprocessing and multithreading. Both, processes and threads, provide the possibility to execute code sequences independently and concurrently. But where is the difference? 
-</p><ul><li>When you execute code in <strong>multiple processes</strong>, the operating system handles the scheduling. It decides when which process gets executed and tries to find an optimal order. Every process has its own memory segment. A process is sometimes also called "kernel level thread".</li>
+</p><ul>
+  <li>When you execute code in <strong>multiple processes</strong>, the operating system handles the scheduling. It decides when which process gets executed and tries to find an optimal order. Every process has its own memory segment. A process is sometimes also called "kernel level thread".</li>
   <li>When you execute code in <strong>multiple threads</strong>, all threads have one process they belong to (see <a href="http://eliezerciriaco.blogspot.de/2009/07/multi-threading-models.html">Multi-Threading models</a>, also from <a href="http://docs.oracle.com/cd/E19455-01/806-3461/6jck06gqk/index.html">Java</a>). Every set of threads that have the same process share their memory.</li>
-</ul><p>In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes wiht <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.</p>
+</ul>
+
+<p>In Java, you will use multithreading most of the time. I will only write about multithreading, but you can create multiple processes wiht <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -123,8 +128,7 @@
             <span class="n">RaceCondition</span><span class="o">.</span><span class="na">bigSum</span><span class="o">++;</span>
         <span class="o">}</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">Main</h2>
@@ -183,15 +187,13 @@
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">RaceCondition</span><span class="o">.</span><span class="na">bigSum</span><span class="o">);</span>
 
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Call it like this:</p>
 
 <div class="highlight">
-   <pre><code class="bash">java Main 5 2000
-</code></pre>
+   <pre><code class="bash">java Main 5 2000</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Race Conditions</h2>
@@ -204,22 +206,25 @@
 <code>java Main 2 2000</code></p>
 
 <p>Now you could get this execution order:
-</p><ul><li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
+</p><ul>
+  <li>Thread 1: Loads <code>RaceCondition.bigSum</code>. It is 0.</li>
   <li>Thread 2: Executes completely. Now <code>RaceCondition.bigSum</code> is 2000</li>
   <li>Thread 1: Increases the loaded value of <code>RaceCondition.bigSum</code> by 1. Now it is 1.</li>
   <li>Thread 1: Finishes it's execution. The Value of <code>RaceCondition.bigSum</code> is 2000 = BIG_NR.</li>
-</ul><p>Ok, we can obviously get values in $[\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$.</p>
+</ul>
+
+<p>Ok, we can obviously get values in $[\text{BIG}\_\text{NR}, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$.</p>
 
 <p>Can we get smaller values? Yes, we can!</p>
 
 <p>Execute:</p>
 
 <div class="highlight">
-   <pre><code class="bash">java Main 50 20000
-</code></pre>
+   <pre><code class="bash">java Main 50 20000</code></pre>
 </div>
 
-<ul><li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
+<ul>
+  <li>Thread 1 loads <code>bigSum</code>. It's 0.</li>
   <li>Thread 2 loads <code>bigSum</code>. It's 0.</li>
   <li>Thread 3 - 50 execute completely.</li>
   <li>Thread 2 executes until it is at the latest <code>bigSum++</code>. The latest doesn't execute.</li>
@@ -227,17 +232,22 @@
   <li>Thread 2 loads <code>bigSum</code> = 1</li>
   <li>Thread 1 executes and finishes.</li>
   <li>Thread 2 increases the loaded value from 1 to 2 and writes 2 back.</li>
-</ul><p>You can get all values in $[2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$!</p>
+</ul>
+
+<p>You can get all values in $[2, \text{NR}\_\text{THREADS} \cdot \text{BIG}\_\text{NR}]$!</p>
 
 <p>Usually, you don't want to get different results when you give the same input to your program. How can you fix this? Take a look at <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a> and replace the <code>long bigNr</code> by the <code>AtomicLong bigNr</code>.</p>
 
 <h2 id="tocAnchor-1-5">Playing with BASH</h2>
 
 <p>If you want to execute this more often, you could save it as a executable JAR and execute the following bash script. It takes three arguments: 
-</p><ul><li>$1: The number of times you execute a the program with a fixed number of THREADS&lt;/li&gt;
+</p><ul>
+  <li>$1: The number of times you execute a the program with a fixed number of THREADS&lt;/li&gt;
   &lt;li&gt;$2: The maximum number of THREADS you would like to use</li>
   <li>`$3: BIG_NR</li>
-</ul><p>The script executes the program $<code>$1 \cdot</code>$2$` times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
+</ul>
+
+<p>The script executes the program $<code>$1 \cdot</code>$2$` times. The output gets divided by the number of threads and the result is saved in raceCondition.tmp. Every line is one execution of the program. When the second number is BIG_NR, then no race conditions occured.</p>
 
 <div class="highlight">
    <pre><code class="bash">rm raceCondition.tmp
@@ -254,9 +264,9 @@ touch raceCondition.tmp
         <span class="nv">normalizedSum</span><span class="o">=</span><span class="sb">`</span>awk -vsome<span class="o">=</span><span class="nv">$`</span>thisExecutionSum -vtotal<span class="o">=</span><span class="sb">`</span><span class="nv">$threads</span> <span class="s1">'BEGIN { printf("%d\n", some/total); exit } '</span><span class="sb">`</span>
         <span class="nb">echo</span> -e <span class="nv">$`</span>threads<span class="s2">"\t"</span><span class="nv">$normalizedSum</span> &gt;&gt; raceCondition.tmp
     <span class="k">done</span>
-<span class="k">done</span>
-</code></pre>
+<span class="k">done</span></code></pre>
 </div>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -385,7 +395,7 @@ touch raceCondition.tmp
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

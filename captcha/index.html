@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2011/09/Hard-CAPTCHA.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/09/Hard-CAPTCHA.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>CAPTCHA</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -116,7 +118,8 @@
 <p>I hope nobody seriously pays the 6 Euro for <a href="http://www.webwiz.co.uk/web-wiz-captcha/demo/">Web Wiz</a>. As many very simple CAPTCHAs it lacks a support for blind people. It is quite easy to read for humans, but I guess also for bots. They always use only five random characters which are written in blue. They added some dots and straight lines to make segmentation more difficult. I guess they never tried to hack their own CAPTCHA. If they did, they should be aware that those small dots don't change anything and the straight lines can easily be detected and removed. It also seems to me as if they only used one font.</p>
 
 <p>Google did some great work with <a href="http://www.google.com/recaptcha">reCAPTCHA</a>. I think I'll write a longer post about this later, but to keep it short:
-</p><ul><li>They use the reader (or spammer) to digitalize the books they scan. So if someone uses very good algorithms to bypass their CAPTCHA, the spammer will help Google. This is a very nice way to end up in a win-win situation, isn't it?</li>
+</p><ul>
+  <li>They use the reader (or spammer) to digitalize the books they scan. So if someone uses very good algorithms to bypass their CAPTCHA, the spammer will help Google. This is a very nice way to end up in a win-win situation, isn't it?</li>
   <li>reCAPTCHA has also support for blind people.</li>
   <li>The characters you have to type in are actual words. This makes it a lot easier for humans to recognize the characters.</li>
   <li>reCAPTCHA is very easy to use. No need of <a href="http://php.net/manual/en/book.image.php">GD</a> or <a href="http://www.php.net/manual/en/book.imagick.php">ImageMagick</a>.</li>
@@ -162,12 +165,15 @@ Here is a screenshot of reCAPTCHA:
 <h2 id="tocAnchor-1-3">Basic human knowledge</h2>
 
 <p>Another CAPTCHA-type is based on basic human knowledge. <a href="http://textcaptcha.com/">Text CAPTCHA</a> is an example for this type. They ask you questions like:
-</p><ul><li>Which of milk, hotel or brain is a body part?</li>
+</p><ul>
+  <li>Which of milk, hotel or brain is a body part?</li>
   <li>How many letters in "devotional"?</li>
   <li>The word "tamers" has which letter in 2nd position?</li>
   <li>Enter the smallest number of 28, thirteen, twenty, 60, fifty six or 78:</li>
   <li>Which of knee, leg, ear or ankle is above the waist?</li>
-</ul><p>I don't think this type is very good as the spammer has to do almost the same amount of work as the programmer. He has to parse the different types of questions, but I guess this isn't too hard.</p>
+</ul>
+
+<p>I don't think this type is very good as the spammer has to do almost the same amount of work as the programmer. He has to parse the different types of questions, but I guess this isn't too hard.</p>
 
 <p>He might just ask Google: <a href="http://www.google.com/search?q=what+is+7+minus+3+times+2%3F">what is 7 minus 3 times 2?</a> or <a href="http://www.google.com/search?q=the+number+of+horns+on+a+unicorn#sclient=psy-ab&amp;hl=de&amp;source=hp&amp;q=what+is+the+number+of+horns+on+a+unicorn+times+the+answer+to+life%2C+the+universe%2C+and+everything%3F&amp;pbx=1&amp;oq=what+is+the+number+of+horns+on+a+unicorn+times+the+answer+to+life%2C+the+universe%2C+and+everything%3F&amp;aq=f&amp;aqi=&amp;aql=&amp;gs_sm=e&amp;gs_upl=15192l15192l2l15913l1l1l0l0l0l0l281l281l2-1l1l0&amp;bav=on.2,or.r_gc.r_pw.r_cp.&amp;fp=1f755a13a5fe778&amp;biw=1366&amp;bih=630">what is the number of horns on a unicorn times the answer to life, the universe, and everything?</a>.</p>
 
@@ -236,22 +242,30 @@ Here is a screenshot of reCAPTCHA:
 
 <h2 id="tocAnchor-1-7">Further reading</h2>
 
-<ul><li>Fun:
-  <ul><li>xkcd: <a href="http://xkcd.com/233/">A New CAPTCHA Approach</a></li>
+<ul>
+  <li>Fun:
+  <ul>
+    <li>xkcd: <a href="http://xkcd.com/233/">A New CAPTCHA Approach</a></li>
     <li><a href="http://www.smosh.com/smosh-pit/photos/24-wtf-captchas">24 WTF Captchas</a></li>
     <li><a href="http://www.smosh.com/PC/smosh-pit/photos/25-very-naughty-facebook-captchas">25 Very Naughty Facebook Captchas</a></li>
-  </ul></li>
+  </ul>
+  </li>
   <li>Free CAPTCHA systems:
-  <ul><li><a href="http://www.google.com/recaptcha">reCAPTCHA</a>: I recommend this one.</li>
+  <ul>
+    <li><a href="http://www.google.com/recaptcha">reCAPTCHA</a>: I recommend this one.</li>
     <li><a href="http://code.google.com/p/cool-php-captcha/">cool php captcha</a></li>
     <li><a href="http://www.1stwebdesigner.com/freebies/captcha-solutions-kill-spam/">Fight with Spam: 15+ Free Captcha Solutions</a></li>
-  </ul></li>
+  </ul>
+  </li>
   <li>Breaking or creating CAPTCHAs:
-  <ul><li><a href="http://www.blackhat-seo.com/2008/how-to-break-captchas/">How to break captchas</a></li>
+  <ul>
+    <li><a href="http://www.blackhat-seo.com/2008/how-to-break-captchas/">How to break captchas</a></li>
     <li><a href="http://caca.zoy.org/wiki/PWNtcha">PWNtcha</a></li>
     <li><a href="http://www.scribd.com/doc/24497942/Strong-CAPTCHA-Guidelines-v1-2">Strong CAPTCHA Guidelines</a></li>
-  </ul></li>
+  </ul>
+  </li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -376,7 +390,7 @@ Here is a screenshot of reCAPTCHA:
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

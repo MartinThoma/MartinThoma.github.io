@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/05/assembly-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/05/assembly-thumb.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Get your programs assembly code and more information</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -127,23 +129,24 @@
 This is AT&amp;T Syntax: </p>
 
 <div class="highlight">
-   <pre><code class="text">movl %esp, %ebp
-</code></pre>
+   <pre><code class="text">movl %esp, %ebp</code></pre>
 </div>
 
 <p>And this is Intel Syntax:</p>
 
 <div class="highlight">
-   <pre><code class="text">MOVL EBP, ESP
-</code></pre>
+   <pre><code class="text">MOVL EBP, ESP</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-1-1">Pointers</h3>
 
-<ul><li><strong>%esp</strong>: Stack pointer for top address of the stack.</li>
+<ul>
+  <li><strong>%esp</strong>: Stack pointer for top address of the stack.</li>
   <li><strong>%ebp</strong>: Stack base pointer for holding the address of the current stack frame.</li>
   <li><strong>%eax</strong>: Accumulator</li>
-</ul><p>The size of the eax register will always be 32 bit, regardless of the system's register size.<small><sup><a href="#ref6">[6]</a></sup></small></p>
+</ul>
+
+<p>The size of the eax register will always be 32 bit, regardless of the system's register size.<small><sup><a href="#ref6">[6]</a></sup></small></p>
 
 <h3 id="tocAnchor-1-1-2">`$ Dollar and % Percentage signs</h3>
 
@@ -160,18 +163,21 @@ This is AT&amp;T Syntax: </p>
 &lt;strong&gt;andl $-16, %esp</strong>: Ands the stack with fffffff0 which effectivly aligns it on a 16 byte boundary. Access to aligned values on the stack are much faster than if they were unaligned. <small><sup><a href="#ref5" name="anchor5" id="anchor5">[5]</a></sup></small>
 <strong>jmp <target></target></strong>: Jump to target label.
 <strong>jbe <target></target></strong>: Jump below or equal. I am not quite sure what is compared ... can anybody help me?
-<strong>leal <command-address><store></store></command-address></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9" id="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</p>
+<strong>leal <command-address> <store></store></command-address></strong>:  Load effective address.<small><sup><a href="#ref9" name="anchor9" id="anchor9">[9]</a></sup></small> The LEA instruction never reads memory, it only computes the address that would be read by another instruction and stores this address in its first register operand.</p>
 
 <h4>Suffixes</h4>
 
 <p>Many instructions have suffixes. This is what they mean<small><sup><a href="#ref6" name="anchor6" id="anchor6">[6]</a></sup></small>:
-</p><ul><li>b: byte (8 bit)</li>
+</p><ul>
+  <li>b: byte (8 bit)</li>
   <li>s: short (16 bit integer) or single (32-bit floating point)</li>
   <li>w: word (16 bit)</li>
   <li>l: long (32 bit integer or 64-bit floating point)</li>
   <li>q: quad (64 bit)</li>
   <li>t: ten bytes (80-bit floating point)</li>
-</ul><h2 id="tocAnchor-1-5">Simple example</h2>
+</ul>
+
+<h2 id="tocAnchor-1-5">Simple example</h2>
 
 <h3 id="tocAnchor-1-5-1">C-Code</h3>
 
@@ -184,8 +190,7 @@ This is AT&amp;T Syntax: </p>
 <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="mi">1337</span><span class="o">*</span><span class="mi">42</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <h3 id="tocAnchor-1-5-2">Assembly</h3>
@@ -193,14 +198,13 @@ This is AT&amp;T Syntax: </p>
 <p>Now I compile it and I save the assembly code:</p>
 
 <div class="highlight">
-   <pre><code class="bash">gcc -S test.c<span class="p">;</span> gcc test.c -o <span class="nb">test</span>
-</code></pre>
+   <pre><code class="bash">gcc -S test.c<span class="p">;</span> gcc test.c -o <span class="nb">test</span></code></pre>
 </div>
 
 <p>This gives me test.s (the assembly code) and an executable called "test".</p>
 
 <div class="highlight">
-   <pre><code class="text"> .file   "test.c"
+   <pre><code class="text">.file    "test.c"
     .section    .rodata
 .LC0:
     .string "%i"
@@ -221,8 +225,7 @@ main:
     ret
     .size   main, .-main
     .ident  "GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
-    .section    .note.GNU-stack,"",@progbits
-</code></pre>
+    .section    .note.GNU-stack,"",@progbits</code></pre>
 </div>
 
 <p>This is code of the <a href="http://en.wikipedia.org/wiki/GNU_Assembler">GNU Assembler</a>. I guess other assemblers might produce other code. Could anybody please give me an example of other assemblers?</p>
@@ -244,8 +247,7 @@ main:
 
 <div class="highlight">
    <pre><code class="text">test:     file format elf32-i386
-test
-</code></pre>
+test</code></pre>
 </div>
 
 <p>File header information: objdump -f test</p>
@@ -254,8 +256,7 @@ test
    <pre><code class="text">test:     file format elf32-i386
 architecture: i386, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
-start address 0x08048330
-</code></pre>
+start address 0x08048330</code></pre>
 </div>
 
 <p>Object specific file header contents: objdump -p test</p>
@@ -305,8 +306,7 @@ Dynamic Section:
 
 Version References:
   required from libc.so.6:
-    0x0d696910 0x00 02 GLIBC_2.0
-</code></pre>
+    0x0d696910 0x00 02 GLIBC_2.0</code></pre>
 </div>
 
 <p>Display the contents of the section headers: objdump -h test</p>
@@ -367,8 +367,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
  24 .bss          00000008  0804a014  0804a014  00001014  2**2
                   ALLOC
  25 .comment      00000023  00000000  00000000  00001014  2**0
-                  CONTENTS, READONLY
-</code></pre>
+                  CONTENTS, READONLY</code></pre>
 </div>
 
 <p>Display DWARF info in the file: objdump --dwarf test</p>
@@ -378,8 +377,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
 
 Contents of the .eh_frame section:
 
-00000000 ZERO terminator
-</code></pre>
+00000000 ZERO terminator</code></pre>
 </div>
 
 <p>By the way, <a href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> is an executable file format and <a href="http://en.wikipedia.org/wiki/DWARF">DWARF</a> is a debugging file format. I guess they had to think quite long to find this <a href="http://en.wikipedia.org/wiki/Backronym">backronym</a>.</p>
@@ -402,14 +400,13 @@ Contents of the .eh_frame section:
 <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%i"</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">13</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <h3 id="tocAnchor-1-9-2">Assembly</h3>
 
 <div class="highlight">
-   <pre><code class="text"> .file   "test.c"
+   <pre><code class="text">.file    "test.c"
     .text
 .globl fib
     .type   fib, @function
@@ -461,13 +458,13 @@ main:
     ret
     .size   main, .-main
     .ident  "GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3"
-    .section    .note.GNU-stack,"",@progbits
-</code></pre>
+    .section    .note.GNU-stack,"",@progbits</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-12">References</h2>
 
-<ol><li><a name="ref1" href="#anchor1" id="ref1">↑</a>: <a href="http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html">PUSHL Instruction</a>. The University of Auckland, Department of Computer Science.</li>
+<ol>
+  <li><a name="ref1" href="#anchor1" id="ref1">↑</a>: <a href="http://www.cs.auckland.ac.nz/references/macvax/op-codes/Instructions/pushl.html">PUSHL Instruction</a>. The University of Auckland, Department of Computer Science.</li>
   <li><a name="ref2" href="#anchor2" id="ref2">↑</a>: <a href="http://www.cse.nd.edu/~dthain/courses/cse40243/fall2008/ia32-intro.html">IA-32 Assembly for Compiler Writers</a>. Douglas Thain, Associate Professor, University of Notre Dame, Department of Computer Science and Engineering.</li>
   <li><a name="ref3" href="#anchor3" id="ref3">↑</a>: <a href="http://linuxgazette.net/issue94/ramankutty.html">From C To Assembly Language </a>. Hiran Ramankutty, Linux Gazett, Issue 94.</li>
   <li><a name="ref4" href="#anchor4" id="ref4">↑</a>: <a href="http://stackoverflow.com/questions/5474355/about-leave-in-x86-assembly">About leave in x86 assembly</a>. zneak, Stackoverflow.</li>
@@ -480,6 +477,7 @@ The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
   <li><a name="ref10" href="#anchor10" id="ref10">↑</a>: <a href="http://stackoverflow.com/a/5367004/562769">What does this dollar sign mean in __asm?</a>. Zimbabao, Stackoverflow</li>
   <li><a name="ref11" href="#anchor11" id="ref11">↑</a>: <a href="http://stackoverflow.com/a/9196757/562769">What do the dollar ($`) and percentage (%) signs represent in assembly intel x86?</a>. Necrolis, Stackoverflow</li>
 </ol>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -602,7 +600,7 @@ The 68000's Instruction Set</a>, page 27. Literate Programs.</li>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

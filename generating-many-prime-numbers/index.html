@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/04/leonhard-euler.jpg" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/04/leonhard-euler.jpg" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Generating many prime numbers</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -154,8 +156,7 @@
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>Execute it for 100,000,000:</p>
@@ -165,8 +166,7 @@
 
 real    0m57.274s
 user    0m41.855s
-sys 0m15.229s
-</code></pre>
+sys 0m15.229s</code></pre>
 </div>
 
 <p>So 41 seconds for all primes not bigger than 100,000,000. </p>
@@ -178,8 +178,7 @@ sys 0m15.229s
 
 real    18m18.205s
 user    15m56.904s
-sys 2m12.500s
-</code></pre>
+sys 2m12.500s</code></pre>
 </div>
 
 <p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
@@ -211,8 +210,7 @@ sys 2m12.500s
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
     <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>This one takes 1 minute 5 seconds:</p>
@@ -223,8 +221,7 @@ g++ -std<span class="o">=</span>c++0x -Wall -pedantic -O3 -D NDEBUG generate-pri
 
 real    3m20.436s
 user    1m4.908s
-sys 2m11.748s
-</code></pre>
+sys 2m11.748s</code></pre>
 </div>
 
 <p>I'm getting closer to "seconds". :-)</p>
@@ -259,8 +256,7 @@ sys 2m11.748s
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
     <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <div class="highlight">
@@ -268,8 +264,7 @@ sys 2m11.748s
 
 real    3m21.249s
 user    1m4.016s
-sys 2m12.332s
-</code></pre>
+sys 2m12.332s</code></pre>
 </div>
 
 <p>Ok, no real change :-/</p>
@@ -283,8 +278,7 @@ sys 2m12.332s
 
 real    0m49.539s
 user    0m46.619s
-sys 0m0.920s
-</code></pre>
+sys 0m0.920s</code></pre>
 </div>
 
 <p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
@@ -320,8 +314,7 @@ sys 0m0.920s
     <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
     <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>And execute it:</p>
@@ -331,8 +324,7 @@ sys 0m0.920s
 
 real    0m39.700s
 user    0m38.546s
-sys 0m0.640s
-</code></pre>
+sys 0m0.640s</code></pre>
 </div>
 
 <p>38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.</p>
@@ -366,8 +358,7 @@ sys 0m0.640s
         <span class="p">}</span>
         <span class="n">fclose</span><span class="p">(</span><span class="n">pFile</span><span class="p">);</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <h3 id="tocAnchor-1-2-3">Improve sieving</h3>
@@ -411,8 +402,7 @@ sys 0m0.640s
         <span class="n">sieveOfEratosthenes</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>Execute:</p>
@@ -422,8 +412,7 @@ sys 0m0.640s
 
 real    0m24.222s
 user    0m23.485s
-sys 0m0.436s
-</code></pre>
+sys 0m0.436s</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-2-4">primesieve</h3>
@@ -514,8 +503,7 @@ sys 0m0.436s
         <span class="n">sieveOfAtkin</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
@@ -525,8 +513,7 @@ sys 0m0.436s
 
 real    1m6.001s
 user    1m4.724s
-sys 0m0.604s
-</code></pre>
+sys 0m0.604s</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-7-2">Primegen</h3>
@@ -542,8 +529,7 @@ sys 0m0.604s
 
 real    0m11.677s
 user    0m10.649s
-sys 0m0.708s
-</code></pre>
+sys 0m0.708s</code></pre>
 </div>
 
 <p>About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
@@ -551,21 +537,29 @@ sys 0m0.708s
 <h2 id="tocAnchor-1-10">See also</h2>
 
 <p>You might want to try the following Project Euler problem sets:
-</p><ul><li>Project Euler
-  <ul><li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
+</p><ul>
+<li>Project Euler
+  <ul>
+    <li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
     <li><a href="http://projecteuler.net/problem=7">Problem 7</a>: What is the 10 001st prime number?</li>
     <li><a href="http://projecteuler.net/problem=60">Problem 60</a></li>
-  </ul></li>
+  </ul>
+</li>
 <li>SPOJ
-  <ul><li><a href="http://www.spoj.com/problems/PRIME1/">PRIME1</a></li>
+  <ul>
+    <li><a href="http://www.spoj.com/problems/PRIME1/">PRIME1</a></li>
     <li><a href="http://www.spoj.com/problems/PRIME2/">PRIME2</a></li>
     <li><a href="http://www.spoj.com/problems/KPRIMES2/">KPRIMES2</a></li>
-  </ul></li>
+  </ul>
+</li>
 <li><a href="http://sweet.ua.pt/tos/software/prime_sieve.html">Segmented sieve of Eratosthenes</a></li>
 <li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above $10^9$ which I didn't.</li>
-</ul><h2 id="tocAnchor-1-11">Finally</h2>
+</ul>
+
+<h2 id="tocAnchor-1-11">Finally</h2>
 
 <p>The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)</p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -694,7 +688,7 @@ sys 0m0.708s
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

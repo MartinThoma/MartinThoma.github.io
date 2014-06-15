@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2011/11/java-programming.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/11/java-programming.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Abschlussaufgaben Programmieren</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -109,11 +111,14 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Allgemeines</h2>
 
-<ul><li>Was wir absolut nicht sehen wollen sind grosse Methoden, die verstreut über den ganzen Code diverse returns enthält. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
+<ul>
+  <li>Was wir absolut nicht sehen wollen sind grosse Methoden, die verstreut über den ganzen Code diverse returns enthält. Eventuell sollte man diese Methode dann ohnehin in Hilfsmethoden aufteilen.</li>
   <li>Parameter: Die Anzahl der Parameter muss exakt stimmen. Sind zu überzählige Parameter vorhanden, muss ein Fehler ausgegeben werden.</li>
   <li>toString/equals: Sollte nur für Klassen geschrieben werden, bei denen es Sinn macht. Vor allem auf eins aufpassen: Wenn man equals überschreibt, dann sollte man auch hashCode überschreiben (siehe <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/Object.html#equals(java.lang.Object">docs.oracle.com</a>) bzw, beliebige suche nach "equals hashCode"). Mir fallen spontan wenige Fälle ein, wo es keinen Sinn macht, equals()/hashCode() oder toString() zu überschreiben. Die Shell ist vielleicht so ein Fall, oder auch Utility-Klassen. </li>
   <li>Verbergt die tatsächlichen Typen, woimmer es möglich ist! Also z.B. <code>private Map meineMap = new HashMap<integer blub="">();</integer></code></li>
-</ul><blockquote>Frage: Dürfen Strings direkt im Programmcode stehen, oder sollten diese gesammelt am Beginn einer Klasse stehen?</blockquote>
+</ul>
+
+<blockquote>Frage: Dürfen Strings direkt im Programmcode stehen, oder sollten diese gesammelt am Beginn einer Klasse stehen?</blockquote>
 
 <p>Antwort: Kommt darauf an, wenn Sie mehr als eimal verwendet werden, dann sollte man Konstanten daraus machen.</p>
 
@@ -133,8 +138,7 @@
 
 <div class="highlight">
    <pre><code class="bash">python checkTests.py
-meld ../tmp/createdOutputNormalized.txt ../tmp/compareTo.txt
-</code></pre>
+meld ../tmp/createdOutputNormalized.txt ../tmp/compareTo.txt</code></pre>
 </div>
 
 <p>Ihr müsst halt noch die Pfade anpassen.</p>
@@ -142,22 +146,31 @@ meld ../tmp/createdOutputNormalized.txt ../tmp/compareTo.txt
 <h2 id="tocAnchor-1-3">Abschlussaufgabe 1</h2>
 
 <p>Folgendes zum LittlePraktomat:
-</p><ul><li>Falls die Namen von Personen etwas anderes als Kleinbuchstaben haben (also z.B. Großbuchstaben!) soll ein Fehler ausgegeben werden. äöü müssen nicht als Kleinbuchstaben erkannt werden, a-z reicht.</li>
-</ul><h2 id="tocAnchor-1-4">Abschlussaufgabe 2</h2>
+</p><ul>
+  <li>Falls die Namen von Personen etwas anderes als Kleinbuchstaben haben (also z.B. Großbuchstaben!) soll ein Fehler ausgegeben werden. äöü müssen nicht als Kleinbuchstaben erkannt werden, a-z reicht.</li>
+</ul>
+
+<h2 id="tocAnchor-1-4">Abschlussaufgabe 2</h2>
 
 <p>Folgendes zu <a href="http://de.wikipedia.org/wiki/Othello_(Spiel)">Othello</a>:
-</p><ul><li>Wer sehr schnell die Aufgabe erledigt hatte (also noch am ersten Tag), dem fehlen hier eventuell ein paar Sachen. Habt ihr den hole-Befehl? Falls ja, ist alles ok. Sonst solltet ihr nochmals rein schauen und eure Lösung nochmals hochladen, weil eine veraltete Aufgabenstellung zu beginn hochgeladen wurde.</li>
+</p><ul>
+<li>Wer sehr schnell die Aufgabe erledigt hatte (also noch am ersten Tag), dem fehlen hier eventuell ein paar Sachen. Habt ihr den hole-Befehl? Falls ja, ist alles ok. Sonst solltet ihr nochmals rein schauen und eure Lösung nochmals hochladen, weil eine veraltete Aufgabenstellung zu beginn hochgeladen wurde.</li>
 <li>Eine gültige Spielfeldgröße MUSS gerade breite / höhe haben, größer als 0x0 sein und kleiner gleich 26x98 sein.</li>
 <li>Ein gültiges Rechteck MUSS die erste Koordinate links oben und die zweite rechts unten haben!</li>
-</ul><p>Es gibt folgende Befehle:
-</p><ul><li>newGame <breite><h> [<stellung>]</stellung></h></breite></li>
+</ul>
+
+<p>Es gibt folgende Befehle:
+</p><ul>
+  <li>newGame <breite> <h> [<stellung>]</stellung></h></breite></li>
   <li>hole <rechteck></rechteck></li>
   <li>move <position></position></li>
   <li>print</li>
   <li>abort</li>
   <li>possibleMoves</li>
   <li>quit</li>
-</ul><h2 id="tocAnchor-1-5">Daten</h2>
+</ul>
+
+<h2 id="tocAnchor-1-5">Daten</h2>
 
 <p><strong>Abschlussaufgabe 1</strong>: 01.02.2012 - 12.03.2012
 Funktionalität: 0 - 7 Punkte
@@ -176,59 +189,28 @@ Endnote = (2 · Funktionalität + Programmiermethodik)</p>
 <p>Es gab jeweils auf Funktionalität und Programmiermethodik 14 Punkte, wobei die Punktzahl der Funktionalität verdoppelt wurde. Damit kommen wir insgesamt auf 2 * (14*2 + 14)= 84 Punkte. Der Notenschlüssel ist wie folgt:</p>
 
 <table>
-   <tr>
-      <th>Bewertungspunkte</th>
-      <th>Gesamtnote</th>
-   </tr>
-   <tr>
-      <td>82,0 - 84,0</td>
-      <td>1,0</td>
-   </tr>
-   <tr>
-      <td>78,0 - 81,5</td>
-      <td>1,3</td>
-   </tr>
-   <tr>
-      <td>74,0 - 77,5</td>
-      <td>1,7</td>
-   </tr>
-   <tr>
-      <td>70,0 - 73,5</td>
-      <td>2,0</td>
-   </tr>
-   <tr>
-      <td>66,0 - 69,5</td>
-      <td>2,3</td>
-   </tr>
-   <tr>
-      <td>62,0 - 65,5</td>
-      <td>2,7</td>
-   </tr>
-   <tr>
-      <td>58,0 - 61,5</td>
-      <td>3,0</td>
-   </tr>
-   <tr>
-      <td>54,0 - 57,5</td>
-      <td>3,3</td>
-   </tr>
-   <tr>
-      <td>50,0 - 53,5</td>
-      <td>3,7</td>
-   </tr>
-   <tr>
-      <td>46,0 - 49,5</td>
-      <td>4,0</td>
-   </tr>
-   <tr>
-      <td>0 - 45,5</td>
-      <td>5,0 - nicht bestanden</td>
-   </tr>
-</table><h2 id="tocAnchor-1-7">Meine Abgabe</h2>
+<tr><th>Bewertungspunkte</th><th>Gesamtnote</th></tr>
+<tr><td>82,0 - 84,0</td><td>1,0</td></tr>
+<tr><td>78,0 - 81,5</td><td>1,3</td></tr>
+<tr><td>74,0 - 77,5</td><td>1,7</td></tr>
+<tr><td>70,0 - 73,5</td><td>2,0</td></tr>
+<tr><td>66,0 - 69,5</td><td>2,3</td></tr>
+<tr><td>62,0 - 65,5</td><td>2,7</td></tr>
+<tr><td>58,0 - 61,5</td><td>3,0</td></tr>
+<tr><td>54,0 - 57,5</td><td>3,3</td></tr>
+<tr><td>50,0 - 53,5</td><td>3,7</td></tr>
+<tr><td>46,0 - 49,5</td><td>4,0</td></tr>
+<tr><td>0 - 45,5</td><td>5,0 - nicht bestanden</td></tr>
+</table>
 
-<ul><li>LittlePraktomat: <a href="http://www.martin-thoma.de/programmieren-little-praktomat/class-diagram/class-diagram.pdf">Klassendiagramm</a> + <a href="http://www.martin-thoma.de/programmieren-little-praktomat/">JavaDoc</a> + <a href="../images/2012/03/little-praktomat.zip">Java Source Code</a></li>
+<h2 id="tocAnchor-1-7">Meine Abgabe</h2>
+
+<ul>
+  <li>LittlePraktomat: <a href="http://www.martin-thoma.de/programmieren-little-praktomat/class-diagram/class-diagram.pdf">Klassendiagramm</a> + <a href="http://www.martin-thoma.de/programmieren-little-praktomat/">JavaDoc</a> + <a href="../images/2012/03/little-praktomat.zip">Java Source Code</a></li>
   <li>Othello: <a href="http://www.martin-thoma.de/programmieren-othello/">JavaDoc</a> + <a href="../images/2012/03/othello.zip">Java Source Code</a></li>
-</ul><h3 id="tocAnchor-1-7-1">Fehlerquellen</h3>
+</ul>
+
+<h3 id="tocAnchor-1-7-1">Fehlerquellen</h3>
 
 <p>Es wurde bemängelt, dass ich wenig Kommentare hab. Ich finde, ich habe wahnsinnig viele ...</p>
 
@@ -242,6 +224,7 @@ Exception in thread "main" java.lang.NumberFormatException - die Zahl ist zu gro
 <h4>Othello</h4>
 
 <p><strong>Test 6 b</strong>: Direkt nach dem Start des Programms "hole A1:A1" hat eine (meiner eigenen) Exceptions geworfen ... bzw. mit korrekter Angabe, wo der Fehler liegt ... also auch Dummheit <em>argh</em></p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -364,7 +347,7 @@ Exception in thread "main" java.lang.NumberFormatException - die Zahl ist zu gro
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

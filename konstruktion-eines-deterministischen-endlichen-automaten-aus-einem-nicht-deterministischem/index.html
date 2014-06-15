@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2011/10/deterministic-finite-state-machine-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/10/deterministic-finite-state-machine-thumb.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Konstruktion eines deterministischen endlichen Automaten aus einem nicht-deterministischem</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -94,56 +96,71 @@ $\tilde{S} = E(S) = \{S\}$</p>
 
 <p>Dann erstellen wir folgende Tabelle:
 </p><table style="border:1px solid #000;">
-   <tr><th style="border:1px solid #000;">$\tilde{S}$</th>
+  <tr>
+    <th style="border:1px solid #000;">$\tilde{S}$</th>
     <th style="border:1px solid #000;">{S}</th>
   </tr>
-   <tr><th style="border:1px solid #000;">a</th>
+  <tr>
+    <th style="border:1px solid #000;">a</th>
     <td style="border:1px solid #000;"> </td>
   </tr>
-   <tr><th style="border:1px solid #000;">b</th>
+  <tr>
+    <th style="border:1px solid #000;">b</th>
     <td style="border:1px solid #000;"> </td>
   </tr>
-</table><p>Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:
+</table>
+
+<p>Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:
 </p><table style="border:1px solid #000;">
-   <tr><th style="border:1px solid #000;">$\tilde{S}$</th>
+  <tr>
+    <th style="border:1px solid #000;">$\tilde{S}$</th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
   </tr>
-   <tr><th style="border:1px solid #000;">a
+  <tr>
+    <th style="border:1px solid #000;">a
     </th><td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;"> </td>
   </tr>
-   <tr><th style="border:1px solid #000;">b</th>
+  <tr>
+    <th style="border:1px solid #000;">b</th>
     <td style="border:1px solid #000;"> </td>
     <td style="border:1px solid #000;"> </td>
   </tr>
-</table><p>Nun geht man also jede Spalte, von links nach rechts durch. Für jede Spalte wird jede Zeile, von oben nach unten, überprüft. Mit jeder Überprüfung kann eine neue Zustandsmenge als Spalte hinzukommen.
+</table>
+
+<p>Nun geht man also jede Spalte, von links nach rechts durch. Für jede Spalte wird jede Zeile, von oben nach unten, überprüft. Mit jeder Überprüfung kann eine neue Zustandsmenge als Spalte hinzukommen.
 Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.</p>
 
 <p>Am Ende schaut die Tablle wie folgt aus:
 </p><table style="border:1px solid #000;">
-   <tr><th style="border:1px solid #000;">$\tilde{S}$</th>
+  <tr>
+    <th style="border:1px solid #000;">$\tilde{S}$</th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
     <th style="border:1px solid #000;">$\emptyset$</th>
     <th style="border:1px solid #000;">{q2}</th>
     <th style="border:1px solid #000;">{q1, q2}</th>
   </tr>
-   <tr><th style="border:1px solid #000;">a
+  <tr>
+    <th style="border:1px solid #000;">a
     </th><td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;">$\emptyset$</td>
     <td style="border:1px solid #000;">$\emptyset$</td>
     <td style="border:1px solid #000;">{S}</td>
   </tr>
-   <tr><th style="border:1px solid #000;">b</th>
+  <tr>
+    <th style="border:1px solid #000;">b</th>
     <td style="border:1px solid #000;">$\emptyset$</td>
     <td style="border:1px solid #000;">{q2}</td>
     <td style="border:1px solid #000;">$\emptyset$</td>
     <td style="border:1px solid #000;">{q1, q2}</td>
     <td style="border:1px solid #000;">{q1, q2}</td>
   </tr>
-</table><p>$\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}$
+</table>
+
+<p>$\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}$
 $\tilde{F} = \{\{S\}, \{q_1, S\}\}$</p>
 
 <p>Die Übergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:</p>
@@ -187,16 +204,15 @@ $\tilde{F} = \{\{S\}, \{q_1, S\}\}$</p>
     q1q2 -&gt; q1q2 [ label = "b"];
 
     T -&gt; T       [label = "a, b"];
-}
-</code></pre>
+}</code></pre>
 </div>
 
 <p>Unter Linux kann man mit <a href="http://wiki.ubuntuusers.de/Graphviz">GraphViz</a> mit folgendem Befehl die Datei erstellen:</p>
 
 <div class="highlight">
-   <pre><code class="bash">dot -Tpng graph.gv -o deterministic-fsm.png
-</code></pre>
+   <pre><code class="bash">dot -Tpng graph.gv -o deterministic-fsm.png</code></pre>
 </div>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -322,7 +338,7 @@ $\tilde{F} = \{\{S\}, \{q_1, S\}\}$</p>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

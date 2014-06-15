@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/07/tree-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/07/tree-thumb.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>&Uuml;bersicht &uuml;ber Datenstrukturen</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -136,9 +138,12 @@
 
 <p>Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. 
 Charakteristika:
-</p><ul><li>Ein Array hat eine feste, nicht veränderbare Größe.</li>
+</p><ul>
+  <li>Ein Array hat eine feste, nicht veränderbare Größe.</li>
   <li>Der Zugriff auf jedes beliebige Element erfolgt in konstanter Zeit - ist also insbesondere unabhängig von der Größe!</li>
-</ul><h2 id="tocAnchor-1-2">Dynamische Arrays</h2>
+</ul>
+
+<h2 id="tocAnchor-1-2">Dynamische Arrays</h2>
 
 <p>Dynamische Arrays sind wie normale Arrays, nur dass sie wachsen können. Sobald ein Element eingefügt werden soll, dass nicht mehr ins Array passen würde, allokiert man ein doppelt so großes Array und kopiert die Elemente um.</p>
 
@@ -151,19 +156,25 @@ Charakteristika:
 <p>Quelle: <a href="http://de.wikipedia.org/wiki/Hashtabelle">Hashtabelle</a></p>
 
 <p>Hashtabellen werden hier benutzt:
-</p><ul><li>Python 3.2.3: Modules/_pickle.c</li>
+</p><ul>
+  <li>Python 3.2.3: Modules/_pickle.c</li>
   <li>Java OpenJDK 7: <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">java.util.HashTable</a> und sehr viele mehr benutzen es (Properties.java, Dictionary.java, Enum.java, ...)</li>
-</ul><p>Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ für Suchen, Löschen und Einfügen.</p>
+</ul>
+
+<p>Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ für Suchen, Löschen und Einfügen.</p>
 
 <p>Folgende Begriffe sollte man kennen: 
-</p><ul><li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: $h(k) = k \mod m$</li>
+</p><ul>
+  <li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: $h(k) = k \mod m$</li>
   <li><a href="http://de.wikipedia.org/wiki/Multiplikative_Methode">Multiplikationsmethode</a>: $h(k) = \lfloor A \cdot k \mod 1 \rfloor$, mit z.B. $A \approx \frac{\sqrt{5}-1}{2}$</li>
   <li>offenes Hashing</li>
   <li><a href="http://de.wikipedia.org/wiki/Doppel-Hashing">Doppeltes Hashing</a>: $h(k, i) = (h_1(k) + i \cdot h_2(k)) \mod m$</li>
   <li><a href="http://de.wikipedia.org/wiki/Hashtabelle#Lineares_Sondieren">Lineares und quadratische Sondieren</a></li>
   <li>Belegungsfaktor: $\alpha = \frac{\text{Anzahl gespeicherter Elemente}}{\text{Anzahl der Slots}}$</li>
   <li>Primäre und sekundäre Clusterbildung</li>
-</ul><h2 id="tocAnchor-1-4">Stack</h2>
+</ul>
+
+<h2 id="tocAnchor-1-4">Stack</h2>
 
 <div style="width: 111px" class="wp-caption alignright">
    <a href="../images/2012/07/stack-101x300.png">
@@ -200,8 +211,7 @@ Charakteristika:
                     <span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">(),</span><span class="n">s</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="n">s</span><span class="o">.</span><span class="na">capacity</span><span class="o">());</span>
         <span class="o">}</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Ausgabe:</p>
@@ -408,46 +418,55 @@ Element: 2   size: 4     capacity: 160
 Element: 1   size: 3     capacity: 160
 Element: 0   size: 2     capacity: 160
 Element: 13      size: 1     capacity: 160
-Element: 12      size: 0     capacity: 160
-</code></pre>
+Element: 12      size: 0     capacity: 160</code></pre>
 </div>
 
 <p>Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:
 </p><blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>
 
 <table>
-   <tr><th>Operation</th>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Push</td>
+<tr>
+<td>Push</td>
 <td>`${\cal O}(1)$`</td>
 <td>Ein Element auf den Stack legen</td>
 </tr>
-   <tr><td>Pop</td>
+<tr>
+<td>Pop</td>
 <td>`${\cal O}(1)$`</td>
 <td>Das oberste Element von der Liste nehmen</td>
 </tr>
-</table><p>Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
+</table>
+
+<p>Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
 
 <h2 id="tocAnchor-1-5">Warteschlangen</h2>
 
 <p>Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks nanne es sich PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.</p>
 
 <table>
-   <tr><th>Operation</th>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Enqueue</td>
+<tr>
+<td>Enqueue</td>
 <td>`${\cal O}(1)$`</td>
 <td>Ein Element auf den Stack legen</td>
 </tr>
-   <tr><td>Dequeue</td>
+<tr>
+<td>Dequeue</td>
 <td>`${\cal O}(1)$`</td>
 <td>Das oberste Element von der Liste nehmen</td>
 </tr>
-</table><p>Eine Warteschlange lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
+</table>
+
+<p>Eine Warteschlange lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
 
 <h2 id="tocAnchor-1-6">Verkettete Listen</h2>
 
@@ -464,43 +483,54 @@ Element: 12      size: 0     capacity: 160
 
 <p>Sei $n$ die Anzahl der Elemente der Liste.
 </p><table>
-   <tr><th>Operation</th>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Suchen</td>
+<tr>
+<td>Suchen</td>
 <td>${\cal O}(n)$</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
-   <tr><td>Minimum</td>
+<tr>
+<td>Minimum</td>
 <td>${\cal O}(n)$</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
-   <tr><td>Maximum</td>
+<tr>
+<td>Maximum</td>
 <td>${\cal O}(n)$</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
-   <tr><td>Einfügen am Anfang</td>
+<tr>
+<td>Einfügen am Anfang</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
-   <tr><td>Wahlfreies Einfügen</td>
+<tr>
+<td>Wahlfreies Einfügen</td>
 <td>${\cal O}(n)$</td>
 <td></td>
 </tr>
-   <tr><td>Löschen</td>
+<tr>
+<td>Löschen</td>
 <td>${\cal O}(n)$</td>
 <td>→ Suchen</td>
 </tr>
-   <tr><td>Vorgänger</td>
+<tr>
+<td>Vorgänger</td>
 <td>${\cal O}(n)$</td>
 <td></td>
 </tr>
-   <tr><td>Nachfolger</td>
+<tr>
+<td>Nachfolger</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
-</table><h3 id="tocAnchor-1-6-2">Doppelt verkettete Liste</h3>
+</table>
+
+<h3 id="tocAnchor-1-6-2">Doppelt verkettete Liste</h3>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/doubly-linked-list.png">
@@ -511,43 +541,54 @@ Element: 12      size: 0     capacity: 160
 
 <p>Sei $n$ die Anzahl der Elemente der Liste.
 </p><table>
-   <tr><th>Operation</th>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Suchen</td>
+<tr>
+<td>Suchen</td>
 <td>${\cal O}(n)$</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
-   <tr><td>Minimum</td>
+<tr>
+<td>Minimum</td>
 <td>${\cal O}(n)$</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
-   <tr><td>Maximum</td>
+<tr>
+<td>Maximum</td>
 <td>${\cal O}(n)$</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
-   <tr><td>Einfügen am Anfang</td>
+<tr>
+<td>Einfügen am Anfang</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
-   <tr><td>Wahlfreies Einfügen</td>
+<tr>
+<td>Wahlfreies Einfügen</td>
 <td>${\cal O}(n)$</td>
 <td></td>
 </tr>
-   <tr><td>Löschen</td>
+<tr>
+<td>Löschen</td>
 <td>${\cal O}(n)$</td>
 <td>→ Suchen</td>
 </tr>
-   <tr><td>Vorgänger</td>
+<tr>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
 <td>Nur hier ist die doppelt-verkettete Liste besser als die einfach verkettete Liste.</td>
 </tr>
-   <tr><td>Nachfolger</td>
+<tr>
+<td>Nachfolger</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
-</table><h2 id="tocAnchor-1-9">Bäume</h2>
+</table>
+
+<h2 id="tocAnchor-1-9">Bäume</h2>
 
 <p>In der Vorlesung wurden Bäume sehr unpräzise eingeführt. Ich versuche das mal etwas präziser zu machen:
 </p><div class="definition">Sei $G = (V, E)$ ein gerichteter Graph.
@@ -584,39 +625,49 @@ Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörige
 
 <p>Wie würde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.
 </p><table>
-   <tr><th>Operation</th>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Suchen</td>
+<tr>
+<td>Suchen</td>
 <td>${\cal O}(|V| + |E|)$</td>
 <td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
 </tr>
-   <tr><td>Minimum</td>
+<tr>
+<td>Minimum</td>
 <td>${\cal O}(|V| + |E|)$</td>
 <td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
 </tr>
-   <tr><td>Maximum</td>
+<tr>
+<td>Maximum</td>
 <td>${\cal O}(|V| + |E|)$</td>
 <td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
 </tr>
-   <tr><td>Einfügen</td>
+<tr>
+<td>Einfügen</td>
 <td>${\cal O}(|V|)$</td>
 <td></td>
 </tr>
-   <tr><td>Löschen</td>
+<tr>
+<td>Löschen</td>
 <td>${\cal O}(|V| + |E|)$</td>
 <td>→ Suchen</td>
 </tr>
-   <tr><td>Vorgänger</td>
+<tr>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
 <td>Implementierungsabhängig!</td>
 </tr>
-   <tr><td>Nachfolger</td>
+<tr>
+<td>Nachfolger</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
-</table><h3 id="tocAnchor-1-9-2">Suchbäume</h3>
+</table>
+
+<h3 id="tocAnchor-1-9-2">Suchbäume</h3>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/binary-search-tree.png">
@@ -634,39 +685,49 @@ Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des
 Sei $G = (V, E)$ ein beliebiger binärer Suchbaum.
 Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 </p><table>
-   <tr><th>Operation</th>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Suchen</td>
+<tr>
+<td>Suchen</td>
 <td>${\cal O}(|V|)$</td>
 <td>→ Verkettete Liste</td>
 </tr>
-   <tr><td>Minimum</td>
+<tr>
+<td>Minimum</td>
 <td>${\cal O}(|V|)$</td>
 <td>→ Verkettete Liste</td>
 </tr>
-   <tr><td>Maximum</td>
+<tr>
+<td>Maximum</td>
 <td>${\cal O}(|V|)$</td>
 <td>→ Verkettete Liste</td>
 </tr>
-   <tr><td>Einfügen</td>
+<tr>
+<td>Einfügen</td>
 <td>${\cal O}(|V|)$</td>
 <td>→ Verkettete Liste</td>
 </tr>
-   <tr><td>Löschen</td>
+<tr>
+<td>Löschen</td>
 <td>${\cal O}(|V|)$</td>
 <td>→ Verkettete Liste</td>
 </tr>
-   <tr><td>Vorgänger</td>
+<tr>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
 <td>Implementierungsabhängig!</td>
 </tr>
-   <tr><td>Nachfolger</td>
+<tr>
+<td>Nachfolger</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
-</table><h4>Rot-Schwarz-Bäume</h4>
+</table>
+
+<h4>Rot-Schwarz-Bäume</h4>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/red-black-tree1.png">
@@ -677,45 +738,58 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 
 <p>Sei $G = (V, E)$ ein binärer Suchbaum.
 G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
-</p><ol><li>Jeder Knoten ist entweder Rot oder Schwarz.</li>
+</p><ol>
+  <li>Jeder Knoten ist entweder Rot oder Schwarz.</li>
   <li>Der Wurzelknoten ist schwarz.</li>
   <li>Die Blattknoten sind schwarz.</li>
   <li>Ein Knoten ist rot $\Rightarrow$ Beide Kinder sind schwarz.</li>
   <li>$\forall x \in V:$ Alle Pfade von x zu einem Blatt haben die gleiche Anzahl schwarzer Knoten.</li>
-</ol><table>
-   <tr><th>Operation</th>
+</ol>
+
+<table>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Suchen</td>
+<tr>
+<td>Suchen</td>
 <td>`${\cal O}(\lg n)$`</td>
 <td></td>
 </tr>
-   <tr><td>Minimum</td>
+<tr>
+<td>Minimum</td>
 <td>`${\cal O}(\lg n)$`</td>
 <td></td>
 </tr>
-   <tr><td>Maximum</td>
+<tr>
+<td>Maximum</td>
 <td>`${\cal O}(\lg n)$`</td>
 <td></td>
 </tr>
-   <tr><td>Einfügen</td>
+<tr>
+<td>Einfügen</td>
 <td>`${\cal O}(\lg n)$`</td>
 <td></td>
 </tr>
-   <tr><td>Löschen</td>
+<tr>
+<td>Löschen</td>
 <td>`${\cal O}(\lg n)$`</td>
 <td></td>
 </tr>
-   <tr><td>Vorgänger</td>
+<tr>
+<td>Vorgänger</td>
 <td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
-   <tr><td>Nachfolger</td>
+<tr>
+<td>Nachfolger</td>
 <td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
-</table><p>Eine Python-Implementation ist hier zu finden: <a href="https://github.com/MartinThoma/algorithms/blob/master/datastructures/redBlackTree.py">https://github.com/MartinThoma/algorithms</a></p>
+</table>
+
+<p>Eine Python-Implementation ist hier zu finden: <a href="https://github.com/MartinThoma/algorithms/blob/master/datastructures/redBlackTree.py">https://github.com/MartinThoma/algorithms</a></p>
 
 <h3 id="tocAnchor-1-9-3">Heaps</h3>
 
@@ -728,43 +802,54 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 
 <p>Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">binäre Min-Heaps</a>.
 </p><table>
-   <tr><th>Operation</th>
+<tr>
+<th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
 <th>Anmerkungen</th>
 </tr>
-   <tr><td>Suchen</td>
+<tr>
+<td>Suchen</td>
 <td>${\cal O}(n)$</td>
 <td>→ Falls als array dargestellt, einfach alle Elemente des Arrays durchlaufen</td>
 </tr>
-   <tr style="background-color:#99FF99"><td>Minimum</td>
+<tr style="background-color:#99FF99">
+<td>Minimum</td>
 <td>${\cal O}(1)$</td>
 <td></td>
 </tr>
-   <tr style="background-color:#99FF99"><td>Extract-Minimum</td>
+<tr style="background-color:#99FF99">
+<td>Extract-Minimum</td>
 <td>${\cal O}(\log n)$</td>
 <td>→ Heapify</td>
 </tr>
-   <tr><td>Maximum</td>
+<tr>
+<td>Maximum</td>
 <td>${\cal O}(n)$</td>
 <td>→ Suche</td>
 </tr>
-   <tr><td>Einfügen</td>
+<tr>
+<td>Einfügen</td>
 <td>${\cal O}(\log n)$</td>
 <td>→ Heapify</td>
 </tr>
-   <tr><td>Löschen</td>
+<tr>
+<td>Löschen</td>
 <td>${\cal O}(\log n)$</td>
 <td>→ Heapify (bei bekannter Position des Elements, sonst siehe Suche)</td>
 </tr>
-   <tr><td>Vorgänger</td>
+<tr>
+<td>Vorgänger</td>
 <td>${\cal O}(1)$</td>
 <td>Hat keine besondere Bedeutung in Heaps.</td>
 </tr>
-   <tr><td>Nachfolger</td>
+<tr>
+<td>Nachfolger</td>
 <td>${\cal O} (1)$</td>
 <td>Hat keine besondere Bedeutung in Heaps.</td>
 </tr>
-</table><h3 id="tocAnchor-1-9-4">B-Bäume</h3>
+</table>
+
+<h3 id="tocAnchor-1-9-4">B-Bäume</h3>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/b-tree-2.png">
@@ -787,11 +872,14 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 <p>Die beiden abgebildeten B-Bäume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigener Reihenfolge eingefügt wurden.</p>
 
 <p>Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:
-</p><ul><li>Alle Pfade von der Wurzel zu einem Blatt sind gleich lang.</li>
+</p><ul>
+  <li>Alle Pfade von der Wurzel zu einem Blatt sind gleich lang.</li>
   <li>Die Wurzel hat mindestens 2, höchstens 2t Kinder.</li>
   <li>Alle anderen inneren Knoten haben mindestens t, höchstens 2t Kinder.</li>
   <li>Jeder Knoten mit i Kindern hat i-1 Schlüssel.</li>
-</ul><p>Die beiden B-Bäume habe ich mit <a href="https://gist.github.com/3159687">diesem Script</a> erstellt.</p>
+</ul>
+
+<p>Die beiden B-Bäume habe ich mit <a href="https://gist.github.com/3159687">diesem Script</a> erstellt.</p>
 
 <p>Mehr zu B-Bäumen gibt es in diesem <a href="../b-baume/" title="B-Bäume">Artikel über B-Bäume</a>.</p>
 
@@ -811,9 +899,11 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a>
 
 <p>Wo werden Tries genutzt?
-</p><ul><li>Python charmap encoder (<a href="http://mail.python.org/pipermail/patches/2006-May/019891.html">source</a>)</li>
+</p><ul>
+  <li>Python charmap encoder (<a href="http://mail.python.org/pipermail/patches/2006-May/019891.html">source</a>)</li>
   <li>Der <a href="http://docs.oracle.com/javase/7/docs/api/java/text/Normalizer.html">Normalizer</a> scheint Tries zu verwenden.</li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -936,7 +1026,7 @@ Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

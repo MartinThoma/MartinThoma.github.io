@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/logos/swi-prolog.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/logos/swi-prolog.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Prolog</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -77,10 +79,13 @@
 
 <p>Any prolog program consists of</p>
 
-<ul><li>declaration of facts (also called objects)</li>
+<ul>
+<li>declaration of facts (also called objects)</li>
 <li>rules about objects and their relationship</li>
 <li>asking "questions" about objects and their relationship</li>
-</ul><div id="toc_container" class="toc_light_blue no_bullets">
+</ul>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -120,46 +125,59 @@ Don't forget the point at the end. It is important and somehow like the
 
 <p>The definition of facts can look like this:</p>
 <div class="highlight">
-   <pre><code class="prolog language-prolog" data-lang="prolog"><span class="nf">loves</span><span class="p">(</span><span class="s-Atom">john</span><span class="p">,</span><span class="nv">X</span><span class="p">).</span>
+   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">loves</span><span class="p">(</span><span class="s-Atom">john</span><span class="p">,</span><span class="nv">X</span><span class="p">).</span>
 </code></pre>
 </div>
-<ul><li>Note that names of all relationships and all objects have to begin with a lower
+<ul>
+<li>Note that names of all relationships and all objects have to begin with a lower
 case letter. Variables begin with a captial letter.</li>
 <li>The relationship is written first (<code>john</code>). The objects are separated by <code>,</code> 
 and everything is finished with <code>.</code>.</li>
 <li>The example from above means: <code>john</code> loves everything.</li>
 <li>You can have any number of arguments.</li>
 <li>The ordering of arguments is important (<code>loves(john,X)</code> is not the same as <code>loves(X,john)</code>).</li>
-</ul><h3 id="tocAnchor-1-2-1">Symbols</h3>
+</ul>
+
+<h3 id="tocAnchor-1-2-1">Symbols</h3>
 
 <table>
    <thead>
-      <tr><th>boolean</th>
+<tr>
+<th>boolean</th>
 <th>Prolog</th>
 </tr>
-   </thead>
+</thead>
    <tbody>
-      <tr><td>and</td>
+<tr>
+<td>and</td>
 <td><code>,</code></td>
 </tr>
-      <tr><td>or</td>
+<tr>
+<td>or</td>
 <td><code>;</code></td>
 </tr>
-      <tr><td>if</td>
+<tr>
+<td>if</td>
 <td><code>:-</code></td>
 </tr>
-      <tr><td>not</td>
+<tr>
+<td>not</td>
 <td><code>not</code></td>
 </tr>
-   </tbody>
-</table><ul><li>An underscore <code>_</code> is an anonymous variable.</li>
-</ul><h2 id="tocAnchor-1-4">Rules</h2>
+</tbody>
+</table>
+
+<ul>
+<li>An underscore <code>_</code> is an anonymous variable.</li>
+</ul>
+
+<h2 id="tocAnchor-1-4">Rules</h2>
 
 <p>Rules consist of a head and a body. They are separated by <code>:-</code>.</p>
 
 <h2 id="tocAnchor-1-5">Questions</h2>
 <div class="highlight">
-   <pre><code class="prolog language-prolog" data-lang="prolog"><span class="s-Atom">?</span><span class="nf">own</span><span class="p">(</span><span class="s-Atom">mary</span><span class="p">,</span><span class="s-Atom">book</span><span class="p">)</span>
+   <pre><code class="language-prolog" data-lang="prolog"><span class="s-Atom">?</span><span class="nf">own</span><span class="p">(</span><span class="s-Atom">mary</span><span class="p">,</span><span class="s-Atom">book</span><span class="p">)</span>
 </code></pre>
 </div>
 <p>This will invoke the prolog unifier. So Prolog will check if the fact 
@@ -183,7 +201,8 @@ side 'right' to make things easier.</p>
 
 <p>When you solve this by hand, you should note the following:</p>
 
-<ul><li>The only two things that the farmer can leave alone is the fox and the bag of beans.</li>
+<ul>
+<li>The only two things that the farmer can leave alone is the fox and the bag of beans.</li>
 <li>As the farmer is always in the boat when anything else is in the boat, you can ignore
 that step. Just think of the farmer and possibly one other thing teleporting
 from one side to the other.</li>
@@ -193,9 +212,12 @@ situation.</li>
 <li>Whenever a situation occurs twice, you did some redundant steps. In other words:
 At least one solution exists, where no repetitions take place. The shortest
 solution is one of them.</li>
-</ul><p>To solve this task, you split the problem into parts:</p>
+</ul>
 
-<ul><li>Define a rule <code>valid</code> that takes a 4-tuple, where the first element is the position
+<p>To solve this task, you split the problem into parts:</p>
+
+<ul>
+<li>Define a rule <code>valid</code> that takes a 4-tuple, where the first element is the position
 of the man, the second of the goose, then the fox and then the beans. Positions
 can either be <code>left</code> or <code>right</code>.</li>
 <li>Define a rule <code>step(S1, Description, S2)</code> that makes one step from situaiton
@@ -205,14 +227,19 @@ brought to the other side. The situations are, as above, 4-tuples.</li>
 <code>S2</code> can be reached by any number of steps from <code>S1</code>. The list of steps done 
 to get from <code>S1</code> to <code>S2</code> is stored in <code>Steps</code>. The <code>SituationList</code> is used to
 prevent doing unnecessary redundant steps.</li>
-</ul><p>So lets get through this.</p>
+</ul>
+
+<p>So lets get through this.</p>
 
 <p>There are essentially three situations that can occur:</p>
 
-<ul><li>The man is on the same side as the goose,</li>
+<ul>
+<li>The man is on the same side as the goose,</li>
 <li>the man is on the same side as the beans or</li>
 <li>the man is on the same side as the fox.</li>
-</ul><p>If the man is on the same side as the goose, everything is fine. Nobody gets
+</ul>
+
+<p>If the man is on the same side as the goose, everything is fine. Nobody gets
 eaten / eats when the man is there.</p>
 
 <p>If the man is where the beans are, then the goose should not be where the fox is.
@@ -221,7 +248,7 @@ The case that the goose is where the man is was done before.</p>
 <p>And the last case, the man is where the fox is. Now we have to make sure that
 the beans are not where the goose is:</p>
 <div class="highlight">
-   <pre><code class="prolog language-prolog" data-lang="prolog"><span class="nf">p</span><span class="p">(</span><span class="s-Atom">left</span><span class="p">).</span>
+   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">p</span><span class="p">(</span><span class="s-Atom">left</span><span class="p">).</span>
 <span class="nf">p</span><span class="p">(</span><span class="s-Atom">right</span><span class="p">).</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Goose</span><span class="p">.</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Beans</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s-Atom">\=</span> <span class="nv">Fox</span><span class="p">.</span>
@@ -231,11 +258,14 @@ the beans are not where the goose is:</p>
 <p>The <code>step</code> is also quite simple. There are four possible actions you could take
 at each situation:</p>
 
-<ul><li>Only the man goes to the other side,</li>
+<ul>
+<li>Only the man goes to the other side,</li>
 <li>the man and the beans / goose / fox go the the other side.</li>
-</ul><p>So here is  the code:</p>
+</ul>
+
+<p>So here is  the code:</p>
 <div class="highlight">
-   <pre><code class="prolog language-prolog" data-lang="prolog"><span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Man'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
+   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Man'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
     <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">.</span>
 
 <span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose1</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Goose'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose2</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
@@ -250,12 +280,14 @@ at each situation:</p>
 </div>
 <p>And finally the reachable part.</p>
 
-<ul><li>Either, you're already at the situation where you want to get to. So you don't
+<ul>
+<li>Either, you're already at the situation where you want to get to. So you don't
 have to do any step and it doesn't matter which situations you have seen so far.</li>
 <li>Or you want to get from <code>S</code> to <code>G</code>. That is only possible, when you can get
 from <code>S</code> to an intermediate situation with one step less:</li>
-</ul><div class="highlight">
-   <pre><code class="prolog language-prolog" data-lang="prolog"><span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">S</span><span class="p">).</span>
+</ul>
+<div class="highlight">
+   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">S</span><span class="p">).</span>
 <span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">,</span> <span class="p">[</span><span class="nv">Step</span><span class="p">|</span><span class="nv">Steps</span><span class="p">],</span> <span class="nv">G</span><span class="p">)</span> <span class="p">:-</span> 
     <span class="nf">step</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Step</span><span class="p">,</span> <span class="nv">Tmp</span><span class="p">),</span> <span class="nf">valid</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">),</span> <span class="o">not</span><span class="p">(</span><span class="nf">member</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">)),</span>
     <span class="nf">reachable</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="p">[</span><span class="nv">Tmp</span><span class="p">|</span><span class="nv">Visited</span><span class="p">],</span> <span class="nv">Steps</span><span class="p">,</span> <span class="nv">G</span><span class="p">).</span>
@@ -263,7 +295,7 @@ from <code>S</code> to an intermediate situation with one step less:</li>
 </div>
 <p>Putting it together:</p>
 <div class="highlight">
-   <pre><code class="prolog language-prolog" data-lang="prolog"><span class="nf">p</span><span class="p">(</span><span class="s-Atom">left</span><span class="p">).</span>
+   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">p</span><span class="p">(</span><span class="s-Atom">left</span><span class="p">).</span>
 <span class="nf">p</span><span class="p">(</span><span class="s-Atom">right</span><span class="p">).</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Goose</span><span class="p">.</span>
 <span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Beans</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s-Atom">\=</span> <span class="nv">Fox</span><span class="p">.</span>
@@ -302,11 +334,13 @@ When you press <code>;</code> after the first solution, you get the second solut
 
 <h2 id="tocAnchor-1-7">Material</h2>
 
-<ul><li><a href="http://www.youtube.com/watch?v=GHLfeGN5OMk">Introduction to PROLOG</a>: One hour of introduction to prolog by Shashi Bhushan. Much of what I have written here is based on this video.</li>
+<ul>
+<li><a href="http://www.youtube.com/watch?v=GHLfeGN5OMk">Introduction to PROLOG</a>: One hour of introduction to prolog by Shashi Bhushan. Much of what I have written here is based on this video.</li>
 <li><a href="http://www.swi-prolog.org/">SWI Prolog</a>: A great resource for looking things up. </li>
 <li><a href="http://www.cs.trincoll.edu/%7Eram/cpsc352/notes/prolog/factsrules.html">Facts, Rules and Queries</a></li>
 <li><a href="http://www.cs.toronto.edu/%7Ehojjat/384w09/simple-prolog-examples.html">Simple Prolog example</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -429,7 +463,7 @@ When you press <code>;</code> after the first solution, you get the second solut
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

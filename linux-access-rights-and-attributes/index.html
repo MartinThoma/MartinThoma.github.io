@@ -8,9 +8,10 @@
 
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Linux access rights and attributes</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -129,28 +130,28 @@
 <h3 id="tocAnchor-1-1-1">Files</h3>
 
 <p>Linux files have three important access rights for files:
-</p><ul><li><strong>R</strong>ead</li>
+</p><ul>
+  <li><strong>R</strong>ead</li>
   <li><strong>W</strong>rite</li>
   <li>E<strong>x</strong>ecute</li>
-</ul><p>If you want to mark a file as executable, you can add the x-right:</p>
+</ul>
+
+<p>If you want to mark a file as executable, you can add the x-right:</p>
 
 <div class="highlight">
-   <pre><code class="bash">chmod +x
-</code></pre>
+   <pre><code class="bash">chmod +x</code></pre>
 </div>
 
 <p>When you want to mark a file as readable, you can dd the r-right:</p>
 
 <div class="highlight">
-   <pre><code class="bash">chmod +r
-</code></pre>
+   <pre><code class="bash">chmod +r</code></pre>
 </div>
 
 <p>You can remove rights in a similar way:</p>
 
 <div class="highlight">
-   <pre><code class="bash">chmod -x testfile
-</code></pre>
+   <pre><code class="bash">chmod -x testfile</code></pre>
 </div>
 
 <p>Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two? </p>
@@ -158,10 +159,13 @@
 <h3 id="tocAnchor-1-1-2">Folders</h3>
 
 <p>rwx has a meaning for folders, too:
-</p><ul><li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
+</p><ul>
+  <li><strong>R</strong>ead: if that is missing, you can't use <code>ls</code> in the directory.</li>
   <li><strong>W</strong>rite: you need this to create new files / folders in the direcotry</li>
   <li><strong>x</strong> ... like "enter"?: if that is missing, you can't enter the directory.</li>
-</ul><h2 id="tocAnchor-1-4">User, Group, Others</h2>
+</ul>
+
+<h2 id="tocAnchor-1-4">User, Group, Others</h2>
 
 <p>The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:</p>
 
@@ -187,8 +191,7 @@ drwxr-xr-x  2 moose moose     4096 2013-03-04 20:28 Screenshots Matlab
 -rw-r--r--  1 moose moose   764196 2013-03-04 20:28 Screenshots Matlab.zip
 -rw-r--r--  1 moose moose   534614 2013-03-01 19:48 spritelib_gpl.zip
 drwxr-xr-x  8 moose moose     4096 2013-02-27 18:36 Team
-drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
-</code></pre>
+drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat</code></pre>
 </div>
 
 <p>You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.</p>
@@ -208,8 +211,7 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 -rwsr-xr-x 1 root   lpadmin    13540 2012-12-04 16:24 lppasswd
 -rwsr-xr-x 1 root   root       37140 2011-02-14 23:11 passwd
 -rwxr-xr-x 1 root   root     5070304 2012-04-24 23:38 smbpasswd
--rwxr-xr-x 1 root   root        9688 2013-01-18 17:59 vino-passwd
-</code></pre>
+-rwxr-xr-x 1 root   root        9688 2013-01-18 17:59 vino-passwd</code></pre>
 </div>
 
 <p>Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":</p>
@@ -217,8 +219,7 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 <div class="highlight">
    <pre><code class="bash">moose@pc07:/etc<span class="nv">$`</span> ls -l <span class="p">|</span> grep shadow<span class="sb">`</span><span class="err">$</span>
 -rw-r-----  1 root    shadow     813 2013-01-24 06:21 gshadow
--rw-r-----  1 root    shadow    1274 2013-01-24 06:21 shadow
-</code></pre>
+-rw-r-----  1 root    shadow    1274 2013-01-24 06:21 shadow</code></pre>
 </div>
 
 <p>Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.</p>
@@ -230,34 +231,38 @@ drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
 <p>You can set the sticky bit like this:</p>
 
 <div class="highlight">
-   <pre><code class="bash">chmod +t testfile
-</code></pre>
+   <pre><code class="bash">chmod +t testfile</code></pre>
 </div>
 
 <p>or like that:</p>
 
 <div class="highlight">
-   <pre><code class="bash">chmod 1777 testfile
-</code></pre>
+   <pre><code class="bash">chmod 1777 testfile</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-5-2">Folders</h3>
 
-<ul><li>suid: is ignored on UNIX and Linux systems</li>
+<ul>
+  <li>suid: is ignored on UNIX and Linux systems</li>
   <li>sgid: new files and subdirectories created within this folder inherit the folders group ID</li>
   <li>t: when the sticky bit is set, only owners may change the filename or delete files</li>
-</ul><h2 id="tocAnchor-1-8">Type</h2>
+</ul>
+
+<h2 id="tocAnchor-1-8">Type</h2>
 
 <p>The first column of <code>ls -l</code> tells you the type of the item:</p>
 
-<ul><li>-: a file</li>
+<ul>
+  <li>-: a file</li>
   <li>b: a block device</li>
   <li>c: a character device</li>
   <li>d: a directory</li>
   <li>l: a symbolic link</li>
   <li>p: pipe</li>
   <li>s: a socket</li>
-</ul><div class="highlight">
+</ul>
+
+<div class="highlight">
    <pre><code class="bash">moose@pc07:/dev<span class="nv">$`</span> ls -l
 total 0
 crw-------  1 root video    10, 175 2013-03-04 10:01 agpgart
@@ -281,8 +286,7 @@ drwxr-xr-x  4 root root         380 2013-03-04 18:14 input
 crw-rw----  1 root root      1,  11 2013-03-04 10:01 kmsg
 srw-rw-rw-  1 root root           0 2013-03-04 10:01 log
 brw-rw----  1 root disk      7,   0 2013-03-04 10:01 loop0
-<span class="o">[</span>...<span class="o">]</span>
-</code></pre>
+<span class="o">[</span>...<span class="o">]</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-9">stat</h2>
@@ -297,8 +301,7 @@ Device: 801h/2049d  Inode: 923339      Links: 1
 Access: <span class="o">(</span>0777/-rwxrwxrwx<span class="o">)</span>  Uid: <span class="o">(</span> 1000/   moose<span class="o">)</span>   Gid: <span class="o">(</span> 1000/moose<span class="o">)</span>
 Access: 2013-03-04 21:31:52.154187243 +0100
 Modify: 2013-03-04 21:31:51.154184098 +0100
-Change: 2013-03-04 21:31:51.154184098 +0100
-</code></pre>
+Change: 2013-03-04 21:31:51.154184098 +0100</code></pre>
 </div>
 
 <p>The content of the file is "Hello World." (12 characters)</p>
@@ -315,15 +318,13 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 
 <div class="highlight">
    <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$`</span> lsattr -v
- 1338 -----------------e- ./testfile
-</code></pre>
+ 1338 -----------------e- ./testfile</code></pre>
 </div>
 
 <p>You can set the version like this:</p>
 
 <div class="highlight">
-   <pre><code class="bash">chattr -v 1339 testfile
-</code></pre>
+   <pre><code class="bash">chattr -v 1339 testfile</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-10-2">Append only</h3>
@@ -333,8 +334,7 @@ Change: 2013-03-04 21:31:51.154184098 +0100
 <p>First of all, I had to use sudo to add this attribute:</p>
 
 <div class="highlight">
-   <pre><code class="bash">sudo chattr +a testfile
-</code></pre>
+   <pre><code class="bash">sudo chattr +a testfile</code></pre>
 </div>
 
 <p>Then, I had all permissions:</p>
@@ -349,8 +349,7 @@ Access: 2013-03-04 21:31:52.154187243 +0100
 Modify: 2013-03-04 21:31:51.154184098 +0100
 Change: 2013-03-04 21:33:55.154184312 +0100
 moose@pc07:~/Desktop/Test<span class="nv">$`</span> lsattr
------a-----------e- ./testfile
-</code></pre>
+-----a-----------e- ./testfile</code></pre>
 </div>
 
 <p>But I couldn't append to the file with gedit. With bash, it worked fine:</p>
@@ -359,8 +358,7 @@ moose@pc07:~/Desktop/Test<span class="nv">$`</span> lsattr
    <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="sb">`</span><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"One more line "</span> &gt;&gt; testfile 
 moose@pc07:~/Desktop/Test<span class="nv">$`</span> cat testfile 
 Hello World.
-One more line 
-</code></pre>
+One more line</code></pre>
 </div>
 
 <p>So I guess I found another bug in gEdit.</p>
@@ -378,6 +376,7 @@ One more line
 <h3 id="tocAnchor-1-10-5">Synchronous update</h3>
 
 <p>when you set <code>chattr +S testfile</code> the file gets directly written to the HDD and not buffered by the kernel cache.</p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -506,7 +505,7 @@ One more line
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

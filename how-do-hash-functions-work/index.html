@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2013/05/connect-four-thumb.gif" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2013/05/connect-four-thumb.gif" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>How do hash functions work?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -138,9 +140,12 @@
 <p>Imagine you would like to find a good strategy where to drop your disk. A simple brute-force method is to create a so called <a href="http://en.wikipedia.org/wiki/Game_tree">game tree</a>. This means you go through each possibility at each situation that could occur in the game for both players. </p>
 
 <p>This approach has generally two problems:
-</p><ol><li>You have to know how to go through each situation. For connect four it is easy. Both players place their disks in turns and in every turn the current player has at most 7 possibilities. But it is impossible for games like <a href="http://en.wikipedia.org/wiki/Calvinball#Calvinball">Calvinball</a> or <a href="http://en.wikipedia.org/wiki/Mao_(card_game)">Mao</a>.</li>
+</p><ol>
+  <li>You have to know how to go through each situation. For connect four it is easy. Both players place their disks in turns and in every turn the current player has at most 7 possibilities. But it is impossible for games like <a href="http://en.wikipedia.org/wiki/Calvinball#Calvinball">Calvinball</a> or <a href="http://en.wikipedia.org/wiki/Mao_(card_game)">Mao</a>.</li>
   <li>The game tree might be HUGE. In this case, you can have $4,531,985,219,092 \approx 4.5 \cdot 10^{12}$ game situations (<a href="http://math.stackexchange.com/a/301128/6876">source</a>). Even if you would need only one bit for each situation, it would require 566.5 GB!</li>
-</ol><p>Anyway, lets say we want to store many unique game situations. Unique means, even if you have hundreds of possible paths to get to a given game situations, you will store this game situation only once.</p>
+</ol>
+
+<p>Anyway, lets say we want to store many unique game situations. Unique means, even if you have hundreds of possible paths to get to a given game situations, you will store this game situation only once.</p>
 
 <h2 id="tocAnchor-1-3">Implementation</h2>
 
@@ -168,8 +173,7 @@
     <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">stalemate</span><span class="p">;</span> <span class="c1">// Was this game a stalemate?</span>
     <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">winRed</span><span class="p">;</span>   <span class="c1">// Did red win?</span>
     <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">winBlack</span><span class="p">;</span> <span class="c1">// Did black win?</span>
-<span class="p">};</span>
-</code></pre>
+<span class="p">};</span></code></pre>
 </div>
 
 <p>You need a check if one player won:</p>
@@ -239,8 +243,7 @@
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="n">NOT_FINISHED</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>If you need an explanation for this, you should read <a href="../check-x-in-a-row-for-board-games/" title="Check x-in-a-row for board games">this article</a>.</p>
@@ -268,8 +271,7 @@
             <span class="n">newBoard</span><span class="p">[</span><span class="n">BOARD_WIDTH</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">];</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>You need a function that makes all possible moves for the players:</p>
@@ -361,18 +363,20 @@
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">How is this realated to hash functions?</h2>
 
 <p>You might have noticed a few functions that I didn't explain by now:
-</p><ul><li><code>didBoardAlreadyOccur(board)</code>: Checks if a given board is stored in database.</li>
+</p><ul>
+  <li><code>didBoardAlreadyOccur(board)</code>: Checks if a given board is stored in database.</li>
   <li><code>getBoardIndex(board)</code>: This is a function that takes a board and gives a non-negative integer which is characteristic for the given board.</li>
   <li><code>savePreviousID(insertID, lastId, column)</code>: store insertID as a possible next situation for lastId in database</li>
   <li><code>setBoard(insertID, board)</code>: Insert board into database at position insertID</li>
-</ul><p>How would you implement <code>didBoardAlreadyOccur(board)</code>? This function (or insertID) will be the slowest part of the code and will be called VERY often. So it needs to be as fast as possible.</p>
+</ul>
+
+<p>How would you implement <code>didBoardAlreadyOccur(board)</code>? This function (or insertID) will be the slowest part of the code and will be called VERY often. So it needs to be as fast as possible.</p>
 
 <h2 id="tocAnchor-1-5">A hash function</h2>
 
@@ -387,8 +391,7 @@
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>When you want to get the board number, you can get it like this:
@@ -414,30 +417,38 @@
 
     <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">%</span> <span class="n">MAXIMUM_SITUATIONS</span><span class="p">;</span>
     <span class="k">return</span> <span class="n">index</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>The function <code>getFirstIndex</code> maps an char Array with BOARD_WIDTH * BOARD_HEIGHT = 7 * 6 = 42 elements to an integer interval [0, MAXIMUM_SITUATIONS] = [0, 20000000]. Although I only use three values for the char array, that is $3^{42} = 109418989131512359209 \approx 1.09 \cdot 10^{20}$. There are many game situation numbers that can never occur (e.g. two more red than black dists), but we still map a significantly larger space to [0,20000000]. You can't change that. You can probably find (much) better mappings, but as we know that there are $4.5 \cdot 10^{12}$ game situations, you will always have the problem that your codomain is much smaller than the domain of your hash function. That's a fundamental problem of hash functions.</p>
 
 <p>This means, you will have two board situations that map to the same hash number. This is called a "hash collision". When you use the hash number directly as an index for your board, you will have to deal with hash collisions. Some solutions are:
-</p><ul><li>Ignoring the problem: That's boring and not always possible (but simple).</li>
+</p><ul>
+  <li>Ignoring the problem: That's boring and not always possible (but simple).</li>
   <li>Linear probing</li>
   <li>Quadratic probing</li>
-</ul><h2 id="tocAnchor-1-6">Linear probing</h2>
+</ul>
+
+<h2 id="tocAnchor-1-6">Linear probing</h2>
 
 <p>The idea of linear probing is very simple: </p>
 
 <p>Inserting a new item:
-</p><ol><li>You look at the index $i$ that your hash function gave you.</li>
+</p><ol>
+  <li>You look at the index $i$ that your hash function gave you.</li>
   <li>If this index is already full, you look at $i+1$</li>
   <li>When you took a look at all slots of your array, you can't insert the new item.</li>
-</ol><p>Searching for an already inserted item:
-</p><ol><li>You look at the index $i$ that your hash function gave you.</li>
+</ol>
+
+<p>Searching for an already inserted item:
+</p><ol>
+  <li>You look at the index $i$ that your hash function gave you.</li>
   <li>If $i$ is empty, you're ready. The item was not inserted.</li>
   <li>If $i$ is not the item you've searched for, you have to look at $i+1$.</li>
   <li>Keep looking at the next item until you find your searched item, you've looked at all items or you find an empty slot.</li>
-</ol><p>Deleting is complicated. You have to look at all items after the deleted one, remove them from your array and insert them again. That's not good.</p>
+</ol>
+
+<p>Deleting is complicated. You have to look at all items after the deleted one, remove them from your array and insert them again. That's not good.</p>
 
 <p>The problem of linear probing is <strong>clustering</strong>. When you have some hash values that are close together, you might get hash collisions faster. When you've got your first collisions, you resolve them by inserting the value close to the value where you originally wanted to save it. So you get one big cluster quite fast. When you want to insert an element in the cluster, you first have to search the end of the cluster. That's bad for performance.</p>
 
@@ -483,15 +494,19 @@
 <p>Hash functions help you to map a big amount of data to a small space. They are important, because they are a relevant part of many datastructures. The better they are, the faster will operations on those datastructures work. Better means: Faster to compute or less collisions.</p>
 
 <p>Some datastructures like this are:
-</p><ul><li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html">HashMap</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">HashTable</a> (→ <a href="http://stackoverflow.com/a/40878/562769">difference</a>)</li>
+</p><ul>
+  <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html">HashMap</a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">HashTable</a> (→ <a href="http://stackoverflow.com/a/40878/562769">difference</a>)</li>
   <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html">HashSet</a></li>
-</ul><h2 id="tocAnchor-1-11">Final notes</h2>
+</ul>
+
+<h2 id="tocAnchor-1-11">Final notes</h2>
 
 <p>Another resolution for hash collisions is creating a linked list. This means you will not suffer from clustering and you can insert in $\mathcal{O}(1)$. But searching for an element is still in $\mathcal{O}(n)$, where $n$ is the number of elements that were already inserted.</p>
 
 <h2 id="tocAnchor-1-12">Resources</h2>
 
 <p>You can find the <a href="https://github.com/MartinThoma/connect-four/tree/master/C">code at GitHub</a>.</p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -626,7 +641,7 @@
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

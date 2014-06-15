@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2011/09/Gnome-Terminal.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/09/Gnome-Terminal.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Colorize your scripts output</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -109,8 +111,7 @@
    <pre><code class="bash"><span class="c"># Text color variables</span>
 <span class="nv">txtred</span><span class="o">=</span><span class="sb">`</span><span class="k">$(</span>tput setaf 1<span class="k">)</span>    <span class="c"># Red</span>
 <span class="nv">txtreset</span><span class="o">=</span><span class="nv">$`</span><span class="o">(</span>tput sgr0<span class="o">)</span>     <span class="c"># Reset your text</span>
-<span class="nb">echo</span> <span class="s2">"Roses are `${txtred}red$`{txtreset}."</span>
-</code></pre>
+<span class="nb">echo</span> <span class="s2">"Roses are `${txtred}red$`{txtreset}."</span></code></pre>
 </div>
 
 <p>Simply copy this example line by line and then you'll see the expected example.</p>
@@ -118,8 +119,7 @@
 <p>A shorter way would be</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span>
-</code></pre>
+   <pre><code class="bash"><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">The sgr attribuge</h2>
@@ -129,8 +129,7 @@
 tput sgr 0 0     turn off standout<span class="p">;</span> turn off underline
 tput sgr 1 1     turn on standout<span class="p">;</span> turn on underline
 tput sgr 1 0     turn on standout<span class="p">;</span> turn off underline
-tput sgr0        short <span class="k">for </span>sgr 0 0
-</code></pre>
+tput sgr0        short <span class="k">for </span>sgr 0 0</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">The setaf attribute</h2>
@@ -142,8 +141,7 @@ setaf 3 Yellow
 setaf 4 Blue
 setaf 5 Purple
 setaf 6 Cyan
-setaf 7 Gray
-</code></pre>
+setaf 7 Gray</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Misc</h2>
@@ -151,15 +149,13 @@ setaf 7 Gray
 <p>Make your text bold:</p>
 
 <div class="highlight">
-   <pre><code class="bash">tput bold
-</code></pre>
+   <pre><code class="bash">tput bold</code></pre>
 </div>
 
 <p>Reset your style:</p>
 
 <div class="highlight">
-   <pre><code class="bash">tput sgr0
-</code></pre>
+   <pre><code class="bash">tput sgr0</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">Advanced Example</h2>
@@ -169,15 +165,13 @@ setaf 7 Gray
 <p>This is the way how "[ERROR]" gets red and bold:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="sb">`</span>tput setaf 1<span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span>
-</code></pre>
+   <pre><code class="bash"><span class="sb">`</span>tput setaf 1<span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span></code></pre>
 </div>
 
 <p>You can test it with</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span>
-</code></pre>
+   <pre><code class="bash"><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span></code></pre>
 </div>
 
 <p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
@@ -185,29 +179,25 @@ setaf 7 Gray
 <p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is </p>
 
 <div class="highlight">
-   <pre><code class="bash">sed <span class="s1">'s/search/replace/'</span>
-</code></pre>
+   <pre><code class="bash">sed <span class="s1">'s/search/replace/'</span></code></pre>
 </div>
 
 <p>So we pipe the output to sed:</p>
 
 <div class="highlight">
-   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span>
-</code></pre>
+   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span></code></pre>
 </div>
 
 <p>And now we bring it all together:</p>
 
 <div class="highlight">
-   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span>
-</code></pre>
+   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span></code></pre>
 </div>
 
 <p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
 
 <div class="highlight">
-   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s2">"s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span>
-</code></pre>
+   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s2">"s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">Colorize C / C++ output</h2>
@@ -234,8 +224,7 @@ setaf 7 Gray
     <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[4m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"underlined"</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">033[9m%s</span><span class="se">\\</span><span class="s">033[0m</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="s">"strike"</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
@@ -244,6 +233,7 @@ The numbers 30–37 change the color, 4 is a single underline.</p>
 <p>I guess these will also work for Java, but I didn't test it.</p>
 
 <p>Do you know what setaf or sgr stand for? Do you know further "terminal enhancement" tricks? Just leave a post!</p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -372,7 +362,7 @@ The numbers 30–37 change the color, 4 is a single underline.</p>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

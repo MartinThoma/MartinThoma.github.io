@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/logos/kit.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/logos/kit.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Prüfungsverwaltung am KIT</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -166,23 +168,29 @@ geschickt werden, der sich angemeldet hat.</p>
 
 <p>Diese E-Mail soll folgendes beinhalten:</p>
 
-<ul><li>Alle Prüfungen (mit Name, Termin der Prüfung, letzter An- und Abmeldetermin),
+<ul>
+<li>Alle Prüfungen (mit Name, Termin der Prüfung, letzter An- und Abmeldetermin),
 zu den der Student angemeldet ist.</li>
 <li>Der volle Name und die Matrikelnummer des Studenten.</li>
 <li>Das Datum der E-Mail.</li>
-</ul><p>Diese E-Mail soll mit einem offiziellen KIT Schlüssel signiert werden.
+</ul>
+
+<p>Diese E-Mail soll mit einem offiziellen KIT Schlüssel signiert werden.
 Dies könnte z.B. mit PGP gemacht werden und würde dann etwa so aussehen:</p>
 
 <blockquote>
 <p>-----BEGIN PGP SIGNED MESSAGE-----<br />
-Hash: SHA1<br /><br />
+Hash: SHA1<br />
+<br />
 Student: Martin Thoma (Matrikelnummer: 1612345)<br />
 Zeitpunkt: 08.04.2014, 12:34:56 Uhr<br />
 Angemeldete Prüfungen:<br />
 * Programmierparadigmen (Prüfungstermin: 10.04.2014; letzter Termin der Anmeldung: 31.03.2014; letzer Termin der Abmeldung: 08.04.2014)<br />
-* Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br /><br />
+* Kognitive Systeme (Prüfungstermin: 11.04.2014; letzter Termin der Anmeldung: 15.03.2014; letzer Termin der Abmeldung: 10.04.2014)<br />
+<br />
 -----BEGIN PGP SIGNATURE-----<br />
-Version: GnuPG v1.4.14 (GNU/Linux)<br /><br />
+Version: GnuPG v1.4.14 (GNU/Linux)<br />
+<br />
 iEYEARECAAYFAlNDzBoACgkQO3Q6GUuCW82z+ACfamkVC/S8HIpASH8F0ZGVbVW1<br />
 rgwAn2cRvNeDN3pZVTpvNWV1vYK9f1fI<br />
 =3DvZU7<br />
@@ -260,20 +268,26 @@ wäre dann ähnlich.</p>
 
 <p>Vorstellbar wäre etwas in der Art:</p>
 
-<ul><li>Der Student muss zum Studienbüro und Schriftlich bestätigen, dass der
+<ul>
+<li>Der Student muss zum Studienbüro und Schriftlich bestätigen, dass der
 öffentliche Schlüssel aus dem KIT-System entfernt wird und damit ungültig wird.</li>
 <li>Der Student muss sich bei allen Professoren persönlich melden und unterschreiben,
 wenn er sich von der Klausur abmelden will.</li>
-</ul><h2 id="tocAnchor-1-6">PGP - Was ist das?</h2>
+</ul>
+
+<h2 id="tocAnchor-1-6">PGP - Was ist das?</h2>
 
 <p>Siehe <a href="https://de.wikipedia.org/wiki/Pretty_Good_Privacy">Wikpedia</a>.</p>
 
 <p>Es ist für folgende Systeme verfügbar:</p>
 
-<ul><li>Linux, siehe z.B. <a href="http://wiki.ubuntuusers.de/GnuPG">Ubuntu mit GnuPG</a></li>
+<ul>
+<li>Linux, siehe z.B. <a href="http://wiki.ubuntuusers.de/GnuPG">Ubuntu mit GnuPG</a></li>
 <li>Windows, siehe z.B. <a href="http://www.gpg4win.org/index-de.html">GPG4Win</a></li>
 <li>Mac, siehe z.B. <a href="http://sourceforge.net/projects/macgpg/">Mac GNU Privacy Guard</a></li>
-</ul><p>Eine weitere Erklärung ist im <a href="https://wiki.piratenpartei.de/PGP">Piratenwiki</a>.</p>
+</ul>
+
+<p>Eine weitere Erklärung ist im <a href="https://wiki.piratenpartei.de/PGP">Piratenwiki</a>.</p>
 
 <h2 id="tocAnchor-1-7">Einfügen ins System</h2>
 
@@ -291,7 +305,7 @@ leider nicht mehr dazu sagen.</p>
 <p>Dann würde man noch eine Tabelle in der Datenbank benötigen. Die würde etwa so
 aussehen:</p>
 <div class="highlight">
-   <pre><code class="sql language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="ss">"openpgp_keys"</span> <span class="p">(</span>
+   <pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="ss">"openpgp_keys"</span> <span class="p">(</span>
   <span class="ss">"id"</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
   <span class="ss">"student_id"</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
   <span class="ss">"public_pgp_key"</span> <span class="nb">text</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
@@ -315,7 +329,7 @@ aussehen:</p>
 
 <p>Sollte jemand den Vorschlag modifizieren wollen, hier ist das HTML dazu:</p>
 <div class="highlight">
-   <pre><code class="html language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content_full_portal"</span><span class="nt">&gt;</span>
+   <pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content_full_portal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;h1&gt;</span>PGP/GPG<span class="nt">&lt;/h1&gt;</span>
         <span class="nt">&lt;h2&gt;</span>Neuen Schlüssel hinzufügen<span class="nt">&lt;/h2&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"width: 100%;"</span><span class="nt">&gt;</span>
@@ -363,7 +377,7 @@ aussehen:</p>
 </div>
 <p>und</p>
 <div class="highlight">
-   <pre><code class="html language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content_full_portal"</span><span class="nt">&gt;</span>
+   <pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content_full_portal"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;h1&gt;</span>Prüfungsanmeldung<span class="nt">&lt;/h1&gt;</span>
     Signieren Sie folgende Nachricht mit ihrem Schlüssel:<span class="nt">&lt;br&gt;</span>
 
@@ -391,9 +405,11 @@ aussehen:</p>
 <p>In diesem Artikel will ich nur die Prüfungsverwaltung diskutieren. Dennoch
 sollte darauf hingewiesen werden, dass Weiteres nicht gerade optimal gelöst ist:</p>
 
-<ul><li><strong>Informationspolitik</strong>: Bereits zu Semesterbegin sollte  folgendes bekannt sein:
+<ul>
+<li><strong>Informationspolitik</strong>: Bereits zu Semesterbegin sollte  folgendes bekannt sein:
 
-<ul><li>Zeitpunkt der Prüfung</li>
+<ul>
+<li>Zeitpunkt der Prüfung</li>
 <li>Letztmöglicher Zeitpunkt der Anmeldung</li>
 <li>Letztmöglicher Zeitpunkt der Abmeldung</li>
 </ul></li>
@@ -417,13 +433,18 @@ klar. Gerade wenn nicht klar ist, mit welcher Punktzahl man welche Note
 bekommt könnte ein Fehler passieren, den man nicht überprüfen kann. Nach
 diesen Informationen sollte man nicht in der Einsicht fragen müssen. Sie
 sollten in der Einsicht direkt verfügbar sein.</li>
-</ul><h2 id="tocAnchor-1-10">Schlusswort</h2>
+</ul>
+
+<h2 id="tocAnchor-1-10">Schlusswort</h2>
 
 <p>Welche Vorteile hat das beschriebene Verfahren gegenüber der momentanen Situation?</p>
 
-<ul><li>Studenten können beweisen, dass sie zur Prüfung angemeldet sind / nicht sind</li>
+<ul>
+<li>Studenten können beweisen, dass sie zur Prüfung angemeldet sind / nicht sind</li>
 <li>Prüfer können beweise, dass Studenten angemeldet sind / nicht sind</li>
-</ul><p>Selbst wenn man den Teil mit der asymmetrischen Verschlüsselung nicht macht, hätte man als Student
+</ul>
+
+<p>Selbst wenn man den Teil mit der asymmetrischen Verschlüsselung nicht macht, hätte man als Student
 zumindest ein bisschen was in der Hand und einen Mechanismus, der automatisch
 Feedback gibt, ob alles geklappt hat. Im Gegensatz zu der momentanen
 Situation, wo wir absolut nichts belegen können und man sehr leicht übersehen
@@ -432,6 +453,7 @@ kann, wenn etwas bei der Anmeldung schief gegangen ist.</p>
 <p>
    <strong>Was haltet ihr davon? Hattet ihr auch schon solche Probleme mit der Prüfungsanmeldung?</strong>
 </p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -551,7 +573,7 @@ kann, wenn etwas bei der Anmeldung schief gegangen ist.</p>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/01/latex-logo.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/01/latex-logo.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>My LaTeX Tikz Template</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -106,7 +108,7 @@
 
 <h3 id="tocAnchor-1-1-1">latex-document.tex</h3>
 <div class="highlight">
-   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[varwidth=true, border=2pt]</span><span class="nb">{</span>standalone<span class="nb">}</span>
+   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[varwidth=true, border=2pt]</span><span class="nb">{</span>standalone<span class="nb">}</span>
 
 <span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
 <span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,positioning<span class="nb">}</span> 
@@ -122,7 +124,7 @@
 
 <h4>Preview-Environment</h4>
 <div class="highlight">
-   <pre><code class="latex language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="na">[pdftex,active,tightpage]</span><span class="nb">{</span>preview<span class="nb">}</span>
 <span class="k">\setlength\PreviewBorder</span><span class="nb">{</span>2mm<span class="nb">}</span>
 
@@ -140,7 +142,7 @@
 </div>
 <h3 id="tocAnchor-1-1-2">Makefile</h3>
 <div class="highlight">
-   <pre><code class="basemake language-basemake" data-lang="basemake"><span class="nv">SOURCE</span> <span class="o">=</span> latex-document.tex
+   <pre><code class="language-basemake" data-lang="basemake"><span class="nv">SOURCE</span> <span class="o">=</span> latex-document.tex
 
 <span class="nv">DELAY</span> <span class="o">=</span> 80
 <span class="nv">DENSITY</span> <span class="o">=</span> 300
@@ -171,15 +173,18 @@
 </div>
 <h2 id="tocAnchor-1-4">Requirements</h2>
 
-<ul><li>LaTeX (<a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
+<ul>
+    <li>LaTeX (<a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>)</li>
     <li>make</li>
     <li>Inkscape</li>
     <li>pdf2svg</li>
-</ul><h2 id="tocAnchor-1-5">Test if you meet these requirements</h2>
+</ul>
+
+<h2 id="tocAnchor-1-5">Test if you meet these requirements</h2>
 
 <p>Make sure that you have a valid LaTeX installation. <code>pdflatex --version</code> should output something like:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">pdfTeX 3.1415926-2.3-1.40.12 <span class="o">(</span>TeX Live 2011<span class="o">)</span>
+   <pre><code class="language-bash" data-lang="bash">pdfTeX 3.1415926-2.3-1.40.12 <span class="o">(</span>TeX Live 2011<span class="o">)</span>
 kpathsea version 6.0.1
 Copyright 2011 Peter Breitenlohner <span class="o">(</span>eTeX<span class="o">)</span>/Han The Thanh <span class="o">(</span>pdfTeX<span class="o">)</span>.
 There is NO warranty.  Redistribution of this software is
@@ -195,7 +200,7 @@ Compiled with xpdf version 3.02pl5
 </div>
 <p>Make sure you can execute Makefiles. <code>make --version</code> should output something like this:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">GNU Make 3.81
+   <pre><code class="language-bash" data-lang="bash">GNU Make 3.81
 Copyright <span class="o">(</span>C<span class="o">)</span> 2006  Free Software Foundation, Inc.
 This is free software<span class="p">;</span> see the <span class="nb">source </span><span class="k">for </span>copying conditions.
 There is NO warranty<span class="p">;</span> not even <span class="k">for </span>MERCHANTABILITY or FITNESS FOR A
@@ -207,30 +212,33 @@ This program built <span class="k">for </span>i486-pc-linux-gnu
 <p>The command <code>inkscape --version</code> should return:</p>
 
 <div class="highlight">
-   <pre><code class="bash">Inkscape 0.47 r22583 <span class="o">(</span>Apr  4 2010<span class="o">)</span>
-</code></pre>
+   <pre><code class="bash">Inkscape 0.47 r22583 <span class="o">(</span>Apr  4 2010<span class="o">)</span></code></pre>
 </div>
 
 <p>And <code>pdf2svg --version</code> should return:</p>
 
 <div class="highlight">
-   <pre><code class="bash">Usage: pdf2svg &lt;in file.pdf&gt; &lt;out file.svg&gt; <span class="o">[</span>&lt;page no&gt;<span class="o">]</span>
-</code></pre>
+   <pre><code class="bash">Usage: pdf2svg &lt;in file.pdf&gt; &lt;out file.svg&gt; <span class="o">[</span>&lt;page no&gt;<span class="o">]</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">How to use it</h2>
 
 <p>You have to place the Makefile in the same folder as latex-document.tex. If you have done this and if you meet the requirements, you can execute:
-</p><ul><li><code>make</code>: Generates a PDF file from latex-document.tex</li>
+</p><ul>
+  <li><code>make</code>: Generates a PDF file from latex-document.tex</li>
   <li><code>make svg</code>: Generates a SVG file from the generated PDF file</li>
   <li><code>make transparentGif</code>: Generates a transparent Gif from the PDF file</li>
   <li><code>make animatedGif</code>: If you have used multiple slides, this will create an animated Gif file. See <a href="../how-to-visualize-graph-algorithms-with-latex/" title="How to visualize Graph algorithms with LaTeX">How to visualize Graph algorithms with LaTeX</a> for an example.</li>
-</ul><h2 id="tocAnchor-1-7">See also</h2>
+</ul>
 
-<ul><li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
+<h2 id="tocAnchor-1-7">See also</h2>
+
+<ul>
+  <li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX</a></li>
   <li><a href="../briefe-mit-latex-schreiben/" title="Briefe mit LaTeX schreiben">Briefe mit LaTeX schreiben</a> (A template for letters)</li>
   <li><a href="../plotting-function-graphs-with-latex/" title="Plotting function graphs with LaTeX">Plotting function graphs with LaTeX</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -353,7 +361,7 @@ This program built <span class="k">for </span>i486-pc-linux-gnu
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

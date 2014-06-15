@@ -15,7 +15,7 @@ test:
 	# do preprocessing
 	./_preprocess.py
 	# draft build
-	jekyll build --draft
+	jekyll build --draft --verbose --trace
 	# postprocessing
 	./_postprocess.py
 	# restore pre-preprocessing state
@@ -59,3 +59,6 @@ deploy:
 
 clean:
 	rm -rf _site
+
+fix:
+	mv _postStorage/* _posts/

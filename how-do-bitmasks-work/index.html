@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/05/assembly-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/05/assembly-thumb.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>How do Bitmasks work?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -99,15 +101,19 @@
 
 <p>These are the bit operators:</p>
 
-<ul><li>~ Bitwise NOT (not to be confused with Logical NOT ‘!’)</li>
+<ul>
+  <li>~ Bitwise NOT (not to be confused with Logical NOT ‘!’)</li>
   <li>&amp; Bitwise AND (not to be confused with Logical AND ‘&amp;&amp;’)</li>
   <li>| Bitwise OR (again, not to be confused with Logical OR ‘||’)</li>
   <li>^ Bitwise XOR</li>
   <li>
   </li><li>&gt;&gt; Bitwise right shift</li>
-</ul><p>This is how the operators work:
+</ul>
+
+<p>This is how the operators work:
 </p><table style="border:1px solid black;" border="1">
-   <tr style="background-color:#ccff99"><th>Bit A</th>
+<tr style="background-color:#ccff99">
+    <th>Bit A</th>
     <th style="border-right:1px solid #000;">Bit B</th>
     <th>A &amp; B</th>
     <th>A | B</th>
@@ -116,7 +122,8 @@
     <th>A &lt;&lt; B</th>
     <th>A &gt;&gt; B</th>
 </tr>
-   <tr style="background-color:#ffffcc;"><td>0</td>
+<tr style="background-color:#ffffcc;">
+    <td>0</td>
     <td style="border-right:1px solid #000;">0</td>
     <td>0</td>
     <td>0</td>
@@ -125,7 +132,8 @@
     <td>0</td>
     <td>0</td>
 </tr>
-   <tr><td>0</td>
+<tr>
+    <td>0</td>
     <td style="border-right:1px solid #000;">1</td>
     <td>0</td>
     <td>1</td>
@@ -134,7 +142,8 @@
     <td>0</td>
     <td>0</td>
 </tr>
-   <tr style="background-color:#ffffcc;"><td>1</td>
+<tr style="background-color:#ffffcc;">
+    <td>1</td>
     <td style="border-right:1px solid #000;">0</td>
     <td>0</td>
     <td>1</td>
@@ -143,7 +152,8 @@
     <td>1</td>
     <td>1</td>
 </tr>
-   <tr><td>1</td>
+<tr>
+    <td>1</td>
     <td style="border-right:1px solid #000;">1</td>
     <td>1</td>
     <td>1</td>
@@ -152,43 +162,43 @@
     <td>2</td>
     <td>0</td>
 </tr>
-</table><h2 id="tocAnchor-1-3">Some examples</h2>
+</table>
+
+<h2 id="tocAnchor-1-3">Some examples</h2>
 
 <p>Lets say I have any variable named "variable" with 32 bit.</p>
 
 <p>Get the last bit:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="k">return</span> <span class="n">variable</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mi">1</span><span class="p">;</span>
-</code></pre>
+   <pre><code class="c"><span class="k">return</span> <span class="n">variable</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mi">1</span><span class="p">;</span></code></pre>
 </div>
 
 <p>Get the first bit:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="k">return</span> <span class="n">variable</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span>
-</code></pre>
+   <pre><code class="c"><span class="k">return</span> <span class="n">variable</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">;</span></code></pre>
 </div>
 
 <p>Get the bits 4 - 14 (11 bits):</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="k">return</span> <span class="p">(</span><span class="n">variable</span>  <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-</code></pre>
+   <pre><code class="c"><span class="k">return</span> <span class="p">(</span><span class="n">variable</span>  <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span></code></pre>
 </div>
 
 <p>Getting the pow(2,11):</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="k">return</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">;</span>
-</code></pre>
+   <pre><code class="c"><span class="k">return</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">11</span><span class="p">;</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">See also</h2>
 
-<ul><li><a href="http://stackoverflow.com/questions/231760/what-does-a-type-followed-by-t-underscore-t-represent/231807#231807">What does a type followed by _t (underscore-t) represent?</a>. Jonathan Leffler, Stackoverflow.</li>
+<ul>
+  <li><a href="http://stackoverflow.com/questions/231760/what-does-a-type-followed-by-t-underscore-t-represent/231807#231807">What does a type followed by _t (underscore-t) represent?</a>. Jonathan Leffler, Stackoverflow.</li>
   <li><a href="http://stackoverflow.com/a/9602958/562769">Why does mode_t use 4 byte?</a>. Niklas B., Stackoverflow.</li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -314,7 +324,7 @@
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

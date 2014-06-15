@@ -10,11 +10,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2013/12/jekyll-thumbnail.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2013/12/jekyll-thumbnail.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>How to use Jekyll with GitHub</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -163,7 +165,8 @@ content to the server, but you don't have to download anything from
 the server.</p>
 
 <p>Reasons for Jekyll:
-</p><ul><li><strong>Security</strong>: With Jekyll, you only upload static files (HTML, 
+</p><ul>
+  <li><strong>Security</strong>: With Jekyll, you only upload static files (HTML, 
       CSS, JavaScript, Images, ...). There is nothing where the user 
       can pass some data. This also means there is one thing less to 
       update.<br />
@@ -185,8 +188,11 @@ the server.</p>
       is corrupt, only that file is affected. No worries about
       maximum execution time for importing / exporting backups.
       No need to get SSH access. Simple FTP access does the job.</li>
-</ul><p>Reasons for WordPress:
-</p><ul><li><strong>Comments</strong>: There is no way to get comments only with
+</ul>
+
+<p>Reasons for WordPress:
+</p><ul>
+  <li><strong>Comments</strong>: There is no way to get comments only with
       static pages. So you need something else, e.g. <a href="http://disqus.com/">disqus</a>.</li>
   <li><strong>Search</strong>: Could probably be done with JavaScript, but
       I guess it is difficult.</li>
@@ -204,18 +210,23 @@ the server.</p>
       it is very easy to create them with WordPress. With Jekyll,
       on the other hand, you have to know how to create cronjobs.
       And your computer has to be running.</li>
-</ul><h2 id="tocAnchor-1-2">GitHub</h2>
+</ul>
+
+<h2 id="tocAnchor-1-2">GitHub</h2>
 
 <h3 id="tocAnchor-1-2-1">Create your repository</h3>
 
-<ol><li>Go to <a href="https://github.com/">github.com</a>, sign in and create a new repo:</li>
+<ol>
+<li>Go to <a href="https://github.com/">github.com</a>, sign in and create a new repo:</li>
 <li>Call it <code>[Username].github.io</code>.</li>
-</ol><h3 id="tocAnchor-1-2-2">Branches</h3>
+</ol>
+
+<h3 id="tocAnchor-1-2-2">Branches</h3>
 
 <p>The way to use Jekyll with GitHub is by using branches.
 Go to your Git repository that cointains your blog:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">moose@pc08 ~/Downloads/MartinThoma.github.io <span class="nv">$ </span>ls
+   <pre><code class="language-bash" data-lang="bash">moose@pc08 ~/Downloads/MartinThoma.github.io <span class="nv">$ </span>ls
 _config.yml  favicon.ico  index.html  Makefile  Readme.md
 css          images       js          _plugins  _site
 _drafts      _includes    _layouts    _posts    thumbs
@@ -225,17 +236,17 @@ _drafts      _includes    _layouts    _posts    thumbs
 The following command creates a branch <code>sources</code> that starts where
 the branch <code>master</code> currently is:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">git checkout -b <span class="nb">source </span>master
+   <pre><code class="language-bash" data-lang="bash">git checkout -b <span class="nb">source </span>master
 </code></pre>
 </div>
 <p>Now update this branch to the server:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">git push -u origin <span class="nb">source</span>
+   <pre><code class="language-bash" data-lang="bash">git push -u origin <span class="nb">source</span>
 </code></pre>
 </div>
 <p>When you enter</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">git checkout . master
+   <pre><code class="language-bash" data-lang="bash">git checkout . master
 </code></pre>
 </div>
 <p>you will switch to the <code>master</code> brach. The same way you can switch
@@ -249,11 +260,14 @@ of the current branch.</p>
 like <code>martin-thoma.com</code> instead of <code>martinthoma.github.io</code>, you
 have to:</p>
 
-<ol><li>Ask your provider (in my case "Knallhart") to add an A-record to
+<ol>
+<li>Ask your provider (in my case "Knallhart") to add an A-record to
 Github.</li>
 <li>Add a file called <code>CNAME</code> with content <code>martin-thoma.com</code>
 (yes, without <code>http://</code>) to the root of your directory</li>
-</ol><p>GitHub also offers some help on <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">setting up a custom domain with Pages</a>.</p>
+</ol>
+
+<p>GitHub also offers some help on <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">setting up a custom domain with Pages</a>.</p>
 
 <h2 id="tocAnchor-1-6">FTP Server</h2>
 
@@ -263,7 +277,7 @@ Github.</li>
 needs SSH (<a href="http://serverfault.com/a/24627/113899">source</a>). If you
 have SSH, then you can do something like this:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">rsync -avz --delete _site/ user@host:/path/to/web/root
+   <pre><code class="language-bash" data-lang="bash">rsync -avz --delete _site/ user@host:/path/to/web/root
 </code></pre>
 </div>
 <p>The <code>--delete</code> options "delete[s] extraneous files from dest dirs",
@@ -275,12 +289,12 @@ be interesting, especially for the first upload.</p>
 <p>Otherwise, you might want to try <code>curlftpfs</code>. This program lets you
 mount a FTP folder:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">curlftpfs ftp.example.com/backups /mnt/ftpserver
+   <pre><code class="language-bash" data-lang="bash">curlftpfs ftp.example.com/backups /mnt/ftpserver
 </code></pre>
 </div>
 <p>and you can also umount it:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">rsync --delete /var/backups /mnt/ftpserver
+   <pre><code class="language-bash" data-lang="bash">rsync --delete /var/backups /mnt/ftpserver
 </code></pre>
 </div>
 <h2 id="tocAnchor-1-7">Markdown</h2>
@@ -304,40 +318,47 @@ Everything was tested with <a href="https://github.com/MartinThoma/MartinThoma.g
 
 <table>
    <thead>
-      <tr><th></th>
+<tr>
+<th></th>
 <th><code>redcarpet</code></th>
 <th><code>rdiscount</code></th>
 <th><code>kramdown</code></th>
 <th><code>maruku</code></th>
 </tr>
-   </thead>
+</thead>
    <tbody>
-      <tr><td>LaTeX</td>
+<tr>
+<td>LaTeX</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>?</td>
 </tr>
-      <tr><td>Fenced code blocks</td>
+<tr>
+<td>Fenced code blocks</td>
 <td>✓</td>
 <td>✓</td>
 <td>~</td>
 <td>?</td>
 </tr>
-      <tr><td>Pygments</td>
+<tr>
+<td>Pygments</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>?</td>
 </tr>
-      <tr><td>Site generation</td>
+<tr>
+<td>Site generation</td>
 <td>176.90s</td>
 <td>165.41s</td>
 <td>293.26s</td>
 <td>?</td>
 </tr>
-   </tbody>
-</table><p>Kramdown destroyed some fenced code blocks (but not all) and maruku
+</tbody>
+</table>
+
+<p>Kramdown destroyed some fenced code blocks (but not all) and maruku
 did not even compile my site at all.</p>
 
 <h3 id="tocAnchor-1-7-1">Linebreaks and newline</h3>
@@ -360,7 +381,7 @@ language seems to be very similar to Django Templates (Python).</p>
 
 <h3 id="tocAnchor-1-10-1">CSS Minification</h3>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">sudo gem install juicer
+   <pre><code class="language-bash" data-lang="bash">sudo gem install juicer
 juicer install jslint
 juicer install yui_compressor
 </code></pre>
@@ -373,7 +394,8 @@ juicer install yui_compressor
 
 <p>Site search is a real problem. I've seen three solutions so far:</p>
 
-<ol><li><strong>Dynamic Search</strong>: You can add a dynamic part to your statically
+<ol>
+<li><strong>Dynamic Search</strong>: You can add a dynamic part to your statically
 generated website. For example, I create a <code>search/index.php</code> and
 a SQLite database like it was <a href="http://www.businessguide.co.uk/blog/jekyll-search-ways-to-search-a-static-site/">described here</a>.</li>
 <li><strong>Static JavaScript</strong>: Create a JSON file or something similar and
@@ -381,15 +403,19 @@ search dynamically with JavaScript in it.</li>
 <li><strong>External Search Engines</strong>: You could use a search engine for 
 searching your site, of course.
 
-<ul><li>Hosted by you:</li>
+<ul>
+<li>Hosted by you:</li>
 <li>Commercial
 
-<ul><li><a href="https://www.google.com/cse">Google Custom Search</a></li>
+<ul>
+<li><a href="https://www.google.com/cse">Google Custom Search</a></li>
 <li><a href="http://www.indexden.com/">Index Den</a>: Has no direct support
 to parse your website</li>
 </ul></li>
 </ul></li>
-</ol><h3 id="tocAnchor-1-13-1">PHP+SQLite</h3>
+</ol>
+
+<h3 id="tocAnchor-1-13-1">PHP+SQLite</h3>
 
 <h3 id="tocAnchor-1-13-2">JavaScript solutions</h3>
 
@@ -411,9 +437,11 @@ is a short introduction to Liquid.</p>
 
 <h2 id="tocAnchor-1-17">Some tests</h2>
 
-<ul><li>Validation
+<ul>
+<li>Validation
 
-<ul><li><a href="http://validator.w3.org/check?uri=martin-thoma.com">validator.w3.org</a>:
+<ul>
+<li><a href="http://validator.w3.org/check?uri=martin-thoma.com">validator.w3.org</a>:
 My site is HTML-valid. The error that this validator shows is caused
 by an bug inside of the validator itself.</li>
 <li><a href="http://jigsaw.w3.org/css-validator/validator?uri=martin-thoma.com">jigsaw.w3.org</a>:
@@ -421,31 +449,38 @@ My site is CSS-valid.</li>
 </ul></li>
 <li>Speed: Could be better...
 
-<ul><li><a href="http://tools.pingdom.com/">tools.pingdom.com</a></li>
+<ul>
+<li><a href="http://tools.pingdom.com/">tools.pingdom.com</a></li>
 <li><a href="http://developers.google.com/speed/pagespeed/insights/?url=martin-thoma.com">PageSpeed</a> 72 on mobile and 85 on desktop</li>
 </ul></li>
 <li>Accessiblity:
 
-<ul><li><a href="http://wave.webaim.org/report#/http%3A%2F%2Fmartin-thoma.com%2F">wave.webaim.org</a></li>
+<ul>
+<li><a href="http://wave.webaim.org/report#/http%3A%2F%2Fmartin-thoma.com%2F">wave.webaim.org</a></li>
 <li><a href="http://fae.cita.uiuc.edu/report/14396f38bc6546f6/">Functional Accessibility Evaluator</a></li>
 </ul></li>
 <li>More:
 
-<ul><li><a href="http://ready.mobi/launch.jsp?locale=en_EN#fragment-1">Mobile readyness</a></li>
+<ul>
+<li><a href="http://ready.mobi/launch.jsp?locale=en_EN#fragment-1">Mobile readyness</a></li>
 <li><a href="http://loadimpact.com/">Load test</a></li>
 <li><a href="http://www.alexa.com/siteinfo/martin-thoma.com">Alexa</a></li>
 <li><a href="http://www.google.com/webmasters/tools/richsnippets">Google Structured Data Testing Tool</a>: Test if google can extract the author from your blog posts</li>
 <li><a href="https://dev.twitter.com/docs/cards/validation/validator">Twitter card validator</a> (more about <a href="https://dev.twitter.com/cards">Twitter cards</a>)</li>
 <li><a href="http://nibbler.silktide.com/reports/martin-thoma.com">Nibbler</a>: This one tests quite a lot.</li>
 </ul></li>
-</ul><p>I've also used LinkChecker to check if all new links are valid. I've found quite a lot of old links and replaced them with new links.</p>
+</ul>
+
+<p>I've also used LinkChecker to check if all new links are valid. I've found quite a lot of old links and replaced them with new links.</p>
 
 <h2 id="tocAnchor-1-18">Resources</h2>
 
-<ul><li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a></li>
+<ul>
+<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages#setting-the-domain-in-your-repo">Setting up a custom domain with Pages</a></li>
 <li><a href="https://alybadawy.com/developing/2013/08/02/search-a-jekyll-generated-website/">Search a Jekyll-generated website</a></li>
 <li><a href="http://philipm.at/2011/jekyll_vs_hyde.html">Jekyll vs. Hyde - A Comparison Of Two Static Site Generators</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -574,7 +609,7 @@ My site is CSS-valid.</li>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

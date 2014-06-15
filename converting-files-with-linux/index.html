@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2011/09/Gnome-Terminal.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/09/Gnome-Terminal.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Converting Files with Linux</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -114,18 +116,18 @@ Video Files</span></a>
    <strong>Resize Images to a maximum resolution</strong>
 </p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash">convert <span class="s2">"OldPicture.jpg"</span> -resize 1600x1600 <span class="s2">"NewPicture.jpg"</span>
+   <pre><code class="language-bash" data-lang="bash">convert <span class="s2">"OldPicture.jpg"</span> -resize 1600x1600 <span class="s2">"NewPicture.jpg"</span>
 </code></pre>
 </div>
 <p>You can also do this for a whole folder. Just go into that folder and:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash"><span class="k">for </span>i in *.jpg<span class="p">;</span> <span class="k">do </span>convert <span class="nv">$i</span> -resize 1600x1600 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i in *.jpg<span class="p">;</span> <span class="k">do </span>convert <span class="nv">$i</span> -resize 1600x1600 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
 </code></pre>
 </div>
 <p>In case you have just taken many photos of a document and you want to send it 
 as a single PDF via email. Thats the way to go:</p>
 <div class="highlight">
-   <pre><code class="bash language-bash" data-lang="bash"><span class="k">for </span>i in *.JPG<span class="p">;</span> <span class="k">do </span>convert <span class="nv">$i</span> -resize 1200x1200 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> convert *.JPG merged.pdf
+   <pre><code class="language-bash" data-lang="bash"><span class="k">for </span>i in *.JPG<span class="p">;</span> <span class="k">do </span>convert <span class="nv">$i</span> -resize 1200x1200 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> convert *.JPG merged.pdf
 </code></pre>
 </div>
 <p>
@@ -133,15 +135,13 @@ as a single PDF via email. Thats the way to go:</p>
 </p>
 
 <div class="highlight">
-   <pre><code class="bash">djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual 70 &gt;<span class="s2">"NewPicture.jpg"</span>
-</code></pre>
+   <pre><code class="bash">djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual 70 &gt;<span class="s2">"NewPicture.jpg"</span></code></pre>
 </div>
 
 <p><b>Rename Pictures</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">rename -n <span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg<span class="sb">`</span><span class="nv">$/</span><span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span> *.jpg
-</code></pre>
+   <pre><code class="bash">rename -n <span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg<span class="sb">`</span><span class="nv">$/</span><span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span> *.jpg</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Audio Files</h2>
@@ -149,22 +149,19 @@ as a single PDF via email. Thats the way to go:</p>
 <p><b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):</p>
 
 <div class="highlight">
-   <pre><code class="bash">mp3gain -a *.mp3
-</code></pre>
+   <pre><code class="bash">mp3gain -a *.mp3</code></pre>
 </div>
 
 <p><b>Merge many audio files to one</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">mp3wrap merged.mp3 one.mp3 two.mp3
-</code></pre>
+   <pre><code class="bash">mp3wrap merged.mp3 one.mp3 two.mp3</code></pre>
 </div>
 
 <p><b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="k">for </span>i in *.wav<span class="p">;</span><span class="k">do </span>lame <span class="s2">"$`i"</span> <span class="s2">"`${i%wav}mp3"</span><span class="p">;</span> rm <span class="s2">"$`i"</span><span class="p">;</span> <span class="k">done</span>
-</code></pre>
+   <pre><code class="bash"><span class="k">for </span>i in *.wav<span class="p">;</span><span class="k">do </span>lame <span class="s2">"$`i"</span> <span class="s2">"`${i%wav}mp3"</span><span class="p">;</span> rm <span class="s2">"$`i"</span><span class="p">;</span> <span class="k">done</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">
@@ -174,29 +171,25 @@ Video Files</h2>
 You might also want to install some codecs first:</p>
 
 <div class="highlight">
-   <pre><code class="bash">sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras
-</code></pre>
+   <pre><code class="bash">sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras</code></pre>
 </div>
 
 <p><b>Merge many video files to one</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span>
-</code></pre>
+   <pre><code class="bash">cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span></code></pre>
 </div>
 
 <p><b>avi2mpg</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">ffmpeg -i <span class="s2">"Original.avi"</span> <span class="s2">"New.mpg"</span>
-</code></pre>
+   <pre><code class="bash">ffmpeg -i <span class="s2">"Original.avi"</span> <span class="s2">"New.mpg"</span></code></pre>
 </div>
 
 <p><b>mp42mpg</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span>
-</code></pre>
+   <pre><code class="bash">ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span></code></pre>
 </div>
 
 <p><b>mod2avi</b>:
@@ -205,15 +198,13 @@ You might also want to install some codecs first:</p>
 <p><b>vcd2avi</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span>2000
-</code></pre>
+   <pre><code class="bash">mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span>2000</code></pre>
 </div>
 
 <p><b>ogv2avi</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span>1 -o <span class="s2">"New.avi"</span>
-</code></pre>
+   <pre><code class="bash">mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span>1 -o <span class="s2">"New.avi"</span></code></pre>
 </div>
 
 <p><b>wmv2mpg</b>:
@@ -226,15 +217,13 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
   -ovc xvid <span class="se">\</span>
   -xvidencopts <span class="nv">bitrate</span><span class="o">=</span>501:max_key_interval<span class="o">=</span>37:aspect<span class="o">=</span>16/9:turbo:nochroma_me:notrellis:max_bframes<span class="o">=</span>0:vhq<span class="o">=</span>0 <span class="se">\</span>
   Original.wmv <span class="se">\</span>
-  -o New.avi
-</code></pre>
+  -o New.avi</code></pre>
 </div>
 
 <p><b>mkv2avi</b>:</p>
 
 <div class="highlight">
-   <pre><code class="bash">mencoder <span class="s2">"Original.mkv"</span> -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span>6000 -oac mp3lame -lameopts <span class="nv">vbr</span><span class="o">=</span>3 -o <span class="s2">"New.avi"</span>
-</code></pre>
+   <pre><code class="bash">mencoder <span class="s2">"Original.mkv"</span> -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span>6000 -oac mp3lame -lameopts <span class="nv">vbr</span><span class="o">=</span>3 -o <span class="s2">"New.avi"</span></code></pre>
 </div>
 
 <h3 id="tocAnchor-1-3-1">Converting Flash Videos flv to mpg</h3>
@@ -242,15 +231,13 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <p>You might want to get the information of the video first:</p>
 
 <div class="highlight">
-   <pre><code class="bash">ffmpeg -i inputVideo.flv
-</code></pre>
+   <pre><code class="bash">ffmpeg -i inputVideo.flv</code></pre>
 </div>
 
 <p>This is how you convert it:</p>
 
 <div class="highlight">
-   <pre><code class="bash">ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg
-</code></pre>
+   <pre><code class="bash">ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg</code></pre>
 </div>
 
 <p><strong>-i</strong> input file
@@ -262,8 +249,7 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <h3 id="tocAnchor-1-3-2">Converting Flash Videos flv to avi</h3>
 
 <div class="highlight">
-   <pre><code class="bash">ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
-</code></pre>
+   <pre><code class="bash">ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">Shortcuts for Linux Console</h2>
@@ -271,12 +257,15 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <p>I convert svg2png or pdf2png quite often for my articles. So I've created a command.</p>
 
 <p>You can create a command in Linux very easy: 
-</p><ol><li>Enter <code>echo $PATH</code> in your console</li>
+</p><ol>
+  <li>Enter <code>echo $PATH</code> in your console</li>
   <li>Go to <code>/usr/bin</code> or any other path in your PATH</li>
   <li>Create a file with the name of your command (e.g. svg2png)</li>
   <li>Fill the fill (see below for some examples).</li>
   <li>Make it executable: <code>chmod +x svg2png</code></li>
-</ol><p>My <code>svg2png</code> looks like this:</p>
+</ol>
+
+<p>My <code>svg2png</code> looks like this:</p>
 
 <div class="highlight">
    <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
@@ -298,8 +287,7 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <span class="n">command</span> <span class="o">=</span> <span class="s">"inkscape "</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">input</span> <span class="o">+</span> \
           <span class="s">" -w "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">+</span> <span class="s">" --export-png="</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span>
 <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
-</code></pre>
+<span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span></code></pre>
 </div>
 
 <p>My pdf2png looks like this:</p>
@@ -330,9 +318,9 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
     <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
 
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-</code></pre>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span></code></pre>
 </div>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -464,7 +452,7 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2011/10/PHP-logo.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/10/PHP-logo.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>PHP: A strange language</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -127,7 +129,7 @@
 
 <p>The following snippet is valid PHP-code:</p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
     <span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
 <span class="cp">?&gt;</span><span class="x"></span>
 </code></pre>
@@ -141,7 +143,7 @@
 
 <h3 id="tocAnchor-1-1-3">Order of Arguments</h3>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="x">strpos ( string $haystack , mixed $needle [...] )</span>
+   <pre><code class="language-php" data-lang="php"><span class="x">strpos ( string $haystack , mixed $needle [...] )</span>
 <span class="x">stristr ( string $haystack , mixed $needle [...] )</span>
 <span class="x">in_array ( mixed $needle , array $haystack [...] )</span>
 <span class="x">array_search ( mixed $needle , array $haystack [...] )</span>
@@ -149,7 +151,7 @@
 </div>
 <h2 id="tocAnchor-1-5">Sorting</h2>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="x">function pivot($arr) {</span>
+   <pre><code class="language-php" data-lang="php"><span class="x">function pivot($arr) {</span>
 <span class="x">    return ($arr[0] + end($arr)) / 2;</span>
 <span class="x">}</span>
 
@@ -165,14 +167,14 @@
 
 <h2 id="tocAnchor-1-7">Argument order</h2>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="x">mktime  ([$hour [, $minute [, $second [, $month  [, $day  [, $year  [, $is_dst]]]]]]])</span>
+   <pre><code class="language-php" data-lang="php"><span class="x">mktime  ([$hour [, $minute [, $second [, $month  [, $day  [, $year  [, $is_dst]]]]]]])</span>
 </code></pre>
 </div>
 <h2 id="tocAnchor-1-8">array_fill</h2>
 
 <p><a href="http://php.net/manual/en/function.array-fill.php">array_fill</a> doesn't allow 0 as `$number.</p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="nv">$arr</span> <span class="o">=</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$number</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
@@ -187,7 +189,7 @@
 
 <p>Loops themselves should not change anything. So take a look at this:</p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">);</span>
 <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
@@ -208,13 +210,12 @@
 array(2) {
   [0]=&gt;  string(3) "foo"
   [1]=&gt; &amp;amp;string(3) "bar"
-}
-</code></pre>
+}</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-10">Boolean evaluation</h2>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'7.1'</span><span class="p">);</span>
 
@@ -256,7 +257,7 @@ array(2) {
 
 <p>PHP converts strings automatically to a float if it is possible. This might lead to problems. See this example from <a href="http://phpsadness.com/sad/47">phpsadness</a>:</p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
 <span class="nv">$password</span> <span class="o">=</span> <span class="s2">"ximaz"</span><span class="p">;</span>
 
@@ -275,15 +276,18 @@ array(2) {
 </code></pre>
 </div>
 <p>See also:
-</p><ul><li><a href="http://php.net/language.operators.comparison">Comparison Operators</a></li>
+</p><ul>
+  <li><a href="http://php.net/language.operators.comparison">Comparison Operators</a></li>
   <li><a href="https://bugs.php.net/bug.php?id=54547">Bug #54547: wrong equality of string numbers</a></li>
   <li><a href="https://bugs.php.net/bug.php?id=62097">Bug #62097: New behavior of string == has a compatibility problem</a></li>
   <li><a href="http://de.wikipedia.org/wiki/Versionsgeschichte_von_PHP">Versionsgeschichte von PHP</a> (German)</li>
-</ul><h2 id="tocAnchor-1-12">Make a Guess</h2>
+</ul>
+
+<h2 id="tocAnchor-1-12">Make a Guess</h2>
 
 <p>Try to guess what the following prints:</p>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="s1">'a'</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="s1">'z'</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="k">echo</span> <span class="s2">"</span><span class="si">$i</span><span class="s2"> "</span><span class="p">;</span>
 
 <span class="c1">// I just need four NULLs to demo this.</span>
@@ -321,13 +325,12 @@ array(4) {
   [1]=&gt; int(1)
   [2]=&gt; NULL
   [3]=&gt; NULL
-}
-</code></pre>
+}</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-13">Function names are NOT case sensitive</h2>
 <div class="highlight">
-   <pre><code class="php language-php" data-lang="php"><span class="x">function add($a, $b)</span>
+   <pre><code class="language-php" data-lang="php"><span class="x">function add($a, $b)</span>
 <span class="x">{</span>
 <span class="x">    return $a + $b;</span>
 <span class="x">}</span>
@@ -343,10 +346,12 @@ array(4) {
 
 <h2 id="tocAnchor-1-14">Sources</h2>
 
-<ul><li><a href="http://phpsadness.com/">phpsadness.com</a></li>
+<ul>
+  <li><a href="http://phpsadness.com/">phpsadness.com</a></li>
   <li><a href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/">PHP: a fractal of bad design</a> (thanks to <a href="http://www.knallisworld.de/blog/2012/04/11/herrlicher-php-rant/">knallisworld.de</a>)</li>
   <li><a href="http://www.phpwtf.org/">phpwtf.org</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -469,7 +474,7 @@ array(4) {
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

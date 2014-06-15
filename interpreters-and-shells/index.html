@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2011/09/Gnome-Terminal.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/09/Gnome-Terminal.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Interpreters and Shells</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -150,19 +152,25 @@ history should be at least</p>
 
 <h2 id="tocAnchor-1-5">Level 4: Customization</h2>
 
-<ul><li>Promt</li>
+<ul>
+<li>Promt</li>
 <li>History length</li>
-</ul><h2 id="tocAnchor-1-6">Level 5: Path autocompletion</h2>
+</ul>
+
+<h2 id="tocAnchor-1-6">Level 5: Path autocompletion</h2>
 
 <p>The path should autocomplete when you hit <kbd>Tab</kbd>. The autocomplete should
 work as follows:</p>
 
-<ol><li>The autocomplete should never get farer than one folder.</li>
+<ol>
+<li>The autocomplete should never get farer than one folder.</li>
 <li>If there are multiple possiblities to autocomplete, then it should only
 autocomplete what is in common. After a second <kbd>Tab</kbd> it should display
 the possibilites and after a third <kbd>Tab</kbd> the shell should go to the
 first possibility so that you can hit enter to use this possibility.</li>
-</ol><h2 id="tocAnchor-1-7">Level 6: Command autocompletion</h2>
+</ol>
+
+<h2 id="tocAnchor-1-7">Level 6: Command autocompletion</h2>
 
 <p>The autocomplete function should also complete commands.</p>
 
@@ -175,19 +183,23 @@ the typo if possible.</p>
 
 <p>Some stuff is nice to have, but not really essential:</p>
 
-<ul><li>Some default commands like <code>help</code>, <code>time</code>, <code>pwd</code>, <code>cd</code> and <code>echo</code>.</li>
+<ul>
+<li>Some default commands like <code>help</code>, <code>time</code>, <code>pwd</code>, <code>cd</code> and <code>echo</code>.</li>
 <li><kbd>Ctrl</kbd> + <kbd>D</kbd> as a shortcut for exiting.</li>
 <li><kbd>Ctrl</kbd> + <kbd>C</kbd> should stop the current command.</li>
 <li>The configuration file should be stored in the home folder of the user and it should be called <code>.[name]rc</code>. The dot makes the file invisible by convention and 'rc' means 'resource configuration'.</li>
 <li>The prompt configuration should be easy. Some patterns that are used quite often are 
 
-<ul><li><code>\w</code> for the working directory, where `$HOME</code> gets abbreviated with <code>~</code></li>
+<ul>
+<li><code>\w</code> for the working directory, where `$HOME</code> gets abbreviated with <code>~</code></li>
 <li><code>\u</code> the username</li>
 <li><code>\h</code> the hostname</li>
 <li>Using colors for different parts</li>
 </ul></li>
 <li>Navigation with <kbd>Pos 1</kbd> and <kbd>End</kbd> should work.</li>
-</ul><h2 id="tocAnchor-1-10">Ranking</h2>
+</ul>
+
+<h2 id="tocAnchor-1-10">Ranking</h2>
 
 <p>Here is how some shells rank. Please note, that it's very difficult to check
 if a shell is robust. :</p>
@@ -207,7 +219,7 @@ startup by specifying the environment variable <code>PYTHONSTARTUP</code>, but s
 does not work on my system.<br />
 However, customizing the prompt is fairly easy:</p>
 <div class="highlight">
-   <pre><code class="python language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
+   <pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">ps1</span> <span class="o">=</span> <span class="s">"--&gt;"</span>
 </code></pre>
 </div>
@@ -216,7 +228,7 @@ configured via <code>~/.ghci</code> by adding <code>:set prompt "ghci&gt; "</cod
 
 <p>If you want to show the current path, you can do it like this (<a href="http://stackoverflow.com/a/11263118/562769">source</a>):</p>
 <div class="highlight">
-   <pre><code class="haskell language-haskell" data-lang="haskell"><span class="kr">let</span> <span class="n">cur</span> <span class="n">fill</span> <span class="ow">=</span> <span class="kr">do</span> <span class="p">{</span> <span class="n">cwd</span> <span class="ow">&lt;-</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">getCurrentDirectory</span><span class="p">;</span> <span class="n">return</span> <span class="p">(</span><span class="s">":set prompt </span><span class="se">\"</span><span class="s">"</span> <span class="o">++</span> <span class="n">cwd</span> <span class="o">++</span> <span class="n">fill</span> <span class="o">++</span> <span class="s">" </span><span class="se">\"</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span>
+   <pre><code class="language-haskell" data-lang="haskell"><span class="kr">let</span> <span class="n">cur</span> <span class="n">fill</span> <span class="ow">=</span> <span class="kr">do</span> <span class="p">{</span> <span class="n">cwd</span> <span class="ow">&lt;-</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">getCurrentDirectory</span><span class="p">;</span> <span class="n">return</span> <span class="p">(</span><span class="s">":set prompt </span><span class="se">\"</span><span class="s">"</span> <span class="o">++</span> <span class="n">cwd</span> <span class="o">++</span> <span class="n">fill</span> <span class="o">++</span> <span class="s">" </span><span class="se">\"</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span>
 <span class="kt">:</span><span class="n">def</span> <span class="n">doprompt</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
 <span class="kt">:</span><span class="n">def</span> <span class="n">mycd</span> <span class="p">(</span><span class="nf">\</span><span class="n">dir</span> <span class="ow">-&gt;</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">setCurrentDirectory</span> <span class="n">dir</span> <span class="o">&gt;&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
 <span class="kt">:</span><span class="n">doprompt</span>
@@ -237,9 +249,11 @@ the prompt can be configured in <code>~/.riplrc</code> (<a href="http://stackove
 
 <h2 id="tocAnchor-1-11">Additional resources</h2>
 
-<ul><li><a href="http://www.understudy.net/custom.html">How to change your shell prompt</a>:
+<ul>
+<li><a href="http://www.understudy.net/custom.html">How to change your shell prompt</a>:
 A list of files and commands that might be useful.</li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -359,7 +373,7 @@ A list of files and commands that might be useful.</li>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

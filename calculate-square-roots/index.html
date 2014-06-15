@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2013/06/sqrt-2.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2013/06/sqrt-2.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Calculate square roots</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -105,9 +107,12 @@
 </div><h2 id="tocAnchor-1-1">Input and output</h2>
 
 <p>Write a program that takes two parameters $a, n \in \mathbb{N}_{\geq 1}$:
-</p><ul><li>$a$: The number you should take the square root of. $a$ is not bigger than 65535. To make this a little bit simpler, you can also assume that $a$ is an integer.</li>
+</p><ul>
+  <li>$a$: The number you should take the square root of. $a$ is not bigger than 65535. To make this a little bit simpler, you can also assume that $a$ is an integer.</li>
   <li>$n$: Number of iterations you may use</li>
-</ul><p>Your program should output exactly one positive floating point number. The decimal separator is a point. At the end of the number should be a newline character <code>\n</code>.</p>
+</ul>
+
+<p>Your program should output exactly one positive floating point number. The decimal separator is a point. At the end of the number should be a newline character <code>\n</code>.</p>
 
 <h2 id="tocAnchor-1-2">Reference code</h2>
 
@@ -125,8 +130,7 @@
     <span class="n">mpf_sqrt</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span> 
     <span class="n">gmp_printf</span><span class="p">(</span><span class="s">"%.1000Ff</span><span class="se">\n\n</span><span class="s">"</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span> <span class="c1">// Increase this number.</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>You need <a href="http://gmplib.org/manual">GMP</a> (<code>libgmp-dev</code>) to compile this. </p>
@@ -134,8 +138,7 @@
 <p>Compile it like this:</p>
 
 <div class="highlight">
-   <pre><code class="bash">gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out
-</code></pre>
+   <pre><code class="bash">gcc sqrt-reference.c  -lgmp -lm -O0 -g3 -o reference.out</code></pre>
 </div>
 
 <p>This is the script I use to get the number of correct digits:</p>
@@ -184,8 +187,7 @@
      
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
  
-<span class="k">print</span><span class="p">(</span><span class="s">"Points for a=</span><span class="si">%i</span><span class="s"> and n=</span><span class="si">%i</span><span class="s">: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">getScore</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)))</span>
-</code></pre>
+<span class="k">print</span><span class="p">(</span><span class="s">"Points for a=</span><span class="si">%i</span><span class="s"> and n=</span><span class="si">%i</span><span class="s">: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">getScore</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">program</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)))</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">Newton's method</h2>
@@ -217,8 +219,7 @@
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%.80Lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">newton</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>I failed to convert this to a version that uses GMP :-/</p>
@@ -296,30 +297,36 @@ $\displaystyle e^x := \sum_{i = 0}^\infty \frac{x^i}{i!}$</p>
     <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%.80Lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
+<span class="p">}</span></code></pre>
 </div>
 
 <p>This converges VERY slow: For $a = 2$</p>
 
-<ul><li>`$n=1$`: 1 digit correct</li>
+<ul>
+  <li>`$n=1$`: 1 digit correct</li>
   <li>`$n=10$`: 1 digit correct</li>
   <li>`$n=100$`: 2 digits correct</li>
   <li>`$n=1000$`: 4 digit correct</li>
   <li>`$n=10,000$`: 5 digit correct</li>
   <li>`$n=100,000$`: 5 digit correct</li>
   <li>`$n=1,000,000$`: 6 digit correct</li>
-</ul><p>Ok, lets take a better Taylor series for calculating $e^x$:
+</ul>
+
+<p>Ok, lets take a better Taylor series for calculating $e^x$:
 $\displaystyle e^x = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}{(2\cdot k)!}$</p>
 
 <p>This didn't change anything! I'm very surprised ... as I've calculated $\pi$ for another article, changing the series to something similar improved the speed of convergence drastically.</p>
 
 <h2 id="tocAnchor-1-5">See also</h2>
 
-<ul><li>StackOverflow: <a href="http://stackoverflow.com/a/12304868/562769">How does the computer calculate Square roots?</a></li>
+<ul>
+  <li>StackOverflow: <a href="http://stackoverflow.com/a/12304868/562769">How does the computer calculate Square roots?</a></li>
   <li><a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">Intel® 64 and IA-32 Architectures Software Developer’s Manual</a>: FSQRT, SQRTPS, SQRTSS</li>
   <li><a href="https://github.com/MartinThoma/algorithms/tree/master/square-root-calculation">Source code</a> of this article</li>
-</ul><p>Feel free to add a program that calculates square roots. When they are interesting, I'll probably add them to this article.</p>
+</ul>
+
+<p>Feel free to add a program that calculates square roots. When they are interesting, I'll probably add them to this article.</p>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -442,7 +449,7 @@ $\displaystyle e^x = \sum_{k=0}^\infty \frac{x^{-1+2 k} (2 \cdot k+x)}{(2\cdot k
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

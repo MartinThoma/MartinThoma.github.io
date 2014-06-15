@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2014/01/tcl-logo.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2014/01/tcl-logo.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>TCL</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -127,20 +129,20 @@ described by the <a href="../tcl-12-rules.html">12 Rules for Tcl</a>.</p>
 
 <h3 id="tocAnchor-1-1-1">Hello World</h3>
 <div class="highlight">
-   <pre><code class="tcl language-tcl" data-lang="tcl"><span class="k">set</span> myVariable <span class="s2">"Hallo World!"</span>
+   <pre><code class="language-tcl" data-lang="tcl"><span class="k">set</span> myVariable <span class="s2">"Hallo World!"</span>
 <span class="nb">puts</span> <span class="nv">$myVariable</span>
 </code></pre>
 </div>
 <h3 id="tocAnchor-1-1-2">Loop over a list</h3>
 <div class="highlight">
-   <pre><code class="tcl language-tcl" data-lang="tcl"><span class="o">%</span> <span class="k">foreach</span> element <span class="k">{</span><span class="nv">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="k">}</span> <span class="k">{</span>
+   <pre><code class="language-tcl" data-lang="tcl"><span class="o">%</span> <span class="k">foreach</span> element <span class="k">{</span><span class="nv">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="k">}</span> <span class="k">{</span>
     <span class="nb">puts</span> <span class="nv">$element</span>
 <span class="k">}</span>
 </code></pre>
 </div>
 <h3 id="tocAnchor-1-1-3">Fibonacci</h3>
 <div class="highlight">
-   <pre><code class="tcl language-tcl" data-lang="tcl"><span class="k">proc</span> fib <span class="k">{</span><span class="nv">n</span><span class="k">}</span> <span class="k">{</span>
+   <pre><code class="language-tcl" data-lang="tcl"><span class="k">proc</span> fib <span class="k">{</span><span class="nv">n</span><span class="k">}</span> <span class="k">{</span>
     <span class="k">if</span> <span class="k">{</span><span class="nv">$n</span> <span class="o">&lt;</span> <span class="nv">2</span><span class="k">}</span> <span class="k">{</span>
         <span class="k">return</span> <span class="nv">$n</span>
     <span class="k">}</span> <span class="k">else</span> <span class="k">{</span>
@@ -158,7 +160,7 @@ described by the <a href="../tcl-12-rules.html">12 Rules for Tcl</a>.</p>
 <p>TCL uses <code>#</code> as a line comment and does not offer block comments. In fact, they
 recommend this:</p>
 <div class="highlight">
-   <pre><code class="tcl language-tcl" data-lang="tcl"><span class="k">if</span> <span class="mi">0</span> <span class="k">{</span>
+   <pre><code class="language-tcl" data-lang="tcl"><span class="k">if</span> <span class="mi">0</span> <span class="k">{</span>
     <span class="nv">Any</span> Tcl code to be commented out <span class="k">(</span><span class="nv">with</span> matching braces<span class="err">,</span> of course<span class="o">!</span><span class="k">)</span>
     <span class="nv">or</span> any other kind of text<span class="err">,</span> will be ignored <span class="o">-</span> and even <span class="k">[</span><span class="nb">exit</span><span class="k">]</span> won<span class="err">'</span>t fire
     <span class="nv">because</span> it<span class="err">'</span>s <span class="ow">in</span> braces<span class="err">,</span> so left unevaluated<span class="o">!</span>
@@ -171,32 +173,38 @@ recommend this:</p>
 
 <table>
    <thead>
-      <tr><th>AND</th>
+<tr>
+<th>AND</th>
 <th>OR</th>
 <th>TRUE</th>
 <th>FALSE</th>
 </tr>
-   </thead>
+</thead>
    <tbody>
-      <tr><td>&amp;&amp;</td>
+<tr>
+<td>&amp;&amp;</td>
 <td>||</td>
 <td>1</td>
 <td>0</td>
 </tr>
-      <tr><td><strong>EQUAL</strong></td>
+<tr>
+<td><strong>EQUAL</strong></td>
 <td><strong>UNEQUAL</strong></td>
 <td><strong>NOT</strong></td>
 <td></td>
 </tr>
-      <tr><td>==</td>
+<tr>
+<td>==</td>
 <td>!=</td>
 <td>!</td>
 <td></td>
 </tr>
-   </tbody>
-</table><h3 id="tocAnchor-1-1-6">99 bottles of beer</h3>
+</tbody>
+</table>
+
+<h3 id="tocAnchor-1-1-6">99 bottles of beer</h3>
 <div class="highlight">
-   <pre><code class="tcl language-tcl" data-lang="tcl"><span class="c">#!/usr/bin/tclsh</span>
+   <pre><code class="language-tcl" data-lang="tcl"><span class="c">#!/usr/bin/tclsh</span>
 
 <span class="c"># 99.tcl; Tcl version of 99 Bottles of Beer Song</span>
 
@@ -230,10 +238,13 @@ recommend this:</p>
 
 <h2 id="tocAnchor-1-9">Naming schemes</h2>
 
-<ul><li>Variables have to fit to the pattern <code>[_a-zA-Z][_a-zA-Z0-9]*</code>.</li>
+<ul>
+<li>Variables have to fit to the pattern <code>[_a-zA-Z][_a-zA-Z0-9]*</code>.</li>
 <li>Functions have to fit to the pattern <code>[^ \t\n\r\f]+</code>.</li>
 <li>Variables and function are scrunched together by camelCase or CamelCase.</li>
-</ul><h2 id="tocAnchor-1-10">Community</h2>
+</ul>
+
+<h2 id="tocAnchor-1-10">Community</h2>
 
 <p>I think one indicator for the quality of the community is it's size. And the
 community will grow, when the language gets more popular.</p>
@@ -289,7 +300,9 @@ community will grow, when the language gets more popular.</p>
          <div class="gallerytext">Monthly Projects</div>
       </div>
    </li>
-</ul><p>You can also take a look at <a href="http://www.google.com/trends/">Google Trends</a>:</p>
+</ul>
+
+<p>You can also take a look at <a href="http://www.google.com/trends/">Google Trends</a>:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2014/04/google-trends-tcl.png">
@@ -298,23 +311,28 @@ community will grow, when the language gets more popular.</p>
    <p class="wp-caption-text">Google Trends</p>
 </div>
 
-<ul><li>The <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">TIOBE Index</a>
+<ul>
+<li>The <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">TIOBE Index</a>
 ranked Tcl on place 43 in March 2014.</li>
 <li><a href="http://lang-index.sourceforge.net/">lang-index</a> ranked Tcl on place 84 in the
 general category and on place 34 in the script category.</li>
 <li>There are 2,490 Tcl questions on StackOverflow. Compare that to 286,244 
 questions about Python or 609,648 questions about Java.</li>
 <li>Tcl is on rank 18 for GitHub (<a href="http://adambard.com/blog/top-github-languages-for-2013-so-far/">source</a>).</li>
-</ul><h2 id="tocAnchor-1-11">Execution Speed</h2>
+</ul>
+
+<h2 id="tocAnchor-1-11">Execution Speed</h2>
 
 <p>Speed comparisons of programming languages are difficult. One nice way to 
 compare the execution speed of programming languages is the <a href="http://benchmarksgame.alioth.debian.org/">benchmarksgame</a>. But sadly, they don't have TCL.</p>
 
 <h2 id="tocAnchor-1-12">Additional information</h2>
 
-<ul><li><a href="http://www.tcl.tk/">Official website</a></li>
+<ul>
+<li><a href="http://www.tcl.tk/">Official website</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Tcl">Wikipedia</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -437,7 +455,7 @@ compare the execution speed of programming languages is the <a href="http://benc
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

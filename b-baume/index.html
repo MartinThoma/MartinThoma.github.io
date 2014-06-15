@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/07/b-tree-2-small-3-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/07/b-tree-2-small-3-thumb.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>B-B&auml;ume</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -133,13 +135,18 @@
 
 <p>Für einen <strong>B-Baum der Ordnung t</strong>, $t \in \mathbb{N} \setminus \{1\}$, gilt:</p>
 
-<ol><li>Jeder Knoten `$x$` hat die folgenden Attribute:
-    <ol><li>`$n$`, die Anzahl der Schlüssel die im Knoten `$x$` gespeichert wird,</li>
+<ol>
+  <li>Jeder Knoten `$x$` hat die folgenden Attribute:
+    <ol>
+      <li>`$n$`, die Anzahl der Schlüssel die im Knoten `$x$` gespeichert wird,</li>
       <li>die `$n$` Schlüssel, die in aufsteigender Reihenfolge gespeichert werden (also `$key_1 \leq key_2 \leq ... \leq key_{n}$`),</li>
       <li>`$isLeaf$`, ein boolscher Wert der <code>True</code> ist, falls `$x$` ein Blatt ist und <code>False</code> ist, falls `$x$` ein innerer Knoten ist</li>
-    </ol></li>
+    </ol>
+  </li>
   <li>Jeder innere Knoten hat `$n + 1$` Zeiger `$c_1, c_2, ... c_{n+1}$` auf seine Kinder. Blattknoten haben keine Kinder, also sind ihre `$c_i$`-Attribute undefiniert.</li>
-</ol><p>Ein Knoten eines B-Baumes sieht also so aus:
+</ol>
+
+<p>Ein Knoten eines B-Baumes sieht also so aus:
 </p><div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/b-tree-node.png">
       <img src="../images/2012/07/b-tree-node.png" alt="Node of a B-tree" width="" height="" class="size-full wp-image-35861" />
@@ -147,25 +154,33 @@
    <p class="wp-caption-text">Node of a B-tree</p>
 </div>
 
-<ol start="3"><li>Die Schlüssel `$key_i$` setzen grenzen für die Werte der Schlüssel, die in den einzelnen Subbäumen gespeichert sind.<br /> Falls `$k_i$` ein Schlüssel im Subbaum mit der Wurzel `$c_i$` ist, dann gilt: `$k_1 \leq key_1 \leq k_2 \leq key_2 \leq ... \leq key_{n} \leq k_{n} \leq key_{n+1}$`</li>
+<ol start="3">
+  <li>Die Schlüssel `$key_i$` setzen grenzen für die Werte der Schlüssel, die in den einzelnen Subbäumen gespeichert sind.<br /> Falls `$k_i$` ein Schlüssel im Subbaum mit der Wurzel `$c_i$` ist, dann gilt: `$k_1 \leq key_1 \leq k_2 \leq key_2 \leq ... \leq key_{n} \leq k_{n} \leq key_{n+1}$`</li>
   <li>Alle Blätter haben die gleiche Tiefe.</li>
   <li>Für die Anzahl der Schlüssel eines Knotens gilt:
-    <ol><li>Jeder Knoten (bis auf die Wurzel) hat mindestens t-1 Schlüssel.</li>
+    <ol>
+        <li>Jeder Knoten (bis auf die Wurzel) hat mindestens t-1 Schlüssel.</li>
         <li>Jeder Knoten hat höchstens `$2t - 1$` Schlüssel.</li>
-    </ol></li>
-</ol><h2 id="tocAnchor-1-2">Stolperfallen</h2>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="tocAnchor-1-2">Stolperfallen</h2>
 
 <p>Ein Schlüssel ist etwas anderes als ein Zeiger!</p>
 
 <h2 id="tocAnchor-1-3">Folgerungen</h2>
 
-<ul><li>`$(2) \Rightarrow$` Die Wurzel hat min. 2 Kinder, falls der Baum nicht leer ist.</li>
+<ul>
+  <li>`$(2) \Rightarrow$` Die Wurzel hat min. 2 Kinder, falls der Baum nicht leer ist.</li>
   <li>`$(2), (5.1) \Rightarrow$` Jeder innere Knoten (bis auf die Wurzel) hat min. t Kinder.</li>
   <li>`$(2), (5.2) \Rightarrow$` Jeder innere Knoten hat maximal 2t Kinder.</li>
   <li>Wenn man an den Zeigern die Kinder in die Elterknoten zieht, sodass am Ende alle Knoten in der Wurzel sind, entsteht wegen (3) eine sortierte Liste.</li>
   <li>`$ h \leq \log_t \frac{n+1}{2}$` (Cormen, S. 489)</li>
   <li>Ein B-Baum hat in der Tiefe h min. `$2t^{h-1}$` Knoten.</li>
-</ul><h2 id="tocAnchor-1-4">Besondere B-Bäume</h2>
+</ul>
+
+<h2 id="tocAnchor-1-4">Besondere B-Bäume</h2>
 
 <p>Ein B-Baum der Ordnung t = 2 wird auch <a href="http://de.wikipedia.org/wiki/2-3-4-Baum">2-3-4-Baum</a> genannt, da jeder Knoten entweder 2, 3 oder 4 Kinder hat.</p>
 
@@ -189,17 +204,19 @@ Aus (5.1) folgt: In einem B-Baum der Ordnung t = 1 müssten einzelne Knoten kein
         <span class="k">return</span> <span class="n">NIL</span>
     <span class="k">else</span><span class="p">:</span> <span class="c"># Rekursiv weitersuchen</span>
         <span class="n">DISK</span><span class="o">-</span><span class="n">READ</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">SEARCH</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">key</span><span class="p">)</span>
-</code></pre>
+        <span class="k">return</span> <span class="n">SEARCH</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">key</span><span class="p">)</span></code></pre>
 </div>
 
 <p>Es wird also zuerst der Knoten durchsucht und dann gegebenenfalls der passende Subbaum.</p>
 
 <p>Laut Vorlesung (Folie 97) gilt:
-</p><ul><li>Anzahl Zugriffe auf Hintergrundspeicher maximal: ${\cal O}(\log_t(n))$</li>
+</p><ul>
+    <li>Anzahl Zugriffe auf Hintergrundspeicher maximal: ${\cal O}(\log_t(n))$</li>
     <li>Innerhalb eines Knotens: ${\cal O}(t)$</li>
     <li>Insgesamt also: ${\cal O}(t \cdot \log_t(n))$</li>
-</ul><h2 id="tocAnchor-1-6">Einfügen von Schlüsseln</h2>
+</ul>
+
+<h2 id="tocAnchor-1-6">Einfügen von Schlüsseln</h2>
 
 <p>Wenn ein Schlüssel in einen B-Baum eingefügt werden soll, dann muss man insebesondere auf Regel (5.1) und (5.2) achten:
 Jeder Knoten enthält n Schlüssel, mit $t-1 \leq n \leq 2t -1$.</p>
@@ -285,11 +302,13 @@ Cormen, dritte Ausgabe, S. 499ff war sehr hilfreich. (<a href="http://shafaetspl
 
 <h2 id="tocAnchor-1-14">Siehe auch</h2>
 
-<ul><li><a href="http://stackoverflow.com/questions/11684578/which-datastructure-do-nodes-of-b-trees-use">Which datastructure do nodes of B-Trees use?</a></li>
+<ul>
+  <li><a href="http://stackoverflow.com/questions/11684578/which-datastructure-do-nodes-of-b-trees-use">Which datastructure do nodes of B-Trees use?</a></li>
   <li><a href="http://stackoverflow.com/questions/32376/what-is-a-good-open-source-b-tree-implementation-in-c">What is a good open source B-tree implementation in C?</a> - Da kann man mal sehen wie es wirklich funktioniert :-)</li>
   <li><a href="http://stackoverflow.com/a/6403383/562769">Red Black Tree vs. B Tree</a></li>
   <li><a href="http://stackoverflow.com/a/1589587/562769">When to choose RB tree, B-Tree or AVL tree?</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -415,7 +434,7 @@ Cormen, dritte Ausgabe, S. 499ff war sehr hilfreich. (<a href="http://shafaetspl
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>

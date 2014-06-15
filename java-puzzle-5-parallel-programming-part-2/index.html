@@ -8,11 +8,13 @@
 
     
         <meta name="thumbnail" content="http://martin-thoma.com/images/2012/07/java-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/07/java-thumb.png" />
     
 
+    <meta property="og:type" content="blog"/>
 
     <title>Java Puzzle #5: Parallel Programming, Part 2</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201405100208.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201405272201.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -75,7 +77,7 @@
 						<div class="entry">
                             <p>What is the output of the following script:</p>
 <div class="highlight">
-   <pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
+   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">globalVar</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
@@ -92,7 +94,7 @@
 <span class="o">}</span>
 </code></pre>
 </div><div class="highlight">
-   <pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyParallelClass</span> <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Runnable</span> <span class="o">{</span>
+   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyParallelClass</span> <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Runnable</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
     <span class="nd">@Override</span>
@@ -159,37 +161,41 @@
 
 <p>This is an order of execution which would lead to a wrong value:
 </p><table>
-   <tr><th>First Thread</th>
+<tr>
+<th>First Thread</th>
 <th>Second Thread</th>
 <th>test.globalVar</th>
 </tr>
-   <tr><td>
+<tr>
+<td>
 <div class="highlight"><pre><code class="text">checks if (globalVar &gt; 0)
 looping ... 
 looping ... 
-execute test.globalVar--;
-</code></pre></div>
+execute test.globalVar--;</code></pre></div>
 </td>
 <td>
 <div class="highlight"><pre><code class="text">.
 checks if (globalVar &gt; 0)
 execute all four bytecode commands of "test.globalVar--;"
-.
-</code></pre></div>
+.</code></pre></div>
 </td>
 <td>
 <div class="highlight"><pre><code class="text">1
 1
 0
--1
-</code></pre></div>
+-1</code></pre></div>
 </td>
 </tr>
-</table><h2 id="tocAnchor-1-3">Resolve this problem</h2>
+</table>
 
-<ul><li>Use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a> if you don't want to get <code>1</code> as output.</li>
+<h2 id="tocAnchor-1-3">Resolve this problem</h2>
+
+<ul>
+  <li>Use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a> if you don't want to get <code>1</code> as output.</li>
   <li>If you don't want to get <code>-1</code>, you should take a look at the keyword <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html">synchronised</a>.</li>
-</ul><h2 id="tocAnchor-1-4">A side note</h2>
+</ul>
+
+<h2 id="tocAnchor-1-4">A side note</h2>
 
 <p>With <code>javap -c MyParallelClass</code> you can view the <a href="http://en.wikipedia.org/wiki/Java_bytecode">bytecode</a> of the class <code>MyParallelClass</code>. It looks like this:</p>
 
@@ -231,8 +237,7 @@ execute all four bytecode commands of "test.globalVar--;"
    <span class="mi">35</span><span class="o">:</span>   <span class="n">putstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
    <span class="mi">38</span><span class="o">:</span>   <span class="k">return</span>
 
-<span class="o">}</span>
-</code></pre>
+<span class="o">}</span></code></pre>
 </div>
 
 <p>Some links to the reference: <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--19.html">getstatic</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref--21.html">iconst_1</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-_isub.html">isub</a>, <a href="https://www.vmth.ucdavis.edu/incoming/Jasmin/ref-putstati.html">putstatic</a></p>
@@ -240,22 +245,23 @@ execute all four bytecode commands of "test.globalVar--;"
 <p>The interesting part of the bytecode is:</p>
 
 <div class="highlight">
-   <pre><code class="java">   <span class="mi">30</span><span class="o">:</span>    <span class="n">getstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
+   <pre><code class="java"><span class="mi">30</span><span class="o">:</span>   <span class="n">getstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
    <span class="mi">33</span><span class="o">:</span>   <span class="n">iconst_1</span>
    <span class="mi">34</span><span class="o">:</span>   <span class="n">isub</span>
-   <span class="mi">35</span><span class="o">:</span>   <span class="n">putstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
-</code></pre>
+   <span class="mi">35</span><span class="o">:</span>   <span class="n">putstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span></code></pre>
 </div>
 
 <p>You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>. </p>
 
 <h2 id="tocAnchor-1-5">See also</h2>
 
-<ul><li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/atomic.html">Atomic Access</a> in Java</li>
+<ul>
+  <li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/atomic.html">Atomic Access</a> in Java</li>
   <li><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/monitor/Monitor.html">Class Monitor</a></li>
   <li><a href="http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.monitorenter">monitorenter</a> and <a href="http://docs.oracle.com/javase/specs/jvms/se7/html/jvms-6.html#jvms-6.5.monitorexit">monitorexit</a></li>
   <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html">Package java.util.concurrent</a></li>
 </ul>
+
 						</div>
 						<div class="postmeta">Posted in 
                             
@@ -384,7 +390,7 @@ execute all four bytecode commands of "test.globalVar--;"
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/kit/' title='14 topics'>KIT</a>
 <a style='font-size: 197.45%' href='http://martin-thoma.com/tag/klausur/' title='20 topics'>Klausur</a>
 <a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
-<a style='font-size: 208.28%' href='http://martin-thoma.com/tag/latex/' title='23 topics'>LaTeX</a>
+<a style='font-size: 211.58%' href='http://martin-thoma.com/tag/latex/' title='24 topics'>LaTeX</a>
 <a style='font-size: 189.28%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
 <a style='font-size: 169.80%' href='http://martin-thoma.com/tag/linux/' title='14 topics'>Linux</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
