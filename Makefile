@@ -59,3 +59,6 @@ deploy:
 
 clean:
 	rm -rf _site
+
+fix:
+	mv _postStorage/* _posts/
