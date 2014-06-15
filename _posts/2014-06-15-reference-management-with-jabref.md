@@ -81,3 +81,9 @@ JabRef would be aware would be awesome.
 **Speed** is quite often an issue with Java applications in my experience.
 It takes about 5 seconds to open my BibTeX file of about 37 references. After
 starting that it's ok.
+
+## Alternatives
+
+[Mendeley](https://en.wikipedia.org/wiki/Mendeley) is a closed-source alternative
+with a built-in PDF reader. It seems to be fast and can complete information
+when the title is given.
