@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Classification with PyBrain</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201406152134.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201406151906.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -66,7 +66,7 @@
                     <article class="post type-post format-standard hentry clearfix ">
                         <h2 class="title entry-title">Classification with PyBrain</h2>
 			            <div class="postdate entry-date">
-                            <time datetime="2014-06-16T01:02:00+02:00">
+                            <time datetime="2014-06-16T01:02:00-04:00">
                                 June 
                                 16th,
                                   
@@ -99,6 +99,44 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
 <span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">ion</span><span class="p">,</span> <span class="n">ioff</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="n">contourf</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">plot</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">diag</span><span class="p">,</span> <span class="n">arange</span><span class="p">,</span> <span class="n">meshgrid</span><span class="p">,</span> <span class="n">where</span>
 <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">multivariate_normal</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">normalvariate</span>
+
+
+<span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
+    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">CLASSES</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">diag</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]),</span> <span class="n">diag</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])]</span>
+    <span class="n">alldata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
+    <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CLASSES</span><span class="p">):</span>
+            <span class="n">features</span> <span class="o">=</span> <span class="n">multivariate_normal</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="n">klass</span><span class="p">],</span> <span class="n">cov</span><span class="p">[</span><span class="n">klass</span><span class="p">])</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">features</span>
+            <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxX</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minY</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxY</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">alldata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="p">[</span><span class="n">klass</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">'minX'</span><span class="p">:</span> <span class="n">minX</span><span class="p">,</span> <span class="s">'maxX'</span><span class="p">:</span> <span class="n">maxX</span><span class="p">,</span>
+            <span class="s">'minY'</span><span class="p">:</span> <span class="n">minY</span><span class="p">,</span> <span class="s">'maxY'</span><span class="p">:</span> <span class="n">maxY</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="n">alldata</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">generate_data2</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
+    <span class="n">alldata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
+    <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxX</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minY</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxY</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">alldata</span><span class="o">.</span><span class="n">addSample</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">alldata</span><span class="o">.</span><span class="n">addSample</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">'minX'</span><span class="p">:</span> <span class="n">minX</span><span class="p">,</span> <span class="s">'maxX'</span><span class="p">:</span> <span class="n">maxX</span><span class="p">,</span>
+            <span class="s">'minY'</span><span class="p">:</span> <span class="n">minY</span><span class="p">,</span> <span class="s">'maxY'</span><span class="p">:</span> <span class="n">maxY</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="n">alldata</span><span class="p">}</span>
 
 
 <span class="k">def</span> <span class="nf">perceptron</span><span class="p">(</span><span class="n">hidden_neurons</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
@@ -109,13 +147,10 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
     <span class="n">MOMENTUM</span> <span class="o">=</span> <span class="n">momentum</span>
 
     <span class="c"># Generate the labeled set</span>
-    <span class="n">means</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-    <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">diag</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]),</span> <span class="n">diag</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])]</span>
-    <span class="n">alldata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">400</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CLASSES</span><span class="p">):</span>
-            <span class="n">features</span> <span class="o">=</span> <span class="n">multivariate_normal</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="n">klass</span><span class="p">],</span> <span class="n">cov</span><span class="p">[</span><span class="n">klass</span><span class="p">])</span>
-            <span class="n">alldata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="p">[</span><span class="n">klass</span><span class="p">])</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">()</span>
+    <span class="c">#g = generate_data2()</span>
+    <span class="n">alldata</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="s">'d'</span><span class="p">]</span>
+    <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span><span class="p">,</span> <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="s">'minX'</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="s">'maxX'</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="s">'minY'</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="s">'maxY'</span><span class="p">]</span>
 
     <span class="c"># Split data into test and training dataset</span>
     <span class="n">tstdata</span><span class="p">,</span> <span class="n">trndata</span> <span class="o">=</span> <span class="n">alldata</span><span class="o">.</span><span class="n">splitWithProportion</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
@@ -137,8 +172,9 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
                               <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">)</span>
 
     <span class="c"># Visualization</span>
-    <span class="n">ticks</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">ticks</span><span class="p">,</span> <span class="n">ticks</span><span class="p">)</span>
+    <span class="n">ticksX</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">minX</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxX</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">ticksY</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">minY</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxY</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">ticksX</span><span class="p">,</span> <span class="n">ticksY</span><span class="p">)</span>
 
     <span class="c"># need column vectors in dataset, not arrays</span>
     <span class="n">griddata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
@@ -184,9 +220,11 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
                         <span class="n">default</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">"number of neurons in the hidden layer"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-d"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"W"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">)</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-m"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"M"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">)</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="n">perceptron</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">hidden_neurons</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">weightdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">momentum</span><span class="p">)</span>
@@ -224,7 +262,13 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
                             
                                 , <a href="http://martin-thoma.com/tag/neural-network/">Neural Network</a>
                                 
-                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2014-06-16 01:02:00 +0200">
+                            
+                                , <a href="http://martin-thoma.com/tag/classification/">Classification</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/a.i./">A.I.</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2014-06-16 01:02:00 -0400">
                                 June 
                                 16th
                                   , 
@@ -237,6 +281,8 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
                                  
                                 </div>
 								<div class="alignright">
+                                
+                                    <a href="http://martin-thoma.com/classify-mnist-with-pybrain/" rel="next">Classify MNIST with PyBrain</a> &raquo;
                                  
                                 </div>
 							</div>
@@ -286,7 +332,7 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
 
                 <div class="addthis_toolbox">   
     <div class="custom_images">
-            <a href="http://twitter.com/share?url=http://martin-thoma.com/classification-with-pybrain&amp;hashtags=python,pybrain,neural-network,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/classification-with-pybrain&amp;hashtags=python,pybrain,neural-network,classification,a.i.,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
             <a href="http://del.icio.us/post?url=http://martin-thoma.com/classification-with-pybrain&amp;title=Classification%20with%20PyBrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
             <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/classification-with-pybrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
             <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/classification-with-pybrain&amp;title=Classification%20with%20PyBrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
@@ -341,7 +387,7 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/php/' title='6 topics'>PHP</a>
 <a style='font-size: 254.95%' href='http://martin-thoma.com/tag/programming/' title='42 topics'>Programming</a>
 <a style='font-size: 135.56%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
-<a style='font-size: 251.17%' href='http://martin-thoma.com/tag/python/' title='40 topics'>Python</a>
+<a style='font-size: 253.08%' href='http://martin-thoma.com/tag/python/' title='41 topics'>Python</a>
 <a style='font-size: 104.13%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
 <a style='font-size: 126.43%' href='http://martin-thoma.com/tag/swt-i/' title='8 topics'>SWT I</a>
 <a style='font-size: 135.56%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
