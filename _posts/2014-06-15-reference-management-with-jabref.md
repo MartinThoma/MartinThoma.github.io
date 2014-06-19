@@ -72,15 +72,23 @@ Another nice feature is the autocompletion of authors names and titles.
 ## What could be better?
 
 It would be neat if you could automatically upload your BibTeX file and use
-other peoples BibTeX files to complete the information or to get informed of
+other peoples BibTeX files to **complete the information** or to get informed of
 possible errors in your database.
 
-Additionally, a good PDF reader that is fast and allows annotations of which
+Additionally, a good **PDF reader** that is fast and allows annotations of which
 JabRef would be aware would be awesome.
 
 **Speed** is quite often an issue with Java applications in my experience.
 It takes about 5 seconds to open my BibTeX file of about 37 references. After
 starting that it's ok.
+
+**Shortcuts** are important for tools that get used often, too. Although
+JabRef has some reasonable shortcuts like <kbd>Ctr</kbd>+<kbd>i</kbd> for
+importing a BibTeX file and <kbd>Ctr</kbd>+<kbd>s</kbd> for saving the current
+BibTeX file, I miss <kbd>Ctrl</kbd>+<kbd>f</kbd> for searching the database.
+
+**Importing** other BibTeX files into the current BibTeX file is possible. But
+I would also like to "import" BibTeX data by copy and pasting a single dataset.
 
 ## Alternatives
 

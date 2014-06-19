@@ -373,5 +373,56 @@ Got 10000 testing datasets.
 Get trainingset
 Got 60000 training datasets.
 Input features: 784
-[TODO - still calculating]
+Total error: 0.0473157733222
+('epoch:    1', '  train error: 89.56%', '  test error: 89.72%')
+Total error: 0.0471086288906
+('epoch:    2', '  train error: 90.13%', '  test error: 90.20%')
+Total error: 0.0471545599893
+('epoch:    3', '  train error: 90.25%', '  test error: 90.26%')
+Total error: 0.0471544804653
+('epoch:    4', '  train error: 90.08%', '  test error: 89.91%')
+Total error: 0.047137394504
+('epoch:    5', '  train error: 90.25%', '  test error: 90.26%')
+Total error: 0.0471630159397
+('epoch:    6', '  train error: 89.56%', '  test error: 89.72%')
+Total error: 0.0471585130872
+('epoch:    7', '  train error: 89.78%', '  test error: 89.90%')
+Total error: 0.0471376594558
+('epoch:    8', '  train error: 90.14%', '  test error: 90.42%')
+Total error: 0.0471355052763
+('epoch:    9', '  train error: 90.97%', '  test error: 91.08%')
+Total error: 0.0471595886207
+('epoch:   10', '  train error: 90.07%', '  test error: 89.68%')
+Total error: 0.0471580212242
+('epoch:   11', '  train error: 90.13%', '  test error: 90.20%')
+Total error: 0.047146194285
+('epoch:   12', '  train error: 90.07%', '  test error: 89.68%')
+Total error: 0.047139885027
+('epoch:   13', '  train error: 89.56%', '  test error: 89.72%')
+Total error: 0.0471459617826
+('epoch:   14', '  train error: 90.13%', '  test error: 90.20%')
+Total error: 0.0471302472029
+('epoch:   15', '  train error: 90.07%', '  test error: 89.68%')
+Total error: 0.0471525497087
+('epoch:   16', '  train error: 90.26%', '  test error: 90.18%')
+Total error: 0.0471419186775
+('epoch:   17', '  train error: 90.97%', '  test error: 91.08%')
+Total error: 0.0471563384617
+('epoch:   18', '  train error: 88.76%', '  test error: 88.65%')
+Total error: 0.0471480887109
+('epoch:   19', '  train error: 90.97%', '  test error: 91.08%')
+Total error: 0.0471466129654
+('epoch:   20', '  train error: 90.08%', '  test error: 89.91%')
+Total error: 0.0471322920471
+('epoch:   21', '  train error: 90.08%', '  test error: 89.91%')
+Total error: 0.0471505302295
+('epoch:   22', '  train error: 88.76%', '  test error: 88.65%')
+Total error: 0.0471490334095
+('epoch:   23', '  train error: 90.97%', '  test error: 91.08%')
+Total error: 0.0471643256975
+('epoch:   24', '  train error: 90.25%', '  test error: 90.26%')
+Total error: 0.0471597744749
+('epoch:   25', '  train error: 88.76%', '  test error: 88.65%')
 ```
+
+This took several hours :-/

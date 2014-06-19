@@ -1,0 +1,693 @@
+<!-- Creator     : groff version 1.22.2 -->
+<!-- CreationDate: Wed Jun 18 13:59:35 2014 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>PFILE_UTILS</title>
+
+</head>
+<body>
+
+<h1 align="center">PFILE_UTILS</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#DIAGNOSTICS">DIAGNOSTICS</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#Author">Author</a><br>
+<a href="#BUGS">BUGS</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">pfile_utils,
+pfile_info, pfile_print, pfile_select, pfile_merge,
+pfile_concat, pfile_diff, pfile_stats, pfile_norm,
+pfile_normutts, pfile_addsil, pfile_skmeans, pfile_gaussian,
+pfile_build, pfile_create, pfile_patchlabels, pfile_lda,
+pfile_klt &minus; pfile manipulation programs</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_info</b>
+-i &lt;ipfile&gt; [-i &lt;ipfile&gt;] ... [&lt;ipfile&gt;]
+... [-o ofile] [-p] [-q] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_print</b>
+-i &lt;ipfile&gt; [-o ofile] [-ns] [-q] [-b] [-ff] [-sr
+&lt;range&gt;] [-fr &lt;range&gt;] [-pr &lt;range&gt;] [-lr
+&lt;range&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_select</b>
+-i &lt;ipfile&gt; -o &lt;opfile&gt; [-sr &lt;range&gt;] [-fr
+&lt;range&gt;] [-pr &lt;range&gt;] [-lr &lt;range&gt;]
+[-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_merge</b>
+-i1 &lt;i1pfile&gt; -i2 &lt;i2pfile&gt; -o &lt;opfile&gt;
+[-l &lt;labelsfrom&gt;] [-sr &lt;range&gt;] [-fr1
+&lt;range&gt;] [-fr2 &lt;range&gt;] [-pr &lt;range&gt;] [-lr
+&lt;range&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_ftrcombo</b>
+-i1 &lt;i1pfile&gt; [-i2 &lt;i2pfile&gt;] [-i3
+&lt;i3pfile&gt;] [-i4 &lt;i4pfile&gt;] -o &lt;opfile&gt; [-l
+&lt;labelsfrom&gt;] [-sr &lt;range&gt;] [-fr1 &lt;range&gt;]
+[-fr2 &lt;range&gt;] [-fr3 &lt;range&gt;] [-fr4
+&lt;range&gt;] [-pr &lt;range&gt;] [-lr &lt;range&gt;] [-g1
+&lt;val&gt;] [-g2 &lt;val&gt;] [-g3 &lt;val&gt;] [-g4
+&lt;val&gt;] [-k &lt;val&gt;] [-c &lt;method&gt;] [-debug
+&lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_concat</b>
+-o &lt;opfile&gt; [-sr &lt;range&gt;] [-fr &lt;range&gt;]
+[-pr &lt;range&gt;] [-lr &lt;range&gt;] [-quiet] [-debug
+&lt;level&gt;] [-help] i1pfile [i2pfile ...]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_diff</b>
+-i1 &lt;i1pfile&gt; -i2 &lt;i2pfile&gt; [-tol &lt;val&gt;]
+[-stop] [-sr &lt;range&gt;] [-sr2 &lt;range&gt;] [-fr
+&lt;range&gt;] [-fr2 &lt;range&gt;] [-pr &lt;range&gt;]
+[-pr2 &lt;range&gt;] [-lr &lt;range&gt;] [-lr2
+&lt;range&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_stats</b>
+-i &lt;ipfile&gt; -o &lt;ofile&gt; -h &lt;numhistbins&gt;
+[-q] [-sr &lt;range&gt;] [-fr &lt;range&gt;] [-pr
+&lt;range&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_norm</b>
+-i &lt;ipfile&gt; -o &lt;opfile&gt; [-sr &lt;range&gt;] [-fr
+&lt;range&gt;] [-pr &lt;range&gt;] [-sl &lt;int&gt;] [-slf
+&lt;file&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_normutts</b>
+-i &lt;ipfile&gt; -o &lt;opfile&gt; [-sr &lt;range&gt;] [-fr
+&lt;range&gt;] [-pr &lt;range&gt;] [-nonorm] [-verbose]
+[-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_addsil</b>
+-i &lt;ipfile&gt; -o &lt;opfile&gt; [-sr &lt;range&gt;] [-fr
+&lt;range&gt;] [-nb &lt;frames&gt;] [-prb &lt;range&gt;]
+[-ne &lt;frames&gt;] [-pre &lt;range&gt;] [-mmf &lt;val&gt;]
+[-maf &lt;val&gt;] [-smf &lt;val&gt;] [-saf &lt;val&gt;]
+[-lr &lt;range&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_gaussian</b>
+-i &lt;ipfile&gt; -o &lt;opfile&gt; -h &lt;numhistbins&gt;
+-d &lt;numstds&gt; [-u] [-ih &lt;stat in file&gt;] [-oh
+&lt;stat out file&gt;] [-sr &lt;range&gt;] [-fr
+&lt;range&gt;] [-pr &lt;range&gt;] [-debug &lt;level&gt;]
+[-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_build</b>
+-sents &lt;sentfname&gt; -suffix &lt;suf&gt; -nfeats
+&lt;n&gt; -labels &lt;labfname&gt; -o &lt;opfile&gt; [-debug
+&lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_create</b>
+-o &lt;opfile&gt; [-i &lt;ifile&gt;] -f # -l # [-b] [-debug
+&lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_skmeans</b>
+-o &lt;opfile&gt; [-i &lt;ifile&gt;] -k # -a # [-r #] [-m #]
+[-x #] [-u -n # -f &lt;idfile&gt; -s #] [-v -n # -f
+&lt;labfile&gt;] [-prefetch] [-b] [-q] [-debug
+&lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_patchlabels</b>
+-i &lt;ipfile&gt; -if &lt;fmt&gt; -iw &lt;width&gt; -o
+&lt;opfile&gt; -of &lt;fmt&gt; -l &lt;labfname&gt; -lf
+&lt;fmt&gt; -lw &lt;width&gt; [-debug &lt;level&gt;]
+[-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_lda</b>
+-i &lt;ipfile&gt; [-o &lt;opfile&gt;] [-os &lt;ofile&gt;]
+[-is &lt;ifile&gt;] [-a] [-sr &lt;range&gt;] [-fr
+&lt;range&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_klt</b>
+-i &lt;ipfile&gt; [-o &lt;opfile&gt;] [-os &lt;ofile&gt;]
+[-is &lt;ifile&gt;] [-a] [-n] [-sr &lt;range&gt;] [-fr
+&lt;range&gt;] [-debug &lt;level&gt;] [-help]</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>pfile_utils</i>
+is a collection of utilities that operate on pfiles in
+various ways. In all of the above programs: <br>
+&lt;ipfile&gt;</p>
+
+<p style="margin-left:22%;">designates an input pfile</p>
+
+<p style="margin-left:11%;">&lt;opfile&gt;</p>
+
+<p style="margin-left:22%;">designates an output pfile</p>
+
+<p style="margin-left:11%;">&lt;ofile&gt;</p>
+
+<p style="margin-left:22%;">designates an regular output
+file</p>
+
+<p style="margin-left:11%;">&lt;range&gt;</p>
+
+<p style="margin-left:22%;">indicates a range of elements
+(i.e., features [-fr], sentences [-sr], per-sentence frames
+[-pr], or labels [-lr]). The range specification, consisting
+of a comma separated list of sub-range specifications,
+indicates a set of elements between zero and one less than
+N, the total number of elements. For a feature range [-fr],
+N is the number of features per frame; for a sentence range
+[-sr], N is the total number of sentences; for a
+per-sentence frame range, N is the number of frames in a
+particular sentence; and for a label range, N is the number
+of labels per frame. A sub-range specification consists of
+one of of the following forms: &quot;b&quot; indicates
+element &quot;b&quot; with 0 the first and N-1 the last;
+&quot;b-e&quot; or &quot;b:e&quot; inclusive beginning at
+&quot;b&quot; ending at &quot;e&quot;; &quot;b:s:e&quot;
+inclusive from &quot;b&quot; striding by &quot;s&quot; and
+ending no more than &quot;e&quot;. Either &quot;b&quot; or
+&quot;e&quot; can be omitted specifying an implicit 0 or N-1
+(e.g., &quot;b-&quot; indicates an inclusive range starting
+at &quot;b&quot; ending at N-1). Either &quot;b&quot; or
+&quot;e&quot; can be preceded by a &quot;^&quot; character
+indicating the value &quot;N-n-1&quot; (i.e., &quot;^0&quot;
+is the last element &quot;N-1&quot;, &quot;^2&quot; is
+&quot;N-1-2&quot;, etc.). A full range specification must
+indicate a sorted list of elements where each element is
+specified at most once. A range may also start with the
+&quot;/&quot; character indicated a negated range, i.e., all
+elements between zero and one less than N will be selected
+except for those that match the range specification
+following the &quot;/&quot; character.</p>
+
+<p style="margin-left:22%; margin-top: 1em">For example, if
+N=20 the range 0,2,4-8,9,11:4:^0 corresponds to the set
+0,2,4,5,6,7,8,9,11,15,19, the range 1:7:14,10-12,^3-^0
+indicates 1,8,10,11,12,16,17,18,19, and the range /3,5,8-17
+indicates 1,2,4,6,7,18,19. Also, 0:2: specifies the even
+elements and 1:2: specifies the odd ones. A range can also
+be &rsquo;nil&rsquo; or &rsquo;none&rsquo; specifying the
+empty set, or can be &rsquo;all&rsquo;, &rsquo;full&rsquo;,
+&rsquo;-&rsquo;, or &rsquo;:&rsquo; specifying the range
+0-(N-1) (alternatively 0-^0). If you do not give a range
+flag *and* argument to a command line, that will select all
+elements.</p>
+
+<p style="margin-left:22%; margin-top: 1em">Range parsing
+is (now) done via the quicknet Range.C which has several
+addition features; see <b>Range(3)</b> for more
+information.</p>
+
+<p style="margin-left:22%; margin-top: 1em">Note that the
+-pr (Per-sentence Range) indicates a range that is applied
+to each sentence individually. For example, -pr 0,1,^1,^0
+selects the first, the second, the penultimate, and the last
+frame of each sentence, and -pr 19:^19 selects all frames of
+each sentence except for the first 19 and the last 19 (which
+is a way of getting out much of, say, the beginning and
+ending silence), and -pr :19,^19: selects only the first and
+the last 20 frames (which is a way of getting out, say, much
+of the speech).</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p>-debug</p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>This option supplies a debug level to the underlying
+QN_PFILE library code and is distinct from the <i>-q</i>
+option used by several of the programs.</p></td></tr>
+</table>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_info</b>
+simply prints information about the pfiles given as
+arguments, i.e., the number of sentences, frames, labels,
+and features. With the -p option, the program also prints
+out the sentence numbers and the number of frames for that
+sentence. With the -q option, the normal info (sents,
+frames, etc.) is not printed so if you just want the number
+of frames for each sentence, you can use the -p and the -q
+option. Multiple pfiles can be specified with multiple
+<i>-i</i> arguments, or can be specified by just listing the
+file names on the command line (e.g., the shell expansion
+*.pfile).</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_print</b>
+prints in ASCII a subset of the features of a pfile to each
+line of stdout, or optionally to the file &lt;ofile&gt;. The
+quiet option, <i>-q,</i> produces no diagnostic messages to
+stdout and simply produces a matrix suitable for reading in
+ASCII with, for example, matlab&rsquo;s &quot;load
+-ascii&quot; command (this can also be done using the -o
+flag). To not print the label(s) of each frame, use the
+<i>-lr</i> (label range) option and give a range of
+&rsquo;nil&rsquo;. To not print the sentence and frame
+number on each line, use the <i>-ns</i> (no sentence ids)
+option. The <i>-b</i> option causes the output to be in raw
+binary format (i.e., unsigned ints for sentence numbers,
+frame numbers, and labels, and single precision floating
+point numbers for features). The <i>-ff</i> options outputs
+ASCII in 1.6 fixed point (fprintf %f) rather than floating
+point (fprintf %g).</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_select</b>
+selects a subset of features from the input pfile and
+produces a pfile as output. The selection arguments are the
+same as <b>pfile_print.</b></p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_merge</b>
+merges two source pfiles into one destination pfile. A
+subset of features from the first and second source pfiles
+are specified by the <i>-fr1</i> and <i>-fr2</i> arguments
+respectively. Labels can be taken from either pfile using
+the <i>-l</i> argument, with &lt;labelsfrom&gt; taking the
+value 1 or 2. The number of frames must be the same in the
+corresponding sentence of each pfile.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_ftrcombo</b>
+modifies and combines the individual features from one, two,
+three or four pfiles (or conformal subsets). The basic
+operations are addition, subtraction, multiplication,
+division, scaling and offset. Features from a single pfile
+can be scaled by a factor specified with <i>-g1
+&lt;factor&gt;</i> then features from an optional second
+pfile are first scaled by the factor from <i>-g2
+&lt;factor&gt;</i> then combined with the first values by a
+method determined by <i>-c &lt;method&gt;</i> where
+&lt;method&gt; can be &quot;add&quot;, &quot;sub&quot;,
+&quot;mul&quot; or &quot;div&quot; (in which case, the
+second pfile provides the denominator). The net result then
+has the constant offset given by <i>-k &lt;offset&gt;</i>
+added to each point. Third and fourth pfiles are handled
+analogously.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_concat</b>
+concatenates any number of input pfiles into a single output
+pfile by simply appending all the utterances, read from each
+file named on the command line, in sequence to the output.
+For simplicity, every input pfile must have the same number
+of features and labels. There is at present no provision for
+selecting different feature, label or sentence ranges in
+each input pfile.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_diff</b>
+compares (a possible subset of) two pfiles and reports any
+differences whose absolute value is greater than the
+tolerance value given by the <i>-tol</i> option (default
+0.0). If the <i>-stop</i> argument is given, the program
+will stop as soon as the first difference is found. The
+first range arguments <i>(-sr, -fr, -pr,</i> and <i>-lr)</i>
+specify a subset of the pfiles to compare. Each range will
+be applied to the different pfiles individually but
+different subset sizes resulting from different N-values for
+each of the pfiles will result in an error. Therefore, one
+may optionally supply the second range arguments <i>(-sr2,
+-fr2, -pr2,</i> and <i>-lr2).</i> When given, they will be
+used to specify the subsets only of the second pfile. This
+allows, for example, one to compare different sentences (or
+features, etc.) of different pfiles (i.e., <i>-sr 0:2:^0
+-sr2 1:2:^0</i> will compare the even and odd sentences of
+the two pfiles), or to compare sentences (or features, etc.)
+of two pfiles with different total number of sentences.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_stats</b>
+computes statistics from features in a pfile and optionally
+produces a histogram for each feature. The portion of the
+pfile used to compute the statistics and histograms are
+given by the range arguments. The <i>-h</i> argument
+designates the number of histogram bins per feature to use
+(100 seems to be a reasonable minimal number). Use 0 to not
+generate a histogram at all. The quiet option <i>-q</i>
+prohibits diagnostic messages. The output is an ASCII matrix
+with rows equaling the number of features in the pfile. The
+columns are as follows: 1) feature number, 2) its mean, 3)
+standard deviation, 4) maximum value, 5) sentence number of
+max, 6) frame number of max, 7) minimum value, 8) sentence
+number of min, 9) frame number of min, 10)
+max/standard_deviation, 11) min/standard_deviation, and 12)
+possibly &lt;numhistbins&gt; more columns of histogram for
+this feature. The output is suitable for reading as input to
+matlab as an ASCII matrix. The matlab script <b>pfhist.m</b>
+can take the resulting matrix and either plot multiple
+histograms simultaneously, or plot an individual
+feature&rsquo;s histogram and cumulative distribution.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_norm</b>
+normalizes each feature dimension so that over the entire
+pfile (by default), each feature has zero mean and unit
+variance. If the segment group length option, <i>-sl,</i> is
+given, then normalization takes place every n sentences;
+when n=1 this behaves as <b>pfile_normutts</b> which
+normalizes each feature dimension so that within each
+utterance each feature has zero mean and unit variance.
+(Actually, the output is not identical, as pfile_norm uses
+double precision to calculate the means and variances,
+whereas pfile_normutts uses floats.) A file defining
+individual segment group lengths over the entire pfile can
+be given via the <i>-slf</i> option. Each segment group is
+defined by a number of sentences delimited by whitespace; in
+a 5 utterance pfile, one can normalize sentences 0-1 and 2-4
+by having a file with the lengths &quot;2 3&quot;. Note that
+all sentences in the pfile must be assigned segment groups
+by the segment length file; if utterance sub-selection takes
+place (i.e. the <i>-sr</i> option), the segment groups are
+still defined in terms of the original pfile, not the
+sub-selected pfile.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_normutts</b>
+normalizes each feature dimension within each utterance to
+have zero mean and unit variance. This is similar to the
+normalization applied to features by the Cambridge
+connectionist group, and is supposed to provide a measure of
+normalization in the face of test mismatches such as noise
+or music backgrounds that are specific to an individual
+utterance. The <i>-verbose</i> flag reports the
+pre-normalization means and variances of each feature
+dimension for each utterance to standard error. The
+<i>-nonorm</i> flag causes the normalization to be skipped
+altogether, in which case this program is equivalent to
+<b>pfile_select.</b> Note that after running
+<b>pfile_normutts,</b> each feature in the resulting pfile
+will have zero mean and unit variance over the entire file
+as well as within each utterance, but comparisons of feature
+levels <i>between</i> utterances will be invalid. To
+normalize the feature mean and variance over the the entire
+file while preserving relative feature levels between
+utterances, use <b>pfile_norm .</b></p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_addsil
+produces an output pfile with silence added to the</b>
+beginning and/or end of each sentence. Silence is defined by
+computing means and variances from select ranges within each
+utterance (one range each for producing silence at the
+beginning and the end), and then randomly sampling from a
+Normal distribution with the correspondingly computed means
+and variances. <i>-nb</i> specifies the number of new
+beginning silence frames and <i>-prb</i> specifies the
+per-sentence range of frames for generating beginning
+silence. <i>-ne</i> specifies the number of new ending
+silence frames and <i>-pre</i> specifies the per-sentence
+range of frames for generating ending silence. <i>-maf</i>
+and <i>-mmf</i> specify the mean additive and multiplicative
+factors respectively. <i>-saf</i> and <i>-smf</i> specify
+the standard deviation additive and multiplicative factors
+respectively.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_gaussian</b>
+produces an output pfile with features from the input pfile
+renormalized to have a zero-mean unity-variance Gaussian
+distribution. It does this by a non-linear warping
+constructed from histograms and an inverse Gaussian
+function. The <i>-h</i> option specifies the number of
+histogram bins to use for the initial warping. The larger
+the number, the more accurate the warping will be, but also
+the more memory the program will take. A good starting value
+is probably around 2000. The <i>-d</i> option says to warp
+the features so that the minimum and maximum are
+respectively -&lt;numstds&gt; and +&lt;numstds&gt; -- in
+other words, the features will not be any greater than
+&lt;numstds&gt; standard deviations from the mean. This
+value should not be too large (i.e., not much larger than
+around 8 or 9) as the inverse Gaussian function will
+eventually start producing NaNs as output. Accordingly, the
+program will die with a floating point exception if this
+occurs. The <i>-u</i> option produces features that, rather
+than being Gaussian distributed, are uniform on the interval
+[0,1]. The <i>-oh</i> option optionally specifies an output
+file to save the statistics, in the same form as
+<b>pfile_stat&rsquo;s</b> output. <i>-ih</i> option
+optionally specifies a pre-existing stats file, written by
+an earlier run of pfile_gaussian, which can be used to warp
+a new feature file (e.g. a test set) using the same
+mappings.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_build</b>
+builds a pfile from a set of files each containing a raw
+binary single precision matrix of feature data. The
+<i>-sents</i> argument, &lt;sentfname&gt;, is the name of a
+file containing a list of sentences names. This file should
+contain an ASCII list of file name prefixes, one per each
+line. The <i>-suffix</i> argument, &lt;suf&gt; is the suffix
+to use when constructing the file names to open. The program
+goes through each line of &lt;sentfname&gt;, appends a dot
+and then &lt;suf&gt; to the name, opens the file, and reads
+in the matrix of features. The <i>-nfeats</i> argument
+specifies the number of features per frame, so that each
+file should be a kXn matrix, where k is the number of frames
+in that sentence. The <i>-labels</i> argument specifies a
+file name containing labels, one per line. The number of
+lines in &lt;labfname&gt; must be equal to the total number
+of frames in all the sentences as given in the file
+&lt;sentfname&gt;. If the -labels argument isn&rsquo;t
+given, all labels will be set to 0.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_create</b>
+creates a pfile from an ASCII or binary input file (
+<i>-b</i> option ) consisting of rows of sentence number,
+frame number, some number of features, some number of
+labels. The number of features and labels must be specified
+on the command line using the <i>-f</i> and <i>-l</i>
+arguments. Binary streams have the same information in 32
+bit ints and floats, which must be in big-endian order.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_skmeans</b>
+computes utterance-specific segmental k-means. That is, for
+each segment of the same utterance (e.g. word), N segments
+of equal length are defined and the k-means algorithm is
+computed on each of them. The resulting means and variances
+are printed as output. <i>-k</i> specifies the number of
+clusters. <i>-r</i> specifies the number of epoch random
+restarts to take best of, <i>-m</i> specifies the number of
+re-inits before giving up and <i>-x</i> the minimum nubmer
+of samples per cluster for a re-init to occur. <i>-a</i>
+specifies the convergence threshold. If <i>-u</i> is
+specified, uniform sgmental k-means are calculated. In this
+situation, <i>-n</i> specifies the total number of different
+words, <i>-f</i> is used to sepcify an utterance-ID file and
+<i>-s</i> the number of segments/words. If <i>-v</i> is
+specified, viterbi segmental k-means are calculated and
+<i>-n</i> specifies the maximum label number and <i>-f</i>
+the input label file. <i>-prefetch</i> can be specified to
+specify that the next sentence should be prefectched at each
+iteration. <i>-b</i> can be used to select binary
+output.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_patchlabels</b>
+creates a new pfile with the same features as the input
+pfile but with the labels taken from the label file. Unlike
+other pfile_utils, this program supports multiple input and
+output file formats. The -if and -of options can be
+&quot;pfile&quot; (default), &quot;pre&quot; or
+&quot;lna&quot; for the corresponding feature+label files.
+If &quot;pre&quot; or &quot;lna&quot; are specified for
+input, it is necessary to define the number of features via
+-iw too. The label file format -lw can be any of
+&quot;ascii&quot; (default, a file of decimal ascii values
+with no segment boundaries marked), &quot;pfile&quot;,
+&quot;ilab&quot;, &quot;pre&quot; or &quot;lna&quot;, with
+&quot;pre&quot; and &quot;lna&quot; once again requiring a
+feature width to be specified with -lw (although the
+features in the label file are not used). <b>Note:</b> the
+use of &rsquo;patched&rsquo; feature+label files is
+deprecated at ICSI - use separate feature and label files,
+as expected by qnstrn etc.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_lda</b>
+performs a linear descriminant analysis on the feature
+vectors of a pfile. The options for <b>pfile_lda</b> are as
+follows: The <i>-i</i> option specifies the input pfiles and
+allows multiple, comma-separated files (with no spaces). The
+<i>-il</i> specifies an input label file, which can only be
+a single file. If no label file is specified then the main
+input pfile is used for labels. If you specify a <i>-o</i>
+option, the transformed pfile will be written to
+&lt;opfile&gt;. The <i>-sr</i> option specifies a subset of
+sentences to operate on. If you also specify a <i>-fr</i>
+option, only a subset of features will be written. Assuming
+that N is the number of features per frame, the <i>-os</i>
+option says to write the resulting matrices out to a file in
+(using matlab notation) the form [ D T ] where D is the Nx1
+vector of eigenvalues in decreasing order T is the NxN
+matrix of orthonormal eigenvectors contained in the columns
+of T sorted by decreasing eigenvalue. I.e. all of the
+parameters for the first feature are written, then all of
+the values for the 2nd etc. The <i>-is</i> option says,
+instead of computing the eigen vectors and eigenvalues from
+the input pfile, read it from ifile, so for example you can
+compute the information from a training pfile and apply it
+to a test pfile. The <i>-a</i> option says that the matrices
+contained in the files ofile and ifile should be read and
+written in ASCII rather than as binary 32 bit single
+precision numbers.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>pfile_klt</b>
+performs a Karhunen-Loeve transformation on the feature
+vectors of a pfile. This is a linear transformation that
+results in a pfile that has a diagonal covariance matrix. It
+does this by finding the matrix T such that the covariance
+matrix E[(TX-TU)(TX-TU)&rsquo;] is diagonal. It turns out
+that if you require T to be an orthonormal basis set for the
+covariance matrix (which you can ask for since a covariance
+matrix is symmetric positive semi-definite), this can be
+solved via the eigen-solution of RT&rsquo;= DT&rsquo; where
+R is the covariance matrix of the original features, T is
+the matrix that has orthonormal rows, and D is a diagonal of
+eigenvalues (corresponding also the the variances). Note
+that if you call <b>pfile_klt</b> on a pfile with a DCT
+applied to it, you&rsquo;ll most likely get a non-diagonal
+covariance matrix meaning that the features are in fact not
+decorrelated. If, however, you call <b>pfile_klt</b> on the
+output pfile of <b>pfile_klt</b> you&rsquo;ll get a diagonal
+covariance matrix. Note that <b>pfile_klt</b> could be
+applied after <b>pfile_gaussian</b> that, if jointly
+Gaussian, would ultimately result in features that are truly
+statistically independent as uncorrelated joint Gaussians
+are also independent.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The options for
+<b>pfile_klt</b> are as follows: The <i>-i</i> specifies the
+input pfiles and allows multiple, comma-seperated files
+(with no spaces). If you specify a <i>-o</i> option, the
+transformed pfile will be written to &lt;opfile&gt;. The
+<i>-sr</i> option specifies a subset of sentences to operate
+on. If you also specify a <i>-fr</i> option, only a subset
+of features will be written so you can effectively perform
+principle components analysis by selecting the first, say, M
+features. The mean of the input features is removed.
+Normally, the output features are also multiplied by the
+square root of the inverse of each feature&rsquo;s
+corresponding eigenvalue. This results in unity variance
+features. If you specify the <i>-n</i> option, the
+multiplication doesn&rsquo;t occur, and the feature
+variances are retained. Assuming that N is the number of
+features per frame, the <i>-os</i> option says to write the
+resulting matrices out to a file in (using matlab notation)
+the form [ R U T D ] where R is the NxN covariance matrix, U
+is the Nx1 mean vector, T is the NxN matrix of orthonormal
+eigenvectors contained in the columns of T sorted by
+decreasing eigenvalue, and D is the Nx1 vector of
+eigenvalues (again in decreasing order). I.e. all of the
+parameters for the first feature are written, then all of
+the values for the 2nd etc. The <i>-is</i> option says,
+instead of computing the mean and covariance information
+from the input pfile, read it from ifile, so for example you
+can compute the information from a training pfile and apply
+it to a test pfile. In this case the mean removal and (if
+not disabled) variance scaling are performed using the mean
+and variance information from ifile. The <i>-a</i> option
+says that the matrices contained in the files ofile and
+ifile should be read and written in ASCII rather than as
+binary 32 bit single precision numbers.</p>
+
+<h2>DIAGNOSTICS
+<a name="DIAGNOSTICS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<i>debug</i> option takes an integer argument where
+increasing integer values produce greater diagnostics about
+the underling pfile handling code.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">qnforward(1),
+qnnorm(1), norms(5), pfile(5), qncat(1), QN_PFile(3).</p>
+
+<h2>Author
+<a name="Author"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Jeff Bilmes
+&lt;bilmes@icsi.berkeley.edu&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Dan Ellis
+&lt;dpwe@icsi.berkeley.edu&gt; (pfile_concat and
+pfile_normutts)</p>
+
+<p style="margin-left:11%; margin-top: 1em">Eric
+Fosler-Lussier &lt;fosler@icsi.berkeley.edu&gt; (update to
+pfile_norm)</p>
+
+<h2>BUGS
+<a name="BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Please tell us
+about them.</p>
+<hr>
+</body>
+</html>
