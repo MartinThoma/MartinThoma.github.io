@@ -29,10 +29,10 @@ parser = ArgumentParser()
 
 # Add more options if you like
 parser.add_argument("-f", "--file", dest="myFilenameVariable",
-                  help="write report to FILE", metavar="FILE")
+                    help="write report to FILE", metavar="FILE")
 parser.add_argument("-q", "--quiet",
-                  action="store_false", dest="verbose", default=True,
-                  help="don't print status messages to stdout")
+                    action="store_false", dest="verbose", default=True,
+                    help="don't print status messages to stdout")
 
 args = parser.parse_args()
 
@@ -123,14 +123,14 @@ if __name__ == "__main__":
  
     parser = argparse.ArgumentParser(description="less script")
     parser.add_argument("-f", "--file", dest="filename",
-                      help="write report to FILE", metavar="FILE")
+                        help="write report to FILE", metavar="FILE")
     parser.add_argument("-n", 
-                      dest="n", default=10, type=int, 
-                      help="how many lines get printed")
+                        dest="n", default=10, type=int, 
+                        help="how many lines get printed")
     parser.add_argument("-q", "--quiet",
-                      action="store_false", dest="verbose",
-                      default=True,
-                      help="don't print status messages to stdout")
+                        action="store_false", dest="verbose",
+                        default=True,
+                        help="don't print status messages to stdout")
  
     args = parser.parse_args()
     if args.verbose:
