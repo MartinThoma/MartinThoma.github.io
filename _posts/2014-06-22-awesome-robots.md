@@ -10,7 +10,7 @@ tags:
 - Quadcopter
 - Neural Nets
 - Differential Equations
-featured_image: logos/sublime-text.png
+featured_image: logos/robot.png
 ---
 
 Robots are mechanical devices that are controlled by computer programs. Some
