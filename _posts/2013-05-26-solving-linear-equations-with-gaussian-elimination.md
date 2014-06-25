@@ -9,6 +9,8 @@ tags:
 - mathematics
 - Linear algebra
 - CPP
+- Python
+- PHP
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
 <div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
@@ -318,8 +320,6 @@ function gauss(A) {
 
 ## PHP
 
-I did not check the following code:
-
 ```php
 /**
  * Gaussian elimination
@@ -379,11 +379,52 @@ function gauss($A, $x) {
 }
 ```
 
+And some tiny tests:
+
+```php
+$A = array(array(7));
+$x = array(3);
+$result = gauss($A, $x);
+var_dump($result);
+### array (size=1)
+###      0 => float 0.42857142857143 = 3 / 7
+
+$A = array(array(7));
+$x = array(0);
+$result = gauss($A, $x);
+var_dump($result);
+### array (size=1)
+###      0 => int 0
+```
+
+Test equations with two variables (see [Wolfram|Alpha](http://www.wolframalpha.com/input/?i=solve+%7B%7B7%2C+1%7D%2C+%7B5%2C+3%7D%7D+*+%7B%7Bx%7D%2C+%7By%7D%7D+%3D+%7B%7B1%7D%2C+%7B3%7D%7D)):
+
+```php
+$A = array(array(7, 1), array(5, 3));
+$x = array(1, 3);
+$result = gauss($A, $x);
+var_dump($result);
+### array (size=2)
+###  0 => float 0
+###  1 => float 1
+```
+
+Test equations with two variables (see [Wolfram|Alpha](http://www.wolframalpha.com/input/?i=solve+%7B%7B7%2C+1%7D%2C+%7B5%2C+3%7D%7D+*+%7B%7Bx%7D%2C+%7By%7D%7D+%3D+%7B%7B1%7D%2C+%7B1%7D%7D)):
+
+```php
+$A = array(array(7, 1), array(5, 3));
+$x = array(1, 1);
+$result = gauss($A, $x);
+var_dump($result);
+### array (size=2)
+###  0 => float 0.125
+###  1 => float 0.125
+```
+
 <h2>Complexity</h2>
 <h3>Time complexity</h3>
 Time complexity is in $\mathcal{O}(n^3)$ (lines 44 - 53):
-$
-\begin{align}
+$\begin{align}
 Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
 &= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\\
@@ -393,4 +434,6 @@ Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 \end{align}$
 
 <h3>Space complexity</h3>
-Space complexity of this implementation is in $\mathcal{O}(n)$, but you can easily come down to $\mathcal{O}(1)$ when you use <code>A[n]</code> for storing <code>x</code>.
+Space complexity of this implementation is in $\mathcal{O}(n)$, but you can 
+easily come down to $\mathcal{O}(1)$ when you use <code>A[n]</code> for 
+storing <code>x</code>.
