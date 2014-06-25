@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Solving linear equations with Gaussian elimination</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201406222244.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201406222256.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -114,13 +114,16 @@ $
          <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">JavaScript code</span></a>
       </li>
       <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Complexity</span></a>
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">PHP</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-6">
+         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Complexity</span></a>
          <ul>
-            <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-5-1"><span class="tocnumber">5.1</span> <span class="toctext">Time complexity</span></a>
-            </li>
             <li class="toc_level-2 toc_section-7">
-               <a href="#tocAnchor-1-5-2"><span class="tocnumber">5.2</span> <span class="toctext">Space complexity</span></a>
+               <a href="#tocAnchor-1-6-1"><span class="tocnumber">6.1</span> <span class="toctext">Time complexity</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-8">
+               <a href="#tocAnchor-1-6-2"><span class="tocnumber">6.2</span> <span class="toctext">Space complexity</span></a>
             </li>
          </ul>
       </li>
@@ -285,11 +288,11 @@ Result: 0 -1 1</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">Python code</h2>
-
 <div class="highlight">
-   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
- 
+
+
 <span class="k">def</span> <span class="nf">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -297,76 +300,78 @@ Result: 0 -1 1</code></pre>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="n">line</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">+</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span>
             <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-                <span class="n">line</span> <span class="o">+=</span>  <span class="s">"| "</span>
+                <span class="n">line</span> <span class="o">+=</span> <span class="s">"| "</span>
         <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
- 
+
+
 <span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
- 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="c"># Search for maximum in this column</span>
         <span class="n">maxEl</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
         <span class="n">maxRow</span> <span class="o">=</span> <span class="n">i</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">maxEl</span><span class="p">:</span>
                 <span class="n">maxEl</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
                 <span class="n">maxRow</span> <span class="o">=</span> <span class="n">k</span>
- 
+
         <span class="c"># Swap maximum row with current row (column by column)</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="n">tmp</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">maxRow</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
             <span class="n">A</span><span class="p">[</span><span class="n">maxRow</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
             <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
- 
+
         <span class="c"># Make all rows below this one 0 in current column</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
             <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
                     <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
- 
+
     <span class="c"># Solve equation Ax=b for an upper triangular matrix A</span>
-    <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">/</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
             <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">-=</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">x</span>
- 
+
+
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
- 
+
     <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
- 
+
     <span class="c"># Read input data</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="n">line</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">Fraction</span><span class="p">,</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
             <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">el</span>
     <span class="nb">raw_input</span><span class="p">()</span>
- 
+
     <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
     <span class="n">lastLine</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">Fraction</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">lastLine</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
- 
+
     <span class="c"># Print input</span>
     <span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
- 
+
     <span class="c"># Calculate solution</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">gauss</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
- 
+
     <span class="c"># Print result</span>
     <span class="n">line</span> <span class="o">=</span> <span class="s">"Result:</span><span class="se">\t</span><span class="s">"</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-       <span class="n">line</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span></code></pre>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</code></pre>
 </div>
-
 <h2 id="tocAnchor-1-4">JavaScript code</h2>
 
 <div class="highlight">
@@ -418,12 +423,74 @@ Result: 0 -1 1</code></pre>
 <span class="p">}</span></code></pre>
 </div>
 
-<h2 id="tocAnchor-1-5">Complexity</h2>
+<h2 id="tocAnchor-1-5">PHP</h2>
 
-<h3 id="tocAnchor-1-5-1">Time complexity</h3>
+<p>I did not check the following code:</p>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="x">/**</span>
+<span class="x"> * Gaussian elimination</span>
+<span class="x"> * @param  array $A matrix</span>
+<span class="x"> * @param  array $x vector</span>
+<span class="x"> * @return array    solution vector</span>
+<span class="x"> */</span>
+<span class="x">function gauss($A, $x) {</span>
+<span class="x">    # Just make a single matrix</span>
+<span class="x">    for ($i=0; $i &lt; count($A); $i++) { </span>
+<span class="x">        $A[$i][] = $x[$i];</span>
+<span class="x">    }</span>
+<span class="x">    $n = count($A);</span>
 
-<p>Time complexity is in $\mathcal{O}(n^3)$ (lines 44 - 53):
-$
+<span class="x">    for ($i=0; $i &lt; $n; $i++) { </span>
+<span class="x">        # Search for maximum in this column</span>
+<span class="x">        $maxEl = abs($A[$i][$i]);</span>
+<span class="x">        $maxRow = $i;</span>
+<span class="x">        for ($k=$i+1; $k &lt; $n; $k++) { </span>
+<span class="x">            if (abs($A[$k][$i]) &gt; $maxEl) {</span>
+<span class="x">                $maxEl = abs($A[$k][$i]);</span>
+<span class="x">                $maxRow = $k;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+
+
+<span class="x">        # Swap maximum row with current row (column by column)</span>
+<span class="x">        for ($k=$i; $k &lt; $n+1; $k++) { </span>
+<span class="x">            $tmp = $A[$maxRow][$k];</span>
+<span class="x">            $A[$maxRow][$k] = $A[$i][$k];</span>
+<span class="x">            $A[$i][$k] = $tmp;</span>
+<span class="x">        }</span>
+
+<span class="x">        # Make all rows below this one 0 in current column</span>
+<span class="x">        for ($k=$i+1; $k &lt; $n; $k++) { </span>
+<span class="x">            $c = -$A[$k][$i]/$A[$i][$i];</span>
+<span class="x">            for ($j=$i; $j &lt; $n+1; $j++) { </span>
+<span class="x">                if ($i==$j) {</span>
+<span class="x">                    $A[$k][$j] = 0;</span>
+<span class="x">                } else {</span>
+<span class="x">                    $A[$k][$j] += $c * $A[$i][$j];</span>
+<span class="x">                }</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    # Solve equation Ax=b for an upper triangular matrix $A</span>
+<span class="x">    $x = array_fill(0, $n, 0);</span>
+<span class="x">    for ($i=$n-1; $i &gt; -1; $i--) { </span>
+<span class="x">        $x[$i] = $A[$i][$n]/$A[$i][$i];</span>
+<span class="x">        for ($k=$i-1; $k &gt; -1; $k--) { </span>
+<span class="x">            $A[$k][$n] -= $A[$k][$i] * $x[$i];</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+
+<span class="x">    return $x;</span>
+<span class="x">}</span>
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-6">Complexity</h2>
+
+<h3 id="tocAnchor-1-6-1">Time complexity</h3>
+
+<p>Time complexity is in $<code>\mathcal{O}(n^3)</code>$ (lines 44 - 53):
+$<code>
 \begin{align}
 Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
@@ -431,11 +498,11 @@ Operations &amp;= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &amp;= \dots \\
 &amp;= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\\
 &amp;= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
-\end{align}$</p>
+\end{align}</code>$</p>
 
-<h3 id="tocAnchor-1-5-2">Space complexity</h3>
+<h3 id="tocAnchor-1-6-2">Space complexity</h3>
 
-<p>Space complexity of this implementation is in $\mathcal{O}(n)$, but you can easily come down to $\mathcal{O}(1)$ when you use <code>A[n]</code> for storing <code>x</code>.</p>
+<p>Space complexity of this implementation is in $<code>\mathcal{O}(n)</code>$, but you can easily come down to $`\mathcal{O}(1)$ when you use <code>A[n]</code> for storing <code>x</code>.</p>
 
 						</div>
 						<div class="postmeta">Posted in 
