@@ -321,6 +321,7 @@ function gauss(A) {
 ## PHP
 
 ```php
+<?php
 /**
  * Gaussian elimination
  * @param  array $A matrix
@@ -377,11 +378,13 @@ function gauss($A, $x) {
 
     return $x;
 }
+?>
 ```
 
 And some tiny tests:
 
 ```php
+<?php
 $A = array(array(7));
 $x = array(3);
 $result = gauss($A, $x);
@@ -395,11 +398,13 @@ $result = gauss($A, $x);
 var_dump($result);
 ### array (size=1)
 ###      0 => int 0
+?>
 ```
 
 Test equations with two variables (see [Wolfram|Alpha](http://www.wolframalpha.com/input/?i=solve+%7B%7B7%2C+1%7D%2C+%7B5%2C+3%7D%7D+*+%7B%7Bx%7D%2C+%7By%7D%7D+%3D+%7B%7B1%7D%2C+%7B3%7D%7D)):
 
 ```php
+<?php
 $A = array(array(7, 1), array(5, 3));
 $x = array(1, 3);
 $result = gauss($A, $x);
@@ -407,11 +412,13 @@ var_dump($result);
 ### array (size=2)
 ###  0 => float 0
 ###  1 => float 1
+?>
 ```
 
 Test equations with two variables (see [Wolfram|Alpha](http://www.wolframalpha.com/input/?i=solve+%7B%7B7%2C+1%7D%2C+%7B5%2C+3%7D%7D+*+%7B%7Bx%7D%2C+%7By%7D%7D+%3D+%7B%7B1%7D%2C+%7B1%7D%7D)):
 
 ```php
+<?php
 $A = array(array(7, 1), array(5, 3));
 $x = array(1, 1);
 $result = gauss($A, $x);
@@ -419,10 +426,11 @@ var_dump($result);
 ### array (size=2)
 ###  0 => float 0.125
 ###  1 => float 0.125
+?>
 ```
 
-<h2>Complexity</h2>
-<h3>Time complexity</h3>
+## Complexity
+### Time complexity
 Time complexity is in $\mathcal{O}(n^3)$ (lines 44 - 53):
 $\begin{align}
 Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
@@ -433,7 +441,7 @@ Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
 \end{align}$
 
-<h3>Space complexity</h3>
+### Space complexity
 Space complexity of this implementation is in $\mathcal{O}(n)$, but you can 
 easily come down to $\mathcal{O}(1)$ when you use <code>A[n]</code> for 
 storing <code>x</code>.
