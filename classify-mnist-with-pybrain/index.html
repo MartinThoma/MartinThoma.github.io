@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Classify MNIST with PyBrain</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201406251124.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201406251133.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -264,6 +264,9 @@ layer and an output layer.</p>
 
 <p>After creating it, the MLP will be trained with the backpropagation algorithm.
 Every training step is followed by an evaluation step.</p>
+
+<p>By the way, <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html"><code>numpy.ravel</code></a>
+simply flattens a list.</p>
 <div class="highlight">
    <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ravel</span>
 
@@ -366,7 +369,8 @@ the data.</p>
         <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">'number of labels did not match number of images'</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">'The number of labels did not match '</span>
+                            <span class="s">'the number of images.'</span><span class="p">)</span>
 
         <span class="c"># Get the data</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
