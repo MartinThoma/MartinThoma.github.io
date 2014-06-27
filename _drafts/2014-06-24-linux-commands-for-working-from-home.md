@@ -41,8 +41,21 @@ Copa a selected text from the command line and paste it:
 
 <kbd>Mouse wheel click</kbd>
 
-## Watching the Apache error log
+## Web stuff
+### Watching the Apache error log
 
 ```bash
 tail -f  /var/log/apache2/error.log
+```
+
+### Finding php.ini
+
+```bash
+$ php -i | grep "Loaded Configuration File"
+```
+
+### Importing data to MySQL
+
+```bash
+$ mysql --host localhost -u root -p write-math < wm_raw_draw_data.sql
 ```

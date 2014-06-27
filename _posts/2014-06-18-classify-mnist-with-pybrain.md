@@ -158,6 +158,9 @@ layer and an output layer.
 After creating it, the MLP will be trained with the backpropagation algorithm.
 Every training step is followed by an evaluation step.
 
+By the way, [`numpy.ravel`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html)
+simply flattens a list.
+
 ```python
 from numpy import ravel
 
@@ -261,7 +264,8 @@ def get_labeled_data(imagefile, labelfile, picklename):
         N = unpack('>I', N)[0]
 
         if number_of_images != N:
-            raise Exception('number of labels did not match number of images')
+            raise Exception('The number of labels did not match '
+                            'the number of images.')
 
         # Get the data
         x = zeros((N, rows, cols), dtype=uint8)  # Initialize numpy array

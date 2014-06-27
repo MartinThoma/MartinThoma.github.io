@@ -17,6 +17,7 @@ TODO
 * Fix posts:
   - http://martin-thoma.com/comparing-dates-in-php-and-mysql/
   - http://martin-thoma.com/algorithmen-ii-klausur/ (LaTeX)
+  - http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/ (LaTeX at bottom)
 * Apply CSS Rules from [CSS Wizardry](https://github.com/csswizardry/CSS-Guidelines)
 
 Improve
