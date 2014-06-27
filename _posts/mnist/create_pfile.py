@@ -74,7 +74,6 @@ def create_pfile():
         tstdata.append([ravel(testing['x'][i]), testing['y'][i]])
     make_pfile("tstdata", 28*28, tstdata)
 
-
     print("Get trainingset")
     training = get_labeled_data('train-images-idx3-ubyte.gz',
                                 'train-labels-idx1-ubyte.gz')
@@ -91,15 +90,23 @@ def make_pfile(filename, features, data):
         for symbolnr, instance in enumerate(data):
             feature_string, label = instance
             feature_string = " ".join(map(str, feature_string))
+
+            # This does not work:
             # label_string = [0 for i in range(10)]
-            # label_string[label] = 1
+            # label_string[label[0]] = 1
             # label_string = " ".join(map(str, label_string))
+            # label_nr = 10
+
+            # Works:
             label_string = str(label[0])
+            label_nr = 1
+
             line = "%i 0 %s %s" % (symbolnr, feature_string, label_string)
             print(line, file=f)
-    os.system("pfile_create -i %s -f %i -l 1 -o %s.pfile" % (input_filename,
-                                                             features,
-                                                             output_filename))
+    os.system("pfile_create -i %s -f %i -l %i -o %s.pfile" % (input_filename,
+                                                              features,
+                                                              label_nr,
+                                                              output_filename))
     #os.remove(input_filename)
 
 create_pfile()
