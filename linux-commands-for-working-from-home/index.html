@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Linux Commands for Working from home</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201406271149.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201406301346.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -96,22 +96,25 @@
                <a href="#tocAnchor-1-4-1"><span class="tocnumber">4.1</span> <span class="toctext">Watching the Apache error log</span></a>
             </li>
             <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-4-2"><span class="tocnumber">4.2</span> <span class="toctext">Finding php.ini</span></a>
+               <a href="#tocAnchor-1-4-2"><span class="tocnumber">4.2</span> <span class="toctext">Truncating the Apache error log</span></a>
             </li>
             <li class="toc_level-2 toc_section-7">
-               <a href="#tocAnchor-1-4-3"><span class="tocnumber">4.3</span> <span class="toctext">Importing data to MySQL</span></a>
+               <a href="#tocAnchor-1-4-3"><span class="tocnumber">4.3</span> <span class="toctext">Finding php.ini</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-8">
+               <a href="#tocAnchor-1-4-4"><span class="tocnumber">4.4</span> <span class="toctext">Importing data to MySQL</span></a>
             </li>
          </ul>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Creating a single archive file from a complete folder</h2>
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">tar -zcvf ~/<span class="o">[</span>target file<span class="o">]</span>.tar.gz <span class="o">[</span>folder you want to copy<span class="o">]</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>tar -zcvf ~/<span class="o">[</span>target file<span class="o">]</span>.tar.gz <span class="o">[</span>folder you want to copy<span class="o">]</span>
 </code></pre>
 </div>
 <h2 id="tocAnchor-1-2">Getting a file from a remote host to localhost</h2>
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">scp <span class="o">[</span>username<span class="o">]</span>@<span class="o">[</span>host<span class="o">]</span>:<span class="o">[</span>path/to/remote/file<span class="o">]</span> <span class="o">[</span>path/to/local/folder<span class="o">]</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>scp <span class="o">[</span>username<span class="o">]</span>@<span class="o">[</span>host<span class="o">]</span>:<span class="o">[</span>path/to/remote/file<span class="o">]</span> <span class="o">[</span>path/to/local/folder<span class="o">]</span>
 </code></pre>
 </div>
 <h2 id="tocAnchor-1-3">Shell Shortcuts</h2>
@@ -124,7 +127,7 @@
 
 <p><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd></p>
 
-<p>Copa a selected text from the command line and paste it:</p>
+<p>Copy a selected text from the command line and paste it:</p>
 
 <p>
    <kbd>Mouse wheel click</kbd>
@@ -138,15 +141,20 @@
 
 <h3 id="tocAnchor-1-4-1">Watching the Apache error log</h3>
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">tail -f  /var/log/apache2/error.log
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>tail -f  /var/log/apache2/error.log
 </code></pre>
 </div>
-<h3 id="tocAnchor-1-4-2">Finding php.ini</h3>
+<h3 id="tocAnchor-1-4-2">Truncating the Apache error log</h3>
+<div class="highlight">
+   <pre><code class="language-bash" data-lang="bash">sudo truncate -s 0 /var/log/apache2/error.log
+</code></pre>
+</div>
+<h3 id="tocAnchor-1-4-3">Finding php.ini</h3>
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php -i <span class="p">|</span> grep <span class="s2">"Loaded Configuration File"</span>
 </code></pre>
 </div>
-<h3 id="tocAnchor-1-4-3">Importing data to MySQL</h3>
+<h3 id="tocAnchor-1-4-4">Importing data to MySQL</h3>
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mysql --host localhost -u root -p write-math &lt; wm_raw_draw_data.sql
 </code></pre>
