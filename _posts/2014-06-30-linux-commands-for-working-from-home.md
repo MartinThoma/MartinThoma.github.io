@@ -53,7 +53,7 @@ $ tail -f  /var/log/apache2/error.log
 ### Truncating the Apache error log
 
 ```bash
-sudo truncate -s 0 /var/log/apache2/error.log
+$ sudo truncate -s 0 /var/log/apache2/error.log
 ```
 
 ### Finding php.ini
