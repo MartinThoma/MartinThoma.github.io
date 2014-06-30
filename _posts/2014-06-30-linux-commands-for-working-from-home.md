@@ -16,13 +16,13 @@ This article is just a collection of commands and shortcuts I need quite often.
 ## Creating a single archive file from a complete folder
 
 ```bash
-tar -zcvf ~/[target file].tar.gz [folder you want to copy]
+$ tar -zcvf ~/[target file].tar.gz [folder you want to copy]
 ```
 
 ## Getting a file from a remote host to localhost
 
 ```bash
-scp [username]@[host]:[path/to/remote/file] [path/to/local/folder]
+$ scp [username]@[host]:[path/to/remote/file] [path/to/local/folder]
 ```
 
 ## Shell Shortcuts
@@ -35,7 +35,7 @@ Paste a text from clipboard to the command line:
 
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
 
-Copa a selected text from the command line and paste it:
+Copy a selected text from the command line and paste it:
 
 <kbd>Mouse wheel click</kbd>
 
@@ -47,7 +47,13 @@ Search through the history of commands you have typed before:
 ### Watching the Apache error log
 
 ```bash
-tail -f  /var/log/apache2/error.log
+$ tail -f  /var/log/apache2/error.log
+```
+
+### Truncating the Apache error log
+
+```bash
+sudo truncate -s 0 /var/log/apache2/error.log
 ```
 
 ### Finding php.ini
