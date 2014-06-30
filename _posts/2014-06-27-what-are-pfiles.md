@@ -72,6 +72,8 @@ $ ./pfile_create -i - -f 1 -l 1 -o output.pfile
 2 0 3 3
 ```
 
+You can end the input with <kbd>Ctrl</kbd> + <kbd>D</kbd>.
+
 The numbers are:
 
 ```bash

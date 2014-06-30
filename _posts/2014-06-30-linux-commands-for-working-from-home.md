@@ -2,18 +2,16 @@
 layout: post
 title: Linux Commands for Working from home
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-06-30 13:41
 categories:
 - Code
 tags:
 - SSH
 - Shell
-featured_image: logos/sublime-text.png
+featured_image: logos/shell.png
 ---
 
-I guess you know the situation: You are at home, but you need or want to work.
-You have a SSH account, of course, but simple SSH is sometimes not enough.
-This article will list some commands and shortcuts, that might be usefull.
+This article is just a collection of commands and shortcuts I need quite often.
 
 ## Creating a single archive file from a complete folder
 
@@ -40,6 +38,10 @@ Paste a text from clipboard to the command line:
 Copa a selected text from the command line and paste it:
 
 <kbd>Mouse wheel click</kbd>
+
+Search through the history of commands you have typed before:
+
+<kbd>Ctrl</kbd> + <kbd>R</kbd>
 
 ## Web stuff
 ### Watching the Apache error log
