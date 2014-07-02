@@ -2,12 +2,13 @@
 layout: post
 title: A.I. in Computer Games
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-07-01 23:52
 categories:
 - Cyberculture
 tags:
 - A.I.
 - games
+- ML
 featured_image: logos/ai.png
 ---
 
@@ -57,3 +58,7 @@ And a third episode with Super Mario, Gradius, Mega Man 2, Pro Wrestling, Color
 a Dinosaur, Nintendo Pinball, Cliffhanger, Arkanoid, Double Dare, Ice hockey:
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/Q-WgQcnessA" frameborder="0" allowfullscreen></iframe>
+
+## Super Mario A.I. Competition
+
+<iframe width="512" height="288" src="http://www.youtube.com/embed/bBZ7kEphv3s?start=385" frameborder="0" allowfullscreen></iframe>
