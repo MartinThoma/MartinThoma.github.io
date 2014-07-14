@@ -9,6 +9,8 @@ tags:
 - ATIS
 - Linux
 - bug
+- SSH
+- KIT
 featured_image: logos/atis.png
 ---
 
