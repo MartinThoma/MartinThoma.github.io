@@ -2,7 +2,7 @@
 layout: post
 title: Fix zypper readline error
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-07-14 11:34
 categories:
 - Code
 tags:
