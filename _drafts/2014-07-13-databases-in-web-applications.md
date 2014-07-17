@@ -36,3 +36,4 @@ defines the data by name, type and relation to other data.
 ** [CouchDB - The Definitive Guide](http://guide.couchdb.org/draft/tour.html)
 ** [How Do I Use Replication?](http://wiki.apache.org/couchdb/Frequently_asked_questions?action=show&redirect=FrequentlyAskedQuestions#how_replication)
 ** [cloudant.com](https://cloudant.com/product/pricing/)
+** [HTTP Document API](http://wiki.apache.org/couchdb/HTTP_Document_API)
