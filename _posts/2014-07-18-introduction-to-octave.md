@@ -2,7 +2,7 @@
 layout: post
 title: Introduction to Octave
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-07-18 17:40
 categories:
 - Code
 tags:
@@ -38,7 +38,9 @@ setenv("GNUTERM","x11");
 ```
 in it to get a nicer prompt and make sure that plots will work.
 
-## Vectors and Matrices
+## The Language
+
+### Vectors and Matrices
 
 Octave has a lot of neat matrix manipulation features. You can create a matrix
 $A = \begin{pmatrix} 1 & 2\\ 3 & 4\end{pmatrix}$ with
@@ -76,7 +78,7 @@ You can get a part of the matrix by slicing:
 But be careful: Vectors and matrices are 1-indexed, not 0-indexed as you might
 expect!
 
-## Sequences
+### Sequences
 The sequence `0 1 2 3 4 5` can be created with `[0:5]`.
 
 The sequence `0.2 0.3 0.4 0.5` can be created with `[0.2:0.1:0.5]`.
@@ -94,7 +96,7 @@ ans =
 
 The output can be surpressed with `;`.
 
-## Plotting
+### Plotting
 
 I have never seen a language where plotting is so easy:
 
@@ -119,9 +121,9 @@ And finally, you can store the image:
 print -dpng 'my_plot.png'
 ```
 
-## Control statements
+### Control statements
 
-### for
+#### for
 
 ```octave
 for i=1:10;
@@ -129,7 +131,7 @@ for i=1:10;
 end
 ```
 
-### while
+#### while
 
 ```octave
 i=1;
@@ -138,7 +140,7 @@ while i <= 10,
 end;
 ```
 
-### if
+#### if
 
 ```octave
 if 2 == 1+1,
@@ -150,7 +152,7 @@ else
 end;
 ```
 
-## Functions
+### Functions
 
 Functions have to be saved in a file called `[filename].m`. One other special
 thing about functions is that you define the variable with the output at the
@@ -172,3 +174,9 @@ function [succ, pred] = succ_and_pred(n)
     succ = n+1;
     pred = n-1;
 ```
+
+## Resources
+
+* [GNU Octave](https://en.wikipedia.org/wiki/GNU_Octave)
+* [stackoverflow.com](http://stackoverflow.com/questions/tagged/octave?sort=votes)
+* [Documentation](https://www.gnu.org/software/octave/doc/interpreter/)
