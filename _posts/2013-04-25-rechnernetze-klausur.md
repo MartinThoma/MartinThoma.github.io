@@ -180,8 +180,8 @@ Häufige Aufgabenstellungen sind:
 Übungsblätter sind <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Forms/AllItems.aspx?RootFolder=%2fsites%2fvab%2f0x2E18BE2A290A424EB98916CA7A6FF3FD%2fVorlesungsunterlagen%2fUebung&FolderCTID=&View=%7bF9CB46E3-13F6-4910-9A2E-BF24D999D119%7d">hier</a>.
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Donnerstag, den 1. August 2013 von 14:00 bis 15:00 Uhr
-<strong>Ort</strong>: Seit 28.07.2013 <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">online</a>:
+<strong>Datum</strong>: Donnerstag, den 1. August 2013 von 14:00 bis 15:00 Uhr<br/>
+<strong>Ort</strong>: Seit 28.07.2013 <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">online</a>:<br/>
 <table>
 <tr>
   <th>Ort</th>
@@ -210,10 +210,10 @@ Häufige Aufgabenstellungen sind:
 </tr>
 </table>
 
-<strong>Einsicht</strong>: 17.09.2013
-<strong>Punkte</strong>: 30
-<strong>Bestehensgrenze</strong>: 13 Punkte
-<strong>Notenskala</strong>:
+<strong>Einsicht</strong>: 17.09.2013<br/>
+<strong>Punkte</strong>: 30<br/>
+<strong>Bestehensgrenze</strong>: 13 Punkte<br/>
+<strong>Notenskala</strong>:<br/>
 <table>
 <tr>
   <th>Note</th>
@@ -288,7 +288,7 @@ Häufige Aufgabenstellungen sind:
   <td>12,75</td>
 </tr>
 </table>
-<strong>Übungsschein</strong>: Nein
+<strong>Übungsschein</strong>: Nein<br/>
 <strong>Bonuspunkte</strong>: Nein
 
 <h2>Nicht vergessen</h2>
