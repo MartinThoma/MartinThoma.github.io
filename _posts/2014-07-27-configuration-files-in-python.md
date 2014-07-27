@@ -135,6 +135,59 @@ Wikipedia says:
 The file itself might look like this:
 
 ```yaml
+- mysql:
+    host: localhost
+    user: root
+    passwd: my secret password
+    db: write-math
+- other:
+    preprocessing_queue:
+        preprocessing.scale_and_center
+        preprocessing.dot_reduction
+        preprocessing.connect_lines
+    use_anonymous: yes
+```
+
+You can read it like this:
+
+```python
+import yaml
+
+with open("config.yml", 'r') as ymlfile:
+    cfg = yaml.load(ymlfile)
+
+print(cfg)
+```
+
+It outputs:
+
+```python
+[{'mysql':
+    {'passwd': 'my secret password',
+     'host': 'localhost',
+     'db': 'write-math',
+     'user': 'root'}
+    },
+ {'other':
+    {'preprocessing_queue': 'preprocessing.scale_and_center preprocessing.dot_reduction preprocessing.connect_lines',
+     'use_anonymous': True}
+ }
+]
+```
+
+There is a `yaml.dump` method, so you can write the configuration the same way.
+Just build up a dictionary.
+
+YAML is used by the Blender project.
+
+#### Resources
+* [Documentation](https://docs.python.org/3/library/configparser.html)
+
+## INI
+
+INI files look like this:
+
+```ini
 [mysql]
 host: localhost
 user: root
@@ -248,11 +301,6 @@ use_anonymous = True
 
 ```
 
-YAML is used by the Blender project.
-
-#### Resources
-* [Documentation](https://docs.python.org/3/library/configparser.html)
-
 ## XML
 
 Seems not to be used at all for configuration files by the Python community.
@@ -318,3 +366,4 @@ want to use.
 * [JSON Online Parser](http://json.parser.online.fr/)
 * [What is the difference between YAML and JSON? When to prefer one over the other?](http://stackoverflow.com/q/1726802/562769)
 * [Why do so many projects use XML for configuration files?](http://stackoverflow.com/q/791761/562769)
+* [YAML Lint](http://yamllint.com/)
