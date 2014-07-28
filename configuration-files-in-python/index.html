@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Configuration files in Python</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201407271609.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201407271628.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -81,7 +81,8 @@
 <li>Content Management Systems like WordPress blogs, WikiMedia and Joomla need
 to store the information where the database server is (the hostname) and
 how to login (username and password)</li>
-<li>Propritary software might need to store if the software was registered already</li>
+<li>Propritary software might need to store if the software was registered already
+(the serial key)</li>
 <li>Scientific software could store the path to BLAS libraries</li>
 </ul>
 
@@ -224,16 +225,16 @@ It is available for several programming languages.</p>
 
 <p>The file itself might look like this:</p>
 <div class="highlight">
-   <pre><code class="language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">mysql</span><span class="p-Indicator">:</span>
+   <pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">mysql</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
     <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
     <span class="l-Scalar-Plain">passwd</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my secret password</span>
     <span class="l-Scalar-Plain">db</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">write-math</span>
-<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">other</span><span class="p-Indicator">:</span>
+<span class="l-Scalar-Plain">other</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">preprocessing_queue</span><span class="p-Indicator">:</span>
-        <span class="l-Scalar-Plain">preprocessing.scale_and_center</span>
-        <span class="l-Scalar-Plain">preprocessing.dot_reduction</span>
-        <span class="l-Scalar-Plain">preprocessing.connect_lines</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">preprocessing.scale_and_center</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">preprocessing.dot_reduction</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">preprocessing.connect_lines</span>
     <span class="l-Scalar-Plain">use_anonymous</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
 </code></pre>
 </div>
@@ -244,22 +245,24 @@ It is available for several programming languages.</p>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"config.yml"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">ymlfile</span><span class="p">:</span>
     <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ymlfile</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">cfg</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s">'mysql'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="s">'other'</span><span class="p">])</span>
 </code></pre>
 </div>
 <p>It outputs:</p>
 <div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="p">[{</span><span class="s">'mysql'</span><span class="p">:</span>
-    <span class="p">{</span><span class="s">'passwd'</span><span class="p">:</span> <span class="s">'my secret password'</span><span class="p">,</span>
-     <span class="s">'host'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span>
-     <span class="s">'db'</span><span class="p">:</span> <span class="s">'write-math'</span><span class="p">,</span>
-     <span class="s">'user'</span><span class="p">:</span> <span class="s">'root'</span><span class="p">}</span>
-    <span class="p">},</span>
- <span class="p">{</span><span class="s">'other'</span><span class="p">:</span>
-    <span class="p">{</span><span class="s">'preprocessing_queue'</span><span class="p">:</span> <span class="s">'preprocessing.scale_and_center preprocessing.dot_reduction preprocessing.connect_lines'</span><span class="p">,</span>
-     <span class="s">'use_anonymous'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
- <span class="p">}</span>
-<span class="p">]</span>
+   <pre><code class="language-python" data-lang="python"><span class="n">other</span>
+<span class="n">mysql</span>
+<span class="p">{</span><span class="s">'passwd'</span><span class="p">:</span> <span class="s">'my secret password'</span><span class="p">,</span>
+ <span class="s">'host'</span><span class="p">:</span> <span class="s">'localhost'</span><span class="p">,</span>
+ <span class="s">'db'</span><span class="p">:</span> <span class="s">'write-math'</span><span class="p">,</span>
+ <span class="s">'user'</span><span class="p">:</span> <span class="s">'root'</span><span class="p">}</span>
+<span class="p">{</span><span class="s">'preprocessing_queue'</span><span class="p">:</span> <span class="p">[</span><span class="s">'preprocessing.scale_and_center'</span><span class="p">,</span>
+                         <span class="s">'preprocessing.dot_reduction'</span><span class="p">,</span>
+                         <span class="s">'preprocessing.connect_lines'</span><span class="p">],</span>
+ <span class="s">'use_anonymous'</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
 </code></pre>
 </div>
 <p>There is a <code>yaml.dump</code> method, so you can write the configuration the same way.
@@ -453,6 +456,7 @@ want to use.</p>
 <li><a href="http://stackoverflow.com/q/1726802/562769">What is the difference between YAML and JSON? When to prefer one over the other?</a></li>
 <li><a href="http://stackoverflow.com/q/791761/562769">Why do so many projects use XML for configuration files?</a></li>
 <li><a href="http://yamllint.com/">YAML Lint</a></li>
+<li><a href="http://i-tools.org/unserialize">INI file</a></li>
 </ul>
 
 						</div>
@@ -471,6 +475,12 @@ want to use.</p>
                                 , <a href="http://martin-thoma.com/tag/json/">JSON</a>
                                 
                             
+                                , <a href="http://martin-thoma.com/tag/xml/">XML</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/ini/">INI</a>
+                                
+                            
                                 , <a href="http://martin-thoma.com/tag/configuration/">Configuration</a>
                                 
                              by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2014-07-27 15:46:00 -0400">
@@ -482,7 +492,7 @@ want to use.</p>
 							<div class="navigation clearfix">
                                 <div class="alignleft">
                                 
-                                    &laquo; <a href="http://martin-thoma.com/append-python-path/" rel="prev">Append Python PATH</a>
+                                    &laquo; <a href="http://martin-thoma.com/configuration-files-in-python/" rel="prev">Configuration Files In Python</a>
                                  
                                 </div>
 								<div class="alignright">
@@ -535,7 +545,7 @@ want to use.</p>
 
                 <div class="addthis_toolbox">   
     <div class="custom_images">
-            <a href="http://twitter.com/share?url=http://martin-thoma.com/configuration-files-in-python&amp;hashtags=python,yaml,json,configuration,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/configuration-files-in-python&amp;hashtags=python,yaml,json,xml,ini,configuration,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
             <a href="http://del.icio.us/post?url=http://martin-thoma.com/configuration-files-in-python&amp;title=Configuration%20files%20in%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
             <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/configuration-files-in-python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
             <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/configuration-files-in-python&amp;title=Configuration%20files%20in%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
