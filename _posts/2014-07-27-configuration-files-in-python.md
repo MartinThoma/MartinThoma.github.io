@@ -9,6 +9,8 @@ tags:
 - Python
 - YAML
 - JSON
+- XML
+- INI
 - Configuration
 featured_image: logos/python.png
 ---
@@ -19,6 +21,7 @@ Most interesting programs need some kind of configuration:
   to store the information where the database server is (the hostname) and
   how to login (username and password)
 * Propritary software might need to store if the software was registered already
+  (the serial key)
 * Scientific software could store the path to BLAS libraries
 
 For very simple tasks you might choose to write these configuration variables
@@ -135,16 +138,16 @@ Wikipedia says:
 The file itself might look like this:
 
 ```yaml
-- mysql:
+mysql:
     host: localhost
     user: root
     passwd: my secret password
     db: write-math
-- other:
+other:
     preprocessing_queue:
-        preprocessing.scale_and_center
-        preprocessing.dot_reduction
-        preprocessing.connect_lines
+        - preprocessing.scale_and_center
+        - preprocessing.dot_reduction
+        - preprocessing.connect_lines
     use_anonymous: yes
 ```
 
@@ -156,23 +159,25 @@ import yaml
 with open("config.yml", 'r') as ymlfile:
     cfg = yaml.load(ymlfile)
 
-print(cfg)
+for section in cfg:
+    print(section)
+print(cfg['mysql'])
+print(cfg['other'])
 ```
 
 It outputs:
 
 ```python
-[{'mysql':
-    {'passwd': 'my secret password',
-     'host': 'localhost',
-     'db': 'write-math',
-     'user': 'root'}
-    },
- {'other':
-    {'preprocessing_queue': 'preprocessing.scale_and_center preprocessing.dot_reduction preprocessing.connect_lines',
-     'use_anonymous': True}
- }
-]
+other
+mysql
+{'passwd': 'my secret password',
+ 'host': 'localhost',
+ 'db': 'write-math',
+ 'user': 'root'}
+{'preprocessing_queue': ['preprocessing.scale_and_center',
+                         'preprocessing.dot_reduction',
+                         'preprocessing.connect_lines'],
+ 'use_anonymous': True}
 ```
 
 There is a `yaml.dump` method, so you can write the configuration the same way.
@@ -367,3 +372,4 @@ want to use.
 * [What is the difference between YAML and JSON? When to prefer one over the other?](http://stackoverflow.com/q/1726802/562769)
 * [Why do so many projects use XML for configuration files?](http://stackoverflow.com/q/791761/562769)
 * [YAML Lint](http://yamllint.com/)
+* [INI file](http://i-tools.org/unserialize)
