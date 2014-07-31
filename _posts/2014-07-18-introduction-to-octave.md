@@ -78,6 +78,24 @@ You can get a part of the matrix by slicing:
 But be careful: Vectors and matrices are 1-indexed, not 0-indexed as you might
 expect!
 
+You can get the size of a matrix with the function `size` which returns a matrix:
+
+```octave
+>> a = [1 2 3; 4 5 6];
+>> size(a)
+ans =
+
+   2   3
+
+```
+
+If you simple want the "length" you can directly access the first element:
+
+```octave
+>> size(a)(1)
+ans =  2
+```
+
 ### Sequences
 The sequence `0 1 2 3 4 5` can be created with `[0:5]`.
 
