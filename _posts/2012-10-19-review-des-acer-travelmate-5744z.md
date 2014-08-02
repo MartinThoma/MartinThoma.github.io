@@ -10,6 +10,7 @@ tags:
 - Ubuntu
 - Review
 - Acer
+- Notebook
 featured_image: 2011/09/Tux.png
 itemtype: http://schema.org/Review
 ---
@@ -20,7 +21,9 @@ edit: *argh* - also mit Ubuntu 12.04 (und Lubuntu 12.04 sowie Ubuntu mit Gnome/G
 ## Technische Daten ##
 <strong>Prozessor</strong>: Intel Pentium P6200 mit 2.13 GHz, 2 Kerne, 3 MB Cache (Quelle: <a href="http://ark.intel.com/products/50176/Intel-Pentium-Processor-P6200-3M-Cache-2_13-GHz">ark.intel.com</a>)
 
-<strong>Arbeitsspeicher</strong>: 4GB DDR3 (3704MiB laut lshw)
+<strong>Arbeitsspeicher</strong>: 4GB DDR3 (3704 MiB laut lshw)
+
+<strong>Harddisk</strong>: WDC WD3200BPVT-2 (320 GB, 5400 RPM, 2.5-inch, 8MB cache)
 
 <strong>Display</strong>: 15,6" mit max. 1366px x 768px. Matt, LED LCD; Maximale Helligkeit von 174 cd/m² laut[notebookcheck.com](http://www.notebookcheck.com/Test-Acer-TravelMate-5744Z-P624G50Mikk-Notebook.71588.0.html)
 
