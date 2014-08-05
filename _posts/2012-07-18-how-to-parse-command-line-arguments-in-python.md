@@ -146,7 +146,7 @@ if __name__ == "__main__":
         print f.readline()
 ```
 
-## Example 3: My copy-paste template
+### Example 3: My copy-paste template
 
 This is how I use it most of the time. I want to show defaults in help:
 
@@ -156,7 +156,9 @@ This is how I use it most of the time. I want to show defaults in help:
 
 
 def is_valid_file(parser, arg):
-    """Check if arg is a valid file that already exists on the file system."""
+    """Check if arg is a valid file that already exists on the file
+       system.
+    """
     arg = os.path.abspath(arg)
     if not os.path.exists(arg):
         parser.error("The file %s does not exist!" % arg)
@@ -165,9 +167,9 @@ def is_valid_file(parser, arg):
 
 
 if __name__ == "__main__":
-    import argparse, ArgumentDefaultsHelpFormatter
-    parser = argparse.ArgumentParser(description=__doc__,
-                                     formatter_class=ArgumentDefaultsHelpFormatter)
+    from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+    parser = ArgumentParser(description=__doc__,
+                            formatter_class=ArgumentDefaultsHelpFormatter)
     parser.add_argument("-f", "--file", dest="filename",
                         type=lambda x: is_valid_file(parser, x),
                         help="write report to FILE", metavar="FILE")
