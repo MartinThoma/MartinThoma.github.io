@@ -20,7 +20,9 @@ I had to install <code>python-argparse</code> on my old Ubuntu machine before I 
 As far as I've just tried it, you can use argparse very similar to optparse. See this <a href="https://github.com/MartinThoma/matrix-multiplication/commit/7af938c54fd2effee3efe74352b76f01d2e817e5#Python/ikjMultiplication.py">diff</a> for my switch from optparse to argparse for a simple script.
 
 It is very easy to add command line <del>options</del> argument (if you require an option, it would not be an option any more, would it? I'll try to call them arguments from now on):
-{% highlight python %}#!/usr/bin/env python
+
+```python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
 from argparse import ArgumentParser
@@ -36,7 +38,8 @@ parser.add_argument("-q", "--quiet",
 
 args = parser.parse_args()
 
-print(args.myFilenameVariable){% endhighlight %}
+print(args.myFilenameVariable)
+```
 
 Every option has some values like:
 <ul>
@@ -101,7 +104,9 @@ if __name__ == "__main__":
 Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse. 
 
 <h3>Example 2: less</h3>
-{% highlight python %}#!/usr/bin/env python
+
+```python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
  
 def mul(A, B):
@@ -138,8 +143,43 @@ if __name__ == "__main__":
        
     f = open(args.filename, 'r')
     for i in xrange(args.n):
-        print f.readline(){% endhighlight %}
+        print f.readline()
+```
 
+## Example 3: My copy-paste template
+
+This is how I use it most of the time. I want to show defaults in help:
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+def is_valid_file(parser, arg):
+    """Check if arg is a valid file that already exists on the file system."""
+    arg = os.path.abspath(arg)
+    if not os.path.exists(arg):
+        parser.error("The file %s does not exist!" % arg)
+    else:
+        return arg
+
+
+if __name__ == "__main__":
+    import argparse, ArgumentDefaultsHelpFormatter
+    parser = argparse.ArgumentParser(description=__doc__,
+                                     formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument("-f", "--file", dest="filename",
+                        type=lambda x: is_valid_file(parser, x),
+                        help="write report to FILE", metavar="FILE")
+    parser.add_argument("-n", 
+                        dest="n", default=10, type=int, 
+                        help="how many lines get printed")
+    parser.add_argument("-q", "--quiet",
+                        action="store_false", dest="verbose",
+                        default=True,
+                        help="don't print status messages to stdout")
+    args = parser.parse_args()
+```
 
 
 <h2>Optparse</h2>
