@@ -62,3 +62,8 @@ grep -rI "onlytextSearchterm" .
 
 An alternative to `grep` is `ack` (for Ubuntu users: `ack-grep`).
 See [beyondgrep.com](http://beyondgrep.com/).
+
+## Windows
+
+It seems to be possible to get something similar (the same?) for Windows. See
+[OH MY CYGWIN](https://github.com/haithembelhaj/oh-my-cygwin/blob/master/README.md).

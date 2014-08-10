@@ -130,11 +130,11 @@ for (int element : myList) {
 for nr, element in enumerate(myList):
 	print("%i: %i" % (nr, element)){% endhighlight %}
 
-<h3>Named String formatting</h3>
+### Named String formatting
 Python allows you to give parameters names:
 {% highlight python %}print("The %(foo)s is %(bar)i." % {'foo': 'answer', 'bar':42}){% endhighlight %}
 
-<h3>any() and all()</h3>
+### any() and all()
 <strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
 <strong>Most languages</strong>:
 {% highlight java %}List myList = (List initialisation and assignment of many values)
@@ -159,15 +159,23 @@ if not any(isPrime(x) for x in myList):
 See also: <a href="http://stackoverflow.com/questions/10958874/exists-keyword-in-python">StackOverflow answer from steveha</a>.
 
 
-<h2>Testing and Documentation</h2>
-<h3>Doctest</h3>
+## Testing and Documentation
+
+### Doctest
 You can write Documentation and Unit-Tests at the same time! Take a look at <a href="http://docs.python.org/library/doctest.html">doctest &mdash; Test interactive Python examples</a>.
 
-<h2>The Rest</h2>
-<h3>Lists and Generators</h3>
+### Sphinx
+Documentation can be generated from partially docstrings, partially rst files
+with [Sphinx](http://sphinx-doc.org/tutorial.html).
+It can be uploaded to [pythonhosted.org](http://pythonhosted.org/) just like [neurolab](https://pythonhosted.org/neurolab/index.html) did it (see also [sphinx](https://pythonhosted.org/an_example_pypi_project/sphinx.html)).
+
+
+## The Rest
+
+### Lists and Generators
 I already wrote an article about <a href="../understanding-python-lists/" title="Understanding Python Lists">Python Lists</a> and <a href="../python-generators/" title="Python Generators">Python Generators</a>. I love Pythons lists :-)
 
-<h3>for ... else</h3>
+### for ... else
 <strong>Description</strong>: You have a very long list and you want to know, if a prime is in this list.
 <strong>Most languages</strong>:
 {% highlight java %}List myList = (List initialisation and assignment of many values)
@@ -192,14 +200,16 @@ for element in myList:
 else:
     print("The list did not containe a prime."){% endhighlight %}
 
-<h3>Step through lists</h3>
+### Step through lists
 <strong>Description</strong>: Print only every n-th element of an iterable.
 
 {% highlight python %}for element in myList[::n]:
     print elemenet{% endhighlight %}
 
-<h3>Dynamically add properties to objects and classes</h3>
-{% highlight python %}class Node(object):
+### Dynamically add properties to objects and classes
+
+```python
+class Node(object):
     value = 3
 
 a = Node()
@@ -216,12 +226,17 @@ print a.color
 
 # You can even add a property to the class
 Node.special = "here is it"
-print b.special{% endhighlight %}
+print b.special
+```
 
-<h3>Imaginary numbers</h3>
+### Imaginary numbers
 Python directly supports usage of imaginary numbers:
-{% highlight python %}(2j + 1)**2{% endhighlight %}
-Output: (-3+4j)
 
-<h2>Read also</h2>
+```python
+(2j + 1)**2
+```
+
+Output: `(-3+4j)`
+
+## Read also
 <a href="http://docs.python.org/tutorial/introduction.html">An Informal Introduction to Python</a>
