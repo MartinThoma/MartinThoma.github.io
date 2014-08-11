@@ -2,7 +2,7 @@
 layout: post
 title: Start long running processes via SSH
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-08-11 14:51
 categories:
 - Code
 tags:
@@ -18,6 +18,8 @@ featured_image: logos/shell.png
 used to detach long running processes from the current SSH session - and be able
 to get it again!
 
+
+### Basic usage
 You start it with
 
 ```bash
@@ -35,6 +37,20 @@ You get it back again with:
 
 ```bash
 $ screen -r
+```
+
+### Named sessions
+
+You can start a named session with
+
+```bash
+$ screen -S foo
+```
+
+and get it back with
+
+```bash
+$ screen -r foo
 ```
 
 ## nohup
