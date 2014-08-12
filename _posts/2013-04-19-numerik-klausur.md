@@ -136,7 +136,7 @@ Die Aufgabenbl&auml;tter stehen <a href="http://www.math.kit.edu/ianm3/lehre/num
 <h2>Material</h2>
 <ul>
   <li><a href="http://www.math.kit.edu/ianm3/lehre/numainfing2013s/de">Vorlesungswebsite</a></li>
-  <li><a href="https://ankiweb.net/shared/info/3163682033">Mein Anki-Deck</a> (erst 12 Karten; es ist noch im Aufbau)</li>
+  <li><a href="https://ankiweb.net/shared/info/3163682033">Mein Anki-Deck</a> (nur 12 Karten)</li>
   <li><a href="../polynomial-interpolation/">Polynom- und Spline-Interpolation</a>: Ein interaktives Beispiel</li>
   <li><a href="http://schickling.github.io/algorithms/#/">schickling.github.io</a>: Viele Implementierungen</li>
   <li>Pseudocode
@@ -198,11 +198,11 @@ Klausureinteilung entsprechend des Anfangsbuchstabens des Nachnamens:
   </tr>
 </table>
 
-<strong>Punkte</strong>: ?
-<strong>Bestehensgrenze</strong>: ?
-<strong>&Uuml;bungsschein</strong>: Verpflichtend (ist inzwischen auch eingetragen)
-<strong>Bonuspunkte</strong>: Gibt es nicht
-<strong>Einsicht</strong>: Termin noch nicht bekannt (Stand: 22.09.2013)
+<strong>Punkte</strong>: ?<br/>
+<strong>Bestehensgrenze</strong>: ?<br/>
+<strong>&Uuml;bungsschein</strong>: Verpflichtend (ist inzwischen auch eingetragen)<br/>
+<strong>Bonuspunkte</strong>: Gibt es nicht<br/>
+<strong>Einsicht</strong>: Termin noch nicht bekannt (Stand: 22.09.2013)<br/>
 
 <h2>Nicht vergessen</h2>
 <ul>
