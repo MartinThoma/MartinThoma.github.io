@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Java Puzzle #5: Parallel Programming, Part 2</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -83,8 +83,8 @@
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">globalVar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 
-        <span class="n">MyParallelClass</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyParallelClass</span><span class="o">();</span>
-        <span class="n">MyParallelClass</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyParallelClass</span><span class="o">();</span>
+        <span class="n">MyParallelClass</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MyParallelClass</span><span class="o">();</span>
+        <span class="n">MyParallelClass</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MyParallelClass</span><span class="o">();</span>
 
         <span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
         <span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
@@ -168,19 +168,19 @@
 </tr>
 <tr>
 <td>
-<div class="highlight"><pre><code class="text">checks if (globalVar &gt; 0)
+<div class="highlight"><pre><code class="language-text" data-lang="text">checks if (globalVar &gt; 0)
 looping ... 
 looping ... 
 execute test.globalVar--;</code></pre></div>
 </td>
 <td>
-<div class="highlight"><pre><code class="text">.
+<div class="highlight"><pre><code class="language-text" data-lang="text">.
 checks if (globalVar &gt; 0)
 execute all four bytecode commands of "test.globalVar--;"
 .</code></pre></div>
 </td>
 <td>
-<div class="highlight"><pre><code class="text">1
+<div class="highlight"><pre><code class="language-text" data-lang="text">1
 1
 0
 -1</code></pre></div>
@@ -200,7 +200,7 @@ execute all four bytecode commands of "test.globalVar--;"
 <p>With <code>javap -c MyParallelClass</code> you can view the <a href="http://en.wikipedia.org/wiki/Java_bytecode">bytecode</a> of the class <code>MyParallelClass</code>. It looks like this:</p>
 
 <div class="highlight">
-   <pre><code class="java"><span class="n">Compiled</span> <span class="n">from</span> <span class="s">"MyParallelClass.java"</span>
+   <pre><code class="language-java" data-lang="java"><span class="n">Compiled</span> <span class="n">from</span> <span class="s">"MyParallelClass.java"</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyParallelClass</span> <span class="kd">extends</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Object</span> 
                         <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Runnable</span><span class="o">{</span>
 <span class="kd">public</span> <span class="kt">int</span> <span class="n">counter</span><span class="o">;</span>
@@ -245,7 +245,7 @@ execute all four bytecode commands of "test.globalVar--;"
 <p>The interesting part of the bytecode is:</p>
 
 <div class="highlight">
-   <pre><code class="java"><span class="mi">30</span><span class="o">:</span>   <span class="n">getstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
+   <pre><code class="language-java" data-lang="java"><span class="mi">30</span><span class="o">:</span> <span class="n">getstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
    <span class="mi">33</span><span class="o">:</span>   <span class="n">iconst_1</span>
    <span class="mi">34</span><span class="o">:</span>   <span class="n">isub</span>
    <span class="mi">35</span><span class="o">:</span>   <span class="n">putstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span></code></pre>

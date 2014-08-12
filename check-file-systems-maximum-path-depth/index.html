@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Check File Systems maximum path depth</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -78,7 +78,7 @@
                             <p>Today, I've wondered how deep a path could be at maximum. I've guessed the file system may be limiting that, but perhaps also some tools that I use for basic operations like listing a folders contents would fail before. So I've created the following C-Snippet to test it:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;sys/stat.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;sys/stat.h&gt;</span>
 <span class="cp">#include &lt;sys/types.h&gt;</span>
 <span class="cp">#include &lt;stdio.h&gt;</span>
 <span class="cp">#include &lt;string.h&gt;</span>
@@ -124,9 +124,9 @@
 <p>Now run it:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="sb">`</span><span class="nv">$ </span><span class="nb">time</span> ./createDirectories 
+   <pre><code class="language-bash" data-lang="bash"><span class="sb">`</span><span class="nv">$ </span><span class="nb">time</span> ./createDirectories 
 
-<span class="k">return </span>code      : -1
+<span class="k">return</span> code      : -1
 Created sub-directories : 1018
 length of pathname  : 4096
 
@@ -138,7 +138,7 @@ sys 0m0.180s</code></pre>
 <p>Ok, something went wrong at the end. Lets see what crashes when I enter this path in Gnome terminal</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nv">$`</span> <span class="nb">cd </span>one/one/one .... one/
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$`</span> <span class="nb">cd </span>one/one/one .... one/
 <span class="sb">`</span><span class="nv">$ </span>mkdir two
 <span class="nv">$`</span> <span class="nb">cd </span>two
 <span class="nb">cd</span>: error retrieving current directory: getcwd: cannot access 
@@ -157,8 +157,8 @@ Now I created a folder called "three" and one called "this". I entered both of t
 <p>When I use a single character for sub-directories, I get:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~/Desktop/Test<span class="nv">$`</span> ./createDirectories 
-<span class="k">return </span>code      : -1
+   <pre><code class="language-bash" data-lang="bash">moose@pc07:~/Desktop/Test<span class="nv">$`</span> ./createDirectories 
+<span class="k">return</span> code      : -1
 Created sub-directories : 2036
 length of pathname  : 4096</code></pre>
 </div>
@@ -168,7 +168,7 @@ length of pathname  : 4096</code></pre>
 <p>Do you know how many folders can fit into one folder? Well, lets find out:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;sys/stat.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;sys/stat.h&gt;</span>
 <span class="cp">#include &lt;sys/types.h&gt;</span>
 <span class="cp">#include &lt;stdio.h&gt;</span>
 <span class="cp">#include &lt;string.h&gt;</span>
@@ -228,7 +228,7 @@ length of pathname  : 4096</code></pre>
 <p>I've executed it and after eight minutes I canceled the execution.</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nv">$ </span>ls <span class="p">|</span> wc -l
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ls <span class="p">|</span> wc -l
 378463</code></pre>
 </div>
 

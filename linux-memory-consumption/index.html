@@ -11,7 +11,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Linux Memory Consumption</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -94,11 +94,11 @@
 <p>I've you want to check your memory consumption on a Linux machine, you can use free.</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~<span class="sb">`</span><span class="nv">$ </span>free -m
+   <pre><code class="language-bash" data-lang="bash">moose@pc07:~<span class="sb">`</span><span class="nv">$ </span>free -m
              total       used       free     shared    buffers     cached
-Mem:          3952       2832       1119          0        117       1565
--/+ buffers/cache:       1150       2802
-Swap:         8656          0       8656</code></pre>
+Mem:          <span class="m">3952</span>       <span class="m">2832</span>       <span class="m">1119</span>          <span class="m">0</span>        <span class="m">117</span>       1565
+-/+ buffers/cache:       <span class="m">1150</span>       2802
+Swap:         <span class="m">8656</span>          <span class="m">0</span>       8656</code></pre>
 </div>
 
 <p>This means: I have a total of 3952 MB <a href="http://en.wikipedia.org/wiki/Random-access_memory">RAM</a>, used and free should be clear, shared is memory which is shared between processes, e.g. shared libraries. The "buffers" entry tells you how much of your RAM is being used for disk buffering. Over 8 GB got swapped out.</p>
@@ -119,107 +119,107 @@ Swap:         8656          0       8656</code></pre>
 <p>pmap reports a memory map of a process. Lets make an example. Eclipse has the process ID (pid) 4526 at the moment.</p>
 
 <div class="highlight">
-   <pre><code class="bash">pmap 4526</code></pre>
+   <pre><code class="language-bash" data-lang="bash">pmap 4526</code></pre>
 </div>
 
 <p>gives the following output:</p>
 
 <div class="highlight">
-   <pre><code class="bash">4526:   /usr/lib/eclipse/eclipse
+   <pre><code class="language-bash" data-lang="bash">4526:   /usr/lib/eclipse/eclipse
 Address   Kbytes Mode  Offset           Device    Mapping
-08048000      16 r-x-- 0000000000000000 008:00001 eclipse
-0804c000       4 r---- 0000000000003000 008:00001 eclipse
-0804d000       4 rw--- 0000000000004000 008:00001 eclipse
-096c4000   11608 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-62e40000   43776 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-65900000  130944 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-6d8e0000   87424 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-72e40000  262144 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-82e40000   44800 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-85a00000     512 ----- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-85a80000  216832 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-92e40000    6312 r--s- 0000000000001000 008:00001 classes.jsa
-9346a000    3928 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-93840000    7412 rw--- 000000000062b000 008:00001 classes.jsa
-93f7d000    4876 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-94440000     904 rw--- 0000000000d68000 008:00001 classes.jsa
-94522000    3192 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-94840000      32 r-xs- 0000000000e4a000 008:00001 classes.jsa
-94848000    4064 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b17f5000      44 r--s- 0000000000070000 008:00001 org.eclipse.jdt.junit_3.5.2.r352_v20100113-0800.jar
-b1800000     144 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b1824000     880 ----- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b1909000      12 ----- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b190c000     312 rwx-- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b195a000      12 ----- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b195d000     312 rwx-- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b19ab000      12 ----- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b19ae000     312 rwx-- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b19fc000      12 ----- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b19ff000     312 rwx-- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b1a4d000      16 r-x-- 0000000000000000 008:00001 libattr.so.1.1.0
-b1a51000       4 r---- 0000000000003000 008:00001 libattr.so.1.1.0
-b1a52000       4 rw--- 0000000000004000 008:00001 libattr.so.1.1.0
-b1a53000      24 r-x-- 0000000000000000 008:00001 libfam.so.0.0.0
-b1a59000       4 r---- 0000000000006000 008:00001 libfam.so.0.0.0
-b1a5a000       4 rw--- 0000000000007000 008:00001 libfam.so.0.0.0
-b1a5b000      24 r-x-- 0000000000000000 008:00001 libacl.so.1.1.0
-b1a61000       4 r---- 0000000000006000 008:00001 libacl.so.1.1.0
-b1a62000       4 rw--- 0000000000007000 008:00001 libacl.so.1.1.0
-b1a63000      48 r-x-- 0000000000000000 008:00001 libfile.so
-b1a6f000       4 r---- 000000000000b000 008:00001 libfile.so
-b1a70000       4 rw--- 000000000000c000 008:00001 libfile.so
-b1a71000     100 r--s- 0000000000000000 008:00001 mime.cache
-b1a8a000      12 r-x-- 0000000000000000 008:00001 libgpg-error.so.0.4.0
-b1a8d000       4 r---- 0000000000002000 008:00001 libgpg-error.so.0.4.0
+<span class="m">08048000</span>      <span class="m">16</span> r-x-- <span class="m">0000000000000000</span> 008:00001 eclipse
+0804c000       <span class="m">4</span> r---- <span class="m">0000000000003000</span> 008:00001 eclipse
+0804d000       <span class="m">4</span> rw--- <span class="m">0000000000004000</span> 008:00001 eclipse
+096c4000   <span class="m">11608</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+62e40000   <span class="m">43776</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">65900000</span>  <span class="m">130944</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+6d8e0000   <span class="m">87424</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+72e40000  <span class="m">262144</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+82e40000   <span class="m">44800</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+85a00000     <span class="m">512</span> ----- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+85a80000  <span class="m">216832</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+92e40000    <span class="m">6312</span> r--s- <span class="m">0000000000001000</span> 008:00001 classes.jsa
+9346a000    <span class="m">3928</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">93840000</span>    <span class="m">7412</span> rw--- 000000000062b000 008:00001 classes.jsa
+93f7d000    <span class="m">4876</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">94440000</span>     <span class="m">904</span> rw--- 0000000000d68000 008:00001 classes.jsa
+<span class="m">94522000</span>    <span class="m">3192</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+<span class="m">94840000</span>      <span class="m">32</span> r-xs- 0000000000e4a000 008:00001 classes.jsa
+<span class="m">94848000</span>    <span class="m">4064</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b17f5000      <span class="m">44</span> r--s- <span class="m">0000000000070000</span> 008:00001 org.eclipse.jdt.junit_3.5.2.r352_v20100113-0800.jar
+b1800000     <span class="m">144</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b1824000     <span class="m">880</span> ----- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b1909000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b190c000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b195a000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b195d000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19ab000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19ae000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19fc000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b19ff000     <span class="m">312</span> rwx-- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b1a4d000      <span class="m">16</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libattr.so.1.1.0
+b1a51000       <span class="m">4</span> r---- <span class="m">0000000000003000</span> 008:00001 libattr.so.1.1.0
+b1a52000       <span class="m">4</span> rw--- <span class="m">0000000000004000</span> 008:00001 libattr.so.1.1.0
+b1a53000      <span class="m">24</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libfam.so.0.0.0
+b1a59000       <span class="m">4</span> r---- <span class="m">0000000000006000</span> 008:00001 libfam.so.0.0.0
+b1a5a000       <span class="m">4</span> rw--- <span class="m">0000000000007000</span> 008:00001 libfam.so.0.0.0
+b1a5b000      <span class="m">24</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libacl.so.1.1.0
+b1a61000       <span class="m">4</span> r---- <span class="m">0000000000006000</span> 008:00001 libacl.so.1.1.0
+b1a62000       <span class="m">4</span> rw--- <span class="m">0000000000007000</span> 008:00001 libacl.so.1.1.0
+b1a63000      <span class="m">48</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libfile.so
+b1a6f000       <span class="m">4</span> r---- 000000000000b000 008:00001 libfile.so
+b1a70000       <span class="m">4</span> rw--- 000000000000c000 008:00001 libfile.so
+b1a71000     <span class="m">100</span> r--s- <span class="m">0000000000000000</span> 008:00001 mime.cache
+b1a8a000      <span class="m">12</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libgpg-error.so.0.4.0
+b1a8d000       <span class="m">4</span> r---- <span class="m">0000000000002000</span> 008:00001 libgpg-error.so.0.4.0
 <span class="o">[</span>...<span class="o">]</span>
-b755a000       4 r--s- 0000000000001000 008:00001 runtime_registry_compatibility.jar
-b755b000       4 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b755c000      28 r-x-- 0000000000000000 008:00001 libvorbisfile.so.3.3.2
-b7563000       4 r---- 0000000000006000 008:00001 libvorbisfile.so.3.3.2
-b7564000       4 rw--- 0000000000007000 008:00001 libvorbisfile.so.3.3.2
-b7565000      16 r-x-- 0000000000000000 008:00001 libcanberra-gtk-module.so
-b7569000       4 ----- 0000000000004000 008:00001 libcanberra-gtk-module.so
-b756a000       4 r---- 0000000000004000 008:00001 libcanberra-gtk-module.so
-b756b000       4 rw--- 0000000000005000 008:00001 libcanberra-gtk-module.so
-b756c000      44 r-x-- 0000000000000000 008:00001 eclipse_1208.so
-b7577000       4 r---- 000000000000a000 008:00001 eclipse_1208.so
-b7578000       4 rw--- 000000000000b000 008:00001 eclipse_1208.so
-b7579000     252 r---- 0000000000000000 008:00001 LC_CTYPE
-b75b8000    1144 r---- 0000000000000000 008:00001 LC_COLLATE
-b76d6000       4 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b76d7000    1356 r-x-- 0000000000000000 008:00001 libc-2.11.1.so
-b782a000       4 ----- 0000000000153000 008:00001 libc-2.11.1.so
-b782b000       8 r---- 0000000000153000 008:00001 libc-2.11.1.so
-b782d000       4 rw--- 0000000000155000 008:00001 libc-2.11.1.so
-b782e000      16 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b7832000       8 r-x-- 0000000000000000 008:00001 libdl-2.11.1.so
-b7834000       4 r---- 0000000000001000 008:00001 libdl-2.11.1.so
-b7835000       4 rw--- 0000000000002000 008:00001 libdl-2.11.1.so
-b7836000      84 r-x-- 0000000000000000 008:00001 libpthread-2.11.1.so
-b784b000       4 r---- 0000000000014000 008:00001 libpthread-2.11.1.so
-b784c000       4 rw--- 0000000000015000 008:00001 libpthread-2.11.1.so
-b784d000       8 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b784f000       4 r---- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b7850000       4 r---- 0000000000000000 008:00001 LC_NUMERIC
-b7851000       4 r---- 0000000000000000 008:00001 LC_TIME
-b7852000       4 r---- 0000000000000000 008:00001 LC_MONETARY
-b7853000       4 r---- 0000000000000000 008:00001 SYS_LC_MESSAGES
-b7854000       4 r---- 0000000000000000 008:00001 LC_PAPER
-b7855000       4 r---- 0000000000000000 008:00001 LC_NAME
-b7856000       4 r---- 0000000000000000 008:00001 LC_ADDRESS
-b7857000       4 r---- 0000000000000000 008:00001 LC_TELEPHONE
-b7858000       4 r---- 0000000000000000 008:00001 LC_MEASUREMENT
-b7859000      28 r--s- 0000000000000000 008:00001 gconv-modules.cache
-b7860000       4 r---- 0000000000000000 008:00001 LC_IDENTIFICATION
-b7861000       8 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b7863000       4 r-x-- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-b7864000     108 r-x-- 0000000000000000 008:00001 ld-2.11.1.so
-b787f000       4 r---- 000000000001a000 008:00001 ld-2.11.1.so
-b7880000       4 rw--- 000000000001b000 008:00001 ld-2.11.1.so
-bfa49000      12 ----- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
-bfa4d000     304 rwx-- 0000000000000000 000:00000   <span class="o">[</span> stack <span class="o">]</span>
-bfa99000       4 rw--- 0000000000000000 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b755a000       <span class="m">4</span> r--s- <span class="m">0000000000001000</span> 008:00001 runtime_registry_compatibility.jar
+b755b000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b755c000      <span class="m">28</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libvorbisfile.so.3.3.2
+b7563000       <span class="m">4</span> r---- <span class="m">0000000000006000</span> 008:00001 libvorbisfile.so.3.3.2
+b7564000       <span class="m">4</span> rw--- <span class="m">0000000000007000</span> 008:00001 libvorbisfile.so.3.3.2
+b7565000      <span class="m">16</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libcanberra-gtk-module.so
+b7569000       <span class="m">4</span> ----- <span class="m">0000000000004000</span> 008:00001 libcanberra-gtk-module.so
+b756a000       <span class="m">4</span> r---- <span class="m">0000000000004000</span> 008:00001 libcanberra-gtk-module.so
+b756b000       <span class="m">4</span> rw--- <span class="m">0000000000005000</span> 008:00001 libcanberra-gtk-module.so
+b756c000      <span class="m">44</span> r-x-- <span class="m">0000000000000000</span> 008:00001 eclipse_1208.so
+b7577000       <span class="m">4</span> r---- 000000000000a000 008:00001 eclipse_1208.so
+b7578000       <span class="m">4</span> rw--- 000000000000b000 008:00001 eclipse_1208.so
+b7579000     <span class="m">252</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_CTYPE
+b75b8000    <span class="m">1144</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_COLLATE
+b76d6000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b76d7000    <span class="m">1356</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libc-2.11.1.so
+b782a000       <span class="m">4</span> ----- <span class="m">0000000000153000</span> 008:00001 libc-2.11.1.so
+b782b000       <span class="m">8</span> r---- <span class="m">0000000000153000</span> 008:00001 libc-2.11.1.so
+b782d000       <span class="m">4</span> rw--- <span class="m">0000000000155000</span> 008:00001 libc-2.11.1.so
+b782e000      <span class="m">16</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7832000       <span class="m">8</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libdl-2.11.1.so
+b7834000       <span class="m">4</span> r---- <span class="m">0000000000001000</span> 008:00001 libdl-2.11.1.so
+b7835000       <span class="m">4</span> rw--- <span class="m">0000000000002000</span> 008:00001 libdl-2.11.1.so
+b7836000      <span class="m">84</span> r-x-- <span class="m">0000000000000000</span> 008:00001 libpthread-2.11.1.so
+b784b000       <span class="m">4</span> r---- <span class="m">0000000000014000</span> 008:00001 libpthread-2.11.1.so
+b784c000       <span class="m">4</span> rw--- <span class="m">0000000000015000</span> 008:00001 libpthread-2.11.1.so
+b784d000       <span class="m">8</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b784f000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7850000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_NUMERIC
+b7851000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_TIME
+b7852000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_MONETARY
+b7853000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 SYS_LC_MESSAGES
+b7854000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_PAPER
+b7855000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_NAME
+b7856000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_ADDRESS
+b7857000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_TELEPHONE
+b7858000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_MEASUREMENT
+b7859000      <span class="m">28</span> r--s- <span class="m">0000000000000000</span> 008:00001 gconv-modules.cache
+b7860000       <span class="m">4</span> r---- <span class="m">0000000000000000</span> 008:00001 LC_IDENTIFICATION
+b7861000       <span class="m">8</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7863000       <span class="m">4</span> r-x-- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+b7864000     <span class="m">108</span> r-x-- <span class="m">0000000000000000</span> 008:00001 ld-2.11.1.so
+b787f000       <span class="m">4</span> r---- 000000000001a000 008:00001 ld-2.11.1.so
+b7880000       <span class="m">4</span> rw--- 000000000001b000 008:00001 ld-2.11.1.so
+bfa49000      <span class="m">12</span> ----- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
+bfa4d000     <span class="m">304</span> rwx-- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> stack <span class="o">]</span>
+bfa99000       <span class="m">4</span> rw--- <span class="m">0000000000000000</span> 000:00000   <span class="o">[</span> anon <span class="o">]</span>
 mapped: 927836K    writeable/private: 881752K    shared: 13572K</code></pre>
 </div>
 
@@ -232,10 +232,10 @@ mapped: 927836K    writeable/private: 881752K    shared: 13572K</code></pre>
 <p>Here is the example:</p>
 
 <div class="highlight">
-   <pre><code class="bash">moose@pc07:~<span class="nv">$`</span> vmstat 
+   <pre><code class="language-bash" data-lang="bash">moose@pc07:~<span class="nv">$`</span> vmstat 
 procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
- 0  0      0 1120696 119948 1599112    0    0    21    35  416  116 12  5 82  1</code></pre>
+ <span class="m">0</span>  <span class="m">0</span>      <span class="m">0</span> <span class="m">1120696</span> <span class="m">119948</span> <span class="m">1599112</span>    <span class="m">0</span>    <span class="m">0</span>    <span class="m">21</span>    <span class="m">35</span>  <span class="m">416</span>  <span class="m">116</span> <span class="m">12</span>  <span class="m">5</span> <span class="m">82</span>  1</code></pre>
 </div>
 
 <p>--memory--

@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Generating many prime numbers</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -123,7 +123,7 @@
 </div><h2 id="tocAnchor-1-1">Trivial approach</h2>
 
 <div class="highlight">
-   <pre><code class="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
+   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
 <span class="cp">#include &lt;cmath&gt; </span><span class="c1">// sqrt</span>
 <span class="cp">#include &lt;vector&gt;</span>
  
@@ -162,7 +162,7 @@
 <p>Execute it for 100,000,000:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 100000000 &gt; primes.txt
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out <span class="m">100000000</span> &gt; primes.txt
 
 real    0m57.274s
 user    0m41.855s
@@ -174,7 +174,7 @@ sys 0m15.229s</code></pre>
 <p>Now, lets test it for 1,000,000,000:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000 &gt; primes.txt
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; primes.txt
 
 real    18m18.205s
 user    15m56.904s
@@ -188,7 +188,7 @@ sys 2m12.500s</code></pre>
 <h3 id="tocAnchor-1-2-1">A first try</h3>
 
 <div class="highlight">
-   <pre><code class="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
+   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt; </span><span class="c1">// cin, cout</span>
 <span class="cp">#include &lt;vector&gt;</span>
  
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -216,7 +216,7 @@ sys 2m12.500s</code></pre>
 <p>This one takes 1 minute 5 seconds:</p>
 
 <div class="highlight">
-   <pre><code class="bash">make<span class="p">;</span><span class="nb">time</span> ./generate-prime-list.out 1000000000 &gt; testPrimes.txt
+   <pre><code class="language-bash" data-lang="bash">make<span class="p">;</span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; testPrimes.txt
 g++ -std<span class="o">=</span>c++0x -Wall -pedantic -O3 -D NDEBUG generate-prime-list.cpp -o generate-prime-list.out
 
 real    3m20.436s
@@ -231,7 +231,7 @@ sys 2m11.748s</code></pre>
 <p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
 
 <div class="highlight">
-   <pre><code class="cpp"><span class="cp">#include &lt;fstream&gt; </span><span class="c1">// ofstream</span>
+   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;fstream&gt; </span><span class="c1">// ofstream</span>
 <span class="cp">#include &lt;vector&gt;</span>
  
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -260,7 +260,7 @@ sys 2m11.748s</code></pre>
 </div>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
 real    3m21.249s
 user    1m4.016s
@@ -274,7 +274,7 @@ sys 2m12.332s</code></pre>
 <p>That was a good try. Now it needs only 46 seconds:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
 real    0m49.539s
 user    0m46.619s
@@ -284,7 +284,7 @@ sys 0m0.920s</code></pre>
 <p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
 
 <div class="highlight">
-   <pre><code class="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
+   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
 <span class="cp">#include &lt;iostream&gt; </span><span class="c1">// atoi</span>
 <span class="cp">#include &lt;vector&gt;</span>
 
@@ -320,7 +320,7 @@ sys 0m0.920s</code></pre>
 <p>And execute it:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
 real    0m39.700s
 user    0m38.546s
@@ -334,7 +334,7 @@ sys 0m0.640s</code></pre>
 <p>You can get the list with this snippet:</p>
 
 <div class="highlight">
-   <pre><code class="cpp"><span class="cp">#include &lt;iostream&gt;</span>
+   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt;</span>
 <span class="cp">#include &lt;fstream&gt;</span>
 
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -368,7 +368,7 @@ sys 0m0.640s</code></pre>
 <p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j*i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2*p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime. </p>
 
 <div class="highlight">
-   <pre><code class="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
+   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
 <span class="cp">#include &lt;iostream&gt; </span><span class="c1">// atoi</span>
 <span class="cp">#include &lt;vector&gt;</span>
  
@@ -408,7 +408,7 @@ sys 0m0.640s</code></pre>
 <p>Execute:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
 real    0m24.222s
 user    0m23.485s
@@ -428,7 +428,7 @@ sys 0m0.436s</code></pre>
 <h3 id="tocAnchor-1-7-1">My first implementation</h3>
 
 <div class="highlight">
-   <pre><code class="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
+   <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
 <span class="cp">#include &lt;iostream&gt; </span><span class="c1">// atoi</span>
 <span class="cp">#include &lt;vector&gt;</span>
 <span class="cp">#include &lt;cmath&gt; </span><span class="c1">// sqrt, ceil, </span>
@@ -509,7 +509,7 @@ sys 0m0.436s</code></pre>
 <p>Atkins sieve has a much worse performance than Sieve of Eratosthenes:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
 real    1m6.001s
 user    1m4.724s
@@ -525,7 +525,7 @@ sys 0m0.604s</code></pre>
 <p>Primegen is fast:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time</span> ./primes &gt; primes.txt
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./primes &gt; primes.txt
 
 real    0m11.677s
 user    0m10.649s

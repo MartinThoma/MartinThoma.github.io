@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Polynomial interpolation</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -145,7 +145,7 @@ y_n
 <p>You might want to take a look at my article about <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
   
 <span class="k">def</span> <span class="nf">pprintGaus</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -249,7 +249,7 @@ y_n
 <p>It is also interesting to get the value of $p(x)$ at any given point $x \in \mathbb{R}$:</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="k">def</span> <span class="nf">evaluatePolynomial</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+   <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">evaluatePolynomial</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">xi</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
@@ -296,7 +296,7 @@ Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number
 <p>Lagranges way to interpolate polynomials can be implemented like this:</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="k">def</span> <span class="nf">lagrangeInterpolation</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+   <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">lagrangeInterpolation</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)):</span>
         <span class="n">Li</span> <span class="o">=</span> <span class="p">{</span><span class="s">"y"</span><span class="p">:</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">"y"</span><span class="p">],</span> <span class="s">"polynomial"</span><span class="p">:[]}</span>
@@ -355,7 +355,7 @@ Space complexity for the polynomial: $<code>\mathcal{O}(n^2)</code>$ (where $<co
 <p>You can get this lower triangular matrix like this:</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="k">def</span> <span class="nf">getGaussSystemForNewton</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+   <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">getGaussSystemForNewton</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>

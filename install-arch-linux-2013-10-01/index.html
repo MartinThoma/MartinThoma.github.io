@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>How to install Arch Linux 2013.10.01</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -112,7 +112,7 @@
 <p>You can switch to a German keyboard layout with this command:</p>
 
 <div class="highlight">
-   <pre><code class="bash">loadkeys de</code></pre>
+   <pre><code class="language-bash" data-lang="bash">loadkeys de</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Partitioning and mounting</h2>
@@ -122,14 +122,14 @@
 <p>Check the result with</p>
 
 <div class="highlight">
-   <pre><code class="bash">parted /dev/sda print
+   <pre><code class="language-bash" data-lang="bash">parted /dev/sda print
 fdisk -l</code></pre>
 </div>
 
 <p>Afterwards:</p>
 
 <div class="highlight">
-   <pre><code class="bash">mkfs.ext4 /dev/sda1
+   <pre><code class="language-bash" data-lang="bash">mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/sda3
 mkswap /dev/sda2
 swapon /dev/sda2
@@ -143,7 +143,7 @@ mount /dev/sda3 /mnt/home/</code></pre>
 <p>I only have WLAN at the moment, which makes things more difficult:</p>
 
 <div class="highlight">
-   <pre><code class="bash">wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
+   <pre><code class="language-bash" data-lang="bash">wpa_passphrase <span class="s2">"SSID"</span> PASSWORD &gt; /etc/wpa_supplicant/wpa_supplicant.conf
 wpa_supplicant -i wlp4so -D wext -c /etc/wpa_supplicant/wpa_supplicant.conf -B
 dhcpcd wlp4s0</code></pre>
 </div>
@@ -155,13 +155,13 @@ dhcpcd wlp4s0</code></pre>
 <h2 id="tocAnchor-1-4">Install base system</h2>
 
 <div class="highlight">
-   <pre><code class="bash">packstrap -i /mnt base base base-devel</code></pre>
+   <pre><code class="language-bash" data-lang="bash">packstrap -i /mnt base base base-devel</code></pre>
 </div>
 
 <p>After accepting all defaults (by pressing enter) and letting it download:</p>
 
 <div class="highlight">
-   <pre><code class="bash">genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
+   <pre><code class="language-bash" data-lang="bash">genfstab -U -p /mnt  :  sed <span class="s1">'s/rw,realtime,data=ordered/defaults,realtime/'</span> &gt;&gt; /mnt/etc/fstab
 arch-chroot /mnt
 nano /etc/locale.gen</code></pre>
 </div>
@@ -169,7 +169,7 @@ nano /etc/locale.gen</code></pre>
 <p>Uncomment your language (from now on, your promt should be "sh-4.2#").</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nv">locale</span><span class="o">=</span>gen
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">locale</span><span class="o">=</span>gen
 <span class="nb">echo </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
 <span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
 ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
@@ -180,27 +180,27 @@ systemctl <span class="nb">enable </span>dhcpcd.service</code></pre>
 <p>Now edit and uncomment multilib. Then:</p>
 
 <div class="highlight">
-   <pre><code class="bash">mkinitcpio -p linux</code></pre>
+   <pre><code class="language-bash" data-lang="bash">mkinitcpio -p linux</code></pre>
 </div>
 
 <p>Now set the password by entering <code>passwd</code>.
 Create your user:</p>
 
 <div class="highlight">
-   <pre><code class="bash">useradd -m -g users -G wheel -s /bin/bash moose
+   <pre><code class="language-bash" data-lang="bash">useradd -m -g users -G wheel -s /bin/bash moose
 passwd moose</code></pre>
 </div>
 
 <p>Synchronise caches:</p>
 
 <div class="highlight">
-   <pre><code class="bash">pacman -Syy</code></pre>
+   <pre><code class="language-bash" data-lang="bash">pacman -Syy</code></pre>
 </div>
 
 <p>Install grub:</p>
 
 <div class="highlight">
-   <pre><code class="bash">pacman -S grub-bios
+   <pre><code class="language-bash" data-lang="bash">pacman -S grub-bios
 pacman -S os-prober
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -211,7 +211,7 @@ restart</code></pre>
 <p>Give yourself sudo:</p>
 
 <div class="highlight">
-   <pre><code class="bash">pacman -S sudo
+   <pre><code class="language-bash" data-lang="bash">pacman -S sudo
 nano /etc/sudoers</code></pre>
 </div>
 
@@ -220,7 +220,7 @@ nano /etc/sudoers</code></pre>
 <h2 id="tocAnchor-1-5">Install GNOME</h2>
 
 <div class="highlight">
-   <pre><code class="bash">pacman -S gnome xorg
+   <pre><code class="language-bash" data-lang="bash">pacman -S gnome xorg
 systemctl <span class="nb">enable </span>gdm.service</code></pre>
 </div>
 
@@ -229,7 +229,7 @@ systemctl <span class="nb">enable </span>gdm.service</code></pre>
 <p>Add the following to your /etc/pacman.conf:</p>
 
 <div class="highlight">
-   <pre><code class="text">[mate]
+   <pre><code class="language-text" data-lang="text">[mate]
 SigLevel = Optional TrustAll
 Server = http://repo.mate-desktop.org/archlinux/$arch</code></pre>
 </div>
@@ -237,7 +237,7 @@ Server = http://repo.mate-desktop.org/archlinux/$arch</code></pre>
 <p>Run</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="c"># pacman -Syy</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="c"># pacman -Syy</span>
 <span class="c"># pacman -S mate mate-extras</span></code></pre>
 </div>
 

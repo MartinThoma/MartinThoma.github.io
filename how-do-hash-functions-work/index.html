@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>How do hash functions work?</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -154,7 +154,7 @@
 <p>Lets say our game situation looks like this:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="k">struct</span> <span class="n">gamesituation</span> <span class="p">{</span>
+   <pre><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">gamesituation</span> <span class="p">{</span>
     <span class="cm">/** How does the board currently look like? */</span>
     <span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">];</span>
 
@@ -179,7 +179,7 @@
 <p>You need a check if one player won:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cm">/*</span>
+   <pre><code class="language-c" data-lang="c"><span class="cm">/*</span>
 <span class="cm"> * Check if player has won by placing a disc on (x,y). </span>
 <span class="cm"> * with direction (xDir, yDir)</span>
 <span class="cm"> * @return 1 iff RED won, -1 iff BLACK won and 0 if nobody won</span>
@@ -251,7 +251,7 @@
 <p>And you need a function that can mirror boards (to get rid of identical, but mirrored situations) and one that can compare boards:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="kt">char</span> <span class="nf">isSameBoard</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
+   <pre><code class="language-c" data-lang="c"><span class="kt">char</span> <span class="nf">isSameBoard</span><span class="p">(</span><span class="kt">char</span> <span class="n">a</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">],</span> 
                  <span class="kt">char</span> <span class="n">b</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">BOARD_HEIGHT</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
@@ -277,7 +277,7 @@
 <p>You need a function that makes all possible moves for the players:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cm">/*</span>
+   <pre><code class="language-c" data-lang="c"><span class="cm">/*</span>
 <span class="cm"> * Make all possible turns that the player can make in this</span>
 <span class="cm"> * game situation.</span>
 <span class="cm"> */</span>
@@ -383,7 +383,7 @@
 <p>Most of the time you can create hash functions by mapping values to integers. In my case, I mapped the board - which is a two-dimensional char array - to one integer by thinking of it as a very long number. I think of a red disc as the digit 1, a black disc as the digit 2 and an empty field as 0:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+   <pre><code class="language-c" data-lang="c"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">RED</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">BLACK</span><span class="p">)</span> <span class="p">{</span>
@@ -405,7 +405,7 @@
 <p>For most game situations, this number will be much too big to store it in an integer. Also, we would like to get an index for our array so that we know where to store this board. The simplest solution to this problem is to calculate <code>NUMBER % ARRAY_SIZE</code>:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getFirstIndex</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
+   <pre><code class="language-c" data-lang="c"><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">getFirstIndex</span><span class="p">(</span><span class="kt">char</span> <span class="n">board</span><span class="p">[</span><span class="n">BOARD_WIDTH</span><span class="p">][</span><span class="n">BOARD_HEIGHT</span><span class="p">])</span> <span class="p">{</span>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">BOARD_WIDTH</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>

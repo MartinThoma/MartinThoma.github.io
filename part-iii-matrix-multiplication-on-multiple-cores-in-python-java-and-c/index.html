@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Part III: Matrix multiplication on multiple cores in Python, Java and C++</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -129,7 +129,7 @@
 <p>The ikj single core algorithm implemented in Python needs:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time </span>python ikjMultiplication.py -i 2000.in &gt; 2000-nonparallel.out
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time </span>python ikjMultiplication.py -i 2000.in &gt; 2000-nonparallel.out
 
 real    36m0.699s
 user    35m53.463s
@@ -139,7 +139,7 @@ sys 0m2.356s</code></pre>
 <p>The most simple way to parallelize the ikj algorith is to use the <a href="http://docs.python.org/2/library/multiprocessing.html">multiprocessing module</a> and compute every line of the result matrix C with a new process. But for the 2000x2000-example, this would mean we started 2000 processes. The overhead is much worse than the benefit:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time </span>python ikjMultiplication.py -i 2000.in &gt; 2000-parallel.out
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time </span>python ikjMultiplication.py -i 2000.in &gt; 2000-parallel.out
 
 real    20m47.693s
 user    40m34.460s
@@ -149,7 +149,7 @@ sys 0m2.092s</code></pre>
 <p>When we share memory, the code looks like this:</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">multiprocessing</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">ctypes</span>
@@ -231,7 +231,7 @@ sys 0m2.092s</code></pre>
 <p>and it needs MUCH more time:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time </span>python ikjMultiplication-shared.py -i 2000.in &gt; 2000-parallel-2threads.out
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time </span>python ikjMultiplication-shared.py -i 2000.in &gt; 2000-parallel-2threads.out
 
 real    131m35.433s
 user    250m36.820s
@@ -241,7 +241,7 @@ sys 0m9.533s</code></pre>
 <p>When we don't use shared memory, things run faster:</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="c">#!/usr/bin/python</span>
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">multiprocessing</span><span class="o">,</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">ctypes</span>
@@ -314,7 +314,7 @@ sys 0m9.533s</code></pre>
 </div>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time </span>python ikjMultiplication.py -i 2000.in &gt; 2000-parallel-4threads.out
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time </span>python ikjMultiplication.py -i 2000.in &gt; 2000-parallel-4threads.out
 
 real    22m46.066s
 user    41m42.396s
@@ -326,7 +326,7 @@ sys 0m2.324s</code></pre>
 <p>Shell.java:</p>
 
 <div class="highlight">
-   <pre><code class="java"><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.FileReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="o">;</span>
@@ -346,7 +346,7 @@ sys 0m2.324s</code></pre>
         <span class="n">String</span> <span class="n">thisLine</span><span class="o">;</span>
 
         <span class="k">try</span> <span class="o">{</span>
-            <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">filename</span><span class="o">));</span>
+            <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nf">FileReader</span><span class="o">(</span><span class="n">filename</span><span class="o">));</span>
             <span class="c1">// Begin reading A</span>
             <span class="k">while</span> <span class="o">((</span><span class="n">thisLine</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">thisLine</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">""</span><span class="o">))</span> <span class="o">{</span>
@@ -384,7 +384,7 @@ sys 0m2.324s</code></pre>
     <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printMatrix</span><span class="o">(</span><span class="kt">int</span><span class="o">[][]</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">line</span> <span class="o">:</span> <span class="n">matrix</span><span class="o">)</span> <span class="o">{</span>
             <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-            <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+            <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">(</span><span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
             <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">number</span> <span class="o">:</span> <span class="n">line</span><span class="o">)</span> <span class="o">{</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
                     <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"\t"</span><span class="o">);</span>
@@ -409,7 +409,7 @@ sys 0m2.324s</code></pre>
         <span class="o">}</span>
         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">A</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">part</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-            <span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="n">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LineMultiplier</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="n">B</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">i</span><span class="o">+</span><span class="n">part</span><span class="o">);</span>
+            <span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="n">worker</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">LineMultiplier</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="n">B</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">i</span><span class="o">+</span><span class="n">part</span><span class="o">);</span>
             <span class="n">Future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="n">submit</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="n">worker</span><span class="o">);</span>
             <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">submit</span><span class="o">);</span>
         <span class="o">}</span>
@@ -461,7 +461,7 @@ sys 0m2.324s</code></pre>
 <p>LineMultiplier.java:</p>
 
 <div class="highlight">
-   <pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.concurrent.Callable</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LineMultiplier</span> <span class="kd">implements</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[][]&gt;</span> <span class="o">{</span>
@@ -497,7 +497,7 @@ sys 0m2.324s</code></pre>
 <p>Execute it with only one thread:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time </span>java Shell -i 2000.in 1 &gt; 2000-paralllel.out
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time </span>java Shell -i 2000.in <span class="m">1</span> &gt; 2000-paralllel.out
 Number of cores:    2
 0
 
@@ -509,7 +509,7 @@ sys 0m0.388s</code></pre>
 <p>Execute it with two threads:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">time </span>java Shell -i 2000.in 2 &gt; 2000-paralllel.out
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">time </span>java Shell -i 2000.in <span class="m">2</span> &gt; 2000-paralllel.out
 Number of cores:    2
 0
 1000
@@ -537,7 +537,7 @@ sys 0m0.512s</code></pre>
 (If you really want to see the code, go to <a href="https://github.com/MartinThoma/matrix-multiplication/tree/master/C%2B%2B/Parallel">my Git repository</a>.)</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nv">$ </span><span class="nb">time</span> ./ikj-algorithm.out 2 2000.in &gt; 2000-parallel.out
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">time</span> ./ikj-algorithm.out <span class="m">2</span> 2000.in &gt; 2000-parallel.out
 
 real    0m12.563s
 user    0m20.569s

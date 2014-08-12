@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Colorize your scripts output</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -108,7 +108,7 @@
 </div><h2 id="tocAnchor-1-1">A quick example</h2>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="c"># Text color variables</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="c"># Text color variables</span>
 <span class="nv">txtred</span><span class="o">=</span><span class="sb">`</span><span class="k">$(</span>tput setaf 1<span class="k">)</span>    <span class="c"># Red</span>
 <span class="nv">txtreset</span><span class="o">=</span><span class="nv">$`</span><span class="o">(</span>tput sgr0<span class="o">)</span>     <span class="c"># Reset your text</span>
 <span class="nb">echo</span> <span class="s2">"Roses are `${txtred}red$`{txtreset}."</span></code></pre>
@@ -119,29 +119,29 @@
 <p>A shorter way would be</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"Roses are `tput setaf 1`red`tput sgr0`."</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">The sgr attribuge</h2>
 
 <div class="highlight">
-   <pre><code class="bash">tput sgr 0 1     turn off standout<span class="p">;</span> turn on underline
-tput sgr 0 0     turn off standout<span class="p">;</span> turn off underline
-tput sgr 1 1     turn on standout<span class="p">;</span> turn on underline
-tput sgr 1 0     turn on standout<span class="p">;</span> turn off underline
-tput sgr0        short <span class="k">for </span>sgr 0 0</code></pre>
+   <pre><code class="language-bash" data-lang="bash">tput sgr <span class="m">0</span> <span class="m">1</span>     turn off standout<span class="p">;</span> turn on underline
+tput sgr <span class="m">0</span> <span class="m">0</span>     turn off standout<span class="p">;</span> turn off underline
+tput sgr <span class="m">1</span> <span class="m">1</span>     turn on standout<span class="p">;</span> turn on underline
+tput sgr <span class="m">1</span> <span class="m">0</span>     turn on standout<span class="p">;</span> turn off underline
+tput sgr0        short <span class="k">for</span> sgr <span class="m">0</span> 0</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">The setaf attribute</h2>
 
 <div class="highlight">
-   <pre><code class="bash">setaf 1 Red
-setaf 2 Green
-setaf 3 Yellow
-setaf 4 Blue
-setaf 5 Purple
-setaf 6 Cyan
-setaf 7 Gray</code></pre>
+   <pre><code class="language-bash" data-lang="bash">setaf <span class="m">1</span> Red
+setaf <span class="m">2</span> Green
+setaf <span class="m">3</span> Yellow
+setaf <span class="m">4</span> Blue
+setaf <span class="m">5</span> Purple
+setaf <span class="m">6</span> Cyan
+setaf <span class="m">7</span> Gray</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Misc</h2>
@@ -149,13 +149,13 @@ setaf 7 Gray</code></pre>
 <p>Make your text bold:</p>
 
 <div class="highlight">
-   <pre><code class="bash">tput bold</code></pre>
+   <pre><code class="language-bash" data-lang="bash">tput bold</code></pre>
 </div>
 
 <p>Reset your style:</p>
 
 <div class="highlight">
-   <pre><code class="bash">tput sgr0</code></pre>
+   <pre><code class="language-bash" data-lang="bash">tput sgr0</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">Advanced Example</h2>
@@ -165,13 +165,13 @@ setaf 7 Gray</code></pre>
 <p>This is the way how "[ERROR]" gets red and bold:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="sb">`</span>tput setaf 1<span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="sb">`</span>tput setaf 1<span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span></code></pre>
 </div>
 
 <p>You can test it with</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span></code></pre>
 </div>
 
 <p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
@@ -179,25 +179,25 @@ setaf 7 Gray</code></pre>
 <p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is </p>
 
 <div class="highlight">
-   <pre><code class="bash">sed <span class="s1">'s/search/replace/'</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash">sed <span class="s1">'s/search/replace/'</span></code></pre>
 </div>
 
 <p>So we pipe the output to sed:</p>
 
 <div class="highlight">
-   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/\[ERROR\]/MYLOOOOOOOOOOOOOOOOOONGTEST/'</span></code></pre>
 </div>
 
 <p>And now we bring it all together:</p>
 
 <div class="highlight">
-   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span></code></pre>
 </div>
 
 <p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
 
 <div class="highlight">
-   <pre><code class="bash">python output.py <span class="p">|</span> sed <span class="s2">"s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash">python output.py <span class="p">|</span> sed <span class="s2">"s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">Colorize C / C++ output</h2>
@@ -205,7 +205,7 @@ setaf 7 Gray</code></pre>
 <p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>

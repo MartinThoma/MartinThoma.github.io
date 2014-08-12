@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Solving equations of upper triangular matrices</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -198,7 +198,7 @@ $</p>
 <p>I will use <a href="http://docs.python.org/2/library/fractions.html">fractions</a> for operations as I don't want to lose precision while dividing.</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solveUpperTriangularMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -248,7 +248,7 @@ $</p>
 <p>Just like for <a href="../solving-equations-of-unipotent-lower-triangular-matrices/" title="Solving equations of unipotent lower triangular matrices">unipotent lower triangular matrices</a>, we can operate directly on the given input:</p>
 
 <div class="highlight">
-   <pre><code class="python"><span class="c">#!/usr/bin/env python</span>
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solveUpperTriangularMatrix</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -289,19 +289,19 @@ $</p>
 <p>You could think that the conversion to fraction is not necessary. But if you simply remove line 5 to 16, you will get:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="o">[</span>1, 0, -1, 0, 1<span class="o">]</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="o">[</span>1, 0, -1, 0, 1<span class="o">]</span></code></pre>
 </div>
 
 <p>because of integer arithmetic. When you convert the input to float before passing it to <code>solveUpperTriangularMatrix</code>, you will get </p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="o">[</span>0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="o">[</span>0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span></code></pre>
 </div>
 
 <p>which is almost the same as when we calculated with Fraction and converted to float afterwards:</p>
 
 <div class="highlight">
-   <pre><code class="bash"><span class="o">[</span>0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="o">[</span>0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25<span class="o">]</span></code></pre>
 </div>
 
 <p>So: Using Fractions needs some computing time, but you will get better results.</p>

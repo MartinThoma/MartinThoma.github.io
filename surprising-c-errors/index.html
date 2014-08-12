@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Surprising C errors</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408101352.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408111458.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -105,7 +105,7 @@
 </div><h2 id="tocAnchor-1-1">Empty printf</h2>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -115,13 +115,13 @@
 </div>
 
 <div class="highlight">
-   <pre><code class="bash">error: zero-length gnu_printf format string</code></pre>
+   <pre><code class="language-bash" data-lang="bash">error: zero-length gnu_printf format string</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">Macros</h2>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 <span class="cp">#define MY_MACRO printf("Hello World\n");</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -136,14 +136,14 @@
 </div>
 
 <div class="highlight">
-   <pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+   <pre><code class="language-bash" data-lang="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:8: error: <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="k">else</span><span class="p">&amp;</span>rsquo<span class="p">;</span> without a previous <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="k">if</span><span class="p">&amp;</span>rsquo<span class="p">;</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">Single and Double quotes</h2>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -153,9 +153,9 @@ macro.c:8: error: <span class="p">&amp;</span>lsquo<span class="p">;</span><span
 </div>
 
 <div class="highlight">
-   <pre><code class="bash">macro.c:5:9: warning: character constant too long <span class="k">for </span>its <span class="nb">type</span>
+   <pre><code class="language-bash" data-lang="bash">macro.c:5:9: warning: character constant too long <span class="k">for</span> its <span class="nb">type</span>
 macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
-macro.c:5: warning: passing argument 1 of <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="nb">printf</span><span class="p">&amp;</span>rsquo<span class="p">;</span> makes pointer from integer without a cast
+macro.c:5: warning: passing argument <span class="m">1</span> of <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="nb">printf</span><span class="p">&amp;</span>rsquo<span class="p">;</span> makes pointer from integer without a cast
 /usr/include/stdio.h:339: note: expected <span class="p">&amp;</span>lsquo<span class="p">;</span>const char * __restrict__<span class="p">&amp;</span>rsquo<span class="p">;</span> but argument is of <span class="nb">type</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>int<span class="p">&amp;</span>rsquo<span class="p">;</span>
 macro.c:5: warning: format not a string literal and no format arguments</code></pre>
 </div>
@@ -163,7 +163,7 @@ macro.c:5: warning: format not a string literal and no format arguments</code></
 <p>Thanks to <a href="http://www.drpaulcarter.com/cs/common-c-errors.php#3.1">drpaulcarter.com</a> for this example:</p>
 
 <div class="highlight">
-   <pre><code class="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+   <pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">myPointer</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span>
     <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">myPointer</span><span class="p">;</span>
@@ -172,14 +172,14 @@ macro.c:5: warning: format not a string literal and no format arguments</code></
 </div>
 
 <div class="highlight">
-   <pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+   <pre><code class="language-bash" data-lang="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:3: warning: initialization makes pointer from integer without a cast</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Pointers</h2>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;string.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;string.h&gt;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -191,14 +191,14 @@ macro.c:3: warning: initialization makes pointer from integer without a cast</co
 </div>
 
 <div class="highlight">
-   <pre><code class="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+   <pre><code class="language-bash" data-lang="bash">macro.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>main<span class="p">&amp;</span>rsquo<span class="p">;</span>:
 macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myPointer<span class="p">&amp;</span>rsquo<span class="p">;</span> is used uninitialized in this <span class="k">function</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">Loops</h2>
 
 <div class="highlight">
-   <pre><code class="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+   <pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
     <span class="k">while</span><span class="p">(</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">);</span>
@@ -212,7 +212,7 @@ macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myP
 <h2 id="tocAnchor-1-6">Null terminator of Strings</h2>
 
 <div class="highlight">
-   <pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+   <pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
 <span class="cp">#include &lt;stdlib.h&gt;</span>
 <span class="cp">#include &lt;string.h&gt;</span>
 
@@ -246,18 +246,18 @@ macro.c:7: warning: <span class="p">&amp;</span>lsquo<span class="p">;</span>myP
 <p>Again, you don't get a compiler error, but some strange results:</p>
 
 <div class="highlight">
-   <pre><code class="bash">Characters: 0
+   <pre><code class="language-bash" data-lang="bash">Characters: 0
 Characters: 3
 Characters: 12
 String: -Hello World!-
-Size: 20 Byte
+Size: <span class="m">20</span> Byte
 
 String: -Hello World!-
-Size: 4 Byte
+Size: <span class="m">4</span> Byte
 Characters: 12
 
 String: -Hello World!-
-Size: 4 Byte
+Size: <span class="m">4</span> Byte
 Characters: 13</code></pre>
 </div>
 
