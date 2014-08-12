@@ -1,0 +1,58 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.baseurl }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  {% for post in site.posts %}
+    {% if post.url contains '/page/' or post.url contains '/tag/' or post.url contains '/category/' %}
+    {% else %}
+    <url>
+      <loc>{{ site.baseurl }}{{ post.url }}/</loc>
+      {% if post.lastmod == null %}
+      <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+      <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
+      {% endif %}
+{% comment %}
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+{% endcomment %}
+    </url>
+    {% endif %}
+  {% endfor %}
+  {% for page in site.pages %}
+    {% if page.url contains '/page/' or page.url contains '/tag/' or page.url contains '/category/' %}
+    {% else %}
+  <url>
+    <loc>{{ site.baseurl }}{{ page.url }}/</loc>
+    {% if page.sitemap.lastmod %}
+    <lastmod>{{ page.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+    {% elsif page.lastmod %}
+    <lastmod>{{ page.lastmod | date: "%Y-%m-%d" }}</lastmod>
+    {% elsif page.date %}
+    <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
+    {% else %}
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+    {% endif %}
+{% comment %}
+    {% if page.sitemap.changefreq %}
+      <changefreq>{{ page.sitemap.changefreq }}</changefreq>
+    {% else %}
+      <changefreq>monthly</changefreq>
+    {% endif %}
+    {% if page.sitemap.priority %}
+      <priority>{{ page.sitemap.priority }}</priority>
+    {% else %}
+      <priority>0.3</priority>
+    {% endif %}
+{% endcomment %}
+  </url>
+    {% endif %}
+  {% endfor %}
+</urlset>
