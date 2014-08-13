@@ -13,7 +13,7 @@ tags:
 ---
 <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gef&uuml;hl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genie&szlig;en. Bitte meldet mir Fehler oder Unstimmigkeiten (per Email an info@martin-thoma.de oder direkt als Kommentar).</div>
 
-<h2>Allgemeines</h2>
+## Allgemeines
 CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die L&auml;nge der Cache-Zeilen variiert, aber 32-64 Byte sind &uuml;blich.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle M&ouml;glichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden. 
 
 Eine M&ouml;glichkeit das zu machen, ist ein sog. &bdquo;direct mapped cache&ldquo;. Das ist im Prinzip eine Hash-Funktion, die zus&auml;tlich noch schnell von der Hardware umgesetzt werden k&ouml;nnen muss. Also unterteilt man gedanklich die Hauptspeicheradressen in 3 Teile:
@@ -38,7 +38,7 @@ Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher. Ben&ouml
 
 Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen zusammenfasst, muss gelten:
 
-Gr&ouml;&szlig;e der Cache-Zeile $= 2^{\text{L&auml;nge des Block-offsets}} \cdot$ Gr&ouml;&szlig;e des Inhalts einer Hauptspeicheradresse
+Gr&ouml;&szlig;e der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$ Gr&ouml;&szlig;e des Inhalts einer Hauptspeicheradresse
 
 Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.
 
@@ -68,30 +68,25 @@ Das passiert allerdings selten. Um zu sehen, wie h&auml;ufig das der Fall ist, s
   <li><code>vmstat -s</code></li>
 </ul>
 
-<h2>Cache-Modelle</h2>
+## Cache-Modelle
 Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:
 
-<h3>Physically Indexed, Physically Tagged</h3>
+### Physically Indexed, Physically Tagged
 Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.
 
-<h3>Virtually indexed, physically tagged</h3>
+### Virtually indexed, physically tagged
 Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort &uuml;berhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag &uuml;berpr&uuml;fen kann.
 
-<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?
-Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456
-Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123
-Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456
-Die zugeh&ouml;rige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123
-Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
+<div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br/>Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugeh&ouml;rige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br/>Nun m&uuml;sste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
 
-<h3>Physically Indexed / Virtually Tagged</h3>
+### Physically Indexed / Virtually Tagged
 Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.
 
-<h3>Virtually Indexed / Virtually Tagged</h3>
+### Virtually Indexed / Virtually Tagged
 Kein MMU-Zugriff ben&ouml;tigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)
 
-<h2>Quellen</h2>
-1. <a name="ref1" href="#anchor1">&uarr;</a>: <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a>
+## Quellen
+[^1] <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a>
 
 <ul>
   <li><a href="http://people.cs.umass.edu/~emery/classes/cmpsci377/current/notes/lecture_15_vm.pdf">Page-Table Lookups</a></li>
