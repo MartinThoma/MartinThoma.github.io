@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>SLURM</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201408131014.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201408140824.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -152,134 +152,134 @@ replaced by your user name.</p>
 
 <h3 id="tocAnchor-1-2-1">sbatch</h3>
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sbatch --help
-Usage: sbatch <span class="o">[</span>OPTIONS...<span class="o">]</span> executable <span class="o">[</span>args...<span class="o">]</span>
+   <pre><code class="language-text" data-lang="text">$ sbatch --help
+Usage: sbatch [OPTIONS...] executable [args...]
 
 Parallel run options:
-  -A, --account<span class="o">=</span>name          charge job to specified account
-      --begin<span class="o">=</span><span class="nb">time            </span>defer job <span class="k">until</span> HH:MM MM/DD/YY
-  -c, --cpus-per-task<span class="o">=</span>ncpus   number of cpus required per task
-      --comment<span class="o">=</span>name          arbitrary comment
-  -d, --dependency<span class="o">=</span><span class="nb">type</span>:jobid defer job <span class="k">until</span> condition on jobid is satisfied
-  -D, --workdir<span class="o">=</span>directory     <span class="nb">set </span>working directory <span class="k">for</span> batch script
-  -e, --error<span class="o">=</span>err             file <span class="k">for</span> batch script<span class="s1">'s standard error</span>
-<span class="s1">      --export[=names]        specify environment variables to export</span>
-<span class="s1">      --get-user-env          load environment from local cluster</span>
-<span class="s1">      --gid=group_id          group ID to run job as (user root only)</span>
-<span class="s1">      --gres=list             required generic resources</span>
-<span class="s1">  -H, --hold                  submit job in held state</span>
-<span class="s1">  -i, --input=in              file for batch script'</span>s standard input
-  -I, --immediate             <span class="nb">exit </span><span class="k">if</span> resources are not immediately available
-      --jobid<span class="o">=</span>id              run under already allocated job
-  -J, --job-name<span class="o">=</span>jobname      name of job
-  -k, --no-kill               <span class="k">do</span> not <span class="nb">kill </span>job on node failure
-  -L, --licenses<span class="o">=</span>names        required license, comma separated
-  -m, --distribution<span class="o">=</span><span class="nb">type     </span>distribution method <span class="k">for</span> processes to nodes
-                              <span class="o">(</span><span class="nb">type</span> <span class="o">=</span> block<span class="p">|</span>cyclic<span class="p">|</span>arbitrary<span class="o">)</span>
-  -M, --clusters<span class="o">=</span>names        Comma separated list of clusters to issue
+  -A, --account=name          charge job to specified account
+      --begin=time            defer job until HH:MM MM/DD/YY
+  -c, --cpus-per-task=ncpus   number of cpus required per task
+      --comment=name          arbitrary comment
+  -d, --dependency=type:jobid defer job until condition on jobid is satisfied
+  -D, --workdir=directory     set working directory for batch script
+  -e, --error=err             file for batch script's standard error
+      --export[=names]        specify environment variables to export
+      --get-user-env          load environment from local cluster
+      --gid=group_id          group ID to run job as (user root only)
+      --gres=list             required generic resources
+  -H, --hold                  submit job in held state
+  -i, --input=in              file for batch script's standard input
+  -I, --immediate             exit if resources are not immediately available
+      --jobid=id              run under already allocated job
+  -J, --job-name=jobname      name of job
+  -k, --no-kill               do not kill job on node failure
+  -L, --licenses=names        required license, comma separated
+  -m, --distribution=type     distribution method for processes to nodes
+                              (type = block|cyclic|arbitrary)
+  -M, --clusters=names        Comma separated list of clusters to issue
                               commands to.  Default is current cluster.
-                              Name of <span class="s1">'all'</span> will submit to run on all clusters.
-      --mail-type<span class="o">=</span><span class="nb">type        </span>notify on state change: BEGIN, END, FAIL or ALL
-      --mail-user<span class="o">=</span>user        who to send email notification <span class="k">for</span> job state
+                              Name of 'all' will submit to run on all clusters.
+      --mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
+      --mail-user=user        who to send email notification for job state
                               changes
-  -n, --ntasks<span class="o">=</span>ntasks         number of tasks to run
-      --nice<span class="o">[=</span>value<span class="o">]</span>          decrease secheduling priority by value
-      --no-requeue            <span class="k">if</span> <span class="nb">set</span>, <span class="k">do</span> not permit the job to be requeued
-      --ntasks-per-node<span class="o">=</span>n     number of tasks to invoke on each node
-  -N, --nodes<span class="o">=</span>N               number of nodes on which to run <span class="o">(</span><span class="nv">N</span> <span class="o">=</span> min<span class="o">[</span>-max<span class="o">])</span>
-  -o, --output<span class="o">=</span>out            file <span class="k">for</span> batch script<span class="s1">'s standard output</span>
-<span class="s1">  -O, --overcommit            overcommit resources</span>
-<span class="s1">  -p, --partition=partition   partition requested</span>
-<span class="s1">      --propagate[=rlimits]   propagate all [or specific list of] rlimits</span>
-<span class="s1">      --qos=qos               quality of service</span>
-<span class="s1">  -Q, --quiet                 quiet mode (suppress informational messages)</span>
-<span class="s1">      --requeue               if set, permit the job to be requeued</span>
-<span class="s1">  -t, --time=minutes          time limit</span>
-<span class="s1">      --time-min=minutes      minimum time limit (if distinct)</span>
-<span class="s1">  -s, --share                 share nodes with other jobs</span>
-<span class="s1">      --uid=user_id           user ID to run job as (user root only)</span>
-<span class="s1">  -v, --verbose               verbose mode (multiple -v'</span>s increase verbosity<span class="o">)</span>
+  -n, --ntasks=ntasks         number of tasks to run
+      --nice[=value]          decrease secheduling priority by value
+      --no-requeue            if set, do not permit the job to be requeued
+      --ntasks-per-node=n     number of tasks to invoke on each node
+  -N, --nodes=N               number of nodes on which to run (N = min[-max])
+  -o, --output=out            file for batch script's standard output
+  -O, --overcommit            overcommit resources
+  -p, --partition=partition   partition requested
+      --propagate[=rlimits]   propagate all [or specific list of] rlimits
+      --qos=qos               quality of service
+  -Q, --quiet                 quiet mode (suppress informational messages)
+      --requeue               if set, permit the job to be requeued
+  -t, --time=minutes          time limit
+      --time-min=minutes      minimum time limit (if distinct)
+  -s, --share                 share nodes with other jobs
+      --uid=user_id           user ID to run job as (user root only)
+  -v, --verbose               verbose mode (multiple -v's increase verbosity)
 
 Constraint options:
       --contiguous            demand a contiguous range of nodes
-  -C, --constraint<span class="o">=</span>list       specify a list of constraints
-  -F, --nodefile<span class="o">=</span>filename     request a specific list of hosts
-      --mem<span class="o">=</span>MB                minimum amount of real memory
-      --mincpus<span class="o">=</span>n             minimum number of logical processors <span class="o">(</span>threads<span class="o">)</span> per node
-      --reservation<span class="o">=</span>name      allocate resources from named reservation
-      --tmp<span class="o">=</span>MB                minimum amount of temporary disk
-  -w, --nodelist<span class="o">=</span>hosts...     request a specific list of hosts
-  -x, --exclude<span class="o">=</span>hosts...      exclude a specific list of hosts
+  -C, --constraint=list       specify a list of constraints
+  -F, --nodefile=filename     request a specific list of hosts
+      --mem=MB                minimum amount of real memory
+      --mincpus=n             minimum number of logical processors (threads) per node
+      --reservation=name      allocate resources from named reservation
+      --tmp=MB                minimum amount of temporary disk
+  -w, --nodelist=hosts...     request a specific list of hosts
+  -x, --exclude=hosts...      exclude a specific list of hosts
 
 Consumable resources related options:
       --exclusive             allocate nodes in exclusive mode when
                               cpu consumable resource is enabled
-      --mem-per-cpu<span class="o">=</span>MB        maximum amount of real memory per allocated
+      --mem-per-cpu=MB        maximum amount of real memory per allocated
                               cpu required by the job.
-                              --mem &gt;<span class="o">=</span> --mem-per-cpu <span class="k">if</span> --mem is specified.
+                              --mem &gt;= --mem-per-cpu if --mem is specified.
 
-Affinity/Multi-core options: <span class="o">(</span>when the task/affinity plugin is enabled<span class="o">)</span>
-  -B  --extra-node-info<span class="o">=</span>S<span class="o">[</span>:C<span class="o">[</span>:T<span class="o">]]</span>            Expands to:
-       --sockets-per-node<span class="o">=</span>S   number of sockets per node to allocate
-       --cores-per-socket<span class="o">=</span>C   number of cores per socket to allocate
-       --threads-per-core<span class="o">=</span>T   number of threads per core to allocate
-                              each field can be <span class="s1">'min'</span> or wildcard <span class="s1">'*'</span>
-                              total cpus <span class="nv">requested</span> <span class="o">=</span> <span class="o">(</span>N x S x C x T<span class="o">)</span>
+Affinity/Multi-core options: (when the task/affinity plugin is enabled)
+  -B  --extra-node-info=S[:C[:T]]            Expands to:
+       --sockets-per-node=S   number of sockets per node to allocate
+       --cores-per-socket=C   number of cores per socket to allocate
+       --threads-per-core=T   number of threads per core to allocate
+                              each field can be 'min' or wildcard '*'
+                              total cpus requested = (N x S x C x T)
 
-      --ntasks-per-core<span class="o">=</span>n     number of tasks to invoke on each core
-      --ntasks-per-socket<span class="o">=</span>n   number of tasks to invoke on each socket
-      --cpu_bind<span class="o">=</span>             Bind tasks to CPUs
-                              <span class="o">(</span>see <span class="s2">"--cpu_bind=help"</span> <span class="k">for</span> options<span class="o">)</span>
-      --hint<span class="o">=</span>                 Bind tasks according to application hints
-                              <span class="o">(</span>see <span class="s2">"--hint=help"</span> <span class="k">for</span> options<span class="o">)</span>
-      --mem_bind<span class="o">=</span>             Bind memory to locality domains <span class="o">(</span>ldom<span class="o">)</span>
-                              <span class="o">(</span>see <span class="s2">"--mem_bind=help"</span> <span class="k">for</span> options<span class="o">)</span>
+      --ntasks-per-core=n     number of tasks to invoke on each core
+      --ntasks-per-socket=n   number of tasks to invoke on each socket
+      --cpu_bind=             Bind tasks to CPUs
+                              (see "--cpu_bind=help" for options)
+      --hint=                 Bind tasks according to application hints
+                              (see "--hint=help" for options)
+      --mem_bind=             Bind memory to locality domains (ldom)
+                              (see "--mem_bind=help" for options)
 
 
 Help options:
-  -h, --help                  show this <span class="nb">help </span>message
+  -h, --help                  show this help message
   -u, --usage                 display brief usage message
 
 Other options:
-  -V, --version               output version information and <span class="nb">exit</span>
+  -V, --version               output version information and exit
 </code></pre>
 </div>
 <h3 id="tocAnchor-1-2-2">squeue</h3>
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">squeue --help
-Usage: squeue <span class="o">[</span>OPTIONS<span class="o">]</span>
-  -A, --account<span class="o">=</span>account<span class="o">(</span>s<span class="o">)</span>        comma separated list of accounts
+   <pre><code class="language-text" data-lang="text">squeue --help
+Usage: squeue [OPTIONS]
+  -A, --account=account(s)        comma separated list of accounts
                   to view, default is all accounts
-  -a, --all                       display <span class="nb">jobs </span>in hidden partitions
+  -a, --all                       display jobs in hidden partitions
   -h, --noheader                  no headers on output
-      --hide                      <span class="k">do</span> not display <span class="nb">jobs </span>in hidden partitions
-  -i, --iterate<span class="o">=</span>seconds           specify an interation period
-  -j, --job<span class="o">=</span>job<span class="o">(</span>s<span class="o">)</span>                comma separated list of <span class="nb">jobs </span>IDs
+      --hide                      do not display jobs in hidden partitions
+  -i, --iterate=seconds           specify an interation period
+  -j, --job=job(s)                comma separated list of jobs IDs
                   to view, default is all
   -l, --long                      long report
-  -M, --clusters<span class="o">=</span>cluster_name     cluster to issue commands to.  Default is
+  -M, --clusters=cluster_name     cluster to issue commands to.  Default is
                                   current cluster.  cluster with no name will
                                   reset to default.
-  -n, --nodes<span class="o">=</span>hostlist            list of nodes to view, default is 
+  -n, --nodes=hostlist            list of nodes to view, default is 
                   all nodes
-  -o, --format<span class="o">=</span>format             format specification
-  -p, --partition<span class="o">=</span>partition<span class="o">(</span>s<span class="o">)</span>    comma separated list of partitions
+  -o, --format=format             format specification
+  -p, --partition=partition(s)    comma separated list of partitions
                   to view, default is all partitions
-  -q, --qos<span class="o">=</span>qos<span class="o">(</span>s<span class="o">)</span>                comma separated list of qos<span class="s1">'s</span>
-<span class="s1">                  to view, default is all qos'</span>s
-  -s, --step<span class="o">=</span>step<span class="o">(</span>s<span class="o">)</span>              comma separated list of job steps
+  -q, --qos=qos(s)                comma separated list of qos's
+                  to view, default is all qos's
+  -s, --step=step(s)              comma separated list of job steps
                   to view, default is all
-  -S, --sort<span class="o">=</span>fields               comma separated list of fields to sort on
-      --start                     print expected start <span class="nb">times </span>of pending <span class="nb">jobs</span>
-  -t, --states<span class="o">=</span>states             comma separated list of states to view,
+  -S, --sort=fields               comma separated list of fields to sort on
+      --start                     print expected start times of pending jobs
+  -t, --states=states             comma separated list of states to view,
                   default is pending and running,
-                  <span class="s1">'--states=all'</span> reports all states
-  -u, --user<span class="o">=</span>user_name<span class="o">(</span>s<span class="o">)</span>         comma separated list of users to view
+                  '--states=all' reports all states
+  -u, --user=user_name(s)         comma separated list of users to view
   -v, --verbose                   verbosity level
-  -V, --version                   output version information and <span class="nb">exit</span>
+  -V, --version                   output version information and exit
 
 Help options:
-  --help                          show this <span class="nb">help </span>message
+  --help                          show this help message
   --usage                         display a brief summary of squeue options
 </code></pre>
 </div>
