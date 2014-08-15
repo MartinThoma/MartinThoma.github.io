@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Media Viewer and Superprotect
+title: MediaViewer and Superprotect
 author: Martin Thoma
 date: 2014-08-15 14:35
 categories:
@@ -8,6 +8,9 @@ categories:
 tags:
 - Wikipedia
 - Community
+- WMF
+- superprotect
+- MediaViewer
 featured_image: logos/wikipedia.png
 ---
 
