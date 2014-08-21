@@ -55,7 +55,19 @@ It looks like this:
 
 ## Write Math
 
+[write-math.com](http://write-math.com) is my own project. The aim of the
+project is to get fast and accurate recognition of mathematical symbols.
+To do so, I needed data.
 
+Currently, the project is still under heavy development. Currently, most
+work I do is done offline. Hence the project might not improve until
+end of October (2014).
+
+It looks like this:
+
+{% caption align="aligncenter" width="500" alt="write math" text="write math" url="../images/2014/08/write-math-front-page.png" %}
+
+The most interesting part might be the [interactive preprocessing experiments](http://write-math.com/render/?raw_data_id=19181).
 
 ## See also
 
