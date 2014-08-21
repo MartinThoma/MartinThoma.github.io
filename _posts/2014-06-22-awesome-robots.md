@@ -70,3 +70,9 @@ that runs 45 km/h!
 From the Biorobotics Lab at Carnegie Mellon University, a snake robot (Snakebot) demonstrates how it can climb a tree and look around.
 
 Please keep in mind that this robot climbed a specific tree with a specific trunk width about 1 meter off of the ground.  The researchers working to design, build and program these robots still have much work to do to get these bots to climb taller trees of various sizes and to navigate over branches and wires.
+
+## Kilobots
+
+<iframe width="512" height="288" src="//www.youtube.com/embed/G1t4M2XnIhI" frameborder="0" allowfullscreen></iframe>
+
+A thousand-robot swarm created by Harvard researchers can self-assemble into different shapes. Learn more: [A Thousand Kilobots Self-Assemble Into Complex Shapes](http://spectrum.ieee.org/automaton/robotics/robotics-hardware/a-thousand-kilobots-self-assemble)
