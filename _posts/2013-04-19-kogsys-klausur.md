@@ -307,14 +307,14 @@ Das Passwort f&uuml;r kogsys darf ich auch im Jahr 2013 nicht verraten.
 </ul>
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: Mittwoch, den 18. September 2013 von 11:00 bis 12:00 Uhr
-<strong>Ort</strong>: steht noch nicht fest (Stand: 12.09.2013)
-<strong>Punkte</strong>: 60
-<strong>Bestehensgrenze</strong>: 20
-<strong>&Uuml;bungsschein</strong>: Gibt es nicht
-<strong>Bonuspunkte</strong>: Ja, max 6
-<strong>Ergebnisse</strong>: ab 14.10.2013 im Websubmit und in 50.20. (Kinderklinik) am Eingang
-<strong>Einsicht</strong>: 24.10.2013 von 13:30 bis 14:30 Uhr (Kinderklinik, Raum 148)
+<strong>Datum</strong>: Mittwoch, den 18. September 2013 von 11:00 bis 12:00 Uhr<br/>
+<strong>Ort</strong>: steht noch nicht fest (Stand: 12.09.2013)<br/>
+<strong>Punkte</strong>: 60<br/>
+<strong>Bestehensgrenze</strong>: 20<br/>
+<strong>&Uuml;bungsschein</strong>: Gibt es nicht<br/>
+<strong>Bonuspunkte</strong>: Ja, max 6<br/>
+<strong>Ergebnisse</strong>: ab 14.10.2013 im Websubmit und in 50.20. (Kinderklinik) am Eingang<br/>
+<strong>Einsicht</strong>: 24.10.2013 von 13:30 bis 14:30 Uhr (Kinderklinik, Raum 148)<br/>
 
 <h2>Nicht vergessen</h2>
 <ul>
