@@ -56,6 +56,10 @@ The source of my information is the following video:
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/UI4Cfdy_9KU" frameborder="0" allowfullscreen></iframe>
 
+Other wristbands are:
+
+* [Spire](https://en.wikipedia.org/wiki/Spire_(activity_tracker))
+
 ### Google Contact Lense
 
 [Google Contact Lens](https://en.wikipedia.org/wiki/Google_Contact_Lens) is a
@@ -84,3 +88,7 @@ The scout measures:
 * oximetry
 
 The "First Responders" perk costed 199 USD.
+
+## See also
+
+* [Lifelog](https://en.wikipedia.org/wiki/Lifelog)
