@@ -56,6 +56,13 @@ The source of my information is the following video:
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/UI4Cfdy_9KU" frameborder="0" allowfullscreen></iframe>
 
+### Google Contact Lense
+
+[Google Contact Lens](https://en.wikipedia.org/wiki/Google_Contact_Lens) is a
+smart contact lens project announced by Google on 16 January 2014. The project
+aims to assist people with diabetes by constantly measuring the glucose levels
+in their tears.
+
 ## Tricoders
 ### Scanadu Scout
 
