@@ -35,3 +35,8 @@ To put that into perspective: In 2005, you would probably have been on place
 68 of the TOP500 supercomputers world wide! ([source](http://www.top500.org/list/2005/06/?page=1)).
 
 Isn't that crazy?
+
+## See also:
+
+* [Titan Z Specification](http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-titan-z/specifications)
+* [What are the differences between “scientific GPUs” and “gaming GPUs”?](http://superuser.com/questions/805217/what-are-the-differences-between-scientific-gpus-and-gaming-gpus)
