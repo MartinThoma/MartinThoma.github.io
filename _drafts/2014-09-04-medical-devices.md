@@ -36,7 +36,22 @@ The second category is even part of an X Prize. It is called
 
 ## Wearables
 
-### Jawebone UP24
+### Smart Shirts
+
+<iframe width="512" height="288" src="//www.youtube.com/embed/sXNl7QazPGk" frameborder="0" allowfullscreen></iframe>
+
+OMsignal sells a shirt for 200 USD. It measures heart and breathing data as well
+as activity data.
+
+### Shoes
+
+I have heard about shoes that contain chips. Most applications seem to be
+quite boring, though. Only tracking of motion / GPS. I could imagine that
+you also track how a person walks. Also, shoes could contain more heavy
+parts for other devices.
+
+
+### Wristbands
 
 The [Jawbone UP24](https://en.wikipedia.org/wiki/Jawbone_(company)#UP24_design)
 is a wristband. 
@@ -68,6 +83,33 @@ aims to assist people with diabetes by constantly measuring the glucose levels
 in their tears.
 
 ## Tricoders
+
+Tricoders are small devices that can measure some of your data.
+
+### Medical Thermometer
+
+[Medical theromemters](https://en.wikipedia.org/wiki/Medical_thermometer)
+might be the oldest wide-spread medical instrument that is still in use.
+You insert them to your mouth or your butt and it measures your body
+temperature.
+
+The price is around 5 - 35 Euro.
+
+### Weight Scale
+
+Weight scales are widespread, but they are typically not conceived as a medical
+instrument. The reason is probably because you might need more data to get
+useful information than only a single weight.
+
+Modern weight scales like the Withings WS-50 Smart Body Analyzer measure
+
+* body weight
+* body fat
+* heart frequency
+* air quality
+
+The Withings WS-50 connects via WiFi and Bluetooth. It costs 150 Euro.
+
 ### Scanadu Scout
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/rKCeoiRhVuI" frameborder="0" allowfullscreen></iframe>
@@ -89,6 +131,20 @@ The scout measures:
 
 The "First Responders" perk costed 199 USD.
 
+## Wired Furniture
+
+Wired furniture is a group of devices that you have anyway, but that are
+enhanced with sensors
+
+### Toilets
+
+
+
 ## See also
 
-* [Lifelog](https://en.wikipedia.org/wiki/Lifelog)
+* [Quantified Self](https://en.wikipedia.org/wiki/Quantified_Self): a movement
+  to incorporate technology into data acquisition on aspects of a person's
+  daily life in terms of inputs, states and performance
+* [Checklight](http://shop.reebok.com/us/content/checklight)
+* [Urine testing toilet](http://www.abc.net.au/science/articles/1999/11/15/66182.htm)
+* [E-textiles](https://en.wikipedia.org/wiki/E-textiles)
