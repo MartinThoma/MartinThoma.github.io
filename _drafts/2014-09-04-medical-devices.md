@@ -93,7 +93,7 @@ might be the oldest wide-spread medical instrument that is still in use.
 You insert them to your mouth or your butt and it measures your body
 temperature.
 
-The price is around 5 - 35 Euro.
+The price is around 3 - 35 Euro.
 
 ### Weight Scale
 
@@ -109,6 +109,10 @@ Modern weight scales like the Withings WS-50 Smart Body Analyzer measure
 * air quality
 
 The Withings WS-50 connects via WiFi and Bluetooth. It costs 150 Euro.
+
+### Blood Sugar
+
+### Blood pressure / heard rate
 
 ### Scanadu Scout
 
