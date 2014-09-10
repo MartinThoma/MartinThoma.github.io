@@ -57,6 +57,15 @@ participate in the exam.
 
 This means $\theta_1 \in [0, 1]$.
 
+$\theta_1$ should not be zero, because that
+would mean that 1-to-1 tutors could choose their students right before the exam.
+But I want them to choose the student at the beginning of the semester. And
+$\theta_1$ may not be too high. The higher it gets, the more difficult and time
+intensive it gets for the student and the tutor. I think the time right before
+an exam is the time where students learn most. If a student doesn't achive
+the $\theta_1$ threshold, then the tutor will not have any incent to help the
+student to prepare for the exam except for money or friendship.
+
 ### One-to-One tutoring: Way 2
 The other possibility would be to enforce a minimum grade for the tutored
 student. So the One-to-One tutor cannot participate in the same exam as his
@@ -74,40 +83,26 @@ the grade. So $\theta_2 = 10\%$ would mean that you choose the grade threshold
 in a way that makes sure that at least 10% of all students pass that
 requirement.
 
-This means $\theta_2 \in [1, 5]$ or $\theta_2 \in (0%, 100%]$.
-
-## How to speak about it
-
-I would like to call this model MOOT (Martins One-to-One Tutoring model).
-It is parameterized with two variables, $\theta_1$ and $\theta_2$.
-
-I think $MOOT(\theta_1=1.2, \theta_2=2.3)$ would be a good possibility to
-encourage students to help other students effectively. $\theta_1$ is low enough
-to make it fairly easy for somebody who already passed the exam to "lift" a
-student to pass the requirement.
-
-$\theta_1$ should not be zero, because that
-would mean that 1-to-1 tutors could choose their students right before the exam.
-But I want them to choose the student at the beginning of the semester. And
-$\theta_1$ may not be too high. The higher it gets, the more difficult and time
-intensive it gets for the student and the tutor. I think the time right before
-an exam is the time where students learn most. If a student doesn't achive
-the $\theta_1$ threshold, then the tutor will not have any incent to help the
-student to prepare for the exam except for money or friendship.
+This means $\theta_2 \in [1, 5]$ or $\theta_2 \in (0\%, 100\%]$.
 
 $\theta_2$ should not be too bad (near 5), because then it will be too easy
 for many students to get another try for the exam. That would also not help the
 students, because the tutor would not have an incent that is strong enough to
 increase the abilities of his student. However, if $\theta_2$ gets too low
 (near 1.0) then most students will not try to be a tutor because it is too
-difficult to get a student to achieve that good results. I guess
-$\theta_2 = 2.3$ could be a good choice. It is not too rare to get a 2.3, but
-it also is not trivial to get such a grade in most exams. This choice could
-(should?) eventualy be done per exam. I guess it should be chosen like this:
-If it was one grade easier (so: +0.3 in Karlsruhe), then there would be more
-than 25% of all students who took the last exam who would make it.
+difficult to get a student to achieve that good results.
 
-So I think $MOOT(0.2, 25\%)$ would be a good choice.
+## How to speak about it
+
+I would like to call this model MOOT (Martins One-to-One Tutoring model).
+It is parameterized with two variables, $\theta_1$ and $\theta_2$.
+
+I think $MOOT(\theta_1=1.2, \theta_2=25\%)$ would be a good possibility to
+encourage students to help other students effectively. $\theta_1$ is low enough
+to make it fairly easy for somebody who already passed the exam to "lift" a
+student to pass the requirement.
+
+So I guess $MOOT(0.2, 25\%)$ would be a good choice.
 
 ## Conclusion
 The two ways I proposed would in general lead to better students, remove stress
