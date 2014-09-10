@@ -118,4 +118,4 @@ possibility as it is really time intensive for the One-to-One tutor. But for
 some exams and some students that might be worth the effort.
 
 What do you think about it? Do you think we could introduce that model at KIT?
-Who could propose it? To whom should be propose it?
+Who could propose it? To whom should it be proposed?
