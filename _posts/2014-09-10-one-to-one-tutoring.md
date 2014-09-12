@@ -39,10 +39,10 @@ check if the One-on-One tutor really helped the new student. I could imagine
 two ways that could also be combined.
 
 ### One-on-One tutoring: Way 1
-The One-on-One tutor has to help the new student with the excercises. So the
-One-to-Many tutor gets the information which excercises were done by the
+The One-on-One tutor has to help the new student with the exercises. So the
+One-to-Many tutor gets the information which exercises were done by the
 One-on-One tutor and the new student. So in contrast to now, not only one
-student would make an excercise, but two. In order to make sure that there is
+student would make an exercises, but two. In order to make sure that there is
 an improvement, one could increase the necessary number of points for the
 One-on-One tutor to a threshold of $\theta_1$ (or both, the new student and the One-on-One tutor). $\theta_1$ should denote how much more points the tutor needs (in
 percent of the points the students need) to get the possibility to re-do the
@@ -52,7 +52,7 @@ So $\theta_1 = 0$ would mean that the tutor does only need a student how
 gets the minimum number of points to pass the exam.
 
 $\theta_1 = 1$ would mean that the tutor needs his students to get double the
-number of points in the excercises than what he would need to be allowed to
+number of points in the exercises than what he would need to be allowed to
 participate in the exam.
 
 This means $\theta_1 \in [0, 1]$.
@@ -62,8 +62,8 @@ would mean that 1-to-1 tutors could choose their students right before the exam.
 But I want them to choose the student at the beginning of the semester. And
 $\theta_1$ may not be too high. The higher it gets, the more difficult and time
 intensive it gets for the student and the tutor. I think the time right before
-an exam is the time where students learn most. If a student doesn't achive
-the $\theta_1$ threshold, then the tutor will not have any incent to help the
+an exam is the time where students learn most. If a student doesn't achieve
+the $\theta_1$ threshold, then the tutor will not have any incentive to help the
 student to prepare for the exam except for money or friendship.
 
 ### One-on-One tutoring: Way 2
@@ -78,7 +78,7 @@ $\theta_2 = 5$ would mean that the student only has to participate in the exam
 $\theta_2 = 1$ would mean that the student has to pass with the best grade so
 that the tutor is allowed to participate in the exam.
 
-Alternatively one could make that dependant on the number of students who got
+Alternatively one could make that dependent on the number of students who got
 the grade. So $\theta_2 = 10\%$ would mean that you choose the grade threshold
 in a way that makes sure that at least 10% of all students pass that
 requirement.
@@ -87,7 +87,7 @@ This means $\theta_2 \in [1, 5]$ or $\theta_2 \in (0\%, 100\%]$.
 
 $\theta_2$ should not be too bad (near 5), because then it will be too easy
 for many students to get another try for the exam. That would also not help the
-students, because the tutor would not have an incent that is strong enough to
+students, because the tutor would not have an incentive that is strong enough to
 increase the abilities of his student. However, if $\theta_2$ gets too low
 (near 1.0) then most students will not try to be a tutor because it is too
 difficult to get a student to achieve that good results.
@@ -109,7 +109,7 @@ The two ways I proposed would in general lead to better students, remove stress
 from students because a single bad exam would not be that bad any more and
 very likely lead to better students. Students would be better on the paper
 (because the tutor should only be able to improve himself by the new exam and
-also his student should be able to achive better results in the exam) and in
+also his student should be able to achieve better results in the exam) and in
 the real world. Students would get an incentive to repeat what they did not
 understand before. They would get an incentive to help other students. For free.
 And it would not be that much more work for the university. I think it is easier
