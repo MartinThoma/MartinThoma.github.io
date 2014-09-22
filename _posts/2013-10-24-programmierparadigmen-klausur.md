@@ -143,6 +143,10 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 * Bonus durch Übungsschein: Es gibt keinen Klausurbonus.
 
 ## Termine und Klausurablauf
+
+Siehe [Klausurtermine-Seite](http://www.informatik.kit.edu/klausuren.php) für
+zukünftige Termine (z.B. [Programmierparadigmen am 23.09.2014](http://www.informatik.kit.edu/klausuren.php?kid=504.35))
+
 **Datum**: Donnerstag, den 10. April 2014 von 14:00 bis 16:00 Uhr ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/))<br/>
 **Ort**: Audimax ([Quelle](https://pp.info.uni-karlsruhe.de/lehre/WS201314/paradigmen/#klausuren))<br/>
 **Punkte**: 120<br/>
@@ -173,3 +177,12 @@ let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
 
 ## Ergebnisse
 Stehen seit dem 17.04.2014 fest.
+
+## Kritik
+
+In der Vorlesung werden zu viele Inhalte behandelt. Eine Folge ist, dass
+nichts richtig behandelt werden. Außerdem erscheinen mir einige der Inhalte
+weder in der Wissenschaft noch in der Wirtschaft relevant zu sein (Prolog, X10).
+Ich würde vorschlagen diese Inhalte zu entfernen. Wenn man der Meinung ist,
+dass man Parallelität mehr behandeln sollte, dann wäre vermutlich CUDA deutlich
+wichtiger als X10.
