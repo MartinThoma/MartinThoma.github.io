@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
-import imp
 import sys
 import platform
 import os
+import subprocess
+from distutils.version import LooseVersion
 
 
 class bcolors:
@@ -16,8 +17,6 @@ class bcolors:
 
 
 def which(program):
-    import os
-
     def is_exe(fpath):
         return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
 
@@ -35,7 +34,7 @@ def which(program):
     return None
 
 
-def check_python_version():
+def check_ruby_version():
     # Required due to multiple with statements on one line
     req_version = (2, 7)
     cur_version = sys.version_info
@@ -49,70 +48,39 @@ def check_python_version():
                str(req_version)))
 
 
-def check_python_modules():
-    print("\033[1mCheck modules\033[0m")
-    required_modules = ['argparse', 'matplotlib', 'natsort', 'MySQLdb',
-                        'cPickle', 'detl', 'theano', 'dropbox', 'yaml',
-                        'webbrowser', 'hashlib', 'shapely', 'numpy', 'wget',
-                        '_tkinter', 'jinja2']
-    found = []
-    for required_module in required_modules:
-        try:
-            imp.find_module(required_module)
-            check = "module '%s' ... %sfound%s" % (required_module,
-                                                   bcolors.OKGREEN,
-                                                   bcolors.ENDC)
-            print(check)
-            found.append(required_module)
-        except ImportError:
-            print("module '%s' ... %sNOT%s found" % (required_module,
-                                                     bcolors.WARNING,
-                                                     bcolors.ENDC))
+def check_ruby_gems():
+    print("\033[1mCheck gems\033[0m")
+    output = subprocess.Popen(["gem", "list"],
+                              stdout=subprocess.PIPE).communicate()[0]
+    gemlist = {}
+    for gem_line in output.split("\n"):
+        splitted = gem_line.split(" ")
+        if len(splitted) == 2:
+            gem_name, gem_version = splitted
+            if gem_version[0] == "(" and gem_version[-1] == ")":
+                gem_version = gem_version[1:-1]
+            gemlist[gem_name] = gem_version
+        elif len(splitted) > 0 and len(splitted[0]) > 0:
+            print("Unrecognized: '%s'" % gem_line)
 
-    if "argparse" in found:
-        import argparse
-        print("argparse version: %s (1.1 tested)" % argparse.__version__)
-    if "matplotlib" in found:
-        import matplotlib
-        print("matplotlib version: %s (1.2.1 tested)" % matplotlib.__version__)
-    if "natsort" in found:
-        import natsort
-        print("natsort version: %s (3.4.0 tested, 3.4.0 > required)" %
-              natsort.__version__)
-    if "MySQLdb" in found:
-        import MySQLdb
-        print("MySQLdb version: %s (1.2.3 tested)" %
-              MySQLdb.__version__)
-    if "theano" in found:
-        import theano
-        print("theano version: %s (0.6.0 tested)" %
-              theano.__version__)
-    if "shapely" in found:
-        import shapely
-        print("shapely version: %s (1.2.14 tested)" %
-              shapely.__version__)
-    if "numpy" in found:
-        import numpy
-        print("numpy version: %s (1.8.1 tested)" %
-              numpy.__version__)
-    if "wget" in found:
-        import wget
-        print("wget version: %s (2.2 tested)" %
-              wget.__version__)
-    if "yaml" in found:
-        import yaml
-        print("yaml version: %s (3.11 tested)" %
-              yaml.__version__)
-    if "jinja2" in found:
-        import jinja2
-        print("jinja2 version: %s (2.7.3 tested)" %
-              jinja2.__version__)
-    if "cPickle" in found:
-        import cPickle
-        print("cPickle version: %s (1.71 tested)" %
-              cPickle.__version__)
-        print("cPickle HIGHEST_PROTOCOL: %s (2 required)" %
-              cPickle.HIGHEST_PROTOCOL)
+    required = [('dimensions', '1.3.0'), ('execjs', '2.2.1'),
+                ('fileutils', '0.7'), ('jekyll', '2.4.0'),
+                ('redcarpet', '3.1.2'), ('rmagick', '2.13.3')]
+
+    for gem_name, gem_version in required:
+        if gem_name in gemlist:
+            if LooseVersion(gemlist[gem_name]) >= LooseVersion(gem_version):
+                print("%s...\t%sOK%s (found %s,\trequires %s)" %
+                      (gem_name, bcolors.OKGREEN, bcolors.ENDC,
+                       gemlist[gem_name], gem_version))
+            else:
+                print("%s...\t%sOLD%s (found %s,\trequires %s)" %
+                      (gem_name, bcolors.WARNING, bcolors.ENDC,
+                       gemlist[gem_name], gem_version))
+        else:
+            print("%s...\t%sNOT FOUND%s (requires %s)" %
+                  (gem_name, bcolors.FAIL, bcolors.ENDC,
+                   gem_version))
 
 
 def check_executables():
@@ -123,26 +91,14 @@ def check_executables():
         if path is None:
             print("%s ... %sNOT%s found" % (executable, bcolors.WARNING,
                                             bcolors.ENDC))
-            print("Try 'http://martin-thoma.com/what-are-pfiles/' for "
-                  "instructions how to get it.")
         else:
             print("%s ... %sfound%s at %s" % (executable, bcolors.OKGREEN,
                                               bcolors.ENDC, path))
 
 
 def main():
-    #check_python_version()
-    #check_python_modules()
+    check_ruby_gems()
     check_executables()
-    home = os.path.expanduser("~")
-    print("\033[1mCheck files\033[0m")
-    rcfile = os.path.join(home, ".writemathrc")
-    if os.path.isfile(rcfile):
-        print("~/.writemathrc... %sFOUND%s" %
-              (bcolors.OKGREEN, bcolors.ENDC))
-    else:
-        print("~/.writemathrc... %sNOT FOUND%s" %
-              (bcolors.FAIL, bcolors.ENDC))
 
 if __name__ == '__main__':
     main()
