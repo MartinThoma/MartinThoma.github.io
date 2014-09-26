@@ -36,7 +36,8 @@ they don't have a perfect strategy. Or at least we have not proven that they
 have a perfect strategy:
 
 * Chess
-* 
+* Go on a 5×5 board
+* Reversi on a 4×4 board
 
 ## Unspecialized Game A.I.s
 

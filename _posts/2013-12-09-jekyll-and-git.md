@@ -81,7 +81,20 @@ Reasons for WordPress:
       And your computer has to be running.</li>
 </ul>
 
+## Install Jekyll
+
+On an Ubunty system I need for this blog:
+
+```bash
+$ sudo apt-get install ruby1.9.1-dev imagemagick ruby-rmagick libmagickwand-dev ruby-execjs ruby-nokogiri
+$ sudo gem install jekyll
+$ sudo gem install dimensions
+$ sudo gem install fileutils
+$ sudo mkdir -p /var/www/blog
+```
+
 ## GitHub ##
+
 ### Create your repository ###
 1. Go to <a href="https://github.com/">github.com</a>, sign in and create a new repo:
 2. Call it `[Username].github.io`.
@@ -207,6 +220,7 @@ plugins and templates. Everything is quite easy. The Liquid templating
 language seems to be very similar to Django Templates (Python).
 
 ## Make the Website super-fast ##
+
 ### CSS Minification ###
 ```bash
 sudo gem install juicer

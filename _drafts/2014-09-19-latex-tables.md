@@ -195,7 +195,7 @@ which looks like this:
 Note the `\cmidrule{2-4}` which draws a rule from cell 2 to 4 (LaTeX starts
 to count at 1).
 
-If you want to combine multiple rows you need to use `usepackage{multirow}`.
+If you want to combine multiple rows you need to use `\usepackage{multirow}`.
 
 ### Page breaking tables
 
