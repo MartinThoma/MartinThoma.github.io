@@ -364,6 +364,15 @@ $ sudo lshw -class network
 ```
 
 
+## Troubleshoot
+
+### WLAN
+
+
+
+Sources:
+* [My WiFi adapter is not working at all, how to troubleshoot?](http://askubuntu.com/questions/235279/my-wifi-adapter-is-not-working-at-all-how-to-troubleshoot)
+
 ## GUI-Tools
 
 * `hardinfo`
@@ -376,6 +385,9 @@ $ sudo lshw -class network
 * [Hardwaredatenbank](http://wiki.ubuntuusers.de/Archiv/Hardwaredatenbank)
 * [Hardware Compatibility List](http://www.linuxquestions.org/hcl/)
 
-## See also:
+## See also
 
 * [Linux Find Out Graphics Card Installed In My System](http://www.cyberciti.biz/faq/linux-tell-which-graphics-vga-card-installed/)
+* Linux Wireless
+  * [b43 and b43legacy](http://wireless.kernel.org/en/users/Drivers/b43)
+  * [Supported Broadcom wireless devices](http://wireless.kernel.org/en/users/Drivers/b43/devices)
