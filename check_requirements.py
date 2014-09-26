@@ -54,7 +54,7 @@ def check_ruby_gems():
                               stdout=subprocess.PIPE).communicate()[0]
     gemlist = {}
     for gem_line in output.split("\n"):
-        splitted = gem_line.split(" (")
+        splitted = gem_line.split(" (")  #TODO: use regex
         if len(splitted) == 2:
             gem_name, gem_version = splitted
             gem_version = "(" + gem_version
