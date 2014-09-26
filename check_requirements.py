@@ -54,11 +54,16 @@ def check_ruby_gems():
                               stdout=subprocess.PIPE).communicate()[0]
     gemlist = {}
     for gem_line in output.split("\n"):
-        splitted = gem_line.split(" ")
+        splitted = gem_line.split(" (")
         if len(splitted) == 2:
             gem_name, gem_version = splitted
+            gem_version = "(" + gem_version
             if gem_version[0] == "(" and gem_version[-1] == ")":
                 gem_version = gem_version[1:-1]
+            if "," in gem_version:
+                gem_version = gem_version.split(",")
+            else:
+                gem_version = [gem_version]
             gemlist[gem_name] = gem_version
         elif len(splitted) > 0 and len(splitted[0]) > 0:
             print("Unrecognized: '%s'" % gem_line)
@@ -69,14 +74,16 @@ def check_ruby_gems():
 
     for gem_name, gem_version in required:
         if gem_name in gemlist:
-            if LooseVersion(gemlist[gem_name]) >= LooseVersion(gem_version):
+            versions = [LooseVersion(v) for v in gemlist[gem_name]]
+            latest_version = sorted(versions, reverse=True)[0]
+            if latest_version >= LooseVersion(gem_version):
                 print("%s...\t%sOK%s (found %s,\trequires %s)" %
                       (gem_name, bcolors.OKGREEN, bcolors.ENDC,
-                       gemlist[gem_name], gem_version))
+                       latest_version, gem_version))
             else:
                 print("%s...\t%sOLD%s (found %s,\trequires %s)" %
                       (gem_name, bcolors.WARNING, bcolors.ENDC,
-                       gemlist[gem_name], gem_version))
+                       latest_version, gem_version))
         else:
             print("%s...\t%sNOT FOUND%s (requires %s)" %
                   (gem_name, bcolors.FAIL, bcolors.ENDC,
