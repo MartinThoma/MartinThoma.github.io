@@ -47,3 +47,8 @@ Then
 
     sudo gem install juicer jekyll dimensions
     sudo juicer install jslint
+
+Install
+========
+
+See http://martin-thoma.com/jekyll-and-git/
