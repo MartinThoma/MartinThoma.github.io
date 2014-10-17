@@ -2,7 +2,7 @@
 layout: post
 title: On-line Handwriting Recognition of Mathematical Symbols
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-10-17 12:25
 categories:
 - Code
 tags:
@@ -11,11 +11,22 @@ tags:
 featured_image: logos/write-math.png
 ---
 
+THIS IS JUST A DRAFT. IT WILL GET UPDATED UNTIL 15 NOVEMBER 2014!
+
 On-line handwriting recognition systems get the information how a symbol is
 written. In contrast, OCR only gets the pixel map.
 
 I've created a system that can be used to work with handwriting recognition
 systems in my bachelor's thesis.
+
+## Toolkit installation
+
+The [`hwrt`](https://github.com/MartinThoma/hwrt) toolkit can be installed
+via pip:
+
+```bash
+# pip install hwrt
+```
 
 ## System Structure
 
@@ -30,6 +41,12 @@ Every raw dataset must contain the following information:
 
 * 'handwritings': A list of all handwritings. Those are objects that contain
   themselfes a lot of information.
+
+The raw datasets can be downloaded with the hwrt toolkit:
+
+```bash
+$ download.py
+```
 
 ### Preprocessed datasets
 All preprocessed dataset are in `[PROJECT_ROOT]/archive/preprocessed/`.
