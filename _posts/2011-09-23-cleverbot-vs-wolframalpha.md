@@ -10,7 +10,7 @@ tags:
 - funny
 - Cleverbot
 - Wolfram|Alpha
-- A.I.
+- AI
 featured_image: 2011/09/Cleverbot-Logo.png
 ---
 <a href="http://cleverbot.com/" title="Cleverbot">Cleverbot</a> is an AI web application. You can chat with it and it tries to guess a good answer. This can be quite funny.

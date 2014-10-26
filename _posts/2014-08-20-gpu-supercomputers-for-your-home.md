@@ -11,7 +11,8 @@ tags:
 - GPU
 - nVidea
 - CUDA
-- A.I.
+- AI
+- Machine Learning
 featured_image: logos/nvidia.png
 ---
 

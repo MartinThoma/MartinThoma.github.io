@@ -10,7 +10,8 @@ tags:
 - PyBrain
 - Neural Network
 - Classification
-- A.I.
+- AI
+- Machine Learning
 featured_image: logos/pybrain.png
 ---
 

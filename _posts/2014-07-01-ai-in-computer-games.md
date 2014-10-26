@@ -6,9 +6,9 @@ date: 2014-07-01 23:52
 categories:
 - Cyberculture
 tags:
-- A.I.
+- AI
 - games
-- ML
+- Machine Learning
 featured_image: logos/ai.png
 ---
 

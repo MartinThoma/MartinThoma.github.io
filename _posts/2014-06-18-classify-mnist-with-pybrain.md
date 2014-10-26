@@ -9,7 +9,8 @@ tags:
 - Python
 - PyBrain
 - MNIST
-- A.I.
+- AI
+- Machine Learning
 - Neural Nets
 - Classification
 featured_image: logos/pybrain.png
