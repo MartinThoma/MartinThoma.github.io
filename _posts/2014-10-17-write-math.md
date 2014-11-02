@@ -19,60 +19,31 @@ written. In contrast, OCR only gets the pixel map.
 I've created a system that can be used to work with handwriting recognition
 systems in my bachelor's thesis.
 
-## Toolkit installation
+## write-math.com
 
-The [`hwrt`](https://github.com/MartinThoma/hwrt) toolkit can be installed
-via pip:
+The website [write-math.com](http://write-math.com) was used to collect data.
+The source is at [github.com/MartinThoma/write-math](https://github.com/MartinThoma/write-math).
 
-```bash
-# pip install hwrt
-```
+## HWRT toolkit
 
-## System Structure
+The [`hwrt`](https://github.com/MartinThoma/hwrt) toolkit was created to
+work with on-line handwritten symbols. The toolkit is documented at
+[pythonhosted.org/hwrt](https://pythonhosted.org/hwrt/).
 
-The system has a configurable `PROJECT_ROOT`. The configuration file is
-`~/.writemathrc`.
+The raw data can be downloaded with this toolkit.
 
+## HWR experiments
 
-### Raw datasets
-All raw datasets (pickle-files) are in `[PROJECT_ROOT]/archive/raw-datasets/`.
+All experiments configuration files are saved in the project
+[github.com/MartinThoma/hwr-experiments](https://github.com/MartinThoma/hwr-experiments).
 
-Every raw dataset must contain the following information:
+## Presentations
 
-* 'handwritings': A list of all handwritings. Those are objects that contain
-  themselfes a lot of information.
+* [27.08.2014](https://github.com/MartinThoma/LaTeX-examples/blob/master/presentations/Bachelor-Short/LaTeX/bachelor-short.pdf?raw=true)
+* [06.11.2014](https://github.com/MartinThoma/LaTeX-examples/blob/master/presentations/Bachelor-Final-Presentation/LaTeX/Bachelor-Final-Presentation.pdf?raw=true):
+  Final presentation for bachelor's thesis
 
-The raw datasets can be downloaded with the hwrt toolkit:
+## Bachelor's thesis
 
-```bash
-$ download.py
-```
-
-### Preprocessed datasets
-All preprocessed dataset are in `[PROJECT_ROOT]/archive/preprocessed/`.
-Every preprocessed dataset should have its own folder. Every folder must contain
-a preprocessing.yml.
-
-Every preprocessed dataset pickle file must contain the following information:
-
-* Source dataset
-* Date / time when preprocessing was started (eventually git commit?)
-
-### Models
-All models are stored in their own folder. I assume that these model folders
-are in `[PROJECT_ROOT]/archive/models/`. Every analysis that is made will place
-the result in that folder (or a subfolder).
-
-pfiles are also in this folder. When pfiles get created, there has to be a
-tranlation file that maps from indices (as used for pfiles) to formula_ids.
-
-There also has to be a `model.yml` in each model folder. It is a configuration
-file that contains the following information:
-
-* preprocessing: Which preprocessed pfile was used?
-
-In that folder will also be:
-
-* traindata.pfile
-* validdata.pfile
-* testdata.pfile
+I will put my bachelor's thesis here in February 2015. Probably earlier, but
+not later.
