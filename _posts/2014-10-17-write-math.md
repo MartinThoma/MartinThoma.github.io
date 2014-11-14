@@ -11,8 +11,6 @@ tags:
 featured_image: logos/write-math.png
 ---
 
-THIS IS JUST A DRAFT. IT WILL GET UPDATED UNTIL 15 NOVEMBER 2014!
-
 On-line handwriting recognition systems get the information how a symbol is
 written. In contrast, OCR only gets the pixel map.
 

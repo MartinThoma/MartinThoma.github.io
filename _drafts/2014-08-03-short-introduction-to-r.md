@@ -27,7 +27,7 @@ Simply type `R` in the terminal. It is important that it is uppercase!
 
 ## Loading data from external sources
 
-```R
+```rconsole
 > mydata = read.csv("myfile.csv")
 ```
 
@@ -35,7 +35,7 @@ You can also load data from Excel files (see [r-tutor.com](http://www.r-tutor.co
 
 ## Visualizations
 
-```R
+```rconsole
 > boxplot(mydata)
 > title("Your title")
 ```
