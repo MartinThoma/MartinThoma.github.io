@@ -20,6 +20,7 @@ TODO
   - http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/ (LaTeX at bottom)
 * Apply CSS Rules from [CSS Wizardry](https://github.com/csswizardry/CSS-Guidelines)
 
+
 Improve
 ========
 * Site speed
@@ -29,24 +30,27 @@ Improve
   * Remove parts of JS that are not used
 * Excerpts
 
+
 Testen
 =======
 * WordPress "Caption" tags
 * RSS Feed
 
+
 Required
 ========
 First:
 
-    sudo apt-get install rubygems ruby-dev
-    sudo juicer install yui_compressor
+    sudo apt-get install rubygems ruby-dev libmagickwand-dev
 
 Although there is a `jekyll` package on Debian-Systems, you should not install it. Rather do it this way:
 
 Then
 
-    sudo gem install juicer jekyll dimensions
+    sudo gem install juicer jekyll dimensions rmagick
     sudo juicer install jslint
+    sudo juicer install yui_compressor
+
 
 Install
 ========
