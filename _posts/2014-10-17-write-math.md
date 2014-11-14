@@ -45,5 +45,5 @@ All experiments configuration files are saved in the project
 
 ## Bachelor's thesis
 
-I will put my bachelor's thesis here in February 2015. Probably earlier, but
-not later.
+* [07.11.2014](http://martin-thoma.com/pdf/bsthesis-thoma-2014-11-07.pdf):
+  Thesis I have handed in. It is currently graded.

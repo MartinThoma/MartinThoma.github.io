@@ -24,7 +24,10 @@ go in direction of the steepest descent.
 The delta rule is an update rule for single layer perceptrons. It makes use
 of gradient descent.
 
-Backpropagation
+Backpropagation is a special form of gradient descent, where a rule can be
+formulated which has some recursively defined parts. Those parts belong
+to neurons of different layers and get calculated from the output-layer
+(last layer) to the first hidden layer.
 
 ## See also
 
