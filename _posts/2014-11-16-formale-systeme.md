@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programmierparadigmen Klausur
+title: Formale Systeme Klausur
 author: Martin Thoma
 date: 2014-11-16 17:05
 categories:
