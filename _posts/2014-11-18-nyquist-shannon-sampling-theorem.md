@@ -10,7 +10,7 @@ tags:
 - Sampling
 - Signal Processing
 - Audio
-featured_image: logos/write-math.png
+featured_image: logos/signal.png
 ---
 The [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem)
 states that you have to sample more than twice the highest frequency.
