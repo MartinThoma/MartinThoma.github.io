@@ -129,7 +129,7 @@ Now the question is: Should the new group right 'super protect' be kept?
 
 #### Wrong arguments
 * The super protect right was necessary as one admin was abusing his power.<br/>
-  If the problem is only one admin, there already is the possiblity to remove
+  If the problem is only one admin, there already is the possibility to remove
   the admin status of this user.
 * The WMF has the legal right to do what they want and they need superprotect
   to have legal security.<br/>
@@ -145,7 +145,7 @@ Now the question is: Should the new group right 'super protect' be kept?
   from the WMF. The problem for many users seems to be that the WMF is not
   elected, whereas admins are (see [Wikipedia:Administrators#Becoming_an_administrator](https://en.wikipedia.org/wiki/Wikipedia:Administrators#Becoming_an_administrator) - there seem to be differences in the English / German Wiki).
 * The new concept of 'super protection' was introduced too fast without a concept which was discussed within the community.
-* The risc of misuse of power is too high as there is no mutual control.
+* The risk of misuse of power is too high as there is no mutual control.
 
 ### Comments
 
@@ -154,7 +154,7 @@ when more than two admins have a wheel war. In that case it could be implemented
 so that it can only freeze a page for 7 days and after those 7 days the page
 cannot be frozen for at least 14 days (one would have to discuss the numbers).
 
-This way, it can be a tool for de-escallation and the abuse can be limited.
+This way, it can be a tool for de-escalation and the abuse can be limited.
 
 Also, sites that get frozen must have at least two back-and-forth edits by two
 admins and the community must have voted for freezing.

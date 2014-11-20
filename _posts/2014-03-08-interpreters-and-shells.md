@@ -52,9 +52,9 @@ The path should autocomplete when you hit <kbd>Tab</kbd>. The autocomplete shoul
 work as follows:
 
 1. The autocomplete should never get farer than one folder.
-2. If there are multiple possiblities to autocomplete, then it should only
+2. If there are multiple possibilities to autocomplete, then it should only
   autocomplete what is in common. After a second <kbd>Tab</kbd> it should display
-  the possibilites and after a third <kbd>Tab</kbd> the shell should go to the
+  the possibilities and after a third <kbd>Tab</kbd> the shell should go to the
   first possibility so that you can hit enter to use this possibility.
 
 ## Level 6: Command autocompletion
@@ -92,7 +92,7 @@ The `scala` interactive interpreter is slow.
 I press the right arrow. When I press <kbd>Tab</kbd> it only prints tab. What
 a crap.
 
-**Level 3**: `python` seems to have possiblities to execute arbitrary python code at
+**Level 3**: `python` seems to have possibilities to execute arbitrary python code at
 startup by specifying the environment variable `PYTHONSTARTUP`, but somehow this
 does not work on my system.<br/>
 However, customizing the prompt is fairly easy:

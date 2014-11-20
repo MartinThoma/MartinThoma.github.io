@@ -163,7 +163,7 @@ You can also use compareTo() within compareTo():
 If you need to compare objects in multiple ways, you might need to implement <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T, T)">Comperator</a>. If you only have to compare objects in one way, I would always use the Interface Comparable. It's easier to use.
 
 <h3>External Comparator</h3>
-An external Comperator PopulationDensityComperator.java could look like this:
+An external Comparator PopulationDensityComperator.java could look like this:
 {% highlight java %}
 import java.util.Comparator;
 

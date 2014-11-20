@@ -20,7 +20,7 @@ Most interesting programs need some kind of configuration:
 * Content Management Systems like WordPress blogs, WikiMedia and Joomla need
   to store the information where the database server is (the hostname) and
   how to login (username and password)
-* Propritary software might need to store if the software was registered already
+* Proprietary software might need to store if the software was registered already
   (the serial key)
 * Scientific software could store the path to BLAS libraries
 
@@ -32,10 +32,10 @@ I will explain some alternatives I got to know for Python.
 
 ## Python Configuration File
 
-The simplest way to write configuration files is to simply write a seperate file
+The simplest way to write configuration files is to simply write a separate file
 that contains Python code. You might want to call it something like
 `databaseconfig.py`. Then you could add the line `*config.py` to your
-`.gitignore` file to avoid uploading it accidentially.
+`.gitignore` file to avoid uploading it accidentally.
 
 A configuration file could look like this:
 

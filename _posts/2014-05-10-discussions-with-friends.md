@@ -33,7 +33,7 @@ There are many ways people talk to each other:
   together. I think it is fundamentally different and deserves an own bullet
   point because in the teaching situation, the teacher leads the conversation.
   In the learning situation you don't have somebody who leads the conversation.
-  It's a free flow of (hopefully) constructive thougths with the aim to get
+  It's a free flow of (hopefully) constructive thoughts with the aim to get
   a new ability as a group.
 * **Moral or Political Discussions** are some sort of learning, but in contrast to learning in the
   sense that you get another ability or get to know some more facts, the aim is
@@ -120,7 +120,7 @@ worse for him:
 
 * Give him enough time to think and to talk.
 * Only one person and argument at a time. It's difficult to switch and to 
-  concentrate on two (or even more) seperate discussions.
+  concentrate on two (or even more) separate discussions.
 * Try to support him when he has trouble with finding the correct words or the
   best way to express himself. It is difficult to tell when you simply have to
   wait and give him some time to think and when you should try to support him.
@@ -135,7 +135,7 @@ just a bad idea and probability suggest to change the investment and rescue what
 left, most people will not do so. Somehow we quite often tend to a all-or-nothing
 thinking which is suboptimal in many cases.
 
-So, what can we do so to figure that out for ourselfs? Sometimes it is impossible
+So, what can we do so to figure that out for ourselves? Sometimes it is impossible
 to do so while discussing, but after the discussion you can think about it:
 
 * What arguments did I tell the others? How did I tell them? What were counter
@@ -157,7 +157,7 @@ Please note:
   If an argument has no impact or simply assumes an unrealistic situation, it
   might be irrelevant.
 * You don't have to agree at the end. A honest disagreement where both sides
-  understand the arguments of the other side is much better than a compromis
+  understand the arguments of the other side is much better than a comprise
   that no side really thinks is good.
 
 And I want to note that discussions might have many equally valid answers, whereas

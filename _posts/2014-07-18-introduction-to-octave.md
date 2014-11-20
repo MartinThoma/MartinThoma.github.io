@@ -49,7 +49,7 @@ $A = \begin{pmatrix} 1 & 2\\ 3 & 4\end{pmatrix}$ with
 >> A = [1 2; 3 4];
 ```
 
-When you want to transpose a vector / a matrix, you simply add an apostroph:
+When you want to transpose a vector / a matrix, you simply add an apostrophe:
 
 ```octave
 >> A = [1 2; 3 4];
@@ -112,7 +112,7 @@ ans =
    0.19867   0.29552   0.38942   0.47943
 ```
 
-The output can be surpressed with `;`.
+The output can be suppressed with `;`.
 
 ### Plotting
 

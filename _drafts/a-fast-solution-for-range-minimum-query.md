@@ -74,10 +74,12 @@ Now you get some queries, that ask for the minimum between two Indices i and j:
 </tr>
 </table>
 
-<h2>Linear search</h2>
-The easiest solution for this task is to go through all elements. This will need a linear amount of time for each query. This is much to slow if you get many queries.
+## Linear search
+The easiest solution for this task is to go through all elements. This will
+need a linear amount of time for each query. This is much to slow if you get
+many queries.
 
-<h2>Building blocks</h2>
+## Building blocks
 One possibility to make this one faster is to build blocks:
 <table>
 <tr>
@@ -115,29 +117,29 @@ One possibility to make this one faster is to build blocks:
 </tr>
 </table>
 
-<h2>Two dimensional</h2>
+## Two dimensional
 If you don't have a one-dimensional array with numbers but a two-dimensional, you have to adjust your algorithms. I did some testing today. I took a small input set (1000 x 1000 numbers, 100.000 queries - file size of this set is 11.5 MB), a large set (1000 x 1000 numbers, 1.000.000 queries - file size of this set is 25.0 MB) and a huge one (1000 x 1000 numbers, 100.000.000 queries).
 
-<h3>Linear search</h3>
+### Linear search
 Small input set: real 0m30.390s
 Large input set: 5m6.754s
 Huge input set: aborted after two hours
 
-<h3>Building blocks</h3>
+### Building blocks
 Small input set: real 0m30.298s
 Large input set: real 1m8.186s
 Huge input set: 107m56.560s = 1 hour 48 minutes
 
-<h3>Apply Sparse Tables Algorithm by rows</h3>
+### Apply Sparse Tables Algorithm by rows
 Small input set:
 Large input set:
 Huge input set: 
 
 
-<h2>See also</h2>
-<ul>
-  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Range_searching">Range searching</a>, <a href="http://en.wikipedia.org/wiki/Range_Minimum_Query">Range Minimum Query</a></li>
-  <li>TopCoder article: <a href="http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=lowestCommonAncestor#Range_Minimum_Query_%28RMQ%29">Range Minimum Query and Lowest Common Ancestor</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/University_of_T%C3%BCbingen">University of Tübingen</a>: <a href="http://ab.inf.uni-tuebingen.de/people/fischer/amir07two.pdf">Two-Dimensional Range Minimum Queries</a>, a <a href="http://www.cs.ucr.edu/~stelo/cpm/cpm07/2D_range_queries_amir.pdf">very short presentation</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Aarhus_University">Aarhus University</a>: <a href="http://www.cs.au.dk/~gerth/papers/algorithmica12min.pdf">On Space Efﬁcient Two Dimensional Range Minimum Data Structures</a></li>
-</ul>
+## See also
+
+* Wikipedia: [Range searching](http://en.wikipedia.org/wiki/Range_searching),
+  [Range Minimum Query](http://en.wikipedia.org/wiki/Range_Minimum_Query)
+* TopCoder article: <a href="http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=lowestCommonAncestor#Range_Minimum_Query_%28RMQ%29">Range Minimum Query and Lowest Common Ancestor</a>
+* <a href="http://en.wikipedia.org/wiki/University_of_T%C3%BCbingen">University of Tübingen</a>: <a href="http://ab.inf.uni-tuebingen.de/people/fischer/amir07two.pdf">Two-Dimensional Range Minimum Queries</a>, a <a href="http://www.cs.ucr.edu/~stelo/cpm/cpm07/2D_range_queries_amir.pdf">very short presentation</a>
+* <a href="http://en.wikipedia.org/wiki/Aarhus_University">Aarhus University</a>: <a href="http://www.cs.au.dk/~gerth/papers/algorithmica12min.pdf">On Space Efﬁcient Two Dimensional Range Minimum Data Structures</a>

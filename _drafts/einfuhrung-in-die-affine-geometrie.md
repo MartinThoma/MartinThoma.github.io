@@ -9,7 +9,14 @@ tags:
 - Affine geometry
 featured_image: 2012/01/vector-space.png
 ---
-Ich habe mir seit zwei Tagen versucht klar zu machen, was bestimmte Grundbegriffe der affinen Geometrie überhaupt bedeuten. Im Folgenden werde ich die formalen Definitionen aus dem Skript von Herrn Prof. Dr. Leuzinger geben und versuchen das ganze verständlich zu erklären. Sehr ähnliche Definitionen sind übrigens in dieser <a href="http://www.math.hu-berlin.de/~kramer/laag-scr.pdf">Mitschrift zur Vorlesung Lineare Algebra und analytische Geometrie der HU-Berlin</a> zu finden.
+Ich habe mir seit zwei Tagen versucht klar zu machen, was bestimmte
+Grundbegriffe der affinen Geometrie überhaupt bedeuten. Im Folgenden werde ich
+die formalen Definitionen aus dem Skript von Herrn Prof. Dr. Leuzinger geben
+und versuchen das ganze verständlich zu erklären. Sehr ähnliche Definitionen
+sind übrigens in dieser <a
+href="http://www.math.hu-berlin.de/~kramer/laag-scr.pdf">Mitschrift zur
+Vorlesung Lineare Algebra und analytische Geometrie der HU-Berlin</a> zu
+finden.
 
 <h2>Operation</h2>
 <div class="definition">Eine <strong>Operation</strong> einer Gruppe $(G, \cdot)$ auf einer Menge X ist eine Abbildung

@@ -81,7 +81,7 @@ to get this dialog:
 
 ### LaTeXTools
 The [LaTeXTools](https://github.com/SublimeText/LaTeXTools) package adds support
-for LaTeX. It adds shortcuts, a pulldown menu when you enter `\cref{` and much 
+for LaTeX. It adds shortcuts, a pull-down menu when you enter `\cref{` and much 
 more.
 
 ### Bracket Highlighter

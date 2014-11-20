@@ -31,7 +31,7 @@ See also: [Solved Game](https://en.wikipedia.org/wiki/Solved_game)
 
 ## Computers win always
 
-A second category are games in which A.I.s always win agains human players, but
+A second category are games in which A.I.s always win against human players, but
 they don't have a perfect strategy. Or at least we have not proven that they
 have a perfect strategy:
 

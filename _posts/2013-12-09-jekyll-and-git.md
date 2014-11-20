@@ -34,52 +34,43 @@ content to the server, but you don't have to download anything from
 the server.
 
 Reasons for Jekyll:
-<ul>
-  <li>**Security**: With Jekyll, you only upload static files (HTML, 
-      CSS, JavaScript, Images, ...). There is nothing where the user 
-      can pass some data. This also means there is one thing less to 
-      update.<br/>
-      Assuming your provider updates your server software (e.g. Apache)
-      you don't have to update anything. In contrast, when you don't
-      regularly install updates on your WordPress blog (and hope
-      that those updates don't break anything), your blog is quite
-      likely to be hacked.</li>
-  <li>**Speed**: The webserver needs only to serve the sites.
-      Nothing else. Of course, when you use caching with PHP you
-      might get into a similar situation with WordPress. But it
-      will never be faster.</li>
-  <li>**Hosting**: You only need webspace. This reduces hosting
-      cost significantly. Additionally, you can use <a href="http://aws.amazon.com/s3/">Amazon S3</a>
-      for hosting!</li>
-  <li>**Backups**: Creating security backups is VERY easy with
-      Jekyll. Every tool that can make bakups of files can backup
-      your Jekyll blog. No need to worry about databases. If a file
-      is corrupt, only that file is affected. No worries about
-      maximum execution time for importing / exporting backups.
-      No need to get SSH access. Simple FTP access does the job.</li>
-</ul>
+
+* **Security**: With Jekyll, you only upload static files (HTML, CSS,
+  JavaScript, Images, ...). There is nothing where the user can pass some data.
+  This also means there is one thing less to update.<br/>
+  Assuming your provider updates your server software (e.g. Apache) you don't
+  have to update anything. In contrast, when you don't regularly install
+  updates on your WordPress blog (and hope that those updates don't break
+  anything), your blog is quite likely to be hacked.
+* **Speed**: The webserver needs only to serve the sites. Nothing else. Of
+  course, when you use caching with PHP you might get into a similar situation
+  with WordPress. But it will never be faster.
+* **Hosting**: You only need webspace. This reduces hosting cost significantly.
+  Additionally, you can use [Amazon S3](http://aws.amazon.com/s3/) for hosting!
+* **Backups**: Creating security backups is VERY easy with Jekyll. Every tool
+  that can make bakups of files can backup your Jekyll blog. No need to worry
+  about databases. If a file is corrupt, only that file is affected. No worries
+  about maximum execution time for importing / exporting backups. No need to
+  get SSH access. Simple FTP access does the job.
 
 Reasons for WordPress:
-<ul>
-  <li>**Comments**: There is no way to get comments only with
-      static pages. So you need something else, e.g. <a href="http://disqus.com/">disqus</a>.</li>
-  <li>**Search**: Could probably be done with JavaScript, but
-      I guess it is difficult.</li>
-  <li>**Editor**: WordPress gives you a WYSIWYG editor. I don't 
-      know if there is something similar for Jekyll.</li>
-  <li>**Compile time**: Compilation time is very long for Jekyll.
-      For my blog, it needs over 6 minutes. As I test the result
-      quite often before I publish posts, this is very annoying.</li>
-  <li>**Tagging, Category pages, Author pages**: Currently,
-      Jekyll lacks basic support for blogging. You don't have tag
-      pages per default, the plugins that provide tags don't have 
-      paginated tag index pages. The same problem occurs when it comes
-      to categories or authors.</li>
-  <li>**Timed posts**: I did not use timed posts very often, but
-      it is very easy to create them with WordPress. With Jekyll,
-      on the other hand, you have to know how to create cronjobs.
-      And your computer has to be running.</li>
-</ul>
+
+* **Comments**: There is no way to get comments only with static pages. So you
+  need something else, e.g. <a href="http://disqus.com/">disqus</a>.
+* **Search**: Could probably be done with JavaScript, but I guess it is
+  difficult.
+* **Editor**: WordPress gives you a WYSIWYG editor. I don't know if there is
+  something similar for Jekyll.
+* **Compile time**: Compilation time is very long for Jekyll. For my blog, it
+  needs over 6 minutes. As I test the result quite often before I publish
+  posts, this is very annoying.
+* **Tagging, Category pages, Author pages**: Currently, Jekyll lacks basic
+  support for blogging. You don't have tag pages per default, the plugins that
+  provide tags don't have paginated tag index pages. The same problem occurs
+  when it comes to categories or authors.
+* **Timed posts**: I did not use timed posts very often, but it is very easy to
+  create them with WordPress. With Jekyll, on the other hand, you have to know
+  how to create cronjobs. And your computer has to be running.
 
 ## Install Jekyll
 
