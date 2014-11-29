@@ -10,30 +10,31 @@ tags:
 featured_image: logos/kit.png
 ---
 
-I have heard that the famous high quality universities in England have
-One-on-One tutoring. That means one tutor helps one student only. That must be
-incredibly effective for learning. From my experience as a tutor and as a
-"coach" (Nachhilfelehrer) I know that there is a huge difference in One-on-One
-tutoring compared to One-on-Many tutoring. If you only have one student, you
-can focus on the needs of this single student. And I guess that the student
-will also be encouraged a bit more to participate. If you only have one
-student, the student will not sleep while you teach him. He has to stay
-focused, because you will notice when he doesn't.
+I have heard that the famous universities in England have One-on-One tutoring.
+That means one tutor helps one student only. That must be incredibly effective
+for learning. From my experience as a tutor and as a "coach" (Nachhilfelehrer)
+I know that there is a huge difference in One-on-One tutoring compared to
+One-on-Many tutoring, where one tutor teaches about 30 students. If you only
+have one student, you can focus on the needs of this single student. And I
+guess that the student will also be encouraged a bit more to participate. If
+you only have one student, the student will not sleep while you teach him. He
+has to stay focused, because you will notice when he doesn't.
 
 So One-on-One tutoring is something we want to get.
 
 ## The problem of One-on-One tutoring
 It is expensive, if it would be done like tutoring is currently done. In fact I
 think it would be impossible, because you would not find that many tutors.
-However, I think there is another way to motivate students that have already
-passed the exam to be a tutor for another student:
+However, I think there are other ways to motivate students that have already
+passed the exam to be a tutor for another student.
 
-## The way to get One-on-One tutoring
-Give One-on-One tutors the possibility to try the exam again.
+## How to get One-on-One tutoring
+Give One-on-One tutors the possibility to write the exam again and improve
+their grade.
 
 I could imagine it to work like this: A student passes the exam, but he does
 not have the grade he wants. As he has already passed the exam, he will not be
-allowed to simply do it again. So he has to search a student who hasn't already
+allowed to simply write it again. So he has to search a student who hasn't already
 passed the exam and help this student to prepare for the exam. Now we have to
 check if the One-on-One tutor really helped the new student. I could imagine
 two ways that could also be combined.
@@ -44,11 +45,11 @@ One-on-Many tutor gets the information which exercises were done by the
 One-on-One tutor and the new student. In contrast to now, not only one student
 would exercise, but two. In order to make sure that there is an improvement,
 one could increase the necessary number of points for the One-on-One tutor to a
-threshold of $\theta_1$ (or both, the new student and the One-on-One tutor).
-$\theta_1$ should denote how much more points the tutor needs (in percent of
+threshold of $\theta_1$.
+$\theta_1$ should denote how much more points the student needs (in percent of
 the points the students need) to get the possibility to re-do the exam.
 
-$\theta_1 = 0$ would mean that the tutor does only need a student how
+$\theta_1 = 0$ would mean that the tutor does only need a student who
 gets the minimum number of points to pass the exam.
 
 $\theta_1 = 1$ would mean that the tutor needs his students to get double the
@@ -64,7 +65,10 @@ $\theta_1$ may not be too high. The higher it gets, the more difficult and time
 intensive it gets for the student and the tutor. I think the time right before
 an exam is the time where students learn most. If a student doesn't achieve
 the $\theta_1$ threshold, then the tutor will not have any incentive to help the
-student to prepare for the exam except for money or friendship.
+student to prepare for the exam except for money or friendship. This is a
+good incentive for the student to keep working on excercises, even if he
+already got enough points to be allowed to write the exam.
+
 
 ### One-on-One tutoring: Way 2
 The other possibility would be to enforce a minimum grade for the tutored
