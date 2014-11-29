@@ -26,3 +26,7 @@ Here are two of my conversations:
 This Cleverbot isn't very clever...
 
 Did you get some funny chats? Please post a link to a screenshot of your chat!
+
+edit: I just found this video. Too funny :-)
+
+<iframe width="512" height="288" src="//www.youtube-nocookie.com/embed/WnzlbyTZsQY" frameborder="0" allowfullscreen></iframe>
