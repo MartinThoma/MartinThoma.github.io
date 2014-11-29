@@ -41,15 +41,14 @@ two ways that could also be combined.
 ### One-on-One tutoring: Way 1
 The One-on-One tutor has to help the new student with the exercises. So the
 One-on-Many tutor gets the information which exercises were done by the
-One-on-One tutor and the new student. So in contrast to now, not only one
-student would exercise, but two. In order to make sure that there is an
-improvement, one could increase the necessary number of points for the
-One-on-One tutor to a threshold of $\theta_1$ (or both, the new student and the
-One-on-One tutor). $\theta_1$ should denote how much more points the tutor
-needs (in percent of the points the students need) to get the possibility to
-re-do the exam.
+One-on-One tutor and the new student. In contrast to now, not only one student
+would exercise, but two. In order to make sure that there is an improvement,
+one could increase the necessary number of points for the One-on-One tutor to a
+threshold of $\theta_1$ (or both, the new student and the One-on-One tutor).
+$\theta_1$ should denote how much more points the tutor needs (in percent of
+the points the students need) to get the possibility to re-do the exam.
 
-So $\theta_1 = 0$ would mean that the tutor does only need a student how
+$\theta_1 = 0$ would mean that the tutor does only need a student how
 gets the minimum number of points to pass the exam.
 
 $\theta_1 = 1$ would mean that the tutor needs his students to get double the
@@ -70,11 +69,11 @@ student to prepare for the exam except for money or friendship.
 ### One-on-One tutoring: Way 2
 The other possibility would be to enforce a minimum grade for the tutored
 student. So the One-on-One tutor cannot participate in the same exam as his
-student. But in the one after that. And he can only participate in that exam
-if his student got a minimum grade $\theta_2$, e.g. 2.3 or better.
+student, but in the exam after that. And the tutor can only participate in that
+exam if his student got a minimum grade $\theta_2$, e.g. 2.3 or better.
 
 $\theta_2 = 5$ would mean that the student only has to participate in the exam
-(At KIT every student gets at least a grade of 5. The best grade is 1.0.).
+(at KIT every student gets at least a grade of 5. The best grade is 1.0.).
 
 $\theta_2 = 1$ would mean that the student has to pass with the best grade so
 that the tutor is allowed to participate in the exam.
@@ -98,7 +97,7 @@ difficult to get a student to achieve that good results.
 I would like to call this model MOOT (Martins One-on-One Tutoring model).
 It is parameterized with two variables, $\theta_1$ and $\theta_2$.
 
-I think $MOOT(\theta_1=1.2, \theta_2=25\%)$ would be a good possibility to
+I think $MOOT(\theta_1=0.2, \theta_2=25\%)$ would be a good possibility to
 encourage students to help other students effectively. $\theta_1$ is low enough
 to make it fairly easy for somebody who already passed the exam to "lift" a
 student to pass the requirement.
