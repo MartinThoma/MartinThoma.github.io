@@ -11,22 +11,22 @@ featured_image: logos/kit.png
 ---
 
 I have heard that the famous high quality universities in England have
-One-on-One tutoring. That means one tutor helps one student only. That must
-be incredible effective for learning. From my experience as a tutor and as a
+One-on-One tutoring. That means one tutor helps one student only. That must be
+incredibly effective for learning. From my experience as a tutor and as a
 "coach" (Nachhilfelehrer) I know that there is a huge difference in One-on-One
-tutoring compared to One to Many tutoring. If you only have one student, you
+tutoring compared to One-on-Many tutoring. If you only have one student, you
 can focus on the needs of this single student. And I guess that the student
-will also be encouraged a bit more to participate. If you only have one student,
-the student will not sleep while you teach him. He has to stay focused, because
-you will notice when he doesn't.
+will also be encouraged a bit more to participate. If you only have one
+student, the student will not sleep while you teach him. He has to stay
+focused, because you will notice when he doesn't.
 
 So One-on-One tutoring is something we want to get.
 
 ## The problem of One-on-One tutoring
-But it is expensive, if it would be done like tutoring is currently done. In
-fact I think it would be impossible, because you would not find that many
-tutors. However, I think there is another way to motivate students that have
-already passed the exam to be a tutor for another student:
+It is expensive, if it would be done like tutoring is currently done. In fact I
+think it would be impossible, because you would not find that many tutors.
+However, I think there is another way to motivate students that have already
+passed the exam to be a tutor for another student:
 
 ## The way to get One-on-One tutoring
 Give One-on-One tutors the possibility to try the exam again.
@@ -40,13 +40,14 @@ two ways that could also be combined.
 
 ### One-on-One tutoring: Way 1
 The One-on-One tutor has to help the new student with the exercises. So the
-One-to-Many tutor gets the information which exercises were done by the
+One-on-Many tutor gets the information which exercises were done by the
 One-on-One tutor and the new student. So in contrast to now, not only one
-student would make an exercises, but two. In order to make sure that there is
-an improvement, one could increase the necessary number of points for the
-One-on-One tutor to a threshold of $\theta_1$ (or both, the new student and the One-on-One tutor). $\theta_1$ should denote how much more points the tutor needs (in
-percent of the points the students need) to get the possibility to re-do the
-exam.
+student would exercise, but two. In order to make sure that there is an
+improvement, one could increase the necessary number of points for the
+One-on-One tutor to a threshold of $\theta_1$ (or both, the new student and the
+One-on-One tutor). $\theta_1$ should denote how much more points the tutor
+needs (in percent of the points the students need) to get the possibility to
+re-do the exam.
 
 So $\theta_1 = 0$ would mean that the tutor does only need a student how
 gets the minimum number of points to pass the exam.
@@ -58,7 +59,7 @@ participate in the exam.
 This means $\theta_1 \in [0, 1]$.
 
 $\theta_1$ should not be zero, because that
-would mean that 1-to-1 tutors could choose their students right before the exam.
+would mean that 1-on-1 tutors could choose their students right before the exam.
 But I want them to choose the student at the beginning of the semester. And
 $\theta_1$ may not be too high. The higher it gets, the more difficult and time
 intensive it gets for the student and the tutor. I think the time right before
