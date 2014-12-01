@@ -1,6 +1,6 @@
 ---
 layout: post
-title: k-nearest-neighbor clustering - an interactive example
+title: k-nearest-neighbor classification and k-means - an interactive example
 author: Martin Thoma
 date: 2013-05-19 15:23:11.000000000 +02:00
 categories:
@@ -12,12 +12,16 @@ tags:
 - JavaScript
 - canvas
 featured_image: 2013/05/k-means-interesting-setting-thumb.png
+alias: /k-nearest-neighbor-clustering-interactive-example/index.html
 ---
 <iframe src="../html5/clustering/clustering.htm" width="98%" height="700px"></iframe>
 
-When the circle has exactly the same number of blue / green dots in it, it will be green.
+When the circle has exactly the same number of blue / green dots in it, it will
+be green.
 
-When you move the mouse over the box, everything will be calculated and drawn again. This leads to flickering with k-means, as k-means includes a random choice of cluster centers.
+When you move the mouse over the box, everything will be calculated and drawn
+again. This leads to flickering with k-means, as k-means includes a random
+choice of cluster centers.
 
 <h2>Changelog</h2>
 <table>
