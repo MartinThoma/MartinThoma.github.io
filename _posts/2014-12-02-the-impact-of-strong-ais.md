@@ -102,18 +102,51 @@ be replaced by AIs.
 My guess is that the reality would be somewhere in between. A couple of
 super-rich people and the rest giving them massages.
 
+
+## A possible solution to those social problems
+
+I've just described that AIs might cause serious social problems. However,
+I think we can solve those problems by making sure that income inequality
+cannot get too high. This means there should be very high and effective
+inheritance tax as well as a taxation system that prevents people from
+getting too rich / people too poor. The most extrem action to prevent too
+poor people is an unconditional income, the most extrem action to prevent
+people getting too rich is an upper limit on what somebody could have.
+
+I think an unconditional income would be a good thing, but its hard to tell
+how high that should be.
+
+The easiest way to prevent people from getting too rich is adding a tax system
+that adjusts to income:
+
+* Your first 0 - 2000 Euro / month don't get taxed at all
+* Your next 2001 - 3000 Euro / month get taxed with 0% + (100%/2) = 50%
+* Your next 3001 - 4000 Euro / month get taxed with 50% + (50%/2) = 75%
+* Your next 4001 - 5000 Euro / month get taxed with 75% + (25%/2) = 87.5%
+* ...
+
+You can (and should - I think my numbers are not well-chosen!) argue about the
+exact numbers, but I guess you get what I mean. The tax should never be 100%,
+thus leaving the possibility to get more money. But the difficulty to do so
+should increase. This effectively prevents that some people get too rich and hence
+resulting in a very instable system.
+
+It would be important to do so before anybody develops a strong AI.
+
+
 ## Related books and movies
 
-Books
+**Books**
 
 * "Zero" by Marc Elsberg
 * [Brave new world](https://en.wikipedia.org/wiki/Brave_New_World) by [Aldous Huxley](https://en.wikipedia.org/wiki/Aldous_Huxley)
 
-Movies
+**Movies**
 
-* I, Robot
-* Terminator (Skynet)
+* [Transcendence](https://en.wikipedia.org/wiki/Transcendence_(2014_film))
+* [I, Robot](https://en.wikipedia.org/wiki/I,_Robot)
+* [Terminator](https://en.wikipedia.org/wiki/Terminator_(franchise))
 
-Talks
+**Talks**
 
 * [The rise of the new global super-rich](http://www.ted.com/talks/chrystia_freeland_the_rise_of_the_new_global_super_rich)
