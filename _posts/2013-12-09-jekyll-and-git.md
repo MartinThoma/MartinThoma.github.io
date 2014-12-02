@@ -256,6 +256,31 @@ Jekyll uses Liquid as a templating language. It is similar to Django
 templates. [Here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
 is a short introduction to Liquid.
 
+A Sublime Text template is the following:
+
+```text
+<snippet>
+    <content><![CDATA[
+---
+layout: post
+title: ${1:}
+author: Martin Thoma
+date: 2014-11-22 17:19
+categories: 
+- ${2:Cyberculture}
+tags: 
+- ${3:Rating}
+featured_image: logos/${4:star.png}
+---
+${5:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>---</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>
+```
+
 ## Some tests ##
 * Validation
   * [validator.w3.org](http://validator.w3.org/check?uri=martin-thoma.com):
