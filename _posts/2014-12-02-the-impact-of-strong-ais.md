@@ -136,17 +136,28 @@ It would be important to do so before anybody develops a strong AI.
 
 ## Related books and movies
 
-**Books**
+**Books** (all fiction)
 
-* "Zero" by Marc Elsberg
-* [Brave new world](https://en.wikipedia.org/wiki/Brave_New_World) by [Aldous Huxley](https://en.wikipedia.org/wiki/Aldous_Huxley)
+* "Zero" by Marc Elsberg: People get controlled by life improvement apps in
+  a very indirect way.
+* Out-Series by [Andreas Eschbach](https://en.wikipedia.org/wiki/Andreas_Eschbach):
+  A device was developed, that lets people connect their brains. A new form of
+  conciousness develops from that.
+* [Brave new world](https://en.wikipedia.org/wiki/Brave_New_World) by [Aldous Huxley](https://en.wikipedia.org/wiki/Aldous_Huxley): People get distracted from issues by consuming many goods.
 
-**Movies**
+**Movies** (all fiction)
 
-* [Transcendence](https://en.wikipedia.org/wiki/Transcendence_(2014_film))
-* [I, Robot](https://en.wikipedia.org/wiki/I,_Robot)
-* [Terminator](https://en.wikipedia.org/wiki/Terminator_(franchise))
+* [Transcendence](https://en.wikipedia.org/wiki/Transcendence_(2014_film)):
+  The mind of one person gets transformed in a computer.
+* [I, Robot](https://en.wikipedia.org/wiki/I,_Robot): An AI gets developed and
+  very powerful humanoid robots get controlled by it.
 
 **Talks**
 
-* [The rise of the new global super-rich](http://www.ted.com/talks/chrystia_freeland_the_rise_of_the_new_global_super_rich)
+* [The rise of the new global super-rich](http://www.ted.com/talks/chrystia_freeland_the_rise_of_the_new_global_super_rich):
+  Technology is advancing in leaps and bounds — and so is economic inequality,
+  says writer Chrystia Freeland. In an impassioned talk, she charts the rise of
+  a new class of plutocrats (those who are extremely powerful because they are
+  extremely wealthy), and suggests that globalization and new technology are
+  actually fueling, rather than closing, the global income gap. Freeland lays
+  out three problems with plutocracy … and one glimmer of hope.
