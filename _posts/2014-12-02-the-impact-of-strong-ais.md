@@ -7,7 +7,7 @@ categories:
 - Cyberculture
 tags: 
 - AI
-- politics
+- Politics
 featured_image: logos/ai.png
 ---
 
@@ -134,7 +134,7 @@ resulting in a very instable system.
 It would be important to do so before anybody develops a strong AI.
 
 
-## Related books and movies
+## Related books, movies and talks
 
 **Books** (all fiction)
 
