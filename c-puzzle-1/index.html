@@ -11,7 +11,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>C Puzzle #1</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201412070036.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201412070050.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -129,9 +129,9 @@
 <p>If you compile it with no optimization, you might get 43:</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="sb">`</span><span class="nv">$ </span>gcc -O0 cpuzzle-1.c ; ./a.out 
-aufgabe-3.c: In <span class="k">function</span> &amp;lsquo;f&amp;rsquo;:
-aufgabe-3.c:5: warning: <span class="k">function </span>returns address of <span class="nb">local </span>variable
+   <pre><code class="language-bash" data-lang="bash"><span class="sb">`</span><span class="nv">$ </span>gcc -O0 cpuzzle-1.c <span class="p">;</span> ./a.out 
+aufgabe-3.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>f<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+aufgabe-3.c:5: warning: <span class="k">function</span> returns address of <span class="nb">local </span>variable
 <span class="nv">x</span> <span class="o">=</span> 43
 <span class="nv">x</span> <span class="o">=</span> 43</code></pre>
 </div>
@@ -139,9 +139,9 @@ aufgabe-3.c:5: warning: <span class="k">function </span>returns address of <span
 <p>If you compile it with 03 Optimization, you might get 5.</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$`</span> gcc -O3 cpuzzle-1.c ; ./a.out 
-aufgabe-3.c: In <span class="k">function</span> &amp;lsquo;f&amp;rsquo;:
-aufgabe-3.c:5: warning: <span class="k">function </span>returns address of <span class="nb">local </span>variable
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$`</span> gcc -O3 cpuzzle-1.c <span class="p">;</span> ./a.out 
+aufgabe-3.c: In <span class="k">function</span> <span class="p">&amp;</span>lsquo<span class="p">;</span>f<span class="p">&amp;</span>rsquo<span class="p">;</span>:
+aufgabe-3.c:5: warning: <span class="k">function</span> returns address of <span class="nb">local </span>variable
 <span class="nv">x</span> <span class="o">=</span> 5
 <span class="nv">x</span> <span class="o">=</span> 5</code></pre>
 </div>
@@ -167,13 +167,13 @@ The variable is a so called local or automatic variable and is located on the st
 First you should get your assembly code. If you're running a Linux machine, you can type this into the console:</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">gcc -S -O0 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O0.s</code></pre>
+   <pre><code class="language-bash" data-lang="bash">gcc -S -O0 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O0.s</code></pre>
 </div>
 
 <p>This will create a file called "cpuzzle-1.s" which contains the assembly code for the non-optimized version. Rename it into "cpuzzle-1-O0.c". Then the same for O3:</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">gcc -S -O3 cpuzzle-1.c ; gcc cpuzzle-1.c -o cpuzzle; mv cpuzzle-1.s cpuzzle-1-O3.s</code></pre>
+   <pre><code class="language-bash" data-lang="bash">gcc -S -O3 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O3.s</code></pre>
 </div>
 
 <p>Now you can compare those two with meld or any other diff Tool:

@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Basic Multithreading in Java</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201412070036.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201412070050.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -193,7 +193,7 @@
 <p>Call it like this:</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">java Main 5 2000</code></pre>
+   <pre><code class="language-bash" data-lang="bash">java Main <span class="m">5</span> 2000</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Race Conditions</h2>
@@ -220,7 +220,7 @@
 <p>Execute:</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">java Main 50 20000</code></pre>
+   <pre><code class="language-bash" data-lang="bash">java Main <span class="m">50</span> 20000</code></pre>
 </div>
 
 <ul>
@@ -254,9 +254,9 @@
 touch raceCondition.tmp
 
 <span class="c"># Up to `$2 threads</span>
-<span class="k">for</span> <span class="o">((</span> <span class="nv">threads</span><span class="o">=</span>1;threads&lt;<span class="o">=</span><span class="nv">$`</span>2; threads++<span class="o">))</span>
+<span class="k">for</span> <span class="o">((</span> <span class="nv">threads</span><span class="o">=</span>1<span class="p">;</span>threads&lt;<span class="o">=</span><span class="nv">$`</span>2<span class="p">;</span> threads++<span class="o">))</span>
 <span class="k">do</span>
-<span class="k">    for</span> <span class="o">((</span> <span class="nv">c</span><span class="o">=</span>1; c&lt;<span class="o">=</span><span class="sb">`</span><span class="nv">$1</span>; c++ <span class="o">))</span>
+    <span class="k">for</span> <span class="o">((</span> <span class="nv">c</span><span class="o">=</span>1<span class="p">;</span> c&lt;<span class="o">=</span><span class="sb">`</span><span class="nv">$1</span><span class="p">;</span> c++ <span class="o">))</span>
     <span class="k">do</span>
         <span class="c"># $`threads threads, count up to `$3 in each thread</span>
         <span class="nv">thisExecutionSum</span><span class="o">=</span><span class="sb">`</span>java -jar RaceCondition.jar <span class="nv">$`</span>threads <span class="sb">`</span><span class="nv">$3</span><span class="sb">`</span>

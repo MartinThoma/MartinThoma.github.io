@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Wandering through the depths of find</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201412070036.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201412070050.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -108,7 +108,7 @@
 <p>You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
 
 <p>
-   <a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="language-bash" data-lang="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 | xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span></code></pre>
+   <a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="language-bash" data-lang="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span></code></pre>
 
 <p>Now the explanation of the different commands:
 <strong>find:</strong>
@@ -138,7 +138,7 @@
 <p>find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null | awk <span class="s1">'{ print `$5 ":\t" $`8 }'</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print `$5 ":\t" $`8 }'</span></code></pre>
 </div>
 
 <p>find files in the home folder owned by alice:</p>
