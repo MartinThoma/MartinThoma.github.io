@@ -21,9 +21,11 @@ When I reinstall my computer, I usually do these following steps:
 ## Software I usually install ##
 If possible, I will give the debian package names in the following list:
 
-* [LaTeX](../how-to-install-the-latest-latex-version/)
+* [LaTeX](../how-to-install-the-latest-latex-version/) and scientific writing
+  * [`jabref`](http://martin-thoma.com/reference-management-with-jabref/): A reference manager
   * `gnuplot`
   * `pdf2svg`
+  * `aspell` and `aspell-de`
 * [Google Chrome](https://www.google.com/intl/de/chrome/browser/)
 * Multimedia
   * [`vlc`](http://www.videolan.org/vlc/): A very good DVD player

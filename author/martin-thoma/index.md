@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About Martin Thoma
 author: Martin Thoma
 date: 2011-09-21 18:35:30.000000000 +02:00
 categories: []

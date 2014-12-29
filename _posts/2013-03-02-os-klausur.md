@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
-<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Belosa und sp&auml;ter bei Prof. Dr. Beigl geh&ouml;rt.</div>
+<div class="info">Dieser Artikel besch&auml;ftigt sich mit der Vorlesungen des Moduls &bdquo;Betriebssysteme&ldquo; am KIT. Er dient als Pr&uuml;fungsvorbereitung. Ich habe die Vorlesungen bei Prof. Dr. Bellosa und sp&auml;ter bei Prof. Dr. Beigl geh&ouml;rt.</div>
 
 Wenn ich im Folgenden eine Seitenzahl angebe, dann ist damit "Operating System Concepts" von Silberschatz gemeint (ISBN 0-471-69466-5):
 
