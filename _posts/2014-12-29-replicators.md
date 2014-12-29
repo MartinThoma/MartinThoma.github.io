@@ -2,7 +2,7 @@
 layout: post
 title: Replicators
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-12-29 20:25
 categories:
 - Cyberculture
 tags:
@@ -12,6 +12,8 @@ tags:
 - Science Fiction
 featured_image: logos/space.png
 ---
+
+<div class="info">This is a quic article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
 
 What would you need to explore space? There are some ideas in science
 fiction like [interstellar arks](https://en.wikipedia.org/wiki/Interstellar_ark)

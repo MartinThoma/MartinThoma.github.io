@@ -2,13 +2,16 @@
 layout: post
 title: How to draw speech bubbles
 author: Martin Thoma
-date: 2014-01-21 14:53
+date: 2014-12-29 20:20
 categories:
 - Cyberculture
 tags:
 - Inkscape
 featured_image:
 ---
+
+<div class="info">This is a quic article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+
 The following article describes how to draw speech bubbles like this:
 
 {% caption align="aligncenter" width="500" alt="Speech bubbles" text="Speech bubbles" url="../images/2013/11/WER-calculation.png" %}

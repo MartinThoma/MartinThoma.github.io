@@ -2,13 +2,16 @@
 layout: post
 title: Famous Software Bugs
 author: Martin Thoma
-date: 2013-11-23 12:37:19
+date: 2014-12-29 20:32
 categories: 
 - Cyberculture
 tags:
 - bug
 featured_image: 2012/06/mars-climate-orbiter.jpg
 ---
+
+<div class="info">This is a quic article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+
 ## Mars Climate Oribiter
 {% caption align="alignright" width="128" caption="Mars Climate Oribiter" url="../images/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Oribiter"  height="128" class="size-full wp-image-28651 "  %}
 **Type of Bug**: Bad specification<br/>
@@ -25,9 +28,11 @@ The <a href="http://de.wikipedia.org/wiki/Ariane_V88">Ariane V88</a> exploded 40
 **Description**: A 64 Bit floating point number was converted into a 16 bit integer in the "inertial reference system" → Overflow → the rocket got into a tilted position and destroyed itself for security reasons. The interesting part is, that this program wasn't even needed for the flight! It had been developed for the Ariane 4.<br/>
 **Outcome**: 290 Million Euro destroyed
 
+## Other
 
+* [Whitespace: The Silent Killer](http://www.codinghorror.com/blog/2009/11/whitespace-the-silent-killer.html)
+* [History's Most (In)Famous Software Failures](http://bugsniffer.blogspot.de/2007/11/infamous-software-failures.html)
+* [Mariner 1](https://en.wikipedia.org/wiki/Mariner_1)
+* [Roundoff Error and the Patriot Missile](http://www.ual.es/~plopez/docencia/itis/patriot.htm)
 
-http://www.codinghorror.com/blog/2009/11/whitespace-the-silent-killer.html
-http://bugsniffer.blogspot.de/2007/11/infamous-software-failures.html
-https://www.google.com/search?q=failure+'missing+semicolon'
-http://www.ual.es/~plopez/docencia/itis/patriot.htm
+Do you know more?

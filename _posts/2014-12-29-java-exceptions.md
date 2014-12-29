@@ -2,13 +2,13 @@
 layout: post
 title: Java Exceptions
 author: Martin Thoma
-date: 2012-01-21 10:50:11
+date: 2014-12-29 20:39
 categories: 
 - Code
 tags: 
 - Exception
 - Java
-featured_image: 2011/11/java-programming.png
+featured_image: logos/java-programming.png
 ---
 
 <div class="info">This is a quic article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
