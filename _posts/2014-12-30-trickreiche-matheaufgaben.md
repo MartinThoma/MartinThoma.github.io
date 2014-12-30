@@ -41,7 +41,7 @@ Der Lehrling ist also derjenige, der das Problem trickreich macht, wenn man nich
 
 <h2>Mücke und Elefant</h2>
 <h3>Aufgabenstellung</h3>
-<blockquote>Sei $x$ das Gewicht des Elefanten und $y$ das Gewicht der Mücke. Sei $d$ der Unterschied.
+<blockquote>Sei $x$ das Gewicht des Elefanten und $y$ das Gewicht der Mücke. Sei $d$ der Unterschied.<br/>
 
 $\begin{align}
 x             &= y + d | \cdot (x-y)\\

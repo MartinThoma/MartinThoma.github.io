@@ -24,15 +24,9 @@ Auf der Suche nach (kostenlosen) Hörspielen habe ich folgendes gefunden:
   <li><a href="http://neuvertonung.de/">Neuvertonung.de</a>: Eine kleine Gruppe hat „Die drei ???“ neu vertont. Eine Liste der Folgen gibts <a href="http://fragezeichen.neuvertonung.de/folgen.php?Details=on">hier</a>.</li>
   <li>YouTube
     <ul>
-        <li>[Der Hexenmeister - Atmosphärisches Hörbuch / Hörspiel](https://www.youtube.com/watch?v=3JrW71xO58g&index=13&list=WL)</li>
-        <li>[Die Barash-Tyr Chroniken](https://www.youtube.com/watch?v=5EJ3y13qOV8&index=17&list=WL)</li>
-        <li>[Meuterei auf der Bounty](https://www.youtube.com/watch?v=B0gdM_gYBNo&list=WL&index=25)</li>
+        <li><a href="https://www.youtube.com/watch?v=3JrW71xO58g&index=13&list=WL">Der Hexenmeister - Atmosphärisches Hörbuch / Hörspiel</a></li>
+        <li><a href="https://www.youtube.com/watch?v=5EJ3y13qOV8&index=17&list=WL">Die Barash-Tyr Chroniken</a></li>
+        <li><a href="https://www.youtube.com/watch?v=B0gdM_gYBNo&list=WL&index=25">Meuterei auf der Bounty</a></li>
     </ul>
   </li>
 </ul>
-
-Momentan lade ich die MP3s auf meinen PC, lade sie von dort auf Google Music
-hoch und über Google Music wieder auf mein Smartphone herunter. Das hat
-gegenüber dem direktem herunterladen aufs Smartphone den Vorteil, dass sich
-Google darum kümmert eine sinnvolle Auswahl auf meinem begrenzten Handyspeicher
-zu haben.
