@@ -2,13 +2,15 @@
 layout: post
 title: Don't lose your stuff
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-12-29 21:07
 categories:
 - Cyberculture
 tags:
 - Device
 featured_image: logos/tile.png
 ---
+
+<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
 
 It is very annoying when you buy something expensive and you lose it or it
 gets stolen. But there are some technical solutions to prevent that.

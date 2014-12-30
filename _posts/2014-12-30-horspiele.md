@@ -2,7 +2,7 @@
 layout: post
 title: Hörspiele
 author: Martin Thoma
-date: 2013-04-15 06:53:17
+date: 2014-12-30 21:51
 categories: 
 - German posts
 tags: 
@@ -10,7 +10,9 @@ tags:
 featured_image: 2013/04/die-drei-fragezeichen-logo.png
 ---
 
-<div class="info">This is a quic article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+<div class="info">This is a quic article I had for quite a while as a draft. It
+might not be finished or have other problems, but I still want to share
+it.</div>
 
 Ich habe früher (damals, als ich noch keinen PC hatte :-) ) sehr gerne
 Hörspiele gehört. Nun, mit meinem neuen Smartphone, dachte ich könnte ich das

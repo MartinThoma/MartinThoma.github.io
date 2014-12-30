@@ -2,7 +2,7 @@
 layout: post
 title: LaTeX and tables
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-12-30 21:57
 categories:
 - My bits and bytes
 tags:
@@ -10,6 +10,10 @@ tags:
 - tables
 featured_image: logos/latex.png
 ---
+
+<div class="info">This is a quick article I had for quite a while as a draft.
+It might not be finished or have other problems, but I still want to share
+it.</div>
 
 LaTeX is an awesome typesetting language: It is powerful enough to let you
 do anything you want, it has a great community and standard solutions for

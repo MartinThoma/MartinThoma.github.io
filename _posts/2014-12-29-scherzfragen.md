@@ -2,7 +2,7 @@
 layout: post
 title: Scherzfragen
 author: Martin Thoma
-date: 2012-07-15 08:30:45
+date: 2014-12-29 20:56
 categories: 
 - German posts
 tags: 
@@ -10,6 +10,9 @@ tags:
 - Joke
 featured_image: 2012/03/face-grin-fun-joke-thumb.png
 ---
+
+<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+
 Um die Antworten der folgenden Scherzfrangen zu erhalten müsst ihr einfach den schwarzen Text markieren.
 
 <h2>Tierkonferenz</h2>

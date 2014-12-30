@@ -11,7 +11,7 @@ tags:
 featured_image: logos/java-programming.png
 ---
 
-<div class="info">This is a quic article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
 
 <h2>When to use Errors and Exceptions</h2>
 <blockquote>An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions.</blockquote> (Source: <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Error.html">Javadoc</a>)

@@ -2,7 +2,7 @@
 layout: post
 title: Warum ist Q abzählbar?
 author: Martin Thoma
-date: 2012-03-28 03:07:02
+date: 2014-12-30 21:27
 categories: 
 - German posts
 tags: 
@@ -10,6 +10,11 @@ tags:
 - mathematics
 featured_image: 
 ---
+
+<div class="info">This is a quick article I had for quite a while as a draft.
+It might not be finished or have other problems, but I still want to share
+it.</div>
+
 <div class="definition">Eine Menge B heißt <strong>abzählbar</strong> $: \Leftrightarrow \exists (a_n) \in B: B = \{a_1, a_2, a_3, ...\}$
 $\Leftrightarrow \exists f : \mathbb{N} \rightarrow B $ mit $f$ surjektiv.</div>
 

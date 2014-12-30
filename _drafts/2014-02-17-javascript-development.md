@@ -70,6 +70,7 @@ npm install jslint
 An alternative is jshint.
 
 ## Sublime Text
+
 ### Shortcuts
 * <kbd>Ctrl</kbd> + <kbd>r</kbd>: Get a function list
 

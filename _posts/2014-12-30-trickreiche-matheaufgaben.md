@@ -2,13 +2,18 @@
 layout: post
 title: Trickreiche Matheaufgaben
 author: Martin Thoma
-date: 2012-08-20 09:18:14
+date: 2014-12-30 21:30
 categories: 
 - German posts
 tags: 
 - mathematics
 featured_image: 
 ---
+
+<div class="info">This is a quick article I had for quite a while as a draft.
+It might not be finished or have other problems, but I still want to share
+it.</div>
+
 Ich finde immer wieder ein paar einfache, aber irgendwie trickreiche Matheaufgaben. Was genau ich damit meine, seht ihr am besten am folgendem Beispiel.
 
 <h2>Wechselgeld</h2>

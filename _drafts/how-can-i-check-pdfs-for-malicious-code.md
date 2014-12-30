@@ -8,7 +8,8 @@ categories:
 tags: []
 featured_image: 
 ---
-PDF-files may contain JavaScript and JavaScript can be malicious. But how do you detect those malicious JavaScripts in your PDF-files?
+PDF-files may contain JavaScript and JavaScript can be malicious. But how do
+you detect those malicious JavaScripts in your PDF-files?
 
 http://blog.didierstevens.com/programs/pdf-tools/
 http://grey-corner.blogspot.de/2010/01/analysing-malicious-pdf-document.html

@@ -10,7 +10,7 @@ tags:
 featured_image: 2012/06/mars-climate-orbiter.jpg
 ---
 
-<div class="info">This is a quic article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
+<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
 
 ## Mars Climate Oribiter
 {% caption align="alignright" width="128" caption="Mars Climate Oribiter" url="../images/2012/06/mars-climate-orbiter.jpg" alt="Mars Climate Oribiter"  height="128" class="size-full wp-image-28651 "  %}

@@ -2,13 +2,17 @@
 layout: post
 title: Packaging with Python
 author: Martin Thoma
-date: 2014-03-20 21:09
+date: 2014-12-29 21:05
 categories:
 - Code
 tags:
 - Python
 featured_image: logos/python.png
 ---
+
+<div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.
+
+I wrote this when I did not know much about packaging.</div>
 
 The following article is a wrap-up of the talk [Python Packages](https://www.youtube.com/watch?v=MSs3QmHhvpE)
 from Daniel Hepper given at a German [PyCon 2013](https://2013.de.pycon.org/schedule/sessions/15/).
@@ -22,6 +26,7 @@ packages in form of "eggs". You can install them with easy_install or with pip.
 virtualenv / virtualenvwrapper
 
 ## Package Management Tools
+
 ### Distutils
 Distutils is part of the standard library. When you run
 

@@ -2,7 +2,7 @@
 layout: post
 title: Vertex coloring
 author: Martin Thoma
-date: 2013-06-18 02:27:30
+date: 2014-12-30 21:29
 categories: 
 - My bits and bytes
 tags: 
@@ -10,6 +10,11 @@ tags:
 - IT-Security
 featured_image: 2013/06/three-color-example-graph.png
 ---
+
+<div class="info">This is a quick article I had for quite a while as a draft.
+It might not be finished or have other problems, but I still want to share
+it.</div>
+
 <h2>The problem</h2>
 The <span style="font-variant: small-caps;">Vertex Coloring</span> problem can be described like this:
 <div class="definition">
