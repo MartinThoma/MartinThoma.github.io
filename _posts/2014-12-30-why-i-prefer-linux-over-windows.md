@@ -11,9 +11,7 @@ tags:
 featured_image: 2012/12/tux-vs-windows.png
 ---
 
-<div class="info">This is a quick article I had for quite a while as a draft.
-It might not be finished or have other problems, but I still want to share
-it.</div>
+<div class="info">This is a quick article I had for quite a while as a draft.It might not be finished or have other problems, but I still want to share it.</div>
 
 Some friends wondered why I prefer Linux over Windows. As I am currently using
 only Windows, I can make some examples.
@@ -116,3 +114,17 @@ significant difference of the bare systems in security.
 Some people argue, that you can change the code of Linux / OpenSource programs
 according to your needs. This is only an argument, if you have done it at least
 once.
+
+## Pseudo reasons agains Linux
+
+### Linux is only for geeks
+
+This is obviously not true. I know at least some non-geeks who are able to use
+it.
+
+### Linux supports NO games!
+
+Not true either. Steam gives A LOT of high quality games to Linux and you
+also have the possibility to use wine.
+
+However, if you want a specific game that might be a different story.
