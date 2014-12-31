@@ -14,7 +14,7 @@ featured_image: 2012/12/tux-vs-windows.png
 <div class="info">This is a quick article I had for quite a while as a draft.It might not be finished or have other problems, but I still want to share it.</div>
 
 Some friends wondered why I prefer Linux over Windows. As I am currently using
-only Windows, I can make some examples.
+only Linux, I can make some examples.
 
 Here is an open list, why I prefer Linux over Windows:
 
@@ -95,6 +95,40 @@ for the operating system. You have to look for updates of your software by
 yourself. For every single piece of software! This is not so easy. How do you
 find a reliable source of Updates e.g. for Unreal Tournament 2004?
 
+## Terminal
+
+You can do everything with terminal. When the system is slowing down, I press
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F4</kbd>, log into the shell,
+call `top` and `kill` the process which slows my system down.
+
+And I really like [ZSH and Oh-My-ZSH](http://martin-thoma.com/working-terminal/).
+
+## Linux is gratis
+
+You don't have to pay for it. In comparison, Windows 7 costs now (31.12.2014)
+about 50 Euro on Amazon. Although it is already outdated.
+
+## Simple stuff
+
+There are some simple, little things which I like when I use Linux. I can't
+name them all, but some that come to my mind are:
+
+### LiveCD
+
+Isn't it great to have the possibility to use the OS from a CD / DVD only?
+This gives you the possibility to check if your system runs (or to diagnose
+what's going wrong) without chaning anything.
+
+### Installation setup
+
+The installation setup is great. It detects at the beginning if everything is
+ok (disk space, internet connection, battery) and tells you in simple words
+what is wrong. To chose your time zone you are shown a very simple graphic
+and by now the default was always correct for me. It continues with keyboard
+detection. Although the default was always wrong for me by now, it has an
+awesome auto-detection tool. You simply have to type some letters and it
+returns your layout. Great!
+
 ## Reasons to stay with Windows
 Although I don't like Windows 7 for many reasons, I can see some reasons to
 stay with Windows:
@@ -115,7 +149,7 @@ Some people argue, that you can change the code of Linux / OpenSource programs
 according to your needs. This is only an argument, if you have done it at least
 once.
 
-## Pseudo reasons agains Linux
+## Pseudo reasons against Linux
 
 ### Linux is only for geeks
 
