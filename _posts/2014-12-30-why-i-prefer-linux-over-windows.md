@@ -138,6 +138,9 @@ stay with Windows:
 
 ## Pseudo reasons for Linux
 
+A pseudo-reason is an argument which might be true, but is not important at
+all for the person who wrote it.
+
 ### Security
 I often hear that people like Linux because of higher security. I don't think
 that this is a real reason, as I have never heared of any end user having

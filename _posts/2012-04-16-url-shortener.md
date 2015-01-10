@@ -36,8 +36,45 @@ This service is owned by Google.
 
 Links do not expire and nobody can change them (<a href="http://support.google.com/websearch/bin/answer.py?hl=en&answer=190768">source</a>).
 
-<h2>See also</h2>
-<ul>
-  <li><a href="http://mashable.com/2008/01/08/url-shortening-services/">URL Toolbox: 90+ URL Shortening Services</a> - if you wish to see some more</li>
-  <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Bitly">bitly</a>, <a href="http://en.wikipedia.org/wiki/TinyURL">TinyURL</a></li>
-</ul>
+## Quality Properties
+
+I think you can make a very simple list of quality properties of URL
+shorteners:
+
+### User Interface
+
+The user interface should be minimalistic. Goo.gl is a good example, bitly
+and tinyurl are still ok:
+
+{% caption align="aligncenter" width="500" alt="Goo.gl url shortener" text="Goo.gl url shortener" url="../images/2015/01/googl.png" %}
+
+{% caption align="aligncenter" width="500" alt="Tinyurl url shortener" text="Tinyurl url shortener" url="../images/2015/01/tinyurl.png" %}
+
+{% caption align="aligncenter" width="500" alt="Bit.ly url shortener" text="Bit.ly url shortener" url="../images/2015/01/bitly.png" %}
+
+### Choose your own name
+
+If possible, the user should be able to choose the name of the short URL.
+
+
+### NEVER change short URL
+
+Short URLs should live forever and never change.
+
+
+### Preview
+
+* Adding '?preview' should give you a preview of the URL
+* The preview should be the default option. Only if the user actively deactivated that - which can be stored with a cookie - preview should not be shown. This is especially important in case of JavaScript in the URL / probably malicious websites
+
+
+## See also
+
+* <a href="http://mashable.com/2008/01/08/url-shortening-services/">URL Toolbox: 90+ URL Shortening Services</a> - if you wish to see some more
+* Wikipedia:
+  * <a href="http://en.wikipedia.org/wiki/Bitly">bitly</a>
+  * <a href="http://en.wikipedia.org/wiki/TinyURL">TinyURL</a>
+  * [URL shortening](https://en.wikipedia.org/wiki/URL_shortening)
+
+
+Did I miss quality measures?
