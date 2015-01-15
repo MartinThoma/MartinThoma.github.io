@@ -22,13 +22,19 @@ systems in my bachelor's thesis.
 The website [write-math.com](http://write-math.com) was used to collect data.
 The source is at [github.com/MartinThoma/write-math](https://github.com/MartinThoma/write-math).
 
-## HWRT toolkit
+## hwrt toolkit
 
 The [`hwrt`](https://github.com/MartinThoma/hwrt) toolkit was created to
 work with on-line handwritten symbols. The toolkit is documented at
 [pythonhosted.org/hwrt](https://pythonhosted.org/hwrt/).
 
 The raw data can be downloaded with this toolkit.
+
+## nntoolkit
+
+The [`nntoolkit`](https://github.com/MartinThoma/nntoolkit) was created to
+have a free software to create, train, test and evaluate neural networks.
+
 
 ## HWR experiments
 
@@ -49,4 +55,4 @@ All experiments configuration files are saved in the project
 ### Remarks
 
 * What I called "data multiplication" is called "data augmentation" by others
-  (e.g. http://arxiv.org/abs/1501.02876)
+  (e.g. [Deep Image: Scaling up Image Recognition](http://arxiv.org/abs/1501.02876))
