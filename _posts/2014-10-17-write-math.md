@@ -45,3 +45,8 @@ All experiments configuration files are saved in the project
 
 * [07.11.2014](http://martin-thoma.com/pdf/bsthesis-thoma-2014-11-07.pdf):
   Thesis I have handed in. It is currently graded.
+
+### Remarks
+
+* What I called "data multiplication" is called "data augmentation" by others
+  (e.g. http://arxiv.org/abs/1501.02876)
