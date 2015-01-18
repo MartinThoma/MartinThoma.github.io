@@ -202,7 +202,14 @@ bug reports. If this is empty, I would guess the package is dead.
 ### Platform
 
 ```sql
-SELECT `platform`, COUNT(`id`) FROM `packages` GROUP BY `platform` ORDER BY COUNT(`id`) DESC
+SELECT
+    `platform`, COUNT(`id`)
+FROM
+    `packages`
+GROUP BY
+    `platform`
+ORDER BY
+    COUNT(`id`) DESC
 ```
 
 gives 759 different results. The TOP-10 were
@@ -220,7 +227,7 @@ gives 759 different results. The TOP-10 were
 | Posix; MacOS X; Windows | 157   |
 | POSIX                   | 156   |
 
-Again, you can see that there are alternative ways to express the same thing.
+You can see that there are alternative ways to express the same thing.
 Also, the ";" should not be here as the manual states it should be a list.
 
 [The manual](https://docs.python.org/2/distutils/setupscript.html) is also too
@@ -325,13 +332,15 @@ image:
 
 ```sql
 SELECT
-    classifier, COUNT(`id`) / 53533
+    `classifier`, COUNT(`id`) / 53533
 FROM
     `package_classifiers`
 WHERE
     `classifier` LIKE "License%"
-GROUP BY `classifier`
-ORDER BY COUNT(id) DESC
+GROUP BY
+    `classifier`
+ORDER BY
+    COUNT(`id`) DESC
 ```
 
 | License                                                                        | Percentage |
@@ -478,4 +487,11 @@ think of the following measures:
 * [pylint](https://pypi.python.org/pypi/pylint)
 * [Cheesecake](https://pypi.python.org/pypi/Cheesecake): Is probably too computationally intensive to let it run on all packages.
 
-What would you think should be analyzed?
+It would also be interesting to build a dependency-graph. With this graph,
+I could answer two questions:
+
+* Which package has most direct dependencies?
+* Which package has most direct and indirect dependencies?
+
+What would you think should be analyzed? How could we measure the importance of
+a package?
