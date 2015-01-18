@@ -4,7 +4,7 @@ title: Analyzing PyPI Metadata
 author: Martin Thoma
 date: 2015-01-18 20:19
 categories:
-- Cyberculture
+- Code
 tags:
 - Python
 - Community
@@ -15,7 +15,7 @@ PyPI, the Python Package Index, gives a very crappy but simple interface to
 query metadata about its packages. I scrapped all of the packages metadata.
 53,533 packages were scrapped (date: 2015-01-18), because I wanted to
 see if there is malware on PyPI (related to
-[this question on security.SE](http://security.stackexchange.com/q/79326/3286))
+[this question on security.SE](http://security.stackexchange.com/q/79326/3286)).
 
 The database looks like this:
 
@@ -495,3 +495,10 @@ I could answer two questions:
 
 What would you think should be analyzed? How could we measure the importance of
 a package?
+
+
+## Related
+
+* [Why are some packages on pypi.python.org/simple, but have no page?](http://stackoverflow.com/q/28010799/562769)
+* [How can I find out when the last interaction on PyPI happened for a given package?](http://www.quora.com/How-can-I-find-out-when-the-last-interaction-on-PyPI-happened-for-a-given-package)
+* [What is cheesecake_code_kwalitee_id on PyPI good for?](http://www.quora.com/What-is-cheesecake_code_kwalitee_id-on-PyPI-good-for)
