@@ -30,6 +30,11 @@ work with on-line handwritten symbols. The toolkit is documented at
 
 The raw data can be downloaded with this toolkit.
 
+The toolkit can be used to classify data on your computer (without internet
+connection):
+
+{% caption align="aligncenter" width="500" alt="Write math: Interactive Browser Interface (offline)" text="Write math: Interactive Browser Interface (offline)" url="../images/2015/01/write-math-browser-ui.png" %}
+
 ## nntoolkit
 
 The [`nntoolkit`](https://github.com/MartinThoma/nntoolkit) was created to
