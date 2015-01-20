@@ -42,6 +42,22 @@ text = "The   fox jumped   over    the log."
 pattern.sub(" ", text)
 ```
 
+## Unquoting
+
+```python
+import re
+
+def remove_quotes(text):
+    """Remove 'test'."""
+    def unquote(m):
+        return u' %s ' % str(m.group(1))
+    pattern = re.compile(" '([^ ]+?.*[^ ]+?)' ")
+    return pattern.sub(unquote, text)
+
+text = "The quoted 'text piece' will get unquoted."
+remove_quotes(text)
+```
+
 
 ## All paragraphs
 
