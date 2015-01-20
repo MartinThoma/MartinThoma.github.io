@@ -154,6 +154,10 @@ This is how I use it most of the time. I want to show defaults in help:
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""Example for a simple program with a command line parser."""
+
+import os
+
 
 def is_valid_file(parser, arg):
     """Check if arg is a valid file that already exists on the file
@@ -173,7 +177,7 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--file", dest="filename",
                         type=lambda x: is_valid_file(parser, x),
                         help="write report to FILE", metavar="FILE")
-    parser.add_argument("-n", 
+    parser.add_argument("-n",
                         dest="n", default=10, type=int, 
                         help="how many lines get printed")
     parser.add_argument("-q", "--quiet",
