@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>How to parse command line arguments in Python</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201501182055.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201501182105.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -256,6 +256,10 @@ optional arguments:
    <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
+<span class="sd">"""Example for a simple program with a command line parser."""</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
 
 <span class="k">def</span> <span class="nf">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
     <span class="sd">"""Check if arg is a valid file that already exists on the file</span>
@@ -275,7 +279,7 @@ optional arguments:
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-f"</span><span class="p">,</span> <span class="s">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"filename"</span><span class="p">,</span>
                         <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">"write report to FILE"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-n"</span><span class="p">,</span> 
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-n"</span><span class="p">,</span>
                         <span class="n">dest</span><span class="o">=</span><span class="s">"n"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
                         <span class="n">help</span><span class="o">=</span><span class="s">"how many lines get printed"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-q"</span><span class="p">,</span> <span class="s">"--quiet"</span><span class="p">,</span>
