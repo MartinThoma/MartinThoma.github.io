@@ -170,21 +170,30 @@ def is_valid_file(parser, arg):
         return arg
 
 
-if __name__ == "__main__":
+def get_parser():
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
     parser = ArgumentParser(description=__doc__,
                             formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-f", "--file", dest="filename",
+    parser.add_argument("-f", "--file",
+                        dest="filename",
                         type=lambda x: is_valid_file(parser, x),
-                        help="write report to FILE", metavar="FILE")
+                        help="write report to FILE",
+                        metavar="FILE")
     parser.add_argument("-n",
-                        dest="n", default=10, type=int, 
+                        dest="n",
+                        default=10,
+                        type=int,
                         help="how many lines get printed")
     parser.add_argument("-q", "--quiet",
-                        action="store_false", dest="verbose",
+                        action="store_false",
+                        dest="verbose",
                         default=True,
                         help="don't print status messages to stdout")
-    args = parser.parse_args()
+    return parser
+
+
+if __name__ == "__main__":
+    args = get_parser().parse_args()
 ```
 
 
