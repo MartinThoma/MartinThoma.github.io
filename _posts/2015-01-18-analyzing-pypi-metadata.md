@@ -8,6 +8,7 @@ categories:
 tags:
 - Python
 - Community
+- SQL
 featured_image: logos/python.png
 ---
 
@@ -258,7 +259,14 @@ sense. Here is how you add it on PyPI:
 Another important one. Add a license to your software!
 
 ```sql
-SELECT `license`, COUNT(`id`) FROM packages GROUP BY `license` ORDER BY COUNT(`id`) DESC
+SELECT
+    `license`, COUNT(`id`)
+FROM
+    packages
+GROUP BY
+    `license`
+ORDER BY
+    COUNT(`id`) DESC
 ```
 
 gives
