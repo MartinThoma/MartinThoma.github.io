@@ -52,12 +52,80 @@ if __name__ == '__main__':
 
 and here is the plot for $n = 2$
 
-{% caption align="aligncenter" width="500" alt="Plot of the maximum of 2 randomly distributed variables with 10000 samples" text="Plot of the maximum of 2 randomly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-2.png" %}
+{% caption align="aligncenter" width="500" alt="Plot of the maximum of 2 uniformly distributed variables with 10000 samples" text="Plot of the maximum of 2 uniformly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-2.png" %}
 
 If you increase to $n = 3$ you get:
 
-{% caption align="aligncenter" width="500" alt="Plot of the maximum of 3 randomly distributed variables with 10000 samples" text="Plot of the maximum of 3 randomly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-3.png" %}
+{% caption align="aligncenter" width="500" alt="Plot of the maximum of 3 uniformly distributed variables with 10000 samples" text="Plot of the maximum of 3 uniformly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-3.png" %}
 
+
+## Improved version
+
+I've also created an improved version which makes nicer plots, but might be
+harder to read:
+
+```python
+#!/usr/bin/env python
+
+import matplotlib.pyplot as plt
+import numpy.random
+
+
+def main(samples, n):
+    # Generate Data
+    numbers_l = []
+    n = n + 1
+    for _ in range(n):
+        numbers_l.append(numpy.random.uniform(size=samples))
+
+    # Plot data
+    plots = []
+    for i in range(1, n):
+        # Build data structure
+        sublist = numbers_l[:i]
+        max_list = numbers_l[0]
+        for numbers_list in sublist:
+            for i, el in enumerate(numbers_list):
+                max_list[i] = max(max_list[i], el)
+        plot_i = plt.hist(max_list, histtype='step', bins=200)
+        plots.append(plot_i)
+    plt.title("Histogram")
+    plt.xlabel("value")
+    plt.ylabel("count")
+    plt.show()
+
+
+def get_parser():
+    from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+    parser = ArgumentParser(description=__doc__,
+                            formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument("-n",
+                        dest="n",
+                        default=3,
+                        type=int,
+                        help="n")
+    parser.add_argument("-s", "--samples",
+                        dest="samples",
+                        default=1000,
+                        type=int,
+                        help="number of samples per Y_n")
+    return parser
+
+
+if __name__ == '__main__':
+    args = get_parser().parse_args()
+    main(args.samples, args.n)
+```
+
+When you call this script with
+
+```
+$ ./plot-random-variable.py -n 4 --samples 100000
+```
+
+it gives
+
+{% caption align="aligncenter" width="500" alt="Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples" text="Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-4.png" %}
 
 ## See also
 

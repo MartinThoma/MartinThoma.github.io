@@ -11,22 +11,26 @@ featured_image: logos/kit.png
 ---
 
 I have heard that the famous universities in England have One-on-One tutoring.
-That means one tutor helps one student only. That must be incredibly effective
-for learning. From my experience as a tutor and as a "coach" (Nachhilfelehrer)
-I know that there is a huge difference in One-on-One tutoring compared to
-One-on-Many tutoring, where one tutor teaches about 30 students. If you only
-have one student, you can focus on the needs of this single student. And I
-guess that the student will also be encouraged a bit more to participate. If
-you only have one student, the student will not sleep while you teach him. He
-has to stay focused, because you will notice when he doesn't.
+<small>I'm not sure if that is actually the case, but that doesn't matter for
+the idea I want to explain.</small> That means one tutor helps one student
+only. That must be incredibly effective for learning. From my experience as a
+tutor and as a "coach" (Nachhilfelehrer) I know that there is a huge difference
+in One-on-One tutoring compared to One-on-Many tutoring, where one tutor
+teaches about 30 students. If you only have one student, you can focus on the
+needs of this single student. And I guess that the student will also be
+encouraged a bit more to participate. If you only have one student, the student
+will not sleep while you teach him. He has to stay focused, because you will
+notice when he doesn't.
 
 So One-on-One tutoring is something we want to get.
+
 
 ## The problem of One-on-One tutoring
 It is expensive, if it would be done like tutoring is currently done. In fact I
 think it would be impossible, because you would not find that many tutors.
 However, I think there are other ways to motivate students that have already
 passed the exam to be a tutor for another student.
+
 
 ## How to get One-on-One tutoring
 Give One-on-One tutors the possibility to write the exam again and improve
@@ -38,6 +42,7 @@ allowed to simply write it again. So he has to search a student who hasn't alrea
 passed the exam and help this student to prepare for the exam. Now we have to
 check if the One-on-One tutor really helped the new student. I could imagine
 two ways that could also be combined.
+
 
 ### One-on-One tutoring: Way 1
 The One-on-One tutor has to help the new student with the exercises. So the
@@ -96,9 +101,10 @@ increase the abilities of his student. However, if $\theta_2$ gets too low
 (near 1.0) then most students will not try to be a tutor because it is too
 difficult to get a student to achieve that good results.
 
+
 ## How to speak about it
 
-I would like to call this model MOOT (Martins One-on-One Tutoring model).
+I would like to call this model MOOT (Martins One-on-One Tutoring model :-) ).
 It is parameterized with two variables, $\theta_1$ and $\theta_2$.
 
 I think $MOOT(\theta_1=0.2, \theta_2=25\%)$ would be a good possibility to
@@ -106,7 +112,13 @@ encourage students to help other students effectively. $\theta_1$ is low enough
 to make it fairly easy for somebody who already passed the exam to "lift" a
 student to pass the requirement.
 
-So I guess $MOOT(0.2, 25\%)$ would be a good choice.
+So I guess $MOOT(0.2, 25\%)$ would be a good choice. You could still argue that
+the tutor could simply write the excercises himself. But I don't think that
+would be a problem, because then the tutor would do the excercises. He would
+still practice. We only get a problem if larger groups of students copy
+excercises. I don't think that is the case, but I judge from the students I
+know. I might have a biased view on the problem.
+
 
 ## Conclusion
 The two ways I proposed would in general lead to better students, remove stress
@@ -123,3 +135,22 @@ some exams and some students that might be worth the effort.
 
 What do you think about it? Do you think we could introduce that model at KIT?
 Who could propose it? To whom should it be proposed?
+
+## Other incentives
+
+If writing the exam again is not an option, we could try to find other
+incentives for tutors:
+
+* Getting "exclusive" rights:
+  * Visiting CERN or something similar
+  * Getting access to equipment of the university (executing your personal
+    projects on KIT clusters, getting access to microscopes, being allowed to
+    use lecture halls)
+* "Proud" of the unversity: If we could make KIT students being proud of being
+  a student at KIT the students themselves could want to support fellow
+  students.
+
+
+I am not sure if there is any incentive which is strong enough to support
+another student for one semester. Do you have an idea? Please share it in the
+comments!
