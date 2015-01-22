@@ -50,12 +50,16 @@ if __name__ == '__main__':
 
 ```
 
-and here is the plot:
+and here is the plot for $n = 2$
 
-{% caption align="aligncenter" width="500" alt="Plot of the maximum of 10000 randomly distributed variables" text="Plot of the maximum of 10000 randomly distributed variables" url="../images/2015/01/random-max-uniform-distribution.png" %}
+{% caption align="aligncenter" width="500" alt="Plot of the maximum of 2 randomly distributed variables with 10000 samples" text="Plot of the maximum of 2 randomly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-2.png" %}
 
-It looks as if $Y_n \sim $
+If you increase to $n = 3$ you get:
+
+{% caption align="aligncenter" width="500" alt="Plot of the maximum of 3 randomly distributed variables with 10000 samples" text="Plot of the maximum of 3 randomly distributed variables with 10000 samples" url="../images/2015/01/random-max-uniform-distribution-n-3.png" %}
+
 
 ## See also
 
 * [List of probability distributions](https://en.wikipedia.org/wiki/List_of_probability_distributions)
+* [Basic Data Plotting with Matplotlib Part 3: Histograms](https://bespokeblog.wordpress.com/2011/07/11/basic-data-plotting-with-matplotlib-part-3-histograms/)
