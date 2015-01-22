@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Distribution of Random Variables when max gets applied</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201501221112.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201501221119.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -114,21 +114,92 @@ it. How do I plot it? With Python, of course :-)</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2015/01/random-max-uniform-distribution-n-2.png">
-      <img src="http://martin-thoma.com/captions/random-max-uniform-distribution-n-2.png" alt="Plot of the maximum of 2 randomly distributed variables with 10000 samples" width="500" height="375" class="" />
+      <img src="http://martin-thoma.com/captions/random-max-uniform-distribution-n-2.png" alt="Plot of the maximum of 2 uniformly distributed variables with 10000 samples" width="500" height="375" class="" />
    </a>
-   <p class="wp-caption-text">Plot of the maximum of 2 randomly distributed variables with 10000 samples</p>
+   <p class="wp-caption-text">Plot of the maximum of 2 uniformly distributed variables with 10000 samples</p>
 </div>
 
 <p>If you increase to $n = 3$ you get:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2015/01/random-max-uniform-distribution-n-3.png">
-      <img src="http://martin-thoma.com/captions/random-max-uniform-distribution-n-3.png" alt="Plot of the maximum of 3 randomly distributed variables with 10000 samples" width="500" height="375" class="" />
+      <img src="http://martin-thoma.com/captions/random-max-uniform-distribution-n-3.png" alt="Plot of the maximum of 3 uniformly distributed variables with 10000 samples" width="500" height="375" class="" />
    </a>
-   <p class="wp-caption-text">Plot of the maximum of 3 randomly distributed variables with 10000 samples</p>
+   <p class="wp-caption-text">Plot of the maximum of 3 uniformly distributed variables with 10000 samples</p>
 </div>
 
-<h2 id="tocAnchor-1-1">See also</h2>
+<h2 id="tocAnchor-1-1">Improved version</h2>
+
+<p>I've also created an improved version which makes nicer plots, but might be
+harder to read:</p>
+<div class="highlight">
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="c"># Generate Data</span>
+    <span class="n">numbers_l</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">numbers_l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">samples</span><span class="p">))</span>
+
+    <span class="c"># Plot data</span>
+    <span class="n">plots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="c"># Build data structure</span>
+        <span class="n">sublist</span> <span class="o">=</span> <span class="n">numbers_l</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">max_list</span> <span class="o">=</span> <span class="n">numbers_l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">numbers_list</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numbers_list</span><span class="p">):</span>
+                <span class="n">max_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">el</span><span class="p">)</span>
+        <span class="n">plot_i</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">max_list</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s">'step'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+        <span class="n">plots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plot_i</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Histogram"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"value"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"count"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
+    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">__doc__</span><span class="p">,</span>
+                            <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-n"</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s">"n"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"n"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-s"</span><span class="p">,</span> <span class="s">"--samples"</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s">"samples"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"number of samples per Y_n"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">get_parser</span><span class="p">()</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>When you call this script with</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">$ ./plot-random-variable.py -n 4 --samples 100000
+</code></pre>
+</div>
+<p>it gives</p>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2015/01/random-max-uniform-distribution-n-4.png">
+      <img src="http://martin-thoma.com/captions/random-max-uniform-distribution-n-4.png" alt="Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples" width="500" height="375" class="" />
+   </a>
+   <p class="wp-caption-text">Plot of the maximum of 1 - 4 uniformly distributed variables with 10000 samples</p>
+</div>
+
+<h2 id="tocAnchor-1-2">See also</h2>
 
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">List of probability distributions</a></li>
