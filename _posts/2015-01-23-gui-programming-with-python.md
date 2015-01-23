@@ -133,17 +133,10 @@ one. Please let me know if I should add something, replace something:
     </tr>
     <tr>
         <th class="border-right">Python binding</th>
-        <td>PyGTK</td>
-        <td>PySide, PyQt</td>
-        <td>Tkinter</td>
-        <td>wxPython</td>
-    </tr>
-    <tr>
-        <th class="border-right">Python binding docs</th>
-        <td>http://www.pygtk.org/pygtk2reference/</td>
-        <td>http://qt-project.org/wiki/PySide</td>
-        <td>https://docs.python.org/3/library/tkinter.html</td>
-        <td>http://www.wxpython.org/</td>
+        <td>PyGTK (<a href="http://www.pygtk.org/pygtk2reference/">docs</a>)</td>
+        <td>PySide (<a href="http://qt-project.org/wiki/PySide">docs</a>), PyQt</td>
+        <td>Tkinter (<a href="https://docs.python.org/3/library/tkinter.html">docs</a>)</td>
+        <td>wxPython (<a href="http://www.wxpython.org/">docs</a>)</td>
     </tr>
     <tr>
         <th class="border-right">Python 3 support</th>
