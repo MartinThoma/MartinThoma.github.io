@@ -1,0 +1,190 @@
+---
+layout: post
+title: GUI programming with Python
+author: Martin Thoma
+date: 2015-01-23 14:39
+categories: 
+- Code
+tags: 
+- Python
+- GTK
+- Qt
+- tkinter
+featured_image: logos/gui-programming.png
+---
+
+A graphical user interface (GUI) is essential for applications which should be
+used by standard computer users (non-developers, not computer scientists, ...).
+However, I have almost no experience with GUI development outside of the web.
+
+Multiple GUI toolkits exist and the only one I have ever used is
+[Tk](https://en.wikipedia.org/wiki/Tk_(software)) for a very, very simple GUI.
+
+In this article, I want to share some of my thoughts about GUI development with
+Python as a beginner. I might update this in future.
+
+
+## GUI toolkits
+
+> A widget toolkit, widget library, GUI toolkit, or UX library is a library or
+> a collection of libraries containing a set of graphical control elements
+> (called widgets) used to construct the graphical user interface (GUI) of
+> programs.
+
+Source: [Widget toolkit](https://en.wikipedia.org/wiki/Widget_toolkit)
+
+
+## Comparison
+
+I am only interested in GUI toolkits
+
+* which work on Ubuntu 12.04+,
+* which have a Python binding,
+* which are OpenSource and have a good license,
+* which are used by others (and hence have enough documentation and examples)
+
+It seems to me that only the following four toolkits fulfill these requirements:
+GTK, Qt, Tk, wxWidgets. Some of these have multiple Python bindings and all
+have multiple GUI builders / designers. I tried to find the most commonly used
+one. Please let me know if I should add something, replace something:
+
+<style>
+    .data-table {
+        border-collapse: collapse;
+    }
+    .border-bottom {
+        border-bottom: 1px solid #000;
+    }
+    .border-right {
+        border-right: 1px solid #000;
+    }
+</style>
+
+<table class="data-table">
+    <tr>
+        <th class="border-bottom border-right">Name</th>
+        <th class="border-bottom"><a href="https://en.wikipedia.org/wiki/GTK%2B">GTK+</a></th>
+        <th class="border-bottom"><a href="https://en.wikipedia.org/wiki/Qt_(software)">Qt</a></th>
+        <th class="border-bottom"><a href="https://en.wikipedia.org/wiki/Tk_(software)">Tk</a></th>
+        <th class="border-bottom"><a href="https://en.wikipedia.org/wiki/WxWidgets">wxWidgets</a></th>
+    </tr>
+    <tr>
+        <td class="border-right">Latest version (23.01.2015)</td>
+        <td>3.14.1</td>
+        <td>5.4.0</td>
+        <td>8.6.3</td>
+        <td>3.0.2</td>
+    </tr>
+    <tr>
+        <td class="border-right">Official Website</td>
+        <td>http://www.gtk.org/</td>
+        <td>https://qt-project.org/</td>
+        <td>http://www.tcl.tk/</td>
+        <td>http://wxwidgets.org/</td>
+    </tr>
+    <tr>
+        <td class="border-right">Initial release</td>
+        <td>1998</td>
+        <td>1995</td>
+        <td>1991</td>
+        <td>1992</td>
+    </tr>
+    <tr>
+        <td class="border-right">Written in</td>
+        <td>C</td>
+        <td>C++</td>
+        <td>C</td>
+        <td>C++</td>
+    </tr>
+    <tr>
+        <td class="border-right">Documentation</td>
+        <td>http://www.gtk.org/documentation.php</td>
+        <td>http://doc.qt.io/</td>
+        <td>http://www.tkdocs.com/</td>
+        <td>http://wxwidgets.org/docs/</td>
+    </tr>
+    <tr>
+        <td class="border-right">Tutorial</td>
+        <td>https://developer.gnome.org/gtk-tutorial/stable/</td>
+        <td>http://qt-project.org/doc/qt-4.8/tutorials.html</td>
+        <td>http://www.tkdocs.com/tutorial/index.html</td>
+        <td>https://www.wxwidgets.org/docs/tutorials/</td>
+    </tr>
+    <tr>
+        <td class="border-right">StackOverflow questions</td>
+        <td>4,715</td>
+        <td>37,626</td>
+        <td>929</td>
+        <td>1,918</td>
+    </tr>
+    <tr>
+        <td class="border-right">StackOverflow unanswered</td>
+        <td>1,159</td>
+        <td>9,704</td>
+        <td>208</td>
+        <td>429</td>
+    </tr>
+    <tr>
+        <td class="border-right">License</td>
+        <td>LGPL 2.1&nbsp;</td>
+        <td>LGLP 3.0 (mutliple</td>
+        <td>BSD-style</td>
+        <td>wxWindows License</td>
+    </tr>
+    <tr>
+        <td class="border-right">Python binding</td>
+        <td>PyGTK</td>
+        <td>PySide, PyQt</td>
+        <td>Tkinter</td>
+        <td>wxPython</td>
+    </tr>
+    <tr>
+        <td class="border-right">Python binding docs</td>
+        <td>http://www.pygtk.org/pygtk2reference/</td>
+        <td>http://qt-project.org/wiki/PySide</td>
+        <td>https://docs.python.org/3/library/tkinter.html</td>
+        <td>http://www.wxpython.org/</td>
+    </tr>
+    <tr>
+        <td class="border-right">Python 3 support</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes?</td>
+        <td>yes</td>
+    </tr>
+    <tr>
+        <td class="border-right">Designer</td>
+        <td>Glade Interface Designer</td>
+        <td>QtDesigner, QtCreator, QDevelop, Edyuk</td>
+        <td>SpecTcl</td>
+        <td>wxGlade</td>
+    </tr>
+    <tr>
+        <td class="border-right">Famous applications</td>
+        <td>Gnome applications like Inkscape, <a href="https://github.com/elbersb/otr-verwaltung">OTR-Verwaltung</a></td><!-- GTK-->
+        <td>vlc, Virtual Box, KDE applications like K3B, <a href="https://github.com/dae/anki">Anki</a></td><!-- Qt-->
+        <td></td><!-- Tk-->
+        <td>Code::Blocks<br/>FileZilla<br/>0 A.D.</td><!-- wxwidgets-->
+    </tr>
+</table>
+
+There are also some applications which use custom UI toolkits:
+
+* [Sublime Text](https://news.ycombinator.com/item?id=2822114)
+* [Firefox](https://en.wikipedia.org/wiki/Firefox)
+* [LibreOffice](http://ask.libreoffice.org/en/question/81/which-gui-toolkit-is-used-by-lo/)
+
+
+## See also
+
+* [List of widget toolkits](https://en.wikipedia.org/wiki/List_of_widget_toolkits)
+* [Graphical user interface builder](https://en.wikipedia.org/wiki/Graphical_user_interface_builder)
+* [Why are Tk GUI's considered ugly?](http://stackoverflow.com/q/349409/562769)
+* [wxPython vs PyQt vs PyGTK: when and what to use?](http://stackoverflow.com/q/19584076/562769)
+
+Qt-specific
+
+* [Differences Between PySide and PyQt](http://qt-project.org/wiki/Differences_Between_PySide_and_PyQt)
+* [Should I use PyQt or PySide for a new Qt project?](http://askubuntu.com/q/140740/10425)
+* [PyQt or PySide - which one to use](http://stackoverflow.com/q/6888750/562769)
+* [Developing Cross Platform Application using Qt, PyQt and PySide : Introduction - Part 1 of 5](http://pythonthusiast.pythonblogs.com/230_pythonthusiast/archive/1348_developing_cross_platform_application_using_qt_pyqt_and_pyside__introduction-part_1_of_5.html)
