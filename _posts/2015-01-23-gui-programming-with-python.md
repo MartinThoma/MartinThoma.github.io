@@ -69,49 +69,49 @@ one. Please let me know if I should add something, replace something:
         <th class="border-bottom"><a href="https://en.wikipedia.org/wiki/WxWidgets">wxWidgets</a></th>
     </tr>
     <tr>
-        <td class="border-right">Latest version (23.01.2015)</td>
+        <th class="border-right">Latest version (23.01.2015)</th>
         <td>3.14.1</td>
         <td>5.4.0</td>
         <td>8.6.3</td>
         <td>3.0.2</td>
     </tr>
     <tr>
-        <td class="border-right">Official Website</td>
-        <td>http://www.gtk.org/</td>
-        <td>https://qt-project.org/</td>
-        <td>http://www.tcl.tk/</td>
-        <td>http://wxwidgets.org/</td>
+        <th class="border-right">Official Website</th>
+        <td><a href="http://www.gtk.org/">gtk.org</a></td>
+        <td><a href="https://qt-project.org/">qt-project.org</a></td>
+        <td><a href="http://www.tcl.tk/">tcl.tk</a></td>
+        <td><a href="http://wxwidgets.org/">wxwidgets.org</a></td>
     </tr>
     <tr>
-        <td class="border-right">Initial release</td>
+        <th class="border-right">Initial release</th>
         <td>1998</td>
         <td>1995</td>
         <td>1991</td>
         <td>1992</td>
     </tr>
     <tr>
-        <td class="border-right">Written in</td>
+        <th class="border-right">Written in</th>
         <td>C</td>
         <td>C++</td>
         <td>C</td>
         <td>C++</td>
     </tr>
     <tr>
-        <td class="border-right">Documentation</td>
-        <td>http://www.gtk.org/documentation.php</td>
-        <td>http://doc.qt.io/</td>
-        <td>http://www.tkdocs.com/</td>
-        <td>http://wxwidgets.org/docs/</td>
+        <th class="border-right">Documentation</th>
+        <td><a href="http://www.gtk.org/documentation.php">gtk.org/documentation.php</a></td>
+        <td><a href="http://doc.qt.io/">doc.qt.io</a></td>
+        <td><a href="http://www.tkdocs.com/">tkdocs.com</a></td>
+        <td><a href="http://wxwidgets.org/docs/">wxwidgets.org/docs</a></td>
     </tr>
     <tr>
-        <td class="border-right">Tutorial</td>
-        <td>https://developer.gnome.org/gtk-tutorial/stable/</td>
-        <td>http://qt-project.org/doc/qt-4.8/tutorials.html</td>
-        <td>http://www.tkdocs.com/tutorial/index.html</td>
-        <td>https://www.wxwidgets.org/docs/tutorials/</td>
+        <th class="border-right">Tutorial</th>
+        <td><a href="https://developer.gnome.org/gtk-tutorial/stable/">developer.gnome.org/gtk-tutorial/stable</a></td>
+        <td><a href="http://qt-project.org/doc/qt-4.8/tutorials.html">qt-project.org/doc/qt-4.8/tutorials.html</a></td>
+        <td><a href="http://www.tkdocs.com/tutorial/index.html">tkdocs.com/tutorial</a></td>
+        <td><a href="https://www.wxwidgets.org/docs/tutorials/">wxwidgets.org/docs/tutorials</a></td>
     </tr>
     <tr>
-        <td class="border-right">StackOverflow questions</td>
+        <th class="border-right">StackOverflow questions</th>
         <td>4,715</td>
         <td>37,626</td>
         <td>929</td>
@@ -125,45 +125,45 @@ one. Please let me know if I should add something, replace something:
         <td>429</td>
     </tr>
     <tr>
-        <td class="border-right">License</td>
+        <th class="border-right">License</th>
         <td>LGPL 2.1&nbsp;</td>
         <td>LGLP 3.0 (mutliple</td>
         <td>BSD-style</td>
         <td>wxWindows License</td>
     </tr>
     <tr>
-        <td class="border-right">Python binding</td>
+        <th class="border-right">Python binding</th>
         <td>PyGTK</td>
         <td>PySide, PyQt</td>
         <td>Tkinter</td>
         <td>wxPython</td>
     </tr>
     <tr>
-        <td class="border-right">Python binding docs</td>
+        <th class="border-right">Python binding docs</th>
         <td>http://www.pygtk.org/pygtk2reference/</td>
         <td>http://qt-project.org/wiki/PySide</td>
         <td>https://docs.python.org/3/library/tkinter.html</td>
         <td>http://www.wxpython.org/</td>
     </tr>
     <tr>
-        <td class="border-right">Python 3 support</td>
+        <th class="border-right">Python 3 support</th>
         <td>yes</td>
         <td>yes</td>
         <td>yes?</td>
         <td>yes</td>
     </tr>
     <tr>
-        <td class="border-right">Designer</td>
+        <th class="border-right">Designer</th>
         <td>Glade Interface Designer</td>
         <td>QtDesigner, QtCreator, QDevelop, Edyuk</td>
         <td>SpecTcl</td>
         <td>wxGlade</td>
     </tr>
     <tr>
-        <td class="border-right">Famous applications</td>
+        <th class="border-right">Famous applications</th>
         <td>Gnome applications like Inkscape, <a href="https://github.com/elbersb/otr-verwaltung">OTR-Verwaltung</a></td><!-- GTK-->
         <td>vlc, Virtual Box, KDE applications like K3B, <a href="https://github.com/dae/anki">Anki</a></td><!-- Qt-->
-        <td></td><!-- Tk-->
+        <td>I could not find any</td><!-- Tk-->
         <td>Code::Blocks<br/>FileZilla<br/>0 A.D.</td><!-- wxwidgets-->
     </tr>
 </table>
