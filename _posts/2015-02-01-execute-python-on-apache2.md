@@ -55,5 +55,8 @@ print("Hello World! The answer to live, the universe and everything is %i." %
 
 Now call `http://localhost/test.py`.
 
-If that doesn't work, take a look at the apache log files
-(`tail -f /var/log/apache2/error.log`).
+If that doesn't work, take a look at the apache log files:
+
+```bash
+$ tail -f /var/log/apache2/error.log
+```
