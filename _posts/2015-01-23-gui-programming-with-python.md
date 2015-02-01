@@ -172,8 +172,10 @@ There are also some applications which use custom UI toolkits:
 
 * [List of widget toolkits](https://en.wikipedia.org/wiki/List_of_widget_toolkits)
 * [Graphical user interface builder](https://en.wikipedia.org/wiki/Graphical_user_interface_builder)
+* [The Python GTK+ 3 Tutorial](https://python-gtk-3-tutorial.readthedocs.org/en/latest/)
 * [Why are Tk GUI's considered ugly?](http://stackoverflow.com/q/349409/562769)
 * [wxPython vs PyQt vs PyGTK: when and what to use?](http://stackoverflow.com/q/19584076/562769)
+* [What's the difference between GTK and QT?](http://askubuntu.com/q/85144)
 
 Qt-specific
 
