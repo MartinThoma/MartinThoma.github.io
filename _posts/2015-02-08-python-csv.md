@@ -28,6 +28,7 @@ import csv
 
 with open('eggs.csv', 'rt', newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=';', quotechar='"')
+    next(csvreader, None)  # skip the headers
     for row in csvreader:
         print(', '.join(row))
 ```
