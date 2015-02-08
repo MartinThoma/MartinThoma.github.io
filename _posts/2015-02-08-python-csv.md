@@ -19,7 +19,11 @@ how to use it when I forget once again how it is used exactly.
 ## Reading CSV files
 
 ```python
-from __future__ import print_function
+try:
+    from future.builtins import open
+except:
+    pass
+
 import csv
 
 with open('eggs.csv', 'rt', newline='') as csvfile:
@@ -32,7 +36,11 @@ with open('eggs.csv', 'rt', newline='') as csvfile:
 ## Writing CSV files
 
 ```python
-from __future__ import print_function
+try:
+    from future.builtins import open
+except:
+    pass
+
 import csv
 
 with open('eggs.csv', 'w', newline='') as csvfile:
