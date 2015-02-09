@@ -21,4 +21,3 @@ navigator.getUserMedia({video:true}, function (stream) {
     video.src = window.URL.createObjectURL(stream);
     localMediaStream = stream;
 }, onCameraFail);
-console.log(localMediaStream);
