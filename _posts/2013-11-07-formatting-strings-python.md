@@ -11,7 +11,7 @@ featured_image: 2011/09/Python-Logo.png
 ---
 In Python, you can use the following ways to format Strings:
 
-<h2>Print directly</h2>
+## Print directly
 Printing them directly (just like <a href="http://www.cplusplus.com/reference/cstdio/printf/">printf in C</a>):
 
 {% highlight python %}
@@ -23,38 +23,51 @@ print("My birthday is the %i-th %s %i." % (birthday, month, year))
 
 The first string contains the rules how to format. <code>%i</code> means that the first argument in the following tuple should be interpreted as a integer. The second one <code>%s</code> should be interpreted as a string and the third one again as a integer.
 
-<h2>Save as string</h2>
+
+## Save as string
 {% highlight python %}
 >>> a = "Why is %i the answer?" % 42
 >>> a
 'Why is 42 the answer?'
 {% endhighlight %}
 
-<h2>Named formatting</h2>
+
+## Named formatting
 You might prefer named formatting:
 
-{% highlight python %}>>> "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
-'Martin loves Marie.'{% endhighlight %}
+```python
+>>> "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
+'Martin loves Marie.'
+```
 
 You can also store this first in a dictionary an unpack it:
-{% highlight python %}>>> myDictionary = {"girl":"Marie","guy": "Martin","other":"Internet"}
->>> "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
-'Martin loves Marie.'{% endhighlight %}
 
-<h2>Date and Time</h2>
+```python
+>>> myDictionary = {"girl":"Marie","guy": "Martin","other":"Internet"}
+>>> "{guy} loves {girl}.".format(girl="Marie", guy="Martin")
+'Martin loves Marie.'
+```
+
+
+## Date and Time
 You can format time any way you like, just look at <a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">this reference</a>.
 
 <h2>Lists</h2>
 Question: I would like to print a list! How do I do that?
 Answer: Convert your list to a string
-{% highlight python %}>>> myList = [1,2,3]
->>> print("Your list: %s" % (str(myList)))
-Your list: [1, 2, 3]{% endhighlight %}
 
-<h2>__str__ and __repr__</h2>
+```python
+>>> myList = [1,2,3]
+>>> print("Your list: %s" % (str(myList)))
+Your list: [1, 2, 3]
+```
+
+
+## __str__ and __repr__
 When you build your own objects, you should add an implementation for the method <code>__str__</code> and <code>__repr__</code>. The first one should return a string representation that is human readable of the object, the second one should return a string that identifies the object.
 
-<h2>Formatters</h2>
+
+## Formatters
 <table>
 <tr>
   <td><code>%i</code></td>
@@ -120,7 +133,36 @@ Martin
 </tr>
 </table>
 
-<h2>Resources</h2>
+
+## Columns
+
+```python
+my_list = [('Easybox 1234', 54, 'DC:9F:DB:B2:B1:1C'),
+           ('FRITZ!Box 6360 Cable', 12, '24:65:11:06:71:54'),
+           ('wkit-802.1x', 15, 'A0:D3:C1:9F:FF:11')]
+header = u"{0:<20}{1:>6}{2:>20}".format('SSID',
+                                        'Signal',
+                                        'HwAddress')
+print(header)
+print("-"*len(header))
+for ssid, signal, hwaddress in my_list:
+    print(u"{0:<20}{1:>6}{2:>20}".format(ssid,
+                                         str(signal)+'%',
+                                         hwaddress))
+```
+
+results in
+
+```text
+SSID                Signal           HwAddress
+----------------------------------------------
+Easybox 1234           54%   DC:9F:DB:B2:B1:1C
+FRITZ!Box 6360 Cable   12%   24:65:11:06:71:54
+wkit-802.1x            15%   A0:D3:C1:9F:FF:11
+```
+
+
+## Resources
 <ul>
   <li><a href="http://docs.python.org/2/library/string.html#format-specification-mini-language">Format Specification Mini-Language</a></li>
   <li><a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior">Time formatting</a></li>
