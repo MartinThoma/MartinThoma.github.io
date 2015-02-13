@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reading Files with Python
+title: Reading and Writing Files with Python
 author: Martin Thoma
 date: 2015-02-12 22:11
 categories: 
@@ -13,6 +13,32 @@ Reading (and writing) files with Python is very easy. Here are some
 minimalistic code examples for beginners.
 
 ## Reading
+
+A very common way to handle the contents of a file is by reading the file
+completely and then working with a single big string. The only reason not to
+do so is because your file is too big. For your information, this is how long
+reading a file takes (all times are in seconds, reading is executed 100 times):
+
+```text
+file size         min       max    median   average
+---------------------------------------------------
+10 KiB         0.0000    0.0008    0.0000    0.0002
+100 KiB        0.0000    0.0009    0.0001    0.0002
+1 MiB          0.0003    0.0013    0.0005    0.0006
+10 MiB         0.0041    0.0079    0.0047    0.0049
+100 MiB        0.0627    0.0778    0.0655    0.0663
+```
+
+As you can see, reading files is quite fast. However, I would recommend the
+start thinking if reading the complete file is appropriate when the file
+size exceeds 100 MiB as you might get different problems then. For example,
+the content of the file might not fit in your main memory (typically 4GiB,
+type `cat /proc/meminfo | grep MemTotal` to get how much main memory your
+computer has).
+
+See [source code](https://gist.github.com/MartinThoma/eb1e56405009839804e7)
+for details how I measured it.
+
 
 ### Completely
 
