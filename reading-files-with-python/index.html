@@ -13,8 +13,8 @@
 
     <meta property="og:type" content="blog"/>
 
-    <title>Reading Files with Python</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201502092159.min.css" type="text/css" media="screen" />
+    <title>Reading and Writing Files with Python</title>
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201502122218.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="@themoosemind"/>
 <meta name="twitter:creator" content="@themoosemind"/>
-<meta name="twitter:title" content="Reading Files with Python"/>
+<meta name="twitter:title" content="Reading and Writing Files with Python"/>
 
     <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
 
@@ -64,7 +64,7 @@
 
             	<div id="content">	
                     <article class="post type-post format-standard hentry clearfix ">
-                        <h2 class="title entry-title">Reading Files with Python</h2>
+                        <h2 class="title entry-title">Reading and Writing Files with Python</h2>
 			            <div class="postdate entry-date">
                             <time datetime="2015-02-12T22:11:00+01:00">
                                 February 
@@ -106,6 +106,30 @@ minimalistic code examples for beginners.</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Reading</h2>
+
+<p>A very common way to handle the contents of a file is by reading the file
+completely and then working with a single big string. The only reason not to
+do so is because your file is too big. For your information, this is how long
+reading a file takes (all times are in seconds, reading is executed 100 times):</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">file size         min       max    median   average
+---------------------------------------------------
+10 KiB         0.0000    0.0008    0.0000    0.0002
+100 KiB        0.0000    0.0009    0.0001    0.0002
+1 MiB          0.0003    0.0013    0.0005    0.0006
+10 MiB         0.0041    0.0079    0.0047    0.0049
+100 MiB        0.0627    0.0778    0.0655    0.0663
+</code></pre>
+</div>
+<p>As you can see, reading files is quite fast. However, I would recommend the
+start thinking if reading the complete file is appropriate when the file
+size exceeds 100 MiB as you might get different problems then. For example,
+the content of the file might not fit in your main memory (typically 4GiB,
+type <code>cat /proc/meminfo | grep MemTotal</code> to get how much main memory your
+computer has).</p>
+
+<p>See <a href="https://gist.github.com/MartinThoma/eb1e56405009839804e7">source code</a>
+for details how I measured it.</p>
 
 <h3 id="tocAnchor-1-1-1">Completely</h3>
 <div class="highlight">
@@ -254,12 +278,12 @@ statement makes sure that the file is closed when the block is finished.</p>
                 <div class="addthis_toolbox">   
     <div class="custom_images">
             <a href="http://twitter.com/share?url=http://martin-thoma.com/reading-files-with-python&amp;hashtags=python,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
-            <a href="http://del.icio.us/post?url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="http://del.icio.us/post?url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20and%20Writing%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
             <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/reading-files-with-python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
-            <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
-            <a href="http://www.stumbleupon.com/submit?url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20and%20Writing%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="http://www.stumbleupon.com/submit?url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20and%20Writing%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
             <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http://martin-thoma.com/reading-files-with-python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
-            <a href="http://reddit.com/submit?url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+            <a href="http://reddit.com/submit?url=http://martin-thoma.com/reading-files-with-python&amp;title=Reading%20and%20Writing%20Files%20with%20Python" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
     </div>
 </div>
 			        
