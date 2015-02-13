@@ -107,7 +107,7 @@ e.g. in a Windows environment where it should be `\r\n`.
 
 You might wonder what
 [`with`](https://docs.python.org/3/reference/datamodel.html#context-managers)
-does. My advise for newbees would be not to worry too much about it, it is
+does. My advice for newbees would be not to worry too much about it, it is
 just the way you juse I/O with Python. If you come from the C / C++ world, you
 might know that you have to close files when you opened them. The `with`
 statement makes sure that the file is closed when the block is finished.
