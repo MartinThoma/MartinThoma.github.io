@@ -22,6 +22,111 @@ Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
   * BDDs, Shannon Graphen
   * [Davis-Putnam-Verfahren](https://de.wikipedia.org/wiki/Davis-Putnam-Verfahren)
 
+### Folien ###
+<table>
+  <tr>
+    <th>Folien-<br/>satz</th>
+    <th>Inhalt</th>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/01Organisatorisches-print.pdf" rel="nofollow">01</a></td>
+    <td>Organisatorisches</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf" rel="nofollow">02</a></td>
+    <td>Aussagenlogik: Modellierung von Sudoku; 8-Damen-Problem; Allgemeine Syntax und Semantik sowie Grundbegriffe, Tautologien und Sätze; Basis</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/03CraigInterpol-print.pdf" rel="nofollow">03</a></td>
+    <td>Aussagenlogik: [Craig-Interpolation](https://de.wikipedia.org/wiki/Craig-Interpolation)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/04ALNormalform-print.pdf" rel="nofollow">04</a></td>
+    <td>Aussagenlogik: Normalformen (<abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, <abbr title="Kurze konjunktive Normalform">KKNF</abbr>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/05BDD-print.pdf" rel="nofollow">05</a></td>
+    <td>Binary Decision Diagrams: (normierte) Shannon-Formeln, sh-Operator, Shannon-Graph, Reduzierte Shannon-Graphen</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/06SATsolver-print.pdf" rel="nofollow">06</a></td>
+    <td>[SAT](https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik); [Satz von Cook](https://de.wikipedia.org/wiki/Satz_von_Cook); [Horn-Formeln](https://de.wikipedia.org/wiki/Horn-Formel)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf" rel="nofollow">07</a></td>
+    <td>Prädikatenlogik: Syntax (PL1); JML; (Kollisionsfreie) Substitutionen; [Unifikation](https://de.wikipedia.org/wiki/Unifikation_(Logik)) und der Algorithmus von Robinson; Unifikationstheorem</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/08Pk1Semantik-print.pdf" rel="nofollow">08</a></td>
+    <td>Pradikatenlogik: Semantik; Interpretation; Koinzidenzlemma; Substitutionslemma für Terme (und das für Formeln); Hoare-Kalkül; Modell; (Logische) Folgerung; Allgemeingültigkeit; Folgerbarkeit</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a></td>
+    <td>Pradikatenlogik: Normalformen; Negationsnormalform; Pränexe Normalform; Skolem-Normalform; Herbrand-Strukturen; Satz von Herbrand; Endlichkeitssatz der Aussagenlogik</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/10IntroBeweistheorie-print.pdf" rel="nofollow">10</a></td>
+    <td>Beweistheorie (Einführung)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf" rel="nofollow">11</a></td>
+    <td>Hilbertkalkül; Deduktionstheorem; Vollständigkeit der PL1; Kompaktheitssatz; Endlichkeitssatz</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf" rel="nofollow">12</a></td>
+    <td>Aussagenlogik: Resolutionskalkül; 1-Resolution</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf" rel="nofollow">13</a></td>
+    <td>Prädikatenlogik: Resolutionskalkül; </td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/14Tableau-print.pdf" rel="nofollow">14</a></td>
+    <td>Tableaukalkül</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a></td>
+    <td>Prädikatenlogik: Sequenzenkalül; </td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf" rel="nofollow">21</a></td>
+    <td>Peano-Arithmetik; Unentscheidbarkeit</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf" rel="nofollow">28</a></td>
+    <td>JML</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a></td>
+    <td>Reduktionssysteme: Gleichungslogik; Satz von Birkhoff; Termersetzungssysteme; Reduktionssysteme; Kanonische Reduktionssysteme; Noethersche Induktion; (lokale) Konfluenz</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf" rel="nofollow">23</a></td>
+    <td>Termersetzungssysteme; Kritische Paare; </td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
+    <td>Modallogik; Kripke-Strukturen; Charakterisierungstheorie; Entscheidbarkeit modaler Logiken</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a></td>
+    <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi; Reguläre Ausdrücke; </td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a></td>
+    <td>Büchi-Automaten</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a></td>
+    <td>Lineare Temporale Logik; omega-Struktur; LTL-Formeln; LTL-Semantik; </td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a></td>
+    <td>LTL und Büchi-Automaten; </td>
+  </tr>
+</table>
+
+
 ### Übungsblätter ###
 <table>
   <tr>
@@ -40,7 +145,60 @@ Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3.pdf" rel="nofollow">ÜB 3</a>: Aussagenlogik, Prädikatenlogik</td>
     <td>DNF, KNF, DPLL</td>
   </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4.pdf" rel="nofollow">ÜB 4</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5.pdf" rel="nofollow">ÜB 5</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8.pdf" rel="nofollow">ÜB 8</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9.pdf" rel="nofollow">ÜB 9</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf" rel="nofollow">ÜB 12</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13.pdf" rel="nofollow">ÜB 13</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14.pdf" rel="nofollow">ÜB 14</a>: &nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
 </table>
+
+
+## Wissens-Check
+Folgende Fragen sollte man für die Klausur schnell beantworten können:
+
+* Nenne 3 Basen für die Aussagenlogik. Eine davon soll höchstens einen Operator
+  haben.
+* In welcher Komplexitätsklasse ist das Erfüllbarkeitsproblem für 3-KNF?
+  In welcher 2-KNF? Wie sieht es mit dem Allgemeingültigkeitsproblemen aus?
 
 
 ## Material ##
