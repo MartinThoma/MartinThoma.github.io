@@ -25,9 +25,25 @@ Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
 
 ### Kurz und Gut
 
+Die folgenden Stichpunkte sollte man (größtenteils nur sinngemäß) auswendig
+können und verstehen:
+
 * Eine Signatur $\Sigma$ ist eine abzählbare Menge von Symbolen. Die Elemente
   der Signatur heißen "Aussagevariablen".
 * Eine Interpretation ist eine Abbildung $I: \Sigma \rightarrow \{W, F\}$
+* Ein Modell einer Formel $A \in For0_\Sigma$ ist eine Interpretation $I$ mit
+  $val_I(A) = W$.<br/>
+  Ein Modell einer Formel ist also einfach eine Variablenbelegung, welche die
+  Formel erfüllt.
+* Für $M \subseteq For0_\Sigma, A \in For0_\Sigma$ gilt: $M \models A$ (lies:
+  aus M folgt A), falls jede Variablenbelegung, welche $M$ erfüllt, auch $A$
+  erfüllt.
+* $A \rightarrow B \equiv \neg A \lor B$
+* $A \models B$ gdw. $\models A \rightarrow B$
+* Der shannon-Operator $sh$ ist genau dann wahr, wenn TODO
+* Die Craig-Interpolation von $A \rightarrow B$ ersetzt alle
+  Aussagevariablen $\{Aussagevariable a \in A | a \notin B\}$ mit $c_i$ ($i=1,\dots,n$). Die Interpolante ist dann $C := \bigvee_{(c_1, \dots, c_n) \in \{0,1\}^n A[c_1, \dots, c_n]$.
+
 
 
 ### Folien ###
@@ -207,6 +223,10 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
   haben.
 * In welcher Komplexitätsklasse ist das Erfüllbarkeitsproblem für 3-KNF?
   In welcher 2-KNF? Wie sieht es mit dem Allgemeingültigkeitsproblemen aus?
+
+
+## Meine Fragen
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>: Warum wird einmal $\models$ und dann $\models_\Sigma$ geschrieben?
 
 
 ## Material ##
