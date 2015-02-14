@@ -22,6 +22,14 @@ Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
   * BDDs, Shannon Graphen
   * [Davis-Putnam-Verfahren](https://de.wikipedia.org/wiki/Davis-Putnam-Verfahren)
 
+
+### Kurz und Gut
+
+* Eine Signatur $\Sigma$ ist eine abzählbare Menge von Symbolen. Die Elemente
+  der Signatur heißen "Aussagevariablen".
+* Eine Interpretation ist eine Abbildung $I: \Sigma \rightarrow \{W, F\}$
+
+
 ### Folien ###
 <table>
   <tr>
@@ -38,7 +46,7 @@ Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/03CraigInterpol-print.pdf" rel="nofollow">03</a></td>
-    <td>Aussagenlogik: [Craig-Interpolation](https://de.wikipedia.org/wiki/Craig-Interpolation)</td>
+    <td>Aussagenlogik: <a href="https://de.wikipedia.org/wiki/Craig-Interpolation">Craig-Interpolation</a></td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/04ALNormalform-print.pdf" rel="nofollow">04</a></td>
@@ -50,11 +58,11 @@ Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/06SATsolver-print.pdf" rel="nofollow">06</a></td>
-    <td>[SAT](https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik); [Satz von Cook](https://de.wikipedia.org/wiki/Satz_von_Cook); [Horn-Formeln](https://de.wikipedia.org/wiki/Horn-Formel)</td>
+    <td><a href="https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT]</a>; <a href="https://de.wikipedia.org/wiki/Satz_von_Cook">Satz von Cook</a>; <a href="https://de.wikipedia.org/wiki/Horn-Formel">Horn-Formeln</a></td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf" rel="nofollow">07</a></td>
-    <td>Prädikatenlogik: Syntax (PL1); JML; (Kollisionsfreie) Substitutionen; [Unifikation](https://de.wikipedia.org/wiki/Unifikation_(Logik)) und der Algorithmus von Robinson; Unifikationstheorem</td>
+    <td>Prädikatenlogik: Syntax (PL1); JML; (Kollisionsfreie) Substitutionen; <a href="https://de.wikipedia.org/wiki/Unifikation_(Logik)">Unifikation</a> und der Algorithmus von Robinson; Unifikationstheorem</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/08Pk1Semantik-print.pdf" rel="nofollow">08</a></td>
@@ -223,15 +231,15 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 Siehe [Klausurtermine-Seite](http://www.informatik.kit.edu/klausuren.php) für
 zukünftige Termine.
 
-**Datum**: Donnerstag, den 6. März 2015 von 11:00 bis 13:00 Uhr ([Quelle](http://formal.iti.kit.edu/teaching/FormSysWS1415))<br/>
+**Datum**: Donnerstag, den 6. März 2015 von 11:00 bis 12:00 Uhr ([Quelle](http://formal.iti.kit.edu/teaching/FormSysWS1415)).<br/>
 **Ort**: ?<br/>
-**Punkte**: ?<br/>
+**Punkte**: 60<br/>
 **Punkteverteilung**: ?<br/>
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: Gibt es nicht.<br/>
-**Bonuspunkte**: Bis zu 8 (?)<br/>
+**Bonuspunkte**: Bis zu 8. Die Punkte aus den 4 Zwischenprüfungen und 2 Praxisaufgaben werden addiert, dann durch 10 geteilt und schließlich kaufmännisch gerundet.<br/>
 **Ergebnisse**: Klausur wurde noch nicht geschrieben<br/>
-**Einsicht**: steht noch nicht fest (Stand: 16.11.2014)<br/>
+**Einsicht**: steht noch nicht fest (Stand: 14.02.2015)<br/>
 **Erlaubte Hilfsmittel**: Keine.
 
 ## Ergebnisse
