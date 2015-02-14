@@ -42,8 +42,16 @@ können und verstehen:
 * $A \models B$ gdw. $\models A \rightarrow B$
 * Der shannon-Operator $sh$ ist genau dann wahr, wenn TODO
 * Die Craig-Interpolation von $A \rightarrow B$ ersetzt alle
-  Aussagevariablen $\{Aussagevariable a \in A | a \notin B\}$ mit $c_i$ ($i=1,\dots,n$). Die Interpolante ist dann $C := \bigvee_{(c_1, \dots, c_n) \in \{0,1\}^n A[c_1, \dots, c_n]$.
-
+  Aussagevariablen $\{\text{Aussagevariable} a \in A | a \notin B\}$ mit
+  $c_i$ ($i=1,\dots,n$). Die Interpolante ist dann
+  $C := \bigvee_{(c_1, \dots, c_n) \in \{0,1\}^n} A[c_1, \dots, c_n]$.
+* Eine DNF heißt "vollständig" bzgl. einer Signatur $\Sigma$, wenn
+  falls für jedes $P \in \Sigma$ in jeder Klausel entweder $P$ oder $\neg P$
+  vorkommt.
+* Eine DNF heißt "minimal", wenn jede kürzere Formel nicht äquivalent ist.
+* KKNF-Konstruktion: (1) Shortcuts $Q_1, \dots, Q_n$ für binäre Operatoren
+  erstellen. Diese Shortcuts dürfen auch andere Shortcuts verwenden
+  (2) Äquivalenzen auflösen (3) In KNF umformen.
 
 
 ### Folien ###
