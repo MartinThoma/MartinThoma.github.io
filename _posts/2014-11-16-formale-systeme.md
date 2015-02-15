@@ -40,7 +40,7 @@ können und verstehen:
   erfüllt.
 * $A \rightarrow B \equiv \neg A \lor B$
 * $A \models B$ gdw. $\models A \rightarrow B$
-* Der shannon-Operator $sh$ ist genau dann wahr, wenn TODO
+* Der shannon-Operator $sh(a,b,c)$ ist if(a) {c} else {b}.
 * Die Craig-Interpolation von $A \rightarrow B$ ersetzt alle
   Aussagevariablen $\{\text{Aussagevariable} a \in A | a \notin B\}$ mit
   $c_i$ ($i=1,\dots,n$). Die Interpolante ist dann
@@ -52,7 +52,21 @@ können und verstehen:
 * KKNF-Konstruktion: (1) Shortcuts $Q_1, \dots, Q_n$ für binäre Operatoren
   erstellen. Diese Shortcuts dürfen auch andere Shortcuts verwenden
   (2) Äquivalenzen auflösen (3) In KNF umformen.
-
+* $sh(P_i, A, B)$ heißt normiert, wenn $A$ und $B$ normiert sind und jede in
+  $A \cup B$ vorkommende Variable $P_j$ gilt $i < j$.
+* Ein Shannon-Graph heißt reduziert, wenn es keine zwei Knoten $v,w$ gibt,
+  sodass die beiden in $v$ und $w$ verwurzelten Teilbäume isomorph sind und es
+  auch keinen Knoten gibt, bei dem beide ausgehenden Kanten in den selben
+  Nachfolger führen.
+* Reduzierter Shannon-Graph = OBDD = BDD = ordered binary decisio diagram
+* Bei gegebener Indizierung sind reduzierte Shannon-Graphen bis auf Isomorphie
+  eindeutig. Ist die Indizierung nicht gegeben, macht die Variablenanordnung
+  einen großen Unterschied in der Größe (Knotenmenge) des reduzierten
+  Shannon-Graphen.
+* Multiplikation $k$-stelliger Binärzahlen: Für jede Ordnung $<$ der Variablen
+  in $X=\{x_0, \dots, x_{k-1}, y_0, \dots, y_{k-1}\}$ gibt es einen Index
+  $0 \leq i < 2k$, sodass der BDD $B_{Mult_i,<} mindestens $2^{k/8}$ Knoten
+  besitzt.
 
 ### Folien ###
 <table>
@@ -163,62 +177,77 @@ können und verstehen:
 <table>
   <tr>
     <th>Übungsblatt</th>
+    <th>Lsg</th>
     <th>Inhalt</th>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1.pdf" rel="nofollow">ÜB 1</a>: Aussagenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1-lsg.pdf">Lsg</a></td>
     <td>Erfüllbarkeit, Unerfüllbarkeit, Allgemeingültigkeit, Tautologie, <abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, Interpolanten</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2.pdf" rel="nofollow">ÜB 2</a>: Aussagenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2-lsg.pdf">Lsg</a></td>
     <td><abbr title="Kurze konjunktive Normalform">KKNF</abbr>, <abbr title="Binary decision diagram">BDD</abbr>, Shannon Graphen</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3.pdf" rel="nofollow">ÜB 3</a>: Aussagenlogik, Prädikatenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3-lsg.pdf">Lsg</a></td>
     <td>DNF, KNF, DPLL</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4.pdf" rel="nofollow">ÜB 4</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5.pdf" rel="nofollow">ÜB 5</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8.pdf" rel="nofollow">ÜB 8</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9.pdf" rel="nofollow">ÜB 9</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf" rel="nofollow">ÜB 12</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13.pdf" rel="nofollow">ÜB 13</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14.pdf" rel="nofollow">ÜB 14</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Lsg</a></td>
     <td>&nbsp;</td>
   </tr>
 </table>
