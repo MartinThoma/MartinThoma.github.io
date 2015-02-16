@@ -209,9 +209,9 @@ können und verstehen:
     <td>Verwandschaftsbeziehungen; (Java) Integer; Interpretation/Modell/Formel; Erfüllbar / allgemeingültig / unerfüllbar</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: PL1</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>Pränexnormalform; Skolemnormalform (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: &nbsp;</td>
@@ -254,6 +254,12 @@ können und verstehen:
     <td>&nbsp;</td>
   </tr>
 </table>
+
+### Erklärungen
+
+* 08Pk1Semantik-print.pdf, Folie 34/37: QxB steht für "Quantor x B", wobei der
+  Quantor entweder $\exists$ oder $\forall$ ist, $x$ eine Variable ist und $B$
+  eine Formel ist.
 
 
 ## Wissens-Check
