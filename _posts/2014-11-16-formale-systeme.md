@@ -8,7 +8,7 @@ categories:
 tags:
 - Klausur
 - Formale Systeme
-featured_image: 2012/02/klausur-test-thumbnail.jpg
+featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Formale Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Beckert im Wintersemester 2014/2015 gehört.</div>
 
@@ -67,6 +67,9 @@ können und verstehen:
   in $X=\{x_0, \dots, x_{k-1}, y_0, \dots, y_{k-1}\}$ gibt es einen Index
   $0 \leq i < 2k$, sodass der BDD $B_{Mult_i,<} mindestens $2^{k/8}$ Knoten
   besitzt.
+* Horn-Formel: Formel in KNF, wobei jede Klausel höchstens ein positives
+  Literal enthält.
+
 
 ### Folien ###
 <table>
@@ -96,7 +99,7 @@ können und verstehen:
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/06SATsolver-print.pdf" rel="nofollow">06</a></td>
-    <td><a href="https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT]</a>; <a href="https://de.wikipedia.org/wiki/Satz_von_Cook">Satz von Cook</a>; <a href="https://de.wikipedia.org/wiki/Horn-Formel">Horn-Formeln</a></td>
+    <td><a href="https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a>; <a href="https://de.wikipedia.org/wiki/Satz_von_Cook">Satz von Cook</a>; <a href="https://de.wikipedia.org/wiki/Horn-Formel">Horn-Formeln</a>; DPLL</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf" rel="nofollow">07</a></td>
@@ -191,19 +194,19 @@ können und verstehen:
     <td><abbr title="Kurze konjunktive Normalform">KKNF</abbr>, <abbr title="Binary decision diagram">BDD</abbr>, Shannon Graphen</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3.pdf" rel="nofollow">ÜB 3</a>: Aussagenlogik, Prädikatenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3.pdf" rel="nofollow">ÜB 3</a>: Aussagenlogik, PL1</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3-lsg.pdf">Lsg</a></td>
     <td>DNF, KNF, DPLL</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4.pdf" rel="nofollow">ÜB 4</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4.pdf" rel="nofollow">ÜB 4</a>: PL1</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>PL1 (Variante des Zebrarätsels); Unifikation</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5.pdf" rel="nofollow">ÜB 5</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5.pdf" rel="nofollow">ÜB 5</a>: PL1</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>Verwandschaftsbeziehungen; (Java) Integer; Interpretation/Modell/Formel; Erfüllbar / allgemeingültig / unerfüllbar</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: &nbsp;</td>
@@ -263,13 +266,13 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 
 
 ## Meine Fragen
-* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>: Warum wird einmal $\models$ und dann $\models_\Sigma$ geschrieben?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>:
+  Warum wird einmal $\models$ und dann $\models_\Sigma$ geschrieben?
 
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
 * [Vorlesungswebsite](http://formal.iti.kit.edu/teaching/FormSysWS1415/)
-* Mein [Anki-Deck](https://ankiweb.net/shared/info/1222257840) (wird noch erweitert)
 
 
 ## Übungsbetrieb
