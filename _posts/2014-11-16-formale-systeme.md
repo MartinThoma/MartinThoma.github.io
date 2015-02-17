@@ -69,6 +69,23 @@ können und verstehen:
   besitzt.
 * Horn-Formel: Formel in KNF, wobei jede Klausel höchstens ein positives
   Literal enthält.
+* Negationsnormalform: Negationen nur vor Atomen.
+* Bereinigte Formel: (1) $Frei(A) \cap Bd(A) = \emptyset$ (2) Die hinter
+  Quantoren stehenden Variablen sind paarweise verschieden.
+* Pränexe Normalform: $A = Q_1 x_1 Q_2 x_2 Q_3 x_3 \dots Q_n x_n B$, wobei $B$
+  quantorenfrei sein muss. Dann heißt $B$ die Matrix von $A$.
+* Die Pränexe Normalform ist nicht eindeutig.
+* Skolem-Normalform: (1) geschlossene Formel (2) $\forall x_1 \dots \forall x_n B$ (3) Matrix $B$ ist in KNF
+* [Gödelscher Vollständigkeitssatz](https://de.wikipedia.org/wiki/G%C3%B6delscher_Vollst%C3%A4ndigkeitssatz):
+  Es gibt einen Kalkül der PL1 derart, dass für jede Formelmenge $\Gamma$ und
+  für jede Formel $\varphi$ gilt: $\varphi$ folgt genau dann aus $\Gamma$, wenn
+  $\varphi$ im Kalkül aus $\Gamma$ hergeleitet werden kann. In Zeichen:
+  $\Gamma \models \varphi \Leftrightarrow \Gamma \vdash \varphi$.
+* Kompaktheitssatz: Wenn A aus einer unendlichen Teilmenge der Formelmenge
+  folgt, dann auch aus einer endlichen.
+* Endlichkeitssatz: Eine Menge $M \subseteq For_\Sigma$ hat genau dann ein
+  Modell, wenn jede endliche Teilmenge von $M$ ein Modell hat.
+* Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform.
 
 
 ### Folien ###
@@ -214,9 +231,9 @@ können und verstehen:
     <td>Pränexnormalform; Skolemnormalform (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: PL1</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>Hilbertkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf">11</a>); Resolutionskalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf">12</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf">13</a>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8.pdf" rel="nofollow">ÜB 8</a>: &nbsp;</td>
@@ -274,11 +291,22 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 ## Meine Fragen
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>:
   Warum wird einmal $\models$ und dann $\models_\Sigma$ geschrieben?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf">Folie 8/30</a>:
+  Wieso stimmt diese Umformung?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $D = Term_\Sigma^0 \neq$ Menge der Grundterme? Wo gilt 2. nicht?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?
 
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
 * [Vorlesungswebsite](http://formal.iti.kit.edu/teaching/FormSysWS1415/)
+
+StackExchange:
+
+* [What is the operator precedence for quantifiers?](http://math.stackexchange.com/q/1150746/6876)
+* [How do you bring quantors to the front of a formula?](http://math.stackexchange.com/q/1150826/6876)
+* [How to convert to conjunctive normal form?](http://math.stackexchange.com/a/214352/6876)
 
 
 ## Übungsbetrieb
@@ -291,6 +319,7 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * Bonus durch Übungsschein: Es gibt keinen Klausurbonus durch Übungsblätter.
 * Anderer Klausurbonus: Man kann durch insgesammt 4 Zwischentests und 2 Praxisaufgaben für die wirkliche
   Klausur Punkte sammeln. Die Teilnahme an den Zwischentests und den Praxisaufgaben ist freiwillig. Die erzielten Übungspunkte werden im Verhältnis 1:10 als Bonuspunkte auf die bestandene Abschlussklausur angerechnet.
+
 
 ## Termine und Klausurablauf
 
@@ -305,8 +334,9 @@ zukünftige Termine.
 **Übungsschein**: Gibt es nicht.<br/>
 **Bonuspunkte**: Bis zu 8. Die Punkte aus den 4 Zwischenprüfungen und 2 Praxisaufgaben werden addiert, dann durch 10 geteilt und schließlich kaufmännisch gerundet.<br/>
 **Ergebnisse**: Klausur wurde noch nicht geschrieben<br/>
-**Einsicht**: steht noch nicht fest (Stand: 14.02.2015)<br/>
+**Einsicht**: steht noch nicht fest (Stand: 17.02.2015)<br/>
 **Erlaubte Hilfsmittel**: Keine.
+
 
 ## Ergebnisse
 Klausur wurde noch nicht geschrieben.
