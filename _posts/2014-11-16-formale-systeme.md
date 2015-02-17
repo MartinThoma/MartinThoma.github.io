@@ -85,7 +85,7 @@ können und verstehen:
   folgt, dann auch aus einer endlichen.
 * Endlichkeitssatz: Eine Menge $M \subseteq For_\Sigma$ hat genau dann ein
   Modell, wenn jede endliche Teilmenge von $M$ ein Modell hat.
-* Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform.
+* Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform. 
 
 
 ### Folien ###
