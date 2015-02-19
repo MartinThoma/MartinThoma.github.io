@@ -85,7 +85,18 @@ können und verstehen:
   folgt, dann auch aus einer endlichen.
 * Endlichkeitssatz: Eine Menge $M \subseteq For_\Sigma$ hat genau dann ein
   Modell, wenn jede endliche Teilmenge von $M$ ein Modell hat.
-* Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform. 
+* Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform.
+* Tableau-Kalkül:
+  * Typ-$\alpha$: Alles, was keine Quantoren hat und eindeutig ist
+  * Typ-$\beta$: Alles, was keine Quantoren hat, aber nicht eindeutig ist
+  * Typ-$\gamma$: Unendlich viele
+  * Typ-$\delta$: min. eines
+* Ob eine prädikatenlogische Formel allgemeingültig ist, ist unentscheidbar.
+* Die Menge der allgemeingültigen prädikatenlogischen Formeln ist rekursiv
+  aufzählbar.
+* Die Menge der erfüllbaren prädikatenlogischen Formeln ist nicht rekursiv
+  aufzählbar.
+
 
 
 ### Folien ###
@@ -152,7 +163,7 @@ können und verstehen:
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a></td>
-    <td>Prädikatenlogik: Sequenzenkalül; </td>
+    <td>Prädikatenlogik: Sequenzenkalkül</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf" rel="nofollow">21</a></td>
@@ -231,19 +242,19 @@ können und verstehen:
     <td>Pränexnormalform; Skolemnormalform (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: PL1</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: PL1, Aussagenlogik</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7-lsg.pdf">Lsg</a></td>
-    <td>Hilbertkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf">11</a>); Resolutionskalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf">12</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf">13</a>)</td>
+    <td>Hilbertkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf">11</a>); Resolutionskalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf">12</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8.pdf" rel="nofollow">ÜB 8</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8.pdf" rel="nofollow">ÜB 8</a>: PL1</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>Resolutionskalkül, Tableaukalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf">13</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/14Tableau-print.pdf" rel="nofollow">14</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9.pdf" rel="nofollow">ÜB 9</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9.pdf" rel="nofollow">ÜB 9</a>: PL1, Aussagenlogik</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>Resolutionskalkül, Sequenzenkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: &nbsp;</td>
@@ -296,6 +307,7 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $D = Term_\Sigma^0 \neq$ Menge der Grundterme? Wo gilt 2. nicht?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?
 
 
 ## Material ##
