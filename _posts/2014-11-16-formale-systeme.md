@@ -22,6 +22,78 @@ Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
   * BDDs, Shannon Graphen
   * [Davis-Putnam-Verfahren](https://de.wikipedia.org/wiki/Davis-Putnam-Verfahren)
 
+### JML
+
+Ein paar Auszüge aus den Folien von Prof. Dr. Beckert. Ich finde daran sieht
+man schön, wie JML funktioniert:
+
+```java
+public class PostInc{
+    public PostInc rec; public int x,y;
+    /*@ public invariant x >= 0 && y >= 0 &&
+      @ rec.x >= 0 && rec.y >= 0;
+      @*/
+
+    /*@ public normal_behavior
+      @ requires true;
+      @ ensures rec.x == \old(rec.y) &&
+      @ rec.y == \old(rec.y) + 1;
+      @*/
+    public void postinc() {
+        rec.x = rec.y++;
+    }
+}
+```
+
+Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=3">28JML.pdf#page=3</a>
+
+
+Wichtig ist noch:
+
+```java
+/*@
+  @ assignable \nothing;
+  @ ensures (\forall int j; l <= j && j < \result; a1[j] != a2[j] );
+  @*/
+```
+
+Das `assignable \nothing` besagt, dass keine Werte (nach außen sichtbar)
+verändert werden dürfen.
+
+Die Schleifen-Syntax ist `\forall int i; B; R`, wobei `B` eine
+Bereichseinschränkung und `R` der Schleifenrumpf ist. Es gibt auch noch
+`\exists int i; B; R`.
+
+
+Die Prädikatenlogischen Operatoren sind
+
+* `!`: Negation
+* `&&`: und
+* `||`: oder
+* `==>`: Implikation
+* `<==>`: Äquivalenz
+* `==`: Gleichheit
+
+
+```java
+public int commonEntry(int l, int r) {
+int k = l;
+    /*@ loop_invariant
+      @ l <= k && k <= r &&
+      @ (\forall int i; l<=i && i<k; a1[i] != a2[i]);
+      @ assignable \nothing;
+      @ decreases a1.length - k;
+      @*/
+    while(k < r) {
+        if(a1[k] == a2[k]){break;}
+        k++;
+    }
+    return k;
+}
+```
+
+Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=44">28JML.pdf#page=44</a>
+
 
 ### Kurz und Gut
 
@@ -65,7 +137,7 @@ können und verstehen:
   Shannon-Graphen.
 * Multiplikation $k$-stelliger Binärzahlen: Für jede Ordnung $<$ der Variablen
   in $X=\{x_0, \dots, x_{k-1}, y_0, \dots, y_{k-1}\}$ gibt es einen Index
-  $0 \leq i < 2k$, sodass der BDD $B_{Mult_i,<} mindestens $2^{k/8}$ Knoten
+  $0 \leq i < 2k$, sodass der BDD $B_{Mult_i,<}$ mindestens $2^{k/8}$ Knoten
   besitzt.
 * Horn-Formel: Formel in KNF, wobei jede Klausel höchstens ein positives
   Literal enthält.
@@ -81,6 +153,11 @@ können und verstehen:
   für jede Formel $\varphi$ gilt: $\varphi$ folgt genau dann aus $\Gamma$, wenn
   $\varphi$ im Kalkül aus $\Gamma$ hergeleitet werden kann. In Zeichen:
   $\Gamma \models \varphi \Leftrightarrow \Gamma \vdash \varphi$.
+* [Gödelscher Unvollständigkeitssatz](https://de.wikipedia.org/wiki/G%C3%B6delscher_Unvollst%C3%A4ndigkeitssatz):
+  * Jedes hinreichend mächtige, rekursiv aufzählbare formale System ist
+    entweder widersprüchlich oder unvollständig.
+  * Jedes hinreichend mächtige konsistente formale System kann die eigene
+    Konsistenz nicht beweisen.
 * Kompaktheitssatz: Wenn A aus einer unendlichen Teilmenge der Formelmenge
   folgt, dann auch aus einer endlichen.
 * Endlichkeitssatz: Eine Menge $M \subseteq For_\Sigma$ hat genau dann ein
@@ -96,7 +173,6 @@ können und verstehen:
   aufzählbar.
 * Die Menge der erfüllbaren prädikatenlogischen Formeln ist nicht rekursiv
   aufzählbar.
-
 
 
 ### Folien ###
@@ -257,9 +333,9 @@ können und verstehen:
     <td>Resolutionskalkül, Sequenzenkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: JML</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>Klassen-Invarianten; Methoden-Vertrag; Spezifikation</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: &nbsp;</td>
