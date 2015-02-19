@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Formale Systeme Klausur</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201502171207.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201502191337.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -86,36 +86,39 @@
          <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Behandelter Stoff</span></a>
          <ul>
             <li class="toc_level-2 toc_section-2">
-               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Kurz und Gut</span></a>
+               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">JML</span></a>
             </li>
             <li class="toc_level-2 toc_section-3">
-               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">Folien</span></a>
+               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">Kurz und Gut</span></a>
             </li>
             <li class="toc_level-2 toc_section-4">
-               <a href="#tocAnchor-1-1-3"><span class="tocnumber">1.3</span> <span class="toctext">Übungsblätter</span></a>
+               <a href="#tocAnchor-1-1-3"><span class="tocnumber">1.3</span> <span class="toctext">Folien</span></a>
             </li>
             <li class="toc_level-2 toc_section-5">
-               <a href="#tocAnchor-1-1-4"><span class="tocnumber">1.4</span> <span class="toctext">Erklärungen</span></a>
+               <a href="#tocAnchor-1-1-4"><span class="tocnumber">1.4</span> <span class="toctext">Übungsblätter</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-6">
+               <a href="#tocAnchor-1-1-5"><span class="tocnumber">1.5</span> <span class="toctext">Erklärungen</span></a>
             </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-6">
-         <a href="#tocAnchor-1-6"><span class="tocnumber">2</span> <span class="toctext">Wissens-Check</span></a>
-      </li>
       <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">3</span> <span class="toctext">Meine Fragen</span></a>
+         <a href="#tocAnchor-1-7"><span class="tocnumber">2</span> <span class="toctext">Wissens-Check</span></a>
       </li>
       <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">4</span> <span class="toctext">Material</span></a>
+         <a href="#tocAnchor-1-8"><span class="tocnumber">3</span> <span class="toctext">Meine Fragen</span></a>
       </li>
       <li class="toc_level-1 toc_section-9">
-         <a href="#tocAnchor-1-9"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-9"><span class="tocnumber">4</span> <span class="toctext">Material</span></a>
       </li>
       <li class="toc_level-1 toc_section-10">
-         <a href="#tocAnchor-1-10"><span class="tocnumber">6</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-10"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
       </li>
       <li class="toc_level-1 toc_section-11">
-         <a href="#tocAnchor-1-11"><span class="tocnumber">7</span> <span class="toctext">Ergebnisse</span></a>
+         <a href="#tocAnchor-1-11"><span class="tocnumber">6</span> <span class="toctext">Termine und Klausurablauf</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-12">
+         <a href="#tocAnchor-1-12"><span class="tocnumber">7</span> <span class="toctext">Ergebnisse</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
@@ -131,7 +134,75 @@
 </ul></li>
 </ul>
 
-<h3 id="tocAnchor-1-1-1">Kurz und Gut</h3>
+<h3 id="tocAnchor-1-1-1">JML</h3>
+
+<p>Ein paar Auszüge aus den Folien von Prof. Dr. Beckert. Ich finde daran sieht
+man schön, wie JML funktioniert:</p>
+<div class="highlight">
+   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PostInc</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="n">PostInc</span> <span class="n">rec</span><span class="o">;</span> <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">;</span>
+    <span class="cm">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;</span>
+<span class="cm">      @ rec.x &gt;= 0 &amp;&amp; rec.y &gt;= 0;</span>
+<span class="cm">      @*/</span>
+
+    <span class="cm">/*@ public normal_behavior</span>
+<span class="cm">      @ requires true;</span>
+<span class="cm">      @ ensures rec.x == \old(rec.y) &amp;&amp;</span>
+<span class="cm">      @ rec.y == \old(rec.y) + 1;</span>
+<span class="cm">      @*/</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">postinc</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">rec</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="na">y</span><span class="o">++;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=3">28JML.pdf#page=3</a></p>
+
+<p>Wichtig ist noch:</p>
+<div class="highlight">
+   <pre><code class="language-java" data-lang="java"><span class="cm">/*@</span>
+<span class="cm">  @ assignable \nothing;</span>
+<span class="cm">  @ ensures (\forall int j; l &lt;= j &amp;&amp; j &lt; \result; a1[j] != a2[j] );</span>
+<span class="cm">  @*/</span>
+</code></pre>
+</div>
+<p>Das <code>assignable \nothing</code> besagt, dass keine Werte (nach außen sichtbar)
+verändert werden dürfen.</p>
+
+<p>Die Schleifen-Syntax ist <code>\forall int i; B; R</code>, wobei <code>B</code> eine
+Bereichseinschränkung und <code>R</code> der Schleifenrumpf ist. Es gibt auch noch
+<code>\exists int i; B; R</code>.</p>
+
+<p>Die Prädikatenlogischen Operatoren sind</p>
+
+<ul>
+<li><code>!</code>: Negation</li>
+<li><code>&amp;&amp;</code>: und</li>
+<li><code>||</code>: oder</li>
+<li><code>==&gt;</code>: Implikation</li>
+<li><code>&lt;==&gt;</code>: Äquivalenz</li>
+<li><code>==</code>: Gleichheit</li>
+</ul>
+<div class="highlight">
+   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">commonEntry</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="o">;</span>
+    <span class="cm">/*@ loop_invariant</span>
+<span class="cm">      @ l &lt;= k &amp;&amp; k &lt;= r &amp;&amp;</span>
+<span class="cm">      @ (\forall int i; l&lt;=i &amp;&amp; i&lt;k; a1[i] != a2[i]);</span>
+<span class="cm">      @ assignable \nothing;</span>
+<span class="cm">      @ decreases a1.length - k;</span>
+<span class="cm">      @*/</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">a1</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">==</span> <span class="n">a2</span><span class="o">[</span><span class="n">k</span><span class="o">]){</span><span class="k">break</span><span class="o">;}</span>
+        <span class="n">k</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=44">28JML.pdf#page=44</a></p>
+
+<h3 id="tocAnchor-1-1-2">Kurz und Gut</h3>
 
 <p>Die folgenden Stichpunkte sollte man (größtenteils nur sinngemäß) auswendig
 können und verstehen:</p>
@@ -174,34 +245,42 @@ einen großen Unterschied in der Größe (Knotenmenge) des reduzierten
 Shannon-Graphen.</li>
 <li>Multiplikation $k$-stelliger Binärzahlen: Für jede Ordnung $&lt;$ der Variablen
 in $X=\{x_0, \dots, x_{k-1}, y_0, \dots, y_{k-1}\}$ gibt es einen Index
-$0 \leq i &lt; 2k$, sodass der BDD $B_{Mult_i,&lt;} mindestens $2^{k/8}`$ Knoten
+$0 \leq i &lt; 2k$, sodass der BDD $B_{Mult_i,&lt;}$ mindestens $2^{k/8}$ Knoten
 besitzt.</li>
 <li>Horn-Formel: Formel in KNF, wobei jede Klausel höchstens ein positives
 Literal enthält.</li>
 <li>Negationsnormalform: Negationen nur vor Atomen.</li>
-<li>Bereinigte Formel: (1) $<code>Frei(A) \cap Bd(A) = \emptyset</code>$ (2) Die hinter
+<li>Bereinigte Formel: (1) $Frei(A) \cap Bd(A) = \emptyset$ (2) Die hinter
 Quantoren stehenden Variablen sind paarweise verschieden.</li>
-<li>Pränexe Normalform: $<code>A = Q_1 x_1 Q_2 x_2 Q_3 x_3 \dots Q_n x_n B</code>$, wobei $<code>B</code>$
-quantorenfrei sein muss. Dann heißt $<code>B</code>$ die Matrix von $<code>A</code>$.</li>
+<li>Pränexe Normalform: $A = Q_1 x_1 Q_2 x_2 Q_3 x_3 \dots Q_n x_n B$, wobei $B$
+quantorenfrei sein muss. Dann heißt $B$ die Matrix von $A$.</li>
 <li>Die Pränexe Normalform ist nicht eindeutig.</li>
-<li>Skolem-Normalform: (1) geschlossene Formel (2) $<code>\forall x_1 \dots \forall x_n B</code>$ (3) Matrix $<code>B</code>$ ist in KNF</li>
+<li>Skolem-Normalform: (1) geschlossene Formel (2) $\forall x_1 \dots \forall x_n B$ (3) Matrix $B$ ist in KNF</li>
 <li><a href="https://de.wikipedia.org/wiki/G%C3%B6delscher_Vollst%C3%A4ndigkeitssatz">Gödelscher Vollständigkeitssatz</a>:
-Es gibt einen Kalkül der PL1 derart, dass für jede Formelmenge $<code>\Gamma</code>$ und
-für jede Formel $<code>\varphi</code>$ gilt: $<code>\varphi</code>$ folgt genau dann aus $<code>\Gamma</code>$, wenn
-$<code>\varphi</code>$ im Kalkül aus $<code>\Gamma</code>$ hergeleitet werden kann. In Zeichen:
-$<code>\Gamma \models \varphi \Leftrightarrow \Gamma \vdash \varphi</code>$.</li>
+Es gibt einen Kalkül der PL1 derart, dass für jede Formelmenge $\Gamma$ und
+für jede Formel $\varphi$ gilt: $\varphi$ folgt genau dann aus $\Gamma$, wenn
+$\varphi$ im Kalkül aus $\Gamma$ hergeleitet werden kann. In Zeichen:
+$\Gamma \models \varphi \Leftrightarrow \Gamma \vdash \varphi$.</li>
+<li><a href="https://de.wikipedia.org/wiki/G%C3%B6delscher_Unvollst%C3%A4ndigkeitssatz">Gödelscher Unvollständigkeitssatz</a>:
+
+<ul>
+<li>Jedes hinreichend mächtige, rekursiv aufzählbare formale System ist
+entweder widersprüchlich oder unvollständig.</li>
+<li>Jedes hinreichend mächtige konsistente formale System kann die eigene
+Konsistenz nicht beweisen.</li>
+</ul></li>
 <li>Kompaktheitssatz: Wenn A aus einer unendlichen Teilmenge der Formelmenge
 folgt, dann auch aus einer endlichen.</li>
-<li>Endlichkeitssatz: Eine Menge $<code>M \subseteq For_\Sigma</code>$ hat genau dann ein
-Modell, wenn jede endliche Teilmenge von $<code>M</code>$ ein Modell hat.</li>
+<li>Endlichkeitssatz: Eine Menge $M \subseteq For_\Sigma$ hat genau dann ein
+Modell, wenn jede endliche Teilmenge von $M$ ein Modell hat.</li>
 <li>Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform.</li>
 <li>Tableau-Kalkül:
 
 <ul>
-<li>Typ-$<code>\alpha</code>$: Alles, was keine Quantoren hat und eindeutig ist</li>
-<li>Typ-$<code>\beta</code>$: Alles, was keine Quantoren hat, aber nicht eindeutig ist</li>
-<li>Typ-$<code>\gamma</code>$: Unendlich viele</li>
-<li>Typ-$<code>\delta</code>$: min. eines</li>
+<li>Typ-$\alpha$: Alles, was keine Quantoren hat und eindeutig ist</li>
+<li>Typ-$\beta$: Alles, was keine Quantoren hat, aber nicht eindeutig ist</li>
+<li>Typ-$\gamma$: Unendlich viele</li>
+<li>Typ-$\delta$: min. eines</li>
 </ul></li>
 <li>Ob eine prädikatenlogische Formel allgemeingültig ist, ist unentscheidbar.</li>
 <li>Die Menge der allgemeingültigen prädikatenlogischen Formeln ist rekursiv
@@ -210,7 +289,7 @@ aufzählbar.</li>
 aufzählbar.</li>
 </ul>
 
-<h3 id="tocAnchor-1-1-2">Folien</h3>
+<h3 id="tocAnchor-1-1-3">Folien</h3>
 
 <table>
   <tr>
@@ -315,7 +394,7 @@ aufzählbar.</li>
   </tr>
 </table>
 
-<h3 id="tocAnchor-1-1-3">Übungsblätter</h3>
+<h3 id="tocAnchor-1-1-4">Übungsblätter</h3>
 
 <table>
   <tr>
@@ -369,9 +448,9 @@ aufzählbar.</li>
     <td>Resolutionskalkül, Sequenzenkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>:  </td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: JML</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10-lsg.pdf">Lsg</a></td>
-    <td> </td>
+    <td>Klassen-Invarianten; Methoden-Vertrag; Spezifikation</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>:  </td>
@@ -395,15 +474,15 @@ aufzählbar.</li>
   </tr>
 </table>
 
-<h3 id="tocAnchor-1-1-4">Erklärungen</h3>
+<h3 id="tocAnchor-1-1-5">Erklärungen</h3>
 
 <ul>
 <li>08Pk1Semantik-print.pdf, Folie 34/37: QxB steht für "Quantor x B", wobei der
-Quantor entweder $<code>\exists</code>$ oder $<code>\forall</code>$ ist, $<code>x</code>$ eine Variable ist und $<code>B</code>$
+Quantor entweder $\exists$ oder $\forall$ ist, $x$ eine Variable ist und $B$
 eine Formel ist.</li>
 </ul>
 
-<h2 id="tocAnchor-1-6">Wissens-Check</h2>
+<h2 id="tocAnchor-1-7">Wissens-Check</h2>
 
 <p>Folgende Fragen sollte man für die Klausur schnell beantworten können:</p>
 
@@ -414,20 +493,20 @@ haben.</li>
 In welcher 2-KNF? Wie sieht es mit dem Allgemeingültigkeitsproblemen aus?</li>
 </ul>
 
-<h2 id="tocAnchor-1-7">Meine Fragen</h2>
+<h2 id="tocAnchor-1-8">Meine Fragen</h2>
 
 <ul>
 <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>:
-Warum wird einmal $<code>\models</code>$ und dann $<code>\models_\Sigma</code>$ geschrieben?</li>
+Warum wird einmal $\models$ und dann $\models_\Sigma$ geschrieben?</li>
 <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf">Folie 8/30</a>:
 Wieso stimmt diese Umformung?</li>
 <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $<code>D = Term_\Sigma^0 \neq</code>$ Menge der Grundterme? Wo gilt 2. nicht?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $<code>a \land \neg b \lor c \lor d</code>$ erklären?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $`1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $D = Term_\Sigma^0 \neq$ Menge der Grundterme? Wo gilt 2. nicht?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?</li>
 </ul>
 
-<h2 id="tocAnchor-1-8">Material</h2>
+<h2 id="tocAnchor-1-9">Material</h2>
 
 <ul>
 <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf">Skript</a></li>
@@ -442,7 +521,7 @@ Wieso stimmt diese Umformung?</li>
 <li><a href="http://math.stackexchange.com/a/214352/6876">How to convert to conjunctive normal form?</a></li>
 </ul>
 
-<h2 id="tocAnchor-1-9">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-10">Übungsbetrieb</h2>
 
 <ul>
 <li>Wo sind die Übungsblätter: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/">Link</a></li>
@@ -455,7 +534,7 @@ Wieso stimmt diese Umformung?</li>
 Klausur Punkte sammeln. Die Teilnahme an den Zwischentests und den Praxisaufgaben ist freiwillig. Die erzielten Übungspunkte werden im Verhältnis 1:10 als Bonuspunkte auf die bestandene Abschlussklausur angerechnet.</li>
 </ul>
 
-<h2 id="tocAnchor-1-10">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-11">Termine und Klausurablauf</h2>
 
 <p>Siehe <a href="http://www.informatik.kit.edu/klausuren.php">Klausurtermine-Seite</a> für
 zukünftige Termine.</p>
@@ -471,7 +550,7 @@ zukünftige Termine.</p>
 <strong>Einsicht</strong>: steht noch nicht fest (Stand: 17.02.2015)<br />
 <strong>Erlaubte Hilfsmittel</strong>: Keine.</p>
 
-<h2 id="tocAnchor-1-11">Ergebnisse</h2>
+<h2 id="tocAnchor-1-12">Ergebnisse</h2>
 
 <p>Klausur wurde noch nicht geschrieben.</p>
 
