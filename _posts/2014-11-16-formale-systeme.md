@@ -173,6 +173,24 @@ können und verstehen:
   aufzählbar.
 * Die Menge der erfüllbaren prädikatenlogischen Formeln ist nicht rekursiv
   aufzählbar.
+* Ein Reduktionssystem ist ein Tupel $(D, \succ)$, wobei $D \neq \emptyset$
+  eine Menge ist und $\succ$ eine Relation auf $D$ ist.
+* $\rightarrow$ bezeichnet die reflexive, transitive Hülle von $\succ$.
+* $\stackrel{+}{\rightarrow}$ bezeichnet die transitive Hülle von $\succ$.
+* $\leftrightarrow$ bezeichnet die reflexive, transtive und symmetrische Hülle
+  von $\succ$.
+* $(D, \succ)$ heißt konfluent $:\Leftrightarrow \forall s_1, s_2, s_3 \in D \text{ mit } s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
+* $(D, \succ)$ heißt lokal konfluent $:\Leftrightarrow \forall s_1, s_2, s_3 \in D \text{ mit } s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t$
+* $(D, \succ)$ heißt noethersch, wenn es keine unendlichen Folgen $s_0 \succ s_1 \dots \succ s_i \succ \dots$ gibt.
+* Ein konfluentes und noethersches Reduktionssystem heißt kanonisch.
+* Ein Element $s \in D$ heißt irreduzibel (oder eine Normalform) in
+  $(D, \succ)$, wenn kein $t \in D$ existiert mit $s \succ t$.
+* Sei $s \in D$. Ein Element $s_0 \in D$ heißt eine Normalform für s in
+  $(D, \succ)$, wenn $s_0$ irreduzibel ist und $s \rightarrow s_0$ gilt.
+* In kanonischen Reduktionssystemen hat jedes Element eine eindeutige
+  Normalform.
+* $(D, \succ)$ ist noethersch und lokal konfluent $\Rightarrow (D, \succ)$
+  ist konfluent.
 
 
 ### Folien ###
@@ -338,9 +356,9 @@ können und verstehen:
     <td>Klassen-Invarianten; Methoden-Vertrag; Spezifikation</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: Reduktionssysteme</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>reflexive, transitive Hülle; (lokal) konfluent; noetersch; irreduzibel; Ackermann-Funktion (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf" rel="nofollow">ÜB 12</a>: &nbsp;</td>

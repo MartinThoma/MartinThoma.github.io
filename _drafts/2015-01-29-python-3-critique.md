@@ -22,12 +22,19 @@ However, some built-in functions do not follow this naming scheme:
 * [`bytes.startswith`](https://docs.python.org/3/library/stdtypes.html#bytes.startswith)
 * [`str.startswith`](https://docs.python.org/3/library/stdtypes.html#str.startswith)
 * `str.is_digit`
+* [`os.path.isfile`](https://docs.python.org/2/library/os.path.html#os.path.isfile) and probably all other `os` functions.
 
 Classes:
 
 * `list`
 * `tuple`
 * `set`
+
+Methods / Properties / Functions:
+
+* `len`: Each container type should have a property `length`. One the one hand,
+  this is done in many other languages. On the other hand, it indicates that
+  getting the length is a constant-time operation.
 
 
 ## Stack and tail call optimization
