@@ -317,7 +317,7 @@ können und verstehen:
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf" rel="nofollow">23</a></td>
-    <td>Termersetzungssysteme; Kritische Paare; </td>
+    <td>Termersetzungssysteme; Kritische Paare</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
@@ -338,6 +338,10 @@ können und verstehen:
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a></td>
     <td>LTL und Büchi-Automaten; </td>
+  </tr>
+  <tr>
+      <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf" rel="nonfollow">50</a></td>
+      <td>Wiederholung</td>
   </tr>
 </table>
 
@@ -410,9 +414,9 @@ können und verstehen:
     <td>Kripke-Strukturen (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13.pdf" rel="nofollow">ÜB 13</a>: &nbsp;</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13.pdf" rel="nofollow">ÜB 13</a>: Büchi-Automaten</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13-lsg.pdf">Lsg</a></td>
-    <td>&nbsp;</td>
+    <td>$\omega$-Sprachen, $\omega$-reguläre Ausdrücke (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14.pdf" rel="nofollow">ÜB 14</a>: &nbsp;</td>
@@ -449,6 +453,8 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * Haben reflexive Relationen irreduzible Elemente?
 * Können reflexive Relationen noethersch sein?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich $\box \diamond P$ lesen?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt $\diamond\box P$ auf dem Graphen aus? Insbesondere: Warum ist $w_5$ nicht in $\diamond\box P$? Was wäre $[[\box \diamond P]]$?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf">Blatt 12, Aufgabe 4</a>: Das muss ich noch mal in Ruhe durchgehen.
 
 
 ## Material ##
