@@ -95,6 +95,42 @@ int k = l;
 Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=44">28JML.pdf#page=44</a>
 
 
+### Modallogik
+
+<table>
+    <tr>
+        <th>Interpretation</th>
+        <th>Box A bzw. Box_p A</th>
+        <th>Diamond A</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>A ist notwendigerweise wahr</td>
+        <td>A ist m&ouml;glicherweise wahr</td>
+    </tr>
+    <tr>
+        <td>Zeit</td>
+        <td>A ist zu jedem zuk&uuml;nfigem Zeitpunkt wahr</td>
+        <td>Es gibt einen zuk&uuml;nftigen Zeitpunkt zu dem A wahr ist</td>
+    </tr>
+    <tr>
+        <td>Glauben</td>
+        <td>Ein Agent p glaubt A</td>
+        <td>A ist konsistent mit den Aussagen, die p f&uuml;r wahr h&auml;lt</td>
+    </tr>
+    <tr>
+        <td>Wissen</td>
+        <td>Ein Agent p wei&szlig; A</td>
+        <td>p wei&szlig; nicht, dass A falsch ist</td>
+    </tr>
+    <tr>
+        <td>Programmausf&uuml;hrung</td>
+        <td>Nach Ausf&uuml;hrung des Programs p gilt A</td>
+        <td>Es gibt eine Ausf&uuml;hrung des Programs p, nach der A wahr ist</td>
+    </tr>
+</table>
+
+
 ### Kurz und Gut
 
 Die folgenden Stichpunkte sollte man (größtenteils nur sinngemäß) auswendig
@@ -191,6 +227,14 @@ können und verstehen:
   Normalform.
 * $(D, \succ)$ ist noethersch und lokal konfluent $\Rightarrow (D, \succ)$
   ist konfluent.
+* Eine Kripke-Struktur ist ein Tupel $\mathscr{K} = (S, R, I)$ mit
+  * $S \neq \emptyset$ ist die Menge der Zustände bzw. der möglichen Welten.
+    $s \in S$ heißt also auch eine "Welt".
+  * $R \subseteq S \times S$ ist die Zugänglichkeitsrelation
+  * $I: (\Sigma \times S) \rightarrow \{W, F\}$ ist die Interpretation der
+    Aussagenlogischen Variablen
+* $(S, R)$ heißt der Kripke-Rahmen von $\mathscr{K}$.
+* $\box A \rightarrow A$ ist nur in reflexiven Kripke-Strukturen eine Tautologie.
 
 
 ### Folien ###
@@ -277,7 +321,7 @@ können und verstehen:
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
-    <td>Modallogik; Kripke-Strukturen; Charakterisierungstheorie; Entscheidbarkeit modaler Logiken</td>
+    <td>Modallogik; Bakery-Algorithmus; Kripke-Strukturen; Charakterisierungstheorie; Entscheidbarkeit modaler Logiken</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a></td>
@@ -363,7 +407,7 @@ können und verstehen:
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf" rel="nofollow">ÜB 12</a>: Modallogik</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Lsg</a></td>
-    <td>Kripke-Strukturen <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
+    <td>Kripke-Strukturen (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a>)</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13.pdf" rel="nofollow">ÜB 13</a>: &nbsp;</td>
@@ -404,6 +448,7 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?
 * Haben reflexive Relationen irreduzible Elemente?
 * Können reflexive Relationen noethersch sein?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich $\box \diamond P$ lesen?
 
 
 ## Material ##
