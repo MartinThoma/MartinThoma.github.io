@@ -14,7 +14,7 @@
     <meta property="og:type" content="blog"/>
 
     <title>Formale Systeme Klausur</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201502221520.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/201502221700.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -143,7 +143,8 @@
 man schön, wie JML funktioniert:</p>
 <div class="highlight">
    <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PostInc</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="n">PostInc</span> <span class="n">rec</span><span class="o">;</span> <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">PostInc</span> <span class="n">rec</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">;</span>
     <span class="cm">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;</span>
 <span class="cm">      @ rec.x &gt;= 0 &amp;&amp; rec.y &gt;= 0;</span>
 <span class="cm">      @*/</span>
@@ -188,7 +189,8 @@ Bereichseinschränkung und <code>R</code> der Schleifenrumpf ist. Es gibt auch n
 </ul>
 <div class="highlight">
    <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">commonEntry</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="o">;</span>
+
     <span class="cm">/*@ loop_invariant</span>
 <span class="cm">      @ l &lt;= k &amp;&amp; k &lt;= r &amp;&amp;</span>
 <span class="cm">      @ (\forall int i; l&lt;=i &amp;&amp; i&lt;k; a1[i] != a2[i]);</span>
@@ -210,8 +212,8 @@ Bereichseinschränkung und <code>R</code> der Schleifenrumpf ist. Es gibt auch n
 <table>
     <tr>
         <th>Interpretation</th>
-        <th>Box A bzw. Box_p A</th>
-        <th>Diamond A</th>
+        <th>`$\square A$` bzw. `$\square_p A$`</th>
+        <th>`$\diamond A$`</th>
     </tr>
     <tr>
         <td></td>
@@ -260,7 +262,7 @@ erfüllt.</li>
 <li>$A \models B$ gdw. $\models A \rightarrow B$</li>
 <li>Der shannon-Operator $sh(a,b,c)$ ist if(a) {c} else {b}.</li>
 <li>Die Craig-Interpolation von $A \rightarrow B$ ersetzt alle
-Aussagevariablen $\{\text{Aussagevariable} a \in A | a \notin B\}$ mit
+Aussagevariablen $\{\text{Aussagevariable } a \in A | a \notin B\}$ mit
 $c_i$ ($i=1,\dots,n$). Die Interpolante ist dann
 $C := \bigvee_{(c_1, \dots, c_n) \in \{0,1\}^n} A[c_1, \dots, c_n]$.</li>
 <li>Eine DNF heißt "vollständig" bzgl. einer Signatur $\Sigma$, wenn
@@ -353,7 +355,36 @@ $s \in S$ heißt also auch eine "Welt".</li>
 Aussagenlogischen Variablen</li>
 </ul></li>
 <li>$(S, R)$ heißt der Kripke-Rahmen von $\mathscr{K}$.</li>
-<li>$\box A \rightarrow A$ ist nur in reflexiven Kripke-Strukturen eine Tautologie.</li>
+<li>$\square A \rightarrow A$ ist nur in reflexiven Kripke-Strukturen eine Tautologie.</li>
+<li>Ein endlicher Automat ist ein Tupel $(S, V, \delta, s_0, S_1)$, wobei
+
+<ul>
+<li>$S$ eine endliche Zustandsmenge ist,</li>
+<li>$V$ ein endliches Alphabet (terminale Zeichen) ist,</li>
+<li>$\delta: S \times V \rightarrow S$ eine Funktion ist, die besagt bei welchem Eingabezeichen man von welchem Zustand aus in welchen Zustand kommt,</li>
+<li>$s_0 \in S$ ein Startzustand und</li>
+<li>$S_1 \subseteq S$ die Menge der Endzustände ist</li>
+</ul></li>
+<li>$V^\omega$ ist die Menge der unendlichen Wörter mit Buchstaben aus $V$.</li>
+<li>$w(n)$ ist der $n$-te Buchstabe des Wortes $w$.</li>
+<li>$w \downarrow (n)$ ist das endliche Anfangsstück $w(0)\dots w(n)$ von $w$.</li>
+<li>$\varepsilon \notin V^\omega$</li>
+<li>Für $K \in V^*$ und $J \in V^\omega$ ist $KJ=\{w_1 w_2 | w_1 \in K, w_2 \in J\}$</li>
+<li>Für $K \in V^*$ ist $\overset{\rightarrow}{K}=\{w \in V^\omega | w \downarrow (n) \in K \text{ für unendlich viele } n\}$</li>
+<li>Ein Büchi-Automat ist ein nicht deterministischer endlicher Automat, der
+Wörter akzeptiert, wenn es eine Berechnungsfolge mit unendlich vielen
+Finalzuständen gibt. (vgl. <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf#page=6">Beispiel</a>)</li>
+<li>A <strong>U</strong> B: A gilt, bis B gilt (das U steht für "until"). Allerdings gilt B
+auch irgendwann. Es kann also nicht sein, dass A unendlich lange gilt und B
+nie.</li>
+<li>$A\;\textbf{U}_W\;B$ bedeutet, dass entweder immer A und gleichzeitig nie B
+gilt, oder dass irgendwann B gilt und davor gilt immer A. Das 'W' steht für
+'weak'.</li>
+<li>$A\;\textbf{V}\;B$: B gilt so lange, bis A gilt. Daher wird V auch
+'Release-Operator' genannt.</li>
+<li>$\diamond \square P$: Es gibt einen Zeitpunkt, ab dem immer B gilt.</li>
+<li>Zu jeder LTL-Formel gibt es einen effektv konstruierbaren Büchi-Automaten.</li>
+<li>Erfüllbarkeit und Allgmeingültigkeit von LTL-Formeln ist entscheidbar.</li>
 </ul>
 
 <h3 id="tocAnchor-1-1-4">Folien</h3>
@@ -369,7 +400,7 @@ Aussagenlogischen Variablen</li>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf" rel="nofollow">02</a></td>
-    <td>Aussagenlogik: Modellierung von Sudoku; 8-Damen-Problem; Allgemeine Syntax und Semantik sowie Grundbegriffe, Tautologien und Sätze; Basis</td>
+    <td>Aussagenlogik: Modellierung von Sudoku; 8-Damen-Problem; Allgemeine Syntax und Semantik sowie Grundbegriffe, Tautologien und Sätze; Basis; Erfüllbarkeit; Allgemeingültigkeit; `$M \models A$`</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/03CraigInterpol-print.pdf" rel="nofollow">03</a></td>
@@ -385,7 +416,7 @@ Aussagenlogischen Variablen</li>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/06SATsolver-print.pdf" rel="nofollow">06</a></td>
-    <td><a href="https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a>; <a href="https://de.wikipedia.org/wiki/Satz_von_Cook">Satz von Cook</a>; <a href="https://de.wikipedia.org/wiki/Horn-Formel">Horn-Formeln</a>; DPLL</td>
+    <td><a href="https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a>; <a href="https://de.wikipedia.org/wiki/Satz_von_Cook">Satz von Cook</a>; <a href="https://de.wikipedia.org/wiki/Horn-Formel">Horn-Formeln</a>; <a href="https://de.wikipedia.org/wiki/Davis-Putnam-Verfahren">DPLL</a></td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf" rel="nofollow">07</a></td>
@@ -445,11 +476,11 @@ Aussagenlogischen Variablen</li>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a></td>
-    <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi; Reguläre Ausdrücke; </td>
+    <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi (vgl. <a href="http://martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/">Konstruktion</a>); Reguläre Ausdrücke</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a></td>
-    <td>Büchi-Automaten</td>
+    <td>Büchi-Automaten; Zerlegungssatz</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a></td>
@@ -457,7 +488,7 @@ Aussagenlogischen Variablen</li>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a></td>
-    <td>LTL und Büchi-Automaten; </td>
+    <td>LTL und Büchi-Automaten</td>
   </tr>
   <tr>
       <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf" rel="nonfollow">50</a></td>
@@ -539,9 +570,9 @@ Aussagenlogischen Variablen</li>
     <td>`$\omega$`-Sprachen, `$\omega$`-reguläre Ausdrücke (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a>)</td>
   </tr>
   <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14.pdf" rel="nofollow">ÜB 14</a>:  </td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14.pdf" rel="nofollow">ÜB 14</a>: LTL</td>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Lsg</a></td>
-    <td> </td>
+    <td>LTL-Formeln und Büchi-Automaten (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a>)</td>
   </tr>
 </table>
 
@@ -577,9 +608,18 @@ Wieso stimmt diese Umformung?</li>
 <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?</li>
 <li>Haben reflexive Relationen irreduzible Elemente?</li>
 <li>Können reflexive Relationen noethersch sein?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich $\box \diamond P$ lesen?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt $\diamond\box P$ auf dem Graphen aus? Insbesondere: Warum ist $w_5$ nicht in $\diamond\box P$? Was wäre $[[\box \diamond P]]$?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich $\square \diamond P$ lesen?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt $\diamond\square P$ auf dem Graphen aus? Insbesondere: Warum ist $w_5$ nicht in $\diamond\square P$? Was wäre $[[\square \diamond P]]$?</li>
 <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf">Blatt 12, Aufgabe 4</a>: Das muss ich noch mal in Ruhe durchgehen.</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5">23, Folie 5</a>: Kann mir jemand ein konkretes Beispiel geben?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strutkuren und insbesondere was bedeutet $2^P$?</li>
+<li>Ist $A\;\textbf{U}_W\;B$ äquivalent zu $B\;\textbf{V}\;A$?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 2a</a>: Warum ist $\diamond (p \textbf{U} q)$ äquivalent zu $\diamond q$? Ich dachte es wäre äquivalent zu
+$p \textbf{U} q$?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 3</a>:
+Wie würde der Automat aussehen, wenn das $X$ weggelassen würde?</li>
+<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 4</a>:
+Das würde ich gerne gemeinsam durchgehen.</li>
 </ul>
 
 <h2 id="tocAnchor-1-10">Material</h2>
