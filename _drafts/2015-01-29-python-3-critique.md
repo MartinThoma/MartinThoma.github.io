@@ -97,6 +97,11 @@ and written documentation of a programming language (not for [Java](http://docs.
 Also, runtime information in big-O notation as well as space information would
 be nice.
 
+## PyPI
+
+gi is for GTK, but the module https://pypi.python.org/pypi/gi
+"overrides" it (TODO)
+
 ## See also
 
 * [Critique of Python by Vladimir Keleshev](https://www.youtube.com/watch?v=CpjUoYcaUu8)
