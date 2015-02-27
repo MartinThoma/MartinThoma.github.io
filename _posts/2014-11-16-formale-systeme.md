@@ -263,6 +263,7 @@ können und verstehen:
 * $\diamond \square P$: Es gibt einen Zeitpunkt, ab dem immer B gilt.
 * Zu jeder LTL-Formel gibt es einen effektv konstruierbaren Büchi-Automaten.
 * Erfüllbarkeit und Allgmeingültigkeit von LTL-Formeln ist entscheidbar.
+* Ein Kalkül ist korrekt, wenn alles was formal ableitbar auch wahr ist. (vgl. [Korrektheit (Logik)](https://de.wikipedia.org/wiki/Korrektheit_(Logik)))
 
 
 ### Folien ###
@@ -467,15 +468,20 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
   haben.
 * In welcher Komplexitätsklasse ist das Erfüllbarkeitsproblem für 3-KNF?
   In welcher 2-KNF? Wie sieht es mit dem Allgemeingültigkeitsproblemen aus?
-
+* Was ist der Shannon-Graph von $1$?
+* Was ist der Shannon-Graph von $0$?
+* Was ist der Shannon-Graph von $a \lor b$?
+* Was ist der Shannon-Graph von $a \land b$?
 
 ## Meine Fragen
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>:
   Warum wird einmal $\models$ und dann $\models_\Sigma$ geschrieben?
-* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf">Folie 8/30</a>:
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf#page=19">07, Folie 19/51</a>: Warum "fast alle" $x \in Var$? Was bedeutet das?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=8">Folie 8/30</a>:
   Wieso stimmt diese Umformung?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $D = Term_\Sigma^0 \neq$ Menge der Grundterme? Wo gilt 2. nicht?
+Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?
 * Haben reflexive Relationen irreduzible Elemente?
@@ -483,16 +489,26 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich $\square \diamond P$ lesen?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt $\diamond\square P$ auf dem Graphen aus? Insbesondere: Warum ist $w_5$ nicht in $\diamond\square P$? Was wäre $[[\square \diamond P]]$?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf">Blatt 12, Aufgabe 4</a>: Das muss ich noch mal in Ruhe durchgehen.
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf#page=8">21, Folie 8</a>: Was ist $Th(N)$ und was ist $Cn(PA)$?
+* <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=16">50, Folie 16</a>: Was bedeutet es, dass $Th(N)$ nicht rekursiv ist?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5">23, Folie 5</a>: Kann mir jemand ein konkretes Beispiel geben?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strutkuren und insbesondere was bedeutet $2^P$?
 * Ist $A\;\textbf{U}_W\;B$ äquivalent zu $B\;\textbf{V}\;A$?
-* [Blatt 14, 2a](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf): Warum ist $\diamond (p \textbf{U} q)$ äquivalent zu $\diamond q$? Ich dachte es wäre äquivalent zu
-  $p \textbf{U} q$?
+* [Blatt 14, 2a](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf): Warum ist $\diamond (p\;\textbf{U}\;q)$ äquivalent zu $\diamond q$? Ich dachte es wäre äquivalent zu
+  $p\;\textbf{U}\;q$?
 * [Blatt 14, 3](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf):
   Wie würde der Automat aussehen, wenn das $X$ weggelassen würde?
 * [Blatt 14, 4](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf):
   Das würde ich gerne gemeinsam durchgehen.
+* [50, 13](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13): Was sind die Ziele der Beweistheorie? Was ist die Grundidee des Hilbert-Kalküls?
+* [50, 13](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13): "Aussagenlogische Tableauregeln aus Wahrheitstafeln konstruieren." - was ist damit gemeint?
+* [50, 15](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=15): Was ist die Grundidee der Peano-Arithmetik?
+* [50, 33](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=33): Wie kann man sich in dem Beispiel den Unterschied zwischen Prädikaten und Funktionen erschließen?
 
+## Altklausuren
+
+* WS2010/2011, 1. Zwischentest, A4: Ist der Markierungsalgorithmus für Hornformeln relevant?
+*
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
