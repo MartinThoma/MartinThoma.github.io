@@ -526,6 +526,7 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * WS 2009/2010, 2. Zwischentest (ist beim ersten):
   * A1a: Warum ist $\forall x \forall y (x \leftrightarrow y)$ keine Formel der
     PL1?
+  * A4: Will ich gerne durchsprechen
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)

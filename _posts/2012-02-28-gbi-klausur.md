@@ -94,12 +94,12 @@ Offensichtlich ist also $\mathcal{O}(n!) \nsubseteq \mathcal{O}(2^n)$.
 <h2>Termin</h2>
 Alle wichtigen Informationen stehen auf der <a href="http://gbi.ira.uka.de/pruefungen/klausuren.html">Klausurseite</a>.
 
-<strong>Datum</strong>: 05.03.2012 um 11:00 Uhr. Anwesend sollte man ab ca. 10:30 - 10:40 Uhr sein.
-<strong>Ort</strong>: <a href="http://gbi.ira.uka.de/pruefungen/hoersaal_einteilung_gbi_2012.pdf">Liste der Zuweisung</a> - Das sind ganze 729 Matrikelnummern! (Ich schreib im Benz).
-<strong>Dauer</strong>: 120 min.
-<strong>Punkte</strong>: 40 - 50, mit der H&auml;lfte hat man auf jeden Fall bestanden.
-<strong>Nicht vergessen</strong>: Studentenausweis
-<strong>Nachklausur</strong>: am 18.09.2012. Hinweise sind <a href="http://www.informatik.kit.edu/klausuren.php?kid=388.35">hier</a>.
+* <strong>Datum</strong>: 05.03.2012 um 11:00 Uhr. Anwesend sollte man ab ca. 10:30 - 10:40 Uhr sein.
+* <strong>Ort</strong>: <a href="http://gbi.ira.uka.de/pruefungen/hoersaal_einteilung_gbi_2012.pdf">Liste der Zuweisung</a> - Das sind ganze 729 Matrikelnummern! (Ich schreib im Benz).
+* <strong>Dauer</strong>: 120 min.
+* <strong>Punkte</strong>: 40 - 50, mit der H&auml;lfte hat man auf jeden Fall bestanden.
+* <strong>Nicht vergessen</strong>: Studentenausweis
+* <strong>Nachklausur</strong>: am 18.09.2012. Hinweise sind <a href="http://www.informatik.kit.edu/klausuren.php?kid=388.35">hier</a>.
 
 <h2>Ergebnisse</h2>
 Die <a href="http://gbi.ira.uka.de/pruefungen/aushang.pdf">Ergebnisse</a> sind nun hier verf&uuml;gbar.
