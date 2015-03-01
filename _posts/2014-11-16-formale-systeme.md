@@ -504,11 +504,28 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * [50, 13](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13): "Aussagenlogische Tableauregeln aus Wahrheitstafeln konstruieren." - was ist damit gemeint?
 * [50, 15](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=15): Was ist die Grundidee der Peano-Arithmetik?
 * [50, 33](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=33): Wie kann man sich in dem Beispiel den Unterschied zwischen Prädikaten und Funktionen erschließen?
+* Wie ist Erfüllbarkeit in der Prädikatenlogik definiert? Z.B. erscheint mir
+  $\exists x p(x)$ erfüllbar, wenn nichts weiter gegeben ist. Wenn man aber
+  $p(x)=False$ für alle $x$ sagt, dann ist es unerfüllbar.
+* Müssen die Kanten von Shannon-Graphen mit W und F oder mit 1 und 0 beschriftet
+  werden? Praktisch alle Altklausuren verwenden 1 und 0, aber ich meine er
+  hätte in der Vorlesung gesagt, dass wir W und F verwenden sollen.
+* Ist die Menge der allgemeingültigen / erfüllbaren / unerfüllbaren Formeln der
+  PL1 abzählbar?
 
 ## Altklausuren
 
 * WS2010/2011, 1. Zwischentest, A4: Ist der Markierungsalgorithmus für Hornformeln relevant?
-*
+* WS2010/2011, 2. Zwischentest, A1:
+  * Was ist eine kompakte Logik?
+  * Was bedeutet $Cl_{\exists}(t_1 \doteq t_2)$?
+* WS2009/2010, A1c: Wieso gibt es für $\exists p(x)$ kein Herbrandmodell?
+* WS2009/2010, 1.Zwischentest
+  * A1a: Was ist ein "Vereinfachungsschritt" im Davis-Putnam-Verfahren? Was bedeutet es, wenn dort keine Klausel mehr zur Verfügung steht?
+  * A1a: "Wenn A und B erfüllbar sind, dann ist auch $A \rightarrow B$ erfüllbar." - Was ist mit $B = \neg A$?
+* WS 2009/2010, 2. Zwischentest (ist beim ersten):
+  * A1a: Warum ist $\forall x \forall y (x \leftrightarrow y)$ keine Formel der
+    PL1?
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
