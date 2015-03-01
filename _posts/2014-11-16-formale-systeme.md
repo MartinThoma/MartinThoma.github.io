@@ -527,6 +527,11 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
   * A1a: Warum ist $\forall x \forall y (x \leftrightarrow y)$ keine Formel der
     PL1?
   * A4: Will ich gerne durchsprechen
+* WS 2008/2009:
+  * 1a: Warum ist $\forall x (p(x) \rightarrow q(p(x)))$ keine Formel der PL1?
+  * 1a: Warum ist $\exists x (p(x) \rightarrow p(f(x)))$ allgemeingültig?
+  * 1b: Was ist ein Beispiel für einen Büchi-Automaten, für den es keinen deterministischen Büchi-Automaten gibt?
+  * 1b: "Für jede geschlossene prädikatenlogische Formel G gilt: Es gibt ein Modell für G oder für das Negat von G oder für beide." - Gilt das nicht für alle prädikatenlogischen Formeln (egal ob geschlossen oder nicht)?
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
