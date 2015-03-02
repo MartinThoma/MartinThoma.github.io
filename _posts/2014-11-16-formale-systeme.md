@@ -512,12 +512,13 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
   hätte in der Vorlesung gesagt, dass wir W und F verwenden sollen.
 * Ist die Menge der allgemeingültigen / erfüllbaren / unerfüllbaren Formeln der
   PL1 abzählbar?
+* Wie kann man $U$ durch $U_W$ darstellen?
 
 ## Altklausuren
 
 * WS2010/2011, 1. Zwischentest, A4: Ist der Markierungsalgorithmus für Hornformeln relevant?
 * WS2010/2011, 2. Zwischentest, A1:
-  * Was ist eine kompakte Logik?
+  * Was ist eine kompakte Logik? (PL2 ist laut WS2008/2009, 2.Zwischentest 1b, nicht kompakt)
   * Was bedeutet $Cl_{\exists}(t_1 \doteq t_2)$?
 * WS2009/2010, A1c: Wieso gibt es für $\exists p(x)$ kein Herbrandmodell?
 * WS2009/2010, 1.Zwischentest
@@ -532,6 +533,9 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
   * 1a: Warum ist $\exists x (p(x) \rightarrow p(f(x)))$ allgemeingültig?
   * 1b: Was ist ein Beispiel für einen Büchi-Automaten, für den es keinen deterministischen Büchi-Automaten gibt?
   * 1b: "Für jede geschlossene prädikatenlogische Formel G gilt: Es gibt ein Modell für G oder für das Negat von G oder für beide." - Gilt das nicht für alle prädikatenlogischen Formeln (egal ob geschlossen oder nicht)?
+* WS 2008/2009, 1. Zwischentest:
+  * 1a: Wie lange dauert der kürzeste Resoultionsbeweis in Anzahl der Literale?
+  * 1b: Warum gibt es keine prädikatenlogische Interprätation, in der alle prädikatenlogischen Formeln wahr sind?
 
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
