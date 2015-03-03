@@ -540,6 +540,7 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 ## Material ##
 * [Skript](http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf)
 * [Vorlesungswebsite](http://formal.iti.kit.edu/teaching/FormSysWS1415/)
+* [Altklausuren](https://www.fsmi.uni-karlsruhe.de/Pruefungen/Schriftlich.html)
 
 StackExchange:
 
@@ -565,7 +566,7 @@ StackExchange:
 Siehe [Klausurtermine-Seite](http://www.informatik.kit.edu/klausuren.php) für
 zukünftige Termine.
 
-**Datum**: Donnerstag, den 6. März 2015 von 11:00 bis 12:00 Uhr ([Quelle](http://formal.iti.kit.edu/teaching/FormSysWS1415)).<br/>
+**Datum**: Freitag, den 6. März 2015 von 11:00 bis 12:00 Uhr ([Quelle](http://formal.iti.kit.edu/teaching/FormSysWS1415)).<br/>
 **Ort**: ?<br/>
 **Punkte**: 60<br/>
 **Punkteverteilung**: ?<br/>
