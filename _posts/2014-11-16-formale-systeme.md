@@ -477,22 +477,33 @@ Folgende Fragen sollte man für die Klausur schnell beantworten können:
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>:
   Warum wird einmal $\models$ und dann $\models_\Sigma$ geschrieben?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf#page=19">07, Folie 19/51</a>: Warum "fast alle" $x \in Var$? Was bedeutet das?
+  - Es dürfen nur endlich viele Variablen umbenannt bzw. durch einen Term ersetzt werden. Andernfalls werden die Beweise und Notationen hässlich.
+    Abzählbar unendlich viele Variablen sind praktisch, wenn man sich die Existenz immer weiterer Variablen sichern will, die nicht in einer gegebenen Formel auftauchen. Natürlich ist jede Formel endlich, enthält also nur endlich viele Variablen.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=8">Folie 8/30</a>:
   Wieso stimmt diese Umformung?
+  - Gebundene Variablen dürfen unabhängig von freien umbenannt werden. Die andere Umformung kann nachvollzogen werden, wenn die Implikation $A \rightarrow B$ zu $\neg A \vee B$ umgeformt wird. Man beachte folgende Umformungsregel: $\neg \forall x F(x) \equiv \exists x \neg F(x)$.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?
+  - Grundterm: Ein Term, der keine Variablen enthält. Instanz: Für quantifizierte Variablen wurden Terme eingesetzt. Grundinstanz: Für alle Variablen wurden Grundterme eingesetzt. Damit enthalten Grundinstanzen überhaupt keine Variablen mehr.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für $D = Term_\Sigma^0 \neq$ Menge der Grundterme? Wo gilt 2. nicht?
+  - Ich vermute mal, dass $Term_\Sigma^0 := $ Menge der Grundterme. Bachte (sofern die Definition stimmt): $Term_\Sigma^0  \subseteq Term_\Sigma$, da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.
 Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für $a \land \neg b \lor c \lor d$ erklären?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht $1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))$? Wie funktioniert der 1. Schritt in Aufgabe 2?
 * Haben reflexive Relationen irreduzible Elemente?
+  - Laut unserer Definition nicht. Aber du kannst jede n-stellige Relation mit dem Komplement der n-stelligen Gleichheits-Relation schneiden, dann erhältst du ihr irreflexives Gegenstück.
 * Können reflexive Relationen noethersch sein?
+  - Nur, wenn sie leer sind. Ansonsten gibt es immer unendliche Ketten.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich $\square \diamond P$ lesen?
+  - Von jeder erreichbaren Welt aus gibt es eine erreichbare Welt, in der P gilt. Die Verbalisierung der Relation "erreichbar" klappt immer ;)
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt $\diamond\square P$ auf dem Graphen aus? Insbesondere: Warum ist $w_5$ nicht in $\diamond\square P$? Was wäre $[[\square \diamond P]]$?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf">Blatt 12, Aufgabe 4</a>: Das muss ich noch mal in Ruhe durchgehen.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf#page=8">21, Folie 8</a>: Was ist $Th(N)$ und was ist $Cn(PA)$?
+  - $Th(N)$: Theoreme über N, also die Menge aller Formeln, für die die natürlichen Zahlen ein Modell sind. Cn(PA): Menge aller Formeln, die aus den Axiomen der Peano-Artihmetik gefolgert werden können. Da die Peano-Arithmetik korrekt ist, ist jede Formel aus Cn(PA) auch in Th(N).
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=16">50, Folie 16</a>: Was bedeutet es, dass $Th(N)$ nicht rekursiv ist?
+  - Rekursiv heißt entscheidbar. Da die Peano-Axiome durch die Peano-Artihmetik formalisiert werden können, gibt es eine Formel P(x), die genau dann wahr ist, wenn für x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten lässt. Nach dem Gödelschen Unvollständigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) übereinstimmt: Eine Formel also, die über sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerfüllbar oder allgemeingültig. Wenn $Th(N)$ entscheidbar wäre und P(x) allgemeingültig, dann entsteht Widerspruch zur Wahl von P und x. Wenn P(x) unerfüllbar wäre, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzulösen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen gültig" übersetzt werden.
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5">23, Folie 5</a>: Kann mir jemand ein konkretes Beispiel geben?
 * <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strutkuren und insbesondere was bedeutet $2^P$?
+  - Eine Omega Struktur Ordnet jedem Zeitpunkt, wenn die natürlichen Zahlen als Zeitstrahl aufgefasst werden, eine Menge von aussagenlogischen Variablen zu, die als "wahr" gelten sollen. $2^P$ ist die Potenzmenge von P.
 * Ist $A\;\textbf{U}_W\;B$ äquivalent zu $B\;\textbf{V}\;A$?
 * [Blatt 14, 2a](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf): Warum ist $\diamond (p\;\textbf{U}\;q)$ äquivalent zu $\diamond q$? Ich dachte es wäre äquivalent zu
   $p\;\textbf{U}\;q$?
@@ -501,17 +512,23 @@ Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?
 * [Blatt 14, 4](http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf):
   Das würde ich gerne gemeinsam durchgehen.
 * [50, 13](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13): Was sind die Ziele der Beweistheorie? Was ist die Grundidee des Hilbert-Kalküls?
+  - Ziele: Automatisches Beweisen ermöglichen und die Grenzen bestimmen. Grundidee des Hilbert-Kalküls: Aus Axiomen konstruktiv Formeln folgern. Im Gegensatz zu den praxis-orientierten Beweisverfahren kann der Hilbert-Kalkül leichter in theoretischen Beweisen verwendet werden. Der Gödelsche Unvollständigkeitssatz verwendet z.B. den Hilbert-Kalkül.
 * [50, 13](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13): "Aussagenlogische Tableauregeln aus Wahrheitstafeln konstruieren." - was ist damit gemeint?
 * [50, 15](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=15): Was ist die Grundidee der Peano-Arithmetik?
+  - Liegt doch eigentlich auf der Hand: Zahlentheoretische Aussagen automatisch beweisen.
 * [50, 33](http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=33): Wie kann man sich in dem Beispiel den Unterschied zwischen Prädikaten und Funktionen erschließen?
+  - Funktionen sind immer in Prädikaten enthalten. Ein Prädikat darf kein weiteres Prädikat enthalten.
 * Wie ist Erfüllbarkeit in der Prädikatenlogik definiert? Z.B. erscheint mir
   $\exists x p(x)$ erfüllbar, wenn nichts weiter gegeben ist. Wenn man aber
   $p(x)=False$ für alle $x$ sagt, dann ist es unerfüllbar.
+  - F ist erfüllbar gdw. es ein Modell für F gibt, d.h. eine Interpretation I, sodass val_I(F) = W.
 * Müssen die Kanten von Shannon-Graphen mit W und F oder mit 1 und 0 beschriftet
   werden? Praktisch alle Altklausuren verwenden 1 und 0, aber ich meine er
   hätte in der Vorlesung gesagt, dass wir W und F verwenden sollen.
 * Ist die Menge der allgemeingültigen / erfüllbaren / unerfüllbaren Formeln der
   PL1 abzählbar?
+  Jede Teilmenge aus $\Sigma^*$ ist abzählbar für ein endliches Alphabet $\Sigma$.
+  Es gibt aber überabzählbar viele Teilmengen, deren Elemente zwar wieder abzählbar sind, aber sowohl die Teilmengen selbst als auch ihre Elemente nicht aufzählbar sind. Beachte: Aufzählbar $\neq$ Abzählbar.
 * Wie kann man $U$ durch $U_W$ darstellen?
 
 ## Altklausuren
