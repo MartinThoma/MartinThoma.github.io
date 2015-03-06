@@ -12,15 +12,195 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Formale Systeme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Beckert im Wintersemester 2014/2015 gehört.</div>
 
-Der Artikel wird bis zur Klausur noch mehrfach bearbeitet werden.
-
 ## Behandelter Stoff ##
 
-* [Aussagenlogik](https://de.wikipedia.org/wiki/Aussagenlogik)
-  * Erfüllbarkeit, Unerfüllbarkeit, Allgemeingültigkeit
-  * Normalformen: <abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, <abbr title="Kurze konjunktive Normalform">KKNF</abbr>
-  * BDDs, Shannon Graphen
-  * [Davis-Putnam-Verfahren](https://de.wikipedia.org/wiki/Davis-Putnam-Verfahren)
+### Folien ###
+<table>
+  <tr>
+    <th>Folien-<br/>satz</th>
+    <th>Inhalt</th>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/01Organisatorisches-print.pdf" rel="nofollow">01</a></td>
+    <td>Organisatorisches</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf" rel="nofollow">02</a></td>
+    <td>Aussagenlogik: Modellierung von Sudoku; 8-Damen-Problem; Allgemeine Syntax und Semantik sowie Grundbegriffe, Tautologien und Sätze; Basis; Erfüllbarkeit; Allgemeingültigkeit; $M \models A$</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/03CraigInterpol-print.pdf" rel="nofollow">03</a></td>
+    <td>Aussagenlogik: <a href="https://de.wikipedia.org/wiki/Craig-Interpolation">Craig-Interpolation</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/04ALNormalform-print.pdf" rel="nofollow">04</a></td>
+    <td>Aussagenlogik: Normalformen (<abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, <abbr title="Kurze konjunktive Normalform">KKNF</abbr>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/05BDD-print.pdf" rel="nofollow">05</a></td>
+    <td>Binary Decision Diagrams: (normierte) Shannon-Formeln, sh-Operator, Shannon-Graph, Reduzierte Shannon-Graphen</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/06SATsolver-print.pdf" rel="nofollow">06</a></td>
+    <td><a href="https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a>; <a href="https://de.wikipedia.org/wiki/Satz_von_Cook">Satz von Cook</a>; <a href="https://de.wikipedia.org/wiki/Horn-Formel">Horn-Formeln</a>; <a href="https://de.wikipedia.org/wiki/Davis-Putnam-Verfahren">DPLL</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf" rel="nofollow">07</a></td>
+    <td>Prädikatenlogik: Syntax (PL1); JML; (Kollisionsfreie) Substitutionen; <a href="https://de.wikipedia.org/wiki/Unifikation_(Logik)">Unifikation</a> und der Algorithmus von Robinson; Unifikationstheorem</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/08Pk1Semantik-print.pdf" rel="nofollow">08</a></td>
+    <td>Pradikatenlogik: Semantik; Interpretation; Koinzidenzlemma; Substitutionslemma für Terme (und das für Formeln); Hoare-Kalkül; Modell; (Logische) Folgerung; Allgemeingültigkeit; Folgerbarkeit</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a></td>
+    <td>Pradikatenlogik: Normalformen; Negationsnormalform; Pränexe Normalform; Skolem-Normalform; Herbrand-Strukturen; Satz von Herbrand; Endlichkeitssatz der Aussagenlogik</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/10IntroBeweistheorie-print.pdf" rel="nofollow">10</a></td>
+    <td>Beweistheorie (Einführung)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf" rel="nofollow">11</a></td>
+    <td>Hilbertkalkül; Deduktionstheorem; Vollständigkeit der PL1; Kompaktheitssatz; Endlichkeitssatz</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf" rel="nofollow">12</a></td>
+    <td>Aussagenlogik: Resolutionskalkül; 1-Resolution</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf" rel="nofollow">13</a></td>
+    <td>Prädikatenlogik: Resolutionskalkül</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/14Tableau-print.pdf" rel="nofollow">14</a></td>
+    <td>Tableaukalkül</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a></td>
+    <td>Prädikatenlogik: Sequenzenkalkül</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf" rel="nofollow">21</a></td>
+    <td>Peano-Arithmetik; Unentscheidbarkeit</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf" rel="nofollow">28</a></td>
+    <td>JML</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a></td>
+    <td>Reduktionssysteme: Gleichungslogik; Satz von Birkhoff; Termersetzungssysteme; Reduktionssysteme; Kanonische Reduktionssysteme; Noethersche Induktion; (lokale) Konfluenz</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf" rel="nofollow">23</a></td>
+    <td>Termersetzungssysteme; Kritische Paare</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
+    <td>Modallogik; Bakery-Algorithmus; Kripke-Strukturen; Charakterisierungstheorie; Entscheidbarkeit modaler Logiken</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a></td>
+    <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi (vgl. <a href="http://martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/">Konstruktion</a>); Reguläre Ausdrücke</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a></td>
+    <td>Büchi-Automaten; Zerlegungssatz</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a></td>
+    <td>Lineare Temporale Logik; omega-Struktur; LTL-Formeln; LTL-Semantik; </td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a></td>
+    <td>LTL und Büchi-Automaten</td>
+  </tr>
+  <tr>
+      <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf" rel="nonfollow">50</a></td>
+      <td>Wiederholung</td>
+  </tr>
+</table>
+
+
+### Übungsblätter ###
+<table>
+  <tr>
+    <th>Übungsblatt</th>
+    <th>Lsg</th>
+    <th>Inhalt</th>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1.pdf" rel="nofollow">ÜB 1</a>: Aussagenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1-lsg.pdf">Lsg</a></td>
+    <td>Erfüllbarkeit, Unerfüllbarkeit, Allgemeingültigkeit, Tautologie, <abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, Interpolanten</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2.pdf" rel="nofollow">ÜB 2</a>: Aussagenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2-lsg.pdf">Lsg</a></td>
+    <td><abbr title="Kurze konjunktive Normalform">KKNF</abbr>, <abbr title="Binary decision diagram">BDD</abbr>, Shannon Graphen</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3.pdf" rel="nofollow">ÜB 3</a>: Aussagenlogik, PL1</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3-lsg.pdf">Lsg</a></td>
+    <td>DNF, KNF, DPLL</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4.pdf" rel="nofollow">ÜB 4</a>: PL1</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4-lsg.pdf">Lsg</a></td>
+    <td>PL1 (Variante des Zebrarätsels); Unifikation</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5.pdf" rel="nofollow">ÜB 5</a>: PL1</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5-lsg.pdf">Lsg</a></td>
+    <td>Verwandschaftsbeziehungen; (Java) Integer; Interpretation/Modell/Formel; Erfüllbar / allgemeingültig / unerfüllbar</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: PL1</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Lsg</a></td>
+    <td>Pränexnormalform; Skolemnormalform (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: PL1, Aussagenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7-lsg.pdf">Lsg</a></td>
+    <td>Hilbertkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf">11</a>); Resolutionskalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf">12</a>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8.pdf" rel="nofollow">ÜB 8</a>: PL1</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8-lsg.pdf">Lsg</a></td>
+    <td>Resolutionskalkül, Tableaukalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf">13</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/14Tableau-print.pdf" rel="nofollow">14</a>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9.pdf" rel="nofollow">ÜB 9</a>: PL1, Aussagenlogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Lsg</a></td>
+    <td>Resolutionskalkül, Sequenzenkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: JML</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10-lsg.pdf">Lsg</a></td>
+    <td>Klassen-Invarianten; Methoden-Vertrag; Spezifikation</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: Reduktionssysteme</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11-lsg.pdf">Lsg</a></td>
+    <td>reflexive, transitive Hülle; (lokal) konfluent; noetersch; irreduzibel; Ackermann-Funktion; noethersche Induktion (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf" rel="nofollow">ÜB 12</a>: Modallogik</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Lsg</a></td>
+    <td>Kripke-Strukturen (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13.pdf" rel="nofollow">ÜB 13</a>: Büchi-Automaten</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13-lsg.pdf">Lsg</a></td>
+    <td>$\omega$-Sprachen, $\omega$-reguläre Ausdrücke (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a>)</td>
+  </tr>
+  <tr>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14.pdf" rel="nofollow">ÜB 14</a>: LTL</td>
+    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Lsg</a></td>
+    <td>LTL-Formeln und Büchi-Automaten (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a>)</td>
+  </tr>
+</table>
 
 ### JML
 
@@ -264,202 +444,9 @@ können und verstehen:
 * Zu jeder LTL-Formel gibt es einen effektv konstruierbaren Büchi-Automaten.
 * Erfüllbarkeit und Allgmeingültigkeit von LTL-Formeln ist entscheidbar.
 * Ein Kalkül ist korrekt, wenn alles was formal ableitbar auch wahr ist. (vgl. [Korrektheit (Logik)](https://de.wikipedia.org/wiki/Korrektheit_(Logik)))
-
-
-### Folien ###
-<table>
-  <tr>
-    <th>Folien-<br/>satz</th>
-    <th>Inhalt</th>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/01Organisatorisches-print.pdf" rel="nofollow">01</a></td>
-    <td>Organisatorisches</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf" rel="nofollow">02</a></td>
-    <td>Aussagenlogik: Modellierung von Sudoku; 8-Damen-Problem; Allgemeine Syntax und Semantik sowie Grundbegriffe, Tautologien und Sätze; Basis; Erfüllbarkeit; Allgemeingültigkeit; $M \models A$</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/03CraigInterpol-print.pdf" rel="nofollow">03</a></td>
-    <td>Aussagenlogik: <a href="https://de.wikipedia.org/wiki/Craig-Interpolation">Craig-Interpolation</a></td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/04ALNormalform-print.pdf" rel="nofollow">04</a></td>
-    <td>Aussagenlogik: Normalformen (<abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, <abbr title="Kurze konjunktive Normalform">KKNF</abbr>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/05BDD-print.pdf" rel="nofollow">05</a></td>
-    <td>Binary Decision Diagrams: (normierte) Shannon-Formeln, sh-Operator, Shannon-Graph, Reduzierte Shannon-Graphen</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/06SATsolver-print.pdf" rel="nofollow">06</a></td>
-    <td><a href="https://de.wikipedia.org/wiki/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik">SAT</a>; <a href="https://de.wikipedia.org/wiki/Satz_von_Cook">Satz von Cook</a>; <a href="https://de.wikipedia.org/wiki/Horn-Formel">Horn-Formeln</a>; <a href="https://de.wikipedia.org/wiki/Davis-Putnam-Verfahren">DPLL</a></td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf" rel="nofollow">07</a></td>
-    <td>Prädikatenlogik: Syntax (PL1); JML; (Kollisionsfreie) Substitutionen; <a href="https://de.wikipedia.org/wiki/Unifikation_(Logik)">Unifikation</a> und der Algorithmus von Robinson; Unifikationstheorem</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/08Pk1Semantik-print.pdf" rel="nofollow">08</a></td>
-    <td>Pradikatenlogik: Semantik; Interpretation; Koinzidenzlemma; Substitutionslemma für Terme (und das für Formeln); Hoare-Kalkül; Modell; (Logische) Folgerung; Allgemeingültigkeit; Folgerbarkeit</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a></td>
-    <td>Pradikatenlogik: Normalformen; Negationsnormalform; Pränexe Normalform; Skolem-Normalform; Herbrand-Strukturen; Satz von Herbrand; Endlichkeitssatz der Aussagenlogik</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/10IntroBeweistheorie-print.pdf" rel="nofollow">10</a></td>
-    <td>Beweistheorie (Einführung)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf" rel="nofollow">11</a></td>
-    <td>Hilbertkalkül; Deduktionstheorem; Vollständigkeit der PL1; Kompaktheitssatz; Endlichkeitssatz</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf" rel="nofollow">12</a></td>
-    <td>Aussagenlogik: Resolutionskalkül; 1-Resolution</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf" rel="nofollow">13</a></td>
-    <td>Prädikatenlogik: Resolutionskalkül; </td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/14Tableau-print.pdf" rel="nofollow">14</a></td>
-    <td>Tableaukalkül</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a></td>
-    <td>Prädikatenlogik: Sequenzenkalkül</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf" rel="nofollow">21</a></td>
-    <td>Peano-Arithmetik; Unentscheidbarkeit</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf" rel="nofollow">28</a></td>
-    <td>JML</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a></td>
-    <td>Reduktionssysteme: Gleichungslogik; Satz von Birkhoff; Termersetzungssysteme; Reduktionssysteme; Kanonische Reduktionssysteme; Noethersche Induktion; (lokale) Konfluenz</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf" rel="nofollow">23</a></td>
-    <td>Termersetzungssysteme; Kritische Paare</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a></td>
-    <td>Modallogik; Bakery-Algorithmus; Kripke-Strukturen; Charakterisierungstheorie; Entscheidbarkeit modaler Logiken</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a></td>
-    <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi (vgl. <a href="http://martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/">Konstruktion</a>); Reguläre Ausdrücke</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a></td>
-    <td>Büchi-Automaten; Zerlegungssatz</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a></td>
-    <td>Lineare Temporale Logik; omega-Struktur; LTL-Formeln; LTL-Semantik; </td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a></td>
-    <td>LTL und Büchi-Automaten</td>
-  </tr>
-  <tr>
-      <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf" rel="nonfollow">50</a></td>
-      <td>Wiederholung</td>
-  </tr>
-</table>
-
-
-### Übungsblätter ###
-<table>
-  <tr>
-    <th>Übungsblatt</th>
-    <th>Lsg</th>
-    <th>Inhalt</th>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1.pdf" rel="nofollow">ÜB 1</a>: Aussagenlogik</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt1-lsg.pdf">Lsg</a></td>
-    <td>Erfüllbarkeit, Unerfüllbarkeit, Allgemeingültigkeit, Tautologie, <abbr title="Konjunktive Normalform">KNF</abbr>, <abbr title="Disjuktive Normalform">DNF</abbr>, Interpolanten</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2.pdf" rel="nofollow">ÜB 2</a>: Aussagenlogik</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt2-lsg.pdf">Lsg</a></td>
-    <td><abbr title="Kurze konjunktive Normalform">KKNF</abbr>, <abbr title="Binary decision diagram">BDD</abbr>, Shannon Graphen</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3.pdf" rel="nofollow">ÜB 3</a>: Aussagenlogik, PL1</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt3-lsg.pdf">Lsg</a></td>
-    <td>DNF, KNF, DPLL</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4.pdf" rel="nofollow">ÜB 4</a>: PL1</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt4-lsg.pdf">Lsg</a></td>
-    <td>PL1 (Variante des Zebrarätsels); Unifikation</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5.pdf" rel="nofollow">ÜB 5</a>: PL1</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt5-lsg.pdf">Lsg</a></td>
-    <td>Verwandschaftsbeziehungen; (Java) Integer; Interpretation/Modell/Formel; Erfüllbar / allgemeingültig / unerfüllbar</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6.pdf" rel="nofollow">ÜB 6</a>: PL1</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Lsg</a></td>
-    <td>Pränexnormalform; Skolemnormalform (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf" rel="nofollow">09</a>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7.pdf" rel="nofollow">ÜB 7</a>: PL1, Aussagenlogik</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt7-lsg.pdf">Lsg</a></td>
-    <td>Hilbertkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/11Hilbert.pdf">11</a>); Resolutionskalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/12ALResolution-print.pdf">12</a>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8.pdf" rel="nofollow">ÜB 8</a>: PL1</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt8-lsg.pdf">Lsg</a></td>
-    <td>Resolutionskalkül, Tableaukalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/13PK1Resolution-print.pdf">13</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/14Tableau-print.pdf" rel="nofollow">14</a>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9.pdf" rel="nofollow">ÜB 9</a>: PL1, Aussagenlogik</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Lsg</a></td>
-    <td>Resolutionskalkül, Sequenzenkalkül (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/19PL1Sequenz-print.pdf" rel="nofollow">19</a>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10.pdf" rel="nofollow">ÜB 10</a>: JML</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt10-lsg.pdf">Lsg</a></td>
-    <td>Klassen-Invarianten; Methoden-Vertrag; Spezifikation</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11.pdf" rel="nofollow">ÜB 11</a>: Reduktionssysteme</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt11-lsg.pdf">Lsg</a></td>
-    <td>reflexive, transitive Hülle; (lokal) konfluent; noetersch; irreduzibel; Ackermann-Funktion; noethersche Induktion (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/22Reduktion-print.pdf" rel="nofollow">22</a>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf" rel="nofollow">ÜB 12</a>: Modallogik</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Lsg</a></td>
-    <td>Kripke-Strukturen (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf" rel="nofollow">27</a>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13.pdf" rel="nofollow">ÜB 13</a>: Büchi-Automaten</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt13-lsg.pdf">Lsg</a></td>
-    <td>$\omega$-Sprachen, $\omega$-reguläre Ausdrücke (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a>)</td>
-  </tr>
-  <tr>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14.pdf" rel="nofollow">ÜB 14</a>: LTL</td>
-    <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Lsg</a></td>
-    <td>LTL-Formeln und Büchi-Automaten (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf" rel="nofollow">43</a>, <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/45LTL2Buechi-print.pdf" rel="nofollow">45</a>)</td>
-  </tr>
-</table>
-
-### Erklärungen
-
 * 08Pk1Semantik-print.pdf, Folie 34/37: QxB steht für "Quantor x B", wobei der
   Quantor entweder $\exists$ oder $\forall$ ist, $x$ eine Variable ist und $B$
   eine Formel ist.
-
 
 ## Wissens-Check
 Folgende Fragen sollte man für die Klausur schnell beantworten können:
@@ -584,14 +571,14 @@ Siehe [Klausurtermine-Seite](http://www.informatik.kit.edu/klausuren.php) für
 zukünftige Termine.
 
 **Datum**: Freitag, den 6. März 2015 von 11:00 bis 12:00 Uhr ([Quelle](http://formal.iti.kit.edu/teaching/FormSysWS1415)).<br/>
-**Ort**: ?<br/>
+**Ort**: Gerthsen ([30.21](http://www.kithub.de/map/2287)) und HSaF ([50.35](http://www.kithub.de/map/2222)) - vgl. [Anmeldeliste](http://formal.iti.kit.edu/teaching/FormSysWS1415/klausur1.html)<br/>
 **Punkte**: 60<br/>
-**Punkteverteilung**: ?<br/>
-**Bestehensgrenze**: ?<br/>
+**Punkteverteilung**: ? (Stand: 06.03.2015)<br/>
+**Bestehensgrenze**: ? (Stand: 06.03.2015)<br/>
 **Übungsschein**: Gibt es nicht.<br/>
 **Bonuspunkte**: Bis zu 8. Die Punkte aus den 4 Zwischenprüfungen und 2 Praxisaufgaben werden addiert, dann durch 10 geteilt und schließlich kaufmännisch gerundet.<br/>
 **Ergebnisse**: Klausur wurde noch nicht geschrieben<br/>
-**Einsicht**: steht noch nicht fest (Stand: 17.02.2015)<br/>
+**Einsicht**: steht noch nicht fest (Stand: 06.03.2015)<br/>
 **Erlaubte Hilfsmittel**: Keine.
 
 
