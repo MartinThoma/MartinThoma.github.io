@@ -102,6 +102,26 @@ be nice.
 gi is for GTK, but the module https://pypi.python.org/pypi/gi
 "overrides" it (TODO)
 
+## Joining lists
+
+Joining a list of strings works like this in Python 3:
+
+```python
+>>> a = [str(el) for el in range(5)]
+>>> a.join(" ")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'join'
+>>> " ".join(a)
+'0 1 2 3 4'
+```
+
+However, I think it is much more logical to apply a `join` method of a list
+with a string argument than a `join` method of a string with a list argument.
+This might be the case because I know
+[how join is done in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join).
+
+
 ## See also
 
 * [Critique of Python by Vladimir Keleshev](https://www.youtube.com/watch?v=CpjUoYcaUu8)

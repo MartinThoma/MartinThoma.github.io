@@ -60,4 +60,4 @@ All experiments configuration files are saved in the project
 ### Remarks
 
 * What I called "data multiplication" is called "data augmentation" by others
-  (e.g. [Deep Image: Scaling up Image Recognition](http://arxiv.org/abs/1501.02876))
+  (e.g. [Deep Image: Scaling up Image Recognition](http://arxiv.org/abs/1501.02876), [Classifying plankton with deep neural networks](http://benanne.github.io/2015/03/17/plankton.html#data-augmentation))
