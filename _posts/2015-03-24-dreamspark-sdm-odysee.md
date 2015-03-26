@@ -21,7 +21,7 @@ said than done.
 
 You need a Windows PC to download Windows. Ask a friend to download it. That
 might be the easiest way. If you have a Windows PC and get the same error as I
-get, you might need to re-install the system.
+get, you might need to re-install the system. (No, rebooting does not help.)
 
 What I've tried and what does not work:
 
@@ -142,8 +142,13 @@ Then I got another error:
 
 ## Installing Windows 7
 
-I fortunately had a Windows 7 DVD lying around. Installing it will probably
-take another 2 hours or so...
+12:50 I fortunately had a Windows 7 DVD lying around. Installing it will
+probably take another 2 hours or so...
+
+13:23 - *argh* ... I just found another reason to hate Windows. I've just
+installed Windows 7. Cable-based network does not work out of the box.
+I have to install drivers from http://www.helpjet.net/files-Acer-TravelMate-5735Z.html#ANetwork
+
 
 
 ## Related
