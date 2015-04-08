@@ -70,7 +70,7 @@ implementation. For this project, you would need:
 * Somebody, who has contacts to politics and knows how to advertise.
 
 ## Wikipedia KI
-Try to categorize images in 
+Try to categorize images in
 [Category:Uncategorized images](https://en.wikipedia.org/wiki/Category:Uncategorized_images)
 or find images that have the wrong category / missing categories.
 
@@ -81,6 +81,10 @@ this was a pain in the ass. Rosetta (part of Launchpad, for Ubuntu) is much
 better.
 
 Another idea that is much better is [Duolingo](http://www.duolingo.com/).
+
+[getlocalization.com](http://www.getlocalization.com/) might also be worth a
+try.
+
 
 ## Distributed, Universal Tagging System
 
