@@ -46,6 +46,15 @@ have a free software to create, train, test and evaluate neural networks.
 All experiments configuration files are saved in the project
 [github.com/MartinThoma/hwr-experiments](https://github.com/MartinThoma/hwr-experiments).
 
+
+## Data
+
+The data can be downloaded from <a href="http://write-math.com/data">write-math.com/data</a>.
+I will try to keep a relatively recent version online. You can contact me if
+you want the latest version. However, I should note that currently (2015-04-12)
+this is about 3.7GB. This means sharing the data is not that easy.
+
+
 ## Presentations
 
 * [27.08.2014](https://github.com/MartinThoma/LaTeX-examples/blob/master/presentations/Bachelor-Short/LaTeX/bachelor-short.pdf?raw=true)
