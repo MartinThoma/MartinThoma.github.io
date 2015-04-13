@@ -12,7 +12,7 @@ featured_image: logos/klausur.png
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Wahrscheinlichkeitstheorie&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Henze im Sommersemester 2015 gehört. Der Artikel wird bis zur Klausur laufend erweitert.</div>
 
 Der Dozent veweist immer wieder auf die Vorlesung Analysis III und insbesondere
-das Skript von Prof. Hundertmark.
+das Skript von Prof. Hundertmark. Kann mir das jemand schicken?
 
 ## Behandelter Stoff
 

@@ -37,19 +37,19 @@ in lesbarer (!) Reinschrift.</li>
 Aus dem Mailman-Verteiler von Herrn Karcher.
 
 <h2>Termine</h2>
-<strong>Datum</strong>: Montag, den 06.08.2012 um 14:00 Uhr
-<strong>Ort</strong>: 
-A - E: HSaF (Geb. 50.35)
-F - K: Gerthsen (Geb. 30.21)
-L - Q: Benz (Geb. 10.21)
-R&ndash;S: Gaede (Geb. 30.22)
-T&ndash;Z: Daimler (Geb. 10.21)
+<strong>Datum</strong>: Montag, den 06.08.2012 um 14:00 Uhr<br/>
+<strong>Ort</strong>:<br/>
+A - E: HSaF (Geb. 50.35)<br/>
+F - K: Gerthsen (Geb. 30.21)<br/>
+L - Q: Benz (Geb. 10.21)<br/>
+R&ndash;S: Gaede (Geb. 30.22)<br/>
+T&ndash;Z: Daimler (Geb. 10.21)<br/>
 
-<strong>Dauer</strong>: 60 min.
-<strong>Punkte</strong>: 60
-<strong>&Uuml;bungsschein</strong>: Noch nicht im <a href="https://studium.kit.edu">Studierendenportal</a> (Stand: 02.08.2012)
-<strong>Bonuspunkte</strong>: Gibt es nicht, oder?
-<strong>Sitzplatzverteilung</strong>: ?
+<strong>Dauer</strong>: 60 min.<br/>
+<strong>Punkte</strong>: 60<br/>
+<strong>&Uuml;bungsschein</strong>: Noch nicht im <a href="https://studium.kit.edu">Studierendenportal</a> (Stand: 02.08.2012)<br/>
+<strong>Bonuspunkte</strong>: Gibt es nicht, oder?<br/>
+<strong>Sitzplatzverteilung</strong>: ?<br/>
 
 <h2>Nicht vergessen</h2>
 <ul>
