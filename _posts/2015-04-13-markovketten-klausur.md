@@ -13,6 +13,10 @@ featured_image: logos/klausur.png
 
 ## Behandelter Stoff
 
+Es wäre toll, wenn ich von jeder Vorlesung einen Mitschrieb hochladen könnte.
+Gibt es Leute, die eine Kamera / einen Scanner haben und mir ihren Mitschrieb
+als JPG-Bilder schicken würden? Einfach an info@martin-thoma.de schicken.
+
 ### Vorlesung
 
 Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
@@ -26,7 +30,7 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 </tr>
 <tr>
 <td>13.04.2015</td>
-<td>0. Beispiel (<a href="http://martin-thoma.com/pdf/markovketten-2015-04-13.pdf">Mitschrieb</a>)</td>
+<td>0. Beispiele (<a href="http://martin-thoma.com/pdf/markovketten-2015-04-13.pdf">Mitschrieb</a>)</td>
 <td>Einführung in Markovketten mit vielen Beispielen (Weg des Betrunkenen, Ehrenfest-Modell, Irrfahrt, Vererbung); absorbierende Zustände; stochastische Matrix</td>
 </tr>
 </table>
