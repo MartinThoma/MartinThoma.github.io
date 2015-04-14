@@ -26,7 +26,7 @@ das Skript von Prof. Hundertmark. Kann mir das jemand schicken?
 <tr>
 <td>13.04.2015</td>
 <td>Maßtheoretische Grundlagen <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422503&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">0.1 - 1.13</a></td>
-<td>Wiederholung von Begriffen: Maß, $\sigma$-Algebra, Dynkin-System, Durchschnittsstabilität</td>
+<td>Wiederholung von Begriffen: <a href="https://de.wikipedia.org/wiki/Ma%C3%9F_(Mathematik)#Definition">Maß</a>, <a href="https://de.wikipedia.org/wiki/%CE%A3-Algebra#Definition">$\sigma$-Algebra</a>, <a href="https://de.wikipedia.org/wiki/Halbring_(Mengensystem)#Definition">Halbring</a>, <a href="https://de.wikipedia.org/wiki/Dynkin-System#Definition">Dynkin-System</a>, Durchschnittsstabilität ($A, B \in \mathcal H \Rightarrow A \cap B \in \mathcal H$)</td>
 </tr>
 <tr>
 <td>15.04.2015</td>
