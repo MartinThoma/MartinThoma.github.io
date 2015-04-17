@@ -39,7 +39,8 @@ pip 6.1.1 from /usr/local/lib/python2.7/dist-packages (python 2.7)
 
 ## sklearn
 
-sklearn is a nice package for machine learning. You can install it with
+[sklearn](http://scikit-learn.org/stable/) is a nice package for machine
+learning. You can install it with
 
 ```bash
 $ pip install scikit-learn
@@ -49,14 +50,14 @@ This should work without problems.
 
 Each classifier has a `fit` method and a `predict` method. See
 [iris example](http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html)
-to get a feeling how to use it.
+to get a feeling how to use it. It provides a lot of useful functions like
+[`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html)
+and has an awesome documentation.
 
 
 ## Graphics drivers and CUDA
 
-Make sure CUDA runs on your system:
-
-
+Make sure CUDA runs on your system by the following commands.
 If it doesn't run, you could try the following guides:
 
 * [Installing and testing CUDA in Ubuntu 14.04](http://askubuntu.com/q/451672/10425)
