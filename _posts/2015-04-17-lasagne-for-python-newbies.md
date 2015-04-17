@@ -251,7 +251,23 @@ else:
     print('Used the gpu')
 ```
 
-It should print "used the gpu".
+It should print the following (well, something similar):
+
+```text
+Using gpu device 0: GeForce GTX TITAN Black
+[GpuElemwise{exp,no_inplace}(<CudaNdarrayType(float32, vector)>), HostFromGpu(GpuElemwise{exp,no_inplace}.0)]
+Looping 1000 times took 0.38205909729 seconds
+Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
+  1.62323296]
+Used the gpu
+```
+
+Especially "used the gpu" is important. Theano code work on both, CPU and GPU.
+If you have a GPU and it does not currently work on a task and it is configured
+correctly, then Theano should automatically use the GPU.
+
+(Don't try to run two Theano scripts at a time ... weird things could happen.)
+
 
 ## Lasagne
 
@@ -287,3 +303,11 @@ Epoch 1 of 500 took 72.593s
   validation loss:        0.470251
   validation accuracy:        87.54 %%
 ```
+
+
+## nolearn
+
+nolearn is another Python package. It was created to make using Lasagne even
+simpler. I didn't take a closer look at it by now, but you might be interested
+in the article [Getting Started with Deep Learning and Python](http://www.pyimagesearch.com/2014/09/22/getting-started-deep-learning-python/) (I didn't read / test it by now, but it looks
+as if the article could be a nice example which shows how to use sklearn/nolearn.)
