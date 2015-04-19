@@ -14,6 +14,10 @@ featured_image: logos/klausur.png
 ## Behandelter Stoff
 
 ### Vorlesung
+
+Der Dozent verwendete einige Abkürzungen, die mir nicht geläufig waren. Diese
+habe ich unter anderem in der folgenden Tabelle aufgeführt.
+
 <table>
 <tr>
     <th>Datum</th>
@@ -21,16 +25,38 @@ featured_image: logos/klausur.png
     <th>Inhalt</th>
 </tr>
 <tr>
-<td>14.04.2015</td>
-<th>Fixed priority, pre-emtitive systems; SPS; NC; RC; Daisy chain</th>
-<th></th>
+    <td>14.04.2015</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-1 - ES1-24)</td>
+    <td><a href="https://de.wikipedia.org/wiki/Speicherprogrammierbare_Steuerung"><abbr title="Speicherprogrammierbare Steuerung">SPS</abbr></a>; NC; RC; <a href="https://de.wikipedia.org/wiki/Daisy_Chain">Daisy chain</a>; Mikroprozessor vs. Mikrorechner vs. Mikrorechnersystem; Aufbau eines Mikroprozessors; Speicherhierachie (L1-, L2- und L3-Cache, Hauptspeicher, Festplatte); superskalare Pipeline; Fixed-
+priority-preemptive Unterbrechungsbehandlung</td>
+</tr>
+<tr>
+    <td>15.04.2015</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-25 - ES1-60)</td>
+    <td>Watchdogs, <a href="http://de.wikipedia.org/wiki/Jitter">Jitter</a>, <a href="http://de.wikipedia.org/wiki/Speicherdirektzugriff">DMA</a>, <a href="http://de.wikipedia.org/wiki/Digitaler_Signalprozessor">Signalprozessor</a>, <abbr title="Very long instruction word">VLIW</abbr>; verschiedene Bus-Arten (z.B. PCI-Bus), Bus-Arbitation kümmert sich bei mehreren Bus-Mastern um die Zugriffskontrolle. Das kann zentral oder dezentral (z.B. über eine Daisy-Chain oder einen Identifikationsbus) geschehen; </td>
 </tr>
 </table>
+
+### Meine Fragen
+
+* ES1-14: Was bedeutet das "x4" im "Unterbrechungswerk in der Steuereinheit"?
+* ES1-23: Was bedeuten die Schalen?
+* ES1-37: Was bedeutet TxD, RxD, AO0, AO1? AO könnte für "Analog Output" stehen.
+* ES1-41: Was ist "naives PCI" und warum ist PCI Express 2.0 kein naives PCI?
+* ES1-48: Was bedeutet "TW"? Warum sind bei WAIT=1 um "warten" herum die beiden
+  Punkte markiert?
+* ES1-49: Wofür steht "AS" und "DTACK"?
+* ES1-52: Sind "Buszuteilung" und "Bus-Arbitration" synonyme oder verschiedene Verfahren?
+* ES1-57
+    * Warum kann durch Blocktransfers <a href="http://de.wikipedia.org/wiki/Priorit%C3%A4tsinversion">Prioritätsinversion</a> passieren?
+    * Was ist ein Busmonitor?
+* ES1-58: Was bedeutet "Kommandoorientiert (Klassifizierung der Bus-Transfers über Kommandos, nicht
+Einzel-Signale)"? Wo genau ist der Unterschied?
 
 ## Material und Links
 
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/wt2015s/de)
-* [Ilias](https://ilias.studium.kit.edu/ilias.php?ref_id=419886&cmd=frameset&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI)
+* [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html)
 
 ## Übungsbetrieb
 
@@ -45,7 +71,7 @@ featured_image: logos/klausur.png
 ## Termine und Klausurablauf
 
 **Datum**: Donnerstag, der 24.09.2015 von 14:00 Uhr ([Quelle](http://www.informatik.kit.edu/klausuren.php?kid=522.35))<br/>
-**Ort**: einige<br/>
+**Ort**: einige Hörsäle<br/>
 **Punkte**: ?<br/>
 **Punkteverteilung**: ?<br/>
 **Bestehensgrenze**: ?<br/>
