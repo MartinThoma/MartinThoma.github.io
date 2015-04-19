@@ -61,12 +61,12 @@ Einzel-Signale)"? Wo genau ist der Unterschied?
 ## Übungsbetrieb
 
 * Wo sind die Übungsblätter: ?
-* Abgabeform: ?
-* Abgabe: ?
-* Rücknahme: ?
+* Abgabeform: Keine Abgabe
+* Abgabe (wochentag): ?
+* Rücknahme: -
 * Turnus: ?
-* Übungsschein verpflichtend: ?
-* Bonus durch Übungsschein: ?
+* Übungsschein verpflichtend: Es gibt keinen Übungsschein.
+* Bonus durch Übungsschein: Es gibt keinen Übungsschein.
 
 ## Termine und Klausurablauf
 
