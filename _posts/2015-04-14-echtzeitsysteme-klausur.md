@@ -57,12 +57,13 @@ Einzel-Signale)"? Wo genau ist der Unterschied?
 
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/wt2015s/de)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html)
+* [Klausur-Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme)
 
 ## Übungsbetrieb
 
-* Wo sind die Übungsblätter: ?
+* Wo sind die Übungsblätter: ? (Ilias?)
 * Abgabeform: Keine Abgabe
-* Abgabe (wochentag): ?
+* Abgabe (wochentag): Keine Abgabe
 * Rücknahme: -
 * Turnus: ?
 * Übungsschein verpflichtend: Es gibt keinen Übungsschein.
@@ -70,10 +71,16 @@ Einzel-Signale)"? Wo genau ist der Unterschied?
 
 ## Termine und Klausurablauf
 
-**Datum**: Donnerstag, der 24.09.2015 von 14:00 Uhr ([Quelle](http://www.informatik.kit.edu/klausuren.php?kid=522.35))<br/>
+**Datum**: Donnerstag, der 24.09.2015 von 14:00 Uhr-15:00 Uhr ([Quelle](http://www.informatik.kit.edu/klausuren.php?kid=522.35))<br/>
 **Ort**: einige Hörsäle<br/>
-**Punkte**: ?<br/>
-**Punkteverteilung**: ?<br/>
+**Punkte**: 60<br/>
+**Punkteverteilung**: 4 Aufgaben à 15 Punkte:
+
+* Regelung
+* Rechnerarchitekturen, Busse, Operationsverstärker, Analog-/Digitaltechnik
+* Echtzeitkommunikation und Echtzeitprogrammierung
+* Echtzeitbetriebssysteme und SPS
+
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: ?<br/>
 **Bonuspunkte**: ?<br/>
