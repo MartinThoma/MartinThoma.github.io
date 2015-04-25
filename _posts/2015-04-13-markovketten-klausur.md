@@ -33,6 +33,16 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 <td>0. Beispiele (<a href="http://martin-thoma.com/pdf/markovketten-2015-04-13.pdf">Mitschrieb</a>)</td>
 <td>Einführung in Markovketten mit vielen Beispielen (Weg des Betrunkenen, Ehrenfest-Modell, Irrfahrt, Vererbung); absorbierende Zustände; stochastische Matrix</td>
 </tr>
+<tr>
+  <td>16.04.2015</td>
+  <td>1. </td>
+  <td>Konstruktion von Markov-Ketten</td>
+</tr>
+<tr>
+  <td>20.04.2015</td>
+  <td></td>
+  <td></td>
+</tr>
 </table>
 
 ## Material und Links
@@ -42,7 +52,7 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 
 ## Übungsbetrieb
 
-Es wird wohl Dienstags und Mittwochs Tutorien geben.
+Es gibt Dienstags und Mittwochs Tutorien.
 
 * Wo sind die Übungsblätter: ?
 * Abgabeform: ?
@@ -56,8 +66,8 @@ Es wird wohl Dienstags und Mittwochs Tutorien geben.
 
 **Datum**: Montag, der 03.08.2015 von 11:00 bis 13:00 Uhr ([Quelle](http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/))<br/>
 **Ort**: [Daimler-Hörsaal](http://www.kithub.de/map/2086) (Geb. 10.11, [Quelle](http://www.math.kit.edu/stoch/lehre/mk2015s/event/mk-klausur/))<br/>
-**Punkte**: ?<br/>
-**Punkteverteilung**: ?<br/>
+**Punkte**: 60<br/>
+**Punkteverteilung**: 6 Aufgaben mit 9-13 Punkten<br/>
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: ?<br/>
 **Bonuspunkte**: ?<br/>
