@@ -112,3 +112,8 @@ Link: [udacity.com/course/cs373](https://www.udacity.com/course/cs373)
 * Lesson 4: Search
 * Lesson 5: PID Control
 * Lesson 6: SLAM (Simultaneous Localization and Mapping)
+
+## More links
+
+* [Learning Deep Learning](http://rt.dgyblog.com/ref/ref-learning-deep-learning.html): A
+  list of deep learning books, papers and websites.

@@ -35,6 +35,21 @@ priority-preemptive Unterbrechungsbehandlung</td>
     <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-25 - ES1-60)</td>
     <td>Watchdogs, <a href="http://de.wikipedia.org/wiki/Jitter">Jitter</a>, <a href="http://de.wikipedia.org/wiki/Speicherdirektzugriff">DMA</a>, <a href="http://de.wikipedia.org/wiki/Digitaler_Signalprozessor">Signalprozessor</a>, <abbr title="Very long instruction word">VLIW</abbr>; verschiedene Bus-Arten (z.B. PCI-Bus), Bus-Arbitation kümmert sich bei mehreren Bus-Mastern um die Zugriffskontrolle. Das kann zentral oder dezentral (z.B. über eine Daisy-Chain oder einen Identifikationsbus) geschehen; </td>
 </tr>
+<tr>
+    <td>21.04.2015</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-62 - ES1-83)</td>
+    <td>Arbitrierung; Transaktionen</td>
+</tr>
+<tr>
+    <td>22.04.2015</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=423230&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 2</a> (ES2-1 - ES2-?)</td>
+    <td><a href="https://de.wikipedia.org/wiki/Ohmsches_Gesetz#Beschreibung">Ohmsches Gesetz</a>; Parallel- und Reihenschaltung von Widerständen; Spannungsteiler; <a href="https://de.wikipedia.org/wiki/Kirchhoffsche_Regeln#Der_Knotenpunktsatz_.28Knotenregel.29_.E2.80.93_1._Kirchhoffsches_Gesetz">Knotenregel</a>; <a href="https://de.wikipedia.org/wiki/Kirchhoffsche_Regeln#Der_Maschensatz_.28Maschenregel.29_.E2.80.93_2._Kirchhoffsches_Gesetz">Maschenregel</a>; Transistoren; Addierer; Differenzierer; Invertierter Addierer; Integrierer; AD/DA-Wandler</td>
+</tr>
+<tr>
+    <td>28.04.2015</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=423230&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 2</a> (?)</td>
+    <td>?</td>
+</tr>
 </table>
 
 ### Meine Fragen
