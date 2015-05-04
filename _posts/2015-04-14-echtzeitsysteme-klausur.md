@@ -68,6 +68,69 @@ priority-preemptive Unterbrechungsbehandlung</td>
 * ES1-58: Was bedeutet "Kommandoorientiert (Klassifizierung der Bus-Transfers über Kommandos, nicht
 Einzel-Signale)"? Wo genau ist der Unterschied?
 
+## Typische Klausur
+
+Die Klausuren sind alle sehr ähnlich zu einander:
+
+* Regelung
+  * Zeitkonstante Regelung: 7 Punkte
+    * Definition Regelung / Steuerung: 1 Punkt
+    * Laplace-Bereich / Übergangsfunktion: 1 Punkt
+    * Transformationstabelle / Differentialgleichung: 1 Punkt
+    * Ist ein gegebenes System stabil? (mit Übergangsfunktion): 1 Punkt
+    * PID-Regler / stabilität / Fehler: 2 Punkte
+    * Gütegrad von Regelungssystem: 1.5 Punkte
+    * Bode-Diagramm: 1.5 Punkte
+  * Zeitdiskrete Regelung: 8 Punkte
+    * Aliasing / Abtasttheorem: 1 Punkt
+    * Z-Transformierte Übertragungsfunktion G(z): 2 Punkte
+    * Z-Transformierte / PD-Regelalgorithmus: 1 Punkt
+    * Z-Transformierte / Regelkreis: 1 Punkt
+    * Differenzialgleichungen → Differenzengleichung: 2 Punkte
+    * Digital vs. Kontinuierlich (Diskretisierung): 1 Punkte
+    * Stabilität eines Systems: 1 Punkt
+* Rechnerarchitekturen / Busse / Operationsverstärker
+  * Rechnerarchitekturen und Busse: 10 Punkte
+    * Watchdog: 1 Punkt
+    * Echtzeitausgabeeinheit (Konzept, Definition, Eigenschaften): 1 Punkt
+    * Befehlsskalarer Prozessor / Sprungbedingungen: 1 Punkt
+    * Bus-Eigenschaften: 2 Punkte
+      * Echtzeitfähig oder nicht
+      * Synchron ↔ asynchron
+      * Getrennter Adress- und Datenbus ↔ multiplex
+      * Burst-Datentransfer erlaubt oder auch nicht
+  * Operationsverstärker in Analog- und Digitaltechnik: 8 Punkte
+    * Schaltsymbol Operationsverstärker (mit Versorgungsspannung), Anschlüsse
+      beschriften: 1 Punkt
+    * Eingangsströme (real/ideal): 1 Punkt
+    * Operationsverstärker: 4 Punkte
+    * Prinzip Operationswandler: 1 Punkt
+    * Asymmetrische / differenzielle Datenübertragung: 1 Punkt
+    * A/D-Wandler: 2 Punkte
+* Echtzeitkommunikation / Programmierung: 7 Punkte
+  * ISO / OSI-Schichtenmodell: 1.5 Punkte
+  * Manchester-Codierung: 1.5 Punkte
+  * Übertragungsfehler: 1.5 Punkte
+  * CAN-Dataframes: 2.5 Punkte
+  * Zusätzliche Forderungen an Echtzeitsysteme: 1 Punkt
+  * FPP-Scheduling: 2 Punkte
+  * Periodenabweichung: 2 Punkte
+  * Optimales Scheduling: 1 Punkt
+  * Schwankungen: 1 Punkt
+* Echtzeit-OS / SPS
+  * Echtzeit-OS: 7 Punkte
+    * Zusätzliche Anforderungen: 1 Punkt
+    * Zusätzliche Anforderungen Middleware: 1 Punkt
+    * Beispiele: 1 Punkt
+    * Sperrsynchronisation: 2 Punkte
+    * Seitenadressierung: 2 Punkte
+  * SPS: 8 Punkte
+    * <abbr title="Funktionspointer">FUP</abbr> → <abbr title="Anweisungsliste">AWL</abbr>: 2.5 Punkte
+    * FUP → Structured Text: 2.5 Punkte
+    * 3 Verarbeitungsschirtte von SPS im zyklischen Programmbetrieb: 1 Punkt
+    * Konventionelle SPS ↔ Soft: 1 Punkt
+    * Graphische ↔ textuelle Programmiersprache: 1 Punkt
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/wt2015s/de)
