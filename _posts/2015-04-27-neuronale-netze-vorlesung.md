@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mustererkennung - Klausur
+title: Neuronale Netze - Klausur
 author: Martin Thoma
 date: 2015-04-27 21:15
 categories:
@@ -36,12 +36,11 @@ featured_image: logos/klausur.png
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
-
+* [NNPraktikum](https://github.com/thanhleha/NNPraktikum): Toolkit für die Übungsblätter
 
 ## Übungsbetrieb
 
-Es gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine
-Bonuspunkte.
+Übungsblätter sind freiwillig.
 
 
 ## Termine und Klausurablauf
