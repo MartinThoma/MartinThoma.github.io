@@ -24,7 +24,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>15.04.2015</td>
     <td><a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap1_V33.pdf">Einleitung</a></td>
-    <td>-</td>
+    <td>$\hat{w}$ - das <code>^</code> bedeutet, dass die Klasse geschätzt ist.</td>
 </tr>
 <tr>
     <td>22.04.2015</td>
@@ -33,9 +33,10 @@ featured_image: logos/klausur.png
 </tr>
 </table>
 
+
 ## Material und Links
 
-* [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
+* [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php): Ist passwortgeschützt. Das Passwort (das ausnahmsweise mal nicht zu erraten ist) kann ich hier natürlich nicht schreiben. Aber der Benutzername ist `asbstudent`.
 
 
 ## Übungsbetrieb

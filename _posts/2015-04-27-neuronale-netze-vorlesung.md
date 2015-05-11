@@ -27,9 +27,19 @@ featured_image: logos/klausur.png
     <td>-</td>
 </tr>
 <tr>
+    <td>21.04.2015</td>
+    <td>LVQ and related Techiques</td>
+    <td>k-Means, OLVQ1, kompetitives Lernen, Mode Seeker, PCA</td>
+</tr>
+<tr>
     <td>22.04.2015</td>
     <td>-</td>
     <td>Übung</td>
+</tr>
+<tr>
+    <td>28.04.2015</td>
+    <td>Perceptron</td>
+    <td>-</td>
 </tr>
 </table>
 
