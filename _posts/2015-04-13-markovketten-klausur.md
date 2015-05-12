@@ -47,20 +47,26 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 
 ## Material und Links
 
+### KIT
+
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/mk2015s/de)
-* [Ilias](https://ilias.studium.kit.edu/ilias.php?ref_id=411041&cmd=return&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI&redirectSource=ilobjcoursegui&cmdMode=)
+* [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_411041.html)
+
+### Sonstiges
+
+* [Markov Chains](http://setosa.io/blog/2014/07/26/markov-chains/): A very short introduction to markov chains with beautiful visualizations
 
 ## Übungsbetrieb
 
 Es gibt Dienstags und Mittwochs Tutorien.
 
-* Wo sind die Übungsblätter: ?
-* Abgabeform: ?
+* Wo sind die Übungsblätter: [Ilias](https://ilias.studium.kit.edu/goto_produktiv_fold_411044.html)
+* Abgabeform: Handgeschrieben (?)
 * Abgabe: ?
 * Rücknahme: ?
-* Turnus: ?
-* Übungsschein verpflichtend: ?
-* Bonus durch Übungsschein: ?
+* Turnus: Wöchentlich
+* Übungsschein verpflichtend: Nein
+* Bonus durch Übungsschein: Nein
 
 ## Termine und Klausurablauf
 
