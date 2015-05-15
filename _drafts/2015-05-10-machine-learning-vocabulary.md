@@ -21,6 +21,7 @@ terms.
 * inductive learning: same as semi-supervised learning (?)
 * recognition: You have a pattern and you want to know what it is.
 * self-learning: One form of semi-supervised learning, where you train an initial system on the labeled data, then label the unlabeled data where the classifier is 'sure enough'. After that, you train a new system on all data and re-label the unlabeled data. This is iterated.
+* semantic segmentation: Segment an image pixel-wise into areas which belong to the same object.
 * semi-supervised learning: Parts of the data have labels, others don't have labels.
 * supervised learning: The learner has patterns and labels.
 * transductive learning: label unlabeled data (the aim here is NOT to find a hypothesis)

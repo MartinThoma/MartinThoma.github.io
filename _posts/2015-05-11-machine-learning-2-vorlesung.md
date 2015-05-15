@@ -27,9 +27,24 @@ featured_image: logos/klausur.png
     <td>Wiederholung ML1; Definition 'Machine Learning'</td>
 </tr>
 <tr>
-    <td>a24.04.2015</td>
+    <td>24.04.2015</td>
     <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=432731&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Semi Supervised Learning (SSL)</a></td>
     <td>Transduktives Learnen; Self-Learning; Co-Training; Generative Models; EM-Algorithmus; Low-Density seperation; Transductive SVM</td>
+</tr>
+<tr>
+    <td>01.05.2015</td>
+    <td>-</td>
+    <td>Vorlesung fällt aus (vgl. erster Foliensatz, Folie 49)</td>
+</tr>
+<tr>
+    <td>15.05.2015</td>
+    <td>-</td>
+    <td>Vorlesung fällt aus (vgl. erster Foliensatz, Folie 49)</td>
+</tr>
+<tr>
+    <td>05.06.2015</td>
+    <td>-</td>
+    <td>Vorlesung fällt aus (vgl. erster Foliensatz, Folie 49)</td>
 </tr>
 </table>
 
