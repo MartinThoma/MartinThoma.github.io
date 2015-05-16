@@ -16,10 +16,11 @@ I've just found this interesting question on <a href="http://math.stackexchange.
 
 If you have a rectangle ABCD and point P. Is P inside ABCD?
 
-<h2>The idea</h2>
-The idea how to solve this problem is simply beautiful. 
 
-If the point is in the rectangle, it divides it into four rectangles:
+## The idea
+The idea how to solve this problem is simply beautiful.
+
+If the point is in the rectangle, it divides it into four triangles:
 
 {% caption align="aligncenter" width="512" caption="Divided rectangle" url="../images/2012/09/rectangle-2.png" alt="Divided rectangle"  height="409" class="size-full wp-image-43651 "  %}
 
@@ -29,7 +30,8 @@ If P is not inside of ABCD, you end up with somethink like this:
 
 You might note that the area of the four triangles in is bigger than the area of the rectangle. So if the area is bigger, you know that the point is outside of the rectangle.
 
-<h2>Formulae</h2>
+
+## Formulae
 If you know the coordinates of the points, you can calculate the area of the rectangle like this:
 
 $A_\text{rectangle} = \frac{1}{2} \left| (y_{A}-y_{C})\cdot(x_{D}-x_{B}) + (y_{B}-y_{D})\cdot(x_{A}-x_{C})\right|$
@@ -37,18 +39,20 @@ $A_\text{rectangle} = \frac{1}{2} \left| (y_{A}-y_{C})\cdot(x_{D}-x_{B}) + (y_{B
 The area of a triangle is:
 $A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$
 
-<h2>Python</h2>
+
+## Python
 <div class="important">Please look at Jans comment. There is an error in my Python code, but I don't have the time to correct it.</div>
 
-{% highlight python %}def isPinRectangle(r, P):
-    """ 
+```python
+def isPinRectangle(r, P):
+    """
         r: A list of four points, each has a x- and a y- coordinate
         P: A point
     """
 
     areaRectangle = 0.5*abs(
-        #                 y_A      y_C      x_D      x_B          
-                        (r[0][1]-r[2][1])*(r[3][0]-r[1][0]) 
+        #                 y_A      y_C      x_D      x_B
+                        (r[0][1]-r[2][1])*(r[3][0]-r[1][0])
         #                  y_B     y_D       x_A     x_C
                       + (r[1][1]-r[3][1])*(r[0][0]-r[2][0])
                     )
@@ -73,12 +77,13 @@ $A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$
             +r[0][0]*(r[1][1]-r[3][1])
             +r[1][0]*(r[3][1]-r[0][1])
           )
-    return areaRectangle == (ABP+BCP+CDP+DAP){% endhighlight %}
+    return areaRectangle == (ABP+BCP+CDP+DAP)
+```
 
-<h2>Triangle</h2>
+## Triangle
 The same idea can easily be adopted to triangles:
 
-{% highlight python %}
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -110,7 +115,7 @@ class Triangle:
         self.a = a
         self.b = b
         self.c = c
-        
+
     def getArea(self):
         """Get area of this triangle.
            >>> Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).getArea()
@@ -134,4 +139,10 @@ class Triangle:
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-{% endhighlight %}
+```
+
+
+## Credits
+
+Thank you Teon Brooks for reporting an error (I wrote "rectangles" instead of
+"triangles")
