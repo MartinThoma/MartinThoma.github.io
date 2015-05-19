@@ -41,6 +41,26 @@ featured_image: logos/klausur.png
     <td>Perceptron</td>
     <td>-</td>
 </tr>
+<tr>
+    <td>12.05.2015</td>
+    <td>Auto-Encoder</td>
+    <td>Denoising- und Sparse Autoencoder, Bottleneck-Features<a href="https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz">Kullback-Leibler-Divergenz</a>; <a href="https://de.wikipedia.org/wiki/Kettenregel#Mathematische_Formulierung">Kettenregel</a></td>
+</tr>
+<tr>
+    <td>13.05.2015</td>
+    <td>Deep Learning</td>
+    <td>Momentum, Rprop, Newbob, L1/L2-Regularisierung ($|w|$, $w^2$), weight decay</td>
+</tr>
+<tr>
+    <td>19.05.2015</td>
+    <td>Übung</td>
+    <td>-</td>
+</tr>
+<tr>
+    <td>20.05.2015</td>
+    <td>Übung</td>
+    <td>-</td>
+</tr>
 </table>
 
 ## Material und Links

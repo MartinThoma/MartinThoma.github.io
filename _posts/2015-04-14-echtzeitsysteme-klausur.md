@@ -21,7 +21,7 @@ habe ich unter anderem in der folgenden Tabelle aufgeführt.
 <table>
 <tr>
     <th>Datum</th>
-    <th>Kapitel</th>
+    <th style="width:60px;">Kapitel</th>
     <th>Inhalt</th>
 </tr>
 <tr>
@@ -48,6 +48,21 @@ priority-preemptive Unterbrechungsbehandlung</td>
 <tr>
     <td>28.04.2015</td>
     <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=423230&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 2</a> (?)</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td>12.05.2015</td>
+    <td>?</td>
+    <td>Hurwitz-Kriterium; Ortskurve; P-, Pi- und PID-Regler (I: Rück-Knala, D: Änderung); Vorsteuerung, Car Cruise Control</td>
+</tr>
+<tr>
+    <td>19.05.2015</td>
+    <td>2. Übung</td>
+    <td>Operationsverstärker, AD-Wandler</td>
+</tr>
+<tr>
+    <td>20.05.2015</td>
+    <td>?</td>
     <td>?</td>
 </tr>
 </table>
@@ -136,6 +151,8 @@ Die Klausuren sind alle sehr ähnlich zu einander:
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/wt2015s/de)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html)
 * [Klausur-Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme)
+* [Anki-Karten](https://ankiweb.net/shared/info/2095784594) Echtzeitsysteme - KIT Wörn (nicht meine)
+* [Anki-Karten](https://ankiweb.net/shared/info/2071108701): Echtzeitsysteme KIT Wörn Wissensfragen Klausur (nicht meine)
 
 ## Übungsbetrieb
 
