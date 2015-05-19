@@ -39,7 +39,12 @@ m \cdot h &= \frac{E_{pot}}{g}\\
 &= 191.0 \cdot 10^3 kg \cdot m
 \end{align}
 
-This means I would have to lift 191.000 packages one liter of milk to a height
+This means I would have to lift 191&ensp;000 packages one liter of milk to a height
 of 1 meter. Every day. Just to let my small laptop run.
 
-It is amazing about how much energy we have.
+Or lets view it from another angle. I think lifting about 5 packages of milk
+to a height of about 1.8m each hour would not be too exhausting. This would
+generate about $E_{pot} = 5kg \cdot 1.80m \cdot 9.80 \frac{m}{s^2} / (1h \cdot 60 \frac{min}{h} \cdot 60 \frac{s}{min}) = 0.0245 \frac{kg \cdot m^2}{s^3} = 0.0245 W$.
+Lets think what you can power with 0.0245 Watt...
+
+It is amazing about how much energy we have today.
