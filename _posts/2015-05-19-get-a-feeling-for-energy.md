@@ -9,6 +9,7 @@ tags:
 - Energy
 - Politics
 - Poverty
+- Physics
 featured_image: logos/energy.png
 ---
 Have you heard of [GravityLight](https://www.indiegogo.com/projects/gravitylight-made-in-africa/x/7191655#/story)?
