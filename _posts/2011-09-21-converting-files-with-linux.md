@@ -11,6 +11,7 @@ tags:
 - Linux
 - Ubuntu
 - Command Line
+- PDF
 featured_image: 2011/09/Gnome-Terminal.png
 ---
 The following tipps work under a Linux terminal and were tested with Ubuntu 10.04 LTS.

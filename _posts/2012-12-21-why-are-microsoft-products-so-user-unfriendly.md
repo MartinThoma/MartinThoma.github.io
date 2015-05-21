@@ -13,10 +13,10 @@ tags:
 - Windows 7
 featured_image: 2012/12/loading-times.png
 ---
-Another rage-post ... 
+Another rage-post ...
 
 <h2>Loading times</h2>
-Did you ever work with eclipse? Then you might know the feeling, that it takes an eternity until Eclipse has started. I've just stopped it. 
+Did you ever work with eclipse? Then you might know the feeling, that it takes an eternity until Eclipse has started. I've just stopped it.
 
 Eclipse takes 30 seconds to start:
 {% caption align="aligncenter" width="300" caption="Eclipse Juno loading screen" url="../images/2012/12/eclipse-juno-loading-300x200.png" alt="Eclipse Juno loading screen"  height="200" class="size-medium wp-image-51161" %}
@@ -32,7 +32,7 @@ Why is it loading something from time to time without interaction? What does Vis
 
 <h2>Control</h2>
 The next big problem I have with Microsoft products is the lack of control. I would like to know what are the effects of a command I use before I use it - no matter if it is a command line command or a GUI or key-press-combination command. As it is very difficult to make GUI commands unambiguous, I really like the command line for some tasks. Why doesn't Windows offer a default command line that is usable? I mean, yes, you have the PowerShell ... but why isn't it the default shell? Why does the user have to know that there are other (better?) shells? Is there any reason not to use the PowerShell in Windows 7?
-And even the PowerShell misses some really basic tools. I mean, did you try the path autocompletion (with tab) on bash (the Linux shell)? It completes the path / command, if there is only one possibility. If there are more possibilities, the user gets displayed all options (if there are too many, he will get asked before all are displayed). The Windows-shells go through each possibility. 
+And even the PowerShell misses some really basic tools. I mean, did you try the path autocompletion (with tab) on bash (the Linux shell)? It completes the path / command, if there is only one possibility. If there are more possibilities, the user gets displayed all options (if there are too many, he will get asked before all are displayed). The Windows-shells go through each possibility.
 
 Here are some screenshots of the shells displaying the content of the current folder:
 {% caption align="aligncenter" width="300" caption="Windows32 cmd" url="../images/2012/12/CWindowssystem32cmd-300x204.png" alt="Windows32 cmd"  height="204" class="size-medium wp-image-51251" %}
@@ -76,7 +76,7 @@ If I have to type the whole name, this feature is essentially useless...
 {% caption align="aligncenter" width="300" caption="Microsoft OWA" url="../images/2012/12/microsoft-owa-300x157.png" alt="Microsoft OWA"  height="157" class="size-medium wp-image-54791" %}
 
 <h2>No structure for programs</h2>
-Where do programs get installed? 
+Where do programs get installed?
 <ul>
   <li>C:\</li>
   <li>C:\Program Files</li>

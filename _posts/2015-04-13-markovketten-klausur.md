@@ -43,6 +43,11 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
   <td></td>
   <td></td>
 </tr>
+<tr>
+  <td>21.04.2015</td>
+  <td>3.10 - 4.6 (<a href="http://martin-thoma.com/pdf/markovketten-2015-05-21.pdf">Mitschrieb</a>)</td>
+  <td>Total-Variationsabstand, $d(\mu, \nu) = \frac{1}{2} \sum_{i \in S} |\mu(i)- \nu(i)|$, Periode, aperiodisch, ein Konvergenzsatz, Kopplungsargument</td>
+</tr>
 </table>
 
 ## Material und Links

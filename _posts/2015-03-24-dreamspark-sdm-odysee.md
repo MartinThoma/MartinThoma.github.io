@@ -31,6 +31,8 @@ What I've tried and what does not work:
 
 What I am currently trying: Installing Windows 7 on another computer.*argh*
 
+**UPDATE: [How to bypass Secure Download Manager while downloading from Dreamspark](http://v3l0c1r4pt0r.tk/2014/06/01/how-to-download-from-dreamspark-bypassing-secure-download-manager/) looks very promising.**
+
 
 ## The problem
 
