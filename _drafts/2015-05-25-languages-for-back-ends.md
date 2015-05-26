@@ -8,33 +8,40 @@ categories:
 tags:
 - Programming
 - Internet
+- Java
+- JavaScript
+- Go
+- Rust
+- Python
+- PHP
 featured_image: logos/java-programming.png
 ---
 What programming language would I use for the back end of a big, new project in
-a Startup which wants to offer a Web service? Sure, on the client side there is
+a startup which wants to offer a web service? Sure, on the client side there is
 pretty much only JavaScript (including variants like
 [CoffeeScript](http://en.wikipedia.org/wiki/CoffeeScript) and
 [TypeScript](http://en.wikipedia.org/wiki/TypeScript)) in combination with HTML
 and CSS. I've used [MySQL](http://en.wikipedia.org/wiki/MySQL) and
 [Redis](http://en.wikipedia.org/wiki/Redis) databases and I'm quite happy with
-that. So this choice is also easy. But the choice for the server side is not
-that easy. I've been using PHP for quite a while now, because when I started
-programming it was the cheapest and easiest choice. But things have changed
-(and I have more money, so I don't have to take the super cheap hosting
-services). Although my experience with web projects is very limited, I want to
-share a few thoughts.
+that. But the choice for the server side is not that easy. I've been using PHP
+for quite a while now, because it was the cheapest and easiest choice when I
+started programming. But things have changed (and I have more money, so I
+don't have to take the super cheap hosting services). Although my experience
+with web projects is very limited, I want to share a few thoughts.
 
 Just for clarification: I am only talking about the back end. A back end is the
 data access layer which manages requests comming to the server. It needs to
 server **many requests** (> 100 requests/second) **fast** (< 300 ms in
 average). It should not execute computationally heavy jobs which can be
-pre-computed. This can be done by another system which does not need to be
-programmed in the same language. The back end does also not deal with
-presentation to the user. This is what the front end does. However, you should
-have more than a good idea in which form the front end gets the data. The
-cleanest approach I've seen so far is a pure RESTful API for all interactions
-between front end and back end. It should also be easy to validate / sanitize
-input data, connect with databases, store/get stuff on/from the file system.
+pre-computed or do not need to be displayed instantly to the client. This can
+be done by another system which does not need to be programmed in the same
+language. The back end does also not deal with presentation to the user. This
+is what the front end does. However, you should have more than a good idea in
+which form the front end gets the data. The cleanest approach I've seen so far
+is a pure RESTful API for all interactions between front end and back end.
+
+The backend language should also make it easy to validate / sanitize input
+data, connect with databases, store/get stuff on/from the file system.
 
 
 ## Java
@@ -120,14 +127,11 @@ JavaScript and hence have all the advantages of JavaScript:
     * A lot of developers know at least a little bit of JavaScript.
     * The ecosystem is mature.
         * [npm](http://en.wikipedia.org/wiki/Npm_(software)) and [bower](http://en.wikipedia.org/wiki/Bower_(software)) for package management
-        * [AngularJS](http://en.wikipedia.org/wiki/AngularJS) and [Underscore.js](http://en.wikipedia.org/wiki/Underscore.js) as big frameworks
-        * [Backbone.js](http://en.wikipedia.org/wiki/Backbone.js) for MVP.
+        * [Backbone.js](http://en.wikipedia.org/wiki/Backbone.js) / [AngularJS](http://en.wikipedia.org/wiki/AngularJS) for MVP / MVC.
         * [Unit.js](http://en.wikipedia.org/wiki/Unit.js) for unit testing.
         * [Grunt](http://gruntjs.com/) as a task runner.
         * [Sequelize](http://docs.sequelizejs.com/en/latest/) as an ORM.
 * [Lots of easy tutorials](http://stackoverflow.com/q/2353818/562769)
-* Nice community:
-    * [nodeschool.io](http://nodeschool.io/), [nodesummit.com](http://nodesummit.com/)
 
 What is still to say?
 
@@ -151,8 +155,10 @@ statically-typed, compiled language developed by Google. It first appeared in
 2009, so it is very young.
 
 * Go offers the basic tools you need for web development:
-    * [martini](http://martini.codegangsta.io/)/[Gin Gonic](https://gin-gonic.github.io/gin/): A web development framework
+    * [martini](http://martini.codegangsta.io/)/
+      [Gin Gonic](https://gin-gonic.github.io/gin/): A web development framework
     * [mustache](https://github.com/hoisie/mustache) for templates
+    * [gorm](https://github.com/jinzhu/gorm): ORM
 * [Good tutorial](https://tour.golang.org/) and also some [material for web development](https://golang.org/doc/articles/wiki/)
 * Some tasks are much more complicated than they should be. Sorting, to name one example (see [SO](http://stackoverflow.com/q/28999735/562769)).
 * Go is different from some other languages, e.g. if you want a method to be
@@ -168,11 +174,90 @@ See also:
 ## C&#35;
 
 [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) is a
-compiled, statically typed language developed by Microsoft. Its web appliction
-framework is called [ASP.NET](https://en.wikipedia.org/wiki/ASP.NET).
+compiled, statically typed language developed by Microsoft. It was publically
+announced in 2000. The initial release of its web appliction framework
+[ASP.NET](https://en.wikipedia.org/wiki/ASP.NET) was in 2002.
+
+The ecosystem seems to include:
+
+* [nuget.org](http://www.nuget.org/)
+* [IIS](https://en.wikipedia.org/wiki/Internet_Information_Services): Web server
+* [Entity Framework](http://www.asp.net/entity-framework): ORM
+* [LINQ](https://en.wikipedia.org/wiki/Language_Integrated_Query): SQL queries
+* [Visual Studio](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio): IDE
+* [ASP.NET MVC Framework](https://en.wikipedia.org/wiki/ASP.NET_MVC_Framework)
+
+But I don't know enough about C&#35; / ASP.NET to write something meaningful
+about it.
+
+Coding Horror described why they use ASP.NET for StackOverflow and why he
+doesn't recommend it for OpenSource projects
+([source](http://blog.codinghorror.com/why-ruby/)). StackExchange also
+describes what they use
+([1](http://blog.stackoverflow.com/2008/09/what-was-stack-overflow-built-with/),
+[2](http://meta.stackexchange.com/a/10370/158075)).
+
+I see a big problem in the Microsoft-centric technology stack. You have to use
+everything from them. (Almost) everything is closed source. If they discontinue
+the development or if they don't fix stuff which might be relevant for you,
+you're fucked.
+
+
+## Python
+
+[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is one of
+the oldest programming languages which are still in use. It first appeared in
+1991. Python is dynamically typed, interpreted, object-oriented and includes
+functional programming features.
+
+Although I use Python for many projects, I didn't use it by now for a web
+project. So I might not know the important tools / frameworks. Please keep that
+in mind.
 
 * Ecosystem:
-    * [nuget.org](http://www.nuget.org/)
+    * [pypi.python.org](https://pypi.python.org/pypi) and `pip`: Package
+      hosting and package management
+    * [Sphinx](http://sphinx-doc.org/): (Semi) automatic code documentation,
+      e.g. the [scipy docs](http://docs.scipy.org/doc/scipy/reference/optimize.html)
+      are generated with Sphinx from Python code. This is one of the best
+      documentations I have ever seen.
+    * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))/
+      [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) as frameworks
+    * [pytest](http://pytest.org/latest/)/[nose](https://nose.readthedocs.org/en/latest/) for testing
+    * [gevent](http://www.gevent.org/): a coroutine-based Python networking library
+    * [Tornado](http://www.tornadoweb.org/en/stable/): Web server
+* Some Python people switch to Go ([1](https://lincolnloop.com/blog/djangonaut-building-webapp-go-gorilla/), [2](http://blog.disqus.com/post/51155103801/trying-out-this-go-thing))
+* Many tutorials and often very good documentation:
+    * [Flask](http://flask.pocoo.org/)
+    * [djangobook.com](http://www.djangobook.com/en/2.0/index.html) and [docs.djangoproject.com](https://docs.djangoproject.com/en/dev/intro/tutorial01/)
+    * [fullstackpython.com](http://www.fullstackpython.com/)
+* Flask and Django work with PyPy ([source](http://pypy.org/compat.html)). That
+  might make them much faster.
+* Used by big players:
+    * Quora ([source](http://www.quora.com/Why-did-Quora-choose-Python-for-its-development))
+    * Prezi, Pinterest, Instagram ([source](https://wakatime.com/blog/25-pirates-use-flask-the-navy-uses-django))
+    * Bitbucket, The Onion ([source](http://codecondo.com/popular-websites-django/))
+
+I think one of the main advantages of Python is that it is really easy to write
+code which is easy to read (because of docstrings, Pythons weird intendation
+semantics and very nice syntax) and quite hard to write unreadable code. I am
+sure I have a biased view regarding Python, but I am also sure a lot of people
+share this subjective impression.
+
+
+## PHP
+
+[PHP](https://en.wikipedia.org/wiki/PHP) is a server-side scripting language
+which appeared first in 1995. It is dynamically typed.
+
+* [Language inconsistencies](http://martin-thoma.com/php-a-strange-language/)
+  are really bad with PHP - see also
+  [PHP: a fractal of bad design](http://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/)
+* The ecosystem is ok:
+    * [PHPCI](https://www.phptesting.org/) for continuus integration.
+    * [Zend Framework](https://en.wikipedia.org/wiki/Zend_Framework) / [Drupal](https://en.wikipedia.org/wiki/Drupal) / [Joomla](https://en.wikipedia.org/wiki/Joomla) / [TYPO3](https://en.wikipedia.org/wiki/TYPO3) / [Symfony](https://en.wikipedia.org/wiki/Symfony) / [WordPress](https://en.wikipedia.org/wiki/WordPress)
+    * [PHPUnit](https://en.wikipedia.org/wiki/PHPUnit) for unit testing,
+    * [Composer](https://en.wikipedia.org/wiki/Composer_(software)) for package management and [packagist.org](https://packagist.org/) to find packages
 
 
 ## Rust
@@ -191,53 +276,10 @@ Rust is a very safe language, but seems not to be ready for productive usage.
 
 Source: [news.ycombinator.com](https://news.ycombinator.com/item?id=7809791)
 
-Tools:
-
-* [Iron](http://ironframework.io/): extensible web framework for rust
-
 See:
 
 * [arewewebyet.com](http://arewewebyet.com/)
 * [Rust Web Frameworks](http://stackoverflow.com/a/23577767/562769)
-
-
-## Python
-
-[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is one of
-the oldest programming languages which are still in use. It first appeared in
-1991. Python is dynamically typed, interpreted, object-oriented and includes
-functional programming features.
-
-* Ecosystem:
-    * [pypi.python.org](https://pypi.python.org/pypi) and `pip`: Package
-      hosting and package management
-    * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))/
-      [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) as frameworks
-    * [pytest](http://pytest.org/latest/)/[nose](https://nose.readthedocs.org/en/latest/) for testing
-    * [pyinotify](https://github.com/seb-m/pyinotify/wiki): Run tests when something changes
-* Some Python people switch to Go (TODO)
-* Many tutorials and often very good documentation:
-    * [Flask](https://www.bento.io/flask)
-    * [djangobook.com](http://www.djangobook.com/en/2.0/index.html) and [docs.djangoproject.com](https://docs.djangoproject.com/en/dev/intro/tutorial01/)
-    * [fullstackpython.com](http://www.fullstackpython.com/)
-* Flask and Django work with PyPy ([source](http://pypy.org/compat.html)). That
-  might make them much faster.
-* Used by big players:
-    * Quora ([source](http://www.quora.com/Why-did-Quora-choose-Python-for-its-development))
-
-
-## PHP
-
-[PHP](https://en.wikipedia.org/wiki/PHP) is a server-side scripting language
-which appeared first in 1995. It is dynamically typed.
-
-* [Language inconsistencies](http://martin-thoma.com/php-a-strange-language/) -
-  see also [PHP: a fractal of bad design](http://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/)
-* The ecosystem is ok:
-    * [PHPCI](https://www.phptesting.org/) for continuus integration.
-    * [Zend Framework](https://en.wikipedia.org/wiki/Zend_Framework) / [Drupal](https://en.wikipedia.org/wiki/Drupal) / [Joomla](https://en.wikipedia.org/wiki/Joomla) / [TYPO3](https://en.wikipedia.org/wiki/TYPO3) / [Symfony](https://en.wikipedia.org/wiki/Symfony) / [WordPress](https://en.wikipedia.org/wiki/WordPress)
-    * [PHPUnit](https://en.wikipedia.org/wiki/PHPUnit) for unit testing,
-    * [Composer](https://en.wikipedia.org/wiki/Composer_(software)) for package management and [packagist.org](https://packagist.org/) to find packages,
 
 
 ## Others
@@ -245,7 +287,6 @@ which appeared first in 1995. It is dynamically typed.
 * [Ruby](http://en.wikipedia.org/wiki/Ruby_(programming_language)) with [Rails](http://en.wikipedia.org/wiki/Ruby_on_Rails): I know it is quite well-known and used by many people. But
   I don't know Ruby enough to write anything meaningful. The Ruby syntax is
   similar to Python.
-* [Dart](https://en.wikipedia.org/wiki/Dart_(programming_language))
 * [Scala](https://en.wikipedia.org/wiki/Scala_(programming_language)) [seems to be noteworthy](http://readwrite.com/2011/06/06/cpp-go-java-scala-performance-benchmark)
 
 
@@ -259,16 +300,36 @@ which appeared first in 1995. It is dynamically typed.
 * [Comparison of programming languages](https://en.wikipedia.org/wiki/Comparison_of_programming_languages)
 
 
+## Conclusion
+
+Thinking about it that carefully, I see three languages which seem to be
+suitable for back ends for me:
+
+* Go: Fast and compiled
+* node.js: Good scalability
+* Python: It is the language I know best and of which I like the syntax best.
+  Besides that, it has a very nice and clear syntax, good community-developed
+  coding style standards and is very easy to read and well-documented.
+
+Not suitable seem to be:
+
+* PHP: Because of the language inconsistencies which seem to make it pretty
+  hard to make a reliable back end
+* C#: The technology stack is too Microsoft centered.
+* Java: Too clumsy syntax, too hard to get it work.
+
+The other programming languages could be very good choices. I simply don't know
+it. I am very curious if rust will be used for back ends.
+
+
 ## Credits
-As I don't have much experience with web development, I asked a few friends
-to have a look at the different parts of the article. They looked especially
-at plain wrong statements, if I named the important frameworks / tools. They
-might not completely agree with the comparison to other language (after all,
-I wrote the article), but they helped me a lot to get things not too wrong:
+As I don't have much experience with web development, I asked a few friends to
+have a look at the different parts of the article. They looked especially at
+plain wrong statements, if I named "all" the important frameworks / tools. They
+might not completely agree with the comparison to other language (after all, I
+wrote the article), but they helped me a lot to get things not too wrong:
 
 * Java: Checked by Sören. He has several years of experience with Java web
   development.
 * Rust, JavaScript and Go: Johannes
 * PHP: Stefan
-* Python: Me?
-* C#: ?
