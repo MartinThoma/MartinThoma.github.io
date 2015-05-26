@@ -158,7 +158,12 @@ See also:
 
 ## C&#35;
 
-* [nuget.org](http://www.nuget.org/)
+[C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) is a
+compiled, statically typed language developed by Microsoft. Its web appliction
+framework is called [ASP.NET](https://en.wikipedia.org/wiki/ASP.NET).
+
+* Ecosystem:
+    * [nuget.org](http://www.nuget.org/)
 
 
 ## Rust
@@ -216,6 +221,7 @@ which appeared first in 1995. It is dynamically typed.
 * [Ruby](http://en.wikipedia.org/wiki/Ruby_(programming_language)) with [Rails](http://en.wikipedia.org/wiki/Ruby_on_Rails): I know it is quite well-known and used by many people. But
   I don't know Ruby enough to write anything meaningful. The Ruby syntax is
   similar to Python.
+* [Dart](https://en.wikipedia.org/wiki/Dart_(programming_language))
 
 ## Credits
 As I don't have much experience with web development, I asked a few friends
