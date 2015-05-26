@@ -26,13 +26,15 @@ share a few thoughts.
 
 Just for clarification: I am only talking about the back end. A back end is the
 data access layer which manages requests comming to the server. It needs to
-server many requests (> 100 requests/second) fast (< 300 ms in average). It
-should not execute computationally heavy jobs which can be pre-computed. This
-can be done by another system which does not need to be programmed in the same
-language. The back end does also not deal with presentation to the user. This
-is what the front end does. However, you should have more than a good idea in
-which form the front end gets the data. The cleanest approach I've seen so far
-is a pure RESTful API for all interactions between front end and back end .
+server **many requests** (> 100 requests/second) **fast** (< 300 ms in
+average). It should not execute computationally heavy jobs which can be
+pre-computed. This can be done by another system which does not need to be
+programmed in the same language. The back end does also not deal with
+presentation to the user. This is what the front end does. However, you should
+have more than a good idea in which form the front end gets the data. The
+cleanest approach I've seen so far is a pure RESTful API for all interactions
+between front end and back end. It should also be easy to validate / sanitize
+input data, connect with databases, store/get stuff on/from the file system.
 
 
 ## Java
@@ -133,6 +135,7 @@ What is still to say?
 * JavaScript is very insecure. Even simple syntax error will only get revealed
   when they are actually executed. So Unit testing is very important.
 * Node.js is used by LinkedIn, Yahoo!, Uber, PayPal ([source](https://nodejs.org/industry/))
+* There are quite a few people moving from Node.js to Go ([1](http://thenewstack.io/from-node-js-to-go-why-one-startup-made-the-switch/), [2](http://bowery.io/posts/Nodejs-to-Golang-Bowery/), [3](http://zef.me/blog/6191/the-march-towards-go), [4](https://medium.com/code-adventures/farewell-node-js-4ba9e7f3e52b))
 
 See also:
 
@@ -151,10 +154,16 @@ statically-typed, compiled language developed by Google. It first appeared in
     * [martini](http://martini.codegangsta.io/)/[Gin Gonic](https://gin-gonic.github.io/gin/): A web development framework
     * [mustache](https://github.com/hoisie/mustache) for templates
 * [Good tutorial](https://tour.golang.org/) and also some [material for web development](https://golang.org/doc/articles/wiki/)
+* Some tasks are much more complicated than they should be. Sorting, to name one example (see [SO](http://stackoverflow.com/q/28999735/562769)).
+* Go is different from some other languages, e.g. if you want a method to be
+  public, the first character of the method name has to be capitalized. Or
+  unused variables result in a compiler error.
 
 See also:
 
 * [Gin Gonic May Be 40x Faster Than Martini, But It Is Not Better](https://www.dougcodes.com/go-lang/gin-gonic-may-be-40x-faster-than-martini-but-it-is-not-better)
+* [Go vs Node.js for servers](https://www.reddit.com/r/golang/comments/1ye3z6/go_vs_nodejs_for_servers/)
+
 
 ## C&#35;
 
@@ -191,6 +200,7 @@ See:
 * [arewewebyet.com](http://arewewebyet.com/)
 * [Rust Web Frameworks](http://stackoverflow.com/a/23577767/562769)
 
+
 ## Python
 
 [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is one of
@@ -198,10 +208,22 @@ the oldest programming languages which are still in use. It first appeared in
 1991. Python is dynamically typed, interpreted, object-oriented and includes
 functional programming features.
 
-* [Django](https://en.wikipedia.org/wiki/Django_(web_framework))/[Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) as frameworks
-
-* [pypi.python.org](https://pypi.python.org/pypi)
-* [fullstackpython.com](http://www.fullstackpython.com/)
+* Ecosystem:
+    * [pypi.python.org](https://pypi.python.org/pypi) and `pip`: Package
+      hosting and package management
+    * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))/
+      [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) as frameworks
+    * [pytest](http://pytest.org/latest/)/[nose](https://nose.readthedocs.org/en/latest/) for testing
+    * [pyinotify](https://github.com/seb-m/pyinotify/wiki): Run tests when something changes
+* Some Python people switch to Go (TODO)
+* Many tutorials and often very good documentation:
+    * [Flask](https://www.bento.io/flask)
+    * [djangobook.com](http://www.djangobook.com/en/2.0/index.html) and [docs.djangoproject.com](https://docs.djangoproject.com/en/dev/intro/tutorial01/)
+    * [fullstackpython.com](http://www.fullstackpython.com/)
+* Flask and Django work with PyPy ([source](http://pypy.org/compat.html)). That
+  might make them much faster.
+* Used by big players:
+    * Quora ([source](http://www.quora.com/Why-did-Quora-choose-Python-for-its-development))
 
 
 ## PHP
@@ -209,12 +231,14 @@ functional programming features.
 [PHP](https://en.wikipedia.org/wiki/PHP) is a server-side scripting language
 which appeared first in 1995. It is dynamically typed.
 
-* [Language inconsistencies](http://martin-thoma.com/php-a-strange-language/)
+* [Language inconsistencies](http://martin-thoma.com/php-a-strange-language/) -
+  see also [PHP: a fractal of bad design](http://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/)
 * The ecosystem is ok:
     * [PHPCI](https://www.phptesting.org/) for continuus integration.
     * [Zend Framework](https://en.wikipedia.org/wiki/Zend_Framework) / [Drupal](https://en.wikipedia.org/wiki/Drupal) / [Joomla](https://en.wikipedia.org/wiki/Joomla) / [TYPO3](https://en.wikipedia.org/wiki/TYPO3) / [Symfony](https://en.wikipedia.org/wiki/Symfony) / [WordPress](https://en.wikipedia.org/wiki/WordPress)
     * [PHPUnit](https://en.wikipedia.org/wiki/PHPUnit) for unit testing,
     * [Composer](https://en.wikipedia.org/wiki/Composer_(software)) for package management and [packagist.org](https://packagist.org/) to find packages,
+
 
 ## Others
 
@@ -222,6 +246,18 @@ which appeared first in 1995. It is dynamically typed.
   I don't know Ruby enough to write anything meaningful. The Ruby syntax is
   similar to Python.
 * [Dart](https://en.wikipedia.org/wiki/Dart_(programming_language))
+* [Scala](https://en.wikipedia.org/wiki/Scala_(programming_language)) [seems to be noteworthy](http://readwrite.com/2011/06/06/cpp-go-java-scala-performance-benchmark)
+
+
+## See also
+
+* [Web Framework Benchmarks](http://www.techempower.com/benchmarks/#section=data-r9&hw=i7&test=json)
+* [Usage of server-side programming languages for websites](http://w3techs.com/technologies/overview/programming_language/all)
+* [todobackend.com](http://www.todobackend.com/): A lot of different back end technology stacks
+* [bento.io](https://www.bento.io/): Seems to offer many tutorials
+* [The RedMonk Programming Language Rankings: January 2015](http://redmonk.com/sogrady/2015/01/14/language-rankings-1-15/)
+* [Comparison of programming languages](https://en.wikipedia.org/wiki/Comparison_of_programming_languages)
+
 
 ## Credits
 As I don't have much experience with web development, I asked a few friends
