@@ -26,28 +26,28 @@ habe ich unter anderem in der folgenden Tabelle aufgeführt.
 </tr>
 <tr>
     <td>14.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-1 - ES1-24)</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-1 - ES1-24)</td>
     <td><a href="https://de.wikipedia.org/wiki/Speicherprogrammierbare_Steuerung"><abbr title="Speicherprogrammierbare Steuerung">SPS</abbr></a>; NC; RC; <a href="https://de.wikipedia.org/wiki/Daisy_Chain">Daisy chain</a>; Mikroprozessor vs. Mikrorechner vs. Mikrorechnersystem; Aufbau eines Mikroprozessors; Speicherhierachie (L1-, L2- und L3-Cache, Hauptspeicher, Festplatte); superskalare Pipeline; Fixed-
 priority-preemptive Unterbrechungsbehandlung</td>
 </tr>
 <tr>
     <td>15.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-25 - ES1-60)</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-25 - ES1-60)</td>
     <td>Watchdogs, <a href="http://de.wikipedia.org/wiki/Jitter">Jitter</a>, <a href="http://de.wikipedia.org/wiki/Speicherdirektzugriff">DMA</a>, <a href="http://de.wikipedia.org/wiki/Digitaler_Signalprozessor">Signalprozessor</a>, <abbr title="Very long instruction word">VLIW</abbr>; verschiedene Bus-Arten (z.B. PCI-Bus), Bus-Arbitation kümmert sich bei mehreren Bus-Mastern um die Zugriffskontrolle. Das kann zentral oder dezentral (z.B. über eine Daisy-Chain oder einen Identifikationsbus) geschehen; </td>
 </tr>
 <tr>
     <td>21.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-62 - ES1-83)</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-62 - ES1-83)</td>
     <td>Arbitrierung; Transaktionen</td>
 </tr>
 <tr>
     <td>22.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=423230&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 2</a> (ES2-1 - ES2-?)</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=423230&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 2</a> (ES2-1 - ES2-?)</td>
     <td><a href="https://de.wikipedia.org/wiki/Ohmsches_Gesetz#Beschreibung">Ohmsches Gesetz</a>; Parallel- und Reihenschaltung von Widerständen; Spannungsteiler; <a href="https://de.wikipedia.org/wiki/Kirchhoffsche_Regeln#Der_Knotenpunktsatz_.28Knotenregel.29_.E2.80.93_1._Kirchhoffsches_Gesetz">Knotenregel</a>; <a href="https://de.wikipedia.org/wiki/Kirchhoffsche_Regeln#Der_Maschensatz_.28Maschenregel.29_.E2.80.93_2._Kirchhoffsches_Gesetz">Maschenregel</a>; Transistoren; Addierer; Differenzierer; Invertierter Addierer; Integrierer; AD/DA-Wandler</td>
 </tr>
 <tr>
     <td>28.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=423230&cmd=sendfile&cmdClass=ilrepositorygui&cmdNode=ed&baseClass=ilRepositoryGUI">Kapitel 2</a> (?)</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=423230&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 2</a> (?)</td>
     <td>?</td>
 </tr>
 <tr>
@@ -64,6 +64,11 @@ priority-preemptive Unterbrechungsbehandlung</td>
     <td>20.05.2015</td>
     <td>?</td>
     <td>?</td>
+</tr>
+<tr>
+    <td>26.05.2015</td>
+    <td>3. Übung</td>
+    <td>Mit Jessica Hutzl</td>
 </tr>
 </table>
 

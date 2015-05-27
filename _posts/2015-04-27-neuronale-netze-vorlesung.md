@@ -61,6 +61,11 @@ featured_image: logos/klausur.png
     <td>Übung</td>
     <td>-</td>
 </tr>
+<tr>
+    <td>26.05.2015</td>
+    <td><abbr title="Self Organizing Map">SOM</abbr></td>
+    <td>Hebbian Learning, "<abbr title="Vector Quantization">VQ</abbr>" mit SOM</td>
+</tr>
 </table>
 
 ## Material und Links
