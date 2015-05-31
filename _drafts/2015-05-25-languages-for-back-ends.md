@@ -218,7 +218,7 @@ See also:
 ## C&#35;
 
 [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)) is a
-compiled, statically typed language developed by Microsoft. It was publically
+compiled, statically typed language (with dynamic features, see [Understanding the Dynamic Keyword in C# 4](https://visualstudiomagazine.com/articles/2011/02/01/understanding-the-dynamic-keyword-in-c4.aspx)) developed by Microsoft. It was publically
 announced in 2000. The initial release of its web appliction framework
 [ASP.NET](https://en.wikipedia.org/wiki/ASP.NET) was in 2002.
 
@@ -241,10 +241,16 @@ describes what they use
 ([1](http://blog.stackoverflow.com/2008/09/what-was-stack-overflow-built-with/),
 [2](http://meta.stackexchange.com/a/10370/158075)).
 
-I see a big problem in the Microsoft-centric technology stack. You have to use
+I see a big problem in the Microsoft-centric technology stack. <strike>You have to use
 everything from them. (Almost) everything is closed source. If they discontinue
 the development or if they don't fix stuff which might be relevant for you,
-you're fucked.
+you're fucked.</strike>
+
+This seems to change. Microsoft moved some important parts of their stack to
+GitHub (see [dotnet.github.io](http://dotnet.github.io/)). Most important seems
+to be that the compiler Roslyn is licensed under an Apache License. But there
+is also ASP.NET, the Entity Framework, and the .NET runtime. The
+[Visual Studio Community Edition](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) is not available for free (but only for Windows).
 
 
 ## Python
@@ -395,9 +401,13 @@ plain wrong statements, if I named "all" the important frameworks / tools. They
 might not completely agree with the comparison to other language (after all, I
 wrote the article), but they helped me a lot to get things not too wrong:
 
-* Java: Checked by
-  [Sören Liebich](https://www.linkedin.com/pub/s%C3%B6ren-liebich/31/b2a/252)
-  ([@liebsoer](https://twitter.com/liebsoer)). He has several years of
-  experience with Java web development.
-* Rust, JavaScript and Go: Johannes
-* PHP: Stefan
+* [Sören Liebich](https://www.linkedin.com/pub/s%C3%B6ren-liebich/31/b2a/252)
+  ([@liebsoer](https://twitter.com/liebsoer)) has several years of
+  experience with Java web development and helped me to name the important
+  tools / technologies used in the Java stack.
+* Henning Dieterichs helped me to fix some of the mistakes in the C# part and
+  reminded me of Hack and the positive sides of PHP.
+* Rust, JavaScript and Go: Johannes (TODO)
+* PHP: Stefan (TODO)
+
+Thank you!
