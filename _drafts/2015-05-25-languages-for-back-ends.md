@@ -14,6 +14,7 @@ tags:
 - Rust
 - Python
 - PHP
+- Hack
 featured_image: logos/java-programming.png
 ---
 What programming language would I use for the back end of a big, new project in
@@ -29,6 +30,9 @@ started programming. But things have changed (and I have more money, so I
 don't have to take the super cheap hosting services). Although my experience
 with web projects is very limited, I want to share a few thoughts.
 
+
+## Definitions: Back End and Security
+
 Just for clarification: I am only talking about the back end. A back end is the
 data access layer which manages requests comming to the server. It needs to
 server **many requests** (> 100 requests/second) **fast** (< 300 ms in
@@ -42,6 +46,40 @@ is a pure RESTful API for all interactions between front end and back end.
 
 The backend language should also make it easy to validate / sanitize input
 data, connect with databases, store/get stuff on/from the file system.
+
+In the following, I will write that some languages are "secure" or "not
+secure". This does not mean that you can / cannot write code which is secure.
+It means that the compiler (or other widespread tools) give you guarantees
+about bugs in your code. For example, C is a very insecure language as the
+compiler does no
+[bounds checking](https://en.wikipedia.org/wiki/Bounds_checking). The types
+of errors which can be detected by automatic tools (without further testing)
+are:
+
+* Syntax errors,
+* Out of bounds (reading),
+* [buffer overflow](https://en.wikipedia.org/wiki/Buffer_overflow) (not checked in C/C++, but not possible in Java ([source](http://stackoverflow.com/q/479701/562769))),
+* unused variables (which might indicate other problems; at least code smell),
+* type problems: This is a bit fuzzy, as you can write stringly typed code (see
+  [New Programming Jargon](http://blog.codinghorror.com/new-programming-jargon/))
+  in probably every language, but in some languages it is more common than in
+  others. Some languages also make it easier to use the type system to detect
+  errors. For example, PHP is very insecure in this sense as `123 == "123ab"`,
+  Python is a bit more secure, but you can return whatever you want, Java is
+  much more secure. Haskell is even more secure in this sense, as it has
+  real functions (without side effects, checked by the compiler). See
+  [What can Haskell's type system do that Java's can't and vice versa?](http://programmers.stackexchange.com/q/167975/25699) for more.
+
+There are also some errors which can be detected at runtime. The handling of
+those runtime errors differs from language to language. For example, C and C++
+fails silently (e.g. [this question](http://stackoverflow.com/q/671703/562769)).
+This is bad. For example, there are some silent out-of-bounds errors in C / C++
+where Rust would fail loud (I think Heartbleed is one example; see
+[Would Rust have prevented Heartbleed? Another look](http://tonyarcieri.com/would-rust-have-prevented-heartbleed-another-look) if you're interested in that specific example).
+
+Of course, all of those problems can be detected with good testing. But the
+more is done automatically, the less can go wrong when you don't write (good)
+tests.
 
 
 ## Java
@@ -71,11 +109,15 @@ case?
         * [Apache JMeter](https://en.wikipedia.org/wiki/Apache_JMeter) for load
           testing
         * [Jersey](https://jersey.java.net/) for RESTful Web services,
-        * [Grizzly](https://grizzly.java.net/)
+        * [Apache Tomcat](https://en.wikipedia.org/wiki/Apache_Tomcat) / [WildFly](https://en.wikipedia.org/wiki/WildFly) (former JBoss): application server / web server / servlet container
+        * [Grizzly](https://grizzly.java.net/) / [Jetty](https://en.wikipedia.org/wiki/Jetty_(web_server)): Web server
         * [FindBugs](http://findbugs.sourceforge.net/),
           [SonarQube](https://en.wikipedia.org/wiki/SonarQube) for code quality
           / static code analysis
         * [Hibernate](https://en.wikipedia.org/wiki/Hibernate_(Java)) for ORM,
+        * [OSGi](https://en.wikipedia.org/wiki/OSGi#Architecture):
+          [Apache Felix](https://en.wikipedia.org/wiki/Apache_Felix) /
+          [Equinox](https://en.wikipedia.org/wiki/Equinox_(OSGi)) - see [10min clip](https://www.youtube.com/watch?v=3Ut_3u4aVZQ) for a high-level explanation of OSGi,
         * Frameworks like [Spring](https://en.wikipedia.org/wiki/Spring_Framework),
           [JSF](https://en.wikipedia.org/wiki/JavaServer_Faces),
           [JSP](http://en.wikipedia.org/wiki/JavaServer_Pages),
@@ -131,6 +173,8 @@ JavaScript and hence have all the advantages of JavaScript:
         * [Unit.js](http://en.wikipedia.org/wiki/Unit.js) for unit testing.
         * [Grunt](http://gruntjs.com/) as a task runner.
         * [Sequelize](http://docs.sequelizejs.com/en/latest/) as an ORM.
+        * [Karma](http://karma-runner.github.io/0.12/index.html): Test runner
+        * [expressjs](http://expressjs.com/): web application framework
 * [Lots of easy tutorials](http://stackoverflow.com/q/2353818/562769)
 
 What is still to say?
@@ -259,6 +303,27 @@ which appeared first in 1995. It is dynamically typed.
     * [PHPUnit](https://en.wikipedia.org/wiki/PHPUnit) for unit testing,
     * [Composer](https://en.wikipedia.org/wiki/Composer_(software)) for package management and [packagist.org](https://packagist.org/) to find packages
 
+A big advantage of PHP is that it is easy to learn. You can run PHP everywhere
+and hosting is cheap. Wikipedia makes use of PHP, so it is obviously possible
+to create systems which have HUGE numbers of requests and still work fine.
+
+
+## Hack
+
+[Hack](https://en.wikipedia.org/wiki/Hack_(programming_language)) is a
+programming language introduced in 2014 by Facebook. It is a PHP dialect. Key
+differences to PHP are:
+
+* Function arguments and return values can be annotated with types.
+* Hack does not support some language features which are supported by PHP
+  ([source](http://docs.hhvm.com/manual/en/hack.unsupported.php)). Which is
+  good. For example, goto, variable variables, string incrementing, ...
+
+
+See also:
+
+* [hacklang.org](http://hacklang.org/)
+
 
 ## Rust
 
@@ -319,7 +384,8 @@ Not suitable seem to be:
 * Java: Too clumsy syntax, too hard to get it work.
 
 The other programming languages could be very good choices. I simply don't know
-it. I am very curious if rust will be used for back ends.
+it. I am very curious if rust will be used for back ends. Hack is very young,
+let's see if it will spread in a few years.
 
 
 ## Credits
@@ -329,7 +395,9 @@ plain wrong statements, if I named "all" the important frameworks / tools. They
 might not completely agree with the comparison to other language (after all, I
 wrote the article), but they helped me a lot to get things not too wrong:
 
-* Java: Checked by Sören. He has several years of experience with Java web
-  development.
+* Java: Checked by
+  [Sören Liebich](https://www.linkedin.com/pub/s%C3%B6ren-liebich/31/b2a/252)
+  ([@liebsoer](https://twitter.com/liebsoer)). He has several years of
+  experience with Java web development.
 * Rust, JavaScript and Go: Johannes
 * PHP: Stefan
