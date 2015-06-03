@@ -32,7 +32,7 @@ priority-preemptive Unterbrechungsbehandlung</td>
 </tr>
 <tr>
     <td>15.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-25 - ES1-60)</td>
+    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422667&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Kapitel 1</a> (ES1-25 - ES1-60)</td>
     <td>Watchdogs, <a href="http://de.wikipedia.org/wiki/Jitter">Jitter</a>, <a href="http://de.wikipedia.org/wiki/Speicherdirektzugriff">DMA</a>, <a href="http://de.wikipedia.org/wiki/Digitaler_Signalprozessor">Signalprozessor</a>, <abbr title="Very long instruction word">VLIW</abbr>; verschiedene Bus-Arten (z.B. PCI-Bus), Bus-Arbitation kümmert sich bei mehreren Bus-Mastern um die Zugriffskontrolle. Das kann zentral oder dezentral (z.B. über eine Daisy-Chain oder einen Identifikationsbus) geschehen; </td>
 </tr>
 <tr>
@@ -70,7 +70,28 @@ priority-preemptive Unterbrechungsbehandlung</td>
     <td>3. Übung</td>
     <td>Mit Jessica Hutzl</td>
 </tr>
+<tr>
+    <td>27.05.2015</td>
+    <td>Kapitel 4 (- ES 4-43)</td>
+    <td>ISO/OSI-Modell, Profibus, CAN-Bus, INTERBUS</td>
+</tr>
+<tr>
+    <td>02.06.2015</td>
+    <td>Kapitel 4, 5 (ES 4-44 - 5-16)</td>
+    <td>Rechtzeitigkeit</td>
+</tr>
+<tr>
+    <td>03.06.2015</td>
+    <td>?</td>
+    <td>?</td>
+</tr>
 </table>
+
+### Abkürzungen
+
+* LLF: Least-Laxity-First-Scheduling
+* EDF: Earliest-Deadline-First-Scheduling
+
 
 ### Meine Fragen
 
@@ -156,8 +177,7 @@ Die Klausuren sind alle sehr ähnlich zu einander:
 * [Vorlesungswebsite](http://www.math.kit.edu/stoch/lehre/wt2015s/de)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html)
 * [Klausur-Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme)
-* [Anki-Karten](https://ankiweb.net/shared/info/2095784594) Echtzeitsysteme - KIT Wörn (nicht meine)
-* [Anki-Karten](https://ankiweb.net/shared/info/2071108701): Echtzeitsysteme KIT Wörn Wissensfragen Klausur (nicht meine)
+* Meine [Anki-Karten](https://ankiweb.net/shared/info/1877369263) (bestehend aus Teilen von [Echtzeitsysteme - KIT Wörn](https://ankiweb.net/shared/info/2095784594) und [Echtzeitsysteme KIT Wörn Wissensfragen Klausur](https://ankiweb.net/shared/info/2071108701) sowie weiteren Karten)
 
 ## Übungsbetrieb
 
