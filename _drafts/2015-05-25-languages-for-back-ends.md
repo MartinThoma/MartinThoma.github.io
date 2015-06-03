@@ -305,9 +305,13 @@ which appeared first in 1995. It is dynamically typed.
   [PHP: a fractal of bad design](http://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/)
 * The ecosystem is ok:
     * [PHPCI](https://www.phptesting.org/) for continuus integration.
-    * [Zend Framework](https://en.wikipedia.org/wiki/Zend_Framework) / [Drupal](https://en.wikipedia.org/wiki/Drupal) / [Joomla](https://en.wikipedia.org/wiki/Joomla) / [TYPO3](https://en.wikipedia.org/wiki/TYPO3) / [Symfony](https://en.wikipedia.org/wiki/Symfony) / [WordPress](https://en.wikipedia.org/wiki/WordPress)
+    * [Zend Framework](https://en.wikipedia.org/wiki/Zend_Framework) / [Symfony](https://en.wikipedia.org/wiki/Symfony)
+    * Smaller Frameworks like [CakePHP](http://cakephp.org/) and [Code Igniter](http://www.codeigniter.com/)
+    * [Drupal](https://en.wikipedia.org/wiki/Drupal) / [Joomla](https://en.wikipedia.org/wiki/Joomla) / [TYPO3](https://en.wikipedia.org/wiki/TYPO3) / [WordPress](https://en.wikipedia.org/wiki/WordPress)
     * [PHPUnit](https://en.wikipedia.org/wiki/PHPUnit) for unit testing,
     * [Composer](https://en.wikipedia.org/wiki/Composer_(software)) for package management and [packagist.org](https://packagist.org/) to find packages
+    * [cruisecontrol](http://cruisecontrol.sourceforge.net/) for Continuus
+      Integration
 
 A big advantage of PHP is that it is easy to learn. You can run PHP everywhere
 and hosting is cheap. Wikipedia makes use of PHP, so it is obviously possible
@@ -409,7 +413,7 @@ wrote the article), but they helped me a lot to get things not too wrong:
   tools / technologies used in the Java stack.
 * Henning Dieterichs helped me to fix some of the mistakes in the C# part and
   reminded me of Hack and the positive sides of PHP.
+* Stefan had a look at the PHP section.
 * Rust, JavaScript and Go: Johannes (TODO)
-* PHP: Stefan (TODO)
 
 Thank you!
