@@ -179,6 +179,10 @@ Die Klausuren sind alle sehr ähnlich zu einander:
 * [Klausur-Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme)
 * Meine [Anki-Karten](https://ankiweb.net/shared/info/1877369263) (bestehend aus Teilen von [Echtzeitsysteme - KIT Wörn](https://ankiweb.net/shared/info/2095784594) und [Echtzeitsysteme KIT Wörn Wissensfragen Klausur](https://ankiweb.net/shared/info/2071108701) sowie weiteren Karten)
 
+StackOverflow:
+
+* [What is the difference between DMA and memory-mapped IO?](http://stackoverflow.com/q/3851677/562769)
+
 ## Übungsbetrieb
 
 * Wo sind die Übungsblätter: ? (Ilias?)

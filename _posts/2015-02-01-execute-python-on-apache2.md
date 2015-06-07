@@ -3,11 +3,11 @@ layout: post
 title: Execute Python on Apache2
 author: Martin Thoma
 date: 2015-02-01 15:11
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Python
-- Apache2
+- Apache
 featured_image: logos/python.png
 ---
 
