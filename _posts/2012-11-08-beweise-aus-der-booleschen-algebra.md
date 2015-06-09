@@ -9,10 +9,12 @@ tags:
 - mathematics
 - Boolean algebra
 ---
-<h2>Definition</h2>
-Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher Algebren erarbeitet:
+## Definition
+Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher
+Algebren erarbeitet:
 
-Sei $B$ eine Menge und $\sqcap: B \times B \rightarrow B$ sowie $\sqcup: B \times B \rightarrow B$ Verkn&uuml;fungen auf B. 
+Sei $B$ eine Menge und $\sqcap: B \times B \rightarrow B$ sowie
+$\sqcup: B \times B \rightarrow B$ Verkn&uuml;fungen auf B.
 
 Weiter gelte:
 
@@ -41,10 +43,12 @@ Weiter gelte:
 
 Dann wird $(B, \sqcap, \sqcup)$ eine boolesche Algebra gennant.
 
-<h2>Folgerungen</h2>
-Sei im folgendem immer $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche Algebra mit dem Einselement &bdquo;1&ldquo; und dem Nullelement &bdquo;0&ldquo;.
+## Folgerungen
+Sei im folgendem immer $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche
+Algebra mit dem Einselement &bdquo;1&ldquo; und dem Nullelement
+&bdquo;0&ldquo;.
 
-<h3>Eindeutigkeit des Nullelements</h3>
+### Eindeutigkeit des Nullelements
 <u>Behauptung:</u> Es exisitiert genau ein Nullelement f&uuml;r $\mathcal{B}$.
 <u>Beweis:</u> direkt
 
@@ -57,8 +61,8 @@ $\begin{align}
 \stackrel{H3}{\Rightarrow} & n_1 = n_2 \blacksquare
 \end{align} $
 
-<h3>Eindeutigkeit des Einselements</h3>
-<u>Behauptung:</u> Es exisitiert genau ein Einselement f&uuml;r $\mathcal{B}$.
+### Eindeutigkeit des Einselements
+<u>Behauptung:</u> Es exisitiert genau ein Einselement f&uuml;r $\mathcal{B}$.<br/>
 <u>Beweis:</u> direkt
 
 Die Existenz von mindestens einem Einselement wird durch H3 garantiert.
@@ -71,25 +75,27 @@ $\begin{align}
 \stackrel{H3}{\Rightarrow} & e_1 = e_2 \blacksquare
 \end{align}$
 
-<h3>Eindeutigkeit der komplement&auml;ren Elemente</h3>
-<u>Behauptung:</u> Die komplement&auml;ren Elemente bzgl. $\sqcup$ sind eindeutig
-<u>Beweis:</u> direkt
-Sei $a \in B$ beliebig und es gelte:
-$a \sqcup \bar a_1 = 0$ und $a \sqcup \bar a_2 = 0$ sowie 
+### Eindeutigkeit der komplement&auml;ren Elemente
+<u>Behauptung:</u> Die komplement&auml;ren Elemente bzgl. $\sqcup$ sind eindeutig<br/>
+<u>Beweis:</u> direkt<br/>
+Sei $a \in B$ beliebig und es gelte:<br/>
+$a \sqcup \bar a_1 = 0$ und $a \sqcup \bar a_2 = 0$ sowie<br/>
 $a \sqcap \bar a_1 = 1$ und $a \sqcap \bar a_2 = 1$
 
-Schritt 1
+Schritt 1<br/>
 Es gilt:
+
 $\begin{align}
  \bar a_1 \sqcap (a \sqcup \bar a_2) &\stackrel{H2}{=} (\bar a_1 \sqcap a) \sqcup (\bar a_1 \sqcap \bar a_2)\\
 \Leftrightarrow \bar a_1 \sqcap 1    &= 0 \sqcup (\bar a_1 \sqcap \bar a_2)\\
-\Leftrightarrow \bar a_1             &= \bar a_1 \sqcap \bar a_2 
+\Leftrightarrow \bar a_1             &= \bar a_1 \sqcap \bar a_2
 \end{align}$
 
-Schritt 2
+Schritt 2<br/>
 Au&szlig;erdem gilt:
+
 $\begin{align}
-\bar a_2 \sqcap (a \sqcup \bar a_1) &\stackrel{H2}{=} (\bar a_2 \sqcap a) \sqcup (\bar a_2 \sqcap a_1)\\
+\bar a_2 \sqcap (a \sqcup \bar a_1) &\stackrel{H2}{=} (\bar a_2 \sqcap a) \sqcup (\bar a_2 \sqcap \bar a_1)\\
 \Leftrightarrow \bar a_2 \sqcap 1   &= 0 \sqcup (\bar a_2 \sqcap \bar a_1)\\
 \Leftrightarrow \bar a_2            &= (\bar a_2 \sqcap \bar a_1) \stackrel{H1}{=} \bar a_1 \sqcap \bar a_2
 \end{align}$
@@ -100,9 +106,9 @@ $\bar a_1 = \bar a_2$.
 Das bedeutet, zu jedem $a \in B$ existiert genau ein Komplement. $\blacksquare$
 
 
-<h3>Nullelement ungleich Einselement</h3>
-<u>Behauptung:</u> $0 \neq 1$
-<u>Beweis:</u>
+### Nullelement ungleich Einselement
+<u>Behauptung:</u> $0 \neq 1$<br/>
+<u>Beweis:</u><br/>
 Wegen (H3) und (H4) gilt:
 <ul>
   <li>$\exists 1 \in B \forall a \in B: a \sqcap 1 \stackrel{H1}{=} 1 \sqcap a = a$</li>
@@ -111,40 +117,43 @@ Wegen (H3) und (H4) gilt:
   <li>$\forall a \in B: \exists \bar a \in B: a \sqcup \bar a \stackrel{H1}{=} 1$</li>
 </ul>
 
-Annahme: 1 = 0
+Annahme: 1 = 0<br/>
 $\Rightarrow \forall a \in B: \exists \bar a \in B = a \sqcap \bar a = a \sqcup \bar a = 0 = 1$
 
-Hmmm ... irgendwie konnte man $(0 = 1) \Rightarrow (\sqcap = \sqcup)$ zeigen ... aber wie genau?
+Hmmm ... irgendwie konnte man $(0 = 1) \Rightarrow (\sqcap = \sqcup)$ zeigen
+... aber wie genau?
 
-<h3>Extremalgesetze</h3>
+### Extremalgesetze
 $\forall a \in B: 1 \sqcup a = 1$
 $\forall a \in B: 0 \sqcap a = 0$
 
 Wie beweist man das?
 
-<h3>Absorptionsgesetz</h3>
-<h4>Version 1</h4>
-<u>Voraussetzungen:</u> Sei $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche Algebra.
-<u>Behauptung:</u> $\forall a, b \in B: a \sqcup (a \sqcap b) = a$
+### Absorptionsgesetz
+
+#### Version 1
+<u>Voraussetzungen:</u> Sei $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche Algebra.<br/>
+<u>Behauptung:</u> $\forall a, b \in B: a \sqcup (a \sqcap b) = a$<br/>
 <u>Beweis:</u> direkt
 
 $a \sqcup (a \sqcap b) \stackrel{H3}{=} (a \sqcap 1) \sqcup (a \sqcap b) \stackrel{H3}{=} a \sqcap (1 \sqcup b) \stackrel{\text{Extremalgesetze}}{=} a \sqcap 1 \stackrel{H3}{=} a$
 
-<h4>Version 2</h4>
-<u>Voraussetzungen:</u> Sei $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche Algebra.
-<u>Behauptung:</u> $\forall a, b \in B: a \sqcap (a \sqcup b) = a$
-<u>Beweis:</u> Duale Aussage zu Version 1
+#### Version 2
+<u>Voraussetzungen:</u> Sei $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche Algebra.<br/>
+<u>Behauptung:</u> $\forall a, b \in B: a \sqcap (a \sqcup b) = a$<br/>
+<u>Beweis:</u> Duale Aussage zu Version 1<br/>
 
-<h4>Version 3</h4>
-<u>Voraussetzungen:</u> Sei $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche Algebra.
-<u>Behauptung:</u> $\forall a, b \in B: a \sqcup (\bar a \sqcap b) \stackrel{H2}{=} a \sqcup b$
-<u>Beweis:</u> direkt
+#### Version 3
+<u>Voraussetzungen:</u> Sei $\mathcal{B} = (B, \sqcap, \sqcup)$ eine boolesche Algebra.<br/>
+<u>Behauptung:</u> $\forall a, b \in B: a \sqcup (\bar a \sqcap b) \stackrel{H2}{=} a \sqcup b$<br/>
+<u>Beweis:</u> direkt<br/>
 $a \sqcup (\bar a \sqcap b) \stackrel{H2}{=} (a \sqcup \bar a) \sqcap (a \sqcup b) \stackrel{H4}{=} 1 \sqcap (a \sqcup b) \stackrel{H3}{=} a \sqcup b \blacksquare$
 
-<h2>K&ouml;rper</h2>
+## Körper
 Ist jede Boolesche Algebra ein K&ouml;rper?
 
-Ein K&ouml;rper ist eine Menge $V$ mit zwei Verkn&uuml;pfungen $\oplus, \otimes$: $(V, \oplus, \otimes)$, f&uuml;r den gilt:
+Ein K&ouml;rper ist eine Menge $V$ mit zwei Verkn&uuml;pfungen
+$\oplus, \otimes$: $(V, \oplus, \otimes)$, f&uuml;r den gilt:
 <ul>
   <li>$(K, \oplus)$ ist abelsche Gruppe mit neutralem Element 0</li>
   <li>$(K \setminus \{0\}, \otimes)$ ist abelsche Gruppe mit neutralem Element 1</li>
@@ -156,49 +165,62 @@ Ein K&ouml;rper ist eine Menge $V$ mit zwei Verkn&uuml;pfungen $\oplus, \otimes$
   </li>
 </ul>
 
-Es scheint relativ offensichtlich, dass jede boolesche Algebra ein K&ouml;rper ist. Allerdings muss man aufpassen. F&uuml;r die neutrale Elemente eines K&ouml;rpers $K = (V, \oplus, \otimes)$ muss gelten:
+Es scheint relativ offensichtlich, dass jede boolesche Algebra ein K&ouml;rper
+ist. Allerdings muss man aufpassen. F&uuml;r die neutrale Elemente eines
+K&ouml;rpers $K = (V, \oplus, \otimes)$ muss gelten:
+
 <ul>
-  <li>$\forall a: 0 \oplus a = a$</li>
-  <li>$\forall a: 1 \otimes a = a$</li>
+    <li>$\forall a: 0 \oplus a = a$</li>
+    <li>$\forall a: 1 \otimes a = a$</li>
 </ul>
 
-F&uuml;r eine boolesche Algebra $\mathcal{B} = (B, \sqcap, \sqcup)$ muss gelten (H3):
+F&uuml;r eine boolesche Algebra $\mathcal{B} = (B, \sqcap, \sqcup)$ muss gelten
+(H3):
+
 <ul>
   <li>$\exists 1 \in B \forall a \in B: a \sqcap 1 = a$</li>
   <li>$\exists 0 \in B \forall a \in B: a \sqcup 0 = a$</li>
 </ul>
 
+
 F&uuml;r die Inversen von $K$ muss gelten:
+
 <ul>
   <li>$\forall a \exists \bar a: a \oplus \bar a = 0$</li>
   <li>$\forall a \exists \bar a: a \otimes \bar a = 1$</li>
 </ul>
 
+
 F&uuml;r die Komplemente von $\mathcal{B}$ muss gelten:
+
 <ul>
   <li>$\forall a \in B: \exists \bar a: a \sqcap \bar a = 0$</li>
   <li>$\forall a \in B: \exists \bar a: a \sqcup \bar a = 1$</li>
 </ul>
 
-Das Komplement eines Elements verkn&uuml;fpft mit $\sqcap$ ergibt also das neutrale Element von $\sqcup$!
+Das Komplement eines Elements verkn&uuml;fpft mit $\sqcap$ ergibt also das
+neutrale Element von $\sqcup$!
 
-Offensichtlich ist, dass die Schaltalgebra mit den Operatoren XOR und AND, also $(\{0,1\}, XOR, AND)$ ein K&ouml;rper ist, da Sie offensichtlich isomorph zu $\mathbb{Z}/2\mathbb{Z}$ ist.
+Offensichtlich ist, dass die Schaltalgebra mit den Operatoren XOR und AND, also
+$(\{0,1\}, XOR, AND)$ ein K&ouml;rper ist, da Sie offensichtlich isomorph zu
+$\mathbb{Z}/2\mathbb{Z}$ ist.
 
-<u>Behauptung:</u> Alle booleschen Algebren mit drei oder mehr Elementen sind keine K&ouml;rper
+<u>Behauptung:</u> Alle booleschen Algebren mit drei oder mehr Elementen sind keine K&ouml;rper<br/>
 <u>Beweis:</u> (<a href="http://de.wikipedia.org/wiki/Diskussion:Darstellungssatz_f%C3%BCr_Boolesche_Algebren#Beziehung zu K&ouml;rpern">danke an Chricho</a>)
 Sei $\mathcal{B} = (B, \sqcap, \sqcup)$ mit $|B| \geq 3$. Sei $a \in B$ mit $0 \neq a \neq 1$.
-
-Es gilt:
+<br/>
+Es gilt:<br/>
 $\forall b \in B: a \land b \leq a \lneq 1 \Rightarrow a$ hat kein Inverses $\Rightarrow \mathcal{B}$ ist kein K&ouml;rper $\blacksquare$
 
 
-<h2>Boolesche Algebren und die Schaltalgebra</h2>
+## Boolesche Algebren und die Schaltalgebra
 Die wohl bekannteste boolesche Algebra ist die Schaltalgebra:
 $(\{0,1\}, \lor, \land, 0, 1)$
 
 Allerdings ist nicht jede Boolesche Algebra eine Schaltalgebra!
 
-<h2>Quellen</h2>
+## Quellen
+
 <ul>
   <li>Skript &bdquo;Technische Informatik - Digitaltechnik und Entwurfsverfahren&ldquo; von Dr.-Ing. Tamim Asfour. S.33 - 37</li>
   <li><a href="http://ti.ira.uka.de/TI-1/Vorlesung/Vorlesung.php">Folien</a> von Dr.-Ing. Tamim Asfour</li>
