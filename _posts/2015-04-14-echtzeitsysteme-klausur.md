@@ -85,6 +85,16 @@ priority-preemptive Unterbrechungsbehandlung</td>
     <td>?</td>
     <td>?</td>
 </tr>
+<tr>
+    <td>09.06.2015</td>
+    <td>Übung</td>
+    <td>Regelung</td>
+</tr>
+<tr>
+    <td>10.06.2015</td>
+    <td>Übung</td>
+    <td>-</td>
+</tr>
 </table>
 
 ### Abkürzungen

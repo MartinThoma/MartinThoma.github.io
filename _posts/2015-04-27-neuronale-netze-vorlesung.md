@@ -7,6 +7,7 @@ categories:
 - German posts
 tags:
 - Klausur
+- Machine Learning
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Neuronale Netze&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isl.anthropomatik.kit.edu/english/21_74.php">Herrn Prof. Dr. Alexander Waibel</a> im Sommersemester 2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.</div>
@@ -65,6 +66,12 @@ featured_image: logos/klausur.png
     <td>26.05.2015</td>
     <td><abbr title="Self Organizing Map">SOM</abbr></td>
     <td>Hebbian Learning, "<abbr title="Vector Quantization">VQ</abbr>" mit SOM</td>
+</tr>
+<tr>
+    <td>09.06.2015</td>
+    <td>Effizientes Lernen</td>
+    <td>Paralleles Lernen; Quickprop; Alternative Fehlerfunktion (cross-entropy, <abbr title="Classification Figure of Merit">CFM</abbr>);
+        weight elimination / regularization</td>
 </tr>
 </table>
 
