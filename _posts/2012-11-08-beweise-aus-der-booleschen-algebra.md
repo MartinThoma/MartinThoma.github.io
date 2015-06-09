@@ -49,12 +49,13 @@ Algebra mit dem Einselement &bdquo;1&ldquo; und dem Nullelement
 &bdquo;0&ldquo;.
 
 ### Eindeutigkeit des Nullelements
-<u>Behauptung:</u> Es exisitiert genau ein Nullelement f&uuml;r $\mathcal{B}$.
+<u>Behauptung:</u> Es exisitiert genau ein Nullelement f&uuml;r $\mathcal{B}$.<br/>
 <u>Beweis:</u> direkt
 
 Die Existenz von mindestens einem Nullelement wird durch H3 garantiert.
 
 Seien $n_1, n_2$ Nullelemente auf $\mathcal{B}$. Dann gilt:
+
 $\begin{align}
                            & \forall a \in B: a \sqcup n_1 \stackrel{H3}{=} a\\
 \Rightarrow                & n_2 \sqcup n_1 = n_2\\
