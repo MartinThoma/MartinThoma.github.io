@@ -151,7 +151,7 @@ pyplot.show()
 
 The result looks like this
 
-{% caption align="aligncenter" width="500" alt="State probabilities starting in S3 after 1..20 steps (plotted with Python)" text="State probabilities starting in S3 after 1..20 steps (plotted with Python)" url="../images/2015/01/image.png" %}
+{% caption align="aligncenter" width="500" alt="State probabilities starting in S3 after 1..20 steps (plotted with Python)" text="State probabilities starting in S3 after 1..20 steps (plotted with Python)" url="../images/2015/05/reproductin-python-plot.png" %}
 
 I've played around with the [matplotlib markers](http://matplotlib.org/api/markers_api.html)
 to make sure all points are visible.
