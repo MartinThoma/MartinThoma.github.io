@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-# A Liquid tag for Jekyll sites that allows easy creation of 
+# A Liquid tag for Jekyll sites that allows easy creation of
 # wikpedia-style image galleries.
 #
 # Author: Martin Thoma (info@martin-thoma.de)
@@ -34,7 +34,7 @@
 
 require 'csv'
 require 'dimensions'
-require 'RMagick'
+require 'rmagick'
 require 'fileutils'
 
 module Jekyll
@@ -92,7 +92,7 @@ module Jekyll
                 new_filename = File.expand_path(destination_img_path)
             end while File.exists?(new_filename)
         end
-        
+
         return new_filename
     end
 

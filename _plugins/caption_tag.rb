@@ -13,7 +13,7 @@
 # Plugin replaces the template above with:
 #    <div style="width: 510px" class="wp-caption aligncenter">
 #        <a href="../images/2013/11/WER-calculation.png">
-#            <img src="../images/2014/03/lolcat.jpg" alt="WER calculation" 
+#            <img src="../images/2014/03/lolcat.jpg" alt="WER calculation"
 #                 width="500" height="494" class="size-full">
 #        </a>
 #        <p class="wp-caption-text">WER calculation</p>
@@ -21,7 +21,7 @@
 
 require 'csv'
 require 'dimensions'
-require 'RMagick'
+require 'rmagick'
 require 'fileutils'
 require 'yaml'
 require 'logger'
@@ -41,7 +41,7 @@ module Jekyll
     end
 
     # Load a serialized file so that images don't get scaled multiple times
-    # 
+    #
     # * *Args*    :
     # +filename+:: Name of the serialized file
     def load_serialized_data(filename)
@@ -69,7 +69,7 @@ module Jekyll
         else
             written_files[original_image_path] = {"orig_width" => orig_width,
                                          "orig_height" => orig_height,
-                                         "scaled" => 
+                                         "scaled" =>
                                              {scaled_width => scaled_height }
                                         }
         end
@@ -79,12 +79,12 @@ module Jekyll
     end
 
     # Check if 'original_image_path' was already scaled before.
-    # 
+    #
     # * *Args*    :
     # +written_files+:: datastructure that contains all scaled files
     # +original_image_path+:: pre-captioning image
     # +scaled_width+:: width of the scaled caption
-    # 
+    #
     # * *Returns*    : Boolean
     def was_already_scaled(written_files, original_image_path, scaled_width)
         if written_files.has_key?(original_image_path)
@@ -99,14 +99,14 @@ module Jekyll
 
 
     # Parse what's within {% caption XYZ %}.
-    # 
+    #
     # * *Args*    :
-    # +input+:: The caption tag, e.g. 
-    #          'align="aligncenter" width="500" 
-    #           alt="xyz" text="abc" 
+    # +input+:: The caption tag, e.g.
+    #          'align="aligncenter" width="500"
+    #           alt="xyz" text="abc"
     #           url="../images/2014/03/lolcat.jpg"'
     # * *Returns*    :
-    # {"align"=>"aligncenter", "width"=>"500", "alt"=>"xyz", "text"=>"abc", 
+    # {"align"=>"aligncenter", "width"=>"500", "alt"=>"xyz", "text"=>"abc",
     #  "url"=>"../images/2014/03/lolcat.jpg"}
     def parse_attrs(input)
       options = { col_sep: '=', row_sep: ' ', quote_char: '"' }
@@ -124,7 +124,7 @@ module Jekyll
     # * *Args*    :
     #   - +site_source+:: e.g. '/home/moose/Downloads/MartinThoma.github.io'
     #   - +page_path+:: e.g. '_posts/2014-04-02-tcl.md'
-    #   - +img_src+:: The source that was within the 'url' attribute of the 
+    #   - +img_src+:: The source that was within the 'url' attribute of the
     #                 caption tag. e.g. '../images/2014/03/lolcat.jpg'
     # * *Returns*    :
     #   - e.g. '/home/moose/Downloads/MartinThoma.github.io/images/2014/03/lolcat.jpg'
@@ -160,9 +160,9 @@ module Jekyll
     end
 
 
-    # Get the path where the image will be before the actual site gets 
+    # Get the path where the image will be before the actual site gets
     # generated.
-    # 
+    #
     # * *Args*    :
     #   - +site_source+:: e.g. '/home/moose/Downloads/MartinThoma.github.io'
     #   - +post_path+:: e.g. '_posts/2014-04-02-tcl.md'
@@ -185,7 +185,7 @@ module Jekyll
                 new_filename = File.expand_path(destination_img_path)
             end while File.exists?(new_filename)
         end
-        
+
         return new_filename
     end
 
