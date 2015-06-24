@@ -7,6 +7,7 @@ categories:
 - Code
 tags:
 - Python
+- Machine Learning
 featured_image: logos/python.png
 ---
 Lasagne is a Python package for training neural networks. The nice thing about

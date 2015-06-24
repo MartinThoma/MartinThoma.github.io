@@ -414,6 +414,5 @@ wrote the article), but they helped me a lot to get things not too wrong:
 * Henning Dieterichs helped me to fix some of the mistakes in the C# part and
   reminded me of Hack and the positive sides of PHP.
 * Stefan had a look at the PHP section.
-* Rust, JavaScript and Go: Johannes (TODO)
 
 Thank you!
