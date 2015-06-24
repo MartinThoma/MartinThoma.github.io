@@ -14,7 +14,10 @@
     <meta property="og:type" content="blog"/>
 
     <title>Java Generics</title>
-    <link rel="stylesheet" href="http://martin-thoma.com/css/201506092248.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
 
@@ -107,7 +110,7 @@
 </div><h2 id="tocAnchor-1-1">Computer.java</h2>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">edu</span><span class="o">.</span><span class="na">kit</span><span class="o">.</span><span class="na">filesystem</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Vector</span><span class="o">;</span>
@@ -164,52 +167,52 @@
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">// Create the computer</span>
-        <span class="n">HDD</span> <span class="n">platte1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HDD</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="s">"Main disk"</span><span class="o">);</span>
-        <span class="n">Computer</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Computer</span><span class="o">(</span><span class="s">"MyMainComputer"</span><span class="o">,</span> <span class="n">platte1</span><span class="o">);</span>
+        <span class="n">HDD</span> <span class="n">platte1</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HDD</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="s">"Main disk"</span><span class="o">);</span>
+        <span class="n">Computer</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Computer</span><span class="o">(</span><span class="s">"MyMainComputer"</span><span class="o">,</span> <span class="n">platte1</span><span class="o">);</span>
 
         <span class="c1">// we need a backup</span>
-        <span class="n">HDD</span> <span class="n">platte2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HDD</span><span class="o">(</span><span class="s">"D"</span><span class="o">,</span> <span class="s">"Backup disk"</span><span class="o">);</span>
+        <span class="n">HDD</span> <span class="n">platte2</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HDD</span><span class="o">(</span><span class="s">"D"</span><span class="o">,</span> <span class="s">"Backup disk"</span><span class="o">);</span>
         <span class="n">f</span><span class="o">.</span><span class="na">addDrive</span><span class="o">(</span><span class="n">platte2</span><span class="o">);</span>
 
         <span class="c1">// create main directories</span>
-        <span class="n">Directory</span> <span class="n">v1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Directory</span><span class="o">(</span><span class="s">"temp"</span><span class="o">,</span> <span class="s">"temporary files"</span><span class="o">);</span>
+        <span class="n">Directory</span> <span class="n">v1</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Directory</span><span class="o">(</span><span class="s">"temp"</span><span class="o">,</span> <span class="s">"temporary files"</span><span class="o">);</span>
         <span class="n">platte1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">v1</span><span class="o">);</span>
-        <span class="n">v1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="n">Directory</span><span class="o">(</span><span class="s">"asdf"</span><span class="o">,</span> <span class="s">"jkl&amp;ouml;"</span><span class="o">));</span>
-        <span class="n">Directory</span> <span class="n">v2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Directory</span><span class="o">(</span><span class="s">"Pictures"</span><span class="o">,</span> <span class="s">"Holiday pictures"</span><span class="o">);</span>
+        <span class="n">v1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="nf">Directory</span><span class="o">(</span><span class="s">"asdf"</span><span class="o">,</span> <span class="s">"jkl&amp;ouml;"</span><span class="o">));</span>
+        <span class="n">Directory</span> <span class="n">v2</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Directory</span><span class="o">(</span><span class="s">"Pictures"</span><span class="o">,</span> <span class="s">"Holiday pictures"</span><span class="o">);</span>
         <span class="n">platte1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">v2</span><span class="o">);</span>
 
         <span class="c1">// Gib den Verzeichnissen ein paar Inhalte</span>
         <span class="c1">// Ein paar Archive im Temp</span>
-        <span class="n">ZipArchiv</span> <span class="n">zip1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="o">(</span><span class="s">"fp-update.zip"</span><span class="o">,</span> <span class="s">"Flashplayer Update"</span><span class="o">);</span>
+        <span class="n">ZipArchiv</span> <span class="n">zip1</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ZipArchiv</span><span class="o">(</span><span class="s">"fp-update.zip"</span><span class="o">,</span> <span class="s">"Flashplayer Update"</span><span class="o">);</span>
         <span class="n">v1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">zip1</span><span class="o">);</span>
-        <span class="n">ZipArchiv</span> <span class="n">zip2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="o">(</span><span class="s">"swt1-folien.zip"</span><span class="o">,</span> <span class="s">"PDFs of SWT1"</span><span class="o">);</span>
+        <span class="n">ZipArchiv</span> <span class="n">zip2</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ZipArchiv</span><span class="o">(</span><span class="s">"swt1-folien.zip"</span><span class="o">,</span> <span class="s">"PDFs of SWT1"</span><span class="o">);</span>
         <span class="n">v1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">zip2</span><span class="o">);</span>
 
         <span class="c1">// pictures</span>
-        <span class="n">ZipArchiv</span> <span class="n">barcelona</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="o">(</span><span class="s">"2010-Barcelona.zip"</span><span class="o">,</span> <span class="s">"Holiday Barcelona 2010"</span><span class="o">);</span>
+        <span class="n">ZipArchiv</span> <span class="n">barcelona</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ZipArchiv</span><span class="o">(</span><span class="s">"2010-Barcelona.zip"</span><span class="o">,</span> <span class="s">"Holiday Barcelona 2010"</span><span class="o">);</span>
         <span class="n">v2</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">barcelona</span><span class="o">);</span>
-        <span class="n">ZipArchiv</span> <span class="n">mallorca</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="o">(</span><span class="s">"2011-Mallorca.zip"</span><span class="o">,</span> <span class="s">"Sonne satt"</span><span class="o">);</span>
+        <span class="n">ZipArchiv</span> <span class="n">mallorca</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ZipArchiv</span><span class="o">(</span><span class="s">"2011-Mallorca.zip"</span><span class="o">,</span> <span class="s">"Sonne satt"</span><span class="o">);</span>
         <span class="n">v2</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">mallorca</span><span class="o">);</span>
-        <span class="n">v2</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"ipdlogo.png"</span><span class="o">,</span> <span class="s">"IPD"</span><span class="o">));</span>
+        <span class="n">v2</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"ipdlogo.png"</span><span class="o">,</span> <span class="s">"IPD"</span><span class="o">));</span>
 
         <span class="c1">// add some files to archives</span>
-        <span class="n">ZipArchiv</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipArchiv</span><span class="o">(</span><span class="s">"BarcelonaBeach.zip"</span><span class="o">,</span> <span class="s">"Strandbilder"</span><span class="o">);</span>
+        <span class="n">ZipArchiv</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ZipArchiv</span><span class="o">(</span><span class="s">"BarcelonaBeach.zip"</span><span class="o">,</span> <span class="s">"Strandbilder"</span><span class="o">);</span>
         <span class="n">barcelona</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">b1</span><span class="o">);</span>
-        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"s1.jpg"</span><span class="o">,</span> <span class="s">"Strand"</span><span class="o">));</span>
-        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"s2.jpg"</span><span class="o">,</span> <span class="s">"Mehr Strand"</span><span class="o">));</span>
-        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"s3.jpg"</span><span class="o">,</span> <span class="s">"Strand und Meer"</span><span class="o">));</span>
-        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"s4.jpg"</span><span class="o">,</span> <span class="s">"Noch mehr Strand"</span><span class="o">));</span>
+        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"s1.jpg"</span><span class="o">,</span> <span class="s">"Strand"</span><span class="o">));</span>
+        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"s2.jpg"</span><span class="o">,</span> <span class="s">"Mehr Strand"</span><span class="o">));</span>
+        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"s3.jpg"</span><span class="o">,</span> <span class="s">"Strand und Meer"</span><span class="o">));</span>
+        <span class="n">b1</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"s4.jpg"</span><span class="o">,</span> <span class="s">"Noch mehr Strand"</span><span class="o">));</span>
 
-        <span class="n">File</span> <span class="n">b2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"Picasso.jpg"</span><span class="o">,</span> <span class="s">"Museum"</span><span class="o">);</span>
+        <span class="n">File</span> <span class="n">b2</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"Picasso.jpg"</span><span class="o">,</span> <span class="s">"Museum"</span><span class="o">);</span>
         <span class="n">barcelona</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
 
-        <span class="n">File</span> <span class="n">b3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"SagradaFamilia.jpg"</span><span class="o">,</span> <span class="s">"Kirche"</span><span class="o">);</span>
+        <span class="n">File</span> <span class="n">b3</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"SagradaFamilia.jpg"</span><span class="o">,</span> <span class="s">"Kirche"</span><span class="o">);</span>
         <span class="n">barcelona</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">b3</span><span class="o">);</span>
 
-        <span class="n">File</span> <span class="n">b4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"CampNou.jpg"</span><span class="o">,</span> <span class="s">"Fu&amp;szlig;ball"</span><span class="o">);</span>
+        <span class="n">File</span> <span class="n">b4</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"CampNou.jpg"</span><span class="o">,</span> <span class="s">"Fu&amp;szlig;ball"</span><span class="o">);</span>
         <span class="n">barcelona</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">b4</span><span class="o">);</span>
 
-        <span class="n">File</span> <span class="n">m1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"Strand.jpg"</span><span class="o">,</span> <span class="s">"Strand"</span><span class="o">);</span>
+        <span class="n">File</span> <span class="n">m1</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"Strand.jpg"</span><span class="o">,</span> <span class="s">"Strand"</span><span class="o">);</span>
         <span class="n">mallorca</span><span class="o">.</span><span class="na">addNode</span><span class="o">(</span><span class="n">m1</span><span class="o">);</span>
 
         <span class="n">f</span><span class="o">.</span><span class="na">printContent</span><span class="o">();</span>
@@ -220,7 +223,7 @@
 <h2 id="tocAnchor-1-2">Node.java</h2>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">edu</span><span class="o">.</span><span class="na">kit</span><span class="o">.</span><span class="na">filesystem</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
@@ -247,7 +250,7 @@
 <h2 id="tocAnchor-1-3">NodeContainer.java</h2>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">edu</span><span class="o">.</span><span class="na">kit</span><span class="o">.</span><span class="na">filesystem</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 
@@ -260,7 +263,7 @@
 <h2 id="tocAnchor-1-4">HDD.java</h2>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">edu</span><span class="o">.</span><span class="na">kit</span><span class="o">.</span><span class="na">filesystem</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 
@@ -292,7 +295,7 @@
 <h2 id="tocAnchor-1-5">Directory.java</h2>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">edu</span><span class="o">.</span><span class="na">kit</span><span class="o">.</span><span class="na">filesystem</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 
@@ -324,7 +327,7 @@
 <h2 id="tocAnchor-1-6">ZipArchiv.java</h2>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">edu</span><span class="o">.</span><span class="na">kit</span><span class="o">.</span><span class="na">filesystem</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 
@@ -355,7 +358,7 @@
 <h2 id="tocAnchor-1-7">File.java</h2>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">edu.kit.filesystem</span><span class="o">;</span>
+   <pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">edu</span><span class="o">.</span><span class="na">kit</span><span class="o">.</span><span class="na">filesystem</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">File</span> <span class="kd">extends</span> <span class="n">Node</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">File</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">beschreibung</span><span class="o">)</span> <span class="o">{</span>
