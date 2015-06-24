@@ -35,7 +35,7 @@ with web projects is very limited, I want to share a few thoughts.
 
 Just for clarification: I am only talking about the back end. A back end is the
 data access layer which manages requests comming to the server. It needs to
-server **many requests** (> 100 requests/second) **fast** (< 300 ms in
+server **many requests** (&gt; 100 requests/second) **fast** (&lt; 300 ms in
 average). It should not execute computationally heavy jobs which can be
 pre-computed or do not need to be displayed instantly to the client. This can
 be done by another system which does not need to be programmed in the same
