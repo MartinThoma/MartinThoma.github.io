@@ -14,6 +14,7 @@ featured_image: 2013/07/wetter1.png
 {% gallery %}
     ../images/2013/07/wetter.png    "Weather map"
     ../images/2013/07/wetterkarte-2013-07-26.png    "Wetterkarte vom 26.07.2013"
+    ../images/2013/07/wetterkarte-2015-07-04.png    "Wetterkarte vom 04.07.2015"
 {% endgallery %}
 
 <h2>See also</h2>
