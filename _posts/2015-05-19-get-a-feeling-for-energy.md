@@ -18,6 +18,7 @@ It is a gravity-powered lamp designed as an alternative for off-grid families
 who would otherwise use kersene lamps. It is basically only a 12kg weight,
 lifted and put on the gravity light. When the weight goes down again it pulls a
 cord. This cord makes an electric motor which generates electricity for LEDs.
+If you lift the weight 1.83m, the light lasts for about 20 minutes.
 
 I wondered how much weight I would need to lift (assuming 100% efficiency) to
 power my computer for 8 hours.
