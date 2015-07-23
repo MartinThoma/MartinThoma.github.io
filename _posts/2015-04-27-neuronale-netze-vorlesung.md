@@ -73,6 +73,11 @@ featured_image: logos/klausur.png
     <td>Paralleles Lernen; Quickprop; Alternative Fehlerfunktion (cross-entropy, <abbr title="Classification Figure of Merit">CFM</abbr>);
         weight elimination / regularization</td>
 </tr>
+<tr>
+    <td>15.07.2015</td>
+    <td>Summary</td>
+    <td>When to use which objective function (cross entropy, MSE); Backpropagation; Weight initialization; Regularization (L2 weight decay, dropout); Time Delay NN; Recurrent Networks; Applications (Speech Recognition, Computer Vision)</td>
+</tr>
 </table>
 
 ## Material und Links

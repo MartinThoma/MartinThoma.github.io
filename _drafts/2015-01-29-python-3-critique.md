@@ -3,9 +3,9 @@ layout: post
 title: Critique of Python 3
 author: Martin Thoma
 date: 2014-11-22 17:19
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Python
 featured_image: logos/python.png
 ---
@@ -51,7 +51,7 @@ Source: [Wikipedia](https://en.wikipedia.org/wiki/Tutorial)
 
 Tutorials are very important for programming languages. Especially the ones
 which introduce the core concepts of a language. I think Python should have
-3 tutorials: 
+3 tutorials:
 
 * How to install: Detailed instructions for all major systems. At the
   beginning, the user should be asked about his system (and get help how to
@@ -120,6 +120,28 @@ However, I think it is much more logical to apply a `join` method of a list
 with a string argument than a `join` method of a string with a list argument.
 This might be the case because I know
 [how join is done in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join).
+
+
+## Module specific
+
+### Base64
+
+The module `base64` contains the functions `b16decode`, `b16encode`,
+`b32decode`, `b32encode`, `b64decode`, `b64encode`, `decode`, `decodestring`,
+`encode`, `encodestring`, `standard_b64decode`, `standard_b64encode`,
+`urlsafe_b64decode`, `urlsafe_b64encode`.
+
+It is not good to have a module called `base64` and give it `base32decode`.
+But that is probaly for historic reasons and I cannot think of a better name
+by now. `text_encoding`? That would have "encoding" in the name.
+
+However, I think the module should only have the functions
+
+* str encode(str s, int base=64)
+* str decode(str s, int base=64, casefold)
+
+I don't see a good reason why reading and writing should be done by this
+module.
 
 
 ## See also

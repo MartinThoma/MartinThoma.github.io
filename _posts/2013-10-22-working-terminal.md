@@ -26,7 +26,7 @@ emulator, sometimes also called a "terminal window". I work in a window
 environment (MATE) and I want to use command line tools within that
 environment. So I need a "terminal window":
 
-{% caption align="aligncenter" width="300" caption="Terminal Window with ZSH and Bash" url="../images/2013/10/teriminal-window-300x168.png" alt="Terminal Window with ZSH and Bash" height="168" class="size-medium wp-image-76644" %}
+{% caption align="aligncenter" width="300" caption="Terminal Window with ZSH and Bash" url="../images/2013/10/teriminal-window.png" alt="Terminal Window with ZSH and Bash" height="168" class="size-medium" %}
 
 ZSH and Bash are both Unix shells. A shell is a command line interpreter that
 provides a text-based user interface.
@@ -75,12 +75,12 @@ print everything again when you autocomplete with tab. And it also
 autocompletes when you make an capitalization error.
 
 I also begin to like the Git-specific prompt indicators:
-{% caption align="aligncenter" width="236" caption="ZSH 'git add' indicator" url="../images/2013/10/oh-my-zsh-git-added.png" alt="ZSH 'git add' indicator" height="42" class="size-full wp-image-76671" %}
+{% caption align="aligncenter" width="236" caption="ZSH 'git add' indicator" url="../images/2013/10/oh-my-zsh-git-added.png" alt="ZSH 'git add' indicator" height="42" class="size-full" %}
 
 ## Some usefull tools ##
 
 ### ack ###
-You might already know `grep`. And if you've worked with it, you 
+You might already know `grep`. And if you've worked with it, you
 might already have typed something like the following:
 
 ```bash
