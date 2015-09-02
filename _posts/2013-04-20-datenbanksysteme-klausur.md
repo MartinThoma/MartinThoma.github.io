@@ -13,7 +13,8 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
-<h2>Behandelter Stoff</h2>
+
+## Behandelter Stoff
 <table>
 
 <tr>
@@ -83,9 +84,11 @@ An diesem Artikel wird nat&uuml;rlich noch gearbeitet.
 
 Falls hier was fehlt, k&ouml;nnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.
 
-<h2>SQL</h2>
+
+## SQL
+
 ```sql
-create view MG as 
+create view MG as
 select Mitarbeiter, Gehalt
 from MGA
 where Gehalt > 70
@@ -96,7 +99,8 @@ insert into MG
 values ('Alice', 90)
 ```
 
-<h2>Fragen</h2>
+
+## Fragen
 <div class="question">
 <span class="question">Was ist der Unterschied zwischen einem DBS und einem DBMS?</span>
 <div class="answer">
@@ -113,7 +117,7 @@ Ein DBMS kann mehrere Datenbanken verwalten.
 <ul>
   <li>Ein Eintrag $r_i[x]$ bedeutet, dass die Transaktion $i$ die Ressource $x$ liest.</li>
   <li>Ein Eintrag $w_i[x]$ bedeutet, dass die Transaktion $i$ die Ressource $x$ schreibt.</li>
-  <li>$c_i$ bedeutet, dass die $i$-te Transaktion commitet wird</li> 
+  <li>$c_i$ bedeutet, dass die $i$-te Transaktion commitet wird</li>
 </ul>
 
 Es gibt also die Transaktion $T_1, T_2 \text{ und } T_3$ mit
@@ -121,7 +125,8 @@ $T_1 = r_1[y] w_1[x] c_1$
 </div>
 </div>
 
-<h2>Material</h2>
+
+## Material
 <ul>
   <li><a href="https://bscw.ira.uni-karlsruhe.de/pub/bscw.cgi/1272509?client_size=1366x655">Folien</a></li>
   <li><a href="http://dbis.ipd.uni-karlsruhe.de/1969.php">Vorlesungswebsite</a></li>
@@ -136,7 +141,8 @@ In der Fachschaft gibt es folgende Altklausuren:
   <li>30. Juli 2010 (DB + Rechnernetze, mit L&ouml;sung)</li>
 </ul>
 
-<h2>Aufbau der Klausur</h2>
+
+## Aufbau der Klausur
 H&auml;ufige Aufgabenstellungen sind:
 
 <ul>
@@ -147,7 +153,8 @@ H&auml;ufige Aufgabenstellungen sind:
 
 In der Klausur vom SS 2013 wurde das in 4 Aufgaben &agrave; 15 Punkte aufgeteilt. Unter anderem war diesmal der RAP-Algorithmus und der Dekompositionsalgorithmus relevant.
 
-<h2>&Uuml;bungsbetrieb</h2>
+
+## &Uuml;bungsbetrieb
 Es gibt nur ein "&Uuml;bungsblatt" mit Bonuspunkten f&uuml;r die Klausur. Auf dieses beziehe ich mich.
 
 <ul>
@@ -167,7 +174,7 @@ Ein paar interessante Informationen zum Blatt:
 <div class="answer">
 Antwort von Herrn Keller:
 
-Bei Anfragen, die nur eine Anzahl in der Projektionsliste erwarten, k&ouml;nnen sie mit einer Query 
+Bei Anfragen, die nur eine Anzahl in der Projektionsliste erwarten, k&ouml;nnen sie mit einer Query
 
 <code>SELECT <korrekte_Anzahl> FROM <irgendeiner_Tabelle></code>
 
@@ -179,12 +186,12 @@ das korrekte Ergebnistupel durch ausprobieren herausbekommen. Im Portal wird das
 <span class="question">Wie kann man bei der ORACLE-Datenbank die Anzahl der ausgegebenen Zeilen beschr&auml;nken (LIMIT)?</span>
 <div class="answer">
 
-```sql
+{% highlight sql %}
 SELECT *
-FROM  
-( your selection ) 
+FROM
+( your selection )
 WHERE ROWNUM <= 5
-```
+{% endhighlight %}
 
 </div>
 </div>
@@ -197,7 +204,8 @@ Ich habe &uuml;brigens das folgende Captcha bekomme:
 
 Wie zur H&ouml;lle soll man das l&ouml;sen? Ich hatte auf &bdquo;448444&ldquo; getippt, aber das war falsch.
 
-<h2>Termine und Klausurablauf</h2>
+
+## Termine und Klausurablauf
 <strong>Datum</strong>: Mittwoch, den 31. Juli 2013 von 11:00 bis 13:00 Uhr
 <strong>Ort</strong>: seit 29.07.2013 online:
 
@@ -237,11 +245,13 @@ Wie zur H&ouml;lle soll man das l&ouml;sen? Ich hatte auf &bdquo;448444&ldquo; g
 <strong>&Uuml;bungsschein</strong>: ?
 <strong>Bonuspunkte</strong>: ?
 
-<h2>Nicht vergessen</h2>
+
+## Nicht vergessen
 <ul>
   <li>Studentenausweis</li>
   <li>Kugelschreiber</li>
 </ul>
 
-<h2>Ergebnisse</h2>
+
+## Ergebnisse
 Sind noch nicht drau&szlig;en (Stand: 20.04.2013)

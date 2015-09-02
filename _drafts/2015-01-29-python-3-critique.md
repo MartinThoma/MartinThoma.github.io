@@ -144,6 +144,11 @@ I don't see a good reason why reading and writing should be done by this
 module.
 
 
+### Scipy - PIL
+
+PIL uses `(width, height)` (e.g. in `Image.new`) and SciPy uses `(height, width)`.
+
+
 ## See also
 
 * [Critique of Python by Vladimir Keleshev](https://www.youtube.com/watch?v=CpjUoYcaUu8)

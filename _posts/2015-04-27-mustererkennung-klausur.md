@@ -38,6 +38,115 @@ featured_image: logos/klausur.png
 </tr>
 </table>
 
+### Folien
+
+#### ME-Kap1_V31.pdf
+
+Einleitendes Kapitel welches erklärt, was Klassifikation ist.
+
+* Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamante, ...
+* Formalismen
+  * Domäne $\Omega \subseteq $ Welt, Elemente der Domäne heißen Objekte, Objekte werden in paarweise disjunkte Äquivalenzklassen $\omega_i$ gruppiert, sodass jedes Objekt genau eine Äquivalenzklasse hat.
+  * Man beobachtet / misst Eigenschaften realer Objekte. Dies kann als Funktion
+    **m** aufgefasst werden, die von der Domäne in den Merkmalsraum abbildet.
+    Optimalerweise ist diese Abbildung injektiv, bei ungünstig gewählten
+    Merkmalen jedoch nicht. Klassifikatoren arbeiten auf dem Merkmalsraum und
+    finden eine Partition des Merkmalsraumes in Klassen
+* **Muster**: Gesamtheit der beobachteten / gemessenen Werte einer einzelnen
+  Stichprobe (eines einzelnen Objekts).
+* **Erkennung**: (Wieder)erkennung von etwas, was bereits bekannt ist.
+* **Merkmale**: eruirbare, charakteristische Eigenschaften, die als Basis für
+  die Untersuchung von Mustern dienen soll.
+* **Mustererkennungsschritte**: Sensierung ergibt Muster; Vorverarbeitung;
+  Segmentierung; Merkmalsextraktion ergibt Merkmale; Klassifikation ergibt
+  Äquivalenzklassen
+* **Überwachtes lernen**: Vorklassifizierte Beispiele sowie die Klassenstruktur
+  sind gegeben; eventuell auch Auftrittswahrscheinlichkeiten $P(\omega_i)$ der
+  Klassen
+* Gesamtstichprobe wird in die disjunkten Mengen Lernstrichprobe,
+  Validierungsstichprobe und Teststichprobe zerlegt.
+
+#### ME-Kap2_V84.pdf
+
+In diesem Foliensatz geht es um Merkmale und ihre Eigenschaften.
+
+<table border="1">
+    <tr>
+        <th rowspan="3">&nbsp;</th>
+        <th colspan="5">Skala</th>
+    </tr>
+    <tr>
+        <th colspan="2">qualitativ</th>
+        <th colspan="3">quantitativ (metrisch)</th>
+    </tr>
+    <tr>
+        <th>Nominal-</th>
+        <th>Ordinal-</th>
+        <th>Intervall-</th>
+        <th>Verh&auml;ltnis-</th>
+        <th>Absolut</th>
+    </tr>
+    <tr>
+        <th>Empirische Relation</th>
+        <td>~ &Auml;quivalenz</td>
+        <td>~ &Auml;quivalenz<br/>Ordnung</td>
+        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition</td>
+        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
+        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>
+    </tr>
+    <tr>
+        <th>Zul&auml;ssige Transformationen</th>
+        <td>m' = f(m)<br/>f bijektiv</td>
+        <td>m' = f(m)<br/>f streng monoton</td>
+        <td>m' = am+b<br/>mit a&gt;0</td>
+        <td>m' = am<br/>mit a&gt;0</td>
+        <td>m' = m</td>
+    </tr>
+    <tr>
+        <th>Beispiele zugeh&ouml;rige Merkmale</th>
+        <td>Telefonnummern, Kfz-Kennz., Typen, PLZ, Geschlecht</td>
+        <td>G&uuml;teklassen, H&auml;rtegrad, Windst&auml;rke</td>
+        <td>Temp. in &deg;C, &deg;F, Kalenderzeit, geographische H&ouml;he</td>
+        <td>Masse, L&auml;nge, el. Strom</td>
+        <td>Quantenzahlen, Teilchenanzahl, Fehlerzahl</td>
+    </tr>
+    <tr>
+        <th>Werte von m</th>
+        <td>Zahlen, Namen, Symbole</td>
+        <td>in der Regel nat&uuml;rliche Zahlen</td>
+        <td>in der Regel reele Zahlen</td>
+        <td>in der Regel reele Zahlen &gt; 0</td>
+        <td>in der Regel nat&uuml;rliche Zahlen</td>
+    </tr>
+</table>
+
+Der Merkmalsraum ist häufig ein $\mathbb{R}^n$ mit $n>3$. Er kann auf
+vorhandene Strukturen analysiert werden, indem er auf einen 2- oder
+3-dimensionalen unterraum projeziert wird. Dies kann bei einfachen Projektionen
+jedoch nicht erfolgreich sein, wenn beispielsweise zwei Klassen Schalenförmig
+um den Urspruch angeordnet sind.
+
+Um Stichproben im Merkmalsraum zu vergleichen können Metriken benutzt werden.
+Eine [Metrik](https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition)
+ist eine Abbildung $d(m_1, m_2)$, für die gilt:
+
+* Positive Definitheit: $d(m_1, m_2) \geq 0$ und $d(m_1, m_2) = 0 \Leftrightarrow m_1 = m_2$,
+* Symmetrie: $d(m_1, m_2) = d(m_2, m_1)$,
+* Dreiecksungleichung: $d(m_1, m_2) \leq d(m_1, m_3) + d(m_3, m_2)$
+
+Metriken können durch [Normen](https://de.wikipedia.org/wiki/Norm_(Mathematik)#Definition)
+erzeugt werden, indem $d(m_1, m_2) := \|m_1 - m_2\|$ definiert wird. Eine Norm
+ist eine Abbildung $\| \cdot \|: V \rightarrow \mathbb{R}_0^+, x \mapsto \|x\|$
+für die gilt:
+
+* Definitheit: $\|x\| = 0 \Rightarrow x = 0$
+* Absolute Homogenität: $\|\alpha \cdot x \| = \alpha \cdot \| x \|$
+* Dreiecksungleichung: $\|x+y\| \leq \|x\| + \|y\|$
+
+Typische Normen sind die
+[euklidische Norm](https://de.wikipedia.org/wiki/Euklidische_Norm) und die
+Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
+
 
 ## Material und Links
 
