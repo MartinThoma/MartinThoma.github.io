@@ -135,7 +135,7 @@
 
 <h4 id="me-kap1_v31-pdf">ME-Kap1_V31.pdf</h4>
 
-<p>Einleitendes Kapitel welches erklärt, was Klassifikation ist.</p>
+<p><strong>Einleitendes Kapitel</strong> welches erklärt, was Klassifikation ist.</p>
 
 <ul>
 <li>Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamante, ...</li>
@@ -166,7 +166,7 @@ Validierungsstichprobe und Teststichprobe zerlegt.</li>
 
 <h4 id="me-kap2_v84-pdf">ME-Kap2_V84.pdf</h4>
 
-<p>In diesem Foliensatz geht es um Merkmale und ihre Eigenschaften.</p>
+<p>In diesem Foliensatz geht es um <strong>Merkmale</strong> und ihre Eigenschaften.</p>
 
 <table border="1">
     <tr>
@@ -248,6 +248,125 @@ für die gilt:</p>
 <p>Typische Normen sind die
 <a href="https://de.wikipedia.org/wiki/Euklidische_Norm">euklidische Norm</a> und die
 Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.</p>
+
+<p>
+   <strong>Hauptkomponentenanalyse</strong>
+</p>
+
+<ol>
+<li>Finde $m_0$, sodass $J_0(m) := \sum_{k=1}^N \|m - m_k\|^2$ minimal ist, also
+$m_0 = \frac{1}{N} \sum_{k=1}^N m_k$</li>
+<li>Finde Gerade $h: m = \bar{m} + ae$, welche die Punkte optimal repräsentiert.
+2.1 Finden der $a_k$ (TODO: Was ist das?)
+Fehlermaß $J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2$.
+Ergibt: $a_k = e^T (m_k - \bar{m})$
+2.2 Berechnung des optimalen Richtungsvektors
+Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$</li>
+<li>Finden eines affinen $d'$-dimensionalen Unterraumes des Merkmalsraumes,
+welcher die Daten $D$ mit minimalen quadratischem Fehler repräsentiert.</li>
+</ol>
+
+<ul>
+<li>Kernelized PCA</li>
+<li>Independent Component Analysis (ICA)</li>
+<li>Multiple Discriminant Analysis</li>
+</ul>
+
+<h4 id="me-kap3_v52-pdf">ME-Kap3_V52.pdf</h4>
+
+<p><strong>Bayessche Klassifikatoren</strong> wählen die Klasse aus, die die größte
+Wahrscheinlichkeit besitzt. Dazu verfolgt man den Ansatz</p>
+
+<p>
+   $$P(\omega|m) = \frac{p(m|\omega) \cdot P(\omega)}{p(m)}$$
+</p>
+
+<p>Dabei wird $P(\omega|m)$ die <em>A Posteriori Wahrscheinlichkeitsverteilung</em>
+und $P(\omega)$ die <em>A Priori Wahrscheinlichkeitsverteilung</em> genannt.</p>
+
+<h4 id="me-kap4_v33-pdf">ME-Kap4_V33.pdf</h4>
+
+<p><strong>Parameterschätzung</strong> kann entweder mit der Likelihood-Methodik oder mit der
+Bayesschen Methodik durchgeführt werden. Die Idee der Likelihood-Methodik ist
+es, den Parameter $\theta$ als unbekannte konstante (d.h. nicht-stochastische)
+Größe anzusehen. Man wählt $\theta$ also so, dass die Wahrscheinlichkeit der
+Beobachtungen gegeben $\theta$ maximiert wird.</p>
+
+<p>Die Bayessche Methodik geht dagegen davon aus, dass $\theta$ auch eine
+Zufallsvariable ist und über eine Wahrscheinlichkeitsverteilung beschrieben
+werden kann.</p>
+
+<p>Schätzer können verschiedene Qualitätskriterien erfüllen, z.B.
+<a href="https://de.wikipedia.org/wiki/Erwartungstreue">Erwartungstreue</a>
+oder <a href="https://de.wikipedia.org/wiki/Konsistenz_(Statistik)">Konsistenz</a>.</p>
+
+<p>Bei der Parameterschätzung können folgende Fehler passieren:</p>
+
+<ul>
+<li>Bayesscher Fehler: (TODO: Was ist das?)</li>
+<li>Modellfehler: Unpassendes Modell gewählt (Falsche Verteilungsannahme?)</li>
+<li>Schätzfehler: Zu wenige Daten um Parameter korrekt zu bestimmen</li>
+</ul>
+
+<h4 id="me-kap5_v31-pdf">ME-Kap5_V31.pdf</h4>
+
+<p><strong>Parameterfreie Methoden</strong> heißen "parameterfrei", weil sie keine konkrete
+Wahrscheinlichkeitsverteilung parametrisieren und den Parameter schätzen.
+Die Parameterfreien Methoden können sehr wohl Parameter benutzen. Beispiele
+sind:</p>
+
+<ul>
+<li><a href="https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer">Parzen Window</a></li>
+<li><a href="https://de.wikipedia.org/wiki/N%C3%A4chste-Nachbarn-Klassifikation">Nächste Nachbarn</a></li>
+</ul>
+
+<h4 id="me-kap6_v18-pdf">ME-Kap6_V18.pdf</h4>
+
+<p><strong>Allgemeine Problemstellungen</strong>:</p>
+
+<ul>
+<li>Dimension des Merkmalsraumes</li>
+<li>Overfitting</li>
+</ul>
+
+<h4 id="me-kap7_v54-pdf">ME-Kap7_V54.pdf</h4>
+
+<p><strong>Spezielle Klassifikatoren</strong>:</p>
+
+<ul>
+<li>Lineare Diskriminanzfunktionen: Linear bezieht sich hier auf die Kombination
+der Merkmale. Man kann allerdings Merkmale wählen, die z.B. das quadrat eines
+gemessenen wertes sind.</li>
+<li>Perzeptron</li>
+<li>Lineare Regression</li>
+<li>Künstliche Neuronale Netze</li>
+<li>Support Vector Machines</li>
+<li>Matched Filter</li>
+<li>HMMs (Sequenzen)</li>
+<li>Klassifikation mit Rückweisung (Maximum / Minimum / Differenz / Abstand)</li>
+</ul>
+
+<h4 id="me-kap8_v21-pdf">ME-Kap8_V21.pdf</h4>
+
+<p><strong>Klassifikation bei nominalen Merkmalen</strong>:</p>
+
+<ul>
+<li>Entscheidungsbäume</li>
+<li>String-Verfahren</li>
+<li>Grammatiken</li>
+</ul>
+
+<h4 id="me-kap9_v27-pdf">ME-Kap9_V27.pdf</h4>
+
+<p><strong>Klassifikatorunabhängige Prinzipien</strong>:</p>
+
+<ul>
+<li>Generalisierung / Generalisierungsfähigkeit</li>
+<li>VC-Konfidenz / VC-Dimension</li>
+<li>Structural Risc Minimization</li>
+<li><a href="https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren">Kreuzvalidierungsverfahren</a> / Leave-one-out</li>
+<li>Boosting</li>
+</ul>
 
 <h2 id="tocAnchor-1-4">Material und Links</h2>
 
