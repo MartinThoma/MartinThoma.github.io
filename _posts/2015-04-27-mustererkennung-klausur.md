@@ -42,7 +42,7 @@ featured_image: logos/klausur.png
 
 #### ME-Kap1_V31.pdf
 
-Einleitendes Kapitel welches erklärt, was Klassifikation ist.
+**Einleitendes Kapitel** welches erklärt, was Klassifikation ist.
 
 * Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamante, ...
 * Formalismen
@@ -68,7 +68,7 @@ Einleitendes Kapitel welches erklärt, was Klassifikation ist.
 
 #### ME-Kap2_V84.pdf
 
-In diesem Foliensatz geht es um Merkmale und ihre Eigenschaften.
+In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
 
 <table border="1">
     <tr>
@@ -146,6 +146,109 @@ für die gilt:
 Typische Normen sind die
 [euklidische Norm](https://de.wikipedia.org/wiki/Euklidische_Norm) und die
 Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
+
+**Hauptkomponentenanalyse**
+
+1. Finde $m_0$, sodass $J_0(m) := \sum_{k=1}^N \|m - m_k\|^2$ minimal ist, also
+   $m_0 = \frac{1}{N} \sum_{k=1}^N m_k$
+2. Finde Gerade $h: m = \bar{m} + ae$, welche die Punkte optimal repräsentiert.
+2.1 Finden der $a_k$ (TODO: Was ist das?)
+   Fehlermaß $J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2$.
+   Ergibt: $a_k = e^T (m_k - \bar{m})$
+2.2 Berechnung des optimalen Richtungsvektors
+    Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$
+3. Finden eines affinen $d'$-dimensionalen Unterraumes des Merkmalsraumes,
+   welcher die Daten $D$ mit minimalen quadratischem Fehler repräsentiert.
+
+* Kernelized PCA
+* Independent Component Analysis (ICA)
+* Multiple Discriminant Analysis
+
+
+#### ME-Kap3_V52.pdf
+
+**Bayessche Klassifikatoren** wählen die Klasse aus, die die größte
+Wahrscheinlichkeit besitzt. Dazu verfolgt man den Ansatz
+
+$$P(\omega|m) = \frac{p(m|\omega) \cdot P(\omega)}{p(m)}$$
+
+Dabei wird $P(\omega|m)$ die *A Posteriori Wahrscheinlichkeitsverteilung*
+und $P(\omega)$ die *A Priori Wahrscheinlichkeitsverteilung* genannt.
+
+#### ME-Kap4_V33.pdf
+
+**Parameterschätzung** kann entweder mit der Likelihood-Methodik oder mit der
+Bayesschen Methodik durchgeführt werden. Die Idee der Likelihood-Methodik ist
+es, den Parameter $\theta$ als unbekannte konstante (d.h. nicht-stochastische)
+Größe anzusehen. Man wählt $\theta$ also so, dass die Wahrscheinlichkeit der
+Beobachtungen gegeben $\theta$ maximiert wird.
+
+Die Bayessche Methodik geht dagegen davon aus, dass $\theta$ auch eine
+Zufallsvariable ist und über eine Wahrscheinlichkeitsverteilung beschrieben
+werden kann.
+
+Schätzer können verschiedene Qualitätskriterien erfüllen, z.B.
+[Erwartungstreue](https://de.wikipedia.org/wiki/Erwartungstreue)
+oder [Konsistenz](https://de.wikipedia.org/wiki/Konsistenz_(Statistik)).
+
+Bei der Parameterschätzung können folgende Fehler passieren:
+
+* Bayesscher Fehler: (TODO: Was ist das?)
+* Modellfehler: Unpassendes Modell gewählt (Falsche Verteilungsannahme?)
+* Schätzfehler: Zu wenige Daten um Parameter korrekt zu bestimmen
+
+
+#### ME-Kap5_V31.pdf
+
+**Parameterfreie Methoden** heißen "parameterfrei", weil sie keine konkrete
+Wahrscheinlichkeitsverteilung parametrisieren und den Parameter schätzen.
+Die Parameterfreien Methoden können sehr wohl Parameter benutzen. Beispiele
+sind:
+
+* [Parzen Window](https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer)
+* [Nächste Nachbarn](https://de.wikipedia.org/wiki/N%C3%A4chste-Nachbarn-Klassifikation)
+
+
+#### ME-Kap6_V18.pdf
+
+**Allgemeine Problemstellungen**:
+
+* Dimension des Merkmalsraumes
+* Overfitting
+
+#### ME-Kap7_V54.pdf
+
+**Spezielle Klassifikatoren**:
+
+* Lineare Diskriminanzfunktionen: Linear bezieht sich hier auf die Kombination
+  der Merkmale. Man kann allerdings Merkmale wählen, die z.B. das quadrat eines
+  gemessenen wertes sind.
+* Perzeptron
+* Lineare Regression
+* Künstliche Neuronale Netze
+* Support Vector Machines
+* Matched Filter
+* HMMs (Sequenzen)
+* Klassifikation mit Rückweisung (Maximum / Minimum / Differenz / Abstand)
+
+#### ME-Kap8_V21.pdf
+
+**Klassifikation bei nominalen Merkmalen**:
+
+* Entscheidungsbäume
+* String-Verfahren
+* Grammatiken
+
+
+#### ME-Kap9_V27.pdf
+
+**Klassifikatorunabhängige Prinzipien**:
+
+* Generalisierung / Generalisierungsfähigkeit
+* VC-Konfidenz / VC-Dimension
+* Structural Risc Minimization
+* [Kreuzvalidierungsverfahren](https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren) / Leave-one-out
+* Boosting
 
 
 ## Material und Links
