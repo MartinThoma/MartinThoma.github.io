@@ -147,7 +147,7 @@ Typische Normen sind die
 [euklidische Norm](https://de.wikipedia.org/wiki/Euklidische_Norm) und die
 Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
 
-**Hauptkomponentenanalyse**
+**Hauptkomponentenanalyse** (HKA, engl. PCA)
 
 1. Finde $m_0$, sodass $J_0(m) := \sum_{k=1}^N \|m - m_k\|^2$ minimal ist, also
    $m_0 = \frac{1}{N} \sum_{k=1}^N m_k$
@@ -162,7 +162,7 @@ Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
 
 * Kernelized PCA
 * Independent Component Analysis (ICA)
-* Multiple Discriminant Analysis
+* Multiple Discriminant Analysis (MDA)
 
 
 #### ME-Kap3_V52.pdf
@@ -250,6 +250,26 @@ sind:
 * [Kreuzvalidierungsverfahren](https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren) / Leave-one-out
 * Boosting
 
+### Prüfungsfragen
+
+* Warum ist ein hochdimensionaler Merkmalsraum schlecht ([curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality))?
+  - Je nach Klassifikator, viele zu lernende Parameter
+  - Daten haben einen sehr hohen Abstand zueinander → Gefahr des Overfittings
+* Wie kann man die Dimension des Merkmalsraumes reduzieren? → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
+* Wie viele Möglichkeiten gibt es 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)
+* Was ist Overfitting? (Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe Generalisierungsfähgikeit)
+* Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?
+  - Unterschiedliche Einheiten (→ Entdimensionalisieren)
+  - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)
+  - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
+* Wie funktioniert MDA? → Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$ (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
+* Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur Merkmalsauswahl? → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale Algorithmus benötigt bereits einen Klassifikator.
+* Wie lautet die Fundamentalformel der Bayesschen Klassifikation? → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$
+* Wie lautet die Hauptformel der PCA? $m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.
+* Wie kann man invariante Merkmale erzeugen? → Integration über eine Transformationsgruppe, Differentielle Methode, Normalisierung
+* Wie kann man normalisieren? → Fourierdeskriptoren sind invariant bzgl. Translation und Rotation und radialer Streckung (Skalierung)
+* Wie lauten die Prinzipien (A) - (E) der SVMs? TODO
+* Wie lautet Mercers Theorem? TODO
 
 ## Material und Links
 
