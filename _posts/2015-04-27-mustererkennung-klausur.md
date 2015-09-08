@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört. Der Artikel wird bis zur Klausur laufend erweitert.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen. Der Artikel wird bis zur Klausur laufend erweitert.</div>
 
 ## Behandelter Stoff
 
@@ -152,13 +152,16 @@ Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
 1. Finde $m_0$, sodass $J_0(m) := \sum_{k=1}^N \|m - m_k\|^2$ minimal ist, also
    $m_0 = \frac{1}{N} \sum_{k=1}^N m_k$
 2. Finde Gerade $h: m = \bar{m} + ae$, welche die Punkte optimal repräsentiert.
-2.1 Finden der $a_k$ (TODO: Was ist das?)
-   Fehlermaß $J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2$.
-   Ergibt: $a_k = e^T (m_k - \bar{m})$
-2.2 Berechnung des optimalen Richtungsvektors
-    Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$
+    1. Finden der $a_k$ (TODO: Was ist das?)
+       Fehlermaß $J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2$.
+       Ergibt: $a_k = e^T (m_k - \bar{m})$
+    2. Berechnung des optimalen Richtungsvektors
+       Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$
 3. Finden eines affinen $d'$-dimensionalen Unterraumes des Merkmalsraumes,
    welcher die Daten $D$ mit minimalen quadratischem Fehler repräsentiert.
+
+Siehe [gist](https://gist.github.com/MartinThoma/09799f5d143c09399eed) für
+eine kurze Python-Implementierung. Keine Garantie für die Korrektheit!
 
 * Kernelized PCA
 * Independent Component Analysis (ICA)
@@ -226,7 +229,7 @@ sind:
 * Perzeptron
 * Lineare Regression
 * Künstliche Neuronale Netze
-* Support Vector Machines
+* Support Vector Machines (SVMs)
 * Matched Filter
 * HMMs (Sequenzen)
 * Klassifikation mit Rückweisung (Maximum / Minimum / Differenz / Abstand)
@@ -264,11 +267,25 @@ sind:
   - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
 * Wie funktioniert MDA? → Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$ (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
 * Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur Merkmalsauswahl? → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale Algorithmus benötigt bereits einen Klassifikator.
-* Wie lautet die Fundamentalformel der Bayesschen Klassifikation? → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$
+* Wie lautet die Fundamentalformel der Bayesschen Klassifikation? → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal ist und A die Klasse)
 * Wie lautet die Hauptformel der PCA? $m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.
 * Wie kann man invariante Merkmale erzeugen? → Integration über eine Transformationsgruppe, Differentielle Methode, Normalisierung
 * Wie kann man normalisieren? → Fourierdeskriptoren sind invariant bzgl. Translation und Rotation und radialer Streckung (Skalierung)
-* Wie lauten die Prinzipien (A) - (E) der SVMs? TODO
+* Wie lauten die Prinzipien (A) - (E) der SVMs?
+    - (A) Lineare Trennung mit maximalen Abstand der Trennebenen zu den
+          nächstgelegenen Stichproben (Support Vektoren)
+    - (B) Duale Formulierung des linearen Klassifikators. (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem))
+    - (C) Nichtlineare Abbildung der primären Merkmale in einen
+          hochdimensionalen Merkmalsraum $\Phi$
+    - (D) Implizite Nutzung des unter Umständen $\infty$-dimensionalen
+          Eigenfunktionsraumes einer sog. Kernfunktion $K$ als transformierten
+          Merkmalsraum $\Phi$. Dabei müssen die transformierten Merkmale nicht
+          explizit berechnet werden und der Klassifikator hat trotz der hohen
+          Dimension von $\Phi$ nur eine niedrige Zahl von freien Parametern
+          (Kernel-Trick).
+    - (E) Relaxation der Forderung nach linearer Trennbarkeit durch Einführung
+          von Schlupfvariablen (slack variables).
+* Wie lautet die Dichtefunktion der [$d$-dimensionale Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \frac{1}{\sqrt{(2\pi \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
 * Wie lautet Mercers Theorem? TODO
 
 ## Material und Links
@@ -293,4 +310,4 @@ Bonuspunkte.
 **Bonuspunkte**: gibt es nicht<br/>
 **Ergebnisse**: ?<br/>
 **Einsicht**: ?<br/>
-**Erlaubte Hilfsmittel**: ?
+**Erlaubte Hilfsmittel**: keine
