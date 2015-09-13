@@ -78,7 +78,7 @@
                         </div>
 			
 						<div class="entry">
-                            <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Mustererkennung“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen. Der Artikel wird bis zur Klausur laufend erweitert.</div>
+                            <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Mustererkennung“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen.</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -378,13 +378,16 @@ gemessenen wertes sind.</li>
 <h3 id="tocAnchor-1-1-3">Prüfungsfragen</h3>
 
 <ul>
-<li>Warum ist ein hochdimensionaler Merkmalsraum schlecht (<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>)?
+<li>Warum ist ein hochdimensionaler Merkmalsraum schlecht
+(<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>)?
 
 <ul>
 <li>Je nach Klassifikator, viele zu lernende Parameter</li>
 <li>Daten haben einen sehr hohen Abstand zueinander → Gefahr des Overfittings</li>
 </ul></li>
-<li>Wie kann man die Dimension des Merkmalsraumes reduzieren? → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA</li>
+<li>Wie kann man die Dimension des Merkmalsraumes reduzieren?
+→ Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
+(Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA</li>
 <li>Wie viele Möglichkeiten gibt es 5 Merkmale aus 10 auszuwählen? → <a href="https://de.wikipedia.org/wiki/Binomialkoeffizient">Binomialkoeffizient</a></li>
 <li>Was ist Overfitting? (Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe Generalisierungsfähgikeit)</li>
 <li>Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?
@@ -394,18 +397,28 @@ gemessenen wertes sind.</li>
 <li>Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)</li>
 <li>Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)</li>
 </ul></li>
-<li>Wie funktioniert MDA? → Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$ (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)</li>
-<li>Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur Merkmalsauswahl? → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale Algorithmus benötigt bereits einen Klassifikator.</li>
-<li>Wie lautet die Fundamentalformel der Bayesschen Klassifikation? → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal ist und A die Klasse)</li>
-<li>Wie lautet die Hauptformel der PCA? $m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.</li>
-<li>Wie kann man invariante Merkmale erzeugen? → Integration über eine Transformationsgruppe, Differentielle Methode, Normalisierung</li>
-<li>Wie kann man normalisieren? → Fourierdeskriptoren sind invariant bzgl. Translation und Rotation und radialer Streckung (Skalierung)</li>
+<li>Wie funktioniert MDA?
+→ Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$
+(im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)</li>
+<li>Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
+Merkmalsauswahl? → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale
+Algorithmus benötigt bereits einen Klassifikator.</li>
+<li>Wie lautet die Fundamentalformel der Bayesschen Klassifikation?
+→ $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal
+ist und A die Klasse)</li>
+<li>Wie lautet die Hauptformel der PCA?
+$m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.</li>
+<li>Wie kann man invariante Merkmale erzeugen? → Integration über eine
+Transformationsgruppe, Differentielle Methode, Normalisierung</li>
+<li>Wie kann man normalisieren? → Fourierdeskriptoren kann man invariant bzgl.
+Translation und Rotation und radialer Streckung (Skalierung) machen</li>
 <li>Wie lauten die Prinzipien (A) - (E) der SVMs?
 
 <ul>
 <li>(A) Lineare Trennung mit maximalen Abstand der Trennebenen zu den
   nächstgelegenen Stichproben (Support Vektoren)</li>
-<li>(B) Duale Formulierung des linearen Klassifikators. (vgl. <a href="https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem">Wiki</a>)</li>
+<li>(B) Duale Formulierung des linearen Klassifikators.
+  (vgl. <a href="https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem">Wiki</a>, $k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b$)</li>
 <li>(C) Nichtlineare Abbildung der primären Merkmale in einen
   hochdimensionalen Merkmalsraum $\Phi$</li>
 <li>(D) Implizite Nutzung des unter Umständen $\infty$-dimensionalen
@@ -418,13 +431,20 @@ gemessenen wertes sind.</li>
   von Schlupfvariablen (slack variables).</li>
 </ul></li>
 <li>Wie lautet die Dichtefunktion der <a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung">$d$-dimensionale Gaußverteilung</a>? $f_X(x) = \frac{1}{\sqrt{(2\pi \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$</li>
-<li>Wie lautet Mercers Theorem? TODO</li>
+<li>Wie lautet Mercers Theorem? → <a href="https://de.wikipedia.org/wiki/Satz_von_Mercer">wiki</a></li>
+<li>Wie ist die <a href="https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz">Kullback-Leibler-Divergenz</a> defininiert?</li>
 </ul>
 
 <h2 id="tocAnchor-1-5">Material und Links</h2>
 
 <ul>
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php">Vorlesungswebsite</a>: Ist passwortgeschützt. Das Passwort (das ausnahmsweise mal nicht zu erraten ist) kann ich hier natürlich nicht schreiben. Aber der Benutzername ist <code>asbstudent</code>.</li>
+<li>SVMs
+
+<ul>
+<li><a href="http://stats.stackexchange.com/q/19181/25741">Why bother with the dual problem when fitting SVM?</a></li>
+<li><a href="http://research.microsoft.com/pubs/67119/svmtutorial.pdf">A Tutorial on Support Vector Machines for Pattern Recognition</a></li>
+</ul></li>
 </ul>
 
 <h2 id="tocAnchor-1-6">Übungsbetrieb</h2>
@@ -436,7 +456,8 @@ Bonuspunkte.</p>
 
 <p><strong>Datum</strong>: Donnerstag, der 10.09.2015 von 11:00-13:00 Uhr (Quelle: Wurde in der Vorlesung vom 22.04.2015 gesagt)<br />
 <strong>Ort</strong>: <a href="http://www.kithub.de/map/2287">Gerthsen-Hörsal</a><br />
-<strong>Punkte</strong>: ?<br />
+<strong>Punkte</strong>: 90<br />
+<strong>Zeit</strong>: 90 min<br />
 <strong>Punkteverteilung</strong>: ?<br />
 <strong>Bestehensgrenze</strong>: ?<br />
 <strong>Übungsschein</strong>: gibt es nicht<br />
