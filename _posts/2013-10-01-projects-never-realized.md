@@ -69,7 +69,7 @@ implementation. For this project, you would need:
 * Somebody, who has experience with gamification.
 * Somebody, who has contacts to politics and knows how to advertise.
 
-## Wikipedia KI
+## Wikipedia AI
 Try to categorize images in
 [Category:Uncategorized images](https://en.wikipedia.org/wiki/Category:Uncategorized_images)
 or find images that have the wrong category / missing categories.

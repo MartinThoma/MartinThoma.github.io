@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen. Der Artikel wird bis zur Klausur laufend erweitert.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen.</div>
 
 ## Behandelter Stoff
 
@@ -255,26 +255,39 @@ sind:
 
 ### Prüfungsfragen
 
-* Warum ist ein hochdimensionaler Merkmalsraum schlecht ([curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality))?
+* Warum ist ein hochdimensionaler Merkmalsraum schlecht
+  ([curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality))?
   - Je nach Klassifikator, viele zu lernende Parameter
   - Daten haben einen sehr hohen Abstand zueinander → Gefahr des Overfittings
-* Wie kann man die Dimension des Merkmalsraumes reduzieren? → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
+* Wie kann man die Dimension des Merkmalsraumes reduzieren?
+  → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
+  (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
 * Wie viele Möglichkeiten gibt es 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)
 * Was ist Overfitting? (Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe Generalisierungsfähgikeit)
 * Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?
   - Unterschiedliche Einheiten (→ Entdimensionalisieren)
   - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)
   - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
-* Wie funktioniert MDA? → Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$ (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
-* Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur Merkmalsauswahl? → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale Algorithmus benötigt bereits einen Klassifikator.
-* Wie lautet die Fundamentalformel der Bayesschen Klassifikation? → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal ist und A die Klasse)
-* Wie lautet die Hauptformel der PCA? $m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.
-* Wie kann man invariante Merkmale erzeugen? → Integration über eine Transformationsgruppe, Differentielle Methode, Normalisierung
-* Wie kann man normalisieren? → Fourierdeskriptoren sind invariant bzgl. Translation und Rotation und radialer Streckung (Skalierung)
+* Wie funktioniert MDA?
+  → Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$
+  (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
+* Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
+  Merkmalsauswahl? → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale
+  Algorithmus benötigt bereits einen Klassifikator.
+* Wie lautet die Fundamentalformel der Bayesschen Klassifikation?
+  → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal
+  ist und A die Klasse)
+* Wie lautet die Hauptformel der PCA?
+  $m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.
+* Wie kann man invariante Merkmale erzeugen? → Integration über eine
+  Transformationsgruppe, Differentielle Methode, Normalisierung
+* Wie kann man normalisieren? → Fourierdeskriptoren kann man invariant bzgl.
+  Translation und Rotation und radialer Streckung (Skalierung) machen
 * Wie lauten die Prinzipien (A) - (E) der SVMs?
     - (A) Lineare Trennung mit maximalen Abstand der Trennebenen zu den
           nächstgelegenen Stichproben (Support Vektoren)
-    - (B) Duale Formulierung des linearen Klassifikators. (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem))
+    - (B) Duale Formulierung des linearen Klassifikators.
+          (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem), $k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b$)
     - (C) Nichtlineare Abbildung der primären Merkmale in einen
           hochdimensionalen Merkmalsraum $\Phi$
     - (D) Implizite Nutzung des unter Umständen $\infty$-dimensionalen
@@ -286,12 +299,15 @@ sind:
     - (E) Relaxation der Forderung nach linearer Trennbarkeit durch Einführung
           von Schlupfvariablen (slack variables).
 * Wie lautet die Dichtefunktion der [$d$-dimensionale Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \frac{1}{\sqrt{(2\pi \det{\Sigma})}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))$
-* Wie lautet Mercers Theorem? TODO
+* Wie lautet Mercers Theorem? → [wiki](https://de.wikipedia.org/wiki/Satz_von_Mercer)
+* Wie ist die [Kullback-Leibler-Divergenz](https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz) defininiert?
 
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php): Ist passwortgeschützt. Das Passwort (das ausnahmsweise mal nicht zu erraten ist) kann ich hier natürlich nicht schreiben. Aber der Benutzername ist `asbstudent`.
-
+* SVMs
+  * [Why bother with the dual problem when fitting SVM?](http://stats.stackexchange.com/q/19181/25741)
+  * [A Tutorial on Support Vector Machines for Pattern Recognition](http://research.microsoft.com/pubs/67119/svmtutorial.pdf)
 
 ## Übungsbetrieb
 
@@ -303,7 +319,8 @@ Bonuspunkte.
 
 **Datum**: Donnerstag, der 10.09.2015 von 11:00-13:00 Uhr (Quelle: Wurde in der Vorlesung vom 22.04.2015 gesagt)<br/>
 **Ort**: <a href="http://www.kithub.de/map/2287">Gerthsen-Hörsal</a><br/>
-**Punkte**: ?<br/>
+**Punkte**: 90<br/>
+**Zeit**: 90 min<br/>
 **Punkteverteilung**: ?<br/>
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: gibt es nicht<br/>
