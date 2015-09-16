@@ -101,6 +101,7 @@ priority-preemptive Unterbrechungsbehandlung</td>
 
 * LLF: Least-Laxity-First-Scheduling
 * EDF: Earliest-Deadline-First-Scheduling
+* GPS: Guaranteed Percentage Scheduling
 
 
 ### Meine Fragen
