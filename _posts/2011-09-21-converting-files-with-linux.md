@@ -18,11 +18,23 @@ The following tipps work under a Linux terminal and were tested with Ubuntu 10.0
 
 I guess they will also work with other systems, as the programs are available for them.
 
-If you know some further file conversions, please let me know. 
+If you know some further file conversions, please let me know.
 
 I am also very interested in Web based conversions.
 
-<h2>Image Files</h2>
+
+## PDF
+
+Convert a folder of PDF slides into text files of the same name. This is nice
+for using `grep`:
+
+```bash
+$ for file in *.pdf;do pdftotext "$file"; done
+```
+
+
+## Image Files
+
 If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.
 
 **Resize Images to a maximum resolution**
@@ -37,7 +49,7 @@ You can also do this for a whole folder. Just go into that folder and:
 for i in *.jpg; do convert $i -resize 1600x1600 $i; done
 ```
 
-In case you have just taken many photos of a document and you want to send it 
+In case you have just taken many photos of a document and you want to send it
 as a single PDF via email. Thats the way to go:
 
 ```bash
@@ -50,7 +62,8 @@ for i in *.JPG; do convert $i -resize 1200x1200 $i; done; convert *.JPG merged.p
 <b>Rename Pictures</b>:
 {% highlight bash %}rename -n &rsquo;s/\.jpg$/\.JPG/&rsquo; *.jpg{% endhighlight %}
 
-<h2>Audio Files</h2>
+
+## Audio Files
 <b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):
 {% highlight bash %}mp3gain -a *.mp3{% endhighlight %}
 
@@ -60,8 +73,9 @@ for i in *.JPG; do convert $i -resize 1200x1200 $i; done; convert *.JPG merged.p
 <b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:
 {% highlight bash %}for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done{% endhighlight %}
 
-<h2>
-Video Files</h2>
+
+## Video Files
+
 For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
 You might also want to install some codecs first:
 {% highlight bash %}sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras{% endhighlight %}
@@ -110,13 +124,15 @@ This is how you convert it:
 <strong>-s</strong> size
 <strong>-r</strong> fps where fps is the frame rate in Hz. The default value is 25Hz.
 
-<h3>Converting Flash Videos flv to avi</h3>
+
+## Converting Flash Videos flv to avi
 {% highlight bash %}ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi{% endhighlight %}
 
-<h2>Shortcuts for Linux Console</h2>
+
+## Shortcuts for Linux Console
 I convert svg2png or pdf2png quite often for my articles. So I've created a command.
 
-You can create a command in Linux very easy: 
+You can create a command in Linux very easy:
 <ol>
   <li>Enter <code>echo $PATH</code> in your console</li>
   <li>Go to <code>/usr/bin</code> or any other path in your PATH</li>
@@ -126,7 +142,8 @@ You can create a command in Linux very easy:
 </ol>
 
 My <code>svg2png</code> looks like this:
-{% highlight python %}
+
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -137,7 +154,7 @@ parser.add_argument("-i", "--input", dest="input",
                   help="read svg file", metavar="FILE")
 parser.add_argument("-o", "--output", dest="output",
                   help="output png file", metavar="FILE")
-parser.add_argument("-w", "--width", dest="width", default=512, type=int, 
+parser.add_argument("-w", "--width", dest="width", default=512, type=int,
                   help="width of output png")
 
 args = parser.parse_args()
@@ -147,10 +164,11 @@ command = "inkscape " + args.input + \
           " -w " + str(args.width) + " --export-png=" + args.output
 os.system(command)
 print("Executed command: " + command)
-{% endhighlight %}
+```
 
 My pdf2png looks like this:
-{% highlight python %}
+
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -161,7 +179,7 @@ parser.add_argument("-i", "--input", dest="input",
                   help="read svg file", metavar="FILE")
 parser.add_argument("-o", "--output", dest="output",
                   help="output png file", metavar="FILE")
-parser.add_argument("-w", "--width", dest="width", default=512, type=int, 
+parser.add_argument("-w", "--width", dest="width", default=512, type=int,
                   help="width of output png")
 
 args = parser.parse_args()
@@ -177,4 +195,4 @@ for command in commands:
 	print("Executed command: " + command)
 
 args = parser.parse_args()
-{% endhighlight %}
+```

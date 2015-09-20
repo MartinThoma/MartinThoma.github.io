@@ -27,3 +27,14 @@ A good bug report should answer the following questions:
 2. What did you do (e.g. which input did you give / what did you click in which order)?
 3. What happened (e.g. which output did you get)?
 4. What did you expect to happen (e.g. which output did you expect to get)?
+
+## Common mistakes
+
+### I've tried everything
+
+Probably not. If the problem is solvable, you haven't tried the correct way.
+And you should give a list of what you tried and what happened.
+
+Examples for this mistake:
+
+* http://stackoverflow.com/q/32665520/562769
