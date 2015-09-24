@@ -144,6 +144,7 @@ zu überprüfen, also:
 * Differenzierer: $U_A = - R_N \cdot I_E$
 * Invertierender OP: $y = - \frac{R_N}{R_1}$
 * Nicht-Invertierender OP: $y = \frac{R_N+R_1}{R_1}$
+* Parallelverfahren (ES 2 - 37)
 
 
 ## Typische Klausur
