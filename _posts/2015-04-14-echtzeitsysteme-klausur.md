@@ -136,6 +136,16 @@ zu überprüfen, also:
 * $a_2 \cdot a_1 - a_0 > 0$? (the determinant of size 2 and 3 is the same)
 
 
+#### Schaltungen
+
+* Subtrahierer: $U_A = \frac{R_0 (R_1 + R_3)}{R_1 (R_0 + R_2)} \cdot U_2 - \frac{R_3}{R_1} \cdot U_1$
+* Invertierender Addierer: $U_A = - \left (\sum_{i=1}^{N-1} \frac{U_i}{R_i} \right ) \cdot R_N$
+* Integrierer: $- \frac{1}{RC} \int U_E \mathrm{d}t$
+* Differenzierer: $U_A = - R_N \cdot I_E$
+* Invertierender OP: $y = - \frac{R_N}{R_1}$
+* Nicht-Invertierender OP: $y = \frac{R_N+R_1}{R_1}$
+
+
 ## Typische Klausur
 
 Die Klausuren sind alle sehr ähnlich zu einander:
