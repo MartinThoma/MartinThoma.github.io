@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Echtzeitsysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://rob.ipr.kit.edu/mitarbeiter_96.php">Herrn Prof. Dr. Wörn</a> im Sommersemester 2015 gehört. Der Artikel wird bis zur Klausur laufend erweitert.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Echtzeitsysteme&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://rob.ipr.kit.edu/mitarbeiter_96.php">Herrn Prof. Dr. Wörn</a> im Sommersemester 2015 gehört.</div>
 
 ## Behandelter Stoff
 
@@ -103,22 +103,38 @@ priority-preemptive Unterbrechungsbehandlung</td>
 * EDF: Earliest-Deadline-First-Scheduling
 * GPS: Guaranteed Percentage Scheduling
 
+### Wichtiges
 
-### Meine Fragen
+* Ist eine Übertragungsfunktion in Pol-und-Nullstellenform $G(s)$ stabil?
+  → Ja, falls der Realanteil aller Pole negativ ist.
+* Ist eine Funktion $G(s)$ stabile?
+  → Ja, falls die Nullstellen der Gleichung $G(s)+1=0$ links der $i$-Achse liegen.
+* Ist $G(i \omega)$ stabil?
+  → Ja, falls die Kurve (-1, 0i) NICHT umfährt (siehe [Nyquistkriterium](https://de.wikipedia.org/wiki/Stabilit%C3%A4tskriterium_von_Nyquist#Spezielles_Nyquistkriterium_.2F_.E2.80.9ELinke-Hand-Regel.E2.80.9C))
 
-* ES1-14: Was bedeutet das "x4" im "Unterbrechungswerk in der Steuereinheit"?
-* ES1-23: Was bedeuten die Schalen?
-* ES1-37: Was bedeutet TxD, RxD, AO0, AO1? AO könnte für "Analog Output" stehen.
-* ES1-41: Was ist "naives PCI" und warum ist PCI Express 2.0 kein naives PCI?
-* ES1-48: Was bedeutet "TW"? Warum sind bei WAIT=1 um "warten" herum die beiden
-  Punkte markiert?
-* ES1-49: Wofür steht "AS" und "DTACK"?
-* ES1-52: Sind "Buszuteilung" und "Bus-Arbitration" synonyme oder verschiedene Verfahren?
-* ES1-57
-    * Warum kann durch Blocktransfers <a href="http://de.wikipedia.org/wiki/Priorit%C3%A4tsinversion">Prioritätsinversion</a> passieren?
-    * Was ist ein Busmonitor?
-* ES1-58: Was bedeutet "Kommandoorientiert (Klassifizierung der Bus-Transfers über Kommandos, nicht
-Einzel-Signale)"? Wo genau ist der Unterschied?
+#### Hurwitz-Kriterium
+
+Ein System $a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = 0$ ist dann stabil,
+wenn
+
+1. alle Koeffizienten $a_i > 0$ UND
+2. alle [Hauptabschnittsdeterminanten](https://de.wikipedia.org/wiki/Minor_(Lineare_Algebra)#Hauptminoren) (auch Hauptminoren genannt) positiv sind.
+
+Insbesondere gilt für $a_2 \cdot \ddot{x} + a_1 \dot{x} + a_0 x = 0$, dass die
+Hauptabschnittsdeterminanten von
+
+$$\begin{pmatrix}a_1 & 0\\0 & a_0\end{pmatrix}$$
+zu überprüfen sind. Das ist jedoch schon durch das erste Kriterium erfüllt.
+
+Bei $a_3 \cdot x^{(3)} + a_2 \cdot \ddot{x} + a_1 \dot{x} + a_0 x = 0$ ist
+
+$$\begin{pmatrix}a_2 & a_0 & 0\\1 & a_1 & 0\\ 0 & a_2 & 1\end{pmatrix}$$
+
+zu überprüfen, also:
+
+* $a_2 > 0$?
+* $a_2 \cdot a_1 - a_0 > 0$? (the determinant of size 2 and 3 is the same)
+
 
 ## Typische Klausur
 
@@ -217,8 +233,62 @@ StackOverflow:
 * Echtzeitbetriebssysteme und SPS
 
 **Bestehensgrenze**: ?<br/>
-**Übungsschein**: ?<br/>
-**Bonuspunkte**: ?<br/>
-**Ergebnisse**: ?<br/>
-**Einsicht**: ?<br/>
+**Übungsschein**: Gibt es nicht.<br/>
+**Bonuspunkte**: Gibt es nicht.<br/>
+**Ergebnisse**: Die Noten der Klausur werden am Schwarzen Brett im IAR-IPR (Geb. 40.28, Foyer, links) ausgehängt. Noch ist nichts da (Stand: 22.09.2015)<br/>
+**Einsicht**: wird über [Ilias](https://ilias.studium.kit.edu/goto_produktiv_fold_450985.html) bekannt gegeben<br/>
 **Erlaubte Hilfsmittel**: ?
+
+
+## Fazit
+
+Dieses Modul kann man sich getrost schenken. Wenn man vorher nichts von
+Regelungstechnik weiß, ist man hinterher auch nicht schlauer. Es scheint so zu
+sein, dass die klausurrelevanten Teile alle in den Übungen besprochen werden.
+
+Die bereitgestellten **Materialien** hätten besser sein können. Es gibt zwar
+ein Skript welches sogar eine ISBN-Nummer hat, aber insbesondere bei dem
+Regelungstechnik-Teil ist es nicht sonderlich hilfreich. Ich hatte das Gefühl,
+dass mir da einfach Grundlagen fehlen. Diese werden auch nicht erklärt. Zu den
+PDF-Folien muss man sagen, dass diese zwar schnell im Ilias hochgeladen wurden,
+aber teilweise zu viele Informationen hatten. Es war nicht klar, was wichtig
+ist. Außerdem hat teilweise, wenn man nur die Folien angesehen hat, der
+Kontext gefehlt.
+
+Ein **Highlight** waren Videos, in denen Roboter Kugeln auf einem Tablett
+sehr schnell transportieren. Dazu müssen die Roboter das Tablett im
+richtigen Winkel neigen. Das war ein Highlight der Vorlesung. Schade, dass
+nie erklärt wurde wie so etwas berechnet wird.
+
+**Vorwissen** in der Regelungstechnik und bei Differentialgleichungen ist
+sicher hilfreich.
+
+Die **Klausurvorbereitung** besteht hauptsächlich aus Auswendiglernen.
+Verständnis ist wohl nicht nötig (mal schauen... ich konnte keinen
+Notenschlüssel finden.), da die Klausuren immer nahezu identisch aufgebaut
+sind.
+
+Meine **Empfehlung** an Studenten ist, in die Übung zu gehen. Da kommen die
+klausurrelevanten Sachen. Teilweise 1-zu-1 die gleichen Fragen.
+
+**Verbesserungsvorschläge** für die Dozenten hätte ich auch ein paar:
+
+1. Es sollte Tutorien geben.
+2. Es sollte einen verpflichtenden Übungsschein geben. Mit 50% der Punkte hat
+   man den Übungsschein, ab 75% gibts Bonuspunkte für die Klausur. Diese
+   Übungsblätter werden von den Tutoren korrigiert und besprochen. Wenn die
+   Studenten es reihenweise nicht schaffen merkt man schon, wo man die
+   Vorlesung verbessern muss.
+3. Veröffentlichung der Musterlösungen zu den Klausuren.
+4. Anpassung des Skripts, z.B. wurde der VME-Bus durch den PCIe-Bus ersetzt.
+5. Anpassung des Modulhandbuchs. Man sollte den Leuten *empfehlen*, zuvor
+   die Vorlesung "Betriebssysteme" gehört zu haben.
+6. Ein [Wikibook](https://de.wikibooks.org/wiki/Hauptseite) beginnen. Wenn man
+   das für jedes Modul machen würde, könnte man auch Abhängigkeiten besser
+   sehen und Studenten könnten fehlendes Wissen leichter nachholen. Außerdem
+   würde man das Wissen frei verfügbar machen und man könnte die Exzellenz der
+   Lehre zeigen, falls man wirklich der Meinung ist die Lehre am KIT sei
+   exzellent. Über die Diskussionsseiten könnten Studenten und andere
+   weitgehend anonym ihre Fragen stellen und Verbesserungsvorschläge machen.
+   Über das Wiki-System könnten freiwillige Helfer insbesondere bei
+   zeitaufwendigen Grafiken helfen.
