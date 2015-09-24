@@ -223,7 +223,7 @@ StackOverflow:
 ## Termine und Klausurablauf
 
 **Datum**: Donnerstag, der 24.09.2015 von 14:00 Uhr-15:00 Uhr ([Quelle](http://www.informatik.kit.edu/klausuren.php?kid=522.35))<br/>
-**Ort**: einige Hörsäle<br/>
+**Ort**: Gehrtsen HS ([Geb. 30.21](https://www.kithub.de/map/2144))<br/>
 **Punkte**: 60<br/>
 **Punkteverteilung**: 4 Aufgaben à 15 Punkte:
 
@@ -235,9 +235,9 @@ StackOverflow:
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: Gibt es nicht.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
-**Ergebnisse**: Die Noten der Klausur werden am Schwarzen Brett im IAR-IPR (Geb. 40.28, Foyer, links) ausgehängt. Noch ist nichts da (Stand: 22.09.2015)<br/>
+**Ergebnisse**: Die Noten der Klausur werden am Schwarzen Brett im IAR-IPR (Geb. 40.28, Foyer, links) ausgehängt. Noch ist nichts da (Stand: 24.09.2015)<br/>
 **Einsicht**: wird über [Ilias](https://ilias.studium.kit.edu/goto_produktiv_fold_450985.html) bekannt gegeben<br/>
-**Erlaubte Hilfsmittel**: ?
+**Erlaubte Hilfsmittel**: Keine
 
 
 ## Fazit
