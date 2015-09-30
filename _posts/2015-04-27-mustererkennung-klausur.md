@@ -325,6 +325,14 @@ Bonuspunkte.
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
-**Ergebnisse**: ?<br/>
-**Einsicht**: ?<br/>
+**Ergebnisse**: Am 30.09.2015 war die (vorläufige) Note im Notenauszug<br/>
+**Einsicht**: ? <br/>
 **Erlaubte Hilfsmittel**: keine
+
+
+## Notenverteilung
+
+Wenn ihr mir schreibt was ihr habt, kann ich das updaten:
+
+* 1,3: min 1
+* 2,0: min 1
