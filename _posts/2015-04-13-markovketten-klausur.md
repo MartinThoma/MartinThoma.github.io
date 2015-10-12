@@ -61,6 +61,18 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 
 * [Markov Chains](http://setosa.io/blog/2014/07/26/markov-chains/): A very short introduction to markov chains with beautiful visualizations
 
+### Wichtigster Stoff
+
+Wie immer Definitionen (Markovkette, transient, rekurrent, Klasse, irreduzibel)
+
+Wenn man die Matrix so umsortiert, dass rechts unten die rekurrenten Zustände
+sind (das ist nicht immer eine Einheitsmatrix!), Dann heißt die Matrix links
+oben $Q$ und rechts oben $R$. Dann gilt:
+
+* $(E-Q)^{-1} \cdot R$: Absorptionszeit
+* $(E-Q)^{-1} \cdot \begin{pmatrix}1\\\vdots\\1\end{pmatrix}$: Schritte bis zur Absorption.
+* Invariantes Maß finden: $\pi P = \pi$ bzw. $\pi Q = 0$ im zeitkontinuierlichen Fall
+
 ## Übungsbetrieb
 
 Es gibt Dienstags und Mittwochs Tutorien.

@@ -322,11 +322,16 @@ Bonuspunkte.
 **Punkte**: 90<br/>
 **Zeit**: 90 min<br/>
 **Punkteverteilung**: ?<br/>
+
+<ul>
+    <li>ab 60.5: 1.7</li>
+</ul>
+
 **Bestehensgrenze**: ?<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
 **Ergebnisse**: Am 30.09.2015 war die (vorläufige) Note im Notenauszug<br/>
-**Einsicht**: ? <br/>
+**Einsicht**: Montag 12.10.2015,  9:00-15:00 Uhr im <a href="https://www.kithub.de/map/2577">Geb. 50.21</a>, Raum 015.1<br/>
 **Erlaubte Hilfsmittel**: keine
 
 
