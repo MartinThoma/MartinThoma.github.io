@@ -1,0 +1,265 @@
+---
+layout: post
+title: Publications in Science
+author: Martin Thoma
+date: 2014-11-22 17:19
+categories:
+- Cyberculture
+tags:
+- Rating
+- Science
+- Publication
+- Authorship
+featured_image: logos/science.png
+---
+<div class="info">I have a bachelors degree in computer science and I'm currently studying for a masters degree in computer science. This means I have some knowledge about research. But I haven't worked as a reviewer or at a journal. I have tried to publish a paper at a conference (<a href="https://en.wikipedia.org/wiki/International_Conference_on_Document_Analysis_and_Recognition">ICDAR</a>), but it got rejected. So please take everything I write in this article with a grain of salt.</div>
+
+Peer-reviewed publications are one important corner stone of science. As a
+researcher who begins to study a new topic, you will first try to get to the
+current state of the art by looking for papers about the topic. They are also
+important for settling minor questions. When there is a paper published in a
+peer-reviewed journal about the question you were thinking of (and you're not
+willing to make your own experiments) that can be a way to quickly make a
+statement.
+
+Papers are a shortcut to cutting-edge knowledge.
+
+But shortcuts are not always good. You have to be able to trust your source if
+you don't want to make the experiments yourself. I've recently read a blog
+article where it was (once again) shown that you can't trust every journal,
+even if they claim they are "peer-reviewed".
+
+
+## Why are papers written?
+
+It takes very long to write a paper. They have to be consistent with
+themselves, make a non-trivial statement, show methods used to support the
+statment, point out similar research which is done in this area and why it is
+not the same as what is examined / claimed in the paper. They contain the
+interesting results a researcher got in a very condensed format. For example,
+I wrote my bachelors thesis about a symbol recognition system I've created
+(<a href="http://write-math.com">write-math.com</a>). The more or less complete
+description of all experiments I did as well as a detailed description of the
+methods I used has 92&nbsp;pages. The paper I wrote only had 5&nbsp;pages
+(see [martin-thoma.com/write-math](http://martin-thoma.com/write-math/) for
+the thesis, the paper and other material). Even after I shortened the
+bachelor's thesis to 5&nbsp;pages, I had to adjust the language. That took me
+at least 20&nbsp;hours.
+
+So why might it be worth the effort?
+
+A paper is the way to communicate research to other researchers. It shows very
+briefly what the author was working on. It might introduce new results, a new
+method, confirm known results by using already know methods in a new way. But I
+guess the important point is that it is short and of highest quality.
+Trustworthy.
+
+If researchers had enough time, money and expertise they should be able to
+do the same experiments again and confirm the results themselves. But those
+resources are scarce, so trustworthy publications are important. This is where
+historically peer-reviews and peer-reviewed journals got really important.
+
+
+## What is a peer review?
+
+A "peer" is somebody who is at a level equal.<small><sup><a href="#ref1" name="anchor1">[1]</a></sup></small> So a peer review is a review done by somebody who works in the same
+field. This can be done for many reasons:
+
+1. Prevent spam submissions
+2. Prevent articles with "obviously" wrong content being accepted
+3. Prevent articles of inferior quality being accepted
+4. Help authors to improve their quality
+    * by finding missing experiments which should be done to support the claim
+      of the paper,
+    * by checking the paper for consistency with itself and probably with other
+      papers in the same field,
+    * by finding typos
+5. Increase trust in the paper and the journal
+
+This means if a journal has a working peer-review system, and if the peers who
+review do their work properly, you can be relatively confident that the claims
+are correct. You don't need to check it yourself, because others have done so
+for you. But you have to be able to trust the journal that they really made
+a peer review. You have to trust them, that they have reliable reviewers and
+that they are able to decide who has knowledge in a given topic.
+
+
+## Exposed unrealiable journals
+
+A paper with the title
+"[Fuzzy, Homogeneous Configurations](https://cdn2.vox-cdn.com/uploads/chorus_asset/file/2522068/manuscript_Networking_Simpson.0.pdf)"
+and the authors Margaret Simpson, Kim Jong Fun and Edna Krabappel was submitted
+to the Journal of Computational Intelligence and Electronic Systems and the
+Aperito Journal of Nanoscience Technology. The author generated the paper with
+[SCIgen](https://pdos.csail.mit.edu/archive/scigen/), an automatic CS paper
+generator.<small><sup><a href="#ref2"
+name="anchor2">[2]</a></sup></small><small><sup><a href="#ref3"
+name="anchor3">[3]</a></sup></small>
+
+The same thing happened with a paper generated by
+[Mathgen](http://thatsmathematics.com/mathgen/). This paper was generated by
+"Professor Marcie Rathke" from the non-existing "University of Southern North Dakota at Hoople".
+It was submitted to [Advances in Pure Mathematics](http://www.scirp.org/journal/apm/) (Scientific Research Publishing) and seemd to be accepted.<small><sup><a href="#ref4" name="anchor4">[4]</a></sup></small>
+According to the blog, the journal wanted 500.00 US-Dollar to print the
+article. This was not paid and for this reason the paper was not printed in
+the journal.
+
+
+## What can currently be done against it?
+
+As an author who put many hours in the research itself and again many hours in
+writing the paper, you don't want to publish it to such unreliable,
+unprofessional journals. As the author should have domain knowledge, he should
+know which journals are important, which ones are trustworthy. So publishing
+in such a journal makes the author itself untrustworthy.
+
+
+### Open Science
+
+I think journals are (partially) a relict from the past. Before the internet,
+researchers needed journals to pubish their work to have any impact at all.
+Today, researchers can publish their work on platforms like the
+[arXiv](http://arxiv.org/). This gives everybody free access to the work. Or
+researchers can publish it directly via their universitys services / websites
+(as I did with the KIT system EVA STAR).
+
+
+### Current quality measures
+
+Don't get me wrong: Good, peer-reviewed journals are still interesting. A paper
+will still get much more attention if it was published in one of the big
+journals (like [IEEE Transactions on Pattern Analysis and Machine Intelligence](https://en.wikipedia.org/wiki/IEEE_Transactions_on_Pattern_Analysis_and_Machine_Intelligence)). But if
+you look at Wikipedias [List of scientific journals](https://en.wikipedia.org/wiki/List_of_scientific_journals), you will quickly figure out that there are LOTS
+of journals.
+
+One way to separate the wheat from the chaff are automatically applyable
+quality measures. One such measure is the [impact factor](https://en.wikipedia.org/wiki/Impact_factor).
+The <abbr title="impact factor">IF</abbr> is calculated on a annual basis:
+
+$$IF(year, journal) = \frac{A(year, journal)}{B(year, journal)}$$
+
+where $A$ is the numer of times all items of the journal from $year-1$ and
+$year-2$ before were cited by publications in $year$.
+$B$ is the number of "citable items" published by the journal in $year-1$ and
+$year-2$.
+
+However, there is a lot to criticize about the IF:
+
+* It doesn't give a simple, black-and-white reliable/not reliable way to look
+  at journals for authors.
+* Depending on how much effort you want to put into it, you can manipulate the
+  score by adding many new papers which cite themselves.
+* Even considering only "nice" authors / journals who don't want to actively
+  influence the quality measure, you have different numbers of citations from
+  field to field.
+* Citations might not always be positive.
+
+See [criticisms section](https://en.wikipedia.org/wiki/Impact_factor#Criticisms)
+in the Wikipedia article for more information.
+
+
+## What could be done against it?
+
+The problem of trust does still exist. In some sense it is more complicated
+today than it has ever been. In the "traditional" way of publishing a paper at
+a conference or journal, researchers only had to figure out what conference or
+journal is trustworthy. From "a few" journals and conferences, I guess. (Please
+leave a comment if you know how many journals and confereces excisted over the
+time - I guess there is at least a linear growth because publishing becomes
+easier, but I would like to see number for that).
+
+Today, you have to do so on a paper basis if you want to consider openly
+published papers. You could also try to figure out which of the thousands of
+journals is trustworthy, but as some might actively try to influence the
+quality measures without actually having high quality, we need new ways to
+look at this problem.
+
+
+### Publishing Hoax Papers
+I'm not too sure what I think about this approach. On the one hand, it can
+settly the argument if you can trust a journal at all. If they accept an
+obvious hoax paper, they don't have a reviewing process. However, humans have
+to have a look at the hoax paper. So this is a waste of valuable human
+resources.
+
+
+### Computer-verifiable papers
+Computers can verify proofs automatically. This is called [automated proof checking](https://en.wikipedia.org/wiki/Automated_proof_checking). It would be awesome if the proof checkers
+would be sophisticated enough to make the required time to annotate a proof
+for automated checkers acceptable. Currently, I am pretty sure this approach
+has several problems:
+
+1. There is no way of annotating the proof (e.g. by adding meta-data to the
+   TeX-files or to the PDF) in such a way that a pogram can figure out what
+   is to be proven and which steps were taken in the proof.
+2. There is no knowledge-base of statements which are already proven, already
+   in common knowledge of every mathematician so that computers can use them,
+   too.
+3. It would be necessary to check if the textual goal of the proof is
+   consistant with the metadata goal of the proof. For example, the annotation
+   could state that 1=1 is to be proven, but the text says P=NP is to be
+   proven.
+4. Similar to 3, but not as severe: It would be nice if the text steps of a
+   proof are consistant with the annotation. This would prevent that a valid
+   statement, which is annotated with enough information to proof it
+   automatically is described a wrong way.
+
+Automatic provers like [KeY](http://www.key-project.org/) do already exist.
+This means there already is a way to describe a proof goal as well as the
+necessary knowledge to infer the goal from axioms. I know that [JML](https://en.wikipedia.org/wiki/Java_Modeling_Language) can be used to specify a program. KeY can then
+(sometimes) (half-)automatically find a proof that the program follows the
+specification. However, this is very difficult. I would say currently not
+feasible for any non-trivial program.
+
+I should also note that this might be possible for mathematics and eventually
+some branches of computer science, but I doubt that this would be
+applicable to physics, chemistry or biology. Not to mention other subjects
+like medicine.
+
+
+### Annotating trustworthiness in references
+
+I think it would be nice if authors would annotate the references they give in
+PDFs with "trustworthiness". This means one could cite negative sources,
+sources where results could be proven to be wrong (or at least not confirmed).
+
+
+### Identity of authors
+
+Is an author important for a paper? I'm not too sure about this one. But at
+least the author on the paper should be the real author. So I shouldn't be able
+to publish something as somebody else. As names might also collide, I would
+suggest that author names should be skipped. Instead, a checkable identifier
+should be taken.
+
+For example, email addresses would be such identifiers. You can check if
+somebody is the owner of an email address by sending him or her a confirmation
+email. The nice thing about it would be that the author would also give a way
+to contact him this way.
+
+However, email addresses are also not optimal as they might change. One could
+also set up a web service with the aim to provide identifiers. This service
+could give email addresses which are guaranteed not to be given to any other
+person. Ever. Such identifiers should have a minimum distance to prevent typos
+from giving false authorship, a checksum to make checking for typos easy and
+an the web service should have an
+<abbr title="application programming interface">API</abbr> to check if it is
+really used by somebody.
+
+[ResearcherID](http://www.researcherid.com/) and
+[ORCiD](http://about.orcid.org/) are two services which want to give IDs to
+researchers. For example, my ORCiD is
+[0000-0002-6517-1690](http://orcid.org/0000-0002-6517-1690). However, those IDs
+seem to be very rarely used. I've never seen them in citations. How can one be
+sure that a publication was really made by me, if it doesn't contain the ID?
+(TODO: I've contacted ORCiD to see if they have any plans regarding those
+problems.)
+
+
+## References
+<ol>
+  <li><a name="ref1" href="#anchor1">&uarr;</a>: <a href="https://en.wiktionary.org/wiki/peer#Noun">peer</a>. Wiktionary.</li>
+  <li><a name="ref2" href="#anchor2">&uarr;</a>: Fiona MacDonald: <a href="http://www.sciencealert.com/two-scientific-journals-have-accepted-a-study-by-maggie-simpson-and-edna-krabappel">A study by Maggie Simpson and Edna Krabappel has been accepted by two scientific journals</a>, 10.12.2014. sciencealert.com.</li>
+  <li><a name="ref3" href="#anchor3">&uarr;</a>: Rachel Feltman: <a href="https://www.washingtonpost.com/news/speaking-of-science/wp/2014/12/08/two-scientific-journals-accepted-a-study-by-maggie-simpson-and-edna-krabappel/">Two scientific journals accepted a study by Maggie Simpson and Edna Krabappel</a>, 08.12.2014. washingtonpost.com.</li>
+  <li><a name="ref4" href="#anchor4">&uarr;</a>: <a href="http://thatsmathematics.com/blog/archives/102">Mathgen paper accepted!</a>, 14.09.2012. thatsmathematics.com.</li>
+</ol>
