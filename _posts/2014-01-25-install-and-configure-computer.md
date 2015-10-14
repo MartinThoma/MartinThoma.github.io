@@ -145,16 +145,23 @@ autocmd BufWritePost *.cpp execute '!astyle --style=java --indent=spaces %'
 
 ```text
 [user]
-	name = Martin Thoma
-	email = info@martin-thoma.de
+    name = Martin Thoma
+    email = info@martin-thoma.de
 [diff]
-	external = git-meld
+    external = git-meld
 
 [diff "pdfdiff"]
-	command = diffpdf
+    command = diffpdf
 
 [core]
-	attributesfile = ~/.gitattributes
+    attributesfile = ~/.gitattributes
+    editor = subl -n -w
+
+[push]
+    default = simple
+
+[branch]
+    autosetuprebase = always
 ```
 
 .gitattributes

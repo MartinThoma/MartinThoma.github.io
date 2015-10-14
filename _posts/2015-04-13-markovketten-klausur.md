@@ -95,5 +95,5 @@ Es gibt Dienstags und Mittwochs Tutorien.
 **Übungsschein**: ?<br/>
 **Bonuspunkte**: ?<br/>
 **Ergebnisse**: ?<br/>
-**Einsicht**: ?<br/>
+**Einsicht**: Montag, 19.10.2015, 13:00 Uhr - 13:30 Uhr, Im Raum 2.071, [Mathematikgebäude](https://www.kithub.de/map/2133)<br/>
 **Erlaubte Hilfsmittel**: ?

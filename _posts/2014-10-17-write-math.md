@@ -64,7 +64,9 @@ this is about 3.7GB. This means sharing the data is not that easy.
 ## Bachelor's thesis
 
 * [07.11.2014](http://martin-thoma.com/pdf/bsthesis-thoma-2014-11-07.pdf):
-  Thesis I have handed in. It is currently graded.
+  My bachelor's thesis. I've got the best grade (1.0) for it :-)
+* [29.06.2015](http://digbib.ubka.uni-karlsruhe.de/volltexte/1000048047): An
+  updated, condensed version of my bachelor's thesis.
 
 ### Remarks
 
