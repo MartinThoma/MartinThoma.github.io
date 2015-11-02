@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Bug Reporting
+title: Bug Reporting - A users perspective
 author: Martin Thoma
 date: 2015-01-21 14:54
-categories: 
+categories:
 - Cyberculture
-tags: 
+tags:
 - Bugs
 - Issues
 - Software Quality

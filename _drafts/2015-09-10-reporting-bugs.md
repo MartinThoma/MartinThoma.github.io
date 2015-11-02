@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reporting bugs
+title: Bug reporting for developers
 author: Martin Thoma
 date: 2014-11-22 17:19
 categories:
@@ -38,3 +38,31 @@ And you should give a list of what you tried and what happened.
 Examples for this mistake:
 
 * http://stackoverflow.com/q/32665520/562769
+
+### Not giving minimal examples
+
+Try to make the piece of code which is not working as short as possible.
+
+1. Can you make it a single file?
+2. Can you make it a single function?
+3. Can you make the function have less parameters?
+4. Can you reduce the code of the function?
+5. Can you make the input which gives unexpected results shorter?
+
+When you made the example minimal, give your peers the following information
+
+* Example input
+* Expected output
+* Actual output
+
+## See also
+
+* My articles
+    * [Bug Reporting - A users perspective](http://martin-thoma.com/bug-reporting/)
+    * [Debugging a C program](http://martin-thoma.com/debugging-a-c-program/)
+    * [Profiling C programs](http://martin-thoma.com/profiling-c-programs/)
+* StackOverflow
+    * [How to debug Rust programs?](http://stackoverflow.com/q/15871885/562769)
+    * [How to debug Node.js applications](http://stackoverflow.com/q/1911015/562769)
+    * [How do you debug PHP scripts?](http://stackoverflow.com/q/888/562769)
+    * [How to create a Minimal, Complete, and Verifiable example](http://stackoverflow.com/help/mcve)
