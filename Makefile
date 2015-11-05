@@ -44,7 +44,7 @@ deploy:
 	./_postprocess.py
 	# restore pre-preprocessing state
 	cp _postStorage/* _posts/
-	#mv captions/ _site/
+	mv captions/ _site/
 	rm -rf captions
 	# remove temporary files
 	rm -rf _postStorage
