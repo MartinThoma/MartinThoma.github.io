@@ -37,7 +37,7 @@ featured_image: logos/klausur.png
 
 ### Prüfungsfragen
 
-Kommt noch
+Kommt noch... spätestens wenn die Klausur naht.
 
 ### Übungen
 
