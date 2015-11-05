@@ -6,7 +6,7 @@ date: 2014-03-20 21:09
 categories:
 - Code
 tags:
-- Python
+- design
 featured_image: logos/design.png
 ---
 
@@ -38,6 +38,41 @@ prevents that:
 
 ## Medicine
 
+I remember that I've seen a Ted Talk about the design of package inserts of
+drugs. I can't find it any more 😕.
+
 ## Brush
 
 {% caption align="aligncenter" width="500" alt="A brush with which you can easily remove the hair.<br/>Source: <a href='http://www.brainparking.com/view/topic.cfm?key_or=1166625&lenta_type=4'>brainparking.com</a>" text="A brush with which you can easily remove the hair.<br/>Source: <a href=''>brainparking.com</a>" url="../images/2014/10/brush.jpg" %}
+
+## Floor plans
+
+* Having the plan right at the entrance of the building
+* A big red dot which indicates the current position. Nothing else should be
+  red. Below the dot, there should be a text "you are here".
+* If the building has multiple floors, all floorplans should be right at the
+  entrance. An alphabetically sorted index of rooms should point to the floor
+  in which that room is.
+* Rooms should have a common naming scheme. For example, `XYY` where X is the
+  floor number and `YY` is an increasing number. `123` should be right below
+  `223` and `123` should be followed by `124`. If The building is very big,
+  one could try to encode North, East, South and West in the Room number.
+
+## Simpler stuff
+
+* Over-Ear headphones: Removable cables so that if the cable breaks, you don't
+  have to throw the whole phone away.
+* Standardised loading cables: One charger to rule them all.
+  See [Common external power supply](https://en.wikipedia.org/wiki/Common_external_power_supply).
+
+## Computer Stuff
+
+### Websites
+
+There is way to much about good design (not graphics, but structure) to say
+in the context of websites.
+
+* Search boxes
+* Ordering systems like categories, tags, ...
+* Navigation systems like breadcrumbs, index pages, ...
+
