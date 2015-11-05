@@ -33,6 +33,15 @@ sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
 The editor is usable right after the installation, but you might want to make 
 some fine-tuning.
 
+## Package Control
+
+The [`Package Control`](https://sublime.wbond.net/) plugin should definitely be
+installed. It makes installation of other packages so much easier. After you
+have installed it, you can press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
+to get this dialog:
+
+{% caption align="aligncenter" width="500" alt="Sublime Tabs" text="Sublime Tabs" url="../images/2014/03/sublime-package-control-install.png" %}
+
 ## Configuration
 Sublime Text offers plenty of configuration options. You can apply them to projects, users or system wide. Most of the time, I change my preferences for me via Preferences > Settings - User:
 
@@ -42,7 +51,7 @@ Here is what I have changed:
 
 ```text
 {
-	"color_scheme": "Packages/User/textmate (SL).tmTheme",
+	"color_scheme": "Packages/Colorsublime - Themes/textmate.tmTheme",
 	"draw_white_space": "all",
 	"fold_buttons": true,
 	"font_face": "Ubuntu Mono",
@@ -72,12 +81,6 @@ This will do a fuzzy search through all elements in the menu. So you don't need
 to use <kbd>Alt</kbd> + arrow keys no longer. I love it :-)
 
 ## Plugins
-
-### Package Control
-The [`Package Control`](https://sublime.wbond.net/) plugin should definitely be installed. It makes installation of other packages so much easier. After you have installed it, you can press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-to get this dialog:
-
-{% caption align="aligncenter" width="500" alt="Sublime Tabs" text="Sublime Tabs" url="../images/2014/03/sublime-package-control-install.png" %}
 
 ### LaTeXTools
 The [LaTeXTools](https://github.com/SublimeText/LaTeXTools) package adds support

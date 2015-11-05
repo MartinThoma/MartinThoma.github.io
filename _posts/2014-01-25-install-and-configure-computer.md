@@ -37,11 +37,13 @@ If possible, I will give the debian package names in the following list:
   * [`inkscape`](http://www.inkscape.org/)
   * `dia`
   * [`imagemagick`](http://www.imagemagick.org/script/index.php)
+  * `pdf2svg librsvg2-bin`
 * Programming
   * `vim`
   * `python python3 python-numpy python-setuptools python-mysqldb`
   * `ruby ruby-sqlite3 ruby-mysql`
-  * `gcc g++`
+  * `gcc g++ cmake build-essential`
+  * OpenGL: `xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev`
   * `apache2 php5 php5-mysql`
   * `zsh` and [Oh-my-zsh](../working-terminal/)
   * `eclipse`
@@ -49,6 +51,7 @@ If possible, I will give the debian package names in the following list:
   * `tcl`
   * `phpmyadmin selfhtml`
   * `meld diffpdf`
+  * [`virtualbox`](https://wiki.ubuntuusers.de/virtualbox)
 * Themes
   * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
 * Other
@@ -56,7 +59,8 @@ If possible, I will give the debian package names in the following list:
   * `libreoffice`
   * `curl`
 * DRM-caused (I want to watch DVDs!)
-  * `ubuntu-restricted-extras libdvdcss2 libdvdread4 libdvdnav4 w32codecs`
+  * `ubuntu-restricted-extras libdvd-pkg libdvdread4 libdvdnav4`, then run
+    `sudo dpkg-reconfigure libdvd-pkg`
   * `totem banshee mplayer rythmbox`
 
 ## Configure ##
@@ -90,85 +94,8 @@ sudo /usr/share/doc/libdvdread4/install-css.sh
 sudo regionset #use that with caution
 ```
 
-### vim ###
-.vimrc:
-
-```vim
-set t_Co=256
-set shell=bash
-set shellquote= 
-set shellxquote= 
-set noshelltemp 
-
-syntax on	" enable syntax highlighting
-filetype on	" enable file type detection
-colorscheme default
-
-" Set some nice character listings, then activate list
-set list listchars=tab:⟶\ ,trail:·,extends:>,precedes:<,nbsp:%
-set list
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-set expandtab " use spaces instead of tabs
-autocmd FileType make setlocal noexpandtab " Makefiles always need tabs
-
-set number " turn on line numbers
-set showmatch " show matching brackets
-
-" Highlight current line
-set cursorline
-" hi CursorLine cterm=NONE ctermbg=187
-
-" Show when lines get too long
-set textwidth=80
-set colorcolumn=+1
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
-set autoindent " keep intendation level
-
-hi SpecialKey   ctermfg=white    ctermbg=none       cterm=none " make tab sign grey
-
-" highlight LineNr ctermfg=0 ctermbg=187
-set statusline+=%F " Add full file path to your existing statusline
-set laststatus=2
-
-" execute make
-map <C-m> :make
-autocmd BufWritePost *.cpp execute '!astyle --style=java --indent=spaces %'
-```
-
-### Git ###
-.gitconfig
-
-```text
-[user]
-    name = Martin Thoma
-    email = info@martin-thoma.de
-[diff]
-    external = git-meld
-
-[diff "pdfdiff"]
-    command = diffpdf
-
-[core]
-    attributesfile = ~/.gitattributes
-    editor = subl -n -w
-
-[push]
-    default = simple
-
-[branch]
-    autosetuprebase = always
-```
-
-.gitattributes
-
-```text
-*.pdf diff=pdfdiff
-```
+### dotfiles ###
+See [github.com/MartinThoma/dotfiles](https://github.com/MartinThoma/dotfiles).
 
 ## Data
 Download / copy all data back from GitHub / external HDDs to my internal HDD.

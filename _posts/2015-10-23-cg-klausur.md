@@ -39,6 +39,22 @@ featured_image: logos/klausur.png
 
 Kommt noch
 
+### Übungen
+
+Das Framework bekommt man ohne VM unter Ubuntu 15.04 nach der Installtion
+folgender Pakete (vielleicht) zum laufen:
+
+```bash
+$ sudo apt-get install cmake xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev libglfw3
+```
+
+Wenn ihr den Fehler
+
+> error adding symbols: DSO missing from command line ubuntu
+
+bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
+`build`-Ordner löschen und es neu versuchen.
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
