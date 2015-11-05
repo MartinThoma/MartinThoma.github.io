@@ -62,8 +62,7 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
 
 ## Übungsbetrieb
 
-Es gibt Übungsblätter und Übungen, aber keine Tutorien und keine
-Bonuspunkte.
+Es gibt Übungsblätter und Übungen, aber keine Tutorien und keine Bonuspunkte.
 
 
 ## Termine und Klausurablauf
