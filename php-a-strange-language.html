@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- type: head.html -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    
+
+    
+        <meta name="thumbnail" content="http://martin-thoma.com/images/2011/10/PHP-logo.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2011/10/PHP-logo.png" />
+    
+
+    <meta property="og:type" content="blog"/>
+
+    <title>PHP: A strange language</title>
+    <link rel="stylesheet" href="http://martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="http://martin-thoma.com/php-a-strange-language" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@themoosemind"/>
+<meta name="twitter:creator" content="@themoosemind"/>
+<meta name="twitter:title" content="PHP: A strange language"/>
+
+    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
+
+
+    <meta name="twitter:image" content="http://martin-thoma.com/images/2011/10/PHP-logo.png"/>
+
+
+
+<meta name="twitter:url" content="http://martin-thoma.com/php-a-strange-language"/>
+<meta name="twitter:domain" content="Martin Thoma.com"/>
+
+
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery.js"></script>
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery-migrate.min.js"></script>
+    <style type="text/css">div#toc_container {width: 275px;}</style>
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+<!-- type: post.html -->
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <!-- type: header.html -->
+<div id="header" role="banner">
+    <h1><a href="http://martin-thoma.com">Martin Thoma</a></h1>
+    <h2>A blog about Code, the Web and Cyberculture.</h2>
+</div>
+<nav class="navcontainer" role="navigation">
+	<ul id="nav">
+		<li class=""><a href="http://martin-thoma.com">Home</a></li>
+		<li class="page_item page-item-41 "><a href="http://martin-thoma.com/author/martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="http://martin-thoma.com/imprint/">Imprint</a></li>
+	</ul>
+</nav>
+
+            	<div id="content">	
+                    <article class="post type-post format-standard hentry clearfix ">
+                        <h2 class="title entry-title">PHP: A strange language</h2>
+			            <div class="postdate entry-date">
+                            <time datetime="2012-04-12T16:24:32+02:00">
+                                April 
+                                12th,
+                                  
+                                2012
+                            </time>
+                        </div>
+			
+						<div class="entry">
+                            <div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Automatic conversion</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-2">
+               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Strings to numbers</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-3">
+               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">MD5 hashes</span></a>
+            </li>
+         </ul>
+      </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">Inconsistency</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-5">
+               <a href="#tocAnchor-1-4-1"><span class="tocnumber">2.1</span> <span class="toctext">Starting and ending PHP</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-6">
+               <a href="#tocAnchor-1-4-2"><span class="tocnumber">2.2</span> <span class="toctext">Underscores</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-7">
+               <a href="#tocAnchor-1-4-3"><span class="tocnumber">2.3</span> <span class="toctext">Order of Arguments</span></a>
+            </li>
+         </ul>
+      </li>
+      <li class="toc_level-1 toc_section-8">
+         <a href="#tocAnchor-1-8"><span class="tocnumber">3</span> <span class="toctext">Sorting</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-9">
+         <a href="#tocAnchor-1-9"><span class="tocnumber">4</span> <span class="toctext">Argument order</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-10">
+         <a href="#tocAnchor-1-10"><span class="tocnumber">5</span> <span class="toctext">array_fill</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-11">
+         <a href="#tocAnchor-1-11"><span class="tocnumber">6</span> <span class="toctext">Strange loop</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-12">
+         <a href="#tocAnchor-1-12"><span class="tocnumber">7</span> <span class="toctext">Boolean evaluation</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-13">
+         <a href="#tocAnchor-1-13"><span class="tocnumber">8</span> <span class="toctext">Make a Guess</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-14">
+         <a href="#tocAnchor-1-14"><span class="tocnumber">9</span> <span class="toctext">Function names are NOT case sensitive</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-15">
+         <a href="#tocAnchor-1-15"><span class="tocnumber">10</span> <span class="toctext">PHP Logo</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-16">
+         <a href="#tocAnchor-1-16"><span class="tocnumber">11</span> <span class="toctext">Sources</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Automatic conversion</h2>
+
+<h3 id="tocAnchor-1-1-1">Strings to numbers</h3>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="x">$ php -a</span>
+<span class="x">php &gt; var_dump(123 == '123ax');</span>
+<span class="x">bool(true)</span>
+
+<span class="x">php &gt; var_dump('123' == '123ax');</span>
+<span class="x">bool(false)</span>
+</code></pre>
+</div>
+<h3 id="tocAnchor-1-1-2">MD5 hashes</h3>
+
+<div class="info">This one seems to be fixed. It doesn't work in PHP Version 5.4.6-1ubuntu1.2 (released 16.08.2012). It was a problem in PHP 5.3.5 (released 06.01.2011)</div>
+
+<p>PHP converts strings automatically to a float if it is possible. This might lead to problems. See this example from <a href="http://phpsadness.com/sad/47">phpsadness</a>:</p>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$password</span> <span class="o">=</span> <span class="s2">"ximaz"</span><span class="p">;</span>
+
+<span class="nv">$hash</span> <span class="o">=</span> <span class="s2">"61529519452809720693702583126814"</span><span class="p">;</span> <span class="c1">// = md5("ximaz")</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">md5</span><span class="p">(</span><span class="nv">$password</span><span class="p">)</span> <span class="o">==</span> <span class="nv">$hash</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">print</span> <span class="s2">"Allowed!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$wrong_hash</span> <span class="o">=</span> <span class="s2">"61529519452809720000000000000000"</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$wrong_hash</span> <span class="o">==</span> <span class="nv">$hash</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">print</span> <span class="s2">"Wrong hash got correct!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>See also:
+</p><ul>
+  <li><a href="http://php.net/language.operators.comparison">Comparison Operators</a></li>
+  <li><a href="https://bugs.php.net/bug.php?id=54547">Bug #54547: wrong equality of string numbers</a></li>
+  <li><a href="https://bugs.php.net/bug.php?id=62097">Bug #62097: New behavior of string == has a compatibility problem</a></li>
+  <li><a href="http://de.wikipedia.org/wiki/Versionsgeschichte_von_PHP">Versionsgeschichte von PHP</a> (German)</li>
+</ul>
+
+<h2 id="tocAnchor-1-4">Inconsistency</h2>
+
+<h3 id="tocAnchor-1-4-1">Starting and ending PHP</h3>
+
+<p>The following snippet is valid PHP-code:</p>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+    <span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>Source: <a href="http://stackoverflow.com/q/13228306/562769">StackOverflow.com</a> (You can find some explanations there.)</p>
+
+<h3 id="tocAnchor-1-4-2">Underscores</h3>
+
+<p>Some functions use underscores between words, while others do not:
+<a href="http://php.net/gettype">gettype</a> vs. <a href="http://php.net/get_class">get_class</a></p>
+
+<h3 id="tocAnchor-1-4-3">Order of Arguments</h3>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="x">strpos ( string $haystack , mixed $needle [...] )</span>
+<span class="x">stristr ( string $haystack , mixed $needle [...] )</span>
+<span class="x">in_array ( mixed $needle , array $haystack [...] )</span>
+<span class="x">array_search ( mixed $needle , array $haystack [...] )</span>
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-8">Sorting</h2>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="x">function pivot($arr) {</span>
+<span class="x">    return ($arr[0] + end($arr)) / 2;</span>
+<span class="x">}</span>
+
+<span class="x">$arr = array(1, 5, 7, 2, 3, 4, 8, 9, 6);</span>
+<span class="x">echo pivot(sort($arr));</span>
+</code></pre>
+</div>
+<p>This doesn't work. If you don't know why, you should take a look at <a href="http://php.net/manual/de/function.sort.php">sort</a>.</p>
+
+<h2 id="tocAnchor-1-9">Argument order</h2>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="x">mktime  ([$hour [, $minute [, $second [, $month  [, $day  [, $year  [, $is_dst]]]]]]])</span>
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-10">array_fill</h2>
+
+<p><a href="http://php.net/manual/en/function.array-fill.php"><code>array_fill</code></a> doesn't allow 0
+as `<code>$number</code>.</p>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nv">$arr</span> <span class="o">=</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$number</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>Array ( [0] =&gt; 42 [1] =&gt; 42 )</p>
+
+<h2 id="tocAnchor-1-11">Strange loop</h2>
+
+<p>Loops themselves should not change anything. So take a look at this:</p>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$array</span> <span class="k">as</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nv">$foo</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>Output:</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">array(2) {
+  [0]=&gt; string(3) "foo"
+  [1]=&gt; string(3) "bar"
+}
+
+array(2) {
+  [0]=&gt;  string(3) "foo"
+  [1]=&gt; &amp;amp;string(3) "bar"
+}
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-12">Boolean evaluation</h2>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'7.1'</span><span class="p">);</span>
+
+<span class="nv">$arr1</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'foo'</span><span class="p">,</span>
+  <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="nv">$arr2</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
+  <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'foo'</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"This "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"is "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">9</span><span class="p">)</span>    <span class="p">{</span><span class="k">echo</span> <span class="s2">"PHP. "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="mo">07</span><span class="p">)</span>   <span class="p">{</span><span class="k">echo</span> <span class="s2">"Oktal "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="mo">010</span> <span class="o">==</span> <span class="mi">8</span> <span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"is "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="s2">"8"</span> <span class="o">==</span> <span class="mi">8</span> <span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"also "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"true. "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"Like "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s1">'7.10'</span><span class="p">,</span> <span class="nv">$a</span><span class="p">))</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"that "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$arr1</span> <span class="o">==</span> <span class="nv">$arr2</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"one "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">'x'</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"is true."</span><span class="p">;}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="s2">""</span><span class="p">)</span>      <span class="p">{</span><span class="k">echo</span> <span class="s2">"false "</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>       <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="mi">08</span><span class="p">)</span>      <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$arr1</span> <span class="o">===</span> <span class="nv">$arr2</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-13">Make a Guess</h2>
+
+<p>Try to guess what the following prints:</p>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="s1">'a'</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="s1">'z'</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="k">echo</span> <span class="s2">"</span><span class="si">$i</span><span class="s2"> "</span><span class="p">;</span>
+
+<span class="c1">// I just need four NULLs to demo this.</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="k">NULL</span><span class="p">);</span>
+
+<span class="nv">$a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="o">++</span><span class="nv">$a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="nv">$a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+<span class="o">--</span><span class="nv">$a</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
+
+<span class="nv">$b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="o">++</span><span class="nv">$b</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="nv">$b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+<span class="o">--</span><span class="nv">$b</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$b</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</code></pre>
+</div>
+<p>Did you guess the following?</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz
+
+array(4) {
+  [0]=&gt; int(1)
+  [1]=&gt; int(1)
+  [2]=&gt; NULL
+  [3]=&gt; NULL
+}
+array(4) {
+  [0]=&gt; int(1)
+  [1]=&gt; int(1)
+  [2]=&gt; NULL
+  [3]=&gt; NULL
+}
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-14">Function names are NOT case sensitive</h2>
+<div class="highlight">
+   <pre><code class="language-php" data-lang="php"><span class="x">function add($a, $b)</span>
+<span class="x">{</span>
+<span class="x">    return $a + $b;</span>
+<span class="x">}</span>
+
+<span class="x">$foo = add(1, 2);</span>
+<span class="x">$Foo = Add(3, 4);</span>
+
+<span class="x">echo "foo is $foo"; // outputs foo is 3</span>
+<span class="x">echo "Foo is $Foo"; // outputs Foo is 7</span>
+</code></pre>
+</div>
+<p>Source: <a href="http://stackoverflow.com/a/2006635/562769">StackOverflow</a></p>
+
+<h2 id="tocAnchor-1-15">PHP Logo</h2>
+
+<p>Add <code>?=PHPE9568F34-D428-11d2-A769-00AA001ACF42</code> to any PHP script and take a look at the output. For example at <a href="http://en.wikipedia.org/wiki/Main_Page?=PHPE9568F34-D428-11d2-A769-00AA001ACF42">Wikipedia</a>.</p>
+
+<h2 id="tocAnchor-1-16">Sources</h2>
+
+<ul>
+  <li><a href="http://phpsadness.com/">phpsadness.com</a></li>
+  <li><a href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/">PHP: a fractal of bad design</a> (thanks to <a href="http://www.knallisworld.de/blog/2012/04/11/herrlicher-php-rant/">knallisworld.de</a>)</li>
+  <li><a href="http://www.phpwtf.org/">phpwtf.org</a></li>
+</ul>
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="http://martin-thoma.com/category/code/">Code</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags: 
+                            
+                                
+                                    <a href="http://martin-thoma.com/tag/programming/">Programming</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/php/">PHP</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-04-12 16:24:32 +0200">
+                                April 
+                                12th
+                                  , 
+                                2012</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="http://martin-thoma.com/project-euler-problem-142/" rel="prev">Project Euler: Problem 142</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="http://martin-thoma.com/google-code-jam-2012-qualification-round/" rel="next">Google Code Jam 2012 - Qualification Round</a> &raquo;
+                                 
+                                </div>
+							</div>
+	
+						</article>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                                <!-- comment discuss code -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!-- comment discuss code -->
+
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+<a href="http://martin-thoma.com/feed/"><img src="http://martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>		
+<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
+</div>
+
+	            <div id="sidebar">
+                <!-- type: searchbox.html - TODO-->
+<ul>
+    <li id="search">
+        <div class="searchlayout">
+            <form method="get" id="searchform" action="http://google.com/cse" role="search">
+                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
+                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
+                <input type="image" src="http://martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/> 
+            </form>
+        </div>
+    </li>
+</ul>
+
+                <div class="addthis_toolbox">   
+    <div class="custom_images">
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/php-a-strange-language&amp;hashtags=programming,php,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://del.icio.us/post?url=http://martin-thoma.com/php-a-strange-language&amp;title=PHP:%20A%20strange%20language" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/php-a-strange-language" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/php-a-strange-language&amp;title=PHP:%20A%20strange%20language" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="http://www.stumbleupon.com/submit?url=http://martin-thoma.com/php-a-strange-language&amp;title=PHP:%20A%20strange%20language" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http://martin-thoma.com/php-a-strange-language" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
+            <a href="http://reddit.com/submit?url=http://martin-thoma.com/php-a-strange-language&amp;title=PHP:%20A%20strange%20language" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+    </div>
+</div>
+			        
+		        <ul>
+                    <li id="categories-3" class="widget widget_categories">
+                        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="http://martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="http://martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="http://martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="http://martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="http://martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="http://martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+	</ul>
+
+                    </li>
+                    <li id="tag_cloud-3" class="widget widget_tag_cloud">
+                        <h2 class="widgettitle">Tags</h2>
+                        <div class="tagcloud"><a style='font-size: 131.25%' href='http://martin-thoma.com/tag/ai/' title='9 topics'>AI</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 193.97%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/chrome/' title='5 topics'>Chrome</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/html5/' title='5 topics'>HTML5</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/it-security/' title='9 topics'>IT-Security</a>
+<a style='font-size: 228.53%' href='http://martin-thoma.com/tag/java/' title='36 topics'>Java</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/javascript/' title='6 topics'>JavaScript</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/kit/' title='18 topics'>KIT</a>
+<a style='font-size: 210.90%' href='http://martin-thoma.com/tag/klausur/' title='28 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 202.95%' href='http://martin-thoma.com/tag/latex/' title='25 topics'>LaTeX</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 171.63%' href='http://martin-thoma.com/tag/linux/' title='16 topics'>Linux</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/machine-learning/' title='9 topics'>Machine Learning</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/php/' title='9 topics'>PHP</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/physics/' title='5 topics'>Physics</a>
+<a style='font-size: 241.00%' href='http://martin-thoma.com/tag/programming/' title='43 topics'>Programming</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/python/' title='65 topics'>Python</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/swt-i/' title='9 topics'>SWT I</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.05%' href='http://martin-thoma.com/tag/video/' title='13 topics'>Video</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/vimeo/' title='9 topics'>Vimeo</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/web-development/' title='10 topics'>Web Development</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/wikipedia/' title='6 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/windows-7/' title='5 topics'>Windows 7</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 145.33%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/analysis/' title='7 topics'>analysis</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/cheat-sheet/' title='5 topics'>cheat sheet</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/funny/' title='15 topics'>funny</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 255.68%' href='http://martin-thoma.com/tag/mathematics/' title='53 topics'>mathematics</a>
+<a style='font-size: 190.71%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
+</div>
+                    </li>
+                </ul>
+	            </div>
+            </div>
+		</div><!--/container-->
+			<footer id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</footer><!--/footer-->
+            
+	</div><!--/wrapper-->
+<!-- type: footer -->
+<!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<!-- TOC Plus -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://martin-thoma.com/js/tocplus-front.js"></script>
+
+</body>
+</html>
+

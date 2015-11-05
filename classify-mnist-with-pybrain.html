@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- type: head.html -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    
+
+    
+        <meta name="thumbnail" content="http://martin-thoma.com/images/logos/pybrain.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/logos/pybrain.png" />
+    
+
+    <meta property="og:type" content="blog"/>
+
+    <title>Classify MNIST with PyBrain</title>
+    <link rel="stylesheet" href="http://martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="http://martin-thoma.com/classify-mnist-with-pybrain" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@themoosemind"/>
+<meta name="twitter:creator" content="@themoosemind"/>
+<meta name="twitter:title" content="Classify MNIST with PyBrain"/>
+
+    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
+
+
+    <meta name="twitter:image" content="http://martin-thoma.com/images/logos/pybrain.png"/>
+
+
+
+<meta name="twitter:url" content="http://martin-thoma.com/classify-mnist-with-pybrain"/>
+<meta name="twitter:domain" content="Martin Thoma.com"/>
+
+
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery.js"></script>
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery-migrate.min.js"></script>
+    <style type="text/css">div#toc_container {width: 275px;}</style>
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+<!-- type: post.html -->
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <!-- type: header.html -->
+<div id="header" role="banner">
+    <h1><a href="http://martin-thoma.com">Martin Thoma</a></h1>
+    <h2>A blog about Code, the Web and Cyberculture.</h2>
+</div>
+<nav class="navcontainer" role="navigation">
+	<ul id="nav">
+		<li class=""><a href="http://martin-thoma.com">Home</a></li>
+		<li class="page_item page-item-41 "><a href="http://martin-thoma.com/author/martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="http://martin-thoma.com/imprint/">Imprint</a></li>
+	</ul>
+</nav>
+
+            	<div id="content">	
+                    <article class="post type-post format-standard hentry clearfix ">
+                        <h2 class="title entry-title">Classify MNIST with PyBrain</h2>
+			            <div class="postdate entry-date">
+                            <time datetime="2014-06-18T02:31:00+02:00">
+                                June 
+                                18th,
+                                  
+                                2014
+                            </time>
+                        </div>
+			
+						<div class="entry">
+                            <p>The <abbr title="Mixed National Institute of Standards and Technology">MNIST</abbr>
+database is a huge database of handwritten digits that is commonly used for 
+training, evaluating and comparing classifiers.</p>
+
+<p>It has a training set of 60,000 instances and a test set of 10,000 instances.
+Every instance is a 28 × 28 pixel grayscale image.</p>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">The MNIST format</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Reading the dataset</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-3">
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Viewing data</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Classify data</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-5">
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Final steps</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-6">
+         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Final complete code</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-7">
+         <a href="#tocAnchor-1-7"><span class="tocnumber">7</span> <span class="toctext">Results</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">The MNIST format</h2>
+
+<p>MNIST comes in 4 files (<a href="http://yann.lecun.com/exdb/mnist/">download here</a>):</p>
+
+<ul>
+<li>train-images-idx3-ubyte.gz: training set images (9.45 MB, 60000 instances)</li>
+<li>train-labels-idx1-ubyte.gz:  training set labels (28.2 kB, 60000 labels)</li>
+<li>t10k-images-idx3-ubyte.gz:   test set images (1.57 MB, 10000 instances)</li>
+<li>t10k-labels-idx1-ubyte.gz:   test set labels (4.43 kB, 10000 labels)</li>
+</ul>
+
+<p>Both label files are like this:</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">[offset] [type]          [value]          [description] 
+0000     32 bit integer  0x00000801(2049) magic number (MSB first) 
+0004     32 bit integer  60000            number of items 
+0008     unsigned byte   ??               label 
+0009     unsigned byte   ??               label 
+........ 
+xxxx     unsigned byte   ??               label
+The labels values are 0 to 9.
+</code></pre>
+</div>
+<p>and both image containers are like that:</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">[offset] [type]          [value]          [description] 
+0000     32 bit integer  0x00000803(2051) magic number 
+0004     32 bit integer  60000            number of images 
+0008     32 bit integer  28               number of rows 
+0012     32 bit integer  28               number of columns 
+0016     unsigned byte   ??               pixel 
+0017     unsigned byte   ??               pixel 
+........ 
+xxxx     unsigned byte   ??               pixel
+</code></pre>
+</div>
+<p>And they are, of course, compressed.</p>
+
+<h2 id="tocAnchor-1-2">Reading the dataset</h2>
+
+<p>Python brings all necessary tools to make it easy to read the dataset:</p>
+
+<ul>
+<li><a href="https://docs.python.org/2/library/gzip.html">gzip</a>: A library for reading
+gzipped files</li>
+<li><a href="https://docs.python.org/2/library/struct.html#struct.unpack">unpack</a> to
+read the packed binary data</li>
+</ul>
+
+<p>As the training and the testing dataset is structured the same way, we can
+create a method thad retrives the data for both files.</p>
+<div class="highlight">
+   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span>
+
+
+<span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">):</span>
+    <span class="sd">"""Read input-vector (image) and target class (label, 0-9) and return</span>
+<span class="sd">       it as list of tuples.</span>
+<span class="sd">    """</span>
+    <span class="c"># Open the images with gzip in read binary mode</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
+
+    <span class="c"># Read the binary data</span>
+
+    <span class="c"># We have to get big endian unsigned int. So we need '&gt;I'</span>
+
+    <span class="c"># Get metadata for images</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
+    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c"># Get metadata for labels</span>
+    <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">'number of labels did not match the number of images'</span><span class="p">)</span>
+
+    <span class="c"># Get the data</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"i: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Just a single byte</span>
+                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_pixel</span>
+        <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-3">Viewing data</h2>
+
+<p>You might want to take a look at an image. This is easily possible with
+<a href="http://wiki.scipy.org/PyLab">PyLab</a> (which is a part of Matplotlib):</p>
+<div class="highlight">
+   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
+
+
+<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">""</span><span class="p">):</span>
+    <span class="sd">"""View a single image."""</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Label: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+<p>It tooks like this:</p>
+
+<ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/06/mnist-1.png" class="image">
+                  <img src="http://martin-thoma.com/captions/mnist-1.png" alt="" style="max-width: 120px; max-height: 120px;" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">7</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2014/06/mnist-2.png" class="image">
+                  <img src="http://martin-thoma.com/captions/mnist-2.png" alt="" style="max-width: 120px; max-height: 120px;" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">2</div>
+      </div>
+   </li>
+</ul>
+
+<h2 id="tocAnchor-1-4">Classify data</h2>
+
+<p>Now we can use <a href="http://pybrain.org/">PyBrain</a> to classify data.</p>
+
+<p>The following code will first build the PyBrain datastructure for the training
+set and the testing set. Then it will build a very simple neural network called
+a <em>Multilayer Perceptron</em> (MLP) with three layers: An input layer, a hidden
+layer and an output layer.</p>
+
+<p>After creating it, the MLP will be trained with the backpropagation algorithm.
+Every training step is followed by an evaluation step.</p>
+
+<p>By the way, <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html"><code>numpy.ravel</code></a>
+simply flattens a list.</p>
+<div class="highlight">
+   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ravel</span>
+
+<span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
+<span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
+<span class="kn">from</span> <span class="nn">pybrain.tools.shortcuts</span> <span class="kn">import</span> <span class="n">buildNetwork</span>
+<span class="kn">from</span> <span class="nn">pybrain.supervised.trainers</span> <span class="kn">import</span> <span class="n">BackpropTrainer</span>
+<span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
+
+
+<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">WEIGHTDECAY</span><span class="p">,</span>
+             <span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span> <span class="n">EPOCHS</span><span class="p">):</span>
+    <span class="n">trndata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
+    <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">)):</span>
+        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trndata</span><span class="p">)):</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">trndata</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">trndata</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+
+    <span class="c"># This is necessary, but I don't know why</span>
+    <span class="c"># See http://stackoverflow.com/q/8154674/562769</span>
+    <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
+    <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
+
+    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span>
+                       <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span><span class="p">)</span>
+
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span><span class="n">fnn</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
+                              <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
+                              <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
+                              <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
+        <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span>
+                                 <span class="n">trndata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
+        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span>
+                                 <span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">"epoch: </span><span class="si">%4d</span><span class="s">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
+              <span class="s">"  train error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
+              <span class="s">"  test error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fnn</span>
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-5">Final steps</h2>
+
+<p>You might want to add <a href="http://martin-thoma.com/how-to-parse-command-line-arguments-in-python/">command line parameters</a>, <a href="https://docs.python.org/2/library/logging.html">logging</a> and
+probably <a href="https://docs.python.org/2/library/pickle.html#module-cPickle">pickle</a>
+the data.</p>
+
+<h2 id="tocAnchor-1-6">Final complete code</h2>
+<div class="highlight">
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">ravel</span>
+
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
+
+<span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
+<span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
+<span class="kn">from</span> <span class="nn">pybrain.tools.shortcuts</span> <span class="kn">import</span> <span class="n">buildNetwork</span>
+<span class="kn">from</span> <span class="nn">pybrain.supervised.trainers</span> <span class="kn">import</span> <span class="n">BackpropTrainer</span>
+<span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
+
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">cPickle</span> <span class="kn">as</span> <span class="nn">pickle</span>
+
+
+<span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">,</span> <span class="n">picklename</span><span class="p">):</span>
+    <span class="sd">"""Read input-vector (image) and target class (label, 0-9) and return</span>
+<span class="sd">       it as list of tuples.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s">'</span><span class="si">%s</span><span class="s">.pickle'</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">'</span><span class="si">%s</span><span class="s">.pickle'</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># Open the images with gzip in read binary mode</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
+
+        <span class="c"># Read the binary data</span>
+
+        <span class="c"># We have to get big endian unsigned int. So we need '&gt;I'</span>
+
+        <span class="c"># Get metadata for images</span>
+        <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
+        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c"># Get metadata for labels</span>
+        <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">'The number of labels did not match '</span>
+                            <span class="s">'the number of images.'</span><span class="p">)</span>
+
+        <span class="c"># Get the data</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">"i: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Just a single byte</span>
+                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tmp_pixel</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+            <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s">'rows'</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s">'cols'</span><span class="p">:</span> <span class="n">cols</span><span class="p">}</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s">"</span><span class="si">%s</span><span class="s">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">""</span><span class="p">):</span>
+    <span class="sd">"""View a single image."""</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Label: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">WEIGHTDECAY</span><span class="p">,</span>
+             <span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span> <span class="n">EPOCHS</span><span class="p">):</span>
+    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="n">testing</span><span class="p">[</span><span class="s">'rows'</span><span class="p">]</span> <span class="o">*</span> <span class="n">testing</span><span class="p">[</span><span class="s">'cols'</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Input features: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">INPUT_FEATURES</span><span class="p">)</span>
+    <span class="n">CLASSES</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">trndata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
+    <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">])):</span>
+        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s">'x'</span><span class="p">])):</span>
+        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">training</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+
+    <span class="c"># This is necessary, but I don't know why</span>
+    <span class="c"># See http://stackoverflow.com/q/8154674/562769</span>
+    <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
+    <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
+
+    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span>
+                       <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span><span class="p">)</span>
+
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span><span class="n">fnn</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
+                              <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
+                              <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
+                              <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
+        <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span>
+                                 <span class="n">trndata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
+        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span>
+                                 <span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">"epoch: </span><span class="si">%4d</span><span class="s">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
+                     <span class="s">"  train error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
+                     <span class="s">"  test error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fnn</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+
+    <span class="c"># Add more options if you like</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-H"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"H"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"hidden_neurons"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"number of neurons in the hidden layer"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-e"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"EPOCHS"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s">"epochs"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"number of epochs to learn"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-d"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"W"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-m"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"M"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-l"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"ETA"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"learning_rate"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"learning rate"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-ld"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"ALPHA"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"lrdecay"</span><span class="p">,</span>
+                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">"learning rate decay"</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">"Get testset"</span><span class="p">)</span>
+    <span class="n">testing</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span><span class="s">'t10k-images-idx3-ubyte.gz'</span><span class="p">,</span>
+                               <span class="s">'t10k-labels-idx1-ubyte.gz'</span><span class="p">,</span> <span class="s">'testing'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Got </span><span class="si">%i</span><span class="s"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Get trainingset"</span><span class="p">)</span>
+    <span class="n">training</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span><span class="s">'train-images-idx3-ubyte.gz'</span><span class="p">,</span>
+                                <span class="s">'train-labels-idx1-ubyte.gz'</span><span class="p">,</span> <span class="s">'training'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Got </span><span class="si">%i</span><span class="s"> training datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s">'x'</span><span class="p">]))</span>
+    <span class="n">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">hidden_neurons</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">momentum</span><span class="p">,</span>
+             <span class="n">args</span><span class="o">.</span><span class="n">weightdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lrdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
+</code></pre>
+</div>
+<h2 id="tocAnchor-1-7">Results</h2>
+
+<p>I'll update that tomorrow:</p>
+<div class="highlight">
+   <pre><code class="language-bash" data-lang="bash">python pybrainmnist.py -e <span class="m">10000</span> -H 300
+Get testset
+Got <span class="m">10000</span> testing datasets.
+Get trainingset
+Got <span class="m">60000</span> training datasets.
+Input features: 784
+Total error: 0.0473157733222
+<span class="o">(</span><span class="s1">'epoch:    1'</span>, <span class="s1">'  train error: 89.56%'</span>, <span class="s1">'  test error: 89.72%'</span><span class="o">)</span>
+Total error: 0.0471086288906
+<span class="o">(</span><span class="s1">'epoch:    2'</span>, <span class="s1">'  train error: 90.13%'</span>, <span class="s1">'  test error: 90.20%'</span><span class="o">)</span>
+Total error: 0.0471545599893
+<span class="o">(</span><span class="s1">'epoch:    3'</span>, <span class="s1">'  train error: 90.25%'</span>, <span class="s1">'  test error: 90.26%'</span><span class="o">)</span>
+Total error: 0.0471544804653
+<span class="o">(</span><span class="s1">'epoch:    4'</span>, <span class="s1">'  train error: 90.08%'</span>, <span class="s1">'  test error: 89.91%'</span><span class="o">)</span>
+Total error: 0.047137394504
+<span class="o">(</span><span class="s1">'epoch:    5'</span>, <span class="s1">'  train error: 90.25%'</span>, <span class="s1">'  test error: 90.26%'</span><span class="o">)</span>
+Total error: 0.0471630159397
+<span class="o">(</span><span class="s1">'epoch:    6'</span>, <span class="s1">'  train error: 89.56%'</span>, <span class="s1">'  test error: 89.72%'</span><span class="o">)</span>
+Total error: 0.0471585130872
+<span class="o">(</span><span class="s1">'epoch:    7'</span>, <span class="s1">'  train error: 89.78%'</span>, <span class="s1">'  test error: 89.90%'</span><span class="o">)</span>
+Total error: 0.0471376594558
+<span class="o">(</span><span class="s1">'epoch:    8'</span>, <span class="s1">'  train error: 90.14%'</span>, <span class="s1">'  test error: 90.42%'</span><span class="o">)</span>
+Total error: 0.0471355052763
+<span class="o">(</span><span class="s1">'epoch:    9'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
+Total error: 0.0471595886207
+<span class="o">(</span><span class="s1">'epoch:   10'</span>, <span class="s1">'  train error: 90.07%'</span>, <span class="s1">'  test error: 89.68%'</span><span class="o">)</span>
+Total error: 0.0471580212242
+<span class="o">(</span><span class="s1">'epoch:   11'</span>, <span class="s1">'  train error: 90.13%'</span>, <span class="s1">'  test error: 90.20%'</span><span class="o">)</span>
+Total error: 0.047146194285
+<span class="o">(</span><span class="s1">'epoch:   12'</span>, <span class="s1">'  train error: 90.07%'</span>, <span class="s1">'  test error: 89.68%'</span><span class="o">)</span>
+Total error: 0.047139885027
+<span class="o">(</span><span class="s1">'epoch:   13'</span>, <span class="s1">'  train error: 89.56%'</span>, <span class="s1">'  test error: 89.72%'</span><span class="o">)</span>
+Total error: 0.0471459617826
+<span class="o">(</span><span class="s1">'epoch:   14'</span>, <span class="s1">'  train error: 90.13%'</span>, <span class="s1">'  test error: 90.20%'</span><span class="o">)</span>
+Total error: 0.0471302472029
+<span class="o">(</span><span class="s1">'epoch:   15'</span>, <span class="s1">'  train error: 90.07%'</span>, <span class="s1">'  test error: 89.68%'</span><span class="o">)</span>
+Total error: 0.0471525497087
+<span class="o">(</span><span class="s1">'epoch:   16'</span>, <span class="s1">'  train error: 90.26%'</span>, <span class="s1">'  test error: 90.18%'</span><span class="o">)</span>
+Total error: 0.0471419186775
+<span class="o">(</span><span class="s1">'epoch:   17'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
+Total error: 0.0471563384617
+<span class="o">(</span><span class="s1">'epoch:   18'</span>, <span class="s1">'  train error: 88.76%'</span>, <span class="s1">'  test error: 88.65%'</span><span class="o">)</span>
+Total error: 0.0471480887109
+<span class="o">(</span><span class="s1">'epoch:   19'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
+Total error: 0.0471466129654
+<span class="o">(</span><span class="s1">'epoch:   20'</span>, <span class="s1">'  train error: 90.08%'</span>, <span class="s1">'  test error: 89.91%'</span><span class="o">)</span>
+Total error: 0.0471322920471
+<span class="o">(</span><span class="s1">'epoch:   21'</span>, <span class="s1">'  train error: 90.08%'</span>, <span class="s1">'  test error: 89.91%'</span><span class="o">)</span>
+Total error: 0.0471505302295
+<span class="o">(</span><span class="s1">'epoch:   22'</span>, <span class="s1">'  train error: 88.76%'</span>, <span class="s1">'  test error: 88.65%'</span><span class="o">)</span>
+Total error: 0.0471490334095
+<span class="o">(</span><span class="s1">'epoch:   23'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
+Total error: 0.0471643256975
+<span class="o">(</span><span class="s1">'epoch:   24'</span>, <span class="s1">'  train error: 90.25%'</span>, <span class="s1">'  test error: 90.26%'</span><span class="o">)</span>
+Total error: 0.0471597744749
+<span class="o">(</span><span class="s1">'epoch:   25'</span>, <span class="s1">'  train error: 88.76%'</span>, <span class="s1">'  test error: 88.65%'</span><span class="o">)</span>
+</code></pre>
+</div>
+<p>This took several hours :-/</p>
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="http://martin-thoma.com/category/code/">Code</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags: 
+                            
+                                
+                                    <a href="http://martin-thoma.com/tag/python/">Python</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/pybrain/">PyBrain</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/mnist/">MNIST</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/ai/">AI</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/machine-learning/">Machine Learning</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/neural-nets/">Neural Nets</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/classification/">Classification</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2014-06-18 02:31:00 +0200">
+                                June 
+                                18th
+                                  , 
+                                2014</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="http://martin-thoma.com/classification-with-pybrain/" rel="prev">Classification with PyBrain</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="http://martin-thoma.com/awesome-robots/" rel="next">Awesome Robots</a> &raquo;
+                                 
+                                </div>
+							</div>
+	
+						</article>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                                <!-- comment discuss code -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!-- comment discuss code -->
+
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+<a href="http://martin-thoma.com/feed/"><img src="http://martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>		
+<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
+</div>
+
+	            <div id="sidebar">
+                <!-- type: searchbox.html - TODO-->
+<ul>
+    <li id="search">
+        <div class="searchlayout">
+            <form method="get" id="searchform" action="http://google.com/cse" role="search">
+                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
+                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
+                <input type="image" src="http://martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/> 
+            </form>
+        </div>
+    </li>
+</ul>
+
+                <div class="addthis_toolbox">   
+    <div class="custom_images">
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/classify-mnist-with-pybrain&amp;hashtags=python,pybrain,mnist,ai,machine-learning,neural-nets,classification,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://del.icio.us/post?url=http://martin-thoma.com/classify-mnist-with-pybrain&amp;title=Classify%20MNIST%20with%20PyBrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/classify-mnist-with-pybrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/classify-mnist-with-pybrain&amp;title=Classify%20MNIST%20with%20PyBrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="http://www.stumbleupon.com/submit?url=http://martin-thoma.com/classify-mnist-with-pybrain&amp;title=Classify%20MNIST%20with%20PyBrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http://martin-thoma.com/classify-mnist-with-pybrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
+            <a href="http://reddit.com/submit?url=http://martin-thoma.com/classify-mnist-with-pybrain&amp;title=Classify%20MNIST%20with%20PyBrain" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+    </div>
+</div>
+			        
+		        <ul>
+                    <li id="categories-3" class="widget widget_categories">
+                        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="http://martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="http://martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="http://martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="http://martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="http://martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="http://martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+	</ul>
+
+                    </li>
+                    <li id="tag_cloud-3" class="widget widget_tag_cloud">
+                        <h2 class="widgettitle">Tags</h2>
+                        <div class="tagcloud"><a style='font-size: 131.25%' href='http://martin-thoma.com/tag/ai/' title='9 topics'>AI</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 193.97%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/chrome/' title='5 topics'>Chrome</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/html5/' title='5 topics'>HTML5</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/it-security/' title='9 topics'>IT-Security</a>
+<a style='font-size: 228.53%' href='http://martin-thoma.com/tag/java/' title='36 topics'>Java</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/javascript/' title='6 topics'>JavaScript</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/kit/' title='18 topics'>KIT</a>
+<a style='font-size: 210.90%' href='http://martin-thoma.com/tag/klausur/' title='28 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 202.95%' href='http://martin-thoma.com/tag/latex/' title='25 topics'>LaTeX</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 171.63%' href='http://martin-thoma.com/tag/linux/' title='16 topics'>Linux</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/machine-learning/' title='9 topics'>Machine Learning</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/php/' title='9 topics'>PHP</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/physics/' title='5 topics'>Physics</a>
+<a style='font-size: 241.00%' href='http://martin-thoma.com/tag/programming/' title='43 topics'>Programming</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/python/' title='65 topics'>Python</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/swt-i/' title='9 topics'>SWT I</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.05%' href='http://martin-thoma.com/tag/video/' title='13 topics'>Video</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/vimeo/' title='9 topics'>Vimeo</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/web-development/' title='10 topics'>Web Development</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/wikipedia/' title='6 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/windows-7/' title='5 topics'>Windows 7</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 145.33%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/analysis/' title='7 topics'>analysis</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/cheat-sheet/' title='5 topics'>cheat sheet</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/funny/' title='15 topics'>funny</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 255.68%' href='http://martin-thoma.com/tag/mathematics/' title='53 topics'>mathematics</a>
+<a style='font-size: 190.71%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
+</div>
+                    </li>
+                </ul>
+	            </div>
+            </div>
+		</div><!--/container-->
+			<footer id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</footer><!--/footer-->
+            
+	</div><!--/wrapper-->
+<!-- type: footer -->
+<!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<!-- TOC Plus -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://martin-thoma.com/js/tocplus-front.js"></script>
+
+</body>
+</html>
+

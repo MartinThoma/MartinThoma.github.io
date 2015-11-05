@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- type: head.html -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    
+
+    
+        <meta name="thumbnail" content="http://martin-thoma.com/images/2012/07/tree-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/07/tree-thumb.png" />
+    
+
+    <meta property="og:type" content="blog"/>
+
+    <title>&Uuml;bersicht &uuml;ber Datenstrukturen</title>
+    <link rel="stylesheet" href="http://martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="http://martin-thoma.com/ubersicht-uber-datenstrukturen" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@themoosemind"/>
+<meta name="twitter:creator" content="@themoosemind"/>
+<meta name="twitter:title" content="&Uuml;bersicht &uuml;ber Datenstrukturen"/>
+
+    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
+
+
+    <meta name="twitter:image" content="http://martin-thoma.com/images/2012/07/tree-thumb.png"/>
+
+
+
+<meta name="twitter:url" content="http://martin-thoma.com/ubersicht-uber-datenstrukturen"/>
+<meta name="twitter:domain" content="Martin Thoma.com"/>
+
+
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery.js"></script>
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery-migrate.min.js"></script>
+    <style type="text/css">div#toc_container {width: 275px;}</style>
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+<!-- type: post.html -->
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <!-- type: header.html -->
+<div id="header" role="banner">
+    <h1><a href="http://martin-thoma.com">Martin Thoma</a></h1>
+    <h2>A blog about Code, the Web and Cyberculture.</h2>
+</div>
+<nav class="navcontainer" role="navigation">
+	<ul id="nav">
+		<li class=""><a href="http://martin-thoma.com">Home</a></li>
+		<li class="page_item page-item-41 "><a href="http://martin-thoma.com/author/martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="http://martin-thoma.com/imprint/">Imprint</a></li>
+	</ul>
+</nav>
+
+            	<div id="content">	
+                    <article class="post type-post format-standard hentry clearfix ">
+                        <h2 class="title entry-title">&Uuml;bersicht &uuml;ber Datenstrukturen</h2>
+			            <div class="postdate entry-date">
+                            <time datetime="2012-07-22T17:38:04+02:00">
+                                July 
+                                22nd,
+                                  
+                                2012
+                            </time>
+                        </div>
+			
+						<div class="entry">
+                            <p>Diese Übersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a href="http://de.wikipedia.org/wiki/Kategorie:Datenstruktur">mehr Datenstrukturen</a> (z.B. <a href="http://de.wikipedia.org/wiki/Bloomfilter">Bloomfilter</a>), als ich hier erwähne. Diese Datenstrukturen wurden in der Vorlesung Algorithmen I bei Frau Zitterbart am KIT erklärt.</p>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Array</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Dynamische Arrays</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-3">
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Hashtabelle</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Stack</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-5">
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Warteschlangen</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-6">
+         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Verkettete Listen</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-7">
+               <a href="#tocAnchor-1-6-1"><span class="tocnumber">6.1</span> <span class="toctext">Einfach verkettete Liste</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-8">
+               <a href="#tocAnchor-1-6-2"><span class="tocnumber">6.2</span> <span class="toctext">Doppelt verkettete Liste</span></a>
+            </li>
+         </ul>
+      </li>
+      <li class="toc_level-1 toc_section-9">
+         <a href="#tocAnchor-1-9"><span class="tocnumber">7</span> <span class="toctext">Bäume</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-10">
+               <a href="#tocAnchor-1-9-1"><span class="tocnumber">7.1</span> <span class="toctext">Binäre Bäume</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-11">
+               <a href="#tocAnchor-1-9-2"><span class="tocnumber">7.2</span> <span class="toctext">Suchbäume</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-12">
+               <a href="#tocAnchor-1-9-3"><span class="tocnumber">7.3</span> <span class="toctext">Heaps</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-13">
+               <a href="#tocAnchor-1-9-4"><span class="tocnumber">7.4</span> <span class="toctext">B-Bäume</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-14">
+               <a href="#tocAnchor-1-9-5"><span class="tocnumber">7.5</span> <span class="toctext">Tries</span></a>
+            </li>
+         </ul>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Array</h2>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/array.png">
+      <img src="../images/2012/07/array.png" alt="Array" width="" height="" class="size-full wp-image-34531" />
+   </a>
+   <p class="wp-caption-text">Array</p>
+</div>
+
+<p>Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. 
+Charakteristika:
+</p><ul>
+  <li>Ein Array hat eine feste, nicht veränderbare Größe.</li>
+  <li>Der Zugriff auf jedes beliebige Element erfolgt in konstanter Zeit - ist also insbesondere unabhängig von der Größe!</li>
+</ul>
+
+<h2 id="tocAnchor-1-2">Dynamische Arrays</h2>
+
+<p>Dynamische Arrays sind wie normale Arrays, nur dass sie wachsen können. Sobald ein Element eingefügt werden soll, dass nicht mehr ins Array passen würde, allokiert man ein doppelt so großes Array und kopiert die Elemente um.</p>
+
+<p>In Java ist es ein <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Vector.html">Vector</a> bzw. eine <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a>, in <a href="../vectors-in-cpp/" title="Vectors in C++">C++ Vektoren</a>.</p>
+
+<h2 id="tocAnchor-1-3">Hashtabelle</h2>
+
+<blockquote>In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) bzw. Streuwerttabelle. Als Indexstruktur werden Hashtabellen verwendet um Datenelemente in einer großen Datenmenge aufzufinden. Zu Hashtabellen alternative Index-Datenstrukturen sind beispielsweise Baumstrukturen (wie etwa ein B+-Baum) und die Skip-List. Hashtabellen zeichnen sich durch einen üblicherweise konstanten Zeitaufwand bei Einfüge- bzw. Entfernen-Operationen aus. Beim Einsatz einer Hashtabelle zur Suche in Datenmengen spricht man auch von einem Hashverfahren oder Streuspeicherverfahren.</blockquote>
+
+<p>Quelle: <a href="http://de.wikipedia.org/wiki/Hashtabelle">Hashtabelle</a></p>
+
+<p>Hashtabellen werden hier benutzt:
+</p><ul>
+  <li>Python 3.2.3: Modules/_pickle.c</li>
+  <li>Java OpenJDK 7: <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">java.util.HashTable</a> und sehr viele mehr benutzen es (Properties.java, Dictionary.java, Enum.java, ...)</li>
+</ul>
+
+<p>Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ für Suchen, Löschen und Einfügen.</p>
+
+<p>Folgende Begriffe sollte man kennen: 
+</p><ul>
+  <li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: $h(k) = k \mod m$</li>
+  <li><a href="http://de.wikipedia.org/wiki/Multiplikative_Methode">Multiplikationsmethode</a>: $h(k) = \lfloor A \cdot k \mod 1 \rfloor$, mit z.B. $A \approx \frac{\sqrt{5}-1}{2}$</li>
+  <li>offenes Hashing</li>
+  <li><a href="http://de.wikipedia.org/wiki/Doppel-Hashing">Doppeltes Hashing</a>: $h(k, i) = (h_1(k) + i \cdot h_2(k)) \mod m$</li>
+  <li><a href="http://de.wikipedia.org/wiki/Hashtabelle#Lineares_Sondieren">Lineares und quadratische Sondieren</a></li>
+  <li>Belegungsfaktor: $\alpha = \frac{\text{Anzahl gespeicherter Elemente}}{\text{Anzahl der Slots}}$</li>
+  <li>Primäre und sekundäre Clusterbildung</li>
+</ul>
+
+<h2 id="tocAnchor-1-4">Stack</h2>
+
+<div style="width: 111px" class="wp-caption alignright">
+   <a href="../images/2012/07/stack-101x300.png">
+      <img src="../images/2012/07/stack-101x300.png" alt="Stack a capacity of 5 elements and size of 4." width="" height="" class="size-medium wp-image-34421" />
+   </a>
+   <p class="wp-caption-text">Stack a capacity of 5 elements and size of 4.</p>
+</div>
+
+<p>Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und natürlich gibt es auch in <a href="../stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.</p>
+
+<p>Wie man am Bild sehr schön sehen kann, definiert ein Stack keine Ordnung über die Elemente. Wenn ein neues Element kommt, wird es auf den Stack gelegt. Man kann auch nur das oberste Element - in diesem Fall a - vom Stack nehmen. Deshalb werden Stacks auch als LIFO-Speicher (<em>L</em>ast <em>I</em>n <em>F</em>irst <em>O</em>ut) bezeichnet.</p>
+
+<p>Stacks werden mit dynamischen Arrays realisiert. Dazu mal ein kleines Beispiel:</p>
+
+<figure class="highlight">
+   <pre><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+
+        <span class="n">s</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">12</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">13</span><span class="o">);</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"size: %d \t capacity: %d\n"</span><span class="o">,</span>
+                    <span class="n">s</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="n">s</span><span class="o">.</span><span class="na">capacity</span><span class="o">());</span>
+        <span class="o">}</span>
+
+        <span class="k">while</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span>
+                    <span class="s">"Element: %d \t size: %d \t capacity: %d\n"</span><span class="o">,</span>
+                    <span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">(),</span><span class="n">s</span><span class="o">.</span><span class="na">size</span><span class="o">(),</span> <span class="n">s</span><span class="o">.</span><span class="na">capacity</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</figure>
+
+<p>Ausgabe:</p>
+
+<figure class="highlight">
+   <pre><code class="language-bash" data-lang="bash">size: <span class="m">3</span>   capacity: 10
+size: <span class="m">4</span>   capacity: 10
+size: <span class="m">5</span>   capacity: 10
+size: <span class="m">6</span>   capacity: 10
+size: <span class="m">7</span>   capacity: 10
+size: <span class="m">8</span>   capacity: 10
+size: <span class="m">9</span>   capacity: 10
+size: <span class="m">10</span>      capacity: 10
+size: <span class="m">11</span>      capacity: 20
+size: <span class="m">12</span>      capacity: 20
+size: <span class="m">13</span>      capacity: 20
+size: <span class="m">14</span>      capacity: 20
+size: <span class="m">15</span>      capacity: 20
+size: <span class="m">16</span>      capacity: 20
+size: <span class="m">17</span>      capacity: 20
+size: <span class="m">18</span>      capacity: 20
+size: <span class="m">19</span>      capacity: 20
+size: <span class="m">20</span>      capacity: 20
+size: <span class="m">21</span>      capacity: 40
+size: <span class="m">22</span>      capacity: 40
+size: <span class="m">23</span>      capacity: 40
+size: <span class="m">24</span>      capacity: 40
+size: <span class="m">25</span>      capacity: 40
+size: <span class="m">26</span>      capacity: 40
+size: <span class="m">27</span>      capacity: 40
+size: <span class="m">28</span>      capacity: 40
+size: <span class="m">29</span>      capacity: 40
+size: <span class="m">30</span>      capacity: 40
+size: <span class="m">31</span>      capacity: 40
+size: <span class="m">32</span>      capacity: 40
+size: <span class="m">33</span>      capacity: 40
+size: <span class="m">34</span>      capacity: 40
+size: <span class="m">35</span>      capacity: 40
+size: <span class="m">36</span>      capacity: 40
+size: <span class="m">37</span>      capacity: 40
+size: <span class="m">38</span>      capacity: 40
+size: <span class="m">39</span>      capacity: 40
+size: <span class="m">40</span>      capacity: 40
+size: <span class="m">41</span>      capacity: 80
+size: <span class="m">42</span>      capacity: 80
+size: <span class="m">43</span>      capacity: 80
+size: <span class="m">44</span>      capacity: 80
+size: <span class="m">45</span>      capacity: 80
+size: <span class="m">46</span>      capacity: 80
+size: <span class="m">47</span>      capacity: 80
+size: <span class="m">48</span>      capacity: 80
+size: <span class="m">49</span>      capacity: 80
+size: <span class="m">50</span>      capacity: 80
+size: <span class="m">51</span>      capacity: 80
+size: <span class="m">52</span>      capacity: 80
+size: <span class="m">53</span>      capacity: 80
+size: <span class="m">54</span>      capacity: 80
+size: <span class="m">55</span>      capacity: 80
+size: <span class="m">56</span>      capacity: 80
+size: <span class="m">57</span>      capacity: 80
+size: <span class="m">58</span>      capacity: 80
+size: <span class="m">59</span>      capacity: 80
+size: <span class="m">60</span>      capacity: 80
+size: <span class="m">61</span>      capacity: 80
+size: <span class="m">62</span>      capacity: 80
+size: <span class="m">63</span>      capacity: 80
+size: <span class="m">64</span>      capacity: 80
+size: <span class="m">65</span>      capacity: 80
+size: <span class="m">66</span>      capacity: 80
+size: <span class="m">67</span>      capacity: 80
+size: <span class="m">68</span>      capacity: 80
+size: <span class="m">69</span>      capacity: 80
+size: <span class="m">70</span>      capacity: 80
+size: <span class="m">71</span>      capacity: 80
+size: <span class="m">72</span>      capacity: 80
+size: <span class="m">73</span>      capacity: 80
+size: <span class="m">74</span>      capacity: 80
+size: <span class="m">75</span>      capacity: 80
+size: <span class="m">76</span>      capacity: 80
+size: <span class="m">77</span>      capacity: 80
+size: <span class="m">78</span>      capacity: 80
+size: <span class="m">79</span>      capacity: 80
+size: <span class="m">80</span>      capacity: 80
+size: <span class="m">81</span>      capacity: 160
+size: <span class="m">82</span>      capacity: 160
+size: <span class="m">83</span>      capacity: 160
+size: <span class="m">84</span>      capacity: 160
+size: <span class="m">85</span>      capacity: 160
+size: <span class="m">86</span>      capacity: 160
+size: <span class="m">87</span>      capacity: 160
+size: <span class="m">88</span>      capacity: 160
+size: <span class="m">89</span>      capacity: 160
+size: <span class="m">90</span>      capacity: 160
+size: <span class="m">91</span>      capacity: 160
+size: <span class="m">92</span>      capacity: 160
+size: <span class="m">93</span>      capacity: 160
+size: <span class="m">94</span>      capacity: 160
+size: <span class="m">95</span>      capacity: 160
+size: <span class="m">96</span>      capacity: 160
+size: <span class="m">97</span>      capacity: 160
+size: <span class="m">98</span>      capacity: 160
+size: <span class="m">99</span>      capacity: 160
+size: <span class="m">100</span>     capacity: 160
+size: <span class="m">101</span>     capacity: 160
+size: <span class="m">102</span>     capacity: 160
+Element: <span class="m">99</span>   size: <span class="m">101</span>    capacity: 160
+Element: <span class="m">98</span>   size: <span class="m">100</span>    capacity: 160
+Element: <span class="m">97</span>   size: <span class="m">99</span>     capacity: 160
+Element: <span class="m">96</span>   size: <span class="m">98</span>     capacity: 160
+Element: <span class="m">95</span>   size: <span class="m">97</span>     capacity: 160
+Element: <span class="m">94</span>   size: <span class="m">96</span>     capacity: 160
+Element: <span class="m">93</span>   size: <span class="m">95</span>     capacity: 160
+Element: <span class="m">92</span>   size: <span class="m">94</span>     capacity: 160
+Element: <span class="m">91</span>   size: <span class="m">93</span>     capacity: 160
+Element: <span class="m">90</span>   size: <span class="m">92</span>     capacity: 160
+Element: <span class="m">89</span>   size: <span class="m">91</span>     capacity: 160
+Element: <span class="m">88</span>   size: <span class="m">90</span>     capacity: 160
+Element: <span class="m">87</span>   size: <span class="m">89</span>     capacity: 160
+Element: <span class="m">86</span>   size: <span class="m">88</span>     capacity: 160
+Element: <span class="m">85</span>   size: <span class="m">87</span>     capacity: 160
+Element: <span class="m">84</span>   size: <span class="m">86</span>     capacity: 160
+Element: <span class="m">83</span>   size: <span class="m">85</span>     capacity: 160
+Element: <span class="m">82</span>   size: <span class="m">84</span>     capacity: 160
+Element: <span class="m">81</span>   size: <span class="m">83</span>     capacity: 160
+Element: <span class="m">80</span>   size: <span class="m">82</span>     capacity: 160
+Element: <span class="m">79</span>   size: <span class="m">81</span>     capacity: 160
+Element: <span class="m">78</span>   size: <span class="m">80</span>     capacity: 160
+Element: <span class="m">77</span>   size: <span class="m">79</span>     capacity: 160
+Element: <span class="m">76</span>   size: <span class="m">78</span>     capacity: 160
+Element: <span class="m">75</span>   size: <span class="m">77</span>     capacity: 160
+Element: <span class="m">74</span>   size: <span class="m">76</span>     capacity: 160
+Element: <span class="m">73</span>   size: <span class="m">75</span>     capacity: 160
+Element: <span class="m">72</span>   size: <span class="m">74</span>     capacity: 160
+Element: <span class="m">71</span>   size: <span class="m">73</span>     capacity: 160
+Element: <span class="m">70</span>   size: <span class="m">72</span>     capacity: 160
+Element: <span class="m">69</span>   size: <span class="m">71</span>     capacity: 160
+Element: <span class="m">68</span>   size: <span class="m">70</span>     capacity: 160
+Element: <span class="m">67</span>   size: <span class="m">69</span>     capacity: 160
+Element: <span class="m">66</span>   size: <span class="m">68</span>     capacity: 160
+Element: <span class="m">65</span>   size: <span class="m">67</span>     capacity: 160
+Element: <span class="m">64</span>   size: <span class="m">66</span>     capacity: 160
+Element: <span class="m">63</span>   size: <span class="m">65</span>     capacity: 160
+Element: <span class="m">62</span>   size: <span class="m">64</span>     capacity: 160
+Element: <span class="m">61</span>   size: <span class="m">63</span>     capacity: 160
+Element: <span class="m">60</span>   size: <span class="m">62</span>     capacity: 160
+Element: <span class="m">59</span>   size: <span class="m">61</span>     capacity: 160
+Element: <span class="m">58</span>   size: <span class="m">60</span>     capacity: 160
+Element: <span class="m">57</span>   size: <span class="m">59</span>     capacity: 160
+Element: <span class="m">56</span>   size: <span class="m">58</span>     capacity: 160
+Element: <span class="m">55</span>   size: <span class="m">57</span>     capacity: 160
+Element: <span class="m">54</span>   size: <span class="m">56</span>     capacity: 160
+Element: <span class="m">53</span>   size: <span class="m">55</span>     capacity: 160
+Element: <span class="m">52</span>   size: <span class="m">54</span>     capacity: 160
+Element: <span class="m">51</span>   size: <span class="m">53</span>     capacity: 160
+Element: <span class="m">50</span>   size: <span class="m">52</span>     capacity: 160
+Element: <span class="m">49</span>   size: <span class="m">51</span>     capacity: 160
+Element: <span class="m">48</span>   size: <span class="m">50</span>     capacity: 160
+Element: <span class="m">47</span>   size: <span class="m">49</span>     capacity: 160
+Element: <span class="m">46</span>   size: <span class="m">48</span>     capacity: 160
+Element: <span class="m">45</span>   size: <span class="m">47</span>     capacity: 160
+Element: <span class="m">44</span>   size: <span class="m">46</span>     capacity: 160
+Element: <span class="m">43</span>   size: <span class="m">45</span>     capacity: 160
+Element: <span class="m">42</span>   size: <span class="m">44</span>     capacity: 160
+Element: <span class="m">41</span>   size: <span class="m">43</span>     capacity: 160
+Element: <span class="m">40</span>   size: <span class="m">42</span>     capacity: 160
+Element: <span class="m">39</span>   size: <span class="m">41</span>     capacity: 160
+Element: <span class="m">38</span>   size: <span class="m">40</span>     capacity: 160
+Element: <span class="m">37</span>   size: <span class="m">39</span>     capacity: 160
+Element: <span class="m">36</span>   size: <span class="m">38</span>     capacity: 160
+Element: <span class="m">35</span>   size: <span class="m">37</span>     capacity: 160
+Element: <span class="m">34</span>   size: <span class="m">36</span>     capacity: 160
+Element: <span class="m">33</span>   size: <span class="m">35</span>     capacity: 160
+Element: <span class="m">32</span>   size: <span class="m">34</span>     capacity: 160
+Element: <span class="m">31</span>   size: <span class="m">33</span>     capacity: 160
+Element: <span class="m">30</span>   size: <span class="m">32</span>     capacity: 160
+Element: <span class="m">29</span>   size: <span class="m">31</span>     capacity: 160
+Element: <span class="m">28</span>   size: <span class="m">30</span>     capacity: 160
+Element: <span class="m">27</span>   size: <span class="m">29</span>     capacity: 160
+Element: <span class="m">26</span>   size: <span class="m">28</span>     capacity: 160
+Element: <span class="m">25</span>   size: <span class="m">27</span>     capacity: 160
+Element: <span class="m">24</span>   size: <span class="m">26</span>     capacity: 160
+Element: <span class="m">23</span>   size: <span class="m">25</span>     capacity: 160
+Element: <span class="m">22</span>   size: <span class="m">24</span>     capacity: 160
+Element: <span class="m">21</span>   size: <span class="m">23</span>     capacity: 160
+Element: <span class="m">20</span>   size: <span class="m">22</span>     capacity: 160
+Element: <span class="m">19</span>   size: <span class="m">21</span>     capacity: 160
+Element: <span class="m">18</span>   size: <span class="m">20</span>     capacity: 160
+Element: <span class="m">17</span>   size: <span class="m">19</span>     capacity: 160
+Element: <span class="m">16</span>   size: <span class="m">18</span>     capacity: 160
+Element: <span class="m">15</span>   size: <span class="m">17</span>     capacity: 160
+Element: <span class="m">14</span>   size: <span class="m">16</span>     capacity: 160
+Element: <span class="m">13</span>   size: <span class="m">15</span>     capacity: 160
+Element: <span class="m">12</span>   size: <span class="m">14</span>     capacity: 160
+Element: <span class="m">11</span>   size: <span class="m">13</span>     capacity: 160
+Element: <span class="m">10</span>   size: <span class="m">12</span>     capacity: 160
+Element: <span class="m">9</span>    size: <span class="m">11</span>     capacity: 160
+Element: <span class="m">8</span>    size: <span class="m">10</span>     capacity: 160
+Element: <span class="m">7</span>    size: <span class="m">9</span>      capacity: 160
+Element: <span class="m">6</span>    size: <span class="m">8</span>      capacity: 160
+Element: <span class="m">5</span>    size: <span class="m">7</span>      capacity: 160
+Element: <span class="m">4</span>    size: <span class="m">6</span>      capacity: 160
+Element: <span class="m">3</span>    size: <span class="m">5</span>      capacity: 160
+Element: <span class="m">2</span>    size: <span class="m">4</span>      capacity: 160
+Element: <span class="m">1</span>    size: <span class="m">3</span>      capacity: 160
+Element: <span class="m">0</span>    size: <span class="m">2</span>      capacity: 160
+Element: <span class="m">13</span>   size: <span class="m">1</span>      capacity: 160
+Element: <span class="m">12</span>   size: <span class="m">0</span>      capacity: 160</code></pre>
+</figure>
+
+<p>Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:
+</p><blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>
+
+<table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Push</td>
+<td>`${\cal O}(1)$`</td>
+<td>Ein Element auf den Stack legen</td>
+</tr>
+<tr>
+<td>Pop</td>
+<td>`${\cal O}(1)$`</td>
+<td>Das oberste Element von der Liste nehmen</td>
+</tr>
+</table>
+
+<p>Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
+
+<h2 id="tocAnchor-1-5">Warteschlangen</h2>
+
+<p>Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks nanne es sich PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.</p>
+
+<table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Enqueue</td>
+<td>`${\cal O}(1)$`</td>
+<td>Ein Element auf den Stack legen</td>
+</tr>
+<tr>
+<td>Dequeue</td>
+<td>`${\cal O}(1)$`</td>
+<td>Das oberste Element von der Liste nehmen</td>
+</tr>
+</table>
+
+<p>Eine Warteschlange lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
+
+<h2 id="tocAnchor-1-6">Verkettete Listen</h2>
+
+<p>Wie bei allen Datenstrukturen, kann man für verkettete Listen mehr Operationen definieren und umsetzen, als ich hier aufliste. Eine gute Menge von Operationen wird durch das <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">Java List Interface</a> vorgegeben.</p>
+
+<h3 id="tocAnchor-1-6-1">Einfach verkettete Liste</h3>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/singly-linked-list.png">
+      <img src="../images/2012/07/singly-linked-list.png" alt="Singly linked list" width="" height="" class="size-full wp-image-34051" />
+   </a>
+   <p class="wp-caption-text">Singly linked list</p>
+</div>
+
+<p>Sei $n$ die Anzahl der Elemente der Liste.
+</p><table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Suchen</td>
+<td>${\cal O}(n)$</td>
+<td>→ Element ist am Ende der Liste</td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td>${\cal O}(n)$</td>
+<td>→ Element ist am Ende der Liste</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td>${\cal O}(n)$</td>
+<td>→ Element ist am Ende der Liste</td>
+</tr>
+<tr>
+<td>Einfügen am Anfang</td>
+<td>${\cal O}(1)$</td>
+<td></td>
+</tr>
+<tr>
+<td>Wahlfreies Einfügen</td>
+<td>${\cal O}(n)$</td>
+<td></td>
+</tr>
+<tr>
+<td>Löschen</td>
+<td>${\cal O}(n)$</td>
+<td>→ Suchen</td>
+</tr>
+<tr>
+<td>Vorgänger</td>
+<td>${\cal O}(n)$</td>
+<td></td>
+</tr>
+<tr>
+<td>Nachfolger</td>
+<td>${\cal O}(1)$</td>
+<td></td>
+</tr>
+</table>
+
+<h3 id="tocAnchor-1-6-2">Doppelt verkettete Liste</h3>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/doubly-linked-list.png">
+      <img src="../images/2012/07/doubly-linked-list.png" alt="Doubly linked list" width="" height="" class="size-full wp-image-34031" />
+   </a>
+   <p class="wp-caption-text">Doubly linked list</p>
+</div>
+
+<p>Sei $n$ die Anzahl der Elemente der Liste.
+</p><table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Suchen</td>
+<td>${\cal O}(n)$</td>
+<td>→ Element ist am Ende der Liste</td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td>${\cal O}(n)$</td>
+<td>→ Element ist am Ende der Liste</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td>${\cal O}(n)$</td>
+<td>→ Element ist am Ende der Liste</td>
+</tr>
+<tr>
+<td>Einfügen am Anfang</td>
+<td>${\cal O}(1)$</td>
+<td></td>
+</tr>
+<tr>
+<td>Wahlfreies Einfügen</td>
+<td>${\cal O}(n)$</td>
+<td></td>
+</tr>
+<tr>
+<td>Löschen</td>
+<td>${\cal O}(n)$</td>
+<td>→ Suchen</td>
+</tr>
+<tr>
+<td>Vorgänger</td>
+<td>${\cal O}(1)$</td>
+<td>Nur hier ist die doppelt-verkettete Liste besser als die einfach verkettete Liste.</td>
+</tr>
+<tr>
+<td>Nachfolger</td>
+<td>${\cal O}(1)$</td>
+<td></td>
+</tr>
+</table>
+
+<h2 id="tocAnchor-1-9">Bäume</h2>
+
+<p>In der Vorlesung wurden Bäume sehr unpräzise eingeführt. Ich versuche das mal etwas präziser zu machen:
+</p><div class="definition">Sei $G = (V, E)$ ein gerichteter Graph.
+$G$ heißt <strong>gerichteter Baum</strong> $: \Leftrightarrow \exists_{r \in V} \forall_{x \in V}:$Es exisitert genau ein Pfad von $r$ nach $x$.</div>
+
+<div class="definition">Sei `$G = (V, E)$` ein gerichteter Baum und sei `$r \in V$` das `$r$` aus der Definition. `$r$` heißt <strong>Wurzel</strong> von `$G$`.</div>
+
+<p>ACHTUNG: Die folgende Definition habe ich mir ausgedacht! NICHT IN DER KLAUSUR VERWENDEN!
+</p><div class="definition">Sei $E \subseteq V \times V$ eine Menge ungerichteter Kanten. 
+Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörigen gerichteten Kanten.</div>
+
+<div class="definition">Sei `$U = (V, E)$` ein ungerichteter Graph.
+`$U$` heißt ein <strong>ungerichteter Baum</strong> `$:\Leftrightarrow \exists$` gerichteten Baum `$G = (V, E')$` mit `$E' \subsetneq G(E)$`.</div>
+
+<div class="definition">Sei `$G = (V, E)$` ein Baum und `$x, y \in V$`.
+`$x$` heißt <strong>Elternknoten</strong> von `$y :\Leftrightarrow x$` liegt auf dem Pfad von der Wurzel nach `$y$` direkt vor `$y$`.</div>
+
+<div class="definition">Sei `$G = (V, E)$` ein Baum und `$x, y \in V$`.
+`$x$` heißt <strong>Kindknoten</strong> von `$y :\Leftrightarrow y$` ist Elternknoten von `$x$`.</div>
+
+<h3 id="tocAnchor-1-9-1">Binäre Bäume</h3>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/binary-tree.png">
+      <img src="../images/2012/07/binary-tree.png" alt="Binary tree datastructure" width="" height="" class="size-full wp-image-33851" />
+   </a>
+   <p class="wp-caption-text">Binary tree datastructure</p>
+</div>
+
+<div class="definition">Sei `$G = (V, E)$` ein Baum.
+`$G$` heißt <strong>binärer Baum</strong> `$:\Leftrightarrow \forall_{x \in V}: x$` hat höchstens zwei Kindknoten.</div>
+
+<p>Ich beziehe mich im folgenden auf ungerichtete, binäre Bäume. Soll heißen, jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.</p>
+
+<p>Wie würde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.
+</p><table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Suchen</td>
+<td>${\cal O}(|V| + |E|)$</td>
+<td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td>${\cal O}(|V| + |E|)$</td>
+<td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td>${\cal O}(|V| + |E|)$</td>
+<td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
+</tr>
+<tr>
+<td>Einfügen</td>
+<td>${\cal O}(|V|)$</td>
+<td></td>
+</tr>
+<tr>
+<td>Löschen</td>
+<td>${\cal O}(|V| + |E|)$</td>
+<td>→ Suchen</td>
+</tr>
+<tr>
+<td>Vorgänger</td>
+<td>${\cal O}(1)$</td>
+<td>Implementierungsabhängig!</td>
+</tr>
+<tr>
+<td>Nachfolger</td>
+<td>${\cal O}(1)$</td>
+<td></td>
+</tr>
+</table>
+
+<h3 id="tocAnchor-1-9-2">Suchbäume</h3>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/binary-search-tree.png">
+      <img src="../images/2012/07/binary-search-tree.png" alt="Binary search tree" width="" height="" class="size-full wp-image-33871" />
+   </a>
+   <p class="wp-caption-text">Binary search tree</p>
+</div>
+
+<p>Dieser Baum hat die gleichen Werte wie der Baum oberhalb, aber es gilt nun:
+Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des aktuelle, der Wert aller Knoten rechts davon ist echt größer.</p>
+
+<p>Ich beschränke mich hier auf binäre Suchbäume.</p>
+
+<p>Damit ergeben sich folgende Laufzeiten:
+Sei $G = (V, E)$ ein beliebiger binärer Suchbaum.
+Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
+</p><table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Suchen</td>
+<td>${\cal O}(|V|)$</td>
+<td>→ Verkettete Liste</td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td>${\cal O}(|V|)$</td>
+<td>→ Verkettete Liste</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td>${\cal O}(|V|)$</td>
+<td>→ Verkettete Liste</td>
+</tr>
+<tr>
+<td>Einfügen</td>
+<td>${\cal O}(|V|)$</td>
+<td>→ Verkettete Liste</td>
+</tr>
+<tr>
+<td>Löschen</td>
+<td>${\cal O}(|V|)$</td>
+<td>→ Verkettete Liste</td>
+</tr>
+<tr>
+<td>Vorgänger</td>
+<td>${\cal O}(1)$</td>
+<td>Implementierungsabhängig!</td>
+</tr>
+<tr>
+<td>Nachfolger</td>
+<td>${\cal O}(1)$</td>
+<td></td>
+</tr>
+</table>
+
+<h4>Rot-Schwarz-Bäume</h4>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/red-black-tree1.png">
+      <img src="../images/2012/07/red-black-tree1.png" alt="Red Black Tree" width="" height="" class="size-full wp-image-34071" />
+   </a>
+   <p class="wp-caption-text">Red Black Tree</p>
+</div>
+
+<p>Sei $G = (V, E)$ ein binärer Suchbaum.
+G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
+</p><ol>
+  <li>Jeder Knoten ist entweder Rot oder Schwarz.</li>
+  <li>Der Wurzelknoten ist schwarz.</li>
+  <li>Die Blattknoten sind schwarz.</li>
+  <li>Ein Knoten ist rot $\Rightarrow$ Beide Kinder sind schwarz.</li>
+  <li>$\forall x \in V:$ Alle Pfade von x zu einem Blatt haben die gleiche Anzahl schwarzer Knoten.</li>
+</ol>
+
+<table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Suchen</td>
+<td>`${\cal O}(\lg n)$`</td>
+<td></td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td>`${\cal O}(\lg n)$`</td>
+<td></td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td>`${\cal O}(\lg n)$`</td>
+<td></td>
+</tr>
+<tr>
+<td>Einfügen</td>
+<td>`${\cal O}(\lg n)$`</td>
+<td></td>
+</tr>
+<tr>
+<td>Löschen</td>
+<td>`${\cal O}(\lg n)$`</td>
+<td></td>
+</tr>
+<tr>
+<td>Vorgänger</td>
+<td>`${\cal O}(1)$`</td>
+<td></td>
+</tr>
+<tr>
+<td>Nachfolger</td>
+<td>`${\cal O}(1)$`</td>
+<td></td>
+</tr>
+</table>
+
+<p>Eine Python-Implementation ist hier zu finden: <a href="https://github.com/MartinThoma/algorithms/blob/master/datastructures/redBlackTree.py">https://github.com/MartinThoma/algorithms</a></p>
+
+<h3 id="tocAnchor-1-9-3">Heaps</h3>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/heap.png">
+      <img src="../images/2012/07/heap.png" alt="Ein binärer Min-Heap" width="" height="" class="size-full wp-image-34361" />
+   </a>
+   <p class="wp-caption-text">Ein binärer Min-Heap</p>
+</div>
+
+<p>Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">binäre Min-Heaps</a>.
+</p><table>
+<tr>
+<th>Operation</th>
+<th>Worst-Case-Laufzeit</th>
+<th>Anmerkungen</th>
+</tr>
+<tr>
+<td>Suchen</td>
+<td>${\cal O}(n)$</td>
+<td>→ Falls als array dargestellt, einfach alle Elemente des Arrays durchlaufen</td>
+</tr>
+<tr style="background-color:#99FF99">
+<td>Minimum</td>
+<td>${\cal O}(1)$</td>
+<td></td>
+</tr>
+<tr style="background-color:#99FF99">
+<td>Extract-Minimum</td>
+<td>${\cal O}(\log n)$</td>
+<td>→ Heapify</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td>${\cal O}(n)$</td>
+<td>→ Suche</td>
+</tr>
+<tr>
+<td>Einfügen</td>
+<td>${\cal O}(\log n)$</td>
+<td>→ Heapify</td>
+</tr>
+<tr>
+<td>Löschen</td>
+<td>${\cal O}(\log n)$</td>
+<td>→ Heapify (bei bekannter Position des Elements, sonst siehe Suche)</td>
+</tr>
+<tr>
+<td>Vorgänger</td>
+<td>${\cal O}(1)$</td>
+<td>Hat keine besondere Bedeutung in Heaps.</td>
+</tr>
+<tr>
+<td>Nachfolger</td>
+<td>${\cal O} (1)$</td>
+<td>Hat keine besondere Bedeutung in Heaps.</td>
+</tr>
+</table>
+
+<h3 id="tocAnchor-1-9-4">B-Bäume</h3>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/b-tree-2.png">
+      <img src="../images/2012/07/b-tree-2.png" alt="B-Baum der Ordnung 2" width="" height="" class="size-full wp-image-34581" />
+   </a>
+   <p class="wp-caption-text">B-Baum der Ordnung 2</p>
+</div>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/b-tree-3.png">
+      <img src="../images/2012/07/b-tree-3.png" alt="B-Baum der Ordnung 3" width="" height="" class="size-full wp-image-34591" />
+   </a>
+   <p class="wp-caption-text">B-Baum der Ordnung 3</p>
+</div>
+
+<blockquote>Ein B-Baum ist ein immer vollständig balancierter Baum, der Daten sortiert nach Schlüsseln speichert. Er kann binär sein, ist aber im Allgemeinen kein Binärbaum. Das Einfügen, Suchen und Löschen von Daten in B-Bäumen ist in amortisiert logarithmischer Zeit möglich. B-Bäume wachsen – und schrumpfen – anders als viele Suchbäume von den Blättern hin zur Wurzel.</blockquote>
+
+<p>Quelle: <a href="http://de.wikipedia.org/wiki/B-Baum">Wikipedia</a></p>
+
+<p>Die beiden abgebildeten B-Bäume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigener Reihenfolge eingefügt wurden.</p>
+
+<p>Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:
+</p><ul>
+  <li>Alle Pfade von der Wurzel zu einem Blatt sind gleich lang.</li>
+  <li>Die Wurzel hat mindestens 2, höchstens 2t Kinder.</li>
+  <li>Alle anderen inneren Knoten haben mindestens t, höchstens 2t Kinder.</li>
+  <li>Jeder Knoten mit i Kindern hat i-1 Schlüssel.</li>
+</ul>
+
+<p>Die beiden B-Bäume habe ich mit <a href="https://gist.github.com/3159687">diesem Script</a> erstellt.</p>
+
+<p>Mehr zu B-Bäumen gibt es in diesem <a href="../b-baume/" title="B-Bäume">Artikel über B-Bäume</a>.</p>
+
+<h3 id="tocAnchor-1-9-5">Tries</h3>
+
+<div style="width: 210px" class="wp-caption aligncenter">
+   <a href="../images/2012/07/trie.png">
+      <img src="../images/2012/07/trie.png" alt="Trie" width="" height="" class="size-full wp-image-34621" />
+   </a>
+   <p class="wp-caption-text">Trie</p>
+</div>
+
+<p>Bildquelle: <a href="http://commons.wikimedia.org/wiki/File:Trie.svg">Wikipedia</a></p>
+
+<p>Ein Trie ist ein spezieller digitaler Baum. 
+</p><blockquote>Ein Trie oder Präfixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
+Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a>
+
+<p>Wo werden Tries genutzt?
+</p><ul>
+  <li>Python charmap encoder (<a href="http://mail.python.org/pipermail/patches/2006-May/019891.html">source</a>)</li>
+  <li>Der <a href="http://docs.oracle.com/javase/7/docs/api/java/text/Normalizer.html">Normalizer</a> scheint Tries zu verwenden.</li>
+</ul>
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="http://martin-thoma.com/category/deutschland/">German posts</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags: 
+                            
+                                
+                                    <a href="http://martin-thoma.com/tag/algorithms/">algorithms</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/data-structure/">data structure</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-07-22 17:38:04 +0200">
+                                July 
+                                22nd
+                                  , 
+                                2012</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="http://martin-thoma.com/swing-ii-how-to-arrange-objects/" rel="prev">Swing II: How to arrange Objects</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="http://martin-thoma.com/why-to-study-math/" rel="next">Why to study math?</a> &raquo;
+                                 
+                                </div>
+							</div>
+	
+						</article>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                                <!-- comment discuss code -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!-- comment discuss code -->
+
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+<a href="http://martin-thoma.com/feed/"><img src="http://martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>		
+<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
+</div>
+
+	            <div id="sidebar">
+                <!-- type: searchbox.html - TODO-->
+<ul>
+    <li id="search">
+        <div class="searchlayout">
+            <form method="get" id="searchform" action="http://google.com/cse" role="search">
+                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
+                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
+                <input type="image" src="http://martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/> 
+            </form>
+        </div>
+    </li>
+</ul>
+
+                <div class="addthis_toolbox">   
+    <div class="custom_images">
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/ubersicht-uber-datenstrukturen&amp;hashtags=algorithms,data-structure,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://del.icio.us/post?url=http://martin-thoma.com/ubersicht-uber-datenstrukturen&amp;title=&Uuml;bersicht%20&uuml;ber%20Datenstrukturen" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/ubersicht-uber-datenstrukturen" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/ubersicht-uber-datenstrukturen&amp;title=&Uuml;bersicht%20&uuml;ber%20Datenstrukturen" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="http://www.stumbleupon.com/submit?url=http://martin-thoma.com/ubersicht-uber-datenstrukturen&amp;title=&Uuml;bersicht%20&uuml;ber%20Datenstrukturen" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http://martin-thoma.com/ubersicht-uber-datenstrukturen" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
+            <a href="http://reddit.com/submit?url=http://martin-thoma.com/ubersicht-uber-datenstrukturen&amp;title=&Uuml;bersicht%20&uuml;ber%20Datenstrukturen" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+    </div>
+</div>
+			        
+		        <ul>
+                    <li id="categories-3" class="widget widget_categories">
+                        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="http://martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="http://martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="http://martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="http://martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="http://martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="http://martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+	</ul>
+
+                    </li>
+                    <li id="tag_cloud-3" class="widget widget_tag_cloud">
+                        <h2 class="widgettitle">Tags</h2>
+                        <div class="tagcloud"><a style='font-size: 131.25%' href='http://martin-thoma.com/tag/ai/' title='9 topics'>AI</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 193.97%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/chrome/' title='5 topics'>Chrome</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/html5/' title='5 topics'>HTML5</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/it-security/' title='9 topics'>IT-Security</a>
+<a style='font-size: 228.53%' href='http://martin-thoma.com/tag/java/' title='36 topics'>Java</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/javascript/' title='6 topics'>JavaScript</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/kit/' title='18 topics'>KIT</a>
+<a style='font-size: 210.90%' href='http://martin-thoma.com/tag/klausur/' title='28 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 202.95%' href='http://martin-thoma.com/tag/latex/' title='25 topics'>LaTeX</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 171.63%' href='http://martin-thoma.com/tag/linux/' title='16 topics'>Linux</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/machine-learning/' title='9 topics'>Machine Learning</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/php/' title='9 topics'>PHP</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/physics/' title='5 topics'>Physics</a>
+<a style='font-size: 241.00%' href='http://martin-thoma.com/tag/programming/' title='43 topics'>Programming</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/python/' title='65 topics'>Python</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/swt-i/' title='9 topics'>SWT I</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.05%' href='http://martin-thoma.com/tag/video/' title='13 topics'>Video</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/vimeo/' title='9 topics'>Vimeo</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/web-development/' title='10 topics'>Web Development</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/wikipedia/' title='6 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/windows-7/' title='5 topics'>Windows 7</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 145.33%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/analysis/' title='7 topics'>analysis</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/cheat-sheet/' title='5 topics'>cheat sheet</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/funny/' title='15 topics'>funny</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 255.68%' href='http://martin-thoma.com/tag/mathematics/' title='53 topics'>mathematics</a>
+<a style='font-size: 190.71%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
+</div>
+                    </li>
+                </ul>
+	            </div>
+            </div>
+		</div><!--/container-->
+			<footer id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</footer><!--/footer-->
+            
+	</div><!--/wrapper-->
+<!-- type: footer -->
+<!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<!-- TOC Plus -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://martin-thoma.com/js/tocplus-front.js"></script>
+
+</body>
+</html>
+

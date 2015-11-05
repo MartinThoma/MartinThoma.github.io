@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- type: head.html -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    
+
+    
+        <meta name="thumbnail" content="http://martin-thoma.com/images/2012/09/bwinf-thumb.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2012/09/bwinf-thumb.png" />
+    
+
+    <meta property="og:type" content="blog"/>
+
+    <title>31. BwInf - Runde 1, Aufgabe 2</title>
+    <link rel="stylesheet" href="http://martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@themoosemind"/>
+<meta name="twitter:creator" content="@themoosemind"/>
+<meta name="twitter:title" content="31. BwInf - Runde 1, Aufgabe 2"/>
+
+    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
+
+
+    <meta name="twitter:image" content="http://martin-thoma.com/images/2012/09/bwinf-thumb.png"/>
+
+
+
+<meta name="twitter:url" content="http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2"/>
+<meta name="twitter:domain" content="Martin Thoma.com"/>
+
+
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery.js"></script>
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery-migrate.min.js"></script>
+    <style type="text/css">div#toc_container {width: 275px;}</style>
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+<!-- type: post.html -->
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <!-- type: header.html -->
+<div id="header" role="banner">
+    <h1><a href="http://martin-thoma.com">Martin Thoma</a></h1>
+    <h2>A blog about Code, the Web and Cyberculture.</h2>
+</div>
+<nav class="navcontainer" role="navigation">
+	<ul id="nav">
+		<li class=""><a href="http://martin-thoma.com">Home</a></li>
+		<li class="page_item page-item-41 "><a href="http://martin-thoma.com/author/martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="http://martin-thoma.com/imprint/">Imprint</a></li>
+	</ul>
+</nav>
+
+            	<div id="content">	
+                    <article class="post type-post format-standard hentry clearfix ">
+                        <h2 class="title entry-title">31. BwInf - Runde 1, Aufgabe 2</h2>
+			            <div class="postdate entry-date">
+                            <time datetime="2012-12-12T12:12:58+01:00">
+                                December 
+                                12th,
+                                  
+                                2012
+                            </time>
+                        </div>
+			
+						<div class="entry">
+                            <div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Die Aufgabenstellung</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Vollständiger Pseudocode</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-3">
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Lösung mit GLPK</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Weiteres</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Die Aufgabenstellung</h2>
+
+<blockquote>Zum Transport von Geld werden schwer bewachte Geldtransporter eingesetzt. In einem solchen Geldtransporter können Koffer mit Münzen transportiert werden. Die Koffer enthalten Münzen in unterschiedlicher Menge und mit unterschiedlichem Gesamtwert. Entsprechend unterscheiden sich die Koffer in Gewicht und Wert.
+
+Da kommt so einiges an Gewicht zusammen. Es ist daher notwendig, den Transporter gleichmäßig zu beladen, so dass er nicht zu einer Seite umkippen kann.
+
+Unser Transporter hat links und rechts je einen Kofferraum. Für jeden Kofferraum lassen sich Gesamtwert und Gesamtgewicht der darin enthaltenen Koffer bestimmen. Damit der Transporter keine Schlagseite bekommt, müssen die Koffer so eingeräumt werden, dass die Differenz zwischen den beiden Gesamtgewichten minimal ist. Aus versicherungstechnischen Gründen dürfen die beiden Gesamtwerte sich außerdem um höchstens 10.000 Euro unterscheiden.</blockquote>
+
+<blockquote>Schreibe ein Programm zur Verteilung der Geldkoffer auf die beiden Kofferräume. Überprüfe dein Programm mit den auf <a href="http://www.bundeswettbewerb-informatik.de/index.php?id=1168">www.bundeswettbewerb-informatik.de</a> abgelegten Beispielen mit Angaben zu Werten und Gewichten der einzelnen Koffer.</blockquote>
+
+<p>Quelle: <a href="http://www.bundeswettbewerb-informatik.de/fileadmin/templates/bwinf/aufgaben/bwinf31/Aufgabenblatt311_Aufgaben.pdf">www.bundeswettbewerb-informatik.de</a></p>
+
+<h2 id="tocAnchor-1-2">Vollständiger Pseudocode</h2>
+
+<div style="width: 522px" class="wp-caption aligncenter">
+   <a href="../images/2012/12/pseudocode-31.1.2-bwinf.png">
+      <img src="../images/2012/12/pseudocode-31.1.2-bwinf.png" alt="Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2" width="" height="" class="size-full wp-image-46861" />
+   </a>
+   <p class="wp-caption-text">Pseudocode zum 31. BwInf, Runde 1, Aufgabe 2</p>
+</div>
+
+<h2 id="tocAnchor-1-3">Lösung mit GLPK</h2>
+
+<p>Der folgende Code muss als partition.mod gespeichert werden:</p>
+
+<figure class="highlight">
+   <pre><code class="language-text" data-lang="text">/* PARTITION */
+
+/* Written in GNU MathProg by Martin Thoma &lt;info@martin-thoma.de&gt; */
+
+/* Given a set of items I = {1,...,m} with weight w[i] &gt; 0, the 
+   PARTITION problem is to split the set of items into two sets
+   such that the absolute value of the difference of the sum of 
+   weights of the two sets is minimal */
+
+param m, integer, &gt; 0;
+/* number of items */
+
+set I := 1..m;
+/* set of items */
+
+param w{i in 1..m}, &gt; 0;
+/* w[i] is weight of item i */
+
+param v{i in 1..m}, &gt; 0;
+/* v[i] is value of item i */
+
+param c, &gt; 0;
+/* maximum value difference */
+
+param z{i in I, j in 1..m} :=
+/* z[i,j] = 1 if item i is in bin j, otherwise z[i,j] = 0 */
+
+   if i = 1 and j = 1 then 1
+   /* put item 1 into bin 1 */
+
+   else if exists{jj in 1..j-1} z[i,jj] then 0
+   /* if item i is already in some bin, do not put it into bin j */
+
+   else if sum{ii in 1..i-1} w[ii] * z[ii,j] + w[i] &gt; c then 0
+   /* if item i does not fit into bin j, do not put it into bin j */
+
+   else 1;
+   /* otherwise put item i into bin j */
+
+check{i in I}: sum{j in 1..2} z[i,j] = 1;
+/* each item must be exactly in one bin */
+
+param n := 2;
+display n;
+
+set J := 1..n;
+/* set of bins */
+
+var x{i in I, j in J}, binary;
+/* x[i,j] = 1 means item i is in bin j */
+
+s.t. one{i in I}: sum{j in J} x[i,j] = 1;
+/* each item must be exactly in one bin */
+
+/* analog zu http://lists.gnu.org/archive/html/help-glpk/2007-08/msg00036.html */
+s.t. lim1{j in J}: (sum{i in I} v[i] * x[i,1]) - (sum{i in I} v[i] * x[i,2]) &lt;= c;
+s.t. lim2{j in J}: (sum{i in I} v[i] * x[i,2]) - (sum{i in I} v[i] * x[i,1]) &lt;= c;
+/* the difference of the values may not be more than 10000 */
+
+s.t. lim3{j in J}: (sum{i in I} w[i] * x[i,1]) - (sum{i in I} w[i] * x[i,2]) &gt;= 0;
+
+minimize obj: (sum{i in I} w[i] * x[i,1]) - (sum{i in I} w[i] * x[i,2]);
+/* No abs because of linearity: http://old.nabble.com/How-to-get-a-variable's-absolute-value-with-GNU-mathprog-tt22241565.html*/
+/* objective is to minimize the difference of weights */
+
+data;
+
+/* The optimal solution is 3 bins */
+
+/*param m := 15;
+param v := 1 96000, 2 126000, 3 115000, 4 125000, 5 123000, 6 123000, 7 112000, 8 111000, 9 110000, 10 110000, 11 120000, 12 98000, 13 130000, 14 87000, 15 97000;
+param w := 1 27, 2 21, 3 27, 4 15, 5 19, 6 46, 7 47, 8 32, 9 14, 10 20, 11 50, 12 19, 13 22, 14 50, 15 46;
+
+param m := 20;
+param w := 1 27, 2 50, 3 19, 4 19, 5 22, 6 79, 7 32, 8 19, 9 75, 10 32, 11 43, 12 82, 13 18, 14 24, 15 20, 16 30, 17 24, 18 80, 19 49, 20 15;
+param v := 1 276000, 2 745000, 3 585000, 4 585000, 5 723000, 6 808000, 7 552000, 8 584000, 9 626000, 10 551000, 11 423000, 12 944000, 13 496000, 14 133000, 15 633000, 16 461000, 17 813000, 18 855000, 19 695000, 20 406000;
+
+param m := 30;
+param w := 1 103, 2 100, 3 95, 4 119, 5 148, 6 165, 7 721, 8 89, 9 89, 10 156, 11 181, 12 93, 13 239, 14 173, 15 87, 16 113, 17 1816, 18 107, 19 128, 20 102, 21 102, 22 115, 23 118, 24 124, 25 244, 26 394, 27 100, 28 92, 29 103, 30 126;
+param v := 1 42000, 2 31000, 3 20000, 4 20000, 5 20000, 6 20000, 7 180000, 8 9000, 9 9000, 10 18000, 11 18000, 12 28000, 13 28000, 14 17000, 15 121000, 16 14000, 17 579000, 18 13000, 19 13000, 20 12000, 21 12000, 22 12000, 23 12000, 24 12000, 25 33000, 26 65000, 27 22000, 28 11000, 29 11000, 30 11000;
+*/
+
+param m := 40;
+param w := 1 3512, 2 87, 3 87, 4 90, 5 91, 6 91, 7 99, 8 218, 9 89, 10 91, 11 91, 12 92, 13 92, 14 93, 15 95, 16 99, 17 100, 18 263, 19 88, 20 89, 21 91, 22 92, 23 93, 24 97, 25 99, 26 99, 27 90, 28 97, 29 399, 30 298, 31 160, 32 854, 33 132, 34 986, 35 255, 36 88, 37 89, 38 92, 39 97, 40 98;
+param v := 1 672000, 2 10000, 3 10000, 4 10000, 5 10000, 6 10000, 7 10000, 8 244000, 9 73000, 10 9000, 11 9000, 12 9000, 13 9000, 14 9000, 15 9000, 16 9000, 17 9000, 18 83000, 19 8000, 20 8000, 21 8000, 22 8000, 23 8000, 24 8000, 25 8000, 26 8000, 27 7000, 28 7000, 29 103000, 30 144000, 31 58000, 32 399000, 33 15000, 34 472000, 35 120000, 36 12000, 37 12000, 38 11000, 39 11000, 40 11000;
+
+param c := 10000;
+
+end;</code></pre>
+</figure>
+
+<p>Jetzt muss man folgendes ausführen:</p>
+
+<figure class="highlight">
+   <pre><code class="language-bash" data-lang="bash">glpsol --output example.out --log example.log --math partition.mod</code></pre>
+</figure>
+
+<p>Das benötigt für die größte Eingabe etwa 18 Sekunden.</p>
+
+<p>Wenn man nun in die example.out schaut, sieht man unter anderem folgendes:</p>
+
+<figure class="highlight">
+   <pre><code class="language-text" data-lang="text">Problem:    partition
+Rows:       47
+Columns:    80 (80 integer, 80 binary)
+Non-zeros:  640
+Status:     INTEGER OPTIMAL
+Objective:  obj = 5 (MINimum)</code></pre>
+</figure>
+
+<p>Die interessante Zahl ist die 5. Das ist das Minimum, das in dieser Aufgabe gesucht war. Wie es zu erreichen ist, sieht  man in der Ausgabe darunter.</p>
+
+<h2 id="tocAnchor-1-4">Weiteres</h2>
+
+<p>Man kann das Problem auch als MULTIPROCESSOR SCHEDULING mit zwei Maschinen betrachten (und nicht als PARTITION). Vor ein paar Tagen habe ich gelernt, dass es für MULTIPROCESSOR SCHEDULING auch ein <a href="http://de.wikipedia.org/wiki/Approximationsalgorithmus#PTAS.2FPAS">PAS</a> gibt. Dabei bestimmt man für eine konstante Anzahl an Koffern die optimale aufteilung und verteilt den rest mittels LIST SCHEDULING.</p>
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="http://martin-thoma.com/category/deutschland/">German posts</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags: 
+                            
+                                
+                                    <a href="http://martin-thoma.com/tag/bwinf/">BwInf</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/glpk/">GLPK</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2012-12-12 12:12:58 +0100">
+                                December 
+                                12th
+                                  , 
+                                2012</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="http://martin-thoma.com/how-can-i-clear-gedit-text-search-replace-history/" rel="prev">How can I clear gedit text search / replace history?</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="http://martin-thoma.com/creating-gantt-charts/" rel="next">Creating Gantt Charts</a> &raquo;
+                                 
+                                </div>
+							</div>
+	
+						</article>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                                <!-- comment discuss code -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!-- comment discuss code -->
+
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+<a href="http://martin-thoma.com/feed/"><img src="http://martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>		
+<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
+</div>
+
+	            <div id="sidebar">
+                <!-- type: searchbox.html - TODO-->
+<ul>
+    <li id="search">
+        <div class="searchlayout">
+            <form method="get" id="searchform" action="http://google.com/cse" role="search">
+                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
+                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
+                <input type="image" src="http://martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/> 
+            </form>
+        </div>
+    </li>
+</ul>
+
+                <div class="addthis_toolbox">   
+    <div class="custom_images">
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2&amp;hashtags=bwinf,glpk,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://del.icio.us/post?url=http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2&amp;title=31.%20BwInf%20-%20Runde%201,%20Aufgabe%202" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2&amp;title=31.%20BwInf%20-%20Runde%201,%20Aufgabe%202" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="http://www.stumbleupon.com/submit?url=http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2&amp;title=31.%20BwInf%20-%20Runde%201,%20Aufgabe%202" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
+            <a href="http://reddit.com/submit?url=http://martin-thoma.com/31-bwinf-runde-1-aufgabe-2&amp;title=31.%20BwInf%20-%20Runde%201,%20Aufgabe%202" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+    </div>
+</div>
+			        
+		        <ul>
+                    <li id="categories-3" class="widget widget_categories">
+                        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="http://martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="http://martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="http://martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="http://martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="http://martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="http://martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+	</ul>
+
+                    </li>
+                    <li id="tag_cloud-3" class="widget widget_tag_cloud">
+                        <h2 class="widgettitle">Tags</h2>
+                        <div class="tagcloud"><a style='font-size: 131.25%' href='http://martin-thoma.com/tag/ai/' title='9 topics'>AI</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 193.97%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/chrome/' title='5 topics'>Chrome</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/html5/' title='5 topics'>HTML5</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/it-security/' title='9 topics'>IT-Security</a>
+<a style='font-size: 228.53%' href='http://martin-thoma.com/tag/java/' title='36 topics'>Java</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/javascript/' title='6 topics'>JavaScript</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/kit/' title='18 topics'>KIT</a>
+<a style='font-size: 210.90%' href='http://martin-thoma.com/tag/klausur/' title='28 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 202.95%' href='http://martin-thoma.com/tag/latex/' title='25 topics'>LaTeX</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 171.63%' href='http://martin-thoma.com/tag/linux/' title='16 topics'>Linux</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/machine-learning/' title='9 topics'>Machine Learning</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/php/' title='9 topics'>PHP</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/physics/' title='5 topics'>Physics</a>
+<a style='font-size: 241.00%' href='http://martin-thoma.com/tag/programming/' title='43 topics'>Programming</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/python/' title='65 topics'>Python</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/swt-i/' title='9 topics'>SWT I</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.05%' href='http://martin-thoma.com/tag/video/' title='13 topics'>Video</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/vimeo/' title='9 topics'>Vimeo</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/web-development/' title='10 topics'>Web Development</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/wikipedia/' title='6 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/windows-7/' title='5 topics'>Windows 7</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 145.33%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/analysis/' title='7 topics'>analysis</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/cheat-sheet/' title='5 topics'>cheat sheet</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/funny/' title='15 topics'>funny</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 255.68%' href='http://martin-thoma.com/tag/mathematics/' title='53 topics'>mathematics</a>
+<a style='font-size: 190.71%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
+</div>
+                    </li>
+                </ul>
+	            </div>
+            </div>
+		</div><!--/container-->
+			<footer id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</footer><!--/footer-->
+            
+	</div><!--/wrapper-->
+<!-- type: footer -->
+<!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<!-- TOC Plus -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://martin-thoma.com/js/tocplus-front.js"></script>
+
+</body>
+</html>
+

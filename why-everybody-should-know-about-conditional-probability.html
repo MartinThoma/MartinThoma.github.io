@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- type: head.html -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    
+
+    
+        <meta name="thumbnail" content="http://martin-thoma.com/images/2013/07/probability-tree.png" />
+        <meta property="og:image" content="http://martin-thoma.com/images/2013/07/probability-tree.png" />
+    
+
+    <meta property="og:type" content="blog"/>
+
+    <title>Why everybody should know about conditional probability</title>
+    <link rel="stylesheet" href="http://martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="http://martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-device-width: 480px)" />
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="http://martin-thoma.com/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="http://martin-thoma.com/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="http://martin-thoma.com/why-everybody-should-know-about-conditional-probability" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@themoosemind"/>
+<meta name="twitter:creator" content="@themoosemind"/>
+<meta name="twitter:title" content="Why everybody should know about conditional probability"/>
+
+    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
+
+
+    <meta name="twitter:image" content="http://martin-thoma.com/images/2013/07/probability-tree.png"/>
+
+
+
+<meta name="twitter:url" content="http://martin-thoma.com/why-everybody-should-know-about-conditional-probability"/>
+<meta name="twitter:domain" content="Martin Thoma.com"/>
+
+
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery.js"></script>
+    <script type='text/javascript' src="http://martin-thoma.com/js/jquery-migrate.min.js"></script>
+    <style type="text/css">div#toc_container {width: 275px;}</style>
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+<!-- type: post.html -->
+<body>
+	<div id="wrapper">
+		<div id="container" class="container">
+			<div class="span-16">
+                <!-- type: header.html -->
+<div id="header" role="banner">
+    <h1><a href="http://martin-thoma.com">Martin Thoma</a></h1>
+    <h2>A blog about Code, the Web and Cyberculture.</h2>
+</div>
+<nav class="navcontainer" role="navigation">
+	<ul id="nav">
+		<li class=""><a href="http://martin-thoma.com">Home</a></li>
+		<li class="page_item page-item-41 "><a href="http://martin-thoma.com/author/martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="http://martin-thoma.com/imprint/">Imprint</a></li>
+	</ul>
+</nav>
+
+            	<div id="content">	
+                    <article class="post type-post format-standard hentry clearfix ">
+                        <h2 class="title entry-title">Why everybody should know about conditional probability</h2>
+			            <div class="postdate entry-date">
+                            <time datetime="2013-07-23T15:37:39+02:00">
+                                July 
+                                23rd,
+                                  
+                                2013
+                            </time>
+                        </div>
+			
+						<div class="entry">
+                            <p>Probability theory is difficult, but I think everybody should be taught basics in this subject. Why? Because it is relevant for everybody.</p>
+
+<p>Suppose you go to the doctor to make a cancer test. The test is positive. That means you have cancer, right? Wrong!</p>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Basics</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Cancer</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-3">
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Some intermediate results</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Reversing it</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-5">
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Testing again</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-6">
+         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Why probability is important for you</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Basics</h2>
+
+<p>A probability is a numerical value in [0, 1] that is assigned to events (or lets rather say outcomes of an experiment). A probability can never be less than zero and never be more than one.</p>
+
+<p>The sum of all probabilities of all outcomes of one experiment is always 1.</p>
+
+<p>Example: Your experiment $x$ could be throwing a coin. The outcome of your experiment is either head or tails. So if 
+$Pr[x = \text{head}] = 0.6$, then $Pr[x = \text{tail}] = 0.4$.</p>
+
+<p>Now you might argue that the coin can also stand on its border. This would result in a different model of the situation with different probabilities, e.g.:</p>
+
+<p>$Pr[x = \text{head}] = 0.559$, $Pr[x = \text{border}] = 0.001$ and $Pr[x = \text{tail}] = 0.4$.</p>
+
+<p>Another very important rule is Bayes rule:</p>
+
+<p>
+   $Pr[A|B] = \frac{Pr[B|A] \cdot Pr[A]}{Pr[B]}$
+</p>
+
+<p>This works also with more variables:</p>
+
+<p>
+   $Pr[A|BC] = \frac{Pr[B|AC] \cdot Pr[A|C]}{Pr[B|C]}$
+</p>
+
+<h2 id="tocAnchor-1-2">Cancer</h2>
+
+<p>Lets say the probability of having cancer is $Pr[C] = 0.01$. This means the probability of not having cancer is $Pr[\neg C] = 0.99$.</p>
+
+<p>Now you have cancer tests. They can either be positive (+) which means they say you have cancer. Or they are negative (-), which means according to the test, you don't have cancer. </p>
+
+<p>They are not always working as expected. So you get so called "false positives" and "false negatives".</p>
+
+<p>A false positive is a positive result, while it should be negative. So the test says you have cancer, while you don't have cancer. It is denoted by $Pr[+ | \neg C] = 0.2$.</p>
+
+<p>A false negative is a negative result, while it should be positive. So the test says you don't have cancer, but you actually have cancer. It is denoted by $Pr[- | C] = 0.1$.</p>
+
+<p>You should note that $Pr[+ | \neg C] + Pr[- | C] = 0.2 + 0.1 = 0.3 \neq 1$. Why is this the case? Because the test might also not be related at all to you having cancer.</p>
+
+<p>But $Pr[+ | \neg C] + Pr[- | \neg C]$ has to be 1 and $Pr[+ | C] + Pr[- | C]$ also has to be one.</p>
+
+<p>So you can draw this table:</p>
+
+<table class="wikitable" style="width:auto;">
+<tr>
+  <th>`$Pr[\text{Testresult}|\text{Cancer}]$`</th>
+  <th>`$C$`</th>
+  <th>`$\neg C$`</th>
+</tr>
+<tr>
+  <th>`$+$`</th>
+  <td style="background-color:lime;">`$0.9$`</td>
+  <td style="background-color:red;">`$0.2$`</td>
+</tr>
+<tr>
+  <th>`$-$`</th>
+  <td style="background-color:red;">`$0.1$`</td>
+  <td style="background-color:lime;">`$0.8$`</td>
+</tr>
+</table>
+
+<p>You can see that the correct results are much more likely than the wrong ones.</p>
+
+<h2 id="tocAnchor-1-3">Some intermediate results</h2>
+
+<p>How likely is a positive / negative test result?
+$\begin{align}
+Pr[+] &amp;= Pr[+|C] \cdot Pr[C] + Pr[+| \neg C] \cdot Pr[\neg C] = 0.207\\
+Pr[-] &amp;= Pr[-|C] \cdot Pr[C] + Pr[-| \neg C] \cdot Pr[\neg C] = 0.793
+\end{align}$</p>
+
+<p>How likely are the combinations? (This time you don't know if you have cancer):</p>
+
+<table class="wikitable" style="width:auto;">
+<tr>
+  <th>`$Pr[\text{Testresult}, \text{Cancer}]$`</th>
+  <th>`$C$`</th>
+  <th>`$\neg C$`</th>
+</tr>
+<tr>
+  <th>`$+$`</th>
+  <td>`$0.009$`</td>
+  <td>`$0.198$`</td>
+</tr>
+<tr>
+  <th>`$-$`</th>
+  <td>`$0.001$`</td>
+  <td>`$0.792$`</td>
+</tr>
+</table>
+
+<h2 id="tocAnchor-1-4">Reversing it</h2>
+
+<p>It is quite likely that you would like to know how likely it is that you have cancer. Without a test, you know:</p>
+
+<p>
+   $\begin{align}
+Pr[C]      &amp;= 0.01\\
+Pr[\neg C] &amp;= 0.99
+\end{align}$
+</p>
+
+<p>Now you get a positive test result. How likely is it that you have cancer? In other words: Calculate $Pr[C|+]$</p>
+
+<p>
+   $\begin{align}
+Pr[C|+]      &amp;= \frac{Pr[C, +]}{Pr[+]} = \frac{0.009}{0.207} = \frac{1}{23} \approx 0.043\\
+Pr[\neg C|+] &amp;= 1 - \frac{1}{23} = \frac{22}{23} \approx 0.957\\
+Pr[C|-]      &amp;= \frac{0.001}{0.793} = \frac{1}{793} \approx 0.001\\
+Pr[\neg C|-] &amp;= 1 - \frac{1}{793} = \frac{792}{793} \approx 0.999
+\end{align}$
+</p>
+
+<p>How would you interpret these results? I'd say:
+When you get a positive result you shouldn't really worry. But perhaps you should make other tests.
+When you get a negative results you can be very sure that you don't have cancer.</p>
+
+<h2 id="tocAnchor-1-5">Testing again</h2>
+
+<p>A very natural approach to a positive test result might be taking the same test again. How does this influence the probability?</p>
+
+<p>There are four possibilities what could have happened:
+</p><ul>
+  <li>You have cancer:
+    <ul>
+      <li>Second test was negative</li>
+      <li>Second test was positive</li>
+    </ul>
+  </li>
+  <li>You don't have cancer:
+    <ul>
+      <li>Second test was negative</li>
+      <li>Second test was positive</li>
+    </ul>
+  </li>
+</ul>
+
+<p>First of all, I compare some intermediate results
+$
+\begin{align}
+Pr[++] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[+|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[+|\neg C]\\
+       &amp;= 0.477 \neq 0.042849 = 0.207^2 = (Pr[+])^2\\
+Pr[+-] &amp;= Pr[C] \cdot Pr[+|C] \cdot Pr[-|C] + Pr[\neg C] \cdot Pr[+|\neg C] \cdot Pr[-|\neg C] \\
+       &amp;= 0.01 \cdot 0.9 \cdot 0.1 + 0.99 \cdot 0.2 \cdot 0.8\\
+       &amp;= 0.1593\\
+Pr[C,+,+] &amp;= Pr[C] \cdot Pr[+ | C]^2 = 0.01 \cdot 0.9^2 = 0.0081\\
+Pr[C,+,-] &amp;= Pr[C] \cdot Pr[+ | C] \cdot Pr[-|C] = 0.01 \cdot 0.9 \cdot 0.1 = 0.0009\\
+Pr[C|++] &amp;= \frac{Pr[C,+,+]}{Pr[++]} = \frac{0.0081}{0.207^2} = \frac{9}{530} \approx 0.170\\
+Pr[C|+-] &amp;= \frac{Pr[C,+,-]}{Pr[+-]} = \frac{0.0009}{0.1593} = \frac{1}{177} \approx 0.006
+\end{align}
+$</p>
+
+<p>Woooha! So if one test says you have cancer, don't worry. When two tests say you have cancer, you have a 17% chance of having cancer.</p>
+
+<p>On the other hand: One negative and one positive test is better than no test at all, because without a test you have a probability of 0.01 to have cancer. With both tests, you only have a probability of 0.006.</p>
+
+<h2 id="tocAnchor-1-6">Why probability is important for you</h2>
+
+<p>As you might have seen, your intuition about probability is wrong. But we hear numbers all the time. It is important for us to understand them, so we should drop our intuition and learn how to use those numbers.</p>
+
+						</div>
+						<div class="postmeta">Posted in 
+                            
+                                <a href="http://martin-thoma.com/category/maths/">Mathematics</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags: 
+                            
+                                
+                                    <a href="http://martin-thoma.com/tag/stochastic/">Stochastic</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/probability/">probability</a>
+                                
+                             by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2013-07-23 15:37:39 +0200">
+                                July 
+                                23rd
+                                  , 
+                                2013</span></span></div>
+
+							<div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="http://martin-thoma.com/kollisionsresistente-hashfunktionen-und-einwegfunktionen/" rel="prev">Kollisionsresistente Hashfunktionen und Einwegfunktionen</a>
+                                 
+                                </div>
+								<div class="alignright">
+                                
+                                    <a href="http://martin-thoma.com/improving-lecture-notes-job-almost-done/" rel="next">Improving lecture notes: Job (almost) done!</a> &raquo;
+                                 
+                                </div>
+							</div>
+	
+						</article>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                                <!-- comment discuss code -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!-- comment discuss code -->
+
+                        </div>
+                    </div>
+			    </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+<a href="http://martin-thoma.com/feed/"><img src="http://martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>		
+<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="http://martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
+</div>
+
+	            <div id="sidebar">
+                <!-- type: searchbox.html - TODO-->
+<ul>
+    <li id="search">
+        <div class="searchlayout">
+            <form method="get" id="searchform" action="http://google.com/cse" role="search">
+                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
+                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
+                <input type="image" src="http://martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/> 
+            </form>
+        </div>
+    </li>
+</ul>
+
+                <div class="addthis_toolbox">   
+    <div class="custom_images">
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/why-everybody-should-know-about-conditional-probability&amp;hashtags=stochastic,probability,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://del.icio.us/post?url=http://martin-thoma.com/why-everybody-should-know-about-conditional-probability&amp;title=Why%20everybody%20should%20know%20about%20conditional%20probability" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/why-everybody-should-know-about-conditional-probability" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/why-everybody-should-know-about-conditional-probability&amp;title=Why%20everybody%20should%20know%20about%20conditional%20probability" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="http://www.stumbleupon.com/submit?url=http://martin-thoma.com/why-everybody-should-know-about-conditional-probability&amp;title=Why%20everybody%20should%20know%20about%20conditional%20probability" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http://martin-thoma.com/why-everybody-should-know-about-conditional-probability" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
+            <a href="http://reddit.com/submit?url=http://martin-thoma.com/why-everybody-should-know-about-conditional-probability&amp;title=Why%20everybody%20should%20know%20about%20conditional%20probability" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+    </div>
+</div>
+			        
+		        <ul>
+                    <li id="categories-3" class="widget widget_categories">
+                        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="http://martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="http://martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="http://martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="http://martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="http://martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="http://martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+	</ul>
+
+                    </li>
+                    <li id="tag_cloud-3" class="widget widget_tag_cloud">
+                        <h2 class="widgettitle">Tags</h2>
+                        <div class="tagcloud"><a style='font-size: 131.25%' href='http://martin-thoma.com/tag/ai/' title='9 topics'>AI</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/algebra/' title='6 topics'>Algebra</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/assembly-language/' title='5 topics'>Assembly language</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/bash/' title='6 topics'>Bash</a>
+<a style='font-size: 193.97%' href='http://martin-thoma.com/tag/c/' title='22 topics'>C</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/cpp/' title='10 topics'>CPP</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/challenge/' title='7 topics'>Challenge</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/chrome/' title='5 topics'>Chrome</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/clip/' title='10 topics'>Clip</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/command-line/' title='5 topics'>Command Line</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/computer-science/' title='6 topics'>Computer science</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/digitaltechnik/' title='8 topics'>Digitaltechnik</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/flashgames/' title='6 topics'>Flashgames</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/geometry/' title='5 topics'>Geometry</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/google/' title='9 topics'>Google</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/google-code-jam/' title='8 topics'>Google Code Jam</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/html5/' title='5 topics'>HTML5</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/it-security/' title='9 topics'>IT-Security</a>
+<a style='font-size: 228.53%' href='http://martin-thoma.com/tag/java/' title='36 topics'>Java</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/javascript/' title='6 topics'>JavaScript</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/kit/' title='18 topics'>KIT</a>
+<a style='font-size: 210.90%' href='http://martin-thoma.com/tag/klausur/' title='28 topics'>Klausur</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/kogsys/' title='5 topics'>KogSys</a>
+<a style='font-size: 202.95%' href='http://martin-thoma.com/tag/latex/' title='25 topics'>LaTeX</a>
+<a style='font-size: 179.89%' href='http://martin-thoma.com/tag/linear-algebra/' title='18 topics'>Linear algebra</a>
+<a style='font-size: 171.63%' href='http://martin-thoma.com/tag/linux/' title='16 topics'>Linux</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/machine-learning/' title='9 topics'>Machine Learning</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/matrix/' title='8 topics'>Matrix</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/os/' title='5 topics'>OS</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/operating-systems/' title='5 topics'>Operating Systems</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/php/' title='9 topics'>PHP</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/physics/' title='5 topics'>Physics</a>
+<a style='font-size: 241.00%' href='http://martin-thoma.com/tag/programming/' title='43 topics'>Programming</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/project-euler/' title='9 topics'>Project Euler</a>
+<a style='font-size: 270.00%' href='http://martin-thoma.com/tag/python/' title='65 topics'>Python</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/review/' title='6 topics'>Review</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/swt-i/' title='9 topics'>SWT I</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/theoretical-computer-science/' title='9 topics'>Theoretical computer science</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/tikz/' title='6 topics'>Tikz</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/ubuntu/' title='5 topics'>Ubuntu</a>
+<a style='font-size: 157.05%' href='http://martin-thoma.com/tag/video/' title='13 topics'>Video</a>
+<a style='font-size: 131.25%' href='http://martin-thoma.com/tag/vimeo/' title='9 topics'>Vimeo</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/web-development/' title='10 topics'>Web Development</a>
+<a style='font-size: 102.79%' href='http://martin-thoma.com/tag/wikipedia/' title='6 topics'>Wikipedia</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/windows-7/' title='5 topics'>Windows 7</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/wolfram-alpha/' title='5 topics'>Wolfram|Alpha</a>
+<a style='font-size: 145.33%' href='http://martin-thoma.com/tag/youtube/' title='11 topics'>YouTube</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/advertising/' title='5 topics'>advertising</a>
+<a style='font-size: 122.98%' href='http://martin-thoma.com/tag/algorithms/' title='8 topics'>algorithms</a>
+<a style='font-size: 113.61%' href='http://martin-thoma.com/tag/analysis/' title='7 topics'>analysis</a>
+<a style='font-size: 90.00%' href='http://martin-thoma.com/tag/cheat-sheet/' title='5 topics'>cheat sheet</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/funny/' title='15 topics'>funny</a>
+<a style='font-size: 167.10%' href='http://martin-thoma.com/tag/learning/' title='15 topics'>learning</a>
+<a style='font-size: 138.64%' href='http://martin-thoma.com/tag/lecture-notes/' title='10 topics'>lecture-notes</a>
+<a style='font-size: 255.68%' href='http://martin-thoma.com/tag/mathematics/' title='53 topics'>mathematics</a>
+<a style='font-size: 190.71%' href='http://martin-thoma.com/tag/puzzle/' title='21 topics'>puzzle</a>
+</div>
+                    </li>
+                </ul>
+	            </div>
+            </div>
+		</div><!--/container-->
+			<footer id="footer">
+				<a href="http://martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+			</footer><!--/footer-->
+            
+	</div><!--/wrapper-->
+<!-- type: footer -->
+<!-- MathJax -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<!-- TOC Plus -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://martin-thoma.com/js/tocplus-front.js"></script>
+
+</body>
+</html>
+
