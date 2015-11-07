@@ -41,6 +41,8 @@ Kommt noch... spätestens wenn die Klausur naht.
 
 ### Übungen
 
+#### Blatt 1
+
 Das Framework bekommt man ohne VM unter Ubuntu 15.04 nach der Installtion
 folgender Pakete (vielleicht) zum laufen:
 
@@ -54,6 +56,12 @@ Wenn ihr den Fehler
 
 bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
 `build`-Ordner löschen und es neu versuchen.
+
+{% gallery columns="3" size="medium" %}
+    ../images/2015/11/color-cube.png    "Color cube"
+    ../images/2015/11/gravity-field.png    "Gravity field"
+    ../images/2015/11/temperature.png    "Temperature of a black body"
+{% endgallery %}
 
 ## Material und Links
 

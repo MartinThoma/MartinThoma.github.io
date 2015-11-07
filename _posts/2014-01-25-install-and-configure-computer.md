@@ -72,6 +72,15 @@ update-alternatives --config editor
 update-alternatives --config x-www-browser
 ```
 
+### MATE
+
+See [issues/262](https://github.com/mate-desktop/caja/issues/262):
+
+```bash
+mv ~/.config/gtk-3.0/bookmarks ~/.config/gtk-3.0/bookmarks-backup
+ln -s ~/.gtk-bookmarks ~/.config/gtk-3.0/bookmarks
+```
+
 ### GUI
 
 I like the old menu bar quite a lot. It opens instantly and is customizable:
