@@ -56,3 +56,50 @@ Install
 ========
 
 See http://martin-thoma.com/jekyll-and-git/
+
+## Sublime
+
+The following snippets help to create new articles fast. To install them, go to
+"Tools &rightarrow; New Snippet..." in Sublime&nbsp;Text&nsp;3.
+
+### blog-article
+
+```text
+<snippet>
+    <content><![CDATA[
+---
+layout: post
+title: ${1:}
+author: Martin Thoma
+date: 2014-11-22 17:19
+categories:
+- ${2:Cyberculture}
+tags:
+- ${3:Rating}
+featured_image: logos/${4:star.png}
+---
+${5:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>---</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>
+```
+
+
+### caption-tag
+
+```text
+<snippet>
+    <content><![CDATA[
+{% caption align="aligncenter" width="500" alt="${1:text}" text="${1:text}" url="../images/2015/01/${2:image.png}" %}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>captiontag</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>
+```
+
+### gallery-tag
