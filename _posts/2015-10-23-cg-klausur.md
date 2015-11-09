@@ -31,6 +31,41 @@ featured_image: logos/klausur.png
     <td>Farbe, Darstellung &amp; Perzeption</td>
     <td><a href="https://de.wikipedia.org/wiki/Weber-Fechner-Gesetz">Weber-Fechner-Gesetz</a>, <a href="https://de.wikipedia.org/wiki/Nyquist-Shannon-Abtasttheorem">Abtasttheorem</a>, <a href="https://de.wikipedia.org/wiki/Dynamikumfang">Dynamikumfang</a>, Farbwahrnehmung im menschlichen Auge; <a href="https://de.wikipedia.org/wiki/Gammakorrektur">Gammakorrektur</a></td>
 </tr>
+<tr>
+    <td>26.10.2015</td>
+    <td>Übung</td>
+    <td>gdb (bt - backtrace; p - print)</td>
+</tr>
+<tr>
+    <td>26.10.2015</td>
+    <td>&nbsp;</td>
+    <td>Metamerismus: Unterschiedliche Spektren können gleichen Farbeindruck erwecken<br/>
+        Addiere/subtrahiere Farbmischung<br/>
+        <abbr title="Cyan, Magenta, Yellow">CMY</abbr> / <a href="https://de.wikipedia.org/wiki/CMYK-Farbmodell"><abbr title="Cyan, Magenta, Yellow, Key">CMYK</abbr></a> / <a href="https://de.wikipedia.org/wiki/RGB-Farbraum"><abbr title="Red Green Blue">RGB</abbr></a> / <abbr title="Hue Saturation Value">HSV</abbr> / <a href="https://de.wikipedia.org/wiki/CIE-Normvalenzsystem">XYZ</a><br/>
+        <a href="https://de.wikipedia.org/wiki/Weber-Fechner-Gesetz">Weber-Fechner-Gesetz</a>: 2% heller
+        </td>
+</tr>
+<tr>
+    <td>29.10.2015</td>
+    <td>Ray-Tracing: Kapitel 2</td>
+    <td>Menschen nehmen Kontrastintensität und Luminenz besser als Chrominanz war.
+        Das ermöglicht Kompression.<br/>
+        clear-type / subpixel Darstellung<br/>
+        Jaggies: Unerwünschter Treppenstufen-Effekt bei Rasterisierung von Strecken<br/>
+        Kamera: Position (x,y,z), Blickrichtung (zu einem Punkt mit Koordinaten (x,y,z)) und up-Vektor<br/>
+        Skalarprodukt, Kreuzprodukt<br/>
+        <a href="https://de.wikipedia.org/wiki/Baryzentrische_Koordinaten">Baryzentrische Koordinaten</a>,
+        </td>
+</tr>
+<tr>
+    <td>02.11.2015</td>
+    <td>Übung</td>
+    <td>Rasterisierung von Linien (Implizite Darstellung)<br/>
+        zbuffer: Tiefe des "nächsten" Polygons pro Pixel wird gespeichert<br/>
+        Konsistenzregeln, z.B. wenn man zwei benachbarte farbige Dreiecke mit Diagonale hat
+        und man die Farbe des Pixels berechnen muss, durch den beide Dreiecke
+        teilweise gehen (37 Fälle; Katalog von Microsoft; macht die Hardware)</td>
+</tr>
 </table>
 
 ### Folien
@@ -58,8 +93,8 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
 `build`-Ordner löschen und es neu versuchen.
 
 {% gallery columns="3" size="medium" %}
-    ../images/2015/11/color-cube.png    "Color cube"
-    ../images/2015/11/gravity-field.png    "Gravity field"
+    ../images/2015/11/color-cube.png     "Color cube"
+    ../images/2015/11/gravity-field.png  "Gravity field"
     ../images/2015/11/temperature.png    "Temperature of a black body"
 {% endgallery %}
 
@@ -67,10 +102,17 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
 
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
 * [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
+* [E-Mail Verteiler](https://lists.ira.uni-karlsruhe.de/mailman/listinfo/cg.cg)
 
 ## Übungsbetrieb
 
 Es gibt Übungsblätter und Übungen, aber keine Tutorien und keine Bonuspunkte.
+
+Um das Modul zu bestehen wird der Übungsschein benötigt. Für den Übungsschein
+benötigt man 60% der Punkte der Übungsblätter. Die Übungsblätter werden über
+[submit.ivd.kit.edu](https://submit.ivd.kit.edu/main/index.php) eingereicht.
+Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
+6&nbsp;Übungsblätter und min. 120&nbsp;Punkte. Die Deadline ist Montag, 11:00.
 
 
 ## Termine und Klausurablauf
