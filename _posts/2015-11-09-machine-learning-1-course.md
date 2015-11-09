@@ -2,7 +2,7 @@
 layout: post
 title: Machine Learning 1
 author: Martin Thoma
-date: 2015-10-23 11:30
+date: 2015-11-09 16:02
 categories:
 - German posts
 tags:
@@ -48,6 +48,37 @@ featured_image: logos/klausur.png
     * Suche vom Allgemeinen zum Speziellen: Negative Beispiele führen zur Spezialisierung
     * Suche vom Speziellen zum Allgemeinen: Positive Beispiele führen zur Verallgemeinerung
     * [Version Space](https://de.wikipedia.org/wiki/Versionsraum): Beides gleichzeitig anwenden
+* Präzendenzgraphen: In welcher Reihenfolge werden Aktionen ausgeführt?
+
+Version Space Algorithmus ist:
+
+* Induktiver Inferenztyp
+* Symbolische Ebene des Lernens
+* Überwachtes Lernen
+* Inkrementelle Beispielgebung
+* Umfangreich (viele Beispiele)
+* Empirisches Hintergrundwissen
+* Voraussetzungen: Konsistente Beispiele, korrekte Hypothese im Hypothesenraum
+* Positive Aspekte:
+  * Es ist feststellbar, welche Art von Beispielen noch nötig ist
+  * Es ist feststellbar, wann das Lernen abgeschlossen ist
+
+Weiteres
+
+<dl>
+  <dt><dfn>Inductive bias</dfn></dt>
+  <dd>Induktives Lernen benötigt Vorannahmen</dd>
+  <dt><dfn>Bias</dfn> ("Vorzugskriterium")</dt>
+  <dd>Vorschrift, nach der Hypothese gebildet werden</dd>
+</dl>
+
+
+### MLI_03_ReinforcementLearning_slides1.pdf
+
+Beim <a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">reinforcement learning</a> gehen wir hier von <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Markow-Entscheidungsproblemen</a> aus.
+
+* Beispiel: Roboter muss zu einem Ziel navigieren
+
 
 ## Prüfungsfragen
 
