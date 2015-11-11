@@ -85,6 +85,58 @@ Another idea that is much better is [Duolingo](http://www.duolingo.com/).
 [getlocalization.com](http://www.getlocalization.com/) might also be worth a
 try.
 
+## Wiki-like Dictionary
+
+Wikipedia is great, but the Wiktionaries suck. I would like to have a
+dictionary service. It should be working for all language combinations
+(English ↔ German; English ↔ French; German ↔ French; ...). The data should
+initially be filled by computers, but then be improved / corrected by humans.
+
+
+### Database
+It is basically a database with a nice interface.
+
+The database should have the following tables:
+
+* Languages: LangID, Name in the language itself, icon
+* Literature: LiteratureID, LangID, ISBN
+* Words: WordID, Word, Normalized Occurences in Standard Literature
+* WordPronounciation: WordPronounciationID, Pronounciation in phonetics, Pronounciation by a human
+    * Pronounciation by a human should be stored on Wikipedia Commons
+* WordTags: WordTagID, Tag, Description in Markdown
+    * Examples: Adjective, Substantive, male, genitiv, past, medicine ...
+* TagTag: TagTagID, TagID, TagTag, Description in Markdown
+    * Examples: Gender, Word-Class, Tense, Context, ...
+* Tags2Words: T2WID, TagID, WordID
+* Sentences: SentenceID, Sentence
+* Words2Sentece: ID, SentenceID, WordID
+* Definitions: ID, WordID, Definition, Image
+    * Images should be stored on Wikipedia Commons
+* Translations: ID, WordID, TranslationID
+    * Note that translations don't have to be unique. There might be more than
+      one correct translation for a word (e.g. "Bank")
+    * Note that some translations might be more appropriate, depending on the
+      context.
+* Users: UserID, DisplayName, Email, HashedPassword
+
+
+### Initial Data
+
+* Wiktionaries
+* For nouns: Lemmas of articles
+
+
+### Features
+
+* Downloadable minimal dataset for language combinations
+  (e.g. on your smartphone in case you don't have internet access). The most
+  important words (2000 or so) should come with the audio data.
+* Web search like dict.leo.org (e.g. [example search](http://dict.leo.org/?lp=ende&search=bank))
+* Forum to ask for translations, given context.
+* Discussion pages for entries
+* Moderators to "protect" entries.
+* Ranking to find most important words which need some human work
+
 
 ## Distributed, Universal Tagging System
 

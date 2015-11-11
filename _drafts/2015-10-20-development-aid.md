@@ -25,6 +25,8 @@ featured_image: logos/star.png
 * Mobile Networks?
 * Internet
     * [Google Loon](http://www.google.com/loon/)
+* Radio
+    * [Pocket FM](http://www.golem.de/news/pocket-fm-robuster-radiosender-fuer-krisengebiete-1511-117279.html)
 
 ## Food
 * Very local in low-tech solutions. Depens on availability of water and sun.
@@ -40,3 +42,4 @@ featured_image: logos/star.png
 
 ## See also
 * [List of open-source hardware projects](https://en.wikipedia.org/wiki/List_of_open-source_hardware_projects)
+* [GVCS](http://opensourceecology.org/wiki/Global_Village_Construction_Set)

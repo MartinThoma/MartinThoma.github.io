@@ -42,7 +42,7 @@ If possible, I will give the debian package names in the following list:
   * `vim`
   * `python python3 python-numpy python-setuptools python-mysqldb`
   * `ruby ruby-sqlite3 ruby-mysql`
-  * `gcc g++ cmake build-essential`
+  * `gcc g++ cmake build-essential gdb`
   * OpenGL: `xorg-dev libglu1-mesa-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev`
   * `apache2 php5 php5-mysql`
   * `zsh` and [Oh-my-zsh](../working-terminal/)

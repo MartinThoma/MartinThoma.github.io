@@ -71,4 +71,4 @@ this is about 3.7GB. This means sharing the data is not that easy.
 ### Remarks
 
 * What I called "data multiplication" is called "data augmentation" by others
-  (e.g. [Deep Image: Scaling up Image Recognition](http://arxiv.org/abs/1501.02876), [Classifying plankton with deep neural networks](http://benanne.github.io/2015/03/17/plankton.html#data-augmentation))
+  (e.g. [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf), [Deep Image: Scaling up Image Recognition](http://arxiv.org/abs/1501.02876), [Classifying plankton with deep neural networks](http://benanne.github.io/2015/03/17/plankton.html#data-augmentation))
