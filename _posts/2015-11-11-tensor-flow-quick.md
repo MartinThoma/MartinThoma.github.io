@@ -203,6 +203,26 @@ Starting at 21m 2s:
 <iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/90-S1M7Ny_o?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
+## Alternatives / Similar software
+
+As I don't really know by now what Tensor Flow is doing, I can't pin-point
+alternatives. But I have some educated guesses:
+
+* [Theano](http://deeplearning.net/software/theano/) has been around for quite
+  a while and seems to have a similar approach with its computational graph.
+  Enhanced by [Lasagne](http://lasagne.readthedocs.org/en/latest/), it is a
+  pretty good alternative when it comes to neural networks. Lasagne has an
+  exceptionally good documentation, but parts of the tutorial could still be
+  improved.
+* [Caffe](http://caffe.berkeleyvision.org/) was something I recently tried.
+  I didn't like it too much due to the lack of documentation, but it certainly
+  is a big project. Especially when it comes to images.
+* I haven't tried, but they look promising:
+  * [Chainer](http://chainer.org/)
+  * [MXNet](http://mxnet.readthedocs.org/en/latest/)
+  * [CGT](http://rll.berkeley.edu/cgt/)
+
+
 ## See also
 
 * [Official Website](http://tensorflow.org/)
