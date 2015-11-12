@@ -221,6 +221,8 @@ alternatives. But I have some educated guesses:
   * [Chainer](http://chainer.org/)
   * [MXNet](http://mxnet.readthedocs.org/en/latest/)
   * [CGT](http://rll.berkeley.edu/cgt/)
+  * [Torch](http://torch.ch/) has a very nice example for [a character
+    predictor](http://karpathy.github.io/2015/05/21/rnn-effectiveness/).
 
 
 ## See also
@@ -229,4 +231,4 @@ alternatives. But I have some educated guesses:
   * [github.com/tensorflow](https://github.com/tensorflow/tensorflow)
   * [TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems](http://download.tensorflow.org/paper/whitepaper2015.pdf)
 * [news.ycombinator.com](https://news.ycombinator.com/item?id=10532957)
-* [reddit.com/r/programming - 1](https://www.reddit.com/r/programming/comments/3s4vkn/google_brains_deep_learning_library_tensorflow_is/), [2](https://www.reddit.com/r/programming/comments/3s5rw1/if_youre_just_learning_about_ml_or_tensor_flow/)
+* [reddit.com/r/programming](https://www.reddit.com/r/programming/comments/3s4vkn/google_brains_deep_learning_library_tensorflow_is/)
