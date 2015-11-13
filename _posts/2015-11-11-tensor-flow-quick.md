@@ -50,12 +50,30 @@ The documentation about the installation makes a VERY good impression. Better
 than anything I can write in a few minutes, so ... [RTFM](http://tensorflow.org/get_started/os_setup.md)
  😜
 
+For Linux systems with CUDA and without root privileges, you can install it
+with:
+
+```bash
+$ pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
+```
+
+But remember you have to set the environment variable `LD_LIBRARY_PATH` and
+`CUDA_HOME`. For many configurations, adding the following lines to your
+`.bashrc` will work:
+
+```bash
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+export CUDA_HOME=/usr/local/cuda
+```
+
 
 ## MNIST
 
-You have to have the [`get_mnist_data_tf.py`](https://gist.github.com/MartinThoma/f37150d0c521f598b08a)
+The following code can be used to check if your Tensor Flow installation is
+working. You have to have the [`get_mnist_data_tf.py`](https://gist.github.com/MartinThoma/f37150d0c521f598b08a)
 in the same directory as the following script. I've - more or less - directly
 copied it from [the tutorial](http://tensorflow.org/tutorials/mnist/pros/index.md).
+Just execute the script below and see if it finishes without throwing errors.
 
 ```python
 #!/usr/bin/env python
@@ -129,7 +147,7 @@ train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 sess.run(tf.initialize_all_variables())
-for i in range(100):
+for i in range(1000):
   batch = mnist.train.next_batch(50)
   if i%100 == 0:
     train_accuracy = accuracy.eval(feed_dict={
