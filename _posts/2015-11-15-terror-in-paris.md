@@ -28,6 +28,7 @@ affected, politicians say we are in war, on Facebook people show condolence.
   they become terrorists?
 * **The Weapons**: Where did they get the weapons from? Can we prevent that?
 * **Fast reactions**: How could the police react that fast?
+* **Future**: How do we want to deal with such attacks?
 
 
 ### The Terrorists
@@ -78,6 +79,22 @@ However, I've also read that the terrorists used
 [Kalashnikov rifles](https://en.wikipedia.org/wiki/Kalashnikov_rifle). They
 cannot be build by yourself, so we should find out where they came from. One
 only the concrete path, but in general.
+
+
+### Fast Reactions
+
+It is less than two days after the attacks, and we already know which type of
+explosive the bombing vests were made of, some people were put into arrest, and
+we are sure that ISIS is responsible. This is astonishing. It feels as if the
+police was doing an extraordinary good job here. I wonder if it would be
+that fast outside of Paris.
+
+At the same time, it feels too fast. When we get news that fast, we
+(unconciously) will expect such fast reactions with other attacks. This might
+not be possible and people might - too fast - ask for political changes. I just
+want to point out that such fast reactions and the quick, not very well
+investigated articles we get today (like this one... but I'm not a journalist)
+are not always good for us.
 
 
 ## Possible actions
@@ -210,3 +227,7 @@ US-Dollar.
   * [French forces in Afghanistan](https://en.wikipedia.org/wiki/French_forces_in_Afghanistan)
   * [Northern Mali conflict](https://en.wikipedia.org/wiki/Northern_Mali_conflict)
   * [War on Terror](https://en.wikipedia.org/wiki/War_on_Terror)
+* Euractiv (German)
+  * [Terror in Paris: Hollande spricht von "Kriegsakt des IS"](http://www.euractiv.de/sections/eu-innenpolitik/terror-paris-hollande-spricht-von-kriegsakt-des-319482)
+  * [Anschlagserie in Paris: Hollande verhängt Ausnahmezustand für ganz Frankreich](http://www.euractiv.de/sections/eu-innenpolitik/anschlagserie-paris-hollande-verhaengt-ausnahmezustand-fuer-ganz-frankreich)
+  * [Terror in Paris: Attentäter nennen als Grund Frankreichs Syrien-Politik](http://www.euractiv.de/sections/eu-innenpolitik/terror-ueberschattet-frankreich-mehr-als-hundert-tote-paris-319479)
