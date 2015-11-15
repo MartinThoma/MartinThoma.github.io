@@ -218,6 +218,15 @@ It is hard to put numbers on here, but it was much more than 18&nbsp;Billion
 US-Dollar.
 
 
+## Some final words
+
+The main point of this mini-article is that I am pretty sure people will react
+to fast. No matter what we do, we should think about it thoroughly. This
+article is - like hundreds of blog articles, quite a bit of "professional"
+journalist articles and surely some statements by politicians - not well
+investigated. It is only a quick, spontaneous reaction.
+
+
 ## See also
 
 * [Du bist Terrorist](https://www.youtube.com/watch?v=SGD2q2vewzQ): A clip by
