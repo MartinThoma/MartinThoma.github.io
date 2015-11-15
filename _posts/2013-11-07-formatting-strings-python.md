@@ -14,22 +14,23 @@ In Python, you can use the following ways to format Strings:
 ## Print directly
 Printing them directly (just like <a href="http://www.cplusplus.com/reference/cstdio/printf/">printf in C</a>):
 
-{% highlight python %}
+```python
 birthday = 28
 month = "April"
 year = 1990
 print("My birthday is the %i-th %s %i." % (birthday, month, year))
-{% endhighlight %}
+```
 
 The first string contains the rules how to format. <code>%i</code> means that the first argument in the following tuple should be interpreted as a integer. The second one <code>%s</code> should be interpreted as a string and the third one again as a integer.
 
 
 ## Save as string
-{% highlight python %}
+
+```python
 >>> a = "Why is %i the answer?" % 42
 >>> a
 'Why is 42 the answer?'
-{% endhighlight %}
+```
 
 
 ## Named formatting

@@ -21,15 +21,27 @@ Linux files have three important access rights for files:
 </ul>
 
 If you want to mark a file as executable, you can add the x-right:
-{% highlight bash %}chmod +x{% endhighlight %}
+
+```bash
+chmod +x
+```
+
 
 When you want to mark a file as readable, you can dd the r-right:
-{% highlight bash %}chmod +r{% endhighlight %}
+
+```bash
+chmod +r
+```
+
 
 You can remove rights in a similar way:
-{% highlight bash %}chmod -x testfile{% endhighlight %}
 
-Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two? 
+```bash
+chmod -x testfile
+```
+
+
+Now, often this is expressed numerically. Three bits determine if the file is readable (4), writable (2) or executable (1). Did you notice that all of them are powers of two?
 
 <h3>Folders</h3>
 rwx has a meaning for folders, too:
@@ -42,7 +54,7 @@ rwx has a meaning for folders, too:
 <h2>User, Group, Others</h2>
 The rights above can be set for the user who created the file (sometimes also called the owner). Then the group that owns the file and all others. This is the reason why you have three times the rights from above:
 
-{% highlight bash %}
+```bash
 moose@pc07:~/Downloads$ ls -l
 total 29624
 drwxr-xr-x  8 moose moose     4096 2013-02-22 14:18 algorithms
@@ -65,7 +77,7 @@ drwxr-xr-x  2 moose moose     4096 2013-03-04 20:28 Screenshots Matlab
 -rw-r--r--  1 moose moose   534614 2013-03-01 19:48 spritelib_gpl.zip
 drwxr-xr-x  8 moose moose     4096 2013-02-27 18:36 Team
 drwxr-xr-x  5 moose moose     4096 2013-02-27 19:17 ViMuDat
-{% endhighlight %}
+```
 
 You might wonder what happens when you execute <code>chmod +x filename</code>. Does it set the execute-flag only for the user? Or for all three - user, group, others? Try and find out. You might want to remove all rights with <code>chmod 000 filename</code> before you start.
 
@@ -75,32 +87,42 @@ Did you know that you can search for file permissions with <code>find /home/ -pe
 <h3>Files</h3>
 Sometimes, you want to execute programs as root, although the user who started the execution isn't root. Take passwd, the program that allows users to change passwords, for example:
 
-{% highlight bash %}moose@pc07:/usr/bin$ ls -l | grep passwd$
+```bash
+moose@pc07:/usr/bin$ ls -l | grep passwd$
 -rwsr-xr-x 1 root   root       53812 2011-02-14 23:11 gpasswd
 -rwxr-xr-x 1 root   root       13612 2012-11-06 21:41 htpasswd
 -rwsr-xr-x 1 root   lpadmin    13540 2012-12-04 16:24 lppasswd
 -rwsr-xr-x 1 root   root       37140 2011-02-14 23:11 passwd
 -rwxr-xr-x 1 root   root     5070304 2012-04-24 23:38 smbpasswd
 -rwxr-xr-x 1 root   root        9688 2013-01-18 17:59 vino-passwd
-{% endhighlight %}
+```
 
 Instead of "x" in the user-execution-row, it states "s". That means, you can execute it and it has the SUID-bit set. If "x" wasn't set, the "S" would be in a capital letter. When you change your password, you need to edit <code>/etc/shadow</code>. This file has very limited access rights: <code>-rw-r-----</code> and is owned by "root" and group "shadow":
 
-{% highlight bash %}moose@pc07:/etc$ ls -l | grep shadow$
+```bash
+moose@pc07:/etc$ ls -l | grep shadow$
 -rw-r-----  1 root    shadow     813 2013-01-24 06:21 gshadow
 -rw-r-----  1 root    shadow    1274 2013-01-24 06:21 shadow
-{% endhighlight %}
+```
 
 Here is <a href="http://www.cyberciti.biz/faq/understanding-etcshadow-file/">more about shadow file</a>.
 
 The SGID (set group id) bit works similar to the SUID (set user id) bit. When you want to execute something with as the group of the file, you set the SGID bit.
 
-The sticky bit seems to be used for programs to stick in memory after it was finished. 
+The sticky bit seems to be used for programs to stick in memory after it was finished.
 
 You can set the sticky bit like this:
-{% highlight bash %}chmod +t testfile{% endhighlight %}
+
+```bash
+chmod +t testfile
+```
+
 or like that:
-{% highlight bash %}chmod 1777 testfile{% endhighlight %}
+
+```bash
+chmod 1777 testfile
+```
+
 
 <h3>Folders</h3>
 <ul>
@@ -123,7 +145,8 @@ The first column of <code>ls -l</code> tells you the type of the item:
   <li>s: a socket</li>
 </ul>
 
-{% highlight bash %}moose@pc07:/dev$ ls -l
+```bash
+moose@pc07:/dev$ ls -l
 total 0
 crw-------  1 root video    10, 175 2013-03-04 10:01 agpgart
 crw-rw----+ 1 root audio    14,   4 2013-03-04 10:01 audio
@@ -146,21 +169,24 @@ drwxr-xr-x  4 root root         380 2013-03-04 18:14 input
 crw-rw----  1 root root      1,  11 2013-03-04 10:01 kmsg
 srw-rw-rw-  1 root root           0 2013-03-04 10:01 log
 brw-rw----  1 root disk      7,   0 2013-03-04 10:01 loop0
-[...]{% endhighlight %}
+[...]
+```
 
 
 
 <h2>stat</h2>
 You can display quite a lot of information of a file with stat:
 
-{% highlight bash %}moose@pc07:~/Desktop/Test$ stat testfile 
+```bash
+moose@pc07:~/Desktop/Test$ stat testfile
   File: `testfile'
   Size: 13        	Blocks: 8          IO Block: 4096   regular file
 Device: 801h/2049d	Inode: 923339      Links: 1
 Access: (0777/-rwxrwxrwx)  Uid: ( 1000/   moose)   Gid: ( 1000/moose)
 Access: 2013-03-04 21:31:52.154187243 +0100
 Modify: 2013-03-04 21:31:51.154184098 +0100
-Change: 2013-03-04 21:31:51.154184098 +0100{% endhighlight %}
+Change: 2013-03-04 21:31:51.154184098 +0100
+```
 
 The content of the file is "Hello World." (12 characters)
 
@@ -172,23 +198,33 @@ According to the manpage of chattr:
 <h3>Version</h3>
 I've just learned that you can give files version-attributes:
 
-{% highlight bash %}moose@pc07:~/Desktop/Test$ lsattr -v
+```bash
+moose@pc07:~/Desktop/Test$ lsattr -v
  1338 -----------------e- ./testfile
-{% endhighlight %}
+```
 
 You can set the version like this:
-{% highlight bash %}chattr -v 1339 testfile{% endhighlight %}
+
+```bash
+chattr -v 1339 testfile
+```
+
 
 <h3>Append only</h3>
-This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file. 
+This one is weird. Theoretically, it should allow me to append to a file, but not to change / delete anything in the file.
 
 First of all, I had to use sudo to add this attribute:
 
-{% highlight bash %}sudo chattr +a testfile{% endhighlight %}
+
+```bash
+sudo chattr +a testfile
+```
+
 
 Then, I had all permissions:
 
-{% highlight bash %}moose@pc07:~/Desktop/Test$ stat testfile 
+```bash
+moose@pc07:~/Desktop/Test$ stat testfile
   File: `testfile'
   Size: 13        	Blocks: 8          IO Block: 4096   regular file
 Device: 801h/2049d	Inode: 923339      Links: 1
@@ -198,14 +234,16 @@ Modify: 2013-03-04 21:31:51.154184098 +0100
 Change: 2013-03-04 21:33:55.154184312 +0100
 moose@pc07:~/Desktop/Test$ lsattr
 -----a-----------e- ./testfile
-{% endhighlight %}
+```
 
 But I couldn't append to the file with gedit. With bash, it worked fine:
 
-{% highlight bash %}moose@pc07:~/Desktop/Test$ echo "One more line " >> testfile 
-moose@pc07:~/Desktop/Test$ cat testfile 
+```bash
+moose@pc07:~/Desktop/Test$ echo "One more line " >> testfile
+moose@pc07:~/Desktop/Test$ cat testfile
 Hello World.
-One more line {% endhighlight %}
+One more line
+```
 
 So I guess I found another bug in gEdit.
 
