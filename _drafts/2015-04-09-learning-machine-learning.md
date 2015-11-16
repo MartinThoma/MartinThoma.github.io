@@ -113,6 +113,15 @@ Link: [udacity.com/course/cs373](https://www.udacity.com/course/cs373)
 * Lesson 5: PID Control
 * Lesson 6: SLAM (Simultaneous Localization and Mapping)
 
+
+## Side notes
+
+{% gallery columns="2" size="medium" %}
+    ../images/2015/11/full-disk.png    "Make sure you have enough disk space"
+    ../images/2015/11/delete-folder-time.png    "Even deleting that much takes a lot of time"
+{% endgallery %}
+
+
 ## More links
 
 * [Learning Deep Learning](http://rt.dgyblog.com/ref/ref-learning-deep-learning.html): A

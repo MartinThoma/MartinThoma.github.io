@@ -76,7 +76,7 @@ I'm talking here about cameras in your bedroom kind of surveillance. "Only"
 the US way of surveillance will not change anything.
 
 However, I've also read that the terrorists used
-[Kalashnikov rifles](https://en.wikipedia.org/wiki/Kalashnikov_rifle). They
+[AK-47 rifles](https://en.wikipedia.org/wiki/AK-47). They
 cannot be build by yourself, so we should find out where they came from. One
 only the concrete path, but in general.
 
@@ -239,6 +239,15 @@ The other important point is that we have alternatives to more military and
 surveillance spendings. We should really think about that. We should talk about
 it and evaluate it. Finally, it the question is: In which kind of society do
 we want to live?
+
+
+## Edit: The reaction
+
+Now it seems to be clear how most politicians react:
+
+* [Frankreichs Premier Valls: IS greift auch andere europäische Länder an](http://www.euractiv.de/sections/eu-innenpolitik/valls-greift-auch-anderen-europaeische-laender-319509)
+* [Französisches Militär bombardiert IS-Stellungen in Syrien](http://www.euractiv.de/sections/eu-aussenpolitik/franzoesisches-militaer-bombardiert-stellungen-syrien-319501)
+* [Sicherheitsmaßnahmen in Deutschland deutlich verschärft](http://www.euractiv.de/sections/eu-innenpolitik/sicherheitsmassnahmen-deutschland-deutlich-verschaerft-319497)
 
 
 ## See also
