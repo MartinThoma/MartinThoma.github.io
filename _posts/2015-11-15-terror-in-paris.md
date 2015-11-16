@@ -218,13 +218,27 @@ It is hard to put numbers on here, but it was much more than 18&nbsp;Billion
 US-Dollar.
 
 
+## Hypocracy
+
+A fellow student recently pointed out that there were also
+[2015 Beirut bombings](https://en.wikipedia.org/wiki/2015_Beirut_bombings). I
+didn't even see that in the news. A lot of people die preventable deaths due
+to the lack of access to clean water, sanitation and food. And we don't even
+talk about the MDGs. Not really.
+
+
 ## Some final words
 
-The main point of this mini-article is that I am pretty sure people will react
+One main point of this mini-article is that I am pretty sure people will react
 to fast. No matter what we do, we should think about it thoroughly. This
 article is - like hundreds of blog articles, quite a bit of "professional"
 journalist articles and surely some statements by politicians - not well
 investigated. It is only a quick, spontaneous reaction.
+
+The other important point is that we have alternatives to more military and
+surveillance spendings. We should really think about that. We should talk about
+it and evaluate it. Finally, it the question is: In which kind of society do
+we want to live?
 
 
 ## See also
