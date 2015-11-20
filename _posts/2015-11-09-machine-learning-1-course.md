@@ -15,12 +15,12 @@ featured_image: logos/klausur.png
 
 ### ML-Einordnungskriterien.pdf
 
-* **Inferenztyp**: Induktiv (version-space Algorithmus, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
-* **Lernebene**: symbolisch (Special-to-General Konzeptlernen; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze; Daten sind Signale)
-* **Lernvorgang**: überwacht (k-NN) ↔ unüberwacht (k-Means)
-* **Beispielgebung**: inkrementell (Version Space Algorithmus) ↔ nicht inkrementell (k-Means)
-* **Beispielumfang**: umfangreich (Neuronale Netze) ↔ gering (Case-based Reasoning)
-* **Hintergrundwissen**: empirisch (SVMs) ↔ axiomatisch (Erklärungsbasierte Generalisierung)
+* **Inferenztyp**: Induktiv (version-space Algorithmus, k-NN, CBR, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
+* **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
+* **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (k-Means)
+* **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht inkrementell (k-Means, k-NN, ID3)
+* **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
+* **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (Erklärungsbasierte Generalisierung)
 
 ### MLI_01_Einfuehrung_slides1.pdf
 * Was ist Intelligenz? (Problemlösen, Erinnern, Sprache, Kreativität,
@@ -112,7 +112,6 @@ Siehe auch:
 
 ### MLI_04_Lerntheorie_slides1.pdf
 
-
 <dl>
   <dt><dfn>Ockhams Rasiermesser</dfn> (Quelle: <a href="https://de.wikipedia.org/wiki/Ockhams_Rasiermesser">Wikipedia</a>)</dt>
   <dd>Von mehreren möglichen Erklärungen für ein und denselben Sachverhalt ist
@@ -130,7 +129,7 @@ Siehe auch:
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
 * Lernproblemtypen: Sei die Menge der Lernbeispiele in \\(X \times Y\\), mit \\(X \times Y =\\)...
-    * \\(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\): Konzeptlernen
+    * \\(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\\): Konzeptlernen
     * \\(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\\): Klassifikation
     * $\mathbb{R}^n \times \mathbb{R}: Regression
 * Gradientenabstieg, Overfitting
@@ -142,9 +141,6 @@ Siehe auch:
     * Folie 44: Was ist \\(\eta\\)?
 * TODO: Wie hängen PAC und VC-Dimension zusammen?
 * Structural Risc Minimization: TODO - Was ist das?
-
-
-
 
 #### Boosting
 <dl>
@@ -173,6 +169,83 @@ Siehe auch:
 
 * TODO - Folie 39: Was ist \\(A\\)? Warum ist \\(h_\alpha\\) wichtig? Sollte es
   nicht eher \\(VC(H^\alpha)\\) sein?
+
+
+### MLI_06_InstanzbasiertesLernen_slides1.pdf
+
+<dl>
+  <dt><dfn>Instanzenbasiertes Lernen</dfn> bzw. <dfn>Lazy Learning</dfn></dt>
+  <dd>Instanzenbasiertes Lernen ist ein Lernverfahren, welches einfach nur
+      die Beispiele abspeichert, also faul (engl. lazy) ist. Soll der Lerner
+      neue Daten klassifizieren, so wird die Klasse des ähnlichsten
+      Datensatzes gewählt.</dd>
+  <dt><dfn>Case-based Reasoning</dfn> bzw. kurz <dfn>CBR</dfn></dt>
+  <dd>CBR ist ein allgemeines, abstraktes Framework und kein direkt anwendbarer
+      Algorithmus. Die Idee ist, dass nach ähnlichen, bekannten Fällen gesucht
+      wird, auf die der aktuelle Fall übertragen werden kann.</dd>
+  <dt><dfn>Fall</dfn> im Kontext des CBR</dt>
+  <dd>Ein Fall ist eine Abstraktion eines Ereignisses, die in Zeit und Raum
+      begrenzt ist. Ein Fall enthält eine Problembeschreibung, eine Lösung und
+      ein Ergebnis. Zusätzlich kann ein Fall eine Erklärung enthalten warum
+      das Ergebnis auftrat, Informationen über die Lösungsmethode, Verweise
+      auf andere Fälle oder Güteinformationen enthalten.</dd>
+</dl>
+
+* Beispiel für Lazy Learning: <abbr title="k Nearest Neighbors">\(k\)-NN</abbr>,
+  <abbr title="Case-based Reasoning">CBR</abbr>
+
+* TODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
+  eingeschränkter - was ist damit gemeint?
+* TODO: Folie 6 - Was ist CBR?
+
+### MLI_07_SVM_slides1.pdf
+
+TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
+
+* SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-
+  Dimension, falls die Klassen linear trennbar sind.
+* Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion
+  \\[L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\\]
+  wobei $\alpha_1, \dots, \alpha_N \geq 0$ Lagrange-Multiplikatoren sind
+* Soft Margin Hyperebene
+* Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
+  Missklassifikationen in der Trainingsdatenmenge. Ist $C$ klein, werden die
+  Margins größer.
+* Nichtlineare Kernelmethoden
+* Kernel-Trick
+
+
+### MLI_08_Entscheidungsbaeume_slides1.pdf
+
+<dl>
+  <dt><dfn>Entscheidungsbaum</dfn></dt>
+  <dd>Ein Entscheidungsbaum ist ein Klassifikator in Baumstruktur. Die
+      inneren Knoten des Entscheidungsbaumes sind Attributtests, die Blätter
+      sind Klassen.</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/ID3"><dfn>ID3</dfn></a> (siehe <a href="(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
+  <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/C4.5"><dfn>C4.5</dfn></a> (siehe <a href="(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
+  <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes, welches auf ID3 basiert.</dd>
+  <dt><dfn>Random Forest</dfn>, Quelle: <a href="https://de.wikipedia.org/wiki/Random_Forest">Wikipedia</a></dt>
+  <dd>Ein Random Forest ist ein Klassifikationsverfahren, welches aus mehreren
+  verschiedenen, unkorrelierten Entscheidungsbäumen besteht. Alle
+  Entscheidungsbäume sind unter einer bestimmten Art von Randomisierung während
+  des Lernprozesses gewachsen. Für eine Klassifikation darf jeder Baum in
+  diesem Wald eine Entscheidung treffen und die Klasse mit den meisten Stimmen
+  entscheidet die endgültige Klassifikation.</dd>
+</dl>
+
+* Der Algorithmus ID5R dienen dem Aufbau eines Entscheidungsbaumes.
+* C4.5 unterstützt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.
+  Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.
+* Mögliches Qualtitätsmaß ist Entropie: \\[Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\\]
+  wobei $\oplus$ die positiven Beispiele und $\ominus$ die negativen Beispiele
+  bezeichnet.
+* TODO, Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
+  Ergebnis äquivalent ist?
+* Random Forest: Erstelle mehrere Entscheidungsbäume mit einer zufälligen
+  Wahl an Attributen. Jeder Baum stimmt für eine Klasse und die Klasse, für die
+  die meisten Stimmen, wird gewählt.
 
 
 ## Prüfungsfragen
