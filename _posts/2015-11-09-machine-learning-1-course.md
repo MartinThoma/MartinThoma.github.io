@@ -122,24 +122,24 @@ Siehe auch:
   Sachverhalt logisch folgt.</dd>
 </dl>
 
-* Lernmaschine wird definiert durch Hypothesenraum \(\{h_\alpha: \alpha \in A\}\)
-  und Lernverfahren. Das Lernverfahren ist die Methode um \(\alpha_{\text{opt}}\)
+* Lernmaschine wird definiert durch Hypothesenraum \\(\{h_\alpha: \alpha \in A\}\\)
+  und Lernverfahren. Das Lernverfahren ist die Methode um \\(\alpha_{\text{opt}}\\)
   mit Hilfe von Lernbeispielen zu finden.
 * Probleme beim Lernen:
     * Größe des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
-* Lernproblemtypen: Sei die Menge der Lernbeispiele in \(X \times Y\), mit \(X \times Y =\)...
-    * \(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\): Konzeptlernen
-    * \(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\): Klassifikation
+* Lernproblemtypen: Sei die Menge der Lernbeispiele in \\(X \times Y\\), mit \\(X \times Y =\\)...
+    * \\(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\): Konzeptlernen
+    * \\(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\\): Klassifikation
     * $\mathbb{R}^n \times \mathbb{R}: Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
 * Bootstrap: TODO (Folie 18 - 20)
 * <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a>
-    * Folie 35: Was ist eine Instanz der Länge \(n\)? (TODO)
+    * Folie 35: Was ist eine Instanz der Länge \\(n\\)? (TODO)
 * VC-Dimension
-    * Folie 44: Was ist \(\eta\)?
+    * Folie 44: Was ist \\(\eta\\)?
 * TODO: Wie hängen PAC und VC-Dimension zusammen?
 * Structural Risc Minimization: TODO - Was ist das?
 
@@ -157,8 +157,8 @@ Siehe auch:
     * TODO: Verstehe Algorithmus nicht.
 * Folie 21: TODO - Verstehe AdaBoost nicht
 * Folie 22:
-    * Wofür steht \(i\) und welchen Wertebereich hat \(i\)?
-    * Stellt \(W_k(i)\) die Wahrscheinlichkeit dar, dass Beispiel \(i\) im \(k\)-ten
+    * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)?
+    * Stellt \\(W_k(i)\\) die Wahrscheinlichkeit dar, dass Beispiel \\(i\\) im \\(k\\)-ten
       Durchlauf für das Training verwendet wird?
 
 #### VC-Dimension
@@ -171,8 +171,8 @@ Siehe auch:
       werden können.</dd>
 </dl>
 
-* TODO - Folie 39: Was ist \(A\)? Warum ist \(h_\alpha\) wichtig? Sollte es
-  nicht eher \(VC(H^\alpha)\) sein?
+* TODO - Folie 39: Was ist \\(A\\)? Warum ist \\(h_\alpha\\) wichtig? Sollte es
+  nicht eher \\(VC(H^\alpha)\\) sein?
 
 
 ## Prüfungsfragen
