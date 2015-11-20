@@ -15,19 +15,16 @@ featured_image: logos/klausur.png
 
 ### ML-Einordnungskriterien.pdf
 
-* **Inferenztyp**: Induktiv (version-space algorithmus, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalsierung; Von allgemeinen auf spezielles)
-* **Lernebene**: symbolisch (Special-to-General Konzeptlernen; Semantik in Daten von der der Algorithmus gebrauch macht) ↔ subsymbolisch (Neuronale Netze; Daten sind Signale)
+* **Inferenztyp**: Induktiv (version-space Algorithmus, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
+* **Lernebene**: symbolisch (Special-to-General Konzeptlernen; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze; Daten sind Signale)
 * **Lernvorgang**: überwacht (k-NN) ↔ unüberwacht (k-Means)
 * **Beispielgebung**: inkrementell (Version Space Algorithmus) ↔ nicht inkrementell (k-Means)
-* **Beispeilumfang**: umfangreich (Neuronale Netze) ↔ gering (Case-based Reasoning)
+* **Beispielumfang**: umfangreich (Neuronale Netze) ↔ gering (Case-based Reasoning)
 * **Hintergrundwissen**: empirisch (SVMs) ↔ axiomatisch (Erklärungsbasierte Generalisierung)
 
 ### MLI_01_Einfuehrung_slides1.pdf
 * Was ist Intelligenz? (Problemlösen, Erinnern, Sprache, Kreativität,
   Bewusstsein, Überleben in komplexen Welten, )
-* Machine Learning - Definition von Tom Mitchell
-* Deduktiver Schluss, Modus Ponens,
-* Abduktion: "Deduction proves that something must be; Induction shows that something actually is operative; Abduction merely suggests that something may be." - Peirce
 * Wissensrepräsentation:
     * Assoziierte Paare (Eingangs- und Ausgangsvariablen)
     * Entscheidungsbäume (Klassen diskriminieren)
@@ -37,6 +34,25 @@ featured_image: logos/klausur.png
     * Taxonomien
     * Semantische Netze
     * Markov-Ketten
+
+<dl>
+  <dt><dfn>Machine Learning</dfn> by Tom Mitchell</dt>
+  <dd>A computer program is said to learn from experience E with respect to
+      some class of tasks T and performance measure P, if its performance at
+      tasks in T, as measured by P, improves with experience E.</dd>
+  <dt><dfn>Deduktion</dfn></dt>
+  <dd>Die Deduktion ist eine Schlussfolgerung von gegebenen Prämissen auf die
+      logisch zwingenden Konsequenzen. Deduktion ist schon bei Aristoteles als
+      „Schluss vom Allgemeinen auf das Besondere“ verstanden worden.</dd>
+  <dt><dfn>Modus ponens</dfn></dt>
+  <dd>Der Modus ponens ist eine Art des logischen Schließens. Er besagt: Wenn
+      die Prämissen $A \rightarrow B$ und $A$ gelten, dann gilt auch $B$.</dd>
+  <dt><dfn>Abduktion</dfn> by Peirce</dt>
+  <dd>Deduction proves that something must be; Induction shows that something
+      actually is operative; Abduction merely suggests that something may
+      be.</dd>
+</dl>
+
 
 ### MLI_02_InduktivesLernen_slides1.pdf
 
@@ -78,6 +94,76 @@ Weiteres
 Beim <a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">reinforcement learning</a> gehen wir hier von <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Markow-Entscheidungsproblemen</a> aus.
 
 * Beispiel: Roboter muss zu einem Ziel navigieren
+
+Algorithmen:
+
+* Policy Learning
+* Simple Value Iteration
+* Simple Temporal Difference Learning
+* [Q-learning](https://en.wikipedia.org/wiki/Q-learning)
+    * [YouTube: Lecture 18: RL Part 1: Q-Learning](https://www.youtube.com/watch?v=yS5F_vm9Ahk): 1:16:11. BrownCS141 Spring 2014.
+    * [YouTube: PacMan](https://www.youtube.com/watch?v=3sLV0OJLdns)
+* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?
+
+Siehe auch:
+
+* [Optimalitätsprinzip von Bellman](https://de.wikipedia.org/wiki/Optimalit%C3%A4tsprinzip_von_Bellman)
+
+
+### MLI_04_Lerntheorie_slides1.pdf
+
+* [Ockhams Rasiermesser](https://de.wikipedia.org/wiki/Ockhams_Rasiermesser)
+* Lernmaschine wird definiert durch Hypothesenraum $\{h_\alpha: \alpha \in A\}$
+  und Lernverfahren. Das Lernverfahren ist die Methode um $\alpha_{\text{opt}}$
+  mit Hilfe von Lernbeispielen zu finden.
+* Probleme beim Lernen:
+    * Größe des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.
+    * Das Verfahren könnte nur suboptimale Lösungen finden.
+    * Das Verfahren könnte die passende Hypothese nicht beinhalten.
+* Lernproblemtypen: Sei die Menge der Lernbeispiele in $X \times Y$, mit $X \times Y =$...
+    * $\{Attribut_1, Attribut_2, ...\} \times \{True, False\}$: Konzeptlernen
+    * $\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}$: Klassifikation
+    * $\mathbb{R}^n \times \mathbb{R}: Regression
+* Gradientenabstieg, Overfitting
+* Kreuzvalidierung
+* Bootstrap: TODO (Folie 18 - 20)
+* <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a>
+    * Folie 35: Was ist eine Instanz der Länge $n$? (TODO)
+* VC-Dimension
+    * Folie 44: Was ist $\eta$?
+* TODO: Wie hängen PAC und VC-Dimension zusammen?
+* Structural Risc Minimization: TODO - Was ist das?
+
+
+
+
+#### Boosting
+<dl>
+  <dt><a href="https://de.wikipedia.org/wiki/Boosting"><dfn>Boosting</dfn></a></dt>
+  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen.</dd>
+</dl>
+
+* Fragen zu Folie 20:
+    * Sind die Datensätze disjunkt?
+    * TODO: Verstehe Algorithmus nicht.
+* Folie 21: TODO - Verstehe AdaBoost nicht
+* Folie 22:
+    * Wofür steht ist $i$ und welchen Wertebereich hat $i$?
+    * Stellt $W_k(i)$ die Wahrscheinlichkeit dar, dass Beispiel $i$ im $k$-ten
+      Durchlauf für das Training verwendet wird?
+
+#### VC-Dimension
+
+<dl>
+  <dt>VC-Dimension</dt>
+  <dd>Sei $H^\alpha = \{h_\alpha : \alpha \in A\}$ der Hypothesenraum. Die
+      VC-Dimension $VC(h_\alpha)$ von $H^\alpha$ ist gleich der maximalen
+      Anzahl von beliebig platzierten Datenpunkten, die von $H^\alpha$ separiert
+      werden können.</dd>
+</dl>
+
+* TODO - Folie 39: Was ist $A$? Warum ist $h_\alpha$ wichtig? Sollte es nicht eher
+  $VC(H^\alpha)$ sein?
 
 
 ## Prüfungsfragen
