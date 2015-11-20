@@ -46,7 +46,7 @@ featured_image: logos/klausur.png
       „Schluss vom Allgemeinen auf das Besondere“ verstanden worden.</dd>
   <dt><dfn>Modus ponens</dfn></dt>
   <dd>Der Modus ponens ist eine Art des logischen Schließens. Er besagt: Wenn
-      die Prämissen $A \rightarrow B$ und $A$ gelten, dann gilt auch $B$.</dd>
+      die Prämissen \(A \rightarrow B\) und \(A\) gelten, dann gilt auch \(B\).</dd>
   <dt><dfn>Abduktion</dfn> by Peirce</dt>
   <dd>Deduction proves that something must be; Induction shows that something
       actually is operative; Abduction merely suggests that something may
@@ -112,25 +112,34 @@ Siehe auch:
 
 ### MLI_04_Lerntheorie_slides1.pdf
 
-* [Ockhams Rasiermesser](https://de.wikipedia.org/wiki/Ockhams_Rasiermesser)
-* Lernmaschine wird definiert durch Hypothesenraum $\{h_\alpha: \alpha \in A\}$
-  und Lernverfahren. Das Lernverfahren ist die Methode um $\alpha_{\text{opt}}$
+
+<dl>
+  <dt><dfn>Ockhams Rasiermesser</dfn> (Quelle: <a href="https://de.wikipedia.org/wiki/Ockhams_Rasiermesser">Wikipedia</a>)</dt>
+  <dd>Von mehreren möglichen Erklärungen für ein und denselben Sachverhalt ist
+  die einfachste Theorie allen anderen vorzuziehen. Eine Theorie ist einfach,
+  wenn sie möglichst wenige Variablen und Hypothesen enthält, und wenn diese in
+  klaren logischen Beziehungen zueinander stehen, aus denen der zu erklärende
+  Sachverhalt logisch folgt.</dd>
+</dl>
+
+* Lernmaschine wird definiert durch Hypothesenraum \(\{h_\alpha: \alpha \in A\}\)
+  und Lernverfahren. Das Lernverfahren ist die Methode um \(\alpha_{\text{opt}}\)
   mit Hilfe von Lernbeispielen zu finden.
 * Probleme beim Lernen:
     * Größe des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
-* Lernproblemtypen: Sei die Menge der Lernbeispiele in $X \times Y$, mit $X \times Y =$...
-    * $\{Attribut_1, Attribut_2, ...\} \times \{True, False\}$: Konzeptlernen
-    * $\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}$: Klassifikation
+* Lernproblemtypen: Sei die Menge der Lernbeispiele in \(X \times Y\), mit \(X \times Y =\)...
+    * \(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\): Konzeptlernen
+    * \(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\): Klassifikation
     * $\mathbb{R}^n \times \mathbb{R}: Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
 * Bootstrap: TODO (Folie 18 - 20)
 * <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a>
-    * Folie 35: Was ist eine Instanz der Länge $n$? (TODO)
+    * Folie 35: Was ist eine Instanz der Länge \(n\)? (TODO)
 * VC-Dimension
-    * Folie 44: Was ist $\eta$?
+    * Folie 44: Was ist \(\eta\)?
 * TODO: Wie hängen PAC und VC-Dimension zusammen?
 * Structural Risc Minimization: TODO - Was ist das?
 
@@ -148,22 +157,22 @@ Siehe auch:
     * TODO: Verstehe Algorithmus nicht.
 * Folie 21: TODO - Verstehe AdaBoost nicht
 * Folie 22:
-    * Wofür steht ist $i$ und welchen Wertebereich hat $i$?
-    * Stellt $W_k(i)$ die Wahrscheinlichkeit dar, dass Beispiel $i$ im $k$-ten
+    * Wofür steht \(i\) und welchen Wertebereich hat \(i\)?
+    * Stellt \(W_k(i)\) die Wahrscheinlichkeit dar, dass Beispiel \(i\) im \(k\)-ten
       Durchlauf für das Training verwendet wird?
 
 #### VC-Dimension
 
 <dl>
   <dt>VC-Dimension</dt>
-  <dd>Sei $H^\alpha = \{h_\alpha : \alpha \in A\}$ der Hypothesenraum. Die
-      VC-Dimension $VC(h_\alpha)$ von $H^\alpha$ ist gleich der maximalen
-      Anzahl von beliebig platzierten Datenpunkten, die von $H^\alpha$ separiert
+  <dd>Sei \(H^\alpha = \{h_\alpha : \alpha \in A\}\) der Hypothesenraum. Die
+      VC-Dimension \(VC(h_\alpha)\) von \(H^\alpha\) ist gleich der maximalen
+      Anzahl von beliebig platzierten Datenpunkten, die von \(H^\alpha\) separiert
       werden können.</dd>
 </dl>
 
-* TODO - Folie 39: Was ist $A$? Warum ist $h_\alpha$ wichtig? Sollte es nicht eher
-  $VC(H^\alpha)$ sein?
+* TODO - Folie 39: Was ist \(A\)? Warum ist \(h_\alpha\) wichtig? Sollte es
+  nicht eher \(VC(H^\alpha)\) sein?
 
 
 ## Prüfungsfragen
@@ -186,13 +195,9 @@ Bonuspunkte.
 ## Termine und Klausurablauf
 
 **Datum**: Mündliche Prüfung<br/>
-**Ort**: <a href="https://www.kithub.de/map/2086">10.21 (Daimler und Benz)</a><br/>
-**Punkte**: ?<br/>
+**Ort**: nach Absprache<br/>
 **Zeit**: ? min<br/>
-**Punkteverteilung**: ?<br/>
-**Bestehensgrenze**: ?<br/>
-**Übungsschein**: ?<br/>
-**Bonuspunkte**: ?<br/>
-**Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 23.10.2015)<br/>
+**Übungsschein**: gibt es nicht<br/>
+**Bonuspunkte**: gibt es nicht<br/>
+**Ergebnisse**: werden ca. 5 - 10 min. nach der Prüfung gesagt<br/>
 **Erlaubte Hilfsmittel**: keine
