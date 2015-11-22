@@ -10,9 +10,9 @@ tags:
 - Studienstiftung
 featured_image: 2012/06/Studienstiftung-Logo.png
 ---
-Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben. 
+Stipendiaten der Studienstiftung des deutschen Volkes müssen jedes Semester einen Studienbericht schreiben.
 
-Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine Email schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.
+Damit sich andere Stipendiaten nicht auch jedes mal die Vorlage erstellen müssen, stelle ich meine LaTeX-Vorlage hier bereit. Wenn ihr Verbesserungsvorschläge habt, könnt ihr mir gerne eine E-Mail schreiben (info@martin-thoma.de) oder einen Kommentar hinterlassen.
 
 <h2>Wozu dient der Semesterbericht?</h2>
 Im Daidalosnet steht dazu:
@@ -23,7 +23,7 @@ Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studi
 <h2>Wer bekommt wann den Studienbericht?</h2>
 <blockquote>Stipendiaten, die endgültig in die Studienstiftung aufgenommen worden sind, schreiben Jahresberichte jeweils zum <strong>1. August</strong>. Stipendiaten vor der endgültigen Aufnahme schreiben Semesterberichte, jeweils zum <strong>1. März</strong> und zum 1. August.</blockquote>
 
-Mit dem Semesterbericht für das WS 2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden: 
+Mit dem Semesterbericht für das WS 2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden:
 
 <blockquote>Bitte laden Sie Ihren Bericht als PDF-Dokument im Daidalosnet hoch. Sie finden die Eingabemaske in Ihrem eigenen Kurzprofil ("<strong>Meine Einstellungen</strong>" unten rechts) - hier ist in der unteren Bildschirmhälfte die Rubrik "<strong>Studienberichte</strong>" zu finden. Wenn Sie hier einen als "offen" gekennzeichneten Eintrag finden, müssen Sie uns einen Bericht zukommen lassen - bitte folgen Sie dem Link in der Zeile unter "offen", um zur Eingabemaske zu gelangen. Sowohl Ihr/e Referent/in als auch Ihr/e Vertrauensdozent/in erhalten automatisch eine Kopie des Berichts per E-Mail.</blockquote>
 
@@ -91,11 +91,11 @@ LaTeX:
 \newcommand{\Vertrauensdozent}{Prof. Dr. <a href='../images/2012/06/semesterbericht-ws-2011.pdf'>Semesterbericht WS 2011</a>Mustermann}
 \newcommand{\Referent}{Dr. Alice Brown}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hypersetup{ 
-  pdfauthor   = {\Vorname~\Nachname}, 
-  pdfkeywords = {Studienstiftung; KIT; \Vorname~\Nachname}, 
-  pdftitle    = {Semesterbericht von~\Vorname~\Nachname~-~\Semester~\Jahr} 
-} 
+\hypersetup{
+  pdfauthor   = {\Vorname~\Nachname},
+  pdfkeywords = {Studienstiftung; KIT; \Vorname~\Nachname},
+  pdftitle    = {Semesterbericht von~\Vorname~\Nachname~-~\Semester~\Jahr}
+}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -128,57 +128,57 @@ E-Mail           &\Email               & Referent            & \Referent \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Einleitende Zusammenfassung}
 \subsubsection*{1. Auf diesem Stand ist jetzt mein Studium:}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
 ipsum dolor sit amet.
 
 \subsubsection*{2. Das war für mich au&szlig;erhalb des Studiums von gro&szlig;er Bedeutung:}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
-ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
-sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
-et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
-accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
-no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum 
-dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
-voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
-dolor sit amet.   
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+dolor sit amet.
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
-molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
-vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam 
-nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat 
-volutpat.   
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+vero eros et accumsan et iusto odio dignissim qui blandit praesent
+luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+volutpat.
 
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper 
-suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem 
-vel eum iriure dolor in hendrerit in vulputate velit esse molestie 
-consequat, vel illum dolore eu feugiat nulla facilisis at vero eros 
-et accumsan et iusto odio dignissim qui blandit praesent luptatum 
-zzril delenit augue duis dolore te feugait nulla facilisi.   
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
+vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+consequat, vel illum dolore eu feugiat nulla facilisis at vero eros
+et accumsan et iusto odio dignissim qui blandit praesent luptatum
+zzril delenit augue duis dolore te feugait nulla facilisi.
 
-Nam liber tempor cum soluta nobis eleifend option congue nihil 
+Nam liber tempor cum soluta nobis eleifend option congue nihil
 imperdiet doming id quod mazim placerat facer
 
 \subsubsection*{3. Für das nächste Semester habe ich folgende Pläne:}
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
-erat, sed diam voluptua. At vero eos et accusam et justo duo 
-dolores et ea rebum. Stet clita kasd gubergren, no sea takimata 
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+erat, sed diam voluptua. At vero eos et accusam et justo duo
+dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
 sanctus est Lorem ipsum dolor sit amet.
 
 \newpage
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-sed diam nonumy eirmod tempor invidunt ut labore et dolore 
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+sed diam nonumy eirmod tempor invidunt ut labore et dolore
 magna aliquyam:
 
 \begin{table}[h]
@@ -207,38 +207,38 @@ magna aliquyam:
 	\end{tabular}
 \end{table}
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
-nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
-erat, 
-sed diam voluptua. At vero eos et accusam et justo duo dolores et ea 
-rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem 
-ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur 
-sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore 
-et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
-accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, 
-no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum 
-dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
-tempor invidunt ut labore et dolore magna aliquyam erat, sed diam 
-voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum 
-dolor sit amet.   
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+erat,
+sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+dolor sit amet.
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse 
-molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
-vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam 
-nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat 
-volutpat.   
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+molestie consequat, vel illum dolore eu feugiat nulla facilisis at
+vero eros et accumsan et iusto odio dignissim qui blandit praesent
+luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+volutpat.
 
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper 
-suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem 
-vel eum iriure dolor in hendrerit in vulputate velit esse molestie 
-consequat, vel illum dolore eu feugiat nulla facilisis at vero eros 
-et accumsan et iusto odio dignissim qui blandit praesent luptatum 
-zzril delenit augue duis dolore te feugait nulla facilisi.   
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
+vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+consequat, vel illum dolore eu feugiat nulla facilisis at vero eros
+et accumsan et iusto odio dignissim qui blandit praesent luptatum
+zzril delenit augue duis dolore te feugait nulla facilisi.
 
-Nam liber tempor cum soluta nobis eleifend option congue nihil 
+Nam liber tempor cum soluta nobis eleifend option congue nihil
 imperdiet doming id quod mazim placerat facer.\\
 \\
 \Ort, der \Datum\\

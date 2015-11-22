@@ -10,8 +10,8 @@ tags:
 ---
 The following is a collection of ideas for projects I had, but never realized.
 I would really love to do them, but they seem to be a little bit too time
-consuming to do them in my free time. Please send me an Email if you would like
-to realize them!
+consuming to do them in my free time. Please send me an E-Mail if you would
+like to realize them!
 
 ## Book portal
 I really miss a book recommendation portal. It should allow you to mark books
@@ -31,8 +31,8 @@ you get.
 
 And, very important, it should let you follow series and/or authors. So you
 should be able to say "When there is a new book of the 'Harry Potter' series,
-send me an email!" or "When there is a new book of the 'Harry Potter' series
-translated to 'German', send me an email!".
+send me an e-mail!" or "When there is a new book of the 'Harry Potter' series
+translated to 'German', send me an e-mail!".
 
 ## Science and Education Platform
 Sometimes, scientists get new insights that are able to influence millions. But until such a great invention or discovery is made, hundreds or thousands of people might have thought about the same problem. Today, with <abbr title="Massive open online courses"><a href="https://en.wikipedia.org/wiki/Massive_open_online_course">MOOCs</a></abbr> education in some fields is quite open to a lot of people. <a href="https://www.khanacademy.org/">Khan academy</a> offers many very basic courses, <a href="https://www.coursera.org/">Coursea</a> and <a href="https://www.udacity.com">Udacity</a> a few advanced ones. But the process of creating new content seems to be quite closed. <a href="https://en.wikiversity.org">Wikiversity</a> is more open, but very limited. For example, I think it is not possible to include <a href="../html5/graphic-filters/graphic-filters.htm">my graphic filter examples</a>. And it is not possible to track progress of students.
@@ -117,7 +117,7 @@ The database should have the following tables:
       one correct translation for a word (e.g. "Bank")
     * Note that some translations might be more appropriate, depending on the
       context.
-* Users: UserID, DisplayName, Email, HashedPassword
+* Users: UserID, DisplayName, E-mail, HashedPassword
 
 
 ### Initial Data
@@ -362,7 +362,7 @@ of course. I think the following should be enough:
 
 Tasks that can (and should) be done via browser are:
 
-* Emails: e.g. [Roundcube](https://en.wikipedia.org/wiki/Roundcube)
+* E-mails: e.g. [Roundcube](https://en.wikipedia.org/wiki/Roundcube)
 * Excel: Hmmm ... I know that <a href="https://drive.google.com">Google
   Docs</a> offers some similar stuff. Bug I guess it can't replace Microsoft
   Excel by now. I don't know if there are any self-hosted services
@@ -385,7 +385,7 @@ Tasks that should not be done via browser might be:
 * Programming: Although I have seen [Cloud9](https://c9.io/), I doubt that
   programming in the cloud can be convenient in the next years. How does bug
   fixing work? How about manual testing? Whats with parallel execution?
-* Messaging: If you want to use encrypted communication (e.g. Email with PGP)
+* Messaging: If you want to use encrypted communication (e.g. E-mail with PGP)
   you should probably do the encryption on your machine.
 
 Hmmm ... astonishingly, I can currently not think of more tasks.

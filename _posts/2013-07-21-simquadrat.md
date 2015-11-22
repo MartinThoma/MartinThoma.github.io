@@ -20,11 +20,12 @@ Es ist ein <strong>Prepaid</strong>-Service. Das hei&szlig;t, ich habe ein Gutha
 Für <strong>10 Euro</strong> bekommt man eine <strong>1-Monat-Festnetzflat</strong>.
 
 <h2>Die Bestellung</h2>
-Die Bestellung auf <a href="https://www.simquadrat.de/signup">simquadrat.de</a> ist extrem einfach. 
+Die Bestellung auf <a href="https://www.simquadrat.de/signup">simquadrat.de</a> ist extrem einfach.
 
 {% caption align="aligncenter" width="300" caption="Bestellung bei Simquadrat" url="../images/2013/07/simquadrat-bestellung-300x168.png" alt="Bestellung bei Simquadrat"  height="168" class="size-medium wp-image-74541" %}
 
-Nach drei Schritten ist man wirklich fertig. Die beiden Emails, die man dann bekommt, sind auch schön kurz:
+Nach drei Schritten ist man wirklich fertig. Die beiden E-Mails, die man dann
+bekommt, sind auch schön kurz:
 
 {% gallery columns="2" %}
     ../images/2013/07/simquadrat-bestaetigung.png   "Simquadrat: Bestätigung"

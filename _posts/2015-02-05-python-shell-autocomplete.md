@@ -3,9 +3,9 @@ layout: post
 title: Python Shell autocomplete
 author: Martin Thoma
 date: 2015-02-05 09:58
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Python
 - Shell
 featured_image: logos/python.png

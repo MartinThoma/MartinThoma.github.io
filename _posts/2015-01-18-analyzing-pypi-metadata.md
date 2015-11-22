@@ -46,7 +46,7 @@ character.
 
 I guess many values are stored on PyPI as `Varchar(255)`. To check if I might
 have missed some values, I checked which entry was the longest one for all
-columns. I did this with 
+columns. I did this with
 
 ```sql
 SELECT `name`, LENGTH(`name`) FROM `packages` ORDER BY LENGTH(`name`) DESC
@@ -479,7 +479,7 @@ LIMIT 30
 | python-qt5                                            | 0.1.8         | 56237972  |
 | [pycalculix](https://pypi.python.org/pypi/pycalculix) | 0.92          | 56039839  |
 | [wltp](https://pypi.python.org/pypi/wltp)             | 0.0.9-alpha.3 | 55414544  |
-| [cefpython3](https://pypi.python.org/pypi/cefpython3) | 31.2          | 55163815  
+| [cefpython3](https://pypi.python.org/pypi/cefpython3) | 31.2          | 55163815
 
 ## Code
 

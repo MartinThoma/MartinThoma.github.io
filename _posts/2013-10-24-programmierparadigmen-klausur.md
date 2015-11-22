@@ -102,18 +102,18 @@ alias: /programmierparadigmen/index.html
 let f = \ x.plus x x in f (f c_2)    ^= (\ f. f (f c_2)) (\x. plus x x)
 ```
 
-`let` wird wegen dem Typsystem benötigt (`let` ist polymorph, 
+`let` wird wegen dem Typsystem benötigt (`let` ist polymorph,
 $\lambda$-Term nicht).
 
 ```haskell
 let f = \x.1 in (f 7) + (f["a"])    ^= (\ f.   ) (\ x. 1)
     f: \alpha_5 -> int
-    f: \forall \alpha_5. \alpha_5 \rightarrow int 
+    f: \forall \alpha_5. \alpha_5 \rightarrow int
 ```
 
 
-## Material ##
-* [Inoffizielles Skript](https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Programmierparadigmen/Programmierparadigmen.pdf?raw=true) in A5 ([LaTeX-Quellen](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Programmierparadigmen)): Wer das gerne für ca. 10 Euro in SW gedruckt mit Ringbindung hätte, soll mir eine Email schreiben
+## Material
+* [Inoffizielles Skript](https://github.com/MartinThoma/LaTeX-examples/blob/master/documents/Programmierparadigmen/Programmierparadigmen.pdf?raw=true) in A5 ([LaTeX-Quellen](https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/Programmierparadigmen)): Wer das gerne für ca. 10 Euro in SW gedruckt mit Ringbindung hätte, soll mir eine E-Mail schreiben
 * [Vorlesungswebsite](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/) und [Übungsblätter](http://pp.ipd.kit.edu/lehre/WS201314/paradigmen/uebung/#unterlagen)
 * Ein [Anki-Deck](https://ankiweb.net/shared/info/3121773115) (NICHT meines!)
 * Stackexchange:

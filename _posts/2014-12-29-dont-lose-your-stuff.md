@@ -99,13 +99,13 @@ I always add a `README.txt` to the USB stick with the following content:
 ## German
 Dieser USB-Stick gehört Martin Thoma.
 
-Wenn er verloren wurde, wäre es toll, wenn Sie eine Email an
+Wenn er verloren wurde, wäre es toll, wenn Sie eine E-Mail an
 info@martin-thoma.de schreiben würden.
 --------------------------------------------------------------
 ## English
 This USB stick belongs to Martin Thoma.
 
-If it was lost, please send an email to info@martin-thoma.de.
+If it was lost, please send an e-mail to info@martin-thoma.de.
 ```
 
 ## Luggage

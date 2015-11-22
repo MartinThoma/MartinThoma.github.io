@@ -259,7 +259,7 @@ Der Campus ist zusammenhängend. Das, was als &bdquo;Campus Nord&ldquo; bezeichn
    <li><strong>Frage</strong>: Was ist charakteristisch für die Informatik am KIT?
        <strong>Antwort</strong>: Das KIT hat eine gro&szlig;e Informatik-Fakultät. Wenn man hier Informatik zu studieren beginnt, kann man sich in alle (oder zumindest viele) Richtungen weiterentwickeln. Au&szlig;erdem ist das Informatik-Studium am KIT sehr Mathematik-lastig.</li>
    <li><strong>Frage</strong>: Ich würde gerne XYZ lernen, aber das steht nicht im Modulhandbuch. Kann ich das trotzdem am KIT lernen?
-       <strong>Antwort</strong>: Es gibt einen Studenten-Email-Verteiler. Dort kann man einfach mal fragen, ob andere auch interesse daran haben. Au&szlig;erdem gibt es <a href="http://www.kit.edu/studieren/studentische_einrichtungen.php">Hochschulgruppen</a>. Bei über 3000 Studenten wird sich schon jemand finden, der auch XYZ machen will / es kann.</li>
+       <strong>Antwort</strong>: Es gibt einen E-Mail-Verteiler für Studenten. Dort kann man einfach mal fragen, ob andere auch interesse daran haben. Au&szlig;erdem gibt es <a href="http://www.kit.edu/studieren/studentische_einrichtungen.php">Hochschulgruppen</a>. Bei über 3000 Studenten wird sich schon jemand finden, der auch XYZ machen will / es kann.</li>
 </ul>
 
 <h2>Karlsruhe</h2>

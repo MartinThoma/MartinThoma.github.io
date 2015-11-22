@@ -13,13 +13,16 @@ tags:
 featured_image: 2011/10/logo.png
 ---
 Community Chess is one of my projects. I can make something usefull and play a bit.
-This project has now an own URL: <a href="http://community-chess.com/">community-chess.com</a>
+This project has now an own URL:
+[community-chess.com](http://community-chess.com/)
 
-It's a little bit crappy at the moment as I've just started studying, but I'll fix that.
+It's a little bit crappy at the moment as I've just started studying, but I'll
+fix that.
 
-If you like to help, please write me an Email (info@martin-thoma.de). Everybody can help. Here are some examples:
+If you like to help, please write me an e-mail (info@martin-thoma.de).
+Everybody can help. Here are some examples:
 
-I need some people who 
+I need some people who
 <ul>
   <li>can create a better desing / color scheme</li>
   <li>use it and know chess rules</li>

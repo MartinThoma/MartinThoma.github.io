@@ -16,23 +16,28 @@ tags:
 featured_image: 2011/10/OpenID.png
 ---
 {% caption align="alignright" width="100" caption="RSS-Feeds" url="../images/2011/10/RSS-Feeds.png" alt="RSS-Feeds"  height="100" class="size-full wp-image-4411" %}
-<h2>RSS-Feeds</h2>
-Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your Feed Reader makes an update, you can get instantly a little notice. Its a bit like Email, but you have the possibility to stop this service. You can't get spam, as the Feed owner doesn't get an identifier for you.
+
+
+## RSS-Feeds
+Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your Feed Reader makes an update, you can get instantly a little notice. Its a bit like e-mail, but you have the possibility to stop this service. You can't get spam, as the Feed owner doesn't get an identifier for you.
 
 {% caption align="alignright" width="100" caption="OpenID" url="../images/2011/10/OpenID.png" alt="OpenID"  height="100" class="size-full wp-image-4431" %}
-<h2>OpenID</h2>
-It is really annoying to register on every single page you use. The idea behind OpenID is having one account for registering on many domains. If you want to log-in in Blogger, you are sent to Google. You type in your username and password and Google sends you back to Blogger. 
+
+
+## OpenID
+It is really annoying to register on every single page you use. The idea behind OpenID is having one account for registering on many domains. If you want to log-in in Blogger, you are sent to Google. You type in your username and password and Google sends you back to Blogger.
 
 Here is another explanation:
 <iframe title="YouTube video player" class="youtube-player" type="text/html" width="512" height="414" src="http://www.youtube.com/embed/xcmY8Pk-qEk" frameborder="0" allowFullScreen></iframe>
 
 The process seems to be too complex for many users, so Google developed the <a href="http://code.google.com/intl/de-DE/apis/identitytoolkit/index.html">Google Identity Toolkit</a> (GIT). The technique is really nice, but I don't like the idea that I have to force my users to use Google (or a service of them). Though I use Google for almost everything.
 
-<h2>Ajax</h2>
+
+## Ajax
 <a href="http://en.wikipedia.org/wiki/Ajax_(programming)" rel="nofollow">Ajax</a> is a programming style. If you like to view another page or get some information which isn't already loaded, you don't have to reload the whole page. The Pages simply display the new content as soon as it has loaded the content. GMail makes heavy use of Ajax.
 
 <h2>Hierarchical Labels</h2>
-Well, I guess this is less a technology than an idea. I think it would be gread if labels were used more often. I'd like to sort my personal files with labels, not with folders. The advantage of labels in comparison with folders is that you can add any number of labels to one object (file, email, ...). But you can have a file only in one path if you don't copy the file. So you have to know how the person is thinking, if you want to find the file you are searching for.
+Well, I guess this is less a technology than an idea. I think it would be gread if labels were used more often. I'd like to sort my personal files with labels, not with folders. The advantage of labels in comparison with folders is that you can add any number of labels to one object (file, e-mail, ...). But you can have a file only in one path if you don't copy the file. So you have to know how the person is thinking, if you want to find the file you are searching for.
 
 Example: You search for a file about you favorite books. Unfortunately, you don't remember if it was an Excel-file or a Word-file. Now you have this tree structure:
 
@@ -41,7 +46,7 @@ Example: You search for a file about you favorite books. Unfortunately, you don'
 <li>Documents
 <ul>
 <li>School</li>
-<li>Emails</li>
+<li>E-mails</li>
 <li>eBooks</li>
 <li>Math</li>
 </ul>
@@ -67,7 +72,7 @@ Have you ever noticed <a href="http://www.sembeo.com/ninja/comment-page-2/" rel=
 
 <a href="http://en.wikipedia.org/wiki/Gravatar" rel="nofollow">Gravatar</a> (an abbreviation for globally recognized avatar) is a service for providing globally-unique avatars. This is good for any website, where you don't have the possibility to store large amounts of data or you don't want to be annoyed with different file types, resizing and users who can't manage to use your software.
 
-<a href="http://lea.verou.me/demos/gravatar.php?email=info%40martin-thoma.de">Here</a> is a web service, that allows you to quickly see the Gravatars of one email address.
+<a href="http://lea.verou.me/demos/gravatar.php?email=info%40martin-thoma.de">Here</a> is a web service, that allows you to quickly see the Gravatars of one e-mail address.
 
 <h2>
 Links for developers</h2>

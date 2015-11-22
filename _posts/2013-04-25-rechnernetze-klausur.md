@@ -24,7 +24,7 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 
 <tr>
 <td>24.04.2013</td>
-<td rowspan="2" style="border-bottom:1px solid black;">Email, <span class="hint" title="hochgradig gecachetes hirarchisches Datenbanksystem">DNS</span>, dig, nslookup, Peer-to-Peer-Netzwerke, Bootstrapping-Problem, ISO-/OSI-Schichtenmodell, <span class="hint" title="Service Access Points">SAPs</span>; Dienstgeber/-bringer, -funktionalität, -nehmer, -primitiv, -leistung; Request, Indication, Response, Confirm; <span class="hint" title="Quality of Service">QoS</span></td>
+<td rowspan="2" style="border-bottom:1px solid black;">E-Mail, <span class="hint" title="hochgradig gecachetes hirarchisches Datenbanksystem">DNS</span>, dig, nslookup, Peer-to-Peer-Netzwerke, Bootstrapping-Problem, ISO-/OSI-Schichtenmodell, <span class="hint" title="Service Access Points">SAPs</span>; Dienstgeber/-bringer, -funktionalität, -nehmer, -primitiv, -leistung; Request, Indication, Response, Confirm; <span class="hint" title="Quality of Service">QoS</span></td>
 </tr>
 <tr>
 <td style="border-bottom:1px solid black;"><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Folien/02_Architekturen_Rechnernetze.pdf">Kapitel 2</a>, Folie 18</td>
