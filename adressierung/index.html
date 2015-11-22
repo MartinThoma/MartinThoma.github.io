@@ -73,7 +73,7 @@
                         </div>
 			
 						<div class="entry">
-                            <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gefühl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genießen. Bitte meldet mir Fehler oder Unstimmigkeiten (per Email an info@martin-thoma.de oder direkt als Kommentar).</div>
+                            <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gefühl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genießen. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -107,37 +107,56 @@
    </ul>
 </div><h2 id="tocAnchor-1-1">Allgemeines</h2>
 
-<p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden. </p>
+<p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
 
-<p>Eine Möglichkeit das zu machen, ist ein sog. „direct mapped cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch schnell von der Hardware umgesetzt werden können muss. Also unterteilt man gedanklich die Hauptspeicheradressen in 3 Teile:
+<p>Eine Möglichkeit das zu machen, ist ein sog. „direct mapped
+cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch
+schnell von der Hardware umgesetzt werden können muss. Also unterteilt man
+gedanklich die Hauptspeicheradressen in 3 Teile:
 </p><ul>
     <li>Tag</li>
     <li>Index</li>
     <li>Block-Offset</li>
 </ul>
 
-<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu legen, der die entsprechende Cache-Zeile durchschaltet.</p>
+<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer
+Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die
+Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu
+legen, der die entsprechende Cache-Zeile durchschaltet.</p>
 
 <p>Es gilt also: Index-Länge in Bit = $\log_2(\text{Cache-Zeilen})$</p>
 
-<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile landen. Um diese unterscheiden zu können, speichert man folgendes in einer Cache-Zeile:
+<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile
+landen. Um diese unterscheiden zu können, speichert man folgendes in einer
+Cache-Zeile:
 </p><ul>
     <li>Tag</li>
     <li>Datenblock</li>
     <li>Flags</li>
 </ul>
 
-<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher. Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut. Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man kann die Daten aus dem Cache entnehmen.</p>
+<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.
+Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird
+der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.
+Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man
+kann die Daten aus dem Cache entnehmen.</p>
 
-<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen zusammenfasst, muss gelten:</p>
+<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen
+zusammenfasst, muss gelten:</p>
 
-<p>Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$ Größe des Inhalts einer Hauptspeicheradresse</p>
+<p>Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$
+Größe des Inhalts einer Hauptspeicheradresse</p>
 
 <p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
 
-<p>Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.</p>
+<p>Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im
+Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-
+Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der
+Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.</p>
 
-<p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt werden.</p>
+<p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine
+Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt
+werden.</p>
 
 <p>Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ Sätze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
 
