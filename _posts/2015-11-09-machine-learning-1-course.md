@@ -131,7 +131,7 @@ Siehe auch:
 * Lernproblemtypen: Sei die Menge der Lernbeispiele in \\(X \times Y\\), mit \\(X \times Y =\\)...
     * \\(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\\): Konzeptlernen
     * \\(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\\): Klassifikation
-    * $\mathbb{R}^n \times \mathbb{R}: Regression
+    * \\(\mathbb{R}^n \times \mathbb{R}\\): Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
 * Bootstrap: TODO (Folie 18 - 20)
@@ -222,7 +222,7 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
   Dimension, falls die Klassen linear trennbar sind.
 * Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion
   \\[L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\\]
-  wobei $\alpha_1, \dots, \alpha_N \geq 0$ Lagrange-Multiplikatoren sind
+  wobei \\(\alpha_1, \dots, \alpha_N \geq 0\\) Lagrange-Multiplikatoren sind
 * Soft Margin Hyperebene
 * Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
   Missklassifikationen in der Trainingsdatenmenge. Ist $C$ klein, werden die
@@ -295,7 +295,7 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
       die Menge der Maximum Likelihood Hypothesen.</dd>
   <dt><dfn>Normalverteilung</dfn></dt>
   <dd>Eine stetige Zufallsvariable \(X\) mit der Wahrscheinlichkeitsdichte
-      \(f\colon\R\to\R\), gegeben durch
+      \(f\colon\mathbb{R}\to\mathbb{R}\), gegeben durch
       \[f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\]
       heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
       mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>

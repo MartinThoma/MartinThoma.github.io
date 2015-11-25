@@ -15,11 +15,11 @@ Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel.
 
 Angenommen man hat zwei Basen des $\mathbb{R}^2$-Vektorraumes:
 
-$$B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}$$
+\[B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}\]
 
 und
 
-$$\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}$$
+\[\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}\]
 
 Sei nun $v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ ein Vektor zur Standardbasis.
 Da $B$ und $\bar B$ auch Basen des $\mathbb{R}^2$ sind, kann man v auch zu diesen Basen darstellen:
@@ -62,9 +62,9 @@ $\left( \begin{array}{c c | c c}
 Links steht die geordnete Basis B und rechts die geordnete Basis $\bar B$, also (von | nach) und rechts wendet man Gauß an.
 
 Nun noch die Kontrolle, ob es stimmen kann:
-$$\underbrace{\begin{pmatrix} 3 & -2 \\ -1 & 1 \end{pmatrix}}_{A_{B \bar B}} 
+\[\underbrace{\begin{pmatrix} 3 & -2 \\ -1 & 1 \end{pmatrix}}_{A_{B \bar B}} 
 \cdot
-\underbrace{\begin{pmatrix} -1 \\ 1 \end{pmatrix}}_{\Theta_{B}(v)} = \underbrace{\begin{pmatrix} -5 \\ 2 \end{pmatrix}}_{\Theta_{\bar B}(v)}$$
+\underbrace{\begin{pmatrix} -1 \\ 1 \end{pmatrix}}_{\Theta_{B}(v)} = \underbrace{\begin{pmatrix} -5 \\ 2 \end{pmatrix}}_{\Theta_{\bar B}(v)}\]
 
 <h2>Siehe auch</h2>
 <ul>
