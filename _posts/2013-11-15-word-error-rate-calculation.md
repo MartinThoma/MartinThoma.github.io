@@ -14,7 +14,7 @@ featured_image: 2013/11/wer-thumb.png
 ---
 The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypothesis and is defined like this:
 
-\[\mathit{WER} = \frac{S+D+I}{N}\]
+\\[\mathit{WER} = \frac{S+D+I}{N}\\]
 
 where
 <ul>
@@ -56,29 +56,29 @@ Interestingly, the WER is just the Levenshtein distance for words.
 
 I've understood it after I saw this on the German Wikipedia:
 
-\[
+\\[
 \begin{align}
 m &= |r|\\
 n &= |h|\\
 \end{align}
-\]
+\\]
 
-\[
+\\[
 \begin{align}
 D_{0, 0} &= 0\\
 D_{i, 0} &= i, 1 \leq i \leq m\\
 D_{0, j} &= j, 1 \leq j \leq n
-\end{align}\]
+\end{align}\\]
 
-\[
+\\[
 \text{For } 1 \leq i\leq m, 1\leq j \leq n\\
 D_{i, j} = \min \begin{cases}
 D_{i - 1, j - 1}&+ 0 \ {\rm if}\ u_i = v_j\\
 D_{i - 1, j - 1}&+ 1 \ {\rm(Replacement)} \\
 D_{i, j - 1}&+ 1 \ {\rm(Insertion)} \\
-D_{i - 1, j}&+ 1 \ {\rm(Deletion)} 
+D_{i - 1, j}&+ 1 \ {\rm(Deletion)}
 \end{cases}
-\]
+\\]
 
 But I have written a piece of pseudocode to make it even easier to code this algorithm:
 
@@ -94,11 +94,11 @@ def wer(r, h):
         Works only for iterables up to 254 elements (uint8).
         O(nm) time ans space complexity.
 
-        >>> wer("who is there".split(), "is there".split()) 
+        >>> wer("who is there".split(), "is there".split())
         1
-        >>> wer("who is there".split(), "".split()) 
+        >>> wer("who is there".split(), "".split())
         3
-        >>> wer("".split(), "who is there".split()) 
+        >>> wer("".split(), "who is there".split())
         3
     """
     # initialisation

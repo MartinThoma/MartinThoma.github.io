@@ -129,8 +129,8 @@ Siehe auch:
     * Das Verfahren könnte nur suboptimale Lösungen finden.
     * Das Verfahren könnte die passende Hypothese nicht beinhalten.
 * Lernproblemtypen: Sei die Menge der Lernbeispiele in \\(X \times Y\\), mit \\(X \times Y =\\)...
-    * \\(\{Attribut_1, Attribut_2, ...\} \times \{True, False\}\\): Konzeptlernen
-    * \\(\mathbb{R}^n \times \{Klasse_1, ..., Klasse_n\}\\): Klassifikation
+    * \\(\\{Attribut_1, Attribut_2, ...\\} \times \\{True, False\\}\\): Konzeptlernen
+    * \\(\mathbb{R}^n \times \\{Klasse_1, ..., Klasse_n\\}\\): Klassifikation
     * \\(\mathbb{R}^n \times \mathbb{R}\\): Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
