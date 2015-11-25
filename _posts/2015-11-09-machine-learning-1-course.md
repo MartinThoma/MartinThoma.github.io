@@ -171,6 +171,22 @@ Siehe auch:
   nicht eher \\(VC(H^\alpha)\\) sein?
 
 
+### MLI_05_Neuronale_Netze_slides1.pdf
+
+* Einsatzfelder:
+    * Klassifiktion: Spracherkennung, Schrifterkennung
+    * Funktionsapproximation
+    * Mustervervollständigung: Kodierung, Bilderkennung (TODO: Warum zählt das nicht zu Klassifikation?)
+* Perzeptron von Rosenblatt (1960)
+    * Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.
+    * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.
+* Gradientenabstieg
+* Delta-Regel
+* Kernel-Methoden (TODO)
+* Radial-Basis Funktion Netz (TODO)
+* <abbr title="Resilient Propagation">RPROP</abbr>: TODO
+
+
 ### MLI_06_InstanzbasiertesLernen_slides1.pdf
 
 <dl>
@@ -246,6 +262,44 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 * Random Forest: Erstelle mehrere Entscheidungsbäume mit einer zufälligen
   Wahl an Attributen. Jeder Baum stimmt für eine Klasse und die Klasse, für die
   die meisten Stimmen, wird gewählt.
+
+
+### MLI_09_BayesLernen_slides1.pdf
+
+<dl>
+  <dt><dfn>Satz von Bayes</dfn></dt>
+  <dd>Seien \(A, B\) Ereignisse, \(P(B) > 0\). Dann gilt:
+      \[P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\]
+      Dabei wird \(P(A)\) a priori Wahrscheinlichkeit, \(P(B|A)\) likelihood,
+      und \(P(A|B)\) a posteriori Wahrscheinlichkeit genannt.</dd>
+  <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
+  <dd>Ein Klassifizierer heißt Naiver Bayes-Klassifikator, wenn er den
+      Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features
+      benutzt.</dd>
+  <dt><dfn>Produktregel</dfn></dt>
+  <dd>\(P(A \land B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)\)</dd>
+  <dt><dfn>Summenregel</dfn></dt>
+  <dd>\(P(A \lor B) = P(A) + P(B) - P(A \land P)\)</dd>
+  <dt><dfn>Theorem der totalen Wahrscheinlichkeit</dfn></dt>
+  <dd>Es seien \(A_1, \dots, A_n\) Ereignisse mit \(i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n\) und \(\sum_{i=1}^n A_i = 1\). Dann gilt:
+      \[P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)\]</dd>
+  <dt><dfn>Maximum A Posteriori Hypothese</dfn> (MAP-Hypothese)</dt>
+  <dd>Sei \(H\) der Raum aller Hypothesen und \(D\) die Menge der beobachteten
+      Daten. Dann heißt
+      \[h_{MAP} = \text{arg max}_{h \in H} P(h|D) \cdot P(h)\]
+      die Menge der Maximum A Posteriori Hypothesen.</dd>
+  <dt><dfn>Maximum Likelihood Hypothese</dfn> (ML-Hypothese)</dt>
+  <dd>Sei \(H\) der Raum aller Hypothesen und \(D\) die Menge der beobachteten
+      Daten. Dann heißt
+      \[h_{ML} = \text{arg max}_{h \in H} P(h|D)\]
+      die Menge der Maximum Likelihood Hypothesen.</dd>
+  <dt><dfn>Normalverteilung</dfn></dt>
+  <dd>Eine stetige Zufallsvariable \(X\) mit der Wahrscheinlichkeitsdichte
+      \(f\colon\R\to\R\), gegeben durch
+      \[f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\]
+      heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
+      mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>
+</dl>
 
 
 ## Prüfungsfragen
