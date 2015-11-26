@@ -32,6 +32,11 @@ featured_image: logos/star.png
 * Very local in low-tech solutions. Depens on availability of water and sun.
 
 
+## Devices
+
+* [Drumi: The Foot Powered Washing Machine](https://www.indiegogo.com/projects/drumi-the-foot-powered-washing-machine#/)
+
+
 
 ## Industry
 * Local products unknown in the world-wide market?

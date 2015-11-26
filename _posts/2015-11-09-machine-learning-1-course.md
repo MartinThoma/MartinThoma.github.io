@@ -220,8 +220,8 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 
 * SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-
   Dimension, falls die Klassen linear trennbar sind.
-* Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion
-  \\[L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\\]
+* Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion<br/>
+  \\(L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\\)
   wobei \\(\alpha_1, \dots, \alpha_N \geq 0\\) Lagrange-Multiplikatoren sind
 * Soft Margin Hyperebene
 * Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
@@ -254,7 +254,8 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 * Der Algorithmus ID5R dienen dem Aufbau eines Entscheidungsbaumes.
 * C4.5 unterstützt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.
   Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.
-* Mögliches Qualtitätsmaß ist Entropie: \\[Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\\]
+* Mögliches Qualtitätsmaß ist Entropie:<br/>
+  \\(Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\\)
   wobei $\oplus$ die positiven Beispiele und $\ominus$ die negativen Beispiele
   bezeichnet.
 * TODO, Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
@@ -269,7 +270,7 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 <dl>
   <dt><dfn>Satz von Bayes</dfn></dt>
   <dd>Seien \(A, B\) Ereignisse, \(P(B) > 0\). Dann gilt:
-      \[P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\]
+      \(P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\)<br/>
       Dabei wird \(P(A)\) a priori Wahrscheinlichkeit, \(P(B|A)\) likelihood,
       und \(P(A|B)\) a posteriori Wahrscheinlichkeit genannt.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
@@ -281,26 +282,59 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
   <dt><dfn>Summenregel</dfn></dt>
   <dd>\(P(A \lor B) = P(A) + P(B) - P(A \land P)\)</dd>
   <dt><dfn>Theorem der totalen Wahrscheinlichkeit</dfn></dt>
-  <dd>Es seien \(A_1, \dots, A_n\) Ereignisse mit \(i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n\) und \(\sum_{i=1}^n A_i = 1\). Dann gilt:
-      \[P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)\]</dd>
+  <dd>Es seien \(A_1, \dots, A_n\) Ereignisse mit \(i \neq j \Rightarrow A_i \cap A_j = \emptyset \;\;\;\forall i, j \in 1, \dots, n\) und \(\sum_{i=1}^n A_i = 1\). Dann gilt:<br/>
+      \(P(B) = \sum_{i=1}^n P(B|A_i) P(A_i)\)</dd>
   <dt><dfn>Maximum A Posteriori Hypothese</dfn> (MAP-Hypothese)</dt>
   <dd>Sei \(H\) der Raum aller Hypothesen und \(D\) die Menge der beobachteten
-      Daten. Dann heißt
-      \[h_{MAP} = \text{arg max}_{h \in H} P(h|D) \cdot P(h)\]
+      Daten. Dann heißt<br/>
+      \(h_{MAP} = \text{arg max}_{h \in H} P(h|D) \cdot P(h)\)<br/>
       die Menge der Maximum A Posteriori Hypothesen.</dd>
   <dt><dfn>Maximum Likelihood Hypothese</dfn> (ML-Hypothese)</dt>
   <dd>Sei \(H\) der Raum aller Hypothesen und \(D\) die Menge der beobachteten
-      Daten. Dann heißt
-      \[h_{ML} = \text{arg max}_{h \in H} P(h|D)\]
+      Daten. Dann heißt<br/>
+      \(h_{ML} = \text{arg max}_{h \in H} P(h|D)\)<br/>
       die Menge der Maximum Likelihood Hypothesen.</dd>
   <dt><dfn>Normalverteilung</dfn></dt>
   <dd>Eine stetige Zufallsvariable \(X\) mit der Wahrscheinlichkeitsdichte
-      \(f\colon\mathbb{R}\to\mathbb{R}\), gegeben durch
-      \[f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\]
+      \(f\colon\mathbb{R}\to\mathbb{R}\), gegeben durch<br/>
+      \(f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\)<br/>
       heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
       mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>
+  <dt><dfn>Prinzip der minimalen Beschreibungslänge</dfn> (<a href="https://de.wikipedia.org/wiki/Minimum_Description_Length">Wikipedia</a>)</dt>
+  <dd>Das Prinzip der minimalen Beschreibungslänge ist eine formale
+      Beschreibung von Ockhams Rasiermesser. Nach diesem Prinzip werden
+      Hypothesen bevorzugt, die zur besten Kompression gegebener Daten führen.
+  </dd>
+  <dt><dfn>Gibbs-Algorithmus</dfn> (<a href="https://de.wikipedia.org/wiki/Gibbs-Sampling">Wikipedia</a> und <a href="http://stats.stackexchange.com/a/10216/25741">stats.stackexchange</a>)</dt>
+  <dd>Der Algorithmus von Gibbs ist eine Methode um Stichproben von bedingten
+      Verteilungen zu erzeugen. TODO: Ist das richtig? Wann wird es verwendet?
+  </dd>
+  <dt><dfn>Bedingte Unabhängigkeit</dfn> (<a href="https://de.wikipedia.org/wiki/Bedingte_Unabh%C3%A4ngigkeit">Wikipedia</a>)</dt>
+  <dd>Seien \(X, Y, Z\) Zufallsvariablen. Dann heißt \(X\) bedingt unabhängig
+      von \(Y\) gegeben \(Z\), wenn \[P(X|Y,Z) = P(X|Z)\] gilt.
+  </dd>
+  <dt><dfn>Add \(k\) smoothing</dfn> (<a href="https://en.wikipedia.org/wiki/Additive_smoothing">Wikipedia</a>)</dt>
+  <dd>Unter Add-\(k\)-smoothing versteht man eine Technik, durch die
+      sichergestellt wird, dass die geschätzte Wahrscheinlichkeit für kein
+      Ereignis gleich null ist. Wenn man \(d \in \mathbb{N}\) mögliche
+      Ergebnisse eines Experiments hat, \(N \in \mathbb{N}\) experimente
+      durchgeführt werden, dann schätzt man die Wahrscheinlichkeit von dem
+      Ergebnis \(i\) mit \[\hat{\theta_i} = \frac{x_i + k}{N+ kd}\], wobei
+      \(x_i\) die Anzahl der Beobachtungen von \(i\) ist und \(k \geq 0\) der
+      Glättungsparameter ist.
+  </dd>
+  <dt><dfn>Bayessches Netz</dfn> (<a href="https://de.wikipedia.org/wiki/Bayessches_Netz">Wikipedia</a>)</dt>
+  <dd>Ein bayessches Netz ist ein gerichteter azyklischer Graph in dem die
+      Knoten Zufallsvariablen und die Kanten bedingte Abhängigkeiten
+      beschreiben.
+  </dd>
 </dl>
 
+Fragen:
+
+* Folie 23: Warum ist \\(h_{MAP(x)}\\) nicht die wahrscheinlichste
+  Klassifikation?
+* Folie 24: Was ist \(V\)?
 
 ## Prüfungsfragen
 
