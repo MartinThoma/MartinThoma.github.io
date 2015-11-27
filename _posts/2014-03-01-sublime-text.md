@@ -30,7 +30,7 @@ I've added a symlink to make it easier to call it from command line:
 sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/sublime
 ```
 
-The editor is usable right after the installation, but you might want to make 
+The editor is usable right after the installation, but you might want to make
 some fine-tuning.
 
 ## Package Control
@@ -51,20 +51,24 @@ Here is what I have changed:
 
 ```text
 {
-	"color_scheme": "Packages/Colorsublime - Themes/textmate.tmTheme",
-	"draw_white_space": "all",
-	"fold_buttons": true,
-	"font_face": "Ubuntu Mono",
-	"font_size": 13,
-	"highlight_line": true,
-	"rulers":
-	[
-		80,
-		120
-	],
-	"tab_size": 4,
-	"translate_tabs_to_spaces": false,
-	"use_tab_stops": false
+    "WrapPlus.break_on_hyphens": false,
+    "color_scheme": "Packages/Colorsublime - Themes/textmate.tmTheme",
+    "detect_indentation": false,
+    "draw_white_space": "all",
+    "fold_buttons": true,
+    "font_face": "Ubuntu Mono",
+    "font_size": 15,
+    "highlight_line": true,
+    "rulers":
+    [
+        79,
+        120
+    ],
+    "scroll_speed": 0,
+    "search_threshold": 1000000,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "use_tab_stops": false
 }
 ```
 
@@ -84,10 +88,10 @@ to use <kbd>Alt</kbd> + arrow keys no longer. I love it :-)
 
 ### LaTeXTools
 The [LaTeXTools](https://github.com/SublimeText/LaTeXTools) package adds support
-for LaTeX. It adds shortcuts, a pull-down menu when you enter `\cref{` and much 
+for LaTeX. It adds shortcuts, a pull-down menu when you enter `\cref{` and much
 more.
 
-### Bracket Highlighter
+### BracketHighlighter
 [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter) adds
 brackets on the left side. It looks like this:
 
@@ -99,6 +103,31 @@ possibility to mark text, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>a</kbd> to
 align:
 
 {% caption align="aligncenter" width="500" alt="automatical alignment" text="automatical alignment" url="../images/2014/03/sublime-align.gif" %}
+
+### Colorsublime
+
+Colorsublime is a plugin for theming Sublime&nbsp;Text&nbps;3 within seconds.
+Take a look at [colorsublime.com](http://colorsublime.com/) for some examples.
+
+
+### TrailingSpaces
+
+Tools for easy removing trailing spaces with <kbd>Ctrl</kbd> +
+<kbd>Shift</kbd> + <kbd>T</kbd>.
+See [GitHub repository](https://github.com/SublimeText/TrailingSpaces).
+
+
+### Wrap Plus
+
+Tools for easy wrapping lines with <kbd>Alt</kbd> + <kbd>Q</kbd>.
+See [GitHub repository](https://github.com/ehuss/Sublime-Wrap-Plus).
+
+
+### Python Flake8 Lint
+
+Highlight potential problems with Python code.
+See [GitHub repository](https://github.com/dreadatour/Flake8Lint).
+
 
 ## Themes
 First of all, make sure you have installed the `Colorsublime` package.
@@ -120,7 +149,8 @@ I have these:
 { "keys": ["ctrl+shift+r"], "command": "reindent", "args": { "single_line": false } },
 { "keys": ["shift+tab"], "command": "unindent", "args": {"single_line":true} },
 { "keys": ["ctrl+7"], "command": "toggle_comment", "args": { "block": false } },
-{ "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": true } }
+{ "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": true } },
+{ "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" }
 ]
 ```
 
@@ -129,7 +159,7 @@ I have these:
 Snippets are a very cool feature of <abbr title="Sublime Text">ST</abbr>. They
 allow you to enter some text, press <kbd>Tab</kbd> and get whatever you wanted.
 So you could create a new <tt>.tex</tt> document, enter <tt>article</tt>, press
-<kbd>Tab</kbd> and get a template for a LaTeX document of the article document 
+<kbd>Tab</kbd> and get a template for a LaTeX document of the article document
 class.
 
 A tutorial how to create a snippet for the <tt>article</tt> document class
