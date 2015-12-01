@@ -274,7 +274,7 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
       Dabei wird \(P(A)\) a priori Wahrscheinlichkeit, \(P(B|A)\) likelihood,
       und \(P(A|B)\) a posteriori Wahrscheinlichkeit genannt.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
-  <dd>Ein Klassifizierer heißt Naiver Bayes-Klassifikator, wenn er den
+  <dd>Ein Klassifizierer heißt naiver Bayes-Klassifikator, wenn er den
       Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features
       benutzt.</dd>
   <dt><dfn>Produktregel</dfn></dt>

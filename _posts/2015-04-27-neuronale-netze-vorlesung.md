@@ -8,6 +8,7 @@ categories:
 tags:
 - Klausur
 - Machine Learning
+- Neural Networks
 featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Neuronale Netze&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isl.anthropomatik.kit.edu/english/21_74.php">Herrn Prof. Dr. Alexander Waibel</a> im Sommersemester 2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.</div>
@@ -80,10 +81,64 @@ featured_image: logos/klausur.png
 </tr>
 </table>
 
+### NN01-Intro.pdf
+
+* Human Brain vs. Computer (Processing/Processors, Accuracy, Speed, Hardware, Design)
+* Aufbau eines biologischen Neurons (vgl. [Wikipedia](https://de.wikipedia.org/wiki/Nervenzelle#.C3.9Cberblick_.C3.BCber_den_Aufbau_einer_Nervenzelle))
+
+
+## NN02-Classification.pdf
+
+{% caption align="aligncenter" width="500" alt="Rosenblatt-Perceptron which realizes logical or" text="Rosenblatt-Perceptron which realizes logical or" url="../images/2015/12/perceptron-or.png" %}
+
+* McCullch-Pitts Neuron (weights, bias, activation function is step function)
+* Rosenblatt Perceptron Algorithmus
+* Backpropagation
+* <abbr title="Principal Component Analysis">PCA</abbr>: TODO (Folie 45)
+* Curse of Dimensionality
+* [Parzen Window](https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer)
+* Features: Nominal, Ordinal, Intervallskaliert, Verhältnisskaliert
+
+<dl>
+  <dt><dfn>Bayes-Rule</dfn> (Source: <a href="https://en.wikipedia.org/wiki/Bayes%27_rule">wikipedia</a>)</dt>
+  <dd>Given events \(A_1\), $A_2$ and $B$, Bayes' rule states that the conditional odds of $A_1:A_2$ given $B$ are equal to the marginal odds of $A_1:A_2$ multiplied by the Bayes factor or likelihood ratio $\Lambda$:
+
+\[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
+
+where
+
+\[\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.\]</dd>
+  <dt><dfn>Parametrischer Klassifizierer</dfn></dt>
+  <dd>Ein Klassifizierer heißt <i>parametrisch</i>, wenn er eine Wahrscheinlichkeitsverteilungsannahme macht.</dd>
+  <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
+  <dd>Ein Klassifizierer heißt naiver Bayes-Klassifikator, wenn er den
+      Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features
+      benutzt.</dd>
+  <dt><dfn>Normalverteilung</dfn></dt>
+  <dd>Eine stetige Zufallsvariable \(X\) mit der Wahrscheinlichkeitsdichte
+      \(f\colon\mathbb{R}\to\mathbb{R}\), gegeben durch<br/>
+      \(f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\)<br/>
+      heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
+      mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>
+  <dt><dfn>Multivariate Normalverteilung</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung">Wikipedia</a>)</dt>
+  <dd>Eine \(p\)-dimensionale reelle Zufallsvariable \(X\) ist normalverteilt
+      mit Erwartungswertvektor \(\mu\) und  (positiv definiter) Kovarianzmatrix
+      \(\Sigma\), wenn sie eine Dichtefunktion der Form
+      \[f_X(x)=\frac{1}{ \sqrt{(2\pi)^p \det(\Sigma)} } \exp \left( -\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu) \right)\]
+besitzt. Man schreibt
+\[X\sim \mathcal N_p(\mu, \Sigma).\]</dd>
+  <dt><dfn>Gauß'scher Klassifizierer</dfn></dt>
+  <dd>Ein (naiver) Bayes-Klassifikator, welcher von normalverteilten Daten
+      ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
+</dl>
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
 * [NNPraktikum](https://github.com/thanhleha/NNPraktikum): Toolkit für die Übungsblätter
+* StackExchange
+  * [What is the difference in Bayesian estimate and maximum likelihood estimate?](http://stats.stackexchange.com/q/74082/25741)
+
 
 ## Übungsbetrieb
 
