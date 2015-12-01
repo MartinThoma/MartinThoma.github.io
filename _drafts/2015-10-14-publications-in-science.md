@@ -263,3 +263,7 @@ problems.)
   <li><a name="ref3" href="#anchor3">&uarr;</a>: Rachel Feltman: <a href="https://www.washingtonpost.com/news/speaking-of-science/wp/2014/12/08/two-scientific-journals-accepted-a-study-by-maggie-simpson-and-edna-krabappel/">Two scientific journals accepted a study by Maggie Simpson and Edna Krabappel</a>, 08.12.2014. washingtonpost.com.</li>
   <li><a name="ref4" href="#anchor4">&uarr;</a>: <a href="http://thatsmathematics.com/blog/archives/102">Mathgen paper accepted!</a>, 14.09.2012. thatsmathematics.com.</li>
 </ol>
+
+
+## See also
+* [A Cautionary Tale about Predatory Publishers](http://library-blog.syr.edu/drs/2014/09/03/a-cautionary-tale-about-predatory-publishers/)
