@@ -89,16 +89,22 @@
             <li class="toc_level-2 toc_section-2">
                <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Vorlesung</span></a>
             </li>
+            <li class="toc_level-2 toc_section-3">
+               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">NN01-Intro.pdf</span></a>
+            </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">2</span> <span class="toctext">Material und Links</span></a>
-      </li>
       <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">3</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">NN02-Classification.pdf</span></a>
       </li>
       <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">4</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-5"><span class="tocnumber">3</span> <span class="toctext">Material und Links</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-6">
+         <a href="#tocAnchor-1-6"><span class="tocnumber">4</span> <span class="toctext">Übungsbetrieb</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-7">
+         <a href="#tocAnchor-1-7"><span class="tocnumber">5</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
@@ -169,18 +175,82 @@
 </tr>
 </table>
 
-<h2 id="tocAnchor-1-3">Material und Links</h2>
+<h3 id="tocAnchor-1-1-2">NN01-Intro.pdf</h3>
+
+<ul>
+<li>Human Brain vs. Computer (Processing/Processors, Accuracy, Speed, Hardware, Design)</li>
+<li>Aufbau eines biologischen Neurons (vgl. <a href="https://de.wikipedia.org/wiki/Nervenzelle#.C3.9Cberblick_.C3.BCber_den_Aufbau_einer_Nervenzelle">Wikipedia</a>)</li>
+</ul>
+
+<h2 id="tocAnchor-1-4">NN02-Classification.pdf</h2>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2015/12/perceptron-or.png">
+      <img src="../images/2015/12/perceptron-or.png" alt="Rosenblatt-Perceptron which realizes logical or" width="" height="" class="" />
+   </a>
+   <p class="wp-caption-text">Rosenblatt-Perceptron which realizes logical or</p>
+</div>
+
+<ul>
+<li>McCullch-Pitts Neuron (weights, bias, activation function is step function)</li>
+<li>Rosenblatt Perceptron Algorithmus</li>
+<li>Backpropagation</li>
+<li><abbr title="Principal Component Analysis">PCA</abbr>: TODO (Folie 45)</li>
+<li>Curse of Dimensionality</li>
+<li><a href="https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer">Parzen Window</a></li>
+<li>Features: Nominal, Ordinal, Intervallskaliert, Verhältnisskaliert</li>
+</ul>
+
+<dl>
+  <dt><dfn>Bayes-Rule</dfn> (Source: <a href="https://en.wikipedia.org/wiki/Bayes%27_rule">wikipedia</a>)</dt>
+  <dd>Given events \(A_1\), `$A_2$` and `$B$`, Bayes' rule states that the conditional odds of `$A_1:A_2$` given `$B$` are equal to the marginal odds of `$A_1:A_2$` multiplied by the Bayes factor or likelihood ratio `$\Lambda$`:
+
+\[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
+
+where
+
+\[\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.\]</dd>
+  <dt><dfn>Parametrischer Klassifizierer</dfn></dt>
+  <dd>Ein Klassifizierer heißt <i>parametrisch</i>, wenn er eine Wahrscheinlichkeitsverteilungsannahme macht.</dd>
+  <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
+  <dd>Ein Klassifizierer heißt naiver Bayes-Klassifikator, wenn er den
+      Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features
+      benutzt.</dd>
+  <dt><dfn>Normalverteilung</dfn></dt>
+  <dd>Eine stetige Zufallsvariable \(X\) mit der Wahrscheinlichkeitsdichte
+      \(f\colon\mathbb{R}\to\mathbb{R}\), gegeben durch<br />
+      \(f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\)<br />
+      heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
+      mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>
+  <dt><dfn>Multivariate Normalverteilung</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung">Wikipedia</a>)</dt>
+  <dd>Eine \(p\)-dimensionale reelle Zufallsvariable \(X\) ist normalverteilt
+      mit Erwartungswertvektor \(\mu\) und  (positiv definiter) Kovarianzmatrix
+      \(\Sigma\), wenn sie eine Dichtefunktion der Form
+      \[f_X(x)=\frac{1}{ \sqrt{(2\pi)^p \det(\Sigma)} } \exp \left( -\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu) \right)\]
+besitzt. Man schreibt
+\[X\sim \mathcal N_p(\mu, \Sigma).\]</dd>
+  <dt><dfn>Gauß'scher Klassifizierer</dfn></dt>
+  <dd>Ein (naiver) Bayes-Klassifikator, welcher von normalverteilten Daten
+      ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
+</dl>
+
+<h2 id="tocAnchor-1-5">Material und Links</h2>
 
 <ul>
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php">Vorlesungswebsite</a></li>
 <li><a href="https://github.com/thanhleha/NNPraktikum">NNPraktikum</a>: Toolkit für die Übungsblätter</li>
+<li>StackExchange
+
+<ul>
+<li><a href="http://stats.stackexchange.com/q/74082/25741">What is the difference in Bayesian estimate and maximum likelihood estimate?</a></li>
+</ul></li>
 </ul>
 
-<h2 id="tocAnchor-1-4">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-6">Übungsbetrieb</h2>
 
 <p>Übungsblätter sind freiwillig.</p>
 
-<h2 id="tocAnchor-1-5">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-7">Termine und Klausurablauf</h2>
 
 <p><strong>Datum</strong>: nach Terminvereinbarung<br />
 <strong>Ort</strong>: <a href="http://www.kithub.de/map/2210">Gebäude 50.20</a><br />
@@ -199,6 +269,9 @@
                                 
                             
                                 , <a href="http://martin-thoma.com/tag/machine-learning/">Machine Learning</a>
+                                
+                            
+                                , <a href="http://martin-thoma.com/tag/neural-networks/">Neural Networks</a>
                                 
                              by <a rel="author" class="vcard author" href="http://martin-thoma.com/author/martin-thoma/"><span class="fn">Martin Thoma</span></a> on <span class="updated"><span class="value-title" title="2015-04-27 21:15:00 +0200">
                                 April 
@@ -264,7 +337,7 @@
 
                 <div class="addthis_toolbox">   
     <div class="custom_images">
-            <a href="http://twitter.com/share?url=http://martin-thoma.com/neuronale-netze-vorlesung&amp;hashtags=klausur,machine-learning,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://twitter.com/share?url=http://martin-thoma.com/neuronale-netze-vorlesung&amp;hashtags=klausur,machine-learning,neural-networks,&amp;via=themoosemind" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
             <a href="http://del.icio.us/post?url=http://martin-thoma.com/neuronale-netze-vorlesung&amp;title=Neuronale%20Netze%20-%20Klausur" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
             <a href="http://www.facebook.com/sharer.php?u=http://martin-thoma.com/neuronale-netze-vorlesung" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
             <a href="http://digg.com/submit?phase=2&amp;url=http://martin-thoma.com/neuronale-netze-vorlesung&amp;title=Neuronale%20Netze%20-%20Klausur" target="_blank"><img src="http://martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
