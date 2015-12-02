@@ -92,19 +92,22 @@
             <li class="toc_level-2 toc_section-3">
                <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">NN01-Intro.pdf</span></a>
             </li>
+            <li class="toc_level-2 toc_section-4">
+               <a href="#tocAnchor-1-1-3"><span class="tocnumber">1.3</span> <span class="toctext">NN02-Classification.pdf</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-5">
+               <a href="#tocAnchor-1-1-4"><span class="tocnumber">1.4</span> <span class="toctext">V04_2015-04-28_Perceptron.pdf</span></a>
+            </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">NN02-Classification.pdf</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">3</span> <span class="toctext">Material und Links</span></a>
-      </li>
       <li class="toc_level-1 toc_section-6">
-         <a href="#tocAnchor-1-6"><span class="tocnumber">4</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-6"><span class="tocnumber">2</span> <span class="toctext">Material und Links</span></a>
       </li>
       <li class="toc_level-1 toc_section-7">
-         <a href="#tocAnchor-1-7"><span class="tocnumber">5</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-7"><span class="tocnumber">3</span> <span class="toctext">Übungsbetrieb</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-8">
+         <a href="#tocAnchor-1-8"><span class="tocnumber">4</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
@@ -182,7 +185,7 @@
 <li>Aufbau eines biologischen Neurons (vgl. <a href="https://de.wikipedia.org/wiki/Nervenzelle#.C3.9Cberblick_.C3.BCber_den_Aufbau_einer_Nervenzelle">Wikipedia</a>)</li>
 </ul>
 
-<h2 id="tocAnchor-1-4">NN02-Classification.pdf</h2>
+<h3 id="tocAnchor-1-1-3">NN02-Classification.pdf</h3>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2015/12/perceptron-or.png">
@@ -203,13 +206,15 @@
 
 <dl>
   <dt><dfn>Bayes-Rule</dfn> (Source: <a href="https://en.wikipedia.org/wiki/Bayes%27_rule">wikipedia</a>)</dt>
-  <dd>Given events \(A_1\), `$A_2$` and `$B$`, Bayes' rule states that the conditional odds of `$A_1:A_2$` given `$B$` are equal to the marginal odds of `$A_1:A_2$` multiplied by the Bayes factor or likelihood ratio `$\Lambda$`:
+  <dd>Given events \(A_1\), \(A_2\) and \(B\), Bayes' rule states that the conditional odds of \(A_1:A_2\) given \(B\) are equal to the marginal odds of \(A_1:A_2\) multiplied by the Bayes factor or likelihood ratio \(\Lambda\):
 
-\[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
+`
+$$O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,$$`
 
 where
 
-\[\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.\]</dd>
+`
+$$\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.$$`</dd>
   <dt><dfn>Parametrischer Klassifizierer</dfn></dt>
   <dd>Ein Klassifizierer heißt <i>parametrisch</i>, wenn er eine Wahrscheinlichkeitsverteilungsannahme macht.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
@@ -234,7 +239,63 @@ besitzt. Man schreibt
       ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
 </dl>
 
-<h2 id="tocAnchor-1-5">Material und Links</h2>
+<h3 id="tocAnchor-1-1-4">V04_2015-04-28_Perceptron.pdf</h3>
+
+<dl>
+  <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
+  <dd>Ein MLP-Neuron is ein Algorithmus zur binären Klassifizierung. Er hat
+      \(m+1\), mit \(m \in \mathbb{N}_{&gt; 0}\) inputs `$x_i \in \{0, 1\}$`. Davon
+      ist der erste (nullte) Konstant gleich Eins und wird <i>Bias</i> genannt.
+      Jeder Input wird mit eingem Gewicht \(w_i \in \mathbb{R}\) multipliziert,
+      alle gewichteten Inputs werden addiert und schließlich wird die
+      Stufenfunktion
+      \(\varphi(x) = \begin{cases}1 &amp;\text{falls } x &gt; 0\\0 &amp;\text{sonst} \end{cases}\)
+      angewendet.
+  </dd>
+  <dt><dfn>Rosenblatt-Perzeptron</dfn></dt>
+  <dd>Wie das McCulloch–Pitts (MCP) Neuron, nur ist \(x_i \in \mathbb{R}\) und
+      ein Lernalgorithmus ist gegeben. Dieser addiert den
+      \(\lambda \in (0, 1)\) gewichteten, fehlklassifizierten Vektor auf die
+      Gewichte \(w_i\). \(\lambda\) heißt die <i>Lernrate</i>.
+  </dd>
+  <dt><dfn>Pocket Perceptron Algorithm</dfn></dt>
+  <dd>Ein Lernalgorithmus für ein Rosenblatt-Perzeptron. Dieser konvergiert zu
+      Gewichten, welche die wenigsten Beispiele falsch klassifiziert.
+  </dd>
+  <dt><dfn>Sigmoid-Funktion</dfn></dt>
+  <dd>\(\varphi(x) = \frac{1}{1+e^{-x}}\)</dd>
+  <dt><dfn>Softmax-Funktion</dfn></dt>
+  <dd>\(\varphi(a_i) = \frac{e^{a_i}}{\sum_{k} e^{a_k}\) wobei \(a_i\) die
+      Aktivierung des \(i\)-ten Neurons der selben Schicht ist.</dd>
+  <dt><dfn>Perzeptron</dfn> / <dfn>Logistic Neuron</dfn></dt>
+  <dd><abbr title="Mean Squared Error">MSE</abbr> + Sigmoid activation function</dd>
+</dl>
+
+<p>Fakten:</p>
+
+<ul>
+<li>Das Rosenblatt-Perzeptron findet eine lineare Trenngrenze, wenn sie
+existiert.</li>
+<li>Probleme vom Rosenblatt-Perzeptron:
+
+<ul>
+<li>XOR</li>
+<li>Nicht-linear trennbare Daten</li>
+<li>Nicht-trennbare Daten</li>
+<li>Wahl der Lernrate und der Startgewichte</li>
+</ul></li>
+<li>Aufbau eines biologischen Neurons (Axon, Dendriten, Zellkörper, Ranviersche
+Schnürringe, Synapsen)</li>
+<li>Glia-Zellen</li>
+</ul>
+
+<p>Fragen:</p>
+
+<ul>
+<li>Folie 6: Ist der Input nicht in [0, 1]?</li>
+</ul>
+
+<h2 id="tocAnchor-1-6">Material und Links</h2>
 
 <ul>
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php">Vorlesungswebsite</a></li>
@@ -243,14 +304,16 @@ besitzt. Man schreibt
 
 <ul>
 <li><a href="http://stats.stackexchange.com/q/74082/25741">What is the difference in Bayesian estimate and maximum likelihood estimate?</a></li>
+<li><a href="http://datascience.stackexchange.com/q/9172/8820">Can k-means clustering get shells as clusters?</a></li>
+<li><a href="http://datascience.stackexchange.com/q/9177/8820">How is the Schwarz Criterion defined?</a></li>
 </ul></li>
 </ul>
 
-<h2 id="tocAnchor-1-6">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-7">Übungsbetrieb</h2>
 
 <p>Übungsblätter sind freiwillig.</p>
 
-<h2 id="tocAnchor-1-7">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-8">Termine und Klausurablauf</h2>
 
 <p><strong>Datum</strong>: nach Terminvereinbarung<br />
 <strong>Ort</strong>: <a href="http://www.kithub.de/map/2210">Gebäude 50.20</a><br />
