@@ -87,7 +87,7 @@ featured_image: logos/klausur.png
 * Aufbau eines biologischen Neurons (vgl. [Wikipedia](https://de.wikipedia.org/wiki/Nervenzelle#.C3.9Cberblick_.C3.BCber_den_Aufbau_einer_Nervenzelle))
 
 
-## NN02-Classification.pdf
+### NN02-Classification.pdf
 
 {% caption align="aligncenter" width="500" alt="Rosenblatt-Perceptron which realizes logical or" text="Rosenblatt-Perceptron which realizes logical or" url="../images/2015/12/perceptron-or.png" %}
 
@@ -101,13 +101,13 @@ featured_image: logos/klausur.png
 
 <dl>
   <dt><dfn>Bayes-Rule</dfn> (Source: <a href="https://en.wikipedia.org/wiki/Bayes%27_rule">wikipedia</a>)</dt>
-  <dd>Given events \(A_1\), $A_2$ and $B$, Bayes' rule states that the conditional odds of $A_1:A_2$ given $B$ are equal to the marginal odds of $A_1:A_2$ multiplied by the Bayes factor or likelihood ratio $\Lambda$:
+  <dd>Given events \(A_1\), \(A_2\) and \(B\), Bayes' rule states that the conditional odds of \(A_1:A_2\) given \(B\) are equal to the marginal odds of \(A_1:A_2\) multiplied by the Bayes factor or likelihood ratio \(\Lambda\):
 
-\[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
+$$O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,$$
 
 where
 
-\[\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.\]</dd>
+$$\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.$$</dd>
   <dt><dfn>Parametrischer Klassifizierer</dfn></dt>
   <dd>Ein Klassifizierer heißt <i>parametrisch</i>, wenn er eine Wahrscheinlichkeitsverteilungsannahme macht.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
@@ -132,12 +132,64 @@ besitzt. Man schreibt
       ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
 </dl>
 
+
+### V04_2015-04-28_Perceptron.pdf
+
+<dl>
+  <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
+  <dd>Ein MLP-Neuron is ein Algorithmus zur binären Klassifizierung. Er hat
+      \(m+1\), mit \(m \in \mathbb{N}_{> 0}\) inputs $x_i \in \{0, 1\}$. Davon
+      ist der erste (nullte) Konstant gleich Eins und wird <i>Bias</i> genannt.
+      Jeder Input wird mit eingem Gewicht \(w_i \in \mathbb{R}\) multipliziert,
+      alle gewichteten Inputs werden addiert und schließlich wird die
+      Stufenfunktion
+      \(\varphi(x) = \begin{cases}1 &\text{falls } x > 0\\0 &\text{sonst} \end{cases}\)
+      angewendet.
+  </dd>
+  <dt><dfn>Rosenblatt-Perzeptron</dfn></dt>
+  <dd>Wie das McCulloch–Pitts (MCP) Neuron, nur ist \(x_i \in \mathbb{R}\) und
+      ein Lernalgorithmus ist gegeben. Dieser addiert den
+      \(\lambda \in (0, 1)\) gewichteten, fehlklassifizierten Vektor auf die
+      Gewichte \(w_i\). \(\lambda\) heißt die <i>Lernrate</i>.
+  </dd>
+  <dt><dfn>Pocket Perceptron Algorithm</dfn></dt>
+  <dd>Ein Lernalgorithmus für ein Rosenblatt-Perzeptron. Dieser konvergiert zu
+      Gewichten, welche die wenigsten Beispiele falsch klassifiziert.
+  </dd>
+  <dt><dfn>Sigmoid-Funktion</dfn></dt>
+  <dd>\(\varphi(x) = \frac{1}{1+e^{-x}}\)</dd>
+  <dt><dfn>Softmax-Funktion</dfn></dt>
+  <dd>\(\varphi(a_i) = \frac{e^{a_i}}{\sum_{k} e^{a_k}\) wobei \(a_i\) die
+      Aktivierung des \(i\)-ten Neurons der selben Schicht ist.</dd>
+  <dt><dfn>Perzeptron</dfn> / <dfn>Logistic Neuron</dfn></dt>
+  <dd><abbr title="Mean Squared Error">MSE</abbr> + Sigmoid activation function</dd>
+</dl>
+
+Fakten:
+
+* Das Rosenblatt-Perzeptron findet eine lineare Trenngrenze, wenn sie
+  existiert.
+* Probleme vom Rosenblatt-Perzeptron:
+  * XOR
+  * Nicht-linear trennbare Daten
+  * Nicht-trennbare Daten
+  * Wahl der Lernrate und der Startgewichte
+* Aufbau eines biologischen Neurons (Axon, Dendriten, Zellkörper, Ranviersche
+  Schnürringe, Synapsen)
+* Glia-Zellen
+
+Fragen:
+
+* Folie 6: Ist der Input nicht in [0, 1]?
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
 * [NNPraktikum](https://github.com/thanhleha/NNPraktikum): Toolkit für die Übungsblätter
 * StackExchange
   * [What is the difference in Bayesian estimate and maximum likelihood estimate?](http://stats.stackexchange.com/q/74082/25741)
+  * [Can k-means clustering get shells as clusters?](http://datascience.stackexchange.com/q/9172/8820)
+  * [How is the Schwarz Criterion defined?](http://datascience.stackexchange.com/q/9177/8820)
 
 
 ## Übungsbetrieb
