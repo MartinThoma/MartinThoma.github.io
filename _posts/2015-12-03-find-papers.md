@@ -31,7 +31,7 @@ Automated journal rankings like the h5-index used by Google Scholar (see
 lack of domain knowledge. Google Scholar even publishes a list of journals
 per field (see [Top publications in Computer Vision and Pattern Recognition](https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computervisionpatternrecognition)).
 
-{% caption align="aligncenter" width="500" alt="Google Scholar Journal ranking" text="Google Scholar Journal ranking" url="../images/2015/01/image.png" %}
+{% caption align="aligncenter" width="500" alt="Google Scholar Journal ranking" text="Google Scholar Journal ranking" url="../images/2015/12/google-scholar-top-publications.png" %}
 
 ### Algorithmic Ideas
 
@@ -97,6 +97,8 @@ days, there is nothing interesting, on other days like today quite a bit:
 * [Labeling the Features Not the Samples:
 Efficient Video Classification with Minimal Supervision](http://arxiv.org/pdf/1512.00517.pdf)
 * [Attribute2Image: Conditional Image Generation from Visual Attributes](http://arxiv.org/pdf/1512.00570.pdf)
+
+{% caption align="aligncenter" width="500" alt="Latest submissions on arXiv in Pattern Recognition and Computer Vision" text="Latest submissions on arXiv in Pattern Recognition and Computer Vision" url="../images/2015/12/latest-arxiv-publications.png" %}
 
 
 ## Filtering
