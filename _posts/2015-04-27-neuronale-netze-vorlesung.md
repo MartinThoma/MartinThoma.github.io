@@ -251,6 +251,46 @@ Fragen:
 * Batch Gradient Descent
 
 
+### V07_12-05-2015_Feature_Learning.pdf
+
+<dl>
+    <dt><dfn>Autoencoder</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Autoencoder">Wikipedia</a></dt>
+    <dd>Ein Autoencoder ist ein neuronales Netz, welches darauf trainiert wird
+        die Input-Daten am Output wieder zu replizieren.</dd>
+    <dt><dfn>Bottleneck Features</dfn></dt>
+    <dd>Unter Bottleneck-Features versteht man eine Schicht in einem
+        neuronalem Netz, welche wesentlich kleiner ist als die vorhergehende
+        und nachfolgende Schicht.</dd>
+    <dt><dfn>Kullback-Leibler-Divergenz</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Wikipedia</a></dt>
+    <dd>Die Kullback-Leibler-Divergenz ist ein Maß für die Unterschiedlichkeit
+        zweier Wahrscheinlichkeitsverteilungen \(P, Q\). Für
+        diskrete Verteilungen ist sie definiert als:
+        \[KL(P||Q) := \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\]</dd>
+    <dt><dfn>Denoising Autoencoder</dfn></dt>
+    <dd>Ein Autoencoder, welcher trainiert wird rauschen zu entfernen.</dd>
+</dl>
+
+Fakten:
+
+* Eine lineare Aktivierungsfunktion wird in einer Repräsentation im
+  Bottleneck-Feature resultieren, die PCA ähnelt.
+* Fehlerfunktion:
+  * <abbr title="Cross Entropy">CE</abbr> bei binären Ausgaben (d.h. Input-Features)
+  * <abbr title="Mean squared error">MSE</abbr> bei reelen Ausgaben (d.h. Input-Features)
+
+Fragen:
+
+* Wie muss man die Grafik zu Stacked Denoising Autoencodern verstehen?
+
+
+### V08_2015-05-13_Deep_Learning.pdf
+
+* Pretraining
+* TDNNs CNNs
+* Hyperparameter
+
+
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
