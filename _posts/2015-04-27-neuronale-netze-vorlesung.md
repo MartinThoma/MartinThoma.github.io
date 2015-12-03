@@ -217,10 +217,10 @@ Fragen:
 
       Dann heißt \(d_L(a, b)\) die Levenshtein-Distanz:
       \[d_L(a,b) := lev_{a,b}(|a|, |b|)\]
-      \text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
+      \[\text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
         \min \begin{cases}\text{lev}_{a,b}(i-1,j)+1\\
                           \text{lev}_{a,b}(i,j-1)+1\\
-                          \text{lev}_{a,b}(i-1,j-1)+\delta_{(a_i \neq b_j)}\\\end{cases} &\text{sonst}\end{cases}
+                          \text{lev}_{a,b}(i-1,j-1)+\delta_{(a_i \neq b_j)}\\\end{cases} &\text{sonst}\end{cases}\]
   </dd>
 </dl>
 
@@ -236,6 +236,12 @@ Fragen:
         * Es existiert jedoch kein "wirklicher" Nullpunkt
     * Verhältnisskalierte Merkmale: Wie Intervallskaliert, aber mit absolutem
       Nullpunkt.
+
+### V06_2015-05-05_Backpropagation.pdf
+
+* Stochastic Gradient Descent
+* Batch Gradient Descent
+
 
 ## Material und Links
 
