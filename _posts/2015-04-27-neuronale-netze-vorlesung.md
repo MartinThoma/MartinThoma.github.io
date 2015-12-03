@@ -51,7 +51,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>13.05.2015</td>
     <td>Deep Learning</td>
-    <td>Momentum, Rprop, Newbob, L1/L2-Regularisierung ($|w|$, $w^2$), weight decay</td>
+    <td>Momentum, Rprop, Newbob, L1/L2-Regularisierung (\(|w|\), \(w^2\)), weight decay</td>
 </tr>
 <tr>
     <td>19.05.2015</td>
@@ -103,11 +103,11 @@ featured_image: logos/klausur.png
   <dt><dfn>Bayes-Rule</dfn> (Source: <a href="https://en.wikipedia.org/wiki/Bayes%27_rule">wikipedia</a>)</dt>
   <dd>Given events \(A_1\), \(A_2\) and \(B\), Bayes' rule states that the conditional odds of \(A_1:A_2\) given \(B\) are equal to the marginal odds of \(A_1:A_2\) multiplied by the Bayes factor or likelihood ratio \(\Lambda\):
 
-$$O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,$$
+\[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
 
 where
 
-$$\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.$$</dd>
+\[\Lambda(A_1:A_2|B) = \frac{P(B|A_1)}{P(B|A_2)}.\]</dd>
   <dt><dfn>Parametrischer Klassifizierer</dfn></dt>
   <dd>Ein Klassifizierer heißt <i>parametrisch</i>, wenn er eine Wahrscheinlichkeitsverteilungsannahme macht.</dd>
   <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>
@@ -138,7 +138,7 @@ besitzt. Man schreibt
 <dl>
   <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
   <dd>Ein MLP-Neuron is ein Algorithmus zur binären Klassifizierung. Er hat
-      \(m+1\), mit \(m \in \mathbb{N}_{> 0}\) inputs $x_i \in \{0, 1\}$. Davon
+      \(m+1\), mit \(m \in \mathbb{N}_{> 0}\) inputs \(x_i \in \{0, 1\}\). Davon
       ist der erste (nullte) Konstant gleich Eins und wird <i>Bias</i> genannt.
       Jeder Input wird mit eingem Gewicht \(w_i \in \mathbb{R}\) multipliziert,
       alle gewichteten Inputs werden addiert und schließlich wird die
@@ -159,7 +159,7 @@ besitzt. Man schreibt
   <dt><dfn>Sigmoid-Funktion</dfn></dt>
   <dd>\(\varphi(x) = \frac{1}{1+e^{-x}}\)</dd>
   <dt><dfn>Softmax-Funktion</dfn></dt>
-  <dd>\(\varphi(a_i) = \frac{e^{a_i}}{\sum_{k} e^{a_k}\) wobei \(a_i\) die
+  <dd>\(\varphi(a_i) = \frac{e^{a_i}}{\sum_{k} e^{a_k}}\) wobei \(a_i\) die
       Aktivierung des \(i\)-ten Neurons der selben Schicht ist.</dd>
   <dt><dfn>Perzeptron</dfn> / <dfn>Logistic Neuron</dfn></dt>
   <dd><abbr title="Mean Squared Error">MSE</abbr> + Sigmoid activation function</dd>
@@ -181,6 +181,61 @@ Fakten:
 Fragen:
 
 * Folie 6: Ist der Input nicht in [0, 1]?
+
+### V05_2015-04-29_Features.pdf
+
+<dl>
+  <dt><dfn>Rectified Linear Unit</dfn> (<dfn>ReLU</dfn>)</dt>
+  <dd>\(\varphi(x) = \max{0, x}\)</dd>
+  <dt><dfn>Softplus</dfn></dt>
+  <dd>\(\varphi(x) = \log{1 + e^x}\)</dd>
+  <dt><dfn>Feed Forward Neural Network</dfn></dt>
+  <dd>A Feed Forward Neural Network is a learning algorithm which takes
+      a fixed-size input feature vector, applies varous matrix multiplications
+      and point-wise non-linear functions to obtain a fixed-size output
+      vector.</dd>
+  <dt><dfn>Multilayer Perceptron</dfn></dt>
+  <dd>A Multilayer Perceptron is a special type of Feed Forward Neural Network.
+      It consists of fully connected layers only.</dd>
+  <dt><dfn>Metrik</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition">Wikipedia</a>)</dt>
+  <dd>Sei \(X\) eine Menge und \(d:X \times X \rightarrow \mathbb{R}\) eine
+      Abbildung. \(d\) heißt Metrik auf \(X\), wenn gilt:
+      <ul>
+          <li>\(d(x, y) = 0 \geq x=y \;\;\; \forall x, y \in X\)</li>
+          <li>\(d(x,y)=d(y,x=\)</li>
+          <li>\(d(x,y) \leq d(x,z) + d(z,y)\)</li>
+      </ul>
+  </dd>
+  <dt><dfn>Jaccard-Metrik</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Jaccard-Koeffizient#Jaccard-Metrik">Wikipedia</a>)</dt>
+  <dd>Es seien \(A, B\) Mengen und \(J(A, B) := \frac{|A \cup B| - |A \cap B|}{|A \cup B|}\).
+      Dann heißt \(J\) die Jaccard-Metrik.
+  </dd>
+  <dt><dfn>Levenshtein-Distanz</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Levenshtein-Distanz">Wikipedia</a>)</dt>
+  <dd>Es seien \(a, b\) Zeichenketten, \(|a|\) die Länge der Zeichenkette \(a\)
+      und \(\delta_{a_i \neq b_j}\) genau dann 1, wenn das \(i\)-te Zeichen von
+      \(a\) und das \(j\)-te Zeichen von \(b\) sich unterscheiden.
+
+      Dann heißt \(d_L(a, b)\) die Levenshtein-Distanz:
+      \[d_L(a,b) := lev_{a,b}(|a|, |b|)\]
+      \text{lev}_{a,b}(i, j) = \begin{cases}\max(i,j) &\text{falls} \min(i,j) = 0,\\
+        \min \begin{cases}\text{lev}_{a,b}(i-1,j)+1\\
+                          \text{lev}_{a,b}(i,j-1)+1\\
+                          \text{lev}_{a,b}(i-1,j-1)+\delta_{(a_i \neq b_j)}\\\end{cases} &\text{sonst}\end{cases}
+  </dd>
+</dl>
+
+Fragen:
+
+* Welche Feed Forward Neuronalen Netze existieren, die keine Multilayer
+  Perceptronen sind?
+* Welche Skalentypen gibt es für Merkmale (Features)?
+    * Nominale Merkmale: Nur Gleichheit kann überprüft werden
+    * Ordinale Merkmale: Es existiert eine "kleiner gleich"-Relation
+    * Intervallskalierte Merkmale:
+        * Die Differenz der Merkmale hat eine Semantik
+        * Es existiert jedoch kein "wirklicher" Nullpunkt
+    * Verhältnisskalierte Merkmale: Wie Intervallskaliert, aber mit absolutem
+      Nullpunkt.
 
 ## Material und Links
 
