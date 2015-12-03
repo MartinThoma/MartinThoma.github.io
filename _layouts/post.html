@@ -1,16 +1,16 @@
 {% include head.html %}
 <!-- type: post.html -->
 <body>
-	<div id="wrapper">
-		<div id="container" class="container">
-			<div class="span-16">
+    <div id="wrapper">
+        <div id="container" class="container">
+            <div class="span-16">
                 {% include header.html %}
-            	<div id="content">	
+                <div id="content">
                     <article class="post type-post format-standard hentry clearfix {% if page.itemtype %}itemscope itemtype="{{page.itemtype}}"{% endif %}">
                         <h2 class="title entry-title">{{ page.title }}</h2>
-			            <div class="postdate entry-date">
+                        <div class="postdate entry-date">
                             <time datetime="{{ page.date | date_to_xmlschema }}">{% assign d = page.date | date: "%d" | plus:'0' %}
-                                {{ page.date | date: "%B" }} 
+                                {{ page.date | date: "%B" }}
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st,
                                   {% when 2 or 22 %}{{ d }}nd,
@@ -20,55 +20,55 @@
                                 {{ page.date | date: "%Y" }}
                             </time>
                         </div>
-			
-						<div class="entry">
+
+                        <div class="entry">
                             {{ content | toc_generate }}
-						</div>
-						<div class="postmeta">Posted in 
+                        </div>
+                        <div class="postmeta">Posted in
                             {% for category in page.categories %}
                                 <a href="{{ site.baseurl }}/category/{{ category | CategorySlugFilter }}/">{{ category }}</a><!--TODO: Displayed category name should be upper case! -->
-                            {% endfor %} | Tags: 
+                            {% endfor %} | Tags:
                             {% for tag in page.tags %}
                                 {% if forloop.index0 == 0 %}
                                     <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}/">{{ tag }}</a>
                                 {% else %}, <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}/">{{ tag }}</a>
                                 {% endif %}
                             {% endfor %} by <a rel="author" class="vcard author" href="{{ site.baseurl }}/author/{{ page.author | downcase | replace:' ','-' }}/"><span class="fn">{{ page.author }}</span></a> on <span class="updated"><span class="value-title" title="{{ page.date }}">{% assign d = page.date | date: "%d" | plus:'0' %}
-                                {{ page.date | date: "%B" }} 
+                                {{ page.date | date: "%B" }}
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st
                                   {% when 2 or 22 %}{{ d }}nd
                                   {% when 3 or 23 %}{{ d }}rd
                                   {% else %}{{ d }}th
-                                  {% endcase %}, 
+                                  {% endcase %},
                                 {{ page.date | date: "%Y" }}</span></span></div>
 
-							<div class="navigation clearfix">
+                            <div class="navigation clearfix">
                                 <div class="alignleft">
                                 {% if page.previous.url %}
                                     &laquo; <a href="{{ site.baseurl }}{{page.previous.url}}/" rel="prev">{{page.previous.title}}</a>
-                                {% endif %} 
+                                {% endif %}
                                 </div>
-								<div class="alignright">
+                                <div class="alignright">
                                 {% if page.next.url %}
                                     <a href="{{ site.baseurl }}{{page.next.url}}/" rel="next">{{page.next.title}}</a> &raquo;
-                                {% endif %} 
+                                {% endif %}
                                 </div>
-							</div>
-	
-						</article>
+                            </div>
+
+                        </article>
                         <div id="respond">
                             <h3>Leave a Reply</h3>
                             {% include discuss.html %}
                         </div>
                     </div>
-			    </div>
+                </div>
             <div class="span-8 last">
                 {% include subscriptions.html %}
-	            <div id="sidebar">
+                <div id="sidebar">
                 {% include searchbox.html %}
-                {% include addthis-toolbox.html %}			        
-		        <ul>
+                {% include addthis-toolbox.html %}
+                <ul>
                     <li id="categories-3" class="widget widget_categories">
                         {% include categories.html %}
                     </li>
@@ -77,15 +77,15 @@
                         <div class="tagcloud">{% tag_cloud font-size: 90 - 270.00%, threshold: 5%}</div>
                     </li>
                 </ul>
-	            </div>
+                </div>
             </div>
-		</div><!--/container-->
-			<footer id="footer">
-				<a href="{{ site.baseurl }}"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+        </div><!--/container-->
+            <footer id="footer">
+                <a href="{{ site.baseurl }}"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
                 <div class="footer-credits">
                     <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
                 </div>
-			</footer><!--/footer-->
-            
-	</div><!--/wrapper-->
+            </footer><!--/footer-->
+
+    </div><!--/wrapper-->
 {% include footer.html %}
