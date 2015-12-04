@@ -190,9 +190,9 @@ Slide name: V05_2015-04-29_Features.pdf
 
 <dl>
   <dt><dfn>Rectified Linear Unit</dfn> (<dfn>ReLU</dfn>)</dt>
-  <dd>\(\varphi(x) = \max{0, x}\)</dd>
+  <dd>\(\varphi(x) = \max(0, x)\)</dd>
   <dt><dfn>Softplus</dfn></dt>
-  <dd>\(\varphi(x) = \log{1 + e^x}\)</dd>
+  <dd>\(\varphi(x) = \log(1 + e^x)\)</dd>
   <dt><dfn>Feed Forward Neural Network</dfn></dt>
   <dd>A Feed Forward Neural Network is a learning algorithm which takes
       a fixed-size input feature vector, applies varous matrix multiplications
@@ -299,9 +299,6 @@ Slide name: V08_2015-05-13_Deep_Learning.pdf
     <dt><dfn>Deep Neural Networks</dfn></dt>
     <dd>Neural Networks with at least two hidden layers with nonlinear
         activation functions.</dd>
-    <dt><dfn>Maxout-Funktion</dfn> (vgl. <a href="http://arxiv.org/pdf/1302.4389v4.pdf">Paper</a>)</dt>
-    <dd>\(\varphi(a_i) = \max{o_1, \dots, o_n}\) wobei \(a_i\) die
-        Aktivierung des \(i\)-ten Neurons der vorheringen Schicht ist. (TODO: Wirklich?)</dd>
     <dt><dfn>Hyperparameter</dfn></dt>
     <dd>Hyperparameter \(\theta\) eines neuronalen Netzes sind Parameter,
         welche nicht gelernt werden.</dd>
@@ -328,13 +325,15 @@ Slide name: V08_2015-05-13_Deep_Learning.pdf
     <dt><dfn>Cross Entropy Error function</dfn> (CE)</dt>
     <dd>\[E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x + (1-t_k^x) \log(1-o_k^x))]\]
         where \(w\) is the weight vector, \(X\) is the set of training
-        examples (feature vectors), \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\) and \(o_k^x\) is the output at neuron
-        \(k\) of the network for the feature vector \(x\).</dd>
+        examples (feature vectors),
+        \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}\)
+        and \(o_k^x\) is the output at neuron \(k\) of the network for the
+        feature vector \(x\).</dd>
     <dt><dfn>Mean Squared Error function</dfn> (MSE)</dt>
     <dd>\[E_{MSE}(w) = \frac{1}{2}\sum_{x \in X} \sum_{k} (t_k^x - o_k^x)^2\]
         where \(w\) is the weight vector, \(X\) is the set of training
-        examples (feature vectors), \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\) and \(o_k^x\) is the output at neuron
-        \(k\) of the network for the feature vector \(x\).</dd>
+        examples (feature vectors), \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}\) and \(o_k^x\) is the output
+        at neuron \(k\) of the network for the feature vector \(x\).</dd>
 </dl>
 
 * Pretraining
@@ -343,6 +342,10 @@ Slide name: V08_2015-05-13_Deep_Learning.pdf
     * Topology (Width of layers, number of layers)
     * Activation functions
     * Error function
+    * Mini-Batch size
+    * Training function
+    * Preprocessing
+    * Initial Weights
 * MSE vs CE:
     * MSE penetalizes large differences much more than small ones
     * MSE works well for function approximation
@@ -355,6 +358,70 @@ Fragen:
 * Optimal drain damage (Folie 36)
 
 
+### V09: Reinforcement Learning
+
+Slide name: V09_2015-05-26-Reinforcement-Learning.pdf
+
+<dl>
+    <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Wikipedia</a>)</dt>
+    <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
+        \(S, A, T, r, p_0\), wobei
+        <ul>
+            <li>\(S\) eine endliche Zustandsmenge,</li>
+            <li>\(A\) eine endliche Menge von Aktionen,</li>
+            <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a\) die
+                Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
+                \(s\) mit der Aktion \(a\) in den Zustand \(a'\) zu kommen
+                (engl. Transition),</li>
+            <li>\(r_a(s, s')\) ist die Belohnung (Reward), die man direkt
+                erhält wenn man erhält wenn man von Zustand \(s\) mit Aktion
+                \(a\) in Zustand \(s'\) kommt,</li>
+            <li>\(p_0\) ist die Startverteilung auf die Zustände \(S\)</li>
+        </ul>
+    </dd>
+    <dt><dfn>Diskontierungsfaktor</dfn></dt>
+    <dd>Ein Diskontierungsfaktor \(gamma \in [0, 1]\) encodiert
+        den Bedeutungsverlust zwischen einer direkten Belohnung und
+        einer späteren Belohnung. Es sollte \(\gamma &lt; 1\) gelten um
+        unendliche Belohnungen zu vermeiden.</dd>
+    <dt><dfn>Strategie</dfn> (engl. <dfn>Policy</dfn>)</dt>
+    <dd>Eine Strategie \(\pi:S \rightarrow A\) sagt einem Agenten welche
+        Aktion er in welchem Zustand ausführen soll.</dd>
+    <dt><dfn>Q-Funktion</dfn> (Action-Value function)</dt>
+    <dd>Die Q-Funktion \(Q^\pi: S \times A \rightarrow \mathbb{R}\) weißt jeder
+        Aktion in jedem Zustand einen Wert zu unter der Annahme, dass
+        die Strategie \(\pi\) genutzt wird.</dd>
+    <dt><dfn>V-Funktion</dfn> (State-Value function)</dt>
+    <dd>Die V-Funktion \(V^\pi: S \rightarrow \mathbb{R}\) weißt jeder
+        jedem Zustand die Erwartete Belohnung zu unter der Annahme, dass
+        die Strategie \(\pi\) genutzt wird.</dd>
+</dl>
+
+Konvention:
+
+* Eine optimale Strategie wird mit \(\pi^*\) bezeichnet.
+
+
+Fragen:
+
+* Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor \(\gamma = 0\)
+  ist? → Nur der aktuelle Reward ist wichtig. Effektiv nimmt der Agent immer
+  das nächste Feld, welche den höchsten Reward bietet (bzw. die Aktion, die
+  den größten 1-Aktion Erwartungswert liefert).
+* Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor \(\gamma = 1\)
+  ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
+
+
+### V10: SOM
+
+Slide name: V10_2015-05-26_SOM.pdf
+
+<dl>
+    <dt><dfn>Selbstorganisierende Karten</dfn> (<dfn>SOM</dfn>, <dfn>Kohonennetze</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Selbstorganisierende_Karte">Wikipedia</a>)</dt>
+    <dd>SOMs sind eine Art von Neuronalen Netzen.</dd>
+</dl>
+
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
@@ -365,6 +432,11 @@ Fragen:
   * [How is the Schwarz Criterion defined?](http://datascience.stackexchange.com/q/9177/8820)
   * [Are there studies which examine dropout vs other regularizations?](http://datascience.stackexchange.com/q/9195/8820)
   * [How do subsequent convolution layers work?](http://datascience.stackexchange.com/q/9175/8820)
+  * [Is Maxout the same as max pooling?](http://datascience.stackexchange.com/q/9212/8820)
+* [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
+* [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
+* Artikel
+  * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
 
 ## Übungsbetrieb
