@@ -71,7 +71,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>09.06.2015</td>
     <td>Effizientes Lernen</td>
-    <td>Paralleles Lernen; Quickprop; Alternative Fehlerfunktion (cross-entropy, <abbr title="Classification Figure of Merit">CFM</abbr>);
+    <td>Paralleles Lernen; Quickprop; Alternative Fehlerfunktion (cross entropy, <abbr title="Classification Figure of Merit">CFM</abbr>);
         weight elimination / regularization</td>
 </tr>
 <tr>
@@ -133,7 +133,9 @@ besitzt. Man schreibt
 </dl>
 
 
-### V04_2015-04-28_Perceptron.pdf
+### V04: Perceptron
+
+Slide name: V04_2015-04-28_Perceptron.pdf
 
 <dl>
   <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
@@ -182,7 +184,9 @@ Fragen:
 
 * Folie 6: Ist der Input nicht in [0, 1]?
 
-### V05_2015-04-29_Features.pdf
+### V05: Features
+
+Slide name: V05_2015-04-29_Features.pdf
 
 <dl>
   <dt><dfn>Rectified Linear Unit</dfn> (<dfn>ReLU</dfn>)</dt>
@@ -237,7 +241,9 @@ Fragen:
     * Verhältnisskalierte Merkmale: Wie Intervallskaliert, aber mit absolutem
       Nullpunkt.
 
-### V06_2015-05-05_Backpropagation.pdf
+### V06: Backpropagation
+
+Slide name: V06_2015-05-05_Backpropagation.pdf
 
 <dl>
     <dt><dfn>Kreuzentropie Fehlerfunktion</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Kreuzentropie">Wikipedia</a></dt>
@@ -251,7 +257,9 @@ Fragen:
 * Batch Gradient Descent
 
 
-### V07_12-05-2015_Feature_Learning.pdf
+### V07: Feature Learning
+
+Slide name: V07_12-05-2015_Feature_Learning.pdf
 
 <dl>
     <dt><dfn>Autoencoder</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Autoencoder">Wikipedia</a></dt>
@@ -283,12 +291,68 @@ Fragen:
 * Wie muss man die Grafik zu Stacked Denoising Autoencodern verstehen?
 
 
-### V08_2015-05-13_Deep_Learning.pdf
+### V08: Deep Learning
+
+Slide name: V08_2015-05-13_Deep_Learning.pdf
+
+<dl>
+    <dt><dfn>Deep Neural Networks</dfn></dt>
+    <dd>Neural Networks with at least two hidden layers with nonlinear
+        activation functions.</dd>
+    <dt><dfn>Maxout-Funktion</dfn> (vgl. <a href="http://arxiv.org/pdf/1302.4389v4.pdf">Paper</a>)</dt>
+    <dd>\(\varphi(a_i) = \max{o_1, \dots, o_n}\) wobei \(a_i\) die
+        Aktivierung des \(i\)-ten Neurons der vorheringen Schicht ist. (TODO: Wirklich?)</dd>
+    <dt><dfn>Hyperparameter</dfn></dt>
+    <dd>Hyperparameter \(\theta\) eines neuronalen Netzes sind Parameter,
+        welche nicht gelernt werden.</dd>
+    <dt><dfn>Learnin Rate Scheduling</dfn></dt>
+    <dd>Start with a learning rate \(\eta\) and reduce it while training</dd>
+    <dt><dfn>Exponential Decay Learning Rate</dfn></dt>
+    <dd>\(\eta_t = \eta_{t-1} \cdot \alpha = \eta_0 \cdot \alpha^t\) mit \(\alpha \in (0, 1)\)</dd>
+    <dt><dfn>Performance Scheduling</dfn></dt>
+    <dd>Measure the error on the cross validation set and decrease the learning
+        rate when the algorithm stops improving.</dd>
+    <dt><dfn>RProp</dfn> (siehe <a href="https://en.wikipedia.org/wiki/Rprop">Wikipedia</a>)</dt>
+    <dd>RProp is a learning rate scheduling method which is only based on the
+        sign of the gradient. It increases the learning rate when the sign of
+        the gradient doesn't change and increases it when the sign of the
+        gradient changes.</dd>
+    <dt><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn> (siehe <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad">Wikipedia</a>)</dt>
+    <dd>TODO?</dd>
+    <dt><dfn>Newbob Scheduling</dfn></dt>
+    <dd>Newbob scheduling is a combination of Exponential decay learning rate
+        scheduling and performance scheduling. It starts with a learning rate
+        \(\eta_0\). When the validation error stops decreasing, switch to
+        exponentially decaying learning rate. Terminate when the validation
+        error stops decreasing again.</dd>
+    <dt><dfn>Cross Entropy Error function</dfn> (CE)</dt>
+    <dd>\[E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x + (1-t_k^x) \log(1-o_k^x))]\]
+        where \(w\) is the weight vector, \(X\) is the set of training
+        examples (feature vectors), \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\) and \(o_k^x\) is the output at neuron
+        \(k\) of the network for the feature vector \(x\).</dd>
+    <dt><dfn>Mean Squared Error function</dfn> (MSE)</dt>
+    <dd>\[E_{MSE}(w) = \frac{1}{2}\sum_{x \in X} \sum_{k} (t_k^x - o_k^x)^2\]
+        where \(w\) is the weight vector, \(X\) is the set of training
+        examples (feature vectors), \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\) and \(o_k^x\) is the output at neuron
+        \(k\) of the network for the feature vector \(x\).</dd>
+</dl>
 
 * Pretraining
 * TDNNs CNNs
-* Hyperparameter
+* Design choices (hyperparameters):
+    * Topology (Width of layers, number of layers)
+    * Activation functions
+    * Error function
+* MSE vs CE:
+    * MSE penetalizes large differences much more than small ones
+    * MSE works well for function approximation
+    * CE works well on classification tasks
 
+
+Fragen:
+
+* AdaGrad (Folie 34)
+* Optimal drain damage (Folie 36)
 
 
 ## Material und Links
@@ -299,6 +363,8 @@ Fragen:
   * [What is the difference in Bayesian estimate and maximum likelihood estimate?](http://stats.stackexchange.com/q/74082/25741)
   * [Can k-means clustering get shells as clusters?](http://datascience.stackexchange.com/q/9172/8820)
   * [How is the Schwarz Criterion defined?](http://datascience.stackexchange.com/q/9177/8820)
+  * [Are there studies which examine dropout vs other regularizations?](http://datascience.stackexchange.com/q/9195/8820)
+  * [How do subsequent convolution layers work?](http://datascience.stackexchange.com/q/9175/8820)
 
 
 ## Übungsbetrieb
