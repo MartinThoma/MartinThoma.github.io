@@ -315,7 +315,7 @@ Slide name: V08_2015-05-13_Deep_Learning.pdf
         the gradient doesn't change and increases it when the sign of the
         gradient changes.</dd>
     <dt><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn> (siehe <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad">Wikipedia</a>)</dt>
-    <dd>TODO?</dd>
+    <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
     <dd>Newbob scheduling is a combination of Exponential decay learning rate
         scheduling and performance scheduling. It starts with a learning rate
@@ -365,11 +365,11 @@ Slide name: V09_2015-05-26-Reinforcement-Learning.pdf
 <dl>
     <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Wikipedia</a>)</dt>
     <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
-        \(S, A, T, r, p_0\), wobei
+        \((S, A, T, r, p_0)\), wobei
         <ul>
             <li>\(S\) eine endliche Zustandsmenge,</li>
             <li>\(A\) eine endliche Menge von Aktionen,</li>
-            <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a\) die
+            <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)\) die
                 Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
                 \(s\) mit der Aktion \(a\) in den Zustand \(a'\) zu kommen
                 (engl. Transition),</li>
@@ -380,7 +380,7 @@ Slide name: V09_2015-05-26-Reinforcement-Learning.pdf
         </ul>
     </dd>
     <dt><dfn>Diskontierungsfaktor</dfn></dt>
-    <dd>Ein Diskontierungsfaktor \(gamma \in [0, 1]\) encodiert
+    <dd>Ein Diskontierungsfaktor \(\gamma \in [0, 1]\) encodiert
         den Bedeutungsverlust zwischen einer direkten Belohnung und
         einer späteren Belohnung. Es sollte \(\gamma &lt; 1\) gelten um
         unendliche Belohnungen zu vermeiden.</dd>
@@ -395,6 +395,35 @@ Slide name: V09_2015-05-26-Reinforcement-Learning.pdf
     <dd>Die V-Funktion \(V^\pi: S \rightarrow \mathbb{R}\) weißt jeder
         jedem Zustand die Erwartete Belohnung zu unter der Annahme, dass
         die Strategie \(\pi\) genutzt wird.</dd>
+    <dt><dfn>\(\varepsilon\)-Greedy Strategy</dfn></dt>
+    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
+        currently believe is best.</dd>
+    <dt><dfn>\(\varepsilon\)-decreasing Strategy</dfn></dt>
+    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
+        currently believe is best. Reduce \(\varepsilon\) over time.</dd>
+    <dt><dfn>\(\varepsilon\)-first Strategy</dfn></dt>
+    <dd>Explore for \(\varepsilon\) steps and then do what you think is best.</dd>
+    <dt><dfn>Adaptive \(\varepsilon\)-greedy Strategy</dfn></dt>
+    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
+        currently believe is best. Reduce \(\varepsilon\) based on what you
+        learn.</dd>
+    <dt><dfn>Monte Carlo Policy Evaluation</dfn></dt>
+    <dd>Initialize state values \(V^\pi\) and iterate:
+        <ol>
+            <li>Generate an episode</li>
+            <li>foreach state \(s\) in episode:
+            <ol>
+                <li>Get the reward \(\hat{R}\) from that state on</li>
+                <li>\(\hat{R} = \sum_{j=0}^\infty \gamma^j r_j\)</li>
+                <li>\(V_{k+1}^\pi (s) \leftarrow V_k^pi (s) (1-\alpha)+\alpha \hat{R}\)</li>
+                <li></li>
+            </ol>
+            </li>
+        </ol>
+        where \(\alpha\) is the learning rate.
+    </dd>
+    <dt><dfn>Temporal Difference Learning</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">Wikipedia</a>)</dt>
+    <dd>TODO?</dd>
 </dl>
 
 Konvention:
@@ -411,6 +440,14 @@ Fragen:
 * Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor \(\gamma = 1\)
   ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
 
+TODOs:
+
+* What is Policy Iteration?
+* What is an episode? (Slide 13)
+* What is temporal difference learning?
+* SARSA - State-Action-Reward-State-Action
+* Q-Learning
+
 
 ### V10: SOM
 
@@ -420,6 +457,26 @@ Slide name: V10_2015-05-26_SOM.pdf
     <dt><dfn>Selbstorganisierende Karten</dfn> (<dfn>SOM</dfn>, <dfn>Kohonennetze</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Selbstorganisierende_Karte">Wikipedia</a>)</dt>
     <dd>SOMs sind eine Art von Neuronalen Netzen.</dd>
 </dl>
+
+### V11: RBMs
+
+Slide name: V11_2015-05-27_RBMs
+
+
+### V12: RNNs
+Slide name: V12_2015-06-02_RNNs.pdf
+
+
+### V13: NNlearning-tricks
+Slide name: V13_2015-06-09_NNlearning-tricks.pdf
+
+
+### V14: DNN CV
+Slide name: V14_2015-06-10_DNN_CV .pdf
+
+
+### V15: Speech-Independence
+Slide name: V15_2015-06-17_Speech-Independence.pdf
 
 
 ## Material und Links
@@ -437,7 +494,9 @@ Slide name: V10_2015-05-26_SOM.pdf
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * Artikel
   * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-
+* [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
+* [Kohonen's Self Organizing Feature Maps](http://www.ai-junkie.com/ann/som/som1.html) by ai-junkie
+* [Self-Organizing Maps with Google’s TensorFlow](https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/)
 
 ## Übungsbetrieb
 
