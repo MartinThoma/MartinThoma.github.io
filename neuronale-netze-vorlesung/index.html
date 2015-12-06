@@ -116,16 +116,31 @@
             <li class="toc_level-2 toc_section-11">
                <a href="#tocAnchor-1-1-10"><span class="tocnumber">1.10</span> <span class="toctext">V10: SOM</span></a>
             </li>
+            <li class="toc_level-2 toc_section-12">
+               <a href="#tocAnchor-1-1-11"><span class="tocnumber">1.11</span> <span class="toctext">V11: RBMs</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-13">
+               <a href="#tocAnchor-1-1-12"><span class="tocnumber">1.12</span> <span class="toctext">V12: RNNs</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-14">
+               <a href="#tocAnchor-1-1-13"><span class="tocnumber">1.13</span> <span class="toctext">V13: NNlearning-tricks</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-15">
+               <a href="#tocAnchor-1-1-14"><span class="tocnumber">1.14</span> <span class="toctext">V14: DNN CV</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-16">
+               <a href="#tocAnchor-1-1-15"><span class="tocnumber">1.15</span> <span class="toctext">V15: Speech-Independence</span></a>
+            </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-12">
-         <a href="#tocAnchor-1-12"><span class="tocnumber">2</span> <span class="toctext">Material und Links</span></a>
+      <li class="toc_level-1 toc_section-17">
+         <a href="#tocAnchor-1-17"><span class="tocnumber">2</span> <span class="toctext">Material und Links</span></a>
       </li>
-      <li class="toc_level-1 toc_section-13">
-         <a href="#tocAnchor-1-13"><span class="tocnumber">3</span> <span class="toctext">Übungsbetrieb</span></a>
+      <li class="toc_level-1 toc_section-18">
+         <a href="#tocAnchor-1-18"><span class="tocnumber">3</span> <span class="toctext">Übungsbetrieb</span></a>
       </li>
-      <li class="toc_level-1 toc_section-14">
-         <a href="#tocAnchor-1-14"><span class="tocnumber">4</span> <span class="toctext">Termine und Klausurablauf</span></a>
+      <li class="toc_level-1 toc_section-19">
+         <a href="#tocAnchor-1-19"><span class="tocnumber">4</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
@@ -459,7 +474,7 @@ Bottleneck-Feature resultieren, die PCA ähnelt.</li>
         the gradient doesn't change and increases it when the sign of the
         gradient changes.</dd>
     <dt><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn> (siehe <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad">Wikipedia</a>)</dt>
-    <dd>TODO?</dd>
+    <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
     <dd>Newbob scheduling is a combination of Exponential decay learning rate
         scheduling and performance scheduling. It starts with a learning rate
@@ -517,11 +532,11 @@ Bottleneck-Feature resultieren, die PCA ähnelt.</li>
 <dl>
     <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Wikipedia</a>)</dt>
     <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
-        \(S, A, T, r, p_0\), wobei
+        \((S, A, T, r, p_0)\), wobei
         <ul>
             <li>\(S\) eine endliche Zustandsmenge,</li>
             <li>\(A\) eine endliche Menge von Aktionen,</li>
-            <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a\) die
+            <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)\) die
                 Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
                 \(s\) mit der Aktion \(a\) in den Zustand \(a'\) zu kommen
                 (engl. Transition),</li>
@@ -532,7 +547,7 @@ Bottleneck-Feature resultieren, die PCA ähnelt.</li>
         </ul>
     </dd>
     <dt><dfn>Diskontierungsfaktor</dfn></dt>
-    <dd>Ein Diskontierungsfaktor \(gamma \in [0, 1]\) encodiert
+    <dd>Ein Diskontierungsfaktor \(\gamma \in [0, 1]\) encodiert
         den Bedeutungsverlust zwischen einer direkten Belohnung und
         einer späteren Belohnung. Es sollte \(\gamma &lt; 1\) gelten um
         unendliche Belohnungen zu vermeiden.</dd>
@@ -547,6 +562,35 @@ Bottleneck-Feature resultieren, die PCA ähnelt.</li>
     <dd>Die V-Funktion \(V^\pi: S \rightarrow \mathbb{R}\) weißt jeder
         jedem Zustand die Erwartete Belohnung zu unter der Annahme, dass
         die Strategie \(\pi\) genutzt wird.</dd>
+    <dt><dfn>\(\varepsilon\)-Greedy Strategy</dfn></dt>
+    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
+        currently believe is best.</dd>
+    <dt><dfn>\(\varepsilon\)-decreasing Strategy</dfn></dt>
+    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
+        currently believe is best. Reduce \(\varepsilon\) over time.</dd>
+    <dt><dfn>\(\varepsilon\)-first Strategy</dfn></dt>
+    <dd>Explore for \(\varepsilon\) steps and then do what you think is best.</dd>
+    <dt><dfn>Adaptive \(\varepsilon\)-greedy Strategy</dfn></dt>
+    <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
+        currently believe is best. Reduce \(\varepsilon\) based on what you
+        learn.</dd>
+    <dt><dfn>Monte Carlo Policy Evaluation</dfn></dt>
+    <dd>Initialize state values \(V^\pi\) and iterate:
+        <ol>
+            <li>Generate an episode</li>
+            <li>foreach state \(s\) in episode:
+            <ol>
+                <li>Get the reward \(\hat{R}\) from that state on</li>
+                <li>\(\hat{R} = \sum_{j=0}^\infty \gamma^j r_j\)</li>
+                <li>\(V_{k+1}^\pi (s) \leftarrow V_k^pi (s) (1-\alpha)+\alpha \hat{R}\)</li>
+                <li></li>
+            </ol>
+            </li>
+        </ol>
+        where \(\alpha\) is the learning rate.
+    </dd>
+    <dt><dfn>Temporal Difference Learning</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">Wikipedia</a>)</dt>
+    <dd>TODO?</dd>
 </dl>
 
 <p>Konvention:</p>
@@ -566,6 +610,16 @@ den größten 1-Aktion Erwartungswert liefert).</li>
 ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.</li>
 </ul>
 
+<p>TODOs:</p>
+
+<ul>
+<li>What is Policy Iteration?</li>
+<li>What is an episode? (Slide 13)</li>
+<li>What is temporal difference learning?</li>
+<li>SARSA - State-Action-Reward-State-Action</li>
+<li>Q-Learning</li>
+</ul>
+
 <h3 id="tocAnchor-1-1-10">V10: SOM</h3>
 
 <p>Slide name: V10_2015-05-26_SOM.pdf</p>
@@ -575,7 +629,27 @@ ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.</
     <dd>SOMs sind eine Art von Neuronalen Netzen.</dd>
 </dl>
 
-<h2 id="tocAnchor-1-12">Material und Links</h2>
+<h3 id="tocAnchor-1-1-11">V11: RBMs</h3>
+
+<p>Slide name: V11_2015-05-27_RBMs</p>
+
+<h3 id="tocAnchor-1-1-12">V12: RNNs</h3>
+
+<p>Slide name: V12_2015-06-02_RNNs.pdf</p>
+
+<h3 id="tocAnchor-1-1-13">V13: NNlearning-tricks</h3>
+
+<p>Slide name: V13_2015-06-09_NNlearning-tricks.pdf</p>
+
+<h3 id="tocAnchor-1-1-14">V14: DNN CV</h3>
+
+<p>Slide name: V14_2015-06-10_DNN_CV .pdf</p>
+
+<h3 id="tocAnchor-1-1-15">V15: Speech-Independence</h3>
+
+<p>Slide name: V15_2015-06-17_Speech-Independence.pdf</p>
+
+<h2 id="tocAnchor-1-17">Material und Links</h2>
 
 <ul>
 <li><a href="http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php">Vorlesungswebsite</a></li>
@@ -597,13 +671,16 @@ ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.</
 <ul>
 <li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">The Unreasonable Effectiveness of Recurrent Neural Networks</a></li>
 </ul></li>
+<li><a href="https://github.com/Marvin182/NeuralNets">Skript von Marvin Ritter</a></li>
+<li><a href="http://www.ai-junkie.com/ann/som/som1.html">Kohonen's Self Organizing Feature Maps</a> by ai-junkie</li>
+<li><a href="https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/">Self-Organizing Maps with Google’s TensorFlow</a></li>
 </ul>
 
-<h2 id="tocAnchor-1-13">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-18">Übungsbetrieb</h2>
 
 <p>Übungsblätter sind freiwillig.</p>
 
-<h2 id="tocAnchor-1-14">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-19">Termine und Klausurablauf</h2>
 
 <p><strong>Datum</strong>: nach Terminvereinbarung<br />
 <strong>Ort</strong>: <a href="http://www.kithub.de/map/2210">Gebäude 50.20</a><br />
