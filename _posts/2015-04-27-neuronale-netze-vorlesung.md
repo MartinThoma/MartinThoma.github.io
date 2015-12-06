@@ -407,6 +407,9 @@ Slide name: V09_2015-05-26-Reinforcement-Learning.pdf
     <dd>Explore \(\varepsilon\)% of the time. Otherwise, follow what you
         currently believe is best. Reduce \(\varepsilon\) based on what you
         learn.</dd>
+    <dt><dfn>Episode</dfn></dt>
+    <dd>A run through an <abbr title="Markov Decision Process">MDP</abbr> from
+        a start state to an end state.</dd>
     <dt><dfn>Monte Carlo Policy Evaluation</dfn></dt>
     <dd>Initialize state values \(V^\pi\) and iterate:
         <ol>
@@ -443,8 +446,6 @@ Fragen:
 TODOs:
 
 * What is Policy Iteration?
-* What is an episode? (Slide 13)
-* What is temporal difference learning?
 * SARSA - State-Action-Reward-State-Action
 * Q-Learning
 
@@ -461,6 +462,37 @@ Slide name: V10_2015-05-26_SOM.pdf
 ### V11: RBMs
 
 Slide name: V11_2015-05-27_RBMs
+
+<dl>
+    <dt><dfn>Hopfield-Netz</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Hopfield-Netz">Wikipedia</a>)</dt>
+    <dd>Ein Hopfield-Netz besteht nur aus einer Schicht von McCulloch-Pitts
+        Neuronen. Jedes Neuron ist mit jedem anderen Neuron (also nicht sich
+        selbst) und allen Inputs verbunden. Die Schicht funktioniert
+        gleichzeitig als Ein- und Ausgabeschicht.</dd>
+    <dt><dfn>Boltzmann-Maschine</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine">Wikipedia</a>)</dt>
+    <dd>Boltzmann-Maschinen sind stochastische neuronale Netzwerke, welche
+        duch belibige ungerichtete Graphen repräsentiert werden können. Die
+        neuronen sind binär; sie feuern also entweder oder nicht. Es gibt
+        insbesondere keine Unterschiede in der Stärke mit der sie feuern.</dd>
+    <dt><dfn>Restricted Boltzmann machine</dfn> (<dfn>RBM</dfn>, vgl. <a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wikipedia</a>)</dt>
+    <dd>Im Gegensatz zur Boltzmann-Maschine muss die Restricted
+        Boltzmann-Machine (RBM) aus einem bipartitem Graph bestehen. Dies
+        erlaubt ein effizienteres Trainingsverfahren.</dd>
+    <dt><dfn>Simulated annealing</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Simulated_annealing">Wikipedia</a>)</dt>
+    <dd>TODO</dd>
+</dl>
+
+Anwendungen:
+
+* RBMs:
+    * Collaborative Filtering: User-rating prediction for movie database. The
+      problem is that not every user has rated all movies.
+
+Fragen:
+
+* Hopfield-Netze:
+    * Wie trainiert man sie?
+    * Wo werden / wurden sie benutzt?
 
 
 ### V12: RNNs
@@ -490,6 +522,8 @@ Slide name: V15_2015-06-17_Speech-Independence.pdf
   * [Are there studies which examine dropout vs other regularizations?](http://datascience.stackexchange.com/q/9195/8820)
   * [How do subsequent convolution layers work?](http://datascience.stackexchange.com/q/9175/8820)
   * [Is Maxout the same as max pooling?](http://datascience.stackexchange.com/q/9212/8820)
+  * [What is \(\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\) in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
+  * [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * Artikel
