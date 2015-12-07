@@ -100,47 +100,53 @@ see if there is malware on PyPI (related to
          <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Exploring the data</span></a>
          <ul>
             <li class="toc_level-2 toc_section-2">
-               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Maximum Length</span></a>
+               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Most active authors</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-3">
+               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">Maximum Length</span></a>
             </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">2</span> <span class="toctext">What people don't use</span></a>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">What people don't use</span></a>
          <ul>
-            <li class="toc_level-2 toc_section-4">
-               <a href="#tocAnchor-1-3-1"><span class="tocnumber">2.1</span> <span class="toctext">Maintainer</span></a>
-            </li>
             <li class="toc_level-2 toc_section-5">
-               <a href="#tocAnchor-1-3-2"><span class="tocnumber">2.2</span> <span class="toctext">Platform</span></a>
+               <a href="#tocAnchor-1-4-1"><span class="tocnumber">2.1</span> <span class="toctext">Maintainer</span></a>
             </li>
             <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-3-3"><span class="tocnumber">2.3</span> <span class="toctext">Bugtracker</span></a>
+               <a href="#tocAnchor-1-4-2"><span class="tocnumber">2.2</span> <span class="toctext">Platform</span></a>
             </li>
             <li class="toc_level-2 toc_section-7">
-               <a href="#tocAnchor-1-3-4"><span class="tocnumber">2.4</span> <span class="toctext">License</span></a>
+               <a href="#tocAnchor-1-4-3"><span class="tocnumber">2.3</span> <span class="toctext">Bugtracker</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-8">
+               <a href="#tocAnchor-1-4-4"><span class="tocnumber">2.4</span> <span class="toctext">License</span></a>
             </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-8">
-         <a href="#tocAnchor-1-8"><span class="tocnumber">3</span> <span class="toctext">Classifiers</span></a>
-      </li>
       <li class="toc_level-1 toc_section-9">
-         <a href="#tocAnchor-1-9"><span class="tocnumber">4</span> <span class="toctext">Package type</span></a>
+         <a href="#tocAnchor-1-9"><span class="tocnumber">3</span> <span class="toctext">Classifiers</span></a>
       </li>
       <li class="toc_level-1 toc_section-10">
-         <a href="#tocAnchor-1-10"><span class="tocnumber">5</span> <span class="toctext">Downloads</span></a>
+         <a href="#tocAnchor-1-10"><span class="tocnumber">4</span> <span class="toctext">Package type</span></a>
       </li>
       <li class="toc_level-1 toc_section-11">
-         <a href="#tocAnchor-1-11"><span class="tocnumber">6</span> <span class="toctext">Size</span></a>
+         <a href="#tocAnchor-1-11"><span class="tocnumber">5</span> <span class="toctext">Downloads</span></a>
       </li>
       <li class="toc_level-1 toc_section-12">
-         <a href="#tocAnchor-1-12"><span class="tocnumber">7</span> <span class="toctext">Code</span></a>
+         <a href="#tocAnchor-1-12"><span class="tocnumber">6</span> <span class="toctext">Size</span></a>
       </li>
       <li class="toc_level-1 toc_section-13">
-         <a href="#tocAnchor-1-13"><span class="tocnumber">8</span> <span class="toctext">TODO: Future articles</span></a>
+         <a href="#tocAnchor-1-13"><span class="tocnumber">7</span> <span class="toctext">Code</span></a>
       </li>
       <li class="toc_level-1 toc_section-14">
-         <a href="#tocAnchor-1-14"><span class="tocnumber">9</span> <span class="toctext">Related</span></a>
+         <a href="#tocAnchor-1-14"><span class="tocnumber">8</span> <span class="toctext">TODO: Future articles</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-15">
+         <a href="#tocAnchor-1-15"><span class="tocnumber">9</span> <span class="toctext">Related</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-16">
+         <a href="#tocAnchor-1-16"><span class="tocnumber">10</span> <span class="toctext">Further Ideas</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Exploring the data</h2>
@@ -164,7 +170,115 @@ values. Seems as if this is pretty much useless.</li>
 <li><code>docs_url</code>: Either begins with <code>http://pythonhosted.org</code> or is empty.</li>
 </ul>
 
-<h3 id="tocAnchor-1-1-1">Maximum Length</h3>
+<h3 id="tocAnchor-1-1-1">Most active authors</h3>
+<div class="highlight">
+   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
+    <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">as</span> <span class="o">`</span><span class="n">created_packages</span><span class="o">`</span>
+<span class="k">FROM</span>
+    <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
+<span class="k">GROUP</span> <span class="k">BY</span>
+    <span class="o">`</span><span class="n">author</span><span class="o">`</span>
+<span class="k">ORDER</span> <span class="k">BY</span>
+    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="o">`</span><span class="n">author</span><span class="o">`</span> <span class="k">ASC</span>
+<span class="k">LIMIT</span>
+    <span class="mi">50</span>
+</code></pre>
+</div>
+<p>gives</p>
+
+<table>
+   <thead>
+<tr>
+<th></th>
+<th>1485</th>
+</tr>
+</thead>
+   <tbody>
+<tr>
+<td>UNKNOWN</td>
+<td>1150</td>
+</tr>
+<tr>
+<td>None</td>
+<td>196</td>
+</tr>
+<tr>
+<td>OpenStack</td>
+<td>188</td>
+</tr>
+<tr>
+<td>Zope Foundation and Contributors</td>
+<td>146</td>
+</tr>
+<tr>
+<td>MicroPython Developers</td>
+<td>139</td>
+</tr>
+<tr>
+<td>OpenERP SA</td>
+<td>137</td>
+</tr>
+<tr>
+<td>Zope Corporation and Contributors</td>
+<td>128</td>
+</tr>
+<tr>
+<td>RedTurtle Technology</td>
+<td>127</td>
+</tr>
+<tr>
+<td>Praekelt Foundation</td>
+<td>126</td>
+</tr>
+<tr>
+<td>Fanstatic Developers</td>
+<td>98</td>
+</tr>
+<tr>
+<td>Tryton</td>
+<td>98</td>
+</tr>
+<tr>
+<td>Raptus AG</td>
+<td>97</td>
+</tr>
+<tr>
+<td>russianidiot</td>
+<td>93</td>
+</tr>
+<tr>
+<td>hfpython</td>
+<td>92</td>
+</tr>
+<tr>
+<td>LOGILAB S.A. (Paris, FRANCE)</td>
+<td>88</td>
+</tr>
+<tr>
+<td>BlueDynamics Alliance</td>
+<td>87</td>
+</tr>
+<tr>
+<td>Ralph Bean</td>
+<td>83</td>
+</tr>
+<tr>
+<td>JeanMichel FRANCOIS aka toutpt</td>
+<td>69</td>
+</tr>
+<tr>
+<td>Bart Thate</td>
+<td>68</td>
+</tr>
+</tbody>
+</table>
+
+<p>The total number of authors is 28183 (06.12.2015):</p>
+<div class="highlight">
+   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">)</span> <span class="k">AS</span> <span class="o">`</span><span class="n">total_authors</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
+</code></pre>
+</div>
+<h3 id="tocAnchor-1-1-2">Maximum Length</h3>
 
 <p>I guess many values are stored on PyPI as <code>Varchar(255)</code>. To check if I might
 have missed some values, I checked which entry was the longest one for all
@@ -309,18 +423,18 @@ to be numeric.</li>
 
 <p>So I changed the types in the database. Let's continue.</p>
 
-<h2 id="tocAnchor-1-3">What people don't use</h2>
+<h2 id="tocAnchor-1-4">What people don't use</h2>
 
 <p>All metadata is provided by the authors of the packages. Some fields, like the
 package name or the description, are used very often, but some fields are only
 rarely used:</p>
 
-<h3 id="tocAnchor-1-3-1">Maintainer</h3>
+<h3 id="tocAnchor-1-4-1">Maintainer</h3>
 
 <p><code>maintainer</code> and <code>maintainer_email</code> is interesting for people who want to send
 bug reports. If this is empty, I would guess the package is dead.</p>
 
-<h3 id="tocAnchor-1-3-2">Platform</h3>
+<h3 id="tocAnchor-1-4-2">Platform</h3>
 <div class="highlight">
    <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">platform</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
@@ -399,7 +513,7 @@ gives a little bit more information</p>
 <p>A list of platforms on which this distribution is known to work. You should provide this information if you have reasons to believe this distribution may not work everywhere. This information should be reasonably concise, so this field may refer for details to a file in the distribution or to a URL.</p>
 </blockquote>
 
-<h3 id="tocAnchor-1-3-3">Bugtracker</h3>
+<h3 id="tocAnchor-1-4-3">Bugtracker</h3>
 
 <p>This one is very important. Users should have an easy possibility to report
 bugs. So please help them by added your bug tracker URL wherever it makes
@@ -426,7 +540,7 @@ sense. Here is how you add it on PyPI:</p>
    <p class="wp-caption-text">Check if you really added it</p>
 </div>
 
-<h3 id="tocAnchor-1-3-4">License</h3>
+<h3 id="tocAnchor-1-4-4">License</h3>
 
 <p>Another important one. Add a license to your software!</p>
 <div class="highlight">
@@ -556,7 +670,7 @@ Many are invalid values, like</p>
 Python community should try to eliminate variants in writing license names as
 it makes finding, filtering and analyzing packages more difficult.</p>
 
-<h2 id="tocAnchor-1-8">Classifiers</h2>
+<h2 id="tocAnchor-1-9">Classifiers</h2>
 
 <p>Python makes use of so called trove classifiers. They are defined in
 <a href="https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification">PEP 301</a>
@@ -664,7 +778,7 @@ image:</p>
 <p>There are 94 trove classifiers with five or less packages which use this
 classifier. I guess many of them are not in the official list of classifiers.</p>
 
-<h2 id="tocAnchor-1-9">Package type</h2>
+<h2 id="tocAnchor-1-10">Package type</h2>
 <div class="highlight">
    <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">packagetype</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
@@ -723,7 +837,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 
 <p>Can anybody explain what this means?</p>
 
-<h2 id="tocAnchor-1-10">Downloads</h2>
+<h2 id="tocAnchor-1-11">Downloads</h2>
 <div class="highlight">
    <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
     <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">url</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">downloads</span><span class="o">`</span>
@@ -855,7 +969,7 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 </tbody>
 </table>
 
-<h2 id="tocAnchor-1-11">Size</h2>
+<h2 id="tocAnchor-1-12">Size</h2>
 
 <p>What is the biggest Python package?</p>
 <div class="highlight">
@@ -932,11 +1046,11 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 </tbody>
 </table>
 
-<h2 id="tocAnchor-1-12">Code</h2>
+<h2 id="tocAnchor-1-13">Code</h2>
 
 <p>See <a href="https://github.com/MartinThoma/algorithms/tree/master/PyPI">github.com/MartinThoma/algorithms</a>.</p>
 
-<h2 id="tocAnchor-1-13">TODO: Future articles</h2>
+<h2 id="tocAnchor-1-14">TODO: Future articles</h2>
 
 <p>I would like too measure the overall code quality on PyPI in another post. I
 think of the following measures:</p>
@@ -958,12 +1072,36 @@ I could answer two questions:</p>
 <p>What would you think should be analyzed? How could we measure the importance of
 a package?</p>
 
-<h2 id="tocAnchor-1-14">Related</h2>
+<h2 id="tocAnchor-1-15">Related</h2>
 
 <ul>
 <li><a href="http://stackoverflow.com/q/28010799/562769">Why are some packages on pypi.python.org/simple, but have no page?</a></li>
 <li><a href="http://www.quora.com/How-can-I-find-out-when-the-last-interaction-on-PyPI-happened-for-a-given-package">How can I find out when the last interaction on PyPI happened for a given package?</a></li>
 <li><a href="http://www.quora.com/What-is-cheesecake_code_kwalitee_id-on-PyPI-good-for">What is cheesecake_code_kwalitee_id on PyPI good for?</a></li>
+</ul>
+
+<h2 id="tocAnchor-1-16">Further Ideas</h2>
+
+<ul>
+<li><strong>Build a dependency graph</strong>: Some of the code was already written. However,
+one has to download about 25 GB of data, extract it and run over those
+files. This is quite a bit of work.</li>
+<li>Analyze package quality
+
+<ul>
+<li>Missing requirements</li>
+<li>Missing metadata / description</li>
+<li>Missing documentation</li>
+<li>PEP8</li>
+<li>Code duplication</li>
+</ul></li>
+<li>Malicious package search:
+
+<ul>
+<li>Check which package names are prefixes of other package names.</li>
+<li>Find packages which upload data (dropbox?)</li>
+<li>Find pacakges which remove data from your file system</li>
+</ul></li>
 </ul>
 
                         </div>
