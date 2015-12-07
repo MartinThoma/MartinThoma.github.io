@@ -42,6 +42,53 @@ character.
   values. Seems as if this is pretty much useless.
 * `docs_url`: Either begins with `http://pythonhosted.org` or is empty.
 
+
+### Most active authors
+
+```sql
+SELECT
+    `author`, COUNT(`id`) as `created_packages`
+FROM
+    `packages`
+GROUP BY
+    `author`
+ORDER BY
+    COUNT(`id`) DESC, `author` ASC
+LIMIT
+    50
+```
+
+gives
+
+|                                   | 1485 |
+| --------------------------------- | ---- |
+| UNKNOWN                           | 1150 |
+| None                              | 196  |
+| OpenStack                         | 188  |
+| Zope Foundation and Contributors  | 146  |
+| MicroPython Developers            | 139  |
+| OpenERP SA                        | 137  |
+| Zope Corporation and Contributors | 128  |
+| RedTurtle Technology              | 127  |
+| Praekelt Foundation               | 126  |
+| Fanstatic Developers              | 98   |
+| Tryton                            | 98   |
+| Raptus AG                         | 97   |
+| russianidiot                      | 93   |
+| hfpython                          | 92   |
+| LOGILAB S.A. (Paris, FRANCE)      | 88   |
+| BlueDynamics Alliance             | 87   |
+| Ralph Bean                        | 83   |
+| JeanMichel FRANCOIS aka toutpt    | 69   |
+| Bart Thate                        | 68   |
+
+
+The total number of authors is&#8198;28183 (06.12.2015):
+
+```sql
+SELECT COUNT(DISTINCT `author`) AS `total_authors` FROM `packages`
+```
+
 ### Maximum Length
 
 I guess many values are stored on PyPI as `Varchar(255)`. To check if I might
@@ -510,3 +557,20 @@ a package?
 * [Why are some packages on pypi.python.org/simple, but have no page?](http://stackoverflow.com/q/28010799/562769)
 * [How can I find out when the last interaction on PyPI happened for a given package?](http://www.quora.com/How-can-I-find-out-when-the-last-interaction-on-PyPI-happened-for-a-given-package)
 * [What is cheesecake_code_kwalitee_id on PyPI good for?](http://www.quora.com/What-is-cheesecake_code_kwalitee_id-on-PyPI-good-for)
+
+
+## Further Ideas
+
+* **Build a dependency graph**: Some of the code was already written. However,
+  one has to download about 25&nbsp;GB of data, extract it and run over those
+  files. This is quite a bit of work.
+* Analyze package quality
+    * Missing requirements
+    * Missing metadata / description
+    * Missing documentation
+    * PEP8
+    * Code duplication
+* Malicious package search:
+   * Check which package names are prefixes of other package names.
+   * Find packages which upload data (dropbox?)
+   * Find pacakges which remove data from your file system
