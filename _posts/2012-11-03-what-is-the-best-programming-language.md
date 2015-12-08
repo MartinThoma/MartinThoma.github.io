@@ -51,7 +51,7 @@ Examples of Python-Code in applications include:
 </li>
 </ul>
 <h2>Java</h2>
-Java is used in the economy for <strong>simple, but huge tasks</strong>. It is <a href="http://en.wikipedia.org/wiki/Type_system#Static_typing">static</a> and <a href="http://en.wikipedia.org/wiki/Type_system#Strong_and_weak_typing">strong</a> typed, has some widely used <a href="http://www.oracle.com/technetwork/java/codeconv-138413.html">coding convetions</a>, is easy to learn and has a big library.
+Java is used in the economy for <strong>simple, but huge tasks</strong>. It is <a href="http://en.wikipedia.org/wiki/Type_system#Static_typing">static</a> and <a href="http://en.wikipedia.org/wiki/Type_system#Strong_and_weak_typing">strong</a> typed, has some widely used <a href="http://www.oracle.com/technetwork/java/codeconvtoc-136057.html">coding convetions</a>, is easy to learn and has a big library.
 
 Here are some examples for programs written in Java:
 <ul>

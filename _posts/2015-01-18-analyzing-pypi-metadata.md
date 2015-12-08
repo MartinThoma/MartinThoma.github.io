@@ -83,7 +83,7 @@ gives
 | Bart Thate                        | 68   |
 
 
-The total number of authors is&#8198;28183 (06.12.2015):
+The total number of authors is 28&thinsp;183 (06.12.2015):
 
 ```sql
 SELECT COUNT(DISTINCT `author`) AS `total_authors` FROM `packages`

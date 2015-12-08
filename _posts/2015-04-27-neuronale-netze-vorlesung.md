@@ -494,10 +494,19 @@ Fragen:
     * Wie trainiert man sie?
     * Wo werden / wurden sie benutzt?
 
+Siehe auch:
+
+* Deeplearning.net: [Restricted Boltzmann Machines (RBM)](http://deeplearning.net/tutorial/rbm.html)
+* Wikipedia: [Restricted Boltzmann machine](https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine)
+
 
 ### V12: RNNs
 Slide name: V12_2015-06-02_RNNs.pdf
 
+
+Siehe auch:
+
+* [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
 ### V13: NNlearning-tricks
 Slide name: V13_2015-06-09_NNlearning-tricks.pdf
@@ -526,8 +535,6 @@ Slide name: V15_2015-06-17_Speech-Independence.pdf
   * [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
-* Artikel
-  * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
 * [Kohonen's Self Organizing Feature Maps](http://www.ai-junkie.com/ann/som/som1.html) by ai-junkie
 * [Self-Organizing Maps with Google’s TensorFlow](https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/)
