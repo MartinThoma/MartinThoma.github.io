@@ -27,18 +27,18 @@ have to be good. What does good mean? Well, the display has to be
 has to have a **higher resolution than 1366×768**. But it has to be
 **smaller than 30cm × 38cm** to fit into my knapsack. A reason why
 I do not always have my current notebook with me is that it is
-too heavy with about 2.5kg and does only run for about 3.5h. The new 
+too heavy with about 2.5kg and does only run for about 3.5h. The new
 one should be **lighter than 2.5kg** and **run at least 4h**.
 
-**Ubuntu** has to be supported completely, especially WLAN, sound and 
+**Ubuntu** has to be supported completely, especially WLAN, sound and
 Bluetooth. Speaking of Bluetooth, I want **Bluetooth 4.0**, because
 it introduced a low energy protocol that might be usefull for notebooks.
-As I live in a city and as I access the internet via my neighbors 
+As I live in a city and as I access the internet via my neighbors
 WLAN (thank you!), I need a good connection: **Dual band and 802.11a/b/g/n**
 need to be supported by the notebook. (Dual band is sometimes also called 2x2).
 
-I use it mainly for writing blog articles, LaTeX stuff and some 
-Python programming and watching movies. I download movies via 
+I use it mainly for writing blog articles, LaTeX stuff and some
+Python programming and watching movies. I download movies via
 Online TV Recorder which sums up quite soon. Transfering this to my
 external HDD always takes a lot of time. The new notebook should
 support **USB 3.0** to speed this up. As I don't have to store
@@ -52,8 +52,8 @@ want to have that again.
 It would be nice if I could use the notebook outside in the summer
 which means it has to have a **bright matte display**.
 
-I want a silent notebook, because I'm very sensitive to noise. 
-My current notebook has **less than 30 dB in normal mode** (no heavy load). 
+I want a silent notebook, because I'm very sensitive to noise.
+My current notebook has **less than 30 dB in normal mode** (no heavy load).
 That should set the mark.
 
 Another keyboard-thing: <kbd>Ctrl</kbd> has to be at the lower left (→ no thinkpads).
@@ -62,15 +62,15 @@ A SD-Card Reader would be nice, but it is not required. Just like
 a RJ-45 for network cables and a DVD drive you can get it via USB.
 
 I robust case is also important. I had troubles working in the train,
-because the screen was whipping as hell. But this is not a hard 
+because the screen was whipping as hell. But this is not a hard
 requirement for me as I don't work in trains that often.
 
 ## Current Favorites ##
-I've looked at a lot of notebooks and I did mainly focus on the 
+I've looked at a lot of notebooks and I did mainly focus on the
 technical specification and not at the price (I guess I might work
-about 10h every day in front of this machine. A good, working 
+about 10h every day in front of this machine. A good, working
 notebook is very important to me). However, when I see some notebooks
-that are ok according to the specs from above, I will take the cheaper 
+that are ok according to the specs from above, I will take the cheaper
 one.
 
 By the way, while searching for notebooks I discovered that much of
@@ -110,7 +110,7 @@ The WLAN chipset of the Samsung Serie 9 seems to cause trouble with
 Linux, but it also seems to be solved by a firmware update.[^5]
 But one hint seems to be important:
 
-> Before you install Linux on a Samsung Serie 9, make sure you update the firmware, 
+> Before you install Linux on a Samsung Serie 9, make sure you update the firmware,
 > because that's only possible with Windows.
 
 
@@ -151,7 +151,7 @@ In many cases I will need some more equipment:
 | WLAN-Chip          | Atheros AR5BWB222      |
 | Bluetooth          | 4.0                    |
 | Akku               | 3560 mAh               |
-| USB                | 1× USB 3.0, 2× USB 2.0 | 
+| USB                | 1× USB 3.0, 2× USB 2.0 |
 | SD Card Reader     | ✔                      |
 | Linux-Support      | ✔                      |
 | Keyboard           | Chiclet-Keyboard       |
@@ -190,19 +190,19 @@ both of my favorites.
 
 ### Asus Zenbooks ###
 
-|                    | Asus Zenbook       | Asus Zenbook          | Asus Zenbook          | 
+|                    | Asus Zenbook       | Asus Zenbook          | Asus Zenbook          |
 |--------------------|--------------------|-----------------------|-----------------------|
 | Model              | UX51VZ-CN035H      | UX51VZ-DB114H         | U500VZ                |
 | Price              | 1390 Euro          | 1380 Euro             | 1350 Euro             |
-| Dimensions (B × D × H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     | 
-| Weight             | 2.2 kg             | 2.2 kg                | 2.2 kg                | 
+| Dimensions (B × D × H)| 380 × 254 × 20  | 380 × 254 × 20        | 380 × 254 × 20 mm     |
+| Weight             | 2.2 kg             | 2.2 kg                | 2.2 kg                |
 | CPU                |Intel Core i7-3612QM| Intel Core i7 3632QM  | Intel Core i7-3612QM  |
-| Display Size       | 15.6"              | 15.6"                 | 15.6"                 | 
+| Display Size       | 15.6"              | 15.6"                 | 15.6"                 |
 | Display Resolution |1920×1080           | 2880×1620             | 1920×1080             |
 | Matte display      | ✔                  | ✘                     | ✔                     |
-| RAM                | 8 GB DDR3, 1600 MHz| 8 GB DDR3, 1600 MHz   | 4 GB                  | 
+| RAM                | 8 GB DDR3, 1600 MHz| 8 GB DDR3, 1600 MHz   | 4 GB                  |
 | Disk               | 256 SSD            | 256 SSD               | 512 GB SSD            |
-| Network            | 10/100/1000, RJ45  | ?                     | ?                     | 
+| Network            | 10/100/1000, RJ45  | ?                     | ?                     |
 | Wireless           | 802.11a/g/n, 2×2 WiDi | 802.11a/g/n, WiDi  | 802.11a/b/g/n, 2×2    |
 | WLAN-Chip          | ?                  | ?                     | ?                     |
 | Bluetooth          | 4.0                | 4.0                   | 4.0                   |
@@ -240,7 +240,7 @@ both of my favorites.
 
 ## Dell ##
 
-|                    | XPS 15               |
+|                    | [XPS 15](http://www.notebookcheck.com/Test-Dell-XPS-15-2015-Notebook.137681.0.html) |
 |--------------------|----------------------|
 | Model              | 9530-1906            |
 | Price              | 1711  Euro           |
@@ -249,7 +249,7 @@ both of my favorites.
 | CPU                | Intel Core i7-4702HQ |
 | Display Size       | 15.6"                |
 | Display Resolution | 3200x1800            |
-| Matte display      | ?                    |
+| Matte display      | ✘                    |
 | RAM                | 8 GB DDR3L, 1600 MHz |
 | Disk               | 512 GB SSD           |
 | Network            | (no RJ45)            |
@@ -258,10 +258,10 @@ both of my favorites.
 | Bluetooth          | 4.0                  |
 | Akku               | ?                    |
 | USB                | 3× USB 3.0           |
-| SD Card Reader     | ✔                    |
+| SD Card Reader     | ✔                   |
 | Linux-Support      | ?                    |
 | Keyboard           | Chiclet-Keyboard     |
-| Noise              | 29.8 dB, 42.1 dB max | 
+| Noise              | 29.8 dB, 42.1 dB max |
 
 There seem to be other versions of the XPS 15:
 
@@ -305,7 +305,7 @@ However, I was not able to find any specification of those.
 | Dimensions (B × D × H)| 380 × 251 × 28     |
 | Weight             | 2.19 kg               |
 | CPU                | Intel Core i5-4200M   |
-| Display Size       | 15.6"                 | 
+| Display Size       | 15.6"                 |
 | Display Resolution | 1920×1080             |
 | Matte display      | ✘                     |
 | RAM                | 12 GB DDR3L, 1600 MHz |
@@ -370,7 +370,7 @@ The next few lines show the difference of the `900X4C A0A` to...
 
 * Good audio qualit: 24-bit, 192kHz audio, 2x 2W
 * HDMI out, mini VGA, an SD card reader
-* 720p webcam 
+* 720p webcam
 
 Release date should be 28.03.2014 ([source](http://www.arlt.com/Notebook/Ultrabooks/Samsung/Samsung-ATIV-Book-9-NP930X5J-K01DE-2014-Edition.html)).
 
@@ -405,6 +405,37 @@ Release date should be 28.03.2014 ([source](http://www.arlt.com/Notebook/Ultrabo
 | Linux-Support      | shipped with Linux Mint :-)        |
 | Keyboard           | ?                                  |
 | Noise              | Laut[^4]                           |
+
+See also: [tuxedocomputers.com](https://www.tuxedocomputers.com/Linux-Hardware/Linux-Notebooks/15-6-Zoll/TUXEDO-Book-BU1505-15-6-matt-Full-HD-IPS-bis-Intel-Core-i7-Energiespar-CPU-zwei-HDD-SSD-bis-16GB-RAM-bis-10h-Akku-bel-Tastatur-Slim-Book-LTE-opt.geek), [linux-onlineshop.de](http://www.linux-onlineshop.de/Linux-Hardware/Linux-Notebooks/15-6-Zoll/TUXEDO-Book-BU1505-15-6-matt-Full-HD-IPS-bis-Intel-Core-i7-Energiespar-CPU-zwei-HDD-SSD-bis-16GB-RAM-bis-10h-Akku-bel-Tastatur-Slim-Book-LTE-opt.geek)
+
+* TUXEDO Book BU1505 (with Skylake, up to 16GB RAM, ca. 1240 Euro)
+
+
+## Librem 15
+
+|                    | [Librem 15](https://puri.sm/librem-15/) |
+|--------------------|------------------------------------|
+| Model              |                                    |
+| Price              |  2185 Euro                         |
+| Dimensions (B × D × H)|  375 × 244 × 22 mm              |
+| Weight             |  2.0 kg                            |
+| CPU                | [Intel i7-5557U](http://ark.intel.com/products/84993/Intel-Core-i7-5557U-Processor-4M-Cache-up-to-3_40-GHz) (Broadwell-U architecture) |
+| Display Size       | 15.6"                              |
+| Display Resolution | 3840×2160                          |
+| Display more       | IPS-Display                        |
+| Matte display      | ✔                                 |
+| RAM                | 1×8 GB 1600 MHz                    |
+| Disk               | 250 GB SSD                         |
+| Network            | ✘, 10/100/1000                    |
+| Wireless           | 802.11 n                           |
+| WLAN-Chip          | ?                                  |
+| Bluetooth          | ✔, ?                              |
+| Akku               | 65W, 48 Wh, Up to 6 hours usage    |
+| USB                | 1× USB 3.1, 2× USB 3.0             |
+| SD Card Reader     | SDXC                               |
+| Linux-Support      | ✔                                  |
+| Keyboard           | ?                                  |
+| Noise              | ?                                  |
 
 
 #### Other ####
@@ -447,7 +478,7 @@ To heavy:
 Availability: seems not to be available on Amazon
 
 * Samsung Serie 9 NP900X4C-A02
-* Sony Vaio SV-E1511V1EW 
+* Sony Vaio SV-E1511V1EW
 * Sony Vaio VGN-TX2
 * HP Envy 6-1000sg
 
@@ -456,7 +487,7 @@ Other:
 * Acer Aspire M3-581TG: Too loud, only 667MHz RAM
 
 ## Dear Notebook-Producers ##
-After searching so much for notebooks, I have some hints for you 
+After searching so much for notebooks, I have some hints for you
 what you could do better:
 
 * Add a single specification page for each notebook. This page should include at least:

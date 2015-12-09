@@ -459,6 +459,11 @@ Slide name: V10_2015-05-26_SOM.pdf
     <dd>SOMs sind eine Art von Neuronalen Netzen.</dd>
 </dl>
 
+Siehe auch:
+
+* [Self-Organizing Maps with Google’s TensorFlow](https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/)
+* [Kohonen's Self Organizing Feature Maps](http://www.ai-junkie.com/ann/som/som1.html) by ai-junkie
+
 ### V11: RBMs
 
 Slide name: V11_2015-05-27_RBMs
@@ -503,13 +508,87 @@ Siehe auch:
 ### V12: RNNs
 Slide name: V12_2015-06-02_RNNs.pdf
 
+<dl>
+    <dt><dfn>Elman-Netz</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Elman-Netz">Wikipedia</a>)</dt>
+    <dd>Ein rekurrentes neuronales Netzwerk, bei dem die Ausgabe eines
+        hidden layers im nächsten Zeitschritt als Eingabe verwendet wird.</dd>
+    <dt><dfn>Jordan-Netz</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Jordan-Netz">Wikipedia</a>)</dt>
+    <dd>Ein rekurrentes neuronales Netzwerk, bei dem die Ausgabe der
+        Ausgabeschicht im nächsten Zeitschritt als Eingabe verwendet wird.</dd>
+    <dt><dfn>Backpropagation through Time</dfn> (<dfn>BPTT</dfn>)</dt>
+    <dd>Ein Trainingsalgorithmus für rekurrente neuronale Netze, bei dem
+        das Netz "ausgerollt" wird. Das rekurrente Netz wird also als unendlich
+        großes nicht-rekurrentes Netz behandelt.</dd>
+    <dt><dfn>Vanishing gradient problem</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">Wikipedia</a>)</dt>
+    <dd>Das Problem des verschwindenden Gradienten ist eine Herausforderung im
+        Kontext neuronaler Netze, welche mit Backpropagation trainiert
+        werden. Insbesondere bei sehr tiefen oder rekurrenten Netzen
+        kann es passieren, dass der Gradient bei den ersten Schichten sehr
+        niedrig ist, sodass das Netz sehr langsam lernt. Aufgrund numerischer
+        Ungenauigkeit kann dies sogar dazu führen, dass das Netz in den
+        ersten Schichten nicht lernen kann.</dd>
+    <dt><dfn>Long short-term memory</dfn> (vgl. <dfn>LSTM</dfn>, <a href="https://en.wikipedia.org/wiki/Long_short-term_memory">Wikipedia</a>)</dt>
+    <dd>Ein LSTM ist ein Typ eines neuronalen Netzwerks. Das besondere an
+        LSTM Netzen sind "intelligente" Neuronen, welche über Gates bestimmen
+        ob ein Wert gespeichert wird und wie lange.</dd>
+</dl>
+
 
 Siehe auch:
 
 * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+* [Char-Predictor online Demo](http://www.cs.toronto.edu/~ilya/fourth.cgi?prefix=E%3D&numChars=300)
 
 ### V13: NNlearning-tricks
 Slide name: V13_2015-06-09_NNlearning-tricks.pdf
+
+<dl>
+    <dt><dfn>Momentum</dfn></dt>
+    <dd>In der Update-Regel \(\Delta w_{ij}^* (t+1) = \Delta w_{ij} (t+1) + \alpha \Delta w_{ij}(t)\) wird der Term \(\Delta w_{ij}(t)\) als <i>Momentum</i> bezeichnet.
+        Der Skalar \(\alpha \in [0, 1]\) gewichtet diesen und ist ein
+        Hyperparameter.</dd>
+    <dt><dfn>Quickprop</dfn> (<a href="https://en.wikipedia.org/wiki/Quickprop">Wikipedia</a>)</dt>
+    <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. TODO: Wie funktioniert es?</dd>
+    <dt><dfn>Weight Decay</dfn></dt>
+    <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} w_{ij}^2\)</dd>
+    <dt><dfn>Weight Elimination</dfn></dt>
+    <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} \frac{w_{ij}^2}{1+w_{ij}^2}\)</dd>
+    <dt><dfn>Optimal Brain Damage</dfn></dt>
+    <dd>Optimal Brain Damage entfernt nach dem Training Verbindungen die
+        sehr kleine \(|w_{ij}|\) haben.
+
+        Besser: Entferne Verbindungen, die geringen Einfluss auf die
+        Fehlerfunktion haben.</dd>
+</dl>
+
+Speed-ups sind möglich durch:
+
+* Momentum
+* Überspringen von bereits gut gelernten Beispielen
+* Dynamische Anpassung der Lernrate $\eta$
+* Quickprop
+* Gute Initialisierung
+
+Lernen kann getweakt werden:
+
+* Fehlerfunktion anpassen
+    * <abbr title="Mean Squared Error">MSE</abbr>
+    * Cross-Entropy
+    * <abbr title="Classification Figure of Merit">CFM</abbr>
+* Overfitting verhindern
+    * Weight decay
+    * Weight elimination
+    * Optimal Brain Damage
+    * Optimal Brain Surgeon
+* Schrittweise Netzkonstruktion
+    * Cascade Correlation: TODO - wie funktioniert das (Folie 40-46)?
+    * Meiosis Netzwerke: TODO - wie funktioniert das (Folie 47-48)?
+    * <abbr title="Automativ Structure Optimalization">ASO</abbr>: TODO - wie
+      funktioniert das?
+
+Fragen:
+
+* Folie 19: Was passiert hier? (TODO)
 
 
 ### V14: DNN CV
@@ -518,6 +597,19 @@ Slide name: V14_2015-06-10_DNN_CV .pdf
 
 ### V15: Speech-Independence
 Slide name: V15_2015-06-17_Speech-Independence.pdf
+
+
+## Visualisierung von Netzen
+
+Häufig wird die Architektur neuronaler Netze grafisch dargestellt. Dabei ist
+mir folgendes aufgefallen:
+
+* Im Innenren von Neuronen wird die Aktivierungsfunktion "geplottet". Das heißt
+  bei der Sigmoidfunktion wird etwas S-Förmiges dargestellt, bei der
+  sign-Funktion etwas eckiges, bei ReLU ein horizontaler Strich gefolgt von
+  einem Strich im 45-Grad Winkel ... (TODO: Beispiele aufzeichnen)
+* Typischerweise ist der Input links (oder alternativ unten) und der Output
+  rechts (oder alternativ oben)
 
 
 ## Material und Links
@@ -536,8 +628,7 @@ Slide name: V15_2015-06-17_Speech-Independence.pdf
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
-* [Kohonen's Self Organizing Feature Maps](http://www.ai-junkie.com/ann/som/som1.html) by ai-junkie
-* [Self-Organizing Maps with Google’s TensorFlow](https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/)
+
 
 ## Übungsbetrieb
 
