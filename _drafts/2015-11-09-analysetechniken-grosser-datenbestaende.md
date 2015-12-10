@@ -22,7 +22,7 @@ featured_image: logos/klausur.png
     <th>Inhalt</th>
 </tr>
 <tr>
-    <td>20.10.2015</td>
+    <td>20.10.2015, 08:00</td>
     <td>Einleitung</td>
     <td>Overfitting, Entscheidungsbäume, 1-Rules (→ Decision Strump), Outliers<br/>
         Mengenwertige Attribute, Kategorische Attribute, Zeitreihen<br/>
@@ -32,7 +32,7 @@ featured_image: logos/klausur.png
     </td>
 </tr>
 <tr>
-    <td>27.10.2015</td>
+    <td>27.10.2015, 08:00</td>
     <td>&nbsp;</td>
     <td>$\chi^2$-Test, $\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$ mit erwartetem Wert $e$ (Sind zwei Zufallsvariablen unabhängig)<br/>
     Kolmogorov-Smirnov-Test (Sind 2 Verteilungen unabhängig; bei kontinuierlichen Zufallsvariablen)<br/>
@@ -41,6 +41,11 @@ featured_image: logos/klausur.png
     Datenreduktion (Attribute entfernen, z.B. PCA; Datensätze entfernen, z.B. Clustering; Attributsgenauigkeit reduzieren)<br/>
     Diskretisierung: Zielfunktion ist Information Gain. Dieser soll minimiert werden.
     </td>
+</tr>
+<tr>
+    <td>08.12.2015, 08:00</td>
+    <td>R-Übung</td>
+    <td>-</td>
 </tr>
 </table>
 
