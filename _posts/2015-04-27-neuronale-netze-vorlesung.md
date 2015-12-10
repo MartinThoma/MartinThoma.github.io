@@ -246,7 +246,9 @@ Fragen:
 Slide name: V06_2015-05-05_Backpropagation.pdf
 
 <dl>
-    <dt><dfn>Kreuzentropie Fehlerfunktion</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Kreuzentropie">Wikipedia</a></dt>
+    <dt><dfn>Kreuzentropie Fehlerfunktion</dfn>
+        (<dfn>Cross-Entropy</dfn>,
+         vgl. <a href="https://de.wikipedia.org/wiki/Kreuzentropie">Wikipedia</a>)</dt>
     <dd>\[E_{-x} = - \sum_{k}[t_k^x \log(o_k^x) + (1-t_k^x) \log (1- o_k^x)]\]
         wobei \(x\) der Feature-Vektor ist, \(k\) ein Neuron des letzen
         Layers, \(t\) der wahre Wert (d.h. der gewünschte Output),
@@ -262,14 +264,14 @@ Slide name: V06_2015-05-05_Backpropagation.pdf
 Slide name: V07_12-05-2015_Feature_Learning.pdf
 
 <dl>
-    <dt><dfn>Autoencoder</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Autoencoder">Wikipedia</a></dt>
+    <dt><dfn>Autoencoder</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Autoencoder">Wikipedia</a>)</dt>
     <dd>Ein Autoencoder ist ein neuronales Netz, welches darauf trainiert wird
         die Input-Daten am Output wieder zu replizieren.</dd>
     <dt><dfn>Bottleneck Features</dfn></dt>
     <dd>Unter Bottleneck-Features versteht man eine Schicht in einem
         neuronalem Netz, welche wesentlich kleiner ist als die vorhergehende
         und nachfolgende Schicht.</dd>
-    <dt><dfn>Kullback-Leibler-Divergenz</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Wikipedia</a></dt>
+    <dt><dfn>Kullback-Leibler-Divergenz</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Wikipedia</a>)</dt>
     <dd>Die Kullback-Leibler-Divergenz ist ein Maß für die Unterschiedlichkeit
         zweier Wahrscheinlichkeitsverteilungen \(P, Q\). Für
         diskrete Verteilungen ist sie definiert als:
@@ -594,6 +596,26 @@ Fragen:
 ### V14: DNN CV
 Slide name: V14_2015-06-10_DNN_CV .pdf
 
+<dl>
+    <dt><dfn>SIFT</dfn> (<dfn>Scale-invariant feature transform</dfn>, siehe <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">Wikipedia</a>)</dt>
+    <dd>Unter SIFT versteht man bestimmte Features in der Bildverarbeitung,
+        welche invariant unter skalierung sind.</dd>
+    <dt><dfn>Texton</dfn> (siehe <a href="https://en.wikipedia.org/wiki/Texton">Wikipedia</a> und <a href="http://vcla.stat.ucla.edu/old/Chengen_Research/texton.htm">UCLA</a>)</dt>
+    <dd>Unter einem Texton versteht man grundlegende, kleine Features eines
+        Bildes. Diese Bilden die kleinsten als unterschiedlich wahrnehmbaren
+        Einheiten.</dd>
+    <dt><dfn>Convolutional Neural Network</dfn> (<dfn>CNN</dfn>, siehe <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Wikipedia</a>)</dt>
+    <dd>Ein CNN ist ein Neuronales Netzwerk, welches mindestens eine Schicht
+        hat, welche die Parameter eines Kernels für eine Faltung lernt.</dd>
+    <dt><dfn>Feature Map</dfn></dt>
+    <dd>Im Kontext von CNNs versteht man unter einer Feature-Map die Ausgabe
+        eines Kernels in einem Convolutional Layer.</dd>
+</dl>
+
+Facts:
+
+* Pooling: Max, Mean, Probabilistic
+
 
 ### V15: Speech-Independence
 Slide name: V15_2015-06-17_Speech-Independence.pdf
@@ -623,8 +645,9 @@ mir folgendes aufgefallen:
   * [Are there studies which examine dropout vs other regularizations?](http://datascience.stackexchange.com/q/9195/8820)
   * [How do subsequent convolution layers work?](http://datascience.stackexchange.com/q/9175/8820)
   * [Is Maxout the same as max pooling?](http://datascience.stackexchange.com/q/9212/8820)
-  * [What is \(\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\) in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
+  * [What is \\(\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\\) in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
   * [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
+  * [The cross-entropy error function in neural networks](http://datascience.stackexchange.com/q/9302/8820)
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
