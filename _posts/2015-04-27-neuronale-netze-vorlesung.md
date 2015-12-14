@@ -540,6 +540,7 @@ Siehe auch:
 
 * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 * [Char-Predictor online Demo](http://www.cs.toronto.edu/~ilya/fourth.cgi?prefix=E%3D&numChars=300)
+* [Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 
 ### V13: NNlearning-tricks
 Slide name: V13_2015-06-09_NNlearning-tricks.pdf
@@ -561,6 +562,9 @@ Slide name: V13_2015-06-09_NNlearning-tricks.pdf
 
         Besser: Entferne Verbindungen, die geringen Einfluss auf die
         Fehlerfunktion haben.</dd>
+    <dt><dfn>Cascade Correlation Architecture</dfn> (siehe Fahlman und Lebiere: <a href="http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf">The Cascade-Correlation Learning Architecture</a>)</dt>
+    <dd>Die Cascade Correlation Architecture wird Schritt für Schritt
+        aufgebaut. Sie ist keine typische Multilayer-Architektur.</dd>
 </dl>
 
 Speed-ups sind möglich durch:
@@ -583,8 +587,8 @@ Lernen kann getweakt werden:
     * Optimal Brain Damage
     * Optimal Brain Surgeon
 * Schrittweise Netzkonstruktion
-    * Cascade Correlation: TODO - wie funktioniert das (Folie 40-46)?
-    * Meiosis Netzwerke: TODO - wie funktioniert das (Folie 47-48)?
+    * Cascade Correlation
+    * Meiosis Netzwerke (siehe Stephen Jose Hanson: [Meiosis Networks ](http://papers.nips.cc/paper/227-meiosis-networks.pdf))
     * <abbr title="Automativ Structure Optimalization">ASO</abbr>: TODO - wie
       funktioniert das?
 
@@ -639,14 +643,14 @@ mir folgendes aufgefallen:
 * [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php)
 * [NNPraktikum](https://github.com/thanhleha/NNPraktikum): Toolkit für die Übungsblätter
 * StackExchange
-  * [What is the difference in Bayesian estimate and maximum likelihood estimate?](http://stats.stackexchange.com/q/74082/25741)
-  * [Can k-means clustering get shells as clusters?](http://datascience.stackexchange.com/q/9172/8820)
+  * ✓ [What is the difference in Bayesian estimate and maximum likelihood estimate?](http://stats.stackexchange.com/q/74082/25741)
+  * ✓ [Can k-means clustering get shells as clusters?](http://datascience.stackexchange.com/q/9172/8820)
   * [How is the Schwarz Criterion defined?](http://datascience.stackexchange.com/q/9177/8820)
   * [Are there studies which examine dropout vs other regularizations?](http://datascience.stackexchange.com/q/9195/8820)
   * [How do subsequent convolution layers work?](http://datascience.stackexchange.com/q/9175/8820)
-  * [Is Maxout the same as max pooling?](http://datascience.stackexchange.com/q/9212/8820)
+  * ✓ [Is Maxout the same as max pooling?](http://datascience.stackexchange.com/q/9212/8820)
   * [What is \\(\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\\) in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
-  * [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
+  * ✓ [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
   * [The cross-entropy error function in neural networks](http://datascience.stackexchange.com/q/9302/8820)
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
