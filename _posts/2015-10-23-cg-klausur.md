@@ -71,9 +71,23 @@ featured_image: logos/klausur.png
     <td>?</td>
     <td><a href="https://en.wikipedia.org/wiki/Sphere_mapping">Sphere Mapping</a>; Vorfilterung von Environment Maps</td>
 </tr>
+<tr>
+    <td>10.12.2015</td>
+    <td>Räumliche Datenstrukturen</td>
+    <td>BSP-Baum, kD-Baum</td>
+</tr>
 </table>
 
 ### Folien
+
+#### 10.12.2015
+
+<dl>
+  <dt><dfn>BSP-Baum</dfn></dt>
+  <dd>TODO</dd>
+  <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
+  <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
+</dl>
 
 ### Prüfungsfragen
 
