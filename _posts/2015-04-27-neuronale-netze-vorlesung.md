@@ -94,7 +94,6 @@ featured_image: logos/klausur.png
 * McCullch-Pitts Neuron (weights, bias, activation function is step function)
 * Rosenblatt Perceptron Algorithmus
 * Backpropagation
-* <abbr title="Principal Component Analysis">PCA</abbr>: TODO (Folie 45)
 * Curse of Dimensionality
 * [Parzen Window](https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer)
 * Features: Nominal, Ordinal, Intervallskaliert, Verhältnisskaliert
@@ -130,6 +129,22 @@ besitzt. Man schreibt
   <dt><dfn>Gauß'scher Klassifizierer</dfn></dt>
   <dd>Ein (naiver) Bayes-Klassifikator, welcher von normalverteilten Daten
       ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
+  <dt><dfn>Principal Component Analysis</dfn> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn> - vgl. <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Wikipedia</a>)</dt>
+  <dd>Die Hauptkomponentenanalyse ist ein Verfahren zur
+      Dimensionalitätsreduktion von ungelabelten Daten im \(\mathbb{R}^n\).
+      Sie projeziert die Daten auf diejenige Hyperebene im
+      \(\mathbb{R}^d\), die den durch die Projektion stattfindenden
+      Datenverlust minimal hält.
+      Dabei ist \(d \in 1, \dots, n\) beliebig wählbar.
+
+      Die Transformation der Daten \(X\) findet durch eine Matrixmultiplikation
+      \(Y = P \cdot X\) statt. Die Matrix \(P\) besteht aus den ersten \(d\)
+      Eigenvektoren der Kovarianzmatrix der Features \(X\):
+
+      \(P = (v_1, \dots, v_d)\) mit
+      \(\lambda_j v_j = C_X v_j\) für \(j=1,\dots,d\)
+
+      Außerdem gilt: \(C_X = \frac{1}{n-1} X X^T\) </dd>
 </dl>
 
 
@@ -486,7 +501,25 @@ Slide name: V11_2015-05-27_RBMs
         Boltzmann-Machine (RBM) aus einem bipartitem Graph bestehen. Dies
         erlaubt ein effizienteres Trainingsverfahren.</dd>
     <dt><dfn>Simulated annealing</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Simulated_annealing">Wikipedia</a>)</dt>
-    <dd>TODO</dd>
+    <dd>Simulated annealing ist ein heuristisches Optimierungsverfahren.
+
+        Sei \(D\) ein Wertebereich einer Funktion \(f: D \rightarrow \mathbb{R}\)
+        und \(U: D \rightarrow \mathcal{P}(D)\) eine Funktion, welche die
+        Umgebung eines Punktes angibt. Sei \(T: \mathbb{N}_0 \rightarrow \mathbb{R}_{> 0}\)
+        die Temperatur zum Zeitpunkt \(t \in \mathbb{N}_0\).
+
+        Gesucht ist \(\text{arg min}_{x \in D} f(x)\).
+
+        Wähle zum Zeitpunkt \(t=0\) einen zufälligen Startwert \(x \in D\).
+
+        Gehe nun iterativ vor und jeweils einen Zeitschritt weiter:
+
+        Nehme einen Punkt aus der Umgebung \(y \in U(x)\). Wenn
+        \(f(y) \leq f(x)\), dann überschreibe \(x \leftarrow y\). Falls nicht,
+        dann überschreibe es mit der Wahrscheinlichkeit \(\exp \left (-\frac{f(y)-f(x)}{T(t)} \right )\).
+
+        Speichere in jedem Schritt den bisher besten Wert.
+        </dd>
 </dl>
 
 Anwendungen:
