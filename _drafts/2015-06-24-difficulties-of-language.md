@@ -13,3 +13,13 @@ featured_image: logos/star.png
 The complex houses married and single soldiers and their families.
 
 https://www.youtube.com/watch?v=ldT2g2qDQNQ
+
+## German
+
+### Parsing long words
+
+* Weltraumasche - Weltrau'masche or Weltraum'asche?
+
+### Punctuation
+
+* "Wie geht's Martin?" vs "Wie geht's, Martin?"
