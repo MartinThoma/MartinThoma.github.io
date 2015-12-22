@@ -13,7 +13,9 @@ featured_image: logos/klausur.png
 
 ## Folien
 
-### ML-Einordnungskriterien.pdf
+### Einordnungskriterien
+
+Slide name: ML-Einordnungskriterien.pdf
 
 * **Inferenztyp**: Induktiv (version-space Algorithmus, k-NN, CBR, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
 * **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
@@ -22,7 +24,10 @@ featured_image: logos/klausur.png
 * **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
 * **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (Erklärungsbasierte Generalisierung)
 
-### MLI_01_Einfuehrung_slides1.pdf
+### Einführung
+
+Slide name: MLI_01_Einfuehrung_slides1.pdf
+
 * Was ist Intelligenz? (Problemlösen, Erinnern, Sprache, Kreativität,
   Bewusstsein, Überleben in komplexen Welten, )
 * Wissensrepräsentation:
@@ -54,7 +59,9 @@ featured_image: logos/klausur.png
 </dl>
 
 
-### MLI_02_InduktivesLernen_slides1.pdf
+### Induktives Lernen
+
+Slide name: MLI_02_InduktivesLernen_slides1.pdf
 
 * Konzept: Beschreibt Untermenge von Objekten oder Ereignissen definiert auf
   größerer Menge.
@@ -89,7 +96,9 @@ Weiteres
 </dl>
 
 
-### MLI_03_ReinforcementLearning_slides1.pdf
+### Reinforcement Learning
+
+Slide name: MLI_03_ReinforcementLearning_slides1.pdf
 
 Beim <a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">reinforcement learning</a> gehen wir hier von <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Markow-Entscheidungsproblemen</a> aus.
 
@@ -110,7 +119,9 @@ Siehe auch:
 * [Optimalitätsprinzip von Bellman](https://de.wikipedia.org/wiki/Optimalit%C3%A4tsprinzip_von_Bellman)
 
 
-### MLI_04_Lerntheorie_slides1.pdf
+### Lerntheorie
+
+Slide name: MLI_04_Lerntheorie_slides1.pdf
 
 <dl>
   <dt><dfn>Ockhams Rasiermesser</dfn> (Quelle: <a href="https://de.wikipedia.org/wiki/Ockhams_Rasiermesser">Wikipedia</a>)</dt>
@@ -145,7 +156,11 @@ Siehe auch:
 #### Boosting
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Boosting"><dfn>Boosting</dfn></a></dt>
-  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen.</dd>
+  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen, indem
+      Trainingsbeispiele unterschiedlich gewichtet werden.</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>
+  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen. Dabei
+      bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>
 </dl>
 
 * Fragen zu Folie 20:
@@ -156,6 +171,10 @@ Siehe auch:
     * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)?
     * Stellt \\(W_k(i)\\) die Wahrscheinlichkeit dar, dass Beispiel \\(i\\) im \\(k\\)-ten
       Durchlauf für das Training verwendet wird?
+
+
+{% caption align="aligncenter" width="500" alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" text="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" url="../images/2015/12/ml-ensemble-learning.png" %}
+
 
 #### VC-Dimension
 
@@ -171,7 +190,9 @@ Siehe auch:
   nicht eher \\(VC(H^\alpha)\\) sein?
 
 
-### MLI_05_Neuronale_Netze_slides1.pdf
+### Neuronale Netze
+
+Slide name: MLI_05_Neuronale_Netze_slides1.pdf
 
 * Einsatzfelder:
     * Klassifiktion: Spracherkennung, Schrifterkennung
@@ -187,7 +208,9 @@ Siehe auch:
 * <abbr title="Resilient Propagation">RPROP</abbr>: TODO
 
 
-### MLI_06_InstanzbasiertesLernen_slides1.pdf
+### Instanzbasiertes Lernen
+
+Slide name: MLI_06_InstanzbasiertesLernen_slides1.pdf
 
 <dl>
   <dt><dfn>Instanzenbasiertes Lernen</dfn> bzw. <dfn>Lazy Learning</dfn></dt>
@@ -214,7 +237,9 @@ Siehe auch:
   eingeschränkter - was ist damit gemeint?
 * TODO: Folie 6 - Was ist CBR?
 
-### MLI_07_SVM_slides1.pdf
+### SVM
+
+Slide name: MLI_07_SVM_slides1.pdf
 
 TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 
@@ -231,7 +256,9 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 * Kernel-Trick
 
 
-### MLI_08_Entscheidungsbaeume_slides1.pdf
+### Entscheidungsbäume
+
+Slide name: MLI_08_Entscheidungsbaeume_slides1.pdf
 
 <dl>
   <dt><dfn>Entscheidungsbaum</dfn></dt>
@@ -265,7 +292,9 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
   die meisten Stimmen, wird gewählt.
 
 
-### MLI_09_BayesLernen_slides1.pdf
+### Bayes Lernen
+
+Slide name: MLI_09_BayesLernen_slides1.pdf
 
 <dl>
   <dt><dfn>Satz von Bayes</dfn></dt>
