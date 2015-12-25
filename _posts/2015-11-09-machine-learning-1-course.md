@@ -263,9 +263,9 @@ Mit Wahrscheinlichkeit \(P(1-\eta)\) gilt:
 wobei gilt:
 
 <ul>
-    <li>\(E(h_\alpha)\) ist der reale Fehler der mit der Hypothese \(h_alpha\)
+    <li>\(E(h_\alpha)\) ist der reale Fehler der mit der Hypothese \(h_\alpha\)
         gemacht wird</li>
-    <li>\(E_{emp}(h_\alpha)\) ist der empirische Fehler der mit der Hypothese \(h_alpha\)
+    <li>\(E_{emp}(h_\alpha)\) ist der empirische Fehler der mit der Hypothese \(h_\alpha\)
         gemacht wird</li>
     <li>\(VC(h_\alpha)\) ist die VC-Dimension der Lernmaschine</li>
     <li>\(N\) ist die Anzahl der Lernbeispiele</li>
@@ -280,7 +280,7 @@ Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
     <li>Lineare Trennung mit maximalen Abstand der Trennebenen zu den
         nächstgelegenen Stichproben (Support Vektoren)</li>
     <li>Duale Formulierung des linearen Klassifikators.
-        (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem), \(k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b\))</li>
+        (vgl. <a href="https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem">Wiki</a>, \(k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b\))</li>
     <li>Nichtlineare Abbildung der primären Merkmale in einen hochdimensionalen
         Merkmalsraum \(\Phi\)</li>
     <li>Implizite Nutzung des unter Umständen \(\infty\)-dimensionalen
