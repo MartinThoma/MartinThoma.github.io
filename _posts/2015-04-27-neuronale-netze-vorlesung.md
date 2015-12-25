@@ -574,6 +574,7 @@ Siehe auch:
 * [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 * [Char-Predictor online Demo](http://www.cs.toronto.edu/~ilya/fourth.cgi?prefix=E%3D&numChars=300)
 * [Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
+* YouTube: [Vanishing Gradient](https://www.youtube.com/watch?v=SKMpmAOUa2Q) (5:24 min)
 
 ### V13: NNlearning-tricks
 Slide name: V13_2015-06-09_NNlearning-tricks.pdf
