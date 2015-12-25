@@ -161,3 +161,7 @@ It would be important to do so before anybody develops a strong AI.
   extremely wealthy), and suggests that globalization and new technology are
   actually fueling, rather than closing, the global income gap. Freeland lays
   out three problems with plutocracy … and one glimmer of hope.
+
+**Articles**
+
+* [9 crazy things that could happen after the singularity, when robots become smarter than humans](http://uk.businessinsider.com/predictions-for-after-singularity-2015-11?IR=T)
