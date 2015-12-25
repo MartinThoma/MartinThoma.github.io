@@ -256,6 +256,45 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 * Kernel-Trick
 
 
+<div class="alert alert-info"><h4>Abschätzung des Testfehlers</h4>
+Mit Wahrscheinlichkeit \(P(1-\eta)\) gilt:
+\[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\dots \frac{VC(h_\alpha)}{N} \dots}\]
+
+wobei gilt:
+
+<ul>
+    <li>\(E(h_\alpha)\) ist der reale Fehler der mit der Hypothese \(h_alpha\)
+        gemacht wird</li>
+    <li>\(E_{emp}(h_\alpha)\) ist der empirische Fehler der mit der Hypothese \(h_alpha\)
+        gemacht wird</li>
+    <li>\(VC(h_\alpha)\) ist die VC-Dimension der Lernmaschine</li>
+    <li>\(N\) ist die Anzahl der Lernbeispiele</li>
+</ul>
+
+Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
+</div>
+
+
+<div class="alert alert-info"><h4>Die fünf Prinzipien von SVMs</h4>
+<ol>
+    <li>Lineare Trennung mit maximalen Abstand der Trennebenen zu den
+        nächstgelegenen Stichproben (Support Vektoren)</li>
+    <li>Duale Formulierung des linearen Klassifikators.
+        (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem), \(k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b\))</li>
+    <li>Nichtlineare Abbildung der primären Merkmale in einen hochdimensionalen
+        Merkmalsraum \(\Phi\)</li>
+    <li>Implizite Nutzung des unter Umständen \(\infty\)-dimensionalen
+        Eigenfunktionsraumes einer sog. Kernfunktion \(K\) als transformierten
+        Merkmalsraum \(\Phi\). Dabei müssen die transformierten Merkmale nicht
+        explizit berechnet werden und der Klassifikator hat trotz der hohen
+        Dimension von \(\Phi\) nur eine niedrige Zahl von freien Parametern
+        (Kernel-Trick).</li>
+    <li>Relaxation der Forderung nach linearer Trennbarkeit durch Einführung
+        von Schlupfvariablen (slack variables).</li>
+</ol>
+</div>
+
+
 ### Entscheidungsbäume
 
 Slide name: MLI_08_Entscheidungsbaeume_slides1.pdf
@@ -364,6 +403,62 @@ Fragen:
 * Folie 23: Warum ist \\(h_{MAP(x)}\\) nicht die wahrscheinlichste
   Klassifikation?
 * Folie 24: Was ist \(V\)?
+
+
+### HMM
+
+Slides: MLI_10_HMM_slides1.pdf
+
+<dl>
+  <dt><dfn>Markov-Bedingung</dfn> (Beschränkter Horizont)</dt>
+  <dd>P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)</dd>
+  <dt><dfn>Hidden Markov Modell</dfn> (<dfn>HMM</dfn>)</dt>
+  <dd>Eine HMM ist ein Tupel \(\lambda = (S, V, A, B, \Pi)\):
+      <ul>
+          <li>\(S = \{S_1, \dots, S_n\}\): Menge der Zustände</li>
+          <li>\(q_t\): Zustand zum Zeitpunkt \(t\)</li>
+          <li>\(V = \{v_1, \dots, v_m\}\): Menge der Ausgabezeichen</li>
+          <li>\(A \in [0,1]^{n \times n}\) = (a_{ij}): Übergangsmatrix, die die Wahrscheinlichkeit von Zustand \(i\) in Zustand \(j\) zu kommen beinhaltet</li>
+          <li>\(B = (b_{ik})\) die Emissionswahrscheinlichkeit \(v_k\) im Zustand \(S_i\) zu beobachten</li>
+          <li>\(\Pi = (\pi_i) = P(q_1 = i)\): Die Startverteilung</li>
+      </ul></dd>
+  <dt><dfn>Vorwärts-Algorithmus</dfn></dt>
+  <dd>Löst P1: TODO</dd>
+  <dt><dfn>Rückwärts-Algorithmus</dfn></dt>
+  <dd>TODO</dd>
+  <dt><dfn>Viterbi-Algorithmus</dfn></dt>
+  <dd>Löst P2: TODO</dd>
+  <dt><dfn>Baum-Welch-Algorithmus</dfn></dt>
+  <dd>Löst P3: TODO</dd>
+  <dt><dfn>Ergodisches Modell</dfn></dt>
+  <dd>TODO</dd>
+  <dt><dfn>Bakis-Modell</dfn> (<dfn>Links-nach-Rechts-Modell</dfn>)</dt>
+  <dd>TODO</dd>
+</dl>
+
+Die drei Probleme von HMMs sind
+
+* P1 - Evaluierungsproblem: Wie gut erklärt ein Modell eine beobachtete Sequenz?
+* P2 - Dekodierungsproblem: Finden der wahrscheinlichsten Zustandssequenz, gegeben
+  eine Sequenz von Beobachtungen
+* P3 - Lernproblem: Optimieren der Modellparameter
+
+
+Anwendungen:
+
+* Gestenerkennung
+* Phonem-Erkennung
+
+
+### Markov Logik Netze
+
+Slides: MLI_11-MLN_slides1
+
+<dl>
+  <dt><dfn>Markov Logik Netze</dfn> (<dfn>MLN</dfn>)</dt>
+  <dd>TODO</dd>
+</dl>
+
 
 ## Prüfungsfragen
 
