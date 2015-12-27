@@ -422,8 +422,12 @@ Slides: MLI_10_HMM_slides1.pdf
           <li>\(B = (b_{ik})\) die Emissionswahrscheinlichkeit \(v_k\) im Zustand \(S_i\) zu beobachten</li>
           <li>\(\Pi = (\pi_i) = P(q_1 = i)\): Die Startverteilung</li>
       </ul></dd>
-  <dt><dfn>Vorwärts-Algorithmus</dfn></dt>
-  <dd>Löst P1: TODO</dd>
+  <dt><dfn>Vorwärts-Algorithmus</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Forward-Algorithmus">Wikipedia</a>)</dt>
+  <dd>Der Vorwärts-Algorithmus löst das Evaluierungsproblem. Er benutzt dazu
+      dynamische Programmierung: Die Variablen \(\alpha_t(i) = P_t(o_1 o_2 \dots o_t; q_t = s_i)\) gibt die Wahrscheinlichkeit
+      an zum Zeitpunkt \(t \in 1 \leq t \leq T\) im Zustand \(s_i \in S\) zu
+      sein und die Sequenz \(o_1 o_2 \dots o_t\) beobachtet zu haben. Diese
+      werden rekursiv berechnet.</dd>
   <dt><dfn>Rückwärts-Algorithmus</dfn></dt>
   <dd>TODO</dd>
   <dt><dfn>Viterbi-Algorithmus</dfn></dt>
@@ -438,7 +442,8 @@ Slides: MLI_10_HMM_slides1.pdf
 
 Die drei Probleme von HMMs sind
 
-* P1 - Evaluierungsproblem: Wie gut erklärt ein Modell eine beobachtete Sequenz?
+* P1 - Evaluierungsproblem: Wie wahrscheinlich ist eine Sequenz \(\bf{o} = o_1 o_2 \dots o_T\)
+  gegeben ein HMM \(\lambda\), also \(P(\bf{o}|\lambda)\).
 * P2 - Dekodierungsproblem: Finden der wahrscheinlichsten Zustandssequenz, gegeben
   eine Sequenz von Beobachtungen
 * P3 - Lernproblem: Optimieren der Modellparameter
@@ -458,6 +463,13 @@ Slides: MLI_11-MLN_slides1
   <dt><dfn>Markov Logik Netze</dfn> (<dfn>MLN</dfn>)</dt>
   <dd>TODO</dd>
 </dl>
+
+Siehe auch:
+
+* Matthew Richardson, Pedro Domingos: [Markov logic networks](http://link.springer.com/article/10.1007/s10994-006-5833-1)
+* Coursera: [Probabilistic Graphical Models](https://www.coursera.org/course/pgm)
+* Pedro Domingos: [Unifying Logical and Statistical AI](https://www.youtube.com/watch?v=bW5DzNZgGxY), September 2009.
+* Software: [Alchemy](https://alchemy.cs.washington.edu/)
 
 
 ## Prüfungsfragen
