@@ -30,7 +30,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>24.04.2015</td>
     <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=432731&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Semi Supervised Learning (SSL)</a></td>
-    <td>Transduktives Learnen; Self-Learning; Co-Training; Generative Models; EM-Algorithmus; Low-Density seperation; Transductive SVM</td>
+    <td>Transduktives Lernen; Self-Learning; Co-Training; Generative Models; EM-Algorithmus; Low-Density seperation; Transductive SVM</td>
 </tr>
 <tr>
     <td>01.05.2015</td>

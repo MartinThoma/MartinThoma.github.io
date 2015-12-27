@@ -41,7 +41,7 @@ Slide name: MLI_01_Einfuehrung_slides1.pdf
     * Markov-Ketten
 
 <dl>
-  <dt><dfn>Machine Learning</dfn> by Tom Mitchell</dt>
+  <dt><dfn>Machine Learning</dfn> von Tom Mitchell</dt>
   <dd>A computer program is said to learn from experience E with respect to
       some class of tasks T and performance measure P, if its performance at
       tasks in T, as measured by P, improves with experience E.</dd>
@@ -130,6 +130,11 @@ Slide name: MLI_04_Lerntheorie_slides1.pdf
   wenn sie möglichst wenige Variablen und Hypothesen enthält, und wenn diese in
   klaren logischen Beziehungen zueinander stehen, aus denen der zu erklärende
   Sachverhalt logisch folgt.</dd>
+  <dt><dfn>Structural Risc Minimization</dfn> (siehe <a href="https://en.wikipedia.org/wiki/Structural_risk_minimization">Wikipedia</a>)</dt>
+  <dd>Unter <i>Structural risk minimization</i> versteht man die Abwägung
+      zwischen einem einfachen Modell und einem komplexen Modell, welches
+      auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
+      Overfitting leidet.</dd>
 </dl>
 
 * Lernmaschine wird definiert durch Hypothesenraum \\(\{h_\alpha: \alpha \in A\}\\)
@@ -151,7 +156,6 @@ Slide name: MLI_04_Lerntheorie_slides1.pdf
 * VC-Dimension
     * Folie 44: Was ist \\(\eta\\)?
 * TODO: Wie hängen PAC und VC-Dimension zusammen?
-* Structural Risc Minimization: TODO - Was ist das?
 
 #### Boosting
 <dl>
@@ -488,7 +492,7 @@ Kommt noch
 * [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
-* [Zusammenfassung der Vorlesung ML 2](http://martin-thoma.com/machine-learning-2-vorlesung/)
+* [Zusammenfassung der Vorlesung ML 2](http://martin-thoma.com/machine-learning-2-course/)
 
 ## Übungsbetrieb
 
