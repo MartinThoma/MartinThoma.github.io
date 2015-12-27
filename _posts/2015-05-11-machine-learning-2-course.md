@@ -75,8 +75,6 @@ Meine Fragen (TODO):
 
 Slides: 02_Semi-supervised-learning.pdf
 
-TODO
-
 <dl>
   <dt><dfn>Überwachtes Lernen</dfn> (engl. <dfn>Supervised Learning</dfn>)</dt>
   <dd>Alle Trainingsdaten liegen mit Labels vor.</dd>
