@@ -387,9 +387,10 @@ Slide name: MLI_09_BayesLernen_slides1.pdf
       Ereignis gleich null ist. Wenn man \(d \in \mathbb{N}\) mögliche
       Ergebnisse eines Experiments hat, \(N \in \mathbb{N}\) experimente
       durchgeführt werden, dann schätzt man die Wahrscheinlichkeit von dem
-      Ergebnis \(i\) mit \[\hat{\theta_i} = \frac{x_i + k}{N+ kd}\], wobei
-      \(x_i\) die Anzahl der Beobachtungen von \(i\) ist und \(k \geq 0\) der
-      Glättungsparameter ist.
+      Ergebnis \(i\) mit
+      \[\hat{\theta_i} = \frac{x_i + k}{N+ kd}, \]
+      wobei \(x_i\) die Anzahl der Beobachtungen von \(i\) ist und \(k \geq 0\)
+      der Glättungsparameter ist.
   </dd>
   <dt><dfn>Bayessches Netz</dfn> (<a href="https://de.wikipedia.org/wiki/Bayessches_Netz">Wikipedia</a>)</dt>
   <dd>Ein bayessches Netz ist ein gerichteter azyklischer Graph in dem die
@@ -411,7 +412,7 @@ Slides: MLI_10_HMM_slides1.pdf
 
 <dl>
   <dt><dfn>Markov-Bedingung</dfn> (Beschränkter Horizont)</dt>
-  <dd>P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)</dd>
+  <dd>\(P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)\)</dd>
   <dt><dfn>Hidden Markov Modell</dfn> (<dfn>HMM</dfn>)</dt>
   <dd>Eine HMM ist ein Tupel \(\lambda = (S, V, A, B, \Pi)\):
       <ul>
@@ -424,15 +425,19 @@ Slides: MLI_10_HMM_slides1.pdf
       </ul></dd>
   <dt><dfn>Vorwärts-Algorithmus</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Forward-Algorithmus">Wikipedia</a>)</dt>
   <dd>Der Vorwärts-Algorithmus löst das Evaluierungsproblem. Er benutzt dazu
-      dynamische Programmierung: Die Variablen \(\alpha_t(i) = P_t(o_1 o_2 \dots o_t; q_t = s_i)\) gibt die Wahrscheinlichkeit
+      dynamische Programmierung: Die Variablen \(\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i)\) gibt die Wahrscheinlichkeit
       an zum Zeitpunkt \(t \in 1 \leq t \leq T\) im Zustand \(s_i \in S\) zu
       sein und die Sequenz \(o_1 o_2 \dots o_t\) beobachtet zu haben. Diese
       werden rekursiv berechnet.</dd>
-  <dt><dfn>Rückwärts-Algorithmus</dfn></dt>
-  <dd>TODO</dd>
-  <dt><dfn>Viterbi-Algorithmus</dfn></dt>
+  <dt><dfn>Rückwärts-Algorithmus</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Backward-Algorithmus">Wikipedia</a>)</dt>
+  <dd>Der Rückwärts-Algorithmus löst das Dekodierungsproblem. Er benutzt dazu
+      dynamische Programmierung: Die Variablen \(\beta_t(i) = P(o_{t+1} o_{t+2} \dots o_{T}|q_t = s_i, \lambda)\) geben
+      die Wahrscheinlichkeit an, dass die Sequenz \(o_{t+1} o_{t+2} \dots o_{T}\)
+      beobachtet werden wird, gegeben das HMM&nbsp;\(\lambda\) und den
+      Startzustand&nbsp;\(s_i\).</dd>
+  <dt><dfn>Viterbi-Algorithmus</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Viterbi-Algorithmus">Wikipedia</a>)</dt>
   <dd>Löst P2: TODO</dd>
-  <dt><dfn>Baum-Welch-Algorithmus</dfn></dt>
+  <dt><dfn>Baum-Welch-Algorithmus</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus">Wikipedia</a>)</dt>
   <dd>Löst P3: TODO</dd>
   <dt><dfn>Ergodisches Modell</dfn></dt>
   <dd>TODO</dd>
@@ -442,11 +447,12 @@ Slides: MLI_10_HMM_slides1.pdf
 
 Die drei Probleme von HMMs sind
 
-* P1 - Evaluierungsproblem: Wie wahrscheinlich ist eine Sequenz \(\bf{o} = o_1 o_2 \dots o_T\)
-  gegeben ein HMM \(\lambda\), also \(P(\bf{o}|\lambda)\).
-* P2 - Dekodierungsproblem: Finden der wahrscheinlichsten Zustandssequenz, gegeben
-  eine Sequenz von Beobachtungen
-* P3 - Lernproblem: Optimieren der Modellparameter
+* **P1 - Evaluierungsproblem**: Wie wahrscheinlich ist eine Sequenz
+  \\(\bf{o} = o_1 o_2 \dots o_T\\)
+  gegeben ein HMM \\(\lambda\\), also \\(P(\bf{o}|\lambda)\\).
+* **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz,
+  gegeben eine Sequenz von Beobachtungen.
+* **P3 - Lernproblem**: Optimieren der Modellparameter.
 
 
 Anwendungen:
@@ -460,8 +466,8 @@ Anwendungen:
 Slides: MLI_11-MLN_slides1
 
 <dl>
-  <dt><dfn>Markov Logik Netze</dfn> (<dfn>MLN</dfn>)</dt>
-  <dd>TODO</dd>
+  <dt><dfn>Markov Logik Netze</dfn> (<dfn>MLN</dfn>, siehe <a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze">Markov Logik Netze</a>)</dt>
+  <dd>Ein Markov Logik Netz \(L\) ist ein Menge aus Tupeln \((F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung ist und \(w_i \in \mathbb{R}\) ein Gewicht ist.</dd>
 </dl>
 
 Siehe auch:
@@ -482,6 +488,7 @@ Kommt noch
 * [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
+* [Zusammenfassung der Vorlesung ML 2](http://martin-thoma.com/machine-learning-2-vorlesung/)
 
 ## Übungsbetrieb
 
