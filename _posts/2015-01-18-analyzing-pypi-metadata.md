@@ -12,6 +12,8 @@ tags:
 featured_image: logos/python.png
 ---
 
+<div class="info">This is part one of a series. See <a href="http://martin-thoma.com/analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
+
 PyPI, the Python Package Index, gives a very crappy but simple interface to
 query metadata about its packages. I scrapped all of the packages metadata.
 53,533 packages were scrapped (date: 2015-01-18), because I wanted to
@@ -531,25 +533,6 @@ LIMIT 30
 ## Code
 
 See [github.com/MartinThoma/algorithms](https://github.com/MartinThoma/algorithms/tree/master/PyPI).
-
-
-## TODO: Future articles
-
-I would like too measure the overall code quality on PyPI in another post. I
-think of the following measures:
-
-* [pyroma](https://pypi.python.org/pypi/pyroma): A 10-point score for packages
-* [pylint](https://pypi.python.org/pypi/pylint)
-* [Cheesecake](https://pypi.python.org/pypi/Cheesecake): Is probably too computationally intensive to let it run on all packages.
-
-It would also be interesting to build a dependency-graph. With this graph,
-I could answer two questions:
-
-* Which package has most direct dependencies?
-* Which package has most direct and indirect dependencies?
-
-What would you think should be analyzed? How could we measure the importance of
-a package?
 
 
 ## Related

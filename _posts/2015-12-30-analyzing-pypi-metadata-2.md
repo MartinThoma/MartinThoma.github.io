@@ -12,6 +12,8 @@ tags:
 featured_image: logos/python.png
 ---
 
+<div class="info">This is part two of a series. See <a href="http://martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
+
 I've recently got a request to expand my analysis of the Python Package Index
 commonly known as PyPI. It is a repository of Python packages where everybody
 can upload packages; pretty much without any restriction. In the article
@@ -242,15 +244,21 @@ I've only got some crappy images with Gephi / GraphViz:
     ../images/2015/12/gephi-2.png
 {% endgallery %}
 
-See also: [Features of Gephi](http://gephi.org/features/)
+
+## Code
+
+See [github.com/MartinThoma/algorithms](https://github.com/MartinThoma/algorithms/tree/master/PyPI).
 
 
 ## What could come next
 
-I could imagine to analyze the
+I would like too measure the overall code quality on PyPI in another post. I
+think of the following measures:
 
+* [pyroma](https://pypi.python.org/pypi/pyroma): A 10-point score for packages
 * package goodness with
   [Cheesecake](https://pypi.python.org/pypi/Cheesecake),
+* [pylint](https://pypi.python.org/pypi/pylint)
 * PEP8 conformance,
 * Lines of code / documentation / whitespace
 * Usage of functions
@@ -262,3 +270,4 @@ I could imagine to analyze the
 ## See also
 
 * [Quick Start with Gephi](https://gephi.org/tutorials/gephi-tutorial-quick_start.pdf)
+* [Features of Gephi](http://gephi.org/features/)
