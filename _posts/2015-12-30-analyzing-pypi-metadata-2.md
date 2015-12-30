@@ -2,7 +2,7 @@
 layout: post
 title: Analyzing PyPI Data - 2
 author: Martin Thoma
-date: 2014-11-22 17:19
+date: 2015-12-30 13:28
 categories:
 - Code
 tags:
@@ -28,7 +28,9 @@ dependencies.
 
 As I am pretty sure there are some malicious packages in the repository
 (Although I've never heard of a single one there has to be one. Over
-50&thinspace;000 packages by )
+50&thinspace;000 packages by 2015 - there has to be one!). So I don't want to
+execute any code of the repository without having at least a clue what it
+should do. This means my analysis is very simple and thus prone to some errors.
 
 
 ## Most common single dependency
@@ -136,7 +138,7 @@ which gives me about 2&nbsp;seconds later the following result:
 
 ## Non-functional packages
 
-Although there are many packages for Python which are very usefull, there are
+Although there are many packages for Python which are very useful, there are
 also quite a lot which are not usefull at all. One possibility to identify such
 packages is by checking which packages get neither used by others nor use
 other packages
@@ -174,11 +176,32 @@ One undesirable thing that could happen would be very similar names.
 
 ### Prefixes
 
-Let's see how many packages are prefixes of other packages
+Let's see how many packages are prefixes of other packages. My thought was that
+this might be developers trying to get some accidential installs. However, it
+only showed some relationships. I wanted to make a Levensthein distance
+analysis, but I guess this is not worth it.
 
-### Levensthein Distance
+Here are the top 10 strings which are prefixes of packages and packages
+themselves:
 
-### Non-Pythonic package names
+1. djan: 6462
+2. pyt: 1626
+3. pyth: 1278
+4. collect: 1155
+5. Flask: 561
+6. open: 474
+7. pyr: 442
+8. pyp: 295
+9. pyra: 285
+10. pym: 256
+
+One interesting thing I've learned is that you can use `pip` like this:
+
+```bash
+$ pip search "djan$"
+```
+
+... and I found a pip bug ([github.com/pypa/pip/issues/3327](https://github.com/pypa/pip/issues/3327))
 
 
 ## Graph analysis
@@ -193,7 +216,9 @@ StackOverflow: [Visualizing Undirected Graph That's Too Large for GraphViz?](htt
 
 This lead me to [Gephi](http://gephi.org/) and the
 [OpenOrd](https://marketplace.gephi.org/plugin/openord-layout/) layout plugin.
-It didn't work for the complete graph (see [issues/1207](https://github.com/gephi/gephi/issues/1207)), it worked after I removed the single nodes without edges.
+It didn't work for the complete graph (see
+[issues/1207](https://github.com/gephi/gephi/issues/1207)), it worked after I
+removed the single nodes without edges.
 
 Now we can ask several standard questions about graphs:
 
@@ -202,9 +227,20 @@ Now we can ask several standard questions about graphs:
   have circles. Similar to family trees.)
 * Which are the most central nodes?
 
-### Gephi images
+I didn't find the time to answer those, but I put the graph data in JSON
+format on [github.com/MartinThoma/pypi-dependencies](https://github.com/MartinThoma/pypi-dependencies).
+Please let me know when you do something interesting with the data.
 
-TODO: 
+I've only got some crappy images with Gephi / GraphViz:
+
+{% gallery columns="3" size="medium" %}
+    ../images/2015/12/pypi-rendered.png
+    ../images/2015/12/pypi-rendered-circo-5000-x-small.png
+    ../images/2015/12/pypi-rendered-twopi.png
+    ../images/2015/12/pypi-rendered-x.png
+    ../images/2015/12/gephi-1.png
+    ../images/2015/12/gephi-2.png
+{% endgallery %}
 
 See also: [Features of Gephi](http://gephi.org/features/)
 
@@ -221,3 +257,8 @@ I could imagine to analyze the
 * Testing coverage
 * Look for URLs in the code and which are reachable / which are not
 * Look for non-Python files
+
+
+## See also
+
+* [Quick Start with Gephi](https://gephi.org/tutorials/gephi-tutorial-quick_start.pdf)
