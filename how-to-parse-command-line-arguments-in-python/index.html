@@ -100,7 +100,7 @@
                <a href="#tocAnchor-1-1-4"><span class="tocnumber">1.4</span> <span class="toctext">Example 2: less</span></a>
             </li>
             <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-1-5"><span class="tocnumber">1.5</span> <span class="toctext">Example 3: My copy-paste template</span></a>
+               <a href="#tocAnchor-1-1-5"><span class="tocnumber">1.5</span> <span class="toctext">Example 3: copy-paste template</span></a>
             </li>
          </ul>
       </li>
@@ -211,7 +211,7 @@ optional arguments:
     <span class="k">print</span> <span class="n">fib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">n</span><span class="p">)</span></code></pre>
 </div>
 
-<p>Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse. </p>
+<p>Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse.</p>
 
 <h3 id="tocAnchor-1-1-4">Example 2: less</h3>
 <div class="highlight">
@@ -238,8 +238,8 @@ optional arguments:
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">"less script"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-f"</span><span class="p">,</span> <span class="s">"--file"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"filename"</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">"write report to FILE"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-n"</span><span class="p">,</span> 
-                        <span class="n">dest</span><span class="o">=</span><span class="s">"n"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> 
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-n"</span><span class="p">,</span>
+                        <span class="n">dest</span><span class="o">=</span><span class="s">"n"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s">"how many lines get printed"</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-q"</span><span class="p">,</span> <span class="s">"--quiet"</span><span class="p">,</span>
                         <span class="n">action</span><span class="o">=</span><span class="s">"store_false"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"verbose"</span><span class="p">,</span>
@@ -255,7 +255,7 @@ optional arguments:
         <span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 </code></pre>
 </div>
-<h3 id="tocAnchor-1-1-5">Example 3: My copy-paste template</h3>
+<h3 id="tocAnchor-1-1-5">Example 3: copy-paste template</h3>
 
 <p>This is how I use it most of the time. I want to show defaults in help:</p>
 <div class="highlight">
@@ -268,8 +268,17 @@ optional arguments:
 
 
 <span class="k">def</span> <span class="nf">is_valid_file</span><span class="p">(</span><span class="n">parser</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-    <span class="sd">"""Check if arg is a valid file that already exists on the file</span>
-<span class="sd">       system.</span>
+    <span class="sd">"""</span>
+<span class="sd">    Check if arg is a valid file that already exists on the file system.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parser : argparse object</span>
+<span class="sd">    arg : str</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    arg</span>
 <span class="sd">    """</span>
     <span class="n">arg</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
@@ -279,6 +288,7 @@ optional arguments:
 
 
 <span class="k">def</span> <span class="nf">get_parser</span><span class="p">():</span>
+    <span class="sd">"""Get parser object for script xy.py."""</span>
     <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">__doc__</span><span class="p">,</span>
                             <span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
