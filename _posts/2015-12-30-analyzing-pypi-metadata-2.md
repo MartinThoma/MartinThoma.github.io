@@ -30,7 +30,7 @@ dependencies.
 
 As I am pretty sure there are some malicious packages in the repository
 (Although I've never heard of a single one there has to be one. Over
-50&thinspace;000 packages by 2015 - there has to be one!). So I don't want to
+50&thinsp;000 packages by 2015 - there has to be one!). So I don't want to
 execute any code of the repository without having at least a clue what it
 should do. This means my analysis is very simple and thus prone to some errors.
 
@@ -162,9 +162,9 @@ OR `id` in (
             `dependencies`)
 ```
 
-This leads to the result that 54&thinspace;900 packages of 67&thinspace;582
+This leads to the result that 54&thinsp;900 packages of 67&thinsp;582
 packages are not obviously crap. Or to write it in another way: 11&nbsp;682
-packages are crap. That is 17.5&thinspace;%. Too much, in my opinion.
+packages are crap. That is 17.5&thinsp;%. Too much, in my opinion.
 However, this might also be due to my crappy script not downloading / checking
 the downloaded files correctly.
 
@@ -209,8 +209,8 @@ $ pip search "djan$"
 ## Graph analysis
 
 Analyzing the dependency graph is quite a challenge. Or at least that was what
-I initiallly thought. This graph has about 67&thinspace;582 nodes and
-436&thinspace;980 edges. Quite a bit. Definitely much larger than what I have
+I initiallly thought. This graph has about 67&thinsp;582 nodes and
+436&thinsp;980 edges. Quite a bit. Definitely much larger than what I have
 previously used.
 
 However, my friend Nilan who knows a lot about graphs send me a link to
@@ -242,6 +242,7 @@ I've only got some crappy images with Gephi / GraphViz:
     ../images/2015/12/pypi-rendered-x.png
     ../images/2015/12/gephi-1.png
     ../images/2015/12/gephi-2.png
+    ../images/2015/12/pypi-graph-small.png
 {% endgallery %}
 
 

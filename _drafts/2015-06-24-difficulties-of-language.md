@@ -19,6 +19,7 @@ https://www.youtube.com/watch?v=ldT2g2qDQNQ
 ### Parsing long words
 
 * Weltraumasche - Weltrau'masche or Weltraum'asche?
+* Kriegergenen - I somehow keep reading Kriegerinnen, but it is Krieger'genen
 
 ### Punctuation
 

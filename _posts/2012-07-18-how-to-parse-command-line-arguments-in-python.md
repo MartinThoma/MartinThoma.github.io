@@ -24,7 +24,7 @@ It is very easy to add command line <del>options</del> argument (if you require 
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
- 
+
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
@@ -101,52 +101,52 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print fib(args.n){% endhighlight %}
 
-Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse. 
+Note that it uses <code>type=int</code> not <code>type="int"</code> as it was in optparse.
 
 <h3>Example 2: less</h3>
 
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
- 
+
 def mul(A, B):
     a, b, c = A
     d, e, f = B
     return a*d + b*e, a*e + b*f, b*e + c*f
- 
+
 def pow(A, n):
     if n == 1:     return A
     if n & 1 == 0: return pow(mul(A, A), n//2)
     else:          return mul(A, pow(mul(A, A), (n-1)//2))
- 
+
 def fib(n):
     if n < 2: return n
     return pow((1,1,0), n-1)[0]
- 
+
 if __name__ == "__main__":
     import argparse
- 
+
     parser = argparse.ArgumentParser(description="less script")
     parser.add_argument("-f", "--file", dest="filename",
                         help="write report to FILE", metavar="FILE")
-    parser.add_argument("-n", 
-                        dest="n", default=10, type=int, 
+    parser.add_argument("-n",
+                        dest="n", default=10, type=int,
                         help="how many lines get printed")
     parser.add_argument("-q", "--quiet",
                         action="store_false", dest="verbose",
                         default=True,
                         help="don't print status messages to stdout")
- 
+
     args = parser.parse_args()
     if args.verbose:
         print("Will open file now and print %i lines." % args.n)
-       
+
     f = open(args.filename, 'r')
     for i in xrange(args.n):
         print f.readline()
 ```
 
-### Example 3: My copy-paste template
+### Example 3: copy-paste template
 
 This is how I use it most of the time. I want to show defaults in help:
 
@@ -160,8 +160,17 @@ import os
 
 
 def is_valid_file(parser, arg):
-    """Check if arg is a valid file that already exists on the file
-       system.
+    """
+    Check if arg is a valid file that already exists on the file system.
+
+    Parameters
+    ----------
+    parser : argparse object
+    arg : str
+
+    Returns
+    -------
+    arg
     """
     arg = os.path.abspath(arg)
     if not os.path.exists(arg):
@@ -171,6 +180,7 @@ def is_valid_file(parser, arg):
 
 
 def get_parser():
+    """Get parser object for script xy.py."""
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
     parser = ArgumentParser(description=__doc__,
                             formatter_class=ArgumentDefaultsHelpFormatter)
