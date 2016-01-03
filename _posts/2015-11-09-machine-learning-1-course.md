@@ -100,9 +100,15 @@ Weiteres
 
 Slide name: MLI_03_ReinforcementLearning_slides1.pdf
 
-Beim <a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">reinforcement learning</a> gehen wir hier von <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Markow-Entscheidungsproblemen</a> aus.
+<dl>
+  <dt><a href="https://en.wikipedia.org/wiki/Reinforcement_learning"><dfn>Reinforcement Learning</dfn></a> (<dfn>RL</dfn>, <dfn><a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">Bestärkendes Lernen</a></dfn>)</dt>
+  <dd>Beim bestärkenden Lernen ist man in einem
+      <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Markow-Entscheidungsproblemen</a>.
+      Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können
+      (nicht notwendigerweise sofort) bewertet werden.</dd>
+</dl>
 
-* Beispiel: Roboter muss zu einem Ziel navigieren
+* Beispiel für RL: Roboter muss zu einem Ziel navigieren
 
 Algorithmen:
 

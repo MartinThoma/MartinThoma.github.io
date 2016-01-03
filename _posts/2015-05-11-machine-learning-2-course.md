@@ -153,15 +153,84 @@ TODO
   <dt><dfn>Lagrange-Multiplikator</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Lagrange-Multiplikator">Wikipedia</a>)</dt>
   <dd>TODO</dd>
   <dt><dfn>Active Learning</dfn></dt>
-  <dd>TODO</dd>
+  <dd>Die Lernmaschine wählt die zu lernenden Daten selbst aus.</dd>
+  <dt><dfn>Query Synthesis</dfn> (siehe <a href="http://burrsettles.com/pub/settles.activelearning.pdf">Active Learning Literature Survey</a>)</dt>
+  <dd>Der Lerner kann Feature-Vektoren (Querys)
+      <a href="https://en.wikipedia.org/wiki/De_novo">de novo</a>, also von
+      Grund auf neu / selbst erzeugen. Er kann für diesen neuen Query ein
+      Orakel befragen, was das Label ist.</dd>
+  <dt><dfn>Selective Sampling</dfn> (Selektive Entnahme, siehe <a href="http://dl.acm.org/citation.cfm?id=2503327">Selective sampling and active learning from single and multiple teachers</a>)</dt>
+  <dd>Selective Sampling ist eine Methode des aktiven Lernens. Dabei wird
+      jede Runde \(t\) dem Lerner ein Feature-Vektor \(x_t \in \mathbb{R}^n\)
+      präsentiert. Der Lerner muss sich jede Runde entscheiden, ob er einen
+      Preis bezahlt um das Label zu sehen. Der Lerner hat also zwei Ziele, die
+      miteinander in Konflikt stehen: Er will alles richtig klassifizieren,
+      aber zugleich die Kosten so niedrig wie möglich halten.</dd>
+  <dt><dfn>Pool-Based Active Learning</dfn></dt>
+  <dd>Pool-Based Active Learning ist eine Methode des aktiven Lernens. Dabei
+      wird von einem Pool an ungelabelten Daten \(\mathcal{U}\) ausgegangen
+      und einem deutlich kleineren Pool \(\mathcal{L}\) an gelabelten Daten.
+      Queries werden aus \(\mathcal{U}\) gezogen. Dabei wird ganz
+      \(\mathcal{U}\) evaluiert und für den hilfreichsten Feature-Vektor
+      \(x \in \mathcal{U}\) nach einem Label gefragt.</dd>
+  <dt><dfn>Hinge-Funktion</dfn></dt>
+  <dd>\[f(x) = \max(x, 0)\]</dd>
+  <dt>Query-by-Committee (<dfn>QBC</dfn>)</dt>
+  <dd>Es wird ein Committee \(\mathcal{C}\) an Klassifikatoren trainiert,
+      welches gemeinsam (z.B. durch majority vote) eine Klassifikation trifft.
+
+    Allgemeiner Ansatz:
+    <ul>
+        <li>Trainiere eine Menge \(\mathcal{C}\) an Klassifikatoren</li>
+        <li>Wähle neue Daten, wenn die Hypothesen Wiedersprüchlich sind</li>
+    </ul>
+
+    Selektive Entnahme:
+    <ol>
+        <li>Beobachte neue Instanz \(x\) und werte diese mit \(\mathcal{C}\) aus</li>
+        <li>Frage das Label ab, falls es einen Wiederspruch in den Hypothesen
+            von \(\mathcal{C}\) für \(x\) gibt.</li>
+        <li>Neu trainiren, zurück zu 1</li>
+    </ol>
+
+    Pool-based Active Learning:
+    <ol>
+        <li>Messung des Wiederspruchs der Hypothesen für alle Instanzen \(x\)</li>
+        <li>Ranking (z.B. Entropie)</li>
+        <li>Abfrage der Labels für die \(k\) widersprüchlichsten Instanzen</li>
+        <li>Neu trainiren, zurück zu 1</li>
+    </ol>
+  </dd>
 </dl>
+
+Weiteres:
+
+* Ausreißerproblem: Ausreißer sollten im QBC nicht genommen werden. Dazu könnte
+  die Dichte im Datenraum gemessen werden.
 
 
 ### Reinforcement Learning
 
 Slides: 04_Reinforcement_Learning_II.pdf
 
-TODO
+<dl>
+  <dt><dfn>Options</dfn></dt>
+  <dd>Eine <i>Option</i> ist wohl-definiertes Verhalten, welches im
+      hierarchischen <abbr title="Reinforcement Learning">RL</abbr> eingesetzt
+      werden kann. Es ist ein Baustein für komplexe Pläne.</dd>
+  <dt><dfn>Hierarchien Abstrakter Maschinen</dfn> (<dfn>HAM</dfn>)</dt>
+  <dd>Ein <abbr title="Markov Decision Process">MDP</abbr> wird mit
+      Maschinen \(\{M_i\}\) kombiniert. Jede Maschine repräsentiert einen
+      Teil der Policy. Jede Maschine verwendet eigene Zustände \(m_t^i\)
+      und globale Zustände \(s_t\). Maschinen werden durch Zustandsautomaten
+      abgebildet.</dd>
+  <dt><dfn>MAXQ</dfn></dt>
+  <dd>TODO</dd>
+</dl>
+
+Folie 35:
+
+* Was heißt hier "mit festen Knoten"?
 
 
 ### Reinforcement Learning 2
