@@ -105,3 +105,12 @@ length of the sequence.
 * [Complete Course of Hugo Larochelle](https://www.youtube.com/playlist?list=PL6Xpj9I5qXYEcOhn7TqghAJ6NAPrNmUBH)
 * Papers
     * [Conditional Random Fields as Recurrent Neural Networks](http://arxiv.org/pdf/1502.03240.pdf)
+* [An Introduction to Conditional Random Fields for Relational Learning](http://www.cs.umass.edu/~mccallum/papers/crf-tutorial.pdf)
+* [Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data](http://www.cis.upenn.edu/~pereira/papers/crf.pdf)
+
+
+## See also
+
+* [What is the relationship between Markov Random Fields and Conditional Random Fields?](http://datascience.stackexchange.com/q/9617/8820) (formerly http://stats.stackexchange.com/q/188481/25741)
+* [Is every Conditional Random Field simply a Markov Random Field with restricted structure?](http://stats.stackexchange.com/q/169369/25741)
+* [What's the difference between a Markov Random Field and a Conditional Random Field?](http://stats.stackexchange.com/q/156697/25741)
