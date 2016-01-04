@@ -240,16 +240,61 @@ Slides: 05_DynamischeBayesscheNetze.pdf
 TODO
 
 <dl>
+  <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Multiplikationssatz"><dfn>Multiplikationssatz</dfn></a></dt>
+  <dd>Seien \(A, B, X_i\) Ereignisse. Dann gilt:
+      \[P(X_1, \dots, X_n) = P(X_1) \cdot \prod_{k=2}^n P(X_k | X_{k-1}, \dots, X_1)\]
+      und insbesondere
+      \[P(A\cap B) = P(A, B) = P(A\mid B) \cdot P(B)\]</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Gesetz_der_totalen_Wahrscheinlichkeit"><dfn>Gesetz der totalen Wahrscheinlichkeit</dfn></a></dt>
+  <dd>Seien \(A_1, \dots, A_n\) paarweise disjunkte Ereignisse mit
+      \(\sum_{i=1}^n\). Dann gilt für jedes beliebige Ereignis \(B\):
+      \[P(B) = \sum_{i=1}^n P(B | A_i) \cdot P(A_i) = P(A_i, B)\]</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Satz_von_Bayes"><dfn>Satz von Bayes</dfn></a></dt>
+  <dd>Seinen \(A, B\) Ereignisse mit \(P(B) > 0\). Dann gilt
+      \[P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}\]
+
+      Hierbei heißt \(P(A|B)\) die <i>a posteriori Wahrscheinlichkeit</i>,
+      \(P(B|A)\) die <i>likelihood</i>, \(P(A)\) die
+      <i>a priori Verteilung über \(A\)</i> und \(P(B)\) die
+      <i>a priori Verteilung über \(B\)</i>.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a></dt>
-  <dd>TODO</dd>
+  <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclical Graph">DAG</abbr> TODO
+      Bayessche Netze sind zur Modellierung kausaler Zusammenhänge geeignet.</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Markov_Random_Field"><dfn>Markov Random Field</dfn></a></dt>
+  <dd>Ein <i>MRF</i> ist ein ungerichteter Graph TODO.
+      MRFs sind zur Modellierung von Korrelation geeignet.</dd>
   <dt><dfn>Dynamisches Bayessches Netz</dfn></dt>
   <dd>TODO</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Markov_blanket"><dfn>Markov Blanket</dfn></a></dt>
-  <dd>TODO</dd>
+  <dd>Sei \(G=(V,E)\) ein DAG zu einem Bayesschen Netz und \(v_S \in V\).
+      Dann ist der Markov Blanket die folgende Knotenmenge \(B \subseteq V \setminus \{v_S\}\):
+
+      <ul>
+          <li>Die Elternknoten von \(v_S\) sind in \(B\).</li>
+          <li>Die Kindknoten \(K = \{v_{K_1}, \dots, v_{K_n}\}\) sind in \(B\)</li>
+          <li>Die Elternknoten von \(K\), ausgenommen von \(v_S\), sind in
+              \(B\)</li>
+      </ul>
+
+      Diese Knotenmenge macht \(v_S\) unabhängig von anderen Knoten.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a></dt>
   <dd>TODO</dd>
 </dl>
 
+Typische Fragestellungen:
+
+* Gegeben ist die Struktur eines Bayesschen Netzes: Wie lautet die Verteilung?
+  - Dies wird üblicherweise mit dem <abbr title="Expectation Maximimization">EM</abbr>-Algorithmus
+  gelöst.
+
+Anwendungsfälle:
+
+* Automatische Diagnose, gegeben die Symptome (Bayessches Netz)
+* Fahrzeugverfolgung: Vorhersage von Routen, welche die Fahrzeuge nehmen werden
+  (Dynamisches Bayessches Netz)
+
+Anmerkungen: Die Folien sind hier sehr gut! Insbesondere Folie&nbsp;14-23
+sollte man sich ansehen.
 
 
 ### Probablistisch Relationale Modelle
