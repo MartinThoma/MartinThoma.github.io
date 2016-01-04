@@ -233,13 +233,6 @@ Folie 35:
 * Was heißt hier "mit festen Knoten"?
 
 
-### Reinforcement Learning 2
-
-Slides: 04_Reinforcement_Learning_II-2.pdf
-
-TODO
-
-
 ### Dynamische Bayessche Netze
 
 Slides: 05_DynamischeBayesscheNetze.pdf
@@ -247,7 +240,13 @@ Slides: 05_DynamischeBayesscheNetze.pdf
 TODO
 
 <dl>
+  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a></dt>
+  <dd>TODO</dd>
   <dt><dfn>Dynamisches Bayessches Netz</dfn></dt>
+  <dd>TODO</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Markov_blanket"><dfn>Markov Blanket</dfn></a></dt>
+  <dd>TODO</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a></dt>
   <dd>TODO</dd>
 </dl>
 
@@ -260,7 +259,7 @@ Slides: 06_Probablistisch_Relationale_Modelle.pdf
 TODO
 
 <dl>
-  <dt><dfn>Probablistisch Relationales Modelle</dfn></dt>
+  <dt><dfn>Objektorientierte Probablistisch Relationales Modelle</dfn> (<dfn>OPRM</dfn>)</dt>
   <dd>TODO</dd>
 </dl>
 
@@ -272,7 +271,7 @@ Slides: 07_Gaussche_Prozesse.pdf
 TODO
 
 <dl>
-  <dt><dfn>Gausscher Prozess</dfn></dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (siehe <a href="http://www.gaussianprocess.org/">gaussianprocess.org</a>)</dt>
   <dd>TODO</dd>
 </dl>
 
