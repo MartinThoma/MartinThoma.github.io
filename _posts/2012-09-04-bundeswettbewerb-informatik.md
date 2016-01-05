@@ -48,7 +48,7 @@ Eine Randbemerkung dazu noch:
 Ich habe mal einen kurzen Job als Programmierer f&uuml;r ein gr&ouml;&szlig;eres Projekt &uuml;bernommen. Dabei gab es &uuml;ber 2GB, die gr&ouml;&szlig;tenteils C++-Code und ein paar Testdaten waren (rechnet es aus, das ist VERDAMMT viel Code!). Die hatten keine Dokumentation! Ich habe bestimmt eine Woche nur damit verbracht, mich mehr oder weniger wahllos durch wirre Quelltexte zu klicken, weil ich noch nicht einmal wusse, wo ich genau anfangen soll. Ich glaube den Zweck einer Dokumentation versteht man erst nach einem solchem Erlebnis.
 
 <h3>Beispiele</h3>
-Die Beispiele werden leider hin und wieder vergessen und sind oft aussagekr&auml;ftig. &Uuml;berlegt euch: Welche Eingaben sind Standard-F&auml;lle? Welche Eingaben sind Sonderf&auml;lle?
+Die Beispiele werden leider hin und wieder vergessen und sind oft nicht aussagekr&auml;ftig. &Uuml;berlegt euch: Welche Eingaben sind Standard-F&auml;lle? Welche Eingaben sind Sonderf&auml;lle? Diese sollten unbedingt als Beispiele gezeigt werden, da es oft nicht klar ist, ob jemand in einer Einsendung daran gedacht hat. Mit Sonderfällen sind nicht falsche Eingaben gemeint - das ist für den Bundeswettbewerb unwichtig - sondern korrekt formatierte Eingaben, die etwas ungewöhnliches / schweres aufweisen.
 
 Die Beispiele sollen euch helfen, Probleme zu entdecken. Eventuell funktioniert eure Implementierung nicht so, wie ihr es euch vorstellt. Das k&ouml;nnt ihr damit feststellen.
 In diesem Zusammenhang solltet ihr euch das Konzept der <a href="http://de.wikipedia.org/wiki/Testgetriebene_Entwicklung">testgetriebenen Entwicklung</a> ansehen. Dabei schreibt man zuerst alle wichtigen Testf&auml;lle, bevor man &uuml;berhaupt eine Zeile produktiven Codes schreibt. Beispielsweise f&uuml;r die Aufgabe &bdquo;Verben&ldquo; w&uuml;rde ich heute so eine Herangehensweise w&auml;hlen.
@@ -93,6 +93,18 @@ Aber ihr m&uuml;sst keine dieser Sprachen nehmen. Das ist ja das tolle am BwInf.
 
 <h2>Quelltext-Kommentare</h2>
 Trotz Doku sind Quelltextkommentare erw&uuml;nscht. Allerdings m&uuml;ssen Standard-Strukturen (if/else,for,while, Variablendeklarationen) nicht kommentiert werden! &Uuml;bertreibt es nicht, aber verwendet Kommentare, wenn einem Au&szlig;enstehendem nicht direkt klar sein kann, was ihr macht. Java-Programmierer sollten definitiv die standard Sun <a href="http://de.wikipedia.org/wiki/Checkstyle">Checkstyle</a> und <a href="http://de.wikipedia.org/wiki/Javadoc">JavaDoc</a> verwenden, Python-Programmierer sollten <a href="http://www.python.org/dev/peps/pep-0257/#one-line-docstrings">DocStrings</a> kennen und verwenden. F&uuml;r alle anderen Sprachen muss man halt ein Gef&uuml;hl entwickeln. Wer in C wild mit Pointern um sich wirft sollte tendenziell wohl mehr Kommentare machen als jemand, der Pythons Standardbefehle nutzt.
+
+
+<h3>Style-Guides</h3>
+
+Es ist nicht zwingend erforderlich, dass ihr euch an sogenannte Styel-Guides haltet. Allerdings ist es bei der Bewertung - und insbesondere später, wenn ihr an echten Projekten mit anderen zusammen arbeitet - sehr hilfreich, wenn ihr euch an Konventionen haltet. Hier sind ein paar:
+
+<ul>
+    <li><b>C++</b>: von <a href="https://google.github.io/styleguide/cppguide.html">Google</a></li>
+    <li><b>Java</b>: <a href="https://google.github.io/styleguide/javaguide.html">Google</a> oder <a href="http://www.oracle.com/technetwork/java/codeconvtoc-136057.html">Oracle</a></li>
+    <li><b>Python</b>: <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>, <a href="http://pep8online.com/">Online-Checker</a>, <a href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">NumpyDoc</a></li>
+</ul>
+
 
 <h2>Was sollte man lernen?</h2>
 Falls ihr Informatik studieren wollt oder sp&auml;ter programmieren wollt, sind SVN und GIT unverzichtbar. Au&szlig;erdem werdet ihr wohl mit Java und C++ in Kontakt kommen. Am <a href="http://de.wikipedia.org/wiki/Karlsruher_Institut_f%C3%BCr_Technologie">KIT</a> wird euch beigebracht, wie ihr mit Eclipse und checkstyle umgeht. Aber es wird auch erwartet, dass ihr es nutzt.
