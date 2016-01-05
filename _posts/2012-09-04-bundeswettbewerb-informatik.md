@@ -127,3 +127,8 @@ Deutlich einfacher ist &bdquo;Theoretische Informatik - kurz gefasst&ldquo;. Das
 Und, nur um es nochmals zu betonen: Das sind pers&ouml;nliche Erfahrungen und teilweise Bitten von jemanden, der es korrigiert. Wenn Teilnehmer meine Tipps nicht beachten, gibt es keinen Punktabzug und es gibt auch keine Bonuspunkte, wenn ihr sie beachtet. Aber ihr erleichtert ein paar Leuten die Korrektur, ihr lernt dabei eventuell was neues (LaTeX und GIT/SVN werdet ihr im Informatik-Studium noch ben&ouml;tigen) und vielleicht fallen euch Fehler oder M&auml;ngel in eurer L&ouml;sung auf.
 
 Falls ihr Fragen habt kann ich die auch gerne beantworten. Auf <a href="http://ikhaya.ubuntuusers.de/2012/09/01/der-31-bundeswettbewerb-informatik-startet/">Ikhaya</a> habe ich bereits ein paar beantwortet.
+
+## Siehe auch
+
+* [bwinf-tipps.de](http://bwinf-tipps.de/)
+* [tobias-thierer.de](http://tobias-thierer.de/bwinf_runde1-2.html)
