@@ -216,13 +216,29 @@ Slides: `04_Reinforcement_Learning_II.pdf`
   <dd>Eine <i>Option</i> ist wohl-definiertes Verhalten, welches im
       hierarchischen <abbr title="Reinforcement Learning">RL</abbr> eingesetzt
       werden kann. Es ist ein Baustein für komplexe Pläne.</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markov Decision Process</dfn></a> (<dfn>MDP</dfn>)</dt>
+  <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
+      \((S, A, T, r, p_0)\), wobei
+      <ul>
+          <li>\(S\) eine endliche Zustandsmenge,</li>
+          <li>\(A\) eine endliche Menge von Aktionen,</li>
+          <li>\(T_a(s, s') = T(s_{t+1}=s'|s_t = s, a_t = a)\) die
+              Wahrscheinlichkeit zu einem beliebigen Zeitpunkt von Zustand
+              \(s\) mit der Aktion \(a\) in den Zustand \(a'\) zu kommen
+              (engl. Transition),</li>
+          <li>\(r_a(s, s')\) ist die Belohnung (Reward), die man direkt
+              erhält wenn man erhält wenn man von Zustand \(s\) mit Aktion
+              \(a\) in Zustand \(s'\) kommt,</li>
+          <li>\(p_0\) ist die Startverteilung auf die Zustände \(S\)</li>
+      </ul>
+  </dd>
   <dt><dfn>Hierarchien Abstrakter Maschinen</dfn> (<dfn>HAM</dfn>)</dt>
   <dd>Ein <abbr title="Markov Decision Process">MDP</abbr> wird mit
       Maschinen \(\{M_i\}\) kombiniert. Jede Maschine repräsentiert einen
       Teil der Policy. Jede Maschine verwendet eigene Zustände \(m_t^i\)
       und globale Zustände \(s_t\). Maschinen werden durch Zustandsautomaten
       abgebildet.</dd>
-  <dt><dfn>MAXQ</dfn></dt>
+  <dt><dfn>MaxQ</dfn></dt>
   <dd>TODO</dd>
 </dl>
 
@@ -384,7 +400,7 @@ Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorle
       graphisches Modell.</dd>
   <dt><dfn>Restricted Boltzmann Machine</dfn> (<dfn>RBM</dfn>)</dt>
   <dd>Eine <i>RBM</i> ist ein neuronales Netz mit nur einem Hidden Layer.
-      Es werden keine Verbindungen zwischen den Hidden Units erlaubt.</dd>
+      Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA">Hinton, 2015</a>).</dd>
   <dt><dfn>Contrastive Wake-Sleep Algorithm</dfn></dt>
   <dd>TODO (Folie 34) - see <a href="http://www.cs.toronto.edu/~fritz/absps/ncfast.pdf">A Fast Learning Algorithm for Deep Belief Nets</a></dd>
 </dl>
@@ -568,6 +584,15 @@ Alternative:
 * [Beurteilung eines binären Klassifikators](https://de.wikipedia.org/wiki/Beurteilung_eines_binären_Klassifikators)
 * [False positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives)
 * Matt Zeiler: [Visualizing and Understanding Deep Neural Networks](https://www.youtube.com/watch?v=ghEmQSxT6tw) on YouTube, 2015. 48 minutes.
+
+
+## Prüfungsfragem
+
+<ul>
+    <li>Was versteht man unter einer "Transductive SVM"?
+    → TODO</li>
+</ul>
+
 
 ## Material und Links
 

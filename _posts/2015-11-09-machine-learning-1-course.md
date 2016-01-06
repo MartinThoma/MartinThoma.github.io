@@ -115,14 +115,33 @@ Algorithmen:
 * Policy Learning
 * Simple Value Iteration
 * Simple Temporal Difference Learning
+* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?
+
+#### Q-Learning
 * [Q-learning](https://en.wikipedia.org/wiki/Q-learning)
     * [YouTube: Lecture 18: RL Part 1: Q-Learning](https://www.youtube.com/watch?v=yS5F_vm9Ahk): 1:16:11. BrownCS141 Spring 2014.
     * [YouTube: PacMan](https://www.youtube.com/watch?v=3sLV0OJLdns)
-* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?
 
-Siehe auch:
+Pseudocode:
+
+```text
+initialize Q[num_states, num_actions]
+start in state s
+repeat:
+    select and execute action a
+    observe reward r and new state s'
+    Q[s', a] <- Q[s, a] + \alpha (r + \gamma \max_{a'} Q[s', a'] - Q[s, a])
+    s <- s'
+```
+
+where \(\alpha \in (0, 1]\) is a learning rate and \(\gamma\) is a discount
+factor.
+
+
+#### Siehe auch
 
 * [Optimalitätsprinzip von Bellman](https://de.wikipedia.org/wiki/Optimalit%C3%A4tsprinzip_von_Bellman)
+* Guest Post (Part I): [Demystifying Deep Reinforcement Learning](http://www.nervanasys.com/demystifying-deep-reinforcement-learning/)
 
 
 ### Lerntheorie
@@ -141,6 +160,10 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       zwischen einem einfachen Modell und einem komplexen Modell, welches
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
       Overfitting leidet.</dd>
+  <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn>VC-Dimension</dfn>)</dt>
+  <dd>Die VC-Dimension \(VC(H^\alpha)\) eines Hypothesenraumes \(H^\alpha\)
+      ist gleich der maximalen Anzahl an Datenpunkten, die von \(H^\alpha\)
+      beliebig separiert werden können.</dd>
 </dl>
 
 * Lernmaschine wird definiert durch Hypothesenraum \\(\{h_\alpha: \alpha \in A\}\\)
@@ -160,7 +183,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 * <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a>
     * Folie 35: Was ist eine Instanz der Länge \\(n\\)? (TODO)
 * VC-Dimension
-    * Folie 44: Was ist \\(\eta\\)?
+    * Folie 44: Was ist \\(\eta\\)? (TODO)
 * TODO: Wie hängen PAC und VC-Dimension zusammen?
 
 #### Boosting
@@ -171,16 +194,23 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
   <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>
   <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen. Dabei
       bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>
+  <dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>)</dt>
+  <dd>Learn a classifier for data. Get examples where the classifier got it
+      wrong. Train new classifier on the wrong ones.</dd>
 </dl>
 
 * Fragen zu Folie 20:
     * Sind die Datensätze disjunkt?
     * TODO: Verstehe Algorithmus nicht.
-* Folie 21: TODO - Verstehe AdaBoost nicht
 * Folie 22:
     * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)?
     * Stellt \\(W_k(i)\\) die Wahrscheinlichkeit dar, dass Beispiel \\(i\\) im \\(k\\)-ten
       Durchlauf für das Training verwendet wird?
+
+
+Siehe auch:
+
+* Alexander Ihler: <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">AdaBoost</a>.
 
 
 {% caption align="aligncenter" width="500" alt="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" text="Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches" url="../images/2015/12/ml-ensemble-learning.png" %}
@@ -203,6 +233,8 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 ### Neuronale Netze
 
 Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
+
+Siehe auch [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
 
 * Einsatzfelder:
     * Klassifiktion: Spracherkennung, Schrifterkennung
@@ -413,7 +445,7 @@ Fragen:
 
 * Folie 23: Warum ist \\(h_{MAP(x)}\\) nicht die wahrscheinlichste
   Klassifikation?
-* Folie 24: Was ist \(V\)?
+* Folie 24: Was ist \\(V\\)?
 
 
 ### HMM
@@ -497,6 +529,17 @@ Siehe auch:
     <li>Was ist Deduktives Lernen?
         → Fakten werden gegeben. Der lernende bekommt das allgemeine Konzept
            gesagt und muss nur logische Schlussfolgerungen machen.</li>
+    <li>Wie lautet die Bellman-Gleichung?
+        → \(Q(s, a) = r + \gamma \max_{a'} Q(s', a')\) wobei \(\gamma\) ein
+        Diskontierungsfaktor ist, \(s'\) der Zustand in den man kommt, wenn
+        man \(a\) ausführt und \(r\) der Reward nach ausführen von \(a\) in
+        \(s\) ist.</li>
+    <li>Wie lautet die Fehlerabschätzung von Vapnik?
+        → (TODO: Empirischer Fehler / realer Fehler)</li>
+    <li>Wie funktioniert Q-Learning?
+        → TODO</li>
+    <li>Was versteht man unter Cascade Correlation?
+        → TODO</li>
 </ul>
 
 ## Material und Links
