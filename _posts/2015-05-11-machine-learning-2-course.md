@@ -62,7 +62,7 @@ featured_image: logos/klausur.png
 
 ### Einführung
 
-Slides: 01_Einfu__hrung_MLII.pdf
+Slides: `01_Einfu__hrung_MLII.pdf`
 
 Rückblick auf [ML 1](//martin-thoma.com/machine-learning-1-course/).
 
@@ -73,14 +73,14 @@ Meine Fragen (TODO):
 
 ### Semi-Supervised Learning
 
-Slides: 02_Semi-supervised-learning.pdf
+Slides: `02_Semi-supervised-learning.pdf`
 
 <dl>
   <dt><dfn>Überwachtes Lernen</dfn> (engl. <dfn>Supervised Learning</dfn>)</dt>
   <dd>Alle Trainingsdaten liegen mit Labels vor.</dd>
   <dt><dfn>Unüberwachtes Lernen</dfn> (engl. <dfn>Unsupervised Learning</dfn>)</dt>
   <dd>Alle Trainingsdaten liegen ohne Labels vor.</dd>
-  <dt><dfn>Semi-Supervised Learning</dfn> (<dfn>SSL</dfn>, siehe <a href="https://en.wikipedia.org/wiki/Semi-supervised_learning">Wikipedia</a>)</dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Semi-supervised_learning"><dfn>Semi-Supervised Learning</dfn></a> (<dfn>SSL</dfn>)</dt>
   <dd>Die meisten Trainingsdaten liegen ohne Labels vor, jedoch gibt es für
       jede Klasse auch gelabelte Daten.</dd>
   <dt><dfn>Self-Learning</dfn> (<dfn>Self-Training</dfn>, <dfn>Self-Labeling</dfn>, <dfn>Decision-directed learning</dfn>)</dt>
@@ -145,12 +145,10 @@ den Rest noch zu labeln. Siehe Folie 28-31.
 
 ### Semi-Supervised and Active Learning
 
-Slides: 03_Semi-supervised+Active-learning.pdf
-
-TODO
+Slides: `03_Semi-supervised+Active-learning.pdf`
 
 <dl>
-  <dt><dfn>Lagrange-Multiplikator</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Lagrange-Multiplikator">Wikipedia</a>)</dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Lagrange-Multiplikator"><dfn>Lagrange-Multiplikator</dfn></a></dt>
   <dd>TODO</dd>
   <dt><dfn>Active Learning</dfn></dt>
   <dd>Die Lernmaschine wählt die zu lernenden Daten selbst aus.</dd>
@@ -211,7 +209,7 @@ Weiteres:
 
 ### Reinforcement Learning
 
-Slides: 04_Reinforcement_Learning_II.pdf
+Slides: `04_Reinforcement_Learning_II.pdf`
 
 <dl>
   <dt><dfn>Options</dfn></dt>
@@ -235,9 +233,7 @@ Folie 35:
 
 ### Dynamische Bayessche Netze
 
-Slides: 05_DynamischeBayesscheNetze.pdf
-
-TODO
+Slides: `05_DynamischeBayesscheNetze.pdf`
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Wahrscheinlichkeit#Multiplikationssatz"><dfn>Multiplikationssatz</dfn></a></dt>
@@ -322,7 +318,7 @@ Siehe auch:
 
 ### Probablistisch Relationale Modelle
 
-Slides: 06_Probablistisch_Relationale_Modelle.pdf
+Slides: `06_Probablistisch_Relationale_Modelle.pdf`
 
 TODO
 
@@ -378,7 +374,7 @@ starting to read the slides.
 
 ### Deep Learning
 
-Slides: 08_DeepLearning.pdf
+Slides: `08_DeepLearning.pdf`
 
 Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
 
@@ -410,11 +406,13 @@ Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorle
 
 * [MNIST Demo](http://www.cs.toronto.edu/~hinton/adi/index.htm) (Flash):
   Neuronales Netz welches Ziffern generiert
+* Geoffry Hinton: [Deep Learning](https://www.youtube.com/watch?v=IcOMKXAw5VA)
+  on YouTube, 2015. 43&nbsp;minutes. (Topics: RBMs)
 
 
 ### Convolutional Neural Networks
 
-Slides: 09_ConvolutionalNeuralNetworks.pdf
+Slides: `09_ConvolutionalNeuralNetworks.pdf`
 
 Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
 
@@ -452,7 +450,7 @@ Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorle
 
 ### Spiking Neural Nets
 
-Slides: 10_SpikingNeuralNets.pdf
+Slides: `10_SpikingNeuralNets.pdf`
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Gepulste_neuronale_Netze"><dfn>Spiking Neural Networks</dfn></a></dt>
@@ -481,9 +479,9 @@ Slides: 10_SpikingNeuralNets.pdf
 
 ### Evaluation
 
-Slides: 11_Evaluation.pdf
+Slides: `11_Evaluation.pdf`
 
-Für Klassifikation:
+#### Für Klassifikation:
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Konfusionsmatrix"><dfn>Konfusionsmatrix</dfn></a></dt>
@@ -541,7 +539,16 @@ Für Klassifikation:
   <dd>\[F_\alpha = \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}\]</dd>
 </dl>
 
-Für Regression
+Alternative:
+
+* Aufstellen einer Kostenfunktion und optimieren nach Kosten.
+* Plotten der Anzahl der Trainingsdaten (\(x\)-Achse) und des Fehlers
+  (\(y\)-Achse). Die Kurven sollten der Test-Fehler sowie der Trainingsfehler
+  sein. Damit lässt sich abschätzen, ob mehr Trainingsdaten ohne eine
+  Veränderung des Modells hilfreich sind.
+
+
+#### Für Regression
 
 <dl>
     <dt><dfn>Mittlerer Quadratischer Fehler</dfn> (<dfn>MSE</dfn>, <dfn>Mean Squared Error</dfn>)</dt>
@@ -553,7 +560,7 @@ Für Regression
 </dl>
 
 
-Alternative: Aufstellen einer Kostenfunktion und optimieren nach Kosten.
+
 
 
 #### Siehe auch
