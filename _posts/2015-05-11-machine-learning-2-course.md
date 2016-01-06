@@ -10,7 +10,7 @@ tags:
 - Machine Learning
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester 2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.</div>
 
 ## Behandelter Stoff
 
@@ -278,6 +278,8 @@ TODO
       </ul>
 
       Diese Knotenmenge macht \(v_S\) unabhängig von anderen Knoten.</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Filter"><dfn>Bayes-Filter</dfn></a> (siehe <a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering">Naive Bayes spam filtering</a>)</dt>
+  <dd>TODO</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a></dt>
   <dd>TODO</dd>
 </dl>
