@@ -7,17 +7,17 @@ TODO
   - e.g. 2013-03-16-c-puzzle-3.html (http://martinthoma.github.io/c-puzzle-3/)
 * Don't check for Latex ($...$) inside of highlight environment or
   fenced code blocks (Abostrophes):
-  - //martinthoma.github.io/c-puzzle-3/
-  - //martin-thoma.com/plotting-graphs-with-pgfplots-latex-and-tikz/
-  - //martin-thoma.com/semantische-sicherheit/
-  - //martin-thoma.com/how-to-search-for-mathematical-symbols-in-latex/
-  - //martin-thoma.com/latex-versioning-a-great-experience/
+  - http://martinthoma.github.io/c-puzzle-3/
+  - http://martin-thoma.com/plotting-graphs-with-pgfplots-latex-and-tikz/
+  - http://martin-thoma.com/semantische-sicherheit/
+  - http://martin-thoma.com/how-to-search-for-mathematical-symbols-in-latex/
+  - http://martin-thoma.com/latex-versioning-a-great-experience/
   - All posts tagged with "PHP"
-* Markdown rendered within fenced code tag: //martin-thoma.com/how-to-print-source-code-with-latex/
+* Markdown rendered within fenced code tag: http://martin-thoma.com/how-to-print-source-code-with-latex/
 * Fix posts:
-  - //martin-thoma.com/comparing-dates-in-php-and-mysql/
-  - //martin-thoma.com/algorithmen-ii-klausur/ (LaTeX)
-  - //martin-thoma.com/solving-linear-equations-with-gaussian-elimination/ (LaTeX at bottom)
+  - http://martin-thoma.com/comparing-dates-in-php-and-mysql/
+  - http://martin-thoma.com/algorithmen-ii-klausur/ (LaTeX)
+  - http://martin-thoma.com/solving-linear-equations-with-gaussian-elimination/ (LaTeX at bottom)
 * Apply CSS Rules from [CSS Wizardry](https://github.com/csswizardry/CSS-Guidelines)
 
 
@@ -55,7 +55,7 @@ Then
 Install
 ========
 
-See //martin-thoma.com/jekyll-and-git/
+See http://martin-thoma.com/jekyll-and-git/
 
 ## Sublime
 
