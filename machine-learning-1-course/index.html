@@ -262,19 +262,39 @@ größerer Menge.</li>
 <li>Policy Learning</li>
 <li>Simple Value Iteration</li>
 <li>Simple Temporal Difference Learning</li>
+<li><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">TD-Learning</a> (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?</li>
+</ul>
+
+<h4 id="q-learning">Q-Learning</h4>
+
+<ul>
 <li><a href="https://en.wikipedia.org/wiki/Q-learning">Q-learning</a>
 
 <ul>
 <li><a href="https://www.youtube.com/watch?v=yS5F_vm9Ahk">YouTube: Lecture 18: RL Part 1: Q-Learning</a>: 1:16:11. BrownCS141 Spring 2014.</li>
 <li><a href="https://www.youtube.com/watch?v=3sLV0OJLdns">YouTube: PacMan</a></li>
 </ul></li>
-<li><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">TD-Learning</a> (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?</li>
 </ul>
 
-<p>Siehe auch:</p>
+<p>Pseudocode:</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">initialize Q[num_states, num_actions]
+start in state s
+repeat:
+    select and execute action a
+    observe reward r and new state s'
+    Q[s', a] &lt;- Q[s, a] + \alpha (r + \gamma \max_{a'} Q[s', a'] - Q[s, a])
+    s &lt;- s'
+</code></pre>
+</div>
+<p>where (\alpha \in (0, 1]) is a learning rate and (\gamma) is a discount
+factor.</p>
+
+<h4 id="siehe-auch">Siehe auch</h4>
 
 <ul>
 <li><a href="https://de.wikipedia.org/wiki/Optimalit%C3%A4tsprinzip_von_Bellman">Optimalitätsprinzip von Bellman</a></li>
+<li>Guest Post (Part I): <a href="http://www.nervanasys.com/demystifying-deep-reinforcement-learning/">Demystifying Deep Reinforcement Learning</a></li>
 </ul>
 
 <h3 id="tocAnchor-1-1-5">Lerntheorie</h3>
@@ -293,6 +313,10 @@ größerer Menge.</li>
       zwischen einem einfachen Modell und einem komplexen Modell, welches
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
       Overfitting leidet.</dd>
+  <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn>VC-Dimension</dfn>)</dt>
+  <dd>Die VC-Dimension \(VC(H^\alpha)\) eines Hypothesenraumes \(H^\alpha\)
+      ist gleich der maximalen Anzahl an Datenpunkten, die von \(H^\alpha\)
+      beliebig separiert werden können.</dd>
 </dl>
 
 <ul>
@@ -324,7 +348,7 @@ mit Hilfe von Lernbeispielen zu finden.</li>
 <li>VC-Dimension
 
 <ul>
-<li>Folie 44: Was ist \(\eta\)?</li>
+<li>Folie 44: Was ist \(\eta\)? (TODO)</li>
 </ul></li>
 <li>TODO: Wie hängen PAC und VC-Dimension zusammen?</li>
 </ul>
@@ -338,6 +362,9 @@ mit Hilfe von Lernbeispielen zu finden.</li>
   <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>
   <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen. Dabei
       bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>
+  <dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>)</dt>
+  <dd>Learn a classifier for data. Get examples where the classifier got it
+      wrong. Train new classifier on the wrong ones.</dd>
 </dl>
 
 <ul>
@@ -347,7 +374,6 @@ mit Hilfe von Lernbeispielen zu finden.</li>
 <li>Sind die Datensätze disjunkt?</li>
 <li>TODO: Verstehe Algorithmus nicht.</li>
 </ul></li>
-<li>Folie 21: TODO - Verstehe AdaBoost nicht</li>
 <li>Folie 22:
 
 <ul>
@@ -355,6 +381,12 @@ mit Hilfe von Lernbeispielen zu finden.</li>
 <li>Stellt \(W_k(i)\) die Wahrscheinlichkeit dar, dass Beispiel \(i\) im \(k\)-ten
 Durchlauf für das Training verwendet wird?</li>
 </ul></li>
+</ul>
+
+<p>Siehe auch:</p>
+
+<ul>
+<li>Alexander Ihler: <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">AdaBoost</a>.</li>
 </ul>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -382,6 +414,8 @@ nicht eher \(VC(H^\alpha)\) sein?</li>
 <h3 id="tocAnchor-1-1-6">Neuronale Netze</h3>
 
 <p>Slide name: <code>MLI_05_Neuronale_Netze_slides1.pdf</code></p>
+
+<p>Siehe auch <a href="//martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze - Vorlesung</a></p>
 
 <ul>
 <li>Einsatzfelder:
@@ -601,7 +635,7 @@ die meisten Stimmen, wird gewählt.</li>
 <ul>
 <li>Folie 23: Warum ist \(h_{MAP(x)}\) nicht die wahrscheinlichste
 Klassifikation?</li>
-<li>Folie 24: Was ist (V)?</li>
+<li>Folie 24: Was ist \(V\)?</li>
 </ul>
 
 <h3 id="tocAnchor-1-1-11">HMM</h3>
@@ -688,6 +722,17 @@ gegeben eine Sequenz von Beobachtungen.</li>
     <li>Was ist Deduktives Lernen?
         → Fakten werden gegeben. Der lernende bekommt das allgemeine Konzept
            gesagt und muss nur logische Schlussfolgerungen machen.</li>
+    <li>Wie lautet die Bellman-Gleichung?
+        → \(Q(s, a) = r + \gamma \max_{a'} Q(s', a')\) wobei \(\gamma\) ein
+        Diskontierungsfaktor ist, \(s'\) der Zustand in den man kommt, wenn
+        man \(a\) ausführt und \(r\) der Reward nach ausführen von \(a\) in
+        \(s\) ist.</li>
+    <li>Wie lautet die Fehlerabschätzung von Vapnik?
+        → (TODO: Empirischer Fehler / realer Fehler)</li>
+    <li>Wie funktioniert Q-Learning?
+        → TODO</li>
+    <li>Was versteht man unter Cascade Correlation?
+        → TODO</li>
 </ul>
 
 <h2 id="tocAnchor-1-15">Material und Links</h2>
