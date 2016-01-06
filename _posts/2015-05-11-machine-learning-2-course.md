@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Machine Learning 2 - Vorlesung
+title: Machine Learning 2
 author: Martin Thoma
 date: 2015-05-11 11:00
 categories:
@@ -10,7 +10,7 @@ tags:
 - Machine Learning
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.<br/>Es gibt auch einen Artikel zu <a href="http://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></div>
 
 ## Behandelter Stoff
 
@@ -278,10 +278,17 @@ TODO
       </ul>
 
       Diese Knotenmenge macht \(v_S\) unabhängig von anderen Knoten.</dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Filter"><dfn>Bayes-Filter</dfn></a> (siehe <a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering">Naive Bayes spam filtering</a>)</dt>
-  <dd>TODO</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Naive_Bayes_spam_filtering"><dfn>Naive Bayes Spam Filter</dfn></a></dt>
+  <dd>Ein naiver Bayes Spamfilter nutzt häufig Bag-of-Words Features. Man berechnet die Wahrscheinlichkeit,
+      dass eine gegebene E-Mail Spam ist. Dazu geht man davon aus, dass die
+      Wörter in einer E-Mail unabhängig von einander sind und nutzt den
+      Satz von Bayes.
+      Siehe <a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel">Bayes-Klassifikator</a>
+      für eine detailiertere Beschreibung.</dd>
+  <dt>Bayes Filter</dt>
+  <dd>Filter + Predict (TODO)</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a></dt>
-  <dd>TODO</dd>
+  <dd>Der Kalman-Filter ist ein Bayes-Filter. Er wird z.B. zum Schätzen einer Fahrzeugtrajektorie eingesetzt. TODO</dd>
 </dl>
 
 Typische Fragestellungen:
@@ -303,6 +310,15 @@ Es scheint folgende Beziehung zu gelten: HMMs, Kalman-Filter, Extended
 Kalman-Filter, Partikel Filter sind Beispiele für Bayes-Filter. Bayes-Filter
 sind Beispiele für dynamische Bayessche Netze.
 
+Siehe auch:
+
+* Udacity: [Artificial Intelligence for Robotics](https://www.youtube.com/watch?v=8O9GV4SUToA&index=77&list=PLAwxTw4SYaPkCSYXw6-a_aAoXVKLDwnHK) - good content for Kalman Filters
+
+{% gallery columns="2" size="medium" %}
+    ../images/2016/01/tracking-robots.png    "Tracking Robots"
+    ../images/2016/01/probabilisitc-graphical-models.png    "Probabilistic Graphical Models"
+{% endgallery %}
+
 
 ### Probablistisch Relationale Modelle
 
@@ -318,13 +334,45 @@ TODO
 
 ### Gaussche Prozesse
 
-Slides: 07_Gaussche_Prozesse.pdf
+Slides: `07_Gaussche_Prozesse.pdf`
 
-TODO
+I suggest reading the first two chapters of the online book
+<a href="http://www.gaussianprocess.org/">gaussianprocess.org</a> before
+starting to read the slides.
 
 <dl>
-  <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (siehe <a href="http://www.gaussianprocess.org/">gaussianprocess.org</a>)</dt>
-  <dd>TODO</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Lineare_Regression"><dfn>Lineare Regression</dfn></a></dt>
+  <dd>Die lineare Regression ist ein Modell zur approximation von Datenpunkten
+      \((x, y) \in \mathbb{R}^n \times \mathbb{R}\) durch eine
+      lineare Funktion, d.h. einer Funktion der Form \(f(x) = x^T \cdot w\).
+      Dabei ist \(w \in \mathbb{R}^n\).
+
+      Wenn man als Optimierungskriterium den quadratischen Abstand
+      \[E(f, data) = \sum_{(x,y) \in data} (f(x) - y)^2\]
+      nimmt, dann ist eine optimale Lösung durch
+      \[w = (X^T X)^{-1} X^T y\]
+      gegeben.
+
+      Siehe auch: <a href="http://math.stackexchange.com/q/691812/6876">Proof of when is \(A=X^T X\) invertible?</a>
+      </dd>
+  <dt><dfn>Affine Regression</dfn></dt>
+  <dd>Die affine Regression ist ein Modell zur approximation von Datenpunkten
+      \((x, y) \in \mathbb{R}^n \times \mathbb{R}\) durch eine
+      affine Funktion, d.h. einer Funktion der Form \(f(x) = x^T \cdot w + b\).
+      Dabei ist \(w \in \mathbb{R}^n, b \in \mathbb{R}\). Um das Problem auf
+      ein lineares zu reduzieren kann man den Feature-Vektor \(x\) durch ein
+      konstantes Feature \(x_0 = 1\) erweitern.
+      </dd>
+  <dt><dfn>Korrelationskoeffizient</dfn></dt>
+  <dd>Der Korrelationskoeffizient \(\kappa(X, Y) \in [-1, 1]\) ist ein Maß für
+      den linearen Zusammenhang zwischen zwei Zufallsvariablen \(X, Y\). Er
+      ist definiert als
+      \[\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}\]</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (<dfn>Kriging</dfn>)</dt>
+  <dd>Gaussche Prozesse approximieren eine Funktion dadurch, dass sie an jedem
+      Punkt eine Normalverteilung (Gauss-Verteilung) annehmen.
+
+      Siehe <a href="https://en.wikipedia.org/wiki/Kriging">Gaussian process regression</a></dd>
 </dl>
 
 
@@ -332,23 +380,73 @@ TODO
 
 Slides: 08_DeepLearning.pdf
 
-TODO
+Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
 
 <dl>
-  <dt><dfn>Deep Learning</dfn></dt>
-  <dd>TODO</dd>
+  <dt><dfn>Deep Belief Netz</dfn> (<dfn>DBN</dfn>)</dt>
+  <dd>Ein Deep Belief Netz ist ein gerichtetes, azyklisches, probabilistisches
+      graphisches Modell.</dd>
+  <dt><dfn>Restricted Boltzmann Machine</dfn> (<dfn>RBM</dfn>)</dt>
+  <dd>Eine <i>RBM</i> ist ein neuronales Netz mit nur einem Hidden Layer.
+      Es werden keine Verbindungen zwischen den Hidden Units erlaubt.</dd>
+  <dt><dfn>Contrastive Wake-Sleep Algorithm</dfn></dt>
+  <dd>TODO (Folie 34) - see <a href="http://www.cs.toronto.edu/~fritz/absps/ncfast.pdf">A Fast Learning Algorithm for Deep Belief Nets</a></dd>
 </dl>
+
+
+#### Probleme von Tiefen Netzen und wie man sie lösen kann:
+
+* **Lange Trainingsdauer**: GPUs / mehr Rechenpower / weniger Parameter durch
+  Parameter sharing, z.B. in <abbr title="Convolutional Neural Networks">CNNs</abbr>
+  / <abbr title="Time Delay Neural Networks">TDNNs</abbr>
+* **Extrem viele gelabelte Trainingsdaten werden benötigt**: Internet
+  (z.B. Wikipedia, Soziale Netzwerke, Amazon Mechanical Turk) reduziert dieses
+  Problem; Nutzen ungelabelter Daten durch <abbr title="Semi-Supervised Learning">SSL</abbr>
+  in Auto-Encodern
+* **Lokale Minima**
+* **Overfitting**: Regularis
+
+#### Siehe auch
+
+* [MNIST Demo](http://www.cs.toronto.edu/~hinton/adi/index.htm) (Flash):
+  Neuronales Netz welches Ziffern generiert
 
 
 ### Convolutional Neural Networks
 
 Slides: 09_ConvolutionalNeuralNetworks.pdf
 
-TODO
+Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
 
 <dl>
-  <dt><dfn>Convolutional Neural Networks</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Convolutional_Neural_Network">Wikipedia</a>)</dt>
-  <dd>TODO</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Convolutional_Neural_Network"><dfn>Convolutional Neural Networks</dfn></a> (<dfn>CNNs</dfn>)</dt>
+  <dd><abbr title="Convolutional Neural Networks">CNNs</abbr> sind neuronale
+      Netze welche weight sharing einsetzen. Sie setzen eine diskrete Faltung
+      um. Ein CNN muss mindestens einen <i>Convolutional Layer</i> haben.
+      Dieser hat folgende Parameter:
+      <ul>
+          <li>Padding: None, Zero, Copy</li>
+          <li>Stride: \(s \in \mathbb{N}_{> 0}\)</li>
+          <li>Filter Size: \((x,y) \in \mathbb{N}^2\)</li>
+          <li>Number of filters: How many filters should get learned?</li>
+      </ul></dd>
+  <dt><dfn>Feature Map</dfn></dt>
+  <dd>Nach einem Convolutional Layer hat man die Ausgabe der Filter, welche
+      auf die Eingabe angewandt wurden. Diese nennt man <i>Feature Map</i>.
+      Für jeden Filter bekommt man eine Feature Map. Die Feature Maps sind
+      wiederum Eingaben für die nächsten Schichten.</dd>
+  <dt><dfn>Pooling Layer</dfn></dt>
+  <dd>Ein <i>pooling layer</i> ist eine Schicht in einem CNN, welche
+      Features zusammenfasst. Pooling Schichten haben folgende Parameter:
+
+      <ul>
+          <li>Größe: Typischerweise \(3 \times 3\)</li>
+          <li>Stride \(s \in \mathbb{N}\): Typischerweise gleich der Größe des Pooling-Bereichs (also 3).</li>
+          <li>Art: max, mean</li>
+      </ul>
+
+      Typischerweise reduziert sie die Anzahl der Features, da typischerweise
+      ein \(s > 1\) gewählt wird.</dd>
 </dl>
 
 
@@ -356,11 +454,28 @@ TODO
 
 Slides: 10_SpikingNeuralNets.pdf
 
-TODO
-
 <dl>
-  <dt><dfn>Spiking Neural Networks</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Gepulste_neuronale_Netze">Wikipedia</a>)</dt>
-  <dd>TODO</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Gepulste_neuronale_Netze"><dfn>Spiking Neural Networks</dfn></a></dt>
+  <dd>Gepulste neuronale Netze versuchen natürliche neuronen realistisch
+      abzubilden. Das Hodgkin-Huxley Neuronenmodell wurde bereits 1952
+      vorgestellt.</dd>
+  <dt><dfn>Hodgkin-Huxley Neuronenmodell</dfn></dt>
+  <dd>Das <i>Hodgkin-Huxley Neuronenmodell</i> modelliert die elektrochemischen
+      Vorgänge innerhalb eines Neurons mit elektrischen Baugliedern. Dies
+      resultiert in Differenzialgleichungen mit 4&nbsp;Variablen (Kapazität
+      der Membran, Widerstände der Ionenkanäle, Gleichgewichtspotentiale,
+      Öffnung der Ionenkanäle).
+
+      Das Modell ist realistisch, aber sehr komplex. </dd>
+  <dt><dfn>LIF Neuronenmodell</dfn> (Leaky integrate and Fire)</dt>
+  <dd>Das <i>LIF Neuronenmodell</i> modelliert ein Neuron durch eine
+      gewöhnliche Differentialgleichung erster Ordnung.</dd>
+  <dt><dfn>SRM Neuronenmodell</dfn> (Spike Response Model)</dt>
+  <dd>Das <i>SRM Neuronenmodell</i> modelliert die Refraktionszeit. Das ist
+      die Zeit, in der kein neues Aktionspotential aufgebaut werden kann.
+
+      Das SRM ist ein rein phänomenologisches Modell, welches trotz der
+      Einfachheit allgemeiner ist als das LIF-Modell.</dd>
 </dl>
 
 
@@ -368,8 +483,84 @@ TODO
 
 Slides: 11_Evaluation.pdf
 
-TODO
+Für Klassifikation:
 
+<dl>
+  <dt><a href="https://de.wikipedia.org/wiki/Konfusionsmatrix"><dfn>Konfusionsmatrix</dfn></a></dt>
+  <dd>Eine Konfusionsmatrix ist eine Tabelle, in welcher die Spalten angeben,
+      welche Hypothese gemacht wurde (Testentscheid) und die Zeilen den wahren
+      Wert angeben. So kann für beliebig viele Klassen gezeigt werden, wie gut
+      der Klassifikator ist und welche Art der Verwechslung er macht.</dd>
+  <dt><dfn>Klassifikationsfehler</dfn></dt>
+  <dd>\(\text{Klassifikationsfehler} = \frac{\text{Fehlerhafte Hypothesen}}{\text{Anzahl aller Beispiele}} \in [0, 1]\)</dd>
+  <dt><dfn>Klassifikationsgüte</dfn></dt>
+  <dd>Klassifikationsgüte = 1 - Klassifikationsfehler</dd>
+  <dt><dfn>False Alarm Rate</dfn> (<dfn>FA</dfn>, <dfn>Falsch Positiv Rate</dfn>, <dfn>FPR</dfn>)</dt>
+  <dd>Es sei FP die Anzahl der False Positive Testdaten, also der Testdaten
+      für welche <i>Positive</i> vorhergesagt wurde, die aber negative sind. Weiter
+      sei TN die Anzahl der True Negatives, also der Testdaten, für welche
+      korrekterweise negative vorhergesagt wurde.
+
+      Dann ist die <i>FPR</i> definiert als
+      \[\text{FPR} := \frac{FP}{FP + TN} \in [0, 1]\]
+
+      Die FPR gibt also den Anteil an, wie viele der tatsächlich negativen
+      fälschlicherweise als positiv erkannt wurden.</dd>
+  <dt><dfn>Miss-Rate</dfn> (<dfn>MR</dfn>, <dfn>Falsch Negativ Rate</dfn>, <dfn>FNR</dfn>)</dt>
+  <dd>\[FNR := \frac{FN}{TP + FN} \in [0, 1]\]</dd>
+  <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
+  <dd>\[TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]\]
+
+      Der Recall gibt den Anteil der erkannten positiven aus allen positiven
+      an.
+
+      <i>Sensitivität</i> ist ein in der Medizin üblicher Begriff.</dd>
+  <dt><dfn>Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
+  <dd>\[Precision = \frac{TP}{TP + FP} \in [0, 1]\]
+
+      Die Precision gibt den Anteil der real positiven aus den als positiv
+      erkannten an.</dd>
+  <dt><dfn>ROC-Graph</dfn> (<dfn>Receiver-Operator Curve</dfn>)</dt>
+  <dd>Der ROC-Graph gibt für einen Klassifikator, bei dem man einen Parameter
+      einstellen kann, den Fehler an.
+
+      Die \(x\)-Achse ist dabei die FPR, die \(y\)-Achse die TPR.</dd>
+  <dt><dfn>Spezifität</dfn></dt>
+  <dd>Der Begriff der <i>Spezifität</i> ist in der Medizin üblich und
+      ist definiert durch
+      \[Spezifität = \frac{TN}{TN + FP} = 1 - FPR\]
+
+      Es ist eine Art recall für die negative Klasse. Im Beispiel eines
+      medizinischen Tests wäre das der Anteil der Gesunden, bei denen
+      tatsächlich auch die Diagnose "Gesund" gestellt wurde.</dd>
+  <dt><dfn>PRC-Graph</dfn> (<dfn>Precision-Recall-Graph</dfn>)</dt>
+  <dd>Die \(x\)-Achse ist Recall, die \(y\)-Achse ist Precision.</dd>
+  <dt><dfn>Selektivität</dfn></dt>
+  <dd>TODO</dd>
+  <dt><dfn>F-Maß</dfn></dt>
+  <dd>\[F_\alpha = \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}\]</dd>
+</dl>
+
+Für Regression
+
+<dl>
+    <dt><dfn>Mittlerer Quadratischer Fehler</dfn> (<dfn>MSE</dfn>, <dfn>Mean Squared Error</dfn>)</dt>
+    <dd>\[E(f, data) = \frac{1}{|data|} \sum_{(x, y) \in data} (f(x) - y)^2\]</dd>
+    <dt><dfn>Relativer Quadratischer Fehler</dfn></dt>
+    <dd>\[E(f, data) = \frac{\sum_{(x, y) \in data} (f(x) - y)^2}{\sum_{(x,y) \in data} (y - \mu)^2}\]</dd>
+    <dt><dfn>Mittlerer Absoluter Fehler</dfn></dt>
+    <dd>\[E(f, data) = \frac{1}{|data|} \sum_{(x, y) \in data} |f(x) - y|\]</dd>
+</dl>
+
+
+Alternative: Aufstellen einer Kostenfunktion und optimieren nach Kosten.
+
+
+#### Siehe auch
+
+* [Beurteilung eines binären Klassifikators](https://de.wikipedia.org/wiki/Beurteilung_eines_binären_Klassifikators)
+* [False positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives)
+* Matt Zeiler: [Visualizing and Understanding Deep Neural Networks](https://www.youtube.com/watch?v=ghEmQSxT6tw) on YouTube, 2015. 48 minutes.
 
 ## Material und Links
 

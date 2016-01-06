@@ -10,7 +10,7 @@ gplus: https://plus.google.com/+MartinThoma/about
 twitter: https://twitter.com/#!/themoosemind
 stackoverflow: https://careers.stackoverflow.com/thoma
 arxiv: http://arxiv.org/a/thoma_m_1.html
-linkedin: de.linkedin.com/in/themoosemind
+linkedin: https://www.linkedin.com/in/themoosemind
 alias: /author/moose/index.html
 ---
 <div class="vcard">
@@ -21,7 +21,7 @@ alias: /author/moose/index.html
 <p>Do you want to know more about me? I've created a <a href="../../pdf/cv-curriculum-vitae.pdf">short English CV</a> and <a href="http://www.martin-thoma.de/about.htm" rel="me">a longer German CV</a>.</p>
 
 <p><small>(This page was last updated on <time class="updated" datetime="{{ page.path | file_date | date_to_xmlschema }}">{% assign d = page.path | file_date | date: "%d" | plus:'0' %}
-                                {{ page.path | file_date | date: "%B" }} 
+                                {{ page.path | file_date | date: "%B" }}
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st,
                                   {% when 2 or 22 %}{{ d }}nd,
