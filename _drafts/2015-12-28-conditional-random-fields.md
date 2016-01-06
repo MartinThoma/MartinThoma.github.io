@@ -114,3 +114,5 @@ length of the sequence.
 * [What is the relationship between Markov Random Fields and Conditional Random Fields?](http://datascience.stackexchange.com/q/9617/8820) (formerly http://stats.stackexchange.com/q/188481/25741)
 * [Is every Conditional Random Field simply a Markov Random Field with restricted structure?](http://stats.stackexchange.com/q/169369/25741)
 * [What's the difference between a Markov Random Field and a Conditional Random Field?](http://stats.stackexchange.com/q/156697/25741)
+* Online Courses
+  * [Probabilistic Graphical Models](https://www.youtube.com/watch?v=Row-l4CuWn0) by Professor Daphne Koller

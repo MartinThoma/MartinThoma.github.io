@@ -22,7 +22,7 @@ When I reinstall my computer, I usually do these following steps:
 If possible, I will give the debian package names in the following list:
 
 * [LaTeX](../how-to-install-the-latest-latex-version/) and scientific writing
-  * [`jabref`](http://martin-thoma.com/reference-management-with-jabref/): A reference manager
+  * [`jabref`](//martin-thoma.com/reference-management-with-jabref/): A reference manager
   * `gnuplot`
   * `pdf2svg`
   * `aspell` and `aspell-de`
@@ -55,7 +55,7 @@ If possible, I will give the debian package names in the following list:
 * Themes
   * Balazan-Theme from [bisigi-project](http://www.bisigi-project.org/?page_id=8&lang=en) (simply download it.)
 * Other
-  * [`sublime_text`](http://martin-thoma.com/sublime-text/)
+  * [`sublime_text`](//martin-thoma.com/sublime-text/)
   * `libreoffice`
   * `curl`
 * DRM-caused (I want to watch DVDs!)

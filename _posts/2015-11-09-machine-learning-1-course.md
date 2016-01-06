@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href="//martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></div>
 
 ## Folien
 
@@ -136,7 +136,7 @@ Slide name: MLI_04_Lerntheorie_slides1.pdf
   wenn sie möglichst wenige Variablen und Hypothesen enthält, und wenn diese in
   klaren logischen Beziehungen zueinander stehen, aus denen der zu erklärende
   Sachverhalt logisch folgt.</dd>
-  <dt><dfn>Structural Risc Minimization</dfn> (siehe <a href="https://en.wikipedia.org/wiki/Structural_risk_minimization">Wikipedia</a>)</dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Structural_risk_minimization"><dfn>Structural Risc Minimization</dfn></a> (<dfn>SRM</dfn>)</dt>
   <dd>Unter <i>Structural risk minimization</i> versteht man die Abwägung
       zwischen einem einfachen Modell und einem komplexen Modell, welches
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
@@ -498,7 +498,7 @@ Kommt noch
 * [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
-* [Zusammenfassung der Vorlesung ML 2](http://martin-thoma.com/machine-learning-2-course/)
+* [Zusammenfassung der Vorlesung ML 2](//martin-thoma.com/machine-learning-2-course/)
 
 ## Übungsbetrieb
 

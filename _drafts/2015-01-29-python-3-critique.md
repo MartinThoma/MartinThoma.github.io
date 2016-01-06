@@ -11,7 +11,7 @@ featured_image: logos/python.png
 ---
 
 Consistency is an important quality property of a language. One of my main
-points of critic agains PHP was inconsistency (see [PHP: A strange language](http://martin-thoma.com/php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistant.
+points of critic agains PHP was inconsistency (see [PHP: A strange language](//martin-thoma.com/php-a-strange-language/#tocAnchor-1-1)). Let's see where Python is inconsistant.
 
 ## Method naming: Underscores or not
 

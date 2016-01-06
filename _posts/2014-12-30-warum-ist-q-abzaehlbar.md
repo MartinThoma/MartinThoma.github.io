@@ -3,12 +3,12 @@ layout: post
 title: Warum ist Q abzählbar?
 author: Martin Thoma
 date: 2014-12-30 21:27
-categories: 
+categories:
 - German posts
-tags: 
+tags:
 - analysis
 - mathematics
-featured_image: 
+featured_image:
 ---
 
 <div class="info">This is a quick article I had for quite a while as a draft.
@@ -26,7 +26,7 @@ Sei $f: \mathbb{N} \rightarrow \mathbb{N}$ definiert durch $f(n) := n$. $f$ ist 
 Die ganzen Zahlen sind abzählbar.
 <strong>Beh.:</strong> $\mathbb{Z}$ ist abzählbar.
 <strong>Bew.</strong>: direkt
-Sei $f: \mathbb{N} \rightarrow \mathbb{Z}$ definiert durch $f(n) := 
+Sei $f: \mathbb{N} \rightarrow \mathbb{Z}$ definiert durch $f(n) :=
 \begin{cases}
 \frac{n-1}{2}   & \text{, falls n ungerade} \\
 - \frac{n}{2} & \text{, falls n gerade}
@@ -34,7 +34,7 @@ Sei $f: \mathbb{N} \rightarrow \mathbb{Z}$ definiert durch $f(n) :=
 Also:
 $\forall z \in \mathbb{Z}: \exists x \in \mathbb{N} : f(x) = z$
 da:
-$\forall x \in \mathbb{Z}: n = 
+$\forall x \in \mathbb{Z}: n =
 \begin{cases}
 - 2 \cdot x   & \text{, falls x negativ} \\
 2 \cdot x + 1 & \text{, falls x positiv}
@@ -44,7 +44,7 @@ Es gibt also für jede ganze Zahl z eine natürliche Zahl n, die ich in $f$ stec
 
 <strong>Beh.:</strong> $\mathbb{N} \times \mathbb{N}$ ist abzählbar.
 <strong>Bew.</strong>: direkt
-Sei $f: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$ rekursiv definiert durch $f(1,1) := 1$ und 
+Sei $f: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}$ rekursiv definiert durch $f(1,1) := 1$ und
 $f (m, n) := \begin{cases}
 f(m + 1, n - 1) + 1 & \text{, falls } n \neq 1 \\
 f(1, m - 1)         & \text{sonst}
@@ -58,8 +58,8 @@ Also gibt es eine Umkehrfunktion (die auch bijektiv ist). Also ist $\mathbb{N} \
 
 <strong>Beh.:</strong> $\mathbb{Q}^+$ ist abzählbar.
 <strong>Bew.</strong>: über $N \times N$
-Jede Zahl $x \in \mathbb{Q}^+$ kann  mit zwei natürlichen Zahlen dargestellt werden: $x = \frac{p}{q}$. Also gibt es eine Funktion $f: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{Q}$ mit 
+Jede Zahl $x \in \mathbb{Q}^+$ kann  mit zwei natürlichen Zahlen dargestellt werden: $x = \frac{p}{q}$. Also gibt es eine Funktion $f: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{Q}$ mit
 $f(m, n) := \frac{m}{n}$. Diese Abbildung ist offensichtlich surjektiv. $\blacksquare$
 
 <h2>Material</h2>
-Die LaTeX-Dateien für die Bilder sind in diesem <a href='http://martin-thoma.com/wp-content/uploads/2012/03/countable-sets.zip'>Archiv</a> zu finden.<!--TODO-->
+Die LaTeX-Dateien für die Bilder sind in diesem <a href='//martin-thoma.com/wp-content/uploads/2012/03/countable-sets.zip'>Archiv</a> zu finden.<!--TODO-->

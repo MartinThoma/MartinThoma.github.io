@@ -64,7 +64,7 @@ featured_image: logos/klausur.png
 
 Slides: 01_Einfu__hrung_MLII.pdf
 
-Rückblick auf [ML 1](http://martin-thoma.com/machine-learning-1-course/).
+Rückblick auf [ML 1](//martin-thoma.com/machine-learning-1-course/).
 
 Meine Fragen (TODO):
 
@@ -264,7 +264,8 @@ TODO
   <dd>Ein <i>MRF</i> ist ein ungerichteter Graph TODO.
       MRFs sind zur Modellierung von Korrelation geeignet.</dd>
   <dt><dfn>Dynamisches Bayessches Netz</dfn></dt>
-  <dd>TODO</dd>
+  <dd><i>Dynamische Bayessche Netze</i> sind Bayessche Netze zur Beschreibung
+      dynamischer Prozesse.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Markov_blanket"><dfn>Markov Blanket</dfn></a></dt>
   <dd>Sei \(G=(V,E)\) ein DAG zu einem Bayesschen Netz und \(v_S \in V\).
       Dann ist der Markov Blanket die folgende Knotenmenge \(B \subseteq V \setminus \{v_S\}\):
@@ -295,6 +296,10 @@ Anwendungsfälle:
 
 Anmerkungen: Die Folien sind hier sehr gut! Insbesondere Folie&nbsp;14-23
 sollte man sich ansehen.
+
+Es scheint folgende Beziehung zu gelten: HMMs, Kalman-Filter, Extended
+Kalman-Filter, Partikel Filter sind Beispiele für Bayes-Filter. Bayes-Filter
+sind Beispiele für dynamische Bayessche Netze.
 
 
 ### Probablistisch Relationale Modelle
@@ -368,7 +373,7 @@ TODO
 
 * [Vorlesungswebsite](http://tks.anthropomatik.kit.edu/28_176.php)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_429082.html): Ist passwortgeschützt
-* [Zusammenfassung der Vorlesung ML 1](http://martin-thoma.com/machine-learning-1-course/)
+* [Zusammenfassung der Vorlesung ML 1](//martin-thoma.com/machine-learning-1-course/)
 
 
 ## Übungsbetrieb

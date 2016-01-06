@@ -214,7 +214,7 @@ Michael Stapelberg, the creator of it, described how he did it in
 
 I would like to have the same for Python code. This could be done by
 downloading all Python packages. I already did this part, see
-[Analyzing PyPI Metadata](http://martin-thoma.com/analyzing-pypi-metadata/)
+[Analyzing PyPI Metadata](//martin-thoma.com/analyzing-pypi-metadata/)
 and the follow-up post which is still on my TODO-list to be published (see
 [draft](https://github.com/MartinThoma/MartinThoma.github.io/blob/source/_drafts/2015-12-07-analyzing-pypi-metadata-2.md)).
 

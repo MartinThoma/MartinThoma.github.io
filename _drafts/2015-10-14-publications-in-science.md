@@ -41,7 +41,7 @@ I wrote my bachelors thesis about a symbol recognition system I've created
 (<a href="http://write-math.com">write-math.com</a>). The more or less complete
 description of all experiments I did as well as a detailed description of the
 methods I used has 92&nbsp;pages. The paper I wrote only had 5&nbsp;pages
-(see [martin-thoma.com/write-math](http://martin-thoma.com/write-math/) for
+(see [martin-thoma.com/write-math](//martin-thoma.com/write-math/) for
 the thesis, the paper and other material). Even after I shortened the
 bachelor's thesis to 5&nbsp;pages, I had to adjust the language. That took me
 at least 20&nbsp;hours.

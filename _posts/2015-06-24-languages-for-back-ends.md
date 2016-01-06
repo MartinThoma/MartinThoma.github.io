@@ -300,7 +300,7 @@ share this subjective impression.
 [PHP](https://en.wikipedia.org/wiki/PHP) is a server-side scripting language
 which appeared first in 1995. It is dynamically typed.
 
-* [Language inconsistencies](http://martin-thoma.com/php-a-strange-language/)
+* [Language inconsistencies](//martin-thoma.com/php-a-strange-language/)
   are really bad with PHP - see also
   [PHP: a fractal of bad design](http://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/)
 * The ecosystem is ok:

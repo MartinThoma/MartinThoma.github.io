@@ -12,7 +12,7 @@ featured_image:
 ---
 <a href="http://de.wikipedia.org/wiki/Xfig">xfig</a> 3.2 bietet 39 Export-Optionen. Im folgenden werde ich beschreiben, welche davon für das Einbinden von xfig-Bildern in LaTeX-Dokumente geeignet sind.
 
-[caption id="attachment_63651" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/04/xfig-3.2.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/04/xfig-3.2-300x206.png" alt="xfig 3.2 Export-Optionen" width="300" height="206" class="size-medium wp-image-63651" /></a> xfig 3.2 Export-Optionen[/caption]
+[caption id="attachment_63651" align="aligncenter" width="300"]<a href="//martin-thoma.com/wp-content/uploads/2013/04/xfig-3.2.png"><img src="//martin-thoma.com/wp-content/uploads/2013/04/xfig-3.2-300x206.png" alt="xfig 3.2 Export-Optionen" width="300" height="206" class="size-medium wp-image-63651" /></a> xfig 3.2 Export-Optionen[/caption]
 
 Die 9 Pixel-Formate schließe ich direkt aus, da ich hochqualitative Bilder will.
 
@@ -35,7 +35,7 @@ Die 9 Pixel-Formate schließe ich direkt aus, da ich hochqualitative Bilder will
 <h2>Detaillierte Ergebnisse</h2>
 Ich habe mit xfig folgendes Bild erstellt:
 
-[caption id="attachment_63671" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/04/example-image.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/04/example-image-300x257.png" alt="Beispiel zum Testen der Export-Funktionen von xfig" width="300" height="257" class="size-medium wp-image-63671" /></a> Beispiel zum Testen der Export-Funktionen von xfig[/caption]
+[caption id="attachment_63671" align="aligncenter" width="300"]<a href="//martin-thoma.com/wp-content/uploads/2013/04/example-image.png"><img src="//martin-thoma.com/wp-content/uploads/2013/04/example-image-300x257.png" alt="Beispiel zum Testen der Export-Funktionen von xfig" width="300" height="257" class="size-medium wp-image-63671" /></a> Beispiel zum Testen der Export-Funktionen von xfig[/caption]
 
 <h3>LaTeX box (figure boundary)</h3>
 ```text
@@ -143,4 +143,4 @@ takimata sanctus est Lorem ipsum dolor sit amet.
 <h2>Dies und das</h2>
 Wenn man neue Texte erstellt, sollte man das „Special Flag“ direkt einstellen. Man kann es nicht später hinzufügen:
 
-[caption id="attachment_63711" align="aligncenter" width="300"]<a href="http://martin-thoma.com/wp-content/uploads/2013/04/xfig-text-latex.png"><img src="http://martin-thoma.com/wp-content/uploads/2013/04/xfig-text-latex-300x73.png" alt="xfig LaTeX Special Flag" width="300" height="73" class="size-medium wp-image-63711" /></a> xfig LaTeX Special Flag[/caption]
+[caption id="attachment_63711" align="aligncenter" width="300"]<a href="//martin-thoma.com/wp-content/uploads/2013/04/xfig-text-latex.png"><img src="//martin-thoma.com/wp-content/uploads/2013/04/xfig-text-latex-300x73.png" alt="xfig LaTeX Special Flag" width="300" height="73" class="size-medium wp-image-63711" /></a> xfig LaTeX Special Flag[/caption]

@@ -58,9 +58,9 @@ When you made the example minimal, give your peers the following information
 ## See also
 
 * My articles
-    * [Bug Reporting - A users perspective](http://martin-thoma.com/bug-reporting/)
-    * [Debugging a C program](http://martin-thoma.com/debugging-a-c-program/)
-    * [Profiling C programs](http://martin-thoma.com/profiling-c-programs/)
+    * [Bug Reporting - A users perspective](//martin-thoma.com/bug-reporting/)
+    * [Debugging a C program](//martin-thoma.com/debugging-a-c-program/)
+    * [Profiling C programs](//martin-thoma.com/profiling-c-programs/)
 * StackOverflow
     * [How to debug Rust programs?](http://stackoverflow.com/q/15871885/562769)
     * [How to debug Node.js applications](http://stackoverflow.com/q/1911015/562769)

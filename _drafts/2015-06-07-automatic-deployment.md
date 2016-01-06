@@ -13,7 +13,7 @@ tags:
 featured_image: logos/GitHub.png
 ---
 [write-math.com](http://write-math.com) is the web service I've build for my
-bachelors thesis (see [write-math article](http://martin-thoma.com/write-math/)
+bachelors thesis (see [write-math article](//martin-thoma.com/write-math/)
 for more information). It was only build to get enough training data to run
 experiments. It was extended quite a lot. I've added some meta data, ways to
 have a look at the data and share it. I noticed that there are a lot of wrong

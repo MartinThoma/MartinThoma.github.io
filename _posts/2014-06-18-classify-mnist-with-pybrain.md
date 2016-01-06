@@ -209,7 +209,7 @@ def classify(training, testing, HIDDEN_NEURONS, MOMENTUM, WEIGHTDECAY,
 
 ## Final steps
 
-You might want to add [command line parameters](http://martin-thoma.com/how-to-parse-command-line-arguments-in-python/), [logging](https://docs.python.org/2/library/logging.html) and
+You might want to add [command line parameters](//martin-thoma.com/how-to-parse-command-line-arguments-in-python/), [logging](https://docs.python.org/2/library/logging.html) and
 probably [pickle](https://docs.python.org/2/library/pickle.html#module-cPickle)
 the data.
 

@@ -11,7 +11,7 @@ tags:
 featured_image: logos/star.png
 ---
 
-Just like I did before for [PHP](http://martin-thoma.com/php-a-strange-language/),
+Just like I did before for [PHP](//martin-thoma.com/php-a-strange-language/),
 I would like to show some strange features of JavaScript. Quite a lot comes
 from [JS WAT Talk reup](https://www.youtube.com/watch?v=FqhZZNUyVFM).
 

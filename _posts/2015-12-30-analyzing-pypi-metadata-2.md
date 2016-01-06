@@ -12,12 +12,12 @@ tags:
 featured_image: logos/python.png
 ---
 
-<div class="info">This is part two of a series. See <a href="http://martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
+<div class="info">This is part two of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
 
 I've recently got a request to expand my analysis of the Python Package Index
 commonly known as PyPI. It is a repository of Python packages where everybody
 can upload packages; pretty much without any restriction. In the article
-[Analyzing PyPI Metadata](http://martin-thoma.com/analyzing-pypi-metadata/)
+[Analyzing PyPI Metadata](//martin-thoma.com/analyzing-pypi-metadata/)
 you can read some general stuff about the repository.
 
 This article is going a bit more deeper. This time I don't only analyze the

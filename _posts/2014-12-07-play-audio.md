@@ -3,9 +3,9 @@ layout: post
 title: Play Audio
 author: Martin Thoma
 date: 2014-12-07 00:31
-categories: 
+categories:
 - Cyberculture
-tags: 
+tags:
 - Audio
 - Senses
 - HTML5
@@ -32,8 +32,8 @@ I rather need 10ms, but this might also be caused by hardware problems. I doubt
 that JavaScripts `timeout` is accurate enough.
 
 <h2>Audio Test</h2>
-<audio id="left_channel" src="http://martin-thoma.com/audio/click_left.wav" preload="auto"></audio>
-<audio id="right_channel" src="http://martin-thoma.com/audio/click_right.wav" preload="auto"></audio>
+<audio id="left_channel" src="//martin-thoma.com/audio/click_left.wav" preload="auto"></audio>
+<audio id="right_channel" src="//martin-thoma.com/audio/click_right.wav" preload="auto"></audio>
 <a href="javascript:play_sound();">Play sound</a>
 <input type="number" id="seconds" name="seconds" value="20" /> ms
 <br/>
@@ -65,4 +65,4 @@ that JavaScripts `timeout` is accurate enough.
 <br/>
 <h2>Which was first</h2>
 <p id="results"></p>
-<script type="text/javascript" src="http://martin-thoma.com/js/playsounds.js"></script>
+<script type="text/javascript" src="//martin-thoma.com/js/playsounds.js"></script>

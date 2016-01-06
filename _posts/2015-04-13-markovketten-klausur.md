@@ -30,7 +30,7 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 </tr>
 <tr>
 <td>13.04.2015</td>
-<td>0. Beispiele (<a href="http://martin-thoma.com/pdf/markovketten-2015-04-13.pdf">Mitschrieb</a>)</td>
+<td>0. Beispiele (<a href="//martin-thoma.com/pdf/markovketten-2015-04-13.pdf">Mitschrieb</a>)</td>
 <td>Einführung in Markovketten mit vielen Beispielen (Weg des Betrunkenen, Ehrenfest-Modell, Irrfahrt, Vererbung); absorbierende Zustände; stochastische Matrix</td>
 </tr>
 <tr>
@@ -45,7 +45,7 @@ Zur Vorlesung gibt es das Skript "Markov-Ketten" von Frau Prof. Dr. Bäuerle.
 </tr>
 <tr>
   <td>21.04.2015</td>
-  <td>3.10 - 4.6 (<a href="http://martin-thoma.com/pdf/markovketten-2015-05-21.pdf">Mitschrieb</a>)</td>
+  <td>3.10 - 4.6 (<a href="//martin-thoma.com/pdf/markovketten-2015-05-21.pdf">Mitschrieb</a>)</td>
   <td>Total-Variationsabstand, $d(\mu, \nu) = \frac{1}{2} \sum_{i \in S} |\mu(i)- \nu(i)|$, Periode, aperiodisch, ein Konvergenzsatz, Kopplungsargument</td>
 </tr>
 </table>

@@ -3,9 +3,9 @@ layout: post
 title: Reading and Writing Files with Python
 author: Martin Thoma
 date: 2015-02-12 22:11
-categories: 
+categories:
 - Code
-tags: 
+tags:
 - Python
 featured_image: logos/python.png
 ---
@@ -120,5 +120,5 @@ statement makes sure that the file is closed when the block is finished.
 * [`open`](https://docs.python.org/3.0/library/functions.html#open)
 * [`with`](https://docs.python.org/3/reference/datamodel.html#context-managers)
 * [File Objects](https://docs.python.org/2/library/stdtypes.html#file-objects)
-* [Python and CSV](http://martin-thoma.com/python-csv/)
-* [How to parse command line arguments in Python](http://martin-thoma.com/how-to-parse-command-line-arguments-in-python/)
+* [Python and CSV](//martin-thoma.com/python-csv/)
+* [How to parse command line arguments in Python](//martin-thoma.com/how-to-parse-command-line-arguments-in-python/)

@@ -156,4 +156,4 @@ I have to install drivers from http://www.helpjet.net/files-Acer-TravelMate-5735
 ## Related
 
 * [Install Windows 8.1 from Dreamspark download on Ubuntu](http://superuser.com/questions/734924/install-windows-8-1-from-dreamspark-download-on-ubuntu)
-* [Why are Microsoft products so User unfriendly?](http://martin-thoma.com/why-are-microsoft-products-so-user-unfriendly/)
+* [Why are Microsoft products so User unfriendly?](//martin-thoma.com/why-are-microsoft-products-so-user-unfriendly/)

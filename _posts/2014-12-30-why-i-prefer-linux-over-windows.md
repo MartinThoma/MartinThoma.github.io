@@ -3,9 +3,9 @@ layout: post
 title: Why I prefer Linux over Windows
 author: Martin Thoma
 date: 2014-12-30 21:25
-categories: 
+categories:
 - The Web
-tags: 
+tags:
 - Linux
 - Windows 7
 featured_image: 2012/12/tux-vs-windows.png
@@ -101,7 +101,7 @@ You can do everything with terminal. When the system is slowing down, I press
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F4</kbd>, log into the shell,
 call `top` and `kill` the process which slows my system down.
 
-And I really like [ZSH and Oh-My-ZSH](http://martin-thoma.com/working-terminal/).
+And I really like [ZSH and Oh-My-ZSH](//martin-thoma.com/working-terminal/).
 
 ## Linux is gratis
 

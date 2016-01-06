@@ -102,7 +102,7 @@ featured_image: logos/klausur.png
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/41Automaten-print.pdf" rel="nofollow">41</a></td>
-    <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi (vgl. <a href="http://martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/">Konstruktion</a>); Reguläre Ausdrücke</td>
+    <td>(Vollständige) endliche Automaten; <abbr title="Nichtdeterministische Endliche Automaten">NEAs</abbr>; Spontane Übergänge; Satz von Myhill und Büchi (vgl. <a href="//martin-thoma.com/konstruktion-eines-deterministischen-endlichen-automaten-aus-einem-nicht-deterministischem/">Konstruktion</a>); Reguläre Ausdrücke</td>
   </tr>
   <tr>
     <td><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf" rel="nofollow">42</a></td>
