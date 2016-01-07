@@ -58,7 +58,7 @@
                 <!-- type: header.html -->
 <div id="header" role="banner">
     <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
-    <h2>A blog about Code, the Web and Cyberculture.</h2>
+    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
 </div>
 <nav class="navcontainer" role="navigation">
     <ul id="nav">
@@ -149,112 +149,102 @@ as a single PDF via email. Thats the way to go:</p>
 <p>
    <strong>Create a Black-and-white picture and compress it</strong>
 </p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual <span class="m">70</span> &gt;<span class="s2">"NewPicture.jpg"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual <span class="m">70</span> &gt;<span class="s2">"NewPicture.jpg"</span>
+</code></pre>
 </div>
-
 <p><b>Rename Pictures</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">rename -n <span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg<span class="sb">`</span><span class="nv">$/</span><span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span> *.jpg</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>rename -n <span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg<span class="nv">$/</span><span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span> *.jpg
+</code></pre>
 </div>
-
 <h2 id="tocAnchor-1-3">Audio Files</h2>
 
 <p><b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mp3gain -a *.mp3</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mp3gain -a *.mp3
+</code></pre>
 </div>
-
 <p><b>Merge many audio files to one</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mp3wrap merged.mp3 one.mp3 two.mp3</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mp3wrap merged.mp3 one.mp3 two.mp3
+</code></pre>
 </div>
-
 <p><b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="k">for</span> i in *.wav<span class="p">;</span><span class="k">do</span> lame <span class="s2">"</span><span class="nv">$`</span><span class="s2">i"</span> <span class="s2">"`</span><span class="si">${</span><span class="nv">i</span><span class="p">%wav</span><span class="si">}</span><span class="s2">mp3"</span><span class="p">;</span> rm <span class="s2">"</span><span class="nv">$`</span><span class="s2">i"</span><span class="p">;</span> <span class="k">done</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="k">for</span> i in *.wav<span class="p">;</span><span class="k">do</span> lame <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span> <span class="s2">"</span><span class="si">${</span><span class="nv">i</span><span class="p">%wav</span><span class="si">}</span><span class="s2">mp3"</span><span class="p">;</span> rm <span class="s2">"</span><span class="nv">$i</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+</code></pre>
 </div>
-
 <h2 id="tocAnchor-1-4">Video Files</h2>
 
 <p>For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
 You might also want to install some codecs first:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras
+</code></pre>
 </div>
-
 <p><b>Merge many video files to one</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span>
+</code></pre>
 </div>
-
 <p><b>avi2mpg</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">ffmpeg -i <span class="s2">"Original.avi"</span> <span class="s2">"New.mpg"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i <span class="s2">"Original.avi"</span> <span class="s2">"New.mpg"</span>
+</code></pre>
 </div>
-
 <p><b>mp42mpg</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span>
+</code></pre>
 </div>
-
 <p><b>mod2avi</b>:
 ?</p>
 
+<p><b>mts2ogg</b> (<a href="https://en.wikipedia.org/wiki/.m2ts">MTS format info</a>):</p>
+<div class="highlight">
+   <pre><code class="language-bash" data-lang="bash">
+</code></pre>
+</div>
 <p><b>vcd2avi</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span>2000</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span>2000
+</code></pre>
 </div>
-
 <p><b>ogv2avi</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span><span class="m">1</span> -o <span class="s2">"New.avi"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span><span class="m">1</span> -o <span class="s2">"New.avi"</span>
+</code></pre>
 </div>
-
 <p><b>wmv2mpg</b>:
 aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mencoder -of avi -ofps <span class="m">25</span> <span class="se">\</span>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder -of avi -ofps <span class="m">25</span> <span class="se">\</span>
   -oac mp3lame -lameopts cbr:br<span class="o">=</span>112:aq<span class="o">=</span>3:mode<span class="o">=</span>0:vol<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
   -vf hqdn3d,softskip,harddup <span class="se">\</span>
   -ovc xvid <span class="se">\</span>
   -xvidencopts <span class="nv">bitrate</span><span class="o">=</span>501:max_key_interval<span class="o">=</span>37:aspect<span class="o">=</span>16/9:turbo:nochroma_me:notrellis:max_bframes<span class="o">=</span>0:vhq<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
   Original.wmv <span class="se">\</span>
-  -o New.avi</code></pre>
+  -o New.avi
+</code></pre>
 </div>
-
 <p><b>mkv2avi</b>:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mencoder <span class="s2">"Original.mkv"</span> -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span><span class="m">6000</span> -oac mp3lame -lameopts <span class="nv">vbr</span><span class="o">=</span><span class="m">3</span> -o <span class="s2">"New.avi"</span></code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder <span class="s2">"Original.mkv"</span> -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span><span class="m">6000</span> -oac mp3lame -lameopts <span class="nv">vbr</span><span class="o">=</span><span class="m">3</span> -o <span class="s2">"New.avi"</span>
+</code></pre>
 </div>
-
 <h3 id="tocAnchor-1-4-1">Converting Flash Videos flv to mpg</h3>
 
 <p>You might want to get the information of the video first:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">ffmpeg -i inputVideo.flv</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i inputVideo.flv
+</code></pre>
 </div>
-
 <p>This is how you convert it:</p>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r <span class="m">24</span> outputVideo.mpg</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r <span class="m">24</span> outputVideo.mpg
+</code></pre>
 </div>
-
 <p><strong>-i</strong> input file
 <strong>-acodec</strong> audio codec
 <strong>-ab</strong> audio bitrate
@@ -262,11 +252,10 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 <strong>-r</strong> fps where fps is the frame rate in Hz. The default value is 25Hz.</p>
 
 <h2 id="tocAnchor-1-6">Converting Flash Videos flv to avi</h2>
-
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi</code></pre>
+   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
+</code></pre>
 </div>
-
 <h2 id="tocAnchor-1-7">Shortcuts for Linux Console</h2>
 
 <p>I convert svg2png or pdf2png quite often for my articles. So I've created a command.</p>
