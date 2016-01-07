@@ -234,8 +234,6 @@ Siehe auch:
 
 Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
 
-Siehe auch [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
-
 * Einsatzfelder:
     * Klassifiktion: Spracherkennung, Schrifterkennung
     * Funktionsapproximation
@@ -248,6 +246,21 @@ Siehe auch [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorl
 * Kernel-Methoden (TODO)
 * Radial-Basis Funktion Netz (TODO)
 * <abbr title="Resilient Propagation">RPROP</abbr>: TODO
+
+<dl>
+    <dt><dfn>Cascade Correlation</dfn></dt>
+    <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum erzeugen
+        von Feed-Forward Neuronalen Netzen. Diese haben eine andere Architektur
+        als typische multilayer Perceptrons. Bei Netzen, welche durch
+        Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
+        den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen
+        Hidden Units in der Schicht zuvor.</dd>
+</dl>
+
+#### Siehe auch
+
+* [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
+* [How exactly does adding a new unit work in Cascade Correlation?](http://datascience.stackexchange.com/q/9672/8820)
 
 
 ### Instanzbasiertes Lernen

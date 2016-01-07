@@ -549,8 +549,6 @@ Slides: `11_Evaluation.pdf`
       tatsächlich auch die Diagnose "Gesund" gestellt wurde.</dd>
   <dt><dfn>PRC-Graph</dfn> (<dfn>Precision-Recall-Graph</dfn>)</dt>
   <dd>Die \(x\)-Achse ist Recall, die \(y\)-Achse ist Precision.</dd>
-  <dt><dfn>Selektivität</dfn></dt>
-  <dd>TODO</dd>
   <dt><dfn>F-Maß</dfn></dt>
   <dd>\[F_\alpha = \frac{precision \cdot recall}{\alpha^2 \cdot precision + recall}\]</dd>
 </dl>
