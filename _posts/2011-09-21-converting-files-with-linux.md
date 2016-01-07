@@ -57,67 +57,123 @@ for i in *.JPG; do convert $i -resize 1200x1200 $i; done; convert *.JPG merged.p
 ```
 
 **Create a Black-and-white picture and compress it**
-{% highlight bash %}djpeg "OldPicture.jpg" | ppmtopgm | cjpeg -qual 70 >"NewPicture.jpg"{% endhighlight %}
+
+```bash
+$ djpeg "OldPicture.jpg" | ppmtopgm | cjpeg -qual 70 >"NewPicture.jpg"
+```
+
 
 <b>Rename Pictures</b>:
-{% highlight bash %}rename -n &rsquo;s/\.jpg$/\.JPG/&rsquo; *.jpg{% endhighlight %}
+
+```bash
+$ rename -n &rsquo;s/\.jpg$/\.JPG/&rsquo; *.jpg
+```
 
 
 ## Audio Files
 <b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):
-{% highlight bash %}mp3gain -a *.mp3{% endhighlight %}
+
+```bash
+$ mp3gain -a *.mp3
+```
 
 <b>Merge many audio files to one</b>:
-{% highlight bash %}mp3wrap merged.mp3 one.mp3 two.mp3{% endhighlight %}
+
+```bash
+$ mp3wrap merged.mp3 one.mp3 two.mp3
+```
 
 <b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:
-{% highlight bash %}for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done{% endhighlight %}
+
+```bash
+$ for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done
+```
 
 
 ## Video Files
 
 For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
 You might also want to install some codecs first:
-{% highlight bash %}sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras{% endhighlight %}
+
+```bash
+$ sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras
+```
 
 <b>Merge many video files to one</b>:
-{% highlight bash %}cat One.mpg Two.mpg Three.mpg | ffmpeg -f mpeg -i - -vcodec copy -acodec copy "Merged.mpg"{% endhighlight %}
+
+```bash
+$ cat One.mpg Two.mpg Three.mpg | ffmpeg -f mpeg -i - -vcodec copy -acodec copy "Merged.mpg"
+```
 
 <b>avi2mpg</b>:
-{% highlight bash %}ffmpeg -i "Original.avi" "New.mpg"{% endhighlight %}
+
+```bash
+$ ffmpeg -i "Original.avi" "New.mpg"
+```
 
 <b>mp42mpg</b>:
-{% highlight bash %}ffmpeg -i "Original.mp4" -target ntsc-vcd "New.mpg"{% endhighlight %}
+
+```bash
+$ ffmpeg -i "Original.mp4" -target ntsc-vcd "New.mpg"
+```
+
 
 <b>mod2avi</b>:
 ?
 
+<b>mts2ogg</b> (<a href="https://en.wikipedia.org/wiki/.m2ts">MTS format info</a>):
+
+```bash
+
+```
+
 <b>vcd2avi</b>:
-{% highlight bash %}mencoder vcd://2 -o "New.avi" -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=2000{% endhighlight %}
+
+```bash
+$ mencoder vcd://2 -o "New.avi" -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=2000
+```
+
 
 <b>ogv2avi</b>:
-{% highlight bash %}mencoder "Original.ogv" -ovc xvid -oac mp3lame -xvidencopts pass=1 -o "New.avi"{% endhighlight %}
+
+```bash
+$ mencoder "Original.ogv" -ovc xvid -oac mp3lame -xvidencopts pass=1 -o "New.avi"
+```
+
 
 <b>wmv2mpg</b>:
 aspect=16/9 should eventually be changed to 4/3 or other aspects
-{% highlight bash %}mencoder -of avi -ofps 25 \
+
+```bash
+$ mencoder -of avi -ofps 25 \
   -oac mp3lame -lameopts cbr:br=112:aq=3:mode=0:vol=0 \
   -vf hqdn3d,softskip,harddup \
   -ovc xvid \
   -xvidencopts bitrate=501:max_key_interval=37:aspect=16/9:turbo:nochroma_me:notrellis:max_bframes=0:vhq=0 \
   Original.wmv \
   -o New.avi
-{% endhighlight %}
+```
+
 
 <b>mkv2avi</b>:
-{% highlight bash %}mencoder "Original.mkv" -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=6000 -oac mp3lame -lameopts vbr=3 -o "New.avi"{% endhighlight %}
 
-<h3>Converting Flash Videos flv to mpg</h3>
+```bash
+$ mencoder "Original.mkv" -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=6000 -oac mp3lame -lameopts vbr=3 -o "New.avi"
+```
+
+### Converting Flash Videos flv to mpg
 You might want to get the information of the video first:
-{% highlight bash %}ffmpeg -i inputVideo.flv{% endhighlight %}
+
+```bash
+$ ffmpeg -i inputVideo.flv
+```
 
 This is how you convert it:
-{% highlight bash %}ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg{% endhighlight %}
+
+```bash
+$ ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg
+```
+
 <strong>-i</strong> input file
 <strong>-acodec</strong> audio codec
 <strong>-ab</strong> audio bitrate
@@ -126,7 +182,10 @@ This is how you convert it:
 
 
 ## Converting Flash Videos flv to avi
-{% highlight bash %}ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi{% endhighlight %}
+
+```bash
+$ ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
+```
 
 
 ## Shortcuts for Linux Console
@@ -141,7 +200,7 @@ You can create a command in Linux very easy:
   <li>Make it executable: <code>chmod +x svg2png</code></li>
 </ol>
 
-My <code>svg2png</code> looks like this:
+My `svg2png` looks like this:
 
 ```python
 #!/usr/bin/env python
