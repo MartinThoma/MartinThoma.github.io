@@ -33,8 +33,8 @@ with an example how to use SVMs with sklearn.
           \end{aligned}\]</li>
     <li><b>Slack variables</b>: Even if the underlying process which generates
           the features for the two classes is linearly separable, noise can
-          make the data not separable. The introduction of \textit{slack
-          variables} to relax the requirement of linear separability solves
+          make the data not separable. The introduction of <i>slack&nbsp;variables</i>
+          to relax the requirement of linear separability solves
           this problem. The trade-off between accepting some errors and a more
           complex model is weighted by a parameter \(C \in \mathbb{R}_0^+\). The
           bigger \(C\), the more errors are accepted. The new optimization
@@ -55,7 +55,7 @@ with an example how to use SVMs with sklearn.
           \(\alpha_i\) changes the optimization problem depend on the
           \(\alpha_i\) which are weights for the feature vectors. It turns
           out that most \(\alpha_i\) will be zero. The non-zero weighted vectors
-          are called \textit{support vectors}.
+          are called <i>support&nbsp;vectors</i>.
 
           The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>]:
           \[
@@ -73,12 +73,12 @@ with an example how to use SVMs with sklearn.
           do the transformation. It is enough to do the calculation
           \[K(\mathbf{x}_i, \mathbf{x}_j) = \langle \mathbf{x}_i, \mathbf{x}_j \rangle\]
 
-          This function \(K\) is called a \textit{kernel}. The idea of never
+          This function \(K\) is called a <i>kernel</i>. The idea of never
           explicitly transforming the vectors \(\mathbf{x}_i\) to the higher
-          dimensional space is called the \textit{kernel trick}. Common kernels
+          dimensional space is called the <i>kernel&nbsp;trick</i>. Common kernels
           include the polynomial kernel
           \[K_P(\mathbf{x}_i, \mathbf{x}_j) = (\langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^p\]
-          of degree \(p\) and coefficient \(r\), the Gaussian \gls{RBF} kernel
+          of degree \(p\) and coefficient \(r\), the Gaussian <abbr title="Radial Basis Function">RBF</abbr> kernel
           \[K_{\text{Gauss}}(\mathbf{x}_i, \mathbf{x}_j) = e^{\frac{-\gamma\|\mathbf{x}_i - \mathbf{x}_j\|^2}{2 \sigma^2}}\]
           and the sigmoid kernel
           \[K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)\]
