@@ -261,7 +261,8 @@ think of the following measures:
   [Cheesecake](https://pypi.python.org/pypi/Cheesecake),
 * [pylint](https://pypi.python.org/pypi/pylint)
 * PEP8 conformance,
-* Lines of code / documentation / whitespace
+* Lines of code (LOC) / documentation / whitespace
+* Docstring style (None, NumpyDoc, Sphinx, Google - see [Python Code Documentation](http://martin-thoma.com/python-code-documentation/))
 * Usage of functions
 * Testing coverage
 * Look for URLs in the code and which are reachable / which are not
