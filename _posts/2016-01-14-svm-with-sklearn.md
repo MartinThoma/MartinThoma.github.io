@@ -51,13 +51,13 @@ with an example how to use SVMs with sklearn.
           where \(y_i \in \{-1, 1\}\) represents the class of the training
           example and \(\alpha_i\) are Lagrange multipliers. The usage of
           Lagrange multipliers is explained with some examples
-          in [<a href="#ref-smi04">Smi04</a>]. The usage of the Lagrange multipliers
+          in [<a href="#ref-smi04" name="ref-smi04-anchor">Smi04</a>]. The usage of the Lagrange multipliers
           \(\alpha_i\) changes the optimization problem depend on the
           \(\alpha_i\) which are weights for the feature vectors. It turns
           out that most \(\alpha_i\) will be zero. The non-zero weighted vectors
           are called \textit{support vectors}.
 
-          The optimization problem is now, according to [<a href="#ref-bur98">Bur98</a>]:
+          The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>]:
           \[
           \begin{aligned}
               \text{maximize}_{\mathbf{w}}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
@@ -242,6 +242,8 @@ if __name__ == '__main__':
 The script from above gives the following results:
 
 <table>
+    <caption>Confusion matrix for an SVM classifier on the MNIST dataset</caption>
+    <thead>
     <tr>
         <th></th>
         <th>0</th>
@@ -255,8 +257,10 @@ The script from above gives the following results:
         <th>8</th>
         <th>9</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>0</td>
+        <th>0</th>
         <td>2258</td>
         <td>1</td>
         <td>4</td>
@@ -269,7 +273,7 @@ The script from above gives the following results:
         <td>2</td>
     </tr>
     <tr>
-        <td>1</td>
+        <th>1</th>
         <td>1</td>
         <td>2566</td>
         <td>9</td>
@@ -282,7 +286,7 @@ The script from above gives the following results:
         <td>0</td>
     </tr>
     <tr>
-        <td>2</td>
+        <th>2</th>
         <td>4</td>
         <td>1</td>
         <td>2280</td>
@@ -295,7 +299,7 @@ The script from above gives the following results:
         <td>2</td>
     </tr>
     <tr>
-        <td>3</td>
+        <th>3</th>
         <td>0</td>
         <td>0</td>
         <td>14</td>
@@ -308,7 +312,7 @@ The script from above gives the following results:
         <td>2</td>
     </tr>
     <tr>
-        <td>4</td>
+        <th>4</th>
         <td>2</td>
         <td>2</td>
         <td>2</td>
@@ -321,7 +325,7 @@ The script from above gives the following results:
         <td>10</td>
     </tr>
     <tr>
-        <td>5</td>
+        <th>5</th>
         <td>4</td>
         <td>0</td>
         <td>0</td>
@@ -334,7 +338,7 @@ The script from above gives the following results:
         <td>3</td>
     </tr>
     <tr>
-        <td>6</td>
+        <th>6</th>
         <td>7</td>
         <td>5</td>
         <td>3</td>
@@ -347,7 +351,7 @@ The script from above gives the following results:
         <td>0</td>
     </tr>
     <tr>
-        <td>7</td>
+        <th>7</th>
         <td>1</td>
         <td>6</td>
         <td>11</td>
@@ -360,7 +364,7 @@ The script from above gives the following results:
         <td>13</td>
     </tr>
     <tr>
-        <td>8</td>
+        <th>8</th>
         <td>3</td>
         <td>9</td>
         <td>4</td>
@@ -373,7 +377,7 @@ The script from above gives the following results:
         <td>5</td>
     </tr>
     <tr>
-        <td>9</td>
+        <th>9</th>
         <td>3</td>
         <td>2</td>
         <td>2</td>
@@ -385,6 +389,7 @@ The script from above gives the following results:
         <td>10</td>
         <td>2329</td>
     </tr>
+    </tbody>
 </table>
 
 * Accuracy: 98.40%
@@ -400,11 +405,11 @@ of degree&nbsp;9 as well as some preprocessing.
 
 ## References
 
-* [<a name="ref-smi04">Smi04</a>] B. T. Smith, “Lagrange multipliers tutorial in the context of support
-  vector machines,” Memorial Uni- versity of Newfoundland St. John’s,
+* [<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, “Lagrange multipliers tutorial in the context of support
+  vector machines,” Memorial University of Newfoundland St. John’s,
   Newfoundland, Canada, Jun. 2004.
-* [<a name="ref-bur98">Bur98</a>] C. J. Burges, “A tutorial on support vector machines for pattern
-  recognition,” Data mining and knowledge discovery, vol. 2, no. 2, pp.
+* [<a href="#ref-bur98-anchor" name="ref-bur98">Bur98</a>] C. J. Burges, “A tutorial on support vector machines for pattern
+  recognition,” Data&nbsp;mining and knowledge discovery, vol. 2, no. 2, pp.
   121–167, 1998.
 
 
