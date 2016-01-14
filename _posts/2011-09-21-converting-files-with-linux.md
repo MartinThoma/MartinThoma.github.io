@@ -118,6 +118,13 @@ $ ffmpeg -i "Original.mp4" -target ntsc-vcd "New.mpg"
 ```
 
 
+<b>mp42mp3</b>:
+
+```bash
+$ ffmpeg -i Original.mp4 -f mp3 -ab 192000 -vn New.mp3
+```
+
+
 <b>mod2avi</b>:
 ?
 
