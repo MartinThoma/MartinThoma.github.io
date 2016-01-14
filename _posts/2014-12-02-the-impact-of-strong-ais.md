@@ -162,6 +162,14 @@ It would be important to do so before anybody develops a strong AI.
   actually fueling, rather than closing, the global income gap. Freeland lays
   out three problems with plutocracy … and one glimmer of hope.
 
+And a coulple of talks by people who are not active within AI / ML research
+themselves:
+
+* Nick Bostrom: ["Superintelligence"](https://www.youtube.com/watch?v=pywF6ZzsghI) - Strong AI is inevitable; we should set the initial conditions up the right way
+* [Sam Harris and Joe Rogan talking about artificial intelligence](https://www.youtube.com/watch?v=JybXEp7k7XU)
+* [Max Tegmark and Nick Bostrom speak to the UN about the threat of AI](https://www.youtube.com/watch?v=W9N_Fsbngh8)
+  * [UNICRI](https://en.wikipedia.org/wiki/United_Nations_Interregional_Crime_and_Justice_Research_Institute)
+
 **Articles**
 
 * [9 crazy things that could happen after the singularity, when robots become smarter than humans](http://uk.businessinsider.com/predictions-for-after-singularity-2015-11?IR=T)
