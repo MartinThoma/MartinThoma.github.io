@@ -2,11 +2,13 @@
 layout: post
 title: Using SVMs with sklearn
 author: Martin Thoma
-date: 2014-11-22 17:19
+date: 2016-01-14 12:25
 category: Code
 tags:
 - Python
 - Machine Learning
+- SVM
+- Classification
 featured_image: logos/ai.png
 ---
 
@@ -239,7 +241,161 @@ if __name__ == '__main__':
 
 The script from above gives the following results:
 
-TODO
+<table>
+    <tr>
+        <th></th>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>2258</td>
+        <td>1</td>
+        <td>4</td>
+        <td>1</td>
+        <td>2</td>
+        <td>2</td>
+        <td>3</td>
+        <td>1</td>
+        <td>4</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>2566</td>
+        <td>9</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>7</td>
+        <td>3</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>4</td>
+        <td>1</td>
+        <td>2280</td>
+        <td>5</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1</td>
+        <td>9</td>
+        <td>8</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>0</td>
+        <td>0</td>
+        <td>14</td>
+        <td>2304</td>
+        <td>1</td>
+        <td>13</td>
+        <td>0</td>
+        <td>6</td>
+        <td>8</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>2183</td>
+        <td>0</td>
+        <td>7</td>
+        <td>5</td>
+        <td>0</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>4</td>
+        <td>0</td>
+        <td>0</td>
+        <td>16</td>
+        <td>3</td>
+        <td>2026</td>
+        <td>12</td>
+        <td>1</td>
+        <td>4</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>5</td>
+        <td>3</td>
+        <td>0</td>
+        <td>5</td>
+        <td>2</td>
+        <td>2245</td>
+        <td>0</td>
+        <td>4</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>1</td>
+        <td>6</td>
+        <td>11</td>
+        <td>2</td>
+        <td>5</td>
+        <td>1</td>
+        <td>0</td>
+        <td>2373</td>
+        <td>5</td>
+        <td>13</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>3</td>
+        <td>9</td>
+        <td>4</td>
+        <td>9</td>
+        <td>4</td>
+        <td>10</td>
+        <td>2</td>
+        <td>3</td>
+        <td>2166</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>3</td>
+        <td>2</td>
+        <td>2</td>
+        <td>6</td>
+        <td>19</td>
+        <td>6</td>
+        <td>0</td>
+        <td>12</td>
+        <td>10</td>
+        <td>2329</td>
+    </tr>
+</table>
+
+* Accuracy: 98.40%
+* Error: 1.60%
+
+Looks pretty good to me. However, note that there are much better results.
+The best on [the official website](http://yann.lecun.com/exdb/mnist/) has an
+error of 0.23% and is a committee of 35 convolutional neural networks.
+
+The best SVM I could find has an error of 0.56% and applies a polynomial kernel
+of degree&nbsp;9 as well as some preprocessing.
 
 
 ## References
