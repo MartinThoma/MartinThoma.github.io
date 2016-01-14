@@ -435,3 +435,20 @@ What is not needed:
 * Internet access, Bluethooth, NFC, ...
 * Multi-colored display: B/W screen is just ok
 * Fingerprint scanner
+
+
+### Light Alarm Clock
+
+An alarm clock which wakes you up with light.
+
+Features:
+
+* Set multiple alarms
+* (Non-lit) display which shows
+    * the time
+    * time to the next alarm in `X d - Y h - Z m` format
+* Batteries
+* Be able to set multiple alarms:
+    * Choose days for which the alarm rings
+    * Choose dimming profile for the alarm (smooth - aprubt)
+* Be able to change the (dimming) light which is inside
