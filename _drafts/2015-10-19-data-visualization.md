@@ -20,6 +20,18 @@ featured_image: logos/data.png
 * seaborn - [Hexbin plot with marginal distributions](http://stanford.edu/~mwaskom/software/seaborn/examples/hexbin_marginals.html)
 * pygal
 
+
+## How to lie with Data Visiualization
+
+* Breaking conventions
+* Make bar charts to too many digits / truncate it
+* Cummulative graphs only
+
+See also:
+
+* http://data.heapanalytics.com/how-to-lie-with-data-visualization/
+* http://gizmodo.com/how-to-lie-with-data-visualization-1563576606
+
 ## See also
 
 * [Overview of Python Visualization Tools](http://pbpython.com/visualization-tools-1.html)
