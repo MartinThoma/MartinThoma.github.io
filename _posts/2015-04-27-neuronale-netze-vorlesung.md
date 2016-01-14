@@ -562,7 +562,7 @@ Slide name: V12_2015-06-02_RNNs.pdf
         niedrig ist, sodass das Netz sehr langsam lernt. Aufgrund numerischer
         Ungenauigkeit kann dies sogar dazu führen, dass das Netz in den
         ersten Schichten nicht lernen kann.</dd>
-    <dt><dfn>Long short-term memory</dfn> (vgl. <dfn>LSTM</dfn>, <a href="https://en.wikipedia.org/wiki/Long_short-term_memory">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Long_short-term_memory"><dfn>Long short-term memory</dfn></a> (vgl. <dfn>LSTM</dfn>)</dt>
     <dd>Ein LSTM ist ein Typ eines neuronalen Netzwerks. Das besondere an
         LSTM Netzen sind "intelligente" Neuronen, welche über Gates bestimmen
         ob ein Wert gespeichert wird und wie lange.</dd>
@@ -575,6 +575,7 @@ Siehe auch:
 * [Char-Predictor online Demo](http://www.cs.toronto.edu/~ilya/fourth.cgi?prefix=E%3D&numChars=300)
 * [Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 * YouTube: [Vanishing Gradient](https://www.youtube.com/watch?v=SKMpmAOUa2Q) (5:24 min)
+* [Where does the name 'LSTM' come from?](http://datascience.stackexchange.com/q/9510/8820)
 
 ### V13: NNlearning-tricks
 Slide name: V13_2015-06-09_NNlearning-tricks.pdf
@@ -689,6 +690,8 @@ mir folgendes aufgefallen:
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
+* [Machine Learning 1](//martin-thoma.com/machine-learning-1-course/) und [Machine Learning 2](//martin-thoma.com/machine-learning-2-course/) am KIT
+* Coursera: [Neural Networks for Machine Learning](https://class.coursera.org/neuralnets-2012-001/lecture) by Geoffrey Hinton
 
 
 ## Übungsbetrieb
