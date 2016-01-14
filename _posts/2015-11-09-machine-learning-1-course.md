@@ -17,10 +17,10 @@ featured_image: logos/klausur.png
 
 Slide name: `ML-Einordnungskriterien.pdf`
 
-* **Inferenztyp**: Induktiv (version-space Algorithmus, k-NN, CBR, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
+* **Inferenztyp**: Induktiv (Version Space Algorithmus, <abbr title="k nearest neighbor">\\(k\\)-NN</abbr>, CBR, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
 * **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
 * **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (k-Means)
-* **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht inkrementell (k-Means, k-NN, ID3)
+* **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht&nbsp;inkrementell (\\(k\\)-Means, \\(k\\)-NN, ID3)
 * **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
 * **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (Erklärungsbasierte Generalisierung)
 
@@ -522,7 +522,10 @@ Slides: `MLI_11-MLN_slides1`
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>
-  <dd>Ein Markov Logik Netz \(L\) ist ein Menge aus Tupeln \((F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung ist und \(w_i \in \mathbb{R}\) ein Gewicht ist.</dd>
+  <dd>Ein Markov Logik Netz \(L\) ist ein Menge aus Tupeln \((F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung ist und \(w_i \in \mathbb{R}\) ein Gewicht ist.
+      Ein MLN ist eine Schablone für ein MRF.</dd>
+  <dt><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
+  <dd></dd>
 </dl>
 
 Siehe auch:
@@ -553,6 +556,8 @@ Siehe auch:
         → TODO</li>
     <li>Was versteht man unter Cascade Correlation?
         → TODO</li>
+    <li>Welche übwerwachten Lernverfahren gibt es?
+        → Neuronale Netze, SVMs</li>
 </ul>
 
 ## Material und Links
@@ -571,7 +576,7 @@ Bonuspunkte.
 
 ## Termine und Klausurablauf
 
-**Datum**: Mündliche Prüfung<br/>
+**Datum**: Mündliche Prüfung (in Zukunft schriftlich)<br/>
 **Ort**: nach Absprache<br/>
 **Zeit**: ? min<br/>
 **Übungsschein**: gibt es nicht<br/>

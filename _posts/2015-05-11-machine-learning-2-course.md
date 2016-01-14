@@ -606,12 +606,12 @@ Es gibt keine Übungen und keine Übungsblätter.
 
 ## Kontakt
 
-* goettl@fzi.de: Sonja Göttl (Sekretariat, zum Anmelden zur Prüfung)
+* goettl@fzi.de: Sonja Göttl (Sekretariat, zum Anmelden zur mündlichen Prüfung)
 
 
 ## Termine und Klausurablauf
 
-**Datum**: nach Terminvereinbarung<br/>
+**Datum**: nach Terminvereinbarung (in Zukunft wohl schriftlich)<br/>
 **Ort**: ?<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
