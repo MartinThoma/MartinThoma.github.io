@@ -28,61 +28,61 @@ with an example how to use SVMs with sklearn.
           datapoints. This hyperplane should be taken:<br/>
           \[
           \begin{aligned}
-              \minimize_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
-              \text{s.t. }& \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{\mathclap{\sgn \text{ applied to this gives the classification}}} \geq 1
+              \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
+              \text{s.t. }& \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{\mathclap{\text{sgn applied to this gives the classification}}} \geq 1
           \end{aligned}\]</li>
     <li><b>Slack variables</b>: Even if the underlying process which generates
           the features for the two classes is linearly separable, noise can
           make the data not separable. The introduction of \textit{slack
           variables} to relax the requirement of linear separability solves
           this problem. The trade-off between accepting some errors and a more
-          complex model is weighted by a parameter $C \in \mathbb{R}_0^+$. The
-          bigger $C$, the more errors are accepted. The new optimization
+          complex model is weighted by a parameter \(C \in \mathbb{R}_0^+\). The
+          bigger \(C\), the more errors are accepted. The new optimization
           problem is:
           \[
           \begin{aligned}
-              \minimize_{\mathbf{w}}\,&\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
+              \text{minimize}_{\mathbf{w}}\,&\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
               \text{s.t. }& \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
           \end{aligned}\]</li>
-    <li><b>Dual Problem</b>: The primal problem is to find the normal vector $\mathbf{w}$ and the
-          bias $b$. The dual problem is to express $\mathbf{w}$ as a linear
-          combination of the training data $\mathbf{x}_i$:
+    <li><b>Dual Problem</b>: The primal problem is to find the normal vector \(\mathbf{w}\) and the
+          bias \(b\). The dual problem is to express \(\mathbf{w}\) as a linear
+          combination of the training data \(\mathbf{x}_i\):
           \[\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i\]
-          where $y_i \in \Set{-1, 1}$ represents the class of the training
-          example and $\alpha_i$ are Lagrange multipliers. The usage of
+          where \(y_i \in \{-1, 1\}\) represents the class of the training
+          example and \(\alpha_i\) are Lagrange multipliers. The usage of
           Lagrange multipliers is explained with some examples
-          in [Smi04]. The usage of the Lagrange multipliers
-          $\alpha_i$ changes the optimization problem depend on the
-          $\alpha_i$ which are weights for the feature vectors. It turns
-          out that most $\alpha_i$ will be zero. The non-zero weighted vectors
+          in [<a href="#ref-smi04">Smi04</a>]. The usage of the Lagrange multipliers
+          \(\alpha_i\) changes the optimization problem depend on the
+          \(\alpha_i\) which are weights for the feature vectors. It turns
+          out that most \(\alpha_i\) will be zero. The non-zero weighted vectors
           are called \textit{support vectors}.
 
-          The optimization problem is now, according to [Bur98]:
+          The optimization problem is now, according to [<a href="#ref-bur98">Bur98</a>]:
           \[
           \begin{aligned}
-              \maximize_{\mathbf{w}}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
+              \text{maximize}_{\mathbf{w}}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
               \text{s.t. } & \forall_{i=1}^m 0 \leq \alpha_i \leq C\\
               \text{s.t. } & \sum_{i=1}^m \alpha_i y_i = 0
           \end{aligned}\]</li>
     <li><b>Kernel-Trick</b>: Not every dataset is linearly separable. This problem is approached
-          by transforming the feature vectors $\mathbf{x}$ with a non-linear
-          mapping $\Phi$ into a higher dimensional (probably
-          $\infty$-dimensional) space. As the feature vectors $\mathbf{x}$
+          by transforming the feature vectors \(\mathbf{x}\) with a non-linear
+          mapping \(\Phi\) into a higher dimensional (probably
+          \(\infty\)-dimensional) space. As the feature vectors \(\mathbf{x}\)
           are only used within scalar product
-          $\langle \mathbf{x}_i, \mathbf{x}_j \rangle$, it is not necessary to
+          \(\langle \mathbf{x}_i, \mathbf{x}_j \rangle\), it is not necessary to
           do the transformation. It is enough to do the calculation
           \[K(\mathbf{x}_i, \mathbf{x}_j) = \langle \mathbf{x}_i, \mathbf{x}_j \rangle\]
 
-          This function $K$ is called a \textit{kernel}. The idea of never
-          explicitly transforming the vectors $\mathbf{x}_i$ to the higher
+          This function \(K\) is called a \textit{kernel}. The idea of never
+          explicitly transforming the vectors \(\mathbf{x}_i\) to the higher
           dimensional space is called the \textit{kernel trick}. Common kernels
           include the polynomial kernel
           \[K_P(\mathbf{x}_i, \mathbf{x}_j) = (\langle \mathbf{x}_i, \mathbf{x}_j \rangle + r)^p\]
-          of degree $p$ and coefficient $r$, the Gaussian \gls{RBF} kernel
+          of degree \(p\) and coefficient \(r\), the Gaussian \gls{RBF} kernel
           \[K_{\text{Gauss}}(\mathbf{x}_i, \mathbf{x}_j) = e^{\frac{-\gamma\|\mathbf{x}_i - \mathbf{x}_j\|^2}{2 \sigma^2}}\]
           and the sigmoid kernel
           \[K_{\text{tanh}}(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma \langle \mathbf{x}_i, \mathbf{x}_j \rangle - r)\]
-          where the parameter $\gamma$ determines how much influence single
+          where the parameter \(\gamma\) determines how much influence single
           training examples have.</li>
     <li><b>Multiple Classes</b>: By using the <i>one-vs-all</i> or the
         <i>one-vs-one</i> strategy it is possible to get a classifying system
@@ -400,10 +400,10 @@ of degree&nbsp;9 as well as some preprocessing.
 
 ## References
 
-* [Smi04] B. T. Smith, “Lagrange multipliers tutorial in the context of support
+* [<a name="ref-smi04">Smi04</a>] B. T. Smith, “Lagrange multipliers tutorial in the context of support
   vector machines,” Memorial Uni- versity of Newfoundland St. John’s,
   Newfoundland, Canada, Jun. 2004.
-* [Bur98] C. J. Burges, “A tutorial on support vector machines for pattern
+* [<a name="ref-bur98">Bur98</a>] C. J. Burges, “A tutorial on support vector machines for pattern
   recognition,” Data mining and knowledge discovery, vol. 2, no. 2, pp.
   121–167, 1998.
 
