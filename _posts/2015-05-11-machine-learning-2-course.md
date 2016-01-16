@@ -270,10 +270,15 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       <i>a priori Verteilung über \(A\)</i> und \(P(B)\) die
       <i>a priori Verteilung über \(B\)</i>.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a></dt>
-  <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclical Graph">DAG</abbr> TODO
+  <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclical
+      Graph">DAG</abbr>, bei dem die Knoten Zufallsvariablen und die Kanten
+      bedingte Abhängigkeiten beschreiben.
+
       Bayessche Netze sind zur Modellierung kausaler Zusammenhänge geeignet.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Random_Field"><dfn>Markov Random Field</dfn></a></dt>
-  <dd>Ein <i>MRF</i> ist ein ungerichteter Graph TODO.
+  <dd>Ein <i>MRF</i> ist ein ungerichtetes probabilitisches graphisches Modell.
+      TODO: genauer?
+
       MRFs sind zur Modellierung von Korrelation geeignet.</dd>
   <dt><dfn>Dynamisches Bayessches Netz</dfn></dt>
   <dd><i>Dynamische Bayessche Netze</i> sind Bayessche Netze zur Beschreibung
@@ -588,7 +593,9 @@ Alternative:
 
 <ul>
     <li>Was versteht man unter einer "Transductive SVM"?
-    → TODO</li>
+    → Eine Transductive SVM ist eine <abbr title="Support Vector Machine">SVM</abbr>
+       welche neben gelabelten Daten auch noch ungelabelte benutzt. Sie versucht
+       die Trennebene durch eine Region geringer Dichte zu legen.</li>
 </ul>
 
 

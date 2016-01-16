@@ -249,8 +249,20 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
         den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen
         Hidden Units in der Schicht zuvor.</dd>
-    <dt><abbr title="Resilient Propagation"><dfn>RPROP</dfn></abbr></dt>
-    <dd>TODO</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Rprop"><abbr title="Resilient Propagation"><dfn>RPROP</dfn></abbr></a> (siehe <a href="https://www.youtube.com/watch?v=Cy2g9_hR-5Y">YouTube</a> - 15:00min)</dt>
+    <dd><i>Rprop</i> ist eine Gewichtsupdate-Regel für neuronale Netze. Sie
+        betrachtet nur das Vorzeichen des Gradienten, jedoch nicht den Betrag.
+        Jedes Gewicht wird unabhängig von den anderen behandelt.
+
+        Der Algorithmus hat Konstanten \(\eta^- \in \mathbb{R}_{\le 1}\) sowie
+        \(\eta^+ \in \mathbb{R}_{\ge 1}\). Für jedes Gewicht ist außerdem
+        \(\eta=1\) zu Beginn.
+
+        Bei jedem Gewichtsupdate wird überprüft, ob sich das Vorzeichen des
+        Gradienten für dieses Gewicht geändert hat. Falls ja, wird das Gewicht
+        um \(\eta \cdot \eta^+\) bzw \(\eta \cdot \eta^-\) geändert. Außerdem
+        kann eine minimale bzw. eine Maximale Änderung gesetzt werden.
+        </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Delta_rule"><dfn>Delta-Regel</dfn></a>, siehe <a href="http://www.neuronalesnetz.de/delta.html">neuronalesnetz.de</a></dt>
     <dd>Die Delta-Regel ist ein Lernalgorithmus für neuronale Netze mit nur
         einer Schicht. Sie ist ein Spezialfall des algemeineren
