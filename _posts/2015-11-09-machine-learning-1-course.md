@@ -17,7 +17,7 @@ featured_image: logos/klausur.png
 
 Slide name: `ML-Einordnungskriterien.pdf`
 
-* **Inferenztyp**: Induktiv (Version Space Algorithmus, <abbr title="k nearest neighbor">\\(k\\)-NN</abbr>, CBR, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
+* **Inferenztyp**: Induktiv (Version Space Algorithmus, <abbr title="k nearest neighbor">\\(k\\)-NN</abbr>, <abbr title="Case-Based">CBR</abbr>, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
 * **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
 * **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (k-Means)
 * **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht&nbsp;inkrementell (\\(k\\)-Means, \\(k\\)-NN, ID3)
@@ -161,7 +161,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
       Overfitting leidet.</dd>
   <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn>VC-Dimension</dfn>)</dt>
-  <dd>Die VC-Dimension \(VC(H^\alpha)\) eines Hypothesenraumes \(H^\alpha\)
+  <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension \(VC(H^\alpha)\) eines Hypothesenraumes \(H^\alpha\)
       ist gleich der maximalen Anzahl an Datenpunkten, die von \(H^\alpha\)
       beliebig separiert werden können.</dd>
 </dl>
@@ -179,10 +179,9 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
     * \\(\mathbb{R}^n \times \mathbb{R}\\): Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
-* Bootstrap: TODO (Folie 18 - 20)
 * <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a>
     * Folie 35: Was ist eine Instanz der Länge \\(n\\)? (TODO)
-* VC-Dimension
+* VC-Dimension: Siehe [YouTube](https://youtu.be/puDzy2XmR5c)
     * Folie 44: Was ist \\(\eta\\)? (TODO)
 * TODO: Wie hängen PAC und VC-Dimension zusammen?
 
@@ -199,13 +198,10 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       wrong. Train new classifier on the wrong ones.</dd>
 </dl>
 
-* Fragen zu Folie 20:
-    * Sind die Datensätze disjunkt?
-    * TODO: Verstehe Algorithmus nicht.
 * Folie 22:
-    * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)?
+    * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)? (TODO)
     * Stellt \\(W_k(i)\\) die Wahrscheinlichkeit dar, dass Beispiel \\(i\\) im \\(k\\)-ten
-      Durchlauf für das Training verwendet wird?
+      Durchlauf für das Training verwendet wird? (TODO)
 
 
 Siehe auch:
@@ -242,10 +238,8 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     * Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.
     * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.
 * Gradientenabstieg
-* Delta-Regel
 * Kernel-Methoden (TODO)
 * Radial-Basis Funktion Netz (TODO)
-* <abbr title="Resilient Propagation">RPROP</abbr>: TODO
 
 <dl>
     <dt><dfn>Cascade Correlation</dfn></dt>
@@ -255,6 +249,51 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
         den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen
         Hidden Units in der Schicht zuvor.</dd>
+    <dt><abbr title="Resilient Propagation"><dfn>RPROP</dfn></abbr></dt>
+    <dd>TODO</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Delta_rule"><dfn>Delta-Regel</dfn></a>, siehe <a href="http://www.neuronalesnetz.de/delta.html">neuronalesnetz.de</a></dt>
+    <dd>Die Delta-Regel ist ein Lernalgorithmus für neuronale Netze mit nur
+        einer Schicht. Sie ist ein Spezialfall des algemeineren
+        Backpropagation-Algorithmus und lautet wie folgt:
+        \[\Delta w_{ji} = \alpha (t_j - y_j) \varphi'(h_j) x_i\]
+        wobei
+
+        <ul>
+        <li>\(\Delta w_{ji} \in \mathbb{R}\) die Änderung des Gewichts von Input \(i\)
+        zum Neuron \(j\),</li>
+        <li>\(\alpha \in [0, 1]\) die Lernrate (typischerweise \(\alpha \approx 0.1\)),</li>
+        <li>\(t_j \in \mathbb{R}\) der Zielwert des Neurons \(j\),</li>
+        <li>\(y_j \in \mathbb{R}\) die tatsächliche Ausgabe,</li>
+        <li>\(\varphi'\) die Ableitung der Aktivierungsfunktion des Neurons,</li>
+        <li>\(h_j \in \mathbb{R}\) die gewichtete Summe der Eingaben des Neurons und</li>
+        <li>\(x_i \in \mathbb{R}\) der \(i\)-te Input</li>
+        </ul>
+
+        ist.
+    </dd>
+    <dt><dfn>Gradient-Descent Algorithmus</dfn></dt>
+    <dd>Der Gradient-Descent Algorithmus ist ein Optimierungsalgorithmus für
+        differenzierbare Funktionen. Er startet an einer zufälligen Stelle \(x_0\).
+        Dann wird folgender Schritt mehrfach ausgeführt:
+        \[x_0 \gets x_0 - \alpha \cdot \text(grad) f (x_0)\]
+        wobei \(\alpha \in (0, 1]\) die Lernrate ist und \(f\) die zu
+        optimierende Funktion. Dabei könnte \(\alpha\) mit der Zeit auch
+        kleiner gemacht werden.
+    </dd>
+    <dt><dfn>Backpropagation</dfn> (siehe <a href="http://neuralnetworksanddeeplearning.com/chap2.html">neuralnetworksanddeeplearning.com</a>)</dt>
+    <dd>Der Backpropagation-Algorithmus ist eine Variante des Gradient-Descent
+        Algorithmus, welche für <abbr title="multilayer Perceptrons">MLPs</abbr>
+        angepasst wurde. Sie besteht aus drei Schritten:
+
+        <ul>
+            <li><b>Forward-Pass</b>: Lege die Input-Features an das Netz an und erhalte den Output</li>
+            <li><b>Fehlerberechnung</b>: Mache das für alle Daten</li>
+            <li><b>Backward-Pass</b>: Passe die Gewichte </li>
+        </ul>
+
+        Im Grunde ist Backpropagation nur eine Geschwindigkeitsoptimierte
+        Variante des Gradient-Descent Algorithmus, da die Gradienten im
+        Backpropagation-Algorithmus auf geschickte Weise berechnet werden.</dd>
 </dl>
 
 #### Siehe auch
@@ -269,12 +308,12 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
 
 <dl>
   <dt><dfn>Instanzenbasiertes Lernen</dfn> bzw. <dfn>Lazy Learning</dfn></dt>
-  <dd>Instanzenbasiertes Lernen ist ein Lernverfahren, welches einfach nur
+  <dd><i>Instanzenbasiertes Lernen</i> ist ein Lernverfahren, welches einfach nur
       die Beispiele abspeichert, also faul (engl. lazy) ist. Soll der Lerner
       neue Daten klassifizieren, so wird die Klasse des ähnlichsten
       Datensatzes gewählt.</dd>
   <dt><dfn>Case-based Reasoning</dfn> bzw. kurz <dfn>CBR</dfn></dt>
-  <dd>CBR ist ein allgemeines, abstraktes Framework und kein direkt anwendbarer
+  <dd><i>CBR</i> ist ein allgemeines, abstraktes Framework und kein direkt anwendbarer
       Algorithmus. Die Idee ist, dass nach ähnlichen, bekannten Fällen gesucht
       wird, auf die der aktuelle Fall übertragen werden kann.</dd>
   <dt><dfn>Fall</dfn> im Kontext des CBR</dt>
@@ -290,13 +329,14 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
 
 * TODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
   eingeschränkter - was ist damit gemeint?
-* TODO: Folie 6 - Was ist CBR?
+
 
 ### SVM
 
 Slide name: `MLI_07_SVM_slides1.pdf`
 
-TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
+Eine Erklärung von <abbr title="Support Vector Machines">SVMs</abbr>
+findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-sklearn/).
 
 * SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-
   Dimension, falls die Klassen linear trennbar sind.
@@ -311,7 +351,10 @@ TODO: Allgemeines Verständnis, mal auf konkrete Fälle anwenden
 * Kernel-Trick
 
 
-<div class="alert alert-info"><h4>Abschätzung des Testfehlers</h4>
+<div class="alert alert-info"><h4>Abschätzung des realen Fehlers</h4>
+Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
+folgt abgeschätzt werden:
+
 Mit Wahrscheinlichkeit \(P(1-\eta)\) gilt:
 \[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\dots \frac{VC(h_\alpha)}{N} \dots}\]
 
@@ -428,7 +471,7 @@ Slide name: `MLI_09_BayesLernen_slides1.pdf`
       Beschreibung von Ockhams Rasiermesser. Nach diesem Prinzip werden
       Hypothesen bevorzugt, die zur besten Kompression gegebener Daten führen.
   </dd>
-  <dt><dfn>Gibbs-Algorithmus</dfn> (<a href="https://de.wikipedia.org/wiki/Gibbs-Sampling">Wikipedia</a> und <a href="http://stats.stackexchange.com/a/10216/25741">stats.stackexchange</a>)</dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Gibbs-Sampling"><dfn>Gibbs-Algorithmus</dfn></a> (<a href="http://stats.stackexchange.com/a/10216/25741">stats.stackexchange</a>)</dt>
   <dd>Der Algorithmus von Gibbs ist eine Methode um Stichproben von bedingten
       Verteilungen zu erzeugen. TODO: Ist das richtig? Wann wird es verwendet?
   </dd>
@@ -491,13 +534,37 @@ Slide name: `MLI_10_HMM_slides1.pdf`
       beobachtet werden wird, gegeben das HMM&nbsp;\(\lambda\) und den
       Startzustand&nbsp;\(s_i\).</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Viterbi-Algorithmus"><dfn>Viterbi-Algorithmus</dfn></a></dt>
-  <dd>Löst P2: TODO</dd>
+  <dd>Löst P2: Siehe <a href="//martin-thoma.com/apply-viterbi-aglrithm/">How to apply the Viterbi algorithm</a></dd>
   <dt><a href="https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus"><dfn>Baum-Welch-Algorithmus</dfn></a></dt>
-  <dd>Löst P3: TODO</dd>
+  <dd>Löst P3:
+
+      Gegeben sei eine Trainingssequenz \(O_{\text{train}}\) und ein Modell
+      \[\lambda = \{S, V, A, B, \Pi\}\]
+
+
+      Gesucht ist ein Modell
+
+      \[\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lamba)\]
+
+      Der Baum-Welch-Algorithmus geht wie folgt vor:
+
+      <ol>
+          <li>Bestimme \(P(O_{\text{train}} | \lambda)\)</li>
+          <li>Schätze ein besseres Modell \(\bar \lambda\): TODO - Genauer! (Folie 31 - 36)</li>
+      </ol>
+
+      Iteriere diese Schritte so lange, bis ein lokales Maximum gefunden wurde.
+      </dd>
   <dt><dfn>Ergodisches Modell</dfn></dt>
-  <dd>TODO</dd>
+  <dd>Unter dem <i>ergodischen Modell</i> versteht man im Kontext von
+      <abbr title="Hidden Markov Models">HMMs</abbr> die vollverbundene
+      Topologie inclusive Schleifen.</dd>
   <dt><dfn>Bakis-Modell</dfn> (<dfn>Links-nach-Rechts-Modell</dfn>)</dt>
-  <dd>TODO</dd>
+  <dd>Unter dem <i>Bakis-Modell</i> versteht man im Kontext von
+      <abbr title="Hidden Markov Models">HMMs</abbr> eine Links-nach-Rechts
+      Topologie, bei der maximal ein Zustand übersprungen werden kann.
+      Das bedeutet, es gibt eine Ordnung über den Zuständen. Von einem
+      Zustand \(i\) kommt man in die Zustände \(i, i+1, i+2\).</dd>
 </dl>
 
 Die drei Probleme von HMMs sind
@@ -507,7 +574,7 @@ Die drei Probleme von HMMs sind
   gegeben ein HMM \\(\lambda\\), also \\(P(\bf{o}|\lambda)\\).
 * **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz,
   gegeben eine Sequenz von Beobachtungen.
-* **P3 - Lernproblem**: Optimieren der Modellparameter.
+* **P3 - Lernproblem**: Optimieren der Modellparameter
 
 
 Anwendungen:
@@ -551,11 +618,12 @@ Siehe auch:
         man \(a\) ausführt und \(r\) der Reward nach ausführen von \(a\) in
         \(s\) ist.</li>
     <li>Wie lautet die Fehlerabschätzung von Vapnik?
-        → (TODO: Empirischer Fehler / realer Fehler)</li>
+        → Siehe abschätzung des realen Fehlers durch den empirischen Fehler
+           und die VC-Dimension in "Abschätzung des Testfehlers"</li>
     <li>Wie funktioniert Q-Learning?
         → TODO</li>
     <li>Was versteht man unter Cascade Correlation?
-        → TODO</li>
+        → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
     <li>Welche übwerwachten Lernverfahren gibt es?
         → Neuronale Netze, SVMs</li>
 </ul>
