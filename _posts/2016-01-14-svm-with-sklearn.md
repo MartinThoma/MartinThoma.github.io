@@ -24,8 +24,9 @@ with an example how to use SVMs with sklearn.
 
 <ol>
     <li><b>Linear, binary classifiers</b>: If data is linearly separable, it
-        can be separated by a hyperplane. There is one hyperplane which maximizes the distance to the
-          datapoints. This hyperplane should be taken:<br/>
+        can be separated by a hyperplane. There is one hyperplane which
+        maximizes the distance to the next datapoints (support vectors). This
+        hyperplane should be taken:<br/>
           \[
           \begin{aligned}
               \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
@@ -43,7 +44,11 @@ with an example how to use SVMs with sklearn.
           \begin{aligned}
               \text{minimize}_{\mathbf{w}}\,&\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
               \text{s.t. }& \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
-          \end{aligned}\]</li>
+          \end{aligned}\]
+
+          Note that \(0 \le \xi_i \le 1\) means that the data point is within
+          the margin, whereas \(\xi_i \ge 1\) means it is misclassified. An
+          SVM with \(C > 0\) is also called a <i>soft-margin SVM</i>.</li>
     <li><b>Dual Problem</b>: The primal problem is to find the normal vector \(\mathbf{w}\) and the
           bias \(b\). The dual problem is to express \(\mathbf{w}\) as a linear
           combination of the training data \(\mathbf{x}_i\):
@@ -88,6 +93,15 @@ with an example how to use SVMs with sklearn.
         <i>one-vs-one</i> strategy it is possible to get a classifying system
         which can distinguish many classes.</li>
 </ol>
+
+A nice visualization of the transformation of the data in a higher-dimensional
+space was done by
+
+TeamGrizzly's channel: [Performing nonlinear classification via linear separation in higher dimensional space](https://youtu.be/9NrALgHFwTo) on YouTube. 22.11.2010.
+
+See also:
+
+* [SVM - hard or soft margins?](http://stackoverflow.com/a/4630731/562769)
 
 
 ## sklearn

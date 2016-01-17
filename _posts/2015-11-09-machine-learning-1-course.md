@@ -17,12 +17,12 @@ featured_image: logos/klausur.png
 
 Slide name: `ML-Einordnungskriterien.pdf`
 
-* **Inferenztyp**: Induktiv (Version Space Algorithmus, <abbr title="k nearest neighbor">\\(k\\)-NN</abbr>, <abbr title="Case-Based">CBR</abbr>, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (Erklärungsbasierte Generalisierung; Von allgemeinen auf spezielles)
+* **Inferenztyp**: Induktiv (Version Space Algorithmus, <abbr title="k nearest neighbor">\\(k\\)-NN</abbr>, <abbr title="Case-Based">CBR</abbr>, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (<abbr title="Erklärungsbasierte Generalisierung">EBG</abbr>; Von allgemeinen auf spezielles)
 * **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
 * **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (k-Means)
 * **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht&nbsp;inkrementell (\\(k\\)-Means, \\(k\\)-NN, ID3)
 * **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
-* **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (Erklärungsbasierte Generalisierung)
+* **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (EBG)
 
 ### Einführung
 
@@ -63,10 +63,18 @@ Slide name: `MLI_01_Einfuehrung_slides1.pdf`
 
 Slide name: `MLI_02_InduktivesLernen_slides1.pdf`
 
-* Konzept: Beschreibt Untermenge von Objekten oder Ereignissen definiert auf
-  größerer Menge.
-* Konsistenz: Keine negativen Beispiele werden positiv klassifiziert.
-* Vollständigkeit: Alle positiven Beispiele werden als positiv klassifiziert.
+<dl>
+    <dt><dfn>Version Space</dfn></dt>
+    <dd>Der Raum aller Hypotesen, welche mit den Trainingsbeispielen konsistent sind.</dd>
+    <dt><dfn>Konzept</dfn></dt>
+    <dd>Ein <i>Konzept</i> beschreibt eine Untermenge von Objekten oder
+        Ereignissen definiert auf einer größerer Menge.</dd>
+    <dt><dfn>Konsistenz</dfn></dt>
+    <dd>Keine negativen Beispiele werden positiv klassifiziert.</dd>
+    <dt><dfn>Vollständigkeit</dfn></dt>
+    <dd>Alle positiven Beispiele werden als positiv klassifiziert.</dd>
+</dl>
+
 * Algorithmen: Bäume (Wälder?)
     * Suche vom Allgemeinen zum Speziellen: Negative Beispiele führen zur Spezialisierung
     * Suche vom Speziellen zum Allgemeinen: Positive Beispiele führen zur Verallgemeinerung
@@ -401,26 +409,6 @@ Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
 </div>
 
 
-<div class="alert alert-info"><h4>Die fünf Prinzipien von SVMs</h4>
-<ol>
-    <li>Lineare Trennung mit maximalen Abstand der Trennebenen zu den
-        nächstgelegenen Stichproben (Support Vektoren)</li>
-    <li>Duale Formulierung des linearen Klassifikators.
-        (vgl. <a href="https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem">Wiki</a>, \(k(m) = w^T m + b = \langle w, m \rangle + b = \sum_{j=1}^N \alpha_j z_j \langle m_j, m \rangle + b\))</li>
-    <li>Nichtlineare Abbildung der primären Merkmale in einen hochdimensionalen
-        Merkmalsraum \(\Phi\)</li>
-    <li>Implizite Nutzung des unter Umständen \(\infty\)-dimensionalen
-        Eigenfunktionsraumes einer sog. Kernfunktion \(K\) als transformierten
-        Merkmalsraum \(\Phi\). Dabei müssen die transformierten Merkmale nicht
-        explizit berechnet werden und der Klassifikator hat trotz der hohen
-        Dimension von \(\Phi\) nur eine niedrige Zahl von freien Parametern
-        (Kernel-Trick).</li>
-    <li>Relaxation der Forderung nach linearer Trennbarkeit durch Einführung
-        von Schlupfvariablen (slack variables).</li>
-</ol>
-</div>
-
-
 ### Entscheidungsbäume
 
 Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
@@ -677,6 +665,35 @@ Siehe auch:
         → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
     <li>Welche übwerwachten Lernverfahren gibt es?
         → Neuronale Netze, SVMs</li>
+    <li>Was ist Value Iteration und wie lautet die Formel?
+        → TODO</li>
+    <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?
+        → TODO</li>
+    <li>Wie funktioniert SRM bei SVMs?
+        → TODO (Dualität zwischen Feature- und Hypothesenraum?)</li>
+    <li>Wie funktioniert Inferenz in Markov Logik Netzen?
+        → TODO</li>
+    <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in MLNs berechnet?
+        → TODO</li>
+    <li>Was ist Dynamic Decay Adjustment (DDA)?
+        → TODO (Hatten wir das oder ist das inzwischen weggefallen? - Anscheindend lernt auch DDA nach Vapnik "korrekt")</li>
+    <li>Warum lernen SVMs "korrekt"?
+        → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
+        eines Klassifiers, welcher Datenpunkte im \(n\)-Dimensionalen Raum
+        innerhalb einer Kugel mit Radius \(D\) durch eine Hyperebene mit
+        mindestens Abstand \(\Delta\) trennen will, durch \((\frac{D}{\Delta})^2\)
+        beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
+        Margin maximiert.
+
+        Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).
+
+        </li>
+    <li>Was ist erklärungsbasierte Generalisierung (EBG)?
+        → TODO</li>
+    <li>Wie lautet die Formel für Entropie / Information Gain?
+        → \(Entropy = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
+    <li>Was ist <a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)">Cobweb</a>?
+        → TODO (Kam das bei uns überhaupt dran? Irgendwas mit dem lernen eine Baumstruktur)</li>
 </ul>
 
 
