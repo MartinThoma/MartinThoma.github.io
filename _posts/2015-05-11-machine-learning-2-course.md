@@ -65,10 +65,7 @@ featured_image: logos/klausur.png
 Slides: `01_Einfu__hrung_MLII.pdf`
 
 Rückblick auf [ML 1](//martin-thoma.com/machine-learning-1-course/).
-
-Meine Fragen (TODO):
-
-* Folie 27: Was heißt MLNN?
+MLNN steht übrigens für <i>Multi-Layer Neural Network</i>.
 
 
 ### Semi-Supervised Learning
@@ -91,7 +88,7 @@ Slides: `02_Semi-supervised-learning.pdf`
           <li>Werte ungelabelte Daten aus.</li>
           <li>Füge Daten, bei denen sich der Klassifizierer sicher ist, zu
               den Trainingsdaten hinzu.</li>
-          <li>Zurück zu Schritt 1.</li>
+          <li>Zurück zu Schritt&nbsp;1.</li>
       </ol>
 
       Dabei sind folgende Variationen vorstellbar:
@@ -113,12 +110,12 @@ Slides: `02_Semi-supervised-learning.pdf`
           <li>Füge ungelabelte Daten dem Trainingsdatensatz (also den
               gelabelten Daten) hinzu, falls die Klassifizierer für diese eine
               hohe Konfidenz aufweisen.</li>
-          <li>Zurück zu Schritt 2.</li>
+          <li>Zurück zu Schritt&nbsp;2.</li>
       </ol>
 
       Dabei sind folgende Variationen vorstellbar:
       <ul>
-          <li>Demokratisches Voting: Bei mehr als 2 Klassifizierern.</li>
+          <li>Demokratisches Voting: Bei mehr als 2&nbsp;Klassifizierern.</li>
           <li>Schwellwert: Nur hinzufügen, wenn alle Klassifizierer jeweils
               eine Schwelle überschreiten.</li>
           <li>Gewichtes Voting: Alle Klassifizierer zusammen müssen eine
@@ -244,7 +241,7 @@ Slides: `04_Reinforcement_Learning_II.pdf`
 
 Folie 35:
 
-* Was heißt hier "mit festen Knoten"?
+* TODO: Was heißt hier "mit festen Knoten"?
 
 
 ### Dynamische Bayessche Netze
@@ -345,7 +342,20 @@ TODO
 
 <dl>
   <dt><dfn>Objektorientierte Probablistisch Relationales Modelle</dfn> (<dfn>OPRM</dfn>)</dt>
-  <dd>TODO</dd>
+  <dd>Ein OPRM besteht nach [<a href="#ref-schu15" name="ref-schu15-anchor">Schu15</a>] aus
+
+  <ul>
+      <li>Eine Klassenmenge \(\mathbf{C} = \{C_1, \dots, C_n\}\),</li>
+      <li>einer partiellen Ordnung über C, welche die Klassenhierarchie definiert,</li>
+      <li>einer Menge einfacher, nicht probabilisitscher Attribute \(\Lambda_C = \{\lambda_1, \dots, \lambda_n \forall C \in \mathbf{C}\}\),</li>
+      <li>einer Menge beschreibender Attribute \(\Delta_C = \{\delta_1, \dots, \delta_n\} \forall C \in \mathbf{C}\),</li>
+      <li>einer Menge komplexer Attribute \(\Phi_C = \{\phi_1, \dots, \phi_n\} \forall C \in \mathbf{C}\).
+          Die komplexen Attribute beschreiben funktionale Beziehungen zwischen Klassen.</li>
+  </ul>
+
+    Dieses Modell wurde in <a href="https://staff.fnwi.uva.nl/j.m.mooij/libDAI/">libDAI</a>
+    umgesetzt.
+  </dd>
 </dl>
 
 
@@ -604,6 +614,15 @@ Alternative:
 * [Vorlesungswebsite](http://tks.anthropomatik.kit.edu/28_176.php)
 * [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_429082.html): Ist passwortgeschützt
 * [Zusammenfassung der Vorlesung ML 1](//martin-thoma.com/machine-learning-1-course/)
+
+
+## Literatur
+
+* [<a href="#ref-schu15-anchor" name="ref-schu15">Schu15</a>] J. Schulz.
+  Erkennung von Interaktionen zwischen Verkehrsteilnehmern zur
+  Verhaltensprädiktion. Masterarbeit am FZI. Karlsruhe, 2015. Man kann
+  <a href="https://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/kuhnt/">Florian Kuhnt</a>
+  um Zugang dazu fragen.
 
 
 ## Übungsbetrieb

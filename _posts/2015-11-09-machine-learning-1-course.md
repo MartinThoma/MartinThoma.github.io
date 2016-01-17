@@ -134,7 +134,7 @@ repeat:
     s <- s'
 ```
 
-where \(\alpha \in (0, 1]\) is a learning rate and \(\gamma\) is a discount
+where \\(\alpha \in (0, 1]\\) is a learning rate and \\(\gamma\\) is a discount
 factor.
 
 
@@ -238,8 +238,6 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     * Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.
     * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.
 * Gradientenabstieg
-* Kernel-Methoden (TODO)
-* Radial-Basis Funktion Netz (TODO)
 
 <dl>
     <dt><dfn>Cascade Correlation</dfn></dt>
@@ -306,6 +304,22 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Im Grunde ist Backpropagation nur eine Geschwindigkeitsoptimierte
         Variante des Gradient-Descent Algorithmus, da die Gradienten im
         Backpropagation-Algorithmus auf geschickte Weise berechnet werden.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Radiale_Basisfunktion"><dfn>Radiale Basisfunktion</dfn></a> (<dfn>Radial Basis Function</dfn>, <dfn>RBF</dfn>)</dt>
+    <dd>Eine <i>radiale Basisfunktion</i> ist eine Funktion \(f: D \rightarrow \mathbb{R}\),
+        für die \(f(x) = f(\|x\|)\) gilt bzw. allgemeiner, für die ein \(c \in D\)
+        existiert, sodass \(f(x, c) = f(\|x - c\|)\) gilt.
+
+        Der Wert der Funktion hängt also nur von der Distanz zum Ursprung bzw.
+        allgemeiner zu einem Punkt \(c \in D\) ab.
+
+        Ein typisches Beispiel sind gaußsche RBFs:
+        \(f(x) = e^{-(a (x - c)^2)}\), wobei \(a, c\) Konstanten sind.</dd>
+    <dt>Radial-Basis Funktion Netz</dt>
+    <dd>Ein <i>Radial-Basis Funktion Netz</i> ist eine neuronales Netz,
+        welches als Aktivierungsfunktionen RBFs verwendet. Dabei gibt es dann
+        für jedes Neuron im Grunde zwei Parameter: Der Radius und das Zentrum
+        (vgl. Folie&nbsp;39 für die Gewichtsanpassung).
+    </dd>
 </dl>
 
 #### Siehe auch
@@ -340,7 +354,9 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
   <abbr title="Case-based Reasoning">CBR</abbr>
 
 * TODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
-  eingeschränkter - was ist damit gemeint?
+  eingeschränkter - was ist damit gemeint? Was sind fleißige Lernalgorithmen?
+  Lernalgorithmen, welche den meisten Rechenaufwand beim Lernen investieren, wo
+  aber das auswerten vergleichsweise billig ist?
 
 
 ### SVM
@@ -356,8 +372,8 @@ findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-skl
   \\(L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}\|\vec{w}\|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\\)
   wobei \\(\alpha_1, \dots, \alpha_N \geq 0\\) Lagrange-Multiplikatoren sind
 * Soft Margin Hyperebene
-* Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
-  Missklassifikationen in der Trainingsdatenmenge. Ist $C$ klein, werden die
+* Der Parameter \(C\) dient der Regularisierung. Ist \(C\) groß gibt es wenige
+  Missklassifikationen in der Trainingsdatenmenge. Ist \(C\) klein, werden die
   Margins größer.
 * Nichtlineare Kernelmethoden
 * Kernel-Trick
@@ -432,7 +448,7 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
   Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.
 * Mögliches Qualtitätsmaß ist Entropie:<br/>
   \\(Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\\)
-  wobei $\oplus$ die positiven Beispiele und $\ominus$ die negativen Beispiele
+  wobei \\(\oplus\\) die positiven Beispiele und \\(\ominus\\) die negativen Beispiele
   bezeichnet.
 * TODO, Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
   Ergebnis äquivalent ist?
@@ -502,10 +518,32 @@ Slide name: `MLI_09_BayesLernen_slides1.pdf`
       wobei \(x_i\) die Anzahl der Beobachtungen von \(i\) ist und \(k \geq 0\)
       der Glättungsparameter ist.
   </dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a></dt>
-  <dd>Ein bayessches Netz ist ein gerichteter azyklischer Graph in dem die
-      Knoten Zufallsvariablen und die Kanten bedingte Abhängigkeiten
-      beschreiben.
+  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a> (Quelle: [<a href="#ref-dar09" name="ref-dar09-anchor">Dar09</a>])</dt>
+  <dd>Ein bayessches Netz ist ein Tupel \((G, \Theta)\) mit:
+
+  <ul>
+      <li>\(G = (\mathbf{X}, E)\) ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>
+          der <b>Struktur</b> des Bayesschen Netzwerks genant wird. Dabei
+          ist \(\mathbf{X} = \{X_1, X_2, \dots, X_n\}\) die Menge der Knoten.
+          Jeder Knoten entspricht einer Zufallsvariablen.
+
+          Existiert eine gerichtete Kante \((X_i, X_j) \in E\), so existiert
+          eine direkte Abhängigkeit zwischen \(X_i\) und \(X_j\).</li>
+      <li>\(Theta\) ist die Menge der bedingten Wahrscheinlichkeitsverteilungen
+          und heißt <b>Parametrisierung</b> des bayesschen Netzwerks. Es
+          existiert für jedes \(X_i\) genau eine Verteilung in \(\Theta\),
+          welche in Abhängigkeit der Elternknoten beschrieben wird.</li>
+  </ul>
+
+  In einem bayesschem Netz berechnet sich die gemeinsame Verteilung wie folgt:
+
+  \[P(X_1, \dots, X_N) = \prod_{i=1}^N P(X_i | \text{Eltern}(X_i))\]
+
+  Die Modelierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
+  Expertenwissen. Alternativ kann die Struktur durch
+  <abbr title="Markov Chain Monte Carlo">MCMC</abbr> bestimmt werden.
+  Sobald die Struktur gegeben ist wird die Menge der Verteilungen \(\Theta\)
+  durch den Expectation Maximization Algorithmus bestimmt.
   </dd>
 </dl>
 
@@ -514,6 +552,7 @@ Fragen:
 * Folie 23: Warum ist \\(h_{MAP(x)}\\) nicht die wahrscheinlichste
   Klassifikation?
 * Folie 24: Was ist \\(V\\)?
+* [Is there any domain where Bayesian Networks outperform neural networks?](http://datascience.stackexchange.com/q/9818/8820)
 
 
 ### HMM
@@ -556,7 +595,7 @@ Slide name: `MLI_10_HMM_slides1.pdf`
 
       Gesucht ist ein Modell
 
-      \[\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lamba)\]
+      \[\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lambda)\]
 
       Der Baum-Welch-Algorithmus geht wie folgt vor:
 
@@ -633,12 +672,13 @@ Siehe auch:
         → Siehe abschätzung des realen Fehlers durch den empirischen Fehler
            und die VC-Dimension in "Abschätzung des Testfehlers"</li>
     <li>Wie funktioniert Q-Learning?
-        → TODO</li>
+        → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
     <li>Was versteht man unter Cascade Correlation?
         → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
     <li>Welche übwerwachten Lernverfahren gibt es?
         → Neuronale Netze, SVMs</li>
 </ul>
+
 
 ## Material und Links
 
@@ -647,6 +687,14 @@ Siehe auch:
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
 * [Zusammenfassung der Vorlesung ML 2](//martin-thoma.com/machine-learning-2-course/)
+
+
+## Literatur
+
+* [<a href="#ref-dar09-anchor" name="ref-dar09">Dar09</a>] A. Darwiche.
+  Modeling and reasoning with Bayesian networks. Cambridge University Press,
+  Cambridge [u.a.], 2009.
+
 
 ## Übungsbetrieb
 
