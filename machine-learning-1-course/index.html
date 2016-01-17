@@ -134,10 +134,13 @@
          <a href="#tocAnchor-1-15"><span class="tocnumber">3</span> <span class="toctext">Material und Links</span></a>
       </li>
       <li class="toc_level-1 toc_section-16">
-         <a href="#tocAnchor-1-16"><span class="tocnumber">4</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-16"><span class="tocnumber">4</span> <span class="toctext">Literatur</span></a>
       </li>
       <li class="toc_level-1 toc_section-17">
-         <a href="#tocAnchor-1-17"><span class="tocnumber">5</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-17"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-18">
+         <a href="#tocAnchor-1-18"><span class="tocnumber">6</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Folien</h2>
@@ -287,7 +290,7 @@ repeat:
     s &lt;- s'
 </code></pre>
 </div>
-<p>where (\alpha \in (0, 1]) is a learning rate and (\gamma) is a discount
+<p>where \(\alpha \in (0, 1]\) is a learning rate and \(\gamma\) is a discount
 factor.</p>
 
 <h4 id="siehe-auch">Siehe auch</h4>
@@ -423,8 +426,6 @@ nicht eher \(VC(H^\alpha)\) sein?</li>
 <li>Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.</li>
 </ul></li>
 <li>Gradientenabstieg</li>
-<li>Kernel-Methoden (TODO)</li>
-<li>Radial-Basis Funktion Netz (TODO)</li>
 </ul>
 
 <dl>
@@ -492,6 +493,22 @@ nicht eher \(VC(H^\alpha)\) sein?</li>
         Im Grunde ist Backpropagation nur eine Geschwindigkeitsoptimierte
         Variante des Gradient-Descent Algorithmus, da die Gradienten im
         Backpropagation-Algorithmus auf geschickte Weise berechnet werden.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Radiale_Basisfunktion"><dfn>Radiale Basisfunktion</dfn></a> (<dfn>Radial Basis Function</dfn>, <dfn>RBF</dfn>)</dt>
+    <dd>Eine <i>radiale Basisfunktion</i> ist eine Funktion \(f: D \rightarrow \mathbb{R}\),
+        für die \(f(x) = f(\|x\|)\) gilt bzw. allgemeiner, für die ein \(c \in D\)
+        existiert, sodass \(f(x, c) = f(\|x - c\|)\) gilt.
+
+        Der Wert der Funktion hängt also nur von der Distanz zum Ursprung bzw.
+        allgemeiner zu einem Punkt \(c \in D\) ab.
+
+        Ein typisches Beispiel sind gaußsche RBFs:
+        \(f(x) = e^{-(a (x - c)^2)}\), wobei \(a, c\) Konstanten sind.</dd>
+    <dt>Radial-Basis Funktion Netz</dt>
+    <dd>Ein <i>Radial-Basis Funktion Netz</i> ist eine neuronales Netz,
+        welches als Aktivierungsfunktionen RBFs verwendet. Dabei gibt es dann
+        für jedes Neuron im Grunde zwei Parameter: Der Radius und das Zentrum
+        (vgl. Folie 39 für die Gewichtsanpassung).
+    </dd>
 </dl>
 
 <h4 id="siehe-auch">Siehe auch</h4>
@@ -527,7 +544,9 @@ nicht eher \(VC(H^\alpha)\) sein?</li>
 <li><p>Beispiel für Lazy Learning: <abbr title="k Nearest Neighbors">(k)-NN</abbr>,
 <abbr title="Case-based Reasoning">CBR</abbr></p></li>
 <li><p>TODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
-eingeschränkter - was ist damit gemeint?</p></li>
+eingeschränkter - was ist damit gemeint? Was sind fleißige Lernalgorithmen?
+Lernalgorithmen, welche den meisten Rechenaufwand beim Lernen investieren, wo
+aber das auswerten vergleichsweise billig ist?</p></li>
 </ul>
 
 <h3 id="tocAnchor-1-1-8">SVM</h3>
@@ -544,8 +563,8 @@ Dimension, falls die Klassen linear trennbar sind.</li>
 \(L_P = L(\vec{w}, b, \vec{\alpha}) = \frac{1}{2}|\vec{w}|^2 - \sum_{i=1}^N \alpha_i (y_i(\vec{w}\vec{x_i}+b)-1)\)
 wobei \(\alpha_1, \dots, \alpha_N \geq 0\) Lagrange-Multiplikatoren sind</li>
 <li>Soft Margin Hyperebene</li>
-<li>Der Parameter $C$ dient der Regularisierung. Ist $C$ groß gibt es wenige
-Missklassifikationen in der Trainingsdatenmenge. Ist $C$ klein, werden die
+<li>Der Parameter (C) dient der Regularisierung. Ist (C) groß gibt es wenige
+Missklassifikationen in der Trainingsdatenmenge. Ist (C) klein, werden die
 Margins größer.</li>
 <li>Nichtlineare Kernelmethoden</li>
 <li>Kernel-Trick</li>
@@ -619,7 +638,7 @@ Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
 Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.</li>
 <li>Mögliches Qualtitätsmaß ist Entropie:<br />
 \(Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\)
-wobei $\oplus$ die positiven Beispiele und $\ominus$ die negativen Beispiele
+wobei \(\oplus\) die positiven Beispiele und \(\ominus\) die negativen Beispiele
 bezeichnet.</li>
 <li>TODO, Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
 Ergebnis äquivalent ist?</li>
@@ -689,10 +708,32 @@ die meisten Stimmen, wird gewählt.</li>
       wobei \(x_i\) die Anzahl der Beobachtungen von \(i\) ist und \(k \geq 0\)
       der Glättungsparameter ist.
   </dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a></dt>
-  <dd>Ein bayessches Netz ist ein gerichteter azyklischer Graph in dem die
-      Knoten Zufallsvariablen und die Kanten bedingte Abhängigkeiten
-      beschreiben.
+  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a> (Quelle: [<a href="#ref-dar09" name="ref-dar09-anchor" id="ref-dar09-anchor">Dar09</a>])</dt>
+  <dd>Ein bayessches Netz ist ein Tupel \((G, \Theta)\) mit:
+
+  <ul>
+      <li>\(G = (\mathbf{X}, E)\) ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>
+          der <b>Struktur</b> des Bayesschen Netzwerks genant wird. Dabei
+          ist \(\mathbf{X} = \{X_1, X_2, \dots, X_n\}\) die Menge der Knoten.
+          Jeder Knoten entspricht einer Zufallsvariablen.
+
+          Existiert eine gerichtete Kante \((X_i, X_j) \in E\), so existiert
+          eine direkte Abhängigkeit zwischen \(X_i\) und \(X_j\).</li>
+      <li>\(Theta\) ist die Menge der bedingten Wahrscheinlichkeitsverteilungen
+          und heißt <b>Parametrisierung</b> des bayesschen Netzwerks. Es
+          existiert für jedes \(X_i\) genau eine Verteilung in \(\Theta\),
+          welche in Abhängigkeit der Elternknoten beschrieben wird.</li>
+  </ul>
+
+  In einem bayesschem Netz berechnet sich die gemeinsame Verteilung wie folgt:
+
+  \[P(X_1, \dots, X_N) = \prod_{i=1}^N P(X_i | \text{Eltern}(X_i))\]
+
+  Die Modelierung von Bayesschen Netzen erfolgt meist durch den Menschen mit
+  Expertenwissen. Alternativ kann die Struktur durch
+  <abbr title="Markov Chain Monte Carlo">MCMC</abbr> bestimmt werden.
+  Sobald die Struktur gegeben ist wird die Menge der Verteilungen \(\Theta\)
+  durch den Expectation Maximization Algorithmus bestimmt.
   </dd>
 </dl>
 
@@ -702,6 +743,7 @@ die meisten Stimmen, wird gewählt.</li>
 <li>Folie 23: Warum ist \(h_{MAP(x)}\) nicht die wahrscheinlichste
 Klassifikation?</li>
 <li>Folie 24: Was ist \(V\)?</li>
+<li><a href="http://datascience.stackexchange.com/q/9818/8820">Is there any domain where Bayesian Networks outperform neural networks?</a></li>
 </ul>
 
 <h3 id="tocAnchor-1-1-11">HMM</h3>
@@ -744,7 +786,7 @@ Klassifikation?</li>
 
       Gesucht ist ein Modell
 
-      \[\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lamba)\]
+      \[\bar \lambda = \text{arg max}_{\bar \lambda = \{S, V, \bar A, \bar B, \bar Pi\}} P(O_{\text{train}}|\lambda)\]
 
       Der Baum-Welch-Algorithmus geht wie folgt vor:
 
@@ -824,7 +866,7 @@ gegeben eine Sequenz von Beobachtungen.</li>
         → Siehe abschätzung des realen Fehlers durch den empirischen Fehler
            und die VC-Dimension in "Abschätzung des Testfehlers"</li>
     <li>Wie funktioniert Q-Learning?
-        → TODO</li>
+        → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
     <li>Was versteht man unter Cascade Correlation?
         → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
     <li>Welche übwerwachten Lernverfahren gibt es?
@@ -844,12 +886,20 @@ gegeben eine Sequenz von Beobachtungen.</li>
 <li><a href="//martin-thoma.com/machine-learning-2-course/">Zusammenfassung der Vorlesung ML 2</a></li>
 </ul>
 
-<h2 id="tocAnchor-1-16">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-16">Literatur</h2>
+
+<ul>
+<li>[<a href="#ref-dar09-anchor" name="ref-dar09" id="ref-dar09">Dar09</a>] A. Darwiche.
+Modeling and reasoning with Bayesian networks. Cambridge University Press,
+Cambridge [u.a.], 2009.</li>
+</ul>
+
+<h2 id="tocAnchor-1-17">Übungsbetrieb</h2>
 
 <p>Es gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine
 Bonuspunkte.</p>
 
-<h2 id="tocAnchor-1-17">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-18">Termine und Klausurablauf</h2>
 
 <p><strong>Datum</strong>: Mündliche Prüfung (in Zukunft schriftlich)<br />
 <strong>Ort</strong>: nach Absprache<br />
