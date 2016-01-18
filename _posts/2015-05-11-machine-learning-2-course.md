@@ -397,9 +397,9 @@ starting to read the slides.
       \[\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}\]</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (<dfn>Kriging</dfn>)</dt>
   <dd>Gaussche Prozesse approximieren eine Funktion dadurch, dass sie an jedem
-      Punkt eine Normalverteilung (Gauss-Verteilung) annehmen.
-
-      Siehe <a href="https://en.wikipedia.org/wiki/Kriging">Gaussian process regression</a></dd>
+      Punkt eine Normalverteilung (Gauss-Verteilung) annehmen.<br/>
+      <br/>
+      Siehe <a href="https://en.wikipedia.org/wiki/Kriging">Gaussian process regression</a>.</dd>
 </dl>
 
 
