@@ -251,16 +251,54 @@ Bewusstsein, Überleben in komplexen Welten, )</li>
   <dd>Vorschrift, nach der Hypothese gebildet werden.</dd>
 </dl>
 
+<p>Siehe auch:</p>
+
+<ul>
+<li><a href="http://datascience.stackexchange.com/q/9832/8820">What is the Q function and what is the V function in reinforcement learning?</a></li>
+</ul>
+
 <h3 id="tocAnchor-1-1-4">Reinforcement Learning</h3>
 
 <p>Slide name: <code>MLI_03_ReinforcementLearning_slides1.pdf</code></p>
 
+<p>Siehe auch: <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9">Neuronale Netze</a></p>
+
 <dl>
+  <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
+  <dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel \(S, A, P, R, \gamma\)
+      mit:
+
+      <ul>
+          <li>\(S\): Endliche Zustandsmenge (states)</li>
+          <li>\(A(s)\): Die Menge von möglichen Aktionen im Zustand \(s\)</li>
+          <li>\(P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)\): Die Wahrscheinlichkeit
+              im Zeitschritt \(t+1\) im Zustand \(s'\) zu sein, wenn man zum Zeitpunkt
+              \(t\) im Zustand \(s\) ist und die Aktion \(a\) ausführt</li>
+          <li>\(R(s, s', a) \in \mathbb{R}\): Die direkte Belohnung, wenn durch die Aktion \(a\) vom Zustand \(s\) in den Zustand \(s'\) gekommen ist.</li>
+          <li>\(\gamma \in [0, 1]\): Der Diskontierungsfaktor, welche die
+              Bedeutung von direkten Belohnungen im Vergleich zu künftigen
+              Belohnungen anzeigt.</li>
+      </ul></dd>
   <dt><a href="https://en.wikipedia.org/wiki/Reinforcement_learning"><dfn>Reinforcement Learning</dfn></a> (<dfn>RL</dfn>, <dfn><a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">Bestärkendes Lernen</a></dfn>)</dt>
-  <dd>Beim bestärkenden Lernen ist man in einem
-      <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Markow-Entscheidungsproblemen</a>.
+  <dd>Beim bestärkenden Lernen liegt ein Markow-Entscheidungsproblemen vor.
       Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können
       (nicht notwendigerweise sofort) bewertet werden.</dd>
+  <dt><dfn>Policy</dfn></dt>
+  <dd>Eine <b>policy \(\pi: S \rightarrow A\)</b> ist die Vorschrift, in
+      welchem Zustand welche Aktion ausgeführt werden soll.</dd>
+  <dt><dfn></dfn></dt>
+  <dd>Die Funktion \(V^\pi: S \rightarrow \mathbb{R}\) heißt Value-Funktion.
+      Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
+      noch der Diskontierungsfaktor eingeht!) eines Zustands \(s\) unter der
+      policy \(\pi\) an.
+
+      Mit \(V^*\) wird der Wert unter der optimalen policy bezeichnet.</dd>
+  <dt>Q-Funktion</dt>
+  <dd>Die Funktion \(Q: S \times A \rightarrow \mathbb{R}\) gibt den erwarteten
+      Wert einer eines Zustandes \(s\) unter der policy \(\pi\), wenn die
+      Aktion \(a\) ausgeführt wird an.
+
+      Es gilt: \[Q(s, \pi(s)) = V(s)\]</dd>
 </dl>
 
 <ul>
@@ -271,9 +309,9 @@ Bewusstsein, Überleben in komplexen Welten, )</li>
 
 <ul>
 <li>Policy Learning</li>
-<li>Simple Value Iteration</li>
+<li>Simple Value Iteration: TODO - Wie funktioniert das?</li>
+<li>Q-Learning</li>
 <li>Simple Temporal Difference Learning</li>
-<li><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">TD-Learning</a> (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?</li>
 </ul>
 
 <h4 id="q-learning">Q-Learning</h4>
@@ -300,6 +338,20 @@ repeat:
 </div>
 <p>where \(\alpha \in (0, 1]\) is a learning rate and \(\gamma\) is a discount
 factor.</p>
+
+<h4 id="td-learning">TD-Learning</h4>
+
+<ul>
+<li>R. Sutton und A. Barto: <a href="https://webdocs.cs.ualberta.ca/%7Esutton/book/ebook/node60.html">Temporal-Difference Learning</a>. 1998.</li>
+</ul>
+
+<p>Der TD-Learning Algorithmus beschäftigt sich mit dem schätzen der Value-Funktion
+(V^\pi) für eine gegebene Policy (\pi). Das wird auch <i>policy evaluation</i>
+oder <i>prediction</i> genannt.</p>
+
+<ul>
+<li><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">TD-Learning</a> (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?</li>
+</ul>
 
 <h4 id="siehe-auch">Siehe auch</h4>
 
@@ -583,7 +635,7 @@ Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
 folgt abgeschätzt werden:
 
 Mit Wahrscheinlichkeit \(P(1-\eta)\) gilt:
-\[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\dots \frac{VC(h_\alpha)}{N} \dots}\]
+\[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(2 N / VC(h_\alpha)) + 1) - \frac{\log(\eta  / 4)}{N}}\]
 
 wobei gilt:
 
@@ -594,6 +646,7 @@ wobei gilt:
         gemacht wird</li>
     <li>\(VC(h_\alpha)\) ist die VC-Dimension der Lernmaschine</li>
     <li>\(N\) ist die Anzahl der Lernbeispiele</li>
+    <li>\(0 \leq \eta \leq 1\)</li>
 </ul>
 
 Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
