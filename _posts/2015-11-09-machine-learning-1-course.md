@@ -103,17 +103,53 @@ Weiteres
   <dd>Vorschrift, nach der Hypothese gebildet werden.</dd>
 </dl>
 
+Siehe auch:
+
+* [What is the Q function and what is the V function in reinforcement learning?](http://datascience.stackexchange.com/q/9832/8820)
+
 
 ### Reinforcement Learning
 
 Slide name: `MLI_03_ReinforcementLearning_slides1.pdf`
 
+Siehe auch: [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
+
 <dl>
+  <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
+  <dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel \(S, A, P, R, \gamma\)
+      mit:
+
+      <ul>
+          <li>\(S\): Endliche Zustandsmenge (states)</li>
+          <li>\(A(s)\): Die Menge von möglichen Aktionen im Zustand \(s\)</li>
+          <li>\(P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)\): Die Wahrscheinlichkeit
+              im Zeitschritt \(t+1\) im Zustand \(s'\) zu sein, wenn man zum Zeitpunkt
+              \(t\) im Zustand \(s\) ist und die Aktion \(a\) ausführt</li>
+          <li>\(R(s, s', a) \in \mathbb{R}\): Die direkte Belohnung, wenn durch die Aktion \(a\) vom Zustand \(s\) in den Zustand \(s'\) gekommen ist.</li>
+          <li>\(\gamma \in [0, 1]\): Der Diskontierungsfaktor, welche die
+              Bedeutung von direkten Belohnungen im Vergleich zu künftigen
+              Belohnungen anzeigt.</li>
+      </ul></dd>
   <dt><a href="https://en.wikipedia.org/wiki/Reinforcement_learning"><dfn>Reinforcement Learning</dfn></a> (<dfn>RL</dfn>, <dfn><a href="https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen">Bestärkendes Lernen</a></dfn>)</dt>
-  <dd>Beim bestärkenden Lernen ist man in einem
-      <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Markow-Entscheidungsproblemen</a>.
+  <dd>Beim bestärkenden Lernen liegt ein Markow-Entscheidungsproblemen vor.
       Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können
       (nicht notwendigerweise sofort) bewertet werden.</dd>
+  <dt><dfn>Policy</dfn></dt>
+  <dd>Eine <b>policy \(\pi: S \rightarrow A\)</b> ist die Vorschrift, in
+      welchem Zustand welche Aktion ausgeführt werden soll.</dd>
+  <dt><dfn></dfn></dt>
+  <dd>Die Funktion \(V^\pi: S \rightarrow \mathbb{R}\) heißt Value-Funktion.
+      Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
+      noch der Diskontierungsfaktor eingeht!) eines Zustands \(s\) unter der
+      policy \(\pi\) an.
+
+      Mit \(V^*\) wird der Wert unter der optimalen policy bezeichnet.</dd>
+  <dt>Q-Funktion</dt>
+  <dd>Die Funktion \(Q: S \times A \rightarrow \mathbb{R}\) gibt den erwarteten
+      Wert einer eines Zustandes \(s\) unter der policy \(\pi\), wenn die
+      Aktion \(a\) ausgeführt wird an.
+
+      Es gilt: \[Q(s, \pi(s)) = V(s)\]</dd>
 </dl>
 
 * Beispiel für RL: Roboter muss zu einem Ziel navigieren
@@ -121,9 +157,10 @@ Slide name: `MLI_03_ReinforcementLearning_slides1.pdf`
 Algorithmen:
 
 * Policy Learning
-* Simple Value Iteration
+* Simple Value Iteration: TODO - Wie funktioniert das?
+* Q-Learning
 * Simple Temporal Difference Learning
-* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?
+
 
 #### Q-Learning
 * [Q-learning](https://en.wikipedia.org/wiki/Q-learning)
@@ -144,6 +181,16 @@ repeat:
 
 where \\(\alpha \in (0, 1]\\) is a learning rate and \\(\gamma\\) is a discount
 factor.
+
+#### TD-Learning
+
+* R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.
+
+Der TD-Learning Algorithmus beschäftigt sich mit dem schätzen der Value-Funktion
+\(V^\pi\) für eine gegebene Policy \(\pi\). Das wird auch <i>policy evaluation</i>
+oder <i>prediction</i> genannt.
+
+* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?
 
 
 #### Siehe auch
@@ -392,7 +439,7 @@ Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
 folgt abgeschätzt werden:
 
 Mit Wahrscheinlichkeit \(P(1-\eta)\) gilt:
-\[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\dots \frac{VC(h_\alpha)}{N} \dots}\]
+\[E(h_\alpha) \leq E_{emp}(h_\alpha) + \sqrt{\frac{VC(h_\alpha)}{N} \cdot (\log(2 N / VC(h_\alpha)) + 1) - \frac{\log(\eta  / 4)}{N}}\]
 
 wobei gilt:
 
@@ -403,6 +450,7 @@ wobei gilt:
         gemacht wird</li>
     <li>\(VC(h_\alpha)\) ist die VC-Dimension der Lernmaschine</li>
     <li>\(N\) ist die Anzahl der Lernbeispiele</li>
+    <li>\(0 \leq \eta \leq 1\)</li>
 </ul>
 
 Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
