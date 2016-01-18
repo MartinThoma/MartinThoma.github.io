@@ -2,7 +2,7 @@
 layout: post
 title: Function Approximation
 author: Martin Thoma
-date: 2014-11-22 17:19
+date: 2016-01-18 20:00
 category: Code
 tags:
 - Machine Learning
@@ -29,7 +29,7 @@ I did a couple of very quick examples which look promising.
 
 ### Square
 
-Approximating \(f(x) = x^2\) worked very good:
+Approximating \\(f(x) = x^2\\) worked very good:
 
 {% caption align="aligncenter" width="500" alt="f(x) = x^2" text="f(x) = x^2" url="../images/2016/01/gauss-x2.png" %}
 
@@ -39,7 +39,7 @@ problem.
 
 ### Sin
 
-Approximating \(f(x) = \sin(3x)\) seems to be more complicated:
+Approximating \\(f(x) = \sin(3x)\\) seems to be more complicated:
 
 {% caption align="aligncenter" width="500" alt="f(x) = sin(3x)" text="f(x) = sin(3x)" url="../images/2016/01/gaussian-process-sin-3x.png" %}
 
@@ -48,7 +48,7 @@ I guess a human would see the wave pattern and do a better job here.
 
 ### exp
 
-Approximating \(f(x) = e^x\) works similar well as polynomials. One can see
+Approximating \\(f(x) = e^x\\) works similar well as polynomials. One can see
 that it does not perfectly fit it, but compared the the range of values seen
 before and the distance from the last seen value I think this is absolutely
 acceptable:
@@ -61,7 +61,7 @@ acceptable:
 I was a bit suspicious if I had another mistake here. So I wanted it to break.
 This was the reason why I created the following function
 
-\\[f(x) = \begin{cases}x^2 &\text{if } x \geq 0\\-1 &\text{otherwise}\end{cases}\\]
+\\[f(x) = \begin{cases}x^2 &\text{if } x \geq 0\\\\-1 &\text{otherwise}\end{cases}\\]
 
 {% caption align="aligncenter" width="500" alt="Function with discontinuity" text="Function with discontinuity" url="../images/2016/01/gauss-cases.png" %}
 
