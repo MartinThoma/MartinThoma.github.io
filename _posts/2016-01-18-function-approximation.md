@@ -41,7 +41,7 @@ problem.
 
 Approximating \(f(x) = \sin(3x)\) seems to be more complicated:
 
-{% caption align="aligncenter" width="500" alt="f(x) = sin(3x)" text="f(x) = sin(3x)" url="../images/2016/01/gaussian-process-sin-3x" %}
+{% caption align="aligncenter" width="500" alt="f(x) = sin(3x)" text="f(x) = sin(3x)" url="../images/2016/01/gaussian-process-sin-3x.png" %}
 
 I guess a human would see the wave pattern and do a better job here.
 
@@ -61,7 +61,7 @@ acceptable:
 I was a bit suspicious if I had another mistake here. So I wanted it to break.
 This was the reason why I created the following function
 
-\[f(x) = \begin{cases}x^2 &\text{if } x \leq 0\\-1 &\text{otherwise}\end{cases}\]
+\\[f(x) = \begin{cases}x^2 &\text{if } x \geq 0\\-1 &\text{otherwise}\end{cases}\\]
 
 {% caption align="aligncenter" width="500" alt="Function with discontinuity" text="Function with discontinuity" url="../images/2016/01/gauss-cases.png" %}
 
