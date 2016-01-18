@@ -10,8 +10,26 @@ tags:
 - Classification
 featured_image: logos/ml.png
 ---
-The sklearn tutorial contains a very nice example where classifiers are
-compared ([source](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html))
+Classification problems occur quite often and many different classification
+algorithms have been described and implemented. But what is the best algorithm
+for a given error function and dataset?
+
+I read questions like "I have problem X. What is the best classifier?" quite
+often and my first impulse is always to write: Just try them!
+
+I guess people asking this question might think that it is super difficult to
+do so. However, the sklearn tutorial contains a very nice example where
+many classifiers are compared ([source](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html)).
+
+This article gives you an overview over some classifiers:
+
+* [SVM](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
+* [k-nearest neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
+* [Random Forest](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+* [AdaBoost Classifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html)
+* [Naive Bayes](http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html)
+* [LDA](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
+* [QDA](http://scikit-learn.org/0.16/modules/generated/sklearn.qda.QDA.html)
 
 
 ## Tutorial example
@@ -58,5 +76,51 @@ much more confident for its classification. Even more extrem is the last example
 I'm astonished that the QDA gets 93% with that boundary; Naive Bayes seems to
 find a much better boundary.
 
+
 ## MNIST
+
+MNIST is a dataset of \(28\text{px} \times 28\text{px}\) greyscale images.
+Each of the images contains a digit (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). The
+task is to classify the image into one of the 10 digit classes.
+
+Guessing randomly will give an accuracy of \(\frac{1}{10} = 0.1\).
+
+
+### Adjusted SVM
+
+```
+Fit time: 289.1019s
+Confusion matrix:
+[[2258    1    4    1    2    2    3    1    4    2]
+ [   1 2566    9    1    1    0    0    7    3    0]
+ [   4    1 2280    5    4    0    1    9    8    2]
+ [   0    0   14 2304    1   13    0    6    8    2]
+ [   2    2    2    0 2183    0    7    5    0   10]
+ [   4    0    0   16    3 2026   12    1    4    3]
+ [   7    5    3    0    5    2 2245    0    4    0]
+ [   1    6   11    2    5    1    0 2373    5   13]
+ [   3    9    4    9    4   10    2    3 2166    5]
+ [   3    2    2    6   19    6    0   12   10 2329]]
+Accuracy: 0.9840
+```
+
+
+### Linear SVM
+
+```
+Classifier: linear SVM
+Fit time: 140.6126
+Confusion matrix:
+[[2226    0    9    2    6   12    8    3   11    1]
+ [   1 2537   18    3    3    1    1    7   17    0]
+ [  12   16 2158   25   24    6   27   19   25    2]
+ [   3    7   46 2188    4   47    3   18   27    5]
+ [   2    5   19    1 2117    1    8    6    3   49]
+ [  18   13   11   73   20 1872   31    0   26    5]
+ [  20    6   22    1   10   30 2179    0    3    0]
+ [   5   10   32   11   30    5    0 2268    5   51]
+ [  11   39   26   47   10   40    7    7 2018   10]
+ [  11    9    9   24   64    8    0   61   14 2189]]
+Accuracy: 0.9416
+```
 
