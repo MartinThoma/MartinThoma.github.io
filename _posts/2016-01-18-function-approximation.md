@@ -60,11 +60,11 @@ acceptable:
 
 It is claimed that Gaussian processes implicitly model noise so that they can
 easily deal with noise. However, in my experients this seems not to work so
-great. The reason might be that I had points in \([-3, 3]\) of the function
+great. The reason might be that I had points in \\([-3, 3]\\) of the function
 
-\[f(x) = x^2\]
+\\[f(x) = x^2\\]
 
-with point-wise gaussian noise \(N \sim \mathcal{N}(0, 1)\). So the noise is
+with point-wise gaussian noise \\(N \sim \mathcal{N}(0, 1)\\). So the noise is
 quite domintant on that intervall. One of the examples where it worked better
 is:
 
