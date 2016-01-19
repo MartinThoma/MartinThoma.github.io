@@ -56,6 +56,21 @@ acceptable:
 {% caption align="aligncenter" width="500" alt="f(x) = e^x" text="f(x) = e^x" url="../images/2016/01/gauss-exponential.png" %}
 
 
+### noise
+
+It is claimed that Gaussian processes implicitly model noise so that they can
+easily deal with noise. However, in my experients this seems not to work so
+great. The reason might be that I had points in \([-3, 3]\) of the function
+
+\[f(x) = x^2\]
+
+with point-wise gaussian noise \(N \sim \mathcal{N}(0, 1)\). So the noise is
+quite domintant on that intervall. One of the examples where it worked better
+is:
+
+{% caption align="aligncenter" width="500" alt="f(x) = x^2 with gaussian noise" text="f(x) = x^2 with gaussian noise" url="../images/2016/01/gauss-noise.png" %}
+
+
 ### Make it brake
 
 I was a bit suspicious if I had another mistake here. So I wanted it to break.
@@ -86,14 +101,14 @@ from sklearn import gaussian_process
 
 def main():
     # Create the dataset
-    x_train = np.atleast_2d(np.linspace(-2, 2, num=50)).T
+    x_train = np.atleast_2d(np.linspace(-3, 3, num=50)).T
     y_train = f(x_train).ravel()
     x_test = np.atleast_2d(np.linspace(-5, 5, 1000)).T
 
     # Define the Regression Modell and fit it
     gp = gaussian_process.GaussianProcess(theta0=1e-2,
                                           thetaL=1e-4,
-                                          thetaU=1e-1)
+                                          thetaU=1e-3)
     gp.fit(x_train, y_train)
 
     # Evaluate the result
@@ -107,7 +122,10 @@ def f(x):
     """
     Function which gets approximated
     """
-    return 2**x
+
+    noise = [np.random.normal(loc=0.0, scale=1.0) for _ in range(len(list(x)))]
+    noise = np.atleast_2d(noise).T
+    return x**2 + noise
     # Totally fails for that one:
     # y = []
     # for el in x:
@@ -151,5 +169,7 @@ if __name__ == '__main__':
 
 ## See also
 
+* [www.gaussianprocess.org](http://www.gaussianprocess.org/): The definitive book about gaussian processes. It's freely available online!
+* [Wikipedia](https://en.wikipedia.org/wiki/Kriging)
 * sklearn: [Gaussian Processes](http://scikit-learn.org/stable/modules/gaussian_process.html)
 * sklearn: [Gaussian Processes regression: basic introductory example](http://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gp_regression.html)
