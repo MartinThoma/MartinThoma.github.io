@@ -89,7 +89,7 @@ Guessing randomly will give an accuracy of \(\frac{1}{10} = 0.1\).
 ### Adjusted SVM
 
 ```
-Fit time: 289.1019s
+Training time: 289.1019s
 Confusion matrix:
 [[2258    1    4    1    2    2    3    1    4    2]
  [   1 2566    9    1    1    0    0    7    3    0]
@@ -109,7 +109,7 @@ Accuracy: 0.9840
 
 ```
 Classifier: linear SVM
-Fit time: 140.6126
+Training time: 140.6126
 Confusion matrix:
 [[2226    0    9    2    6   12    8    3   11    1]
  [   1 2537   18    3    3    1    1    7   17    0]
@@ -135,7 +135,7 @@ Data:
 ```
 Start fitting 'Random Forest' classifier. This may take a while.
 Classifier: Random Forest
-Fit time: 2.0144s
+Training time: 2.0144s
 Predict time: 0.1586s
 Confusion matrix:
 [[2242    0    3    1    5    7    6    2   12    0]
@@ -160,7 +160,7 @@ Alternatively:
 ```
 Start fitting 'Random Forest 2' classifier. This may take a while.
 Classifier: Random Forest 2
-Fit time: 0.1462s
+Training time: 0.1462s
 Predict time: 0.0535s
 Confusion matrix:
 [[1930   50   73   66   14   24   51   28   33    9]
@@ -182,7 +182,7 @@ Accuracy: 0.6109
 ```
 Start fitting 'k nn' classifier. This may take a while.
 Classifier: k nn
-Fit time: 3.8013s
+Training time: 3.8013s
 Predict time: 1033.7148s
 Confusion matrix:
 [[2260    1    4    0    0    1    6    2    2    2]
@@ -206,7 +206,7 @@ Data:
 * `max_depth=5`
 
 ```
-Fit time: 2.6527s
+Training time: 2.6527s
 Predict time: 0.0247s
 Confusion matrix:
 [[1767    0   11   25   12  120  137   71  114   21]
@@ -226,7 +226,7 @@ Accuracy: 0.6540
 ### Adaboost
 
 ```
-Fit time: 32.4964s
+Training time: 32.4964s
 Predict time: 0.7506s
 Confusion matrix:
 [[1994    0   75    8    6  113   51    3   15   13]
@@ -246,7 +246,7 @@ Accuracy: 0.7367
 ### Naive Bayes
 
 ```
-Fit time: 0.3334s
+Training time: 0.3334s
 Predict time: 0.9994s
 Confusion matrix:
 [[2094    4   11   10    6    7   56    3   69   18]
@@ -266,7 +266,7 @@ Accuracy: 0.5615
 ### LDA
 
 ```
-Fit time: 17.2674s
+Training time: 17.2674s
 Predict time: 0.0554s
 Confusion matrix:
 [[2131    2   10   14   12   47   20    4   36    2]
@@ -286,7 +286,7 @@ Accuracy: 0.8642
 ### QDA
 
 ```
-Fit time: 18.9276s
+Training time: 18.9276s
 Predict time: 4.8853s
 Confusion matrix:
 [[2212    3   12   14    1    4   20    5    6    1]
@@ -301,3 +301,76 @@ Confusion matrix:
  [  65   14   12    7   10    0    0   23   33 2225]]
 Accuracy: 0.5561
 ```
+
+
+## Summary
+
+
+<table>
+    <tr>
+        <th></th>
+        <th>Accuracy</th>
+        <th>Training Time</th>
+        <th>Testing Time</th>
+    </tr>
+    <tr>
+        <td>Adjusted SVM</td>
+        <td>98.4%</td>
+        <td>289.1019s</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <td>Linear SVM</td>
+        <td>94.16%</td>
+        <td>140.6126s</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <td>Random Forest (n_estimators=50, n_jobs=10)</td>
+        <td>96.55%</td>
+        <td>2.0144s</td>
+        <td>0.1586s</td>
+    </tr>
+    <tr>
+        <td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
+        <td>61.09%</td>
+        <td>0.1462s</td>
+        <td>0.0535s</td>
+    </tr>
+    <tr>
+        <td>k nearest neightbors (k=3)</td>
+        <td>96.95%</td>
+        <td>3.8013s</td>
+        <td>1033.7148s</td>
+    </tr>
+    <tr>
+        <td>Decision Tree(max_depth=5)</td>
+        <td>65.40%</td>
+        <td>2.6527s</td>
+        <td>0.0247s</td>
+    </tr>
+    <tr>
+        <td>Adaboost</td>
+        <td>73.67%</td>
+        <td>32.4964s</td>
+        <td>0.7506s</td>
+    </tr>
+    <tr>
+        <td>Naive Bayes</td>
+        <td>56.15%</td>
+        <td>0.3334s</td>
+        <td>0.9994s</td>
+    </tr>
+    <tr>
+        <td>LDA</td>
+        <td>86.42%</td>
+        <td>17.2674s</td>
+        <td>0.0554s</td>
+    </tr>
+    <tr>
+        <td>QDA</td>
+        <td>55.61%</td>
+        <td>18.9276s</td>
+        <td>4.8853s</td>
+    </tr>
+</table>
