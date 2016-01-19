@@ -2,7 +2,7 @@
 layout: post
 title: Comparing Classifiers
 author: Martin Thoma
-date: 2014-11-22 17:19
+date: 2016-01-19 20:13
 category: Cyberculture
 tags:
 - Python
@@ -27,9 +27,14 @@ This article gives you an overview over some classifiers:
 * [k-nearest neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
 * [Random Forest](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 * [AdaBoost Classifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html)
+* [Gradient Boosting](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)
 * [Naive Bayes](http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html)
 * [LDA](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
 * [QDA](http://scikit-learn.org/0.16/modules/generated/sklearn.qda.QDA.html)
+
+Of course, neural networks are also one very powerful ML classifier I may not
+forget. As sklearn does not have neural networks, I've installed
+[`skflow`](https://github.com/tensorflow/skflow).
 
 
 ## Tutorial example
@@ -85,14 +90,18 @@ task is to classify the image into one of the 10 digit classes.
 
 Guessing randomly will give an accuracy of \(\frac{1}{10} = 0.1\).
 
+
 ### Neural Networks
+
+Please note that there are neural networks which get much better accuracy.
+Most notably the [MNIST Expert tutorial](https://www.tensorflow.org/versions/master/tutorials/mnist/pros/index.html#deep-mnist-for-experts) with 99.2% accuracy.
 
 #### Simple Network
 
 ```
 Classifier: NN 500:200
 Training time: 79.5696s
-Predict time: 0.3480s
+Testing time: 0.3480s
 Confusion matrix:
 [[2248    1    5    1    2    4    8    2    5    2]
  [   1 2565   10    1    1    0    2    7    1    0]
@@ -113,7 +122,7 @@ Accuracy: 0.9798
 ```
 Classifier: NN 500:200 dropout
 Training time: 118.2654s
-Predict time: 0.3918s
+Testing time: 0.3918s
 Confusion matrix:
 [[2250    1    7    1    1    1    5    4    4    4]
  [   1 2567    9    1    1    0    0    3    5    1]
@@ -134,7 +143,7 @@ Accuracy: 0.9780
 ```
 Classifier: CNN
 Training time: 391.8810s
-Predict time: 1.2035s
+Testing time: 1.2035s
 Confusion matrix:
 [[2243    0    5    0    0    5    9    1   12    3]
  [   1 2548   20    4    2    0    1    6    6    0]
@@ -150,10 +159,40 @@ Accuracy: 0.9769
 ```
 
 
-### Adjusted SVM
+### SVM
+
+There is a ton of literature / papers about <abbr title="Support Vector Machines">SVMs</abbr>.
+I've summed up the basics on [Using SVMs with sklearn](https://martin-thoma.com/svm-with-sklearn/).
+
+I've trained two SVMs: A simple, linear one and one with an RBF kernel as I
+found it online (I'm sorry, I don't remember where I found those parameters :-/).
+
+#### Linear SVM
 
 ```
-Training time: 289.1019s
+Classifier: linear SVM
+Training time: 168.6950s
+Testing time: 158.0101s
+Confusion matrix:
+[[2226    0    9    2    6   12    8    3   11    1]
+ [   1 2537   18    3    3    1    1    7   17    0]
+ [  12   16 2158   25   24    6   27   19   25    2]
+ [   3    7   46 2188    4   47    3   18   27    5]
+ [   2    5   19    1 2117    1    8    6    3   49]
+ [  18   13   11   73   20 1872   31    0   26    5]
+ [  20    6   22    1   10   30 2179    0    3    0]
+ [   5   10   32   11   30    5    0 2268    5   51]
+ [  11   39   26   47   10   40    7    7 2018   10]
+ [  11    9    9   24   64    8    0   61   14 2189]]
+Accuracy: 0.9416
+```
+
+#### Adjusted SVM
+
+```
+Classifier: adj. SVM
+Training time: 347.1539s
+Testing time: 234.5724s
 Confusion matrix:
 [[2258    1    4    1    2    2    3    1    4    2]
  [   1 2566    9    1    1    0    0    7    3    0]
@@ -169,26 +208,6 @@ Accuracy: 0.9840
 ```
 
 
-### Linear SVM
-
-```
-Classifier: linear SVM
-Training time: 140.6126
-Confusion matrix:
-[[2226    0    9    2    6   12    8    3   11    1]
- [   1 2537   18    3    3    1    1    7   17    0]
- [  12   16 2158   25   24    6   27   19   25    2]
- [   3    7   46 2188    4   47    3   18   27    5]
- [   2    5   19    1 2117    1    8    6    3   49]
- [  18   13   11   73   20 1872   31    0   26    5]
- [  20    6   22    1   10   30 2179    0    3    0]
- [   5   10   32   11   30    5    0 2268    5   51]
- [  11   39   26   47   10   40    7    7 2018   10]
- [  11    9    9   24   64    8    0   61   14 2189]]
-Accuracy: 0.9416
-```
-
-
 ### Random Forest
 
 Data:
@@ -197,22 +216,21 @@ Data:
 * `n_jobs=10`
 
 ```
-Start fitting 'Random Forest' classifier. This may take a while.
 Classifier: Random Forest
-Training time: 2.0144s
-Predict time: 0.1586s
+Training time: 2.1359s
+Testing time: 26.0763s
 Confusion matrix:
-[[2242    0    3    1    5    7    6    2   12    0]
- [   0 2548   14    4    3    1    5    7    5    1]
- [  13    4 2231   16    9    1    8   14   15    3]
- [   2    2   41 2229    3   27    4   13   18    9]
- [   4    0    3    0 2140    3   14    2    5   40]
- [   7    3    4   24    3 1990   16    3    9   10]
- [  13   11    1    0   11   16 2215    0    4    0]
- [   5    6   25    2   16    0    0 2322    8   33]
- [   2   13   10   26   12   20    5    3 2110   14]
- [   9    6    5   22   23   12    1   16   19 2276]]
-Accuracy: 0.9655
+[[2246    1    4    1    4    2    7    2   11    0]
+ [   1 2543   18    5    5    2    3    7    4    0]
+ [   7    2 2233   20    9    2    9   16   14    2]
+ [   0    3   36 2240    0   20    3   16   19   11]
+ [   3    1    5    0 2142    1   11    3    7   38]
+ [   7    4    4   30    6 1977   16    3   14    8]
+ [  13   11    4    0   10   15 2210    0    8    0]
+ [   3    8   29    2   19    0    0 2315    7   34]
+ [   3   12   18   17    9   26    4    7 2103   16]
+ [  10    6    6   24   27   13    3   20   18 2262]]
+Accuracy: 0.9641
 ```
 
 Alternatively:
@@ -222,32 +240,30 @@ Alternatively:
 * `max_features=1`
 
 ```
-Start fitting 'Random Forest 2' classifier. This may take a while.
 Classifier: Random Forest 2
-Training time: 0.1462s
-Predict time: 0.0535s
+Training time: 0.2077s
+Testing time: 22.2770s
 Confusion matrix:
-[[1930   50   73   66   14   24   51   28   33    9]
- [   2 2468   15   53    1    1   34   10    4    0]
- [  91  268 1518  163   25   13  112   45   70    9]
- [  84  194  144 1675    3   29   28   58  115   18]
- [  40  232   89   47  879    3   55  406   95  365]
- [ 444  302   70  329   22  364   78  169  241   50]
- [  99  415  119   58   39   18 1514    4    5    0]
- [  36  226   28   42   53    0    9 1705   45  273]
- [ 159  382   69  333   29   45   77   64  967   90]
- [  44  184   25   20  214    1    2  612  195 1092]]
-Accuracy: 0.6109
+[[1955   32   63   64   12    4  109   21   13    5]
+ [   1 2524   20   14    1    6   10    6    6    0]
+ [ 252  425 1198  151   64    1  145   15   55    8]
+ [ 136  195  140 1641   28   11   22   95   65   15]
+ [  92  320   21   45 1199    9   76  153    8  288]
+ [ 312  383   67  655   78  268   47   94  134   31]
+ [ 199  364  125   58   96   13 1408    5    2    1]
+ [  83  424   10   70  101    1   19 1555   56   98]
+ [ 392  574   44  147   52   17   71  106  773   39]
+ [  71  338   11   43  579    2    8  632   24  681]]
+Accuracy: 0.5715
 ```
 
 
 ### k nearest neightbors
 
 ```
-Start fitting 'k nn' classifier. This may take a while.
 Classifier: k nn
-Training time: 3.8013s
-Predict time: 1033.7148s
+Training time: 4.6439s
+Testing time: 1261.7815s
 Confusion matrix:
 [[2260    1    4    0    0    1    6    2    2    2]
  [   0 2572    5    0    0    0    1    8    1    1]
@@ -270,8 +286,9 @@ Data:
 * `max_depth=5`
 
 ```
-Training time: 2.6527s
-Predict time: 0.0247s
+Classifier: Decision Tree
+Training time: 3.1346s
+Testing time: 0.0313s
 Confusion matrix:
 [[1767    0   11   25   12  120  137   71  114   21]
  [   1 2065  128  108   13   17   41   66  131   18]
@@ -289,9 +306,13 @@ Accuracy: 0.6540
 
 ### Adaboost
 
+You should note that you can use arbitrary base classifiers with Adaboost.
+The default ones of [`sklearn.ensemble.AdaBoostClassifier`](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) is [`sklearn.tree.DecisionTreeClassifies`](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
+
 ```
-Training time: 32.4964s
-Predict time: 0.7506s
+Classifier: AdaBoost
+Training time: 37.6443s
+Testing time: 1.5815s
 Confusion matrix:
 [[1994    0   75    8    6  113   51    3   15   13]
  [   0 2435   27   22    2   10   12   37   42    1]
@@ -307,11 +328,44 @@ Accuracy: 0.7367
 ```
 
 
+### Gradient Boosting
+
+Gradient boosting with `xgboost` has won in the Rossmann Store Sales prediction
+([source](http://blog.kaggle.com/2015/12/21/rossmann-store-sales-winners-interview-1st-place-gert/)).
+
+See also:
+
+* [Caterpillar Winners' Interview](http://blog.kaggle.com/2015/09/22/caterpillar-winners-interview-1st-place-gilberto-josef-leustagos-mario/)
+* [Caterpillar Winners' Interview: 3rd place](http://blog.kaggle.com/2015/10/20/caterpillar-winners-interview-3rd-place-team-shift-workers/)
+* [Liberty Mutual Property Inspection, Winner's Interview](http://blog.kaggle.com/2015/09/28/liberty-mutual-property-inspection-winners-interview-qingchen-wang/)
+* [Recruit Coupon Purchase Winner's Interview: 2nd place](http://blog.kaggle.com/2015/10/21/recruit-coupon-purchase-winners-interview-2nd-place-halla-yang/)
+* [Dato Truly Native? Winner's Interview: 2nd place](http://blog.kaggle.com/2015/10/30/dato-winners-interview-2nd-place-mortehu/)
+
+```
+Classifier: Gradient Boosting
+Training time: 2409.8094s
+Testing time: 0.4159s
+Confusion matrix:
+[[2214    1    3    5   10    8    9    3   24    1]
+ [   1 2528   16   11    3    5    5    7    9    3]
+ [   8    5 2165   34   16    5   12   22   37   10]
+ [   1    9   27 2182    4   42    1   22   37   23]
+ [   5    4   16    1 2088    5   12    5   10   65]
+ [   9    6    7   41    8 1928   27    6   18   19]
+ [  15    7    4    1   19   29 2181    1   14    0]
+ [   6   16   27   15   22    6    0 2246    8   71]
+ [   5   20   14   25   15   29    6    6 2057   38]
+ [   6   10    8   24   49   15    1   54   17 2205]]
+Accuracy: 0.9435
+```
+
+
 ### Naive Bayes
 
 ```
-Training time: 0.3334s
-Predict time: 0.9994s
+Classifier: Naive Bayes
+Training time: 0.3814s
+Testing time: 0.8863s
 Confusion matrix:
 [[2094    4   11   10    6    7   56    3   69   18]
  [   4 2432    9   11    2    4   28    1   77   20]
@@ -330,8 +384,9 @@ Accuracy: 0.5615
 ### LDA
 
 ```
-Training time: 17.2674s
-Predict time: 0.0554s
+Classifier: LDA
+Training time: 20.6464s
+Testing time: 0.0910s
 Confusion matrix:
 [[2131    2   10   14   12   47   20    4   36    2]
  [   0 2454   20   10    5   16    5    5   71    2]
@@ -350,8 +405,9 @@ Accuracy: 0.8642
 ### QDA
 
 ```
-Training time: 18.9276s
-Predict time: 4.8853s
+Classifier: QDA
+Training time: 23.0527s
+Testing time: 6.2259s
 Confusion matrix:
 [[2212    3   12   14    1    4   20    5    6    1]
  [  66 2409   12   10    0    0   32    2   39   18]
@@ -399,63 +455,69 @@ Accuracy: 0.5561
     </tr>
     <tr>
         <td>Adjusted SVM</td>
-        <td align="right"><b>98.4%</b></td>
+        <td align="right"><b>98.40%</b></td>
         <td align="right">347.1539s</td>
         <td align="right" class="danger">234.5724s</td>
     </tr>
     <tr>
         <td>Linear SVM</td>
         <td align="right">94.16%</td>
-        <td align="right">140.6126s</td>
-        <td align="right">TODO</td>
+        <td align="right">168.6950s</td>
+        <td align="right">158.0101s</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=50, n_jobs=10)</td>
-        <td align="right">96.55%</td>
-        <td align="right"><b>2.0144s</b></td>
-        <td align="right">0.1586s</td>
+        <td align="right">96.41%</td>
+        <td align="right">2.1359s</td>
+        <td align="right">26.0763s</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
-        <td align="right">61.09%</td>
-        <td align="right">0.1462s</td>
-        <td align="right">0.0535s</td>
+        <td align="right">57.15%</td>
+        <td align="right"><b>0.2077s</b></td>
+        <td align="right">22.2770s</td>
     </tr>
     <tr>
         <td>k nearest neightbors (k=3)</td>
         <td align="right">96.95%</td>
-        <td align="right">3.8013s</td>
-        <td align="right" class="danger">1033.7148s</td>
+        <td align="right">4.6439s</td>
+        <td align="right" class="danger">1261.7815s</td>
     </tr>
     <tr>
         <td>Decision Tree(max_depth=5)</td>
         <td align="right" class="danger">65.40%</td>
-        <td align="right">2.6527s</td>
-        <td align="right"><b>0.0247s</b></td>
+        <td align="right">3.1346s</td>
+        <td align="right"><b>0.0313s</b></td>
     </tr>
     <tr>
         <td>Adaboost</td>
         <td align="right" class="danger">73.67%</td>
-        <td align="right">32.4964s</td>
-        <td align="right">0.7506s</td>
+        <td align="right">37.6443s</td>
+        <td align="right">1.5815s</td>
     </tr>
     <tr>
         <td>Naive Bayes</td>
         <td align="right" class="danger">56.15%</td>
-        <td align="right">0.3334s</td>
-        <td align="right">0.9994s</td>
+        <td align="right">0.3814s</td>
+        <td align="right">0.8863s</td>
     </tr>
     <tr>
         <td>LDA</td>
         <td align="right">86.42%</td>
-        <td align="right">17.2674s</td>
-        <td align="right">0.0554s</td>
+        <td align="right">20.6464s</td>
+        <td align="right">0.0910s</td>
     </tr>
     <tr>
         <td>QDA</td>
         <td align="right" class="danger">55.61%</td>
-        <td align="right">18.9276s</td>
-        <td align="right">4.8853s</td>
+        <td align="right">23.0527s</td>
+        <td align="right" class="danger">6.2259s</td>
+    </tr>
+    <tr>
+        <td>Gradient Boosting</td>
+        <td align="right" class="danger">94.35%</td>
+        <td align="right">2409.8094s</td>
+        <td align="right" class="danger">0.4159s</td>
     </tr>
   </tbody>
 </table>
