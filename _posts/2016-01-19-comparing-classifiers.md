@@ -425,7 +425,7 @@ Accuracy: 0.5561
 
 ## MNIST Summary
 
-<table>
+<table class="table">
   <thead>
     <tr>
         <th>Classifier</th>
@@ -463,19 +463,19 @@ Accuracy: 0.5561
         <td>Linear SVM</td>
         <td align="right">94.16%</td>
         <td align="right">168.6950s</td>
-        <td align="right">158.0101s</td>
+        <td align="right" class="danger">158.0101s</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=50, n_jobs=10)</td>
         <td align="right">96.41%</td>
         <td align="right">2.1359s</td>
-        <td align="right">26.0763s</td>
+        <td align="right" class="danger">26.0763s</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
-        <td align="right">57.15%</td>
+        <td align="right" class="danger">57.15%</td>
         <td align="right"><b>0.2077s</b></td>
-        <td align="right">22.2770s</td>
+        <td align="right" class="danger">22.2770s</td>
     </tr>
     <tr>
         <td>k nearest neightbors (k=3)</td>
@@ -517,7 +517,99 @@ Accuracy: 0.5561
         <td>Gradient Boosting</td>
         <td align="right" class="danger">94.35%</td>
         <td align="right">2409.8094s</td>
-        <td align="right" class="danger">0.4159s</td>
+        <td align="right">0.4159s</td>
     </tr>
   </tbody>
 </table>
+
+
+## IRIS summary
+
+Just for fun, I tried the script from above with very minor adjustments to the
+[IRIS flower dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set):
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>Classifier</th>
+        <th>Accuracy</th>
+        <th>Training Time</th>
+        <th>Testing Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>AdaBoost</td>
+        <td align="right" >0.9200%</td>
+        <td align="right">0.1238s</td>
+        <td align="right" >0.0102s</td>
+    </tr>
+    <tr>
+        <td>Decision Tree</td>
+        <td align="right" >0.9400%</td>
+        <td align="right">0.0005s</td>
+        <td align="right" >0.0001s</td>
+    </tr>
+    <tr>
+        <td>Gradient Boosting</td>
+        <td align="right" >0.9200%</td>
+        <td align="right">0.2253s</td>
+        <td align="right" >0.0007s</td>
+    </tr>
+    <tr>
+        <td>LDA</td>
+        <td align="right" ><b>0.9600%</b></td>
+        <td align="right">0.0020s</td>
+        <td align="right" ><b>0.0001s</b></td>
+    </tr>
+    <tr>
+        <td>NN 20:5</td>
+        <td align="right" >0.9200%</td>
+        <td align="right">1.6704s</td>
+        <td align="right" >0.0046s</td>
+    </tr>
+    <tr>
+        <td>Naive Bayes</td>
+        <td align="right" >0.9000%</td>
+        <td align="right">0.0010s</td>
+        <td align="right" >0.0004s</td>
+    </tr>
+    <tr>
+        <td>QDA</td>
+        <td align="right" >0.9400%</td>
+        <td align="right">0.0009s</td>
+        <td align="right" >0.0003s</td>
+    </tr>
+    <tr>
+        <td>Random Forest</td>
+        <td align="right" >0.9200%</td>
+        <td align="right">0.2162s</td>
+        <td align="right" >0.1412s</td>
+    </tr>
+    <tr>
+        <td>Random Forest 2</td>
+        <td align="right" >0.9000%</td>
+        <td align="right">0.1513s</td>
+        <td align="right" >0.1252s</td>
+    </tr>
+    <tr>
+        <td>SVM, adj.</td>
+        <td align="right" >0.9200%</td>
+        <td align="right">0.0013s</td>
+        <td align="right" >0.0005s</td>
+    </tr>
+    <tr>
+        <td>SVM, linear</td>
+        <td align="right" class="danger">0.6600%</td>
+        <td align="right">0.0007s</td>
+        <td align="right" >0.0002s</td>
+    </tr>
+    <tr>
+        <td>k nn</td>
+        <td align="right" >0.9200%</td>
+        <td align="right">0.0007s</td>
+        <td align="right" >0.0009s</td>
+    </tr>
+</tbody>
+</table>
+
