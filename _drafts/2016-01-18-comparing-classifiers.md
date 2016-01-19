@@ -367,91 +367,95 @@ Accuracy: 0.5561
 ```
 
 
-## Summary
+## MNIST Summary
 
 <table>
+  <thead>
     <tr>
-        <th></th>
+        <th>Classifier</th>
         <th>Accuracy</th>
         <th>Training Time</th>
         <th>Testing Time</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
         <td>MLP (500:200)</td>
-        <td>97.98%</td>
-        <td>79.5696s</td>
-        <td>0.3480s</td>
+        <td align="right">97.98%</td>
+        <td align="right">79.5696s</td>
+        <td align="right">0.3480s</td>
     </tr>
     <tr>
         <td>Dropout NN (500:200)</td>
-        <td>97.80%</td>
-        <td>118.2654s</td>
-        <td>0.3918s</td>
+        <td align="right">97.80%</td>
+        <td align="right">118.2654s</td>
+        <td align="right">0.3918s</td>
     </tr>
     <tr>
-        <td>CNN (32 5x5 filters : 2x2 max pool : 64 5x5 filters : 2x2 max pool : 1024)</td>
-        <td>97.69%</td>
-        <td>391.8810s</td>
-        <td>1.2035s</td>
+        <td>CNN<br/>(32 5&times;5 filters : 2&times;2 max pool : 64 5&times;5 filters : 2&times;2 max pool : 1024)</td>
+        <td align="right">97.69%</td>
+        <td align="right">391.8810s</td>
+        <td align="right">1.2035s</td>
     </tr>
     <tr>
         <td>Adjusted SVM</td>
-        <td>98.4%</td>
-        <td>347.1539s</td>
-        <td>234.5724s</td>
+        <td align="right"><b>98.4%</b></td>
+        <td align="right">347.1539s</td>
+        <td align="right" class="danger">234.5724s</td>
     </tr>
     <tr>
         <td>Linear SVM</td>
-        <td>94.16%</td>
-        <td>140.6126s</td>
-        <td>TODO</td>
+        <td align="right">94.16%</td>
+        <td align="right">140.6126s</td>
+        <td align="right">TODO</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=50, n_jobs=10)</td>
-        <td>96.55%</td>
-        <td>2.0144s</td>
-        <td>0.1586s</td>
+        <td align="right">96.55%</td>
+        <td align="right"><b>2.0144s</b></td>
+        <td align="right">0.1586s</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
-        <td>61.09%</td>
-        <td>0.1462s</td>
-        <td>0.0535s</td>
+        <td align="right">61.09%</td>
+        <td align="right">0.1462s</td>
+        <td align="right">0.0535s</td>
     </tr>
     <tr>
         <td>k nearest neightbors (k=3)</td>
-        <td>96.95%</td>
-        <td>3.8013s</td>
-        <td>1033.7148s</td>
+        <td align="right">96.95%</td>
+        <td align="right">3.8013s</td>
+        <td align="right" class="danger">1033.7148s</td>
     </tr>
     <tr>
         <td>Decision Tree(max_depth=5)</td>
-        <td>65.40%</td>
-        <td>2.6527s</td>
-        <td>0.0247s</td>
+        <td align="right" class="danger">65.40%</td>
+        <td align="right">2.6527s</td>
+        <td align="right"><b>0.0247s</b></td>
     </tr>
     <tr>
         <td>Adaboost</td>
-        <td>73.67%</td>
-        <td>32.4964s</td>
-        <td>0.7506s</td>
+        <td align="right" class="danger">73.67%</td>
+        <td align="right">32.4964s</td>
+        <td align="right">0.7506s</td>
     </tr>
     <tr>
         <td>Naive Bayes</td>
-        <td>56.15%</td>
-        <td>0.3334s</td>
-        <td>0.9994s</td>
+        <td align="right" class="danger">56.15%</td>
+        <td align="right">0.3334s</td>
+        <td align="right">0.9994s</td>
     </tr>
     <tr>
         <td>LDA</td>
-        <td>86.42%</td>
-        <td>17.2674s</td>
-        <td>0.0554s</td>
+        <td align="right">86.42%</td>
+        <td align="right">17.2674s</td>
+        <td align="right">0.0554s</td>
     </tr>
     <tr>
         <td>QDA</td>
-        <td>55.61%</td>
-        <td>18.9276s</td>
-        <td>4.8853s</td>
+        <td align="right" class="danger">55.61%</td>
+        <td align="right">18.9276s</td>
+        <td align="right">4.8853s</td>
     </tr>
+  </tbody>
 </table>
