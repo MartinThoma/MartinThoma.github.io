@@ -85,6 +85,70 @@ task is to classify the image into one of the 10 digit classes.
 
 Guessing randomly will give an accuracy of \(\frac{1}{10} = 0.1\).
 
+### Neural Networks
+
+#### Simple Network
+
+```
+Classifier: NN 500:200
+Training time: 79.5696s
+Predict time: 0.3480s
+Confusion matrix:
+[[2248    1    5    1    2    4    8    2    5    2]
+ [   1 2565   10    1    1    0    2    7    1    0]
+ [   7    2 2258   14    5    0    9    6   10    3]
+ [   0    0   12 2294    0   23    0    6    3   10]
+ [   0    3    3    0 2161    0    8    5    1   30]
+ [   4    1    1   16    1 2014   17    1    5    9]
+ [  11    7    1    0    5    6 2237    0    4    0]
+ [   3    6   14    7    3    1    0 2355   10   18]
+ [   3    7    3   14    2   17    4    1 2161    3]
+ [   4    4    0    4   16    8    0    7    6 2340]]
+Accuracy: 0.9798
+```
+
+
+#### Dropout Network
+
+```
+Classifier: NN 500:200 dropout
+Training time: 118.2654s
+Predict time: 0.3918s
+Confusion matrix:
+[[2250    1    7    1    1    1    5    4    4    4]
+ [   1 2567    9    1    1    0    0    3    5    1]
+ [   6    6 2272    3    2    1    3   10    8    3]
+ [   0    0   26 2260    0   24    0   10   19    9]
+ [   0    3    5    0 2152    0    7    3    1   40]
+ [   8    3    3   12    2 1983   20    6   21   11]
+ [  11    6    3    0    7    1 2237    0    6    0]
+ [   2    7   13    3   11    0    1 2363    5   12]
+ [   7    7    9    5    3    3    1    2 2170    8]
+ [   3    3    1    3   13    2    0   19    8 2337]]
+Accuracy: 0.9780
+```
+
+
+#### CNN
+
+```
+Classifier: CNN
+Training time: 391.8810s
+Predict time: 1.2035s
+Confusion matrix:
+[[2243    0    5    0    0    5    9    1   12    3]
+ [   1 2548   20    4    2    0    1    6    6    0]
+ [   3    8 2253    9    3    1    4   17   14    2]
+ [   0    4   13 2290    0   12    0    9   11    9]
+ [   2    4    5    0 2164    0    8    5    3   20]
+ [   6    2    3   15    0 2016    9    3    9    6]
+ [  12   12    1    1    6    6 2227    0    6    0]
+ [   3    4   11    3    4    1    0 2374    4   13]
+ [   3   15    6   13    4   11    3    8 2145    7]
+ [   6    5    0   11   16    8    0   24   13 2306]]
+Accuracy: 0.9769
+```
+
 
 ### Adjusted SVM
 
@@ -305,7 +369,6 @@ Accuracy: 0.5561
 
 ## Summary
 
-
 <table>
     <tr>
         <th></th>
@@ -314,10 +377,28 @@ Accuracy: 0.5561
         <th>Testing Time</th>
     </tr>
     <tr>
+        <td>MLP (500:200)</td>
+        <td>97.98%</td>
+        <td>79.5696s</td>
+        <td>0.3480s</td>
+    </tr>
+    <tr>
+        <td>Dropout NN (500:200)</td>
+        <td>97.80%</td>
+        <td>118.2654s</td>
+        <td>0.3918s</td>
+    </tr>
+    <tr>
+        <td>CNN (32 5x5 filters : 2x2 max pool : 64 5x5 filters : 2x2 max pool : 1024)</td>
+        <td>97.69%</td>
+        <td>391.8810s</td>
+        <td>1.2035s</td>
+    </tr>
+    <tr>
         <td>Adjusted SVM</td>
         <td>98.4%</td>
-        <td>289.1019s</td>
-        <td>TODO</td>
+        <td>347.1539s</td>
+        <td>234.5724s</td>
     </tr>
     <tr>
         <td>Linear SVM</td>
