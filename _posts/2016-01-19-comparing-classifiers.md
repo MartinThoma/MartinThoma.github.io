@@ -625,3 +625,5 @@ However, the stard implementation is very slow compared to neural networks.
 [`sklearn.lda.LDA`](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
 might also be worth a try. The rest seems to be quite bad compared with those
 classifiers.
+
+The code which generated the examples from above is [here](https://github.com/MartinThoma/algorithms/tree/master/ML/mnist/many-classifiers).
