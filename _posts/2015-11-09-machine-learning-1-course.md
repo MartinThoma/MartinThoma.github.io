@@ -24,6 +24,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
 * **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
 * **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (EBG)
 
+
 ### Einführung
 
 Slide name: `MLI_01_Einfuehrung_slides1.pdf`
@@ -219,6 +220,10 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
   <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension \(VC(H^\alpha)\) eines Hypothesenraumes \(H^\alpha\)
       ist gleich der maximalen Anzahl an Datenpunkten, die von \(H^\alpha\)
       beliebig separiert werden können.</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a> (<dfn>PAC</dfn>)</dt>
+  <dd>PAC macht eine Aussage über die Anzahl der benötigten Stichproben, wenn
+      man einen bestimmten realen Fehler mit einer frei zu wählenden
+      Wahrscheinlichkeit bekommen will.</dd>
 </dl>
 
 * Lernmaschine wird definiert durch Hypothesenraum \\(\{h_\alpha: \alpha \in A\}\\)
@@ -234,11 +239,12 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
     * \\(\mathbb{R}^n \times \mathbb{R}\\): Regression
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
-* <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a>
+* PAC
     * Folie 35: Was ist eine Instanz der Länge \\(n\\)? (TODO)
 * VC-Dimension: Siehe [YouTube](https://youtu.be/puDzy2XmR5c)
-    * Folie 44: Was ist \\(\eta\\)? (TODO)
-* TODO: Wie hängen PAC und VC-Dimension zusammen?
+    * Folie 44: \\(\eta \in [0, 1]\\) ist ein Parameter, der beliebig gewählt
+      werden kann. Siehe Info-Box <i>Abschätzung des realen Fehlers</i>.
+
 
 #### Boosting
 <dl>
@@ -254,9 +260,13 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 </dl>
 
 * Folie 22:
-    * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)? (TODO)
+    * Wofür steht \\(i\\) und welchen Wertebereich hat \\(i\\)?<br/>
+      → \\(i\\) ist eine Zählvariable, welche die Trainingsdaten durchnummeriert.
     * Stellt \\(W_k(i)\\) die Wahrscheinlichkeit dar, dass Beispiel \\(i\\) im \\(k\\)-ten
-      Durchlauf für das Training verwendet wird? (TODO)
+      Durchlauf für das Training verwendet wird?<br/>
+      → Nein. \\(W_k(i)\\) ist das Gewicht des \\(i\\)-ten Trainingsbeispiels
+      für den \\(k\\)-ten klassifikator. Siehe Folie&nbsp;24 und folgende für
+      ein Beispiel.
 
 
 Siehe auch:
@@ -375,6 +385,14 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         für jedes Neuron im Grunde zwei Parameter: Der Radius und das Zentrum
         (vgl. Folie&nbsp;39 für die Gewichtsanpassung).
     </dd>
+    <dt><dfn>Dynamic Decay Adjustment</dfn> (<dfn>DDA</dfn>)</dt>
+    <dd>DDA ist ein konstruktiver Lernalgorithmus für Neuronale Netze welcher
+        in [<a href="#ref-ber95" name="ref-ber95-anchor">Ber95</a>] vorgestellt
+        wird.
+
+        TODO: Describe.
+
+        Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.</dd>
 </dl>
 
 #### Siehe auch
@@ -486,8 +504,10 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
   \\(Entropie(S) = - p_\oplus \log_2 p_\oplus - p_\ominus \log_2 p_\ominus\\)
   wobei \\(\oplus\\) die positiven Beispiele und \\(\ominus\\) die negativen Beispiele
   bezeichnet.
-* TODO, Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
-  Ergebnis äquivalent ist?
+* Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das
+  Ergebnis äquivalent ist?<br/>
+  → ID5R kann inkrementell verwendet werden. Es ist bei ID5R - im Gegensatz
+  zu ID3 - also nicht nötig bei neuen Trainingsdaten neu zu trainieren.
 * Random Forest: Erstelle mehrere Entscheidungsbäume mit einer zufälligen
   Wahl an Attributen. Jeder Baum stimmt für eine Klasse und die Klasse, für die
   die meisten Stimmen, wird gewählt.
@@ -721,10 +741,10 @@ Siehe auch:
         → TODO (Dualität zwischen Feature- und Hypothesenraum?)</li>
     <li>Wie funktioniert Inferenz in Markov Logik Netzen?
         → TODO</li>
-    <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in MLNs berechnet?
+    <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?
         → TODO</li>
     <li>Was ist Dynamic Decay Adjustment (DDA)?
-        → TODO (Hatten wir das oder ist das inzwischen weggefallen? - Anscheindend lernt auch DDA nach Vapnik "korrekt")</li>
+        → TODO</li>
     <li>Warum lernen SVMs "korrekt"?
         → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
         eines Klassifiers, welcher Datenpunkte im \(n\)-Dimensionalen Raum
@@ -759,6 +779,9 @@ Siehe auch:
 * [<a href="#ref-dar09-anchor" name="ref-dar09">Dar09</a>] A. Darwiche.
   Modeling and reasoning with Bayesian networks. Cambridge University Press,
   Cambridge [u.a.], 2009.
+* [<a href="#ref-ber95-anchor" name="ref-ber95">Ber95</a>] M.&nbsp;Berthold and
+  J.&nbsp;Diamond. Boosting the Performance of RBF Networks with Dynamic Decay
+  Adjustment. Advances in Neural Information Processing, 1995. [<a href="http://kops.uni-konstanz.de/handle/123456789/5427">Online</a>]
 
 
 ## Übungsbetrieb
