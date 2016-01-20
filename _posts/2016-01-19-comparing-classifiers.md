@@ -71,7 +71,7 @@ patterns. The boundaries change in parallel to the coordinate axes which looks
 very unnatural.
 
 
-{% caption align="aligncenter" width="500" alt="Naive Bayes, LDA, QDA" text="Naive Bayes, LDA, QDA" url="../images/2016/01/image.png" %}
+{% caption align="aligncenter" width="500" alt="Naive Bayes, LDA, QDA" text="Naive Bayes, LDA, QDA" url="../images/2016/01/ml-classifiers-3.png" %}
 
 Naive Bayes shows nice, smooth patterns. However, those patterns seem to be
 a bit too simple. LDA is again linear (see linear SVM). Comparing QDA to
@@ -612,3 +612,16 @@ Just for fun, I tried the script from above with very minor adjustments to the
     </tr>
 </tbody>
 </table>
+
+
+## TL;DR
+
+Neural networks take their time to train and a feeling for the topology, but
+their classification results are nice and the testing time is good as well.
+
+Random Forests and SVMs are also a model a type of model one should think of.
+However, the stard implementation is very slow compared to neural networks.
+
+[`sklearn.lda.LDA`](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
+might also be worth a try. The rest seems to be quite bad compared with those
+classifiers.
