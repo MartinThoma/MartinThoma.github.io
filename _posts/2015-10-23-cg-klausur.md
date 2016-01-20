@@ -76,6 +76,21 @@ featured_image: logos/klausur.png
     <td>Räumliche Datenstrukturen</td>
     <td>BSP-Baum, kD-Baum</td>
 </tr>
+<tr>
+    <td>14.01.2016</td>
+    <td>OpenGL</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td>18.01.2016</td>
+    <td>Übung</td>
+    <td>Koordinatensystem-Pipeline, Shader</td>
+</tr>
+<tr>
+    <td>19.01.2016</td>
+    <td>Erzeugung von Landschaften</td>
+    <td>Rotes / Rosa Rauschane, Lattice Value Noise, Perlin-Noise</td>
+</tr>
 </table>
 
 ### Folien
@@ -88,6 +103,16 @@ featured_image: logos/klausur.png
   <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
   <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
 </dl>
+
+#### 19.01.2016
+
+<dl>
+    <dt><dfn>Perlin-Noise</dfn></dt>
+    <dd>Zufallszahlen-Pool + Hash + Permutation</dd>
+    <dt><dfn>Oktave</dfn></dt>
+    <dd>Sammlung von Noise-Funktionen</dd>
+</dl>
+
 
 ### Prüfungsfragen
 
@@ -137,6 +162,12 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 ## Termine und Klausurablauf
 
 **Datum**: Mittwoch, der 09.03.2015 von 14:00 Uhr (Quelle: [informatik.kit.edu](http://www.informatik.kit.edu/klausuren.php?kid=546.35))<br/>
+
+* 08.02.2016: Die Klausur-Anmeldung wird freigeschalten
+* 04.03.2016: Anmeldeschluss
+* 06.03.2016: Abmeldeschluss
+
+
 **Ort**: <a href="https://www.kithub.de/map/2086">10.21 (Daimler und Benz)</a><br/>
 **Punkte**: ?<br/>
 **Zeit**: ? min<br/>
