@@ -116,6 +116,7 @@ Slide name: `MLI_03_ReinforcementLearning_slides1.pdf`
 Siehe auch:
 
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
+* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
 * Berkeley
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)

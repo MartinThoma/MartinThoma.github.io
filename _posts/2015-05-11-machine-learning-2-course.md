@@ -146,7 +146,9 @@ Slides: `03_Semi-supervised+Active-learning.pdf`
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Lagrange-Multiplikator"><dfn>Lagrange-Multiplikator</dfn></a></dt>
-  <dd>TODO</dd>
+  <dd>Lagrange-Multiplikatoren sind ein Verfahren der Optimierungstheorie.
+      Sie werden genutzt, wenn ein Optimierungsproblem mit Nebenbedingungen
+      vorliegt. Durch sie kann die Nebenbedingung eliminiert werden.</dd>
   <dt><dfn>Active Learning</dfn></dt>
   <dd>Die Lernmaschine wählt die zu lernenden Daten selbst aus.</dd>
   <dt><dfn>Query Synthesis</dfn> (siehe <a href="http://burrsettles.com/pub/settles.activelearning.pdf">Active Learning Literature Survey</a>)</dt>
@@ -208,6 +210,15 @@ Weiteres:
 
 Slides: `04_Reinforcement_Learning_II.pdf`
 
+Siehe auch:
+
+* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
+* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
+* [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
+* Berkeley
+    * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
+    * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This expalins TD-learning.
+
 <dl>
   <dt><dfn>Options</dfn></dt>
   <dd>Eine <i>Option</i> ist wohl-definiertes Verhalten, welches im
@@ -229,14 +240,32 @@ Slides: `04_Reinforcement_Learning_II.pdf`
           <li>\(p_0\) ist die Startverteilung auf die Zustände \(S\)</li>
       </ul>
   </dd>
+  <dt><dfn>Partially observable Markov decision process</dfn> (<dfn>POMDP</dfn>)<a name="pomdp-definition"></a></dt>
+  <dd>Ein <i>partially observable Markov decision process</i> ist ein
+      7-tupel \(S, A, T, R, \Omega, O, \gamma\), wobei
+
+      <ul>
+          <li>\(S\) die Zustandsmenge,</li>
+          <li>\(A\) die Aktionsmenge,</li>
+          <li>\(T: S \times A \times S \rightarrow \mathbb{R}\) die probabilisitische Zustandsübergangsfunktion (transition function) ist,</li>
+          <li>\(R: S \times A \rightarrow \mathbb{R}\) die Reward-Funktion,</li>
+          <li>\(\Omega\) die Menge der möglichen Beobachtungen,</li>
+          <li>\(O\) die Wahrscheinlichkeit der Beobachtungen, gegeben ein Zustand und eine Aktion und</li>
+          <li>\(\gamma \in [0, 1]\) der Diskontierungsfaktor</li>
+      </ul>
+      ist.
+  </dd>
   <dt><dfn>Hierarchien Abstrakter Maschinen</dfn> (<dfn>HAM</dfn>)</dt>
   <dd>Ein <abbr title="Markov Decision Process">MDP</abbr> wird mit
       Maschinen \(\{M_i\}\) kombiniert. Jede Maschine repräsentiert einen
       Teil der Policy. Jede Maschine verwendet eigene Zustände \(m_t^i\)
       und globale Zustände \(s_t\). Maschinen werden durch Zustandsautomaten
       abgebildet.</dd>
-  <dt><dfn>MaxQ</dfn></dt>
-  <dd>TODO</dd>
+  <dt><dfn>MaxQ-Dekomposition</dfn> (siehe [<a href="#ref-die00" name="ref-die00-anchor">Die00</a>])</dt>
+  <dd>Das zu lösende MDP \(M\) wird als Menge von Unteraufgaben \(\{M_0, \dots, M_n\}\)
+      interpretiert. Dabei ist \(M_0\) das Haupt-MDP.
+
+      TODO.</dd>
 </dl>
 
 Folie 35:
@@ -609,12 +638,21 @@ Alternative:
        welche neben gelabelten Daten auch noch ungelabelte benutzt. Sie versucht
        die Trennebene durch eine Region geringer Dichte zu legen.</li>
     <li>Wie lautet die Optimierungsformel der transductive SVM?<br/>
-        → TODO</li>
+        → \[\text{minimize}_{w, b, y^*} \frac{1}{2} \|w\|^2\]
+        unter den Nebenbedingungen
+        \[\forall i \in 1, \dots, n: y_i (w \cdot x_i - b) \geq 1\]
+        und
+        \[\forall j \in 1, \dots, k: y_j^* (w \cdot x_j^* -b) \geq 1\text{ with }y_j^* \in \{-1, 1\}\]
+
+        Dabei sind \(D^* = \{x_i^* | i = 1, \dots, k\}\) ungelabelte Daten.
+    </li>
     <li>Was macht man im Reinforcement Learning, wenn Aktionen länger dauern?<br/>
         → Options verwenden (TODO: Wie ändert sich die Value Iteration Formel
            nun bzgl. der Zeit?)</li>
     <li>Warum heißen POMDPs "Partially Observable"?<br/>
-        → TODO</li>
+        → Weil der Agent zwar Feedback über die Umgebung bekommt, aber nicht
+           direkt erfährt in welchem Zustand er ist. Siehe
+           <a href="#pomdp-definition">Definition</a>.</li>
     <li>Welche Active Learning Techniken gibt es?<br/>
         → Query / Selective / Pool-based (vgl. <a href="#tocAnchor-1-1-4">Query-by-Committee</a>)</li>
     <li>Wie nennt man ein instanziiertes OPRM?<br/>
@@ -624,7 +662,8 @@ Alternative:
                  Hypothese vorhanden ist, dann erhält man auch die optimale
                  Hypothese)</li>
     <li>Was versteht man unter Transduktivem Lernen?<br/>
-        → TODO</li>
+        → Unter Transduktiver Inferenz versteht man das Schließen von
+           Trainingsbeispielen direkt auf auf spezifische Testfälle.</li>
     <li>Wie nennt man die Wahrscheinlichkeit des aktiellen Zustands in POMDPs?<br/>
         → Belief.</li>
 </ul>
@@ -644,6 +683,10 @@ Alternative:
   Verhaltensprädiktion. Masterarbeit am FZI. Karlsruhe, 2015. Man kann
   <a href="https://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/kuhnt/">Florian Kuhnt</a>
   um Zugang dazu fragen.
+* [<a href="#ref-die00-anchor" name="ref-die00">Die00</a>] T. Dietterich.
+  <a href="https://www.jair.org/media/639/live-639-1834-jair.pdf">Hierarchical
+  Reinforcement Learning with the MAXQ Value Function Decomposition</a>.
+  Journal of Artificial Intelligence Research, 2000.
 
 
 ## Übungsbetrieb
