@@ -142,6 +142,27 @@ bekommt, dann solltet ihr einfach die obigen Pakete installieren, den
     ../images/2015/11/temperature.png    "Temperature of a black body"
 {% endgallery %}
 
+Außerdem:
+
+```bash
+$ pacman -Syy
+```
+
+ausführen. Dann bekommt man auch nicht mehr 404er wenn man mit
+
+```
+$ pacman -S vim
+```
+
+vim installieren will.
+
+In der VM sollte unter Settings → System → Acceleration die Option "Enable
+VT-x/AMD-V" aktiviert sein. Zusätzlich sollte im BIOS des Host-Systems (also
+von eurem Rechner) die "Intel Virtualization Technology" aktiviert sein.
+(Man Laptop hat das nicht - bei mir funktionieren die Beispiele in der VM
+aber auch nicht :-/)
+
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
