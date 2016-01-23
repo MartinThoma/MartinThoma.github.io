@@ -221,6 +221,15 @@ and the follow-up post which is still on my TODO-list to be published (see
 It would also be possible to add GitHub repositories.
 
 
+## Comment.it
+
+Sometimes, I just want to add my 2ct to something. I would like to have a
+central website / service - preferable as a browser plugin - with which I
+can add comments to other websites on an URL basis (including anchors for
+maximum exactness). Then I could read what other people think of something,
+even if there is no comments section.
+
+
 ## Chrome
 I had some <a href="../how-chrome-could-be-improved-2nd-post/">ideas how to improve Chrome</a>.
 
