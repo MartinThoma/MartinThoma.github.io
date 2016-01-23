@@ -113,7 +113,13 @@ Siehe auch:
 
 Slide name: `MLI_03_ReinforcementLearning_slides1.pdf`
 
-Siehe auch: [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
+Siehe auch:
+
+* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
+* [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
+* Berkeley
+    * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
+    * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This expalins TD-learning.
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
@@ -138,29 +144,68 @@ Siehe auch: [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung
   <dt><dfn>Policy</dfn></dt>
   <dd>Eine <b>policy \(\pi: S \rightarrow A\)</b> ist die Vorschrift, in
       welchem Zustand welche Aktion ausgeführt werden soll.</dd>
-  <dt><dfn></dfn></dt>
+  <dt><dfn>Value-Funktion</dfn></dt>
   <dd>Die Funktion \(V^\pi: S \rightarrow \mathbb{R}\) heißt Value-Funktion.
       Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
       noch der Diskontierungsfaktor eingeht!) eines Zustands \(s\) unter der
       policy \(\pi\) an.
 
       Mit \(V^*\) wird der Wert unter der optimalen policy bezeichnet.</dd>
-  <dt>Q-Funktion</dt>
-  <dd>Die Funktion \(Q: S \times A \rightarrow \mathbb{R}\) gibt den erwarteten
+  <dt><dfn>Q-Funktion</dfn></dt>
+  <dd>Die Funktion \(Q^\pi: S \times A \rightarrow \mathbb{R}\) gibt den erwarteten
       Wert einer eines Zustandes \(s\) unter der policy \(\pi\), wenn die
       Aktion \(a\) ausgeführt wird an.
 
-      Es gilt: \[Q(s, \pi(s)) = V(s)\]</dd>
+      Es gilt: \[Q^\pi(s, \pi(s)) = V^\pi(s)\]</dd>
+   <dt><dfn>Eligibility Traces</dfn></dt>
+   <dd>
+       TODO
+
+       See also: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html">Reinforcement Learning: An Introduction</a> by Sutton.
+   </dd>
 </dl>
 
 * Beispiel für RL: Roboter muss zu einem Ziel navigieren
 
 Algorithmen:
 
-* Policy Learning
-* Simple Value Iteration: TODO - Wie funktioniert das?
-* Q-Learning
-* Simple Temporal Difference Learning
+<dl>
+    <dt><dfn>Simple Value Iteration</dfn></dt>
+    <dd>Simple Value Iteration estimates the value function by updating it
+        as long as necessary to converge:
+
+        \[\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})\]
+
+        "Simple" means that the transition function is deterministic.
+        <!--
+        In the
+        non-deterministic case the update rule is
+
+        \[\hat{V}^*(s_t) \leftarrow r_t + \gamma E(\hat{V}^*(s_{t+1}))\] -->
+
+        It is explained in
+
+        <ul>
+            <li>Sebastian Thrun: <a href="https://www.youtube.com/watch?v=oefOCk3koZo">Unit 9 17 Value Iteration 1</a> on YouTube.</li>
+            <li>Sebastian Thrun: <a href="https://www.youtube.com/watch?v=8-pzJXUiXrM">Unit 9 17 Value Iteration 2</a> on YouTube.</li>
+            <li>Sebastian Thrun: <a href="https://www.youtube.com/watch?v=glHKJ359Cnc">Unit 9 17 Value Iteration 3</a> on YouTube.</li>
+        </ul>
+    </dd>
+    <dt><dfn>Simple Temporal Difference Learning</dfn></dt>
+    <dd>Simple Temporal Difference Learning is just like
+        Simple Value Iteration, but now the Value function is updated with
+        a learning rate \(\alpha\):
+        \[\hat{V}^*(s_t) \leftarrow (1-\alpha) \cdot \hat{V}^*(s_t) + \alpha(r_t + \gamma \hat{V}^*(s_{t+1}))\]
+
+        Mehr dazu im <a href="#td-learning">nächsten Abschnitt</a>.
+    </dd>
+    <dt><dfn>Q-Learning</dfn></dt>
+    <dd>Siehe <a href="#q-learning">nächster Abschnitt</a></dd>
+    <dt><dfn>SARSA(\(\lambda\))</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Policy Learning</dfn></dt>
+    <dd>TODO</dd>
+</dl>
 
 
 #### Q-Learning
@@ -175,20 +220,26 @@ initialize Q[num_states, num_actions]
 start in state s
 repeat:
     select and execute action a
-    observe reward r and new state s'
-    Q[s', a] <- Q[s, a] + \alpha (r + \gamma \max_{a'} Q[s', a'] - Q[s, a])
+    \\(r \leftarrow R(s, a)\\)  # Receive reward
+    s' <- T(s, a) # Get on new state
+    Q[s', a] <- (1-\alpha) * Q[s, a] + \alpha * (r + \gamma \max_{a'} Q[s', a'])
     s <- s'
 ```
 
 where \\(\alpha \in (0, 1]\\) is a learning rate and \\(\gamma\\) is a discount
 factor.
 
+See also:
+
+* [Mario Q-learning](https://www.youtube.com/watch?v=ntZ0Hc1_LsY) on YouTube. 2010.
+
+
 #### TD-Learning
 
 * R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.
 
-Der TD-Learning Algorithmus beschäftigt sich mit dem schätzen der Value-Funktion
-\(V^\pi\) für eine gegebene Policy \(\pi\). Das wird auch <i>policy evaluation</i>
+Der TD-Learning Algorithmus beschäftigt sich mit dem Schätzen der Value-Funktion
+\\(V^\pi\\) für eine gegebene Policy \\(\pi\\). Das wird auch <i>policy evaluation</i>
 oder <i>prediction</i> genannt.
 
 * [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?
@@ -241,9 +292,6 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 * Kreuzvalidierung
 * PAC
     * Folie 35: Was ist eine Instanz der Länge \\(n\\)? (TODO)
-* VC-Dimension: Siehe [YouTube](https://youtu.be/puDzy2XmR5c)
-    * Folie 44: \\(\eta \in [0, 1]\\) ist ein Parameter, der beliebig gewählt
-      werden kann. Siehe Info-Box <i>Abschätzung des realen Fehlers</i>.
 
 
 #### Boosting
@@ -280,7 +328,7 @@ Siehe auch:
 #### VC-Dimension
 
 <dl>
-  <dt>VC-Dimension</dt>
+  <dt><dfn>VC-Dimension</dfn>, siehe <a href="https://youtu.be/puDzy2XmR5c">YouTube</a></dt>
   <dd>Sei \(H^\alpha = \{h_\alpha : \alpha \in A\}\) der Hypothesenraum. Die
       VC-Dimension \(VC(h_\alpha)\) von \(H^\alpha\) ist gleich der maximalen
       Anzahl von beliebig platzierten Datenpunkten, die von \(H^\alpha\) separiert
@@ -289,6 +337,8 @@ Siehe auch:
 
 * TODO - Folie 39: Was ist \\(A\\)? Warum ist \\(h_\alpha\\) wichtig? Sollte es
   nicht eher \\(VC(H^\alpha)\\) sein?
+* Folie 44: \\(\eta \in [0, 1]\\) ist ein Parameter, der beliebig gewählt
+  werden kann. Siehe Info-Box <i>Abschätzung des realen Fehlers</i>.
 
 
 ### Neuronale Netze
@@ -379,26 +429,39 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
 
         Ein typisches Beispiel sind gaußsche RBFs:
         \(f(x) = e^{-(a (x - c)^2)}\), wobei \(a, c\) Konstanten sind.</dd>
-    <dt>Radial-Basis Funktion Netz</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Radial_basis_function_network"><dfn>Radial-Basis Funktion Netz</dfn></a> (<dfn>RBF-Netz</dfn>)</dt>
     <dd>Ein <i>Radial-Basis Funktion Netz</i> ist eine neuronales Netz,
         welches als Aktivierungsfunktionen RBFs verwendet. Dabei gibt es dann
         für jedes Neuron im Grunde zwei Parameter: Der Radius und das Zentrum
         (vgl. Folie&nbsp;39 für die Gewichtsanpassung).
     </dd>
-    <dt><dfn>Dynamic Decay Adjustment</dfn> (<dfn>DDA</dfn>)</dt>
-    <dd>DDA ist ein konstruktiver Lernalgorithmus für Neuronale Netze welcher
+    <dt><a name="dda-algorithm"></a><dfn>Dynamic Decay Adjustment</dfn> (<dfn>DDA</dfn>)</dt>
+    <dd>DDA ist ein konstruktiver Lernalgorithmus für RBF-Netze welcher
         in [<a href="#ref-ber95" name="ref-ber95-anchor">Ber95</a>] vorgestellt
         wird.
 
-        TODO: Describe.
+        Bei den Netzwerken, die DDA annimmt, gibt es sog. <i>Prototypen</i>.
+        Das scheinen einfach Neuronen mit RBF-Aktivierungsfunktionen zu sein,
+        welche für eine Klasse stehen.
 
-        Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.</dd>
+        Zwei Schwellwerte, \(\theta^+\) und \(\theta^-\), werden eingeführt.
+        Der Schwellwert \(\theta^+\) muss beim Training eines Beispiels der
+        Klasse \(y_1\) von einem Neuron der Klasse \(y_1\) überschritten
+        werden. Falls das nicht der Fall ist, wird ein neues Neuron
+        hinzugefügt.<br/>
+        Der Schwellwert \(\tehta^-\) ist eine obere Grenze für die Aktivierung
+        von Neuronen, die zu anderen Klassen gehören.
+
+        Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.
+
+        Siehe auch: <a href="http://www.ra.cs.uni-tuebingen.de/SNNS/UserManual/node193.html">The Dynamic Decay Adjustment Algorithm</a></dd>
 </dl>
 
 #### Siehe auch
 
 * [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
 * [How exactly does adding a new unit work in Cascade Correlation?](http://datascience.stackexchange.com/q/9672/8820)
+* [What are prototypes in RBF networks?](http://datascience.stackexchange.com/q/9869/8820)
 
 
 ### Instanzbasiertes Lernen
@@ -713,55 +776,64 @@ Siehe auch:
 ## Prüfungsfragen
 
 <ul>
-    <li>Was ist Induktives Lernen?
+    <li>Was ist Induktives Lernen?<br/>
         → Eine große Menge an Beispielen wird gegeben. Der Lerner muss selbst
            das Konzept herausfinden.</li>
-    <li>Was ist Deduktives Lernen?
+    <li>Was ist Deduktives Lernen?<br/>
         → Fakten werden gegeben. Der lernende bekommt das allgemeine Konzept
            gesagt und muss nur logische Schlussfolgerungen machen.</li>
-    <li>Wie lautet die Bellman-Gleichung?
-        → \(Q(s, a) = r + \gamma \max_{a'} Q(s', a')\) wobei \(\gamma\) ein
-        Diskontierungsfaktor ist, \(s'\) der Zustand in den man kommt, wenn
-        man \(a\) ausführt und \(r\) der Reward nach ausführen von \(a\) in
-        \(s\) ist.</li>
-    <li>Wie lautet die Fehlerabschätzung von Vapnik?
+    <li>SVMs
+    <ul>
+        <li>Wie funktioniert SRM bei SVMs?
+            → TODO (Dualität zwischen Feature- und Hypothesenraum?)</li>
+        <li>Warum lernen SVMs "korrekt"?<br/>
+            → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
+            eines Klassifiers, welcher Datenpunkte im \(n\)-Dimensionalen Raum
+            innerhalb einer Kugel mit Radius \(D\) durch eine Hyperebene mit
+            mindestens Abstand \(\Delta\) trennen will, durch \((\frac{D}{\Delta})^2\)
+            beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
+            Margin maximiert.
+
+            Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).
+
+            </li>
+    </ul>
+    </li>
+    <li>Reinforcement Learning
+        <ul>
+            <li>Wie lautet die Bellman-Gleichung?<br/>
+                → \(Q(s, a) = r + \gamma \max_{a'} Q(s', a')\) wobei \(\gamma\) ein
+                Diskontierungsfaktor ist, \(s'\) der Zustand in den man kommt, wenn
+                man \(a\) ausführt und \(r\) der Reward nach ausführen von \(a\) in
+                \(s\) ist.</li>
+            <li>Was ist Value Iteration und wie lautet die Formel?<br/>
+                → Schätzen der Value-Funktion durch iteratives anwenden von \(\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})\)</li>
+            <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?<br/>
+                → TODO</li>
+            <li>Wie funktioniert Q-Learning?<br/>
+                → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
+        </ul>
+    </li>
+    <li>Wie lautet die Fehlerabschätzung von Vapnik?<br/>
         → Siehe abschätzung des realen Fehlers durch den empirischen Fehler
            und die VC-Dimension in "Abschätzung des Testfehlers"</li>
-    <li>Wie funktioniert Q-Learning?
-        → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
-    <li>Was versteht man unter Cascade Correlation?
+    <li>Was versteht man unter Cascade Correlation?<br/>
         → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
-    <li>Welche übwerwachten Lernverfahren gibt es?
+    <li>Welche übwerwachten Lernverfahren gibt es?<br/>
         → Neuronale Netze, SVMs</li>
-    <li>Was ist Value Iteration und wie lautet die Formel?
+    <li>Wie funktioniert Inferenz in Markov Logik Netzen?<br/>
         → TODO</li>
-    <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?
+    <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?<br/>
         → TODO</li>
-    <li>Wie funktioniert SRM bei SVMs?
-        → TODO (Dualität zwischen Feature- und Hypothesenraum?)</li>
-    <li>Wie funktioniert Inferenz in Markov Logik Netzen?
-        → TODO</li>
-    <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?
-        → TODO</li>
-    <li>Was ist Dynamic Decay Adjustment (DDA)?
-        → TODO</li>
-    <li>Warum lernen SVMs "korrekt"?
-        → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
-        eines Klassifiers, welcher Datenpunkte im \(n\)-Dimensionalen Raum
-        innerhalb einer Kugel mit Radius \(D\) durch eine Hyperebene mit
-        mindestens Abstand \(\Delta\) trennen will, durch \((\frac{D}{\Delta})^2\)
-        beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den
-        Margin maximiert.
-
-        Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).
-
-        </li>
-    <li>Was ist erklärungsbasierte Generalisierung (EBG)?
-        → TODO</li>
+    <li>Was ist Dynamic Decay Adjustment (DDA)?<br/>
+        → Siehe <a href="#dda-algorithm">oben</a></li>
+    <li>Was ist erklärungsbasierte Generalisierung (EBG)?<br/>
+        → Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen
+           bekannter Konzepte.</li>
     <li>Wie lautet die Formel für Entropie / Information Gain?
         → \(Entropy = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
-    <li>Was ist <a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)">Cobweb</a>?
-        → TODO (Kam das bei uns überhaupt dran? Irgendwas mit dem lernen eine Baumstruktur)</li>
+    <li>Was ist <a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)">Cobweb</a>?<br/>
+        → Das kam bei uns nicht dran.</li>
 </ul>
 
 
@@ -772,7 +844,8 @@ Siehe auch:
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
 * [Zusammenfassung der Vorlesung ML 2](//martin-thoma.com/machine-learning-2-course/)
-
+* Udacity
+  * [Knowledge-Based AI: Cognitive Systems](https://www.udacity.com/course/knowledge-based-ai-cognitive-systems--ud409): Unter anderem gibt es eine Lektion zu Explanation-Based Learning (erklärungsbasierte Generalisierung)
 
 ## Literatur
 
