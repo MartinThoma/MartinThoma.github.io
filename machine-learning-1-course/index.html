@@ -125,22 +125,31 @@
             <li class="toc_level-2 toc_section-13">
                <a href="#tocAnchor-1-1-12"><span class="tocnumber">1.12</span> <span class="toctext">Markov Logik Netze</span></a>
             </li>
+            <li class="toc_level-2 toc_section-14">
+               <a href="#tocAnchor-1-1-13"><span class="tocnumber">1.13</span> <span class="toctext">Evolutionäre Algorithmen</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-15">
+               <a href="#tocAnchor-1-1-14"><span class="tocnumber">1.14</span> <span class="toctext">Deduktives Lernen</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-16">
+               <a href="#tocAnchor-1-1-15"><span class="tocnumber">1.15</span> <span class="toctext">Unüberwachte Lernverfahren</span></a>
+            </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-14">
-         <a href="#tocAnchor-1-14"><span class="tocnumber">2</span> <span class="toctext">Prüfungsfragen</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-15">
-         <a href="#tocAnchor-1-15"><span class="tocnumber">3</span> <span class="toctext">Material und Links</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-16">
-         <a href="#tocAnchor-1-16"><span class="tocnumber">4</span> <span class="toctext">Literatur</span></a>
-      </li>
       <li class="toc_level-1 toc_section-17">
-         <a href="#tocAnchor-1-17"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-17"><span class="tocnumber">2</span> <span class="toctext">Prüfungsfragen</span></a>
       </li>
       <li class="toc_level-1 toc_section-18">
-         <a href="#tocAnchor-1-18"><span class="tocnumber">6</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-18"><span class="tocnumber">3</span> <span class="toctext">Material und Links</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-19">
+         <a href="#tocAnchor-1-19"><span class="tocnumber">4</span> <span class="toctext">Literatur</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-20">
+         <a href="#tocAnchor-1-20"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-21">
+         <a href="#tocAnchor-1-21"><span class="tocnumber">6</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Folien</h2>
@@ -972,7 +981,125 @@ gegeben eine Sequenz von Beobachtungen.</li>
 <li>Software: <a href="https://alchemy.cs.washington.edu/">Alchemy</a></li>
 </ul>
 
-<h2 id="tocAnchor-1-14">Prüfungsfragen</h2>
+<h3 id="tocAnchor-1-1-13">Evolutionäre Algorithmen</h3>
+
+<p>Slides: <code>MLI_12_EvolutionaereAlgorithmen_slides1.pdf</code></p>
+
+<dl>
+    <dt><dfn>Individuum</dfn></dt>
+    <dd>Eine mögliche Hypothese</dd>
+    <dt><dfn>Population</dfn> (<dfn>Generation</dfn>)</dt>
+    <dd>Hypothesenmenge</dd>
+    <dt><dfn>Erzeugung von Nachkommen</dfn></dt>
+    <dd>Generierung neuer Hypothesen durch Rekombination und Mutation</dd>
+    <dt><dfn>Fitness-Funktion</dfn></dt>
+    <dd>Die Fitness-Funktion ist das zu optimierende Kriterium. Sie beschreibt
+        die Güte einer Hypothese.</dd>
+    <dt><dfn>Selektion</dfn></dt>
+    <dd>Auswahl der Hypothesen, welche die beste Problemlösung erzeugen.</dd>
+    <dt><dfn>Evolutionäre Strategien</dfn></dt>
+    <dd>Das Wissen wird durch reele Zahlen und Vektoren repräsentiert.</dd>
+    <dt><dfn>Genetische Programmierung</dfn></dt>
+    <dd>Das Wissen wird duch baumartige Strukturen repräsentiert.</dd>
+    <dt><dfn>Mutation</dfn></dt>
+    <dd>Unter <i>Mutation</i> versteht man die zufällige Änderung einzelner
+        Gene.
+
+        Beispiele:
+
+        <ul>
+            <li>Bit-Inversion: Zufällig Gleichverteilt pro Gen / Feste Anzahl,
+                aber zufällige Gene</li>
+            <li>Translation: Verschieben von Teilsequenzen</li>
+            <li>Invertiertes Einfügen</li>
+            <li>Spezielle Mutationsoperatoren sind anwendungsspezifisch</li>
+        </ul>
+    </dd>
+    <dt><dfn>Rekombination</dfn></dt>
+    <dd>Bei der <i>Rekombination</i> werden die Eigenschaften zweier Eltern
+        gemischt. Dies kann Diskret passieren, wenn manche Gene von einem
+        Elternteil übernommen werden und andere vom anderen Elternteil.
+        Alternativ kann die Rekombination auch durch <i>intermediäre
+        Rekombination</i> passieren. Das bedeutet, das ein Gen gemittelt
+        wird.</dd>
+</dl>
+
+<p>Grundalgorithmus:</p>
+<div class="highlight">
+   <pre><code class="language-text" data-lang="text">Fitness-Function f
+Population p
+
+while f(p) != optimal:
+    p_parents &lt;- selection(p)
+    p_children &lt;- generate_children(p_parents)
+    p &lt;- p_parents + p_children
+    fitness &lt;- f(p)
+    p &lt;- selection_kill(p, fitness)
+</code></pre>
+</div>
+<p>Probleme:</p>
+
+<ul>
+<li>Genetischer Drift: Manche Individuen vermehren sich zufällig mehr als andere.
+Diese sind nicht unbedingt besser für das Problem geeignet.</li>
+<li>Crowding, Ausreißerproblem: Fitte Individuen dominieren die Population. Das
+ist ein Problem wegen lokaler Maxima.</li>
+</ul>
+
+<p>Mating:</p>
+
+<ul>
+<li>Inselmodell: Die Evolution läuft weitgehend getrennt. Es passiert nur
+vereinzelt, dass Individuen der Inseln ausgetauscht werden.</li>
+<li>Nachbarschaftsmodell: Nachkommen dürfen nur von Individuen erzeugt werden,
+die in ihrer Nachbarschaft die beste Fitness besitzen</li>
+<li>Globales Modell: Alle dürfen sich mit allen verbinden.</li>
+</ul>
+
+<h3 id="tocAnchor-1-1-14">Deduktives Lernen</h3>
+
+<p>TODO</p>
+
+<p>Slides: <code>MLI_13_DeduktivesLernen_slides1.pdf</code></p>
+
+<dl>
+    <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn>)</dt>
+    <dd>TODO</dd>
+    <dt><dfn>Modus Ponens</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>STRIPS</dfn> (<dfn>STanford Resarch Institute Problem Solver</dfn>)</dt>
+    <dd>TODO (Erzeugung von Makrooperatoren (automatisches Planen))</dd>
+    <dt><dfn>PRODIGY</dfn></dt>
+    <dd>TODO (Lernen, Suche zu kontrollieren; Effektivitätssteigerung beim Planen, besonders bei großen
+Zustandsräumen)</dd>
+    <dt><dfn>KBANN</dfn></dt>
+    <dd>TODO (Hybrides Verfahren)</dd>
+    <dt><dfn>Explanation Based Generalization</dfn></dt>
+    <dd>TODO (Beispiel: STRIPS)</dd>
+</dl>
+
+<h3 id="tocAnchor-1-1-15">Unüberwachte Lernverfahren</h3>
+
+<p>TODO</p>
+
+<p>Slides: <code>MLI_14_UnueberwachtesLernen_slides1.pdf</code></p>
+
+<dl>
+    <dt><dfn>\(k\)-means</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Fuzzy \(k\)-means</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Hierarchisches Clustern</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Begriffliche Ballung</dfn></dt>
+    <dd>TODO</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)"><dfn>COBWEB</dfn></a></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>
+    <dd>TODO</dd>
+</dl>
+
+<h2 id="tocAnchor-1-17">Prüfungsfragen</h2>
 
 <ul>
     <li>Was ist Induktives Lernen?<br />
@@ -983,7 +1110,7 @@ gegeben eine Sequenz von Beobachtungen.</li>
            gesagt und muss nur logische Schlussfolgerungen machen.</li>
     <li>SVMs
     <ul>
-        <li>Wie funktioniert SRM bei SVMs?
+        <li>Wie funktioniert SRM bei SVMs?<br />
             → TODO (Dualität zwischen Feature- und Hypothesenraum?)</li>
         <li>Warum lernen SVMs "korrekt"?<br />
             → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
@@ -1013,6 +1140,17 @@ gegeben eine Sequenz von Beobachtungen.</li>
                 → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
         </ul>
     </li>
+    <li>Evolutionäre Algorithmen
+        <ul>
+            <li>Population / Individuen: Wie Individuen darstellen (TODO)</li>
+            <li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>
+            <li>Wie Kombinieren? (TODO)</li>
+            <li>Fitness Function</li>
+            <li>Was sind die wichtigsten Elemente von evolutionären Algorithmen?<br />
+                → Mutation, Rekombination, Fittness-Funktion, Selektion</li>
+            <li>Was ist Landmarksche / Baldwinsche Evolution?</li>
+        </ul>
+    </li>
     <li>Wie lautet die Fehlerabschätzung von Vapnik?<br />
         → Siehe abschätzung des realen Fehlers durch den empirischen Fehler
            und die VC-Dimension in "Abschätzung des Testfehlers"</li>
@@ -1029,13 +1167,13 @@ gegeben eine Sequenz von Beobachtungen.</li>
     <li>Was ist erklärungsbasierte Generalisierung (EBG)?<br />
         → Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen
            bekannter Konzepte.</li>
-    <li>Wie lautet die Formel für Entropie / Information Gain?
+    <li>Wie lautet die Formel für Entropie / Information Gain?<br />
         → \(Entropy = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
-    <li>Was ist <a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)">Cobweb</a>?<br />
-        → Das kam bei uns nicht dran.</li>
+    <li>Was ist Cobweb?<br />
+        → TODO</li>
 </ul>
 
-<h2 id="tocAnchor-1-15">Material und Links</h2>
+<h2 id="tocAnchor-1-18">Material und Links</h2>
 
 <ul>
 <li><a href="http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php">Vorlesungswebsite</a></li>
@@ -1053,7 +1191,7 @@ gegeben eine Sequenz von Beobachtungen.</li>
 </ul></li>
 </ul>
 
-<h2 id="tocAnchor-1-16">Literatur</h2>
+<h2 id="tocAnchor-1-19">Literatur</h2>
 
 <ul>
 <li>[<a href="#ref-dar09-anchor" name="ref-dar09" id="ref-dar09">Dar09</a>] A. Darwiche.
@@ -1064,12 +1202,12 @@ J. Diamond. Boosting the Performance of RBF Networks with Dynamic Decay
 Adjustment. Advances in Neural Information Processing, 1995. [<a href="http://kops.uni-konstanz.de/handle/123456789/5427">Online</a>]</li>
 </ul>
 
-<h2 id="tocAnchor-1-17">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-20">Übungsbetrieb</h2>
 
 <p>Es gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine
 Bonuspunkte.</p>
 
-<h2 id="tocAnchor-1-18">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-21">Termine und Klausurablauf</h2>
 
 <p><strong>Datum</strong>: Mündliche Prüfung (in Zukunft schriftlich)<br />
 <strong>Ort</strong>: nach Absprache<br />
