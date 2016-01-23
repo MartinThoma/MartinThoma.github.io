@@ -222,7 +222,7 @@ repeat:
     select and execute action a
     r ← R(s, a)  # Receive reward
     s' ← T(s, a) # Get on new state
-    Q[s', a] ← (1-\alpha) * Q[s, a] + \alpha * (r + \gamma \max_{a'} Q[s', a'])
+    Q[s', a] ← (1- α) * Q[s, a] + α * (r + γ max_{a'} Q[s', a'])
     s ← s'
 ```
 
@@ -242,7 +242,7 @@ Der TD-Learning Algorithmus beschäftigt sich mit dem Schätzen der Value-Funkti
 \\(V^\pi\\) für eine gegebene Policy \\(\pi\\). Das wird auch <i>policy evaluation</i>
 oder <i>prediction</i> genannt.
 
-* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning): TODO - wo genau ist der Unterschied zum Q-Learning?
+* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning)
 
 
 #### Siehe auch
@@ -291,7 +291,8 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
 * Gradientenabstieg, Overfitting
 * Kreuzvalidierung
 * PAC
-    * Folie 35: Was ist eine Instanz der Länge \\(n\\)? (TODO)
+    * Folie 35: Was ist eine Instanz der Länge \\(n\\)?<br/>
+      Eine Hypothese mit \\(n\\) Literalen.
 
 
 #### Boosting
@@ -449,7 +450,7 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         Klasse \(y_1\) von einem Neuron der Klasse \(y_1\) überschritten
         werden. Falls das nicht der Fall ist, wird ein neues Neuron
         hinzugefügt.<br/>
-        Der Schwellwert \(\tehta^-\) ist eine obere Grenze für die Aktivierung
+        Der Schwellwert \(\theta^-\) ist eine obere Grenze für die Aktivierung
         von Neuronen, die zu anderen Klassen gehören.
 
         Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.
@@ -867,8 +868,6 @@ Anwendungen:
 
 ### Deduktives Lernen
 
-TODO
-
 Slides: `MLI_13_DeduktivesLernen_slides1.pdf`
 
 Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
@@ -933,9 +932,7 @@ Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
 </dl>
 
 
-### Unüberwachte Lernverfahren
-
-TODO
+### <a name="unsupervised-learning"></a> Unüberwachte Lernverfahren
 
 Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
@@ -967,7 +964,7 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
         \[d_{ij} = |x_i - z_j|^2\]
         zum Zentroiden
         \(z_j\) ausgedrückt werden:
-        \[P(c_j | x_i) = \frac{(\frac{1}{d_{ij})^{\frac{1}{b-1}}}{\sum_{r=1}^k (\frac{1}{d_{ir}})^{\frac{1}{b-1}}}\]
+        \[P(c_j | x_i) = \frac{(\frac{1}{d_{ij}})^{\frac{1}{b-1}}}{\sum_{r=1}^k (\frac{1}{d_{ir}})^{\frac{1}{b-1}}}\]
         wobei \(b \in \mathbb{R}_{\geq 1}\) ein frei zu wählender Parameter ist.
 
         Die Zentroide werden dann wie folgt neu berechnet:
@@ -1018,8 +1015,9 @@ until c = c'
     </code></pre>
     </div>
     </dd>
-    <dt><dfn>Begriffliche Ballung</dfn></dt>
-    <dd>TODO</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Conceptual_clustering"><dfn>Begriffliche Ballung</dfn></a></dt>
+    <dd>Bei Algorithmen der Begrifflichen Ballung werden Konzeptbeschreibungen
+        generiert.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)"><dfn>COBWEB</dfn></a></dt>
     <dd>Cobweb ist ein Algorithmus zur begrifflichen Ballung. Er lernt durch
         inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale
@@ -1074,7 +1072,6 @@ until c = c'
             Margin maximiert.
 
             Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).
-
             </li>
     </ul>
     </li>
@@ -1125,7 +1122,7 @@ until c = c'
     <li>Wie lautet die Formel für Entropie / Information Gain?<br/>
         → \(Entropy = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
     <li>Was ist Cobweb?<br/>
-        → TODO</li>
+        → Siehe <a href="#unsupervised-learning"></a></li>
 </ul>
 
 
@@ -1164,8 +1161,8 @@ Bonuspunkte.
 
 **Datum**: Mündliche Prüfung (in Zukunft schriftlich)<br/>
 **Ort**: nach Absprache<br/>
-**Zeit**: ? min<br/>
+**Zeit**: 15&nbsp;min<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
-**Ergebnisse**: werden ca. 5 - 10 min. nach der Prüfung gesagt<br/>
+**Ergebnisse**: werden ca. 5&nbsp;-&nbsp;10&nbsp;min. nach der mündlichen Prüfung gesagt<br/>
 **Erlaubte Hilfsmittel**: keine

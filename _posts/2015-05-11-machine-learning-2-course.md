@@ -648,7 +648,8 @@ Alternative:
 
 ## Übungsbetrieb
 
-Es gibt keine Übungen und keine Übungsblätter.
+Es gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine
+Bonuspunkte.
 
 
 ## Kontakt
@@ -658,8 +659,10 @@ Es gibt keine Übungen und keine Übungsblätter.
 
 ## Termine und Klausurablauf
 
-**Datum**: nach Terminvereinbarung (in Zukunft wohl schriftlich)<br/>
-**Ort**: ?<br/>
+**Datum**: Mündliche Prüfung (in Zukunft schriftlich)<br/>
+**Ort**: nach Absprache<br/>
+**Zeit**: 15&nbsp;min<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
+**Ergebnisse**: werden ca. 5&nbsp;-&nbsp;10&nbsp;min. nach der mündlichen Prüfung gesagt<br/>
 **Erlaubte Hilfsmittel**: keine
