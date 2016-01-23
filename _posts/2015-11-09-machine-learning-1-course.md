@@ -19,7 +19,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
 
 * **Inferenztyp**: Induktiv (Version Space Algorithmus, <abbr title="k nearest neighbor">\\(k\\)-NN</abbr>, <abbr title="Case-Based">CBR</abbr>, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (<abbr title="Erklärungsbasierte Generalisierung">EBG</abbr>; Von allgemeinen auf spezielles)
 * **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
-* **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (k-Means)
+* **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (\\(k\\)-Means)
 * **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht&nbsp;inkrementell (\\(k\\)-Means, \\(k\\)-NN, ID3)
 * **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
 * **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (EBG)
@@ -220,10 +220,10 @@ initialize Q[num_states, num_actions]
 start in state s
 repeat:
     select and execute action a
-    \\(r \leftarrow R(s, a)\\)  # Receive reward
-    s' <- T(s, a) # Get on new state
-    Q[s', a] <- (1-\alpha) * Q[s, a] + \alpha * (r + \gamma \max_{a'} Q[s', a'])
-    s <- s'
+    r ← R(s, a)  # Receive reward
+    s' ← T(s, a) # Get on new state
+    Q[s', a] ← (1-\alpha) * Q[s, a] + \alpha * (r + \gamma \max_{a'} Q[s', a'])
+    s ← s'
 ```
 
 where \\(\alpha \in (0, 1]\\) is a learning rate and \\(\gamma\\) is a discount
@@ -775,7 +775,7 @@ Siehe auch:
 
 ### Evolutionäre Algorithmen
 
-Slides: `MLI_12_EvolutionaereAlgorithmen_slides1.pdf`
+Slides: `MLI_12_EvolutionaereAlgorithmen_slides1.pdf` - siehe [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]
 
 <dl>
     <dt><dfn>Individuum</dfn></dt>
@@ -822,12 +822,12 @@ Grundalgorithmus:
 Fitness-Function f
 Population p
 
-while f(p) != optimal:
-    p_parents <- selection(p)
-    p_children <- generate_children(p_parents)
-    p <- p_parents + p_children
-    fitness <- f(p)
-    p <- selection_kill(p, fitness)
+while f(p) ≠ optimal:
+    p_parents ← selection(p)
+    p_children ← generate_children(p_parents)
+    p ← p_parents + p_children
+    fitness ← f(p)
+    p ← selection_kill(p, fitness)
 ```
 
 Probleme:
@@ -846,26 +846,90 @@ Mating:
   die in ihrer Nachbarschaft die beste Fitness besitzen
 * Globales Modell: Alle dürfen sich mit allen verbinden.
 
+Evolution:
+
+* Lamark'sche Evolution: Die Individuen ändern sich nach der Erzeugung. Sie
+  lernen also. Dabei wird der Genotyp verändert und auch vererbt.
+* Baldwin'sche Evolution: Die Individuen ändern sich nach der Erzeugung, aber
+  der Genotyp bleibt gleich
+* Hybride Verfahren: Es gibt sich verändernde und gleich bleibende Phänotypen.
+
+
+Anwendungen:
+
+* Traveling Salesman
+* Flugplanoptimierung
+* Mischung von Kaffesorten
+* Cybermotten: Motten müssen optimales Muster finden, um sich vor einer Fläche
+               weißen Rauschens zu verbergen.
+* Snakebot (Ivan Tanev) [<a href="#ref-pro06" name="ref-pro06-anchor">Pro06</a>]
+
+
 ### Deduktives Lernen
 
 TODO
 
 Slides: `MLI_13_DeduktivesLernen_slides1.pdf`
 
+Siehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)
+
 <dl>
-    <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn>)</dt>
-    <dd>TODO</dd>
     <dt><dfn>Modus Ponens</dfn></dt>
-    <dd>TODO</dd>
-    <dt><dfn>STRIPS</dfn> (<dfn>STanford Resarch Institute Problem Solver</dfn>)</dt>
-    <dd>TODO (Erzeugung von Makrooperatoren (automatisches Planen))</dd>
-    <dt><dfn>PRODIGY</dfn></dt>
-    <dd>TODO (Lernen, Suche zu kontrollieren; Effektivitätssteigerung beim Planen, besonders bei großen
-Zustandsräumen)</dd>
-    <dt><dfn>KBANN</dfn></dt>
-    <dd>TODO (Hybrides Verfahren)</dd>
-    <dt><dfn>Explanation Based Generalization</dfn></dt>
-    <dd>TODO (Beispiel: STRIPS)</dd>
+    <dd>\[\frac{A, A \rightarrow B}{B}\]</dd>
+    <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn> by [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>])</dt>
+    <dd>The key insight behind explanation-based generalization is that it is
+        possible to form a justified generalization of a single positive
+        training example provided the learning system is endowed with some
+        <b>explanatory capabilitie</b>. In particular, the system must be able
+        to explain to itself <b>why the training example is an example of the
+        concept</b> under study. Thus, the generalizer is presumed to possess a
+        definition of the concept under study as well as <b>domain
+        knowledge</b> for constructing the required explanation.</dd>
+    <dt><dfn>Explanation Based Generalization</dfn> (<dfn>EBG</dfn>)</dt>
+    <dd>EBG ist ein Prozess, bei dem implizites Wissen in explizites
+        umgewandelt wird.
+
+        EBG geht wie folgt vor:
+
+        <ol>
+            <li>Explain: Finden einer Erklärung, warum das Beispiel die
+                Definition des Zielkonzepts erfüllt. Dies ist einfaches
+                Anwenden des Modus Ponens.</li>
+            <li>Generalize: Generalisieren der Erklärung; bestimme also
+                hinreichende Bedingungen unter denen die gefundene
+                Erklärungsstruktur gültig ist.</li>
+        </ol>
+
+        Bei der EBG werden also Makro-Operatoren erzeugt.
+
+        Ein Beispiel für Software welche EBG benutzt ist
+        <abbr title="STanford Resarch Institute Problem Solver">STRIPS</abbr>.
+    </dd>
+    <dt><dfn>KBANN</dfn> (<dfn>Knowledge-Based Artificial Neural Networks</dfn>)</dt>
+    <dd>KBANN ist ein hybrides Verfahren. Die Idee ist ein neuronales Netz
+        geschickt zu konstruieren. Dieses wird dann wie gewohnt mit
+        Gradient Descent durch Trainingsbeispiele verfeinert.
+
+        Der Algorithmus gibt eine Netzarchtiktur vor:
+        <ul>
+             <li>Dabei wird pro Instanzattribut ein Netz-Input verwendet. Für
+                 jede Klausel wird ein Neuron hinzugefügt.</li>
+             <li>Dieses ist mit dem Instanzattribut durch das Gewicht \(w\)
+                 verbunden wenn es nicht negiert ist, sonst durch das Gewicht
+                 \(-w\).</li>
+             <li>Der Schwellwert der Aktivierungsfunktion wird auf
+                 \(-(n- 0.5)w\) gesetzt, wobei \(n\) die Anzahl der nicht-negierten
+                 Bedingungsteile ist.</li>
+            <li>Verbinde die restlichen Neuronen von Schicht \(i\) mit Schicht
+                \(i+1\) indem zufällige kleine Gewichte gesetzt werden.</li>
+         </ul>
+
+         Angewendet werden kann KBANN:
+         <ul>
+             <li>Lernen von physikalischen Objektklassen</li>
+             <li>Erkennung von biologischen Konzepten in DNS-Sequenzen</li>
+         </ul>
+    </dd>
 </dl>
 
 
@@ -876,18 +940,114 @@ TODO
 Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
 <dl>
-    <dt><dfn>\(k\)-means</dfn></dt>
-    <dd>TODO</dd>
+    <dt><dfn>\(k\)-means Clustering</dfn></dt>
+    <dd>Der \(k\)-means Clustering Algorithmus finden \(k\) Cluster in einem
+        Datensatz. Dabei ist \(k \in \mathbb{N}_{\geq 1}\) vom Benutzer zu
+        wählen.
+
+        Zuerst initialisert \(k\)-means die Zentroiden, also zentrale Punkte
+        für Cluster, zufällig. Dann geht \(k\)-means geht iterativ vor:
+
+        <ol>
+            <li>Weise jeden Datenpunkt seinem nächsten Cluster zu.</li>
+            <li>Verschiebe die \(k\) Zentroide in ihr Clusterzentrum</li>
+        </ol>
+
+        Siehe auch: <a href="//martin-thoma.com/k-nearest-neighbor-classification-interactive-example/">Interaktives Beispiel</a>
+    </dd>
     <dt><dfn>Fuzzy \(k\)-means</dfn></dt>
-    <dd>TODO</dd>
-    <dt><dfn>Hierarchisches Clustern</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Im gegensatz zum \(k\)-means Algorithmus, wo jeder Datenpunkt in genau
+        einem Cluster ist, weißt der Fuzzy \(k\)-means Algorithmus jedem
+        Datenpunkte eine Zugehörigkeitswahrscheinlichkeit zu. Je weiter
+        der Datenpunkt vom Zentroid entfernt ist, desto unwahrscheinlicher
+        wird die Zugehörigkeit.
+
+        Die Cluster-Zugehörigkeit des Datenpunktes \(x_i\) zum Cluster \(c_j\)
+        kann als Wahrscheinlichkeit in Abhängigkeit der Distanz
+        \[d_{ij} = |x_i - z_j|^2\]
+        zum Zentroiden
+        \(z_j\) ausgedrückt werden:
+        \[P(c_j | x_i) = \frac{(\frac{1}{d_{ij})^{\frac{1}{b-1}}}{\sum_{r=1}^k (\frac{1}{d_{ir}})^{\frac{1}{b-1}}}\]
+        wobei \(b \in \mathbb{R}_{\geq 1}\) ein frei zu wählender Parameter ist.
+
+        Die Zentroide werden dann wie folgt neu berechnet:
+
+        \[z_j = \frac{\sum_{i=1}^n [P(z_j|x_i)]^b \cdot x_j}{\sum_{i=1}^n [P(z_j | x_i)]^b}\]
+    </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse"><dfn>Hierarchisches Clustern</dfn></a></dt>
+    <dd>Die Idee des hierarchischen Clusterns ist die iterative Vereinigung
+        von Clustern zu größeren Clustern.
+
+        Ergebisse können durch ein Dendrogramm beschrieben werden.
+
+        Anwendung:
+
+        <ul>
+            <li>Einordnung von Schrauben in ein Ordnungssystem</li>
+            <li></li>
+        </ul>
+    </dd>
+    <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>
+    <dd>AHC ist ein hierarchisches Clusteringverfahren.
+
+    Dabei ist ein Clusterdistanz-Schwellwert \(t \in \mathbb{R}\) und eine
+    minimale Cluster-Anzahl \(k \in \mathbb{N}\) zu wählen. Auch ein Distanzmaß
+    für Cluster (nearest neighbor, farest neighor, mean distance, ...) ist
+    als Hyperparameter zu wählen.
+
+    Dann geht AHC wie folgt vor:
+
+    <div class="highlight">
+       <pre><code class="language-text" data-lang="text">
+c ← k  # Minimale Anzahl an Clustern
+c' ← n  # Anzahl der Datenpunkte
+
+# Weise jedem Punkt sein eigenes Clusterzentrum zu
+for i in range(1, n):
+    D_i ← {x_i}
+
+# Vereinige Clusterzentren
+do:
+    c' := c' -1
+    find closest clusters D_i, D_j
+    if d(D_i, D_j) ⩽ t:
+        merge(D_i, Dj)
+    else:
+        break
+until c = c'
+    </code></pre>
+    </div>
+    </dd>
     <dt><dfn>Begriffliche Ballung</dfn></dt>
     <dd>TODO</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)"><dfn>COBWEB</dfn></a></dt>
-    <dd>TODO</dd>
-    <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>Cobweb ist ein Algorithmus zur begrifflichen Ballung. Er lernt durch
+        inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale
+        Attribute gestattet. Dabei wird ein Datenpunkt \(x_i\) zum Cluster
+        \(c_j\) geclustert, wenn man die Attributwerte von \(x_i\) durch die
+        Kentniss von \(c_j\) gut vorhersagen kann (P(x_i | c_j),
+        predictability) und zugleich der Cluster gut vorhergesagt werden kann,
+        wenn die Attributwerte gegeben sind (P(c_j|x_i), predictiveness).
+
+        Es soll also in inter-Klassenähnlichkeit minimiert und die
+        intra-Klassenähnlichkeit maximimiert werden. Dafür wird die
+        Category Utility verwendet:
+
+        \[\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij}\]
+
+        Dabei gilt:
+
+        <ul>
+            <li>\(K\): Anzahl der Cluster</li>
+            <li>\(I\): Anzahl der Attribute</li>
+            <li>\(J(i)\): Anzahl der Attributwerte des \(i\)-ten Attributs</li>
+            <li>\(V_{ji}\): \(j\)-ter möglicher Wert für Attribut \(i\)</li>
+            <li>\(P(A_i = V_ij | C_k)\): Predictability</li>
+            <li>\(P(C_k | A_i = V_{ij}\): Predictiveness</li>
+        </ul>
+
+        Anwendung: Interpretation von <abbr title="Elektromyographie">EMGs</abbr>
+    </dd>
 </dl>
 
 
@@ -933,11 +1093,13 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
                 → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
         </ul>
     </li>
-    <li>Evolutionäre Algorithmen
+    <li>Evolutionäre Algorithmen: Was ist wichtig?
         <ul>
-            <li>Population / Individuen: Wie Individuen darstellen (TODO)</li>
+            <li>Population / Individuen: Wie Individuen darstellen<br/>
+                → Durch Gene (Attribute), z.B. als Bitstring</li>
             <li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>
-            <li>Wie Kombinieren? (TODO)</li>
+            <li>Wie kann man Kombinieren?<br/>
+                → vgl. <i>Rekombination</i></li>
             <li>Fitness Function</li>
             <li>Was sind die wichtigsten Elemente von evolutionären Algorithmen?<br/>
                 → Mutation, Rekombination, Fittness-Funktion, Selektion</li>
@@ -979,12 +1141,17 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
 ## Literatur
 
+* [<a href="#ref-mit97-anchor" name="ref-mit97">Mit97</a>] T. Mitchell.
+  Machine Learning. McGraw-Hill, 1997.
 * [<a href="#ref-dar09-anchor" name="ref-dar09">Dar09</a>] A. Darwiche.
   Modeling and reasoning with Bayesian networks. Cambridge University Press,
   Cambridge [u.a.], 2009.
 * [<a href="#ref-ber95-anchor" name="ref-ber95">Ber95</a>] M.&nbsp;Berthold and
   J.&nbsp;Diamond. Boosting the Performance of RBF Networks with Dynamic Decay
   Adjustment. Advances in Neural Information Processing, 1995. [<a href="http://kops.uni-konstanz.de/handle/123456789/5427">Online</a>]
+* [<a href="#ref-pro06-anchor" name="ref-pro06">Pro06</a>] Prokopenko, Mikhail and Gerasimov, Vadim and
+  Tanev, Ivan. Evolving Spatiotemporal Coordination in a Modular Robotic
+  System. Springer, 2006.
 
 
 ## Übungsbetrieb
