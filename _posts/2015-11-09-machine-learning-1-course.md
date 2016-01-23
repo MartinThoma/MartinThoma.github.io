@@ -773,6 +773,125 @@ Siehe auch:
 * Software: [Alchemy](https://alchemy.cs.washington.edu/)
 
 
+### Evolutionäre Algorithmen
+
+Slides: `MLI_12_EvolutionaereAlgorithmen_slides1.pdf`
+
+<dl>
+    <dt><dfn>Individuum</dfn></dt>
+    <dd>Eine mögliche Hypothese</dd>
+    <dt><dfn>Population</dfn> (<dfn>Generation</dfn>)</dt>
+    <dd>Hypothesenmenge</dd>
+    <dt><dfn>Erzeugung von Nachkommen</dfn></dt>
+    <dd>Generierung neuer Hypothesen durch Rekombination und Mutation</dd>
+    <dt><dfn>Fitness-Funktion</dfn></dt>
+    <dd>Die Fitness-Funktion ist das zu optimierende Kriterium. Sie beschreibt
+        die Güte einer Hypothese.</dd>
+    <dt><dfn>Selektion</dfn></dt>
+    <dd>Auswahl der Hypothesen, welche die beste Problemlösung erzeugen.</dd>
+    <dt><dfn>Evolutionäre Strategien</dfn></dt>
+    <dd>Das Wissen wird durch reele Zahlen und Vektoren repräsentiert.</dd>
+    <dt><dfn>Genetische Programmierung</dfn></dt>
+    <dd>Das Wissen wird duch baumartige Strukturen repräsentiert.</dd>
+    <dt><dfn>Mutation</dfn></dt>
+    <dd>Unter <i>Mutation</i> versteht man die zufällige Änderung einzelner
+        Gene.
+
+        Beispiele:
+
+        <ul>
+            <li>Bit-Inversion: Zufällig Gleichverteilt pro Gen / Feste Anzahl,
+                aber zufällige Gene</li>
+            <li>Translation: Verschieben von Teilsequenzen</li>
+            <li>Invertiertes Einfügen</li>
+            <li>Spezielle Mutationsoperatoren sind anwendungsspezifisch</li>
+        </ul>
+    </dd>
+    <dt><dfn>Rekombination</dfn></dt>
+    <dd>Bei der <i>Rekombination</i> werden die Eigenschaften zweier Eltern
+        gemischt. Dies kann Diskret passieren, wenn manche Gene von einem
+        Elternteil übernommen werden und andere vom anderen Elternteil.
+        Alternativ kann die Rekombination auch durch <i>intermediäre
+        Rekombination</i> passieren. Das bedeutet, das ein Gen gemittelt
+        wird.</dd>
+</dl>
+
+Grundalgorithmus:
+
+```text
+Fitness-Function f
+Population p
+
+while f(p) != optimal:
+    p_parents <- selection(p)
+    p_children <- generate_children(p_parents)
+    p <- p_parents + p_children
+    fitness <- f(p)
+    p <- selection_kill(p, fitness)
+```
+
+Probleme:
+
+* Genetischer Drift: Manche Individuen vermehren sich zufällig mehr als andere.
+  Diese sind nicht unbedingt besser für das Problem geeignet.
+* Crowding, Ausreißerproblem: Fitte Individuen dominieren die Population. Das
+  ist ein Problem wegen lokaler Maxima.
+
+
+Mating:
+
+* Inselmodell: Die Evolution läuft weitgehend getrennt. Es passiert nur
+  vereinzelt, dass Individuen der Inseln ausgetauscht werden.
+* Nachbarschaftsmodell: Nachkommen dürfen nur von Individuen erzeugt werden,
+  die in ihrer Nachbarschaft die beste Fitness besitzen
+* Globales Modell: Alle dürfen sich mit allen verbinden.
+
+### Deduktives Lernen
+
+TODO
+
+Slides: `MLI_13_DeduktivesLernen_slides1.pdf`
+
+<dl>
+    <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn>)</dt>
+    <dd>TODO</dd>
+    <dt><dfn>Modus Ponens</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>STRIPS</dfn> (<dfn>STanford Resarch Institute Problem Solver</dfn>)</dt>
+    <dd>TODO (Erzeugung von Makrooperatoren (automatisches Planen))</dd>
+    <dt><dfn>PRODIGY</dfn></dt>
+    <dd>TODO (Lernen, Suche zu kontrollieren; Effektivitätssteigerung beim Planen, besonders bei großen
+Zustandsräumen)</dd>
+    <dt><dfn>KBANN</dfn></dt>
+    <dd>TODO (Hybrides Verfahren)</dd>
+    <dt><dfn>Explanation Based Generalization</dfn></dt>
+    <dd>TODO (Beispiel: STRIPS)</dd>
+</dl>
+
+
+### Unüberwachte Lernverfahren
+
+TODO
+
+Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
+
+<dl>
+    <dt><dfn>\(k\)-means</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Fuzzy \(k\)-means</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Hierarchisches Clustern</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Begriffliche Ballung</dfn></dt>
+    <dd>TODO</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)"><dfn>COBWEB</dfn></a></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>
+    <dd>TODO</dd>
+</dl>
+
+
+
 ## Prüfungsfragen
 
 <ul>
@@ -784,7 +903,7 @@ Siehe auch:
            gesagt und muss nur logische Schlussfolgerungen machen.</li>
     <li>SVMs
     <ul>
-        <li>Wie funktioniert SRM bei SVMs?
+        <li>Wie funktioniert SRM bei SVMs?<br/>
             → TODO (Dualität zwischen Feature- und Hypothesenraum?)</li>
         <li>Warum lernen SVMs "korrekt"?<br/>
             → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
@@ -814,6 +933,17 @@ Siehe auch:
                 → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
         </ul>
     </li>
+    <li>Evolutionäre Algorithmen
+        <ul>
+            <li>Population / Individuen: Wie Individuen darstellen (TODO)</li>
+            <li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>
+            <li>Wie Kombinieren? (TODO)</li>
+            <li>Fitness Function</li>
+            <li>Was sind die wichtigsten Elemente von evolutionären Algorithmen?<br/>
+                → Mutation, Rekombination, Fittness-Funktion, Selektion</li>
+            <li>Was ist Landmarksche / Baldwinsche Evolution?</li>
+        </ul>
+    </li>
     <li>Wie lautet die Fehlerabschätzung von Vapnik?<br/>
         → Siehe abschätzung des realen Fehlers durch den empirischen Fehler
            und die VC-Dimension in "Abschätzung des Testfehlers"</li>
@@ -830,10 +960,10 @@ Siehe auch:
     <li>Was ist erklärungsbasierte Generalisierung (EBG)?<br/>
         → Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen
            bekannter Konzepte.</li>
-    <li>Wie lautet die Formel für Entropie / Information Gain?
+    <li>Wie lautet die Formel für Entropie / Information Gain?<br/>
         → \(Entropy = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
-    <li>Was ist <a href="https://en.wikipedia.org/wiki/Cobweb_(clustering)">Cobweb</a>?<br/>
-        → Das kam bei uns nicht dran.</li>
+    <li>Was ist Cobweb?<br/>
+        → TODO</li>
 </ul>
 
 
