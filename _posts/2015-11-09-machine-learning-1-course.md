@@ -158,7 +158,7 @@ Siehe auch:
       Aktion \(a\) ausgeführt wird an.
 
       Es gilt: \[Q^\pi(s, \pi(s)) = V^\pi(s)\]</dd>
-   <dt><dfn>Eligibility Traces</dfn></dt>
+   <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
    <dd>
        TODO
 
@@ -204,8 +204,13 @@ Algorithmen:
     <dd>Siehe <a href="#q-learning">nächster Abschnitt</a></dd>
     <dt><dfn>SARSA(\(\lambda\))</dfn></dt>
     <dd>TODO</dd>
+    <dt><dfn>Policy</dfn></dt>
+    <dd>Unter einer <i>Policy</i> \(\pi\) versteht man im Kontext von MDPs eine
+        Funktion \(\pi: S \rightarrow A\). Diese beschreibt das Verhalten des
+        Agenten in jedem Zustand.</dd>
     <dt><dfn>Policy Learning</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer
+        optimalen Policy \(\pi^*\).</dd>
 </dl>
 
 
@@ -269,9 +274,20 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
       auf den Trainingsdaten besser funktioniert aber eventuell mehr unter
       Overfitting leidet.</dd>
   <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn>VC-Dimension</dfn>)</dt>
-  <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension \(VC(H^\alpha)\) eines Hypothesenraumes \(H^\alpha\)
-      ist gleich der maximalen Anzahl an Datenpunkten, die von \(H^\alpha\)
-      beliebig separiert werden können.</dd>
+  <dd>Die <abbr title="Vapnik-Chervonenkis">VC</abbr>-Dimension \(VC(H, X) \in \mathbb{N} \cup \infty\)
+      eines Hypothesenraumes \(H\) ist gleich der maximalen Anzahl an
+      Datenpunkten aus \(X\), die von \(H\) beliebig in zwei Mengen gespalten
+      werden können. Dabei muss es nur eine Teilmenge \(X' \subseteq X \) der
+      Größe \(n\) geben, damit \(VC(H, X) \geq n\) gilt.
+
+      Falls beliebige Teilmengen von \(X\) durch \(H\) separiert werden können,
+      so gilt \(VC(H, X) = \infty\).
+
+      Praktisch gesehen ist \(X\), die Menge aller möglichen Features, sowie
+      \(H\), die Menge aller möglichen Trennlinien im Feature-Space, vorgegeben.
+      Die Frage ist ob man eine Teilmenge \(X' \subseteq X\) findet mit
+      \(|X'| = n\), sodass man für \(X'\) jede Mögliche Teilung in zwei
+      Mengen durch \(H\) realisieren kann.</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably approximately correct learning</a> (<dfn>PAC</dfn>)</dt>
   <dd>PAC macht eine Aussage über die Anzahl der benötigten Stichproben, wenn
       man einen bestimmten realen Fehler mit einer frei zu wählenden
@@ -330,17 +346,15 @@ Siehe auch:
 #### VC-Dimension
 
 <dl>
-  <dt><dfn>VC-Dimension</dfn>, siehe <a href="https://youtu.be/puDzy2XmR5c">YouTube</a></dt>
+  <dt><dfn>VC-Dimension</dfn>, siehe <a href="https://youtu.be/puDzy2XmR5c">YouTube</a> und [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]</dt>
   <dd>Sei \(H^\alpha = \{h_\alpha : \alpha \in A\}\) der Hypothesenraum. Die
       VC-Dimension \(VC(h_\alpha)\) von \(H^\alpha\) ist gleich der maximalen
       Anzahl von beliebig platzierten Datenpunkten, die von \(H^\alpha\) separiert
       werden können.</dd>
 </dl>
 
-* TODO - Folie 39: Was ist \\(A\\)? Warum ist \\(h_\alpha\\) wichtig? Sollte es
-  nicht eher \\(VC(H^\alpha)\\) sein?
 * Folie 44: \\(\eta \in [0, 1]\\) ist ein Parameter, der beliebig gewählt
-  werden kann. Siehe Info-Box <i>Abschätzung des realen Fehlers</i>.
+  werden kann. Siehe Info-Box <a href="#fehlerabschaetzung">Abschätzung des realen Fehlers</a>.
 
 
 ### Neuronale Netze
@@ -452,10 +466,12 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
         werden. Falls das nicht der Fall ist, wird ein neues Neuron
         hinzugefügt.<br/>
         Der Schwellwert \(\theta^-\) ist eine obere Grenze für die Aktivierung
-        von Neuronen, die zu anderen Klassen gehören.
-
-        Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.
-
+        von Neuronen, die zu anderen Klassen gehören. Ist eine Aktivierung
+        höher, wird der Radius des zugehörigen Neurons verringert.<br/>
+        \(\theta^+ = 0.4\) und \(\theta^- = 0.2\) sind sinnvolle Werte.
+        <br/>
+        Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.<br/>
+        <br/>
         Siehe auch: <a href="http://www.ra.cs.uni-tuebingen.de/SNNS/UserManual/node193.html">The Dynamic Decay Adjustment Algorithm</a></dd>
 </dl>
 
@@ -517,7 +533,7 @@ findet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-skl
 * Kernel-Trick
 
 
-<div class="alert alert-info"><h4>Abschätzung des realen Fehlers</h4>
+<div class="alert alert-info"><h4><a name="fehlerabschaetzung"></a>Abschätzung des realen Fehlers</h4>
 Der reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie
 folgt abgeschätzt werden:
 
@@ -763,9 +779,19 @@ Slides: `MLI_11-MLN_slides1`
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>
   <dd>Ein Markov Logik Netz \(L\) ist ein Menge aus Tupeln \((F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung ist und \(w_i \in \mathbb{R}\) ein Gewicht ist.
       Ein MLN ist eine Schablone für ein MRF.</dd>
-  <dt><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
-  <dd></dd>
+  <dt><a name="mrf-definition"></a><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
+  <dd>Ein MRF ist ein ungerichtetes Probabilistisches Grafisches Modell.<br/>
+      MRFs sind zur Modellierung von Korrelation geeignet.</dd>
+  <dt><a name="mln-jpd"></a><dfn>Verbundwahrscheinlichkeit in MLNs</dfn></dt>
+  <dd>\(P(x) = \frac{1}{Z} \exp(\sum_{i} w_i f_i(x))\) wobei \(f_i\) das \(i\)-te Feature und \(w_i\) ein
+           Gewicht ist. Beispielsweise könnte \[f_i(x) = f_i(\text{smoking}, \text{cancer}) = \begin{cases}1 &\text{if } \neg \text{smoking} \lor \text{cancer}\\ 0 &\text{otherwise}\end{cases}\]
+           gelten.</dd>
+  <dt><a name="mln-inference"></a><dfn>Inferenz in MLNs</dfn></dt>
+  <dd><abbr title="Maximum a posteriori">MAP</abbr>:
+      \[\begin{align}\text{arg max}_y P(y | x) &= \frac{1}{Z} \exp(\sum_{i} w_i n_i(x, y))\\
+         &= \sum_{i} w_i n_i(x, y) \end{align}\]</dd>
 </dl>
+
 
 Siehe auch:
 
@@ -1086,7 +1112,7 @@ until c = c'
             <li>Was ist Value Iteration und wie lautet die Formel?<br/>
                 → Schätzen der Value-Funktion durch iteratives anwenden von \(\hat{V}^*(s_t) \leftarrow r_t + \gamma \hat{V}^*(s_{t+1})\)</li>
             <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?<br/>
-                → TODO</li>
+                → Siehe <a href="#rl-eligibility-trace">oben</a></li>
             <li>Wie funktioniert Q-Learning?<br/>
                 → Siehe <a href="#q-learning">Abschnitt Q-Learning</a></li>
         </ul>
@@ -1105,25 +1131,25 @@ until c = c'
         </ul>
     </li>
     <li>Wie lautet die Fehlerabschätzung von Vapnik?<br/>
-        → Siehe abschätzung des realen Fehlers durch den empirischen Fehler
-           und die VC-Dimension in "Abschätzung des Testfehlers"</li>
+        → Siehe <a href="#fehlerabschaetzung">Abschätzung des realen Fehlers</a> durch den empirischen Fehler
+           und die VC-Dimension.</li>
     <li>Was versteht man unter Cascade Correlation?<br/>
         → <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)</li>
     <li>Welche übwerwachten Lernverfahren gibt es?<br/>
         → Neuronale Netze, SVMs</li>
     <li>Wie funktioniert Inferenz in Markov Logik Netzen?<br/>
-        → TODO</li>
+        → Siehe <a href="#mln-inference">oben</a></li>
     <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?<br/>
-        → TODO</li>
+        → Siehe <a href="#mln-jpd">oben</a></li>
     <li>Was ist Dynamic Decay Adjustment (DDA)?<br/>
         → Siehe <a href="#dda-algorithm">oben</a></li>
     <li>Was ist erklärungsbasierte Generalisierung (EBG)?<br/>
         → Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen
            bekannter Konzepte.</li>
     <li>Wie lautet die Formel für Entropie / Information Gain?<br/>
-        → \(Entropy = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
+        → \(\text{Entropie} = - \sum_{i} p_i \log p_i\) und \(KL(P, Q) = \sum_{x \in X} P(x) \cdot \log \frac{P(x)}{Q(x)}\)</li>
     <li>Was ist Cobweb?<br/>
-        → Siehe <a href="#unsupervised-learning"></a></li>
+        → Siehe <a href="#unsupervised-learning">Unsupervised Learning</a></li>
 </ul>
 
 

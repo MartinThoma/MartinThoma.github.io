@@ -302,10 +302,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
 
       Bayessche Netze sind zur Modellierung kausaler Zusammenhänge geeignet.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Random_Field"><dfn>Markov Random Field</dfn></a></dt>
-  <dd>Ein <i>MRF</i> ist ein ungerichtetes probabilitisches graphisches Modell.
-      TODO: genauer?
-
-      MRFs sind zur Modellierung von Korrelation geeignet.</dd>
+  <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#mrf-definition">ML 1</a></dd>
   <dt><dfn>Dynamisches Bayessches Netz</dfn></dt>
   <dd><i>Dynamische Bayessche Netze</i> sind Bayessche Netze zur Beschreibung
       dynamischer Prozesse.</dd>
@@ -367,7 +364,15 @@ Siehe auch:
 
 Slides: `06_Probablistisch_Relationale_Modelle.pdf`
 
-TODO
+Siehe auch:
+
+* C. Howard and M. Stumptner and others. Model Construction
+  Algorithms for Object-Oriented Probabilistic Relational Models. FLAIRS
+  Conference, 2006.
+* C. Howard and M. Stumptner. [Situation assessments using object oriented
+  probabilistic relational models](http://ieeexplore.ieee.org/xpl/login.jsp?arnumber=1592031),
+  in 8th International Conference on Information Fusion, 2005, vol.2. doi:
+  10.1109/ICIF.2005.1592031
 
 <dl>
   <dt><dfn>Objektorientierte Probablistisch Relationales Modelle</dfn> (<dfn>OPRM</dfn>)</dt>
@@ -630,7 +635,7 @@ Alternative:
 * Matt Zeiler: [Visualizing and Understanding Deep Neural Networks](https://www.youtube.com/watch?v=ghEmQSxT6tw) on YouTube, 2015. 48 minutes.
 
 
-## Prüfungsfragem
+## Prüfungsfragen
 
 <ul>
     <li>Was versteht man unter einer "Transductive SVM"?<br/>
