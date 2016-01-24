@@ -150,7 +150,7 @@ besitzt. Man schreibt
 
 ### V04: Perceptron
 
-Slide name: V04_2015-04-28_Perceptron.pdf
+Slide name: `V04_2015-04-28_Perceptron.pdf`
 
 <dl>
   <dt><dfn>McCulloch–Pitts (MCP) Neuron</dfn></dt>
@@ -201,7 +201,7 @@ Fragen:
 
 ### V05: Features
 
-Slide name: V05_2015-04-29_Features.pdf
+Slide name: `V05_2015-04-29_Features.pdf`
 
 <dl>
   <dt><dfn>Rectified Linear Unit</dfn> (<dfn>ReLU</dfn>)</dt>
@@ -258,7 +258,7 @@ Fragen:
 
 ### V06: Backpropagation
 
-Slide name: V06_2015-05-05_Backpropagation.pdf
+Slide name: `V06_2015-05-05_Backpropagation.pdf`
 
 <dl>
     <dt><dfn>Kreuzentropie Fehlerfunktion</dfn>
@@ -276,7 +276,7 @@ Slide name: V06_2015-05-05_Backpropagation.pdf
 
 ### V07: Feature Learning
 
-Slide name: V07_12-05-2015_Feature_Learning.pdf
+Slide name: `V07_12-05-2015_Feature_Learning.pdf`
 
 <dl>
     <dt><dfn>Autoencoder</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Autoencoder">Wikipedia</a>)</dt>
@@ -310,7 +310,7 @@ Fragen:
 
 ### V08: Deep Learning
 
-Slide name: V08_2015-05-13_Deep_Learning.pdf
+Slide name: `V08_2015-05-13_Deep_Learning.pdf`
 
 <dl>
     <dt><dfn>Deep Neural Networks</dfn></dt>
@@ -377,7 +377,7 @@ Fragen:
 
 ### V09: Reinforcement Learning
 
-Slide name: V09_2015-05-26-Reinforcement-Learning.pdf
+Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
 
 <dl>
     <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Wikipedia</a>)</dt>
@@ -469,7 +469,7 @@ TODOs:
 
 ### V10: SOM
 
-Slide name: V10_2015-05-26_SOM.pdf
+Slide name: `V10_2015-05-26_SOM.pdf`
 
 <dl>
     <dt><dfn>Selbstorganisierende Karten</dfn> (<dfn>SOM</dfn>, <dfn>Kohonennetze</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Selbstorganisierende_Karte">Wikipedia</a>)</dt>
@@ -541,7 +541,7 @@ Siehe auch:
 
 
 ### V12: RNNs
-Slide name: V12_2015-06-02_RNNs.pdf
+Slide name: `V12_2015-06-02_RNNs.pdf`
 
 <dl>
     <dt><dfn>Elman-Netz</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Elman-Netz">Wikipedia</a>)</dt>
@@ -578,7 +578,7 @@ Siehe auch:
 * [Where does the name 'LSTM' come from?](http://datascience.stackexchange.com/q/9510/8820)
 
 ### V13: NNlearning-tricks
-Slide name: V13_2015-06-09_NNlearning-tricks.pdf
+Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
 
 <dl>
     <dt><dfn>Momentum</dfn></dt>
@@ -633,7 +633,7 @@ Fragen:
 
 
 ### V14: DNN CV
-Slide name: V14_2015-06-10_DNN_CV .pdf
+Slide name: `V14_2015-06-10_DNN_CV .pdf`
 
 <dl>
     <dt><dfn>SIFT</dfn> (<dfn>Scale-invariant feature transform</dfn>, siehe <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">Wikipedia</a>)</dt>
@@ -657,7 +657,7 @@ Facts:
 
 
 ### V15: Speech-Independence
-Slide name: V15_2015-06-17_Speech-Independence.pdf
+Slide name: `V15_2015-06-17_Speech-Independence.pdf`
 
 
 ## Visualisierung von Netzen
