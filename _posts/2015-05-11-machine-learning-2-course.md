@@ -213,7 +213,7 @@ Slides: `04_Reinforcement_Learning_II.pdf`
 Siehe auch:
 
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
-* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
+* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-4)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
 * Berkeley
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
@@ -325,10 +325,16 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       Satz von Bayes.
       Siehe <a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel">Bayes-Klassifikator</a>
       für eine detailiertere Beschreibung.</dd>
-  <dt>Bayes Filter</dt>
-  <dd>Filter + Predict (TODO)</dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a></dt>
-  <dd>Der Kalman-Filter ist ein Bayes-Filter. Er wird z.B. zum Schätzen einer Fahrzeugtrajektorie eingesetzt. TODO</dd>
+  <dt><dfn>Naiver Bayes'scher Spam Filter</dfn></dt>
+  <dd>Ein probabilistischer Klassifikator welcher die Unabhängigkeit der
+      Features vorraussetzt wird <i>naiv</i> genannt.<br/>
+      <br/>
+      Der naive bayessche Spam Filter nutzt Bayes Theorem um die
+      Wahrscheinlichkeit zu berechnen, dass eine E-Mail Spam ist.
+      </dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a> (siehe <a href="http://arxiv.org/abs/1204.0375">Python-Implementierung</a>)</dt>
+  <dd>Der Kalman-Filter ist ein Bayes-Filter. Er wird z.B. zum Schätzen einer
+      Fahrzeugtrajektorie eingesetzt. TODO</dd>
 </dl>
 
 Typische Fragestellungen:
@@ -449,11 +455,45 @@ Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorle
       graphisches Modell.</dd>
   <dt><dfn>Restricted Boltzmann Machine</dfn> (<dfn>RBM</dfn>)</dt>
   <dd>Eine <i>RBM</i> ist ein neuronales Netz mit nur einem Hidden Layer.
-      Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA">Hinton, 2015</a>).</dd>
+      Es ist gleichzeitig ein Spezialfall von
+      <abbr title="Markov Random Fields">MRFs</abbr>.
+
+      Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).</dd>
+  <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a> von Hugo Larochelle)</dt>
+  <dd>Contrastive Divergence ist ein Trainingsalgorithmus für RBMs.
+
+      Ein Hyperparameter ist \(k \in \mathbb{N}\).
+
+      Er geht wie folgt vor:
+
+      <ol>
+          <li>Lege den Trainingsvektor \(x^{(t)}\) an die Eingabeknoten an.</li>
+          <li>Berechne die Wahrscheinlichkeit für jede Hidden Unit, dass diese gleich 1 ist. Setze sie mit dieser Wahrscheinlichkeit gleich 1.</li>
+          <li>Berechne die Wahrscheinlichkeit für jeden Eingabeknoten, dass dieser gleich 1 ist. Setze ihn mit dieser Wahrscheinlichkeit gleich 1.</li>
+          <li>Gehe zu Schritt 2. Wiederhole dies für \(k\) Schritte (dies wird auch Gibbs-Sampling genannt).
+              Das, was nach dem \(k\)-fachem Gibbs-Sampling in der Eingabeschicht
+              steht wird auch "negative sample \(\tilde x\)" genannt.</li>
+          <li>Update der Parameter:
+            \[\begin{align}
+                W &\leftarrow W + \alpha (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
+                b &\leftarrow b + \alpha (h(x^{(t)}) - h(\tilde x))\\
+                c &\leftarrow c + \alpha (x^{(t)} - \tilde x)
+              \end{align}
+            \]
+            wobei \(\alpha \in (0, 1) \) die Lernrate ist,
+            \(b \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
+            \(c \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
+            \(h\) ist eine Zufallsvariable, welche der Hidden Layer ist. Diese
+            sind abhängig von der Eingabeschicht.
+          </li>
+      </ol>
+
+      In der Praxis funktioniert es schon mit \(k=1\) für Pre-Training. Wenn
+      \(k\) groß ist konvergiert \(\tilde x\) gegen den wahren Modellwert. Das
+      wäre dann eine Monte-Carlo Estimation.
+  </dd>
   <dt><dfn>Contrastive Wake-Sleep Algorithm</dfn></dt>
   <dd>TODO (Folie 34) - see <a href="http://www.cs.toronto.edu/~fritz/absps/ncfast.pdf">A Fast Learning Algorithm for Deep Belief Nets</a></dd>
-  <dt><dfn>Contrastive Divergence</dfn></dt>
-  <dd>TODO</dd>
 </dl>
 
 

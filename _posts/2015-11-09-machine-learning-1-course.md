@@ -638,7 +638,7 @@ Slide name: `MLI_09_BayesLernen_slides1.pdf`
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Gibbs-Sampling"><dfn>Gibbs-Algorithmus</dfn></a> (<a href="http://stats.stackexchange.com/a/10216/25741">stats.stackexchange</a>)</dt>
   <dd>Der Algorithmus von Gibbs ist eine Methode um Stichproben von bedingten
-      Verteilungen zu erzeugen. TODO: Ist das richtig? Wann wird es verwendet?
+      Verteilungen zu erzeugen.
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Bedingte_Unabh%C3%A4ngigkeit"><dfn>Bedingte Unabhängigkeit</dfn></a></dt>
   <dd>Seien \(X, Y, Z\) Zufallsvariablen. Dann heißt \(X\) bedingt unabhängig
