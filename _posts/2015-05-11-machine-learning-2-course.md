@@ -270,7 +270,7 @@ Siehe auch:
 
 Folie 35:
 
-* TODO: Was heißt hier "mit festen Knoten"?
+* NODO: Was heißt hier "mit festen Knoten"?
 
 
 ### Dynamische Bayessche Netze
@@ -334,7 +334,17 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Kalman-Filter"><dfn>Kalman-Filter</dfn></a> (siehe <a href="http://arxiv.org/abs/1204.0375">Python-Implementierung</a>)</dt>
   <dd>Der Kalman-Filter ist ein Bayes-Filter. Er wird z.B. zum Schätzen einer
-      Fahrzeugtrajektorie eingesetzt. TODO</dd>
+      Fahrzeugtrajektorie eingesetzt.
+
+      Der Kalman-Filter besteht aus zwei Schritten:
+
+       <ul>
+           <li><b>Predict</b> the next step of the system given the previous
+               measurements.</li>
+           <li><b>Update</b> the estimate of the current state given the
+               measurement of this time step.</li>
+       </ul>
+    </dd>
 </dl>
 
 Typische Fragestellungen:
@@ -447,7 +457,10 @@ starting to read the slides.
 
 Slides: `08_DeepLearning.pdf`
 
-Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
+Siehe auch:
+
+* [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
+* Udacity: [Neural Networks for Machine Learning](https://class.coursera.org/neuralnets-2012-001/lecture) by Hinton.
 
 <dl>
   <dt><dfn>Deep Belief Netz</dfn> (<dfn>DBN</dfn>)</dt>
@@ -492,8 +505,26 @@ Siehe auch: [Neuronale Netze Vorlesung](//martin-thoma.com/neuronale-netze-vorle
       \(k\) groß ist konvergiert \(\tilde x\) gegen den wahren Modellwert. Das
       wäre dann eine Monte-Carlo Estimation.
   </dd>
-  <dt><dfn>Contrastive Wake-Sleep Algorithm</dfn></dt>
-  <dd>TODO (Folie 34) - see <a href="http://www.cs.toronto.edu/~fritz/absps/ncfast.pdf">A Fast Learning Algorithm for Deep Belief Nets</a></dd>
+  <dt><dfn>Contrastive Wake-Sleep Algorithm</dfn> (siehe <a href="https://www.youtube.com/watch?v=znQfKBOGnJ8">The wake-sleep algorithm</a> von Hinton - Lecture 13d aus "<a href="https://www.coursera.org/course/neuralnets">Neural Networks for Machine Learning</a>")</dt>
+  <dd>Der Wake-Sleep Algorithmus ist ein Trainingsalgorithmus für gerichtete
+      graphische Modelle wie Sigmoid Belief Networks. Er ist nicht für RBMs.
+
+      Man hat im Grunde zwei Netzwerke mit der gleichen Topologie, jedoch ist
+      die Richtung vertauscht: Das eine Netz stellt die Hypothese aus den Daten
+      auf, das andere Netz geniert neue Daten aus einer gegebenen Hypothese.
+
+      In der <b>wake phase</b> wird die Eingabe genutzt um die Hypothese zu
+      erzeugen. In dieser Phase werden die Gewichte für das Generative Modell
+      trainiert. Dieses soll die Aktivierung der vorhergehenden Schicht
+      rekonstruieren.
+
+      In der <b>sleep phase</b> wird das generative Modell genutzt um aus dem
+      Modell samples zu erzeugen. Dann trainiert man die Gewichte des
+      erkennenden Netzes (also vergleichbar mit der wake phase, nur anders
+      rum).
+
+      <br/>
+      Siehe <a href="http://www.cs.toronto.edu/~fritz/absps/ncfast.pdf">A Fast Learning Algorithm for Deep Belief Nets</a></dd>
 </dl>
 
 

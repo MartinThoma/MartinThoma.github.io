@@ -67,6 +67,16 @@ Slide name: `MLI_02_InduktivesLernen_slides1.pdf`
 <dl>
     <dt><dfn>Version Space</dfn></dt>
     <dd>Der Raum aller Hypotesen, welche mit den Trainingsbeispielen konsistent sind.</dd>
+    <dt><dfn>Version Space Algorithmus</dfn></dt>
+    <dd>Der Version Space Algorithmus ist ein binärer Klassifikator für
+        diskrete Feature-Spaces. Er startet mit der generellsten Hypothese
+        \(G = (?, \dots, ?)\) - alles ist wahr - und der speziellsten Hypothese
+        \(S = (\#, \dots, \#)\) - nichts ist wahr. Wenn ein Beispiel mit dem Label
+        <code>true</code> gesehen wird, dann wird die speziellste Hypothese
+        angepasst und veralgemeinert. Wenn ein Beispiel mit dem Label
+        <code>false</code> gesehen wird, wird die generellste Hypothese spezialisiert.<br/>
+        So kann man den Raum aller mit den Trainingsdaten konsistenten
+        Hypothesen finden.</dd>
     <dt><dfn>Konzept</dfn></dt>
     <dd>Ein <i>Konzept</i> beschreibt eine Untermenge von Objekten oder
         Ereignissen definiert auf einer größerer Menge.</dd>
@@ -145,6 +155,9 @@ Siehe auch:
   <dt><dfn>Policy</dfn></dt>
   <dd>Eine <b>policy \(\pi: S \rightarrow A\)</b> ist die Vorschrift, in
       welchem Zustand welche Aktion ausgeführt werden soll.</dd>
+  <dt><dfn>Policy Learning</dfn></dt>
+  <dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer
+      optimalen Policy \(\pi^*\).</dd>
   <dt><dfn>Value-Funktion</dfn></dt>
   <dd>Die Funktion \(V^\pi: S \rightarrow \mathbb{R}\) heißt Value-Funktion.
       Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion
@@ -202,15 +215,20 @@ Algorithmen:
     </dd>
     <dt><dfn>Q-Learning</dfn></dt>
     <dd>Siehe <a href="#q-learning">nächster Abschnitt</a></dd>
+    <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn>SARSA</dfn></a> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
+    <dd>SARSA is a learning algorithm which updates the Q-function:
+
+    \[Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]\]
+
+    where \(\alpha \in (0, 1)\) is the learning rate and \(\gamma \in [0, 1]\)
+    is the discount factor.
+
+    </dd>
     <dt><dfn>SARSA(\(\lambda\))</dfn></dt>
-    <dd>TODO</dd>
-    <dt><dfn>Policy</dfn></dt>
-    <dd>Unter einer <i>Policy</i> \(\pi\) versteht man im Kontext von MDPs eine
-        Funktion \(\pi: S \rightarrow A\). Diese beschreibt das Verhalten des
-        Agenten in jedem Zustand.</dd>
-    <dt><dfn>Policy Learning</dfn></dt>
-    <dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer
-        optimalen Policy \(\pi^*\).</dd>
+    <dd>SARSA(\(\lambda\)) ist SARSA mit Eligibility Traces.
+
+    TODO
+    </dd>
 </dl>
 
 
@@ -364,7 +382,7 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
 * Einsatzfelder:
     * Klassifiktion: Spracherkennung, Schrifterkennung
     * Funktionsapproximation
-    * Mustervervollständigung: Kodierung, Bilderkennung (TODO: Warum zählt das nicht zu Klassifikation?)
+    * Mustervervollständigung: Kodierung, Bilderkennung (NODO: Warum zählt das nicht zu Klassifikation?)
 * Perzeptron von Rosenblatt (1960)
     * Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.
     * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.
@@ -507,7 +525,7 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
 * Beispiel für Lazy Learning: <abbr title="k Nearest Neighbors">\(k\)-NN</abbr>,
   <abbr title="Case-based Reasoning">CBR</abbr>
 
-* TODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
+* NODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind
   eingeschränkter - was ist damit gemeint? Was sind fleißige Lernalgorithmen?
   Lernalgorithmen, welche den meisten Rechenaufwand beim Lernen investieren, wo
   aber das auswerten vergleichsweise billig ist?
