@@ -47,7 +47,7 @@ and replace it with
 The problem with MathJax and Markdown (e.g. [CommonMark](http://commonmark.org/))
 is that it uses the `\` for escaping. Especially for multi-line math tags this
 is a real issue. However, CommonMark gets deactivated when
-it's inside of an HTML tag. This means inside of an HTML-Tag I have to write
+it's inside of an block-level HTML tag. This means inside of an HTML-Tag I have to write
 `\(\mathbb{R}\)` and outside of and HTML tag I have to write `\\(\mathbb{R}\\)`.
 
 The problem of using `$` for triggering MathJax is that PHP makes use of it and

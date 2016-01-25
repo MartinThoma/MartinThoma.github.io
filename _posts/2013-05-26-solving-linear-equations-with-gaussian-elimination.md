@@ -17,13 +17,13 @@ featured_image: 2013/05/upper-triangular-matrix.png
 
 Suppose you have a system of \\(n \in \mathbb{N_{\geq 1}}\\) linear equations and variables \\(x_1, x_2, \dots, x_n \in \mathbb{R}\\):
 
-<div class="latex">
+<div>\[
 \begin{align}
 a_{1,1} \cdot x_1 + a_{1,2} x_2 + \dots + a_{1,n} \cdot x_{n} &= b_1\\
 a_{2,1} \cdot x_1 + a_{2,2} x_2 + \dots + a_{2,n} \cdot x_{n} &= b_2\\
 \vdots &= \vdots\\
 a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &= b_n
-\end{align}
+\end{align}\]
 </div>
 
 
@@ -34,16 +34,17 @@ So you can write the system of equations as:
 
 \\(A \cdot x = b\\)
 
+
 <h2>How Gaussian elimination works</h2>
 First, you write \\(A\\) and \(b\) in an augmented matrix \\((A|b)\\):
 
-<div class="latex">
+<div>\[
   \left(\begin{array}{cccc|c}
     a_{1,1} & a_{1,2} & \dots  & a_{1,n} & b_1\\
     a_{2,1} & a_{2,2} & \dots  & a_{2,n} & b_2\\
     \vdots  & \vdots  & \ddots  & \vdots  & \vdots \\
     a_{n,1} & a_{n,2} & \dots & a_{n,n}  & b_n
-  \end{array}\right).
+  \end{array}\right)\]
 </div>
 
 On this matrix you may make exactly three operations:
@@ -57,14 +58,14 @@ On this matrix you may make exactly three operations:
 
 You want to get a triangular matrix. So you subsequently eliminate one variable from the system of equations until you have a matrix like this:
 
-<div class="latex">
+<div>\[
   \left(\begin{array}{ccccc|c}
     a_{1,1} & a_{1,2} & a_{1,3} & \dots & a_{1,n} & b_1\\
           0 & a_{2,2} & a_{2,3} & \dots & a_{2,n} & b_2\\
           0 &       0 & a_{3,3} & \dots & a_{3,n} & b_3\\
     \vdots  & \vdots  & \ddots  & \ddots& \vdots  & \vdots\\
           0 &       0 &  \dots  &     0 & a_{3,n} & b_n\\
-  \end{array}\right).
+  \end{array}\right)\]
 </div>
 
 It's actually quite simple to get this form:
@@ -439,14 +440,14 @@ var_dump($result);
 ## Complexity
 ### Time complexity
 Time complexity is in \\(\mathcal{O}(n^3)\\) (lines 44 - 53):
-<div class="latex">\begin{align}
+<div>\[\begin{align}
 Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
 &= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\\
 &= \dots \\
 &= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\\
 &= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
-\end{align}</div>
+\end{align}\]</div>
 
 ### Space complexity
 Space complexity of this implementation is in \\(\mathcal{O}(n)\\), but you can
