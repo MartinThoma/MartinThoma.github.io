@@ -71,7 +71,7 @@ This happens for every option.
 Ok. Let's see if I can report the bug. As the automatic tools did not help,
 I check for a program version via *Help > About*:
 
-{% caption align="aligncenter" width="500" alt="Caja About window" text="Caja About window" url="../images/2015/01/caja-about.png" %}
+{% caption align="aligncenter" width="323" alt="Caja About window" text="Caja About window" url="../images/2015/01/caja-about.png" %}
 
 Nice! It is obvious which version I use and how the program is called
 (Caja 1.8.2). There is even a link to a website where I could eventually report
