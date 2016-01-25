@@ -273,7 +273,7 @@ if __name__ == "__main__":
     print(line)
 ```
 
-<h2>JavaScript code</h2>
+## JavaScript code
 
 ```javascript
 /** Solve a linear system of equations given by a n&times;n matrix
@@ -438,8 +438,11 @@ var_dump($result);
 ```
 
 ## Complexity
+
 ### Time complexity
+
 Time complexity is in \\(\mathcal{O}(n^3)\\) (lines 44 - 53):
+
 <div>\[\begin{align}
 Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
@@ -447,9 +450,11 @@ Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &= \dots \\
 &= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\\
 &= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
-\end{align}\]</div>
+\end{align}\]
+</div>
 
 ### Space complexity
+
 Space complexity of this implementation is in \\(\mathcal{O}(n)\\), but you can
 easily come down to \\(\mathcal{O}(1)\\) when you use <code>A[n]</code> for
 storing <code>x</code>.
