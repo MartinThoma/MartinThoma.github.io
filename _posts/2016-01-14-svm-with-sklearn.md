@@ -30,7 +30,7 @@ with an example how to use SVMs with sklearn.
           \[
           \begin{aligned}
               \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
-              \text{s.t. }& \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{\mathclap{\text{sgn applied to this gives the classification}}} \geq 1
+              \text{s.t. }& \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{{\text{sgn applied to this gives the classification}}} \geq 1
           \end{aligned}\]</li>
     <li><b>Slack variables</b>: Even if the underlying process which generates
           the features for the two classes is linearly separable, noise can
@@ -122,7 +122,9 @@ Parameters for which you might want a further explanation:
 ```python
 #!/usr/bin/env python
 
-"""Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset)."""
+"""
+Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset).
+"""
 
 import numpy as np
 
