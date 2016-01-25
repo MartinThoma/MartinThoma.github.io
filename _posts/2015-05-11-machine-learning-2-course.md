@@ -417,6 +417,8 @@ I suggest reading the first two chapters of the online book
 <a href="http://www.gaussianprocess.org/">gaussianprocess.org</a> before
 starting to read the slides.
 
+See also: [Function Approximation](https://martin-thoma.com/function-approximation/)
+
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Lineare_Regression"><dfn>Lineare Regression</dfn></a></dt>
   <dd>Die lineare Regression ist ein Modell zur approximation von Datenpunkten
