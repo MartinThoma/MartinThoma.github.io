@@ -137,8 +137,8 @@ def f(x):
 
 
 def plot_graph(x, x_train, y_pred, mse, function_tex):
-    # Plot the function, the prediction and the 95% confidence interval based
-    # on the MSE
+    # Plot the function, the prediction and the 95% confidence interval
+    # based on the MSE
     sigma = np.sqrt(mse)
     from matplotlib import pyplot as pl
     pl.figure()
