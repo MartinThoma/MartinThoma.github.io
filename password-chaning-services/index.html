@@ -53,7 +53,7 @@ MathJax.Hub.Config({
   jax: ["input/TeX", "output/HTML-CSS"],
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [ ['$$', '$$'], ['\\[','\\]'], ['<tex>', '</tex>']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]'], ['<div class="latex">', '</div>']],
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
     processEscapes: true
   }
@@ -117,9 +117,13 @@ MathJax.Hub.Queue(function() {
 <p><strong>Allow all characters</strong>: I was very negatively surprised as I was informed that PayPal doesn&#39;t allow &quot;non-printable characters&quot; like spaces. They informed me after I submitted, of course.
 It does make sense to warn the user if he uses special characters which might be difficult to type on other systems, like german umlauts (&auml;&ouml;&uuml;&Auml;&Ouml;&Uuml;&szlig;). But why the hell do they force me to use underscores instead of spaces? Do they print my password? Do they want that I print my password?</p>
 
-<p><strong>Allow &quot;weak&quot; passwords</strong>: 
-You should not allow weak passwords, of course. But you should have a good definition of weak. Less than 6 characters is weak. I wanted to use a 26-character password with upper- and lower case letters, spaces and one special character. This was considered as weak. If you read <a href="../md5-cracking/" title="MD5 cracking">my post about MD5 cracking</a> you have probably noticed, that it is much harder to crack a 26-character password with only lower case letters than a 8 character password with lower case, upper case and numbers. About $10^{22}$ times as much passwords are possible with 26 characters and 26 letters than with a character-space of 62 elements but only 8 places (see <a href="http://www.wolframalpha.com/input/?i=26^26%2F%2826*2%2B10%29^8">Wolfram|Alpha</a>). You can easily build a password if you use a sentence, not a word. This will be long and will quite possibly only have lower case letters, spaces and one upper case letter, but it is possible to remember it.
-<div style="width: 750px" class="wp-caption aligncenter"><a href="http://imgs.xkcd.com/comics/password_strength.png"><img src="" alt="Password Strength" width="" height="" class="size-medium"/></a><p class="wp-caption-text">Password Strength</p></div></p>
+<p><strong>Allow &quot;weak&quot; passwords</strong>:
+You should not allow weak passwords, of course. But you should have a good definition of weak. Less than 6 characters is weak. I wanted to use a 26-character password with upper- and lower case letters, spaces and one special character. This was considered as weak. If you read <a href="../md5-cracking/" title="MD5 cracking">my post about MD5 cracking</a> you have probably noticed, that it is much harder to crack a 26-character password with only lower case letters than a 8 character password with lower case, upper case and numbers. About $10^{22}$ times as much passwords are possible with 26 characters and 26 letters than with a character-space of 62 elements but only 8 places (see <a href="http://www.wolframalpha.com/input/?i=26^26%2F%2826*2%2B10%29^8">Wolfram|Alpha</a>). You can easily build a password if you use a sentence, not a word. This will be long and will quite possibly only have lower case letters, spaces and one upper case letter, but it is possible to remember it.</p>
+
+<figure class="wp-caption aligncenter">
+    <img src="Password Strength" alt="http://imgs.xkcd.com/comics/password_strength.png">
+    <figcaption>Password Strength</figcaption>
+</figure>
 
 <p><strong>Allow long passwords</strong>: As the passwords should not be stored as plaintext, but hashed it doesn&#39;t really matter how long they are. If you use MD5, it will always take 32 characters. Why should you limit a user to only 20 characters (like PayPal does)? If the 26 character password is easier to remember, why do you want to restrict him to a shorter password which is easier to crack?</p>
 
