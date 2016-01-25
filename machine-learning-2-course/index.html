@@ -433,7 +433,7 @@ die Dichte im Datenraum gemessen werden.</li>
       \(P(B|A)\) die <i>likelihood</i>, \(P(A)\) die
       <i>a priori Verteilung über \(A\)</i> und \(P(B)\) die
       <i>a priori Verteilung über \(B\)</i>.</dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a></dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Bayessches_Netz"><dfn>Bayessches Netz</dfn></a> (Siehe <a href="https://www.youtube.com/watch?v=VfyxPtlqZh4">Lecture 13: Bayes Nets</a>)</dt>
   <dd>Ein <i>Bayessches Netz</i> ist ein <abbr title="Directed Acyclical&#10;      Graph">DAG</abbr>, bei dem die Knoten Zufallsvariablen und die Kanten
       bedingte Abhängigkeiten beschreiben.
 
@@ -481,6 +481,36 @@ die Dichte im Datenraum gemessen werden.</li>
            <li><b>Update</b> the estimate of the current state given the
                measurement of this time step.</li>
        </ul>
+    </dd>
+    <dt><dfn>Expectation Maximizaion Algorithm</dfn> (<dfn>EM-Algorithmus</dfn>)</dt>
+    <dd>
+        Der EM-Algorithmus kann als ein Clusteringalgorithmus mit weicher
+        Clusterzugehörigkeit gesehen werden. Er findet die Parameter für
+        gegebene Verteilungen (üblicherweise multivariate Normalverteilungen).
+
+        Er löst das Henne-Ei Problem
+        <ul>
+            <li>Wenn man weiß wie genau die Wahrscheinlichkeitsverteilungen
+                der Cluster parametrisiert sind ist es leicht die Daten den
+                Clustern zuzuordnen.</li>
+            <li>Wenn man die Daten einem Cluster zuordnen kann, dann ist es
+                leicht die Parameter der Wahrscheinlichkeitsverteilung zu
+                schätzen.</li>
+        </ul>
+
+        Wenn man sowohl Clusterzugehörigkeit als auch die Parameter der
+        Verteilung schätzen muss ist es schwer. Man kann "zufällig" die
+        initialen Parameter wählen, dann die Zuordnung machen.
+
+        Der EM-Algorithmus iteriert also:
+
+        <ul>
+            <li><b>Expectation</b>: Weise alle Datenpunkte ihrem Cluster zu.</li>
+            <li><b>Maximization</b>: Berechne die Parameter der Cluster neu.</li>
+        </ul>
+
+        Siehe <a href="https://www.youtube.com/watch?v=REypj2sy_5U">Mixture Models 1: the EM algorithm</a>
+
     </dd>
 </dl>
 
