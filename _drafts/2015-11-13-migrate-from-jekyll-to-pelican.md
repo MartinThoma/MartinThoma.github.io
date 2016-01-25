@@ -6,7 +6,8 @@ date: 2014-11-22 17:19
 categories:
 - Cyberculture
 tags:
-- Rating
+- Jekyll
+- Blogging
 featured_image: logos/star.png
 ---
 
@@ -39,6 +40,38 @@ and replace it with
 ```text
 \n```\1\n\2\n```\n
 ```
+
+
+## MathJax and Markdown
+
+The problem with MathJax and Markdown (e.g. [CommonMark](http://commonmark.org/))
+is that it uses the `\` for escaping. However, CommonMark gets deactivated when
+it's inside of an HTML tag. This means inside of an HTML-Tag I have to write
+`\(\mathbb{R}\)` and outside of and HTML tag I have to write `\\(\mathbb{R}\\)`.
+
+The problem of using `$` for triggering MathJax is that PHP makes use of it and
+that it is the US-Dollar currency symbol.
+
+### Line Comments
+
+Search for
+
+```text
+\$([\s\S]*?)\$
+```
+
+and replace it by the following if it is inside a HTML tag
+
+```text
+\\(\1\\)
+```
+
+or with the following if it is not
+
+```text
+\\\\(\1\\\\)
+```
+
 
 ## See also
 
