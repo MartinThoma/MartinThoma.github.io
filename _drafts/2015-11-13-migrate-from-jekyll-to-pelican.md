@@ -32,7 +32,7 @@ and use instead:
 In sublime text, you can use the following search regex:
 
 ```text
-\{% highlight (.*?) %\}(.*?)\{% endhighlight %\}
+\{% highlight (.*?) %\}([\s\S]*?)\{% endhighlight %\}
 ```
 
 and replace it with
