@@ -1,18 +1,15 @@
 ---
 layout: post
-title: 
+title: Why I will migrate from Jekyll to Pelican
 author: Martin Thoma
 date: 2014-11-22 17:19
 categories:
 - Cyberculture
 tags:
-- Rating
+- Jekyll
 featured_image: logos/star.png
 ---
 
-
-
-```
 When I build my blog ([source](https://github.com/MartinThoma/MartinThoma.github.io)), I get
 
 ```bash
@@ -52,7 +49,6 @@ When I build my blog ([source](https://github.com/MartinThoma/MartinThoma.github
     from /var/lib/gems/2.1.0/gems/jekyll-2.5.3/bin/jekyll:20:in `<top (required)>'
     from /usr/local/bin/jekyll:23:in `load'
     from /usr/local/bin/jekyll:23:in `<main>'
-
 ```
 
 I have `jekyll (2.5.3, 2.5.1)`. Jekyll says the error comes from https://github.com/MartinThoma/MartinThoma.github.io/blob/source/_posts/2015-06-24-languages-for-back-ends.md in Line 4, but 
