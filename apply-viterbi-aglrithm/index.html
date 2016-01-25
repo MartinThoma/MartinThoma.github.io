@@ -46,6 +46,31 @@
     <style type="text/css">div#toc_container {width: 275px;}</style>
     <style type="text/css" id="syntaxhighlighteranchor"></style>
 
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 <!-- Latest compiled and minified CSS bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
@@ -85,30 +110,46 @@
 
 <p>Lets say this is your <abbr title="Hidden Markov model">HMM</abbr>:</p>
 
-<div style="width: 522px" class="wp-caption aligncenter"><a href="../images/2013/09/hidden-markov-model-abc-2.png"><img src="../images/2013/09/hidden-markov-model-abc-2.png" alt="A hidden Markov model (HMM) example" width="" height="" class="size-full wp-image-76518"/></a><p class="wp-caption-text">A hidden Markov model (HMM) example</p></div>
+<div style="width: 522px" class="wp-caption aligncenter">
+   <a href="../images/2013/09/hidden-markov-model-abc-2.png">
+      <img src="../images/2013/09/hidden-markov-model-abc-2.png" alt="A hidden Markov model (HMM) example" width="" height="" class="size-full wp-image-76518" />
+   </a>
+   <p class="wp-caption-text">A hidden Markov model (HMM) example</p>
+</div>
 
-<p>We always start in $x$ and always end in $z$.</p>
+<p>We always start in \(x\) and always end in \(z\).</p>
 
-<p>Now you observed the sequence $O_1 = BAB$. What is the most likely sequence that would generate this path?</p>
+<p>Now you observed the sequence \(O_1 = BAB\). What is the most likely sequence that would generate this path?</p>
 
 <p>Candidates are:
-<ul>
+</p><ul>
   <li>xxyz</li>
   <li>xyyz</li>
   <li>xyzz</li>
-</ul></p>
+</ul>
 
-<p>If you&#39;re learing this because you will write the exam at KIT, you might have such an diagram:</p>
+<p>If you're learing this because you will write the exam at KIT, you might have such an diagram:</p>
 
-<div style="width: 761px" class="wp-caption aligncenter"><a href="../images/2013/09/viterbi-algorithm.png"><img src="../images/2013/09/viterbi-algorithm.png" alt="Scheme of the Viterbi algorithm" width="" height="" class="size-full wp-image-76520"/></a><p class="wp-caption-text">Scheme of the Viterbi algorithm</p></div>
+<div style="width: 761px" class="wp-caption aligncenter">
+   <a href="../images/2013/09/viterbi-algorithm.png">
+      <img src="../images/2013/09/viterbi-algorithm.png" alt="Scheme of the Viterbi algorithm" width="" height="" class="size-full wp-image-76520" />
+   </a>
+   <p class="wp-caption-text">Scheme of the Viterbi algorithm</p>
+</div>
 
 <p>In this case, the bold path is the Viterbi path. You can see this when you get backwards from the last state:</p>
 
-<p>$\frac{1}{125} \cdot 1 \cdot 0.2 &gt; \frac{9}{2500} \cdot 0.8 \cdot 0.2$. After this step, you only have one choice. So the Viterbi path is xyzz.</p>
+<p>\(\frac{1}{125} \cdot 1 \cdot 0.2 &gt; \frac{9}{2500} \cdot 0.8 \cdot 0.2\). After this step, you only have one choice. So the Viterbi path is xyzz.</p>
 
 <p>Please note that there might be multiple paths with the highest possibility.</p>
 
-<p>As every state depends only on the state before, you can get the most likely path step by step. In every step, you calculate how likely it is that you end up in state x, state y, state z. After that, it doesn&#39;t matter how you got there. So you always have to expand those three nodes. You will get 9 following states, but only three of them matter (for each resulting state, the paths that had the highest probability leading there).</p>
+<p>As every state depends only on the state before, you can get the most likely path step by step. In every step, you calculate how likely it is that you end up in state x, state y, state z. After that, it doesn't matter how you got there. So you always have to expand those three nodes. You will get 9 following states, but only three of them matter (for each resulting state, the paths that had the highest probability leading there).</p>
+
+<h2 id="tocAnchor-1-1">See also</h2>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Wikipedia</a></li>
+</ul>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -281,30 +322,6 @@
 
     </div><!--/wrapper-->
 <!-- type: footer -->
-<!-- MathJax -->
-<script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/javascript">
-<!--
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-    processEscapes: true
-  }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-// -->
-</script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */

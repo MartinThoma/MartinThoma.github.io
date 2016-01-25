@@ -46,6 +46,31 @@
     <style type="text/css">div#toc_container {width: 275px;}</style>
     <style type="text/css" id="syntaxhighlighteranchor"></style>
 
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 <!-- Latest compiled and minified CSS bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
@@ -411,7 +436,7 @@ die Dichte im Datenraum gemessen werden.</li>
 <li>NODO: Was heißt hier "mit festen Knoten"?</li>
 </ul>
 
-<h3 id="tocAnchor-1-1-6">Dynamische Bayessche Netze</h3>
+<h3 id="tocAnchor-1-1-6"><a name="dynamic-bayes-networks" id="dynamic-bayes-networks"></a>Dynamische Bayessche Netze</h3>
 
 <p>Slides: <code>05_DynamischeBayesscheNetze.pdf</code></p>
 
@@ -462,6 +487,35 @@ die Dichte im Datenraum gemessen werden.</li>
       Satz von Bayes.
       Siehe <a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel">Bayes-Klassifikator</a>
       für eine detailiertere Beschreibung.</dd>
+  <dt><dfn>Bayes Filter</dfn></dt>
+  <dd>Ein Bayes Filter ist eine Familie von Zufallsvariablen. Das könnte z.B.
+      die \((x,y,z)\) Position eines GPS-Sensors sein. Diese Position ist
+      verrauscht.
+
+      Nun gibt es drei mögliche Anfragen:
+
+      <ul>
+          <li><b>Filtern</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
+              sage die aktuelle Position \(X_t\) vorher. Also filtere das
+              Rauschen aus \(Z_t\) unter berücksichtigung, dass wir uns noch
+              nicht teleportieren können:
+              \[P(X_t | Z_t, \dots, Z_0)\]</li>
+          <li><b>Prädizieren</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
+              sage die Position \(X_{t+k}\) vorher:
+              \[P(X_{t+k} | Z_t, \dots, Z_0)\]</li>
+          <li><b>Glätten</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
+              sage die Position \(P(X_{t-k} | Z_t, \dots, Z_0)\) vorher.</li>
+      </ul>
+
+      Beispiele für Bayes-Filter sind
+
+      <ul>
+          <li>Kalman-Filter</li>
+          <li><abbr title="Hidden Markov Model">HMM</abbr></li>
+          <li>Partikel Filter</li>
+      </ul>
+
+      </dd>
   <dt><dfn>Naiver Bayes'scher Spam Filter</dfn></dt>
   <dd>Ein probabilistischer Klassifikator welcher die Unabhängigkeit der
       Features vorraussetzt wird <i>naiv</i> genannt.<br />
@@ -1161,30 +1215,6 @@ Bonuspunkte.</p>
 
     </div><!--/wrapper-->
 <!-- type: footer -->
-<!-- MathJax -->
-<script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/javascript">
-<!--
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-    processEscapes: true
-  }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
-// -->
-</script>
 <!-- TOC Plus -->
 <script type='text/javascript'>
 /* <![CDATA[ */
