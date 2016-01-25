@@ -13,38 +13,38 @@ tags:
 - PHP
 featured_image: 2013/05/upper-triangular-matrix.png
 ---
-<div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector $b$ changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
+<div class="info">Please note that you should use LU-decomposition to solve linear equations. The following code produces valid solutions, but when your vector \\(b\\) changes you have to do all the work again. LU-decomposition is faster in those cases and not slower in case you don't have to solve equations with the same matrix twice.</div>
 
-Suppose you have a system of $n \in \mathbb{N_{\geq 1}}$ linear equations and variables $x_1, x_2, \dots, x_n \in \mathbb{R}$:
+Suppose you have a system of \\(n \in \mathbb{N_{\geq 1}}\\) linear equations and variables \\(x_1, x_2, \dots, x_n \in \mathbb{R}\\):
 
-$
+\\(
 \begin{align}
 a_{1,1} \cdot x_1 + a_{1,2} x_2 + \dots + a_{1,n} \cdot x_{n} &= b_1\\
 a_{2,1} \cdot x_1 + a_{2,2} x_2 + \dots + a_{2,n} \cdot x_{n} &= b_2\\
 \vdots &= \vdots\\
 a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &= b_n
 \end{align}
-$
+\\)
 
 
 
-All factors $a_{i,j} \in \mathbb{R}$ for $i,j \in 1, \dots, n$ can be written in one matrix $A \in \mathbb{R}^{n \times n}$ and all $b_i$ can be written as a vector $b$. You combine all $x_i$ in the same way to a vector $x$.
+All factors \\(a_{i,j} \in \mathbb{R}\\) for \\(i,j \in 1, \dots, n\\) can be written in one matrix \\(A \in \mathbb{R}^{n \times n}\\) and all \\(b_i\\) can be written as a vector \\(b\\). You combine all \\(x_i\\) in the same way to a vector \\(x\\).
 
 So you can write the system of equations as:
 
-$A \cdot x = b$
+\\(A \cdot x = b\\)
 
 <h2>How Gaussian elimination works</h2>
-First, you write $A$ and $b$ in an augmented matrix $A|b$:
+First, you write \\(A\\) and \(b\) in an augmented matrix \\(A|b\\):
 
-$
+\\(
   \left(\begin{array}{cccc|c}
     a_{1,1} & a_{1,2} & \dots  & a_{1,n} & b_1\\
     a_{2,1} & a_{2,2} & \dots  & a_{2,n} & b_2\\
     \vdots  & \vdots  & \ddots  & \vdots  & \vdots \\
     a_{n,1} & a_{n,2} & \dots & a_{n,n}  & b_n
   \end{array}\right).
-$
+\\)
 
 On this matrix you may make exactly three operations:
 
@@ -57,7 +57,7 @@ On this matrix you may make exactly three operations:
 
 You want to get a triangular matrix. So you subsequently eliminate one variable from the system of equations until you have a matrix like this:
 
-$
+\\(
   \left(\begin{array}{ccccc|c}
     a_{1,1} & a_{1,2} & a_{1,3} & \dots & a_{1,n} & b_1\\
           0 & a_{2,2} & a_{2,3} & \dots & a_{2,n} & b_2\\
@@ -65,14 +65,15 @@ $
     \vdots  & \vdots  & \ddots  & \ddots& \vdots  & \vdots\\
           0 &       0 &  \dots  &     0 & a_{3,n} & b_n\\
   \end{array}\right).
-$
+\\)
 
 It's actually quite simple to get this form:
 
 {% caption align="aligncenter" width="500" caption="Pseudocode for Gaussian elimination" url="../images/2013/05/Gaussian-elimination.png" alt="Pseudocode for Gaussian elimination"  height="772" class="size-full wp-image-68071" %}
 
 <h2>C++ Code</h2>
-{% highlight cpp %}
+
+```cpp
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -86,7 +87,7 @@ void print(vector< vector<double> > A) {
             cout << A[i][j] << "\t";
             if (j == n-1) {
                 cout << "| ";
-            } 
+            }
         }
         cout << "\n";
     }
@@ -170,17 +171,20 @@ int main() {
     }
     cout << endl;
 }
-{% endhighlight %}
+```
+
 
 You can call it like this:
-{% highlight bash %}
-./gauss.out < 3x3.in
-1	2	3	| 1	
-4	5	6	| 1	
-1	0	1	| 1	
 
-Result:	0 -1 1 
-{% endhighlight %}
+```bash
+./gauss.out < 3x3.in
+1	2	3	| 1
+4	5	6	| 1
+1	0	1	| 1
+
+Result:	0 -1 1
+```
+
 
 ## Python code
 
@@ -269,8 +273,9 @@ if __name__ == "__main__":
 ```
 
 <h2>JavaScript code</h2>
-{% highlight javascript %}
-/** Solve a linear system of equations given by a n&times;n matrix 
+
+```javascript
+/** Solve a linear system of equations given by a n&times;n matrix
     with a result vector n&times;1. */
 function gauss(A) {
     var n = A.length;
@@ -316,7 +321,9 @@ function gauss(A) {
     }
     return x;
 }
-{% endhighlight %}
+
+```
+
 
 ## PHP
 
@@ -330,34 +337,34 @@ function gauss(A) {
  */
 function gauss($A, $x) {
     # Just make a single matrix
-    for ($i=0; $i < count($A); $i++) { 
+    for ($i=0; $i < count($A); $i++) {
         $A[$i][] = $x[$i];
     }
     $n = count($A);
- 
-    for ($i=0; $i < $n; $i++) { 
+
+    for ($i=0; $i < $n; $i++) {
         # Search for maximum in this column
         $maxEl = abs($A[$i][$i]);
         $maxRow = $i;
-        for ($k=$i+1; $k < $n; $k++) { 
+        for ($k=$i+1; $k < $n; $k++) {
             if (abs($A[$k][$i]) > $maxEl) {
                 $maxEl = abs($A[$k][$i]);
                 $maxRow = $k;
             }
         }
 
- 
+
         # Swap maximum row with current row (column by column)
-        for ($k=$i; $k < $n+1; $k++) { 
+        for ($k=$i; $k < $n+1; $k++) {
             $tmp = $A[$maxRow][$k];
             $A[$maxRow][$k] = $A[$i][$k];
             $A[$i][$k] = $tmp;
         }
 
         # Make all rows below this one 0 in current column
-        for ($k=$i+1; $k < $n; $k++) { 
+        for ($k=$i+1; $k < $n; $k++) {
             $c = -$A[$k][$i]/$A[$i][$i];
-            for ($j=$i; $j < $n+1; $j++) { 
+            for ($j=$i; $j < $n+1; $j++) {
                 if ($i==$j) {
                     $A[$k][$j] = 0;
                 } else {
@@ -369,9 +376,9 @@ function gauss($A, $x) {
 
     # Solve equation Ax=b for an upper triangular matrix $A
     $x = array_fill(0, $n, 0);
-    for ($i=$n-1; $i > -1; $i--) { 
+    for ($i=$n-1; $i > -1; $i--) {
         $x[$i] = $A[$i][$n]/$A[$i][$i];
-        for ($k=$i-1; $k > -1; $k--) { 
+        for ($k=$i-1; $k > -1; $k--) {
             $A[$k][$n] -= $A[$k][$i] * $x[$i];
         }
     }
@@ -431,17 +438,17 @@ var_dump($result);
 
 ## Complexity
 ### Time complexity
-Time complexity is in $\mathcal{O}(n^3)$ (lines 44 - 53):
-$\begin{align}
+Time complexity is in \\(\mathcal{O}(n^3)\\) (lines 44 - 53):
+\\(\begin{align}
 Operations &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} \sum_{j=i}^{n} 1\\
 &= \sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n-i+1) \\
 &= \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} (n+1) \right ) - \left (\sum_{i=0}^{n-1} \sum_{k=i+1}^{n-1} i \right )\\
 &= \dots \\
 &= \frac{1}{6} \cdot n \cdot (2 n^2+3 n-5)\\
 &= \frac{1}{3} \cdot n^3 + \mathcal{O}(n^2)
-\end{align}$
+\end{align}\\)
 
 ### Space complexity
-Space complexity of this implementation is in $\mathcal{O}(n)$, but you can 
-easily come down to $\mathcal{O}(1)$ when you use <code>A[n]</code> for 
+Space complexity of this implementation is in \\(\mathcal{O}(n)\\), but you can
+easily come down to \\(\mathcal{O}(1)\\) when you use <code>A[n]</code> for
 storing <code>x</code>.
