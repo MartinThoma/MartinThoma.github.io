@@ -61,19 +61,26 @@ Search for
 \$([\s\S]*?)\$
 ```
 
-and replace it by the following if it is inside a HTML tag
+and replace it by the following
 
 ```text
-\\(\1\\)
+<span>\\(\1\\)</span>
 ```
 
-or with the following if it is not
-
-```text
-\\\\(\1\\\\)
-```
 
 ### Block Math
+
+Search for
+
+```text
+\\[([\s\S]*?)\]$
+```
+
+and replace it by the following
+
+```text
+<div>\\[\1\\]</div>
+```
 
 
 ## See also
