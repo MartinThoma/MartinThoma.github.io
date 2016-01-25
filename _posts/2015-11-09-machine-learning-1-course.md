@@ -387,6 +387,9 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
     * Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.
     * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.
 * Gradientenabstieg
+* Software:
+  * [Lasagne](http://lasagne.readthedocs.org/en/latest/index.html): Python, hat eine exzellente Dokumentation, die auch größtenteils auf explizit auf Literatur verweist und die Formeln hinter den Funktionen direkt angibt.
+  * [Google TensorFlow](https://martin-thoma.com/tensor-flow-quick/)
 
 <dl>
     <dt><dfn>Cascade Correlation</dfn></dt>
@@ -821,7 +824,14 @@ Siehe auch:
 
 ### Evolutionäre Algorithmen
 
-Slides: `MLI_12_EvolutionaereAlgorithmen_slides1.pdf` - siehe [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]
+Slides: `MLI_12_EvolutionaereAlgorithmen_slides1.pdf`
+
+Siehe auch:
+
+* [<a href="#ref-mit97" name="ref-mit97-anchor">Mit97</a>]
+* [DEAP](http://deap.readthedocs.org/en/master/index.html) wenn du es
+  ausprobieren willst.
+* [Difference between genetic algorithms and evolution strategies?](http://stackoverflow.com/q/7787232/562769)
 
 <dl>
     <dt><dfn>Individuum</dfn></dt>
@@ -1014,7 +1024,7 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
         Die Zentroide werden dann wie folgt neu berechnet:
 
-        \[z_j = \frac{\sum_{i=1}^n [P(z_j|x_i)]^b \cdot x_j}{\sum_{i=1}^n [P(z_j | x_i)]^b}\]
+        \[z_j = \frac{\sum_{i=1}^n [P(z_j|x_i)]^b \cdot x_i}{\sum_{i=1}^n [P(z_j | x_i)]^b}\]
     </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse"><dfn>Hierarchisches Clustern</dfn></a></dt>
     <dd>Die Idee des hierarchischen Clusterns ist die iterative Vereinigung

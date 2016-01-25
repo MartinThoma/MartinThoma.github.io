@@ -10,7 +10,7 @@ tags:
 - Machine Learning
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.<br/>Es gibt auch einen Artikel zu <a href="http://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 2&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://tks.anthropomatik.kit.edu/21_52.php">Herrn Prof. Dr. Marius Zöllner</a> im Sommersemester&nbsp;2015 gehört. <br/>Es gibt auch einen Artikel zu <a href="http://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></div>
 
 ## Behandelter Stoff
 
@@ -140,7 +140,7 @@ Daten könnte man argumentieren, dass man es sich vermutlich leisten könnte auc
 den Rest noch zu labeln. Siehe Folie 28-31.
 
 
-### Semi-Supervised and Active Learning
+### SSL and Active Learning
 
 Slides: `03_Semi-supervised+Active-learning.pdf`
 
@@ -422,15 +422,16 @@ starting to read the slides.
   <dd>Die lineare Regression ist ein Modell zur approximation von Datenpunkten
       \((x, y) \in \mathbb{R}^n \times \mathbb{R}\) durch eine
       lineare Funktion, d.h. einer Funktion der Form \(f(x) = x^T \cdot w\).
-      Dabei ist \(w \in \mathbb{R}^n\).
-
+      Dabei ist \(w \in \mathbb{R}^n\).<br/>
+      <br/>
       Wenn man als Optimierungskriterium den quadratischen Abstand
       \[E(f, data) = \sum_{(x,y) \in data} (f(x) - y)^2\]
       nimmt, dann ist eine optimale Lösung durch
       \[w = (X^T X)^{-1} X^T y\]
-      gegeben.
-
+      gegeben.<br/>
+      <br/>
       Siehe auch: <a href="http://math.stackexchange.com/q/691812/6876">Proof of when is \(A=X^T X\) invertible?</a>
+      sowie <a href="http://math.stackexchange.com/q/1626052/6876">Does a transformation + linear regression give the same regression as fitting a quadratic function?</a>
       </dd>
   <dt><dfn>Affine Regression</dfn></dt>
   <dd>Die affine Regression ist ein Modell zur approximation von Datenpunkten
@@ -445,7 +446,7 @@ starting to read the slides.
       den linearen Zusammenhang zwischen zwei Zufallsvariablen \(X, Y\). Er
       ist definiert als
       \[\kappa(X, Y) := \frac{Cov(X, Y)}{\sigma(X) \cdot \sigma(Y)}\]</dd>
-  <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (<dfn>Kriging</dfn>)</dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Gau%C3%9F-Prozess"><dfn>Gausscher Prozess</dfn></a> (<dfn>Kriging</dfn>, <a href="https://www.youtube.com/watch?v=4vGiHC35j9s">Machine learning - Introduction to Gaussian processes</a> by Nando De Freitas)</dt>
   <dd>Gaussche Prozesse approximieren eine Funktion dadurch, dass sie an jedem
       Punkt eine Normalverteilung (Gauss-Verteilung) annehmen.<br/>
       <br/>
