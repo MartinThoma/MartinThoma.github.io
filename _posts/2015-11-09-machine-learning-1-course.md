@@ -1008,7 +1008,7 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
         Siehe auch: <a href="//martin-thoma.com/k-nearest-neighbor-classification-interactive-example/">Interaktives Beispiel</a>
     </dd>
     <dt><dfn>Fuzzy \(k\)-means</dfn></dt>
-    <dd>Im gegensatz zum \(k\)-means Algorithmus, wo jeder Datenpunkt in genau
+    <dd>Im Gegensatz zum \(k\)-means Algorithmus, wo jeder Datenpunkt in genau
         einem Cluster ist, weißt der Fuzzy \(k\)-means Algorithmus jedem
         Datenpunkte eine Zugehörigkeitswahrscheinlichkeit zu. Je weiter
         der Datenpunkt vom Zentroid entfernt ist, desto unwahrscheinlicher
