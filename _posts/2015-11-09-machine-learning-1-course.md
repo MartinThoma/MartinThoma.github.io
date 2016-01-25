@@ -338,7 +338,7 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
   <dt><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>
   <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen. Dabei
       bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>
-  <dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>)</dt>
+  <dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>; see <a href="https://www.youtube.com/watch?v=ix6IvwbVpw0">YouTube</a>)</dt>
   <dd>Learn a classifier for data. Get examples where the classifier got it
       wrong. Train new classifier on the wrong ones.</dd>
 </dl>
