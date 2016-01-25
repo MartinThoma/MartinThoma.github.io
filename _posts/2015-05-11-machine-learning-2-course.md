@@ -273,7 +273,7 @@ Folie 35:
 * NODO: Was heißt hier "mit festen Knoten"?
 
 
-### Dynamische Bayessche Netze
+### <a name="dynamic-bayes-networks"></a>Dynamische Bayessche Netze
 
 Slides: `05_DynamischeBayesscheNetze.pdf`
 
@@ -325,6 +325,35 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
       Satz von Bayes.
       Siehe <a href="https://de.wikipedia.org/wiki/Bayes-Klassifikator#Beispiel">Bayes-Klassifikator</a>
       für eine detailiertere Beschreibung.</dd>
+  <dt><dfn>Bayes Filter</dfn></dt>
+  <dd>Ein Bayes Filter ist eine Familie von Zufallsvariablen. Das könnte z.B.
+      die \((x,y,z)\) Position eines GPS-Sensors sein. Diese Position ist
+      verrauscht.
+
+      Nun gibt es drei mögliche Anfragen:
+
+      <ul>
+          <li><b>Filtern</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
+              sage die aktuelle Position \(X_t\) vorher. Also filtere das
+              Rauschen aus \(Z_t\) unter berücksichtigung, dass wir uns noch
+              nicht teleportieren können:
+              \[P(X_t | Z_t, \dots, Z_0)\]</li>
+          <li><b>Prädizieren</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
+              sage die Position \(X_{t+k}\) vorher:
+              \[P(X_{t+k} | Z_t, \dots, Z_0)\]</li>
+          <li><b>Glätten</b>: Es liegen Messungen \(Z_0, \dots, Z_t\) vor,
+              sage die Position \(P(X_{t-k} | Z_t, \dots, Z_0)\) vorher.</li>
+      </ul>
+
+      Beispiele für Bayes-Filter sind
+
+      <ul>
+          <li>Kalman-Filter</li>
+          <li><abbr title="Hidden Markov Model">HMM</abbr></li>
+          <li>Partikel Filter</li>
+      </ul>
+
+      </dd>
   <dt><dfn>Naiver Bayes'scher Spam Filter</dfn></dt>
   <dd>Ein probabilistischer Klassifikator welcher die Unabhängigkeit der
       Features vorraussetzt wird <i>naiv</i> genannt.<br/>

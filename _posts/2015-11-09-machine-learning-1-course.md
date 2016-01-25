@@ -619,6 +619,10 @@ Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
 
 Slide name: `MLI_09_BayesLernen_slides1.pdf`
 
+Siehe auch:
+
+* [Dynamische Bayesssche Netze](https://martin-thoma.com/machine-learning-2-course/#dynamic-bayes-networks) in ML2
+
 <dl>
   <dt><dfn>Satz von Bayes</dfn></dt>
   <dd>Seien \(A, B\) Ereignisse, \(P(B) > 0\). Dann gilt:
