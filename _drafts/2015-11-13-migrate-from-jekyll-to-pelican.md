@@ -45,14 +45,15 @@ and replace it with
 ## MathJax and Markdown
 
 The problem with MathJax and Markdown (e.g. [CommonMark](http://commonmark.org/))
-is that it uses the `\` for escaping. However, CommonMark gets deactivated when
+is that it uses the `\` for escaping. Especially for multi-line math tags this
+is a real issue. However, CommonMark gets deactivated when
 it's inside of an HTML tag. This means inside of an HTML-Tag I have to write
 `\(\mathbb{R}\)` and outside of and HTML tag I have to write `\\(\mathbb{R}\\)`.
 
 The problem of using `$` for triggering MathJax is that PHP makes use of it and
 that it is the US-Dollar currency symbol.
 
-### Line Comments
+### Inline Math
 
 Search for
 
@@ -71,6 +72,8 @@ or with the following if it is not
 ```text
 \\\\(\1\\\\)
 ```
+
+### Block Math
 
 
 ## See also
