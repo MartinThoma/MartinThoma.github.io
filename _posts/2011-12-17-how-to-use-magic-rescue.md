@@ -62,4 +62,4 @@ Disk identifier: 0x005f4d47
 {% highlight bash %}sudo magicrescue -r png -r jpeg-jfif -r gimp-xcf \
 -r jpeg-exif -d /home/moose/output/ /dev/sdc1{% endhighlight %}
 
-Just got the image back :-) 
+Just got the image back ☺ 

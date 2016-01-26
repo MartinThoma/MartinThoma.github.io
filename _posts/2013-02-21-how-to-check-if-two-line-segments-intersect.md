@@ -417,4 +417,4 @@ Some notes for me:
 </ul>
 
 edit:
-I now have a more modern system. So I was able to use EclEmma, which works fine. And I have 100% branch code coverage for this part of code :-)
+I now have a more modern system. So I was able to use EclEmma, which works fine. And I have 100% branch code coverage for this part of code ☺

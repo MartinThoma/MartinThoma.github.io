@@ -402,7 +402,7 @@ Release date should be 28.03.2014 ([source](http://www.arlt.com/Notebook/Ultrabo
 | Akku               | 62,16 Wh, 2.5h[^4]                 |
 | USB                | 2× USB 3.0                         |
 | SD Card Reader     | ✔                                 |
-| Linux-Support      | shipped with Linux Mint :-)        |
+| Linux-Support      | shipped with Linux Mint ☺        |
 | Keyboard           | ?                                  |
 | Noise              | Laut[^4]                           |
 

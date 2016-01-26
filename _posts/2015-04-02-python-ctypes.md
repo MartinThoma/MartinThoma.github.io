@@ -18,7 +18,7 @@ So you can get almost as fast as you can get with C; you're not limited by
 the language in that respect. And most of the time your code has other issues
 when it is too slow.
 
-Now, you can also wrap Rust code with ctypes for Python :-)
+Now, you can also wrap Rust code with ctypes for Python ☺
 
 ## Motivation
 

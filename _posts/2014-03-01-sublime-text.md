@@ -82,7 +82,7 @@ This opens such a dialog:
 {% caption align="aligncenter" width="500" alt="Command Palette" text="automatical alignment" url="../images/2014/03/sublime-command-palette.png" %}
 
 This will do a fuzzy search through all elements in the menu. So you don't need
-to use <kbd>Alt</kbd> + arrow keys no longer. I love it :-)
+to use <kbd>Alt</kbd> + arrow keys no longer. I love it ☺
 
 ## Plugins
 

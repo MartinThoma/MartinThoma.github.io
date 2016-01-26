@@ -35,7 +35,7 @@ Examples of Python-Code in applications include:
 <ul>
 	<li><a href="http://security.stackexchange.com/a/2897">PDF malware analysis</a></li>
 	<li><a href="http://en.wikipedia.org/wiki/BitTorrent_(software)">BitTorrent</a></li>
-	<li>My <a href="../python-one-liners-for-project-euler/">ProjectEuler Snippets</a> :-)</li>
+	<li>My <a href="../python-one-liners-for-project-euler/">ProjectEuler Snippets</a> ☺</li>
 	<li>Scripting within an application:
 <ul>
 	<li><a href="http://en.wikipedia.org/wiki/GIMP">GIMP</a></li>

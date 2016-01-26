@@ -113,7 +113,7 @@ user	1m4.908s
 sys	2m11.748s
 {% endhighlight %}
 
-I'm getting closer to "seconds". :-)
+I'm getting closer to "seconds". ☺
 
 <h3>ofstream, endl, \n and buffers</h3>
 Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:

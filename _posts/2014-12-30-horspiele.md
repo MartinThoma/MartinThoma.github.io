@@ -14,7 +14,7 @@ featured_image: 2013/04/die-drei-fragezeichen-logo.png
 might not be finished or have other problems, but I still want to share
 it.</div>
 
-Ich habe früher (damals, als ich noch keinen PC hatte :-) ) sehr gerne
+Ich habe früher (damals, als ich noch keinen PC hatte ☺ ) sehr gerne
 Hörspiele gehört. Nun, mit meinem neuen Smartphone, dachte ich könnte ich das
 ja mal wieder machen.
 

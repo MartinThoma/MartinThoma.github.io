@@ -89,6 +89,6 @@ int main() {
 	printValue(testVar);
 }{% endhighlight %}
 
-I think I have tried all interesting values. Have fun trying it yourself :-)
+I think I have tried all interesting values. Have fun trying it yourself ☺
 
 (hmm ... I could also try to make a visualization ... I will think about this when I have more time)

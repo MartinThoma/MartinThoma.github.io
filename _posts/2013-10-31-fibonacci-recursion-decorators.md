@@ -99,7 +99,7 @@ def fib(n):
         return fib(n-1) + fib(n-2)
 {% endhighlight %}
 
-Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python :-)
+Notice that I've only added <code>@memoize</code> over the function definiton of <code>fib</code>! I love Python ☺
 
 By the way, this formula has also some limitations. Python has a fixed maximum recursion depth. So <code>fib(332)</code> worked fine, but <code>fib(333)</code> gave:
 {% highlight bash %}

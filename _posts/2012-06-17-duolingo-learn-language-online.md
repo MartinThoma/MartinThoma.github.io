@@ -40,6 +40,6 @@ Now some screenshots to give you a feeling what Duolingo offers:
 
 {% caption align="aligncenter" width="300" caption="A lection in Duolingo" url="../images/2012/06/duolingo-lection-300x173.png" alt="A lection in Duolingo"  height="173" class="size-medium wp-image-27131" %}
 
-{% caption align="aligncenter" width="300" caption="Level mastered :-)" url="../images/2012/06/duolingo-achivement-300x138.png" alt="Level mastered :-)"  height="138" class="size-medium wp-image-27141" %}
+{% caption align="aligncenter" width="300" caption="Level mastered ☺" url="../images/2012/06/duolingo-achivement-300x138.png" alt="Level mastered ☺"  height="138" class="size-medium wp-image-27141" %}
 
 I have 3 invitations left. If you like to test Duolingo, simply post a comment with your email-address. The first three will get the invitations.

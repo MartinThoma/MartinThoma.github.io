@@ -28,7 +28,7 @@ $O(0) := 0, O(0^0) := 0^0, O(o) := O(o \otimes 0^0) \oplus O(o \otimes 0^0 \otim
 .
 .
 
-Aufl&ouml;sung gibts weiter unten - die Abbildung ist wirklich sehr bekannt :-)
+Aufl&ouml;sung gibts weiter unten - die Abbildung ist wirklich sehr bekannt ☺
 
 .
 .

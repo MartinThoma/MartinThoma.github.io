@@ -17,7 +17,7 @@ I just wanted to solve an exercise where I had random variables $X_1, \dots, X_n
 which were all $U([0, 1])$ distributed and $Y_n = \max(X_1, \dots, X_n)$.
 
 I wondered what the distribution of $Y_n$ is (for big $n$), so I wanted to plot
-it. How do I plot it? With Python, of course :-)
+it. How do I plot it? With Python, of course ☺
 
 Here is the program:
 

@@ -116,7 +116,7 @@ if __name__ == "__main__":
 <h2>Good Luck</h2>
 This one solves at least the first test case, but not the second one.
 
-I love <a href="http://docs.python.org/2/library/itertools.html">itertools</a> :-)
+I love <a href="http://docs.python.org/2/library/itertools.html">itertools</a> ☺
 
 {% highlight python %}
 #!/usr/bin/env python

@@ -148,7 +148,7 @@ That was what we have on the positive side. What is not so good about Java?
 
 See also:
 
-* [Is Java a Compiled or an interpreted programming language?](http://stackoverflow.com/a/1326084/562769): The short answer is no. But Java guys don't like to hear that :-)
+* [Is Java a Compiled or an interpreted programming language?](http://stackoverflow.com/a/1326084/562769): The short answer is no. But Java guys don't like to hear that ☺
 * [Why do I hear about so many Java insecurities? Are other languages more secure?](http://security.stackexchange.com/q/57646/3286): The short answer is no, thinking about C/C++.
 * [Security of JVM for Server](http://security.stackexchange.com/q/32822/3286)
 * [C++ performance vs. Java/C#](http://stackoverflow.com/q/145110/562769)

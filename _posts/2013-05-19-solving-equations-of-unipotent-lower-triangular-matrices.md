@@ -130,7 +130,7 @@ if __name__ == "__main__":
     print(b)
 {% endhighlight %}
 
-Now it looks super clean, doesn't it :-)
+Now it looks super clean, doesn't it ☺
 
 Keep in mind that you have to store b if you need the values after you've applied this algorithm.
 This is the reason why there here. This algorithm "returns" its value by manipulating b.

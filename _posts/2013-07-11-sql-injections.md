@@ -169,5 +169,5 @@ Just a few famous examples to show you that this happens all the time:
 
 <h2>See also</h2>
 <ul>
-  <li><a href="../challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself :-)</li>
+  <li><a href="../challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself ☺</li>
 </ul>

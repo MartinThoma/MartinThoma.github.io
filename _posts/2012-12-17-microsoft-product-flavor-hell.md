@@ -64,7 +64,7 @@ The team I am working with created a diagram on one developers machine. After he
 The first developer had Visual Studio 2012 Ultimate, the second one "only" Visual Studio 2012 Professional. The difference is obvious, isn't it? NO, IT IS NOT!
 
 Finally, a little story. Some weeks ago, a prof had some problems showing his slides that were made with Microsoft PowerPoint. The bulled points were showing, but not the text. A friend of mine said:
-"The source of this problem is obvious. He certainly does not have PowerPoint Ultimate" :-)
+"The source of this problem is obvious. He certainly does not have PowerPoint Ultimate" ☺
 
 <h2>TL;DR</h2>
 Microsoft creates a lot of different editions for their software. "Ultimate" seems to be always the best.

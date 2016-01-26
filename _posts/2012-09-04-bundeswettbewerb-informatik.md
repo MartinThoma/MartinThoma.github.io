@@ -67,7 +67,7 @@ LaTeX ist toll - aber keine Pflicht. Es werden leider relativ wenige Dokumentati
   <li>Und so bekommt man LaTeX: <a href="../how-to-install-the-latest-latex-version/">How to install the latest LaTeX Version</a>.</li>
 </ul>
 
-Au&szlig;erdem ist die Kombination <a href="../latex-versioning-a-great-experience/">LaTeX+Versionskontrolle</a> toll :-)
+Au&szlig;erdem ist die Kombination <a href="../latex-versioning-a-great-experience/">LaTeX+Versionskontrolle</a> toll ☺
 
 <h3>Die CD</h3>
 Ich wei&szlig; leider nicht, warum keine Online-Abgabe m&ouml;glich ist. Vielleicht, weil es einfacher ist. Eventuell aus Sicherheitsgr&uuml;nden. Wenn man Papier und eine CD in der Hand hat, kann es nicht passieren, dass eine Runde im schlimmsten Szenario komplett ausfallen muss, weil der Server abgeraucht ist. Egal wie, ihr m&uuml;sst die CD erstellen. Dazu h&auml;tte ich - aus Sicht eines Korrektors - ein paar Bitten:
@@ -78,12 +78,12 @@ Die CD hat &uuml;ber 600 MB. Das ist deutlich mehr, als ihr braucht. Also schrei
 edit: Hier habe ich eine R&uuml;ckmeldung von Herrn Dr. Pohl erhalten.
 Es geht nicht um CD vs. Online-Abgabe sondern um CD und &bdquo;gedruckte Dokumentation und CD&ldquo; vs. &bdquo;Online-Abgabe&ldquo;. Die Korrektur von L&ouml;sungsideen auf einem Blatt Papier ist immer noch die einfachste und f&uuml;r den Leser die angenehmste. Ich schreibe als Korrektor h&auml;ufig Anmerkungen in eure Dokumentation, damit der Zweitkorrektor leichter nachvollziehen kann, was ich mangelhaft oder auch sehr gut gefunden habe. Au&szlig;erdem schreibe ich manchmal rein, was der Einsender gemeint hat (falls die Doku nicht so toll war und es nicht direkt ersichtlich ist).
 Au&szlig;erdem ist es mit CDs einfacher, die Infrastruktur f&uuml;r die Korrektur aufzubauen. An den Bewertungswochenenden werden so ca. 30 frisch aufgesetzte, unvernetzte PCs benutzt (es lohnt sich also nicht, Viren zu schreiben). Bei einer Online-Abgabe m&uuml;ssten diese PCs Internet haben, was leider nicht immer zur Verf&uuml;gung steht. Oder sie m&uuml;ssten lokal, z.B. auf einem NAS, sein. Das ist alles etwas umst&auml;ndlicher als einfach eine CD zu brennen.
-Ihr d&uuml;rft &uuml;brigens auch SD-Karten einschicken :-)
+Ihr d&uuml;rft &uuml;brigens auch SD-Karten einschicken ☺
 
 Vielen Dank an Herrn Dr. Pohl f&uuml;r die Hinweise!
 
 <h2>Die Programmiersprache</h2>
-Also eine <a href="http://de.wikipedia.org/wiki/Brainfuck">Brainfuck</a>-Einsendung muss jetzt nicht gerade sein (obwohl ich wirklich beeindruckt w&auml;re). Aber eine <a href="http://de.wikipedia.org/wiki/Shakespeare_Programming_Language">Shakespeare</a>-Einsendung w&uuml;rde ich mal toll finden :-)
+Also eine <a href="http://de.wikipedia.org/wiki/Brainfuck">Brainfuck</a>-Einsendung muss jetzt nicht gerade sein (obwohl ich wirklich beeindruckt w&auml;re). Aber eine <a href="http://de.wikipedia.org/wiki/Shakespeare_Programming_Language">Shakespeare</a>-Einsendung w&uuml;rde ich mal toll finden ☺
 Nein, im ernst: Ihr d&uuml;rft fast alles benutzen. Ich selbst kann Python, PHP, Java, C++ und C gut genug um jede Einsendung verstehen zu k&ouml;nnen. Ich wei&szlig;, dass wir immer Leute haben die Haskel/Objective CAML und vielleicht noch ein paar weitere funktionale Sprachen k&ouml;nnen. Auch Pascal, Delphi (Object Pascal), BASIC stellen kein Problem dar. Das ist jetzt keine vollst&auml;ndige Liste; unter den Korrektoren gibt es einige, die auch exotische Sprachen k&ouml;nnen. Aber wenn euch klar ist, dass eure Sprache exotisch ist, dann solltet ihr besondere Sprachfeatures kommentieren.
 
 Ich habe damals meine Einsendung in PHP geschrieben, sp&auml;ter in Python. Warum PHP? Naja, es gibt ein super <a href="http://tut.php-quake.net/de/">Tutorial f&uuml;r PHP</a>.

@@ -85,7 +85,7 @@ Let's see what Nautilus does. I <a href="../cyclic-references-kill-nautilus/" ti
 
 Contents, according to nautilus: <code>1,016 items, totalling 4.0 MB</code>
 
-Then I've opened the folder "one" and double clicked as fast as I could. CPU utilization: 100%, but no crash. And 995 items are left :-) Now a single double click causes 100% CPU utilization for about 25 seconds.
+Then I've opened the folder "one" and double clicked as fast as I could. CPU utilization: 100%, but no crash. And 995 items are left ☺ Now a single double click causes 100% CPU utilization for about 25 seconds.
 
 When I use a single character for sub-directories, I get:
 {% highlight bash %}

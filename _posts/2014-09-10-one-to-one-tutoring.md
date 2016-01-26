@@ -104,7 +104,7 @@ difficult to get a student to achieve that good results.
 
 ## How to speak about it
 
-I would like to call this model MOOT (Martins One-on-One Tutoring model :-) ).
+I would like to call this model MOOT (Martins One-on-One Tutoring model ☺ ).
 It is parameterized with two variables, $\theta_1$ and $\theta_2$.
 
 I think $MOOT(\theta_1=0.2, \theta_2=25\%)$ would be a good possibility to

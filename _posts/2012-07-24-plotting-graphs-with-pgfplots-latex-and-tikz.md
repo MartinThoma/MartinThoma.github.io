@@ -18,7 +18,7 @@ I guess many of you might need to plot functions or data once. So I've made one 
   <li>The red line was drawn with a mathematical function.</li>
 </ul>
 
-Best of all: I didn't use anything which is not in LaTeX :-) (Well, the generation of the CSV-file doesn't count. I just wanted to include such an example for physicists who might need to plot results of experiments).
+Best of all: I didn't use anything which is not in LaTeX ☺ (Well, the generation of the CSV-file doesn't count. I just wanted to include such an example for physicists who might need to plot results of experiments).
 
 The complete source is in the <a href='../images/2012/07/birthday-paradox.zip'>Birthday Paradox Archive</a>.
 

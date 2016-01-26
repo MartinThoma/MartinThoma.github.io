@@ -38,7 +38,7 @@ them were short movies which I wanted to share. Here you are!
 
 ## REWIND
 
-Not a short movie ... but interesting nevertheless :-)
+Not a short movie ... but interesting nevertheless ☺
 
 <iframe width="512" height="288" src="//www.youtube-nocookie.com/embed/Vi6u14oGmh0?rel=0" frameborder="0" allowfullscreen></iframe>
 

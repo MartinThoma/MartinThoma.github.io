@@ -26,7 +26,7 @@ The second post will be an implementation of the Strassen algorithm for matrix m
 The third post will be about parallel programming. I have two cores and I want to see if it will be significantly faster if I use both of them.
 
 <h2>The implementations</h2>
-I will post all scripts for this test and I've added a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I am also happy if you post some of your solutions with running times :-) I am quite sure that my Java and C++ code can be written much better. If you know how, please leave a comment.
+I will post all scripts for this test and I've added a <a href="https://github.com/MartinThoma/matrix-multiplication">GIT repository</a>, so feel free to test it on your machine. I am also happy if you post some of your solutions with running times ☺ I am quite sure that my Java and C++ code can be written much better. If you know how, please leave a comment.
 If you know other languages, you could create a script for these. I focus on Python, Java and C++ as they are very often used.
 
 I have implemented these three types of algorithms for this post:

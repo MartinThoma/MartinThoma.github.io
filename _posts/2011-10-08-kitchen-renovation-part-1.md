@@ -70,7 +70,7 @@ Additionally I needed a hammer to get the wall plugs into the wall, some differe
 
 {% caption align="aligncenter" width="300" caption="If you want to make a clean silicone clogging, you should mask the surrounding area." url="../images/2011/10/kitchen-masked-countertop-300x225.jpg" alt="Masked countertop"  height="225" class="size-medium wp-image-4701" %}
 
-{% caption align="aligncenter" width="300" caption="Adding a baseboard was one of the last steps. This small piece of would should prevent water from touching the wallpaper. Moreover it looks nice :-)" url="../images/2011/10/kitchen-after-baseboard-300x225.jpg" alt="Adding a baseboard"  height="225" class="size-medium wp-image-4781" %}
+{% caption align="aligncenter" width="300" caption="Adding a baseboard was one of the last steps. This small piece of would should prevent water from touching the wallpaper. Moreover it looks nice ☺" url="../images/2011/10/kitchen-after-baseboard-300x225.jpg" alt="Adding a baseboard"  height="225" class="size-medium wp-image-4781" %}
 
 <h2>The new kitchen</h2>
 {% caption align="aligncenter" width="600" caption="Kitchen after renovation" url="../images/2011/10/kitchen-after.png" alt="Kitchen after renovation"  height="450" class="size-full wp-image-4651"  %}

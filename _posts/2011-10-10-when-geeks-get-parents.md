@@ -32,7 +32,7 @@ The Original (or at least the highest resolution I found) is <a href="http://sne
 Giving your child some funny T-shirts is also quite common:
 {% caption align="aligncenter" width="400" caption="Baby Geek: No! (found on <a href='http://www.zazzle.de/lieblingswort_ist_no_chemie_aussenseiter_baby_ones_tshirt-235215790093704490'>zazzle</a>)" url="../images/2011/10/geek-baby-no.jpg" alt="Baby Geek: No!"  height="400" class="size-full wp-image-5251" %}
 
-{% caption align="aligncenter" width="325" caption="It seems like someone liked RPGs <a href='http://postmortemstudios.wordpress.com/2011/09/12/sowygo1-a-geek-is-born/'>here</a> :-)" url="../images/2011/10/geek-baby-rpg.jpg" alt="RPG Geek Baby"  height="433" class="size-full" %}
+{% caption align="aligncenter" width="325" caption="It seems like someone liked RPGs <a href='http://postmortemstudios.wordpress.com/2011/09/12/sowygo1-a-geek-is-born/'>here</a> ☺" url="../images/2011/10/geek-baby-rpg.jpg" alt="RPG Geek Baby"  height="433" class="size-full" %}
 
 A friend of mine just shared this photo:
 {% caption align="aligncenter" width="320" caption="Twins: Copy and Paste. Thanks to Ren&eacute; for sharing" url="../images/2011/10/geek-twins.jpg" alt="Twins: Copy and Paste"  height="238" class="size-full" %}

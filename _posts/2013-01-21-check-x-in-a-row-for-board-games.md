@@ -70,4 +70,4 @@ myBoardAction(player, 0, 1); // horizontal
 ```
 
 This is enough. You don't need more, as you go through the whole board. 
-No need to write redundant code :-)
+No need to write redundant code ☺

@@ -199,7 +199,7 @@ the state transition matrix.
 There seems also not to be any package which makes it easy to classify states
 as transient / recurrent, get the absorption time, ...
 
-If somebody is interested in that, we could make a little project for it :-)
+If somebody is interested in that, we could make a little project for it ☺
 
 
 ### PyMarkovChain
