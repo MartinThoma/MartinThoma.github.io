@@ -728,18 +728,21 @@ Slide name: `MLI_10_HMM_slides1.pdf`
   <dd>Eine HMM ist ein Tupel \(\lambda = (S, V, A, B, \Pi)\):
       <ul>
           <li>\(S = \{S_1, \dots, S_n\}\): Menge der Zustände</li>
-          <li>\(q_t\): Zustand zum Zeitpunkt \(t\)</li>
           <li>\(V = \{v_1, \dots, v_m\}\): Menge der Ausgabezeichen</li>
           <li>\(A \in [0,1]^{n \times n}\) = (a_{ij}): Übergangsmatrix, die die Wahrscheinlichkeit von Zustand \(i\) in Zustand \(j\) zu kommen beinhaltet</li>
           <li>\(B = (b_{ik})\) die Emissionswahrscheinlichkeit \(v_k\) im Zustand \(S_i\) zu beobachten</li>
-          <li>\(\Pi = (\pi_i) = P(q_1 = i)\): Die Startverteilung</li>
+          <li>\(\Pi = (\pi_i) = P(q_1 = i)\): Die Startverteilung, wobei \(q_t\) den Zustand zum Zeitpunkt \(t\) bezeichnet</li>
       </ul></dd>
   <dt><a href="https://de.wikipedia.org/wiki/Forward-Algorithmus"><dfn>Vorwärts-Algorithmus</dfn></a></dt>
   <dd>Der Vorwärts-Algorithmus löst das Evaluierungsproblem. Er benutzt dazu
-      dynamische Programmierung: Die Variablen \(\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i)\) gibt die Wahrscheinlichkeit
+      dynamische Programmierung: Die Variablen \(\alpha_t(i) = P(o_1 o_2 \dots o_t; q_t = s_i | \lambda)\) gibt die Wahrscheinlichkeit
       an zum Zeitpunkt \(t \in 1 \leq t \leq T\) im Zustand \(s_i \in S\) zu
       sein und die Sequenz \(o_1 o_2 \dots o_t\) beobachtet zu haben. Diese
-      werden rekursiv berechnet.</dd>
+      werden rekursiv berechnet. Dabei beginnt man mit Zeitpunkt \(t=1\), berechnet
+      die Wahrscheinlichkeit \(o_1\) beobachtet zu haben für jeden Zustand.
+      <br/>
+      Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben die HMM \(\lambda\),
+      ist dann einfach die Summe der \(\alpha_i\) des letzten Zeitschritts.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Backward-Algorithmus"><dfn>Rückwärts-Algorithmus</dfn></a></dt>
   <dd>Der Rückwärts-Algorithmus löst das Dekodierungsproblem. Er benutzt dazu
       dynamische Programmierung: Die Variablen \(\beta_t(i) = P(o_{t+1} o_{t+2} \dots o_{T}|q_t = s_i, \lambda)\) geben
@@ -747,7 +750,7 @@ Slide name: `MLI_10_HMM_slides1.pdf`
       beobachtet werden wird, gegeben das HMM&nbsp;\(\lambda\) und den
       Startzustand&nbsp;\(s_i\).</dd>
   <dt><a href="https://de.wikipedia.org/wiki/Viterbi-Algorithmus"><dfn>Viterbi-Algorithmus</dfn></a></dt>
-  <dd>Löst P2: Siehe <a href="//martin-thoma.com/apply-viterbi-aglrithm/">How to apply the Viterbi algorithm</a></dd>
+  <dd>Löst P2: Siehe <a href="../apply-viterbi-algorithm/">How to apply the Viterbi algorithm</a></dd>
   <dt><a href="https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus"><dfn>Baum-Welch-Algorithmus</dfn></a></dt>
   <dd>Löst P3:
 
@@ -785,8 +788,8 @@ Die drei Probleme von HMMs sind
 * **P1 - Evaluierungsproblem**: Wie wahrscheinlich ist eine Sequenz
   \\(\bf{o} = o_1 o_2 \dots o_T\\)
   gegeben ein HMM \\(\lambda\\), also \\(P(\bf{o}|\lambda)\\).
-* **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz,
-  gegeben eine Sequenz von Beobachtungen.
+* **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz <span markdown="0">\(s_1, \dots, s_T\)</span>,
+  gegeben eine Sequenz von Beobachtungen \\(\bf{o} = o_1 o_2 \dots o_T\\).
 * **P3 - Lernproblem**: Optimieren der Modellparameter
 
 
