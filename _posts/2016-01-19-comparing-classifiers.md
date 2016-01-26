@@ -39,7 +39,7 @@ forget. As sklearn does not have neural networks, I've installed
 
 ## Tutorial example
 
-The sklearn tutorial creates three datasets with 100&nbps;points per dataset and
+The sklearn tutorial creates three datasets with 100&nbsp;points per dataset and
 2&nbsp;dimensions per point:
 
 1. **Moons**: Two interleaving half-circles
