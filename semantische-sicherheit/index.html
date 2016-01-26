@@ -106,48 +106,48 @@ MathJax.Hub.Queue(function() {
                         </div>
 
                         <div class="entry" id="contentAfterTitle">
-                            <p>In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst $\mathcal{P} \neq \mathcal{NP}$ beweisen müsste. Warum das so ist, versuche ich nun zu erläutern.</p>
+                            <p>In der <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_VL03.pdf">Vorlesung vom 25.04.2013</a> hat Prof. Hofheinz gesagt, dass man semantische Sicherheit praktisch nicht beweisen kann, da man zuerst <span>\(\mathcal{P} \neq \mathcal{NP}\)</span> beweisen müsste. Warum das so ist, versuche ich nun zu erläutern.</p>
 
-<h2 id="tocAnchor-1-1">Einwegfunktionen und `$\mathcal{P} \neq \mathcal{NP}$`</h2>
+<h2 id="tocAnchor-1-1">Einwegfunktionen und <span>\(\mathcal{P} \neq \mathcal{NP}\)</span></h2>
 <div class="definition">
-Sei `$f:X \rightarrow Y$` eine Funktion.
-`$f$` heißt eine Einwegfunktion, genau dann wenn für alle `$x \in X$` gilt:
+Sei <span>\(f:X \rightarrow Y\)</span> eine Funktion.
+<span>\(f\)</span> heißt eine Einwegfunktion, genau dann wenn für alle <span>\(x \in X\)</span> gilt:
 <ul>
-  <li>`$y := f(x)$` kann in Polynomialzeit berechnet werden</li>
-  <li>Für die Berechnung eines Urbildes `$x$` aus `$y$` existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
+  <li><span>\(y := f(x)\)</span> kann in Polynomialzeit berechnet werden</li>
+  <li>Für die Berechnung eines Urbildes <span>\(x\)</span> aus <span>\(y\)</span> existiert kein randomisierter Algorithmus, der in Polynomialzeit läuft.</li>
 </ul>
 </div>
 
-<p>Es gilt: Wenn eine Einwegfunktion $f$ existiert, dann gilt $\mathcal{P} \neq \mathcal{NP}$.</p>
+<p>Es gilt: Wenn eine Einwegfunktion <span>\(f\)</span> existiert, dann gilt <span>\(\mathcal{P} \neq \mathcal{NP}\)</span>.</p>
 
 <p>Warum?</p>
 
-<p>Nun, angenommen es gibt eine Einwegfunktion $f$. Dann sei die formale Sprache $L_f$ definiert durch:</p>
+<p>Nun, angenommen es gibt eine Einwegfunktion <span>\(f\)</span>. Dann sei die formale Sprache <span>\(L_f\)</span> definiert durch:</p>
 
 <p>
-   $L_f := \{(\bar x, y) | \exists x: \bar x \text{ ist Präfix von } x \text{ und } y = f(x)\}$
+   <span>\(L_f := \{(\bar x, y) | \exists x: \bar x \text{ ist Präfix von } x \text{ und } y = f(x)\}\)</span>
 </p>
 
-<p>Es gilt: $L_f \notin \mathcal{P}$, da für ein gegebenes $y$ das zugehörige $x$ in polynomialzeit bestimmt werden könnte (wie will man sonst prüfen, ob $\bar x$ ein Präfix von $x$ ist?)</p>
+<p>Es gilt: <span>\(L_f \notin \mathcal{P}\)</span>, da für ein gegebenes <span>\(y\)</span> das zugehörige <span>\(x\)</span> in polynomialzeit bestimmt werden könnte (wie will man sonst prüfen, ob <span>\(\bar x\)</span> ein Präfix von <span>\(x\)</span> ist?)</p>
 
 <p>Falls jemanden diese Begründung nicht ausreicht ist hier noch ein Beweis von Prof. Hofheinz (Danke!)</p>
 
-<p><strong>Beh.:</strong> $L_f \notin \mathcal{P}$
-<strong>Bew.:</strong> durch Widerspruch
-<u>Annahme.:</u> $L_f \in P$
-$\Rightarrow$ Es existiert ein Polyzeit-Algorithmus $\mathcal{A}$ für $L_f$, der bei Eingabe $(\bar x, y)$ entscheidet, ob ein $x$ mit $f(x)=y$ und Präfix $\bar x$ existiert oder nicht. Dann können wir einen Algorithmus $\mathcal{B}$ aus $\mathcal{A}$ bauen, der $f$ invertiert.</p>
+<p><strong>Beh.:</strong> <span>\(L_f \notin \mathcal{P}\)</span><br />
+<strong>Bew.:</strong> durch Widerspruch<br />
+<u>Annahme.:</u> <span>\(L_f \in P\)</span><br />
+<span>\(\Rightarrow\)</span> Es existiert ein Polyzeit-Algorithmus <span>\(\mathcal{A}\)</span> für <span>\(L_f\)</span>, der bei Eingabe <span>\((\bar x, y)\)</span> entscheidet, ob ein <span>\(x\)</span> mit <span>\(f(x)=y\)</span> und Präfix <span>\(\bar x\)</span> existiert oder nicht. Dann können wir einen Algorithmus <span>\(\mathcal{B}\)</span> aus <span>\(\mathcal{A}\)</span> bauen, der <span>\(f\)</span> invertiert.</p>
 
-<p>Gegeben $y$ verfährt $\mathcal{B}$ wie folgt:
-$\mathcal{B}$ ruft $\mathcal{A}(0,y)$ auf und erfährt so, ob ein Urbild $x$ von $y$ mit Anfangsbit $0$ existiert. Wenn ja, ruft $\mathcal{B}$ den Algorithmus $\mathcal{A}(00,y)$ auf, wenn nein ruft $\mathcal{B}$ den Algorithmus $\mathcal{A}(10,y)$ auf usw.</p>
+<p>Gegeben <span>\(y\)</span> verfährt <span>\(\mathcal{B}\)</span> wie folgt:
+<span>\(\mathcal{B}\)</span> ruft <span>\(\mathcal{A}(0,y)\)</span> auf und erfährt so, ob ein Urbild <span>\(x\)</span> von <span>\(y\)</span> mit Anfangsbit <span>\(0\)</span> existiert. Wenn ja, ruft <span>\(\mathcal{B}\)</span> den Algorithmus <span>\(\mathcal{A}(00,y)\)</span> auf, wenn nein ruft <span>\(\mathcal{B}\)</span> den Algorithmus <span>\(\mathcal{A}(10,y)\)</span> auf usw.</p>
 
-<p>So wird ein Urbild $x$ bitweise bestimmt. Ein solches $\mathcal{B}$ findet also effizient Urbilder, im Widerspruch zur Einwegannahme über $f \blacksquare$</p>
+<p>So wird ein Urbild <span>\(x\)</span> bitweise bestimmt. Ein solches <span>\(\mathcal{B}\)</span> findet also effizient Urbilder, im Widerspruch zur Einwegannahme über <span>\(f \blacksquare\)</span></p>
 
-<p>Aber: Wenn das $x$ gegeben ist, dann ist es einfach zu zeigen, dass $y= f(x)$ gilt und damit auch, ob $\bar x$ ein Präfix von $x$ ist. Damit ist $L_f \in \mathcal{NP}$.</p>
+<p>Aber: Wenn das <span>\(x\)</span> gegeben ist, dann ist es einfach zu zeigen, dass <span>\(y= f(x)\)</span> gilt und damit auch, ob <span>\(\bar x\)</span> ein Präfix von <span>\(x\)</span> ist. Damit ist <span>\(L_f \in \mathcal{NP}\)</span>.</p>
 
-<p>Damit gilt: $L_f \in \mathcal{NP} \setminus \mathcal{P}$.
-Wenn aber $\mathcal{NP} \setminus \mathcal{P} \neq \emptyset$, dann gilt insbesondere $\mathcal{P} \neq \mathcal{NP}$.</p>
+<p>Damit gilt: <span>\(L_f \in \mathcal{NP} \setminus \mathcal{P}\)</span>.
+Wenn aber <span>\(\mathcal{NP} \setminus \mathcal{P} \neq \emptyset\)</span>, dann gilt insbesondere <span>\(\mathcal{P} \neq \mathcal{NP}\)</span>.</p>
 
-<p>An dieser Stelle sollte man also einsehen, dass eine Einwegfunktion nach obiger Definition nur existieren kann, wenn $\mathcal{P} \neq \mathcal{NP}$ gilt.</p>
+<p>An dieser Stelle sollte man also einsehen, dass eine Einwegfunktion nach obiger Definition nur existieren kann, wenn <span>\(\mathcal{P} \neq \mathcal{NP}\)</span> gilt.</p>
 
 <h2 id="tocAnchor-1-2">Semantische Sicherheit</h2>
 <p><a href="http://de.wikipedia.org/wiki/Sicherheitseigenschaften_kryptografischer_Verfahren#Semantische_Sicherheit">Wikipedia</a> gibt folgende Beschreibung von semantischer Sicherheit:</p>
@@ -157,27 +157,27 @@ Wenn aber $\mathcal{NP} \setminus \mathcal{P} \neq \emptyset$, dann gilt insbeso
 <p>Herr Prof. Hofheinz hat folgende informelle Definition von Semantischer Sicherheit in der Vorlesung gegeben:</p>
 
 <div class="definition">
-Ein symmetrisches Verschlüsselungsverfahren ist semantisch sicher, wenn es für jede `$M$`-Verteilung, jede Funktion `$f$` und jeden PPT-Algorithmus `$\mathcal{A}$` einen PPT-Algorithmus `$\mathcal{B}$` gibt, so dass
+Ein symmetrisches Verschlüsselungsverfahren ist semantisch sicher, wenn es für jede <span>\(M\)</span>-Verteilung, jede Funktion <span>\(f\)</span> und jeden PPT-Algorithmus <span>\(\mathcal{A}\)</span> einen PPT-Algorithmus <span>\(\mathcal{B}\)</span> gibt, so dass
 
-`$Pr \left [\mathcal{A}^{\text{Enc}(K, \cdot)}(\text{Enc}(K, M)) = f(M) \right ] - Pr [\mathcal{B}(\varepsilon) = f(M)]$`
+<span>\(Pr \left [\mathcal{A}^{\text{Enc}(K, \cdot)}(\text{Enc}(K, M)) = f(M) \right ] - Pr [\mathcal{B}(\varepsilon) = f(M)]\)</span>
 
-vernachlässigbar (als Funktion im Sicherheitsparameter `$K$`) ist.
+vernachlässigbar (als Funktion im Sicherheitsparameter <span>\(K\)</span>) ist.
 </div>
 
 <p>Hier ist</p>
 <ul>
-  <li>`$M$` eine Nachricht (Message),</li>
-  <li>`$\text{Enc(K, M)}$`  die Verschlüsselung einer konkreten Nachricht `$M$` mit dem Schlüssel `$K$`,</li>
-  <li>`$\varepsilon$` eine triviale Information (ich glaube das ist z.B. die Länge des Ciphertextes) und</li>
-  <li>`$f$` extrahiert beliebige Informationen aus dem Plaintext</li>
+  <li><span>\(M\)</span> eine Nachricht (Message),</li>
+  <li><span>\(\text{Enc(K, M)}\)</span>  die Verschlüsselung einer konkreten Nachricht <span>\(M\)</span> mit dem Schlüssel <span>\(K\)</span>,</li>
+  <li><span>\(\varepsilon\)</span> eine triviale Information (ich glaube das ist z.B. die Länge des Ciphertextes) und</li>
+  <li><span>\(f\)</span> extrahiert beliebige Informationen aus dem Plaintext</li>
 </ul>
 
-<p>Die erste Wahrscheinlichkeit bezeichnet die Möglichkeit, aus dem Ciphertext Informationen der Art $f$ über den Plaintext $M$ zu erhalten.
+<p>Die erste Wahrscheinlichkeit bezeichnet die Möglichkeit, aus dem Ciphertext Informationen der Art <span>\(f\)</span> über den Plaintext <span>\(M\)</span> zu erhalten.
 Die zweite Wahrscheinlichkeit bezeichnet die Möglichkeit „aus dem Nichts“ Informationen über eine Nachricht zu erhalten. Damit will man triviale Informationen eliminieren. Insgesamt gibt es also die Wahrscheinlichkeit an, nicht-triviale Informationen aus einer Verschlüsselten Nachricht zu erhalten. Mit effizient ist vermutlich in Polynomialzeit gemeint.</p>
 
-<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren gibt, dann kann man dieses Verfahren als Einwegfunktion nutzen. Wenn eine Einwegfunktion existiert, gilt $\mathcal{P} \neq \mathcal{NP}$. Also folgt:</p>
+<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren gibt, dann kann man dieses Verfahren als Einwegfunktion nutzen. Wenn eine Einwegfunktion existiert, gilt <span>\(\mathcal{P} \neq \mathcal{NP}\)</span>. Also folgt:</p>
 
-<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren existieren, gilt $\mathcal{P} \neq \mathcal{NP}$. Dies ist aber eines der <a href="http://de.wikipedia.org/wiki/Millennium-Probleme">Millennium-Probleme</a> und noch nicht geklärt.</p>
+<p>Wenn es nun mehrfach benutzbare semantisch sichere Verfahren existieren, gilt <span>\(\mathcal{P} \neq \mathcal{NP}\)</span>. Dies ist aber eines der <a href="http://de.wikipedia.org/wiki/Millennium-Probleme">Millennium-Probleme</a> und noch nicht geklärt.</p>
 
                         </div>
                         <div class="postmeta">Posted in
