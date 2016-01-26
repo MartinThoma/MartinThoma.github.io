@@ -295,12 +295,6 @@ Bewusstsein, Überleben in komplexen Welten, )</li>
   <dd>Vorschrift, nach der Hypothese gebildet werden.</dd>
 </dl>
 
-<p>Siehe auch:</p>
-
-<ul>
-  <li><a href="http://datascience.stackexchange.com/q/9832/8820">What is the Q function and what is the V function in reinforcement learning?</a></li>
-</ul>
-
 <h3 id="tocAnchor-1-1-4">Reinforcement Learning</h3>
 
 <p>Slide name: <code>MLI_03_ReinforcementLearning_slides1.pdf</code></p>
@@ -308,8 +302,8 @@ Bewusstsein, Überleben in komplexen Welten, )</li>
 <p>Siehe auch:</p>
 
 <ul>
-  <li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9">Neuronale Netze</a></li>
-  <li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
+  <li><a href="../neuronale-netze-vorlesung/#tocAnchor-1-1-9">Neuronale Netze</a></li>
+  <li><a href="../machine-learning-2-course/#tocAnchor-1-1-5">Machine Learning 2</a></li>
   <li><a href="https://github.com/MartinThoma/cat-vs-mouse">Cat vs. Mouse code</a></li>
   <li>Berkeley
     <ul>
@@ -317,6 +311,7 @@ Bewusstsein, Überleben in komplexen Welten, )</li>
       <li>Dan Klein, Pieter Abbeel: <a href="https://www.youtube.com/watch?v=w33Lplx49_A">Lecture 10: Reinforcement Learning</a> on YouTube. University of California, Berkeley. This expalins TD-learning.</li>
     </ul>
   </li>
+  <li><a href="http://datascience.stackexchange.com/q/9832/8820">What is the Q function and what is the V function in reinforcement learning?</a></li>
 </ul>
 
 <dl>
@@ -1055,9 +1050,15 @@ gegeben eine Sequenz von Beobachtungen \(\bf{o} = o_1 o_2 \dots o_T\).</li>
 
 <p>Slides: <code>MLI_11-MLN_slides1</code></p>
 
+<p>Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten \(w_i\) und
+prädikatenlogischen Formeln. Die Idee hinter Markov Logik Netzen ist ein
+aufweichen der harten Bedingungen der Prädikatenlogik. Eine prädikatenlogische
+Formel ist entweder wahr oder falsch. Eine Formel in MLNs kann auch “meistens”
+erfüllt sein. Das wird durch das Gewicht repräsentiert.</p>
+
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>
-  <dd>Ein Markov Logik Netz \(L\) ist ein Menge aus Tupeln \((F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung ist und \(w_i \in \mathbb{R}\) ein Gewicht ist.
+  <dd>Ein Markov Logik Netz ist ein Menge aus Tupeln \(L = (F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung und \(w_i \in \mathbb{R}\) ein Gewicht ist.
       Ein MLN ist eine Schablone für ein MRF.</dd>
   <dt><a name="mrf-definition" id="mrf-definition"></a><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
   <dd>Ein MRF ist ein ungerichtetes Probabilistisches Grafisches Modell.<br />
@@ -1076,9 +1077,11 @@ gegeben eine Sequenz von Beobachtungen \(\bf{o} = o_1 o_2 \dots o_T\).</li>
 
 <ul>
   <li>Matthew Richardson, Pedro Domingos: <a href="http://link.springer.com/article/10.1007/s10994-006-5833-1">Markov logic networks</a></li>
+  <li>Pedro Domingos, Matthew Richardson: <a href="http://homes.cs.washington.edu/~pedrod/papers/srl04.pdf">Markov Logic: A Unifying Framework for Statistical Relational Learning</a>, 2007.</li>
   <li>Coursera: <a href="https://www.coursera.org/course/pgm">Probabilistic Graphical Models</a></li>
   <li>Pedro Domingos: <a href="https://www.youtube.com/watch?v=bW5DzNZgGxY">Unifying Logical and Statistical AI</a>, September 2009.</li>
   <li>Software: <a href="https://alchemy.cs.washington.edu/">Alchemy</a></li>
+  <li>YouTube: <a href="https://www.youtube.com/watch?v=BLAoNJvQZQ4">11 4 M4 Markov Logic Formalism 11 39</a></li>
 </ul>
 
 <h3 id="tocAnchor-1-1-13">Evolutionäre Algorithmen</h3>
@@ -1345,15 +1348,17 @@ until c = c'
         inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale
         Attribute gestattet. Dabei wird ein Datenpunkt \(x_i\) zum Cluster
         \(c_j\) geclustert, wenn man die Attributwerte von \(x_i\) durch die
-        Kentniss von \(c_j\) gut vorhersagen kann (P(x_i | c_j),
+        Kentniss von \(c_j\) gut vorhersagen kann (<span>\(P(x_i | c_j)\)</span>,
         predictability) und zugleich der Cluster gut vorhergesagt werden kann,
-        wenn die Attributwerte gegeben sind (P(c_j|x_i), predictiveness).
+        wenn die Attributwerte gegeben sind (<span>\(P(c_j|x_i)</span>, predictiveness).
 
         Es soll also in inter-Klassenähnlichkeit minimiert und die
         intra-Klassenähnlichkeit maximimiert werden. Dafür wird die
         Category Utility verwendet:
 
-        \[\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij}\]
+        <div>
+        \[\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij})\]
+        </div>
 
         Dabei gilt:
 
