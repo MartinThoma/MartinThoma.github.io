@@ -19,20 +19,20 @@ The easiest way to search for a math symbol is <a href="http://detexify.kirelabs
 <h3>Arrows</h3>
 <table>
 <tr>
-<td>$\rightarrow$</td><td>\rightarrow</td>
-<td>$\leftarrow$</td><td>\leftarrow</td>
-<td>$\Rightarrow$</td><td>\Rightarrow</td>
-<td>$\Leftarrow$</td><td>\Leftarrow</td>
+<td><span markdown="0">\(\rightarrow\)</span></td><td>\rightarrow</td>
+<td><span markdown="0">\(\leftarrow\)</span></td><td>\leftarrow</td>
+<td><span markdown="0">\(\Rightarrow\)</span></td><td>\Rightarrow</td>
+<td><span markdown="0">\(\Leftarrow\)</span></td><td>\Leftarrow</td>
 </tr>
 <tr>
-<td>$\leftrightarrow$</td><td>\leftrightarrow</td>
-<td>$\Leftrightarrow$</td><td>\Leftrightarrow</td>
-<td>$\nRightarrow$</td><td>\nRightarrow</td>
-<td>$\nrightarrow$</td><td>\nrightarrow</td>
+<td><span markdown="0">\(\leftrightarrow\)</span></td><td>\leftrightarrow</td>
+<td><span markdown="0">\(\Leftrightarrow\)</span></td><td>\Leftrightarrow</td>
+<td><span markdown="0">\(\nRightarrow\)</span></td><td>\nRightarrow</td>
+<td><span markdown="0">\(\nrightarrow\)</span></td><td>\nrightarrow</td>
 </tr>
 <tr>
-<td>$\leadsto$</td><td>\leadsto</td>
-<td>$\mapsto$</td><td>\mapsto</td>
+<td><span markdown="0">\(\leadsto\)</span></td><td>\leadsto</td>
+<td><span markdown="0">\(\mapsto\)</span></td><td>\mapsto</td>
 <td>.</td><td>.</td>
 <td>.</td><td>.</td>
 </tr>
@@ -42,50 +42,50 @@ The easiest way to search for a math symbol is <a href="http://detexify.kirelabs
 <h3>Greek</h3>
 <table>
 <tr>
-<td>$\alpha$</td><td>\alpha</td>
-<td>$\beta$</td><td>\beta</td>
-<td>$\gamma$</td><td>\gamma</td>
-<td>$\delta$</td><td>\delta</td>
+<td><span markdown="0">\(\alpha\)</span></td><td>\alpha</td>
+<td><span markdown="0">\(\beta\)</span></td><td>\beta</td>
+<td><span markdown="0">\(\gamma\)</span></td><td>\gamma</td>
+<td><span markdown="0">\(\delta\)</span></td><td>\delta</td>
 </tr>
 <tr>
-<td>$\zeta$</td><td>\zeta</td>
-<td>$\eta$</td><td>\eta</td>
-<td>$\theta$</td><td>\theta</td>
-<td>$\epsilon, \varepsilon$</td><td>\epsilon, \varepsilon</td>
+<td><span markdown="0">\(\zeta\)</span></td><td>\zeta</td>
+<td><span markdown="0">\(\eta\)</span></td><td>\eta</td>
+<td><span markdown="0">\(\theta\)</span></td><td>\theta</td>
+<td><span markdown="0">\(\epsilon, \varepsilon\)</span></td><td>\epsilon, \varepsilon</td>
 </tr>
 <tr>
-<td>$\iota$</td><td>\iota</td>
-<td>$\kappa$</td><td>\kappa</td>
-<td>$\lambda$</td><td>\lambda</td>
-<td>$\mu$</td><td>\mu</td>
+<td><span markdown="0">\(\iota\)</span></td><td>\iota</td>
+<td><span markdown="0">\(\kappa\)</span></td><td>\kappa</td>
+<td><span markdown="0">\(\lambda\)</span></td><td>\lambda</td>
+<td><span markdown="0">\(\mu\)</span></td><td>\mu</td>
 </tr>
 <tr>
-<td>$\nu$</td><td>\nu</td>
-<td>$\xi$</td><td>\xi</td>
+<td><span markdown="0">\(\nu\)</span></td><td>\nu</td>
+<td><span markdown="0">\(\xi\)</span></td><td>\xi</td>
 <td>o</td><td>o</td>
-<td>$\pi$</td><td>\pi</td>
+<td><span markdown="0">\(\pi\)</span></td><td>\pi</td>
 </tr>
 <tr>
-<td>$\rho$</td><td>\rho</td>
-<td>$\sigma$</td><td>\sigma</td>
-<td>$\tau$</td><td>\tau</td>
-<td>$\upsilon$</td><td>\upsilon</td>
+<td><span markdown="0">\(\rho\)</span></td><td>\rho</td>
+<td><span markdown="0">\(\sigma\)</span></td><td>\sigma</td>
+<td><span markdown="0">\(\tau\)</span></td><td>\tau</td>
+<td><span markdown="0">\(\upsilon\)</span></td><td>\upsilon</td>
 </tr>
 <tr>
-<td>$\phi$</td><td>\phi</td>
-<td>$\chi$</td><td>\chi</td>
-<td>$\psi$</td><td>\psi</td>
-<td>$\omega, \Omega$</td><td>\omega, \Omega</td>
+<td><span markdown="0">\(\phi\)</span></td><td>\phi</td>
+<td><span markdown="0">\(\chi\)</span></td><td>\chi</td>
+<td><span markdown="0">\(\psi\)</span></td><td>\psi</td>
+<td><span markdown="0">\(\omega, \Omega\)</span></td><td>\omega, \Omega</td>
 </tr>
 <tr>
-<td>$\Phi$</td><td>\Phi</td>
-<td>$\varphi$</td><td>\varphi</td>
+<td><span markdown="0">\(\Phi\)</span></td><td>\Phi</td>
+<td><span markdown="0">\(\varphi\)</span></td><td>\varphi</td>
 <td>.</td><td>.</td>
 <td>.</td><td>.</td>
 </tr>
 <tr>
-<td>$\Lambda$</td><td>\Lambda</td>
-<td>$\Delta$</td><td>\Delta</td>
+<td><span markdown="0">\(\Lambda\)</span></td><td>\Lambda</td>
+<td><span markdown="0">\(\Delta\)</span></td><td>\Delta</td>
 <td>.</td><td>.</td>
 <td>.</td><td>.</td>
 </tr>
@@ -94,64 +94,64 @@ The easiest way to search for a math symbol is <a href="http://detexify.kirelabs
 <h3>Operations</h3>
 <table>
 <tr>
-<td>$\cdot$</td><td>\cdot</td>
-<td>$\oplus$</td><td>\oplus</td>
-<td>$\times$</td><td>\times</td>
-<td>$\nabla$</td><td>\nabla</td>
+<td><span markdown="0">\(\cdot\)</span></td><td>\cdot</td>
+<td><span markdown="0">\(\oplus\)</span></td><td>\oplus</td>
+<td><span markdown="0">\(\times\)</span></td><td>\times</td>
+<td><span markdown="0">\(\nabla\)</span></td><td>\nabla</td>
 </tr>
 <tr>
-<td>$\pm$</td><td>\pm</td>
-<td>$\mp$</td><td>\mp</td>
-<td>$\cup$</td><td>\cup</td>
-<td>$\cap$</td><td>\cap</td>
+<td><span markdown="0">\(\pm\)</span></td><td>\pm</td>
+<td><span markdown="0">\(\mp\)</span></td><td>\mp</td>
+<td><span markdown="0">\(\cup\)</span></td><td>\cup</td>
+<td><span markdown="0">\(\cap\)</span></td><td>\cap</td>
 </tr>
 </table>
 
 <h3>Relations</h3>
 <table>
 <tr>
-<td>$\approx$</td><td>\approx</td>
-<td>$\sim$</td><td>\sim</td>
-<td>$\cong$</td><td>\cong</td>
-<td>$\neq$</td><td>\neq</td>
+<td><span markdown="0">\(\approx\)</span></td><td>\approx</td>
+<td><span markdown="0">\(\sim\)</span></td><td>\sim</td>
+<td><span markdown="0">\(\cong\)</span></td><td>\cong</td>
+<td><span markdown="0">\(\neq\)</span></td><td>\neq</td>
 </tr>
 </table>
 
 <h3>Calligraphic Letters</h3>
 <table>
 <tr>
-<td>$\cal{O}$</td><td>\cal{O}</td>
-<td>$\mathfrak{M}$</td><td>\mathfrak{O}</td>
-<td>$\mathfrak{R}$</td><td>\mathfrak{R}</td>
+<td><span markdown="0">\(\cal{O}\)</span></td><td>\cal{O}</td>
+<td><span markdown="0">\(\mathfrak{M}\)</span></td><td>\mathfrak{O}</td>
+<td><span markdown="0">\(\mathfrak{R}\)</span></td><td>\mathfrak{R}</td>
 </tr>
 </table>
 
 <h3>Sets</h3>
 <table>
 <tr>
-<td>$\mathbb{N}$</td><td>\mathbb{N}</td>
-<td>$\mathbb{Z}$</td><td>\mathbb{Z}</td>
-<td>$\mathbb{R}$</td><td>\mathbb{R}</td>
-<td>$\mathbb{C}$</td><td>\mathbb{C}</td>
+<td><span markdown="0">\(\mathbb{N}\)</span></td><td>\mathbb{N}</td>
+<td><span markdown="0">\(\mathbb{Z}\)</span></td><td>\mathbb{Z}</td>
+<td><span markdown="0">\(\mathbb{R}\)</span></td><td>\mathbb{R}</td>
+<td><span markdown="0">\(\mathbb{C}\)</span></td><td>\mathbb{C}</td>
 </tr>
 <tr>
-<td>$\mathbb{A}$</td><td>\mathbb{A}</td>
-<td>$\cap$</td><td>\cap</td>
-<td>$\cup$</td><td>\cup</td>
-<td>$\in$</td><td>\in</td>
+<td><span markdown="0">\(\mathbb{A}\)</span></td><td>\mathbb{A}</td>
+<td><span markdown="0">\(\cap\)</span></td><td>\cap</td>
+<td><span markdown="0">\(\cup\)</span></td><td>\cup</td>
+<td><span markdown="0">\(\in\)</span></td><td>\in</td>
 </tr>
 <tr>
-<td>$\subseteq$</td><td>\subseteq</td>
-<td>$\subsetneq$</td><td>\subsetneq</td>
-<td>$\notin$</td><td>\notin</td>
-<td>$\bigcup$</td><td>\bigcup</td>
+<td><span markdown="0">\(\subseteq\)</span></td><td>\subseteq</td>
+<td><span markdown="0">\(\subsetneq\)</span></td><td>\subsetneq</td>
+<td><span markdown="0">\(\notin\)</span></td><td>\notin</td>
+<td><span markdown="0">\(\bigcup\)</span></td><td>\bigcup</td>
 </tr>
 </table>
 
 <h3>Other</h3>
-You might need \qed, \qedsymbol, \blacksquare for proofs. It is the <a href="http://en.wikipedia.org/wiki/Tombstone_(typography)">Tombstone</a> $\blacksquare$
+You might need `\qed`, `\qedsymbol`, `\blacksquare` for proofs. It is the <a href="http://en.wikipedia.org/wiki/Tombstone_(typography)">Tombstone</a> <span markdown="0">\(\blacksquare\)</span>
 
-I've recently needed $\dots, \ddots, \vdots$ (\dots, \ddots, \vdots) for a visualization in a matrix. Note that you can write ... instead of \dots, but you'll lose the semantics.
+I've recently needed <span markdown="0">\(\dots, \ddots, \vdots\)</span> (`\dots`, `\ddots`, `\vdots`) for a visualization in a matrix. Note that you can write ... instead of `\dots`, but you'll lose the semantics.
 
 <h2>See also</h2>
 <ul>
