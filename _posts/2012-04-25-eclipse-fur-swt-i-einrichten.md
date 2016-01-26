@@ -20,7 +20,7 @@ featured_image: 2012/04/eclipse-logo.png
 F&uuml;r die Installation von Java, Subversion (SVN), Eclipse und Checkstyle samt Dokumentation muss folgendes in der Konsole eingegeben werden:
 {% highlight bash %}sudo apt-get install openjdk-6-jre openjdk-6-jdk openjdk-6-source openjdk-6-demo openjdk-6-doc openjdk-6-jre-headless openjdk-6-jre-lib subversion libapache2-svn eclipse checkstyle checkstyle-doc{% endhighlight %}
 
-Dann werden etwa 276 MB an Archiven heruntergeladen und 662 MB an zus&auml;tzlichen Packeten installiert. Bei meiner Internetverbindung (DSL 1000 :-( ) hat das ca 40 Minuten gedauert.
+Dann werden etwa 276 MB an Archiven heruntergeladen und 662 MB an zus&auml;tzlichen Packeten installiert. Bei meiner Internetverbindung (DSL 1000 ☹ ) hat das ca 40 Minuten gedauert.
 
 <h2>CheckStyle</h2>
 Siehe eclipse-cs.sourceforge.net mit <a href="http://eclipse-cs.sourceforge.net/downloads.html">detaillierten Installationsanweisungen</a>. 

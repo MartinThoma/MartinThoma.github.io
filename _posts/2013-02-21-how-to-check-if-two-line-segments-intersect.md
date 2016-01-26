@@ -412,7 +412,7 @@ The complete, tested code is on <a href="https://github.com/MartinThoma/algorith
 Some notes for me:
 <ul>
   <li>Writing Tests first is worth the effort. I guess it finally saved me some time and it gives me some confidence that my code works.</li>
-  <li>I should update my system. I'm still using Ubuntu 10.04.4 LTS. Especially, I have Eclipse 3.5.2. This means I could not try <a href="http://www.eclemma.org/">EclEmma</a> to test my code coverage :-(</li>
+  <li>I should update my system. I'm still using Ubuntu 10.04.4 LTS. Especially, I have Eclipse 3.5.2. This means I could not try <a href="http://www.eclemma.org/">EclEmma</a> to test my code coverage ☹</li>
   <li>LaTeX is great. I've created all images with LaTeX and it was quite fast after I got the first one. Here is the <a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/tikz/line-segments">LaTeX source</a>.</li>
 </ul>
 

@@ -58,7 +58,7 @@ Es gilt:
 &rarr; <a href="../wie-bestimme-ich-den-kern-einer-linearen-abbildung/" title="Wie bestimme ich den Kern einer linearen Abbildung?">Wie bestimme ich den Kern einer linearen Abbildung?</a>
 
 Außerdem gilt:
-Die Größe des größten Jordankästchens zum Eigenwert <span>\(\lambda_i\)</span> ist gleich der Potenz, mit der der Linearfaktor <span>\((x-\lambda_i)\)</span> im Minimalpolynom (leider NICHT das charakteristische Polynom :-( ) vorkommt.
+Die Größe des größten Jordankästchens zum Eigenwert <span>\(\lambda_i\)</span> ist gleich der Potenz, mit der der Linearfaktor <span>\((x-\lambda_i)\)</span> im Minimalpolynom (leider NICHT das charakteristische Polynom ☹ ) vorkommt.
 
 Nun kann man häufig schon schlussfolgern, welche Größe die einzelnen Jordankästchen haben.
 Zusätzlich haben ähnliche Matrizen die gleiche Spur, die gleiche Determinante und den gleichen Rang. Das könnte helfen um "falsche" Jordanmatrizen auszuschließen.

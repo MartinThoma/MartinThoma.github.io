@@ -12,7 +12,7 @@ featured_image: 2012/01/sopa.png
 ---
 Some of the biggest sites in the internet are currently calling US citizens up to protest. SOPA - the Stop Online Piracy Act - is endangering some key aspects of the internet.
 
-I am a little bit disappointed that Google had no special doodle today and twitter had no message at all :-( Well, at least did Google offer <a href="https://www.google.com/landing/takeaction/">some information</a>.
+I am a little bit disappointed that Google had no special doodle today and twitter had no message at all ☹ Well, at least did Google offer <a href="https://www.google.com/landing/takeaction/">some information</a>.
 
 Here is a neat explanation of SOPA:
 <iframe src="http://player.vimeo.com/video/31100268?byline=0&amp;portrait=0" width="512" height="288" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
