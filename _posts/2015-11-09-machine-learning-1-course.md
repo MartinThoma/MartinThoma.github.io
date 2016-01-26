@@ -114,10 +114,6 @@ Weiteres
   <dd>Vorschrift, nach der Hypothese gebildet werden.</dd>
 </dl>
 
-Siehe auch:
-
-* [What is the Q function and what is the V function in reinforcement learning?](http://datascience.stackexchange.com/q/9832/8820)
-
 
 ### Reinforcement Learning
 
@@ -125,12 +121,13 @@ Slide name: `MLI_03_ReinforcementLearning_slides1.pdf`
 
 Siehe auch:
 
-* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/#tocAnchor-1-1-9)
-* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
+* [Neuronale Netze](../neuronale-netze-vorlesung/#tocAnchor-1-1-9)
+* [Machine Learning 2](../machine-learning-2-course/#tocAnchor-1-1-5)
 * [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)
 * Berkeley
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
     * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This expalins TD-learning.
+* [What is the Q function and what is the V function in reinforcement learning?](http://datascience.stackexchange.com/q/9832/8820)
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
@@ -813,9 +810,15 @@ Anwendungen:
 
 Slides: `MLI_11-MLN_slides1`
 
+Markov Logik Netze sind Sammlungen von Tupeln aus Gewichten \\(w_i\\) und
+prädikatenlogischen Formeln. Die Idee hinter Markov Logik Netzen ist ein
+aufweichen der harten Bedingungen der Prädikatenlogik. Eine prädikatenlogische
+Formel ist entweder wahr oder falsch. Eine Formel in MLNs kann auch "meistens"
+erfüllt sein. Das wird durch das Gewicht repräsentiert.
+
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markov_Logik_Netze"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>
-  <dd>Ein Markov Logik Netz \(L\) ist ein Menge aus Tupeln \((F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung ist und \(w_i \in \mathbb{R}\) ein Gewicht ist.
+  <dd>Ein Markov Logik Netz ist ein Menge aus Tupeln \(L = (F_i, w_i)\), wobei \(F_i\) eine Formel der Prädikatenlogik erster Ordnung und \(w_i \in \mathbb{R}\) ein Gewicht ist.
       Ein MLN ist eine Schablone für ein MRF.</dd>
   <dt><a name="mrf-definition"></a><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>
   <dd>Ein MRF ist ein ungerichtetes Probabilistisches Grafisches Modell.<br/>
@@ -834,9 +837,11 @@ Slides: `MLI_11-MLN_slides1`
 Siehe auch:
 
 * Matthew Richardson, Pedro Domingos: [Markov logic networks](http://link.springer.com/article/10.1007/s10994-006-5833-1)
+* Pedro Domingos, Matthew Richardson: [Markov Logic: A Unifying Framework for Statistical Relational Learning](http://homes.cs.washington.edu/~pedrod/papers/srl04.pdf), 2007.
 * Coursera: [Probabilistic Graphical Models](https://www.coursera.org/course/pgm)
 * Pedro Domingos: [Unifying Logical and Statistical AI](https://www.youtube.com/watch?v=bW5DzNZgGxY), September 2009.
 * Software: [Alchemy](https://alchemy.cs.washington.edu/)
+* YouTube: [11 4 M4 Markov Logic Formalism 11 39](https://www.youtube.com/watch?v=BLAoNJvQZQ4)
 
 
 ### Evolutionäre Algorithmen
@@ -1095,15 +1100,17 @@ until c = c'
         inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale
         Attribute gestattet. Dabei wird ein Datenpunkt \(x_i\) zum Cluster
         \(c_j\) geclustert, wenn man die Attributwerte von \(x_i\) durch die
-        Kentniss von \(c_j\) gut vorhersagen kann (P(x_i | c_j),
+        Kentniss von \(c_j\) gut vorhersagen kann (<span markdown="0">\(P(x_i | c_j)\)</span>,
         predictability) und zugleich der Cluster gut vorhergesagt werden kann,
-        wenn die Attributwerte gegeben sind (P(c_j|x_i), predictiveness).
+        wenn die Attributwerte gegeben sind (<span markdown="0">\(P(c_j|x_i)</span>, predictiveness).
 
         Es soll also in inter-Klassenähnlichkeit minimiert und die
         intra-Klassenähnlichkeit maximimiert werden. Dafür wird die
         Category Utility verwendet:
 
-        \[\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij}\]
+        <div>
+        \[\text{CU} = \sum_{k=1}^K \sum_{i=1}^I \sum_{j=1}^{J(i)} P(A_i = V_{ij}) \cdot P(A_i = V_ij | C_k) \cdot P(C_k | A_i = V_{ij})\]
+        </div>
 
         Dabei gilt:
 
