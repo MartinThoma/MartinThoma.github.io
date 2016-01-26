@@ -436,7 +436,6 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
                 <li>Get the reward \(\hat{R}\) from that state on</li>
                 <li>\(\hat{R} = \sum_{j=0}^\infty \gamma^j r_j\)</li>
                 <li>\(V_{k+1}^\pi (s) \leftarrow V_k^pi (s) (1-\alpha)+\alpha \hat{R}\)</li>
-                <li></li>
             </ol>
             </li>
         </ol>
@@ -448,7 +447,7 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
 
 Konvention:
 
-* Eine optimale Strategie wird mit \(\pi^*\) bezeichnet.
+* Eine optimale Strategie wird mit <span markdown="0">\(\pi^*\)</span> bezeichnet.
 
 
 Fragen:

@@ -14,55 +14,9 @@ featured_image: logos/klausur.png
 
 ## Behandelter Stoff
 
-### Vorlesung
-
-<table>
-<tr>
-    <th>Datum</th>
-    <th>Kapitel</th>
-    <th>Inhalt</th>
-</tr>
-<tr>
-    <td>15.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=429607&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Einleitung</a></td>
-    <td>Wiederholung ML1; Definition 'Machine Learning'</td>
-</tr>
-<tr>
-    <td>24.04.2015</td>
-    <td><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=432731&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Semi Supervised Learning (SSL)</a></td>
-    <td>Transduktives Lernen; Self-Learning; Co-Training; Generative Models; EM-Algorithmus; Low-Density seperation; Transductive SVM</td>
-</tr>
-<tr>
-    <td>01.05.2015</td>
-    <td>-</td>
-    <td>Vorlesung fällt aus (vgl. erster Foliensatz, Folie 49)</td>
-</tr>
-<tr>
-    <td>08.05.2015</td>
-    <td><abbr title="Semi-Supervised Learning">SSL</abbr></td>
-    <td>Transductive SVM, Aktives Lernen</td>
-</tr>
-<tr>
-    <td>15.05.2015</td>
-    <td>-</td>
-    <td>Vorlesung fällt aus (vgl. erster Foliensatz, Folie 49)</td>
-</tr>
-<tr>
-    <td>22.05.2015</td>
-    <td>Reinforcement Learning</td>
-    <td>Beschreibung als MDP, Strategielernen, Bellman-Gleichungen; Q-Learning, <abbr title="Hierarchische Abstrakte Maschinen">HAM</abbr>, MAXQ</td>
-</tr>
-<tr>
-    <td>05.06.2015</td>
-    <td>-</td>
-    <td>Vorlesung fällt aus (vgl. erster Foliensatz, Folie 49)</td>
-</tr>
-</table>
-
-
 ### Einführung
 
-Slides: `01_Einfu__hrung_MLII.pdf`
+Slides: <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=429607&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">`01_Einfu__hrung_MLII.pdf`</a>
 
 Rückblick auf [ML 1](//martin-thoma.com/machine-learning-1-course/).
 MLNN steht übrigens für <i>Multi-Layer Neural Network</i>.
@@ -70,7 +24,7 @@ MLNN steht übrigens für <i>Multi-Layer Neural Network</i>.
 
 ### Semi-Supervised Learning
 
-Slides: `02_Semi-supervised-learning.pdf`
+Slides: <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=432731&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">`02_Semi-supervised-learning.pdf`</a>
 
 <dl>
   <dt><dfn>Überwachtes Lernen</dfn> (engl. <dfn>Supervised Learning</dfn>)</dt>
@@ -242,7 +196,7 @@ Siehe auch:
   </dd>
   <dt><dfn>Partially observable Markov decision process</dfn> (<dfn>POMDP</dfn>)<a name="pomdp-definition"></a></dt>
   <dd>Ein <i>partially observable Markov decision process</i> ist ein
-      7-tupel \(S, A, T, R, \Omega, O, \gamma\), wobei
+      7-tupel <span markdown="0">\(S, A, T, R, \Omega, O, \gamma\)</span>, wobei
 
       <ul>
           <li>\(S\) die Zustandsmenge,</li>
