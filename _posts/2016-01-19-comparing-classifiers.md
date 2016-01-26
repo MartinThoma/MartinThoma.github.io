@@ -82,13 +82,19 @@ I'm astonished that the QDA gets 93% with that boundary; Naive Bayes seems to
 find a much better boundary.
 
 
+## The hardware
+
+The following comparison is done on a PC with an [Intel i7-4820K CPU](http://ark.intel.com/de/products/77781/Intel-Core-i7-4820K-Processor-10M-Cache-up-to-3_90-GHz) and a NVIDIA GeForce GTX Titan Black
+GPU.
+
+
 ## MNIST
 
-MNIST is a dataset of \(28\text{px} \times 28\text{px}\) greyscale images.
+MNIST is a dataset of <span markdown="0">\(28\text{px} \times 28\text{px}\)</span> greyscale images.
 Each of the images contains a digit (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). The
 task is to classify the image into one of the 10 digit classes.
 
-Guessing randomly will give an accuracy of \(\frac{1}{10} = 0.1\).
+Guessing randomly will give an accuracy of <span markdown="0">\(\frac{1}{10} = 0.1\)</span>.
 
 
 ### Neural Networks
