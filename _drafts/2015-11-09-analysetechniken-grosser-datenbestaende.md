@@ -47,6 +47,11 @@ featured_image: logos/klausur.png
     <td>R-Übung</td>
     <td>-</td>
 </tr>
+<tr>
+    <td>26.01.2016, 08:00</td>
+    <td>Übung</td>
+    <td>-</td>
+</tr>
 </table>
 
 ### Folien
