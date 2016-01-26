@@ -173,6 +173,11 @@ I've summed up the basics on [Using SVMs with sklearn](https://martin-thoma.com/
 I've trained two SVMs: A simple, linear one and one with an RBF kernel as I
 found it online (I'm sorry, I don't remember where I found those parameters :-/).
 
+Please note the the SVM implementation of sklearn does not use the GPU.
+However, there are [GPU implmentations of SVMs](http://fastml.com/running-things-on-a-gpu/)
+around.
+
+
 #### Linear SVM
 
 ```
