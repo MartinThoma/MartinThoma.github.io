@@ -108,24 +108,24 @@ MathJax.Hub.Queue(function() {
                         <div class="entry" id="contentAfterTitle">
                             <div class="info">This is part two of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Data</a> for part one.</div>
 
-<p>I’ve recently got a request to expand my analysis of the Python Package Index<br />
-commonly known as PyPI. It is a repository of Python packages where everybody<br />
-can upload packages; pretty much without any restriction. In the article<br />
-<a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Metadata</a><br />
+<p>I’ve recently got a request to expand my analysis of the Python Package Index
+commonly known as PyPI. It is a repository of Python packages where everybody
+can upload packages; pretty much without any restriction. In the article
+<a href="//martin-thoma.com/analyzing-pypi-metadata/">Analyzing PyPI Metadata</a>
 you can read some general stuff about the repository.</p>
 
-<p>This article is going a bit more deeper. This time I don’t only analyze the<br />
-metadata, but the relationship of the packages themselves. I wanted to build<br />
-a dependency graph. However, here is a downside of Pythons package structure:<br />
-The file which defines the dependencies of a Python package is a Python script<br />
-itself. This gives the package developer the highest flexibility, but it also<br />
-gives them the power to execute arbitrary code when I only want to get the<br />
+<p>This article is going a bit more deeper. This time I don’t only analyze the
+metadata, but the relationship of the packages themselves. I wanted to build
+a dependency graph. However, here is a downside of Pythons package structure:
+The file which defines the dependencies of a Python package is a Python script
+itself. This gives the package developer the highest flexibility, but it also
+gives them the power to execute arbitrary code when I only want to get the
 dependencies.</p>
 
-<p>As I am pretty sure there are some malicious packages in the repository<br />
-(Although I’ve never heard of a single one there has to be one. Over<br />
-50 000 packages by 2015 - there has to be one!). So I don’t want to<br />
-execute any code of the repository without having at least a clue what it<br />
+<p>As I am pretty sure there are some malicious packages in the repository
+(Although I’ve never heard of a single one there has to be one. Over
+50 000 packages by 2015 - there has to be one!). So I don’t want to
+execute any code of the repository without having at least a clue what it
 should do. This means my analysis is very simple and thus prone to some errors.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -168,7 +168,7 @@ should do. This means my analysis is very simple and thus prone to some errors.<
    </ul>
 </div><h2 id="tocAnchor-1-1">Most common single dependency</h2>
 
-<p>One can see dependencies as being weighted by the number of times a package<br />
+<p>One can see dependencies as being weighted by the number of times a package
 imports the package.</p>
 
 <h3 id="tocAnchor-1-1-1">Non-weighted</h3>
@@ -256,7 +256,7 @@ imports the package.</p>
    <p class="wp-caption-text">Number of imports of Python packages</p>
 </div>
 
-<p>If I’m only interested in the packages which are on PyPI, hence not system<br />
+<p>If I’m only interested in the packages which are on PyPI, hence not system
 packages, I execute the following query:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -289,9 +289,9 @@ packages, I execute the following query:</p>
 
 <h2 id="tocAnchor-1-4">Non-functional packages</h2>
 
-<p>Although there are many packages for Python which are very useful, there are<br />
-also quite a lot which are not usefull at all. One possibility to identify such<br />
-packages is by checking which packages get neither used by others nor use<br />
+<p>Although there are many packages for Python which are very useful, there are
+also quite a lot which are not usefull at all. One possibility to identify such
+packages is by checking which packages get neither used by others nor use
 other packages</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -313,26 +313,26 @@ other packages</p>
 </div>
 </div>
 
-<p>This leads to the result that 54 900 packages of 67 582<br />
-packages are not obviously crap. Or to write it in another way: 11 682<br />
-packages are crap. That is 17.5 %. Too much, in my opinion.<br />
-However, this might also be due to my crappy script not downloading / checking<br />
+<p>This leads to the result that 54 900 packages of 67 582
+packages are not obviously crap. Or to write it in another way: 11 682
+packages are crap. That is 17.5 %. Too much, in my opinion.
+However, this might also be due to my crappy script not downloading / checking
 the downloaded files correctly.</p>
 
 <h2 id="tocAnchor-1-5">Names</h2>
 
-<p>One thing I was interested in while downloading all those packages was the<br />
-question if there are malicious packages (either on purpose or by accident).<br />
+<p>One thing I was interested in while downloading all those packages was the
+question if there are malicious packages (either on purpose or by accident).
 One undesirable thing that could happen would be very similar names.</p>
 
 <h3 id="tocAnchor-1-5-1">Prefixes</h3>
 
-<p>Let’s see how many packages are prefixes of other packages. My thought was that<br />
-this might be developers trying to get some accidential installs. However, it<br />
-only showed some relationships. I wanted to make a Levensthein distance<br />
+<p>Let’s see how many packages are prefixes of other packages. My thought was that
+this might be developers trying to get some accidential installs. However, it
+only showed some relationships. I wanted to make a Levensthein distance
 analysis, but I guess this is not worth it.</p>
 
-<p>Here are the top 10 strings which are prefixes of packages and packages<br />
+<p>Here are the top 10 strings which are prefixes of packages and packages
 themselves:</p>
 
 <ol>
@@ -360,31 +360,31 @@ themselves:</p>
 
 <h2 id="tocAnchor-1-7">Graph analysis</h2>
 
-<p>Analyzing the dependency graph is quite a challenge. Or at least that was what<br />
-I initiallly thought. This graph has about 67 582 nodes and<br />
-436 980 edges. Quite a bit. Definitely much larger than what I have<br />
+<p>Analyzing the dependency graph is quite a challenge. Or at least that was what
+I initiallly thought. This graph has about 67 582 nodes and
+436 980 edges. Quite a bit. Definitely much larger than what I have
 previously used.</p>
 
-<p>However, my friend Nilan who knows a lot about graphs send me a link to<br />
+<p>However, my friend Nilan who knows a lot about graphs send me a link to
 StackOverflow: <a href="http://stackoverflow.com/q/238724/562769">Visualizing Undirected Graph That’s Too Large for GraphViz?</a></p>
 
-<p>This lead me to <a href="http://gephi.org/">Gephi</a> and the<br />
-<a href="https://marketplace.gephi.org/plugin/openord-layout/">OpenOrd</a> layout plugin.<br />
-It didn’t work for the complete graph (see<br />
-<a href="https://github.com/gephi/gephi/issues/1207">issues/1207</a>), it worked after I<br />
+<p>This lead me to <a href="http://gephi.org/">Gephi</a> and the
+<a href="https://marketplace.gephi.org/plugin/openord-layout/">OpenOrd</a> layout plugin.
+It didn’t work for the complete graph (see
+<a href="https://github.com/gephi/gephi/issues/1207">issues/1207</a>), it worked after I
 removed the single nodes without edges.</p>
 
 <p>Now we can ask several standard questions about graphs:</p>
 
 <ul>
   <li>How many connected components are there?</li>
-  <li>Are there any circles? (That would be bad… dependency graphs should not<br />
+  <li>Are there any circles? (That would be bad… dependency graphs should not
 have circles. Similar to family trees.)</li>
   <li>Which are the most central nodes?</li>
 </ul>
 
-<p>I didn’t find the time to answer those, but I put the graph data in JSON<br />
-format on <a href="https://github.com/MartinThoma/pypi-dependencies">github.com/MartinThoma/pypi-dependencies</a>.<br />
+<p>I didn’t find the time to answer those, but I put the graph data in JSON
+format on <a href="https://github.com/MartinThoma/pypi-dependencies">github.com/MartinThoma/pypi-dependencies</a>.
 Please let me know when you do something interesting with the data.</p>
 
 <p>I’ve only got some crappy images with Gephi / GraphViz:</p>
@@ -482,12 +482,12 @@ Please let me know when you do something interesting with the data.</p>
 
 <h2 id="tocAnchor-1-9">What could come next</h2>
 
-<p>I would like too measure the overall code quality on PyPI in another post. I<br />
+<p>I would like too measure the overall code quality on PyPI in another post. I
 think of the following measures:</p>
 
 <ul>
   <li><a href="https://pypi.python.org/pypi/pyroma">pyroma</a>: A 10-point score for packages</li>
-  <li>package goodness with<br />
+  <li>package goodness with
 <a href="https://pypi.python.org/pypi/Cheesecake">Cheesecake</a>,</li>
   <li><a href="https://pypi.python.org/pypi/pylint">pylint</a></li>
   <li>PEP8 conformance,</li>

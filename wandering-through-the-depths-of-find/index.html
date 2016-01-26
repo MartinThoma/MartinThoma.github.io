@@ -146,14 +146,14 @@ MathJax.Hub.Queue(function() {
 </p>
 
 <h2 id="tocAnchor-1-3">Real life example</h2>
-<p>I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it’s time to change a database table a bit. It got a lot more rows and the old name doesn’t really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.<br />
+<p>I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it’s time to change a database table a bit. It got a lot more rows and the old name doesn’t really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.
 The easiest way to achieve this is via find, xargs and sed:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span></code></pre>
 </div>
 
-<p>Now the explanation of the different commands:<br />
+<p>Now the explanation of the different commands:
 <strong>find:</strong></p>
 <ul>
     <li>.: search in the current working directory</li>
@@ -162,7 +162,7 @@ The easiest way to achieve this is via find, xargs and sed:</p>
     <li>-type f: only search for files</li>
     <li>-print0: print  the  full  file name on the standard output, followed by a null character (instead of the newline character that -print uses).  This allows file names that contain newlines or other types of white space  to  be  correctly  interpreted by programs that process the find output.  This option corresponds to the -0 option of xargs.</li>
 </ul>
-<p><strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.<br />
+<p><strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.
 <strong>sed:</strong></p>
 <ul>
     <li>-i: edit the given file in-place. If you would not use -i, it would just print everything in standard output</li>

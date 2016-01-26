@@ -106,16 +106,16 @@ MathJax.Hub.Queue(function() {
                         </div>
 
                         <div class="entry" id="contentAfterTitle">
-                            <p>I was recently quite disappointed by how bad neural networks are for function<br />
-approximation (see <a href="http://datascience.stackexchange.com/q/9495/8820">How should a neural network for unbound function approximation be structured?</a>). However, I’ve just found that<br />
+                            <p>I was recently quite disappointed by how bad neural networks are for function
+approximation (see <a href="http://datascience.stackexchange.com/q/9495/8820">How should a neural network for unbound function approximation be structured?</a>). However, I’ve just found that
 Gaussian processes are great for function approximation!</p>
 
 <p>There are two important types of function approximation:</p>
 
 <ul>
-  <li><strong>Interpolation</strong>: What values does the function have in between of known<br />
+  <li><strong>Interpolation</strong>: What values does the function have in between of known
 values?</li>
-  <li><strong>Extrapolation</strong>: What values does the function have outsive of the known<br />
+  <li><strong>Extrapolation</strong>: What values does the function have outsive of the known
 values?</li>
 </ul>
 
@@ -164,7 +164,7 @@ values?</li>
    <p class="wp-caption-text">f(x) = x^2</p>
 </div>
 
-<p>I’ve tried if with higher order polynomials, more complex polynomials. No<br />
+<p>I’ve tried if with higher order polynomials, more complex polynomials. No
 problem.</p>
 
 <h3 id="tocAnchor-1-1-2">Sin</h3>
@@ -182,9 +182,9 @@ problem.</p>
 
 <h3 id="tocAnchor-1-1-3">exp</h3>
 
-<p>Approximating \(f(x) = e^x\) works similar well as polynomials. One can see<br />
-that it does not perfectly fit it, but compared the the range of values seen<br />
-before and the distance from the last seen value I think this is absolutely<br />
+<p>Approximating \(f(x) = e^x\) works similar well as polynomials. One can see
+that it does not perfectly fit it, but compared the the range of values seen
+before and the distance from the last seen value I think this is absolutely
 acceptable:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -196,14 +196,14 @@ acceptable:</p>
 
 <h3 id="tocAnchor-1-1-4">noise</h3>
 
-<p>It is claimed that Gaussian processes implicitly model noise so that they can<br />
-easily deal with noise. However, in my experients this seems not to work so<br />
+<p>It is claimed that Gaussian processes implicitly model noise so that they can
+easily deal with noise. However, in my experients this seems not to work so
 great. The reason might be that I had points in \([-3, 3]\) of the function</p>
 
 <p>\[f(x) = x^2\]</p>
 
-<p>with point-wise gaussian noise \(N \sim \mathcal{N}(0, 1)\). So the noise is<br />
-quite domintant on that intervall. One of the examples where it worked better<br />
+<p>with point-wise gaussian noise \(N \sim \mathcal{N}(0, 1)\). So the noise is
+quite domintant on that intervall. One of the examples where it worked better
 is:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -215,7 +215,7 @@ is:</p>
 
 <h3 id="tocAnchor-1-1-5">Make it brake</h3>
 
-<p>I was a bit suspicious if I had another mistake here. So I wanted it to break.<br />
+<p>I was a bit suspicious if I had another mistake here. So I wanted it to break.
 This was the reason why I created the following function</p>
 
 <p>\[f(x) = \begin{cases}x^2 &amp;\text{if } x \geq 0\\-1 &amp;\text{otherwise}\end{cases}\]</p>
@@ -227,13 +227,13 @@ This was the reason why I created the following function</p>
    <p class="wp-caption-text">Function with discontinuity</p>
 </div>
 
-<p>The predicted value is obviously not correct, but you should note that almost<br />
+<p>The predicted value is obviously not correct, but you should note that almost
 all function values are within the 95% confidence intervall!</p>
 
 <h2 id="tocAnchor-1-7">Code</h2>
 
-<p>The following code needs <a href="http://docs.scipy.org/doc/numpy-1.10.1/user/install.html"><code>numpy</code></a><br />
-and <a href="http://scikit-learn.org/stable/install.html"><code>sklearn</code></a>. For the plots,<br />
+<p>The following code needs <a href="http://docs.scipy.org/doc/numpy-1.10.1/user/install.html"><code>numpy</code></a>
+and <a href="http://scikit-learn.org/stable/install.html"><code>sklearn</code></a>. For the plots,
 you need <a href="http://matplotlib.org/users/installing.html"><code>matplotlib</code></a>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">

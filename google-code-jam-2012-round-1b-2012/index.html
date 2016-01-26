@@ -146,25 +146,25 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Safety in Numbers</h2>
-<p>I tried this approach:<br />
-X is the sum of all points given by judges. The visitors have an equal amount of points to give. <br />
-$P_i$ is the number of total points of contestant i.<br />
-$J_i$ is the number of points of contestant i by the judges.<br />
+<p>I tried this approach:
+X is the sum of all points given by judges. The visitors have an equal amount of points to give. 
+$P_i$ is the number of total points of contestant i.
+$J_i$ is the number of points of contestant i by the judges.
 $V_i$ is the percentage of the visitors points contestant i gets.</p>
 
 <p>So: $P_i = J_i + V_i * X$</p>
 
 <p>You don’t know $V_i$ and $P_i$. You have to get the minimal value of $V_i$ to guarantee that contestant $i$ will not to be eliminated. So you have to create some kind of “worst case” for contestant i, if he gets $V_i \cdot X$ visitor-points. The worst case is that the minimum of all remaining visitors is as high as possible. So if you think of them as players, they will always try to get a equal number of points.</p>
 
-<p>If they can get an equal number of points, you can make these (in)equations:<br />
-$average = (X - p_i)/(N-1)$<br />
-$p_i + V_i \cdot X \geq avg + \frac{1-V_i}{N-1} \cdot X$<br />
-$V_i \cdot X - \frac{1-V_i}{N-1}  \cdot X \geq avg - p_i$<br />
-$V_i X (N-1) - (1-V_i) \cdot X \geq (N-1) \cdot (avg - p_i)$<br />
-$V_i X (N-1) - X +V_i \cdot X \geq (N-1) \cdot (avg - p_i)$<br />
-$V_i X (N-1) +V_i \cdot X \geq (N-1) \cdot (avg - p_i) + X$<br />
-$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X (N-1) +X)$<br />
-$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X ((N-1) +1))$<br />
+<p>If they can get an equal number of points, you can make these (in)equations:
+$average = (X - p_i)/(N-1)$
+$p_i + V_i \cdot X \geq avg + \frac{1-V_i}{N-1} \cdot X$
+$V_i \cdot X - \frac{1-V_i}{N-1}  \cdot X \geq avg - p_i$
+$V_i X (N-1) - (1-V_i) \cdot X \geq (N-1) \cdot (avg - p_i)$
+$V_i X (N-1) - X +V_i \cdot X \geq (N-1) \cdot (avg - p_i)$
+$V_i X (N-1) +V_i \cdot X \geq (N-1) \cdot (avg - p_i) + X$
+$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X (N-1) +X)$
+$V_i \geq (N-1) \cdot ((avg - p_i) + X)/(X ((N-1) +1))$
 $V_i \geq \frac{N-1}{X \cdot N} \cdot (avg - p_i + X)$</p>
 
 <p>Unfortunately, its possible that the other players can’t get an equal number of points. So this approach is useless in this case.</p>

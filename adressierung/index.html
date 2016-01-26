@@ -136,9 +136,9 @@ MathJax.Hub.Queue(function() {
 </div><h2 id="tocAnchor-1-1">Allgemeines</h2>
 <p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
 
-<p>Eine Möglichkeit das zu machen, ist ein sog. „direct mapped<br />
-cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch<br />
-schnell von der Hardware umgesetzt werden können muss. Also unterteilt man<br />
+<p>Eine Möglichkeit das zu machen, ist ein sog. „direct mapped
+cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch
+schnell von der Hardware umgesetzt werden können muss. Also unterteilt man
 gedanklich die Hauptspeicheradressen in 3 Teile:</p>
 <ul>
 	<li>Tag</li>
@@ -146,15 +146,15 @@ gedanklich die Hauptspeicheradressen in 3 Teile:</p>
 	<li>Block-Offset</li>
 </ul>
 
-<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer<br />
-Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die<br />
-Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu<br />
+<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer
+Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die
+Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu
 legen, der die entsprechende Cache-Zeile durchschaltet.</p>
 
 <p>Es gilt also: Index-Länge in Bit = $\log_2(\text{Cache-Zeilen})$</p>
 
-<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile<br />
-landen. Um diese unterscheiden zu können, speichert man folgendes in einer<br />
+<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile
+landen. Um diese unterscheiden zu können, speichert man folgendes in einer
 Cache-Zeile:</p>
 <ul>
 	<li>Tag</li>
@@ -162,27 +162,27 @@ Cache-Zeile:</p>
 	<li>Flags</li>
 </ul>
 
-<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.<br />
-Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird<br />
-der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.<br />
-Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man<br />
+<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.
+Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird
+der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.
+Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man
 kann die Daten aus dem Cache entnehmen.</p>
 
-<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen<br />
+<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen
 zusammenfasst, muss gelten:</p>
 
-<p>Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$<br />
+<p>Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$
 Größe des Inhalts einer Hauptspeicheradresse</p>
 
 <p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
 
-<p>Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im<br />
-Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-<br />
-Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der<br />
+<p>Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im
+Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-
+Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der
 Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.</p>
 
-<p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine<br />
-Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt<br />
+<p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine
+Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt
 werden.</p>
 
 <p>Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ Sätze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
@@ -197,7 +197,7 @@ werden.</p>
 </ol>
 
 <h2 id="tocAnchor-1-2">Physical address and virtual address</h2>
-<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.<br />
+<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.
 Die virtuellen Adressen sind scheinbar zusammenhängend und der Adressraum ist sehr groß. Der virtuelle Adressraum ist in Blöcke (Pages) unterteilt und die Pages werden von langsamen, aber großen auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.</p>
 
 <p>Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollte man sich folgendes anschauen:</p>

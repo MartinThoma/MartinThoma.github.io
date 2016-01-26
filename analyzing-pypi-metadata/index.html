@@ -108,10 +108,10 @@ MathJax.Hub.Queue(function() {
                         <div class="entry" id="contentAfterTitle">
                             <div class="info">This is part one of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
 
-<p>PyPI, the Python Package Index, gives a very crappy but simple interface to<br />
-query metadata about its packages. I scrapped all of the packages metadata.<br />
-53,533 packages were scrapped (date: 2015-01-18), because I wanted to<br />
-see if there is malware on PyPI (related to<br />
+<p>PyPI, the Python Package Index, gives a very crappy but simple interface to
+query metadata about its packages. I scrapped all of the packages metadata.
+53,533 packages were scrapped (date: 2015-01-18), because I wanted to
+see if there is malware on PyPI (related to
 <a href="http://security.stackexchange.com/q/79326/3286">this question on security.SE</a>).</p>
 
 <p>The database looks like this:</p>
@@ -178,21 +178,21 @@ see if there is malware on PyPI (related to<br />
    </ul>
 </div><h2 id="tocAnchor-1-1">Exploring the data</h2>
 
-<p>When I scapped the data from PyPI, I made all database fields “varchar 255” as<br />
-there seems to be no information about the possible values. Then I explored<br />
+<p>When I scapped the data from PyPI, I made all database fields “varchar 255” as
+there seems to be no information about the possible values. Then I explored
 the data</p>
 
 <ul>
-  <li><code>name</code>: The longest package name is 80 characters long (<code>Aaaaaaaaaaa...</code>), the shortest packages have only one<br />
+  <li><code>name</code>: The longest package name is 80 characters long (<code>Aaaaaaaaaaa...</code>), the shortest packages have only one
 character.</li>
-  <li><code>author</code>: 911× “UNKOWN”, 741× empty, 195× “None”, 151× “Zope Foundation and<br />
-Contributors”. There are about 22,000 different authors. There are 595<br />
+  <li><code>author</code>: 911× “UNKOWN”, 741× empty, 195× “None”, 151× “Zope Foundation and
+Contributors”. There are about 22,000 different authors. There are 595
 authors who wrote more than 10 packages.</li>
-  <li><code>author_email</code>: 2059× “UNKOWN”, 932× empty, 323× “zope-dev@zope.org”, 216×<br />
+  <li><code>author_email</code>: 2059× “UNKOWN”, 932× empty, 323× “zope-dev@zope.org”, 216×
 “None” and 204× “TODO”.</li>
   <li><code>maintainer</code>: 46879× “None”, 5507× empty, 17× <a href="http://www.boddie.org.uk/paul/CV.html">Paul Boddie</a>.</li>
-  <li><code>requires_python</code>: 53467× “None”, 3× “UNKNOWN”, 2× “&gt;=2.7,!=3.0,!=3.1”, 2×<br />
-“&gt;=2.5”, 1× “2.6”, 1× “&gt;= 3.3”, 1× “&gt;=2.4”, 1× “&gt;= 2.7” - that’s it. No other<br />
+  <li><code>requires_python</code>: 53467× “None”, 3× “UNKNOWN”, 2× “&gt;=2.7,!=3.0,!=3.1”, 2×
+“&gt;=2.5”, 1× “2.6”, 1× “&gt;= 3.3”, 1× “&gt;=2.4”, 1× “&gt;= 2.7” - that’s it. No other
 values. Seems as if this is pretty much useless.</li>
   <li><code>docs_url</code>: Either begins with <code>http://pythonhosted.org</code> or is empty.</li>
 </ul>
@@ -313,8 +313,8 @@ values. Seems as if this is pretty much useless.</li>
 
 <h3 id="tocAnchor-1-1-2">Maximum Length</h3>
 
-<p>I guess many values are stored on PyPI as <code>Varchar(255)</code>. To check if I might<br />
-have missed some values, I checked which entry was the longest one for all<br />
+<p>I guess many values are stored on PyPI as <code>Varchar(255)</code>. To check if I might
+have missed some values, I checked which entry was the longest one for all
 columns. I did this with</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -450,8 +450,8 @@ columns. I did this with</p>
 
 <ul>
   <li>URLs: localhost / 127.0.0.1 is almost certainly not desired</li>
-  <li><code>cheesecake_installability_id</code>, <code>cheesecake_documentation_id</code>, <code>cheesecake_code_kwalitee_id</code><br />
-should have NULL and None should be casted to NULL. The data type is likely<br />
+  <li><code>cheesecake_installability_id</code>, <code>cheesecake_documentation_id</code>, <code>cheesecake_code_kwalitee_id</code>
+should have NULL and None should be casted to NULL. The data type is likely
 to be numeric.</li>
   <li><code>_pypi_ordering</code> should be numeric</li>
   <li><code>_pypi_hidden</code> should be boolean</li>
@@ -461,13 +461,13 @@ to be numeric.</li>
 
 <h2 id="tocAnchor-1-4">What people don’t use</h2>
 
-<p>All metadata is provided by the authors of the packages. Some fields, like the<br />
-package name or the description, are used very often, but some fields are only<br />
+<p>All metadata is provided by the authors of the packages. Some fields, like the
+package name or the description, are used very often, but some fields are only
 rarely used:</p>
 
 <h3 id="tocAnchor-1-4-1">Maintainer</h3>
 
-<p><code>maintainer</code> and <code>maintainer_email</code> is interesting for people who want to send<br />
+<p><code>maintainer</code> and <code>maintainer_email</code> is interesting for people who want to send
 bug reports. If this is empty, I would guess the package is dead.</p>
 
 <h3 id="tocAnchor-1-4-2">Platform</h3>
@@ -538,14 +538,14 @@ bug reports. If this is empty, I would guess the package is dead.</p>
   </tbody>
 </table>
 
-<p>You can see that there are alternative ways to express the same thing.<br />
+<p>You can see that there are alternative ways to express the same thing.
 Also, the “;” should not be here as the manual states it should be a list.</p>
 
-<p><a href="https://docs.python.org/2/distutils/setupscript.html">The manual</a> is also too<br />
-short for this entry. It only says “a list of platforms” which seems to be<br />
+<p><a href="https://docs.python.org/2/distutils/setupscript.html">The manual</a> is also too
+short for this entry. It only says “a list of platforms” which seems to be
 pretty much useless.</p>
 
-<p><a href="http://docstore.mik.ua/orelly/other/python/0596001886_pythonian-chp-26-sect-1.html">docstore.mik.ua</a><br />
+<p><a href="http://docstore.mik.ua/orelly/other/python/0596001886_pythonian-chp-26-sect-1.html">docstore.mik.ua</a>
 gives a little bit more information</p>
 
 <blockquote>
@@ -554,8 +554,8 @@ gives a little bit more information</p>
 
 <h3 id="tocAnchor-1-4-3">Bugtracker</h3>
 
-<p>This one is very important. Users should have an easy possibility to report<br />
-bugs. So please help them by added your bug tracker URL wherever it makes<br />
+<p>This one is very important. Users should have an easy possibility to report
+bugs. So please help them by added your bug tracker URL wherever it makes
 sense. Here is how you add it on PyPI:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -697,7 +697,7 @@ sense. Here is how you add it on PyPI:</p>
   <li>Apache 2.0</li>
 </ul>
 
-<p>are all the same license. Some packages have no licence (<code>Unknown</code> and empty).<br />
+<p>are all the same license. Some packages have no licence (<code>Unknown</code> and empty).
 Many are invalid values, like</p>
 
 <ul>
@@ -707,15 +707,15 @@ Many are invalid values, like</p>
   <li>Python</li>
 </ul>
 
-<p>These indicate that people have no idea what to input there.<br />
-<a href="https://tldrlegal.com/">tldrlegal.com</a> might help in that case. I think the<br />
-Python community should try to eliminate variants in writing license names as<br />
+<p>These indicate that people have no idea what to input there.
+<a href="https://tldrlegal.com/">tldrlegal.com</a> might help in that case. I think the
+Python community should try to eliminate variants in writing license names as
 it makes finding, filtering and analyzing packages more difficult.</p>
 
 <h2 id="tocAnchor-1-9">Classifiers</h2>
 
-<p>Python makes use of so called trove classifiers. They are defined in<br />
-<a href="https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification">PEP 301</a><br />
+<p>Python makes use of so called trove classifiers. They are defined in
+<a href="https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification">PEP 301</a>
 and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">here</a>.</p>
 
 <p>The following table gives the TOP-10 most commonly used classifiers:</p>
@@ -771,7 +771,7 @@ and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">her
   </tbody>
 </table>
 
-<p>When you analyze the licenses with the trove classifiers you get a different<br />
+<p>When you analyze the licenses with the trove classifiers you get a different
 image:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -820,7 +820,7 @@ image:</p>
   </tbody>
 </table>
 
-<p>There are 94 trove classifiers with five or less packages which use this<br />
+<p>There are 94 trove classifiers with five or less packages which use this
 classifier. I guess many of them are not in the official list of classifiers.</p>
 
 <h2 id="tocAnchor-1-10">Package type</h2>
@@ -1118,8 +1118,8 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <h2 id="tocAnchor-1-15">Further Ideas</h2>
 
 <ul>
-  <li><strong>Build a dependency graph</strong>: Some of the code was already written. However,<br />
-one has to download about 25 GB of data, extract it and run over those<br />
+  <li><strong>Build a dependency graph</strong>: Some of the code was already written. However,
+one has to download about 25 GB of data, extract it and run over those
 files. This is quite a bit of work.</li>
   <li>Analyze package quality
     <ul>
