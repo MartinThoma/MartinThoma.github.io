@@ -66,3 +66,7 @@ But I searched for the quotes " “ “" (with `grep -nPIr '“' *`). This showe
 
 `grep -nPIr '\r' *` revealed that I don't have and `\r` (I found this via http://stackoverflow.com/questions/29289208/missing-or-stray-quote-in-line-1-csvmalformedcsverror) 
 ```
+
+## Build time
+
+It takes 584,63s to deploy my blog, even if I only made a small change.
