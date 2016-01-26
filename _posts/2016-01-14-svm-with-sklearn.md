@@ -27,11 +27,12 @@ with an example how to use SVMs with sklearn.
         can be separated by a hyperplane. There is one hyperplane which
         maximizes the distance to the next datapoints (support vectors). This
         hyperplane should be taken:<br/>
+        <div>
           \[
           \begin{aligned}
               \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2\\
               \text{s.t. }& \forall_{i=1}^m y_i \cdot \underbrace{(\langle \mathbf{w}, \mathbf{x}_i\rangle + b)}_{{\text{sgn applied to this gives the classification}}} \geq 1
-          \end{aligned}\]</li>
+          \end{aligned}\]</div></li>
     <li><b>Slack variables</b>: Even if the underlying process which generates
           the features for the two classes is linearly separable, noise can
           make the data not separable. The introduction of <i>slack&nbsp;variables</i>
