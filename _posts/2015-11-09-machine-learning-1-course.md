@@ -749,8 +749,18 @@ Slide name: `MLI_10_HMM_slides1.pdf`
       die Wahrscheinlichkeit an, dass die Sequenz \(o_{t+1} o_{t+2} \dots o_{T}\)
       beobachtet werden wird, gegeben das HMM&nbsp;\(\lambda\) und den
       Startzustand&nbsp;\(s_i\).</dd>
+  <dt><dfn>Forward-Backward Algorithm</dfn></dt>
+  <dd>Der Forward-Backward Algorithmus berechnet für jeden Zeitpunkt die
+      Wahrscheinlichkeitsverteilung der Zustände. Dafür glättet er die Werte
+      des Vorwärts- und des Rückwärts-Algorithmus:
+      \[\gamma_t(i) = \frac{\alpha_t(i) \beta_t(i)}{P(O|\lambda)}\]
+
+      Er findet jedoch nicht die wahrscheinlichste Zustandssequenz.
+      </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Viterbi-Algorithmus"><dfn>Viterbi-Algorithmus</dfn></a></dt>
-  <dd>Löst P2: Siehe <a href="../apply-viterbi-algorithm/">How to apply the Viterbi algorithm</a></dd>
+  <dd>Löst P2:
+      <br/>
+  Siehe <a href="../apply-viterbi-algorithm/">How to apply the Viterbi algorithm</a></dd>
   <dt><a href="https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus"><dfn>Baum-Welch-Algorithmus</dfn></a></dt>
   <dd>Löst P3:
 
