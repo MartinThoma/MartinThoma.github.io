@@ -63,7 +63,7 @@ with an example how to use SVMs with sklearn.
           out that most \(\alpha_i\) will be zero. The non-zero weighted vectors
           are called <i>support&nbsp;vectors</i>.
 
-          The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>]:
+          The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>] (a great read; if you really want to understand it I can recommend it!):
           \[
           \begin{aligned}
               \text{maximize}_{\mathbf{w}}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
@@ -102,6 +102,7 @@ TeamGrizzly's channel: [Performing nonlinear classification via linear separatio
 
 See also:
 
+* [What is an example of a SVM kernel, where one implicitly uses an infinity-dimensional space?](http://math.stackexchange.com/a/1620256/6876)
 * [SVM - hard or soft margins?](http://stackoverflow.com/a/4630731/562769)
 
 
@@ -425,8 +426,7 @@ of degree&nbsp;9 as well as some preprocessing.
 * [<a href="#ref-smi04-anchor" name="ref-smi04">Smi04</a>] B. T. Smith, “Lagrange multipliers tutorial in the context of support
   vector machines,” Memorial University of Newfoundland St. John’s,
   Newfoundland, Canada, Jun. 2004.
-* [<a href="#ref-bur98-anchor" name="ref-bur98">Bur98</a>] C. J. Burges, “A tutorial on support vector machines for pattern
-  recognition,” Data&nbsp;mining and knowledge discovery, vol. 2, no. 2, pp.
+* [<a href="#ref-bur98-anchor" name="ref-bur98">Bur98</a>] C. J. Burges, “[A tutorial on support vector machines for pattern recognition](http://research.microsoft.com/pubs/67119/svmtutorial.pdf)”, Data&nbsp;mining and knowledge discovery, vol. 2, no. 2, pp.
   121–167, 1998.
 
 
