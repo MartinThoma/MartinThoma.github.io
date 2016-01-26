@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>On October 14, 2010 Google announced that the number of scanned books is over 15 million. They did not simply scan those books, but they digitalized them. They can access not only image files, but the actual text. This allowes Google to search in those books and to analyse the information.</p>
 
 <p>Google has processed 1,024,908,267,229 words of running text and is publishing the counts for all 1,176,470,663 five-word sequences that appear at least 40 times. One five-word-sequence would be a five-gram, a four-word-sequence a four-gram.</p>
@@ -121,10 +121,10 @@ MathJax.Hub.Queue(function() {
    <p class="wp-caption-text">Google Ngram Viewer: Germany vs France</p>
 </div>
 
-<p>The x-axis shows the years, the y-axis shows the percentage of the specified ngram of all ngrams.
-Don't bother with the numbers. If one curve is higher than the other, more books contained the specified Ngram.</p>
+<p>The x-axis shows the years, the y-axis shows the percentage of the specified ngram of all ngrams.<br />
+Don’t bother with the numbers. If one curve is higher than the other, more books contained the specified Ngram.</p>
 
-<p>My example shows that the term "France" was more often in books than "Germany". Why is this the case? My first thought was that in the time of the two world wars more books should have been written about Germany. The answer is simply that I wrote "germany" instead of "Germany". So it's case sensitive:</p>
+<p>My example shows that the term “France” was more often in books than “Germany”. Why is this the case? My first thought was that in the time of the two world wars more books should have been written about Germany. The answer is simply that I wrote “germany” instead of “Germany”. So it’s case sensitive:</p>
 
 <div style="width: 310px" class="wp-caption alignnone">
    <a href="../images/2011/09/Google-Ngram-Viewer-Germany-France-Third-Reich-300x112.png">
@@ -133,24 +133,24 @@ Don't bother with the numbers. If one curve is higher than the other, more books
    <p class="wp-caption-text">Google Ngram Viewer: Germany vs. France vs. Third-Reich</p>
 </div>
 
-<p>You can compare how successfull some books are:
-</p><div style="width: 310px" class="wp-caption alignnone">
+<p>You can compare how successfull some books are:</p>
+<div style="width: 310px" class="wp-caption alignnone">
    <a href="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png">
       <img src="../images/2011/09/Google-Ngram-Viewer-Harry-Potter-Lord-of-the-Rings-The-Da-Vinci-Code-300x112.png" alt="Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code" width="" height="" class="size-medium wp-image-2001" />
    </a>
    <p class="wp-caption-text">Google Ngram Viewer: Harry Potter vs. Lord of the Rings vs. The Da Vinci Code</p>
 </div>
 
-<p>Quite interesting is also the interest in famous physicists:
-</p><div style="width: 310px" class="wp-caption alignnone">
+<p>Quite interesting is also the interest in famous physicists:</p>
+<div style="width: 310px" class="wp-caption alignnone">
    <a href="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png">
       <img src="../images/2011/09/Google-Ngram-Viewer-Physics-300x113.png" alt="Google Ngram Viewer: Famous physicists" width="" height="" class="size-medium wp-image-2011" />
    </a>
    <p class="wp-caption-text">Google Ngram Viewer: Famous physicists</p>
 </div>
 
-<p>You can try all sort of things:
-</p><div style="width: 310px" class="wp-caption alignnone">
+<p>You can try all sort of things:</p>
+<div style="width: 310px" class="wp-caption alignnone">
    <a href="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png">
       <img src="../images/2011/09/Google-Ngram-Viewer-Happy-300x111.png" alt="Google Ngram Viewer: Happy" width="" height="" class="size-medium wp-image-2031" />
    </a>
@@ -160,11 +160,10 @@ Don't bother with the numbers. If one curve is higher than the other, more books
 <p>Did you get some interesting results? Please post a link!</p>
 
 <h2 id="tocAnchor-1-1">Sources</h2>
-
 <ul>
-    <li><a title="Google Books" href="http://en.wikipedia.org/wiki/Google_Books">Google Books</a>. Recieved 24 September 2011.</li>
-    <li><a href="http://googleresearch.blogspot.com/2006/08/all-our-n-gram-are-belong-to-you.html">All Our N-gram are Belong to You</a>. Recieved 24 September 2011.</li>
-    <li>Video: <a href="http://www.ted.com/talks/what_we_learned_from_5_million_books.html">What we learned from 5 million books</a>.</li>
+	<li><a title="Google Books" href="http://en.wikipedia.org/wiki/Google_Books">Google Books</a>. Recieved 24 September 2011.</li>
+	<li><a href="http://googleresearch.blogspot.com/2006/08/all-our-n-gram-are-belong-to-you.html">All Our N-gram are Belong to You</a>. Recieved 24 September 2011.</li>
+	<li>Video: <a href="http://www.ted.com/talks/what_we_learned_from_5_million_books.html">What we learned from 5 million books</a>.</li>
 </ul>
 
                         </div>
@@ -354,7 +353,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

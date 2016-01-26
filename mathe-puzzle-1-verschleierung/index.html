@@ -105,70 +105,70 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p><strong>Die folgende Funktion ist sehr bekannt. Wie lautet ihr Name?</strong></p>
 
-<p>Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Verkn&uuml;fungen auf $\mathbb{R}$ und definiert durch:
-$\oplus(a, b) := a + b$
+<p>Seien $\oplus, \otimes: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$ Verknüfungen auf $\mathbb{R}$ und definiert durch:<br />
+$\oplus(a, b) := a + b$<br />
 $\otimes(a, b) := a - b$</p>
 
-<p>Sei $O:\mathbb{N} \rightarrow \mathbb{R}$ eine Abbildung und definiert durch 
+<p>Sei $O:\mathbb{N} \rightarrow \mathbb{R}$ eine Abbildung und definiert durch <br />
 $O(0) := 0, O(0^0) := 0^0, O(o) := O(o \otimes 0^0) \oplus O(o \otimes 0^0 \otimes 0^0)$.</p>
 
-<p>.
-.
-.
-.
-.
-.
+<p>.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
 .</p>
 
-<p>Aufl&ouml;sung gibts weiter unten - die Abbildung ist wirklich sehr bekannt :-)</p>
+<p>Auflösung gibts weiter unten - die Abbildung ist wirklich sehr bekannt :-)</p>
 
-<p>.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+<p>.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
 .</p>
 
-<p>Schreiben wir das doch mal um. Wenn wir schon die normale Addition bzw. Subtraktion des K&ouml;rpers $\mathbb{R}$ benutzen, k&ouml;nnen wir auch die gewohnten Symbole verwenden:
-$O:\mathbb{N} \rightarrow \mathbb{R}$
+<p>Schreiben wir das doch mal um. Wenn wir schon die normale Addition bzw. Subtraktion des Körpers $\mathbb{R}$ benutzen, können wir auch die gewohnten Symbole verwenden:<br />
+$O:\mathbb{N} \rightarrow \mathbb{R}$<br />
 $O(0) := 0, O(0^0) := 0^0, O(o) := O(o - 0^0) + O(o - 0^0 - 0^0)$</p>
 
-<p>Nun sind wir es gewohnt, dass die Funktionen $f$ hei&szlig;en und die Variablen x:
-$f:\mathbb{N} \rightarrow \mathbb{R}$
+<p>Nun sind wir es gewohnt, dass die Funktionen $f$ heißen und die Variablen x:<br />
+$f:\mathbb{N} \rightarrow \mathbb{R}$<br />
 $f(0) := 0, f(0^0) := 0^0, f(x) := f(x - 0^0) + f(x - 0^0 - 0^0)$</p>
 
-<p>Au&szlig;erdem ist $0^0 = 1$:
-$f:\mathbb{N} \rightarrow \mathbb{R}$
+<p>Außerdem ist $0^0 = 1$:<br />
+$f:\mathbb{N} \rightarrow \mathbb{R}$<br />
 $f(0) := 0, f(1) := 1, f(x) := f(x - 1) + f(x - 1 - 1)$</p>
 
-<p>Das ist wiederum:
-Au&szlig;erdem ist $0^0 = 1$:
-$f:\mathbb{N} \rightarrow \mathbb{R}$
-$f(0) := 0$, 
-$f(1) := 1$, 
+<p>Das ist wiederum:<br />
+Außerdem ist $0^0 = 1$:<br />
+$f:\mathbb{N} \rightarrow \mathbb{R}$<br />
+$f(0) := 0$, <br />
+$f(1) := 1$, <br />
 $f(x) := f(x - 1) + f(x - 2)$</p>
 
 <p>Diese Folge wird <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a> genannt. Es ist schon sehr erstaunlich, wie beeinflussbar wir von Symbolen und Konventionen sind.</p>
 
-<p>Und weil sie so sch&ouml;n sind, hier noch ein kurzes Video zu den Fibonacci-Zahlen:
-<iframe width="512" height="288" src="http://www.youtube.com/embed/kkGeOWYOFoA" frameborder="0" allowfullscreen></iframe></p>
+<p>Und weil sie so schön sind, hier noch ein kurzes Video zu den Fibonacci-Zahlen:</p>
+<iframe width="512" height="288" src="http://www.youtube.com/embed/kkGeOWYOFoA" frameborder="0" allowfullscreen=""></iframe>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -354,7 +354,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

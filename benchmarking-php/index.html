@@ -105,16 +105,16 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in. </p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I used ApacheBenchmark (<a href="http://httpd.apache.org/docs/2.0/programs/ab.html" rel="nofollow">ab</a>) to make a few Benchmark tests I was interested in.</p>
 
 <p>If you like to view some more, go to <a href="http://www.phpbench.com/" rel="nofollow">www.phpbench.com</a>.</p>
 
-<p>The most important options are:
+<p>The most important options are:</p>
 <ul>
-    <li>-n: Number of requests to perform</li>
-    <li>-c: Number of multiple requests to make</li>
-</ul></p>
+	<li>-n: Number of requests to perform</li>
+	<li>-c: Number of multiple requests to make</li>
+</ul>
 
 <p>An empty file:</p>
 
@@ -152,47 +152,62 @@ Processing:     <span class="m">2</span>    <span class="m">2</span>   0.0      
 Waiting:        <span class="m">0</span>    <span class="m">0</span>   0.0      <span class="m">0</span>       0
 Total:          <span class="m">2</span>    <span class="m">2</span>   0.0      <span class="m">2</span>       2</code></pre></div>
 
-<p>Now I make 1000 requests to this empty file: </p>
+<p>Now I make 1000 requests to this empty file:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">ab -n <span class="m">1000</span> -c <span class="m">1</span> localhost/empty.php</code></pre></div>
 
-<p>Time per request:       1.158 <a href="mean">ms</a></p>
+<p>Time per request:       1.158 [ms] (mean)</p>
 
 <p>With a document of two bytes, I get 1.324 ms. A HTML-Document with 300 kB has 4.287 ms.</p>
 
-<p>Now I&#39;ll begin the test I&#39;m interested in. It is related to <a href="http://stackoverflow.com/questions/4738605/undefined-offset-with-count" rel="nofollow">this Stackoverflow Question</a>. I&#39;ll make 10000 requests per Benchmark:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">for($i=0; $i&lt;5; $i++) {</span>
-<span class="x">    $maximum = max(</span>
-<span class="x">                    @count($MyArray[$i*7]),</span>
-<span class="x">                    @count($MyArray[$i*7+1]),</span>
-<span class="x">                    @count($MyArray[$i*7+2]),</span>
-<span class="x">                    @count($MyArray[$i*7+3]),</span>
-<span class="x">                    @count($MyArray[$i*7+4]),</span>
-<span class="x">                    @count($MyArray[$i*7+5]),</span>
-<span class="x">                    @count($MyArray[$i*7+6])</span>
-<span class="x">                   );</span>
-<span class="x">    echo $maximum.&#39; &#39;;</span>
-<span class="x">}</span>
-</code></pre></div>
-<p>1.817 ms </p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">for($i=0; $i&lt;5; $i++) {</span>
-<span class="x">    $chunk = array_intersect_key($MyArray, array($i*7=&gt;1, $i*7+1=&gt;2, $i*7+2=&gt;3, $i*7+3=&gt;4, $i*7+4=&gt;5, $i*7+5=&gt;6));</span>
-<span class="x">    if(count($chunk) &gt; 0){$maximum = max(array_map(&#39;count&#39;, $chunk));} </span>
-<span class="x">    else {$maximum = 0;}</span>
-<span class="x">    echo $maximum.&#39; &#39;;</span>
-<span class="x">}</span>
-</code></pre></div>
+<p>Now I’ll begin the test I’m interested in. It is related to <a href="http://stackoverflow.com/questions/4738605/undefined-offset-with-count" rel="nofollow">this Stackoverflow Question</a>. I’ll make 10000 requests per Benchmark:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#080;font-weight:bold">for</span>(<span style="color:#950">$i</span>=<span style="color:#00D">0</span>; <span style="color:#950">$i</span>&lt;<span style="color:#00D">5</span>; <span style="color:#950">$i</span>++) {
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>    <span style="color:#950">$maximum</span> = <span style="color:#369;font-weight:bold">max</span>(
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>                    <span style="color:#C00;font-weight:bold">@</span><span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>]),
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>                    <span style="color:#C00;font-weight:bold">@</span><span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">1</span>]),
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>                    <span style="color:#C00;font-weight:bold">@</span><span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">2</span>]),
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>                    <span style="color:#C00;font-weight:bold">@</span><span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">3</span>]),
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>                    <span style="color:#C00;font-weight:bold">@</span><span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">4</span>]),
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>                    <span style="color:#C00;font-weight:bold">@</span><span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">5</span>]),
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>                    <span style="color:#C00;font-weight:bold">@</span><span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">6</span>])
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>                   );
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>    <span style="color:#369;font-weight:bold">echo</span> <span style="color:#950">$maximum</span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>;
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>}
+</pre></div>
+</div>
+</div>
+
+<p>1.817 ms</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#080;font-weight:bold">for</span>(<span style="color:#950">$i</span>=<span style="color:#00D">0</span>; <span style="color:#950">$i</span>&lt;<span style="color:#00D">5</span>; <span style="color:#950">$i</span>++) {
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>    <span style="color:#950">$chunk</span> = <span style="color:#369;font-weight:bold">array_intersect_key</span>(<span style="color:#950">$MyArray</span>, <span style="color:#369;font-weight:bold">array</span>(<span style="color:#950">$i</span>*<span style="color:#00D">7</span>=&gt;<span style="color:#00D">1</span>, <span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">1</span>=&gt;<span style="color:#00D">2</span>, <span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">2</span>=&gt;<span style="color:#00D">3</span>, <span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">3</span>=&gt;<span style="color:#00D">4</span>, <span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">4</span>=&gt;<span style="color:#00D">5</span>, <span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#00D">5</span>=&gt;<span style="color:#00D">6</span>));
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span>(<span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$chunk</span>) &gt; <span style="color:#00D">0</span>){<span style="color:#950">$maximum</span> = <span style="color:#369;font-weight:bold">max</span>(<span style="color:#369;font-weight:bold">array_map</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">count</span><span style="color:#710">'</span></span>, <span style="color:#950">$chunk</span>));} 
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span>    <span style="color:#080;font-weight:bold">else</span> {<span style="color:#950">$maximum</span> = <span style="color:#00D">0</span>;}
+<span class="line-numbers"><a href="#n5" name="n5">5</a></span>    <span style="color:#369;font-weight:bold">echo</span> <span style="color:#950">$maximum</span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>;
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span>}
+</pre></div>
+</div>
+</div>
+
 <p>1.801 ms</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">for($i=0;$i&lt;5;$i++){</span>
-<span class="x">    $arr = array();</span>
-<span class="x">    for ($j=0;$j&lt;=6;$j++) {</span>
-<span class="x">        if (isset($MyArray[$i*7+$j])) $arr[] = count($MyArray[$i*7+$j]);</span>
-<span class="x">        else {$arr[] = 0;}</span>
-<span class="x">    }</span>
-<span class="x">    $maximum = max($arr);</span>
-<span class="x">    echo $maximum.&#39; &#39;;</span>
-<span class="x">}</span>
-</code></pre></div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#080;font-weight:bold">for</span>(<span style="color:#950">$i</span>=<span style="color:#00D">0</span>;<span style="color:#950">$i</span>&lt;<span style="color:#00D">5</span>;<span style="color:#950">$i</span>++){
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>    <span style="color:#950">$arr</span> = <span style="color:#369;font-weight:bold">array</span>();
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$j</span>=<span style="color:#00D">0</span>;<span style="color:#950">$j</span>&lt;=<span style="color:#00D">6</span>;<span style="color:#950">$j</span>++) {
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>        <span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">isset</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#950">$j</span>])) <span style="color:#950">$arr</span>[] = <span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$MyArray</span>[<span style="color:#950">$i</span>*<span style="color:#00D">7</span>+<span style="color:#950">$j</span>]);
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>        <span style="color:#080;font-weight:bold">else</span> {<span style="color:#950">$arr</span>[] = <span style="color:#00D">0</span>;}
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>    }
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    <span style="color:#950">$maximum</span> = <span style="color:#369;font-weight:bold">max</span>(<span style="color:#950">$arr</span>);
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    <span style="color:#369;font-weight:bold">echo</span> <span style="color:#950">$maximum</span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> </span><span style="color:#710">'</span></span>;
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>}
+</pre></div>
+</div>
+</div>
+
 <p>1.742 ms</p>
 
                         </div>
@@ -379,7 +394,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

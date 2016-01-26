@@ -105,22 +105,21 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The task in <a href="http://projecteuler.net/problem=26">Problem 26</a> of Project Euler is:</p>
 
-<blockquote>Find the value of d 
+<blockquote>Find the value of d &lt; 1000 for which `$\frac{1}{d}$` contains the longest recurring cycle in its decimal fraction part.</blockquote>
 
 <h2 id="tocAnchor-1-1">How to solve</h2>
-
 <p>Think about how you divide with pen and paper. How do you recognize that you have a cycle?</p>
 
-<p>You look at the rest. If you've seen the rest before, you are just about to get into the cycle.</p>
+<p>You look at the rest. If you’ve seen the rest before, you are just about to get into the cycle.</p>
 
 <h2 id="tocAnchor-1-2">My solution</h2>
-
 <p>This brute force solution finds the solution instantly.</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
+<div class="highlight">
+   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
@@ -176,8 +175,10 @@ MathJax.Hub.Queue(function() {
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
     <span class="c">#unittest.main()</span>
-    <span class="k">print</span> <span class="n">euler26</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span></code></pre></div>
-</blockquote>
+    <span class="k">print</span> <span class="n">euler26</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span></code></pre>
+</div>
+
+
                         </div>
                         <div class="postmeta">Posted in
                             
@@ -365,7 +366,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -100,11 +100,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Some people keep asking me questions like "Why do you use LaTeX?" - "Wouldn't it be faster to do it with Word?"</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Some people keep asking me questions like “Why do you use LaTeX?” - “Wouldn’t it be faster to do it with Word?”</p>
 
-<p>Here is the answer:
-</p><ul>
+<p>Here is the answer:</p>
+<ul>
   <li><strong>Versioning</strong>: I do quite often create repositories for documentation (e.g. on GITHub). Versioning LaTeX-files is much better than versioning Word-files, as LaTeX is line-based. Versioning is my way to solve the following problems:
   <ul>
     <li><strong>Dead end</strong>: Once in a while I stuck while writing. I tried to improve some part of the documentation, but it didn't work. So I want to jump back. It is much more convenient to jump back in a versioning system than to press <kbd>CTRL</kbd> + <kbd>Z</kbd> often or to create copies of the old version.</li>
@@ -138,11 +138,10 @@ MathJax.Hub.Queue(function() {
 &gt; Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</code></pre>
 </div>
 
-<p>If you use meld it looks like this:
+<p>If you use meld it looks like this:<br />
 <a href="../images/2012/06/meld-diff.png"><img src="../images/2012/06/meld-diff-300x156.png" alt="" title="meld-diff" width="300" height="156" class="aligncenter size-medium wp-image-29051" /></a></p>
 
 <h2 id="tocAnchor-1-1">My LaTeX configuration</h2>
-
 <p>First, you have to install the latest LaTeX-Version: <a href="../how-to-install-the-latest-latex-version/" title="How to install the latest LaTeX Version">How to install the latest LaTeX Version</a>.</p>
 
 <p>I like editing the source code directly very much. To do so, I use gEdit. When I press Ctrl+M, my LaTeX document gets saved, compiled and the temporary files are thrown away. If you want this, you should follow these instructions.</p>
@@ -150,15 +149,18 @@ MathJax.Hub.Queue(function() {
 <ul>
  <li>Create a "Makefile" (a file called this way) with this content in the folder where your LaTeX file is:</li>
 </ul>
-<div class="highlight">
-   <pre><code class="language-basemake" data-lang="basemake"><span class="nf">make</span><span class="o">:</span>
-    pdflatex matrix.tex -output-format<span class="o">=</span>pdf
-    make clean
 
-<span class="nf">clean</span><span class="o">:</span>
-    rm -rf  <span class="k">$(</span>TARGET<span class="k">)</span> *.class *.html *.log *.aux
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>make:
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>        pdflatex matrix.tex -output-format=pdf
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>        make clean
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>clean:
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>        rm -rf  $(TARGET) *.class *.html *.log *.aux
+</pre></div>
 </div>
+</div>
+
 <ul>
   <li>Enable the Plugin "External Tools"</li>
   <li>Go to Preferences → Plugins → External Tools → Configure Plugin</li>
@@ -168,7 +170,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-2">See also</h2>
-
 <ul>
   <li><a href="http://academia.stackexchange.com/a/5281/4092">Why use version control systems for writing a paper</a> instead of Dropbox</li>
 </ul>
@@ -351,7 +352,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

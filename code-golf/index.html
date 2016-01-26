@@ -105,12 +105,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <blockquote>Code golf is a type of recreational computer programming competition in which participants strive to achieve the shortest possible code that solves a certain problem.</blockquote>
-
 <p>Source: <a href="http://en.wikipedia.org/wiki/Code_golf">Wikipedia</a></p>
 
-<p>I've recently found some very interesting code golf examples on <a href="http://codegolf.stackexchange.com">codegolf.stackexchange.com</a>:</p>
+<p>I’ve recently found some very interesting code golf examples on <a href="http://codegolf.stackexchange.com">codegolf.stackexchange.com</a>:</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -126,8 +125,7 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Snake</h2>
-
-<p><a href="http://codegolf.stackexchange.com/q/7241/5240">Task</a>: Recreate the classic snake Game. </p>
+<p><a href="http://codegolf.stackexchange.com/q/7241/5240">Task</a>: Recreate the classic snake Game.</p>
 
 <p>The shortest answer is written in <a href="http://codegolf.stackexchange.com/a/7260/5240">Ruby in 316 characters</a>, the longest is written in <a href="http://codegolf.stackexchange.com/a/7255/5240">Java in 2239 characters</a>.</p>
 
@@ -158,7 +156,6 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-2">Matrix determinant</h2>
-
 <p><a href="http://codegolf.stackexchange.com/q/8405/5240">Task</a>: Calculate the determinant of a $n \times n$ matrix.</p>
 
 <p>Solution in <a href="http://en.wikipedia.org/wiki/J_(programming_language)">J</a> (61 characters):</p>
@@ -177,7 +174,6 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-3">Factorial</h2>
-
 <p><a href="http://codegolf.stackexchange.com/q/607/5240">Task</a>: Find the factorial of a number.</p>
 
 <p>J (12 characters):</p>
@@ -378,7 +374,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,16 +105,16 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I guess many of you might need to plot functions or data once. So I've made one example that shows much of the features you might need:
-</p><ul>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I guess many of you might need to plot functions or data once. So I’ve made one example that shows much of the features you might need:</p>
+<ul>
   <li>You can see how to change the axis' from normal linear scale to logarithmic scale.</li>
   <li>Some axis-manipulations were used.</li>
   <li>I have used a CSV-file to import and plot data.</li>
   <li>The red line was drawn with a mathematical function.</li>
 </ul>
 
-<p>Best of all: I didn't use anything which is not in LaTeX :-) (Well, the generation of the CSV-file doesn't count. I just wanted to include such an example for physicists who might need to plot results of experiments).</p>
+<p>Best of all: I didn’t use anything which is not in LaTeX :-) (Well, the generation of the CSV-file doesn’t count. I just wanted to include such an example for physicists who might need to plot results of experiments).</p>
 
 <p>The complete source is in the <a href="../images/2012/07/birthday-paradox.zip">Birthday Paradox Archive</a>.</p>
 
@@ -132,7 +132,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Result</h2>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/birthday-paradox.png">
       <img src="../images/2012/07/birthday-paradox.png" alt="Plot of the birthday paradox" width="" height="" class="size-full wp-image-34821" />
@@ -141,97 +140,101 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-2">LaTeX-Code</h2>
-
 <p>The following LaTeX-Code used TikZ and PGFplots:</p>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="c">% Plot of the probability that two people out of n people have the</span>
-<span class="c">% same birthday.</span>
-<span class="c">% Author: Martin Thoma</span>
-<span class="c">% Source: ../plotting-graphs-with-pgfplots/</span>
 
-<span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="na">[pdftex,active,tightpage]</span><span class="nb">{</span>preview<span class="nb">}</span>
-<span class="k">\setlength\PreviewBorder</span><span class="nb">{</span>2mm<span class="nb">}</span>
-
-<span class="k">\usepackage</span><span class="nb">{</span>pgfplots<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
-<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows, positioning, calc<span class="nb">}</span>
-
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>preview<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-    <span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>[
-        width=15cm, height=8cm,     <span class="c">% size of the image</span>
-        grid = major,
-        grid style=<span class="nb">{</span>dashed, gray!30<span class="nb">}</span>,
-        <span class="c">%xmode=log,log basis x=10,</span>
-        <span class="c">%ymode=log,log basis y=10,</span>
-        xmin=0,     <span class="c">% start the diagram at this x-coordinate</span>
-        xmax=62,    <span class="c">% end   the diagram at this x-coordinate</span>
-        ymin=0,     <span class="c">% start the diagram at this y-coordinate</span>
-        ymax=1.1,   <span class="c">% end   the diagram at this y-coordinate</span>
-        /pgfplots/xtick=<span class="nb">{</span>0,5,...,60<span class="nb">}</span>, <span class="c">% make steps of length 5</span>
-        extra x ticks=<span class="nb">{</span>23<span class="nb">}</span>,
-        extra y ticks=<span class="nb">{</span>0.507297<span class="nb">}</span>,
-        axis background/.style=<span class="nb">{</span>fill=white<span class="nb">}</span>,
-        ylabel=probability of at least one birthday-collision,
-        xlabel=people,
-        tick align=outside]
-
-      <span class="c">% import the correct data from a CSV file</span>
-      <span class="k">\addplot</span> table [id=exp]<span class="nb">{</span>data.csv<span class="nb">}</span>;
-
-      <span class="c">% mark x=23</span>
-      <span class="k">\coordinate</span> (a) at (axis cs:23,0.507297);
-      <span class="k">\draw</span><span class="na">[blue, dashed, thick]</span>(a -| current plot begin) -- (a);
-      <span class="k">\draw</span><span class="na">[blue, dashed, thick]</span>(a |- current plot begin) -- (a);
-
-      <span class="c">% plot the stirling-formulae</span>
-      <span class="k">\addplot</span><span class="na">[domain=0:60, red, thick]</span> 
-        <span class="nb">{</span>1-(365/(365-x))<span class="nb">^</span>(365.5-x)*e<span class="nb">^</span>(-x)<span class="nb">}</span>; 
-    <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span> 
-<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>preview<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>% Plot of the probability that two people out of n people have the
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>% same birthday.
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>% Author: Martin Thoma
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>% Source: ../plotting-graphs-with-pgfplots/
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\documentclass{article}
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>\usepackage[pdftex,active,tightpage]{preview}
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\setlength\PreviewBorder{2mm}
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span> 
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>\usepackage{pgfplots}
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>\usepackage{tikz}
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>\usetikzlibrary{arrows, positioning, calc}
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\begin{document}
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>\begin{preview}
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>\begin{tikzpicture}
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    \begin{axis}[
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        width=15cm, height=8cm,     % size of the image
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        grid = major,
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        grid style={dashed, gray!30},
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>        %xmode=log,log basis x=10,
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>        %ymode=log,log basis y=10,
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>        xmin=0,     % start the diagram at this x-coordinate
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        xmax=62,    % end   the diagram at this x-coordinate
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>        ymin=0,     % start the diagram at this y-coordinate
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>        ymax=1.1,   % end   the diagram at this y-coordinate
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>        /pgfplots/xtick={0,5,...,60}, % make steps of length 5
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>        extra x ticks={23},
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>        extra y ticks={0.507297},
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>        axis background/.style={fill=white},
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>        ylabel=probability of at least one birthday-collision,
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>        xlabel=people,
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>        tick align=outside]
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>      % import the correct data from a CSV file
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>      \addplot table [id=exp]{data.csv};
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>      % mark x=23
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>      \coordinate (a) at (axis cs:23,0.507297);
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>      \draw[blue, dashed, thick](a -| current plot begin) -- (a);
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>      \draw[blue, dashed, thick](a |- current plot begin) -- (a);
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>      % plot the stirling-formulae
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>      \addplot[domain=0:60, red, thick] 
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>        {1-(365/(365-x))^(365.5-x)*e^(-x)}; 
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>    \end{axis} 
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>\end{tikzpicture}
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>\end{preview}
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>\end{document}
+</pre></div>
 </div>
+</div>
+
 <p>I generate the images directly with this Makefile:</p>
-<div class="highlight">
-   <pre><code class="language-basemake" data-lang="basemake"><span class="nv">SOURCE</span> <span class="o">=</span> birthday-paradox
-<span class="nv">DELAY</span> <span class="o">=</span> 80
-<span class="nv">DENSITY</span> <span class="o">=</span> 300
-<span class="nv">WIDTH</span> <span class="o">=</span> 500
 
-<span class="nf">make</span><span class="o">:</span>
-    pdflatex <span class="k">$(</span>SOURCE<span class="k">)</span>.tex -output-format<span class="o">=</span>pdf
-    make clean
-
-<span class="nf">clean</span><span class="o">:</span>
-    rm -rf  <span class="k">$(</span>TARGET<span class="k">)</span> *.class *.html *.log *.aux
-
-<span class="nf">gif</span><span class="o">:</span>
-    pdfcrop <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf
-    convert -verbose -delay <span class="k">$(</span>DELAY<span class="k">)</span> -loop <span class="m">0</span> -density <span class="k">$(</span>DENSITY<span class="k">)</span> <span class="k">$(</span>SOURCE<span class="k">)</span>-crop.pdf <span class="k">$(</span>SOURCE<span class="k">)</span>.gif
-    make clean
-
-<span class="nf">png</span><span class="o">:</span>
-    make
-    make svg
-    inkscape <span class="k">$(</span>SOURCE<span class="k">)</span>.svg -w <span class="k">$(</span>WIDTH<span class="k">)</span> --export-png<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.png
-
-<span class="nf">transparentGif</span><span class="o">:</span>
-    convert <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf -transparent white result.gif
-    make clean
-
-<span class="nf">svg</span><span class="o">:</span>
-    <span class="c">#inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg</span>
-    pdf2svg <span class="k">$(</span>SOURCE<span class="k">)</span>.pdf <span class="k">$(</span>SOURCE<span class="k">)</span>.svg
-    <span class="c"># Necessary, as pdf2svg does not always create valid svgs:</span>
-    inkscape <span class="k">$(</span>SOURCE<span class="k">)</span>.svg --export-plain-svg<span class="o">=</span><span class="k">$(</span>SOURCE<span class="k">)</span>.svg
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>SOURCE = birthday-paradox
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>DELAY = 80
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>DENSITY = 300
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>WIDTH = 500
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>make:
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>        pdflatex $(SOURCE).tex -output-format=pdf
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        make clean
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>clean:
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        rm -rf  $(TARGET) *.class *.html *.log *.aux
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>gif:
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        pdfcrop $(SOURCE).pdf
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>        make clean
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>png:
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        make
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        make svg
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>        inkscape $(SOURCE).svg -w $(WIDTH) --export-png=$(SOURCE).png
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>transparentGif:
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        convert $(SOURCE).pdf -transparent white result.gif
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>        make clean
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>svg:
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>        #inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>        pdf2svg $(SOURCE).pdf $(SOURCE).svg
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>        # Necessary, as pdf2svg does not always create valid svgs:
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>        inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg
+</pre></div>
 </div>
-<h2 id="tocAnchor-1-3">See also</h2>
+</div>
 
+<h2 id="tocAnchor-1-3">See also</h2>
 <ul>
   <li><a href="../plotting-function-graphs-with-latex/">Plotting function graphs with LaTeX</a></li>
   <li><a href="http://www.texample.net/tikz/examples/tag/plots/">Plotting examples</a></li>
@@ -420,7 +423,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

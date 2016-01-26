@@ -105,30 +105,28 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Online translation programs are getting better and they are great if you want to get a vague idea of the content of a chinese website. Never the less you should know that the translations are not good enough by now:</p>
 
-<p>&quot;Spielzeugladen&quot; is German and means &quot;toy store&quot;</p>
+<p>“Spielzeugladen” is German and means “toy store”</p>
 
 <div class="separator" style="clear: both; text-align: center;">
 <img border="0" height="160" width="400" src="../images/2011/09/Google-Translator-Dirty-Picture.png" /></div>
-
 <p>Note the missing point.</p>
 
 <div class="separator" style="clear: both; text-align: center;">
 <img border="0" height="193" width="400" src="../images/2011/09/Google-Translator-Was-hast-du-an.png" /></div>
-
-<p>&quot;Was hast du an?&quot; means &quot;What do you wear?&quot;</p>
+<p>“Was hast du an?” means “What do you wear?”</p>
 
 <div class="separator" style="clear: both; text-align: center;">
 <img border="0" height="168" width="400" src="../images/2011/09/Google-Translator-Justin-Bieber-Puberty.png" /></div>
 
-<p>Did you know the Beatbox? 
-Type &quot;pv zk pv pv zk pv zk zk pv pv pv zk pv zk zk pzk pzk pvzkpkzvpvzk kkkkkk bsch&quot;, translate from German to German and listen to it:
-<iframe width="512" height="321" src="http://www.youtube.com/embed/KtjYKMtGNRc" frameborder="0" allowfullscreen></iframe></p>
+<p>Did you know the Beatbox? <br />
+Type “pv zk pv pv zk pv zk zk pv pv pv zk pv zk zk pzk pzk pvzkpkzvpvzk kkkkkk bsch”, translate from German to German and listen to it:</p>
+<iframe width="512" height="321" src="http://www.youtube.com/embed/KtjYKMtGNRc" frameborder="0" allowfullscreen=""></iframe>
 
-<p>Here you can listen to the translation-song:
-<iframe width="512" height="321" src="http://www.youtube.com/embed/mqsrPNXEGdc" frameborder="0" allowfullscreen></iframe></p>
+<p>Here you can listen to the translation-song:</p>
+<iframe width="512" height="321" src="http://www.youtube.com/embed/mqsrPNXEGdc" frameborder="0" allowfullscreen=""></iframe>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -314,7 +312,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

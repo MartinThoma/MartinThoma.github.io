@@ -105,21 +105,36 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Create a <code>test.php</code> with the following content to check your current maximum
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Create a <code>test.php</code> with the following content to check your current maximum<br />
 upload size.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nb">phpinfo</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-</code></pre></div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span> <span style="color:#369;font-weight:bold">phpinfo</span>(); <span style="font-weight:bold;color:#666">?&gt;</span>
+</pre></div>
+</div>
+</div>
+
 <p>Search your <code>php.ini</code> in the Apache folder:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>find /etc -name <span class="s1">&#39;php.ini&#39;</span>
-/etc/php5/cli/php.ini
-/etc/php5/apache2/php.ini
-</code></pre></div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>$ find /etc -name 'php.ini'
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>/etc/php5/cli/php.ini
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>/etc/php5/apache2/php.ini
+</pre></div>
+</div>
+</div>
+
 <p>Edit it. Set <code>upload_max_filesize</code> and <code>post_max_size</code> to whatever you want.</p>
 
 <p>Restart the server with</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo service apache2 restart
-</code></pre></div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>$ sudo service apache2 restart
+</pre></div>
+</div>
+</div>
+
                         </div>
                         <div class="postmeta">Posted in
                             
@@ -301,7 +316,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

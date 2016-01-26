@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Coding&rdquo;’</h2>
   
@@ -1807,12 +1807,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-10-23T12:40:45+02:00">October 23, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/a-practical-approach-to-floats/"><img width="128" height="128" src="//martin-thoma.com/images/2012/10/float-scheme1.png" class="alignleft post_thumbnail wp-post-image" alt="A practical approach to floats"/></a>
     
 
-    If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below: { caption align=&quot;aligncenter&quot; width=&quot;500&quot; caption=&quot;IEEE 754 single precision&quot; url=&quot;../images/2012/10/IEEE_754_single_precision.png&quot; alt=&quot;IEEE 754 single precision&quot; height=&quot;74&quot; class=&quot;size-full wp-image-47381&quot; } { caption align=&quot;aligncenter&quot; width=&quot;500&quot; caption=&quot;Example of a floating point number&quot; url=&quot;../images/2012/10/float-scheme.png&quot; alt=&quot;Example of a floating point number&quot; height=&quot;64&quot; class=&quot;size-full wp-image-47361&quot; } You will (have to) learn how IEEE 754 floats...
+    If you make a computer science degree, you will have to learn how numbers are internally represented. Most of the time, you get explanations like the pictures below: { caption align=”aligncenter” width=”500” caption=”IEEE 754 single precision” url=”../images/2012/10/IEEE_754_single_precision.png” alt=”IEEE 754 single precision” height=”74” class=”size-full wp-image-47381” } { caption align=”aligncenter” width=”500” caption=”Example of a floating point number” url=”../images/2012/10/float-scheme.png” alt=”Example of a floating point number” height=”64” class=”size-full wp-image-47361” } You will (have to) learn how IEEE 754 floats...
 
     
     <div class="readmorecontent">
@@ -3688,7 +3688,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

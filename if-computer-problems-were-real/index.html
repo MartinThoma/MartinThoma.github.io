@@ -105,26 +105,26 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Before the computer ...
-... a memory was something you&#39;ve lost with age
-... an application was for employment
-... a program was a TV show
-... a cursor used profanity
-... a keyboard was a piano
-... a web was a spiders home
-... a virus was the flue
-... a CD was a bank account
-... a hard drive was a long trip on the road
-... a mouse pad was where a mouse lived
-... a tree, leaf and root could be found in nature
-... a path was wa way
-and if you had a 3,5 inch floppy...
-... you hoped nobody found out.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Before the computer …<br />
+… a memory was something you’ve lost with age<br />
+… an application was for employment<br />
+… a program was a TV show<br />
+… a cursor used profanity<br />
+… a keyboard was a piano<br />
+… a web was a spiders home<br />
+… a virus was the flue<br />
+… a CD was a bank account<br />
+… a hard drive was a long trip on the road<br />
+… a mouse pad was where a mouse lived<br />
+… a tree, leaf and root could be found in nature<br />
+… a path was wa way<br />
+and if you had a 3,5 inch floppy…<br />
+… you hoped nobody found out.</p>
 
 <p>If you like this kind of humor, you might want to watch this video:</p>
 
-<iframe width="640" height="360" src="http://www.youtube.com/embed/kAG39jKi0lI?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="360" src="http://www.youtube.com/embed/kAG39jKi0lI?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
 <p>Thanks to Javier Benek for <a href="http://www.flickr.com/photos/xbenek/2449405807/sizes/m/in/photostream/">the picture</a>.</p>
 
@@ -312,7 +312,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,11 +105,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enthält.
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Sei $\mathbb{Z}[\sqrt{z}]$ mit $z \in \mathbb{Z}$ der kleinste Ring, der $\mathbb{Z}$ und $\sqrt{z}$ enthält.<br />
 Sei $A := \{a + b \sqrt{z} | a, b \in \mathbb{Z}\}$.</p>
 
-<p><strong>Behauptung</strong>: $\mathbb{Z}[\sqrt{z}] = A$
+<p><strong>Behauptung</strong>: $\mathbb{Z}[\sqrt{z}] = A$<br />
 <strong>Beweis</strong>: z.Z.: $\mathbb{Z}[\sqrt{z}] \subseteq A$ und $\mathbb{Z}[\sqrt{z}] \supseteq A$</p>
 
 <p>Zuerst zeige ich $\mathbb{Z}[\sqrt{z}] \supseteq A$:</p>
@@ -121,25 +121,25 @@ Sei $A := \{a + b \sqrt{z} | a, b \in \mathbb{Z}\}$.</p>
 <li>`$\Rightarrow A \subseteq \mathbb{Z}[\sqrt{z}]$`</li>
 </ul>
 
-<p>Nun $\mathbb{Z}[\sqrt{z}] \subseteq A$:
+<p>Nun $\mathbb{Z}[\sqrt{z}] \subseteq A$:</p>
 <ul>
-<li>$(A, +) \leq (\mathbb{R}, +)$, denn (UG-Kriterium)
+<li>`$(A, +) \leq (\mathbb{R}, +)$`, denn (UG-Kriterium)
   <ul>
-    <li>$0 = 0 + 0 \sqrt{z} \in A \Rightarrow A \neq \emptyset$</li>
-    <li>$\forall (a+b \sqrt{z}), (c + d \sqrt{z}) \in A:$ $(a+b\sqrt{z}) - (c+d\sqrt{z}) = \underbrace{(a-c)}_{\in \mathbb{Z}} + \underbrace{(b-d)}_{\in \mathbb{Z}} \sqrt{z} \in A$</li>
+    <li>`$0 = 0 + 0 \sqrt{z} \in A \Rightarrow A \neq \emptyset$`</li>
+    <li>`$\forall (a+b \sqrt{z}), (c + d \sqrt{z}) \in A:$` `$(a+b\sqrt{z}) - (c+d\sqrt{z}) = \underbrace{(a-c)}_{\in \mathbb{Z}} + \underbrace{(b-d)}_{\in \mathbb{Z}} \sqrt{z} \in A$`</li>
   </ul>
 </li>
-<li>$(A, +)$ ist abelsch, da $(\mathbb{R}, +)$ abelsch ist</li>
-<li>$(A, \cdot)$ ist Untermonoid von $(\mathbb{R}, \cdot)$, denn
+<li>`$(A, +)$` ist abelsch, da `$(\mathbb{R}, +)$` abelsch ist</li>
+<li>`$(A, \cdot)$` ist Untermonoid von `$(\mathbb{R}, \cdot)$`, denn
   <ul>
-    <li>$1 = 1 + 0 \sqrt{z} \in A$</li>
-    <li>$\forall (a+b \sqrt{z}), (c + d \sqrt{z}) \in A:$ 
-        $(a+b\sqrt{z}) \cdot (c+ d\sqrt{z}) = \underbrace{(ac + z bd)}_{\in \mathbb{Z}} + \underbrace{(ad + bc)}_{\in \mathbb{Z}} \sqrt{z} \in A$</li>
+    <li>`$1 = 1 + 0 \sqrt{z} \in A$`</li>
+    <li>`$\forall (a+b \sqrt{z}), (c + d \sqrt{z}) \in A:$` 
+        `$(a+b\sqrt{z}) \cdot (c+ d\sqrt{z}) = \underbrace{(ac + z bd)}_{\in \mathbb{Z}} + \underbrace{(ad + bc)}_{\in \mathbb{Z}} \sqrt{z} \in A$`</li>
   </ul>
 </li>
-<li>Distributivgesetze: Vererben sich aus $(\mathbb{R}, \cdot)$</li>
-<li>$\Rightarrow \mathbb{Z}[\sqrt{z}] \subseteq A$</li>
-</ul></p>
+<li>Distributivgesetze: Vererben sich aus `$(\mathbb{R}, \cdot)$`</li>
+<li>`$\Rightarrow \mathbb{Z}[\sqrt{z}] \subseteq A$`</li>
+</ul>
 
 <p>$\Rightarrow \mathbb{Z}[\sqrt{z}] = A \blacksquare$</p>
 
@@ -321,7 +321,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

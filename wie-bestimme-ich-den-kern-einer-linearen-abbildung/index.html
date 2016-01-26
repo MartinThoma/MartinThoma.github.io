@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -139,7 +139,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Definition</h2>
-
 <p>Der Kern einer linearen Abbildung ist eine Menge von Vektoren. In diesem Artikel erkläre ich kurz und bündig, wie man den Kern einer linearen Abbildung bestimmt.</p>
 
 <div class="definition">Sei `$\Phi: V \rightarrow W$` eine lineare Abbildung. Der <strong>Kern</strong> von `$\Phi$` ist die Menge aller Vektoren von V, die durch `$\Phi$` auf den Nullvektor `$0 \in W$` abgebildet werden, also:
@@ -147,21 +146,26 @@ MathJax.Hub.Queue(function() {
 `$\text{Kern } \Phi := \{v \in V | \Phi(v) = 0\}$`</div>
 
 <h2 id="tocAnchor-1-2">Vorgehen</h2>
-
 <p>Jede lineare Abbildung $\Phi$ lässt sich in dieser Form beschreiben:</p>
 
-<p>$\Phi: V \rightarrow W$ mit $\dim V = m$ und $\dim W = n$
+<p>$\Phi: V \rightarrow W$ mit $\dim V = m$ und $\dim W = n$<br />
 $\Phi(x) = A \cdot x, ~~~ A \in R^{n \times m}, x \in V$</p>
 
-<p>Also muss man, um den Kern von $\Phi$ zu bestimmen, nur das folgende homogene Gleichungssystem nach x auflösen:
+<p>Also muss man, um den Kern von $\Phi$ zu bestimmen, nur das folgende homogene Gleichungssystem nach x auflösen:<br />
 $A \cdot x = 0$</p>
 
-<p>In Wolfram|Alpha benötigt man dafür übrigens das Schlüsselwort <code>null space</code>. Hier ist <a href="http://www.wolframalpha.com/input/?i=nullspace+%7B%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B3%2C0%2C2%2C1%2C2%7D%2C%7B0%2C1%2C1%2C1%2C0%7D%2C%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B2%2C1%2C3%2C3%2C2%7D%7D">Beispiel #2 in Wolfram|Alpha</a>.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>In Wolfram</td>
+      <td>Alpha benötigt man dafür übrigens das Schlüsselwort <code>null space</code>. Hier ist <a href="http://www.wolframalpha.com/input/?i=nullspace+%7B%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B3%2C0%2C2%2C1%2C2%7D%2C%7B0%2C1%2C1%2C1%2C0%7D%2C%7B-1%2C-1%2C-2%2C-2%2C-1%7D%2C%7B2%2C1%2C3%2C3%2C2%7D%7D">Beispiel #2 in Wolfram</a></td>
+      <td>Alpha&lt;/a&gt;.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="tocAnchor-1-3">Beispiel #1</h2>
-
 <h3 id="tocAnchor-1-3-1">Aufgabenstellung</h3>
-
 <p>Sei $A \in \mathbb{R}^{3 \times 3}$ und definiert als</p>
 
 <p>
@@ -179,7 +183,6 @@ $A \cdot x = 0$</p>
 <p>Was ist der Kern von $\Phi$?</p>
 
 <h3 id="tocAnchor-1-3-2">Rechnung</h3>
-
 <p>
    $
 \begin{pmatrix}
@@ -233,9 +236,7 @@ $
 </p>
 
 <h2 id="tocAnchor-1-6">Beispiel #2</h2>
-
 <h3 id="tocAnchor-1-6-1">Aufgabenstellung</h3>
-
 <p>Sei $A \in \mathbb{R}^{5 \times 5}$ und definiert als</p>
 
 <p>
@@ -255,7 +256,6 @@ $
 <p>Was ist der Kern von $\varphi$?</p>
 
 <h3 id="tocAnchor-1-6-2">Rechnung</h3>
-
 <p>
    $\begin{pmatrix}
 -1 &amp; -1 &amp; -2 &amp; -2 &amp; -1\\
@@ -318,30 +318,31 @@ x_5
 \end{pmatrix}$
 </p>
 
-<p>Die Matrix hat Rang 3, daraus folgt, dass die Dimension des Lösungsraumes 2 ist.
+<p>Die Matrix hat Rang 3, daraus folgt, dass die Dimension des Lösungsraumes 2 ist.<br />
 Wieder über den -1-Trick kann man den Lösungsraum direkt ablesen:</p>
 
-<p>`$\mathcal{L} =
+<p>
+   $\mathcal{L} =
 \left [
 \begin{pmatrix}
-  -1\
-  -1\
-   2\
-  -1\
+  -1\\
+  -1\\
+   2\\
+  -1\\
    0
 \end{pmatrix},
 \begin{pmatrix}
-   0\
-  -1\
-   1\
-   0\
+   0\\
+  -1\\
+   1\\
+   0\\
   -1
-\end{pmatrix}</p>
-
-<h1 id="\right-]">\right ]</h1>
-
-<p>\text{Kern} \varphi
-$`</p>
+\end{pmatrix}
+\right ]
+=
+\text{Kern} \varphi
+$
+</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -524,7 +525,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

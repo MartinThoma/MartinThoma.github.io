@@ -105,14 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div style="width: 138px" class="wp-caption alignright">
    <a href="../images/2012/09/Neil_deGrasse_Tyson.jpg">
       <img src="../images/2012/09/Neil_deGrasse_Tyson.jpg" alt="Neil deGrasse Tyson" width="" height="" class="size-full wp-image-44861" />
    </a>
    <p class="wp-caption-text">Neil deGrasse Tyson</p>
 </div>
-
 <p><a href="http://en.wikipedia.org/wiki/Neil_degrasse">Neil deGrasse Tyson</a> is an American astrophysicist and science communicator. He is currently the Frederick P. Rose Director of the Hayden Planetarium at the Rose Center for Earth and Space and a research associate in the department of astrophysics at the American Museum of Natural History. And he gives hilarious talks and interviews.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -135,25 +134,20 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Death By Black Hole</h2>
-
 <iframe width="512" height="288" src="http://www.youtube.com/embed/h1iJXOUMJpg" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="tocAnchor-1-2">Death By Giant Meteor</h2>
-
 <iframe width="512" height="288" src="http://www.youtube.com/embed/xaW4Ol3_M1o" frameborder="0" allowfullscreen=""></iframe>
 
 <p><a href="http://en.wikipedia.org/wiki/99942_Apophis">Apophis</a> is a near-Earth asteroid that caused a brief period of concern in December 2004 because initial observations indicated a small probability (up to 2.7%) that it would strike the Earth in 2029.</p>
 
 <h2 id="tocAnchor-1-3">How to Deflect a Killer Asteroid</h2>
-
 <iframe width="512" height="288" src="http://www.youtube.com/embed/1-ReuLZ2quc" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="tocAnchor-1-4">Earth Is Bad for Life</h2>
-
 <iframe width="512" height="288" src="http://www.youtube.com/embed/GgGgkkGE7QU" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="tocAnchor-1-5">My Man, Sir Isaac Newton</h2>
-
 <iframe width="512" height="384" src="http://www.youtube.com/embed/danYFxGnFxQ" frameborder="0" allowfullscreen=""></iframe>
 
                         </div>
@@ -334,7 +328,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

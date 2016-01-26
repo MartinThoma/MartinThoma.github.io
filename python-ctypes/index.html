@@ -105,12 +105,12 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>One pseudo-problem people often mention when talking about Python is that
-Python is (too) slow. What they seem to forget or don't know is that you can
-call C code from Python with <a href="https://docs.python.org/3/library/ctypes.html"><code>ctypes</code></a>.
-So you can get almost as fast as you can get with C; you're not limited by
-the language in that respect. And most of the time your code has other issues
+                        <div class="entry" id="contentAfterTitle">
+                            <p>One pseudo-problem people often mention when talking about Python is that<br />
+Python is (too) slow. What they seem to forget or don’t know is that you can<br />
+call C code from Python with <a href="https://docs.python.org/3/library/ctypes.html"><code>ctypes</code></a>.<br />
+So you can get almost as fast as you can get with C; you’re not limited by<br />
+the language in that respect. And most of the time your code has other issues<br />
 when it is too slow.</p>
 
 <p>Now, you can also wrap Rust code with ctypes for Python :-)</p>
@@ -136,102 +136,116 @@ when it is too slow.</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Motivation</h2>
 
-<p>As a very simple example, I prepared a dumb Fibonacci implementation written in
+<p>As a very simple example, I prepared a dumb Fibonacci implementation written in<br />
 Python:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">"""Calculate the n-th Fibonacci number."""</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">37</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"The </span><span class="si">%i</span><span class="s">th Fibonacci number is </span><span class="si">%i</span><span class="s">."</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">fib</span>(n):
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Calculate the n-th Fibonacci number.</span><span style="color:black">"""</span></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> n &lt;= <span style="color:#00D">1</span>:
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>        <span style="color:#080;font-weight:bold">return</span> n
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#080;font-weight:bold">else</span>:
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#080;font-weight:bold">return</span> fib(n-<span style="color:#00D">1</span>) + fib(n-<span style="color:#00D">2</span>)
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    n = <span style="color:#00D">37</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The %ith Fibonacci number is %i.</span><span style="color:#710">"</span></span> % (n, fib(n)))
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+</pre></div>
 </div>
+</div>
+
 <p>and exactly the same for Rust</p>
-<div class="highlight">
-   <pre><code class="language-rust" data-lang="rust"><span class="k">pub</span> <span class="k">extern</span> <span class="k">fn</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">:</span> <span class="kt">u32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">u32</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
 
-<span class="k">fn</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
-    <span class="nb">println</span><span class="o">!</span><span class="p">(</span><span class="s">"The {0}th Fibonacci number is {1}."</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="p">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>pub extern fn fib(n: u32) -&gt; u32 {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    if n &lt;= 1 {
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>        return n;
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    } else {
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        return fib(n-1) + fib(n-2);
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    }
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>}
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>fn main() {
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    let n = 37;
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    println!("The {0}th Fibonacci number is {1}.", n, fib(n))
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>}
+</pre></div>
 </div>
-<p>The execution times are quite different. Rust needs 0.40 seconds while Python 3
+</div>
+
+<p>The execution times are quite different. Rust needs 0.40 seconds while Python 3<br />
 needs 15.7 seconds. That is almost 40× the time of Rust!</p>
 
-<p>Wouldn't it be great if we could call the Rust function from Python?</p>
+<p>Wouldn’t it be great if we could call the Rust function from Python?</p>
 
 <h2 id="tocAnchor-1-2">Example</h2>
 
-<p>I'll explain in the next chapters what is done, but at first you should see
+<p>I’ll explain in the next chapters what is done, but at first you should see<br />
 that there are only minor changes / overhead:</p>
 
 <p><strong>fibonacci.rt</strong>:</p>
-<div class="highlight">
-   <pre><code class="language-rust" data-lang="rust"><span class="err">#</span><span class="o">!</span><span class="p">[</span><span class="n">crate_type</span> <span class="o">=</span> <span class="s">"dylib"</span><span class="p">]</span>
 
-<span class="cp">#[no_mangle]</span>
-<span class="k">pub</span> <span class="k">extern</span> <span class="k">fn</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">:</span> <span class="kt">u32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">u32</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>#![crate_type = "dylib"]
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>#[no_mangle]
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>pub extern fn fib(n: u32) -&gt; u32 {
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    if n &lt;= 1 {
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        return n;
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    } else {
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        return fib(n-1) + fib(n-2);
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    }
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>}
+</pre></div>
 </div>
+</div>
+
 <p>Call <code>rustc -O fibonacci.rt</code> to generate the library.</p>
 
 <p>Python:</p>
-<div class="highlight">
-   <pre><code class="language-rust" data-lang="rust"><span class="err">#</span><span class="o">!/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">env</span> <span class="n">python</span>
 
-<span class="n">import</span> <span class="n">ctypes</span>
-
-<span class="n">fiblib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">"./libfibonacci.so"</span><span class="p">)</span>
-<span class="n">fib</span> <span class="o">=</span> <span class="n">fiblib</span><span class="p">.</span><span class="n">fib</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">37</span>
-<span class="nb">print</span><span class="p">(</span><span class="s">"The %ith Fibonacci number is %i."</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>#!/usr/bin/env python
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>import ctypes
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>fiblib = ctypes.CDLL("./libfibonacci.so")
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>fib = fiblib.fib
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>n = 37
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>print("The %ith Fibonacci number is %i." % (n, fib(n)))
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+</pre></div>
 </div>
+</div>
+
 <p>Now, taking the Python code, it takes only 0.44 seconds!</p>
 
 <h2 id="tocAnchor-1-3">What happens</h2>
 
-<p>The line <code>#![crate_type = "dylib"]</code> tells <code>rustc</code> that it has to create a
+<p>The line <code>#![crate_type = "dylib"]</code> tells <code>rustc</code> that it has to create a<br />
 dynamic library.</p>
 
-<p>The line <code>#[no_mangle]</code> tells the compiler not to mangle the name <code>fib</code>.
-This is important so that we can later use it from Python. (I think names are
-mangled to prevent name clashes ... so it's a kind of name-spacing.)</p>
+<p>The line <code>#[no_mangle]</code> tells the compiler not to mangle the name <code>fib</code>.<br />
+This is important so that we can later use it from Python. (I think names are<br />
+mangled to prevent name clashes … so it’s a kind of name-spacing.)</p>
 
-<p>Then we load the C DLL with <code>ctypes.CDLL("./libfibonacci.so")</code> and use it
-as expected. Pretty easy, isn't it?</p>
+<p>Then we load the C DLL with <code>ctypes.CDLL("./libfibonacci.so")</code> and use it<br />
+as expected. Pretty easy, isn’t it?</p>
 
 <h2 id="tocAnchor-1-4">Caveats</h2>
 
-<p>Python makes some things very simple which are not that simple at all. Think
-about numbers, for example. In Rust, you have integers with 64 bits. But in
+<p>Python makes some things very simple which are not that simple at all. Think<br />
+about numbers, for example. In Rust, you have integers with 64 bits. But in<br />
 Python you have arbitrary length integers. This might lead to problems.</p>
 
 <h2 id="tocAnchor-1-5">See also</h2>
 
 <ul>
-<li><a href="http://harkablog.com/calling-rust-from-c-and-python.html">Calling Rust from C (and Python!)</a></li>
-<li><a href="http://doc.rust-lang.org/book/">doc.rust-lang.org/book/ffi</a>: Foreign Function Interface</li>
-<li><a href="http://doc.rust-lang.org/reference.html#ffi-attributes">doc.rust-lang.org</a>: FFI attributes</li>
-<li><a href="http://rustbyexample.com/attribute/crate.html">rustbyexample.com</a>: Crates</li>
+  <li><a href="http://harkablog.com/calling-rust-from-c-and-python.html">Calling Rust from C (and Python!)</a></li>
+  <li><a href="http://doc.rust-lang.org/book/">doc.rust-lang.org/book/ffi</a>: Foreign Function Interface</li>
+  <li><a href="http://doc.rust-lang.org/reference.html#ffi-attributes">doc.rust-lang.org</a>: FFI attributes</li>
+  <li><a href="http://rustbyexample.com/attribute/crate.html">rustbyexample.com</a>: Crates</li>
 </ul>
 
                         </div>
@@ -415,7 +429,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

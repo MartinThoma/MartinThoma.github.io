@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The following Java Puzzle is an example for the <a href="http://en.wikipedia.org/wiki/Template_method_pattern">template method pattern</a>. It is a design pattern by the <a href="http://en.wikipedia.org/wiki/Design_Patterns">Gang of Four</a>.</p>
 
-<p>What is the output of the following snippet:
+<p>What is the output of the following snippet:<br />
 <strong>AbstractClass.java</strong>:</p>
 
 <div class="highlight">
@@ -154,22 +154,22 @@ MathJax.Hub.Queue(function() {
 <span class="o">}</span></code></pre>
 </div>
 
-<p>.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+<p>.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
 .</p>
 
 <h2 id="tocAnchor-1-1">Answer</h2>
@@ -181,10 +181,9 @@ MathJax.Hub.Queue(function() {
 <p>35</p>
 
 <h2 id="tocAnchor-1-2">Explanation</h2>
-
 <p>You can think of it like this: First, you create the empty class <code>ConcreteClass</code>. It has only the methods inherited by <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html">Object</a> like the <code>constructor</code>, <code>equals()</code> and <code>toString()</code>. Then it gets extended by AbstractClass with <code>templateMethod()</code>, <code>simpleOperation1()</code> and <code>simpleOperation2()</code>. After that, the method overrides <code>simpleOperation1()</code> and <code>simpleOperation2()</code>, but <code>templateMethod()</code> uses them. It uses the methods that are now in <code>ConcreteClass</code>.</p>
 
-<p>I don't know what Java exactly does internally, but thats a good way to think about it. If somebody has more information, please share it as a comment!</p>
+<p>I don’t know what Java exactly does internally, but thats a good way to think about it. If somebody has more information, please share it as a comment!</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -376,7 +375,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

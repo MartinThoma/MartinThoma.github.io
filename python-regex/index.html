@@ -105,11 +105,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Python supports regular expressions (RegEx) just as any other general purpose
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Python supports regular expressions (RegEx) just as any other general purpose<br />
 programming language. This mini article shows two examples how to use them.</p>
 
-<p>The package which gives RegEx support is called
+<p>The package which gives RegEx support is called<br />
 <a href="https://docs.python.org/3/library/re.html"><code>re</code></a>.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -127,101 +127,117 @@ programming language. This mini article shows two examples how to use them.</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Replacing Spaces</h2>
 
-<p>Replace multiple whitespace characters (spaces, tabs, newlines, ...) by a
+<p>Replace multiple whitespace characters (spaces, tabs, newlines, …) by a<br />
 single space (by <a href="http://stackoverflow.com/a/1546245/562769">Nasir</a>):</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s">"The   fox jumped   over    the log."</span>
-<span class="n">replaced</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">"\s\s+"</span><span class="p">,</span> <span class="s">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">re</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>text = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The   fox jumped   over    the log.</span><span style="color:#710">"</span></span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>replaced = re.sub(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">\s</span><span style="color:#D20">\s</span><span style="color:#D20">+</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>, text)
+</pre></div>
 </div>
-<p>To speed things up you can also
-<a href="https://docs.python.org/3/library/re.html#re.compile"><code>compile</code></a> the pattern.
-This has also the advantage that you can specify that you want to match newline
-characters (<code>\n</code> and <code>\r</code>) with the dot by setting the
+</div>
+
+<p>To speed things up you can also<br />
+<a href="https://docs.python.org/3/library/re.html#re.compile"><code>compile</code></a> the pattern.<br />
+This has also the advantage that you can specify that you want to match newline<br />
+characters (<code>\n</code> and <code>\r</code>) with the dot by setting the<br />
 <a href="https://docs.python.org/3/library/re.html#re.DOTALL"><code>re.DOTALL</code></a> flag.</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">"\s\s+"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s">"The   fox jumped   over    the log."</span>
-<span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">re</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>pattern = re.compile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">\s</span><span style="color:#D20">\s</span><span style="color:#D20">+</span><span style="color:#710">"</span></span>, re.DOTALL)
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>text = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The   fox jumped   over    the log.</span><span style="color:#710">"</span></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>pattern.sub(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>, text)
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Unquoting</h2>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="k">def</span> <span class="nf">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">"""Remove 'test'."""</span>
-    <span class="k">def</span> <span class="nf">unquote</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">u' </span><span class="si">%s</span><span class="s"> '</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">" '([^ ]+?.*[^ ]+?)' "</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">unquote</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-
-<span class="n">text</span> <span class="o">=</span> <span class="s">"The quoted 'text piece' will get unquoted."</span>
-<span class="n">remove_quotes</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">re</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">remove_quotes</span>(text):
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Remove 'test'.</span><span style="color:black">"""</span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">unquote</span>(m):
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20"> %s </span><span style="color:#710">'</span></span> % <span style="color:#369;font-weight:bold">str</span>(m.group(<span style="color:#00D">1</span>))
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    pattern = re.compile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> '([^ ]+?.*[^ ]+?)' </span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#080;font-weight:bold">return</span> pattern.sub(unquote, text)
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>text = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The quoted 'text piece' will get unquoted.</span><span style="color:#710">"</span></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>remove_quotes(text)
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-3">All paragraphs</h2>
 
-<p>If you want to get the content within all paragraph tags (<code>&lt;p&gt; ... &lt;/p&gt;</code> in
+<p>If you want to get the content within all paragraph tags (<code>&lt;p&gt; ... &lt;/p&gt;</code> in<br />
 arbitrary spacing) you can use:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">"&lt;p&gt;(.*?)&lt;/p&gt;"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span> <span class="o">|</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s">"""</span>
-<span class="s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat</span>
-<span class="s">turpis vitae malesuada tempor. Fusce cursus condimentum leo, ut bibendum justo</span>
-<span class="s">varius sit amet. In accumsan interdum nibh at fermentum. Nulla commodo, mi vel</span>
-<span class="s">ultricies efficitur, nulla tortor sagittis tortor, quis laoreet augue orci</span>
-<span class="s">vitae justo.</span>
-
-<span class="s">sasdf &lt;p&gt;Suspendisse porttitor risus et est consequat condimentum.</span>
-<span class="s">In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.</span>
-<span class="s">Phasellus vel arcu convallis, semper quam eu, convallis velit.</span>
-
-<span class="s">&lt;/p&gt;</span>
-
-
-<span class="s">&lt;P&gt;Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non</span>
-<span class="s">dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.&lt;/p&gt;</span>
-
-<span class="s">&lt;P&gt;Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,</span>
-<span class="s">fermentum mi nec, viverra dolor. Quisque posuere ultricies leo et efficitur.</span>
-<span class="s">Aliquam venenatis quis mi ac tempus.&lt;/p&gt;</span>
-
-<span class="s">Maecenas in nisl lacinia, finibus velit eu, aliquet elit. Morbi orci libero,</span>
-<span class="s">interdum id vehicula vitae, &lt;p&gt;congue vel&lt;/p&gt;p&gt; lectus. Morbi lobortis eros</span>
-<span class="s">mollis, cursus velit at, convallis dolor. Nullam volutpat neque at risus</span>
-<span class="s">porttitor, faucibus tristique tellus suscipit. In sed purus quis sem tincidunt</span>
-<span class="s">lobortis. Vivamus ut blandit erat, sed sollicitudin felis. Etiam placerat,</span>
-<span class="s">sapien et vulputate placerat, mi lectus tristique nisi, vitae finibus tellus</span>
-<span class="s">nisi a massa. Nullam sit amet scelerisque lectus. Fusce porta justo ac</span>
-<span class="s">scelerisque auctor. Integer vestibulum tellus at quam molestie dapibus.</span>
-<span class="s">Suspendisse quis quam tortor. Nullam consequat tempus orci eget scelerisque. Ut</span>
-<span class="s">auctor lorem enim, id rutrum eros congue varius. In justo lacus, molestie vitae</span>
-<span class="s">nibh eu, venenatis auctor ex.</span>
-<span class="s">"""</span>
-
-<span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">re</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>pattern = re.compile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&lt;p&gt;(.*?)&lt;/p&gt;</span><span style="color:#710">"</span></span>, re.IGNORECASE | re.DOTALL)
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>text = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"""</span><span style="color:#D20"></span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat</span><span style="color:#D20"></span></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">turpis vitae malesuada tempor. Fusce cursus condimentum leo, ut bibendum justo</span><span style="color:#D20"></span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">varius sit amet. In accumsan interdum nibh at fermentum. Nulla commodo, mi vel</span><span style="color:#D20"></span></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">ultricies efficitur, nulla tortor sagittis tortor, quis laoreet augue orci</span><span style="color:#D20"></span></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">vitae justo.</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">sasdf &lt;p&gt;Suspendisse porttitor risus et est consequat condimentum.</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">Phasellus vel arcu convallis, semper quam eu, convallis velit.</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">&lt;/p&gt;</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">&lt;P&gt;Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.&lt;/p&gt;</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">&lt;P&gt;Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">fermentum mi nec, viverra dolor. Quisque posuere ultricies leo et efficitur.</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">Aliquam venenatis quis mi ac tempus.&lt;/p&gt;</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">Maecenas in nisl lacinia, finibus velit eu, aliquet elit. Morbi orci libero,</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">interdum id vehicula vitae, &lt;p&gt;congue vel&lt;/p&gt;p&gt; lectus. Morbi lobortis eros</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">mollis, cursus velit at, convallis dolor. Nullam volutpat neque at risus</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">porttitor, faucibus tristique tellus suscipit. In sed purus quis sem tincidunt</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">lobortis. Vivamus ut blandit erat, sed sollicitudin felis. Etiam placerat,</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">sapien et vulputate placerat, mi lectus tristique nisi, vitae finibus tellus</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">nisi a massa. Nullam sit amet scelerisque lectus. Fusce porta justo ac</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">scelerisque auctor. Integer vestibulum tellus at quam molestie dapibus.</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">Suspendisse quis quam tortor. Nullam consequat tempus orci eget scelerisque. Ut</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">auctor lorem enim, id rutrum eros congue varius. In justo lacus, molestie vitae</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#D20">nibh eu, venenatis auctor ex.</span><span style="color:#D20"></span></span>
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20"></span><span style="color:#710">"""</span></span>
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>matches = pattern.findall(text)
+</pre></div>
 </div>
+</div>
+
 <p>Matches is the following list (breaked at some points for easier reading):</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">['Suspendisse porttitor risus et est consequat condimentum.\n
-  In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.\n
-  Phasellus vel arcu convallis, semper quam eu, convallis velit.\n\n',
- 'Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non\n
-  dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.',
- 'Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,\n
-  fermentum mi nec, viverra dolor.
-  Quisque posuere ultricies leo et efficitur.\n
-  Aliquam venenatis quis mi ac tempus.',
- 'congue vel']
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>['Suspendisse porttitor risus et est consequat condimentum.\n
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>  In in eleifend ipsum, eu pulvinar nunc. Nullam vel imperdiet eros.\n
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>  Phasellus vel arcu convallis, semper quam eu, convallis velit.\n\n',
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span> 'Sed tempus magna quis neque varius aliquam. Quisque maximus et augue non\n
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>  dapibus. Nullam et ante imperdiet, fringilla diam nec, mattis quam.',
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span> 'Ut fermentum lacus id semper imperdiet. Donec et purus consectetur,\n
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  fermentum mi nec, viverra dolor.
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  Quisque posuere ultricies leo et efficitur.\n
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>  Aliquam venenatis quis mi ac tempus.',
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span> 'congue vel']
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+</pre></div>
 </div>
+</div>
+
                         </div>
                         <div class="postmeta">Posted in
                             
@@ -403,7 +419,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

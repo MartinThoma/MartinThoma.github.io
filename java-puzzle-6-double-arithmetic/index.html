@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>What is the output of the following snippet?</p>
 
 <div class="highlight">
@@ -124,24 +124,24 @@ MathJax.Hub.Queue(function() {
 <span class="o">}</span></code></pre>
 </div>
 
-<p>.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<p>.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.</p>
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -161,8 +161,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-2">Explanation</h2>
-
-<p>Doubles are internally represented using the <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 standard</a> (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html">source</a>).
+<p>Doubles are internally represented using the <a href="http://en.wikipedia.org/wiki/IEEE_floating_point">IEEE 754 standard</a> (<a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html">source</a>).<br />
 This means, doubles are not represented with arbitrary precision.</p>
 
 <p>Just execute this snippet:</p>
@@ -189,7 +188,6 @@ This means, doubles are not represented with arbitrary precision.</p>
 </div>
 
 <h2 id="tocAnchor-1-3">Resolve problem</h2>
-
 <p>Use an appropriate epsilon to compare floats/doubles:</p>
 
 <div class="highlight">
@@ -208,6 +206,7 @@ This means, doubles are not represented with arbitrary precision.</p>
     <span class="o">}</span>
 <span class="o">}</span></code></pre>
 </div>
+
 
                         </div>
                         <div class="postmeta">Posted in
@@ -393,7 +392,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

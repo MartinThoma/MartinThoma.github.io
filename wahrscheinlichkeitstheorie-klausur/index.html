@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Wahrscheinlichkeitstheorie“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Henze im Sommersemester 2015 gehört. Der Artikel wird bis zur Klausur laufend erweitert.</div>
 
-<p>Der Dozent veweist immer wieder auf die Vorlesung Analysis III und insbesondere
+<p>Der Dozent veweist immer wieder auf die Vorlesung Analysis III und insbesondere<br />
 das Skript von Prof. Hundertmark. Kann mir das jemand schicken?</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -135,7 +135,6 @@ das Skript von Prof. Hundertmark. Kann mir das jemand schicken?</p>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
 
 <h3 id="tocAnchor-1-1-1">Vorlesung</h3>
-
 <table>
 <tr>
     <th>Datum</th>
@@ -247,33 +246,33 @@ das Skript von Prof. Hundertmark. Kann mir das jemand schicken?</p>
 <h2 id="tocAnchor-1-3">Material und Links</h2>
 
 <ul>
-<li><a href="http://www.math.kit.edu/stoch/lehre/wt2015s/de">Vorlesungswebsite</a></li>
-<li><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=419886&amp;cmd=frameset&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Ilias</a></li>
+  <li><a href="http://www.math.kit.edu/stoch/lehre/wt2015s/de">Vorlesungswebsite</a></li>
+  <li><a href="https://ilias.studium.kit.edu/ilias.php?ref_id=419886&amp;cmd=frameset&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Ilias</a></li>
 </ul>
 
 <h2 id="tocAnchor-1-4">Übungsbetrieb</h2>
 
 <ul>
-<li>Wo sind die Übungsblätter: ?</li>
-<li>Abgabeform: ?</li>
-<li>Abgabe: ?</li>
-<li>Rücknahme: ?</li>
-<li>Turnus: ?</li>
-<li>Übungsschein verpflichtend: ?</li>
-<li>Bonus durch Übungsschein: ?</li>
+  <li>Wo sind die Übungsblätter: ?</li>
+  <li>Abgabeform: ?</li>
+  <li>Abgabe: ?</li>
+  <li>Rücknahme: ?</li>
+  <li>Turnus: ?</li>
+  <li>Übungsschein verpflichtend: ?</li>
+  <li>Bonus durch Übungsschein: ?</li>
 </ul>
 
 <h2 id="tocAnchor-1-5">Termine und Klausurablauf</h2>
 
-<p><strong>Datum</strong>: Donnerstag, der 30.07.2015 von 11:00 bis 13:00 Uhr (<a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422581&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Quelle</a>)<br />
-<strong>Ort</strong>: <a href="http://www.kithub.de/map/2289">Hertz-Hörsaal</a> (Geb. 10.11, <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422581&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Quelle</a>)<br />
-<strong>Punkte</strong>: ?<br />
-<strong>Punkteverteilung</strong>: ?<br />
-<strong>Bestehensgrenze</strong>: ?<br />
-<strong>Übungsschein</strong>: ?<br />
-<strong>Bonuspunkte</strong>: ?<br />
-<strong>Ergebnisse</strong>: ?<br />
-<strong>Einsicht</strong>: ?<br />
+<p><strong>Datum</strong>: Donnerstag, der 30.07.2015 von 11:00 bis 13:00 Uhr (<a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422581&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Quelle</a>)<br /><br />
+<strong>Ort</strong>: <a href="http://www.kithub.de/map/2289">Hertz-Hörsaal</a> (Geb. 10.11, <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=422581&amp;cmd=sendfile&amp;cmdClass=ilrepositorygui&amp;cmdNode=ed&amp;baseClass=ilRepositoryGUI">Quelle</a>)<br /><br />
+<strong>Punkte</strong>: ?<br /><br />
+<strong>Punkteverteilung</strong>: ?<br /><br />
+<strong>Bestehensgrenze</strong>: ?<br /><br />
+<strong>Übungsschein</strong>: ?<br /><br />
+<strong>Bonuspunkte</strong>: ?<br /><br />
+<strong>Ergebnisse</strong>: ?<br /><br />
+<strong>Einsicht</strong>: ?<br /><br />
 <strong>Erlaubte Hilfsmittel</strong>: ?</p>
 
                         </div>
@@ -454,7 +453,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

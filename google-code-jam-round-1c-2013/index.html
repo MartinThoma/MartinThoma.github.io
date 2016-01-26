@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <ul>
 <li>Problem A (<a href="https://code.google.com/codejam/contest/2437488/dashboard#s=p0">Consonants</a>):
   <ul>
@@ -124,29 +124,14 @@ MathJax.Hub.Queue(function() {
     <li>Large Set: 74/330 users (22%)</li>
   </ul>
 </li>
-</ul>
 
-<p>More information is on <a href="http://www.go-hero.net/jam/13/round/3">go-hero.net</a>.</p>
 
-<div id="toc_container" class="toc_light_blue no_bullets">
-   <p class="toc_title">Contents</p>
-   <ul class="toc_list">
-      <li class="toc_level-1 toc_section-1">
-         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Consonants</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-2">
-         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Pogo</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">The Great Wall</span></a>
-      </li>
-   </ul>
-</div><h2 id="tocAnchor-1-1">Consonants</h2>
+More information is on <a href="http://www.go-hero.net/jam/13/round/3">go-hero.net</a>.
 
-<p>A solution from <a href="http://www.go-hero.net/jam/13/name/nip">nip</a>:</p>
+<div id="toc_container" class="toc_light_blue no_bullets"><p class="toc_title">Contents</p><ul class="toc_list"><li class="toc_level-1 toc_section-1"><a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Consonants</span></a></li><li class="toc_level-1 toc_section-2"><a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Pogo</span></a></li><li class="toc_level-1 toc_section-3"><a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">The Great Wall</span></a></li></ul></div><h2 id="tocAnchor-1-1">Consonants</h2>
+A solution from <a href="http://www.go-hero.net/jam/13/name/nip">nip</a>:
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -170,23 +155,22 @@ MathJax.Hub.Queue(function() {
       
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">name</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span></code></pre>
-</div>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span></code></pre></div>
+
 
 <h2 id="tocAnchor-1-2">Pogo</h2>
+This is a very clever solution from xiaowuc1 (translated from Java to Python).
 
-<p>This is a very clever solution from xiaowuc1 (translated from Java to Python).</p>
+The idea is to calculate at first the maximum number of steps you need and then go from your target destination to the origin.
 
-<p>The idea is to calculate at first the maximum number of steps you need and then go from your target destination to the origin.</p>
+How many steps do you need?
+In the `$i$` round, you will make `$i$` steps. You need at least `$x+y$` steps to get from `$(0|0)$` to `$(x|y)$`. This means, you need to solve `$\sum_{i=1}^n i = x + y$` for `$n$`. This is `$\frac{n^2 + n}{2} = x+y$`. You might also need to make one extra step if the parity of `$\frac{n^2 + n}{2}$` is not the same as `$x+y$`.
+You can calculate this with a simple loop (see code below).
 
-<p>How many steps do you need?
-In the $i$ round, you will make $i$ steps. You need at least $x+y$ steps to get from $(0|0)$ to $(x|y)$. This means, you need to solve $\sum_{i=1}^n i = x + y$ for $n$. This is $\frac{n^2 + n}{2} = x+y$. You might also need to make one extra step if the parity of $\frac{n^2 + n}{2}$ is not the same as $x+y$.
-You can calculate this with a simple loop (see code below).</p>
+After you know the maximum number of steps, you can apply a greedy solution: Start from `$(x|y)$` and always go into the direction that is farer away from the origin.
 
-<p>After you know the maximum number of steps, you can apply a greedy solution: Start from $(x|y)$ and always go into the direction that is farer away from the origin.</p>
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">calculateSteps</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -225,15 +209,14 @@ You can calculate this with a simple loop (see code below).</p>
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
         <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span></code></pre>
-</div>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)))</span></code></pre></div>
+
 
 <h2 id="tocAnchor-1-3">The Great Wall</h2>
+The following solution is not applicable for the large input set, but it works fine for the small one:
 
-<p>The following solution is not applicable for the large input set, but it works fine for the small one:</p>
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
@@ -297,10 +280,11 @@ You can calculate this with a simple loop (see code below).</p>
             <span class="s">"delta_pi"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">delta_pi</span><span class="p">),</span> <span class="c"># the distance this tribe travels to the east between subsequent attacks (if this is negative, the tribe travels to the west)</span>
             <span class="s">"delta_si"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">delta_si</span><span class="p">)</span> <span class="c"># the change in strength between subsequent attacks</span>
             <span class="p">})</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">tribes</span><span class="p">)))</span></code></pre>
-</div>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">tribes</span><span class="p">)))</span></code></pre></div>
 
-<p>By the way, nobody has solved the large input set of this one with Python! But here is a <a href="http://www.go-hero.net/jam/13/name/eatmore">Java solution</a>.</p>
+
+By the way, nobody has solved the large input set of this one with Python! But here is a <a href="http://www.go-hero.net/jam/13/name/eatmore">Java solution</a>.
+</ul>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -480,7 +464,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

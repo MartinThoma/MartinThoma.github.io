@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -143,7 +143,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Detexify</h2>
-
 <p>The easiest way to search for a math symbol is <a href="http://detexify.kirelabs.org/classify.html">Detexify</a>. This webservices allows you to draw the symbol. It looks like this:</p>
 
 <div style="width: 522px" class="wp-caption aligncenter">
@@ -154,9 +153,7 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-2">Symbol tables</h2>
-
 <h3 id="tocAnchor-1-2-1">Arrows</h3>
-
 <table>
 <tr>
 <td>`$\rightarrow$`</td><td>\rightarrow</td>
@@ -179,7 +176,6 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h3 id="tocAnchor-1-2-2">Greek</h3>
-
 <table>
 <tr>
 <td>`$\alpha$`</td><td>\alpha</td>
@@ -232,7 +228,6 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h3 id="tocAnchor-1-2-3">Operations</h3>
-
 <table>
 <tr>
 <td>`$\cdot$`</td><td>\cdot</td>
@@ -249,7 +244,6 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h3 id="tocAnchor-1-2-4">Relations</h3>
-
 <table>
 <tr>
 <td>`$\approx$`</td><td>\approx</td>
@@ -260,7 +254,6 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h3 id="tocAnchor-1-2-5">Calligraphic Letters</h3>
-
 <table>
 <tr>
 <td>`$\cal{O}$`</td><td>\cal{O}</td>
@@ -270,7 +263,6 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h3 id="tocAnchor-1-2-6">Sets</h3>
-
 <table>
 <tr>
 <td>`$\mathbb{N}$`</td><td>\mathbb{N}</td>
@@ -293,13 +285,11 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h3 id="tocAnchor-1-2-7">Other</h3>
-
 <p>You might need \qed, \qedsymbol, \blacksquare for proofs. It is the <a href="http://en.wikipedia.org/wiki/Tombstone_(typography)">Tombstone</a> $\blacksquare$</p>
 
-<p>I've recently needed $\dots, \ddots, \vdots$ (\dots, \ddots, \vdots) for a visualization in a matrix. Note that you can write ... instead of \dots, but you'll lose the semantics.</p>
+<p>I’ve recently needed $\dots, \ddots, \vdots$ (\dots, \ddots, \vdots) for a visualization in a matrix. Note that you can write … instead of \dots, but you’ll lose the semantics.</p>
 
 <h2 id="tocAnchor-1-10">See also</h2>
-
 <ul>
   <li><a href="http://www.tex.ac.uk/tex-archive/info/symbols/comprehensive/symbols-a4.pdf">List of symbols</a> - 164 pages of symbols</li>
   <li><a href="http://en.wikipedia.org/wiki/Help:Displaying_a_formula">Displaying a formula</a></li>
@@ -486,7 +476,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -100,7 +100,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="warning">Dieser Artikel könnte inhaltliche Fehler beinhalten. Bitte lest euch die Kommentare durch.</div>
 
 <p>Die Chomsky-Normalform ist eine bestimmte Art, eine kontextfreie Grammatik zu formulieren. Dabei haben nur die Produktionsregeln eine festgelegte Form, alles andere ist wie immer. Die Chomsky-Normalform kommt bei dem CYK-Algorithmus, der das Wortproblem für kontextfreie Grammatiken löst, zum Einsatz. Jede kontextfreie Grammatik kann in Chomsky-Normalform gebracht werden.</p>
@@ -141,98 +141,84 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Die Chomsky-Normalform</h2>
-
-<p>Das Besondere an der Chomsky-Normalform ist, dass alle Regeln der Grammatik $G (V, \Sigma, P, S)$ folgende Form haben:
-$A \rightarrow BC$ oder
-$A \rightarrow a$.
+<p>Das Besondere an der Chomsky-Normalform ist, dass alle Regeln der Grammatik $G (V, \Sigma, P, S)$ folgende Form haben:<br />
+$A \rightarrow BC$ oder<br />
+$A \rightarrow a$.<br />
 Dabei sind $A, B, C \in V$ und $a \in \Sigma$.</p>
 
-<p>Falls die Grammatik in der Lage ist, das Leere Wort $\varepsilon$ zu erzeugen, dann fügt man folgende Sonderregel hinzu: $S' \rightarrow S | \varepsilon$. Dabei darf S' niemals auf der rechten Seite einer Produktion stehen.</p>
+<p>Falls die Grammatik in der Lage ist, das Leere Wort $\varepsilon$ zu erzeugen, dann fügt man folgende Sonderregel hinzu: $S' \rightarrow S | \varepsilon$. Dabei darf S’ niemals auf der rechten Seite einer Produktion stehen.</p>
 
 <p>Eine Eigenschaft der Chomsky-Normalform ist, dass jedes Wort aus $2 \cdot |w| - 1$ Ableitungen gebildet werden kann. (Falls das leere Wort gebildet werden kann sind es $2 \cdot |w|$ Ableitungen für jedes nicht-leere Wort und eine Ableitung für das leere Wort) In jedem Ableitungsschritt erhält man entweder ein Terminal, oder ein weiteres Nicht-Terminal.</p>
 
 <h2 id="tocAnchor-1-2">Konstruktion der CNF</h2>
-
 <p>Aus einer Grammatik $G (V, \Sigma, P, S)$ kann mit folgenden vier Schritten eine Grammatik $G' (V', \Sigma, P', S)$ in Chomsky-Normalform (CNF) erstellt werden:</p>
 
 <h3 id="tocAnchor-1-2-1">Schritt 1</h3>
-
-<p>Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y_a$ ersetzt und eine neue Produktion $Y_a \rightarrow a$ zu P' hinzugefügt. </p>
+<p>Immer wenn ein Symbol aus $\Sigma$ in einer Produktion steht, wird dieses durch $Y_a$ ersetzt und eine neue Produktion $Y_a \rightarrow a$ zu P’ hinzugefügt.</p>
 
 <p>Es ist somit sichergestellt, dass alle Regeln entweder nur Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.</p>
 
 <h3 id="tocAnchor-1-2-2">Schritt 2</h3>
-
-<p>Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann führt man m - 2 neue Variablen ein, fügt diese zu V' hinzu, und macht aus einer Regel $A \rightarrow B_1 B_2 ... B_m$ die Regeln $A \rightarrow B_1 C_1, C_1 \rightarrow B_2 C_2, ..., C_{i+1} \rightarrow B_i C_i ... C_{m-2} \rightarrow B_{m-3} C_{m-3}$. </p>
+<p>Immer wenn mehr als zwei Variablen auf der rechten Seite stehen, werden diese durch neue ersetzt. Sagen wir es stehen rechts m Variablen. Dann führt man m - 2 neue Variablen ein, fügt diese zu V’ hinzu, und macht aus einer Regel $A \rightarrow B_1 B_2 ... B_m$ die Regeln $A \rightarrow B_1 C_1, C_1 \rightarrow B_2 C_2, ..., C_{i+1} \rightarrow B_i C_i ... C_{m-2} \rightarrow B_{m-3} C_{m-3}$.</p>
 
 <p>An dieser Stelle ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder $\varepsilon$ oder dass dort ein einzelnes Terminal steht.</p>
 
 <h3 id="tocAnchor-1-2-3">Schritt 3</h3>
+<p>Nun wollen wir alle $\varepsilon$-Übergänge entfernen.</p>
 
-<p>Nun wollen wir alle $\varepsilon$-Übergänge entfernen. </p>
-
-<p>Um dies zu erreichen, suchen wir alle Regeln, die nach $\varepsilon$ abbilden, also von der Form $A \rightarrow \varepsilon$ sind. Dabei streichen wir die Regeln $A \rightarrow \varepsilon$. Falls A nun nicht mehr auf der linken Seite auftaucht, streichen wir es überall aus der rechten Seite. Falls dabei eine Regel zu $B \rightarrow \varepsilon$ wird, streichen wir auch diese. Das wiederholen wir so lange, bis keine $\varepsilon$-Übergänge mehr vorhanden sind.
+<p>Um dies zu erreichen, suchen wir alle Regeln, die nach $\varepsilon$ abbilden, also von der Form $A \rightarrow \varepsilon$ sind. Dabei streichen wir die Regeln $A \rightarrow \varepsilon$. Falls A nun nicht mehr auf der linken Seite auftaucht, streichen wir es überall aus der rechten Seite. Falls dabei eine Regel zu $B \rightarrow \varepsilon$ wird, streichen wir auch diese. Das wiederholen wir so lange, bis keine $\varepsilon$-Übergänge mehr vorhanden sind.<br />
 Am Ende fügen wir die Regel $S' \rightarrow S | \varepsilon$ hinzu, falls die Grammatik auf das leere Wort abbilden konnte.</p>
 
 <p>Nun ist sichergestellt, dass alle Regeln entweder nur ein oder zwei Nicht-Terminale auf der rechten Seite der Produktion stehen haben oder dass dort ein einzelnes Terminal steht. Allerdings kann es noch Kreise in der Ableitung geben, die man entfernen kann.</p>
 
 <h3 id="tocAnchor-1-2-4">Schritt 4</h3>
-
-<p>In diesem Schritt entfernen wir eventuell vorhandene Kettenregeln, also Regeln der Form $A_1 \rightarrow A_2 \rightarrow A_3 \rightarrow A_u \rightarrow A_1$. Diese findet man mit einer Tiefensuche.
+<p>In diesem Schritt entfernen wir eventuell vorhandene Kettenregeln, also Regeln der Form $A_1 \rightarrow A_2 \rightarrow A_3 \rightarrow A_u \rightarrow A_1$. Diese findet man mit einer Tiefensuche.<br />
 Dann ersetzt man alle $A_2, ..., A_u$ durch $A_1$. Die Regel $A_1 \rightarrow A_1$ kann entfernt werden, da sie ja nichts ändert.</p>
 
 <h2 id="tocAnchor-1-7">Beispiele</h2>
-
 <h3 id="tocAnchor-1-7-1">Die Sprache der Palindrome</h3>
-
-<p>Gegeben sei folgende Grammatik:
-$G(\underbrace{\{S\}}_{V}, \underbrace{\{a,b\}}_{\Sigma}, S, P)$ mit
+<p>Gegeben sei folgende Grammatik:<br />
+$G(\underbrace{\{S\}}_{V}, \underbrace{\{a,b\}}_{\Sigma}, S, P)$ mit<br />
 $P = \{S \rightarrow \varepsilon | a | b | aSa | bSb \}$.</p>
 
 <h4>Schritt 1</h4>
-
-<p>$S \rightarrow \varepsilon | Y_a | Y_b | Y_aSY_a | Y_bSY_b$
-$Y_a \rightarrow a$
+<p>$S \rightarrow \varepsilon | Y_a | Y_b | Y_aSY_a | Y_bSY_b$<br />
+$Y_a \rightarrow a$<br />
 $Y_b \rightarrow b$</p>
 
 <h4>Schritt 2</h4>
-
-<p>$S \rightarrow \varepsilon | Y_a | Y_b | Y_aC_1 | Y_bC_2$
-$C_1 \rightarrow SY_a$
-$C_2 \rightarrow SY_b$
-$Y_a \rightarrow a$
+<p>$S \rightarrow \varepsilon | Y_a | Y_b | Y_aC_1 | Y_bC_2$<br />
+$C_1 \rightarrow SY_a$<br />
+$C_2 \rightarrow SY_b$<br />
+$Y_a \rightarrow a$<br />
 $Y_b \rightarrow b$</p>
 
 <h4>Schritt 3</h4>
-
-<p>$S \rightarrow Y_a | Y_b | Y_aC_1 | Y_bC_2$
-$C_1 \rightarrow SY_a$
-$C_2 \rightarrow SY_b$
-$Y_a \rightarrow a$
-$Y_b \rightarrow b$
+<p>$S \rightarrow Y_a | Y_b | Y_aC_1 | Y_bC_2$<br />
+$C_1 \rightarrow SY_a$<br />
+$C_2 \rightarrow SY_b$<br />
+$Y_a \rightarrow a$<br />
+$Y_b \rightarrow b$<br />
 $S' \rightarrow S | \varepsilon$</p>
 
 <h4>Schritt 4</h4>
-
 <p>Keine Kettenregel vorhanden.</p>
 
 <h4>Ergebnis</h4>
-
 <p>Nun werden noch einzelne Nicht-Terminale durch die möglichen Terminale ersetzt und man ist fertig.</p>
 
-<p>Damit ist die Grammatik:
-$G_{CNF} (\{S, S', Y_a, Y_b, C_1, C_2\}, \{a,b\}, S', P'))$ mit folgenden Produktionen P':
-$P' = \{S \rightarrow a | b | Y_aC_1 | Y_bC_2,$
-$~ C_1 \rightarrow SY_a,$
-$~ C_2 \rightarrow SY_b,$
-$~ Y_a \rightarrow a,$
-$~ Y_b \rightarrow b,$
+<p>Damit ist die Grammatik:<br />
+$G_{CNF} (\{S, S', Y_a, Y_b, C_1, C_2\}, \{a,b\}, S', P'))$ mit folgenden Produktionen P’:<br />
+$P' = \{S \rightarrow a | b | Y_aC_1 | Y_bC_2,$<br />
+$~ C_1 \rightarrow SY_a,$<br />
+$~ C_2 \rightarrow SY_b,$<br />
+$~ Y_a \rightarrow a,$<br />
+$~ Y_b \rightarrow b,$<br />
 $~ S' \rightarrow S | \varepsilon\}$</p>
 
 <p>Sie ist also nicht schöner oder einfacher geworden, hat aber eine bestimmte Struktur erhalten.</p>
 
 <h2 id="tocAnchor-1-9">Weiterführende Links und Quellen</h2>
-
 <ul>
     <li><a href="http://de.wikipedia.org/wiki/Chomsky-Normalform">Wikipedia</a></li>
     <li>Uwe Schöning: <i>Theoretische Informatik- kurz gefasst</i>. 5. Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, S. 44, <span class="plainlinks-print"><a rel="nofollow" class="external text" href="http://d-nb.info/986529222">DNB 986529222</a></span>.</li>
@@ -424,7 +410,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

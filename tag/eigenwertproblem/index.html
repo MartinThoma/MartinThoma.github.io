@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Eigenwertproblem&rdquo;’</h2>
   
@@ -2663,12 +2663,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-04-16T08:15:32+02:00">April 16, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/eigenwerte-eigenvektoren-und-eigenraume/"><img width="128" height="128" src="//martin-thoma.com/images/2012/01/vector-space.png" class="alignleft post_thumbnail wp-post-image" alt="Eigenwerte, Eigenvektoren und Eigenr&auml;ume"/></a>
     
 
-    Eigenwerte sind Elemente des K&ouml;rpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erf&uuml;llen: $\Phi(x) = \lambda x$ mit $x \in V$ und $x \neq 0$ Alle Vektoren x sind Eigenvektoren zu diesem Eigenwert. Zusammen mit dem Null-Vektor bilden alle Eigenvektoren zu einem Eigenwert einer linearen Abbildung $\Phi$ einen Eigenraum. Diesen Eigenraum bezeichnet man mit $E_\lambda$. Interessante S&auml;tze `$E_{\lambda_1} \cap E_{\lambda_2} = \emptyset$` Ein Endomorphismus `$\Phi$` eines n-dimensionalen `$\mathbb{K}$`-Vektorraumes hat h&ouml;chstens n Eigenwerte....
+    Eigenwerte sind Elemente des Körpers $\mathbb{K}$ zu einem Endomorphismus $\Phi:V \rightarrow V$, die folgende Eigenschaft erfüllen: $\Phi(x) = \lambda x$ mit $x \in V$ und $x \neq 0$ Alle Vektoren x sind Eigenvektoren zu diesem Eigenwert. Zusammen mit dem Null-Vektor bilden alle Eigenvektoren zu einem Eigenwert einer linearen Abbildung $\Phi$ einen Eigenraum. Diesen Eigenraum bezeichnet man mit $E_\lambda$. Interessante S&auml;tze `$E_{\lambda_1} \cap E_{\lambda_2} = \emptyset$` Ein Endomorphismus `$\Phi$` eines n-dimensionalen `$\mathbb{K}$`-Vektorraumes hat h&ouml;chstens n Eigenwerte....
 
     
     <div class="readmorecontent">
@@ -3694,7 +3694,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

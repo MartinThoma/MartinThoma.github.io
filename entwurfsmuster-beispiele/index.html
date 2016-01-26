@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -123,64 +123,66 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Singleton</h2>
-
-<p><strong>Zweck</strong>: Stelle sicher, dass es nur eine Instanz dieser Klasse gibt.
+<p><strong>Zweck</strong>: Stelle sicher, dass es nur eine Instanz dieser Klasse gibt.<br />
 <strong>Beispiel</strong>: <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html#getRuntime%28%29">java.lang.Runtime.getRuntime()</a></p>
-<div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
-    <span class="c1">// an instance of a singleton</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
-    <span class="c1">// private default constructor to prevent the external creation</span>
-    <span class="c1">// of more instances</span>
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">()</span> <span class="o">{</span>
-    <span class="o">}</span>
-
-    <span class="c1">// static method which returns the instance</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">synchronized</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">instance</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Singleton</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Singleton</span> {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#777">// an instance of a singleton</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> Singleton instance = <span style="color:#069">null</span>;
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#777">// private default constructor to prevent the external creation</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="color:#777">// of more instances</span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#088;font-weight:bold">private</span> Singleton() {
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    }
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#777">// static method which returns the instance</span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">synchronized</span> Singleton getInstance() {
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>            instance = <span style="color:#080;font-weight:bold">new</span> Singleton();
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        }
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        <span style="color:#080;font-weight:bold">return</span> instance;
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    }
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>}
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Bequemlichkeitsklasse</h2>
-
-<p><strong>Zweck</strong>: Faulheit - mache Methodenaufrufe durch änderbare default-Parameter einfacher.
+<p><strong>Zweck</strong>: Faulheit - mache Methodenaufrufe durch änderbare default-Parameter einfacher.<br />
 Das Bequemlichkeitsmuster ist einfach das Überladen einer Methode:</p>
-<div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bequemlichkeitsklasse</span> <span class="o">{</span>
-    <span class="c1">// convenience class</span>
-    <span class="kt">int</span> <span class="n">v1</span><span class="o">,</span> <span class="n">v2</span><span class="o">,</span> <span class="n">v3</span><span class="o">;</span>
 
-    <span class="kt">int</span> <span class="nf">anfrage</span><span class="o">(</span><span class="kt">int</span> <span class="n">p1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p3</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">p2</span> <span class="o">*</span> <span class="n">p3</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kt">int</span> <span class="nf">anfrage</span><span class="o">(</span><span class="kt">int</span> <span class="n">p1</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nf">anfrage</span><span class="o">(</span><span class="n">p1</span><span class="o">,</span> <span class="n">v2</span><span class="o">,</span> <span class="n">v3</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kt">int</span> <span class="nf">anfrage</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nf">anfrage</span><span class="o">(</span><span class="n">v1</span><span class="o">,</span> <span class="n">v2</span><span class="o">,</span> <span class="n">v3</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="kt">void</span> <span class="nf">setzeZustand</span><span class="o">(</span><span class="kt">int</span> <span class="n">p1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p2</span><span class="o">,</span> <span class="kt">int</span> <span class="n">p3</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">v1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">;</span>
-        <span class="n">v2</span> <span class="o">=</span> <span class="n">p2</span><span class="o">;</span>
-        <span class="n">v3</span> <span class="o">=</span> <span class="n">p3</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Bequemlichkeitsklasse</span> {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#777">// convenience class</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#339;font-weight:bold">int</span> v1, v2, v3;
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#339;font-weight:bold">int</span> anfrage(<span style="color:#339;font-weight:bold">int</span> p1, <span style="color:#339;font-weight:bold">int</span> p2, <span style="color:#339;font-weight:bold">int</span> p3) {
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#080;font-weight:bold">return</span> p1 * p2 * p3;
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    }
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="color:#339;font-weight:bold">int</span> anfrage(<span style="color:#339;font-weight:bold">int</span> p1) {
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        <span style="color:#080;font-weight:bold">return</span> anfrage(p1, v2, v3);
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    }
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#339;font-weight:bold">int</span> anfrage() {
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        <span style="color:#080;font-weight:bold">return</span> anfrage(v1, v2, v3);
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    }
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    <span style="color:#339;font-weight:bold">void</span> setzeZustand(<span style="color:#339;font-weight:bold">int</span> p1, <span style="color:#339;font-weight:bold">int</span> p2, <span style="color:#339;font-weight:bold">int</span> p3) {
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        v1 = p1;
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        v2 = p2;
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        v3 = p3;
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    }
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>}
+</pre></div>
 </div>
-<h2 id="tocAnchor-1-3">Schablonenmethode</h2>
+</div>
 
+<h2 id="tocAnchor-1-3">Schablonenmethode</h2>
 <p>Siehe <a href="../java-puzzle-9-template-method-pattern/">Java Puzzle #9: Template method pattern</a>.</p>
 
 <h2 id="tocAnchor-1-4">Siehe auch</h2>
-
 <ul>
   <li><a href="http://stackoverflow.com/a/2707195/562769">Examples of GoF Design Patterns in Java</a></li>
 </ul>
@@ -366,7 +368,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

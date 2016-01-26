@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The goal of the Viterbi algorithm is find the most likely sequence of hidden states given some observed events.</p>
 
 <p>Lets say this is your <abbr title="Hidden Markov model">HMM</abbr>:</p>
@@ -121,14 +121,14 @@ MathJax.Hub.Queue(function() {
 
 <p>Now you observed the sequence \(O_1 = BAB\). What is the most likely sequence that would generate this path?</p>
 
-<p>Candidates are:
-</p><ul>
+<p>Candidates are:</p>
+<ul>
   <li>xxyz</li>
   <li>xyyz</li>
   <li>xyzz</li>
 </ul>
 
-<p>If you're learing this because you will write the exam at KIT, you might have such an diagram:</p>
+<p>If you’re learing this because you will write the exam at KIT, you might have such an diagram:</p>
 
 <div style="width: 761px" class="wp-caption aligncenter">
    <a href="../images/2013/09/viterbi-algorithm.png">
@@ -143,13 +143,14 @@ MathJax.Hub.Queue(function() {
 
 <p>Please note that there might be multiple paths with the highest possibility.</p>
 
-<p>As every state depends only on the state before, you can get the most likely path step by step. In every step, you calculate how likely it is that you end up in state x, state y, state z. After that, it doesn't matter how you got there. So you always have to expand those three nodes. You will get 9 following states, but only three of them matter (for each resulting state, the paths that had the highest probability leading there).</p>
+<p>As every state depends only on the state before, you can get the most likely path step by step. In every step, you calculate how likely it is that you end up in state x, state y, state z. After that, it doesn’t matter how you got there. So you always have to expand those three nodes. You will get 9 following states, but only three of them matter (for each resulting state, the paths that had the highest probability leading there).</p>
 
 <h2 id="tocAnchor-1-1">See also</h2>
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Wikipedia</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Wikipedia</a></li>
 </ul>
+
 
                         </div>
                         <div class="postmeta">Posted in
@@ -329,7 +330,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

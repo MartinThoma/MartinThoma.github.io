@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Suppose you have an equation like $L \cdot x = b$ with $L \in \mathbb{R}^{n \times n}$ and $x,b \in \mathbb{R}^n$. $b$ and $L$ are given and you want to solve for $x$.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -115,7 +115,7 @@ MathJax.Hub.Queue(function() {
          <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Example</span></a>
          <ul>
             <li class="toc_level-2 toc_section-2">
-               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">First step: Solve for $x_1$</span></a>
+               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">First step: Solve for `$x_1$`</span></a>
             </li>
             <li class="toc_level-2 toc_section-3">
                <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">Second step: update</span></a>
@@ -139,7 +139,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Example</h2>
-
 <p>With $n=5$, the problem could look like this:</p>
 
 <p>
@@ -154,7 +153,7 @@ MathJax.Hub.Queue(function() {
 \begin{pmatrix}   3 \\ 1   \\ 4   \\ 1   \\ 5   \end{pmatrix}$
 </p>
 
-<p>This is only a shorthand for:
+<p>This is only a shorthand for:<br />
 $
 \begin{align}
 &amp;1 \cdot x_1 &amp;= 3 \\
@@ -165,9 +164,9 @@ $
 \end{align}
 $</p>
 
-<p>This is easy to solve, isn't it?
-</p><h3 id="tocAnchor-1-1-1">First step: Solve for $x_1$</h3>
-First you see that $x_1 = 3$. Now you replace every occurence of $x_1$ in the system of equations above:
+<p>This is easy to solve, isn’t it?</p>
+<h3 id="tocAnchor-1-1-1">First step: Solve for `$x_1$`</h3>
+<p>First you see that $x_1 = 3$. Now you replace every occurence of $x_1$ in the system of equations above:</p>
 
 <p>
    $
@@ -194,8 +193,7 @@ $
 </p>
 
 <h3 id="tocAnchor-1-1-2">Second step: update</h3>
-
-<p>Get the constant factors to the right side of the equations:
+<p>Get the constant factors to the right side of the equations:<br />
 $
 \begin{align}
 &amp;1 \cdot x_2 &amp;= 1-6=-5\\
@@ -205,9 +203,9 @@ $
 \end{align}
 $</p>
 
-<p>You can now easily see that you're in the same situation as in the first step! Next you will solve for $x_2$, then for $x_3, x_4$ and finally for $x_5$.</p>
+<p>You can now easily see that you’re in the same situation as in the first step! Next you will solve for $x_2$, then for $x_3, x_4$ and finally for $x_5$.</p>
 
-<p>This is the reason why solving such a system of equations is sometimes called "forward substitution".</p>
+<p>This is the reason why solving such a system of equations is sometimes called “forward substitution”.</p>
 
 <h2 id="tocAnchor-1-4">Python straightforward algorithm</h2>
 
@@ -234,13 +232,12 @@ $</p>
     <span class="k">print</span><span class="p">(</span><span class="n">solveLowerUnitriangularMatrix</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span></code></pre>
 </div>
 
-<p>Pretty easy, isn't it? But can we even do better?</p>
+<p>Pretty easy, isn’t it? But can we even do better?</p>
 
 <h2 id="tocAnchor-1-5">Even better algorithm</h2>
-
 <p>Yes, we can!</p>
 
-<p>Take a look at what's happening when row = 0 in line 9. We make a step that is not necessary. Also, we can take the space of b to store x!</p>
+<p>Take a look at what’s happening when row = 0 in line 9. We make a step that is not necessary. Also, we can take the space of b to store x!</p>
 
 <div class="highlight">
    <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
@@ -263,18 +260,17 @@ $</p>
     <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></code></pre>
 </div>
 
-<p>Now it looks super clean, doesn't it :-)</p>
+<p>Now it looks super clean, doesn’t it :-)</p>
 
-<p>Keep in mind that you have to store b if you need the values after you've applied this algorithm.
-This is the reason why there here. This algorithm "returns" its value by manipulating b.</p>
+<p>Keep in mind that you have to store b if you need the values after you’ve applied this algorithm.<br />
+This is the reason why there here. This algorithm “returns” its value by manipulating b.</p>
 
 <h2 id="tocAnchor-1-6">Time complexity</h2>
+<p>I’ll analyze the second algorithm.</p>
 
-<p>I'll analyze the second algorithm.</p>
+<p>Let’s assume that line 7 takes $c$ operations and $n$ is the size of $L \in \mathbb{R}^{n \times n}$.</p>
 
-<p>Let's assume that line 7 takes $c$ operations and $n$ is the size of $L \in \mathbb{R}^{n \times n}$.</p>
-
-<p>Then we would have a total of </p>
+<p>Then we would have a total of</p>
 
 <p>
    $\begin{align}
@@ -290,14 +286,12 @@ This is the reason why there here. This algorithm "returns" its value by manipul
 <p>So the algorithms time complexity is in $\Theta(n^2) \subsetneq \mathcal{O}(n^2)$.</p>
 
 <h2 id="tocAnchor-1-7">Space complexity</h2>
-
 <p>Well, thats simple: $\mathcal{O}(1)$!</p>
 
 <p>I do ignore the size of the input. So $\mathcal{O}(1)$ means: For variable sized input data I do need a constant amount of additional space.</p>
 
 <h2 id="tocAnchor-1-8">More improvements</h2>
-
-<p>In the last algorithm I've presented you can see that we actually don't check the values on or above of the diagonal. 
+<p>In the last algorithm I’ve presented you can see that we actually don’t check the values on or above of the diagonal. <br />
 This means, the following two function calls do give the same b:</p>
 
 <div class="highlight">
@@ -330,7 +324,7 @@ This means, the following two function calls do give the same b:</p>
     <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></code></pre>
 </div>
 
-<p>So, theoretically, we could store some other information on and above of the diagonal. We also don't change L. Keep this in mind, this might be important in later articles.</p>
+<p>So, theoretically, we could store some other information on and above of the diagonal. We also don’t change L. Keep this in mind, this might be important in later articles.</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -522,7 +516,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

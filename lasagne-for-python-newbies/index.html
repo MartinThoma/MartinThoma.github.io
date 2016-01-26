@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Lasagne is a Python package for training neural networks. The nice thing about
-Lasagne is that it is possible to write Python code and execute the training
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Lasagne is a Python package for training neural networks. The nice thing about<br />
+Lasagne is that it is possible to write Python code and execute the training<br />
 on nVidea GPUs with automatically generated CUDA code.</p>
 
-<p>However, installing Lasagne is not that easy. Especially if you are not
-familiar with Python. This article aims to guide you through the installation
+<p>However, installing Lasagne is not that easy. Especially if you are not<br />
+familiar with Python. This article aims to guide you through the installation<br />
 process.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -141,274 +141,298 @@ process.</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Python</h2>
 
-<p>Ubuntu-based systems will have Python installed, but I'm not too sure about
+<p>Ubuntu-based systems will have Python installed, but I’m not too sure about<br />
 pip. You can get it with</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">$ sudo apt-get install python-pip
-</code></pre>
-</div>
-<p>Make sure you have Python and <code>pip</code>, the standard Python package installer.
-Type the following commands to check if you have both:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>python --version
-Python 2.7.8
 
-<span class="nv">$ </span>pip --version
-pip 6.1.1 from /usr/local/lib/python2.7/dist-packages <span class="o">(</span>python 2.7<span class="o">)</span>
+<pre><code>$ sudo apt-get install python-pip
 </code></pre>
+
+<p>Make sure you have Python and <code>pip</code>, the standard Python package installer.<br />
+Type the following commands to check if you have both:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ python --version
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>Python 2.7.8
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>$ pip --version
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>pip 6.1.1 from /usr/local/lib/python2.7/dist-packages (python 2.7)
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">sklearn</h2>
 
-<p><a href="http://scikit-learn.org/stable/">sklearn</a> is a nice package for machine
+<p><a href="http://scikit-learn.org/stable/">sklearn</a> is a nice package for machine<br />
 learning. You can install it with</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>pip install scikit-learn
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ pip install scikit-learn
+</pre></div>
 </div>
-<p>(When I write commands like this you either have to execute
+</div>
+
+<p>(When I write commands like this you either have to execute<br />
 <code>sudo pip install scikit-learn</code> or <code>pip install scikit-learn --user</code>).</p>
 
 <p>This should work without problems.</p>
 
-<p>Each classifier has a <code>fit</code> method and a <code>predict</code> method. See
-<a href="http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html">iris example</a>
-to get a feeling how to use it. It provides a lot of useful functions like
-<a href="http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html"><code>train_test_split</code></a>
+<p>Each classifier has a <code>fit</code> method and a <code>predict</code> method. See<br />
+<a href="http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html">iris example</a><br />
+to get a feeling how to use it. It provides a lot of useful functions like<br />
+<a href="http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.train_test_split.html"><code>train_test_split</code></a><br />
 and has an awesome documentation.</p>
 
-<p>You don't need this for Lasagne, but it might be good to use sklearn and
+<p>You don’t need this for Lasagne, but it might be good to use sklearn and<br />
 Lasagne in combination.</p>
 
 <h2 id="tocAnchor-1-3">Graphics drivers and CUDA</h2>
 
-<p>Make sure CUDA runs on your system by the following commands.
-If it doesn't run, you could try the following guides:</p>
+<p>Make sure CUDA runs on your system by the following commands.<br />
+If it doesn’t run, you could try the following guides:</p>
 
 <ul>
-<li><a href="http://askubuntu.com/q/451672/10425">Installing and testing CUDA in Ubuntu 14.04</a></li>
-<li><a href="http://www.r-tutor.com/gpu-computing/cuda-installation/cuda6.5-ubuntu">Installing CUDA Toolkit 6.5 on Ubuntu 14.04 Linux</a></li>
-<li><a href="http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz3XaMVcNwV">NVIDIA CUDA Getting Started Guide for Linux</a></li>
+  <li><a href="http://askubuntu.com/q/451672/10425">Installing and testing CUDA in Ubuntu 14.04</a></li>
+  <li><a href="http://www.r-tutor.com/gpu-computing/cuda-installation/cuda6.5-ubuntu">Installing CUDA Toolkit 6.5 on Ubuntu 14.04 Linux</a></li>
+  <li><a href="http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#axzz3XaMVcNwV">NVIDIA CUDA Getting Started Guide for Linux</a></li>
 </ul>
 
 <p>Run</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>nvidia-smi -L
-GPU 0: GeForce GTX TITAN Black <span class="o">(</span>UUID: GPU-abcdef12-abcd-1234-1234-01234567890a<span class="o">)</span>
 
-<span class="nv">$ </span>nvcc --version
-nvcc: NVIDIA <span class="o">(</span>R<span class="o">)</span> Cuda compiler driver
-Copyright <span class="o">(</span>c<span class="o">)</span> 2005-2013 NVIDIA Corporation
-Built on Thu_Mar_13_11:58:58_PDT_2014
-Cuda compilation tools, release 6.0, V6.0.1
-
-<span class="nv">$ </span>nvidia-smi -a
-
-<span class="o">==============</span>NVSMI <span class="nv">LOG</span><span class="o">==============</span>
-
-Timestamp                           : Fri Apr <span class="m">17</span> 18:44:41 2015
-Driver Version                      : 331.79
-
-Attached GPUs                       : 1
-GPU 0000:01:00.0
-    Product Name                    : GeForce GTX TITAN Black
-    Display Mode                    : N/A
-    Display Active                  : N/A
-    Persistence Mode                : Disabled
-    Accounting Mode                 : N/A
-    Accounting Mode Buffer Size     : N/A
-    Driver Model
-        Current                     : N/A
-        Pending                     : N/A
-    Serial Number                   : N/A
-    GPU UUID                        : GPU-fcff168f-a045-2f95-7a4f-8e1cf26a24eb
-    Minor Number                    : 0
-    VBIOS Version                   : 80.80.4E.00.01
-    Inforom Version
-        Image Version               : N/A
-        OEM Object                  : N/A
-        ECC Object                  : N/A
-        Power Management Object     : N/A
-    GPU Operation Mode
-        Current                     : N/A
-        Pending                     : N/A
-    PCI
-        Bus                         : 0x01
-        Device                      : 0x00
-        Domain                      : 0x0000
-        Device Id                   : 0x100C10DE
-        Bus Id                      : 0000:01:00.0
-        Sub System Id               : 0x106610DE
-        GPU Link Info
-            PCIe Generation
-                Max                 : N/A
-                Current             : N/A
-            Link Width
-                Max                 : N/A
-                Current             : N/A
-        Bridge Chip
-            Type                    : N/A
-            Firmware                : N/A
-    Fan Speed                       : <span class="m">26</span> %
-    Performance State               : N/A
-    Clocks Throttle Reasons         : N/A
-    FB Memory Usage
-        Total                       : <span class="m">6143</span> MiB
-        Used                        : <span class="m">39</span> MiB
-        Free                        : <span class="m">6104</span> MiB
-    BAR1 Memory Usage
-        Total                       : N/A
-        Used                        : N/A
-        Free                        : N/A
-    Compute Mode                    : Default
-    Utilization
-        Gpu                         : N/A
-        Memory                      : N/A
-    Ecc Mode
-        Current                     : N/A
-        Pending                     : N/A
-    ECC Errors
-        Volatile
-            Single Bit
-                Device Memory       : N/A
-                Register File       : N/A
-                L1 Cache            : N/A
-                L2 Cache            : N/A
-                Texture Memory      : N/A
-                Total               : N/A
-            Double Bit
-                Device Memory       : N/A
-                Register File       : N/A
-                L1 Cache            : N/A
-                L2 Cache            : N/A
-                Texture Memory      : N/A
-                Total               : N/A
-        Aggregate
-            Single Bit
-                Device Memory       : N/A
-                Register File       : N/A
-                L1 Cache            : N/A
-                L2 Cache            : N/A
-                Texture Memory      : N/A
-                Total               : N/A
-            Double Bit
-                Device Memory       : N/A
-                Register File       : N/A
-                L1 Cache            : N/A
-                L2 Cache            : N/A
-                Texture Memory      : N/A
-                Total               : N/A
-    Retired Pages
-        Single Bit ECC              : N/A
-        Double Bit ECC              : N/A
-        Pending                     : N/A
-    Temperature
-        Gpu                         : <span class="m">29</span> C
-    Power Readings
-        Power Management            : N/A
-        Power Draw                  : N/A
-        Power Limit                 : N/A
-        Default Power Limit         : N/A
-        Enforced Power Limit        : N/A
-        Min Power Limit             : N/A
-        Max Power Limit             : N/A
-    Clocks
-        Graphics                    : N/A
-        SM                          : N/A
-        Memory                      : N/A
-    Applications Clocks
-        Graphics                    : N/A
-        Memory                      : N/A
-    Default Applications Clocks
-        Graphics                    : N/A
-        Memory                      : N/A
-    Max Clocks
-        Graphics                    : N/A
-        SM                          : N/A
-        Memory                      : N/A
-    Compute Processes               : N/A
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers">  <a href="#n1" name="n1" id="n1">1</a></span>$ nvidia-smi -L
+<span class="line-numbers">  <a href="#n2" name="n2" id="n2">2</a></span>GPU 0: GeForce GTX TITAN Black (UUID: GPU-abcdef12-abcd-1234-1234-01234567890a)
+<span class="line-numbers">  <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers">  <a href="#n4" name="n4" id="n4">4</a></span>$ nvcc --version
+<span class="line-numbers">  <a href="#n5" name="n5" id="n5">5</a></span>nvcc: NVIDIA (R) Cuda compiler driver
+<span class="line-numbers">  <a href="#n6" name="n6" id="n6">6</a></span>Copyright (c) 2005-2013 NVIDIA Corporation
+<span class="line-numbers">  <a href="#n7" name="n7" id="n7">7</a></span>Built on Thu_Mar_13_11:58:58_PDT_2014
+<span class="line-numbers">  <a href="#n8" name="n8" id="n8">8</a></span>Cuda compilation tools, release 6.0, V6.0.1
+<span class="line-numbers">  <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"> <strong><a href="#n10" name="n10" id="n10">10</a></strong></span>$ nvidia-smi -a
+<span class="line-numbers"> <a href="#n11" name="n11" id="n11">11</a></span>
+<span class="line-numbers"> <a href="#n12" name="n12" id="n12">12</a></span>==============NVSMI LOG==============
+<span class="line-numbers"> <a href="#n13" name="n13" id="n13">13</a></span>
+<span class="line-numbers"> <a href="#n14" name="n14" id="n14">14</a></span>Timestamp                           : Fri Apr 17 18:44:41 2015
+<span class="line-numbers"> <a href="#n15" name="n15" id="n15">15</a></span>Driver Version                      : 331.79
+<span class="line-numbers"> <a href="#n16" name="n16" id="n16">16</a></span>
+<span class="line-numbers"> <a href="#n17" name="n17" id="n17">17</a></span>Attached GPUs                       : 1
+<span class="line-numbers"> <a href="#n18" name="n18" id="n18">18</a></span>GPU 0000:01:00.0
+<span class="line-numbers"> <a href="#n19" name="n19" id="n19">19</a></span>    Product Name                    : GeForce GTX TITAN Black
+<span class="line-numbers"> <strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    Display Mode                    : N/A
+<span class="line-numbers"> <a href="#n21" name="n21" id="n21">21</a></span>    Display Active                  : N/A
+<span class="line-numbers"> <a href="#n22" name="n22" id="n22">22</a></span>    Persistence Mode                : Disabled
+<span class="line-numbers"> <a href="#n23" name="n23" id="n23">23</a></span>    Accounting Mode                 : N/A
+<span class="line-numbers"> <a href="#n24" name="n24" id="n24">24</a></span>    Accounting Mode Buffer Size     : N/A
+<span class="line-numbers"> <a href="#n25" name="n25" id="n25">25</a></span>    Driver Model
+<span class="line-numbers"> <a href="#n26" name="n26" id="n26">26</a></span>        Current                     : N/A
+<span class="line-numbers"> <a href="#n27" name="n27" id="n27">27</a></span>        Pending                     : N/A
+<span class="line-numbers"> <a href="#n28" name="n28" id="n28">28</a></span>    Serial Number                   : N/A
+<span class="line-numbers"> <a href="#n29" name="n29" id="n29">29</a></span>    GPU UUID                        : GPU-fcff168f-a045-2f95-7a4f-8e1cf26a24eb
+<span class="line-numbers"> <strong><a href="#n30" name="n30" id="n30">30</a></strong></span>    Minor Number                    : 0
+<span class="line-numbers"> <a href="#n31" name="n31" id="n31">31</a></span>    VBIOS Version                   : 80.80.4E.00.01
+<span class="line-numbers"> <a href="#n32" name="n32" id="n32">32</a></span>    Inforom Version
+<span class="line-numbers"> <a href="#n33" name="n33" id="n33">33</a></span>        Image Version               : N/A
+<span class="line-numbers"> <a href="#n34" name="n34" id="n34">34</a></span>        OEM Object                  : N/A
+<span class="line-numbers"> <a href="#n35" name="n35" id="n35">35</a></span>        ECC Object                  : N/A
+<span class="line-numbers"> <a href="#n36" name="n36" id="n36">36</a></span>        Power Management Object     : N/A
+<span class="line-numbers"> <a href="#n37" name="n37" id="n37">37</a></span>    GPU Operation Mode
+<span class="line-numbers"> <a href="#n38" name="n38" id="n38">38</a></span>        Current                     : N/A
+<span class="line-numbers"> <a href="#n39" name="n39" id="n39">39</a></span>        Pending                     : N/A
+<span class="line-numbers"> <strong><a href="#n40" name="n40" id="n40">40</a></strong></span>    PCI
+<span class="line-numbers"> <a href="#n41" name="n41" id="n41">41</a></span>        Bus                         : 0x01
+<span class="line-numbers"> <a href="#n42" name="n42" id="n42">42</a></span>        Device                      : 0x00
+<span class="line-numbers"> <a href="#n43" name="n43" id="n43">43</a></span>        Domain                      : 0x0000
+<span class="line-numbers"> <a href="#n44" name="n44" id="n44">44</a></span>        Device Id                   : 0x100C10DE
+<span class="line-numbers"> <a href="#n45" name="n45" id="n45">45</a></span>        Bus Id                      : 0000:01:00.0
+<span class="line-numbers"> <a href="#n46" name="n46" id="n46">46</a></span>        Sub System Id               : 0x106610DE
+<span class="line-numbers"> <a href="#n47" name="n47" id="n47">47</a></span>        GPU Link Info
+<span class="line-numbers"> <a href="#n48" name="n48" id="n48">48</a></span>            PCIe Generation
+<span class="line-numbers"> <a href="#n49" name="n49" id="n49">49</a></span>                Max                 : N/A
+<span class="line-numbers"> <strong><a href="#n50" name="n50" id="n50">50</a></strong></span>                Current             : N/A
+<span class="line-numbers"> <a href="#n51" name="n51" id="n51">51</a></span>            Link Width
+<span class="line-numbers"> <a href="#n52" name="n52" id="n52">52</a></span>                Max                 : N/A
+<span class="line-numbers"> <a href="#n53" name="n53" id="n53">53</a></span>                Current             : N/A
+<span class="line-numbers"> <a href="#n54" name="n54" id="n54">54</a></span>        Bridge Chip
+<span class="line-numbers"> <a href="#n55" name="n55" id="n55">55</a></span>            Type                    : N/A
+<span class="line-numbers"> <a href="#n56" name="n56" id="n56">56</a></span>            Firmware                : N/A
+<span class="line-numbers"> <a href="#n57" name="n57" id="n57">57</a></span>    Fan Speed                       : 26 %
+<span class="line-numbers"> <a href="#n58" name="n58" id="n58">58</a></span>    Performance State               : N/A
+<span class="line-numbers"> <a href="#n59" name="n59" id="n59">59</a></span>    Clocks Throttle Reasons         : N/A
+<span class="line-numbers"> <strong><a href="#n60" name="n60" id="n60">60</a></strong></span>    FB Memory Usage
+<span class="line-numbers"> <a href="#n61" name="n61" id="n61">61</a></span>        Total                       : 6143 MiB
+<span class="line-numbers"> <a href="#n62" name="n62" id="n62">62</a></span>        Used                        : 39 MiB
+<span class="line-numbers"> <a href="#n63" name="n63" id="n63">63</a></span>        Free                        : 6104 MiB
+<span class="line-numbers"> <a href="#n64" name="n64" id="n64">64</a></span>    BAR1 Memory Usage
+<span class="line-numbers"> <a href="#n65" name="n65" id="n65">65</a></span>        Total                       : N/A
+<span class="line-numbers"> <a href="#n66" name="n66" id="n66">66</a></span>        Used                        : N/A
+<span class="line-numbers"> <a href="#n67" name="n67" id="n67">67</a></span>        Free                        : N/A
+<span class="line-numbers"> <a href="#n68" name="n68" id="n68">68</a></span>    Compute Mode                    : Default
+<span class="line-numbers"> <a href="#n69" name="n69" id="n69">69</a></span>    Utilization
+<span class="line-numbers"> <strong><a href="#n70" name="n70" id="n70">70</a></strong></span>        Gpu                         : N/A
+<span class="line-numbers"> <a href="#n71" name="n71" id="n71">71</a></span>        Memory                      : N/A
+<span class="line-numbers"> <a href="#n72" name="n72" id="n72">72</a></span>    Ecc Mode
+<span class="line-numbers"> <a href="#n73" name="n73" id="n73">73</a></span>        Current                     : N/A
+<span class="line-numbers"> <a href="#n74" name="n74" id="n74">74</a></span>        Pending                     : N/A
+<span class="line-numbers"> <a href="#n75" name="n75" id="n75">75</a></span>    ECC Errors
+<span class="line-numbers"> <a href="#n76" name="n76" id="n76">76</a></span>        Volatile
+<span class="line-numbers"> <a href="#n77" name="n77" id="n77">77</a></span>            Single Bit
+<span class="line-numbers"> <a href="#n78" name="n78" id="n78">78</a></span>                Device Memory       : N/A
+<span class="line-numbers"> <a href="#n79" name="n79" id="n79">79</a></span>                Register File       : N/A
+<span class="line-numbers"> <strong><a href="#n80" name="n80" id="n80">80</a></strong></span>                L1 Cache            : N/A
+<span class="line-numbers"> <a href="#n81" name="n81" id="n81">81</a></span>                L2 Cache            : N/A
+<span class="line-numbers"> <a href="#n82" name="n82" id="n82">82</a></span>                Texture Memory      : N/A
+<span class="line-numbers"> <a href="#n83" name="n83" id="n83">83</a></span>                Total               : N/A
+<span class="line-numbers"> <a href="#n84" name="n84" id="n84">84</a></span>            Double Bit
+<span class="line-numbers"> <a href="#n85" name="n85" id="n85">85</a></span>                Device Memory       : N/A
+<span class="line-numbers"> <a href="#n86" name="n86" id="n86">86</a></span>                Register File       : N/A
+<span class="line-numbers"> <a href="#n87" name="n87" id="n87">87</a></span>                L1 Cache            : N/A
+<span class="line-numbers"> <a href="#n88" name="n88" id="n88">88</a></span>                L2 Cache            : N/A
+<span class="line-numbers"> <a href="#n89" name="n89" id="n89">89</a></span>                Texture Memory      : N/A
+<span class="line-numbers"> <strong><a href="#n90" name="n90" id="n90">90</a></strong></span>                Total               : N/A
+<span class="line-numbers"> <a href="#n91" name="n91" id="n91">91</a></span>        Aggregate
+<span class="line-numbers"> <a href="#n92" name="n92" id="n92">92</a></span>            Single Bit
+<span class="line-numbers"> <a href="#n93" name="n93" id="n93">93</a></span>                Device Memory       : N/A
+<span class="line-numbers"> <a href="#n94" name="n94" id="n94">94</a></span>                Register File       : N/A
+<span class="line-numbers"> <a href="#n95" name="n95" id="n95">95</a></span>                L1 Cache            : N/A
+<span class="line-numbers"> <a href="#n96" name="n96" id="n96">96</a></span>                L2 Cache            : N/A
+<span class="line-numbers"> <a href="#n97" name="n97" id="n97">97</a></span>                Texture Memory      : N/A
+<span class="line-numbers"> <a href="#n98" name="n98" id="n98">98</a></span>                Total               : N/A
+<span class="line-numbers"> <a href="#n99" name="n99" id="n99">99</a></span>            Double Bit
+<span class="line-numbers"><strong><a href="#n100" name="n100" id="n100">100</a></strong></span>                Device Memory       : N/A
+<span class="line-numbers"><a href="#n101" name="n101" id="n101">101</a></span>                Register File       : N/A
+<span class="line-numbers"><a href="#n102" name="n102" id="n102">102</a></span>                L1 Cache            : N/A
+<span class="line-numbers"><a href="#n103" name="n103" id="n103">103</a></span>                L2 Cache            : N/A
+<span class="line-numbers"><a href="#n104" name="n104" id="n104">104</a></span>                Texture Memory      : N/A
+<span class="line-numbers"><a href="#n105" name="n105" id="n105">105</a></span>                Total               : N/A
+<span class="line-numbers"><a href="#n106" name="n106" id="n106">106</a></span>    Retired Pages
+<span class="line-numbers"><a href="#n107" name="n107" id="n107">107</a></span>        Single Bit ECC              : N/A
+<span class="line-numbers"><a href="#n108" name="n108" id="n108">108</a></span>        Double Bit ECC              : N/A
+<span class="line-numbers"><a href="#n109" name="n109" id="n109">109</a></span>        Pending                     : N/A
+<span class="line-numbers"><strong><a href="#n110" name="n110" id="n110">110</a></strong></span>    Temperature
+<span class="line-numbers"><a href="#n111" name="n111" id="n111">111</a></span>        Gpu                         : 29 C
+<span class="line-numbers"><a href="#n112" name="n112" id="n112">112</a></span>    Power Readings
+<span class="line-numbers"><a href="#n113" name="n113" id="n113">113</a></span>        Power Management            : N/A
+<span class="line-numbers"><a href="#n114" name="n114" id="n114">114</a></span>        Power Draw                  : N/A
+<span class="line-numbers"><a href="#n115" name="n115" id="n115">115</a></span>        Power Limit                 : N/A
+<span class="line-numbers"><a href="#n116" name="n116" id="n116">116</a></span>        Default Power Limit         : N/A
+<span class="line-numbers"><a href="#n117" name="n117" id="n117">117</a></span>        Enforced Power Limit        : N/A
+<span class="line-numbers"><a href="#n118" name="n118" id="n118">118</a></span>        Min Power Limit             : N/A
+<span class="line-numbers"><a href="#n119" name="n119" id="n119">119</a></span>        Max Power Limit             : N/A
+<span class="line-numbers"><strong><a href="#n120" name="n120" id="n120">120</a></strong></span>    Clocks
+<span class="line-numbers"><a href="#n121" name="n121" id="n121">121</a></span>        Graphics                    : N/A
+<span class="line-numbers"><a href="#n122" name="n122" id="n122">122</a></span>        SM                          : N/A
+<span class="line-numbers"><a href="#n123" name="n123" id="n123">123</a></span>        Memory                      : N/A
+<span class="line-numbers"><a href="#n124" name="n124" id="n124">124</a></span>    Applications Clocks
+<span class="line-numbers"><a href="#n125" name="n125" id="n125">125</a></span>        Graphics                    : N/A
+<span class="line-numbers"><a href="#n126" name="n126" id="n126">126</a></span>        Memory                      : N/A
+<span class="line-numbers"><a href="#n127" name="n127" id="n127">127</a></span>    Default Applications Clocks
+<span class="line-numbers"><a href="#n128" name="n128" id="n128">128</a></span>        Graphics                    : N/A
+<span class="line-numbers"><a href="#n129" name="n129" id="n129">129</a></span>        Memory                      : N/A
+<span class="line-numbers"><strong><a href="#n130" name="n130" id="n130">130</a></strong></span>    Max Clocks
+<span class="line-numbers"><a href="#n131" name="n131" id="n131">131</a></span>        Graphics                    : N/A
+<span class="line-numbers"><a href="#n132" name="n132" id="n132">132</a></span>        SM                          : N/A
+<span class="line-numbers"><a href="#n133" name="n133" id="n133">133</a></span>        Memory                      : N/A
+<span class="line-numbers"><a href="#n134" name="n134" id="n134">134</a></span>    Compute Processes               : N/A
+</pre></div>
 </div>
+</div>
+
 <p>to see if CUDA was installed correctly.</p>
 
 <h2 id="tocAnchor-1-4">Theano</h2>
 
-<p>The installation of Theano is a bit tricky (see <a href="http://deeplearning.net/software/theano/install.html">official page</a>). I don't remember if I installed additional packages, but try</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo -H pip install theano
-</code></pre>
+<p>The installation of Theano is a bit tricky (see <a href="http://deeplearning.net/software/theano/install.html">official page</a>). I don’t remember if I installed additional packages, but try</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ sudo -H pip install theano
+</pre></div>
 </div>
+</div>
+
 <p>Make sure that your <code>~/.theanorc</code> exists and looks like this:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">[global]
-device=gpu
-floatX=float32
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>[global]
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>device=gpu
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>floatX=float32
+</pre></div>
 </div>
+</div>
+
 <p>Note that <code>float32</code> is required, even if you have a 64bit system.</p>
 
-<p>To test your installation, save the following as <code>theanotest.py</code> and execute
+<p>To test your installation, save the following as <code>theanotest.py</code> and execute<br />
 it with <code>python theanotest.py</code>:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">theano</span> <span class="kn">import</span> <span class="n">function</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">shared</span><span class="p">,</span> <span class="n">sandbox</span>
-<span class="kn">import</span> <span class="nn">theano.tensor</span> <span class="kn">as</span> <span class="nn">T</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">vlen</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">30</span> <span class="o">*</span> <span class="mi">768</span>  <span class="c"># 10 x #cores x # threads per core</span>
-<span class="n">iters</span> <span class="o">=</span> <span class="mi">1000</span>
-
-<span class="n">rng</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">shared</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">vlen</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">floatX</span><span class="p">))</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">function</span><span class="p">([],</span> <span class="n">T</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="k">print</span> <span class="n">f</span><span class="o">.</span><span class="n">maker</span><span class="o">.</span><span class="n">fgraph</span><span class="o">.</span><span class="n">toposort</span><span class="p">()</span>
-<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">iters</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="k">print</span> <span class="s">'Looping </span><span class="si">%d</span><span class="s"> times took'</span> <span class="o">%</span> <span class="n">iters</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s">'seconds'</span>
-<span class="k">print</span> <span class="s">'Result is'</span><span class="p">,</span> <span class="n">r</span>
-<span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">op</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">Elemwise</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">maker</span><span class="o">.</span><span class="n">fgraph</span><span class="o">.</span><span class="n">toposort</span><span class="p">()]):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Used the cpu'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Used the gpu'</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">theano</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">function</span>, <span style="color:#B44;font-weight:bold">config</span>, <span style="color:#B44;font-weight:bold">shared</span>, <span style="color:#B44;font-weight:bold">sandbox</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">theano.tensor</span> <span style="color:#080;font-weight:bold">as</span> T
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">time</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>vlen = <span style="color:#00D">10</span> * <span style="color:#00D">30</span> * <span style="color:#00D">768</span>  <span style="color:#777"># 10 x #cores x # threads per core</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>iters = <span style="color:#00D">1000</span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>rng = numpy.random.RandomState(<span style="color:#00D">22</span>)
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>x = shared(numpy.asarray(rng.rand(vlen), config.floatX))
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>f = function([], T.exp(x))
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span><span style="color:#080;font-weight:bold">print</span> f.maker.fgraph.toposort()
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>t0 = time.time()
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">xrange</span>(iters):
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    r = f()
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>t1 = time.time()
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span><span style="color:#080;font-weight:bold">print</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Looping %d times took</span><span style="color:#710">'</span></span> % iters, t1 - t0, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">seconds</span><span style="color:#710">'</span></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span><span style="color:#080;font-weight:bold">print</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Result is</span><span style="color:#710">'</span></span>, r
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#080;font-weight:bold">if</span> numpy.any([<span style="color:#369;font-weight:bold">isinstance</span>(x.op, T.Elemwise) <span style="color:#080;font-weight:bold">for</span> x <span style="color:#080;font-weight:bold">in</span> f.maker.fgraph.toposort()]):
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Used the cpu</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span><span style="color:#080;font-weight:bold">else</span>:
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Used the gpu</span><span style="color:#710">'</span></span>)
+</pre></div>
 </div>
+</div>
+
 <p>It should print the following (well, something similar):</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">Using gpu device 0: GeForce GTX TITAN Black
-[GpuElemwise{exp,no_inplace}(&lt;CudaNdarrayType(float32, vector)&gt;), HostFromGpu(GpuElemwise{exp,no_inplace}.0)]
-Looping 1000 times took 0.38205909729 seconds
-Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
-  1.62323296]
-Used the gpu
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>Using gpu device 0: GeForce GTX TITAN Black
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>[GpuElemwise{exp,no_inplace}(&lt;CudaNdarrayType(float32, vector)&gt;), HostFromGpu(GpuElemwise{exp,no_inplace}.0)]
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>Looping 1000 times took 0.38205909729 seconds
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>Result is [ 1.23178029  1.61879349  1.52278066 ...,  2.20771813  2.29967761
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>  1.62323296]
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>Used the gpu
+</pre></div>
 </div>
-<p>Especially "used the gpu" is important. Theano code work on both, CPU and GPU.
-If you have a GPU and it does not currently work on a task and it is configured
+</div>
+
+<p>Especially “used the gpu” is important. Theano code work on both, CPU and GPU.<br />
+If you have a GPU and it does not currently work on a task and it is configured<br />
 correctly, then Theano should automatically use the GPU.</p>
 
-<p>(Don't try to run two Theano scripts at a time ... weird things could happen.)</p>
+<p>(Don’t try to run two Theano scripts at a time … weird things could happen.)</p>
 
 <h2 id="tocAnchor-1-5">Lasagne</h2>
 
 <p>Lasagne is hosted at Github: <a href="https://github.com/Lasagne/Lasagne">https://github.com/Lasagne/Lasagne</a></p>
 
-<p>Currently, it is not on pip as Sander wants to wait until we get to version
+<p>Currently, it is not on pip as Sander wants to wait until we get to version<br />
 1.0. So you have to install it manually:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git clone https://github.com/Lasagne/Lasagne.git
-<span class="nv">$ </span><span class="nb">cd </span>Lasagne
-Lasagne<span class="nv">$ </span>sudo -H python setup.py install
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ git clone https://github.com/Lasagne/Lasagne.git
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>$ cd Lasagne
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>Lasagne$ sudo -H python setup.py install
+</pre></div>
 </div>
-<p>Now you can test if it worked by executing the MNIST example in Lasagne
-(<a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> is a huge digit dataset). This
-might first take some time to download, but should then run quite fast. If
-your machine does not use the GPU it will take ages (e.g. on my laptop it takes
+</div>
+
+<p>Now you can test if it worked by executing the MNIST example in Lasagne<br />
+(<a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> is a huge digit dataset). This<br />
+might first take some time to download, but should then run quite fast. If<br />
+your machine does not use the GPU it will take ages (e.g. on my laptop it takes<br />
 about a minute for one epoch)</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">Lasagne/examples$ python mnist.py
+
+<pre><code>Lasagne/examples$ python mnist.py
 Loading data...
 Downloading MNIST dataset
 Building model and compiling functions...
@@ -422,160 +446,169 @@ Epoch 1 of 500 took 72.593s
   validation loss:        0.470251
   validation accuracy:        87.54 %%
 </code></pre>
-</div>
+
 <h2 id="tocAnchor-1-6">nolearn</h2>
 
-<p><a href="https://github.com/dnouri/nolearn">nolearn</a> is another Python package. It was
+<p><a href="https://github.com/dnouri/nolearn">nolearn</a> is another Python package. It was<br />
 created to make using Lasagne even simpler.</p>
 
 <p>You can install it via</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git clone https://github.com/dnouri/nolearn.git
-<span class="nv">$ </span><span class="nb">cd </span>nolearn
-<span class="nv">$ </span>python setup.py install --user
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ git clone https://github.com/dnouri/nolearn.git
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>$ cd nolearn
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>$ python setup.py install --user
+</pre></div>
 </div>
-<p>For example, the following code downloads the MNIST dataset, trains a model on
+</div>
+
+<p>For example, the following code downloads the MNIST dataset, trains a model on<br />
 it and evaluates the result for a single image:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
-<span class="kn">import</span> <span class="nn">lasagne</span>
-<span class="kn">from</span> <span class="nn">lasagne</span> <span class="kn">import</span> <span class="n">layers</span>
-<span class="kn">from</span> <span class="nn">lasagne.updates</span> <span class="kn">import</span> <span class="n">nesterov_momentum</span>
-<span class="kn">from</span> <span class="nn">nolearn.lasagne</span> <span class="kn">import</span> <span class="n">NeuralNet</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
-
-
-<span class="n">PY2</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
-
-<span class="k">if</span> <span class="n">PY2</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
-
-    <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
-
-    <span class="k">def</span> <span class="nf">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
-
-<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s">'http://deeplearning.net/data/mnist/mnist.pkl.gz'</span>
-<span class="n">DATA_FILENAME</span> <span class="o">=</span> <span class="s">'mnist.pkl.gz'</span>
-
-
-<span class="k">def</span> <span class="nf">_load_data</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">DATA_URL</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">DATA_FILENAME</span><span class="p">):</span>
-    <span class="sd">"""Load data from `url` and store the result in `filename`."""</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Downloading MNIST dataset"</span><span class="p">)</span>
-        <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">pickle_load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'latin-1'</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">load_data</span><span class="p">():</span>
-    <span class="sd">"""Get data with labels, split into training, validation and test set."""</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">_load_data</span><span class="p">()</span>
-    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">y_train</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-    <span class="n">y_valid</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-    <span class="n">y_test</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
-        <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
-        <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
-        <span class="n">X_valid</span><span class="o">=</span><span class="n">X_valid</span><span class="p">,</span>
-        <span class="n">y_valid</span><span class="o">=</span><span class="n">y_valid</span><span class="p">,</span>
-        <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
-        <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
-        <span class="n">num_examples_train</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">num_examples_valid</span><span class="o">=</span><span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">num_examples_test</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-        <span class="n">input_dim</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="n">output_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">net1</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">(</span>
-        <span class="n">layers</span><span class="o">=</span><span class="p">[(</span><span class="s">'input'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">),</span>
-                <span class="p">(</span><span class="s">'hidden'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
-                <span class="p">(</span><span class="s">'output'</span><span class="p">,</span> <span class="n">layers</span><span class="o">.</span><span class="n">DenseLayer</span><span class="p">),</span>
-                <span class="p">],</span>
-        <span class="c"># layer parameters:</span>
-        <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">),</span>
-        <span class="n">hidden_num_units</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c"># number of units in 'hidden' layer</span>
-        <span class="n">output_nonlinearity</span><span class="o">=</span><span class="n">lasagne</span><span class="o">.</span><span class="n">nonlinearities</span><span class="o">.</span><span class="n">softmax</span><span class="p">,</span>
-        <span class="n">output_num_units</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>  <span class="c"># 10 target values for the digits 0, 1, 2, ..., 9</span>
-
-        <span class="c"># optimization method:</span>
-        <span class="n">update</span><span class="o">=</span><span class="n">nesterov_momentum</span><span class="p">,</span>
-        <span class="n">update_learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-        <span class="n">update_momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-
-        <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="p">)</span>
-
-    <span class="c"># Train the network</span>
-    <span class="n">net1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'X_train'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'y_train'</span><span class="p">])</span>
-
-    <span class="c"># Try the network on new data</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Feature vector (100-110): </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s">'X_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Label: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'y_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Predicted: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">net1</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s">'X_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">]])))</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Got </span><span class="si">%i</span><span class="s"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'X_train'</span><span class="p">]))</span>
-    <span class="n">nn_example</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers">  <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers">  <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers">  <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">lasagne</span>
+<span class="line-numbers">  <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">lasagne</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">layers</span>
+<span class="line-numbers">  <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">lasagne.updates</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">nesterov_momentum</span>
+<span class="line-numbers">  <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">nolearn.lasagne</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">NeuralNet</span>
+<span class="line-numbers">  <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers">  <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+<span class="line-numbers">  <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+<span class="line-numbers"> <strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">gzip</span>
+<span class="line-numbers"> <a href="#n11" name="n11" id="n11">11</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">pickle</span>
+<span class="line-numbers"> <a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy</span>
+<span class="line-numbers"> <a href="#n13" name="n13" id="n13">13</a></span>
+<span class="line-numbers"> <a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"> <a href="#n15" name="n15" id="n15">15</a></span>PY2 = sys.version_info[<span style="color:#00D">0</span>] == <span style="color:#00D">2</span>
+<span class="line-numbers"> <a href="#n16" name="n16" id="n16">16</a></span>
+<span class="line-numbers"> <a href="#n17" name="n17" id="n17">17</a></span><span style="color:#080;font-weight:bold">if</span> PY2:
+<span class="line-numbers"> <a href="#n18" name="n18" id="n18">18</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">urllib</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">urlretrieve</span>
+<span class="line-numbers"> <a href="#n19" name="n19" id="n19">19</a></span>
+<span class="line-numbers"> <strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pickle_load</span>(f, encoding):
+<span class="line-numbers"> <a href="#n21" name="n21" id="n21">21</a></span>        <span style="color:#080;font-weight:bold">return</span> pickle.load(f)
+<span class="line-numbers"> <a href="#n22" name="n22" id="n22">22</a></span><span style="color:#080;font-weight:bold">else</span>:
+<span class="line-numbers"> <a href="#n23" name="n23" id="n23">23</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">urllib.request</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">urlretrieve</span>
+<span class="line-numbers"> <a href="#n24" name="n24" id="n24">24</a></span>
+<span class="line-numbers"> <a href="#n25" name="n25" id="n25">25</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pickle_load</span>(f, encoding):
+<span class="line-numbers"> <a href="#n26" name="n26" id="n26">26</a></span>        <span style="color:#080;font-weight:bold">return</span> pickle.load(f, encoding=encoding)
+<span class="line-numbers"> <a href="#n27" name="n27" id="n27">27</a></span>
+<span class="line-numbers"> <a href="#n28" name="n28" id="n28">28</a></span>DATA_URL = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">http://deeplearning.net/data/mnist/mnist.pkl.gz</span><span style="color:#710">'</span></span>
+<span class="line-numbers"> <a href="#n29" name="n29" id="n29">29</a></span>DATA_FILENAME = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mnist.pkl.gz</span><span style="color:#710">'</span></span>
+<span class="line-numbers"> <strong><a href="#n30" name="n30" id="n30">30</a></strong></span>
+<span class="line-numbers"> <a href="#n31" name="n31" id="n31">31</a></span>
+<span class="line-numbers"> <a href="#n32" name="n32" id="n32">32</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">_load_data</span>(url=DATA_URL, filename=DATA_FILENAME):
+<span class="line-numbers"> <a href="#n33" name="n33" id="n33">33</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Load data from `url` and store the result in `filename`.</span><span style="color:black">"""</span></span>
+<span class="line-numbers"> <a href="#n34" name="n34" id="n34">34</a></span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> os.path.exists(filename):
+<span class="line-numbers"> <a href="#n35" name="n35" id="n35">35</a></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Downloading MNIST dataset</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n36" name="n36" id="n36">36</a></span>        urlretrieve(url, filename)
+<span class="line-numbers"> <a href="#n37" name="n37" id="n37">37</a></span>
+<span class="line-numbers"> <a href="#n38" name="n38" id="n38">38</a></span>    <span style="color:#080;font-weight:bold">with</span> gzip.open(filename, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rb</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+<span class="line-numbers"> <a href="#n39" name="n39" id="n39">39</a></span>        <span style="color:#080;font-weight:bold">return</span> pickle_load(f, encoding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">latin-1</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"> <strong><a href="#n40" name="n40" id="n40">40</a></strong></span>
+<span class="line-numbers"> <a href="#n41" name="n41" id="n41">41</a></span>
+<span class="line-numbers"> <a href="#n42" name="n42" id="n42">42</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">load_data</span>():
+<span class="line-numbers"> <a href="#n43" name="n43" id="n43">43</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Get data with labels, split into training, validation and test set.</span><span style="color:black">"""</span></span>
+<span class="line-numbers"> <a href="#n44" name="n44" id="n44">44</a></span>    data = _load_data()
+<span class="line-numbers"> <a href="#n45" name="n45" id="n45">45</a></span>    X_train, y_train = data[<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n46" name="n46" id="n46">46</a></span>    X_valid, y_valid = data[<span style="color:#00D">1</span>]
+<span class="line-numbers"> <a href="#n47" name="n47" id="n47">47</a></span>    X_test, y_test = data[<span style="color:#00D">2</span>]
+<span class="line-numbers"> <a href="#n48" name="n48" id="n48">48</a></span>    y_train = numpy.asarray(y_train, dtype=numpy.int32)
+<span class="line-numbers"> <a href="#n49" name="n49" id="n49">49</a></span>    y_valid = numpy.asarray(y_valid, dtype=numpy.int32)
+<span class="line-numbers"> <strong><a href="#n50" name="n50" id="n50">50</a></strong></span>    y_test = numpy.asarray(y_test, dtype=numpy.int32)
+<span class="line-numbers"> <a href="#n51" name="n51" id="n51">51</a></span>
+<span class="line-numbers"> <a href="#n52" name="n52" id="n52">52</a></span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">dict</span>(
+<span class="line-numbers"> <a href="#n53" name="n53" id="n53">53</a></span>        X_train=X_train,
+<span class="line-numbers"> <a href="#n54" name="n54" id="n54">54</a></span>        y_train=y_train,
+<span class="line-numbers"> <a href="#n55" name="n55" id="n55">55</a></span>        X_valid=X_valid,
+<span class="line-numbers"> <a href="#n56" name="n56" id="n56">56</a></span>        y_valid=y_valid,
+<span class="line-numbers"> <a href="#n57" name="n57" id="n57">57</a></span>        X_test=X_test,
+<span class="line-numbers"> <a href="#n58" name="n58" id="n58">58</a></span>        y_test=y_test,
+<span class="line-numbers"> <a href="#n59" name="n59" id="n59">59</a></span>        num_examples_train=X_train.shape[<span style="color:#00D">0</span>],
+<span class="line-numbers"> <strong><a href="#n60" name="n60" id="n60">60</a></strong></span>        num_examples_valid=X_valid.shape[<span style="color:#00D">0</span>],
+<span class="line-numbers"> <a href="#n61" name="n61" id="n61">61</a></span>        num_examples_test=X_test.shape[<span style="color:#00D">0</span>],
+<span class="line-numbers"> <a href="#n62" name="n62" id="n62">62</a></span>        input_dim=X_train.shape[<span style="color:#00D">1</span>],
+<span class="line-numbers"> <a href="#n63" name="n63" id="n63">63</a></span>        output_dim=<span style="color:#00D">10</span>,
+<span class="line-numbers"> <a href="#n64" name="n64" id="n64">64</a></span>    )
+<span class="line-numbers"> <a href="#n65" name="n65" id="n65">65</a></span>
+<span class="line-numbers"> <a href="#n66" name="n66" id="n66">66</a></span>
+<span class="line-numbers"> <a href="#n67" name="n67" id="n67">67</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">nn_example</span>(data):
+<span class="line-numbers"> <a href="#n68" name="n68" id="n68">68</a></span>    net1 = NeuralNet(
+<span class="line-numbers"> <a href="#n69" name="n69" id="n69">69</a></span>        layers=[(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">input</span><span style="color:#710">'</span></span>, layers.InputLayer),
+<span class="line-numbers"> <strong><a href="#n70" name="n70" id="n70">70</a></strong></span>                (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">hidden</span><span style="color:#710">'</span></span>, layers.DenseLayer),
+<span class="line-numbers"> <a href="#n71" name="n71" id="n71">71</a></span>                (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">output</span><span style="color:#710">'</span></span>, layers.DenseLayer),
+<span class="line-numbers"> <a href="#n72" name="n72" id="n72">72</a></span>                ],
+<span class="line-numbers"> <a href="#n73" name="n73" id="n73">73</a></span>        <span style="color:#777"># layer parameters:</span>
+<span class="line-numbers"> <a href="#n74" name="n74" id="n74">74</a></span>        input_shape=(<span style="color:#069">None</span>, <span style="color:#00D">28</span>*<span style="color:#00D">28</span>),
+<span class="line-numbers"> <a href="#n75" name="n75" id="n75">75</a></span>        hidden_num_units=<span style="color:#00D">100</span>,  <span style="color:#777"># number of units in 'hidden' layer</span>
+<span class="line-numbers"> <a href="#n76" name="n76" id="n76">76</a></span>        output_nonlinearity=lasagne.nonlinearities.softmax,
+<span class="line-numbers"> <a href="#n77" name="n77" id="n77">77</a></span>        output_num_units=<span style="color:#00D">10</span>,  <span style="color:#777"># 10 target values for the digits 0, 1, 2, ..., 9</span>
+<span class="line-numbers"> <a href="#n78" name="n78" id="n78">78</a></span>
+<span class="line-numbers"> <a href="#n79" name="n79" id="n79">79</a></span>        <span style="color:#777"># optimization method:</span>
+<span class="line-numbers"> <strong><a href="#n80" name="n80" id="n80">80</a></strong></span>        update=nesterov_momentum,
+<span class="line-numbers"> <a href="#n81" name="n81" id="n81">81</a></span>        update_learning_rate=<span style="color:#60E">0.01</span>,
+<span class="line-numbers"> <a href="#n82" name="n82" id="n82">82</a></span>        update_momentum=<span style="color:#60E">0.9</span>,
+<span class="line-numbers"> <a href="#n83" name="n83" id="n83">83</a></span>
+<span class="line-numbers"> <a href="#n84" name="n84" id="n84">84</a></span>        max_epochs=<span style="color:#00D">10</span>,
+<span class="line-numbers"> <a href="#n85" name="n85" id="n85">85</a></span>        verbose=<span style="color:#00D">1</span>,
+<span class="line-numbers"> <a href="#n86" name="n86" id="n86">86</a></span>        )
+<span class="line-numbers"> <a href="#n87" name="n87" id="n87">87</a></span>
+<span class="line-numbers"> <a href="#n88" name="n88" id="n88">88</a></span>    <span style="color:#777"># Train the network</span>
+<span class="line-numbers"> <a href="#n89" name="n89" id="n89">89</a></span>    net1.fit(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_train</span><span style="color:#710">'</span></span>], data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y_train</span><span style="color:#710">'</span></span>])
+<span class="line-numbers"> <strong><a href="#n90" name="n90" id="n90">90</a></strong></span>
+<span class="line-numbers"> <a href="#n91" name="n91" id="n91">91</a></span>    <span style="color:#777"># Try the network on new data</span>
+<span class="line-numbers"> <a href="#n92" name="n92" id="n92">92</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Feature vector (100-110): %s</span><span style="color:#710">"</span></span> % data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_test</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>][<span style="color:#00D">100</span>:<span style="color:#00D">110</span>])
+<span class="line-numbers"> <a href="#n93" name="n93" id="n93">93</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Label: %s</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">str</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y_test</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>]))
+<span class="line-numbers"> <a href="#n94" name="n94" id="n94">94</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Predicted: %s</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">str</span>(net1.predict([data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_test</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>]])))
+<span class="line-numbers"> <a href="#n95" name="n95" id="n95">95</a></span>
+<span class="line-numbers"> <a href="#n96" name="n96" id="n96">96</a></span>
+<span class="line-numbers"> <a href="#n97" name="n97" id="n97">97</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>():
+<span class="line-numbers"> <a href="#n98" name="n98" id="n98">98</a></span>    data = load_data()
+<span class="line-numbers"> <a href="#n99" name="n99" id="n99">99</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Got %i testing datasets.</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">len</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X_train</span><span style="color:#710">'</span></span>]))
+<span class="line-numbers"><strong><a href="#n100" name="n100" id="n100">100</a></strong></span>    nn_example(data)
+<span class="line-numbers"><a href="#n101" name="n101" id="n101">101</a></span>
+<span class="line-numbers"><a href="#n102" name="n102" id="n102">102</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+<span class="line-numbers"><a href="#n103" name="n103" id="n103">103</a></span>    main()
+</pre></div>
 </div>
+</div>
+
 <p>The output is</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text"># Neural Network with 79510 learnable parameters
 
-## Layer information
-
-  #  name      size
----  ------  ------
-  0  input      784
-  1  hidden     100
-  2  output      10
-
-  epoch    train loss    valid loss    train/val    valid acc  dur
--------  ------------  ------------  -----------  -----------  -----
-      1       0.59132       0.32314      1.82993      0.90988  1.70s
-      2       0.30733       0.26644      1.15348      0.92623  1.96s
-      3       0.25879       0.23606      1.09629      0.93363  2.09s
-      4       0.22680       0.21424      1.05865      0.93897  2.13s
-      5       0.20187       0.19633      1.02827      0.94313  2.21s
-      6       0.18129       0.18187      0.99685      0.94758  1.81s
-      7       0.16398       0.16992      0.96506      0.95074  2.14s
-      8       0.14941       0.16020      0.93265      0.95262  1.88s
-      9       0.13704       0.15189      0.90222      0.95460  2.15s
-     10       0.12633       0.14464      0.87342      0.95707  2.21s
-Feature vector (100-110): [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
-Label: 7
-Predicted: [7]
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span># Neural Network with 79510 learnable parameters
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>## Layer information
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>  #  name      size
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>---  ------  ------
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  0  input      784
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  1  hidden     100
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>  2  output      10
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>  epoch    train loss    valid loss    train/val    valid acc  dur
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>-------  ------------  ------------  -----------  -----------  -----
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>      1       0.59132       0.32314      1.82993      0.90988  1.70s
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>      2       0.30733       0.26644      1.15348      0.92623  1.96s
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>      3       0.25879       0.23606      1.09629      0.93363  2.09s
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>      4       0.22680       0.21424      1.05865      0.93897  2.13s
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>      5       0.20187       0.19633      1.02827      0.94313  2.21s
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>      6       0.18129       0.18187      0.99685      0.94758  1.81s
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>      7       0.16398       0.16992      0.96506      0.95074  2.14s
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>      8       0.14941       0.16020      0.93265      0.95262  1.88s
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>      9       0.13704       0.15189      0.90222      0.95460  2.15s
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>     10       0.12633       0.14464      0.87342      0.95707  2.21s
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>Feature vector (100-110): [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>Label: 7
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>Predicted: [7]
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-7">See also</h2>
 
 <ul>
-<li><a href="http://www.pyimagesearch.com/2014/09/22/getting-started-deep-learning-python/">Getting Started with Deep Learning and Python</a></li>
+  <li><a href="http://www.pyimagesearch.com/2014/09/22/getting-started-deep-learning-python/">Getting Started with Deep Learning and Python</a></li>
 </ul>
 
                         </div>
@@ -759,7 +792,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

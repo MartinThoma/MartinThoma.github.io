@@ -105,26 +105,25 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Dieser Artikel ist für all die verzweifelten Studienanfänger am <abbr
-title="Karlsruher Institut für Technologie">KIT</abbr>, die den Hörsaal&nbsp;9
-(HS&nbsp;9) suchen.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Dieser Artikel ist für all die verzweifelten Studienanfänger am <abbr title="Karlsruher Institut für Technologie">KIT</abbr>, die den Hörsaal 9<br />
+(HS 9) suchen.</p>
 
-<p>Der HS&nbsp;9 ist in <a href="https://www.kithub.de/map/2264">Gebäude 20.40</a>, dem
-Architektengebäude. Es ist im ersten Stockwerk. Da muss man die große Treppe
+<p>Der HS 9 ist in <a href="https://www.kithub.de/map/2264">Gebäude 20.40</a>, dem<br />
+Architektengebäude. Es ist im ersten Stockwerk. Da muss man die große Treppe<br />
 des Haupteingangs hoch, nach rechts abbiegen und um die Ecke laufen.</p>
 
-<p>Sinnigerweise ist Hörsaal&nbsp;37 (HS&nbsp;37) im Erdgeschoss...</p>
+<p>Sinnigerweise ist Hörsaal 37 (HS 37) im Erdgeschoss…</p>
 
-<p>&ast;sigh&ast; da hätte ich wirklich gerne <a href="https://www.google.com/maps/about/partners/indoormaps/">Google Indoor Maps</a>. Oder zumindest im Ergeschoss einen Plan, der Pläne der Stockwerke
-beinhaltet. Am besten noch eine alphabetisch sortierte Liste der Räume mit
-Verweis auf die Etage...</p>
+<p>&amp;ast;sigh&amp;ast; da hätte ich wirklich gerne <a href="https://www.google.com/maps/about/partners/indoormaps/">Google Indoor Maps</a>. Oder zumindest im Ergeschoss einen Plan, der Pläne der Stockwerke<br />
+beinhaltet. Am besten noch eine alphabetisch sortierte Liste der Räume mit<br />
+Verweis auf die Etage…</p>
 
-<p>(Randnotiz: Falls sich jemand über diesen Mini-Artikel wundert: Ich habe diese
-Hörsäle schon mehrfach gesucht. Letzens wegen <a href="http://www.math.kit.edu/stoch/edu/statistik2015w/">Statistik</a>, wo das so wunderbar präzise auf der Vorlesungsseite steht... nun kann man
-es hoffentlich bald googeln, auch wenn ich nicht dabei unterstützt wurde,
-die Pläne auf Google Indoor Maps zu stellen. Irgendwas von &quot;Datenschutz&quot; wurde
-gesagt...)</p>
+<p>(Randnotiz: Falls sich jemand über diesen Mini-Artikel wundert: Ich habe diese<br />
+Hörsäle schon mehrfach gesucht. Letzens wegen <a href="http://www.math.kit.edu/stoch/edu/statistik2015w/">Statistik</a>, wo das so wunderbar präzise auf der Vorlesungsseite steht… nun kann man<br />
+es hoffentlich bald googeln, auch wenn ich nicht dabei unterstützt wurde,<br />
+die Pläne auf Google Indoor Maps zu stellen. Irgendwas von “Datenschutz” wurde<br />
+gesagt…)</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -310,7 +309,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

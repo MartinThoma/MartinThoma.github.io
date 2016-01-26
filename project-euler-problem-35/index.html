@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The task in <a href="http://projecteuler.net/problem=35">Problem 35</a> of Project Euler is:</p>
 
 <blockquote>The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
@@ -115,9 +115,8 @@ There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73
 How many circular primes are there below one million?</blockquote>
 
 <h2 id="tocAnchor-1-1">How to solve</h2>
-
-<p>If you have heard of the sieve of Eratosthenes, this one sounds quite easy:
-</p><ol>
+<p>If you have heard of the sieve of Eratosthenes, this one sounds quite easy:</p>
+<ol>
   <li>Find all primes below one million</li>
   <li>For each prime, do:
     <ol>
@@ -129,9 +128,7 @@ How many circular primes are there below one million?</blockquote>
 </ol>
 
 <h2 id="tocAnchor-1-2">The implementation</h2>
-
 <h3 id="tocAnchor-1-2-1">Sieve of Eratosthenes</h3>
-
 <p>The finds all primes below $n \in \mathbb{N}$. But you can make a lot of mistakes in the implementation.</p>
 
 <p>First, this is the way the sieve of Eratosthenes works:</p>
@@ -160,8 +157,8 @@ How many circular primes are there below one million?</blockquote>
     <span class="k">return</span> <span class="n">primes</span></code></pre>
 </div>
 
-<p>Whats bad with this code? 
-Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn't find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.</p>
+<p>Whats bad with this code? <br />
+Well, just think about what it does: For every <code>noPrime</code> Python has to go through the whole list. I couldn’t find how <code>in</code> is implemented, but I guess it is linear. So Python has to go through the whole list for <code>in</code>. Additionally, <code>remove</code> could also be expensive.</p>
 
 <p>How could this get improved? Here is a better solution:</p>
 
@@ -190,7 +187,6 @@ Well, just think about what it does: For every <code>noPrime</code> Python has t
 <p>A generator version of the sieve of Erasthostenes can be found on <a href="http://code.activestate.com/recipes/117119-sieve-of-eratosthenes/">code.activestate.com</a>.</p>
 
 <h3 id="tocAnchor-1-2-2">isCircularPrime</h3>
-
 <p>Rotation the digits of a number is the same as cutting the number into two pieces and switching the position of the pieces:</p>
 
 <div class="highlight">
@@ -279,7 +275,9 @@ So you can skip those digits
  
     <span class="k">print</span><span class="p">(</span><span class="s">"Number of circular primes: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">numberOfPrimes</span><span class="p">)</span></code></pre></div>
 
-</h3><p>It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)</p>
+
+It takes about 1.096 seconds (in comparison: having the version of <code>isCircularPrime</code> that searches through the list of primes took over 5 minutes!)
+</h3>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -468,7 +466,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

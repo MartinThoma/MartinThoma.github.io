@@ -105,41 +105,40 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Blender is an open source software that allows you to create animations.
-The <a href="https://en.wikipedia.org/wiki/Blender_Foundation">Blender Foundation</a>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Blender is an open source software that allows you to create animations.<br />
+The <a href="https://en.wikipedia.org/wiki/Blender_Foundation">Blender Foundation</a><br />
 is a non-profit organization that helps to develop blender.</p>
 
-<p>To improve Blender, they have created movies. In that process, developers and
-movie makers sat in one room. So when the movie makers had a problem or discovered
+<p>To improve Blender, they have created movies. In that process, developers and<br />
+movie makers sat in one room. So when the movie makers had a problem or discovered<br />
 a bug, the developers could see and eventually fix that.</p>
 
-<p>By now, they have create four short movies. These movies are DRM-free, free to
-use and ... well, you can basically do what you want with them:</p>
+<p>By now, they have create four short movies. These movies are DRM-free, free to<br />
+use and … well, you can basically do what you want with them:</p>
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/YE7VzlLtp-4?list=PL6B3937A5D230E335" frameborder="0" allowfullscreen=""></iframe>
 
-<p><a href="http://gooseberry.blender.org/">Project Glooseberry</a> is an attempt to create a
+<p><a href="http://gooseberry.blender.org/">Project Glooseberry</a> is an attempt to create a<br />
 full length movie. Here is a first trailer:</p>
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/XfezG5M2ICg" frameborder="0" allowfullscreen=""></iframe>
 
-<p>But creating movies is quite cost intensive. A lot of people are involved and a
-lot of processing power is needed to create those animations. So the Blender
+<p>But creating movies is quite cost intensive. A lot of people are involved and a<br />
+lot of processing power is needed to create those animations. So the Blender<br />
 Foundation has started a <a href="https://cloud.blender.org/gooseberry/pledge">Crowdfunding Campaign</a>.</p>
 
 <ul>
-<li>You can pledge what you want. I've pledged 5 Euros.</li>
-<li>When you pay via PayPal and they don't manage to get the 500 000 Euro they aim for,
+  <li>You can pledge what you want. I’ve pledged 5 Euros.</li>
+  <li>When you pay via PayPal and they don’t manage to get the 500 000 Euro they aim for,<br />
 you get your money back.</li>
-<li>The campaign ends on April 19th 2014.</li>
+  <li>The campaign ends on April 19th 2014.</li>
 </ul>
 
 <h2 id="tocAnchor-1-1">Current campaign status</h2>
-
 <p>You can see the current campaign status <a href="http://gooseberry.blender.org/#stats">here</a>.</p>
 
-<p>By now (25th of March, 13:37) there are 809 people that supported this campaign and
+<p>By now (25th of March, 13:37) there are 809 people that supported this campaign and<br />
 65,780 Euro were pledged.</p>
 
 <p>Let me know in comments when you supported the campaing: <a href="https://cloud.blender.org/gooseberry/pledge">support now</a>.</p>
@@ -328,7 +327,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

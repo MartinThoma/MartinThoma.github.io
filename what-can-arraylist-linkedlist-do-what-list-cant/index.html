@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I&#39;ve told my students to write</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I’ve told my students to write</p>
 
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span> <span class="n">myList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;();</span></code></pre></div>
 
@@ -116,22 +116,22 @@ MathJax.Hub.Queue(function() {
 
 <p>as this allows them to switch to any Class that implements List without having to change more code.</p>
 
-<p>This does always make sense, except if you need methods from ArrayList or LinkedList. But which methods does <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a> / <a href="http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html">LinkedList</a> offer that <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a> doesn&#39;t have?</p>
+<p>This does always make sense, except if you need methods from ArrayList or LinkedList. But which methods does <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a> / <a href="http://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html">LinkedList</a> offer that <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">List</a> doesn’t have?</p>
 
-<p>ArrayList has:
+<p>ArrayList has:</p>
 <ul>
   <li>Object clone()</li>
   <li>void ensureCapacity(int minCapacity)</li>
   <li>void removeRange(int fromIndex, int toIndex)</li>
   <li>void trimToSize()</li>
-</ul></p>
+</ul>
 
-<p>LinkedList has:
+<p>LinkedList has:</p>
 <ul>
   <li>void addFirst(E e)</li>
   <li>void addLast(E e)</li>
   <li>Object clone()</li>
-  <li>Iterator<E> descendingIterator()</li>
+  <li>Iterator<e> descendingIterator()
   <li>E getFirst()</li>
   <li>E getLast()</li>
   <li>boolean offer(E e)</li>
@@ -149,7 +149,8 @@ MathJax.Hub.Queue(function() {
   <li>boolean removeFirstOccurrence(Object o)</li>
   <li>E removeLast()</li>
   <li>boolean removeLastOccurrence(Object o)</li>
-</ul></p>
+
+</e></li></ul>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -329,7 +330,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

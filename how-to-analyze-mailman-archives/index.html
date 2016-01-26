@@ -105,11 +105,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>All mailing lists I use are <a href="http://en.wikipedia.org/wiki/GNU_Mailman">GNU Mailman</a> lists. This software provides archives of all Emails that were send over the list.</p>
 
-<p>They look like this:
-</p><div style="width: 310px" class="wp-caption aligncenter">
+<p>They look like this:</p>
+<div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2013/08/mailman-list-archive-300x277.png">
       <img src="../images/2013/08/mailman-list-archive-300x277.png" alt="GNU Mailman list archive" width="" height="" class="size-medium wp-image-76298" />
    </a>
@@ -144,23 +144,25 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <p>To make them sortable:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="k">for</span> file in *January.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%January.txt}01.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *February.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%February.txt}02.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *March.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%March.txt}03.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *April.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%January.txt}04.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *May.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%May.txt}05.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *June.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%June.txt}06.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *July.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%July.txt}07.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *August.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%August.txt}08.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *September.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%September.txt}09.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *October.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%October.txt}10.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *November.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%November.txt}11.txt"</span><span class="p">;</span> <span class="k">done</span>
-<span class="k">for</span> file in *December.txt<span class="p">;</span> <span class="k">do</span> mv <span class="s2">"$file"</span> <span class="s2">"${file%December.txt}12.txt"</span><span class="p">;</span> <span class="k">done</span>
-</code></pre>
-</div>
-<h2 id="tocAnchor-1-3">Analyze them</h2>
 
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>for file in *January.txt; do mv "$file" "${file%January.txt}01.txt"; done
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>for file in *February.txt; do mv "$file" "${file%February.txt}02.txt"; done
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>for file in *March.txt; do mv "$file" "${file%March.txt}03.txt"; done
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>for file in *April.txt; do mv "$file" "${file%January.txt}04.txt"; done
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>for file in *May.txt; do mv "$file" "${file%May.txt}05.txt"; done
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>for file in *June.txt; do mv "$file" "${file%June.txt}06.txt"; done
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>for file in *July.txt; do mv "$file" "${file%July.txt}07.txt"; done
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>for file in *August.txt; do mv "$file" "${file%August.txt}08.txt"; done
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>for file in *September.txt; do mv "$file" "${file%September.txt}09.txt"; done
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>for file in *October.txt; do mv "$file" "${file%October.txt}10.txt"; done
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>for file in *November.txt; do mv "$file" "${file%November.txt}11.txt"; done
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>for file in *December.txt; do mv "$file" "${file%December.txt}12.txt"; done
+</pre></div>
+</div>
+</div>
+
+<h2 id="tocAnchor-1-3">Analyze them</h2>
 <p>To analyze the archives properly, you should perhaps first import all emails in a relational database. But with <code>grep</code> you could also do simple keyword searches.</p>
 
                         </div>
@@ -347,7 +349,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

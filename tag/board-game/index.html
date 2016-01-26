@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Board Game&rdquo;’</h2>
   
@@ -2021,12 +2021,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-08-19T17:00:58+02:00">August 19, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/peg-solitaire/"><img width="128" height="128" src="//martin-thoma.com/images/2012/08/Peg-solitaire-board1.png" class="alignleft post_thumbnail wp-post-image" alt="Peg Solitaire"/></a>
     
 
-    Solit&auml;r (auch Solitaire, Steck- oder Solohalma, Springer, Jumper, Nonnenspiel, Einsiedlerspiel) ist ein Brettspiel f&uuml;r eine Person. Das weitest verbreitete Spielfeld ist kreuzf&ouml;rmig und wird mit 32 Steinen auf 33 Felder gestartet. In der Mitte fehlt die Kugel, alle anderen 32 Felder sind besetzt. Die Bezeichnungen { caption align=&quot;alignright&quot; width=&quot;300&quot; caption=&quot;Peg Solitaire - Spielfeld&quot; url=&quot;../images/2012/08/Peg-solitaire-board.png&quot; alt=&quot;Peg Solitaire - Spielfeld&quot; height=&quot;300&quot; class=&quot; wp-image-41441 &quot; } Dieses Brett ist hier mit den Bezeichnungen f&uuml;r die Felder dargestellt. Der...
+    Solitär (auch Solitaire, Steck- oder Solohalma, Springer, Jumper, Nonnenspiel, Einsiedlerspiel) ist ein Brettspiel für eine Person. Das weitest verbreitete Spielfeld ist kreuzförmig und wird mit 32 Steinen auf 33 Felder gestartet. In der Mitte fehlt die Kugel, alle anderen 32 Felder sind besetzt. Die Bezeichnungen { caption align=”alignright” width=”300” caption=”Peg Solitaire - Spielfeld” url=”../images/2012/08/Peg-solitaire-board.png” alt=”Peg Solitaire - Spielfeld” height=”300” class=” wp-image-41441 “ } Dieses Brett ist hier mit den Bezeichnungen für die Felder dargestellt. Der...
 
     
     <div class="readmorecontent">
@@ -3682,7 +3682,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

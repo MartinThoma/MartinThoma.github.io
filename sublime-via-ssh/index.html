@@ -105,12 +105,12 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Sublime Text is the best editor I have ever used. One argument for vim and against
-SSH could be that you can't simply use Sublime Text when you're accessing a
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Sublime Text is the best editor I have ever used. One argument for vim and against<br />
+SSH could be that you can’t simply use Sublime Text when you’re accessing a<br />
 computer via SSH. But there is a way!</p>
 
-<p>In the following, I will expain the simplest way how to remote edit files with
+<p>In the following, I will expain the simplest way how to remote edit files with<br />
 Sublime Text.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -145,12 +145,15 @@ Sublime Text.</p>
 </ol>
 
 <p>This is how the <code>config</code> file should look like:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">Host myname
-  Hostname pc123.your.network.com
-  RemoteForward 52698 127.0.0.1:52698
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>Host myname
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>  Hostname pc123.your.network.com
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>  RemoteForward 52698 127.0.0.1:52698
+</pre></div>
 </div>
+</div>
+
 <p>You can add more information like <code>User yourusername</code> to this file.</p>
 
 <h2 id="tocAnchor-1-2">Server-Side steps</h2>
@@ -167,46 +170,56 @@ Sublime Text.</p>
 <p>These steps have to be done server-side.</p>
 
 <h3 id="tocAnchor-1-3-1">With Root access</h3>
-
-<p>It's not so nice to open files with <code>~/rmate filename</code> all the time. You can
+<p>It’s not so nice to open files with <code>~/rmate filename</code> all the time. You can<br />
 use <code>rmate filename</code> after executing this command:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="c"># This creates a symlink</span>
-sudo ln -s ~/rmate /usr/local/bin/
-</code></pre>
-</div>
-<p>You can use other paths than <code>/usr/local/bin/</code>. Look at your <code>PATH</code> for candidates:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$PATH</span>
-</code></pre>
-</div>
-<h3 id="tocAnchor-1-3-2">Without Root access</h3>
 
-<p>When you don't have root access, you can't create a symlink for most (eventually even all)
-folders in your <code>PATH</code>. But you can expand your <code>PATH</code>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">mkdir -p ~/bin        <span class="c"># create folder if it doesn't exist</span>
-ln -s ~/rmate ~/bin/  <span class="c"># create symlink</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span># This creates a symlink
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>sudo ln -s ~/rmate /usr/local/bin/
+</pre></div>
 </div>
-<p>Now expand your <code>PATH</code> so that it includes <code>~/bin</code>. There are at least two ways
+</div>
+
+<p>You can use other paths than <code>/usr/local/bin/</code>. Look at your <code>PATH</code> for candidates:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>echo $PATH
+</pre></div>
+</div>
+</div>
+
+<h3 id="tocAnchor-1-3-2">Without Root access</h3>
+<p>When you don’t have root access, you can’t create a symlink for most (eventually even all)<br />
+folders in your <code>PATH</code>. But you can expand your <code>PATH</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>mkdir -p ~/bin        # create folder if it doesn't exist
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>ln -s ~/rmate ~/bin/  # create symlink
+</pre></div>
+</div>
+</div>
+
+<p>Now expand your <code>PATH</code> so that it includes <code>~/bin</code>. There are at least two ways<br />
 to do so:</p>
 
 <ul>
-<li>You can directly edit your shells <code>.rc</code> file (e. g. <code>.bashrc</code>, <code>.zshrc</code>, <code>.cshrc</code>, ...) or</li>
-<li>you can edit your <code>.profile</code></li>
+  <li>You can directly edit your shells <code>.rc</code> file (e. g. <code>.bashrc</code>, <code>.zshrc</code>, <code>.cshrc</code>, …) or</li>
+  <li>you can edit your <code>.profile</code></li>
 </ul>
 
-<p>As many shells source <code>.profile</code> I'll explain this way. First, open <code>~/.profile</code>.
+<p>As many shells source <code>.profile</code> I’ll explain this way. First, open <code>~/.profile</code>.<br />
 Then add</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="c"># First check if that folder exists</span>
-<span class="k">if</span> <span class="o">[</span> -d <span class="s2">"$HOME/bin"</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
-    <span class="c"># Add your home folder to the end of the current path</span>
-    <span class="nv">PATH</span><span class="o">=</span><span class="s2">"$PATH:$HOME/bin"</span>
-<span class="k">fi</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span># First check if that folder exists
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>if [ -d "$HOME/bin" ] ; then
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    # Add your home folder to the end of the current path
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    PATH="$PATH:$HOME/bin"
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>fi
+</pre></div>
 </div>
+</div>
+
                         </div>
                         <div class="postmeta">Posted in
                             
@@ -388,7 +401,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

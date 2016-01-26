@@ -105,20 +105,20 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Bug reporting is extremely important. It helps developers to get aware of
-problems and hence get the possibility to do something against it. It is
-impossible to guarantee for any real, non-trivial software that it has no bugs.
-Even when you formally prove that it is correct, the prove might be wrong.
-However, when users report bugs one can get confident that the remaining bugs
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Bug reporting is extremely important. It helps developers to get aware of<br />
+problems and hence get the possibility to do something against it. It is<br />
+impossible to guarantee for any real, non-trivial software that it has no bugs.<br />
+Even when you formally prove that it is correct, the prove might be wrong.<br />
+However, when users report bugs one can get confident that the remaining bugs<br />
 are appearing very rarely or causing not so much harm.</p>
 
-<p>Reporting bugs is also important from a User Experience point of view. For me,
-it already helps to be able to report a bug / see that a bug was already
-reported. However, this is a pain in the ass for most software from a users
+<p>Reporting bugs is also important from a User Experience point of view. For me,<br />
+it already helps to be able to report a bug / see that a bug was already<br />
+reported. However, this is a pain in the ass for most software from a users<br />
 perspective.</p>
 
-<p>I've just had that experience for Caja (the file explorer of MATE).</p>
+<p>I’ve just had that experience for Caja (the file explorer of MATE).</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -138,7 +138,7 @@ perspective.</p>
          <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">Google Chrome example</span></a>
       </li>
       <li class="toc_level-1 toc_section-5">
-         <a href="#tocAnchor-1-5"><span class="tocnumber">3</span> <span class="toctext">What's wrong and how to fix it</span></a>
+         <a href="#tocAnchor-1-5"><span class="tocnumber">3</span> <span class="toctext">What’s wrong and how to fix it</span></a>
       </li>
       <li class="toc_level-1 toc_section-6">
          <a href="#tocAnchor-1-6"><span class="tocnumber">4</span> <span class="toctext">Existing Issue Trackers</span></a>
@@ -148,13 +148,13 @@ perspective.</p>
 
 <h3 id="tocAnchor-1-1-1">Get information</h3>
 
-<p>Caja crashed. I just wanted to create a new text file. Then it froze for
-about two seconds and closed. After another one or two seconds I got a crash
-report window. (I forgot to make a screenshot of that, but it looks like
+<p>Caja crashed. I just wanted to create a new text file. Then it froze for<br />
+about two seconds and closed. After another one or two seconds I got a crash<br />
+report window. (I forgot to make a screenshot of that, but it looks like<br />
 in the Google Chrome example)</p>
 
-<p>I clicked on something like "examine locally" - whatever that means. This is
-the first point I have to critize. The user should always know or at least be
+<p>I clicked on something like “examine locally” - whatever that means. This is<br />
+the first point I have to critize. The user should always know or at least be<br />
 able to get the information what such messages mean.</p>
 
 <p>I was curious, so I clicked on it. Then this appeared:</p>
@@ -167,30 +167,30 @@ able to get the information what such messages mean.</p>
 </div>
 
 <blockquote>
-<p>This will launch apport-retrace in a terminal window to examine the crash.</p>
+  <p>This will launch apport-retrace in a terminal window to examine the crash.</p>
 </blockquote>
 
 <p>That is fine.</p>
 
 <blockquote>
-<ul>
-<li>Run gdb session</li>
-<li>Run gdb session without downloading debug symbols</li>
-<li>Update /var/crash/_usr_bin_caja.1000.crash with fully symbolic stack trace</li>
-</ul>
+  <ul>
+    <li>Run gdb session</li>
+    <li>Run gdb session without downloading debug symbols</li>
+    <li>Update /var/crash/_usr_bin_caja.1000.crash with fully symbolic stack trace</li>
+  </ul>
 </blockquote>
 
-<p>That is not ok. This might be good information for developers, but for normal
-users it is useless. There should be information when to use which one.
+<p>That is not ok. This might be good information for developers, but for normal<br />
+users it is useless. There should be information when to use which one.<br />
 For example:</p>
 
 <ul>
-<li>Which option takes most time (if there is a significant difference)?</li>
-<li>Is one option a superset of the other?</li>
-<li>Might one option contain private / secret information which I should not share?</li>
+  <li>Which option takes most time (if there is a significant difference)?</li>
+  <li>Is one option a superset of the other?</li>
+  <li>Might one option contain private / secret information which I should not share?</li>
 </ul>
 
-<p>Lets try 'Run gdb session'. By the way, 'gdb' is the GNU project debugger.</p>
+<p>Lets try ‘Run gdb session’. By the way, ‘gdb’ is the GNU project debugger.</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2015/01/run-gdb-session.png">
@@ -199,10 +199,10 @@ For example:</p>
    <p class="wp-caption-text">Error creating child process</p>
 </div>
 
-<p>Hrmpf. Seems as if I found a bug while trying to report a bug...
+<p>Hrmpf. Seems as if I found a bug while trying to report a bug…<br />
 This happens for every option.</p>
 
-<p>Ok. Let's see if I can report the bug. As the automatic tools did not help,
+<p>Ok. Let’s see if I can report the bug. As the automatic tools did not help,<br />
 I check for a program version via <em>Help &gt; About</em>:</p>
 
 <div style="width: 333px" class="wp-caption aligncenter">
@@ -212,17 +212,16 @@ I check for a program version via <em>Help &gt; About</em>:</p>
    <p class="wp-caption-text">Caja About window</p>
 </div>
 
-<p>Nice! It is obvious which version I use and how the program is called
-(Caja 1.8.2). There is even a link to a website where I could eventually report
+<p>Nice! It is obvious which version I use and how the program is called<br />
+(Caja 1.8.2). There is even a link to a website where I could eventually report<br />
 the bug. It links to <a href="http://www.mate-desktop.org/">www.mate-desktop.org</a>.</p>
 
 <h3 id="tocAnchor-1-1-2">Report bug</h3>
-
-<p>When I search for 'bug' on <a href="http://www.mate-desktop.org/">www.mate-desktop.org</a>
-I get to
-<a href="http://www.mate-desktop.org/tr/blog/2012-01-18-reporting-bugs/">Reporting Bugs</a>.
-That seems to be a blog article which explains they are moving to GitHub with a
-link to <a href="https://github.com/mate-desktop">github.com/mate-desktop</a>. There are
+<p>When I search for ‘bug’ on <a href="http://www.mate-desktop.org/">www.mate-desktop.org</a><br />
+I get to<br />
+<a href="http://www.mate-desktop.org/tr/blog/2012-01-18-reporting-bugs/">Reporting Bugs</a>.<br />
+That seems to be a blog article which explains they are moving to GitHub with a<br />
+link to <a href="https://github.com/mate-desktop">github.com/mate-desktop</a>. There are<br />
 many repositories, so I have to search. Hrmpf. Then I get:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -232,18 +231,18 @@ many repositories, so I have to search. Hrmpf. Then I get:</p>
    <p class="wp-caption-text">Caja Repositories</p>
 </div>
 
-<p>5 repositories. Hrmpf. I guess it is simply 'caja'. When I click on this
-repository, I have to click on 'issues'.</p>
+<p>5 repositories. Hrmpf. I guess it is simply ‘caja’. When I click on this<br />
+repository, I have to click on ‘issues’.</p>
 
-<p>Now I am stuck. I don't know how to find a better description than
-"it crashed". There is certainly more information on my system, but I don't
-know how to get to it and I don't see any instructions how to do so. I also
-don't want to waste my time searching for information how to get information
+<p>Now I am stuck. I don’t know how to find a better description than<br />
+“it crashed”. There is certainly more information on my system, but I don’t<br />
+know how to get to it and I don’t see any instructions how to do so. I also<br />
+don’t want to waste my time searching for information how to get information<br />
 about the crash.</p>
 
 <h2 id="tocAnchor-1-4">Google Chrome example</h2>
 
-<p>Just a few images...</p>
+<p>Just a few images…</p>
 
 <ul class="gallery mw-gallery-traditional" style="max-width: 489px; width: 489px;">
    <li class="gallerybox" style="width: 155px">
@@ -308,57 +307,57 @@ about the crash.</p>
    </li>
 </ul>
 
-<h2 id="tocAnchor-1-5">What's wrong and how to fix it</h2>
+<h2 id="tocAnchor-1-5">What’s wrong and how to fix it</h2>
 
-<p>Did you notice how complicated this is for a user? This should be easier. In
-fact, I think if the bug reporting process is done right it could enhance the
-trust a user has in software, speed the fixing process up and help develpers
+<p>Did you notice how complicated this is for a user? This should be easier. In<br />
+fact, I think if the bug reporting process is done right it could enhance the<br />
+trust a user has in software, speed the fixing process up and help develpers<br />
 to proritize what is important. Some basic steps could be:</p>
 
 <ul>
-<li>The automatic reporting tool should be created for non-developers.</li>
-<li>It should automatically store crash information in a place where the user
+  <li>The automatic reporting tool should be created for non-developers.</li>
+  <li>It should automatically store crash information in a place where the user<br />
 can easily find it (e.g. /home/myaccount/.bugreports/caja/yyyy-mm-dd-hh-mm.xml)</li>
-<li>It should be stored in a format which the user can read (e.g. an xml file)</li>
-<li>The bug reporting website should be hosted by somebody else.</li>
+  <li>It should be stored in a format which the user can read (e.g. an xml file)</li>
+  <li>The bug reporting website should be hosted by somebody else.</li>
 </ul>
 
-<p>Now the last one is important in my opinion. It makes sure that users know
-their bugs are not deleted / removed from the public just because it makes
-the software look bad. One could add metrics how confident users are, e.g.
-if you let users tell which software they use. In this case you can add graphs
-of how many users use the software and how many bugs / issues are reported.
+<p>Now the last one is important in my opinion. It makes sure that users know<br />
+their bugs are not deleted / removed from the public just because it makes<br />
+the software look bad. One could add metrics how confident users are, e.g.<br />
+if you let users tell which software they use. In this case you can add graphs<br />
+of how many users use the software and how many bugs / issues are reported.<br />
 (The classification bugs and issues might also not be easy for users!)</p>
 
 <h2 id="tocAnchor-1-6">Existing Issue Trackers</h2>
 
-<p>All of the following bug trackers seem to be developed for developers, not
+<p>All of the following bug trackers seem to be developed for developers, not<br />
 for users:</p>
 
 <ul>
-<li>Open Source Projects:
-
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Trac">Trac</a>: Python</li>
-<li><a href="https://en.wikipedia.org/wiki/Bugzilla">Bugzilla</a>: Perl</li>
-<li><a href="https://en.wikipedia.org/wiki/Mantis_Bug_Tracker">Mantis Bug Tracker</a>: PHP</li>
-<li><a href="https://en.wikipedia.org/wiki/Redmine">Redmine</a>: Ruby on Rails</li>
-</ul></li>
-<li>Hosted Services:
-
-<ul>
-<li>GitHub issues (e.g. for <a href="https://github.com/numpy/numpy/issues">numpy</a>)</li>
-<li>Google Code (e.g. for <a href="https://code.google.com/p/chromium/issues/list">chromium</a>)</li>
-<li>SourceForge (e.g. for <a href="http://sourceforge.net/p/dvdstyler/bugs/?source=navbar">dvdstyler</a>)</li>
-<li>Launchpad (e.g. for <a href="https://bugs.launchpad.net/ubuntu">ubuntu</a>)</li>
-<li>GNU Savannah (e.g. for <a href="http://savannah.nongnu.org/bugs/?group=lordsawar">lordsawar</a>)</li>
-</ul></li>
+  <li>Open Source Projects:
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Trac">Trac</a>: Python</li>
+      <li><a href="https://en.wikipedia.org/wiki/Bugzilla">Bugzilla</a>: Perl</li>
+      <li><a href="https://en.wikipedia.org/wiki/Mantis_Bug_Tracker">Mantis Bug Tracker</a>: PHP</li>
+      <li><a href="https://en.wikipedia.org/wiki/Redmine">Redmine</a>: Ruby on Rails</li>
+    </ul>
+  </li>
+  <li>Hosted Services:
+    <ul>
+      <li>GitHub issues (e.g. for <a href="https://github.com/numpy/numpy/issues">numpy</a>)</li>
+      <li>Google Code (e.g. for <a href="https://code.google.com/p/chromium/issues/list">chromium</a>)</li>
+      <li>SourceForge (e.g. for <a href="http://sourceforge.net/p/dvdstyler/bugs/?source=navbar">dvdstyler</a>)</li>
+      <li>Launchpad (e.g. for <a href="https://bugs.launchpad.net/ubuntu">ubuntu</a>)</li>
+      <li>GNU Savannah (e.g. for <a href="http://savannah.nongnu.org/bugs/?group=lordsawar">lordsawar</a>)</li>
+    </ul>
+  </li>
 </ul>
 
 <p>See also:</p>
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Comparison_of_source_code_software_hosting_facilities">Comparison of source code software hosting facilities</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Comparison_of_source_code_software_hosting_facilities">Comparison of source code software hosting facilities</a></li>
 </ul>
 
                         </div>
@@ -554,7 +553,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Shortfilm&rdquo;’</h2>
   
@@ -511,12 +511,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2014-12-11T22:54:00+01:00">December 11, 2014</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/shortfilms-part-iii/"><img width="128" height="128" src="//martin-thoma.com/images/logos/egghunt.png" class="alignleft post_thumbnail wp-post-image" alt="Shortfilms, Part III"/></a>
     
 
-    Here is the second part "Shortfilms, Part II". I&#39;ve collected quite a few YouTube videos in my &quot;watch later&quot; list. Most of them were short movies which I wanted to share. Here you are! Azarkant The Raven The Archiver Hybrids SEED REWIND Not a short movie ... but interesting nevertheless :-) A Darwinian Future OMEGA Paradox One Rat Short The Chase Devils, Angels &amp; Dating True Skin The Silent City The Escape Sam Giant Robot...
+    Here is the second part "Shortfilms, Part II". I’ve collected quite a few YouTube videos in my “watch later” list. Most of them were short movies which I wanted to share. Here you are! Azarkant The Raven The Archiver Hybrids SEED REWIND Not a short movie … but interesting nevertheless :-) A Darwinian Future OMEGA Paradox One Rat Short The Chase Devils, Angels &amp; Dating True Skin The Silent City The Escape Sam Giant Robot...
 
     
     <div class="readmorecontent">
@@ -2230,45 +2230,37 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-08-02T23:59:53+02:00">August  2, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/shortfilms-part-ii/"><img width="128" height="128" src="//martin-thoma.com/images/2012/08/electroshock.png" class="alignleft post_thumbnail wp-post-image" alt="Shortfilms, Part II"/></a>
     
 
     Here is the first part "Shortfilms".
 
-Here are some nice shortfilms in high quality. If you missed the first part, here is the article &quot;shortfilms&quot; (Part I).
+Here are some nice shortfilms in high quality. If you missed the first part, here is the article “shortfilms” (Part I).
 
 The Last Train
-
 
 
 Mac 'n' Cheese
 
 
-
 Electroshock
-
 
 
 Mytho Logique
 
 
-
 Impossible Present
-
 
 
 The Tale Of Mr. R&ecirc;vus
 
 
-
 Holy Sheep
 
 
-
 Danger Planet
-
 
 
 
@@ -3396,7 +3388,7 @@ Danger Planet
             <time datetime="2011-09-28T12:05:29+02:00">September 28, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/shortfilms/"><img width="128" height="128" src="//martin-thoma.com/images/2011/09/cat-piano.png" class="alignleft post_thumbnail wp-post-image" alt="Shortfilms"/></a>
     
@@ -3801,7 +3793,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

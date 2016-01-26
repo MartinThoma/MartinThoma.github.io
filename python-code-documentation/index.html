@@ -105,14 +105,14 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Documentating your code is important when you make non-trivial projects. The
-standard way to document Python code is with <a href="http://sphinx-doc.org/">Sphinx</a>.
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Documentating your code is important when you make non-trivial projects. The<br />
+standard way to document Python code is with <a href="http://sphinx-doc.org/">Sphinx</a>.<br />
 You write the documentation files with <a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText</a>.</p>
 
-<p>One of the most important Sphinx plugins is
-<a href="http://sphinx-doc.org/ext/autodoc.html">autodoc</a>. This allows you to generate
-the documentation of modules, classes and functions automatically by using
+<p>One of the most important Sphinx plugins is<br />
+<a href="http://sphinx-doc.org/ext/autodoc.html">autodoc</a>. This allows you to generate<br />
+the documentation of modules, classes and functions automatically by using<br />
 their docstrings.</p>
 
 <p>There are 3 standard ways to write docstrings: Sphinxy, Googley or NumPyDocy.</p>
@@ -134,96 +134,106 @@ their docstrings.</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">The Sphinx Way</h2>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">):</span>
-    <span class="sd">"""Apply preprocessing algorithms.</span>
 
-<span class="sd">    :param algorithms: Preprocessing allgorithms which get applied in order.</span>
-<span class="sd">    :type algorithms: a list objects</span>
-
-<span class="sd">    &gt;&gt;&gt; import preprocessing</span>
-<span class="sd">    &gt;&gt;&gt; a = HandwrittenData(...)</span>
-<span class="sd">    &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span>
-<span class="sd">    ...                        (preprocessing.connect_strokes, []),</span>
-<span class="sd">    ...                        (preprocessing.douglas_peucker,</span>
-<span class="sd">    ...                         {'EPSILON': 0.2}),</span>
-<span class="sd">    ...                        (preprocessing.space_evenly,</span>
-<span class="sd">    ...                         {'number': 100,</span>
-<span class="sd">    ...                          'KIND': 'cubic'})]</span>
-<span class="sd">    &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span>
-<span class="sd">    """</span>
-    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">algorithms</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span>
-    <span class="k">for</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
-        <span class="n">algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">preprocessing</span>(<span style="color:#069">self</span>, algorithms):
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Apply preprocessing algorithms.</span><span></span></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#D42"><span></span><span></span></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#D42"><span></span><span>    :param algorithms: Preprocessing allgorithms which get applied in order.</span><span></span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#D42"><span></span><span>    :type algorithms: a list objects</span><span></span></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#D42"><span></span><span></span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; import preprocessing</span><span></span></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; a = HandwrittenData(...)</span><span></span></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span><span></span></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#D42"><span></span><span>    ...                        (preprocessing.connect_strokes, []),</span><span></span></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#D42"><span></span><span>    ...                        (preprocessing.douglas_peucker,</span><span></span></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#D42"><span></span><span>    ...                         {'EPSILON': 0.2}),</span><span></span></span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span><span style="color:#D42"><span></span><span>    ...                        (preprocessing.space_evenly,</span><span></span></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#D42"><span></span><span>    ...                         {'number': 100,</span><span></span></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="color:#D42"><span></span><span>    ...                          'KIND': 'cubic'})]</span><span></span></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span><span></span></span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">type</span>(algorithms) <span style="color:#080;font-weight:bold">is</span> <span style="color:#369;font-weight:bold">list</span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    <span style="color:#080;font-weight:bold">for</span> algorithm <span style="color:#080;font-weight:bold">in</span> algorithms:
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        algorithm(<span style="color:#069">self</span>)
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">The Google Way</h2>
 
-<p>Google documented its format at <a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">http://google-styleguide.googlecode.com/</a>. (I'm wondering where that will move, now that they plan
+<p>Google documented its format at <a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html">http://google-styleguide.googlecode.com/</a>. (I’m wondering where that will move, now that they plan<br />
 to shut code.google.com down. Probably to GitHub.)</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">):</span>
-    <span class="sd">"""Apply preprocessing algorithms.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">      algorithms (a list objects): Preprocessing allgorithms which get</span>
-<span class="sd">        applied in order.</span>
-
-<span class="sd">    Examples:</span>
-
-<span class="sd">      &gt;&gt;&gt; import preprocessing</span>
-<span class="sd">      &gt;&gt;&gt; a = HandwrittenData(...)</span>
-<span class="sd">      &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span>
-<span class="sd">      ...                        (preprocessing.connect_strokes, []),</span>
-<span class="sd">      ...                        (preprocessing.douglas_peucker,</span>
-<span class="sd">      ...                         {'EPSILON': 0.2}),</span>
-<span class="sd">      ...                        (preprocessing.space_evenly,</span>
-<span class="sd">      ...                         {'number': 100,</span>
-<span class="sd">      ...                          'KIND': 'cubic'})]</span>
-<span class="sd">      &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span>
-<span class="sd">    """</span>
-    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">algorithms</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span>
-    <span class="k">for</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
-        <span class="n">algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">preprocessing</span>(<span style="color:#069">self</span>, algorithms):
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Apply preprocessing algorithms.</span><span></span></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#D42"><span></span><span></span></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#D42"><span></span><span>    Args:</span><span></span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#D42"><span></span><span>      algorithms (a list objects): Preprocessing allgorithms which get</span><span></span></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#D42"><span></span><span>        applied in order.</span><span></span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#D42"><span></span><span></span></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#D42"><span></span><span>    Examples:</span><span></span></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#D42"><span></span><span></span></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#D42"><span></span><span>      &gt;&gt;&gt; import preprocessing</span><span></span></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#D42"><span></span><span>      &gt;&gt;&gt; a = HandwrittenData(...)</span><span></span></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#D42"><span></span><span>      &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span><span></span></span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span><span style="color:#D42"><span></span><span>      ...                        (preprocessing.connect_strokes, []),</span><span></span></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#D42"><span></span><span>      ...                        (preprocessing.douglas_peucker,</span><span></span></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="color:#D42"><span></span><span>      ...                         {'EPSILON': 0.2}),</span><span></span></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#D42"><span></span><span>      ...                        (preprocessing.space_evenly,</span><span></span></span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span><span style="color:#D42"><span></span><span>      ...                         {'number': 100,</span><span></span></span>
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span><span style="color:#D42"><span></span><span>      ...                          'KIND': 'cubic'})]</span><span></span></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span><span style="color:#D42"><span></span><span>      &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span><span></span></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">type</span>(algorithms) <span style="color:#080;font-weight:bold">is</span> <span style="color:#369;font-weight:bold">list</span>
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    <span style="color:#080;font-weight:bold">for</span> algorithm <span style="color:#080;font-weight:bold">in</span> algorithms:
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>        algorithm(<span style="color:#069">self</span>)
+</pre></div>
 </div>
+</div>
+
 <p>To get the google way render well in Sphinx, you need <a href="https://pypi.python.org/pypi/sphinxcontrib-napoleon">Napoleon</a>.</p>
 
 <h2 id="tocAnchor-1-3">The NumPyDoc Way</h2>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algorithms</span><span class="p">):</span>
-    <span class="sd">"""Apply preprocessing algorithms.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    algorithms : a list objects</span>
-<span class="sd">        Preprocessing allgorithms which get applied in order.</span>
-
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; import preprocessing</span>
-<span class="sd">    &gt;&gt;&gt; a = HandwrittenData(...)</span>
-<span class="sd">    &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span>
-<span class="sd">    ...                        (preprocessing.connect_strokes, []),</span>
-<span class="sd">    ...                        (preprocessing.douglas_peucker,</span>
-<span class="sd">    ...                         {'EPSILON': 0.2}),</span>
-<span class="sd">    ...                        (preprocessing.space_evenly,</span>
-<span class="sd">    ...                         {'number': 100,</span>
-<span class="sd">    ...                          'KIND': 'cubic'})]</span>
-<span class="sd">    &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span>
-<span class="sd">    """</span>
-    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">algorithms</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span>
-    <span class="k">for</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
-        <span class="n">algorithm</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">preprocessing</span>(<span style="color:#069">self</span>, algorithms):
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Apply preprocessing algorithms.</span><span></span></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#D42"><span></span><span></span></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#D42"><span></span><span>    Parameters</span><span></span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#D42"><span></span><span>    ----------</span><span></span></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#D42"><span></span><span>    algorithms : a list objects</span><span></span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#D42"><span></span><span>        Preprocessing allgorithms which get applied in order.</span><span></span></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#D42"><span></span><span></span></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#D42"><span></span><span>    Examples</span><span></span></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#D42"><span></span><span>    --------</span><span></span></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; import preprocessing</span><span></span></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; a = HandwrittenData(...)</span><span></span></span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; preprocessing_queue = [(preprocessing.scale_and_shift, []),</span><span></span></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#D42"><span></span><span>    ...                        (preprocessing.connect_strokes, []),</span><span></span></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="color:#D42"><span></span><span>    ...                        (preprocessing.douglas_peucker,</span><span></span></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#D42"><span></span><span>    ...                         {'EPSILON': 0.2}),</span><span></span></span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span><span style="color:#D42"><span></span><span>    ...                        (preprocessing.space_evenly,</span><span></span></span>
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span><span style="color:#D42"><span></span><span>    ...                         {'number': 100,</span><span></span></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span><span style="color:#D42"><span></span><span>    ...                          'KIND': 'cubic'})]</span><span></span></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#D42"><span></span><span>    &gt;&gt;&gt; a.preprocessing(preprocessing_queue)</span><span></span></span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">type</span>(algorithms) <span style="color:#080;font-weight:bold">is</span> <span style="color:#369;font-weight:bold">list</span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    <span style="color:#080;font-weight:bold">for</span> algorithm <span style="color:#080;font-weight:bold">in</span> algorithms:
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        algorithm(<span style="color:#069">self</span>)
+</pre></div>
 </div>
+</div>
+
 <p>To make numpydoc render well, you need the <a href="https://pypi.python.org/pypi/numpydoc">numpydoc sphinx extension</a>.</p>
 
 <h2 id="tocAnchor-1-4">See also</h2>
 
 <ul>
-<li><a href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">A Guide to NumPy/SciPy Documentation</a></li>
-<li><a href="http://sphinxcontrib-napoleon.readthedocs.org/en/latest/example_numpy.html">sphinxcontrib-napoleon.readthedocs.org</a>: A longer numpydoc example</li>
+  <li><a href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">A Guide to NumPy/SciPy Documentation</a></li>
+  <li><a href="http://sphinxcontrib-napoleon.readthedocs.org/en/latest/example_numpy.html">sphinxcontrib-napoleon.readthedocs.org</a>: A longer numpydoc example</li>
 </ul>
 
                         </div>
@@ -407,7 +417,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

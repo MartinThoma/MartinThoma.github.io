@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Typography&rdquo;’</h2>
   
@@ -2767,13 +2767,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-03-12T14:06:34+01:00">March 12, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/typography-word-as-image/"><img width="128" height="128" src="//martin-thoma.com/images/2012/03/brilliant-messages-in-words-as-images-robbery.jpg" class="alignleft post_thumbnail wp-post-image" alt="Typography: Word as Image"/></a>
     
 
     
-
 Challenge: Create an image out of a word, using only the letters in the word itself.
 
 Rule: Use only the graphic elements of the letters without adding outside parts.
@@ -2881,7 +2880,7 @@ Rule: Use only the graphic elements of the letters without adding outside parts.
             <time datetime="2012-02-23T21:29:48+01:00">February 23, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/portal-still-alive-typography-clip/"><img width="128" height="128" src="//martin-thoma.com/images/2012/02/portal-clip-typography-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Portal - Still Alive typography clip"/></a>
     
@@ -3730,7 +3729,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

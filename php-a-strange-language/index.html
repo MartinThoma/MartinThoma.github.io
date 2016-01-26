@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -165,41 +165,47 @@ MathJax.Hub.Queue(function() {
 </div><h2 id="tocAnchor-1-1">Automatic conversion</h2>
 
 <h3 id="tocAnchor-1-1-1">Strings to numbers</h3>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">$ php -a</span>
-<span class="x">php &gt; var_dump(123 == '123ax');</span>
-<span class="x">bool(true)</span>
 
-<span class="x">php &gt; var_dump('123' == '123ax');</span>
-<span class="x">bool(false)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ php -a
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>php &gt; <span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#00D">123</span> == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123ax</span><span style="color:#710">'</span></span>);
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#0a8;font-weight:bold">bool</span>(<span style="color:#069">true</span>)
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>php &gt; <span style="color:#369;font-weight:bold">var_dump</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123</span><span style="color:#710">'</span></span> == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">123ax</span><span style="color:#710">'</span></span>);
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span><span style="color:#0a8;font-weight:bold">bool</span>(<span style="color:#069">false</span>)
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-1-2">MD5 hashes</h3>
 
 <div class="info">This one seems to be fixed. It doesn't work in PHP Version 5.4.6-1ubuntu1.2 (released 16.08.2012). It was a problem in PHP 5.3.5 (released 06.01.2011)</div>
 
 <p>PHP converts strings automatically to a float if it is possible. This might lead to problems. See this example from <a href="http://phpsadness.com/sad/47">phpsadness</a>:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<span class="nv">$password</span> <span class="o">=</span> <span class="s2">"ximaz"</span><span class="p">;</span>
-
-<span class="nv">$hash</span> <span class="o">=</span> <span class="s2">"61529519452809720693702583126814"</span><span class="p">;</span> <span class="c1">// = md5("ximaz")</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nb">md5</span><span class="p">(</span><span class="nv">$password</span><span class="p">)</span> <span class="o">==</span> <span class="nv">$hash</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">print</span> <span class="s2">"Allowed!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nv">$wrong_hash</span> <span class="o">=</span> <span class="s2">"61529519452809720000000000000000"</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$wrong_hash</span> <span class="o">==</span> <span class="nv">$hash</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">print</span> <span class="s2">"Wrong hash got correct!</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$password</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ximaz</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#950">$hash</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">61529519452809720693702583126814</span><span style="color:#710">"</span></span>; <span style="color:#777">// = md5("ximaz")</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">md5</span>(<span style="color:#950">$password</span>) == <span style="color:#950">$hash</span>) {
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  <span style="color:#369;font-weight:bold">print</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Allowed!</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>}
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#950">$wrong_hash</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">61529519452809720000000000000000</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$wrong_hash</span> == <span style="color:#950">$hash</span>) {
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>  <span style="color:#369;font-weight:bold">print</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Wrong hash got correct!</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>}
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+</pre></div>
 </div>
-<p>See also:
-</p><ul>
+</div>
+
+<p>See also:</p>
+<ul>
   <li><a href="http://php.net/language.operators.comparison">Comparison Operators</a></li>
   <li><a href="https://bugs.php.net/bug.php?id=54547">Bug #54547: wrong equality of string numbers</a></li>
   <li><a href="https://bugs.php.net/bug.php?id=62097">Bug #62097: New behavior of string == has a compatibility problem</a></li>
@@ -209,193 +215,219 @@ MathJax.Hub.Queue(function() {
 <h2 id="tocAnchor-1-4">Inconsistency</h2>
 
 <h3 id="tocAnchor-1-4-1">Starting and ending PHP</h3>
-
 <p>The following snippet is valid PHP-code:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-    <span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="font-weight:bold;color:#666">&lt;/script&gt;</span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>?<span style="color:#F00;background-color:#FAA">&gt;</span>
+</pre></div>
 </div>
+</div>
+
 <p>Source: <a href="http://stackoverflow.com/q/13228306/562769">StackOverflow.com</a> (You can find some explanations there.)</p>
 
 <h3 id="tocAnchor-1-4-2">Underscores</h3>
-
-<p>Some functions use underscores between words, while others do not:
+<p>Some functions use underscores between words, while others do not:<br />
 <a href="http://php.net/gettype">gettype</a> vs. <a href="http://php.net/get_class">get_class</a></p>
 
 <h3 id="tocAnchor-1-4-3">Order of Arguments</h3>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">strpos ( string $haystack , mixed $needle [...] )</span>
-<span class="x">stristr ( string $haystack , mixed $needle [...] )</span>
-<span class="x">in_array ( mixed $needle , array $haystack [...] )</span>
-<span class="x">array_search ( mixed $needle , array $haystack [...] )</span>
-</code></pre>
-</div>
-<h2 id="tocAnchor-1-8">Sorting</h2>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">function pivot($arr) {</span>
-<span class="x">    return ($arr[0] + end($arr)) / 2;</span>
-<span class="x">}</span>
 
-<span class="x">$arr = array(1, 5, 7, 2, 3, 4, 8, 9, 6);</span>
-<span class="x">echo pivot(sort($arr));</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#369;font-weight:bold">strpos</span> ( <span style="color:#0a8;font-weight:bold">string</span> <span style="color:#950">$haystack</span> , mixed <span style="color:#950">$needle</span> [...] )
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#369;font-weight:bold">stristr</span> ( <span style="color:#0a8;font-weight:bold">string</span> <span style="color:#950">$haystack</span> , mixed <span style="color:#950">$needle</span> [...] )
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#369;font-weight:bold">in_array</span> ( mixed <span style="color:#950">$needle</span> , <span style="color:#369;font-weight:bold">array</span> <span style="color:#950">$haystack</span> [...] )
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#369;font-weight:bold">array_search</span> ( mixed <span style="color:#950">$needle</span> , <span style="color:#369;font-weight:bold">array</span> <span style="color:#950">$haystack</span> [...] )
+</pre></div>
 </div>
-<p>This doesn't work. If you don't know why, you should take a look at <a href="http://php.net/manual/de/function.sort.php">sort</a>.</p>
+</div>
+
+<h2 id="tocAnchor-1-8">Sorting</h2>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">function</span> <span style="color:#06B;font-weight:bold">pivot</span>(<span style="color:#950">$arr</span>) {
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#080;font-weight:bold">return</span> (<span style="color:#950">$arr</span>[<span style="color:#00D">0</span>] + <span style="color:#369;font-weight:bold">end</span>(<span style="color:#950">$arr</span>)) / <span style="color:#00D">2</span>;
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>}
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#950">$arr</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">1</span>, <span style="color:#00D">5</span>, <span style="color:#00D">7</span>, <span style="color:#00D">2</span>, <span style="color:#00D">3</span>, <span style="color:#00D">4</span>, <span style="color:#00D">8</span>, <span style="color:#00D">9</span>, <span style="color:#00D">6</span>);
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span><span style="color:#369;font-weight:bold">echo</span> pivot(<span style="color:#369;font-weight:bold">sort</span>(<span style="color:#950">$arr</span>));
+</pre></div>
+</div>
+</div>
+
+<p>This doesn’t work. If you don’t know why, you should take a look at <a href="http://php.net/manual/de/function.sort.php">sort</a>.</p>
 
 <h2 id="tocAnchor-1-9">Argument order</h2>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">mktime  ([$hour [, $minute [, $second [, $month  [, $day  [, $year  [, $is_dst]]]]]]])</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#369;font-weight:bold">mktime</span>  ([<span style="color:#950">$hour</span> [, <span style="color:#950">$minute</span> [, <span style="color:#950">$second</span> [, <span style="color:#950">$month</span>  [, <span style="color:#950">$day</span>  [, <span style="color:#950">$year</span>  [, <span style="color:#950">$is_dst</span>]]]]]]])
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-10">array_fill</h2>
+<p><a href="http://php.net/manual/en/function.array-fill.php"><code>array_fill</code></a> doesn’t allow 0<br />
+as ``$number`.</p>
 
-<p><a href="http://php.net/manual/en/function.array-fill.php"><code>array_fill</code></a> doesn't allow 0
-as `<code>$number</code>.</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-
-<span class="nv">$number</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="nv">$arr</span> <span class="o">=</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$number</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
-<span class="nb">print_r</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$number</span> = <span style="color:#00D">2</span>;
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#950">$arr</span> = <span style="color:#369;font-weight:bold">array_fill</span>(<span style="color:#00D">0</span>, <span style="color:#950">$number</span>, <span style="color:#00D">42</span>);
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$arr</span>);
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+</pre></div>
 </div>
+</div>
+
 <p>Array ( [0] =&gt; 42 [1] =&gt; 42 )</p>
 
 <h2 id="tocAnchor-1-11">Strange loop</h2>
-
 <p>Loops themselves should not change anything. So take a look at this:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">);</span>
-<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
-<span class="k">foreach</span> <span class="p">(</span><span class="nv">$array</span> <span class="k">as</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nv">$foo</span><span class="p">);</span>
-<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
-
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$array</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">foo</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">bar</span><span style="color:#710">'</span></span>);
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$array</span>);
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#950">$array</span> <span style="color:#080;font-weight:bold">as</span> &amp;amp;<span style="color:#950">$foo</span>);
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$array</span>);
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+</pre></div>
 </div>
+</div>
+
 <p>Output:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">array(2) {
-  [0]=&gt; string(3) "foo"
-  [1]=&gt; string(3) "bar"
-}
 
-array(2) {
-  [0]=&gt;  string(3) "foo"
-  [1]=&gt; &amp;amp;string(3) "bar"
-}
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>array(2) {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>  [0]=&gt; string(3) "foo"
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>  [1]=&gt; string(3) "bar"
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>}
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>array(2) {
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  [0]=&gt;  string(3) "foo"
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  [1]=&gt; &amp;amp;string(3) "bar"
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>}
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-12">Boolean evaluation</h2>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 
-<span class="nv">$a</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'7.1'</span><span class="p">);</span>
-
-<span class="nv">$arr1</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'foo'</span><span class="p">,</span>
-  <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
-<span class="p">);</span>
-
-<span class="nv">$arr2</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'bar'</span> <span class="o">=&gt;</span> <span class="s1">'bar'</span><span class="p">,</span>
-  <span class="s1">'foo'</span> <span class="o">=&gt;</span> <span class="s1">'foo'</span><span class="p">,</span>
-<span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"This "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"is "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="mi">9</span><span class="p">)</span>    <span class="p">{</span><span class="k">echo</span> <span class="s2">"PHP. "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="mo">07</span><span class="p">)</span>   <span class="p">{</span><span class="k">echo</span> <span class="s2">"Oktal "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="mo">010</span> <span class="o">==</span> <span class="mi">8</span> <span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"is "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="s2">"8"</span> <span class="o">==</span> <span class="mi">8</span> <span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"also "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"true. "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"Like "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="s1">'7.10'</span><span class="p">,</span> <span class="nv">$a</span><span class="p">))</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"that "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$arr1</span> <span class="o">==</span> <span class="nv">$arr2</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"one "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="s1">'x'</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"is true."</span><span class="p">;}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="s2">""</span><span class="p">)</span>      <span class="p">{</span><span class="k">echo</span> <span class="s2">"false "</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>       <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="mi">08</span><span class="p">)</span>      <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">array</span><span class="p">())</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>  <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$arr1</span> <span class="o">===</span> <span class="nv">$arr2</span><span class="p">)</span> <span class="p">{</span><span class="k">echo</span> <span class="s2">"false"</span><span class="p">;}</span>
-
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$a</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">7.1</span><span style="color:#710">'</span></span>);
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#950">$arr1</span> = <span style="color:#369;font-weight:bold">array</span>(
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">foo</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">foo</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">bar</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">bar</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>);
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#950">$arr2</span> = <span style="color:#369;font-weight:bold">array</span>(
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">bar</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">bar</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">foo</span><span style="color:#710">'</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">foo</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>);
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">a</span><span style="color:#710">"</span></span>)  {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">This </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#069">true</span>) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">is </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#00D">9</span>)    {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">PHP. </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#00D">07</span>)   {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Oktal </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#00D">010</span> == <span style="color:#00D">8</span> ) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">is </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#080;font-weight:bold">if</span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">8</span><span style="color:#710">"</span></span> == <span style="color:#00D">8</span> ) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">also </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">0</span>)) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">true. </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$x</span> = <span style="color:#00D">1</span>)  {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Like </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">in_array</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">7.10</span><span style="color:#710">'</span></span>, <span style="color:#950">$a</span>)) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">that </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$arr1</span> == <span style="color:#950">$arr2</span>) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">one </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#00D">0</span> == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">is true.</span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>)      {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">false </span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#00D">0</span>)       {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">false</span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#00D">08</span>)      {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">false</span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">array</span>()) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">false</span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$x</span> = <span style="color:#00D">0</span>)  {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">false</span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$arr1</span> === <span style="color:#950">$arr2</span>) {<span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">false</span><span style="color:#710">"</span></span>;}
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-13">Make a Guess</h2>
-
 <p>Try to guess what the following prints:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="s1">'a'</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="s1">'z'</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="k">echo</span> <span class="s2">"</span><span class="si">$i</span><span class="s2"> "</span><span class="p">;</span>
 
-<span class="c1">// I just need four NULLs to demo this.</span>
-<span class="nv">$a</span> <span class="o">=</span> <span class="nb">array_fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="k">NULL</span><span class="p">);</span>
-
-<span class="nv">$a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-<span class="o">++</span><span class="nv">$a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<span class="nv">$a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
-<span class="o">--</span><span class="nv">$a</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
-
-<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
-
-<span class="nv">$b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-<span class="o">++</span><span class="nv">$b</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<span class="nv">$b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
-<span class="o">--</span><span class="nv">$b</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
-
-<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$b</span><span class="p">);</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$i</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">a</span><span style="color:#710">'</span></span>; <span style="color:#950">$i</span> &lt;= <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">z</span><span style="color:#710">'</span></span>; ++<span style="color:#950">$i</span>) <span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#950">$i</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777">// I just need four NULLs to demo this.</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#950">$a</span> = <span style="color:#369;font-weight:bold">array_fill</span>(<span style="color:#00D">0</span>, <span style="color:#00D">4</span>, <span style="color:#069">NULL</span>);
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#950">$a</span>[<span style="color:#00D">0</span>]++;
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>++<span style="color:#950">$a</span>[<span style="color:#00D">1</span>];
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#950">$a</span>[<span style="color:#00D">2</span>]--;
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>--<span style="color:#950">$a</span>[<span style="color:#00D">3</span>];
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$a</span>);
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#950">$b</span>[<span style="color:#00D">0</span>]++;
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>++<span style="color:#950">$b</span>[<span style="color:#00D">1</span>];
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#950">$b</span>[<span style="color:#00D">2</span>]--;
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>--<span style="color:#950">$b</span>[<span style="color:#00D">3</span>];
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$b</span>);
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="font-weight:bold;color:#666">?&gt;</span>
+</pre></div>
 </div>
+</div>
+
 <p>Did you guess the following?</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz
 
-array(4) {
-  [0]=&gt; int(1)
-  [1]=&gt; int(1)
-  [2]=&gt; NULL
-  [3]=&gt; NULL
-}
-array(4) {
-  [0]=&gt; int(1)
-  [1]=&gt; int(1)
-  [2]=&gt; NULL
-  [3]=&gt; NULL
-}
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>array(4) {
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>  [0]=&gt; int(1)
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>  [1]=&gt; int(1)
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  [2]=&gt; NULL
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  [3]=&gt; NULL
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>}
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>array(4) {
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>  [0]=&gt; int(1)
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>  [1]=&gt; int(1)
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>  [2]=&gt; NULL
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>  [3]=&gt; NULL
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>}
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-14">Function names are NOT case sensitive</h2>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">function add($a, $b)</span>
-<span class="x">{</span>
-<span class="x">    return $a + $b;</span>
-<span class="x">}</span>
 
-<span class="x">$foo = add(1, 2);</span>
-<span class="x">$Foo = Add(3, 4);</span>
-
-<span class="x">echo "foo is $foo"; // outputs foo is 3</span>
-<span class="x">echo "Foo is $Foo"; // outputs Foo is 7</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">function</span> <span style="color:#06B;font-weight:bold">add</span>(<span style="color:#950">$a</span>, <span style="color:#950">$b</span>)
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>{
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#950">$a</span> + <span style="color:#950">$b</span>;
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>}
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#950">$foo</span> = add(<span style="color:#00D">1</span>, <span style="color:#00D">2</span>);
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#950">$Foo</span> = <span style="color:#036;font-weight:bold">Add</span>(<span style="color:#00D">3</span>, <span style="color:#00D">4</span>);
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">foo is </span><span style="color:#950">$foo</span><span style="color:#710">"</span></span>; <span style="color:#777">// outputs foo is 3</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Foo is </span><span style="color:#950">$Foo</span><span style="color:#710">"</span></span>; <span style="color:#777">// outputs Foo is 7</span>
+</pre></div>
 </div>
+</div>
+
 <p>Source: <a href="http://stackoverflow.com/a/2006635/562769">StackOverflow</a></p>
 
 <h2 id="tocAnchor-1-15">PHP Logo</h2>
-
 <p>Add <code>?=PHPE9568F34-D428-11d2-A769-00AA001ACF42</code> to any PHP script and take a look at the output. For example at <a href="http://en.wikipedia.org/wiki/Main_Page?=PHPE9568F34-D428-11d2-A769-00AA001ACF42">Wikipedia</a>.</p>
 
 <h2 id="tocAnchor-1-16">Sources</h2>
-
 <ul>
   <li><a href="http://phpsadness.com/">phpsadness.com</a></li>
   <li><a href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/">PHP: a fractal of bad design</a> (thanks to <a href="http://www.knallisworld.de/blog/2012/04/11/herrlicher-php-rant/">knallisworld.de</a>)</li>
@@ -583,7 +615,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

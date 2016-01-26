@@ -105,35 +105,35 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>It&#39;s astonishing how difficult it is to find a good explanation how to reflect a point over a line that does not use higher math methods. So here is my explanation:</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>It’s astonishing how difficult it is to find a good explanation how to reflect a point over a line that does not use higher math methods. So here is my explanation:</p>
 
-<p>You have a point $P = (x,y)$ and a line $g(x) = m \cdot x + t$ and you want to get the point $P&#39; = (x&#39;, y&#39;)$ that got mirrored over $g$.</p>
+<p>You have a point $P = (x,y)$ and a line $g(x) = m \cdot x + t$ and you want to get the point $P' = (x', y')$ that got mirrored over $g$.</p>
 
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2012/12/line-reflection.png"><img src="../images/2012/12/line-reflection.png" alt="Reflection point over a line" width="" height="" class="size-full wp-image-49811"/></a><p class="wp-caption-text">Reflection point over a line</p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2012/12/line-reflection.png"><img src="../images/2012/12/line-reflection.png" alt="Reflection point over a line" width="" height="" class="size-full wp-image-49811" /></a><p class="wp-caption-text">Reflection point over a line</p></div>
 
-<p>As you can see, you can construct this quite easily on paper:
+<p>As you can see, you can construct this quite easily on paper:</p>
 <ol>
-  <li>Construct the perpendicular through $P$ to $g$. It starts in $L$ and ends in $P$.</li>
-  <li>Double the length of the perpendicular in the direction of $L$.</li>
-  <li>The endpoint is $P&#39;$.</li>
-</ol></p>
+  <li>Construct the perpendicular through `$P$` to `$g$`. It starts in `$L$` and ends in `$P$`.</li>
+  <li>Double the length of the perpendicular in the direction of `$L$`.</li>
+  <li>The endpoint is `$P'$`.</li>
+</ol>
 
-<p>How can you do that without drawing it? </p>
+<p>How can you do that without drawing it?</p>
 
-<p>First you have to get the perpendicular $s(x) = m_s \cdot x + t$ (the dashed red line). </p>
+<p>First you have to get the perpendicular $s(x) = m_s \cdot x + t$ (the dashed red line).</p>
 
-<p>You have to know this: $m_s = - \frac{1}{m}$
-And then you know that $P$ is on $s$. So you simply put in the values $x,y$ of P and solve to $t$:
+<p>You have to know this: $m_s = - \frac{1}{m}$<br />
+And then you know that $P$ is on $s$. So you simply put in the values $x,y$ of P and solve to $t$:<br />
 $t = y - m_s \cdot x$</p>
 
 <p>Now you have $s$. As $s$ and $g$ have exactly point in common, the following equation gives exactly one result:</p>
 
 <p>$s(x) = g(x)$</p>
 
-<p>You have to solve for $x$. Then you only need to put $x$ into $s(x)$ or $g(x)$ and you&#39;re done. You&#39;ve calculated $L = (x,y)$.</p>
+<p>You have to solve for $x$. Then you only need to put $x$ into $s(x)$ or $g(x)$ and you’re done. You’ve calculated $L = (x,y)$.</p>
 
-<p>Now you know $\Delta x = |x_L - x_P|$ and $\Delta y = |y_L - y_P|$ and you can calculate $P&#39;$</p>
+<p>Now you know $\Delta x = |x_L - x_P|$ and $\Delta y = |y_L - y_P|$ and you can calculate $P'$</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -316,7 +316,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

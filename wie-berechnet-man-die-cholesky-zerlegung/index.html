@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = S \cdot D \cdot S^T$, wobei $S$ eine <a href="http://de.wikipedia.org/wiki/Dreiecksmatrix#Unipotente_Dreiecksmatrizen">unipotente Dreiecksmatrix</a> ist und D eine positiv definite Diagonalmatrix.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -136,17 +136,14 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Berechnung der Cholesky-Zerlegung</h2>
-
 <p>Hier ein paar Ausschnitte, aus der englischen Wikipedia:</p>
 
-<p>Einfach von links oben nach rechts unten die Werte nach folgender Formel berechnen:
-$D_j = A_{jj} - \sum_{k=1}^{j-1} S_{jk}^2 D_k$
+<p>Einfach von links oben nach rechts unten die Werte nach folgender Formel berechnen:<br />
+$D_j = A_{jj} - \sum_{k=1}^{j-1} S_{jk}^2 D_k$<br />
 $S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \right), \qquad\text{for } i&gt;j$</p>
 
 <h2 id="tocAnchor-1-2">Programmierer-Hinweise</h2>
-
 <h3 id="tocAnchor-1-2-1">Implementierung</h3>
-
 <p>Eine Python-Implementierung sieht so aus:</p>
 
 <div class="highlight">
@@ -174,7 +171,6 @@ $S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \righ
 </div>
 
 <h3 id="tocAnchor-1-2-2">Bibliotheken</h3>
-
 <p>Ich habe mich mal nach Bibliotheken umgesehen, die die Cholesky-Zerlegung direkt beherrschen. NumPy kann es natürlich:</p>
 
 <div class="highlight">
@@ -194,16 +190,14 @@ $S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \righ
 <p>Interessanterweise hat NumPy das nicht direkt selbst implementiert (<a href="https://github.com/numpy/numpy/blob/master/numpy/linalg/linalg.py#L448">NumPy-Quelle</a>). Man greift auf <a href="http://de.wikipedia.org/wiki/LAPACK">LAPACK</a> zurück, was in FORTRAN 90 programmiert wurde (<a href="http://www.netlib.org/lapack/double/dpotrf.f">LAPACK-Quelle</a>)!</p>
 
 <h3 id="tocAnchor-1-2-3">Wolfram|Alpha</h3>
-
-<p>Auch Wolfram|Alpha kennt "cholesky decomposition": <a href="http://www.wolframalpha.com/input/?i=cholesky+decomposition+%7B%7B5%2C2%7D%2C%7B2%2C1%7D%7D">Beispiel</a>. Allerdings sieht es schon bei $3 \times 3$-Matrizen schlecht aus.</p>
+<p>Auch Wolfram|Alpha kennt “cholesky decomposition”: <a href="http://www.wolframalpha.com/input/?i=cholesky+decomposition+%7B%7B5%2C2%7D%2C%7B2%2C1%7D%7D">Beispiel</a>. Allerdings sieht es schon bei $3 \times 3$-Matrizen schlecht aus.</p>
 
 <h2 id="tocAnchor-1-6">Numerik</h2>
-
 <p>In Numerik haben wir bei Herrn Dr. Weiß folgendes als Cholesky-Zerlegung kennen gelernt:</p>
 
 <p>Sei $A \in \mathbb{R}^{n \times n}$ eine symmetrische, positiv definite Matrix. Dann existiert eine Zerlegung $A = \bar L \cdot \bar{L}^T$, wobei $\bar L$ eine untere Dreiecksmatrix ist.</p>
 
-<p>Wenn man wie gewohnt eine LR-Zerlegung der Matrix $A$ durchführt, erhält man zwei Matrizen $L, R \in \mathbb{R}^{n \times n}$, wobei gilt: $R = D \cdot L^T$, wobei $D$ eine positiv definite Diagonalmatrix ist. </p>
+<p>Wenn man wie gewohnt eine LR-Zerlegung der Matrix $A$ durchführt, erhält man zwei Matrizen $L, R \in \mathbb{R}^{n \times n}$, wobei gilt: $R = D \cdot L^T$, wobei $D$ eine positiv definite Diagonalmatrix ist.</p>
 
 <p>Offensichtlich gilt: $\bar L = L \cdot D^{\frac{1}{2}}$.</p>
 
@@ -235,7 +229,6 @@ $S_{ij} = \frac{1}{D_j} \left( A_{ij} - \sum_{k=1}^{j-1} S_{ik} S_{jk} D_k \righ
 </div>
 
 <h2 id="tocAnchor-1-7">Siehe auch</h2>
-
 <ul>
   <li><a href="http://en.wikipedia.org/wiki/Cholesky_decomposition">Cholesky decomposition</a> (Englisch)</li>
   <li><a href="http://de.wikipedia.org/wiki/Cholesky-Zerlegung">Cholesky-Zerlegung</a></li>
@@ -431,7 +424,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

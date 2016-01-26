@@ -105,31 +105,31 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>pfile is a binary file format that is used in
-<abbr title="Automatic Speech Recognition">ASR</abbr>
-for storing feature vectors and their corresponding labels. 
-This file format is sometimes also called
-<abbr title="International Computer ScienceInstitute">ICSI</abbr>
-feature file archive format. But this file format cannot be used for ASR only,
+                        <div class="entry" id="contentAfterTitle">
+                            <p>pfile is a binary file format that is used in<br />
+<abbr title="Automatic Speech Recognition">ASR</abbr><br />
+for storing feature vectors and their corresponding labels. <br />
+This file format is sometimes also called<br />
+<abbr title="International Computer ScienceInstitute">ICSI</abbr><br />
+feature file archive format. But this file format cannot be used for ASR only,<br />
 but also for many other <abbr title="Machine Learning">ML</abbr> tasks.</p>
 
 <blockquote>
-<p>The file consists of a fixed length ascii header followed by zero or more 
-variable length binary sections. Each parameter in the header has a name and a
-list of zero or more value strings. The programmer's interface to pfiles (see
-param.h and pfile.h) allows each parameter value to be interpreted as integer,
+  <p>The file consists of a fixed length ascii header followed by zero or more <br />
+variable length binary sections. Each parameter in the header has a name and a<br />
+list of zero or more value strings. The programmer’s interface to pfiles (see<br />
+param.h and pfile.h) allows each parameter value to be interpreted as integer,<br />
 float, string, arrays, distributed vector, matrix, mapping tables, etc.</p>
 
-<p>Some special parameter names are associated with a section in the binary part
-of the pfile. The value strings for these parameters give the size and offset
+  <p>Some special parameter names are associated with a section in the binary part<br />
+of the pfile. The value strings for these parameters give the size and offset<br />
 (from the end of the header) of the binary section.</p>
 
-<p>A binary section can be used as a one dimensional sequence of values, or as a
+  <p>A binary section can be used as a one dimensional sequence of values, or as a<br />
 sequence of fixed length rows in a two dimensional matrix.</p>
 
-<p>Some parameters are automatically added by the pfile command. For example, 
-pfile_header is a parameter that contains the length and version number of
+  <p>Some parameters are automatically added by the pfile command. For example, <br />
+pfile_header is a parameter that contains the length and version number of<br />
 the header.</p>
 </blockquote>
 
@@ -137,52 +137,61 @@ the header.</p>
 
 <h2 id="tocAnchor-1-1">pfile_utils</h2>
 
-<p><code>pfile_utils</code> is a toolset to manage pfiles. It is part of the 
-<a href="http://www1.icsi.berkeley.edu/%7Edpwe/projects/sprach/sprachcore.html">SPRACHcore software package</a>.
-The project is located at
-<a href="https://code.google.com/p/pfile-utilities">code.google.com/p/pfile-utilities</a>
+<p><code>pfile_utils</code> is a toolset to manage pfiles. It is part of the <br />
+<a href="http://www1.icsi.berkeley.edu/~dpwe/projects/sprach/sprachcore.html">SPRACHcore software package</a>.<br />
+The project is located at<br />
+<a href="https://code.google.com/p/pfile-utilities">code.google.com/p/pfile-utilities</a><br />
 and seems to be in version 0.51 by now. The code is written in C++.</p>
 
 <p><code>pfile_info</code> gives general information about the file:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>pfile_info all.pfile
-all.pfile
-<span class="m">9581</span> sentences, <span class="m">3158027</span> frames, <span class="m">1</span> label<span class="o">(</span>s<span class="o">)</span>, <span class="m">42</span> features
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ pfile_info all.pfile
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>all.pfile
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>9581 sentences, 3158027 frames, 1 label(s), 42 features
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-1-1">pfile_create</h3>
 
 <p>You can call pfile_create like this:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>./pfile_create -i - -f <span class="m">1</span> -l <span class="m">1</span> -o output.pfile
-<span class="m">0</span> <span class="m">0</span> <span class="m">1</span> 1
-<span class="m">0</span> <span class="m">1</span> <span class="m">2</span> 0
-<span class="m">0</span> <span class="m">2</span> <span class="m">1</span> 1
-<span class="m">0</span> <span class="m">3</span> <span class="m">1</span> 1
-<span class="m">0</span> <span class="m">4</span> <span class="m">42</span> 4
-<span class="m">1</span> <span class="m">0</span> <span class="m">0</span> 0
-<span class="m">1</span> <span class="m">1</span> <span class="m">1337</span> 0
-<span class="m">1</span> <span class="m">2</span> <span class="m">2</span> 2
-<span class="m">2</span> <span class="m">0</span> <span class="m">3</span> 3
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>$ ./pfile_create -i - -f 1 -l 1 -o output.pfile
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>0 0 1 1
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>0 1 2 0
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>0 2 1 1
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>0 3 1 1
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>0 4 42 4
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>1 0 0 0
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>1 1 1337 0
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>1 2 2 2
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>2 0 3 3
+</pre></div>
 </div>
+</div>
+
 <p>You can end the input with <kbd>Ctrl</kbd> + <kbd>D</kbd>.</p>
 
 <p>The numbers are:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="o">[</span>sentence-nr<span class="o">]</span> <span class="o">[</span>frame-nr<span class="o">]</span> <span class="o">[</span>feature 1<span class="o">]</span> <span class="o">[</span>feature 2<span class="o">]</span> ... <span class="o">[</span>feature n<span class="o">]</span> <span class="o">[</span>label 1<span class="o">]</span> <span class="o">[</span>label 2<span class="o">]</span> ... <span class="o">[</span>label n<span class="o">]</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>[sentence-nr] [frame-nr] [feature 1] [feature 2] ... [feature n] [label 1] [label 2] ... [label n]
+</pre></div>
 </div>
-<p>where the option <code>-f</code> defines the number of features and <code>-l</code> defines the number
-of labels. Please note that within one sentence, the number of frames has to be
-increasing by exactly one. One sentence can have an arbitrary number of
-frames, but as soon as you make another sentence, you need to increase this
+</div>
+
+<p>where the option <code>-f</code> defines the number of features and <code>-l</code> defines the number<br />
+of labels. Please note that within one sentence, the number of frames has to be<br />
+increasing by exactly one. One sentence can have an arbitrary number of<br />
+frames, but as soon as you make another sentence, you need to increase this<br />
 number by exactly one.</p>
 
 <h2 id="tocAnchor-1-3">See also</h2>
 
 <ul>
-<li><a href="http://www1.icsi.berkeley.edu/Speech/faq/ftrformats.html">ICSI Speech FAQ: 3.3 What are the feature data formats?</a></li>
+  <li><a href="http://www1.icsi.berkeley.edu/Speech/faq/ftrformats.html">ICSI Speech FAQ: 3.3 What are the feature data formats?</a></li>
 </ul>
 
                         </div>
@@ -369,7 +378,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

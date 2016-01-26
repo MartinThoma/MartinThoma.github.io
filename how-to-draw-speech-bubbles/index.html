@@ -100,10 +100,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
 
-<p>The nice icon is from <a href="https://commons.wikimedia.org/wiki/File:Crystal_Clear_app_personal.png">Wikipedia Commons</a>
+<p>The nice icon is from <a href="https://commons.wikimedia.org/wiki/File:Crystal_Clear_app_personal.png">Wikipedia Commons</a><br />
 and part of the Crystal Clear project by Everaldo Coelho.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -120,11 +120,10 @@ and part of the Crystal Clear project by Everaldo Coelho.</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Preparation</h2>
-
 <ol>
-<li>Install <code>inkscape</code>.</li>
-<li>Get an image where you want to put the speech bubble.</li>
-<li>Add text with <kbd>F2</kbd></li>
+  <li>Install <code>inkscape</code>.</li>
+  <li>Get an image where you want to put the speech bubble.</li>
+  <li>Add text with <kbd>F2</kbd></li>
 </ol>
 
 <p>Now it should looke like this:</p>
@@ -137,21 +136,20 @@ and part of the Crystal Clear project by Everaldo Coelho.</p>
 </div>
 
 <h2 id="tocAnchor-1-2">Rectangle</h2>
-
-<p>Now you have to put a rectangle (<kbd>F2</kbd>) or an ellipses (<kbd>F5</kbd>)
-around your text. The rectangle should be placed below the text
+<p>Now you have to put a rectangle (<kbd>F2</kbd>) or an ellipses (<kbd>F5</kbd>)<br />
+around your text. The rectangle should be placed below the text<br />
 (<kbd>Page down</kbd>).</p>
 
 <p>To make positioning easier, group the text and the surrounding box:</p>
 
 <ol>
-<li>Mark box by clicking on it</li>
-<li><kbd>Shift</kbd> + Click on the text</li>
-<li>Group with <kbd>Ctrl</kbd> + <kbd>G</kbd></li>
+  <li>Mark box by clicking on it</li>
+  <li><kbd>Shift</kbd> + Click on the text</li>
+  <li>Group with <kbd>Ctrl</kbd> + <kbd>G</kbd></li>
 </ol>
 
-<p>Now it should looke like this:
-</p><div style="width: 522px" class="wp-caption aligncenter">
+<p>Now it should looke like this:</p>
+<div style="width: 522px" class="wp-caption aligncenter">
    <a href="../images/2014/01/inkscape-speech-bubble-step-2.png">
       <img src="//martin-thoma.com/captions/inkscape-speech-bubble-step-2.png" alt="Speech bubbles" width="512" height="464" class="" />
    </a>
@@ -159,8 +157,7 @@ around your text. The rectangle should be placed below the text
 </div>
 
 <h2 id="tocAnchor-1-3">Indicator</h2>
-
-<p>To add the "indicator" that shows who spoke, press <kbd>Shift</kbd>
+<p>To add the “indicator” that shows who spoke, press <kbd>Shift</kbd><br />
 + <kbd>F6</kbd> and add a triangle that overlaps with the box:</p>
 
 <div style="width: 325px" class="wp-caption aligncenter">
@@ -170,7 +167,7 @@ around your text. The rectangle should be placed below the text
    <p class="wp-caption-text">Preparation</p>
 </div>
 
-<p>Then press <kbd>F2</kbd> to modify the path by nodes. Add some controll
+<p>Then press <kbd>F2</kbd> to modify the path by nodes. Add some controll<br />
 nodes in between by double-clicking on the path in between:</p>
 
 <div style="width: 325px" class="wp-caption aligncenter">
@@ -180,7 +177,7 @@ nodes in between by double-clicking on the path in between:</p>
    <p class="wp-caption-text">Preparation</p>
 </div>
 
-<p>Then delete them. Now you have those round curves that can be manipulated
+<p>Then delete them. Now you have those round curves that can be manipulated<br />
 with the little circles:</p>
 
 <div style="width: 325px" class="wp-caption aligncenter">
@@ -368,7 +365,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,15 +105,15 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Prolog is a logic programming language.</p>
 
 <p>Any prolog program consists of</p>
 
 <ul>
-<li>declaration of facts (also called objects)</li>
-<li>rules about objects and their relationship</li>
-<li>asking "questions" about objects and their relationship</li>
+  <li>declaration of facts (also called objects)</li>
+  <li>rules about objects and their relationship</li>
+  <li>asking “questions” about objects and their relationship</li>
 </ul>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -144,62 +144,63 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">First steps</h2>
-
-<p>At first you have to install <code>swi-prolog</code>. After installing it, you can call it
+<p>At first you have to install <code>swi-prolog</code>. After installing it, you can call it<br />
 with <code>swipl</code>.</p>
 
-<p>When you've started <code>swipl</code> you can import your myscript.pl files by <code>consult(myscript).</code>.
-Don't forget the point at the end. It is important and somehow like the 
+<p>When you’ve started <code>swipl</code> you can import your myscript.pl files by <code>consult(myscript).</code>.<br />
+Don’t forget the point at the end. It is important and somehow like the <br />
 <code>;</code> in C.</p>
 
 <h2 id="tocAnchor-1-2">Defining facts</h2>
-
 <p>The definition of facts can look like this:</p>
-<div class="highlight">
-   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">loves</span><span class="p">(</span><span class="s-Atom">john</span><span class="p">,</span><span class="nv">X</span><span class="p">).</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>loves(john,X).
+</pre></div>
 </div>
+</div>
+
 <ul>
-<li>Note that names of all relationships and all objects have to begin with a lower
+  <li>Note that names of all relationships and all objects have to begin with a lower<br />
 case letter. Variables begin with a capital letter.</li>
-<li>The relationship is written first (<code>john</code>). The objects are separated by <code>,</code> 
+  <li>The relationship is written first (<code>john</code>). The objects are separated by <code>,</code> <br />
 and everything is finished with <code>.</code>.</li>
-<li>The example from above means: <code>john</code> loves everything.</li>
-<li>You can have any number of arguments.</li>
-<li>The ordering of arguments is important (<code>loves(john,X)</code> is not the same as <code>loves(X,john)</code>).</li>
+  <li>The example from above means: <code>john</code> loves everything.</li>
+  <li>You can have any number of arguments.</li>
+  <li>The ordering of arguments is important (<code>loves(john,X)</code> is not the same as <code>loves(X,john)</code>).</li>
 </ul>
 
 <h3 id="tocAnchor-1-2-1">Symbols</h3>
 
 <table>
-   <thead>
-<tr>
-<th>Boolean</th>
-<th>Prolog</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>and</td>
-<td><code>,</code></td>
-</tr>
-<tr>
-<td>or</td>
-<td><code>;</code></td>
-</tr>
-<tr>
-<td>if</td>
-<td><code>:-</code></td>
-</tr>
-<tr>
-<td>not</td>
-<td><code>not</code></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Boolean</th>
+      <th>Prolog</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>and</td>
+      <td><code>,</code></td>
+    </tr>
+    <tr>
+      <td>or</td>
+      <td><code>;</code></td>
+    </tr>
+    <tr>
+      <td>if</td>
+      <td><code>:-</code></td>
+    </tr>
+    <tr>
+      <td>not</td>
+      <td><code>not</code></td>
+    </tr>
+  </tbody>
 </table>
 
 <ul>
-<li>An underscore <code>_</code> is an anonymous variable.</li>
+  <li>An underscore <code>_</code> is an anonymous variable.</li>
 </ul>
 
 <h2 id="tocAnchor-1-4">Rules</h2>
@@ -207,12 +208,15 @@ and everything is finished with <code>.</code>.</li>
 <p>Rules consist of a head and a body. They are separated by <code>:-</code>.</p>
 
 <h2 id="tocAnchor-1-5">Questions</h2>
-<div class="highlight">
-   <pre><code class="language-prolog" data-lang="prolog"><span class="s-Atom">?</span><span class="nf">own</span><span class="p">(</span><span class="s-Atom">mary</span><span class="p">,</span><span class="s-Atom">book</span><span class="p">)</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>?own(mary,book)
+</pre></div>
 </div>
-<p>This will invoke the prolog unifier. So Prolog will check if the fact 
-<code>own(mary,book)</code> can be derived from the known facts. Important is that it
+</div>
+
+<p>This will invoke the prolog unifier. So Prolog will check if the fact <br />
+<code>own(mary,book)</code> can be derived from the known facts. Important is that it<br />
 starts with <code>?</code>. Everything else in questions is just like it was for facts.</p>
 
 <h2 id="tocAnchor-1-6">Fox, goose and bag of beans puzzle</h2>
@@ -220,43 +224,43 @@ starts with <code>?</code>. Everything else in questions is just like it was for
 <p>This puzzle helped me a lot to understand how Prolog works. It goes as follows:</p>
 
 <blockquote>
-<p>Once upon a time a farmer went to market and purchased a fox, a goose, and a bag of beans. On his way home, the farmer came to the bank of a river and rented a boat. But in crossing the river by boat, the farmer could carry only himself and a single one of his purchases - the fox, the goose, or the bag of the beans.
-If left together, the fox would eat the goose, or the goose would eat the beans.
-The farmer's challenge was to carry himself and his purchases to the far bank of the river, leaving each purchase intact. How did he do it?</p>
+  <p>Once upon a time a farmer went to market and purchased a fox, a goose, and a bag of beans. On his way home, the farmer came to the bank of a river and rented a boat. But in crossing the river by boat, the farmer could carry only himself and a single one of his purchases - the fox, the goose, or the bag of the beans.<br />
+If left together, the fox would eat the goose, or the goose would eat the beans.<br />
+The farmer’s challenge was to carry himself and his purchases to the far bank of the river, leaving each purchase intact. How did he do it?</p>
 </blockquote>
 
 <p>Source: <a href="https://en.wikipedia.org/wiki/Fox,_goose_and_bag_of_beans_puzzle">Wikpedia</a></p>
 
-<p>Let's call the side of the river where the farmer currently is 'left' and the other
-side 'right' to make things easier.</p>
+<p>Let’s call the side of the river where the farmer currently is ‘left’ and the other<br />
+side ‘right’ to make things easier.</p>
 
 <p>When you solve this by hand, you should note the following:</p>
 
 <ul>
-<li>The only two things that the farmer can leave alone is the fox and the bag of beans.</li>
-<li>As the farmer is always in the boat when anything else is in the boat, you can ignore
-that step. Just think of the farmer and possibly one other thing teleporting
+  <li>The only two things that the farmer can leave alone is the fox and the bag of beans.</li>
+  <li>As the farmer is always in the boat when anything else is in the boat, you can ignore<br />
+that step. Just think of the farmer and possibly one other thing teleporting<br />
 from one side to the other.</li>
-<li>You only have to look at what's left and what's right. If nothing gets eaten
-on the left side and nothing gets eaten on the right side, you've got a valid
+  <li>You only have to look at what’s left and what’s right. If nothing gets eaten<br />
+on the left side and nothing gets eaten on the right side, you’ve got a valid<br />
 situation.</li>
-<li>Whenever a situation occurs twice, you did some redundant steps. In other words:
-At least one solution exists, where no repetitions take place. The shortest
+  <li>Whenever a situation occurs twice, you did some redundant steps. In other words:<br />
+At least one solution exists, where no repetitions take place. The shortest<br />
 solution is one of them.</li>
 </ul>
 
 <p>To solve this task, you split the problem into parts:</p>
 
 <ul>
-<li>Define a rule <code>valid</code> that takes a 4-tuple, where the first element is the position
-of the man, the second of the goose, then the fox and then the beans. Positions
+  <li>Define a rule <code>valid</code> that takes a 4-tuple, where the first element is the position<br />
+of the man, the second of the goose, then the fox and then the beans. Positions<br />
 can either be <code>left</code> or <code>right</code>.</li>
-<li>Define a rule <code>step(S1, Description, S2)</code> that makes one step from situation
-<code>S1</code> to situation <code>S2</code> where <code>Description</code> contains the information what was 
+  <li>Define a rule <code>step(S1, Description, S2)</code> that makes one step from situation<br />
+<code>S1</code> to situation <code>S2</code> where <code>Description</code> contains the information what was <br />
 brought to the other side. The situations are, as above, 4-tuples.</li>
-<li>Define a rule <code>reachable(S1, SituationList, Steps, S2)</code> that is true if
-<code>S2</code> can be reached by any number of steps from <code>S1</code>. The list of steps done 
-to get from <code>S1</code> to <code>S2</code> is stored in <code>Steps</code>. The <code>SituationList</code> is used to
+  <li>Define a rule <code>reachable(S1, SituationList, Steps, S2)</code> that is true if<br />
+<code>S2</code> can be reached by any number of steps from <code>S1</code>. The list of steps done <br />
+to get from <code>S1</code> to <code>S2</code> is stored in <code>Steps</code>. The <code>SituationList</code> is used to<br />
 prevent doing unnecessary redundant steps.</li>
 </ul>
 
@@ -265,111 +269,122 @@ prevent doing unnecessary redundant steps.</li>
 <p>There are essentially three situations that can occur:</p>
 
 <ul>
-<li>The man is on the same side as the goose,</li>
-<li>the man is on the same side as the beans or</li>
-<li>the man is on the same side as the fox.</li>
+  <li>The man is on the same side as the goose,</li>
+  <li>the man is on the same side as the beans or</li>
+  <li>the man is on the same side as the fox.</li>
 </ul>
 
-<p>If the man is on the same side as the goose, everything is fine. Nobody gets
+<p>If the man is on the same side as the goose, everything is fine. Nobody gets<br />
 eaten / eats when the man is there.</p>
 
-<p>If the man is where the beans are, then the goose should not be where the fox is.
+<p>If the man is where the beans are, then the goose should not be where the fox is.<br />
 The case that the goose is where the man is was done before.</p>
 
-<p>And the last case, the man is where the fox is. Now we have to make sure that
+<p>And the last case, the man is where the fox is. Now we have to make sure that<br />
 the beans are not where the goose is:</p>
-<div class="highlight">
-   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">p</span><span class="p">(</span><span class="s-Atom">left</span><span class="p">).</span>
-<span class="nf">p</span><span class="p">(</span><span class="s-Atom">right</span><span class="p">).</span>
-<span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Goose</span><span class="p">.</span>
-<span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Beans</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s-Atom">\=</span> <span class="nv">Fox</span><span class="p">.</span>
-<span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s-Atom">\=</span> <span class="nv">Beans</span><span class="p">.</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>p(left).
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>p(right).
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>valid((Man, Goose, Fox, Beans)) :- p(Man),p(Goose),p(Fox),p(Beans), Man == Goose.
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>valid((Man, Goose, Fox, Beans)) :- p(Man),p(Goose),p(Fox),p(Beans), Man == Beans, Goose \= Fox.
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>valid((Man, Goose, Fox, Beans)) :- p(Man),p(Goose),p(Fox),p(Beans), Man == Fox, Goose \= Beans.
+</pre></div>
 </div>
-<p>The <code>step</code> is also quite simple. There are four possible actions you could take
+</div>
+
+<p>The <code>step</code> is also quite simple. There are four possible actions you could take<br />
 at each situation:</p>
 
 <ul>
-<li>Only the man goes to the other side,</li>
-<li>the man and the beans / goose / fox go the the other side.</li>
+  <li>Only the man goes to the other side,</li>
+  <li>the man and the beans / goose / fox go the the other side.</li>
 </ul>
 
 <p>So here is  the code:</p>
-<div class="highlight">
-   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Man'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">.</span>
 
-<span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose1</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Goose'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose2</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose1</span> <span class="s-Atom">\=</span> <span class="nv">Goose2</span><span class="p">.</span>
-
-<span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox1</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Fox'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox2</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">,</span> <span class="nv">Fox1</span> <span class="s-Atom">\=</span> <span class="nv">Fox2</span><span class="p">.</span>
-
-<span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans1</span><span class="p">),</span> <span class="s-Atom">'Beans'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans2</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">,</span> <span class="nv">Beans1</span> <span class="s-Atom">\=</span> <span class="nv">Beans2</span><span class="p">.</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>step((Man1, Goose, Fox, Beans), 'Man', (Man2, Goose, Fox, Beans)) :- 
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    Man1 \= Man2.
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>step((Man1, Goose1, Fox, Beans), 'Goose', (Man2, Goose2, Fox, Beans)) :- 
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    Man1 \= Man2, Goose1 \= Goose2.
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>step((Man1, Goose, Fox1, Beans), 'Fox', (Man2, Goose, Fox2, Beans)) :- 
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    Man1 \= Man2, Fox1 \= Fox2.
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>step((Man1, Goose, Fox, Beans1), 'Beans', (Man2, Goose, Fox, Beans2)) :- 
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    Man1 \= Man2, Beans1 \= Beans2.
+</pre></div>
 </div>
+</div>
+
 <p>And finally the reachable part.</p>
 
 <ul>
-<li>Either, you're already at the situation where you want to get to. So you don't
-have to do any step and it doesn't matter which situations you have seen so far.</li>
-<li>Or you want to get from <code>S</code> to <code>G</code>. That is only possible, when you can get
+  <li>Either, you’re already at the situation where you want to get to. So you don’t<br />
+have to do any step and it doesn’t matter which situations you have seen so far.</li>
+  <li>Or you want to get from <code>S</code> to <code>G</code>. That is only possible, when you can get<br />
 from <code>S</code> to an intermediate situation with one step less:</li>
 </ul>
-<div class="highlight">
-   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="k">_</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">S</span><span class="p">).</span>
-<span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">,</span> <span class="p">[</span><span class="nv">Step</span><span class="p">|</span><span class="nv">Steps</span><span class="p">],</span> <span class="nv">G</span><span class="p">)</span> <span class="p">:-</span> 
-    <span class="nf">step</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Step</span><span class="p">,</span> <span class="nv">Tmp</span><span class="p">),</span> <span class="nf">valid</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">),</span> <span class="o">not</span><span class="p">(</span><span class="nf">member</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">)),</span>
-    <span class="nf">reachable</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="p">[</span><span class="nv">Tmp</span><span class="p">|</span><span class="nv">Visited</span><span class="p">],</span> <span class="nv">Steps</span><span class="p">,</span> <span class="nv">G</span><span class="p">).</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>reachable(S, _, [], S).
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>reachable(S, Visited, [Step|Steps], G) :- 
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    step(S, Step, Tmp), valid(Tmp), not(member(Tmp, Visited)),
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    reachable(Tmp, [Tmp|Visited], Steps, G).
+</pre></div>
 </div>
+</div>
+
 <p>Putting it together:</p>
-<div class="highlight">
-   <pre><code class="language-prolog" data-lang="prolog"><span class="nf">p</span><span class="p">(</span><span class="s-Atom">left</span><span class="p">).</span>
-<span class="nf">p</span><span class="p">(</span><span class="s-Atom">right</span><span class="p">).</span>
-<span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Goose</span><span class="p">.</span>
-<span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Beans</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s-Atom">\=</span> <span class="nv">Fox</span><span class="p">.</span>
-<span class="nf">valid</span><span class="p">((</span><span class="nv">Man</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">p</span><span class="p">(</span><span class="nv">Man</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Goose</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Fox</span><span class="p">),</span><span class="nf">p</span><span class="p">(</span><span class="nv">Beans</span><span class="p">),</span> <span class="nv">Man</span> <span class="o">==</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Goose</span> <span class="s-Atom">\=</span> <span class="nv">Beans</span><span class="p">.</span>
 
-<span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Man'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nf">valid</span><span class="p">((</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">)),</span>
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">.</span>
-
-<span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose1</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Goose'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose2</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nf">valid</span><span class="p">((</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose2</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">)),</span>
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose1</span> <span class="s-Atom">\=</span> <span class="nv">Goose2</span><span class="p">.</span>
-
-<span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox1</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">),</span> <span class="s-Atom">'Fox'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox2</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nf">valid</span><span class="p">((</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox2</span><span class="p">,</span> <span class="nv">Beans</span><span class="p">)),</span>
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">,</span> <span class="nv">Fox1</span> <span class="s-Atom">\=</span> <span class="nv">Fox2</span><span class="p">.</span>
-
-<span class="nf">step</span><span class="p">((</span><span class="nv">Man1</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans1</span><span class="p">),</span> <span class="s-Atom">'Beans'</span><span class="p">,</span> <span class="p">(</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans2</span><span class="p">))</span> <span class="p">:-</span> 
-    <span class="nf">valid</span><span class="p">((</span><span class="nv">Man2</span><span class="p">,</span> <span class="nv">Goose</span><span class="p">,</span> <span class="nv">Fox</span><span class="p">,</span> <span class="nv">Beans2</span><span class="p">)),</span>
-    <span class="nv">Man1</span> <span class="s-Atom">\=</span> <span class="nv">Man2</span><span class="p">,</span> <span class="nv">Beans1</span> <span class="s-Atom">\=</span> <span class="nv">Beans2</span><span class="p">.</span>
-
-<span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="k">_</span><span class="p">,[],</span> <span class="nv">S</span><span class="p">).</span>
-<span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">,</span> <span class="p">[</span><span class="nv">Step</span><span class="p">|</span><span class="nv">Steps</span><span class="p">],</span> <span class="nv">G</span><span class="p">)</span> <span class="p">:-</span> 
-    <span class="nf">step</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="nv">Step</span><span class="p">,</span> <span class="nv">Tmp</span><span class="p">),</span> <span class="o">not</span><span class="p">(</span><span class="nf">member</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="nv">Visited</span><span class="p">)),</span>
-    <span class="nf">reachable</span><span class="p">(</span><span class="nv">Tmp</span><span class="p">,</span> <span class="p">[</span><span class="nv">Tmp</span><span class="p">|</span><span class="nv">Visited</span><span class="p">],</span> <span class="nv">Steps</span><span class="p">,</span> <span class="nv">G</span><span class="p">).</span>
-
-<span class="nf">start</span><span class="p">((</span><span class="s-Atom">left</span><span class="p">,</span><span class="s-Atom">left</span><span class="p">,</span><span class="s-Atom">left</span><span class="p">,</span><span class="s-Atom">left</span><span class="p">)).</span>
-<span class="nf">goal</span><span class="p">((</span><span class="s-Atom">right</span><span class="p">,</span><span class="s-Atom">right</span><span class="p">,</span><span class="s-Atom">right</span><span class="p">,</span><span class="s-Atom">right</span><span class="p">)).</span>
-
-<span class="nf">solve</span><span class="p">(</span><span class="nv">Steps</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">start</span><span class="p">(</span><span class="nv">S</span><span class="p">),</span> <span class="nf">goal</span><span class="p">(</span><span class="nv">G</span><span class="p">),</span> <span class="nf">reachable</span><span class="p">(</span><span class="nv">S</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">Steps</span><span class="p">,</span> <span class="nv">G</span><span class="p">).</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>p(left).
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>p(right).
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>valid((Man, Goose, Fox, Beans)) :- p(Man),p(Goose),p(Fox),p(Beans), Man == Goose.
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>valid((Man, Goose, Fox, Beans)) :- p(Man),p(Goose),p(Fox),p(Beans), Man == Beans, Goose \= Fox.
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>valid((Man, Goose, Fox, Beans)) :- p(Man),p(Goose),p(Fox),p(Beans), Man == Fox, Goose \= Beans.
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>step((Man1, Goose, Fox, Beans), 'Man', (Man2, Goose, Fox, Beans)) :- 
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    valid((Man2, Goose, Fox, Beans)),
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    Man1 \= Man2.
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>step((Man1, Goose1, Fox, Beans), 'Goose', (Man2, Goose2, Fox, Beans)) :- 
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    valid((Man2, Goose2, Fox, Beans)),
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    Man1 \= Man2, Goose1 \= Goose2.
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>step((Man1, Goose, Fox1, Beans), 'Fox', (Man2, Goose, Fox2, Beans)) :- 
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    valid((Man2, Goose, Fox2, Beans)),
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    Man1 \= Man2, Fox1 \= Fox2.
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>step((Man1, Goose, Fox, Beans1), 'Beans', (Man2, Goose, Fox, Beans2)) :- 
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    valid((Man2, Goose, Fox, Beans2)),
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    Man1 \= Man2, Beans1 \= Beans2.
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>reachable(S, _,[], S).
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>reachable(S, Visited, [Step|Steps], G) :- 
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    step(S, Step, Tmp), not(member(Tmp, Visited)),
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>    reachable(Tmp, [Tmp|Visited], Steps, G).
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>start((left,left,left,left)).
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>goal((right,right,right,right)).
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>solve(Steps) :- start(S), goal(G), reachable(S, [], Steps, G).
+</pre></div>
 </div>
-<p>You can load this with <code>swipl -s puzzle.pl</code> and get all solutions with <code>bagof(X, solve(T), L)</code>.
-When you press <code>;</code> after the first solution, you get the second solution.
+</div>
+
+<p>You can load this with <code>swipl -s puzzle.pl</code> and get all solutions with <code>bagof(X, solve(T), L)</code>.<br />
+When you press <code>;</code> after the first solution, you get the second solution.<br />
 (Yes, this riddle has only two solutions that avoid redundant steps.)</p>
 
 <h2 id="tocAnchor-1-7">Material</h2>
-
 <ul>
-<li><a href="http://www.youtube.com/watch?v=GHLfeGN5OMk">Introduction to PROLOG</a>: One hour of introduction to prolog by Shashi Bhushan. Much of what I have written here is based on this video.</li>
-<li><a href="http://www.swi-prolog.org/">SWI Prolog</a>: A great resource for looking things up. </li>
-<li><a href="http://www.cs.trincoll.edu/%7Eram/cpsc352/notes/prolog/factsrules.html">Facts, Rules and Queries</a></li>
-<li><a href="http://www.cs.toronto.edu/%7Ehojjat/384w09/simple-prolog-examples.html">Simple Prolog example</a></li>
+  <li><a href="http://www.youtube.com/watch?v=GHLfeGN5OMk">Introduction to PROLOG</a>: One hour of introduction to prolog by Shashi Bhushan. Much of what I have written here is based on this video.</li>
+  <li><a href="http://www.swi-prolog.org/">SWI Prolog</a>: A great resource for looking things up.</li>
+  <li><a href="http://www.cs.trincoll.edu/~ram/cpsc352/notes/prolog/factsrules.html">Facts, Rules and Queries</a></li>
+  <li><a href="http://www.cs.toronto.edu/~hojjat/384w09/simple-prolog-examples.html">Simple Prolog example</a></li>
 </ul>
 
                         </div>
@@ -553,7 +568,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

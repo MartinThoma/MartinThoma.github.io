@@ -105,11 +105,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p><a href="http://en.wikipedia.org/wiki/Deterministic_finite-state_machine">Finite-state machines</a> are necessary to show that some problems are computable (or not).</p>
 
-<p>As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.
-</p><div id="toc_container" class="toc_light_blue no_bullets">
+<p>As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use <a href="http://www.graphviz.org/">graphviz</a>.</p>
+<div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
       <li class="toc_level-1 toc_section-1">
@@ -139,30 +139,36 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <p>This image is created from a gv-file. I saved it as fsm.gv:</p>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex">digraph finite<span class="nb">_</span>state<span class="nb">_</span>machine <span class="nb">{</span>
-    rankdir=LR;
-    size="8,5"
 
-    node [shape = doublecircle]; S;
-    node [shape = point ]; qi
-
-    node [shape = circle];
-    qi -&gt; S;
-    S  -&gt; q1 [ label = "a" ];
-    S  -&gt; S  [ label = "a" ];
-    q1 -&gt; S  [ label = "a" ];
-    q1 -&gt; q2 [ label = "b" ];
-    q2 -&gt; q1 [ label = "b" ];
-    q2 -&gt; q2 [ label = "b" ];
-<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>digraph finite_state_machine {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>        rankdir=LR;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>        size="8,5"
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        node [shape = doublecircle]; S;
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        node [shape = point ]; qi
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        node [shape = circle];
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        qi -&gt; S;
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        S  -&gt; q1 [ label = "a" ];
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        S  -&gt; S  [ label = "a" ];
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        q1 -&gt; S  [ label = "a" ];
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        q1 -&gt; q2 [ label = "b" ];
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        q2 -&gt; q1 [ label = "b" ];
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        q2 -&gt; q2 [ label = "b" ];
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>}
+</pre></div>
 </div>
+</div>
+
 <p>To create a graph (or the picture of the nondeterministic finite-state machine) you have to enter the following command in Ubuntu Linux:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">dot -Tpng fsm.gv -o myFiniteStateMachine.png
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>dot -Tpng fsm.gv -o myFiniteStateMachine.png
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Deterministic finite-state machine</h2>
 
 <div style="width: 538px" class="wp-caption aligncenter">
@@ -171,67 +177,75 @@ MathJax.Hub.Queue(function() {
    </a>
    <p class="wp-caption-text">Deterministic finite-state machine</p>
 </div>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex">digraph finite<span class="nb">_</span>state<span class="nb">_</span>machine <span class="nb">{</span>
-    rankdir=LR;
-    size="8,5"
 
-    node [shape = doublecircle, label="<span class="nb">{</span>f<span class="nb">}</span>", fontsize=12] f;
-    node [shape = doublecircle, label="<span class="nb">{</span>q2, f<span class="nb">}</span>", fontsize=10] q2f;
-
-    node [shape = circle, label="S", fontsize=14] S;
-    node [shape = circle, label="<span class="nb">{</span>q1<span class="nb">}</span>", fontsize=12] q1;
-    node [shape = circle, label="<span class="nb">{</span>q2<span class="nb">}</span>", fontsize=12] q2;
-
-    node [shape = point ]; qi
-    qi -&gt; S;
-
-    S   -&gt; q1  [ label = "a" ];
-    S   -&gt; q2f [ label = "b" ];
-    S   -&gt; q2  [ label = "c" ];
-
-    q1  -&gt; q2  [ label = "b" ];
-
-    q2f -&gt; f   [ label = "b" ];
-    q2f -&gt; q2  [ label = "c" ];
-
-    q2  -&gt; f   [ label = "b" ];
-    q2  -&gt; q2  [ label = "c" ];
-<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>digraph finite_state_machine {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>        rankdir=LR;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>        size="8,5"
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        node [shape = doublecircle, label="{f}", fontsize=12] f;
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        node [shape = doublecircle, label="{q2, f}", fontsize=10] q2f;
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        node [shape = circle, label="S", fontsize=14] S;
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        node [shape = circle, label="{q1}", fontsize=12] q1;
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        node [shape = circle, label="{q2}", fontsize=12] q2;
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        node [shape = point ]; qi
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        qi -&gt; S;
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        S   -&gt; q1  [ label = "a" ];
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>        S   -&gt; q2f [ label = "b" ];
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>        S   -&gt; q2  [ label = "c" ];
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        q1  -&gt; q2  [ label = "b" ];
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>        q2f -&gt; f   [ label = "b" ];
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>        q2f -&gt; q2  [ label = "c" ];
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        q2  -&gt; f   [ label = "b" ];
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>        q2  -&gt; q2  [ label = "c" ];
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>}
+</pre></div>
 </div>
-<h2 id="tocAnchor-1-3">LaTeX</h2>
+</div>
 
+<h2 id="tocAnchor-1-3">LaTeX</h2>
 <p>If you want to draw finite-state machines with LaTeX, you might want to give <a href="http://www.texample.net/tikz/examples/feature/automata-and-petri-nets/">tikz</a> a try.</p>
 
-<p>This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I've described above:</p>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
-<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
+<p>This is the most minimalistic version I could create. It is equivalent to the nondeterministic finite-state machine I’ve described above:</p>
 
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
-  <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
-  <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
-  <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
-
-
-  <span class="k">\path</span><span class="na">[-&gt;]</span> (S)  edge [loop above] node <span class="nb">{</span>a<span class="nb">}</span> (S)
-             edge              node <span class="nb">{</span>a<span class="nb">}</span> (q1)
-        (q1) edge [bend left]  node <span class="nb">{</span>a<span class="nb">}</span> (S)
-             edge              node <span class="nb">{</span>b<span class="nb">}</span> (q2)
-        (q2) edge [loop above] node <span class="nb">{</span>b<span class="nb">}</span> (q2)
-             edge [bend left]  node <span class="nb">{</span>b<span class="nb">}</span> (q1);
-<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass{scrartcl}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{tikz}
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usetikzlibrary{arrows,automata}
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\begin{document}
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\begin{tikzpicture}[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  \node[initial,state,accepting] (S)      {$S$};
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  \node[state]         (q1) [right of=S]  {$q_1$};
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>  \node[state]         (q2) [right of=q1] {$q_2$};
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>  \path[-&gt;] (S)  edge [loop above] node {a} (S)
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>             edge              node {a} (q1)
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        (q1) edge [bend left]  node {a} (S)
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>             edge              node {b} (q2)
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>        (q2) edge [loop above] node {b} (q2)
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>             edge [bend left]  node {b} (q1);
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>\end{tikzpicture}
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>\end{document}
+</pre></div>
 </div>
+</div>
+
 <p>This was the most basic example which shows how to draw a finite-state automaton with LaTeX. You can get it as a PDF with this command:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">pdflatex latexsheet.tex -output-format<span class="o">=</span>pdf
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>pdflatex latexsheet.tex -output-format=pdf
+</pre></div>
 </div>
+</div>
+
 <p>If you want to see some more fancy stuff, take a look at this example of a non-deterministic finite state machine:</p>
 
 <div style="width: 410px" class="wp-caption aligncenter">
@@ -240,54 +254,58 @@ MathJax.Hub.Queue(function() {
    </a>
    <p class="wp-caption-text">Finite-state-machine with LaTeX</p>
 </div>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
-<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
 
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
-  <span class="k">\node</span><span class="na">[initial,state,accepting]</span> (S)      <span class="nb">{</span><span class="s">$</span><span class="nb">S</span><span class="s">$</span><span class="nb">}</span>;
-  <span class="k">\node</span><span class="na">[state]</span>         (q1) [right of=S]  <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">1</span><span class="s">$</span><span class="nb">}</span>;
-  <span class="k">\node</span><span class="na">[state]</span>         (q2) [right of=q1] <span class="nb">{</span><span class="s">$</span><span class="nb">q_</span><span class="m">2</span><span class="s">$</span><span class="nb">}</span>;
-
-  <span class="k">\path</span><span class="na">[-&gt;]</span>          (S)  edge [loop above] node <span class="nb">{</span>a<span class="nb">}</span> (S);
-  <span class="k">\path</span><span class="na">[-&gt;, dashed]</span>  (S)  edge              node <span class="nb">{</span>a<span class="nb">}</span> (q1);
-  <span class="k">\path</span><span class="na">[-&gt;, dotted]</span>  (q1) edge [bend left]  node <span class="nb">{</span>a<span class="nb">}</span> (S);
-  <span class="k">\path</span><span class="na">[-&gt;&gt;, dotted]</span> (q1) edge             node <span class="nb">{</span>b<span class="nb">}</span> (q2);
-  <span class="k">\path</span>              (q2) edge [loop above] node <span class="nb">{</span>b<span class="nb">}</span> (q2)
-             edge [bend left]  node <span class="nb">{</span>b<span class="nb">}</span> (q1);
-<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass{scrartcl}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{tikz}
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usetikzlibrary{arrows,automata}
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span> 
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\begin{document}
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\begin{tikzpicture}[&gt;=stealth',shorten &gt;=1pt,auto,node distance=2cm]
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  \node[initial,state,accepting] (S)      {$S$};
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  \node[state]         (q1) [right of=S]  {$q_1$};
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>  \node[state]         (q2) [right of=q1] {$q_2$};
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span> 
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>  \path[-&gt;]          (S)  edge [loop above] node {a} (S);
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>  \path[-&gt;, dashed]  (S)  edge              node {a} (q1);
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>  \path[-&gt;, dotted]  (q1) edge [bend left]  node {a} (S);
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>  \path[-&gt;&gt;, dotted] (q1) edge             node {b} (q2);
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>  \path              (q2) edge [loop above] node {b} (q2)
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>             edge [bend left]  node {b} (q1);
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>\end{tikzpicture}
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>\end{document}
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-3-1">Markov models</h3>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>scrartcl<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
-<span class="k">\usetikzlibrary</span><span class="nb">{</span>arrows,automata<span class="nb">}</span>
-
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[-&gt;,&gt;=stealth',shorten &gt;=1pt,node distance=2.8cm]
-    <span class="c">% When you want to use // inside of nodes, you have to algin</span>
-    <span class="k">\tikzstyle</span><span class="nb">{</span>every state<span class="nb">}</span>=[align=center]
-    <span class="k">\node</span><span class="na">[state,initial,label=below:Start]</span> (Start)
-                                            <span class="nb">{</span>A 0.6<span class="k">\\</span>B 0.2<span class="k">\\</span>C 0.2<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[state,label=below:Mitte]</span> (Mitte) [right of=Start] 
-                                            <span class="nb">{</span>A 0.1<span class="k">\\</span>B 0.1<span class="k">\\</span>C 0.8<span class="nb">}</span>;
-    <span class="k">\node</span><span class="na">[state,label=below:Ende]</span> (Ende)   [right of=Mitte] 
-                                            <span class="nb">{</span>A 0.5<span class="k">\\</span>B 0.2<span class="k">\\</span>C 0.3<span class="nb">}</span>;
-    <span class="k">\path</span> (Start) edge               node[above] <span class="nb">{</span>0.2<span class="nb">}</span> (Mitte);
-    <span class="k">\path</span> (Mitte) edge               node[above] <span class="nb">{</span>0.8<span class="nb">}</span> (Ende);
-    <span class="k">\path</span> (Start) edge  [loop above] node        <span class="nb">{</span>0.8<span class="nb">}</span> (Start);
-    <span class="k">\path</span> (Mitte) edge  [loop above] node        <span class="nb">{</span>0.2<span class="nb">}</span> (Mitte);
-    <span class="k">\path</span> (Ende)  edge  [loop above] node        <span class="nb">{</span>1<span class="nb">}</span>  (Ende);
-<span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass{scrartcl}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{tikz}
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usetikzlibrary{arrows,automata}
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\begin{document}
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\begin{tikzpicture}[-&gt;,&gt;=stealth',shorten &gt;=1pt,node distance=2.8cm]
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    % When you want to use // inside of nodes, you have to algin
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    \tikzstyle{every state}=[align=center]
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    \node[state,initial,label=below:Start] (Start)
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                                            {A 0.6\\B 0.2\\C 0.2};
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    \node[state,label=below:Mitte] (Mitte) [right of=Start] 
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                                            {A 0.1\\B 0.1\\C 0.8};
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    \node[state,label=below:Ende] (Ende)   [right of=Mitte] 
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>                                            {A 0.5\\B 0.2\\C 0.3};
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    \path (Start) edge               node[above] {0.2} (Mitte);
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    \path (Mitte) edge               node[above] {0.8} (Ende);
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    \path (Start) edge  [loop above] node        {0.8} (Start);
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    \path (Mitte) edge  [loop above] node        {0.2} (Mitte);
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    \path (Ende)  edge  [loop above] node        {1}  (Ende);
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>\end{tikzpicture}
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>\end{document}
+</pre></div>
 </div>
-<h2 id="tocAnchor-1-5">Further Reading</h2>
+</div>
 
+<h2 id="tocAnchor-1-5">Further Reading</h2>
 <ul>
     <li><a href="http://www.graphviz.org/doc/info/shapes.html">DOT Node Shape reference</a></li>
     <li><a href="http://wiki.ubuntuusers.de/Graphviz">ubuntuusers.de</a> (German): Installation on Ubuntu</li>
@@ -481,7 +499,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

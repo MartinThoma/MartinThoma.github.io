@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The goal of this post is to show you some tools that allow you to visualize data. And I also want to analyze some basic characteristics of the Collatz sequence.</p>
 
 <p>The Collatz sequences $(c^n_i)$ of a number $n \in \mathbb{N}_{&gt; 0}$ is defined like this:</p>
@@ -163,17 +163,15 @@ f(c^n_i) &amp; \text{otherwise}
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Collatz conjecture</h2>
-
 <div class="important">
 `$\forall_{n \in \mathbb{N}_{&gt;0}} \exists_{i \in \mathbb{N}_{&gt;0}}: c^n_i = 1$`
 </div>
 
 <p>The Collatz conjecture was not (dis)proved by now. This is astonishing, as it was proposed in 1937 and I think it is very easy to understand.</p>
 
-<p>We also don't know if the Collatz graph is connected. When it is not connected, it could be that one sequence $(c^n_i)$ goes to infinity or that there is another circle ($4,2,1,4$ is a circle in the Collatz graph).</p>
+<p>We also don’t know if the Collatz graph is connected. When it is not connected, it could be that one sequence $(c^n_i)$ goes to infinity or that there is another circle ($4,2,1,4$ is a circle in the Collatz graph).</p>
 
 <h2 id="tocAnchor-1-2">Small `$n$`</h2>
-
 <p>When you go through all possible Collatz sequences with $n \in 1, \dots, 15$, this is what you get:</p>
 
 <div style="width: 522px" class="wp-caption aligncenter">
@@ -253,7 +251,6 @@ f(c^n_i) &amp; \text{otherwise}
 </div>
 
 <h2 id="tocAnchor-1-3">`$n=27$`</h2>
-
 <p>$n=27$ is an enourmously long sequence:</p>
 
 <div style="width: 522px" class="wp-caption aligncenter">
@@ -292,10 +289,9 @@ f(c^n_i) &amp; \text{otherwise}
 </div>
 
 <h2 id="tocAnchor-1-4">How long are Collatz sequences?</h2>
+<p>I’ve been interested in the question how long Collatz sequences are. Of course, they will be longer when $n$ is bigger. But how does the choice of $n$ influence the number of steps it takes until you reach $c^n_i = 1$?</p>
 
-<p>I've been interested in the question how long Collatz sequences are. Of course, they will be longer when $n$ is bigger. But how does the choice of $n$ influence the number of steps it takes until you reach $c^n_i = 1$?</p>
-
-<p>I've tested all Collatz sequences with $n \leq 10,000,000$. This is the result:</p>
+<p>I’ve tested all Collatz sequences with $n \leq 10,000,000$. This is the result:</p>
 
 <div style="width: 522px" class="wp-caption aligncenter">
    <a href="../images/2013/05/collatz-sequence-steps.png">
@@ -448,7 +444,7 @@ f(c^n_i) &amp; \text{otherwise}
 <span class="p">}</span></code></pre>
 </div>
 
-<p>Then I've processed it with R:</p>
+<p>Then I’ve processed it with R:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">R -f analyze.R</code></pre>
@@ -472,16 +468,15 @@ p&lt;-p + opts(panel.background = theme_rect(fill='white', colour='white'))
 p</code></pre>
 </div>
 
-<p>And finally, I've converted it to png:</p>
+<p>And finally, I’ve converted it to png:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>collatz-sequence-steps.png</code></pre>
 </div>
 
-<p>I've explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
+<p>I’ve explained this a bit more detailed on <a href="http://tex.stackexchange.com/a/114577/5645">StackExchange</a>.</p>
 
 <h2 id="tocAnchor-1-5">Maximum in sequence</h2>
-
 <p>In the following plot you can see $n \in 1, \dots, 10,000,000$ on the $x$-axis and the maximum $y = \max(\{a^n_i | i \in \mathbb{N}_{&gt; 0}\})$:</p>
 
 <div style="width: 522px" class="wp-caption aligncenter">
@@ -507,10 +502,9 @@ p</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">Execution times</h2>
-
 <p>Generating all Collatz sequences up to 10,000,000 items took about 50 seconds. But R needed about 10 minutes to generate images from that.</p>
 
-<p>Inkscape didn't like the heavy plot:</p>
+<p>Inkscape didn’t like the heavy plot:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">moose@pc07<span class="nv">$ </span>inkscape Rplots.pdf -w <span class="m">512</span> --export-png<span class="o">=</span>maxInSequence.png
@@ -529,7 +523,6 @@ p</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-8">Read more</h2>
-
 <ul>
   <li><a href="https://github.com/MartinThoma/algorithms/tree/master/collatz">All sources</a> of this article are on GitHub</li>
   <li><a href="http://www.graphviz.org/Documentation/dotguide.pdf">Dot guide</a>, <a href="http://www.graphviz.org/doc/info/shapes.html">Node shapes</a></li>
@@ -721,7 +714,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

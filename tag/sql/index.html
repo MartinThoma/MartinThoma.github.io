@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;SQL&rdquo;’</h2>
   
@@ -145,12 +145,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2015-12-30T13:28:00+01:00">December 30, 2015</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/analyzing-pypi-metadata-2/"><img width="128" height="128" src="//martin-thoma.com/images/logos/python.png" class="alignleft post_thumbnail wp-post-image" alt="Analyzing PyPI Data - 2"/></a>
     
 
-    This is part two of a series. See Analyzing PyPI Data for part one. I&#39;ve recently got a request to expand my analysis of the Python Package Index commonly known as PyPI. It is a repository of Python packages where everybody can upload packages; pretty much without any restriction. In the article Analyzing PyPI Metadata you can read some general stuff about the repository. This article is going a bit more deeper. This time I...
+    This is part two of a series. See Analyzing PyPI Data for part one. I’ve recently got a request to expand my analysis of the Python Package Index commonly known as PyPI. It is a repository of Python packages where everybody can upload packages; pretty much without any restriction. In the article Analyzing PyPI Metadata you can read some general stuff about the repository. This article is going a bit more deeper. This time I...
 
     
     <div class="readmorecontent">
@@ -436,12 +436,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2015-01-18T20:19:00+01:00">January 18, 2015</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/analyzing-pypi-metadata/"><img width="128" height="128" src="//martin-thoma.com/images/logos/python.png" class="alignleft post_thumbnail wp-post-image" alt="Analyzing PyPI Metadata"/></a>
     
 
-    This is part one of a series. See Analyzing PyPI Data - 2 for part two. PyPI, the Python Package Index, gives a very crappy but simple interface to query metadata about its packages. I scrapped all of the packages metadata. 53,533 packages were scrapped (date: 2015-01-18), because I wanted to see if there is malware on PyPI (related to this question on security.SE). The database looks like this: { caption align=&quot;aligncenter&quot; width=&quot;500&quot; alt=&quot;PyPI metadata...
+    This is part one of a series. See Analyzing PyPI Data - 2 for part two. PyPI, the Python Package Index, gives a very crappy but simple interface to query metadata about its packages. I scrapped all of the packages metadata. 53,533 packages were scrapped (date: 2015-01-18), because I wanted to see if there is malware on PyPI (related to this question on security.SE). The database looks like this: { caption align=”aligncenter” width=”500” alt=”PyPI metadata...
 
     
     <div class="readmorecontent">
@@ -1177,12 +1177,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-07-11T19:25:03+02:00">July 11, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/sql-injections/"><img width="128" height="128" src="//martin-thoma.com/images/2013/07/blackhat.png" class="alignleft post_thumbnail wp-post-image" alt="SQL Injections"/></a>
     
 
-    SQL is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. Example: IMDb Take a look at IMDb. Users can search for movies by title: { caption align=&quot;aligncenter&quot; width=&quot;300&quot; caption=&quot;IMDb: User Interface to search for a movie by title&quot;...
+    SQL is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. Example: IMDb Take a look at IMDb. Users can search for movies by title: { caption align=”aligncenter” width=”300” caption=”IMDb: User Interface to search for a movie by title”...
 
     
     <div class="readmorecontent">
@@ -3772,7 +3772,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

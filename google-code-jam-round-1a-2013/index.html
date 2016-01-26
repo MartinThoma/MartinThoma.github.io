@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <ul>
 <li>Problem A (<a href="https://code.google.com/codejam/contest/2418487/dashboard#s=p0">Bullseye</a>):
   <ul>
@@ -124,48 +124,46 @@ MathJax.Hub.Queue(function() {
     <li>Large Set: 31/605 users (5%)</li>
   </ul>
 </li>
-</ul>
 
-<p>More information might soon be on <a href="http://www.go-hero.net/jam/13/">go-hero.net</a>.</p>
 
-<p>I'm too slow for Google Code Jam <em>sigh</em>. Nevertheless, here are my solutions:</p>
+More information might soon be on <a href="http://www.go-hero.net/jam/13/">go-hero.net</a>.
+
+I'm too slow for Google Code Jam *sigh*. Nevertheless, here are my solutions:
 
 <h2 id="tocAnchor-1-1">Bullseye</h2>
-
 <h3 id="tocAnchor-1-1-1">Small</h3>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?</span>
+```php
 
-<span class="k">function</span> <span class="nf">solve</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$t</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$circles</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">while</span><span class="p">(</span><span class="nv">$t</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$circles</span><span class="o">++</span><span class="p">;</span>
-        <span class="nv">$t</span> <span class="o">-=</span> <span class="p">(</span><span class="nv">$r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nv">$r</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nv">$r</span><span class="o">*</span><span class="nv">$r</span><span class="p">;</span>
-        <span class="nv">$r</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nb">floor</span><span class="p">(</span><span class="nv">$circles</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
 
-<span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span> <span class="p">(</span><span class="nv">$argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'r'</span><span class="p">);</span>
-<span class="nv">$testcases</span> <span class="o">=</span> <span class="nb">fgets</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
-<span class="nv">$caseNr</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span><span class="p">(</span><span class="nv">$line</span> <span class="o">=</span> <span class="nb">fgets</span> <span class="p">(</span><span class="nv">$fp</span><span class="p">))</span> <span class="p">{</span>
-    <span class="nv">$caseNr</span><span class="o">++</span><span class="p">;</span>
-    <span class="nv">$a</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="nv">$line</span><span class="p">);</span>
-    <span class="nv">$r</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="nv">$t</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-    <span class="k">echo</span> <span class="s2">"Case #</span><span class="si">$caseNr</span><span class="s2">: "</span><span class="o">.</span><span class="nx">solve</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$t</span><span class="p">)</span><span class="o">.</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+function solve($r, $t) {
+    $circles = 0;
+    while($t &gt;= 0) {
+        $circles++;
+        $t -= ($r+1)*($r+1)-$r*$r;
+        $r += 2;
+    }
+    return floor($circles) - 1;
+}
 
-<span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
-</div>
+$fp = fopen ($argv[1], 'r');
+$testcases = fgets ($fp);
+$caseNr=0;
+while($line = fgets ($fp)) {
+    $caseNr++;
+    $a = explode(' ', $line);
+    $r = $a[0];
+    $t = $a[1];
+    echo "Case #$caseNr: ".solve($r, $t)."\n";
+
+}
+?&gt;
+```
+
 <h3 id="tocAnchor-1-1-2">Large</h3>
+*Argh* I've copied the wrong equation from my pad to my computer 
 
-<p><em>Argh</em> I've copied the wrong equation from my pad to my computer </p>
-
-<p>You basically have to solve this:
-$<code>\begin{align}
+You basically have to solve this:
+$`\begin{align}
 t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 \Leftrightarrow t - (x+1)(2x+2r+1) &amp;\geq 0 \\
 \Leftrightarrow (-2)x^2 + (2r+3)x + (t-2r-1) &amp;\geq 0 \\
@@ -176,14 +174,14 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 &amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\\
 &amp;= \frac{1}{4} \cdot (2r+3 \pm \sqrt{(2r-1)^2+8t})\\
 \end{align}
-</code>$</p>
+`$
 
-<p>I have to know that $<code>1 \leq r</code>$ and $<code>1 \geq x \in \mathbb{N}</code>$. So you have to round $`x_1, x_2$ to the nearest solution.</p>
+I have to know that $`1 \leq r`$ and $`1 \geq x \in \mathbb{N}`$. So you have to round $`x_1, x_2$ to the nearest solution.
 
-<p>Did you know that Python has (in numpy) a method to calculate roots of a quadratic equation? See <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.roots.html">numpy.roots</a> for reference.</p>
+Did you know that Python has (in numpy) a method to calculate roots of a quadratic equation? See <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.roots.html">numpy.roots</a> for reference.
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
  
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">roots</span>
@@ -206,17 +204,16 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">line</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
         <span class="n">r</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span></code></pre>
-</div>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solveFast</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">)))</span></code></pre></div>
+
 
 <h2 id="tocAnchor-1-4">Good Luck</h2>
+This one solves at least the first test case, but not the second one.
 
-<p>This one solves at least the first test case, but not the second one.</p>
+I love <a href="http://docs.python.org/2/library/itertools.html">itertools</a> :-)
 
-<p>I love <a href="http://docs.python.org/2/library/itertools.html">itertools</a> :-)</p>
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
@@ -291,8 +288,9 @@ t - \sum_{i=0}^x ((r+1+2i)^2 - (r+2i)^2) &amp;\geq 0\\
 
         <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">R</span><span class="p">):</span>
             <span class="n">products</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">)))))</span></code></pre>
-</div>
+            <span class="k">print</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">productToBuildungs</span><span class="p">)))))</span></code></pre></div>
+
+</ul>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -481,7 +479,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

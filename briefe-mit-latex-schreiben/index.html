@@ -105,67 +105,69 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Ich muss immer wieder mal Kündigungsschreiben aufsetzen. Dafür will ich eigentlich keine Zeit verschwenden, aber es sollte schon gut aussehen. Also habe ich mir gerade mal eine Vorlage für Kündigungsschreiben mit LaTeX und dem scrlttr2 Paket erstellt. Allerdings benutze ich noch die alten KOMA-Variablen. Ich finde mit KOMAold (siehe Beispiel-PDF <a href="../images/2012/03/kuendigung.pdf">alt</a> und <a href="../images/2012/03/kuendigung-scrlttr2.pdf">neu</a>) sieht es einfach besser aus als mit dem neuen. Obwohl der Unterschied nicht wirklich groß ist.</p>
 
 <p>Hier ist das <a href="../images/2012/03/kuendigung-archiv.zip">Archiv</a> mit beiden LaTeX-Dateien, einer Make-Datei und beiden PDF-Dateien.</p>
 
 <h2 id="tocAnchor-1-1">LaTeX</h2>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper, 12pt, KOMAold]</span><span class="nb">{</span>scrlttr2<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for umlauts</span>
-<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for umlauts</span>
-<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% needed for right umlaut output in pdf</span>
-<span class="k">\usepackage</span><span class="na">[ngerman, num]</span><span class="nb">{</span>isodate<span class="nb">}</span> <span class="c">% get DD.MM.YYYY dates</span>
-
-<span class="c">% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Vorname</span><span class="nb">}{</span>Martin<span class="nb">}</span>     <span class="c">% Vorname                         %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Nachname</span><span class="nb">}{</span>Thoma<span class="nb">}</span>     <span class="c">% Nachname                        %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Strasse</span><span class="nb">}{</span>Parkstra<span class="nb">&amp;</span>szlig;e<span class="nb">}</span> <span class="c">% Deine Stra&amp;szlig;e                    %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Hausnummer</span><span class="nb">}{</span>17<span class="nb">}</span>      <span class="c">% Deine Hausnummer                %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\PLZ</span><span class="nb">}{</span>76131<span class="nb">}</span>          <span class="c">% Deine PLZ                       %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Ort</span><span class="nb">}{</span>Karlsruhe<span class="nb">}</span>      <span class="c">% Dein Ort                        %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Kundennr</span><span class="nb">}{</span>123456<span class="nb">}</span>    <span class="c">% Deine Kundennummer              %</span>
-                                                                    <span class="c">%</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Empfaenger</span><span class="nb">}{</span>DB Fernverkehr AG<span class="nb">}</span> <span class="c">% Der Empfänger         %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\EStrasse</span><span class="nb">}{</span>BahnCard-Service<span class="nb">}</span>    <span class="c">% Stra&amp;szlig;e des Empfängers %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\EPLZ</span><span class="nb">}{</span>60643<span class="nb">}</span>                   <span class="c">% PLZ des Empfängers    %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\EOrt</span><span class="nb">}{</span>Frankfurt am Main<span class="nb">}</span>       <span class="c">% Ort des Empfängers    %</span>
-                                                                    <span class="c">%</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\DocTitle</span><span class="nb">}{</span>Kündigung des Bahn-Abos<span class="nb">}</span> <span class="c">%Titel des Dokuments%</span>
-<span class="c">% Datum der Kündigung                                               %</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\Kuendigungsdatum</span><span class="nb">}{</span>nächstmöglichen Termin<span class="nb">}</span>              <span class="c">%</span>
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-
-
-<span class="c">% pdfinfo</span>
-<span class="k">\pdfinfo</span><span class="nb">{</span>
-   /Author (<span class="k">\Nachname</span>, <span class="k">\Vorname</span>)
-   /Title  (<span class="k">\DocTitle</span>)
-   /Subject (<span class="k">\DocTitle</span>)
-   /Keywords (Kündigung)
-<span class="nb">}</span>
-
-<span class="c">% set letter variables</span>
-<span class="k">\signature</span><span class="nb">{</span><span class="k">\Vorname</span>~<span class="k">\Nachname</span><span class="nb">}</span>
-<span class="k">\customer</span><span class="nb">{</span><span class="k">\Kundennr</span><span class="nb">}</span>
-<span class="k">\backaddress</span><span class="nb">{</span><span class="k">\Vorname</span>~<span class="k">\Nachname</span>, <span class="k">\Strasse</span>~<span class="k">\Hausnummer</span>, <span class="k">\PLZ</span>~<span class="k">\Ort</span><span class="nb">}</span>
-
-<span class="c">% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-    <span class="k">\begin</span><span class="nb">{</span>letter<span class="nb">}{</span><span class="k">\Empfaenger</span> <span class="k">\\</span> <span class="k">\EStrasse</span> <span class="k">\\</span> <span class="k">\EPLZ</span>~<span class="k">\EOrt</span><span class="nb">}</span>
-    <span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span><span class="c">%Change this if you want a different date than today</span>
-    <span class="k">\subject</span><span class="nb">{</span>Kündigung<span class="nb">}</span>
-    <span class="k">\opening</span><span class="nb">{</span>Sehr geehrte Damen und Herren,<span class="nb">}</span>
-    hiermit kündige ich meinen Vertrag für die Kundennummer 
-    <span class="k">\Kundennr</span>~ zum <span class="k">\Kuendigungsdatum</span>.<span class="k">\\</span>
-
-    <span class="k">\noindent</span> Ich bitte um eine Bestätigung der Kündigung.
-    <span class="k">\closing</span><span class="nb">{</span>Mit freundlichen Grü<span class="nb">&amp;</span>szlig;en,<span class="nb">}</span>
-    <span class="k">\end</span><span class="nb">{</span>letter<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[a4paper, 12pt, KOMAold]{scrlttr2}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage[utf8]{inputenc} % this is needed for umlauts
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage[ngerman]{babel} % this is needed for umlauts
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage[T1]{fontenc}    % needed for right umlaut output in pdf
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage[ngerman, num]{isodate} % get DD.MM.YYYY dates
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>% Anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\newcommand{\Vorname}{Martin}     % Vorname                         %
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\newcommand{\Nachname}{Thoma}     % Nachname                        %
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>\newcommand{\Strasse}{Parkstra&amp;szlig;e} % Deine Stra&amp;szlig;e                    %
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>\newcommand{\Hausnummer}{17}      % Deine Hausnummer                %
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>\newcommand{\PLZ}{76131}          % Deine PLZ                       %
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>\newcommand{\Ort}{Karlsruhe}      % Dein Ort                        %
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\newcommand{\Kundennr}{123456}    % Deine Kundennummer              %
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>                                                                    %
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>\newcommand{\Empfaenger}{DB Fernverkehr AG} % Der Empfänger         %
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>\newcommand{\EStrasse}{BahnCard-Service}    % Stra&amp;szlig;e des Empfängers %
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>\newcommand{\EPLZ}{60643}                   % PLZ des Empfängers    %
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>\newcommand{\EOrt}{Frankfurt am Main}       % Ort des Empfängers    %
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>                                                                    %
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>\newcommand{\DocTitle}{Kündigung des Bahn-Abos} %Titel des Dokuments%
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>% Datum der Kündigung                                               %
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>\newcommand{\Kuendigungsdatum}{nächstmöglichen Termin}              %
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>% pdfinfo
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>\pdfinfo{
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>   /Author (\Nachname, \Vorname)
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>   /Title  (\DocTitle)
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>   /Subject (\DocTitle)
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>   /Keywords (Kündigung)
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>}
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>% set letter variables
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>\signature{\Vorname~\Nachname}
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>\customer{\Kundennr}
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>\backaddress{\Vorname~\Nachname, \Strasse~\Hausnummer, \PLZ~\Ort}
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>% Begin document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>\begin{document}
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>    \begin{letter}{\Empfaenger \\ \EStrasse \\ \EPLZ~\EOrt}
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>    \date{\today}%Change this if you want a different date than today
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>    \subject{Kündigung}
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>    \opening{Sehr geehrte Damen und Herren,}
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>    hiermit kündige ich meinen Vertrag für die Kundennummer 
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>        \Kundennr~ zum \Kuendigungsdatum.\\
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>    \noindent Ich bitte um eine Bestätigung der Kündigung.
+<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>    \closing{Mit freundlichen Grü&amp;szlig;en,}
+<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>    \end{letter}
+<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>\end{document}
+</pre></div>
 </div>
+</div>
+
 <p>Ach ja, weiß jemand wie man die Einrückung der Unterschrift verhindert?</p>
 
                         </div>
@@ -349,7 +351,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p><a href="http://en.wikipedia.org/wiki/Goto">GOTO</a> is a statement of the early beginnings of programming. It is rarely used in high-level code today. Code that makes use of it is called <a href="http://en.wikipedia.org/wiki/Spaghetti_code">Spaghetti code</a> by some people. I have almost never seen goto statements in code, so I've been curious about them.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p><a href="http://en.wikipedia.org/wiki/Goto">GOTO</a> is a statement of the early beginnings of programming. It is rarely used in high-level code today. Code that makes use of it is called <a href="http://en.wikipedia.org/wiki/Spaghetti_code">Spaghetti code</a> by some people. I have almost never seen goto statements in code, so I’ve been curious about them.</p>
 
 <div style="width: 543px" class="wp-caption aligncenter">
    <a href="../images/2012/07/xkcd-goto.png">
@@ -140,17 +140,13 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Python</h2>
-
-<p>Python does NOT offer GOTO. However, somebody made a GOTO module for April Fools' Day. See <a href="http://stackoverflow.com/q/6959360/562769"><code>goto</code> in Python</a> if you're still interested.</p>
+<p>Python does NOT offer GOTO. However, somebody made a GOTO module for April Fools’ Day. See <a href="http://stackoverflow.com/q/6959360/562769"><code>goto</code> in Python</a> if you’re still interested.</p>
 
 <h2 id="tocAnchor-1-2">Java</h2>
-
 <blockquote>Java has no goto statement. Studies illustrated that goto is (mis)used more often than not simply "because it's there". Eliminating goto led to a simplification of the language--there are no rules about the effects of a goto into the middle of a for statement, for example. Studies on approximately 100,000 lines of C code determined that roughly 90 percent of the goto statements were used purely to obtain the effect of breaking out of nested loops. As mentioned above, multi-level break and continue remove most of the need for goto statements.</blockquote>
-
 <p>Source: <a href="http://java.sun.com/docs/white/langenv/Simple.doc2.html#5550">java.sun.com</a></p>
 
 <h2 id="tocAnchor-1-3">C++</h2>
-
 <p>GOTO works in C++. Here is a minimal example:</p>
 
 <h3 id="tocAnchor-1-3-1">Minimal Example</h3>
@@ -186,7 +182,6 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h3 id="tocAnchor-1-3-2">Euclidean GCD algorithm</h3>
-
 <p>Most of you might know the <a href="http://en.wikipedia.org/wiki/Euclidean_algorithm">euclidean algorithm</a> for calculating the greatest common divisor in a version like this one:</p>
 
 <div class="highlight">
@@ -240,8 +235,7 @@ MathJax.Hub.Queue(function() {
 <p>Source: <a href="http://en.literateprograms.org/Euclidean_algorithm_(C)">literateprograms.org</a></p>
 
 <h3 id="tocAnchor-1-3-3">Try bad things</h3>
-
-<p>You can't jump into a function:</p>
+<p>You can’t jump into a function:</p>
 
 <div class="highlight">
    <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;iostream&gt;</span>
@@ -464,7 +458,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

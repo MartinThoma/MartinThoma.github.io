@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The following tipps work under a Linux terminal and were tested with Ubuntu 10.04 LTS.</p>
 
 <p>I guess they will also work with other systems, as the programs are available for them.</p>
@@ -143,12 +143,15 @@ MathJax.Hub.Queue(function() {
    </ul>
 </div><h2 id="tocAnchor-1-1">PDF</h2>
 
-<p>Convert a folder of PDF slides into text files of the same name. This is nice
+<p>Convert a folder of PDF slides into text files of the same name. This is nice<br />
 for using <code>grep</code>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="k">for</span> file in *.pdf<span class="p">;</span><span class="k">do</span> pdftotext <span class="s2">"$file"</span><span class="p">;</span> <span class="k">done</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ for file in *.pdf;do pdftotext "$file"; done
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Image Files</h2>
 
 <p>If you want to change image files via terminal, <a href="http://en.wikipedia.org/wiki/ImageMagick" rel="nofollow">ImageMagick</a> is a good choice.</p>
@@ -156,142 +159,202 @@ for using <code>grep</code>:</p>
 <p>
    <strong>Resize Images to a maximum resolution</strong>
 </p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">convert <span class="s2">"OldPicture.jpg"</span> -resize 1600x1600 <span class="s2">"NewPicture.jpg"</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>convert "OldPicture.jpg" -resize 1600x1600 "NewPicture.jpg"
+</pre></div>
 </div>
+</div>
+
 <p>You can also do this for a whole folder. Just go into that folder and:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="k">for</span> i in *.jpg<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1600x1600 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>for i in *.jpg; do convert $i -resize 1600x1600 $i; done
+</pre></div>
 </div>
-<p>In case you have just taken many photos of a document and you want to send it
+</div>
+
+<p>In case you have just taken many photos of a document and you want to send it<br />
 as a single PDF via email. Thats the way to go:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="k">for</span> i in *.JPG<span class="p">;</span> <span class="k">do</span> convert <span class="nv">$i</span> -resize 1200x1200 <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span> convert *.JPG merged.pdf
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>for i in *.JPG; do convert $i -resize 1200x1200 $i; done; convert *.JPG merged.pdf
+</pre></div>
 </div>
+</div>
+
 <p>
    <strong>Create a Black-and-white picture and compress it</strong>
 </p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>djpeg <span class="s2">"OldPicture.jpg"</span> <span class="p">|</span> ppmtopgm <span class="p">|</span> cjpeg -qual <span class="m">70</span> &gt;<span class="s2">"NewPicture.jpg"</span>
-</code></pre>
-</div>
-<p><b>Rename Pictures</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>rename -n <span class="p">&amp;</span>rsquo<span class="p">;</span>s/<span class="se">\.</span>jpg<span class="nv">$/</span><span class="se">\.</span>JPG/<span class="p">&amp;</span>rsquo<span class="p">;</span> *.jpg
-</code></pre>
-</div>
-<h2 id="tocAnchor-1-3">Audio Files</h2>
 
-<p><b>Give all mp3 songs the same sound level</b> (it's called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mp3gain -a *.mp3
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ djpeg "OldPicture.jpg" | ppmtopgm | cjpeg -qual 70 &gt;"NewPicture.jpg"
+</pre></div>
 </div>
+</div>
+
+<p><b>Rename Pictures</b>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ rename -n &amp;rsquo;s/\.jpg$/\.JPG/&amp;rsquo; *.jpg
+</pre></div>
+</div>
+</div>
+
+<h2 id="tocAnchor-1-3">Audio Files</h2>
+<p><b>Give all mp3 songs the same sound level</b> (it’s called <a href="http://en.wikipedia.org/wiki/Audio_normalization" rel="nofollow">Audio normalization</a>):</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ mp3gain -a *.mp3
+</pre></div>
+</div>
+</div>
+
 <p><b>Merge many audio files to one</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mp3wrap merged.mp3 one.mp3 two.mp3
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ mp3wrap merged.mp3 one.mp3 two.mp3
+</pre></div>
 </div>
+</div>
+
 <p><b>Convert all *.wav-files in one folder two *.mp3-files and remove the *.wav-files</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="k">for</span> i in *.wav<span class="p">;</span><span class="k">do</span> lame <span class="s2">"$i"</span> <span class="s2">"${i%wav}mp3"</span><span class="p">;</span> rm <span class="s2">"$i"</span><span class="p">;</span> <span class="k">done</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ for i in *.wav;do lame "$i" "${i%wav}mp3"; rm "$i"; done
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-4">Video Files</h2>
 
-<p>For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.
+<p>For quite a lot purposes is the command line tool <a href="http://en.wikipedia.org/wiki/FFmpeg" rel="nofollow">FFmpeg</a> with its <a href="http://www.ffmpeg.org/ffmpeg-doc.html">lots of options</a> a good choice. For others might <a href="http://en.wikipedia.org/wiki/MEncoder" rel="nofollow">MEncoder</a> be better.<br />
 You might also want to install some codecs first:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ sudo apt-get install libavcodec-extra-52 libavdevice-extra-52 libavformat-extra-52 libavutil-extra-50 libpostproc-extra-51 libswscale-extra-0 libavcodec-unstripped-52 ubuntu-restricted-extras
+</pre></div>
 </div>
+</div>
+
 <p><b>Merge many video files to one</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cat One.mpg Two.mpg Three.mpg <span class="p">|</span> ffmpeg -f mpeg -i - -vcodec copy -acodec copy <span class="s2">"Merged.mpg"</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ cat One.mpg Two.mpg Three.mpg | ffmpeg -f mpeg -i - -vcodec copy -acodec copy "Merged.mpg"
+</pre></div>
 </div>
+</div>
+
 <p><b>avi2mpg</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i <span class="s2">"Original.avi"</span> <span class="s2">"New.mpg"</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ ffmpeg -i "Original.avi" "New.mpg"
+</pre></div>
 </div>
+</div>
+
 <p><b>mp42mpg</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i <span class="s2">"Original.mp4"</span> -target ntsc-vcd <span class="s2">"New.mpg"</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ ffmpeg -i "Original.mp4" -target ntsc-vcd "New.mpg"
+</pre></div>
 </div>
+</div>
+
 <p><b>mp42mp3</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i Original.mp4 -f mp3 -ab <span class="m">192000</span> -vn New.mp3
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ ffmpeg -i Original.mp4 -f mp3 -ab 192000 -vn New.mp3
+</pre></div>
 </div>
-<p><b>mod2avi</b>:
+</div>
+
+<p><b>mod2avi</b>:<br />
 ?</p>
 
 <p><b>mts2ogg</b> (<a href="https://en.wikipedia.org/wiki/.m2ts">MTS format info</a>):</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">
-</code></pre>
-</div>
-<p><b>vcd2avi</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder vcd://2 -o <span class="s2">"New.avi"</span> -oac copy -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vbitrate<span class="o">=</span>2000
-</code></pre>
-</div>
-<p><b>ogv2avi</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder <span class="s2">"Original.ogv"</span> -ovc xvid -oac mp3lame -xvidencopts <span class="nv">pass</span><span class="o">=</span><span class="m">1</span> -o <span class="s2">"New.avi"</span>
-</code></pre>
-</div>
-<p><b>wmv2mpg</b>:
-aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder -of avi -ofps <span class="m">25</span> <span class="se">\</span>
-  -oac mp3lame -lameopts cbr:br<span class="o">=</span>112:aq<span class="o">=</span>3:mode<span class="o">=</span>0:vol<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
-  -vf hqdn3d,softskip,harddup <span class="se">\</span>
-  -ovc xvid <span class="se">\</span>
-  -xvidencopts <span class="nv">bitrate</span><span class="o">=</span>501:max_key_interval<span class="o">=</span>37:aspect<span class="o">=</span>16/9:turbo:nochroma_me:notrellis:max_bframes<span class="o">=</span>0:vhq<span class="o">=</span><span class="m">0</span> <span class="se">\</span>
-  Original.wmv <span class="se">\</span>
-  -o New.avi
-</code></pre>
-</div>
-<p><b>mkv2avi</b>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mencoder <span class="s2">"Original.mkv"</span> -ovc lavc -lavcopts <span class="nv">vcodec</span><span class="o">=</span>mpeg4:vhq:vbitrate<span class="o">=</span><span class="m">6000</span> -oac mp3lame -lameopts <span class="nv">vbr</span><span class="o">=</span><span class="m">3</span> -o <span class="s2">"New.avi"</span>
-</code></pre>
-</div>
-<h3 id="tocAnchor-1-4-1">Converting Flash Videos flv to mpg</h3>
 
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>
+</pre></div>
+</div>
+</div>
+
+<p><b>vcd2avi</b>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ mencoder vcd://2 -o "New.avi" -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=2000
+</pre></div>
+</div>
+</div>
+
+<p><b>ogv2avi</b>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ mencoder "Original.ogv" -ovc xvid -oac mp3lame -xvidencopts pass=1 -o "New.avi"
+</pre></div>
+</div>
+</div>
+
+<p><b>wmv2mpg</b>:<br />
+aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ mencoder -of avi -ofps 25 \
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>  -oac mp3lame -lameopts cbr:br=112:aq=3:mode=0:vol=0 \
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>  -vf hqdn3d,softskip,harddup \
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>  -ovc xvid \
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>  -xvidencopts bitrate=501:max_key_interval=37:aspect=16/9:turbo:nochroma_me:notrellis:max_bframes=0:vhq=0 \
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>  Original.wmv \
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>  -o New.avi
+</pre></div>
+</div>
+</div>
+
+<p><b>mkv2avi</b>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ mencoder "Original.mkv" -ovc lavc -lavcopts vcodec=mpeg4:vhq:vbitrate=6000 -oac mp3lame -lameopts vbr=3 -o "New.avi"
+</pre></div>
+</div>
+</div>
+
+<h3 id="tocAnchor-1-4-1">Converting Flash Videos flv to mpg</h3>
 <p>You might want to get the information of the video first:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i inputVideo.flv
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ ffmpeg -i inputVideo.flv
+</pre></div>
 </div>
+</div>
+
 <p>This is how you convert it:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r <span class="m">24</span> outputVideo.mpg
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ ffmpeg -i inputVideo.flv -acodec libmp3lame -ab 64k -s 320x240 -r 24 outputVideo.mpg
+</pre></div>
 </div>
-<p><strong>-i</strong> input file
-<strong>-acodec</strong> audio codec
-<strong>-ab</strong> audio bitrate
-<strong>-s</strong> size
+</div>
+
+<p><strong>-i</strong> input file<br />
+<strong>-acodec</strong> audio codec<br />
+<strong>-ab</strong> audio bitrate<br />
+<strong>-s</strong> size<br />
 <strong>-r</strong> fps where fps is the frame rate in Hz. The default value is 25Hz.</p>
 
 <h2 id="tocAnchor-1-6">Converting Flash Videos flv to avi</h2>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ ffmpeg -i inputVideo.flv -sameq -ab 128k outputVideo.avi
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-7">Shortcuts for Linux Console</h2>
+<p>I convert svg2png or pdf2png quite often for my articles. So I’ve created a command.</p>
 
-<p>I convert svg2png or pdf2png quite often for my articles. So I've created a command.</p>
-
-<p>You can create a command in Linux very easy:
-</p><ol>
+<p>You can create a command in Linux very easy:</p>
+<ol>
   <li>Enter <code>echo $`PATH</code> in your console</li>
   <li>Go to <code>/usr/bin</code> or any other path in your PATH</li>
   <li>Create a file with the name of your command (e.g. svg2png)</li>
@@ -300,59 +363,65 @@ aspect=16/9 should eventually be changed to 4/3 or other aspects</p>
 </ol>
 
 <p>My <code>svg2png</code> looks like this:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
 
-<span class="kn">import</span> <span class="nn">argparse</span>
-
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">"convert a svg file to png"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-i"</span><span class="p">,</span> <span class="s">"--input"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"input"</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s">"read svg file"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-o"</span><span class="p">,</span> <span class="s">"--output"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"output"</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s">"output png file"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-w"</span><span class="p">,</span> <span class="s">"--width"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"width"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s">"width of output png"</span><span class="p">)</span>
-
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">command</span> <span class="o">=</span> <span class="s">"inkscape "</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">input</span> <span class="o">+</span> \
-          <span class="s">" -w "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">+</span> <span class="s">" --export-png="</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span>
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">argparse</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>parser = argparse.ArgumentParser(description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">convert a svg file to png</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-i</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--input</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">input</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>                  help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">read svg file</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-o</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--output</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">output</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                  help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">output png file</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-w</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--width</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">width</span><span style="color:#710">"</span></span>, default=<span style="color:#00D">512</span>, type=<span style="color:#369;font-weight:bold">int</span>,
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                  help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">width of output png</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>args = parser.parse_args()
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>command = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">inkscape </span><span style="color:#710">"</span></span> + args.input + \
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> -w </span><span style="color:#710">"</span></span> + <span style="color:#369;font-weight:bold">str</span>(args.width) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> --export-png=</span><span style="color:#710">"</span></span> + args.output
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>os.system(command)
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Executed command: </span><span style="color:#710">"</span></span> + command)
+</pre></div>
 </div>
+</div>
+
 <p>My pdf2png looks like this:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
 
-<span class="kn">import</span> <span class="nn">argparse</span>
-
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">"convert a svg file to png"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-i"</span><span class="p">,</span> <span class="s">"--input"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"input"</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s">"read svg file"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-o"</span><span class="p">,</span> <span class="s">"--output"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"output"</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s">"output png file"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"FILE"</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-w"</span><span class="p">,</span> <span class="s">"--width"</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"width"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                  <span class="n">help</span><span class="o">=</span><span class="s">"width of output png"</span><span class="p">)</span>
-
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">commands</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"pdf2svg "</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">" ~"</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">".svg"</span><span class="p">)</span>
-<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"inkscape ~"</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">".svg --export-plain-svg=~"</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">".svg"</span><span class="p">)</span>
-<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"svg2png -i ~"</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">".svg -o "</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="o">+</span><span class="s">" -w "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">width</span><span class="p">))</span>
-<span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"rm ~"</span><span class="o">+</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="o">+</span><span class="s">".svg"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Executed command: "</span> <span class="o">+</span> <span class="n">command</span><span class="p">)</span>
-
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">argparse</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>parser = argparse.ArgumentParser(description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">convert a svg file to png</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-i</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--input</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">input</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>                  help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">read svg file</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-o</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--output</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">output</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                  help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">output png file</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-w</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--width</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">width</span><span style="color:#710">"</span></span>, default=<span style="color:#00D">512</span>, type=<span style="color:#369;font-weight:bold">int</span>,
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                  help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">width of output png</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>args = parser.parse_args()
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>commands=[]
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>commands.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pdf2svg </span><span style="color:#710">"</span></span>+args.input+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> ~</span><span style="color:#710">"</span></span>+args.input+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.svg</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>commands.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">inkscape ~</span><span style="color:#710">"</span></span>+args.input+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.svg --export-plain-svg=~</span><span style="color:#710">"</span></span>+args.input+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.svg</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>commands.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">svg2png -i ~</span><span style="color:#710">"</span></span>+args.input+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.svg -o </span><span style="color:#710">"</span></span>+args.output+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> -w </span><span style="color:#710">"</span></span> + <span style="color:#369;font-weight:bold">str</span>(args.width))
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>commands.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">rm ~</span><span style="color:#710">"</span></span>+args.input+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.svg</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span><span style="color:#080;font-weight:bold">for</span> command <span style="color:#080;font-weight:bold">in</span> commands:
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>        os.system(command)
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Executed command: </span><span style="color:#710">"</span></span> + command)
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>args = parser.parse_args()
+</pre></div>
 </div>
+</div>
+
                         </div>
                         <div class="postmeta">Posted in
                             
@@ -546,7 +615,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

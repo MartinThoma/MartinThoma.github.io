@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Reguläre Sprachen können von endlichen Automaten erkannt werden. Das bedeutet, dass eine endliche Anzahl an Zuständen ausreicht, um ein Wort der Sprache zu akzeptieren. Wenn also eine Sprache $L = \{a^i b^{2i} | i \in \mathbb{N}\}$ beschrieben wird, müsste gezählt werden, wie oft a vorkommt. a kann aber beliebig oft vorkommen. Das ist ein Indiz dafür, dass es sich nicht um eine reguläre Sprache handelt.</p>
 
 <p>Das <a href="http://de.wikipedia.org/wiki/Pumping-Lemma">Pumping-Lemma</a> ist ein notwendiges, aber kein hinreichendes Kriterium für reguläre Sprachen. Daraus folgt, dass eine nicht-reguläre Sprache eventuell durch das Lemma entlarvt werden kann. Allerdings muss nicht jede Sprache, die das Pumping-Lemma erfüllt, regulär sein.</p>
@@ -113,8 +113,7 @@ MathJax.Hub.Queue(function() {
 <p>Dies kann man durch einen Widerspruchsbeweis zeigen. Dabei nimmt man an, dass die Behauptung falsch ist. Dann zeigt man, dass man durch die Annahme zu einem Widerspruch kommt.</p>
 
 <h2 id="tocAnchor-1-1">Beispiel</h2>
-
-<p><strong>Voraussetzung</strong>: </p>
+<p><strong>Voraussetzung</strong>:</p>
 
 <p>$L_2 = \{a^i b^j c^k | i \lt j \lt k\}$.</p>
 
@@ -124,8 +123,8 @@ MathJax.Hub.Queue(function() {
 
 <p><strong>Annahme</strong>: $L_2$ sei regulär.</p>
 
-<p>Aus dem Pumping-Lemma folgt: 
-$\exists n \in \mathbb{N}: \forall w \in \{w \in L_2 | |w| \geq n\}: $
+<p>Aus dem Pumping-Lemma folgt: <br />
+$\exists n \in \mathbb{N}: \forall w \in \{w \in L_2 | |w| \geq n\}: $<br />
 $\exists \text{ Darstellung } uvx = w \text{ mit } v \neq \varepsilon \land |uv| \leq n$ für die gilt:</p>
 
 <p>
@@ -136,22 +135,21 @@ $\exists \text{ Darstellung } uvx = w \text{ mit } v \neq \varepsilon \land |uv|
 
 <p>Sei $n \in \mathbb{N}$ die Konstante aus dem Pumping-Lemma.</p>
 
-<p>Betrachte nun $w = a^n b^{n+1} c^{n+2}$. Offensichtlich gilt $w \in L_2$. Da $|uv| \leq n$ muss in v mindestens ein a sein. </p>
+<p>Betrachte nun $w = a^n b^{n+1} c^{n+2}$. Offensichtlich gilt $w \in L_2$. Da $|uv| \leq n$ muss in v mindestens ein a sein.</p>
 
-<p>$\Rightarrow uv^2 x = a^{n+2 \cdot i} b^{n+1} c^{n+2}, i \geq 1 $
-$\Rightarrow uv^2x \notin L_2 $
-$\Rightarrow \text{Widerspruch} $
-$\Rightarrow \text{Die Annahme war falsch.} $
+<p>$\Rightarrow uv^2 x = a^{n+2 \cdot i} b^{n+1} c^{n+2}, i \geq 1 $<br />
+$\Rightarrow uv^2x \notin L_2 $<br />
+$\Rightarrow \text{Widerspruch} $<br />
+$\Rightarrow \text{Die Annahme war falsch.} $<br />
 $\Rightarrow L_2$ ist nicht regulär.</p>
 
-<p><em>Bemerkung</em>: Eigentlich ist es ein Beweis durch Kontraposition. Man weiß, es gilt:
-$L \in {\cal L_3} \Rightarrow $ L erfüllt das Pumping-Lemma.
-Daraus folgt:
-L erfüllt nicht das Pumping-Lemma $\Rightarrow L \notin {\cal L_3}$.
+<p><em>Bemerkung</em>: Eigentlich ist es ein Beweis durch Kontraposition. Man weiß, es gilt:<br />
+$L \in {\cal L_3} \Rightarrow $ L erfüllt das Pumping-Lemma.<br />
+Daraus folgt:<br />
+L erfüllt nicht das Pumping-Lemma $\Rightarrow L \notin {\cal L_3}$.<br />
 Um zu beweisen, dass L das Pumping-Lemma nicht erfüllt, benutzt man meist einen Widerspruchsbeweis wie oben.</p>
 
 <h2 id="tocAnchor-1-2">Material</h2>
-
 <p>Ich habe mal ein paar <a href="../images/2011/11/odgen-pumping.zip">Beispiele für Ogdens Lemma und das Pumping-Lemma</a> gesammelt.</p>
 
                         </div>
@@ -341,7 +339,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">This is part one of a series. See <a href="//martin-thoma.com/analyzing-pypi-metadata-2/">Analyzing PyPI Data - 2</a> for part two.</div>
 
-<p>PyPI, the Python Package Index, gives a very crappy but simple interface to
-query metadata about its packages. I scrapped all of the packages metadata.
-53,533 packages were scrapped (date: 2015-01-18), because I wanted to
-see if there is malware on PyPI (related to
+<p>PyPI, the Python Package Index, gives a very crappy but simple interface to<br />
+query metadata about its packages. I scrapped all of the packages metadata.<br />
+53,533 packages were scrapped (date: 2015-01-18), because I wanted to<br />
+see if there is malware on PyPI (related to<br />
 <a href="http://security.stackexchange.com/q/79326/3286">this question on security.SE</a>).</p>
 
 <p>The database looks like this:</p>
@@ -138,7 +138,7 @@ see if there is malware on PyPI (related to
          </ul>
       </li>
       <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">What people don't use</span></a>
+         <a href="#tocAnchor-1-4"><span class="tocnumber">2</span> <span class="toctext">What people don’t use</span></a>
          <ul>
             <li class="toc_level-2 toc_section-5">
                <a href="#tocAnchor-1-4-1"><span class="tocnumber">2.1</span> <span class="toctext">Maintainer</span></a>
@@ -178,142 +178,151 @@ see if there is malware on PyPI (related to
    </ul>
 </div><h2 id="tocAnchor-1-1">Exploring the data</h2>
 
-<p>When I scapped the data from PyPI, I made all database fields "varchar 255" as
-there seems to be no information about the possible values. Then I explored
+<p>When I scapped the data from PyPI, I made all database fields “varchar 255” as<br />
+there seems to be no information about the possible values. Then I explored<br />
 the data</p>
 
 <ul>
-<li><code>name</code>: The longest package name is 80 characters long (<code>Aaaaaaaaaaa...</code>), the shortest packages have only one
+  <li><code>name</code>: The longest package name is 80 characters long (<code>Aaaaaaaaaaa...</code>), the shortest packages have only one<br />
 character.</li>
-<li><code>author</code>: 911× "UNKOWN", 741× empty, 195× "None", 151× "Zope Foundation and
-Contributors". There are about 22,000 different authors. There are 595
+  <li><code>author</code>: 911× “UNKOWN”, 741× empty, 195× “None”, 151× “Zope Foundation and<br />
+Contributors”. There are about 22,000 different authors. There are 595<br />
 authors who wrote more than 10 packages.</li>
-<li><code>author_email</code>: 2059× "UNKOWN", 932× empty, 323× "zope-dev@zope.org", 216×
-"None" and 204× "TODO".</li>
-<li><code>maintainer</code>: 46879× "None", 5507× empty, 17× <a href="http://www.boddie.org.uk/paul/CV.html">Paul Boddie</a>.</li>
-<li><code>requires_python</code>: 53467× "None", 3× "UNKNOWN", 2× "&gt;=2.7,!=3.0,!=3.1", 2×
-"&gt;=2.5", 1× "2.6", 1× "&gt;= 3.3", 1× "&gt;=2.4", 1× "&gt;= 2.7" - that's it. No other
+  <li><code>author_email</code>: 2059× “UNKOWN”, 932× empty, 323× “zope-dev@zope.org”, 216×<br />
+“None” and 204× “TODO”.</li>
+  <li><code>maintainer</code>: 46879× “None”, 5507× empty, 17× <a href="http://www.boddie.org.uk/paul/CV.html">Paul Boddie</a>.</li>
+  <li><code>requires_python</code>: 53467× “None”, 3× “UNKNOWN”, 2× “&gt;=2.7,!=3.0,!=3.1”, 2×<br />
+“&gt;=2.5”, 1× “2.6”, 1× “&gt;= 3.3”, 1× “&gt;=2.4”, 1× “&gt;= 2.7” - that’s it. No other<br />
 values. Seems as if this is pretty much useless.</li>
-<li><code>docs_url</code>: Either begins with <code>http://pythonhosted.org</code> or is empty.</li>
+  <li><code>docs_url</code>: Either begins with <code>http://pythonhosted.org</code> or is empty.</li>
 </ul>
 
 <h3 id="tocAnchor-1-1-1">Most active authors</h3>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">as</span> <span class="o">`</span><span class="n">created_packages</span><span class="o">`</span>
-<span class="k">FROM</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">author</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="o">`</span><span class="n">author</span><span class="o">`</span> <span class="k">ASC</span>
-<span class="k">LIMIT</span>
-    <span class="mi">50</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">as</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">created_packages</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span> <span style="color:#088;font-weight:bold">ASC</span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>LIMIT
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#00D">50</span>
+</pre></div>
 </div>
+</div>
+
 <p>gives</p>
 
 <table>
-   <thead>
-<tr>
-<th></th>
-<th>1485</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>UNKNOWN</td>
-<td>1150</td>
-</tr>
-<tr>
-<td>None</td>
-<td>196</td>
-</tr>
-<tr>
-<td>OpenStack</td>
-<td>188</td>
-</tr>
-<tr>
-<td>Zope Foundation and Contributors</td>
-<td>146</td>
-</tr>
-<tr>
-<td>MicroPython Developers</td>
-<td>139</td>
-</tr>
-<tr>
-<td>OpenERP SA</td>
-<td>137</td>
-</tr>
-<tr>
-<td>Zope Corporation and Contributors</td>
-<td>128</td>
-</tr>
-<tr>
-<td>RedTurtle Technology</td>
-<td>127</td>
-</tr>
-<tr>
-<td>Praekelt Foundation</td>
-<td>126</td>
-</tr>
-<tr>
-<td>Fanstatic Developers</td>
-<td>98</td>
-</tr>
-<tr>
-<td>Tryton</td>
-<td>98</td>
-</tr>
-<tr>
-<td>Raptus AG</td>
-<td>97</td>
-</tr>
-<tr>
-<td>russianidiot</td>
-<td>93</td>
-</tr>
-<tr>
-<td>hfpython</td>
-<td>92</td>
-</tr>
-<tr>
-<td>LOGILAB S.A. (Paris, FRANCE)</td>
-<td>88</td>
-</tr>
-<tr>
-<td>BlueDynamics Alliance</td>
-<td>87</td>
-</tr>
-<tr>
-<td>Ralph Bean</td>
-<td>83</td>
-</tr>
-<tr>
-<td>JeanMichel FRANCOIS aka toutpt</td>
-<td>69</td>
-</tr>
-<tr>
-<td>Bart Thate</td>
-<td>68</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>1485</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UNKNOWN</td>
+      <td>1150</td>
+    </tr>
+    <tr>
+      <td>None</td>
+      <td>196</td>
+    </tr>
+    <tr>
+      <td>OpenStack</td>
+      <td>188</td>
+    </tr>
+    <tr>
+      <td>Zope Foundation and Contributors</td>
+      <td>146</td>
+    </tr>
+    <tr>
+      <td>MicroPython Developers</td>
+      <td>139</td>
+    </tr>
+    <tr>
+      <td>OpenERP SA</td>
+      <td>137</td>
+    </tr>
+    <tr>
+      <td>Zope Corporation and Contributors</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td>RedTurtle Technology</td>
+      <td>127</td>
+    </tr>
+    <tr>
+      <td>Praekelt Foundation</td>
+      <td>126</td>
+    </tr>
+    <tr>
+      <td>Fanstatic Developers</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <td>Tryton</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <td>Raptus AG</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <td>russianidiot</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <td>hfpython</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>LOGILAB S.A. (Paris, FRANCE)</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>BlueDynamics Alliance</td>
+      <td>87</td>
+    </tr>
+    <tr>
+      <td>Ralph Bean</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <td>JeanMichel FRANCOIS aka toutpt</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <td>Bart Thate</td>
+      <td>68</td>
+    </tr>
+  </tbody>
 </table>
 
 <p>The total number of authors is 28 183 (06.12.2015):</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="o">`</span><span class="n">author</span><span class="o">`</span><span class="p">)</span> <span class="k">AS</span> <span class="o">`</span><span class="n">total_authors</span><span class="o">`</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span> <span style="color:#369;font-weight:bold">COUNT</span>(<span style="color:#080;font-weight:bold">DISTINCT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">AS</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">total_authors</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-1-2">Maximum Length</h3>
 
-<p>I guess many values are stored on PyPI as <code>Varchar(255)</code>. To check if I might
-have missed some values, I checked which entry was the longest one for all
+<p>I guess many values are stored on PyPI as <code>Varchar(255)</code>. To check if I might<br />
+have missed some values, I checked which entry was the longest one for all<br />
 columns. I did this with</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, LENGTH(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span> LENGTH(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+</pre></div>
 </div>
+</div>
+
 <table>
     <tr>
         <th>Column</th>
@@ -440,110 +449,113 @@ columns. I did this with</p>
 <p>We can see multiple problems here:</p>
 
 <ul>
-<li>URLs: localhost / 127.0.0.1 is almost certainly not desired</li>
-<li><code>cheesecake_installability_id</code>, <code>cheesecake_documentation_id</code>, <code>cheesecake_code_kwalitee_id</code>
-should have NULL and None should be casted to NULL. The data type is likely
+  <li>URLs: localhost / 127.0.0.1 is almost certainly not desired</li>
+  <li><code>cheesecake_installability_id</code>, <code>cheesecake_documentation_id</code>, <code>cheesecake_code_kwalitee_id</code><br />
+should have NULL and None should be casted to NULL. The data type is likely<br />
 to be numeric.</li>
-<li><code>_pypi_ordering</code> should be numeric</li>
-<li><code>_pypi_hidden</code> should be boolean</li>
+  <li><code>_pypi_ordering</code> should be numeric</li>
+  <li><code>_pypi_hidden</code> should be boolean</li>
 </ul>
 
-<p>So I changed the types in the database. Let's continue.</p>
+<p>So I changed the types in the database. Let’s continue.</p>
 
-<h2 id="tocAnchor-1-4">What people don't use</h2>
+<h2 id="tocAnchor-1-4">What people don’t use</h2>
 
-<p>All metadata is provided by the authors of the packages. Some fields, like the
-package name or the description, are used very often, but some fields are only
+<p>All metadata is provided by the authors of the packages. Some fields, like the<br />
+package name or the description, are used very often, but some fields are only<br />
 rarely used:</p>
 
 <h3 id="tocAnchor-1-4-1">Maintainer</h3>
 
-<p><code>maintainer</code> and <code>maintainer_email</code> is interesting for people who want to send
+<p><code>maintainer</code> and <code>maintainer_email</code> is interesting for people who want to send<br />
 bug reports. If this is empty, I would guess the package is dead.</p>
 
 <h3 id="tocAnchor-1-4-2">Platform</h3>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">platform</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
-<span class="k">FROM</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">platform</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">platform</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">platform</span><span style="color:#710">`</span></span>
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+</pre></div>
 </div>
+</div>
+
 <p>gives 759 different results. The TOP-10 were</p>
 
 <table>
-   <thead>
-<tr>
-<th>Platform</th>
-<th>Count</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>UNKNOWN</td>
-<td>43539</td>
-</tr>
-<tr>
-<td>any</td>
-<td>3515</td>
-</tr>
-<tr>
-<td></td>
-<td>1986</td>
-</tr>
-<tr>
-<td>Any</td>
-<td>635</td>
-</tr>
-<tr>
-<td>OS Independent</td>
-<td>542</td>
-</tr>
-<tr>
-<td>None</td>
-<td>265</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>225</td>
-</tr>
-<tr>
-<td>linux</td>
-<td>167</td>
-</tr>
-<tr>
-<td>Posix; MacOS X; Windows</td>
-<td>157</td>
-</tr>
-<tr>
-<td>POSIX</td>
-<td>156</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UNKNOWN</td>
+      <td>43539</td>
+    </tr>
+    <tr>
+      <td>any</td>
+      <td>3515</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>1986</td>
+    </tr>
+    <tr>
+      <td>Any</td>
+      <td>635</td>
+    </tr>
+    <tr>
+      <td>OS Independent</td>
+      <td>542</td>
+    </tr>
+    <tr>
+      <td>None</td>
+      <td>265</td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>225</td>
+    </tr>
+    <tr>
+      <td>linux</td>
+      <td>167</td>
+    </tr>
+    <tr>
+      <td>Posix; MacOS X; Windows</td>
+      <td>157</td>
+    </tr>
+    <tr>
+      <td>POSIX</td>
+      <td>156</td>
+    </tr>
+  </tbody>
 </table>
 
-<p>You can see that there are alternative ways to express the same thing.
-Also, the ";" should not be here as the manual states it should be a list.</p>
+<p>You can see that there are alternative ways to express the same thing.<br />
+Also, the “;” should not be here as the manual states it should be a list.</p>
 
-<p><a href="https://docs.python.org/2/distutils/setupscript.html">The manual</a> is also too
-short for this entry. It only says "a list of platforms" which seems to be
+<p><a href="https://docs.python.org/2/distutils/setupscript.html">The manual</a> is also too<br />
+short for this entry. It only says “a list of platforms” which seems to be<br />
 pretty much useless.</p>
 
-<p><a href="http://docstore.mik.ua/orelly/other/python/0596001886_pythonian-chp-26-sect-1.html">docstore.mik.ua</a>
+<p><a href="http://docstore.mik.ua/orelly/other/python/0596001886_pythonian-chp-26-sect-1.html">docstore.mik.ua</a><br />
 gives a little bit more information</p>
 
 <blockquote>
-<p>A list of platforms on which this distribution is known to work. You should provide this information if you have reasons to believe this distribution may not work everywhere. This information should be reasonably concise, so this field may refer for details to a file in the distribution or to a URL.</p>
+  <p>A list of platforms on which this distribution is known to work. You should provide this information if you have reasons to believe this distribution may not work everywhere. This information should be reasonably concise, so this field may refer for details to a file in the distribution or to a URL.</p>
 </blockquote>
 
 <h3 id="tocAnchor-1-4-3">Bugtracker</h3>
 
-<p>This one is very important. Users should have an easy possibility to report
-bugs. So please help them by added your bug tracker URL wherever it makes
+<p>This one is very important. Users should have an easy possibility to report<br />
+bugs. So please help them by added your bug tracker URL wherever it makes<br />
 sense. Here is how you add it on PyPI:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -570,507 +582,525 @@ sense. Here is how you add it on PyPI:</p>
 <h3 id="tocAnchor-1-4-4">License</h3>
 
 <p>Another important one. Add a license to your software!</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">license</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
-<span class="k">FROM</span>
-    <span class="n">packages</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">license</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">license</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    packages
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">license</span><span style="color:#710">`</span></span>
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+</pre></div>
 </div>
+</div>
+
 <p>gives</p>
 
 <table>
-   <thead>
-<tr>
-<th>License</th>
-<th>Count</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>UNKNOWN</td>
-<td>11444</td>
-</tr>
-<tr>
-<td>MIT</td>
-<td>8098</td>
-</tr>
-<tr>
-<td>BSD</td>
-<td>7224</td>
-</tr>
-<tr>
-<td>GPL</td>
-<td>4202</td>
-</tr>
-<tr>
-<td>MIT License</td>
-<td>1410</td>
-</tr>
-<tr>
-<td>(empty)</td>
-<td>1398</td>
-</tr>
-<tr>
-<td>LICENSE.txt</td>
-<td>1201</td>
-</tr>
-<tr>
-<td>GPLv3</td>
-<td>1083</td>
-</tr>
-<tr>
-<td>LGPL</td>
-<td>833</td>
-</tr>
-<tr>
-<td>ZPL 2.1</td>
-<td>829</td>
-</tr>
-<tr>
-<td>BSD License</td>
-<td>811</td>
-</tr>
-<tr>
-<td>Apache License 2.0</td>
-<td>482</td>
-</tr>
-<tr>
-<td>Apache License, Version 2.0</td>
-<td>443</td>
-</tr>
-<tr>
-<td>Apache 2.0</td>
-<td>437</td>
-</tr>
-<tr>
-<td>GPLv2</td>
-<td>370</td>
-</tr>
-<tr>
-<td>None</td>
-<td>363</td>
-</tr>
-<tr>
-<td>ZPL</td>
-<td>288</td>
-</tr>
-<tr>
-<td>GPL-3</td>
-<td>272</td>
-</tr>
-<tr>
-<td>GPLv3+</td>
-<td>258</td>
-</tr>
-<tr>
-<td>LICENSE</td>
-<td>249</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>License</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UNKNOWN</td>
+      <td>11444</td>
+    </tr>
+    <tr>
+      <td>MIT</td>
+      <td>8098</td>
+    </tr>
+    <tr>
+      <td>BSD</td>
+      <td>7224</td>
+    </tr>
+    <tr>
+      <td>GPL</td>
+      <td>4202</td>
+    </tr>
+    <tr>
+      <td>MIT License</td>
+      <td>1410</td>
+    </tr>
+    <tr>
+      <td>(empty)</td>
+      <td>1398</td>
+    </tr>
+    <tr>
+      <td>LICENSE.txt</td>
+      <td>1201</td>
+    </tr>
+    <tr>
+      <td>GPLv3</td>
+      <td>1083</td>
+    </tr>
+    <tr>
+      <td>LGPL</td>
+      <td>833</td>
+    </tr>
+    <tr>
+      <td>ZPL 2.1</td>
+      <td>829</td>
+    </tr>
+    <tr>
+      <td>BSD License</td>
+      <td>811</td>
+    </tr>
+    <tr>
+      <td>Apache License 2.0</td>
+      <td>482</td>
+    </tr>
+    <tr>
+      <td>Apache License, Version 2.0</td>
+      <td>443</td>
+    </tr>
+    <tr>
+      <td>Apache 2.0</td>
+      <td>437</td>
+    </tr>
+    <tr>
+      <td>GPLv2</td>
+      <td>370</td>
+    </tr>
+    <tr>
+      <td>None</td>
+      <td>363</td>
+    </tr>
+    <tr>
+      <td>ZPL</td>
+      <td>288</td>
+    </tr>
+    <tr>
+      <td>GPL-3</td>
+      <td>272</td>
+    </tr>
+    <tr>
+      <td>GPLv3+</td>
+      <td>258</td>
+    </tr>
+    <tr>
+      <td>LICENSE</td>
+      <td>249</td>
+    </tr>
+  </tbody>
 </table>
 
 <p>and about 6500 other licenses. Most might be variants in writing, e.g.</p>
 
 <ul>
-<li>Apache License 2.0</li>
-<li>Apache License, Version 2.0</li>
-<li>Apache 2.0</li>
+  <li>Apache License 2.0</li>
+  <li>Apache License, Version 2.0</li>
+  <li>Apache 2.0</li>
 </ul>
 
-<p>are all the same license. Some packages have no licence (<code>Unknown</code> and empty).
+<p>are all the same license. Some packages have no licence (<code>Unknown</code> and empty).<br />
 Many are invalid values, like</p>
 
 <ul>
-<li>LICENSE.txt</li>
-<li>None</li>
-<li>LICENSE</li>
-<li>Python</li>
+  <li>LICENSE.txt</li>
+  <li>None</li>
+  <li>LICENSE</li>
+  <li>Python</li>
 </ul>
 
-<p>These indicate that people have no idea what to input there.
-<a href="https://tldrlegal.com/">tldrlegal.com</a> might help in that case. I think the
-Python community should try to eliminate variants in writing license names as
+<p>These indicate that people have no idea what to input there.<br />
+<a href="https://tldrlegal.com/">tldrlegal.com</a> might help in that case. I think the<br />
+Python community should try to eliminate variants in writing license names as<br />
 it makes finding, filtering and analyzing packages more difficult.</p>
 
 <h2 id="tocAnchor-1-9">Classifiers</h2>
 
-<p>Python makes use of so called trove classifiers. They are defined in
-<a href="https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification">PEP 301</a>
+<p>Python makes use of so called trove classifiers. They are defined in<br />
+<a href="https://www.python.org/dev/peps/pep-0301/#distutils-trove-classification">PEP 301</a><br />
 and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">here</a>.</p>
 
 <p>The following table gives the TOP-10 most commonly used classifiers:</p>
 
 <table>
-   <thead>
-<tr>
-<th>Classifier</th>
-<th>Percentage</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>Programming Language :: Python</td>
-<td>0.4615</td>
-</tr>
-<tr>
-<td>Intended Audience :: Developers</td>
-<td>0.4412</td>
-</tr>
-<tr>
-<td>Operating System :: OS Independent</td>
-<td>0.3229</td>
-</tr>
-<tr>
-<td>Programming Language :: Python :: 2.7</td>
-<td>0.2183</td>
-</tr>
-<tr>
-<td>Topic :: Software Development :: Libraries :: Pyth...</td>
-<td>0.2038</td>
-</tr>
-<tr>
-<td>Development Status :: 4 - Beta</td>
-<td>0.2038</td>
-</tr>
-<tr>
-<td>License :: OSI Approved :: BSD License</td>
-<td>0.1632</td>
-</tr>
-<tr>
-<td>License :: OSI Approved :: MIT License</td>
-<td>0.1529</td>
-</tr>
-<tr>
-<td>Environment :: Web Environment</td>
-<td>0.1487</td>
-</tr>
-<tr>
-<td>Programming Language :: Python :: 2.6</td>
-<td>0.1306</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Classifier</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Programming Language :: Python</td>
+      <td>0.4615</td>
+    </tr>
+    <tr>
+      <td>Intended Audience :: Developers</td>
+      <td>0.4412</td>
+    </tr>
+    <tr>
+      <td>Operating System :: OS Independent</td>
+      <td>0.3229</td>
+    </tr>
+    <tr>
+      <td>Programming Language :: Python :: 2.7</td>
+      <td>0.2183</td>
+    </tr>
+    <tr>
+      <td>Topic :: Software Development :: Libraries :: Pyth…</td>
+      <td>0.2038</td>
+    </tr>
+    <tr>
+      <td>Development Status :: 4 - Beta</td>
+      <td>0.2038</td>
+    </tr>
+    <tr>
+      <td>License :: OSI Approved :: BSD License</td>
+      <td>0.1632</td>
+    </tr>
+    <tr>
+      <td>License :: OSI Approved :: MIT License</td>
+      <td>0.1529</td>
+    </tr>
+    <tr>
+      <td>Environment :: Web Environment</td>
+      <td>0.1487</td>
+    </tr>
+    <tr>
+      <td>Programming Language :: Python :: 2.6</td>
+      <td>0.1306</td>
+    </tr>
+  </tbody>
 </table>
 
-<p>When you analyze the licenses with the trove classifiers you get a different
+<p>When you analyze the licenses with the trove classifiers you get a different<br />
 image:</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">classifier</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="o">/</span> <span class="mi">53533</span>
-<span class="k">FROM</span>
-    <span class="o">`</span><span class="n">package_classifiers</span><span class="o">`</span>
-<span class="k">WHERE</span>
-    <span class="o">`</span><span class="n">classifier</span><span class="o">`</span> <span class="k">LIKE</span> <span class="ss">"License%"</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">classifier</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) / <span style="color:#00D">53533</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_classifiers</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">WHERE</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">LIKE</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">License%</span><span style="color:#710">"</span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+</pre></div>
 </div>
+</div>
+
 <table>
-   <thead>
-<tr>
-<th>License</th>
-<th>Percentage</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>License :: OSI Approved :: BSD License</td>
-<td>0.1632</td>
-</tr>
-<tr>
-<td>License :: OSI Approved :: MIT License</td>
-<td>0.1529</td>
-</tr>
-<tr>
-<td>License :: OSI Approved :: GNU General Public License (GPL)</td>
-<td>0.0625</td>
-</tr>
-<tr>
-<td>License :: OSI Approved :: Apache Software License</td>
-<td>0.0460</td>
-</tr>
-<tr>
-<td>License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)</td>
-<td>0.0188</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>License</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>License :: OSI Approved :: BSD License</td>
+      <td>0.1632</td>
+    </tr>
+    <tr>
+      <td>License :: OSI Approved :: MIT License</td>
+      <td>0.1529</td>
+    </tr>
+    <tr>
+      <td>License :: OSI Approved :: GNU General Public License (GPL)</td>
+      <td>0.0625</td>
+    </tr>
+    <tr>
+      <td>License :: OSI Approved :: Apache Software License</td>
+      <td>0.0460</td>
+    </tr>
+    <tr>
+      <td>License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)</td>
+      <td>0.0188</td>
+    </tr>
+  </tbody>
 </table>
 
-<p>There are 94 trove classifiers with five or less packages which use this
+<p>There are 94 trove classifiers with five or less packages which use this<br />
 classifier. I guess many of them are not in the official list of classifiers.</p>
 
 <h2 id="tocAnchor-1-10">Package type</h2>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">packagetype</span><span class="o">`</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
-<span class="k">FROM</span>
-    <span class="o">`</span><span class="n">urls</span><span class="o">`</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="n">packagetype</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">COUNT</span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span> <span class="k">DESC</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packagetype</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    packagetype
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+</pre></div>
 </div>
+</div>
+
 <p>gives</p>
 
 <table>
-   <thead>
-<tr>
-<th>Package type</th>
-<th>Count</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>sdist</td>
-<td>47649</td>
-</tr>
-<tr>
-<td>bdist_egg</td>
-<td>4933</td>
-</tr>
-<tr>
-<td>bdist_wheel</td>
-<td>3098</td>
-</tr>
-<tr>
-<td>bdist_wininst</td>
-<td>1512</td>
-</tr>
-<tr>
-<td>bdist_dumb</td>
-<td>577</td>
-</tr>
-<tr>
-<td>bdist_msi</td>
-<td>45</td>
-</tr>
-<tr>
-<td>bdist_rpm</td>
-<td>35</td>
-</tr>
-<tr>
-<td>bdist_dmg</td>
-<td>4</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Package type</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sdist</td>
+      <td>47649</td>
+    </tr>
+    <tr>
+      <td>bdist_egg</td>
+      <td>4933</td>
+    </tr>
+    <tr>
+      <td>bdist_wheel</td>
+      <td>3098</td>
+    </tr>
+    <tr>
+      <td>bdist_wininst</td>
+      <td>1512</td>
+    </tr>
+    <tr>
+      <td>bdist_dumb</td>
+      <td>577</td>
+    </tr>
+    <tr>
+      <td>bdist_msi</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>bdist_rpm</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>bdist_dmg</td>
+      <td>4</td>
+    </tr>
+  </tbody>
 </table>
 
 <p>Can anybody explain what this means?</p>
 
 <h2 id="tocAnchor-1-11">Downloads</h2>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">url</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">downloads</span><span class="o">`</span>
-<span class="k">FROM</span>
-    <span class="o">`</span><span class="n">urls</span><span class="o">`</span>
-<span class="k">JOIN</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ON</span> <span class="o">`</span><span class="n">urls</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">package_id</span><span class="o">`</span> <span class="o">=</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">urls</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">downloads</span><span class="o">`</span>  <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">10</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">url</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">JOIN</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>  <span style="color:#088;font-weight:bold">DESC</span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>LIMIT <span style="color:#00D">10</span>
+</pre></div>
 </div>
+</div>
+
 <p>gives</p>
 
 <table>
-   <thead>
-<tr>
-<th>Package type</th>
-<th>Count</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td><a href="https://pypi.python.org/pypi/wincertstore">wincertstore</a></td>
-<td>10026403</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/ssl">ssl</a></td>
-<td>8987455</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/pyasn1">pyasn1</a></td>
-<td>8655361</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/Paste">Paste</a></td>
-<td>8401111</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/PyYAML">PyYAML</a></td>
-<td>7180547</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/distribute">distribute</a></td>
-<td>6276421</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/MarkupSafe">MarkupSafe</a></td>
-<td>6215382</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/ecdsa">ecdsa</a></td>
-<td>6030395</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/meld3">meld3</a></td>
-<td>5715687</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/pika">pika</a></td>
-<td>5567400</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Package type</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/wincertstore">wincertstore</a></td>
+      <td>10026403</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/ssl">ssl</a></td>
+      <td>8987455</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/pyasn1">pyasn1</a></td>
+      <td>8655361</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/Paste">Paste</a></td>
+      <td>8401111</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/PyYAML">PyYAML</a></td>
+      <td>7180547</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/distribute">distribute</a></td>
+      <td>6276421</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/MarkupSafe">MarkupSafe</a></td>
+      <td>6215382</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/ecdsa">ecdsa</a></td>
+      <td>6030395</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/meld3">meld3</a></td>
+      <td>5715687</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/pika">pika</a></td>
+      <td>5567400</td>
+    </tr>
+  </tbody>
 </table>
 
 <p>and</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">downloads</span><span class="o">`</span><span class="p">)</span>
-<span class="k">FROM</span>
-    <span class="o">`</span><span class="n">releases</span><span class="o">`</span>
-<span class="k">JOIN</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ON</span> <span class="o">`</span><span class="n">releases</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">package_id</span><span class="o">`</span> <span class="o">=</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">name</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="k">SUM</span><span class="p">(</span><span class="o">`</span><span class="n">downloads</span><span class="o">`</span><span class="p">)</span>  <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">10</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>)
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">JOIN</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>)  <span style="color:#088;font-weight:bold">DESC</span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>LIMIT <span style="color:#00D">10</span>
+</pre></div>
 </div>
+</div>
+
 <table>
-   <thead>
-<tr>
-<th>Package type</th>
-<th>Count</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td><a href="https://pypi.python.org/pypi/setuptools">setuptools</a></td>
-<td>45485205</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/requests">requests</a></td>
-<td>35446321</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/virtualenv">virtualenv</a></td>
-<td>35039299</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/distribute">distribute</a></td>
-<td>34779943</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/boto">boto</a></td>
-<td>29678066</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/six">six</a></td>
-<td>28253705</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/certifi">certifi</a></td>
-<td>27381407</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/pip">pip</a></td>
-<td>26266325</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/wincertstore">wincertstore</a></td>
-<td>24831145</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/lxml">lxml</a></td>
-<td>20901298</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Package type</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/setuptools">setuptools</a></td>
+      <td>45485205</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/requests">requests</a></td>
+      <td>35446321</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/virtualenv">virtualenv</a></td>
+      <td>35039299</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/distribute">distribute</a></td>
+      <td>34779943</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/boto">boto</a></td>
+      <td>29678066</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/six">six</a></td>
+      <td>28253705</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/certifi">certifi</a></td>
+      <td>27381407</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/pip">pip</a></td>
+      <td>26266325</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/wincertstore">wincertstore</a></td>
+      <td>24831145</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/lxml">lxml</a></td>
+      <td>20901298</td>
+    </tr>
+  </tbody>
 </table>
 
 <h2 id="tocAnchor-1-12">Size</h2>
 
 <p>What is the biggest Python package?</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>
-    <span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">release_number</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="k">size</span><span class="o">`</span>
-<span class="k">FROM</span>
-    <span class="o">`</span><span class="n">releases</span><span class="o">`</span>
-<span class="k">JOIN</span>
-    <span class="o">`</span><span class="n">packages</span><span class="o">`</span> <span class="k">ON</span> <span class="o">`</span><span class="n">releases</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">package_id</span><span class="o">`</span> <span class="o">=</span> <span class="o">`</span><span class="n">packages</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span>
-<span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="o">`</span><span class="n">releases</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="k">size</span><span class="o">`</span> <span class="k">DESC</span>
-<span class="k">LIMIT</span> <span class="mi">30</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">release_number</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">size</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">JOIN</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">size</span><span style="color:#710">`</span></span> <span style="color:#088;font-weight:bold">DESC</span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>LIMIT <span style="color:#00D">30</span>
+</pre></div>
 </div>
+</div>
+
 <table>
-   <thead>
-<tr>
-<th>Package</th>
-<th>Version</th>
-<th>Size</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td><a href="https://pypi.python.org/pypi/de422">de422</a></td>
-<td>2009.1</td>
-<td>545298406</td>
-</tr>
-<tr>
-<td>de406</td>
-<td>1997.1</td>
-<td>178260546</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/scipy">scipy</a></td>
-<td>0.13.3</td>
-<td>62517637</td>
-</tr>
-<tr>
-<td>appdynamics-bindeps-linux-x86</td>
-<td>5913-master</td>
-<td>57861536</td>
-</tr>
-<tr>
-<td>appdynamics-bindeps-linux-x64</td>
-<td>5913-master</td>
-<td>56366211</td>
-</tr>
-<tr>
-<td>python-qt5</td>
-<td>0.1.5</td>
-<td>56259023</td>
-</tr>
-<tr>
-<td>python-qt5</td>
-<td>0.1.8</td>
-<td>56237972</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/pycalculix">pycalculix</a></td>
-<td>0.92</td>
-<td>56039839</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/wltp">wltp</a></td>
-<td>0.0.9-alpha.3</td>
-<td>55414544</td>
-</tr>
-<tr>
-<td><a href="https://pypi.python.org/pypi/cefpython3">cefpython3</a></td>
-<td>31.2</td>
-<td>55163815</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Version</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/de422">de422</a></td>
+      <td>2009.1</td>
+      <td>545298406</td>
+    </tr>
+    <tr>
+      <td>de406</td>
+      <td>1997.1</td>
+      <td>178260546</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/scipy">scipy</a></td>
+      <td>0.13.3</td>
+      <td>62517637</td>
+    </tr>
+    <tr>
+      <td>appdynamics-bindeps-linux-x86</td>
+      <td>5913-master</td>
+      <td>57861536</td>
+    </tr>
+    <tr>
+      <td>appdynamics-bindeps-linux-x64</td>
+      <td>5913-master</td>
+      <td>56366211</td>
+    </tr>
+    <tr>
+      <td>python-qt5</td>
+      <td>0.1.5</td>
+      <td>56259023</td>
+    </tr>
+    <tr>
+      <td>python-qt5</td>
+      <td>0.1.8</td>
+      <td>56237972</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/pycalculix">pycalculix</a></td>
+      <td>0.92</td>
+      <td>56039839</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/wltp">wltp</a></td>
+      <td>0.0.9-alpha.3</td>
+      <td>55414544</td>
+    </tr>
+    <tr>
+      <td><a href="https://pypi.python.org/pypi/cefpython3">cefpython3</a></td>
+      <td>31.2</td>
+      <td>55163815</td>
+    </tr>
+  </tbody>
 </table>
 
 <h2 id="tocAnchor-1-13">Code</h2>
@@ -1080,33 +1110,33 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <h2 id="tocAnchor-1-14">Related</h2>
 
 <ul>
-<li><a href="http://stackoverflow.com/q/28010799/562769">Why are some packages on pypi.python.org/simple, but have no page?</a></li>
-<li><a href="http://www.quora.com/How-can-I-find-out-when-the-last-interaction-on-PyPI-happened-for-a-given-package">How can I find out when the last interaction on PyPI happened for a given package?</a></li>
-<li><a href="http://www.quora.com/What-is-cheesecake_code_kwalitee_id-on-PyPI-good-for">What is cheesecake_code_kwalitee_id on PyPI good for?</a></li>
+  <li><a href="http://stackoverflow.com/q/28010799/562769">Why are some packages on pypi.python.org/simple, but have no page?</a></li>
+  <li><a href="http://www.quora.com/How-can-I-find-out-when-the-last-interaction-on-PyPI-happened-for-a-given-package">How can I find out when the last interaction on PyPI happened for a given package?</a></li>
+  <li><a href="http://www.quora.com/What-is-cheesecake_code_kwalitee_id-on-PyPI-good-for">What is cheesecake_code_kwalitee_id on PyPI good for?</a></li>
 </ul>
 
 <h2 id="tocAnchor-1-15">Further Ideas</h2>
 
 <ul>
-<li><strong>Build a dependency graph</strong>: Some of the code was already written. However,
-one has to download about 25 GB of data, extract it and run over those
+  <li><strong>Build a dependency graph</strong>: Some of the code was already written. However,<br />
+one has to download about 25 GB of data, extract it and run over those<br />
 files. This is quite a bit of work.</li>
-<li>Analyze package quality
-
-<ul>
-<li>Missing requirements</li>
-<li>Missing metadata / description</li>
-<li>Missing documentation</li>
-<li>PEP8</li>
-<li>Code duplication</li>
-</ul></li>
-<li>Malicious package search:
-
-<ul>
-<li>Check which package names are prefixes of other package names.</li>
-<li>Find packages which upload data (dropbox?)</li>
-<li>Find pacakges which remove data from your file system</li>
-</ul></li>
+  <li>Analyze package quality
+    <ul>
+      <li>Missing requirements</li>
+      <li>Missing metadata / description</li>
+      <li>Missing documentation</li>
+      <li>PEP8</li>
+      <li>Code duplication</li>
+    </ul>
+  </li>
+  <li>Malicious package search:
+    <ul>
+      <li>Check which package names are prefixes of other package names.</li>
+      <li>Find packages which upload data (dropbox?)</li>
+      <li>Find pacakges which remove data from your file system</li>
+    </ul>
+  </li>
 </ul>
 
                         </div>
@@ -1293,7 +1323,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>An animator faces his own animation in deadly combat. The battlefield? The Flash interface itself.
-A stick figure is created by an animator with the intent to torture. The stick figure drawn by the animator will be using everything he can find - the brush tool, the eraser tool - to get back at his tormentor. It&#39;s resourcefulness versus power. Who will win? You can find out yourself.
-<iframe title="YouTube video player" width="512" height="414" src="http://www.youtube.com/embed/IF1heGQ3ttM" frameborder="0" allowfullscreen></iframe></p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>An animator faces his own animation in deadly combat. The battlefield? The Flash interface itself.<br />
+A stick figure is created by an animator with the intent to torture. The stick figure drawn by the animator will be using everything he can find - the brush tool, the eraser tool - to get back at his tormentor. It’s resourcefulness versus power. Who will win? You can find out yourself.</p>
+<iframe title="YouTube video player" width="512" height="414" src="http://www.youtube.com/embed/IF1heGQ3ttM" frameborder="0" allowfullscreen=""></iframe>
 
 <p>The Original Animator vs. Animation is from <a href="http://alanbecker.deviantart.com/art/Animator-vs-Animation-34244097">Alan Becker on Deviantart</a>.</p>
 
@@ -299,7 +299,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

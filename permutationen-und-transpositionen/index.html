@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -140,53 +140,47 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Permutation</h2>
-
 <h3 id="tocAnchor-1-1-1">Definition</h3>
-
 <div class="definition">Es sei M eine endliche Menge. Eine bijektive Selbstabbildung von M heißt <strong>Permutation</strong>. Die Menge \(S_M\) der Permutationen von M ist eine Gruppe bezüglich der Verkettung \(\circ\) von Abbildungen und heißt symmetrische Gruppe von M.</div>
-
 <p>Quelle: <a href="https://studium.kit.edu/sites/vab/0x40F0348A9ACDCE49A96EEE39EB076112/Vorlesungsunterlagen/LA.pdf">Skript</a> von Herrn Prof. Dr. Leuzinger, KIT</p>
 
 <h3 id="tocAnchor-1-1-2">Allgemeines</h3>
-
-<p>Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} anschaue. Es sind einfach nur drei Objekte, die unterscheidbar sind. Um es einfacher zu machen, gehen wir nun von den Objekten {1, 2, ..., m} aus. Alle Permutationen dieser Objekte bilden eine Gruppe. Diese nennen wir <span>(S_m)</span>.</p>
+<p>Es ist nun egal, ob ich die Permutationen von {1, 2, 3} oder {42, 1337, ABC} anschaue. Es sind einfach nur drei Objekte, die unterscheidbar sind. Um es einfacher zu machen, gehen wir nun von den Objekten {1, 2, …, m} aus. Alle Permutationen dieser Objekte bilden eine Gruppe. Diese nennen wir <span>(S_m)</span>.</p>
 
 <p>Ein einzelnes Element aus <span>(S_m)</span> wird meist <span>(\pi)</span> oder <span>(\sigma)</span> genannt, also <span>(\pi \in S_m)</span>. Da <span>(\pi)</span> eine Permutation ist, ist es insbesondere eine bijektive Selbstabbildung, also:</p>
 
-<p>\[M = {1, ..., m}\]
-\[\pi: M \rightarrow M\]
+<p>\[M = {1, …, m}\]<br />
+\[\pi: M \rightarrow M\]<br />
 \[i \mapsto \pi(i)\]</p>
 
-<p>Kurz schreibt man auch:
+<p>Kurz schreibt man auch:<br />
 <span>(\pi =
-\begin{pmatrix} 1 &amp; 2      &amp; 3      &amp; ... &amp; m\
-           \pi(1) &amp; \pi(2) &amp; \pi(3) &amp; ... &amp; \pi(m)
+\begin{pmatrix} 1 &amp; 2      &amp; 3      &amp; … &amp; m\
+           \pi(1) &amp; \pi(2) &amp; \pi(3) &amp; … &amp; \pi(m)
 \end{pmatrix})</span></p>
 
 <h3 id="tocAnchor-1-1-3">Anzahl der Permutationen</h3>
-
 <p>Wenn ich n Elemente habe, die ich auf n Plätze verteilen muss: Wie viele unterschiedliche Zuordnungen von Elementen zu den Plätzen gibt es?</p>
 
-<p>Die Antwort ist <span>(n! = 1 \cdot 2 \cdot ... (n - 1) \cdot n = \prod_{i=1}^n i)</span>. Für das erste Element sind <span>(n)</span> Plätze frei. Das Zweite kann nur noch auf <span>((n-1))</span> Plätze verteilt werden, ... , das letzte hat nur noch einen Platz zur "Auswahl".</p>
+<p>Die Antwort ist <span>(n! = 1 \cdot 2 \cdot … (n - 1) \cdot n = \prod_{i=1}^n i)</span>. Für das erste Element sind <span>(n)</span> Plätze frei. Das Zweite kann nur noch auf <span>((n-1))</span> Plätze verteilt werden, … , das letzte hat nur noch einen Platz zur “Auswahl”.</p>
 
 <h3 id="tocAnchor-1-1-4">Erzeugung der Permutationen</h3>
-
 <p>Angenommen, man muss in einem Test <span>(S_3)</span> explizit angeben. Wie geht das?</p>
 
-<p>Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also <span>(3 \cdot 2 \cdot 1 = 6)</span> Permutationen:
-1. _ _ _
-2. _ _ _
-3. _ _ _
-4. _ _ _
-5. _ _ _
+<p>Nun, zu erst erzeugt man alle Permutationen. Dafür rechnet man sich die Anzahl aus. Es gibt 3 Elemente, also <span>(3 \cdot 2 \cdot 1 = 6)</span> Permutationen:<br />
+1. _ _ _<br />
+2. _ _ _<br />
+3. _ _ _<br />
+4. _ _ _<br />
+5. _ _ _<br />
 6. _ _ _</p>
 
-<p>Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite oder die dritte Stelle verschieben. Also:
-1. 1 _ _
-2. 1 _ _
-3. _ 1 _
-4. _ 1 _
-5. _ _ 1
+<p>Nun zuerst zum ersten Element, der 1. Diese kann ich an die erste, die zweite oder die dritte Stelle verschieben. Also:<br />
+1. 1 _ _<br />
+2. 1 _ _<br />
+3. _ 1 _<br />
+4. _ 1 _<br />
+5. _ _ 1<br />
 6. _ _ 1</p>
 
 <table>
@@ -242,10 +236,9 @@ MathJax.Hub.Queue(function() {
 </p>
 
 <h3 id="tocAnchor-1-1-5">Verkettung</h3>
-
-<p>Was passiert, wenn ich die Permuation <span>(\pi_2)</span> mit der Permutation <span>(\pi_3)</span> verkette? Also:
+<p>Was passiert, wenn ich die Permuation <span>(\pi_2)</span> mit der Permutation <span>(\pi_3)</span> verkette? Also:<br />
 <span>(\pi_x(i) = \pi_2(\pi_3(i)) = \begin{pmatrix}1 &amp; 2 &amp; 3\
-3 &amp; 1 &amp; 2 \end{pmatrix} = \pi_6)</span>
+3 &amp; 1 &amp; 2 \end{pmatrix} = \pi_6)</span><br />
 Aber:</p>
 
 <p>
@@ -255,70 +248,70 @@ Aber:</p>
 
 <p>Die Verkettung von Permutationen ist also nicht kommutativ!</p>
 
-<p>Es ergibt sich insgesamt folgende Verknüfungstabelle (gelesen wird: Zeile zuerst, Spalte später):
-</p><table>
+<p>Es ergibt sich insgesamt folgende Verknüfungstabelle (gelesen wird: Zeile zuerst, Spalte später):</p>
+<table>
 <tr>
   <th style="border-right: 1px solid #000;border-bottom: 1px solid #000;"> </th>
-  <th style="border-bottom: 1px solid #000;"><span>(\pi_1)</span></th>
-  <th style="border-bottom: 1px solid #000;"><span>(\pi_2)</span></th>
-  <th style="border-bottom: 1px solid #000;"><span>(\pi_3)</span></th>
-  <th style="border-bottom: 1px solid #000;"><span>(\pi_4)</span></th>
-  <th style="border-bottom: 1px solid #000;"><span>(\pi_5)</span></th>
-  <th style="border-bottom: 1px solid #000;"><span>(\pi_6)</span></th>
+  <th style="border-bottom: 1px solid #000;"><span>\(\pi_1\)</span></th>
+  <th style="border-bottom: 1px solid #000;"><span>\(\pi_2\)</span></th>
+  <th style="border-bottom: 1px solid #000;"><span>\(\pi_3\)</span></th>
+  <th style="border-bottom: 1px solid #000;"><span>\(\pi_4\)</span></th>
+  <th style="border-bottom: 1px solid #000;"><span>\(\pi_5\)</span></th>
+  <th style="border-bottom: 1px solid #000;"><span>\(\pi_6\)</span></th>
 </tr>
 <tr>
-  <th style="border-right: 1px solid #000;"><span>(\pi_1)</span></th>
-  <td><span>(\pi_1)</span></td>
-  <td><span>(\pi_2)</span></td>
-  <td><span>(\pi_3)</span></td>
-  <td><span>(\pi_4)</span></td>
-  <td><span>(\pi_5)</span></td>
-  <td><span>(\pi_6)</span></td>
+  <th style="border-right: 1px solid #000;"><span>\(\pi_1\)</span></th>
+  <td><span>\(\pi_1\)</span></td>
+  <td><span>\(\pi_2\)</span></td>
+  <td><span>\(\pi_3\)</span></td>
+  <td><span>\(\pi_4\)</span></td>
+  <td><span>\(\pi_5\)</span></td>
+  <td><span>\(\pi_6\)</span></td>
 </tr>
 <tr>
-  <th style="border-right: 1px solid #000;"><span>(\pi_2)</span></th>
-  <td><span>(\pi_2)</span></td>
-  <td><span>(\pi_1)</span></td>
-  <td><span>(\pi_5)</span></td>
-  <td><span>(\pi_6)</span></td>
-  <td><span>(\pi_3)</span></td>
-  <td><span>(\pi_4)</span></td>
+  <th style="border-right: 1px solid #000;"><span>\(\pi_2\)</span></th>
+  <td><span>\(\pi_2\)</span></td>
+  <td><span>\(\pi_1\)</span></td>
+  <td><span>\(\pi_5\)</span></td>
+  <td><span>\(\pi_6\)</span></td>
+  <td><span>\(\pi_3\)</span></td>
+  <td><span>\(\pi_4\)</span></td>
 </tr>
 <tr>
-  <th style="border-right: 1px solid #000;"><span>(\pi_3)</span></th>
-  <td><span>(\pi_3)</span></td>
-  <td><span>(\pi_4)</span></td>
-  <td><span>(\pi_1)</span></td>
-  <td><span>(\pi_2)</span></td>
-  <td><span>(\pi_6)</span></td>
-  <td><span>(\pi_5)</span></td>
+  <th style="border-right: 1px solid #000;"><span>\(\pi_3\)</span></th>
+  <td><span>\(\pi_3\)</span></td>
+  <td><span>\(\pi_4\)</span></td>
+  <td><span>\(\pi_1\)</span></td>
+  <td><span>\(\pi_2\)</span></td>
+  <td><span>\(\pi_6\)</span></td>
+  <td><span>\(\pi_5\)</span></td>
 </tr>
 <tr>
-  <th style="border-right: 1px solid #000;"><span>(\pi_4)</span></th>
-  <td><span>(\pi_4)</span></td>
-  <td><span>(\pi_3)</span></td>
-  <td><span>(\pi_6)</span></td>
-  <td><span>(\pi_5)</span></td>
-  <td><span>(\pi_1)</span></td>
-  <td><span>(\pi_2)</span></td>
+  <th style="border-right: 1px solid #000;"><span>\(\pi_4\)</span></th>
+  <td><span>\(\pi_4\)</span></td>
+  <td><span>\(\pi_3\)</span></td>
+  <td><span>\(\pi_6\)</span></td>
+  <td><span>\(\pi_5\)</span></td>
+  <td><span>\(\pi_1\)</span></td>
+  <td><span>\(\pi_2\)</span></td>
 </tr>
 <tr>
-  <th style="border-right: 1px solid #000;"><span>(\pi_5)</span></th>
-  <td><span>(\pi_5)</span></td>
-  <td><span>(\pi_6)</span></td>
-  <td><span>(\pi_2)</span></td>
-  <td><span>(\pi_1)</span></td>
-  <td><span>(\pi_4)</span></td>
-  <td><span>(\pi_3)</span></td>
+  <th style="border-right: 1px solid #000;"><span>\(\pi_5\)</span></th>
+  <td><span>\(\pi_5\)</span></td>
+  <td><span>\(\pi_6\)</span></td>
+  <td><span>\(\pi_2\)</span></td>
+  <td><span>\(\pi_1\)</span></td>
+  <td><span>\(\pi_4\)</span></td>
+  <td><span>\(\pi_3\)</span></td>
 </tr>
 <tr>
-  <th style="border-right: 1px solid #000;"><span>(\pi_6)</span></th>
-  <td><span>(\pi_6)</span></td>
-  <td><span>(\pi_5)</span></td>
-  <td><span>(\pi_4)</span></td>
-  <td><span>(\pi_3)</span></td>
-  <td><span>(\pi_2)</span></td>
-  <td><span>(\pi_1)</span></td>
+  <th style="border-right: 1px solid #000;"><span>\(\pi_6\)</span></th>
+  <td><span>\(\pi_6\)</span></td>
+  <td><span>\(\pi_5\)</span></td>
+  <td><span>\(\pi_4\)</span></td>
+  <td><span>\(\pi_3\)</span></td>
+  <td><span>\(\pi_2\)</span></td>
+  <td><span>\(\pi_1\)</span></td>
 </tr>
 </table>
 
@@ -333,11 +326,9 @@ Aber:</p>
 <p>Es wurde in der Vorlesung auch gezeigt, dass allgemein <span>((S_m, \circ))</span> eine Gruppe ist.</p>
 
 <h3 id="tocAnchor-1-1-6">Die Fehlstandszahl</h3>
-
-<div class="definition">Es sei \(\pi \in S_m\) eine Permutation. Die <strong>Fehlstandszahl</strong> <span>\(F(\pi)\)</span> von <span>\(\pi\)</span> ist die (eindeutige) Anzahl der Fälle, in denen für <span>\(i  gilt <span>\(\pi(i) &gt; \pi(k)\)</span>. Die Permutationen mit gerader Fehlstandszahl <span>\(F(\pi)\)</span> heißen gerade, die Permutationen mit ungerader Fehlstandszahl heißen ungerade.</span></div>
+<div class="definition">Es sei \(\pi \in S_m\) eine Permutation. Die <strong>Fehlstandszahl</strong> <span>\(F(\pi)\)</span> von <span>\(\pi\)</span> ist die (eindeutige) Anzahl der Fälle, in denen für <span>\(i &lt; k\)</span> gilt <span>\(\pi(i) &gt; \pi(k)\)</span>. Die Permutationen mit gerader Fehlstandszahl <span>\(F(\pi)\)</span> heißen gerade, die Permutationen mit ungerader Fehlstandszahl heißen ungerade.</div>
 
 <h4>Beispiele</h4>
-
 <p><span>(\pi_1 = \begin{pmatrix}
   1 &amp; 2 &amp; 3 \
   1 &amp; 2 &amp; 3
@@ -369,22 +360,21 @@ Aber:</p>
 \end{pmatrix})</span> hat die Fehlstandszahl 2.</p>
 
 <h2 id="tocAnchor-1-8">Transposition</h2>
-
 <div class="definition">Eine <strong>Transposition</strong> ist eine Permutation aus \(S_m\), bei der zwei verschiedene,
 fest gewahlte Zahlen \(i, k \in \{1, 2, ..., m\}\) vertauscht werden, während alle anderen Zahlen fest bleiben.
 Man schreibt fur diese Transposition auch kurz \((i~k)\).</div>
 
 <p>Transpositionen werden gerne mit <span>(\tau)</span> abgekürzt.</p>
 
-<p>Also: <span>(\pi_2 = (2~3), \pi_3=(1~2), \pi_6 = (1~3))</span> sind Transpositionen.
+<p>Also: <span>(\pi_2 = (2~3), \pi_3=(1~2), \pi_6 = (1~3))</span> sind Transpositionen.<br />
 <span>(\pi_1, \pi_4, \pi_5)</span> sind keine Transpositionen.</p>
 
 <p>Es gilt: <span>(\tau \circ \tau = id)</span></p>
 
-<p>wir haben in der Vorlesung gezeigt:
-</p><div class="satz">Jede Permutation <span>(\pi \in S_m, m \geq 2,)</span> lässt sich als Verkettung von Transpositionen darstellen.</div>
+<p>wir haben in der Vorlesung gezeigt:</p>
+<div class="satz">Jede Permutation <span>\(\pi \in S_m, m \geq 2,\)</span> lässt sich als Verkettung von Transpositionen darstellen.</div>
 
-<p>Beispiel:
+<p>Beispiel:<br />
 <span>(\sigma = \begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \
 6 &amp; 5 &amp; 4 &amp; 1 &amp; 3 &amp; 2\end{pmatrix} = (1~6) \circ (2~5) \circ (3~4) \circ (4~6) \circ (5~6))</span></p>
 
@@ -392,11 +382,10 @@ Man schreibt fur diese Transposition auch kurz \((i~k)\).</div>
 
 <p>Die Fehlstandszahl von <span>(\sigma)</span> ist 13 und die Anzahl der Transpositionen ist ungerade.</p>
 
-<p>Interessanterweise gilt auch <span>(\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2))</span>.
+<p>Interessanterweise gilt auch <span>(\sigma = (1~4) \circ (3~5) \circ (2~6) \circ (1~3) \circ (1~2))</span>.<br />
 Außerdem kann man beliebig häufig eine Transposition doppelt hinzufügen, da es ja die Identität ist. Die Darstellung einer Permutation als folge von Transpositionen ist also nicht eindeutig.</p>
 
 <h2 id="tocAnchor-1-9">Siehe auch</h2>
-
 <p>Wikipedia: <a href="http://de.wikipedia.org/wiki/Permutation">Permutation</a></p>
 
                         </div>
@@ -577,7 +566,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

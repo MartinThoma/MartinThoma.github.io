@@ -105,12 +105,12 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <div style="width: 210px" class="wp-caption alignright"><a href="../images/2011/12/Richard-Stallman-200x300.jpg"><img src="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" width="" height="" class="size-medium wp-image-10141 "/></a><p class="wp-caption-text">Richard Stallman</p></div>
+                        <div class="entry" id="contentAfterTitle">
+                            <div style="width: 210px" class="wp-caption alignright"><a href="../images/2011/12/Richard-Stallman-200x300.jpg"><img src="../images/2011/12/Richard-Stallman-200x300.jpg" alt="Richard Stallman" width="" height="" class="size-medium wp-image-10141 " /></a><p class="wp-caption-text">Richard Stallman</p></div>
 
-<p>I&#39;ve just installed vrms - the virtual richard stallman :D</p>
+<p>I’ve just installed vrms - the virtual richard stallman :D</p>
 
-<p><a href="http://en.wikipedia.org/wiki/Richard_Stallman">Richard Stallman</a> is an American software freedom activist and computer programmer. He launched the GNU Project to create a free Unix-like operating system, and he has been the project&#39;s lead architect and organizer. With the launch of the GNU Project, he initiated the free software movement; he founded the Free Software Foundation.</p>
+<p><a href="http://en.wikipedia.org/wiki/Richard_Stallman">Richard Stallman</a> is an American software freedom activist and computer programmer. He launched the GNU Project to create a free Unix-like operating system, and he has been the project’s lead architect and organizer. With the launch of the GNU Project, he initiated the free software movement; he founded the Free Software Foundation.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vrms
                 Non-free packages installed on pc07
@@ -312,7 +312,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,12 +105,12 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>The <abbr title="Mixed National Institute of Standards and Technology">MNIST</abbr>
-database is a huge database of handwritten digits that is commonly used for 
+                        <div class="entry" id="contentAfterTitle">
+                            <p>The <abbr title="Mixed National Institute of Standards and Technology">MNIST</abbr><br />
+database is a huge database of handwritten digits that is commonly used for <br />
 training, evaluating and comparing classifiers.</p>
 
-<p>It has a training set of 60,000 instances and a test set of 10,000 instances.
+<p>It has a training set of 60,000 instances and a test set of 10,000 instances.<br />
 Every instance is a 28 × 28 pixel grayscale image.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -143,15 +143,15 @@ Every instance is a 28 × 28 pixel grayscale image.</p>
 <p>MNIST comes in 4 files (<a href="http://yann.lecun.com/exdb/mnist/">download here</a>):</p>
 
 <ul>
-<li>train-images-idx3-ubyte.gz: training set images (9.45 MB, 60000 instances)</li>
-<li>train-labels-idx1-ubyte.gz:  training set labels (28.2 kB, 60000 labels)</li>
-<li>t10k-images-idx3-ubyte.gz:   test set images (1.57 MB, 10000 instances)</li>
-<li>t10k-labels-idx1-ubyte.gz:   test set labels (4.43 kB, 10000 labels)</li>
+  <li>train-images-idx3-ubyte.gz: training set images (9.45 MB, 60000 instances)</li>
+  <li>train-labels-idx1-ubyte.gz:  training set labels (28.2 kB, 60000 labels)</li>
+  <li>t10k-images-idx3-ubyte.gz:   test set images (1.57 MB, 10000 instances)</li>
+  <li>t10k-labels-idx1-ubyte.gz:   test set labels (4.43 kB, 10000 labels)</li>
 </ul>
 
 <p>Both label files are like this:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">[offset] [type]          [value]          [description] 
+
+<pre><code>[offset] [type]          [value]          [description] 
 0000     32 bit integer  0x00000801(2049) magic number (MSB first) 
 0004     32 bit integer  60000            number of items 
 0008     unsigned byte   ??               label 
@@ -160,10 +160,10 @@ Every instance is a 28 × 28 pixel grayscale image.</p>
 xxxx     unsigned byte   ??               label
 The labels values are 0 to 9.
 </code></pre>
-</div>
+
 <p>and both image containers are like that:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">[offset] [type]          [value]          [description] 
+
+<pre><code>[offset] [type]          [value]          [description] 
 0000     32 bit integer  0x00000803(2051) magic number 
 0004     32 bit integer  60000            number of images 
 0008     32 bit integer  28               number of rows 
@@ -173,7 +173,7 @@ The labels values are 0 to 9.
 ........ 
 xxxx     unsigned byte   ??               pixel
 </code></pre>
-</div>
+
 <p>And they are, of course, compressed.</p>
 
 <h2 id="tocAnchor-1-2">Reading the dataset</h2>
@@ -181,80 +181,86 @@ xxxx     unsigned byte   ??               pixel
 <p>Python brings all necessary tools to make it easy to read the dataset:</p>
 
 <ul>
-<li><a href="https://docs.python.org/2/library/gzip.html">gzip</a>: A library for reading
+  <li><a href="https://docs.python.org/2/library/gzip.html">gzip</a>: A library for reading<br />
 gzipped files</li>
-<li><a href="https://docs.python.org/2/library/struct.html#struct.unpack">unpack</a> to
+  <li><a href="https://docs.python.org/2/library/struct.html#struct.unpack">unpack</a> to<br />
 read the packed binary data</li>
 </ul>
 
-<p>As the training and the testing dataset is structured the same way, we can
+<p>As the training and the testing dataset is structured the same way, we can<br />
 create a method thad retrives the data for both files.</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span>
 
-
-<span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">):</span>
-    <span class="sd">"""Read input-vector (image) and target class (label, 0-9) and return</span>
-<span class="sd">       it as list of tuples.</span>
-<span class="sd">    """</span>
-    <span class="c"># Open the images with gzip in read binary mode</span>
-    <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
-
-    <span class="c"># Read the binary data</span>
-
-    <span class="c"># We have to get big endian unsigned int. So we need '&gt;I'</span>
-
-    <span class="c"># Get metadata for images</span>
-    <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
-    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="c"># Get metadata for labels</span>
-    <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">'number of labels did not match the number of images'</span><span class="p">)</span>
-
-    <span class="c"># Get the data</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">"i: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
-                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Just a single byte</span>
-                <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_pixel</span>
-        <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">struct</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">unpack</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">gzip</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">zeros</span>, <span style="color:#B44;font-weight:bold">uint8</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_labeled_data</span>(imagefile, labelfile):
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Read input-vector (image) and target class (label, 0-9) and return</span><span></span></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#D42"><span></span><span>       it as list of tuples.</span><span></span></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#777"># Open the images with gzip in read binary mode</span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    images = gzip.open(imagefile, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rb</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    labels = gzip.open(labelfile, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rb</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#777"># Read the binary data</span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    <span style="color:#777"># We have to get big endian unsigned int. So we need '&gt;I'</span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    <span style="color:#777"># Get metadata for images</span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    images.read(<span style="color:#00D">4</span>)  <span style="color:#777"># skip the magic_number</span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    number_of_images = images.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    number_of_images = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, number_of_images)[<span style="color:#00D">0</span>]
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    rows = images.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    rows = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, rows)[<span style="color:#00D">0</span>]
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>    cols = images.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    cols = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, cols)[<span style="color:#00D">0</span>]
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>    <span style="color:#777"># Get metadata for labels</span>
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>    labels.read(<span style="color:#00D">4</span>)  <span style="color:#777"># skip the magic_number</span>
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>    N = labels.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>    N = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, N)[<span style="color:#00D">0</span>]
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>    <span style="color:#080;font-weight:bold">if</span> number_of_images != N:
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>        <span style="color:#080;font-weight:bold">raise</span> <span style="color:#C00;font-weight:bold">Exception</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">number of labels did not match the number of images</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>    <span style="color:#777"># Get the data</span>
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>    x = zeros((N, rows, cols), dtype=uint8)  <span style="color:#777"># Initialize numpy array</span>
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>    y = zeros((N, <span style="color:#00D">1</span>), dtype=uint8)  <span style="color:#777"># Initialize numpy array</span>
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(N):
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>        <span style="color:#080;font-weight:bold">if</span> i % <span style="color:#00D">1000</span> == <span style="color:#00D">0</span>:
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>            print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">i: %i</span><span style="color:#710">"</span></span> % i)
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>        <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(rows):
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>            <span style="color:#080;font-weight:bold">for</span> col <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(cols):
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>                tmp_pixel = images.read(<span style="color:#00D">1</span>)  <span style="color:#777"># Just a single byte</span>
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>                tmp_pixel = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;B</span><span style="color:#710">'</span></span>, tmp_pixel)[<span style="color:#00D">0</span>]
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>                x[i][row][col] = tmp_pixel
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>        tmp_label = labels.read(<span style="color:#00D">1</span>)
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>        y[i] = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;B</span><span style="color:#710">'</span></span>, tmp_label)[<span style="color:#00D">0</span>]
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>    <span style="color:#080;font-weight:bold">return</span> (x, y)
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-3">Viewing data</h2>
 
-<p>You might want to take a look at an image. This is easily possible with
+<p>You might want to take a look at an image. This is easily possible with<br />
 <a href="http://wiki.scipy.org/PyLab">PyLab</a> (which is a part of Matplotlib):</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
 
-
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">""</span><span class="p">):</span>
-    <span class="sd">"""View a single image."""</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Label: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
-    <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
-    <span class="n">show</span><span class="p">()</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pylab</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">imshow</span>, <span style="color:#B44;font-weight:bold">show</span>, <span style="color:#B44;font-weight:bold">cm</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">view_image</span>(image, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>):
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>View a single image.</span><span style="color:black">"""</span></span>
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Label: %s</span><span style="color:#710">"</span></span> % label)
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>    imshow(image, cmap=cm.gray)
+<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    show()
+</pre></div>
 </div>
+</div>
+
 <p>It tooks like this:</p>
 
 <ul class="gallery mw-gallery-traditional" style="max-width: 326px; width: 326px;">
@@ -288,281 +294,291 @@ create a method thad retrives the data for both files.</p>
 
 <p>Now we can use <a href="http://pybrain.org/">PyBrain</a> to classify data.</p>
 
-<p>The following code will first build the PyBrain datastructure for the training
-set and the testing set. Then it will build a very simple neural network called
-a <em>Multilayer Perceptron</em> (MLP) with three layers: An input layer, a hidden
+<p>The following code will first build the PyBrain datastructure for the training<br />
+set and the testing set. Then it will build a very simple neural network called<br />
+a <em>Multilayer Perceptron</em> (MLP) with three layers: An input layer, a hidden<br />
 layer and an output layer.</p>
 
-<p>After creating it, the MLP will be trained with the backpropagation algorithm.
+<p>After creating it, the MLP will be trained with the backpropagation algorithm.<br />
 Every training step is followed by an evaluation step.</p>
 
-<p>By the way, <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html"><code>numpy.ravel</code></a>
+<p>By the way, <a href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html"><code>numpy.ravel</code></a><br />
 simply flattens a list.</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ravel</span>
 
-<span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
-<span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
-<span class="kn">from</span> <span class="nn">pybrain.tools.shortcuts</span> <span class="kn">import</span> <span class="n">buildNetwork</span>
-<span class="kn">from</span> <span class="nn">pybrain.supervised.trainers</span> <span class="kn">import</span> <span class="n">BackpropTrainer</span>
-<span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
-
-
-<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">WEIGHTDECAY</span><span class="p">,</span>
-             <span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span> <span class="n">EPOCHS</span><span class="p">):</span>
-    <span class="n">trndata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
-    <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">)):</span>
-        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trndata</span><span class="p">)):</span>
-        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">trndata</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">trndata</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
-
-    <span class="c"># This is necessary, but I don't know why</span>
-    <span class="c"># See http://stackoverflow.com/q/8154674/562769</span>
-    <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
-    <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
-
-    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span>
-                       <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span><span class="p">)</span>
-
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span><span class="n">fnn</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
-                              <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
-                              <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
-                              <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
-        <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span>
-                                 <span class="n">trndata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
-        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span>
-                                 <span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
-
-        <span class="k">print</span><span class="p">(</span><span class="s">"epoch: </span><span class="si">%4d</span><span class="s">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
-              <span class="s">"  train error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
-              <span class="s">"  test error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fnn</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ravel</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.datasets</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ClassificationDataSet</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.utilities</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">percentError</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.tools.shortcuts</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">buildNetwork</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.supervised.trainers</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">BackpropTrainer</span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.structure.modules</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">SoftmaxLayer</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">classify</span>(training, testing, HIDDEN_NEURONS, MOMENTUM, WEIGHTDECAY,
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>             LEARNING_RATE, LEARNING_RATE_DECAY, EPOCHS):
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    trndata = ClassificationDataSet(INPUT_FEATURES, <span style="color:#00D">1</span>, nb_classes=CLASSES)
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    tstdata = ClassificationDataSet(INPUT_FEATURES, <span style="color:#00D">1</span>, nb_classes=CLASSES)
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(testing)):
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>        tstdata.addSample(ravel(testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>][i]), [testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][i]])
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(trndata)):
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        trndata.addSample(ravel(trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>][i]), [trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][i]])
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    <span style="color:#777"># This is necessary, but I don't know why</span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    <span style="color:#777"># See http://stackoverflow.com/q/8154674/562769</span>
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    trndata._convertToOneOfMany()
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    tstdata._convertToOneOfMany()
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    fnn = buildNetwork(trndata.indim, HIDDEN_NEURONS, trndata.outdim,
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>                       outclass=SoftmaxLayer)
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>    trainer = BackpropTrainer(fnn, dataset=trndata, momentum=MOMENTUM,
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>                              verbose=<span style="color:#069">True</span>, weightdecay=WEIGHTDECAY,
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>                              learningrate=LEARNING_RATE,
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>                              lrdecay=LEARNING_RATE_DECAY)
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(EPOCHS):
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>        trainer.trainEpochs(<span style="color:#00D">1</span>)
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>        trnresult = percentError(trainer.testOnClassData(),
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>                                 trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>])
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>        tstresult = percentError(trainer.testOnClassData(
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>                                 dataset=tstdata), tstdata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>])
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">epoch: %4d</span><span style="color:#710">"</span></span> % trainer.totalepochs,
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>              <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">  train error: %5.2f%%</span><span style="color:#710">"</span></span> % trnresult,
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>              <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">  test error: %5.2f%%</span><span style="color:#710">"</span></span> % tstresult)
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>    <span style="color:#080;font-weight:bold">return</span> fnn
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-5">Final steps</h2>
 
-<p>You might want to add <a href="//martin-thoma.com/how-to-parse-command-line-arguments-in-python/">command line parameters</a>, <a href="https://docs.python.org/2/library/logging.html">logging</a> and
-probably <a href="https://docs.python.org/2/library/pickle.html#module-cPickle">pickle</a>
+<p>You might want to add <a href="//martin-thoma.com/how-to-parse-command-line-arguments-in-python/">command line parameters</a>, <a href="https://docs.python.org/2/library/logging.html">logging</a> and<br />
+probably <a href="https://docs.python.org/2/library/pickle.html#module-cPickle">pickle</a><br />
 the data.</p>
 
 <h2 id="tocAnchor-1-6">Final complete code</h2>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
-<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
-<span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">ravel</span>
-
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">imshow</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">cm</span>
-
-<span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
-<span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
-<span class="kn">from</span> <span class="nn">pybrain.tools.shortcuts</span> <span class="kn">import</span> <span class="n">buildNetwork</span>
-<span class="kn">from</span> <span class="nn">pybrain.supervised.trainers</span> <span class="kn">import</span> <span class="n">BackpropTrainer</span>
-<span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
-
-<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-<span class="kn">import</span> <span class="nn">os.path</span>
-<span class="kn">import</span> <span class="nn">cPickle</span> <span class="kn">as</span> <span class="nn">pickle</span>
-
-
-<span class="k">def</span> <span class="nf">get_labeled_data</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">labelfile</span><span class="p">,</span> <span class="n">picklename</span><span class="p">):</span>
-    <span class="sd">"""Read input-vector (image) and target class (label, 0-9) and return</span>
-<span class="sd">       it as list of tuples.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s">'</span><span class="si">%s</span><span class="s">.pickle'</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">'</span><span class="si">%s</span><span class="s">.pickle'</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c"># Open the images with gzip in read binary mode</span>
-        <span class="n">images</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
-        <span class="n">labels</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">labelfile</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
-
-        <span class="c"># Read the binary data</span>
-
-        <span class="c"># We have to get big endian unsigned int. So we need '&gt;I'</span>
-
-        <span class="c"># Get metadata for images</span>
-        <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
-        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">number_of_images</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">number_of_images</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">rows</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">rows</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">rows</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">cols</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">cols</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">cols</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-        <span class="c"># Get metadata for labels</span>
-        <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c"># skip the magic_number</span>
-        <span class="n">N</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="n">N</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;I'</span><span class="p">,</span> <span class="n">N</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">number_of_images</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">'The number of labels did not match '</span>
-                            <span class="s">'the number of images.'</span><span class="p">)</span>
-
-        <span class="c"># Get the data</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>  <span class="c"># Initialize numpy array</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="s">"i: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
-                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Just a single byte</span>
-                    <span class="n">tmp_pixel</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_pixel</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tmp_pixel</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
-            <span class="n">tmp_label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s">'&gt;B'</span><span class="p">,</span> <span class="n">tmp_label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'x'</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s">'rows'</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="s">'cols'</span><span class="p">:</span> <span class="n">cols</span><span class="p">}</span>
-        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s">"</span><span class="si">%s</span><span class="s">.pickle"</span> <span class="o">%</span> <span class="n">picklename</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">data</span>
-
-
-<span class="k">def</span> <span class="nf">view_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">""</span><span class="p">):</span>
-    <span class="sd">"""View a single image."""</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Label: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
-    <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
-    <span class="n">show</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">MOMENTUM</span><span class="p">,</span> <span class="n">WEIGHTDECAY</span><span class="p">,</span>
-             <span class="n">LEARNING_RATE</span><span class="p">,</span> <span class="n">LEARNING_RATE_DECAY</span><span class="p">,</span> <span class="n">EPOCHS</span><span class="p">):</span>
-    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="n">testing</span><span class="p">[</span><span class="s">'rows'</span><span class="p">]</span> <span class="o">*</span> <span class="n">testing</span><span class="p">[</span><span class="s">'cols'</span><span class="p">]</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Input features: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">INPUT_FEATURES</span><span class="p">)</span>
-    <span class="n">CLASSES</span> <span class="o">=</span> <span class="mi">10</span>
-    <span class="n">trndata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
-    <span class="n">tstdata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">])):</span>
-        <span class="n">tstdata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">testing</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s">'x'</span><span class="p">])):</span>
-        <span class="n">trndata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">ravel</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s">'x'</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span> <span class="p">[</span><span class="n">training</span><span class="p">[</span><span class="s">'y'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
-
-    <span class="c"># This is necessary, but I don't know why</span>
-    <span class="c"># See http://stackoverflow.com/q/8154674/562769</span>
-    <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
-    <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>
-
-    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span>
-                       <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span><span class="p">)</span>
-
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span><span class="n">fnn</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
-                              <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">,</span>
-                              <span class="n">learningrate</span><span class="o">=</span><span class="n">LEARNING_RATE</span><span class="p">,</span>
-                              <span class="n">lrdecay</span><span class="o">=</span><span class="n">LEARNING_RATE_DECAY</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">EPOCHS</span><span class="p">):</span>
-        <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span>
-                                 <span class="n">trndata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
-        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span>
-                                 <span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
-
-        <span class="k">print</span><span class="p">(</span><span class="s">"epoch: </span><span class="si">%4d</span><span class="s">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
-                     <span class="s">"  train error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
-                     <span class="s">"  test error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fnn</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
-
-    <span class="c"># Add more options if you like</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-H"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"H"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"hidden_neurons"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"number of neurons in the hidden layer"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-e"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"EPOCHS"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-                        <span class="n">dest</span><span class="o">=</span><span class="s">"epochs"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"number of epochs to learn"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-d"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"W"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-m"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"M"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-l"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"ETA"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"learning_rate"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"learning rate"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-ld"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"ALPHA"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"lrdecay"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"learning rate decay"</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="s">"Get testset"</span><span class="p">)</span>
-    <span class="n">testing</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span><span class="s">'t10k-images-idx3-ubyte.gz'</span><span class="p">,</span>
-                               <span class="s">'t10k-labels-idx1-ubyte.gz'</span><span class="p">,</span> <span class="s">'testing'</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Got </span><span class="si">%i</span><span class="s"> testing datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s">'x'</span><span class="p">]))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Get trainingset"</span><span class="p">)</span>
-    <span class="n">training</span> <span class="o">=</span> <span class="n">get_labeled_data</span><span class="p">(</span><span class="s">'train-images-idx3-ubyte.gz'</span><span class="p">,</span>
-                                <span class="s">'train-labels-idx1-ubyte.gz'</span><span class="p">,</span> <span class="s">'training'</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Got </span><span class="si">%i</span><span class="s"> training datasets."</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">training</span><span class="p">[</span><span class="s">'x'</span><span class="p">]))</span>
-    <span class="n">classify</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">testing</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">hidden_neurons</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">momentum</span><span class="p">,</span>
-             <span class="n">args</span><span class="o">.</span><span class="n">weightdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lrdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers">  <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers">  <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers">  <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">struct</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">unpack</span>
+<span class="line-numbers">  <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">gzip</span>
+<span class="line-numbers">  <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">zeros</span>, <span style="color:#B44;font-weight:bold">uint8</span>, <span style="color:#B44;font-weight:bold">ravel</span>
+<span class="line-numbers">  <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers">  <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pylab</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">imshow</span>, <span style="color:#B44;font-weight:bold">show</span>, <span style="color:#B44;font-weight:bold">cm</span>
+<span class="line-numbers">  <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers">  <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.datasets</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ClassificationDataSet</span>
+<span class="line-numbers"> <strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.utilities</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">percentError</span>
+<span class="line-numbers"> <a href="#n11" name="n11" id="n11">11</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.tools.shortcuts</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">buildNetwork</span>
+<span class="line-numbers"> <a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.supervised.trainers</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">BackpropTrainer</span>
+<span class="line-numbers"> <a href="#n13" name="n13" id="n13">13</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.structure.modules</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">SoftmaxLayer</span>
+<span class="line-numbers"> <a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"> <a href="#n15" name="n15" id="n15">15</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>
+<span class="line-numbers"> <a href="#n16" name="n16" id="n16">16</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os.path</span>
+<span class="line-numbers"> <a href="#n17" name="n17" id="n17">17</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">cPickle</span> <span style="color:#080;font-weight:bold">as</span> pickle
+<span class="line-numbers"> <a href="#n18" name="n18" id="n18">18</a></span>
+<span class="line-numbers"> <a href="#n19" name="n19" id="n19">19</a></span>
+<span class="line-numbers"> <strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_labeled_data</span>(imagefile, labelfile, picklename):
+<span class="line-numbers"> <a href="#n21" name="n21" id="n21">21</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Read input-vector (image) and target class (label, 0-9) and return</span><span></span></span>
+<span class="line-numbers"> <a href="#n22" name="n22" id="n22">22</a></span><span style="color:#D42"><span></span><span>       it as list of tuples.</span><span></span></span>
+<span class="line-numbers"> <a href="#n23" name="n23" id="n23">23</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
+<span class="line-numbers"> <a href="#n24" name="n24" id="n24">24</a></span>    <span style="color:#080;font-weight:bold">if</span> os.path.isfile(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">%s.pickle</span><span style="color:#710">'</span></span> % picklename):
+<span class="line-numbers"> <a href="#n25" name="n25" id="n25">25</a></span>        data = pickle.load(<span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">%s.pickle</span><span style="color:#710">'</span></span> % picklename))
+<span class="line-numbers"> <a href="#n26" name="n26" id="n26">26</a></span>    <span style="color:#080;font-weight:bold">else</span>:
+<span class="line-numbers"> <a href="#n27" name="n27" id="n27">27</a></span>        <span style="color:#777"># Open the images with gzip in read binary mode</span>
+<span class="line-numbers"> <a href="#n28" name="n28" id="n28">28</a></span>        images = gzip.open(imagefile, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rb</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"> <a href="#n29" name="n29" id="n29">29</a></span>        labels = gzip.open(labelfile, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rb</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"> <strong><a href="#n30" name="n30" id="n30">30</a></strong></span>
+<span class="line-numbers"> <a href="#n31" name="n31" id="n31">31</a></span>        <span style="color:#777"># Read the binary data</span>
+<span class="line-numbers"> <a href="#n32" name="n32" id="n32">32</a></span>
+<span class="line-numbers"> <a href="#n33" name="n33" id="n33">33</a></span>        <span style="color:#777"># We have to get big endian unsigned int. So we need '&gt;I'</span>
+<span class="line-numbers"> <a href="#n34" name="n34" id="n34">34</a></span>
+<span class="line-numbers"> <a href="#n35" name="n35" id="n35">35</a></span>        <span style="color:#777"># Get metadata for images</span>
+<span class="line-numbers"> <a href="#n36" name="n36" id="n36">36</a></span>        images.read(<span style="color:#00D">4</span>)  <span style="color:#777"># skip the magic_number</span>
+<span class="line-numbers"> <a href="#n37" name="n37" id="n37">37</a></span>        number_of_images = images.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"> <a href="#n38" name="n38" id="n38">38</a></span>        number_of_images = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, number_of_images)[<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n39" name="n39" id="n39">39</a></span>        rows = images.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"> <strong><a href="#n40" name="n40" id="n40">40</a></strong></span>        rows = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, rows)[<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n41" name="n41" id="n41">41</a></span>        cols = images.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"> <a href="#n42" name="n42" id="n42">42</a></span>        cols = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, cols)[<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n43" name="n43" id="n43">43</a></span>
+<span class="line-numbers"> <a href="#n44" name="n44" id="n44">44</a></span>        <span style="color:#777"># Get metadata for labels</span>
+<span class="line-numbers"> <a href="#n45" name="n45" id="n45">45</a></span>        labels.read(<span style="color:#00D">4</span>)  <span style="color:#777"># skip the magic_number</span>
+<span class="line-numbers"> <a href="#n46" name="n46" id="n46">46</a></span>        N = labels.read(<span style="color:#00D">4</span>)
+<span class="line-numbers"> <a href="#n47" name="n47" id="n47">47</a></span>        N = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;I</span><span style="color:#710">'</span></span>, N)[<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n48" name="n48" id="n48">48</a></span>
+<span class="line-numbers"> <a href="#n49" name="n49" id="n49">49</a></span>        <span style="color:#080;font-weight:bold">if</span> number_of_images != N:
+<span class="line-numbers"> <strong><a href="#n50" name="n50" id="n50">50</a></strong></span>            <span style="color:#080;font-weight:bold">raise</span> <span style="color:#C00;font-weight:bold">Exception</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">The number of labels did not match </span><span style="color:#710">'</span></span>
+<span class="line-numbers"> <a href="#n51" name="n51" id="n51">51</a></span>                            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">the number of images.</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"> <a href="#n52" name="n52" id="n52">52</a></span>
+<span class="line-numbers"> <a href="#n53" name="n53" id="n53">53</a></span>        <span style="color:#777"># Get the data</span>
+<span class="line-numbers"> <a href="#n54" name="n54" id="n54">54</a></span>        x = zeros((N, rows, cols), dtype=uint8)  <span style="color:#777"># Initialize numpy array</span>
+<span class="line-numbers"> <a href="#n55" name="n55" id="n55">55</a></span>        y = zeros((N, <span style="color:#00D">1</span>), dtype=uint8)  <span style="color:#777"># Initialize numpy array</span>
+<span class="line-numbers"> <a href="#n56" name="n56" id="n56">56</a></span>        <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(N):
+<span class="line-numbers"> <a href="#n57" name="n57" id="n57">57</a></span>            <span style="color:#080;font-weight:bold">if</span> i % <span style="color:#00D">1000</span> == <span style="color:#00D">0</span>:
+<span class="line-numbers"> <a href="#n58" name="n58" id="n58">58</a></span>                print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">i: %i</span><span style="color:#710">"</span></span> % i)
+<span class="line-numbers"> <a href="#n59" name="n59" id="n59">59</a></span>            <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(rows):
+<span class="line-numbers"> <strong><a href="#n60" name="n60" id="n60">60</a></strong></span>                <span style="color:#080;font-weight:bold">for</span> col <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(cols):
+<span class="line-numbers"> <a href="#n61" name="n61" id="n61">61</a></span>                    tmp_pixel = images.read(<span style="color:#00D">1</span>)  <span style="color:#777"># Just a single byte</span>
+<span class="line-numbers"> <a href="#n62" name="n62" id="n62">62</a></span>                    tmp_pixel = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;B</span><span style="color:#710">'</span></span>, tmp_pixel)[<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n63" name="n63" id="n63">63</a></span>                    x[i][row][col] = (<span style="color:#369;font-weight:bold">float</span>(tmp_pixel) / <span style="color:#00D">255</span>)
+<span class="line-numbers"> <a href="#n64" name="n64" id="n64">64</a></span>            tmp_label = labels.read(<span style="color:#00D">1</span>)
+<span class="line-numbers"> <a href="#n65" name="n65" id="n65">65</a></span>            y[i] = unpack(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;B</span><span style="color:#710">'</span></span>, tmp_label)[<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n66" name="n66" id="n66">66</a></span>        data = {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>: x, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rows</span><span style="color:#710">'</span></span>: rows, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">cols</span><span style="color:#710">'</span></span>: cols}
+<span class="line-numbers"> <a href="#n67" name="n67" id="n67">67</a></span>        pickle.dump(data, <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">%s.pickle</span><span style="color:#710">"</span></span> % picklename, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">wb</span><span style="color:#710">"</span></span>))
+<span class="line-numbers"> <a href="#n68" name="n68" id="n68">68</a></span>    <span style="color:#080;font-weight:bold">return</span> data
+<span class="line-numbers"> <a href="#n69" name="n69" id="n69">69</a></span>
+<span class="line-numbers"> <strong><a href="#n70" name="n70" id="n70">70</a></strong></span>
+<span class="line-numbers"> <a href="#n71" name="n71" id="n71">71</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">view_image</span>(image, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>):
+<span class="line-numbers"> <a href="#n72" name="n72" id="n72">72</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>View a single image.</span><span style="color:black">"""</span></span>
+<span class="line-numbers"> <a href="#n73" name="n73" id="n73">73</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Label: %s</span><span style="color:#710">"</span></span> % label)
+<span class="line-numbers"> <a href="#n74" name="n74" id="n74">74</a></span>    imshow(image, cmap=cm.gray)
+<span class="line-numbers"> <a href="#n75" name="n75" id="n75">75</a></span>    show()
+<span class="line-numbers"> <a href="#n76" name="n76" id="n76">76</a></span>
+<span class="line-numbers"> <a href="#n77" name="n77" id="n77">77</a></span>
+<span class="line-numbers"> <a href="#n78" name="n78" id="n78">78</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">classify</span>(training, testing, HIDDEN_NEURONS, MOMENTUM, WEIGHTDECAY,
+<span class="line-numbers"> <a href="#n79" name="n79" id="n79">79</a></span>             LEARNING_RATE, LEARNING_RATE_DECAY, EPOCHS):
+<span class="line-numbers"> <strong><a href="#n80" name="n80" id="n80">80</a></strong></span>    INPUT_FEATURES = testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rows</span><span style="color:#710">'</span></span>] * testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">cols</span><span style="color:#710">'</span></span>]
+<span class="line-numbers"> <a href="#n81" name="n81" id="n81">81</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Input features: %i</span><span style="color:#710">"</span></span> % INPUT_FEATURES)
+<span class="line-numbers"> <a href="#n82" name="n82" id="n82">82</a></span>    CLASSES = <span style="color:#00D">10</span>
+<span class="line-numbers"> <a href="#n83" name="n83" id="n83">83</a></span>    trndata = ClassificationDataSet(INPUT_FEATURES, <span style="color:#00D">1</span>, nb_classes=CLASSES)
+<span class="line-numbers"> <a href="#n84" name="n84" id="n84">84</a></span>    tstdata = ClassificationDataSet(INPUT_FEATURES, <span style="color:#00D">1</span>, nb_classes=CLASSES)
+<span class="line-numbers"> <a href="#n85" name="n85" id="n85">85</a></span>
+<span class="line-numbers"> <a href="#n86" name="n86" id="n86">86</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>])):
+<span class="line-numbers"> <a href="#n87" name="n87" id="n87">87</a></span>        tstdata.addSample(ravel(testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>][i]), [testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][i]])
+<span class="line-numbers"> <a href="#n88" name="n88" id="n88">88</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(training[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>])):
+<span class="line-numbers"> <a href="#n89" name="n89" id="n89">89</a></span>        trndata.addSample(ravel(training[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>][i]), [training[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][i]])
+<span class="line-numbers"> <strong><a href="#n90" name="n90" id="n90">90</a></strong></span>
+<span class="line-numbers"> <a href="#n91" name="n91" id="n91">91</a></span>    <span style="color:#777"># This is necessary, but I don't know why</span>
+<span class="line-numbers"> <a href="#n92" name="n92" id="n92">92</a></span>    <span style="color:#777"># See http://stackoverflow.com/q/8154674/562769</span>
+<span class="line-numbers"> <a href="#n93" name="n93" id="n93">93</a></span>    trndata._convertToOneOfMany()
+<span class="line-numbers"> <a href="#n94" name="n94" id="n94">94</a></span>    tstdata._convertToOneOfMany()
+<span class="line-numbers"> <a href="#n95" name="n95" id="n95">95</a></span>
+<span class="line-numbers"> <a href="#n96" name="n96" id="n96">96</a></span>    fnn = buildNetwork(trndata.indim, HIDDEN_NEURONS, trndata.outdim,
+<span class="line-numbers"> <a href="#n97" name="n97" id="n97">97</a></span>                       outclass=SoftmaxLayer)
+<span class="line-numbers"> <a href="#n98" name="n98" id="n98">98</a></span>
+<span class="line-numbers"> <a href="#n99" name="n99" id="n99">99</a></span>    trainer = BackpropTrainer(fnn, dataset=trndata, momentum=MOMENTUM,
+<span class="line-numbers"><strong><a href="#n100" name="n100" id="n100">100</a></strong></span>                              verbose=<span style="color:#069">True</span>, weightdecay=WEIGHTDECAY,
+<span class="line-numbers"><a href="#n101" name="n101" id="n101">101</a></span>                              learningrate=LEARNING_RATE,
+<span class="line-numbers"><a href="#n102" name="n102" id="n102">102</a></span>                              lrdecay=LEARNING_RATE_DECAY)
+<span class="line-numbers"><a href="#n103" name="n103" id="n103">103</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(EPOCHS):
+<span class="line-numbers"><a href="#n104" name="n104" id="n104">104</a></span>        trainer.trainEpochs(<span style="color:#00D">1</span>)
+<span class="line-numbers"><a href="#n105" name="n105" id="n105">105</a></span>        trnresult = percentError(trainer.testOnClassData(),
+<span class="line-numbers"><a href="#n106" name="n106" id="n106">106</a></span>                                 trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>])
+<span class="line-numbers"><a href="#n107" name="n107" id="n107">107</a></span>        tstresult = percentError(trainer.testOnClassData(
+<span class="line-numbers"><a href="#n108" name="n108" id="n108">108</a></span>                                 dataset=tstdata), tstdata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>])
+<span class="line-numbers"><a href="#n109" name="n109" id="n109">109</a></span>
+<span class="line-numbers"><strong><a href="#n110" name="n110" id="n110">110</a></strong></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">epoch: %4d</span><span style="color:#710">"</span></span> % trainer.totalepochs,
+<span class="line-numbers"><a href="#n111" name="n111" id="n111">111</a></span>                     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">  train error: %5.2f%%</span><span style="color:#710">"</span></span> % trnresult,
+<span class="line-numbers"><a href="#n112" name="n112" id="n112">112</a></span>                     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">  test error: %5.2f%%</span><span style="color:#710">"</span></span> % tstresult)
+<span class="line-numbers"><a href="#n113" name="n113" id="n113">113</a></span>    <span style="color:#080;font-weight:bold">return</span> fnn
+<span class="line-numbers"><a href="#n114" name="n114" id="n114">114</a></span>
+<span class="line-numbers"><a href="#n115" name="n115" id="n115">115</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+<span class="line-numbers"><a href="#n116" name="n116" id="n116">116</a></span>    parser = ArgumentParser()
+<span class="line-numbers"><a href="#n117" name="n117" id="n117">117</a></span>
+<span class="line-numbers"><a href="#n118" name="n118" id="n118">118</a></span>    <span style="color:#777"># Add more options if you like</span>
+<span class="line-numbers"><a href="#n119" name="n119" id="n119">119</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-H</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">H</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">int</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">hidden_neurons</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><strong><a href="#n120" name="n120" id="n120">120</a></strong></span>                        default=<span style="color:#00D">200</span>,
+<span class="line-numbers"><a href="#n121" name="n121" id="n121">121</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">number of neurons in the hidden layer</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n122" name="n122" id="n122">122</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-e</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">EPOCHS</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">int</span>,
+<span class="line-numbers"><a href="#n123" name="n123" id="n123">123</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">epochs</span><span style="color:#710">"</span></span>, default=<span style="color:#00D">20</span>,
+<span class="line-numbers"><a href="#n124" name="n124" id="n124">124</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">number of epochs to learn</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n125" name="n125" id="n125">125</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-d</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">W</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">float</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">weightdecay</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n126" name="n126" id="n126">126</a></span>                        default=<span style="color:#60E">0.01</span>,
+<span class="line-numbers"><a href="#n127" name="n127" id="n127">127</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">weightdecay</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n128" name="n128" id="n128">128</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-m</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">M</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">float</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">momentum</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n129" name="n129" id="n129">129</a></span>                        default=<span style="color:#60E">0.1</span>,
+<span class="line-numbers"><strong><a href="#n130" name="n130" id="n130">130</a></strong></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">momentum</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n131" name="n131" id="n131">131</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-l</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ETA</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">float</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">learning_rate</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n132" name="n132" id="n132">132</a></span>                        default=<span style="color:#60E">0.01</span>,
+<span class="line-numbers"><a href="#n133" name="n133" id="n133">133</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">learning rate</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n134" name="n134" id="n134">134</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-ld</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ALPHA</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">float</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">lrdecay</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n135" name="n135" id="n135">135</a></span>                        default=<span style="color:#00D">1</span>,
+<span class="line-numbers"><a href="#n136" name="n136" id="n136">136</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">learning rate decay</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n137" name="n137" id="n137">137</a></span>    args = parser.parse_args()
+<span class="line-numbers"><a href="#n138" name="n138" id="n138">138</a></span>
+<span class="line-numbers"><a href="#n139" name="n139" id="n139">139</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Get testset</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><strong><a href="#n140" name="n140" id="n140">140</a></strong></span>    testing = get_labeled_data(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">t10k-images-idx3-ubyte.gz</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"><a href="#n141" name="n141" id="n141">141</a></span>                               <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">t10k-labels-idx1-ubyte.gz</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">testing</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n142" name="n142" id="n142">142</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Got %i testing datasets.</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">len</span>(testing[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>]))
+<span class="line-numbers"><a href="#n143" name="n143" id="n143">143</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Get trainingset</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n144" name="n144" id="n144">144</a></span>    training = get_labeled_data(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train-images-idx3-ubyte.gz</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"><a href="#n145" name="n145" id="n145">145</a></span>                                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train-labels-idx1-ubyte.gz</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">training</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n146" name="n146" id="n146">146</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Got %i training datasets.</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">len</span>(training[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">x</span><span style="color:#710">'</span></span>]))
+<span class="line-numbers"><a href="#n147" name="n147" id="n147">147</a></span>    classify(training, testing, args.hidden_neurons, args.momentum,
+<span class="line-numbers"><a href="#n148" name="n148" id="n148">148</a></span>             args.weightdecay, args.learning_rate, args.lrdecay, args.epochs)
+<span class="line-numbers"><a href="#n149" name="n149" id="n149">149</a></span>
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-7">Results</h2>
 
-<p>I'll update that tomorrow:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">python pybrainmnist.py -e <span class="m">10000</span> -H 300
-Get testset
-Got <span class="m">10000</span> testing datasets.
-Get trainingset
-Got <span class="m">60000</span> training datasets.
-Input features: 784
-Total error: 0.0473157733222
-<span class="o">(</span><span class="s1">'epoch:    1'</span>, <span class="s1">'  train error: 89.56%'</span>, <span class="s1">'  test error: 89.72%'</span><span class="o">)</span>
-Total error: 0.0471086288906
-<span class="o">(</span><span class="s1">'epoch:    2'</span>, <span class="s1">'  train error: 90.13%'</span>, <span class="s1">'  test error: 90.20%'</span><span class="o">)</span>
-Total error: 0.0471545599893
-<span class="o">(</span><span class="s1">'epoch:    3'</span>, <span class="s1">'  train error: 90.25%'</span>, <span class="s1">'  test error: 90.26%'</span><span class="o">)</span>
-Total error: 0.0471544804653
-<span class="o">(</span><span class="s1">'epoch:    4'</span>, <span class="s1">'  train error: 90.08%'</span>, <span class="s1">'  test error: 89.91%'</span><span class="o">)</span>
-Total error: 0.047137394504
-<span class="o">(</span><span class="s1">'epoch:    5'</span>, <span class="s1">'  train error: 90.25%'</span>, <span class="s1">'  test error: 90.26%'</span><span class="o">)</span>
-Total error: 0.0471630159397
-<span class="o">(</span><span class="s1">'epoch:    6'</span>, <span class="s1">'  train error: 89.56%'</span>, <span class="s1">'  test error: 89.72%'</span><span class="o">)</span>
-Total error: 0.0471585130872
-<span class="o">(</span><span class="s1">'epoch:    7'</span>, <span class="s1">'  train error: 89.78%'</span>, <span class="s1">'  test error: 89.90%'</span><span class="o">)</span>
-Total error: 0.0471376594558
-<span class="o">(</span><span class="s1">'epoch:    8'</span>, <span class="s1">'  train error: 90.14%'</span>, <span class="s1">'  test error: 90.42%'</span><span class="o">)</span>
-Total error: 0.0471355052763
-<span class="o">(</span><span class="s1">'epoch:    9'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
-Total error: 0.0471595886207
-<span class="o">(</span><span class="s1">'epoch:   10'</span>, <span class="s1">'  train error: 90.07%'</span>, <span class="s1">'  test error: 89.68%'</span><span class="o">)</span>
-Total error: 0.0471580212242
-<span class="o">(</span><span class="s1">'epoch:   11'</span>, <span class="s1">'  train error: 90.13%'</span>, <span class="s1">'  test error: 90.20%'</span><span class="o">)</span>
-Total error: 0.047146194285
-<span class="o">(</span><span class="s1">'epoch:   12'</span>, <span class="s1">'  train error: 90.07%'</span>, <span class="s1">'  test error: 89.68%'</span><span class="o">)</span>
-Total error: 0.047139885027
-<span class="o">(</span><span class="s1">'epoch:   13'</span>, <span class="s1">'  train error: 89.56%'</span>, <span class="s1">'  test error: 89.72%'</span><span class="o">)</span>
-Total error: 0.0471459617826
-<span class="o">(</span><span class="s1">'epoch:   14'</span>, <span class="s1">'  train error: 90.13%'</span>, <span class="s1">'  test error: 90.20%'</span><span class="o">)</span>
-Total error: 0.0471302472029
-<span class="o">(</span><span class="s1">'epoch:   15'</span>, <span class="s1">'  train error: 90.07%'</span>, <span class="s1">'  test error: 89.68%'</span><span class="o">)</span>
-Total error: 0.0471525497087
-<span class="o">(</span><span class="s1">'epoch:   16'</span>, <span class="s1">'  train error: 90.26%'</span>, <span class="s1">'  test error: 90.18%'</span><span class="o">)</span>
-Total error: 0.0471419186775
-<span class="o">(</span><span class="s1">'epoch:   17'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
-Total error: 0.0471563384617
-<span class="o">(</span><span class="s1">'epoch:   18'</span>, <span class="s1">'  train error: 88.76%'</span>, <span class="s1">'  test error: 88.65%'</span><span class="o">)</span>
-Total error: 0.0471480887109
-<span class="o">(</span><span class="s1">'epoch:   19'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
-Total error: 0.0471466129654
-<span class="o">(</span><span class="s1">'epoch:   20'</span>, <span class="s1">'  train error: 90.08%'</span>, <span class="s1">'  test error: 89.91%'</span><span class="o">)</span>
-Total error: 0.0471322920471
-<span class="o">(</span><span class="s1">'epoch:   21'</span>, <span class="s1">'  train error: 90.08%'</span>, <span class="s1">'  test error: 89.91%'</span><span class="o">)</span>
-Total error: 0.0471505302295
-<span class="o">(</span><span class="s1">'epoch:   22'</span>, <span class="s1">'  train error: 88.76%'</span>, <span class="s1">'  test error: 88.65%'</span><span class="o">)</span>
-Total error: 0.0471490334095
-<span class="o">(</span><span class="s1">'epoch:   23'</span>, <span class="s1">'  train error: 90.97%'</span>, <span class="s1">'  test error: 91.08%'</span><span class="o">)</span>
-Total error: 0.0471643256975
-<span class="o">(</span><span class="s1">'epoch:   24'</span>, <span class="s1">'  train error: 90.25%'</span>, <span class="s1">'  test error: 90.26%'</span><span class="o">)</span>
-Total error: 0.0471597744749
-<span class="o">(</span><span class="s1">'epoch:   25'</span>, <span class="s1">'  train error: 88.76%'</span>, <span class="s1">'  test error: 88.65%'</span><span class="o">)</span>
-</code></pre>
+<p>I’ll update that tomorrow:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>python pybrainmnist.py -e 10000 -H 300
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>Get testset
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>Got 10000 testing datasets.
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>Get trainingset
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>Got 60000 training datasets.
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>Input features: 784
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>Total error: 0.0473157733222
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>('epoch:    1', '  train error: 89.56%', '  test error: 89.72%')
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>Total error: 0.0471086288906
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>('epoch:    2', '  train error: 90.13%', '  test error: 90.20%')
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>Total error: 0.0471545599893
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>('epoch:    3', '  train error: 90.25%', '  test error: 90.26%')
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>Total error: 0.0471544804653
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>('epoch:    4', '  train error: 90.08%', '  test error: 89.91%')
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>Total error: 0.047137394504
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>('epoch:    5', '  train error: 90.25%', '  test error: 90.26%')
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>Total error: 0.0471630159397
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>('epoch:    6', '  train error: 89.56%', '  test error: 89.72%')
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>Total error: 0.0471585130872
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>('epoch:    7', '  train error: 89.78%', '  test error: 89.90%')
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>Total error: 0.0471376594558
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>('epoch:    8', '  train error: 90.14%', '  test error: 90.42%')
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>Total error: 0.0471355052763
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>('epoch:    9', '  train error: 90.97%', '  test error: 91.08%')
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>Total error: 0.0471595886207
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>('epoch:   10', '  train error: 90.07%', '  test error: 89.68%')
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>Total error: 0.0471580212242
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>('epoch:   11', '  train error: 90.13%', '  test error: 90.20%')
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>Total error: 0.047146194285
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>('epoch:   12', '  train error: 90.07%', '  test error: 89.68%')
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>Total error: 0.047139885027
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>('epoch:   13', '  train error: 89.56%', '  test error: 89.72%')
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>Total error: 0.0471459617826
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>('epoch:   14', '  train error: 90.13%', '  test error: 90.20%')
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>Total error: 0.0471302472029
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>('epoch:   15', '  train error: 90.07%', '  test error: 89.68%')
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>Total error: 0.0471525497087
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>('epoch:   16', '  train error: 90.26%', '  test error: 90.18%')
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>Total error: 0.0471419186775
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>('epoch:   17', '  train error: 90.97%', '  test error: 91.08%')
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>Total error: 0.0471563384617
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>('epoch:   18', '  train error: 88.76%', '  test error: 88.65%')
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>Total error: 0.0471480887109
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>('epoch:   19', '  train error: 90.97%', '  test error: 91.08%')
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>Total error: 0.0471466129654
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>('epoch:   20', '  train error: 90.08%', '  test error: 89.91%')
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>Total error: 0.0471322920471
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>('epoch:   21', '  train error: 90.08%', '  test error: 89.91%')
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>Total error: 0.0471505302295
+<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>('epoch:   22', '  train error: 88.76%', '  test error: 88.65%')
+<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>Total error: 0.0471490334095
+<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>('epoch:   23', '  train error: 90.97%', '  test error: 91.08%')
+<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>Total error: 0.0471643256975
+<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>('epoch:   24', '  train error: 90.25%', '  test error: 90.26%')
+<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>Total error: 0.0471597744749
+<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>('epoch:   25', '  train error: 88.76%', '  test error: 88.65%')
+</pre></div>
 </div>
+</div>
+
 <p>This took several hours :-/</p>
 
                         </div>
@@ -761,7 +777,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -100,7 +100,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">This blogpost is strongly related to <a href="http://page.math.tu-berlin.de/~felsner/DMSWe/Aufgaben/codes.pdf">this germand PDF</a> of a pupils' competition in which I have participated in 2008.</div>
 
 <p>Today, we have a lot of data that is stored or transferred in a binary way. Once in a while an error occurs and single bits get switched from 0 to 1 or the other way around. <a href="http://en.wikipedia.org/wiki/Coding_theory">Coding theory</a> tries to find algorithms with which you can <strong>detect</strong> and <strong>correct</strong> errors.</p>
@@ -138,53 +138,50 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Introduction</h2>
-
 <p>To keep it simple, we make a small example. We have $2^3 = 8$ valid messages:</p>
 
-<p>Message A: (0, 0, 0)
-Message B: (0, 0, 1)
-Message C: (0, 1, 0)
-Message D: (0, 1, 1)
-Message E: (1, 0, 0)
-Message F: (1, 0, 1)
-Message G: (1, 1, 0)
+<p>Message A: (0, 0, 0)<br />
+Message B: (0, 0, 1)<br />
+Message C: (0, 1, 0)<br />
+Message D: (0, 1, 1)<br />
+Message E: (1, 0, 0)<br />
+Message F: (1, 0, 1)<br />
+Message G: (1, 1, 0)<br />
 Message H: (1, 1, 1)</p>
 
 <p>I will call the set $c_1 := \{A, B, C, D, E, F, G, H\}$ of those messages a <strong>code</strong>.</p>
 
 <p>Now Alice wants to send message A to Bob. If one error occurs, Bob receives either message B, message C or message E. As all of those are valid messages, he might not notice that an error occurred (and even more not be able to correct the error).</p>
 
-<p>How could Alice and Bob solve this problem? </p>
+<p>How could Alice and Bob solve this problem?</p>
 
 <h2 id="tocAnchor-1-2">Redundancy</h2>
-
 <p>Well, a simple solution would be to send the message twice. Or, almost the same, sending once a message with redundant information. So the new messages are:</p>
 
-<p>Message A': (0, 0, 0, 0, 0, 0)
-Message B': (0, 0, 1, 0, 0, 1)
-Message C': (0, 1, 0, 0, 1, 0)
-Message D': (0, 1, 1, 0, 1, 1)
-Message E': (1, 0, 0, 1, 0, 0)
-Message F': (1, 0, 1, 1, 0, 1)
-Message G': (1, 1, 0, 1, 1, 0)
-Message H': (1, 1, 1, 1, 1, 1)</p>
+<p>Message A’: (0, 0, 0, 0, 0, 0)<br />
+Message B’: (0, 0, 1, 0, 0, 1)<br />
+Message C’: (0, 1, 0, 0, 1, 0)<br />
+Message D’: (0, 1, 1, 0, 1, 1)<br />
+Message E’: (1, 0, 0, 1, 0, 0)<br />
+Message F’: (1, 0, 1, 1, 0, 1)<br />
+Message G’: (1, 1, 0, 1, 1, 0)<br />
+Message H’: (1, 1, 1, 1, 1, 1)</p>
 
 <p>
    $c_2 := \{A', B', C', D', E', F', G', H'\}$
 </p>
 
-<p>If Bob gets a message with only one error, he can detect it. But he still isn't able to correct it:
+<p>If Bob gets a message with only one error, he can detect it. But he still isn’t able to correct it:<br />
 Alice send Message A and an error occurred at the first (most significant) bit. Bob can see that this is not a valid message, but if he thinks that only one error occurred, it is equally likely that Alice sent message A or message E.</p>
 
 <p>Can we do better?</p>
 
 <h2 id="tocAnchor-1-3">Hamming distance</h2>
+<p>A useful tool is the so called “<a href="http://en.wikipedia.org/wiki/Hamming_distance">Hamming distance</a>”.</p>
 
-<p>A useful tool is the so called "<a href="http://en.wikipedia.org/wiki/Hamming_distance">Hamming distance</a>". </p>
+<p>The set of all 0/1 tuples of the length $n$ is called $\mathcal{F}_n$.</p>
 
-<p>The set of all 0/1 tuples of the length $n$ is called $\mathcal{F}_n$. </p>
-
-<p>Examples: 
+<p>Examples: <br />
 $\begin{align}
     \{A, B, C, D, E, F, G, H\}     &amp;= \mathcal{F}_3\\
 \{A', B', C', D', E', F', G', H'\} &amp;\subsetneq \mathcal{F}_8
@@ -196,13 +193,13 @@ $\begin{align}
 \begin{cases}
  0 &amp; \text{, if } a = b\\
  1 &amp; \text{, if } a \neq b\\
-\end{cases}$.
+\end{cases}$.<br />
 ($\oplus$ is XOR).</p>
 
-<p>The Hamming distance is a function $h: \mathcal{F}_n \times \mathcal{F}_n \rightarrow \mathbb{N}_0$ defined as:
+<p>The Hamming distance is a function $h: \mathcal{F}_n \times \mathcal{F}_n \rightarrow \mathbb{N}_0$ defined as:<br />
 $\displaystyle h(A, B) := \sum_{i=0}A[i] \oplus B[i]$</p>
 
-<p>The minimum Hamming distance is defined as:
+<p>The minimum Hamming distance is defined as:<br />
 $\displaystyle h_\text{min}(\text{code}) = \min(\{h(A, B) | A, B \in \text{code}, A \neq B\})$</p>
 
 <h3 id="tocAnchor-1-3-1">First example</h3>
@@ -314,7 +311,6 @@ $\displaystyle h_\text{min}(\text{code}) = \min(\{h(A, B) | A, B \in \text{code}
 </p>
 
 <h3 id="tocAnchor-1-3-2">Second example</h3>
-
 <table class="wikitable">
 <tr>
   <th> </th>
@@ -422,8 +418,7 @@ $\displaystyle h_\text{min}(\text{code}) = \min(\{h(A, B) | A, B \in \text{code}
 </p>
 
 <h2 id="tocAnchor-1-6">Detection and correction of errors</h2>
-
-<p>If I didn't make a typo, those tables should be symmetrical (as XOR is symmetrical) and the hamming distance of a message to itself is 0. </p>
+<p>If I didn’t make a typo, those tables should be symmetrical (as XOR is symmetrical) and the hamming distance of a message to itself is 0.</p>
 
 <p>The higher the minimum hamming distance of a code is, the more errors can be detected and corrected. In fact, you can quite easily quantise the relationship:</p>
 
@@ -435,11 +430,10 @@ $\displaystyle h_\text{min}(\text{code}) = \min(\{h(A, B) | A, B \in \text{code}
 
 <p>Example: $c_1$ is a $(3, 8, 1)$ code and $c_2$ is a $(6, 8, 2)$ code.</p>
 
-<p>The task of coding thery is:
-You're given a $n$ and a $d$ and you should find the code words so that M is as high as possible.</p>
+<p>The task of coding thery is:<br />
+You’re given a $n$ and a $d$ and you should find the code words so that M is as high as possible.</p>
 
 <h3 id="tocAnchor-1-6-1">Example of a (6, 8, 3)-Code</h3>
-
 <p>
    $\begin{align}
 c_3 = \{&amp;(1,1,1,1,1,1),\\
@@ -455,26 +449,25 @@ $
 </p>
 
 <h2 id="tocAnchor-1-8">Hamming codes</h2>
-
 <p><a href="http://en.wikipedia.org/wiki/Hamming_code">Hamming codes</a> are a family of $(2^k - 1, 2^{(2^k -1)-k}, 3), \quad k \geq 2$ codes. This means, every hamming code can only correct one error.</p>
 
-<p>The idea behind Hamming codes is to save in one bit if the number of a fixed set of positions of the message is even or odd. This is called parity and done with XOR. The parity-bit is saved at the end of the message (or, just another point of view: the positions that are powers of two (1, 2, 4, 8, ...) of each message are only parity bits. This are obviously $\lceil \log_2(\text{length of code}) \rceil = \lceil \log(2^k - 1) \rceil = k$).</p>
+<p>The idea behind Hamming codes is to save in one bit if the number of a fixed set of positions of the message is even or odd. This is called parity and done with XOR. The parity-bit is saved at the end of the message (or, just another point of view: the positions that are powers of two (1, 2, 4, 8, …) of each message are only parity bits. This are obviously $\lceil \log_2(\text{length of code}) \rceil = \lceil \log(2^k - 1) \rceil = k$).</p>
 
-<p>Wikipedia has a really nice image for that:
-</p><div style="width: 510px" class="wp-caption aligncenter">
+<p>Wikipedia has a really nice image for that:</p>
+<div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/10/hamming-code-parity.png">
       <img src="../images/2012/10/hamming-code-parity.png" alt="Parity-bits and data bits in a Hamming codeword" width="" height="" class="size-full wp-image-47691" />
    </a>
    <p class="wp-caption-text">Parity-bits and data bits in a Hamming codeword</p>
 </div>
 
-<p>Now, how are the parity-bits calculated?
-Well, think of each messages as a vector in $\{0,1\}^{(2^k - 1) - k}$. Then you define a matrix $G \in \{0,1\}^{2^k - 1} \times \{0,1\}^{(2^k - 1) - k}$. Now you can get the codewords $c$ by multiplying the datawords $d$ (messages) with $G$:
-$c = G \cdot d$.
-This is the reason why Hamming-Codes are called "linear codes". They can be obtained by a linear function.</p>
+<p>Now, how are the parity-bits calculated?<br />
+Well, think of each messages as a vector in $\{0,1\}^{(2^k - 1) - k}$. Then you define a matrix $G \in \{0,1\}^{2^k - 1} \times \{0,1\}^{(2^k - 1) - k}$. Now you can get the codewords $c$ by multiplying the datawords $d$ (messages) with $G$:<br />
+$c = G \cdot d$.<br />
+This is the reason why Hamming-Codes are called “linear codes”. They can be obtained by a linear function.</p>
 
-<p>How do I get the generator-matrix $G$?
-I don't know it and my internet searches didn't reveal any solution. Do you know one?</p>
+<p>How do I get the generator-matrix $G$?<br />
+I don’t know it and my internet searches didn’t reveal any solution. Do you know one?</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -657,7 +650,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Die folgenden Definitionen sind wortwörtlich aus dem <a href="http://mitschriebwiki.nomeata.de/Ana1.pdf">inoffiziellem Skript für Analysis I</a> bei Herrn Dr. Schmoeger übernommen worden.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -131,7 +131,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Dreiecksungleichung</h2>
-
 <div class="definition">Ist `$\sum_{n=1}^{\infty}a_n$` absolut konvergent, so ist `$\sum_{n=1}^{\infty}a_n$` konvergent und es gilt:
 `$\left | \sum_{n=1}^{\infty}a_n \right | \leq \sum_{n=1}^{\infty} |a_n|$`</div>
 
@@ -143,32 +142,29 @@ MathJax.Hub.Queue(function() {
 <div class="definition">Sei `$(a_n)$` eine Folge und `$\alpha := \lim \sup \sqrt[n]{|a_n|}$`.
 
 <ol>
-  <li>`$\alpha 
-  </li><li>`$\alpha &gt; 1 \Rightarrow \sum_{n=1}^{\infty} a_n$` divergiert</li>
+  <li>`$\alpha &lt; 1 \Rightarrow \sum_{n=1}^{\infty} a_n$` konvergiert absolut</li>
+  <li>`$\alpha &gt; 1 \Rightarrow \sum_{n=1}^{\infty} a_n$` divergiert</li>
   <li>`$\alpha = 1 \Rightarrow$` keine Aussage über die Konvergenz von `$\sum_{n=1}^{\infty} a_n$` möglich</li>
 </ol>
 </div>
 
 <h2 id="tocAnchor-1-4">Majorantenkriterium</h2>
-
 <div class="definition">Gilt `$|a_n| \leq b_n ~\text{ffa } n \in \mathbb{N}$` und ist `$\sum_{n=1}^{\infty} b_n$` konvergent, so gilt:
 `$\sum_{n=1}^{\infty} a_n$` ist absolut konvergent.</div>
 
 <h2 id="tocAnchor-1-5">Minorantenkriterium</h2>
-
 <div class="definition">Gilt `$a_n \geq b_n \geq 0 ~\text{ffa } n \in \mathbb{N}$` und ist `$\sum_{n=1}^{\infty} b_n$` divergent, so gilt:
 `$\sum_{n=1}^{\infty} a_n$` ist divergent.</div>
 
 <h2 id="tocAnchor-1-6">Quotientenkriterium</h2>
-
 <div class="definition">Sei `$(a_n)$` eine Folge in `$\mathbb{R}$` und `$a_n \ne 0 \text{ ffa } \mathbb{N}$`. `$\alpha_n := \frac{a_{n+1}}{a_n}$` (ffa `$n \in \mathbb{N}$`).
 <ul>
   <li>Ist `$|\alpha_n| \ge 1 \text{ ffa } n \in \mathbb{N} \Rightarrow \sum a_n$` ist divergent.</li>
   <li>Es sei `$(\alpha_n)$` beschränkt, `$\beta := \liminf |\alpha_n|$` und `$\alpha := \limsup |\alpha_n|$`.</li>
    <ul>
     <li>Ist `$\beta &gt; 1 \Rightarrow \sum a_n$` ist divergent.</li>
-    <li>Ist `$\alpha 
-    </li><li>Ist `$\alpha = \beta = 1$`, so ist keine allgemeine Aussage möglich.</li>
+    <li>Ist `$\alpha &lt; 1 \Rightarrow \sum a_n$` ist absolut konvergent.</li>
+    <li>Ist `$\alpha = \beta = 1$`, so ist keine allgemeine Aussage möglich.</li>
    </ul>
   
 </ul></div>
@@ -354,7 +350,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

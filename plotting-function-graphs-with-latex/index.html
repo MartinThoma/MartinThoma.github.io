@@ -105,14 +105,17 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>It's crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. </p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>It’s crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me.</p>
 
 <p>I have used this command to generate the PDF-file:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">pdflatex latex.tex -output-format<span class="o">=</span>pdf
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>pdflatex latex.tex -output-format=pdf
+</pre></div>
 </div>
+</div>
+
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -133,98 +136,100 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">gnuplot</h2>
-
 <div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2012/01/gnuplot-300x246.png">
       <img src="../images/2012/01/gnuplot-300x246.png" alt="gnuplot" width="" height="" class="size-medium wp-image-12781" />
    </a>
    <p class="wp-caption-text">gnuplot</p>
 </div>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
-
-<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>pgfplots<span class="nb">}</span>
-
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-        <span class="k">\begin</span><span class="nb">{</span>axis<span class="nb">}</span>
-            <span class="k">\addplot</span>+[id=parable,domain=-5:5]
-            gnuplot<span class="nb">{</span>4*x**2 - 5<span class="nb">}</span>
-            node[pin=180:<span class="nb">{</span><span class="s">$</span><span class="m">4</span><span class="nb">x^</span><span class="m">2</span><span class="o">-</span><span class="m">5</span><span class="s">$</span><span class="nb">}</span>]<span class="nb">{}</span>;
-        <span class="k">\end</span><span class="nb">{</span>axis<span class="nb">}</span>
-    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass{article}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage{tikz}
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage{pgfplots}
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\begin{document}
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    \begin{tikzpicture}
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        \begin{axis}
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>            \addplot+[id=parable,domain=-5:5]
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>            gnuplot{4*x**2 - 5}
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>            node[pin=180:{$4x^2-5$}]{};
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        \end{axis}
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    \end{tikzpicture}
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\end{document}
+</pre></div>
 </div>
-<h2 id="tocAnchor-1-2">tikzpicture</h2>
+</div>
 
+<h2 id="tocAnchor-1-2">tikzpicture</h2>
 <div style="width: 190px" class="wp-caption aligncenter">
    <a href="../images/2012/01/tikzpicture1-180x300.png">
       <img src="../images/2012/01/tikzpicture1-180x300.png" alt="tikzpicture" width="" height="" class="size-medium wp-image-12821" />
    </a>
    <p class="wp-caption-text">tikzpicture</p>
 </div>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
-
-<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
-
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-          <span class="k">\draw</span><span class="na">[very thin,color=gray]</span> (0.0,0.0) grid (1.8,3.8);
-
-          <span class="k">\draw</span><span class="na">[-&gt;]</span> (-0.5,0) -- (2,0) node[right] <span class="nb">{</span><span class="s">$</span><span class="nb">x</span><span class="s">$</span><span class="nb">}</span>;
-          <span class="k">\draw</span><span class="na">[-&gt;]</span> (0,-0.5) -- (0,4) node[above] <span class="nb">{</span><span class="s">$</span><span class="nb">y</span><span class="s">$</span><span class="nb">}</span>;
-
-          <span class="k">\draw</span> [domain=0:1/3,red] plot (<span class="k">\x</span>,3*3*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=1/3:2/3,red] plot (<span class="k">\x</span>,2*3-3*3*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=2/3:1.5,red] plot (<span class="k">\x</span>,0);
-
-          <span class="k">\draw</span> [domain=0:1/4,orange] plot (<span class="k">\x</span>,4*4*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=1/4:2/4,orange] plot (<span class="k">\x</span>,2*4-4*4*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=2/4:1.5,orange] plot (<span class="k">\x</span>,0);
-    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass{article}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span> 
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage{tikz}
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span> 
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\begin{document}
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    \begin{tikzpicture}
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>          \draw[very thin,color=gray] (0.0,0.0) grid (1.8,3.8);
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>          \draw[-&gt;] (-0.5,0) -- (2,0) node[right] {$x$};
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>          \draw[-&gt;] (0,-0.5) -- (0,4) node[above] {$y$};
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>          \draw [domain=0:1/3,red] plot (\x,3*3*\x);
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>          \draw [domain=1/3:2/3,red] plot (\x,2*3-3*3*\x);
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>          \draw [domain=2/3:1.5,red] plot (\x,0);
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span> 
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>          \draw [domain=0:1/4,orange] plot (\x,4*4*\x);
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>          \draw [domain=1/4:2/4,orange] plot (\x,2*4-4*4*\x);
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>          \draw [domain=2/4:1.5,orange] plot (\x,0);
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    \end{tikzpicture}
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>\end{document}
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-3">Floating text</h2>
-
 <p>If you want to wrap the text around the graph, you can use wrapfigure:</p>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 
-<span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>pgfplots<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>wrapfig<span class="nb">}</span>
-
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>wrapfigure<span class="nb">}{</span>r<span class="nb">}{</span>.2<span class="k">\textwidth</span><span class="nb">}</span>
-  <span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
-    <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-          <span class="k">\draw</span><span class="na">[-&gt;]</span> (-0.5,0) -- (2,0) node[right] <span class="nb">{</span><span class="s">$</span><span class="nb">x</span><span class="s">$</span><span class="nb">}</span>;
-          <span class="k">\draw</span><span class="na">[-&gt;]</span> (0,-0.5) -- (0,4) node[above] <span class="nb">{</span><span class="s">$</span><span class="nb">y</span><span class="s">$</span><span class="nb">}</span>;
-          <span class="k">\draw</span> [domain=0:1/3,red] plot (<span class="k">\x</span>,3*3*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=1/3:2/3,red] plot (<span class="k">\x</span>,2*3-3*3*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=2/3:1.5,red] plot (<span class="k">\x</span>,0);
-
-          <span class="k">\draw</span> [domain=0:1/4,orange] plot (<span class="k">\x</span>,4*4*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=1/4:2/4,orange] plot (<span class="k">\x</span>,2*4-4*4*<span class="k">\x</span>);
-          <span class="k">\draw</span> [domain=2/4:1.5,orange] plot (<span class="k">\x</span>,0);
-    <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
-  <span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>wrapfigure<span class="nb">}</span>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue dictum elit. Morbi ultricies laoreet massa, sed sagittis lorem laoreet et. Donec at erat non sem tristique rutrum vel vel justo. Vestibulum tincidunt pulvinar mi, a congue purus dignissim vel. Ut porttitor dignissim neque eget rutrum. Nunc gravida varius semper. Quisque et purus quam. Quisque ultricies tristique magna sit amet egestas. Mauris bibendum lacus semper justo consectetur blandit vitae non nisi. Etiam non augue nec est facilisis tempor. Nullam non diam vel erat fermentum gravida. Proin tincidunt turpis lobortis ante elementum suscipit. Curabitur congue, dolor fringilla feugiat blandit, quam libero euismod purus, eget commodo erat nibh a augue. Vestibulum ut tellus ac arcu semper facilisis.
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass{article}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage{tikz}
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage{pgfplots}
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage{wrapfig}
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>\begin{document}
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\begin{wrapfigure}{r}{.2\textwidth}
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>  \begin{center}
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    \begin{tikzpicture}
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>          \draw[-&gt;] (-0.5,0) -- (2,0) node[right] {$x$};
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>          \draw[-&gt;] (0,-0.5) -- (0,4) node[above] {$y$};
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>          \draw [domain=0:1/3,red] plot (\x,3*3*\x);
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>          \draw [domain=1/3:2/3,red] plot (\x,2*3-3*3*\x);
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>          \draw [domain=2/3:1.5,red] plot (\x,0);
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>          \draw [domain=0:1/4,orange] plot (\x,4*4*\x);
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>          \draw [domain=1/4:2/4,orange] plot (\x,2*4-4*4*\x);
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>          \draw [domain=2/4:1.5,orange] plot (\x,0);
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    \end{tikzpicture}
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>  \end{center}
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>\end{wrapfigure}
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue dictum elit. Morbi ultricies laoreet massa, sed sagittis lorem laoreet et. Donec at erat non sem tristique rutrum vel vel justo. Vestibulum tincidunt pulvinar mi, a congue purus dignissim vel. Ut porttitor dignissim neque eget rutrum. Nunc gravida varius semper. Quisque et purus quam. Quisque ultricies tristique magna sit amet egestas. Mauris bibendum lacus semper justo consectetur blandit vitae non nisi. Etiam non augue nec est facilisis tempor. Nullam non diam vel erat fermentum gravida. Proin tincidunt turpis lobortis ante elementum suscipit. Curabitur congue, dolor fringilla feugiat blandit, quam libero euismod purus, eget commodo erat nibh a augue. Vestibulum ut tellus ac arcu semper facilisis.
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>\end{document}
+</pre></div>
 </div>
-<h2 id="tocAnchor-1-4">PSTricks</h2>
+</div>
 
+<h2 id="tocAnchor-1-4">PSTricks</h2>
 <p>I have found <a href="http://www.tn-home.de/Tobias/Soft/TeX/TUG040611/presentation.pdf">some</a> <a href="http://en.wikipedia.org/wiki/PSTricks">very</a> <a href="http://www.siart.de/typografie/pstricks_20030809.pdf">nice</a> <a href="http://mirror.informatik.uni-mannheim.de/pub/mirrors/tex-archive/graphics/pstricks/contrib/pst-3dplot/pst-3dplot-doc.pdf">example</a> <a href="http://www.ursoswald.ch/LaTeXGraphics/pstricks/pstricks.html">images</a>, but no working LaTeX-Code.</p>
 
 <h2 id="tocAnchor-1-5">Read more</h2>
-
 <ul>
   <li>Wikibooks: <a href="http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions">LaTeX/Floats, Figures and Captions</a></li>
   <li><a href="http://ftp.math.purdue.edu/mirrors/ctan.org/graphics/pgf/contrib/pgfplots/doc/latex/pgfplots/pgfplots.pdf">Manual for pgfplots</a> with lots of examples (as images and LaTeX in over 300 pages!)</li>
@@ -409,7 +414,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -100,7 +100,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>What is the output of the following programm?</p>
 
 <div class="highlight">
@@ -154,7 +154,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Short Answer</h2>
-
 <p>It depends on your compiler flags!</p>
 
 <p>If you compile it with no optimization, you might get 43:</p>
@@ -178,47 +177,43 @@ aufgabe-3.c:5: warning: <span class="k">function</span> returns address of <span
 </div>
 
 <h2 id="tocAnchor-1-2">Long answer</h2>
-
 <h3 id="tocAnchor-1-2-1">The general answer</h3>
-
 <p>Lets analyse this code line by line.</p>
 
-<p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?). 
+<p>Line 3 - 7 is a function <strong>f</strong> that returns a pointer to an integer. The pointer points to a local variable. As far as I know it is not defined what value should be there after you leave the function (has anybody a source for that?). <br />
 The variable is a so called local or automatic variable and is located on the stack frame.</p>
 
-<p>Line 9 - 14 is a function <strong>g</strong> that doesn't take any parameter and doesn't return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.</p>
+<p>Line 9 - 14 is a function <strong>g</strong> that doesn’t take any parameter and doesn’t return anything. This function <em>should</em> not have any influence on the behavior of the program. It puts 42 on the stack and increases it by one.</p>
 
 <p>Line 17 calls f and stores the returned function pointer in the variable x.</p>
 
 <p>Line 18 calls g. Remember that g should not have any influence on the other program. But you saved a pointer to a local variable which is not in the scope of the main function. So g is allowed to use the space which was previously used by the local variable i in the function f. It uses this space for j = 42 and increases it by 1. So if you access the address of the former variable i in f you will get 43.</p>
 
 <h3 id="tocAnchor-1-2-2">Actual assembly code</h3>
-
-<p>You still want to get more into detail? Ok ...
-First you should get your assembly code. If you're running a Linux machine, you can type this into the console:</p>
+<p>You still want to get more into detail? Ok …<br />
+First you should get your assembly code. If you’re running a Linux machine, you can type this into the console:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">gcc -S -O0 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O0.s</code></pre>
 </div>
 
-<p>This will create a file called "cpuzzle-1.s" which contains the assembly code for the non-optimized version. Rename it into "cpuzzle-1-O0.c". Then the same for O3:</p>
+<p>This will create a file called “cpuzzle-1.s” which contains the assembly code for the non-optimized version. Rename it into “cpuzzle-1-O0.c”. Then the same for O3:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">gcc -S -O3 cpuzzle-1.c <span class="p">;</span> gcc cpuzzle-1.c -o cpuzzle<span class="p">;</span> mv cpuzzle-1.s cpuzzle-1-O3.s</code></pre>
 </div>
 
-<p>Now you can compare those two with meld or any other diff Tool:
-</p><div style="width: 310px" class="wp-caption aligncenter">
+<p>Now you can compare those two with meld or any other diff Tool:</p>
+<div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2012/05/c-puzzle-1.1-meld-300x188.png">
       <img src="../images/2012/05/c-puzzle-1.1-meld-300x188.png" alt="C Puzzle #1 - Assembly code part 1" width="" height="" class="size-medium wp-image-24851" />
    </a>
    <p class="wp-caption-text">C Puzzle #1 - Assembly code part 1</p>
 </div>
-The O3 code got an additional <code>.p2align 4,,15</code>
+<p>The O3 code got an additional <code>.p2align 4,,15</code></p>
 
 <blockquote>.p2align 4,,15 means:
 When allocating memory, align it such that each new section must start at a location with 4 0's at the end (i.e. a multiple of 16 bytes), except for if more than 15 bytes must be skipped.</blockquote>
-
 <p>
    <span class="quote-source">Quoted from <a href="http://answers.yahoo.com/question/index?qid=20100414222831AAxKaHs">MooseBoy</a></span>
 </p>
@@ -232,8 +227,8 @@ When allocating memory, align it such that each new section must start at a loca
    <p class="wp-caption-text">C Puzzle #1 - Assembly code part 2 (the main)</p>
 </div>
 
-<p>It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don't know why the compiler does most of the optimizations :-(
-</p><div style="width: 310px" class="wp-caption aligncenter">
+<p>It is quite difficult to talk about it, so I made some annotations to this code. I have to admit that I don’t know why the compiler does most of the optimizations :-(</p>
+<div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png">
       <img src="../images/2012/05/c-puzzle-1.1-meld-annotated-300x188.png" alt="C Puzzle #1, Assembly code part 1: Annotated" width="" height="" class="size-medium wp-image-24941" />
    </a>
@@ -247,14 +242,12 @@ When allocating memory, align it such that each new section must start at a loca
    <p class="wp-caption-text">C Puzzle #1, Assembly code part 2: Annotated</p>
 </div>
 
-<p>You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">_<em>printf_chk</em></a>. An implementation is &lt;a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printfchk.c"&gt;here.</p>
+<p>You might also be interested in <a href="http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/libc---printf-chk-1.html">__printf_chk</a>. An implementation is <a href="http://www.ic.unicamp.br/~islene/2s2008-mo806/libc/debug/printf_chk.c">here</a>.</p>
 
 <h2 id="tocAnchor-1-5">What you should have learned</h2>
-
 <p>Never return pointers to local variables / variables in the wrong scope.</p>
 
 <h2 id="tocAnchor-1-6">See also</h2>
-
 <ul>
   <li>Wikipedia:
     <ul>
@@ -454,7 +447,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

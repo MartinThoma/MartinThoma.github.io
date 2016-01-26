@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Browser&rdquo;’</h2>
   
@@ -1439,12 +1439,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-02-22T09:55:07+01:00">February 22, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/how-chrome-could-be-improved-2nd-post/"><img width="128" height="128" src="//martin-thoma.com/images/2012/04/google-chrome-logo.png" class="alignleft post_thumbnail wp-post-image" alt="How Chrome could be improved - 2nd Post"/></a>
     
 
-    Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article How Chrome could be improved for Chrome 18 I will also mention what was realised meanwhile. If you&#39;re curious if you have the current version, just visit chrome://chrome/. Caps lock indicator for password fields It&#39;s annoying to have caps lock on while typing passwords. So an indicator is needed. I would prefer...
+    Chrome 25 was just released and I would like to mention some features I am still missing. As I already wrote an article How Chrome could be improved for Chrome 18 I will also mention what was realised meanwhile. If you’re curious if you have the current version, just visit chrome://chrome/. Caps lock indicator for password fields It’s annoying to have caps lock on while typing passwords. So an indicator is needed. I would prefer...
 
     
     <div class="readmorecontent">
@@ -2749,12 +2749,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-04-06T14:19:31+02:00">April  6, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/how-chrome-could-be-improved/"><img width="128" height="128" src="//martin-thoma.com/images/2012/04/google-chrome-logo.png" class="alignleft post_thumbnail wp-post-image" alt="How Chrome could be improved"/></a>
     
 
-    Google Chorme is the browser of my choice. It is fast, has developer tools and looks great. But it could be improved. I&#39;ll describe some features I miss. Disable sound for tabs Sometimes I watch a movie while I play a flash game. Some flash games don&#39;t offer an option to mute them. So I would like to get the possibility to disable sound for one tab. It could look like this. { caption align=&quot;aligncenter&quot;...
+    Google Chorme is the browser of my choice. It is fast, has developer tools and looks great. But it could be improved. I’ll describe some features I miss. Disable sound for tabs Sometimes I watch a movie while I play a flash game. Some flash games don’t offer an option to mute them. So I would like to get the possibility to disable sound for one tab. It could look like this. { caption align=”aligncenter”...
 
     
     <div class="readmorecontent">
@@ -3487,12 +3487,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-09-21T22:18:48+02:00">September 21, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/browser-wars/"><img width="128" height="128" src="//martin-thoma.com/images/2011/09/FF-Chrome-IE-300x198.jpg" class="alignleft post_thumbnail wp-post-image" alt="Browser Wars"/></a>
     
 
-    The Usage of different browser verions is very interesting for me. Internet Explorer 6 causes many problems in Webdesign as it doesn&#39;t handle CSS and HTML as it should. This might be the reason why many Webdesigners want IE6 to die. (Before I forget it: Thanks to jeffmcneill for sharing this image as CC BY-SA.) As Google has stopped to support Internet Explorer 6 I hope the decline of its usage will speed up. Here...
+    The Usage of different browser verions is very interesting for me. Internet Explorer 6 causes many problems in Webdesign as it doesn’t handle CSS and HTML as it should. This might be the reason why many Webdesigners want IE6 to die. (Before I forget it: Thanks to jeffmcneill for sharing this image as CC BY-SA.) As Google has stopped to support Internet Explorer 6 I hope the decline of its usage will speed up. Here...
 
     
     <div class="readmorecontent">
@@ -3763,7 +3763,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

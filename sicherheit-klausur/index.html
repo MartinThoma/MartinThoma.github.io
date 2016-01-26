@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Sicherheit“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://www.iks.kit.edu/index.php?id=hofheinz">Jun.-Prof. Hofheinz</a> im Sommersemester 2013 gehört.</div>
 
 <p>An diesem Artikel wird natürlich noch gearbeitet.</p>
@@ -153,7 +153,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
-
 <table>
 
 <tr>
@@ -326,7 +325,6 @@ MathJax.Hub.Queue(function() {
 <p>Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (info@martin-thoma.de) darauf aufmerksam machen. Ich bin ja mal gespannt, ob ich das bis zum Ende aktuell halte.</p>
 
 <h2 id="tocAnchor-1-2">Definitionen und Sätze</h2>
-
 <div class="definition">
 Eine über `$k$` parametrisierte Funktion `$H$` ist <strong>kollisionsresistent</strong>, wenn jeder PPT-Algorithmus nur mit höchstens vernachlässigbarer Wahrscheinlichkeit eine Kollision findet.
 
@@ -361,14 +359,12 @@ Dann ist der durch Sig'(K, M) = Sig(K, H(M)), Ver'(K, M, `$\sigma$`) = Ver(K, H(
 </div>
 
 <h2 id="tocAnchor-1-3">Fragen</h2>
-
 <div class="question">
 <span class="question">Wann ist ein Verschlüsselungsschema IND-CPA-sicher?</span>
 <div class="answer">
 IND-CPA bedeutet „indistinguishability under chosen-plaintext attacks“. Ein Verschlüsselungsschema ist genau dann IND-CPA-Sicher, wenn kein effizienter Angreifer `$\mathcal{A}$` Chiffrate von selbstgewählten Klartexten unterscheiden kann.
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wann ist eine Signatur EUF-CMA-sicher?</span>
@@ -380,16 +376,14 @@ EUF-CMA bedeutet „existentially unforgeable under chosen-message attacks“. E
   <li>`$\mathcal{A}$` gewinnt, wenn `$Ver(K, M^*, \sigma^*) = 1$` und `$M^*$` „frisch“ ist</li>
 </ul>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Was sind Replay-Angriffe?</span>
 <div class="answer">
 Bei Replay-Angriffen fängt der Angreifer einen Teil der Kommunikation von Alice und Bob ab. Später schickt er diesen Teil ohne weitere Bearbeitung an einen der Beiden.
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Was versteht man unter der Merkle–Damgård-Konstruktion?</span>
@@ -398,8 +392,7 @@ Die Merkle–Damgård-Konstruktion ist eine Methode zur Konstruktion von kryptog
 
 <div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/04/merkle-damgard-300x139.png"><img src="../images/2013/04/merkle-damgard-300x139.png" alt="Merkle-Damgard-Konstruktion" width="" height="" class="size-medium wp-image-74091" /></a><p class="wp-caption-text">Merkle-Damgard-Konstruktion<br />Quelle: <a href="http://commons.wikimedia.org/wiki/File:Merkle-Damgard_hash_big.svg">Wikipedia</a></p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie funktioniert RSA?</span>
@@ -407,15 +400,14 @@ Die Merkle–Damgård-Konstruktion ist eine Methode zur Konstruktion von kryptog
 <ol>
   <li>Generiere zwei Primzahlen `$p, q \in \mathbb{P}$`</li>
   <li>Berechne `$n := p \cdot q$` und `$\varphi(n) = (p-1) \cdot (q-1)$`</li>
-  <li>Wähle `$e$`, sodass gilt: `$ggT(e, \varphi(n)) = 1$` und `$1 
-  </li><li>Berechne `$d$`, sodass gilt: `$e \cdot d \equiv 1 \mod \varphi(n)$`</li>
+  <li>Wähle `$e$`, sodass gilt: `$ggT(e, \varphi(n)) = 1$` und `$1 &lt; e &lt; \varphi(n)$`</li>
+  <li>Berechne `$d$`, sodass gilt: `$e \cdot d \equiv 1 \mod \varphi(n)$`</li>
 </ol>
 
 Verschlüsselung einer Nachricht `$m$`: `$c = m^{e} \mod n$`
 Verschlüsselung eines Ciphertextes `$c$`: `$m = c^{d} \mod n$`
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Welches Problem birgt ein kleines `$e$` beim RSA-Verfahren?</span>
@@ -428,8 +420,7 @@ Folgender Angriff ist für `$e=3$` möglich:
   <li>Wurzelziehen über `$\mathbb{Z}$` liefert `$m$`</li>
 </ul>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Was ist damit gemeint, wenn man sagt „RSA ist Homomorph“?</span>
@@ -445,8 +436,7 @@ Enc(pk, m_1) \cdot Enc(pk, m_2) &amp;= m_1^e \cdot m_2^e\\
 Diese Eigenschaft ist z.B. in folgendem Szenario problematisch:
 Angenommen bei einer Auktion werden die gebotenen Geldbeträge verschlüsselt. Dann kann ein Angreifer das Chiffrat (gültig) verändern. So kann er den Geldbetrag ohne Probleme verdoppeln.
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Was sind <abbr title="Hash-based message authentication code">HMACs</abbr>?</span>
@@ -455,8 +445,7 @@ Spezielle symmetrische Signaturen, die wie folgt aufgebaut sind:
 
 `$Sig(K, M) = H(K \oplus opad, H(K \oplus ipad, M))$`
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie funktioniert <a href="http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren">ElGamal</a>?</span>
@@ -469,8 +458,7 @@ Spezielle symmetrische Signaturen, die wie folgt aufgebaut sind:
 Verschlüsselung einer Nachricht `$m$`: `$Enc(pk, m) = (g^y, g^{xy} \cdot m)$` mit zufälligem `$y$` → Verschlüsselung ist zufällig!
 Verschlüsselung eines Ciphertextes `$c$`: `$Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \frac{g^{xy} \cdot m}{(g^{y})^x} = m$`
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie funktioniert das Kerberos-Schlüsselaustauschprotokoll?</span>
@@ -483,45 +471,38 @@ Verschlüsselung eines Ciphertextes `$c$`: `$Dec(sk, (Y, Z)) = \frac{Z}{Y^x} = \
 
 Ein <a href="http://www.youtube.com/watch?v=kp5d8Yv3-0c">gutes YouTube-Video</a> gibts auch.
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Warum kann es schlecht für die Sicherheit sein, wenn man komprimiert?</span>
 <div class="answer">
 Annahme: Ein Angreifer kann zu dem Geheimtext, der komprimiert wird, etwas vor der Kompression hinzufügen. Wenn der Ciphertext deutlich weniger wächst als er an Text hinzugefügt hat, kann er vermuten, dass er den Text erraten hat. (→ CRIME-Angriff)
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Was ist damit gemeint, dass das One-Time-Pad-Chiffre verwundbar ist?</span>
 <div class="answer">
 Ein Angreifer kann die Klartextnachricht ändern. Wenn er weiß (oder zumindest ahnt) was der Klartext ist, kann er dafür sorgen, dass ein Klartext gleicher Länge seiner Wahl bei der Entschlüsselung herauskommt.
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Nennen Sie Verfahren, die IND-CPA-sicher sind.</span>
 <div class="answer">
 Eine Blockciffre im CBC-Modus
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Nennen Sie Verfahren, die EUF-CMA-sicher sind.</span>
 <div class="answer">
 Sei PRF: `$\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$` eine PRF und `$H:\{0,1\}^* \rightarrow \{0,1\}^k$` eine kollisionsresistente Hashfunktion. Dann ist der durch `$Sig(K, M) = PRF(K, H(M))$` gegebene MAC EUF-CMA-sicher.
 </div>
-
-<p></p></div>
+</div>
 
 <h2 id="tocAnchor-1-4">Diverses</h2>
-
 <h3 id="tocAnchor-1-4-1">TLS Handshake</h3>
-
 <div style="width: 522px" class="wp-caption aligncenter">
    <a href="../images/2013/04/tls-handshake.jpg">
       <img src="../images/2013/04/tls-handshake.jpg" alt="TLS Handshake" width="" height="" class="size-full wp-image-74511" />
@@ -530,9 +511,8 @@ Sei PRF: `$\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$` eine PRF und `$H:\
 </div>
 
 <h3 id="tocAnchor-1-4-2">Change Cipher Spec Drop</h3>
-
-<p>Ein Angriff auf verschlüsselte Verbindungen:
-</p><div style="width: 522px" class="wp-caption aligncenter">
+<p>Ein Angriff auf verschlüsselte Verbindungen:</p>
+<div style="width: 522px" class="wp-caption aligncenter">
    <a href="../images/2013/04/change-cipher-spec-drop.jpg">
       <img src="../images/2013/04/change-cipher-spec-drop.jpg" alt="Change cipher spec drop" width="" height="" class="size-full wp-image-74501" />
    </a>
@@ -540,7 +520,6 @@ Sei PRF: `$\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$` eine PRF und `$H:\
 </div>
 
 <h2 id="tocAnchor-1-7">Material</h2>
-
 <ul>
   <li><a href="http://www.iks.kit.edu/index.php?id=sic-sose13">Vorlesungswebsite</a></li>
   <li>Mein <a href="https://ankiweb.net/shared/info/4056558772">Anki-Deck</a></li>
@@ -552,8 +531,8 @@ Sei PRF: `$\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$` eine PRF und `$H:\
   </li>
 </ul>
 
-<p>In der Fachschaft gibt es folgende Altklausuren:
-</p><ol>
+<p>In der Fachschaft gibt es folgende Altklausuren:</p>
+<ol>
   <li>Hauptklausur SS 2012</li>
   <li>Nachklausur SS 2011</li>
   <li>Hauptklausur SS 2011</li>
@@ -562,7 +541,6 @@ Sei PRF: `$\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$` eine PRF und `$H:\
 </ol>
 
 <h2 id="tocAnchor-1-8">Aufbau der Klausur</h2>
-
 <p>Bisher gab es meist 6 Aufgaben mit jeweils 10 Punkten:</p>
 
 <ol>
@@ -575,27 +553,23 @@ Sei PRF: `$\{0,1\}^k \times \{0,1\}^k \rightarrow \{0,1\}^k$` eine PRF und `$H:\
 </ol>
 
 <h2 id="tocAnchor-1-9">Übungsbetrieb</h2>
-
 <p>Es gibt Übungsblätter auf der Vorlesungswebsite, aber keinen Übungsschein, keine Abgaben und keine Bonuspunkte.</p>
 
 <h2 id="tocAnchor-1-10">Termine und Klausurablauf</h2>
-
-<p><strong>Datum</strong>: Freitag, den 26. Juli 2013 von 14:00 bis 15:00 Uhr (Klausur dauerte eine Stunde)
-<strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im H.S.a.F)
-<strong>Punkte</strong>: 60
-<strong>Bestehensgrenze</strong>: 20
-<strong>Übungsschein</strong>: Nein
+<p><strong>Datum</strong>: Freitag, den 26. Juli 2013 von 14:00 bis 15:00 Uhr (Klausur dauerte eine Stunde)<br />
+<strong>Ort</strong>: seit 24.07.2013 auf der <a href="http://www.iks.kit.edu/sic-sose13">Vorlesungswebsite</a> (ich bin im H.S.a.F)<br />
+<strong>Punkte</strong>: 60<br />
+<strong>Bestehensgrenze</strong>: 20<br />
+<strong>Übungsschein</strong>: Nein<br />
 <strong>Bonuspunkte</strong>: Nein</p>
 
 <h2 id="tocAnchor-1-11">Nicht vergessen</h2>
-
 <ul>
   <li>Studentenausweis</li>
   <li>Kugelschreiber</li>
 </ul>
 
 <h2 id="tocAnchor-1-12">Ergebnisse</h2>
-
 <p>Sind noch nicht draußen (Stand: 30.07.2013)</p>
 
 <p>Sind nun draußen (Stand: 09.08.2013): <a href="http://www.iks.kit.edu/fileadmin/User/Lectures/Sicherheit/SoSe13/Sicherheit_HK-Ergebnis.pdf">Vorläufige Ergebnisse als PDF</a></p>
@@ -785,7 +759,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

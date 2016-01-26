@@ -105,17 +105,17 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>With the Internet came a lot of new words. <a href="http://en.wikipedia.org/wiki/Cyberculture">Cyberculture</a> could be one of them, <a href="http://en.wikipedia.org/wiki/Google_(verb)">Googling</a> or <a href="http://en.wikipedia.org/wiki/Hacktivism">Hacktivism</a> would be others.</p>
 
-<p>Did you know that the famous gesture of Piccard is called a <a href="http://en.wikipedia.org/wiki/Facepalm">Facepalm</a>? 
-<div style="width: 138px" class="wp-caption aligncenter"><a href="../images/2011/09/Piccard-Facepalm.jpg"><img src="../images/2011/09/Piccard-Facepalm.jpg" alt="Piccard Facepalm" width="" height="" class="size-full wp-image-3171"/></a><p class="wp-caption-text">Piccard Facepalm</p></div></p>
+<p>Did you know that the famous gesture of Piccard is called a <a href="http://en.wikipedia.org/wiki/Facepalm">Facepalm</a>?</p>
+<div style="width: 138px" class="wp-caption aligncenter"><a href="../images/2011/09/Piccard-Facepalm.jpg"><img src="../images/2011/09/Piccard-Facepalm.jpg" alt="Piccard Facepalm" width="" height="" class="size-full wp-image-3171" /></a><p class="wp-caption-text">Piccard Facepalm</p></div>
 
-<p>The same word seems to exist also in German, so I&#39;m quite sure that the word is new. (Although the <a href="http://en.wikipedia.org/wiki/Duden">Duden</a> doesn&#39;t know it.)</p>
+<p>The same word seems to exist also in German, so I’m quite sure that the word is new. (Although the <a href="http://en.wikipedia.org/wiki/Duden">Duden</a> doesn’t know it.)</p>
 
 <p>Although the gesture itself is obviously old:</p>
 
-<div style="width: 404px" class="wp-caption aligncenter"><a href="../images/2011/09/Cain_Henri_Vidal_Tuileries.jpg"><img src="../images/2011/09/Cain_Henri_Vidal_Tuileries.jpg" alt="Cain by Henri Vidal, in the Tuileries Gardens, Paris, 1896" width="" height="" class="size-full wp-image-3181"/></a><p class="wp-caption-text"><a href='http://commons.wikimedia.org/wiki/File:Cain_Henri_Vidal_Tuileries.jpg'>Cain</a> by Henri Vidal, in the Tuileries Gardens, Paris, 1896</p></div>
+<div style="width: 404px" class="wp-caption aligncenter"><a href="../images/2011/09/Cain_Henri_Vidal_Tuileries.jpg"><img src="../images/2011/09/Cain_Henri_Vidal_Tuileries.jpg" alt="Cain by Henri Vidal, in the Tuileries Gardens, Paris, 1896" width="" height="" class="size-full wp-image-3181" /></a><p class="wp-caption-text"><a href="http://commons.wikimedia.org/wiki/File:Cain_Henri_Vidal_Tuileries.jpg">Cain</a> by Henri Vidal, in the Tuileries Gardens, Paris, 1896</p></div>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -298,7 +298,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

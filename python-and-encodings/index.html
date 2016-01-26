@@ -105,9 +105,9 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Working with encodings different from ASCII or UTF-8 has always been work
-which I don't like. It doesn't feel very constructive to just make Python
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Working with encodings different from ASCII or UTF-8 has always been work<br />
+which I don’t like. It doesn’t feel very constructive to just make Python<br />
 read a file / print some output.</p>
 
 <p>In the following, I will describe some strategies which might help you.</p>
@@ -131,85 +131,105 @@ read a file / print some output.</p>
 </div><h2 id="tocAnchor-1-1">Test script</h2>
 
 <p>Copy the following text to a text file <code>test.txt</code>:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">Die süße, kleine, lärmende Überfliegerin lebt in der Haute-Côte-Nord.
-Dort hat es momemtan 32°C.
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>Die süße, kleine, lärmende Überfliegerin lebt in der Haute-Côte-Nord.
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>Dort hat es momemtan 32°C.
+</pre></div>
 </div>
-<p>On Debian based systems you will get the information which type of encoding it
+</div>
+
+<p>On Debian based systems you will get the information which type of encoding it<br />
 has like this:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">$ file test.txt
-test.txt: UTF-8 Unicode text
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ file test.txt
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>test.txt: UTF-8 Unicode text
+</pre></div>
 </div>
-<p>This is probably the best result. But to make sure that we know how to deal
+</div>
+
+<p>This is probably the best result. But to make sure that we know how to deal<br />
 with other encodings, you can change the encoding like this:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">$ iconv -f UTF-8 -t ISO-8859-1 test.txt &gt; test-iso-8859-1.txt
-$ file test-iso-8859-1.txt 
-test-iso-8859-1.txt: ISO-8859 text
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ iconv -f UTF-8 -t ISO-8859-1 test.txt &gt; test-iso-8859-1.txt
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>$ file test-iso-8859-1.txt 
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>test-iso-8859-1.txt: ISO-8859 text
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Source code encoding</h2>
 
-<p>A first important step is to define the source code encoding. This is done
-with a comment. The first lines of Python code should probably always look
+<p>A first important step is to define the source code encoding. This is done<br />
+with a comment. The first lines of Python code should probably always look<br />
 like this:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="c"># -*- coding: UTF-8 -*-</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: UTF-8 -*-</span>
+</pre></div>
 </div>
+</div>
+
 <p><a href="https://www.python.org/dev/peps/pep-0263/">PEP-0263</a> explains it.</p>
 
 <h2 id="tocAnchor-1-3">Printing encoding problems</h2>
 
-<p>The following error occurs when you try to print non-UTF-8 stuff with Python
+<p>The following error occurs when you try to print non-UTF-8 stuff with Python<br />
 via Sublime Text:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">[Decode error - output not utf-8]
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>[Decode error - output not utf-8]
+</pre></div>
 </div>
+</div>
+
 <p>The same code, executed via ZSH, gives:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
-Dort hat es momemtan 32�C.
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>Dort hat es momemtan 32�C.
+</pre></div>
 </div>
+</div>
+
 <p>You can fix that by adjusting the code the following way:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="c"># -*- coding: UTF-8 -*-</span>
 
-<span class="c"># Make it work with Python 2 and Python 3</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span> <span class="o">&gt;</span> <span class="s">'3'</span>
-
-<span class="k">if</span> <span class="ow">not</span> <span class="n">PY3</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">future.builtins</span> <span class="kn">import</span> <span class="nb">open</span>
-
-<span class="c"># Specify the encoding while opening it</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"test-iso-8859-1.txt"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"ISO-8859-1"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">content</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'UTF-8'</span><span class="p">,</span> <span class="s">'replace'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: UTF-8 -*-</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777"># Make it work with Python 2 and Python 3</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>PY3 = sys.version &gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">3</span><span style="color:#710">'</span></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> PY3:
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">future.builtins</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">open</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#777"># Specify the encoding while opening it</span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">test-iso-8859-1.txt</span><span style="color:#710">"</span></span>, encoding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ISO-8859-1</span><span style="color:#710">"</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    content = f.read()
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>content = content.encode(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">UTF-8</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">replace</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>print(content)
+</pre></div>
 </div>
+</div>
+
 <p>The two important points are</p>
 
 <ol>
-<li>Specifying the encoding while opening the file</li>
-<li>Encode the content with UTF-8</li>
+  <li>Specifying the encoding while opening the file</li>
+  <li>Encode the content with UTF-8</li>
 </ol>
 
 <p>These three little steps helped me to deal with non-UTF-8 encodings.</p>
 
 <h2 id="tocAnchor-1-4">See also</h2>
-
 <ul>
-<li><a href="https://docs.python.org/2/howto/unicode.html">Unicode HOWTO</a></li>
-<li><a href="https://docs.python.org/3/library/codecs.html">codecs — Codec registry and base classes</a></li>
+  <li><a href="https://docs.python.org/2/howto/unicode.html">Unicode HOWTO</a></li>
+  <li><a href="https://docs.python.org/3/library/codecs.html">codecs — Codec registry and base classes</a></li>
 </ul>
 
                         </div>
@@ -396,7 +416,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

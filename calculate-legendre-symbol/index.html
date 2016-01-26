@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -120,7 +120,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Pseudocode</h2>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2013/09/Calculate-Legendre.png">
       <img src="../images/2013/09/Calculate-Legendre.png" alt="Pseudocode: Calculate Legendre symbol" width="" height="" class="size-full wp-image-76379" />
@@ -154,62 +153,61 @@ MathJax.Hub.Queue(function() {
     <span class="k">return</span> <span class="n">factors</span>
 
 <span class="k">def</span> <span class="nf">calculateLegendre</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">   Calculate the legendre symbol (a, p) with p is prime.</span>
-<span class="sd">   The result is either -1, 0 or 1</span>
+	<span class="sd">"""</span>
+<span class="sd">	Calculate the legendre symbol (a, p) with p is prime.</span>
+<span class="sd">	The result is either -1, 0 or 1</span>
 
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(3, 29)</span>
-<span class="sd">   -1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(111, 41) # Beispiel aus dem Skript, S. 114</span>
-<span class="sd">   -1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(113, 41) # Beispiel aus dem Skript, S. 114</span>
-<span class="sd">   1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(2, 31)</span>
-<span class="sd">   1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(5, 31)</span>
-<span class="sd">   1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(150, 1009) # http://math.stackexchange.com/q/221223/6876</span>
-<span class="sd">   1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(25, 1009) # http://math.stackexchange.com/q/221223/6876</span>
-<span class="sd">   1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(2, 1009) # http://math.stackexchange.com/q/221223/6876</span>
-<span class="sd">   1</span>
-<span class="sd">   &gt;&gt;&gt; calculateLegendre(3, 1009) # http://math.stackexchange.com/q/221223/6876</span>
-<span class="sd">   1</span>
-<span class="sd">   """</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">p</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">a</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">p</span><span class="o">%</span><span class="mi">8</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">p</span><span class="o">%</span><span class="mi">8</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">p</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">elif</span> <span class="ow">not</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-        <span class="n">factors</span> <span class="o">=</span> <span class="n">factorize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-        <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">factors</span><span class="p">:</span>
-            <span class="n">product</span> <span class="o">*=</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">product</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="p">((</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">calculateLegendre</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(3, 29)</span>
+<span class="sd">	-1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(111, 41) # Beispiel aus dem Skript, S. 114</span>
+<span class="sd">	-1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(113, 41) # Beispiel aus dem Skript, S. 114</span>
+<span class="sd">	1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(2, 31)</span>
+<span class="sd">	1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(5, 31)</span>
+<span class="sd">	1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(150, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">	1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(25, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">	1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(2, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">	1</span>
+<span class="sd">	&gt;&gt;&gt; calculateLegendre(3, 1009) # http://math.stackexchange.com/q/221223/6876</span>
+<span class="sd">	1</span>
+<span class="sd">	"""</span>
+	<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">p</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+	<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">a</span>
+	<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">p</span><span class="o">%</span><span class="mi">8</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">p</span><span class="o">%</span><span class="mi">8</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+			<span class="k">return</span> <span class="mi">1</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">p</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="k">return</span> <span class="mi">1</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+	<span class="k">elif</span> <span class="ow">not</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+		<span class="n">factors</span> <span class="o">=</span> <span class="n">factorize</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+		<span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
+		<span class="k">for</span> <span class="n">pi</span> <span class="ow">in</span> <span class="n">factors</span><span class="p">:</span>
+			<span class="n">product</span> <span class="o">*=</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">product</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">if</span> <span class="p">((</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">calculateLegendre</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">calculateLegendre</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
-    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span></code></pre>
+	<span class="kn">import</span> <span class="nn">doctest</span>
+	<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-3">More</h2>
-
 <ul>
   <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/documents/eaz">Rules how to calculate with Legendre symbols</a></li>
   <li><a href="https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/Calculate-Legendre">Python and Pseudocode source files</a></li>
@@ -396,7 +394,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

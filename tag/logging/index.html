@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Logging&rdquo;’</h2>
   
@@ -659,45 +659,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2014-08-01T21:15:00+02:00">August  1, 2014</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/logging-in-python/"><img width="128" height="128" src="//martin-thoma.com/images/logos/python.png" class="alignleft post_thumbnail wp-post-image" alt="Logging in Python"/></a>
     
 
-    Python has a nice logging module. You can use it like this:
-
-Stream output
-#!/usr/bin/env python
-
-import logging
-import sys
-
-logging.basicConfig(format=&#39;(asctime)s (levelname)s (message)s&#39;,
-                    level=logging.DEBUG,
-                    stream=sys.stdout)
-logging.debug(&#39;This message should go to the log file&#39;)
-logging.info(&#39;So should this&#39;)
-logging.warning(&#39;And this, too&#39;)
-
-File output
-#!/usr/bin/env python
-
-import logging
-
-logging.basicConfig(filename=&#39;logging.log&#39;,
-                    format=&#39;(asctime)s (levelname)s (message)s&#39;,
-                    level=logging.DEBUG)
-logging.debug(&#39;This message should go to the log file&#39;)
-logging.info(&#39;So should this&#39;)
-logging.warning(&#39;And this, too&#39;)
-
-See also
-
-
-Tutorial
-Documentation
-
-
+    Python has a nice logging module. You can use it like this: Stream output 1#!/usr/bin/env python 2 3import logging 4import sys 5 6logging.basicConfig(format='(asctime)s (levelname)s (message)s', 7 level=logging.DEBUG, 8 stream=sys.stdout) 9logging.debug('This message should go to the log file') 10logging.info('So should this') 11logging.warning('And this, too') File output 1#!/usr/bin/env python 2 3import logging 4 5logging.basicConfig(filename='logging.log', 6 format='(asctime)s (levelname)s (message)s', 7 level=logging.DEBUG) 8logging.debug('This message should go to the log file') 9logging.info('So should this') 10logging.warning('And this, too') See also Tutorial...
 
     
     <div class="readmorecontent">
@@ -3718,7 +3685,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

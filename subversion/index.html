@@ -100,14 +100,14 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.</div>
 
 <p>Subversion or Apache Subversion or short svn is a is a software versioning and a revision control system. This allows you to step back to any point of the software and to develop simultaniously on the same project (but not on the same file). You have to make sure that no dependencies are broken, of course.</p>
 
 <p>Here is a little cheat sheet how to use SVN. I will demonstrate some on my Google Code OpenSource project <a href="https://code.google.com/p/community-chess/">Community Chess</a>.</p>
 
-<p>All commands are executed while I'm in my local working copy of the repository.</p>
+<p>All commands are executed while I’m in my local working copy of the repository.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -162,140 +162,170 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Get the repository</h2>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn checkout https://community-chess.googlecode.com/svn/trunk/ community-chess --username themoosemind@googlemail.com
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn checkout https://community-chess.googlecode.com/svn/trunk/ community-chess --username themoosemind@googlemail.com
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Update to the latest version</h2>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn update
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn update
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-3">Check for changes</h2>
 
-<p>If you only want to check which files were modified, added or deleted you can
+<p>If you only want to check which files were modified, added or deleted you can<br />
 execute</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn status
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn status
+</pre></div>
 </div>
+</div>
+
 <p>This will show your local changes.</p>
 
 <h2 id="tocAnchor-1-4">File actions</h2>
-
 <p>The actions are simmilar to the console commands, but you have to add svn:</p>
 
 <h3 id="tocAnchor-1-4-1">Copy</h3>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn cp myFile.php copiedFile.php
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn cp myFile.php copiedFile.php
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-4-2">Delete</h3>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn rm myFile.php
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn rm myFile.php
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-4-3">Rename / Move</h3>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn mv myFile.php folder/myNewFile.php
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn mv myFile.php folder/myNewFile.php
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-4-4">Add file</h3>
-
 <p>If you created a file and want to submit it with the next commit, just do</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn add myFile.php
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn add myFile.php
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-9">Commit the latest changes</h2>
-
 <h3 id="tocAnchor-1-9-1">Check your changes</h3>
-
 <p>First you should try <a href="#Check_for_changes-3">svn status</a>. What files did you change? Do you really want to upload those changes?</p>
 
 <p>If svn status gives you an exclamation mark (!), you might have deleted a file which you wanted to add before. No problem. Just make</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn rever /path/to/your/file.php
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn rever /path/to/your/file.php
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-9-2">I'm fine: Upload it!</h3>
-
 <p>This is the command you use, if you want to send the changes you made on your working copy to the repository:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn commit -m <span class="s2">"Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed"</span> --username themoosemind@gmail.com
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn commit -m "Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed" --username themoosemind@gmail.com
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-12">Watch changes</h2>
-
 <h3 id="tocAnchor-1-12-1">General</h3>
-
 <p>See the last three changes:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn log -v --limit<span class="o">=</span>3
-</code></pre>
-</div><div class="highlight">
-   <pre><code class="language-text" data-lang="text">------------------------------------------------------------------------
-r118 | themoosemind@gmail.com | 2011-09-26 23:18:42 +0200 (Mo, 26. Sep 2011) | 1 Zeile
-Geänderte Pfade:
-   M /trunk/clients/Java/ChessClient.class
-   M /trunk/clients/Java/ChessClient.java
 
-small changes on the Java Client
-------------------------------------------------------------------------
-r116 | themoosemind@gmail.com | 2011-09-26 22:53:01 +0200 (Mo, 26. Sep 2011) | 1 Zeile
-Geänderte Pfade:
-   A /trunk/clients/Java
-   A /trunk/clients/Java/ChessClient.class
-   A /trunk/clients/Java/ChessClient.java
-   A /trunk/install/phpBB3
-   A /trunk/install/phpBB3/login.wrapper.php (von /trunk/install/phpbb3.login.php:100)
-   A /trunk/install/phpBB3/phpbb3.integration.txt (von /trunk/install/phpbb3.integration.txt:113)
-   A /trunk/install/phpBB3/phpbb3.php (von /trunk/install/phpbb3.php:100)
-   A /trunk/install/phpBB3/phpbb3.sql (von /trunk/install/phpbb3.sql:103)
-   A /trunk/install/phpBB3/wrapper.inc.php (von /trunk/install/phpbb3.wrapper.inc.php:113)
-   D /trunk/install/phpbb3.integration.txt
-   D /trunk/install/phpbb3.login.php
-   D /trunk/install/phpbb3.php
-   D /trunk/install/phpbb3.sql
-   D /trunk/install/phpbb3.wrapper.inc.php
-
-Made integration instructions for phpBB easier; added Java-Client
-------------------------------------------------------------------------
-r113 | themoosemind@gmail.com | 2011-09-26 08:29:15 +0200 (Mo, 26. Sep 2011) | 1 Zeile
-Geänderte Pfade:
-   M /trunk/index.php
-   M /trunk/install/chess.sql
-   M /trunk/install/phpbb3.integration.txt
-   M /trunk/install/phpbb3.wrapper.inc.php
-   M /trunk/my_software.php
-   M /trunk/wrapper.inc.php
-
-Fixed issue 3 and some more phpBB-Bugs; more detailed integration instructions;Renamed GAMES_THREEFOLD_REPETITION_TABLE
-------------------------------------------------------------------------
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn log -v --limit=3
+</pre></div>
 </div>
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>------------------------------------------------------------------------
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>r118 | themoosemind@gmail.com | 2011-09-26 23:18:42 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>Geänderte Pfade:
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>   M /trunk/clients/Java/ChessClient.class
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>   M /trunk/clients/Java/ChessClient.java
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>small changes on the Java Client
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>------------------------------------------------------------------------
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>r116 | themoosemind@gmail.com | 2011-09-26 22:53:01 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>Geänderte Pfade:
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>   A /trunk/clients/Java
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>   A /trunk/clients/Java/ChessClient.class
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>   A /trunk/clients/Java/ChessClient.java
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>   A /trunk/install/phpBB3
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>   A /trunk/install/phpBB3/login.wrapper.php (von /trunk/install/phpbb3.login.php:100)
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>   A /trunk/install/phpBB3/phpbb3.integration.txt (von /trunk/install/phpbb3.integration.txt:113)
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>   A /trunk/install/phpBB3/phpbb3.php (von /trunk/install/phpbb3.php:100)
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>   A /trunk/install/phpBB3/phpbb3.sql (von /trunk/install/phpbb3.sql:103)
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>   A /trunk/install/phpBB3/wrapper.inc.php (von /trunk/install/phpbb3.wrapper.inc.php:113)
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>   D /trunk/install/phpbb3.integration.txt
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>   D /trunk/install/phpbb3.login.php
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>   D /trunk/install/phpbb3.php
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>   D /trunk/install/phpbb3.sql
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>   D /trunk/install/phpbb3.wrapper.inc.php
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>Made integration instructions for phpBB easier; added Java-Client
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>------------------------------------------------------------------------
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>r113 | themoosemind@gmail.com | 2011-09-26 08:29:15 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>Geänderte Pfade:
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>   M /trunk/index.php
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>   M /trunk/install/chess.sql
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>   M /trunk/install/phpbb3.integration.txt
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>   M /trunk/install/phpbb3.wrapper.inc.php
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>   M /trunk/my_software.php
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>   M /trunk/wrapper.inc.php
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>Fixed issue 3 and some more phpBB-Bugs; more detailed integration instructions;Renamed GAMES_THREEFOLD_REPETITION_TABLE
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>------------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+
 <h3 id="tocAnchor-1-12-2">One specific file</h3>
+<p>I don’t want to get that much output, so I don’t apply -v this time:</p>
 
-<p>I don't want to get that much output, so I don't apply -v this time:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">svn log index.php --limit<span class="o">=</span>3
-</code></pre>
-</div><div class="highlight">
-   <pre><code class="language-text" data-lang="text">------------------------------------------------------------------------
-r127 | themoosemind@gmail.com | 2011-10-04 00:09:59 +0200 (Di, 04. Okt 2011) | 1 Zeile
-
-Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed
-------------------------------------------------------------------------
-r113 | themoosemind@gmail.com | 2011-09-26 08:29:15 +0200 (Mo, 26. Sep 2011) | 1 Zeile
-
-Fixed issue 3 and some more phpBB-Bugs; more detailed integration instructions;Renamed GAMES_THREEFOLD_REPETITION_TABLE
-------------------------------------------------------------------------
-r71 | themoosemind@gmail.com | 2011-08-26 23:13:37 +0200 (Fr, 26. Aug 2011) | 1 Zeile
-
-completed MVC with Vemplator; controlled every php file with phpcs
-------------------------------------------------------------------------
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>svn log index.php --limit=3
+</pre></div>
 </div>
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>------------------------------------------------------------------------
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>r127 | themoosemind@gmail.com | 2011-10-04 00:09:59 +0200 (Di, 04. Okt 2011) | 1 Zeile
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>Moved some functions to additional.inc.php to keep the project more flexible; Much work for tournament implementation done; Some Warnings fixed
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>------------------------------------------------------------------------
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>r113 | themoosemind@gmail.com | 2011-09-26 08:29:15 +0200 (Mo, 26. Sep 2011) | 1 Zeile
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>Fixed issue 3 and some more phpBB-Bugs; more detailed integration instructions;Renamed GAMES_THREEFOLD_REPETITION_TABLE
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>------------------------------------------------------------------------
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>r71 | themoosemind@gmail.com | 2011-08-26 23:13:37 +0200 (Fr, 26. Aug 2011) | 1 Zeile
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>completed MVC with Vemplator; controlled every php file with phpcs
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>------------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+
                         </div>
                         <div class="postmeta">Posted in
                             
@@ -474,7 +504,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

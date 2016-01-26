@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;MySQL&rdquo;’</h2>
   
@@ -1097,12 +1097,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-07-11T19:25:03+02:00">July 11, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/sql-injections/"><img width="128" height="128" src="//martin-thoma.com/images/2013/07/blackhat.png" class="alignleft post_thumbnail wp-post-image" alt="SQL Injections"/></a>
     
 
-    SQL is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. Example: IMDb Take a look at IMDb. Users can search for movies by title: { caption align=&quot;aligncenter&quot; width=&quot;300&quot; caption=&quot;IMDb: User Interface to search for a movie by title&quot;...
+    SQL is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. Example: IMDb Take a look at IMDb. Users can search for movies by title: { caption align=”aligncenter” width=”300” caption=”IMDb: User Interface to search for a movie by title”...
 
     
     <div class="readmorecontent">
@@ -3276,12 +3276,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-10-04T20:22:12+02:00">October  4, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/comparing-dates-in-php-and-mysql/"><img width="128" height="128" src="//martin-thoma.com/images/2011/10/PHP-logo.png" class="alignleft post_thumbnail wp-post-image" alt="Comparing Dates in PHP and MySQL"/></a>
     
 
-    Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same. PHP time formats and functions PHP knows these time / date formats: UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are int mktime([ int \$hour = date(&quot;H&quot;) [, int \$minute = date(&quot;i&quot;) [, int \$second = date(&quot;s&quot;) [, int \$month = date(&quot;n&quot;) [, int \$day = date(&quot;j&quot;) [, int...
+    Sometimes you need to know compare PHP dates. You need to know what is later or if both dates are the same. PHP time formats and functions PHP knows these time / date formats: UNIX Timestamp: Integer - The number of seconds after 1970. Related functions are int `mktime([ int \`$hour = date("H") [, int \$`minute = date("i") [, int \`$second = date("s") [, int \$`month = date("n") [, int \`$day = date("j") [, int...
 
     
     <div class="readmorecontent">
@@ -3730,7 +3730,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

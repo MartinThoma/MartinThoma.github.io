@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -137,17 +137,14 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Aufgabenstellung</h2>
-
-<p>Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur nächsten Blutspende ist wird dieses Blut wieder neu gebildet. </p>
+<p>Ein Mensch hat ca. 5 Liter Blut. Bei einer Blutspende wird in der Regel etwa ein halber Liter Blut entnommen. Bis zur nächsten Blutspende ist wird dieses Blut wieder neu gebildet.</p>
 
 <p>Wie häufig muss Blut gespendet werden, bis 95% des ursprünglichen Blutes gespendet wurde?</p>
 
 <p>Die natürliche Neubildung von Blut auch ohne Blutspende wird vernachlässigt.</p>
 
 <h2 id="tocAnchor-1-2">Berechnung</h2>
-
 <h3 id="tocAnchor-1-2-1">Die ersten Werte</h3>
-
 <p>$f: \mathbb{N}_0 \rightarrow \mathbb{R}_0^+$ sei die Menge des ursprünglichen Blutes in Liter, das nach $x$ Spenden gespendet wurde:</p>
 
 <p>
@@ -173,7 +170,6 @@ MathJax.Hub.Queue(function() {
 </p>
 
 <h3 id="tocAnchor-1-2-2">Eine rekursive Formel</h3>
-
 <p>
    $
         \begin{align}
@@ -185,14 +181,13 @@ MathJax.Hub.Queue(function() {
 $
 </p>
 
-<p>Dabei gilt:
-</p><ul>
+<p>Dabei gilt:</p>
+<ul>
   <li>0,5 ist die gespendete Blutmenge in Liter einer Spende</li>
-  <li>$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$</li>
+  <li>`$\frac{9}{10} = \frac{\text{gespendete Blutmenge}}{\text{gesamte Blutmenge}}$`</li>
 </ul>
 
 <h3 id="tocAnchor-1-2-3">Auflösen der Rekursion</h3>
-
 <p>
    $
         \begin{align}
@@ -206,7 +201,6 @@ $
 </p>
 
 <h3 id="tocAnchor-1-2-4">Auflösen des Summensymbols</h3>
-
 <p>
    $
         \begin{align}
@@ -220,7 +214,6 @@ $
 </p>
 
 <h2 id="tocAnchor-1-7">Lösung</h2>
-
 <p>
    $
         \begin{align}
@@ -235,7 +228,6 @@ $
 </p>
 
 <h2 id="tocAnchor-1-8">Antwort</h2>
-
 <p>Nach dem 28. mal Blutspenden wurden 95% des ursprünglichen Blutes gespendet.</p>
 
                         </div>
@@ -416,7 +408,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

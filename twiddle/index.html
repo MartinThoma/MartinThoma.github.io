@@ -105,57 +105,60 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Twiddle is an algorithm that tries to find a good choice of parameters $p$
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Twiddle is an algorithm that tries to find a good choice of parameters $p$<br />
 for an algorithm $\mathcal{A}$ that returns an error.</p>
 
-<p>The algorithm is quite simple to implement. I guess gradient descent might be
-better for most cases, but Twiddle does not require any knowledge about the
-algorithm $\mathcal{A}$ which might be a big advantage. And you don't have to
+<p>The algorithm is quite simple to implement. I guess gradient descent might be<br />
+better for most cases, but Twiddle does not require any knowledge about the<br />
+algorithm $\mathcal{A}$ which might be a big advantage. And you don’t have to<br />
 calculate the gradient of high dimensional functions, which is nice, too.</p>
 
 <h2 id="tocAnchor-1-1">The algorithm</h2>
 
 <p>Here is some pythonic pseudo code. <code>A</code> is an algorithm that returns an error.</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c"># Choose an initialization parameter vector</span>
-<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="c"># Define potential changes</span>
-<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="c"># Calculate the error</span>
-<span class="n">best_err</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 
-<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.001</span>
-
-<span class="k">while</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)):</span>
-        <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">err</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">err</span> <span class="o">&lt;</span> <span class="n">best_err</span><span class="p">:</span>  <span class="c"># There was some improvement</span>
-            <span class="n">best_err</span> <span class="o">=</span> <span class="n">err</span>
-            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">1.1</span>
-        <span class="k">else</span><span class="p">:</span>  <span class="c"># There was no improvement</span>
-            <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">2</span><span class="o">*</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c"># Go into the other direction</span>
-            <span class="n">err</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">err</span> <span class="o">&lt;</span> <span class="n">best_err</span><span class="p">:</span>  <span class="c"># There was an improvement</span>
-                <span class="n">best_err</span> <span class="o">=</span> <span class="n">err</span>
-                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">1.05</span>
-            <span class="k">else</span>  <span class="c"># There was no improvement</span>
-                <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="c"># As there was no improvement, the step size in either</span>
-                <span class="c"># direction, the step size might simply be too big.</span>
-                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.95</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777"># Choose an initialization parameter vector</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>p = [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#777"># Define potential changes</span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>dp = [<span style="color:#00D">1</span>, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>]
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#777"># Calculate the error</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>best_err = A(p)
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>threshold = <span style="color:#60E">0.001</span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">while</span> <span style="color:#369;font-weight:bold">sum</span>(dp) &gt; threshold:
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(p)):
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        p[i] += dp[i]
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        err = A(p)
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        <span style="color:#080;font-weight:bold">if</span> err &lt; best_err:  <span style="color:#777"># There was some improvement</span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>            best_err = err
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>            dp[i] *= <span style="color:#60E">1.1</span>
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        <span style="color:#080;font-weight:bold">else</span>:  <span style="color:#777"># There was no improvement</span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>            p[i] -= <span style="color:#00D">2</span>*dp[i]  <span style="color:#777"># Go into the other direction</span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>            err = A(p)
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span> 
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>            <span style="color:#080;font-weight:bold">if</span> err &lt; best_err:  <span style="color:#777"># There was an improvement</span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>                best_err = err
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>                dp[i] *= <span style="color:#60E">1.05</span>
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>            <span style="color:#080;font-weight:bold">else</span>  <span style="color:#777"># There was no improvement</span>
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>                p[i] += dp[i]
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>                <span style="color:#777"># As there was no improvement, the step size in either</span>
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>                <span style="color:#777"># direction, the step size might simply be too big.</span>
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>                dp[i] *= <span style="color:#60E">0.95</span>
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">See also</h2>
 
 <ul>
-<li><a href="https://www.youtube.com/watch?v=2uQ2BSzDvXs">Twiddle - CS373 Unit 5 - Udacity</a>:
+  <li><a href="https://www.youtube.com/watch?v=2uQ2BSzDvXs">Twiddle - CS373 Unit 5 - Udacity</a>:<br />
 Explanation of Twiddle by Sebastian Thrun</li>
-<li><a href="http://www.htw-mechlab.de/index.php/numerische-optimierung-in-matlab-mit-twiddle-algorithmus/">Numerische Optimierung in Matlab mit Twiddle-Algorithmus</a> (German)</li>
-<li><a href="http://forums.udacity.com/questions/1023236/twiddle-vs-gradient-descent">twiddle vs gradient descent</a></li>
+  <li><a href="http://www.htw-mechlab.de/index.php/numerische-optimierung-in-matlab-mit-twiddle-algorithmus/">Numerische Optimierung in Matlab mit Twiddle-Algorithmus</a> (German)</li>
+  <li><a href="http://forums.udacity.com/questions/1023236/twiddle-vs-gradient-descent">twiddle vs gradient descent</a></li>
 </ul>
 
                         </div>
@@ -342,7 +345,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

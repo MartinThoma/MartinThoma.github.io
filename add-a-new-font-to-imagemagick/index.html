@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>You can list all fonts that are known to ImageMagick by <code>identify -list font</code>. When your font isn&#39;t there, but it is installed, you might want to try these steps:</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>You can list all fonts that are known to ImageMagick by <code>identify -list font</code>. When your font isn’t there, but it is installed, you might want to try these steps:</p>
 
 <ul>
   <li><code>sudo updatedb</code></li>
   <li>Download <a href="http://www.imagemagick.org/Usage/scripts/imagick_type_gen">imagick_type_gen</a></li>
-  <li>Execute it: <code>perl imagick_type_gen > types.xml</code></li>
+  <li>Execute it: <code>perl imagick_type_gen &gt; types.xml</code></li>
   <li>Copy the result to the folder where it should be
   <ul>
     <li><code>locate type.xml</code>. That was <em>/usr/lib/ImageMagick-6.5.7/config/type.xml</em> for me</li>
@@ -300,7 +300,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

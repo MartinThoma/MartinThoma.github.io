@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Stochastic&rdquo;’</h2>
   
@@ -1063,7 +1063,7 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-07-23T15:37:39+02:00">July 23, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/why-everybody-should-know-about-conditional-probability/"><img width="128" height="128" src="//martin-thoma.com/images/2013/07/probability-tree.png" class="alignleft post_thumbnail wp-post-image" alt="Why everybody should know about conditional probability"/></a>
     
@@ -3183,10 +3183,10 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-10-17T21:19:55+02:00">October 17, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
 
-    In diesem Artikel werde ich ein paar einfache Definitionen, die f&uuml;r die Stochastik wichtig sind, einf&uuml;hren. Basisdefinitionen bei Zufallsexperimenten Was ist ein ideales Zufallsexperiment? Ein ideales Zufallsexperiment sollte gut beschrieben, wiederholbar und mit mehreren m&ouml;glichen Ausg&auml;ngen (also zuf&auml;llig), sein. Die Zufallsgr&ouml;&szlig;e, wie beispielsweise die erw&uuml;rfelte Zahl, nennt man Zufallsvariable. Es gibt auch noch die Statistische Variable. Wo der Unterschied ist, kann ich nicht sagen. Allerdings habe ich auf Wikipedia eine Diskussion ge&ouml;ffnet und hoffe auf...
+    In diesem Artikel werde ich ein paar einfache Definitionen, die für die Stochastik wichtig sind, einführen. Basisdefinitionen bei Zufallsexperimenten Was ist ein ideales Zufallsexperiment? Ein ideales Zufallsexperiment sollte gut beschrieben, wiederholbar und mit mehreren m&ouml;glichen Ausg&auml;ngen (also zuf&auml;llig), sein. Die Zufallsgröße, wie beispielsweise die erwürfelte Zahl, nennt man Zufallsvariable. Es gibt auch noch die Statistische Variable. Wo der Unterschied ist, kann ich nicht sagen. Allerdings habe ich auf Wikipedia eine Diskussion geöffnet und hoffe auf...
 
     
     <div class="readmorecontent">
@@ -3725,7 +3725,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

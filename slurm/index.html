@@ -105,27 +105,27 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>SLURM is short for 'Simple Linux Utility for Resource Management'.
-It helps you to make use of a <abbr title="a data center ... many computers">cluster</abbr>
-by giving you a command line
-interface to add jobs to a queue. That means, you and other users can
-specify program calls that get executed as soon als all conditions
+                        <div class="entry" id="contentAfterTitle">
+                            <p>SLURM is short for ‘Simple Linux Utility for Resource Management’.<br />
+It helps you to make use of a <abbr title="a data center ... many computers">cluster</abbr><br />
+by giving you a command line<br />
+interface to add jobs to a queue. That means, you and other users can<br />
+specify program calls that get executed as soon als all conditions<br />
 are met.</p>
 
-<p>I currently need to work with this, because I have some pretty heavy
-tasks that occur periodically, but don't need to be executed immediately.
-More concrete, I am working in the field of ASR - Automatic Speech Recognition.
-In ASR you have models that include probabilities for ... well, let's
-don't get into detail for that. The important part is that those models
+<p>I currently need to work with this, because I have some pretty heavy<br />
+tasks that occur periodically, but don’t need to be executed immediately.<br />
+More concrete, I am working in the field of ASR - Automatic Speech Recognition.<br />
+In ASR you have models that include probabilities for … well, let’s<br />
+don’t get into detail for that. The important part is that those models<br />
 need to be trained. And they can get adapted to speakers.</p>
 
-<p>As soon as you have more recordings, you can try to improve the model. 
-And this training involves a lot of computation and
-data processing. As the training job is executed periodically, but
-not always when a new recording is present, you might also have
-recordings for many different speakers. So you can improve many models
-when this script is started. So this can be done on different computers
+<p>As soon as you have more recordings, you can try to improve the model. <br />
+And this training involves a lot of computation and<br />
+data processing. As the training job is executed periodically, but<br />
+not always when a new recording is present, you might also have<br />
+recordings for many different speakers. So you can improve many models<br />
+when this script is started. So this can be done on different computers<br />
 in parallel.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -150,181 +150,188 @@ in parallel.</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">SLURM basic usage</h2>
-
 <p>A simple call could look like this:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">srun python test.py -aflag -param value
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>srun python test.py -aflag -param value
+</pre></div>
 </div>
+</div>
+
 <p>Other notable commands are:</p>
 
 <ul>
-<li><code>squeue</code>: Gives a list of all running / pending jobs</li>
-<li><code>sbatch</code>: Run a batch script in background</li>
-<li><code>scancel</code>: Stop a job</li>
+  <li><code>squeue</code>: Gives a list of all running / pending jobs</li>
+  <li><code>sbatch</code>: Run a batch script in background</li>
+  <li><code>scancel</code>: Stop a job</li>
 </ul>
 
 <p>Important parameters for <code>srun</code> are:</p>
 
 <ul>
-<li><code>--mem=[X in MB]</code></li>
-<li><code>--job-name=[Name of your SLURM job]</code></li>
-<li><code>--dependency</code>: Start this job when all dependencies are met. This
- could be time or other jobs</li>
+  <li><code>--mem=[X in MB]</code></li>
+  <li><code>--job-name=[Name of your SLURM job]</code></li>
+  <li><code>--dependency</code>: Start this job when all dependencies are met. This<br />
+   could be time or other jobs</li>
 </ul>
 
-<p>Another important command is <code>squeue</code>. It allows you to list all jobs in
+<p>Another important command is <code>squeue</code>. It allows you to list all jobs in<br />
 command line (if you have a GUI: <code>sview</code>).</p>
 
-<p>You can get your jobs only with <code>squeue -u mthoma</code>, where <code>mthoma</code> should be
+<p>You can get your jobs only with <code>squeue -u mthoma</code>, where <code>mthoma</code> should be<br />
 replaced by your user name.</p>
 
 <h2 id="tocAnchor-1-2">Help texts</h2>
 
 <h3 id="tocAnchor-1-2-1">sbatch</h3>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">$ sbatch --help
-Usage: sbatch [OPTIONS...] executable [args...]
 
-Parallel run options:
-  -A, --account=name          charge job to specified account
-      --begin=time            defer job until HH:MM MM/DD/YY
-  -c, --cpus-per-task=ncpus   number of cpus required per task
-      --comment=name          arbitrary comment
-  -d, --dependency=type:jobid defer job until condition on jobid is satisfied
-  -D, --workdir=directory     set working directory for batch script
-  -e, --error=err             file for batch script's standard error
-      --export[=names]        specify environment variables to export
-      --get-user-env          load environment from local cluster
-      --gid=group_id          group ID to run job as (user root only)
-      --gres=list             required generic resources
-  -H, --hold                  submit job in held state
-  -i, --input=in              file for batch script's standard input
-  -I, --immediate             exit if resources are not immediately available
-      --jobid=id              run under already allocated job
-  -J, --job-name=jobname      name of job
-  -k, --no-kill               do not kill job on node failure
-  -L, --licenses=names        required license, comma separated
-  -m, --distribution=type     distribution method for processes to nodes
-                              (type = block|cyclic|arbitrary)
-  -M, --clusters=names        Comma separated list of clusters to issue
-                              commands to.  Default is current cluster.
-                              Name of 'all' will submit to run on all clusters.
-      --mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
-      --mail-user=user        who to send email notification for job state
-                              changes
-  -n, --ntasks=ntasks         number of tasks to run
-      --nice[=value]          decrease secheduling priority by value
-      --no-requeue            if set, do not permit the job to be requeued
-      --ntasks-per-node=n     number of tasks to invoke on each node
-  -N, --nodes=N               number of nodes on which to run (N = min[-max])
-  -o, --output=out            file for batch script's standard output
-  -O, --overcommit            overcommit resources
-  -p, --partition=partition   partition requested
-      --propagate[=rlimits]   propagate all [or specific list of] rlimits
-      --qos=qos               quality of service
-  -Q, --quiet                 quiet mode (suppress informational messages)
-      --requeue               if set, permit the job to be requeued
-  -t, --time=minutes          time limit
-      --time-min=minutes      minimum time limit (if distinct)
-  -s, --share                 share nodes with other jobs
-      --uid=user_id           user ID to run job as (user root only)
-  -v, --verbose               verbose mode (multiple -v's increase verbosity)
-
-Constraint options:
-      --contiguous            demand a contiguous range of nodes
-  -C, --constraint=list       specify a list of constraints
-  -F, --nodefile=filename     request a specific list of hosts
-      --mem=MB                minimum amount of real memory
-      --mincpus=n             minimum number of logical processors (threads) per node
-      --reservation=name      allocate resources from named reservation
-      --tmp=MB                minimum amount of temporary disk
-  -w, --nodelist=hosts...     request a specific list of hosts
-  -x, --exclude=hosts...      exclude a specific list of hosts
-
-Consumable resources related options:
-      --exclusive             allocate nodes in exclusive mode when
-                              cpu consumable resource is enabled
-      --mem-per-cpu=MB        maximum amount of real memory per allocated
-                              cpu required by the job.
-                              --mem &gt;= --mem-per-cpu if --mem is specified.
-
-Affinity/Multi-core options: (when the task/affinity plugin is enabled)
-  -B  --extra-node-info=S[:C[:T]]            Expands to:
-       --sockets-per-node=S   number of sockets per node to allocate
-       --cores-per-socket=C   number of cores per socket to allocate
-       --threads-per-core=T   number of threads per core to allocate
-                              each field can be 'min' or wildcard '*'
-                              total cpus requested = (N x S x C x T)
-
-      --ntasks-per-core=n     number of tasks to invoke on each core
-      --ntasks-per-socket=n   number of tasks to invoke on each socket
-      --cpu_bind=             Bind tasks to CPUs
-                              (see "--cpu_bind=help" for options)
-      --hint=                 Bind tasks according to application hints
-                              (see "--hint=help" for options)
-      --mem_bind=             Bind memory to locality domains (ldom)
-                              (see "--mem_bind=help" for options)
-
-
-Help options:
-  -h, --help                  show this help message
-  -u, --usage                 display brief usage message
-
-Other options:
-  -V, --version               output version information and exit
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>$ sbatch --help
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>Usage: sbatch [OPTIONS...] executable [args...]
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>Parallel run options:
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>  -A, --account=name          charge job to specified account
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>      --begin=time            defer job until HH:MM MM/DD/YY
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>  -c, --cpus-per-task=ncpus   number of cpus required per task
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>      --comment=name          arbitrary comment
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>  -d, --dependency=type:jobid defer job until condition on jobid is satisfied
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>  -D, --workdir=directory     set working directory for batch script
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>  -e, --error=err             file for batch script's standard error
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>      --export[=names]        specify environment variables to export
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>      --get-user-env          load environment from local cluster
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>      --gid=group_id          group ID to run job as (user root only)
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>      --gres=list             required generic resources
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>  -H, --hold                  submit job in held state
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>  -i, --input=in              file for batch script's standard input
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>  -I, --immediate             exit if resources are not immediately available
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>      --jobid=id              run under already allocated job
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>  -J, --job-name=jobname      name of job
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>  -k, --no-kill               do not kill job on node failure
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>  -L, --licenses=names        required license, comma separated
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>  -m, --distribution=type     distribution method for processes to nodes
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>                              (type = block|cyclic|arbitrary)
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>  -M, --clusters=names        Comma separated list of clusters to issue
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>                              commands to.  Default is current cluster.
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>                              Name of 'all' will submit to run on all clusters.
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>      --mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>      --mail-user=user        who to send email notification for job state
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>                              changes
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>  -n, --ntasks=ntasks         number of tasks to run
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>      --nice[=value]          decrease secheduling priority by value
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>      --no-requeue            if set, do not permit the job to be requeued
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>      --ntasks-per-node=n     number of tasks to invoke on each node
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>  -N, --nodes=N               number of nodes on which to run (N = min[-max])
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>  -o, --output=out            file for batch script's standard output
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>  -O, --overcommit            overcommit resources
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>  -p, --partition=partition   partition requested
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>      --propagate[=rlimits]   propagate all [or specific list of] rlimits
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>      --qos=qos               quality of service
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>  -Q, --quiet                 quiet mode (suppress informational messages)
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>      --requeue               if set, permit the job to be requeued
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>  -t, --time=minutes          time limit
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>      --time-min=minutes      minimum time limit (if distinct)
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>  -s, --share                 share nodes with other jobs
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>      --uid=user_id           user ID to run job as (user root only)
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>  -v, --verbose               verbose mode (multiple -v's increase verbosity)
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>Constraint options:
+<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>      --contiguous            demand a contiguous range of nodes
+<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>  -C, --constraint=list       specify a list of constraints
+<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>  -F, --nodefile=filename     request a specific list of hosts
+<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>      --mem=MB                minimum amount of real memory
+<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>      --mincpus=n             minimum number of logical processors (threads) per node
+<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>      --reservation=name      allocate resources from named reservation
+<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>      --tmp=MB                minimum amount of temporary disk
+<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>  -w, --nodelist=hosts...     request a specific list of hosts
+<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>  -x, --exclude=hosts...      exclude a specific list of hosts
+<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>
+<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>Consumable resources related options:
+<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>      --exclusive             allocate nodes in exclusive mode when
+<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>                              cpu consumable resource is enabled
+<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>      --mem-per-cpu=MB        maximum amount of real memory per allocated
+<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>                              cpu required by the job.
+<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span>                              --mem &gt;= --mem-per-cpu if --mem is specified.
+<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span>
+<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>Affinity/Multi-core options: (when the task/affinity plugin is enabled)
+<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>  -B  --extra-node-info=S[:C[:T]]            Expands to:
+<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span>       --sockets-per-node=S   number of sockets per node to allocate
+<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>       --cores-per-socket=C   number of cores per socket to allocate
+<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>       --threads-per-core=T   number of threads per core to allocate
+<span class="line-numbers"><a href="#n72" name="n72" id="n72">72</a></span>                              each field can be 'min' or wildcard '*'
+<span class="line-numbers"><a href="#n73" name="n73" id="n73">73</a></span>                              total cpus requested = (N x S x C x T)
+<span class="line-numbers"><a href="#n74" name="n74" id="n74">74</a></span>
+<span class="line-numbers"><a href="#n75" name="n75" id="n75">75</a></span>      --ntasks-per-core=n     number of tasks to invoke on each core
+<span class="line-numbers"><a href="#n76" name="n76" id="n76">76</a></span>      --ntasks-per-socket=n   number of tasks to invoke on each socket
+<span class="line-numbers"><a href="#n77" name="n77" id="n77">77</a></span>      --cpu_bind=             Bind tasks to CPUs
+<span class="line-numbers"><a href="#n78" name="n78" id="n78">78</a></span>                              (see "--cpu_bind=help" for options)
+<span class="line-numbers"><a href="#n79" name="n79" id="n79">79</a></span>      --hint=                 Bind tasks according to application hints
+<span class="line-numbers"><strong><a href="#n80" name="n80" id="n80">80</a></strong></span>                              (see "--hint=help" for options)
+<span class="line-numbers"><a href="#n81" name="n81" id="n81">81</a></span>      --mem_bind=             Bind memory to locality domains (ldom)
+<span class="line-numbers"><a href="#n82" name="n82" id="n82">82</a></span>                              (see "--mem_bind=help" for options)
+<span class="line-numbers"><a href="#n83" name="n83" id="n83">83</a></span>
+<span class="line-numbers"><a href="#n84" name="n84" id="n84">84</a></span>
+<span class="line-numbers"><a href="#n85" name="n85" id="n85">85</a></span>Help options:
+<span class="line-numbers"><a href="#n86" name="n86" id="n86">86</a></span>  -h, --help                  show this help message
+<span class="line-numbers"><a href="#n87" name="n87" id="n87">87</a></span>  -u, --usage                 display brief usage message
+<span class="line-numbers"><a href="#n88" name="n88" id="n88">88</a></span>
+<span class="line-numbers"><a href="#n89" name="n89" id="n89">89</a></span>Other options:
+<span class="line-numbers"><strong><a href="#n90" name="n90" id="n90">90</a></strong></span>  -V, --version               output version information and exit
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-2-2">squeue</h3>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">squeue --help
-Usage: squeue [OPTIONS]
-  -A, --account=account(s)        comma separated list of accounts
-                  to view, default is all accounts
-  -a, --all                       display jobs in hidden partitions
-  -h, --noheader                  no headers on output
-      --hide                      do not display jobs in hidden partitions
-  -i, --iterate=seconds           specify an interation period
-  -j, --job=job(s)                comma separated list of jobs IDs
-                  to view, default is all
-  -l, --long                      long report
-  -M, --clusters=cluster_name     cluster to issue commands to.  Default is
-                                  current cluster.  cluster with no name will
-                                  reset to default.
-  -n, --nodes=hostlist            list of nodes to view, default is 
-                  all nodes
-  -o, --format=format             format specification
-  -p, --partition=partition(s)    comma separated list of partitions
-                  to view, default is all partitions
-  -q, --qos=qos(s)                comma separated list of qos's
-                  to view, default is all qos's
-  -s, --step=step(s)              comma separated list of job steps
-                  to view, default is all
-  -S, --sort=fields               comma separated list of fields to sort on
-      --start                     print expected start times of pending jobs
-  -t, --states=states             comma separated list of states to view,
-                  default is pending and running,
-                  '--states=all' reports all states
-  -u, --user=user_name(s)         comma separated list of users to view
-  -v, --verbose                   verbosity level
-  -V, --version                   output version information and exit
 
-Help options:
-  --help                          show this help message
-  --usage                         display a brief summary of squeue options
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>squeue --help
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>Usage: squeue [OPTIONS]
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>  -A, --account=account(s)        comma separated list of accounts
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>                  to view, default is all accounts
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>  -a, --all                       display jobs in hidden partitions
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>  -h, --noheader                  no headers on output
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>      --hide                      do not display jobs in hidden partitions
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>  -i, --iterate=seconds           specify an interation period
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>  -j, --job=job(s)                comma separated list of jobs IDs
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                  to view, default is all
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>  -l, --long                      long report
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>  -M, --clusters=cluster_name     cluster to issue commands to.  Default is
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>                                  current cluster.  cluster with no name will
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>                                  reset to default.
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>  -n, --nodes=hostlist            list of nodes to view, default is 
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>                  all nodes
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>  -o, --format=format             format specification
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>  -p, --partition=partition(s)    comma separated list of partitions
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>                  to view, default is all partitions
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>  -q, --qos=qos(s)                comma separated list of qos's
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>                  to view, default is all qos's
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>  -s, --step=step(s)              comma separated list of job steps
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>                  to view, default is all
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>  -S, --sort=fields               comma separated list of fields to sort on
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>      --start                     print expected start times of pending jobs
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>  -t, --states=states             comma separated list of states to view,
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>                  default is pending and running,
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>                  '--states=all' reports all states
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>  -u, --user=user_name(s)         comma separated list of users to view
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>  -v, --verbose                   verbosity level
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>  -V, --version                   output version information and exit
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>Help options:
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>  --help                          show this help message
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>  --usage                         display a brief summary of squeue options
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-5">More information</h2>
-
 <ul>
-<li>Manpages:
-
-<ul>
-<li><a href="https://computing.llnl.gov/tutorials/linux_clusters/man/srun.txt">srun</a></li>
-<li><a href="https://computing.llnl.gov/tutorials/linux_clusters/man/scancel.txt">scancel</a></li>
-</ul></li>
-<li><a href="https://computing.llnl.gov/linux/slurm/quickstart.html">SLURM Quickstart Guide</a></li>
-<li><a href="https://rc.fas.harvard.edu/kb/high-performance-computing/slurm/">SLURM Overview from Harvard</a></li>
+  <li>Manpages:
+    <ul>
+      <li><a href="https://computing.llnl.gov/tutorials/linux_clusters/man/srun.txt">srun</a></li>
+      <li><a href="https://computing.llnl.gov/tutorials/linux_clusters/man/scancel.txt">scancel</a></li>
+    </ul>
+  </li>
+  <li><a href="https://computing.llnl.gov/linux/slurm/quickstart.html">SLURM Quickstart Guide</a></li>
+  <li><a href="https://rc.fas.harvard.edu/kb/high-performance-computing/slurm/">SLURM Overview from Harvard</a></li>
 </ul>
 
                         </div>
@@ -508,7 +515,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

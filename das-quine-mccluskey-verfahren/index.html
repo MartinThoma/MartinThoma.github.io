@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Das Quine-McCluskey-Verfahren wird angewendet, wenn man eine Schaltfunktion minimieren will. Es muss also eine Schaltfunktion gegeben sein. Es sollte eigentlich zusätzlich Kostenfunktion gegeben sein, aber meist ist das nicht der Fall.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -122,49 +122,48 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Verfahren</h2>
-
-<p><strong>Gegeben</strong>: Eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}, \; n \in \mathbb{N}$
-<strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten 
-</p><ul>
-  <li>„Nr.“, die bei 0 beginnt und bis $2^n - 1$ geht.</li>
-  <li>Eine Spalte pro Funktionsparameter (z.B. $a, b, c, ...$)</li>
-  <li>Eine Spalte für den Funktionswert $f(a,b,c,...)$</li>
+<p><strong>Gegeben</strong>: Eine Schaltfunktion $f:\{0,1\}^n \rightarrow \{0,1\}, \; n \in \mathbb{N}$<br />
+<strong>Schritt 1:</strong> Aufstellen der Funktionstabelle. Sie hat die Spalten</p>
+<ul>
+  <li>„Nr.“, die bei 0 beginnt und bis `$2^n - 1$` geht.</li>
+  <li>Eine Spalte pro Funktionsparameter (z.B. `$a, b, c, ...$`)</li>
+  <li>Eine Spalte für den Funktionswert `$f(a,b,c,...)$`</li>
 </ul>
 
-<p><strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung. </p>
+<p><strong>Schritt 2</strong>: Aufstellen der ersten Quinesche Tabelle 0ter Ordnung.</p>
 
-<p>Sie hat die Spalten
-</p><ul>
+<p>Sie hat die Spalten</p>
+<ul>
   <li>„Nr.“</li>
   <li>Eine Spalte pro Parameter</li>
   <li>„✓“ (Häkchen)</li>
 </ul>
-In der ersten Quineschen Tabelle stehen nur noch die Zeilen, deren Funktionswert 1 ist. Das sind die sogenannten Minterme. Zusätzlich sind sie nach Anzahl der 1er geordnet.
+<p>In der ersten Quineschen Tabelle stehen nur noch die Zeilen, deren Funktionswert 1 ist. Das sind die sogenannten Minterme. Zusätzlich sind sie nach Anzahl der 1er geordnet.</p>
 
 <p><strong>Schritt 3</strong>: $i$-tes Zusammenfassen</p>
 
-<p>Nun erstellt man die erste Quinesche Tabelle $i$-ter Ordnung. Also beim ersten mal erster Ordnung, beim zweiten Mal zweiter Ordnung, ...
-Diese Tabellen haben alle die gleichen Spalten und die Zeilen-Anzahl kann sowohl wachsen als auch schrumpfen. Das $i$ gibt dabei die Anzahl der „don't care“ Stellen an, also der Stellen die sowohl 0 als auch 1 sein können.</p>
+<p>Nun erstellt man die erste Quinesche Tabelle $i$-ter Ordnung. Also beim ersten mal erster Ordnung, beim zweiten Mal zweiter Ordnung, …<br />
+Diese Tabellen haben alle die gleichen Spalten und die Zeilen-Anzahl kann sowohl wachsen als auch schrumpfen. Das $i$ gibt dabei die Anzahl der „don’t care“ Stellen an, also der Stellen die sowohl 0 als auch 1 sein können.</p>
 
-<p>Um aus der ersten Quinesche Tabelle $(i-1)$-ter Ordnung die rsten Quinesche Tabelle $i$-ter Ordnung zu erstellen, geht man wie folgt vor:
-</p><ul>
+<p>Um aus der ersten Quinesche Tabelle $(i-1)$-ter Ordnung die rsten Quinesche Tabelle $i$-ter Ordnung zu erstellen, geht man wie folgt vor:</p>
+<ul>
   <li>Vergleiche alle Zeilen, in denen sich die Anzahl der 1er um genau 1 unterscheidet:
     <ul>
-      <li>Unterscheiden sich Zeile Nr. x und Zeile Nr. y an nur einer Stelle, so schreibe in die Tabelle $i$ter Ordnung eine neue Zeile. Die Nummer dieser Zeile ist „x, y“ und sie hat an der Stelle, an der sich die Zeilen x und y unterschieden, ein don't care.</li>
-      <li>Hake die Zeilen x und y in der Tabelle $(i-1)$-ter Ordnung ab</li>
+      <li>Unterscheiden sich Zeile Nr. x und Zeile Nr. y an nur einer Stelle, so schreibe in die Tabelle `$i$`ter Ordnung eine neue Zeile. Die Nummer dieser Zeile ist „x, y“ und sie hat an der Stelle, an der sich die Zeilen x und y unterschieden, ein don't care.</li>
+      <li>Hake die Zeilen x und y in der Tabelle `$(i-1)$`-ter Ordnung ab</li>
     </ul>
   </li>
 </ul>
 
-<p>Es ist möglich, das Zeilen nicht abgehakt werden, weil sie sich mit keiner Zeile zusammenfassen lassen. Das ist ok.
+<p>Es ist möglich, das Zeilen nicht abgehakt werden, weil sie sich mit keiner Zeile zusammenfassen lassen. Das ist ok.<br />
 Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fertig. Falls noch eine Möglich ist, geht man wieder in Schritt 3.</p>
 
 <p>Nun schreibt man alle Zeilen auf, die nicht abgehakt sind. Das sind die Primimplikanten.</p>
 
 <p><strong>Schritt 4</strong>: Aufstellen der zweiten Quineschen Tabelle</p>
 
-<p>Die zweite Quinesche Tabelle (auch Überdeckungstabelle genannt) hat folgende Spalten:
-</p><ul>
+<p>Die zweite Quinesche Tabelle (auch Überdeckungstabelle genannt) hat folgende Spalten:</p>
+<ul>
   <li>Primimplikanten</li>
   <li>Eine Spalte pro Minterm. Die Beschriftung ist dabei eine Nr.</li>
   <li>Eine Spalte „Kosten“</li>
@@ -174,8 +173,8 @@ Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fe
 
 <p><strong>Schritt 5</strong>: Vereinfachen der zweiten Quineschen Tabelle</p>
 
-<p>Dieser Schritt erinnert mich irgendwie an Sudoku. 
-</p><ul>
+<p>Dieser Schritt erinnert mich irgendwie an Sudoku.</p>
+<ul>
   <li><em>Zeilendominanz</em>: Hat eine Zeile a nur x-e an Stellen, wo auch eine andere Zeile b x-e hat und ist Zeile b nicht teurer als a, so kann Zeile a gestrichen werden. Also: Es wird die Zeile mit weniger x gestrichen</li>
   <li><em>Spaltendominanz</em>: Überdeckt eine Spalte eine andere Spalte mit ihren x-en, so kann die Spalte mit <u>mehr</u> x-en gestrichen werden.</li>
 </ul>
@@ -191,11 +190,10 @@ Sobald in einem Schritt keine Zusammenfassung mehr möglich ist, ist man hier fe
 <p>Ich muss mal nach einem Beispiel suchen, aber ich glaube es ist möglich, dass man die zweite Quinesche Tabelle ab einem gewissen Punkt nicht mehr vereinfachen kann, aber dennoch Zeilen und Spalten übrig sind. Dann muss man „durch scharfes Hinsehen“ (also Brute-Force) die Minimalform finden, oder? Hier bin ich mir nicht ganz sicher.</p>
 
 <h2 id="tocAnchor-1-2">Beispiele</h2>
-
-<p>Die folgende Aufgabe ist vom Übungsblatt 7 (WS 2012/2013). Herr Terlemez hat mir freundlicherweise erlaubt, sie hier verwenden zu dürfen.
+<p>Die folgende Aufgabe ist vom Übungsblatt 7 (WS 2012/2013). Herr Terlemez hat mir freundlicherweise erlaubt, sie hier verwenden zu dürfen.<br />
 (Die <a href="http://ti.ira.uka.de/TI-1/Uebungen/Uebungen.php">offiziellen Aufgaben und Lösungen</a> sind passwortgeschützt.)</p>
 
-<p><strong>Aufgabe</strong>:
+<p><strong>Aufgabe</strong>:<br />
 Gegeben sei die Schaltfunktion</p>
 
 <p>
@@ -207,9 +205,9 @@ Gegeben sei die Schaltfunktion</p>
   <li>Geben Sie die Überdeckungstabelle (2. Quinesche Tabelle) für die gefundenen Primimpikanten an (ohne Vereinfachung). Lesen Sie eine disjunktive Minimalform von `$g$` ab.</li>
 </ol>
 
-<p><strong>Lösung</strong>:
-(Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)
-</p><div style="width: 310px" class="wp-caption aligncenter">
+<p><strong>Lösung</strong>:<br />
+(Habe gerade leider keine Zeit, diese abzutippen. Kommt vielleicht noch.)</p>
+<div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg">
       <img src="../images/2013/01/digitaltechnik-aufgabe-7-2-1-300x236.jpg" alt="Handschriftliche Lösung der Aufgabe 7.2.1 aus DT" width="" height="" class="size-medium wp-image-56641" />
    </a>
@@ -224,8 +222,7 @@ Gegeben sei die Schaltfunktion</p>
 </div>
 
 <h2 id="tocAnchor-1-3">Quellen</h2>
-
-<p>Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw&amp;list=PL025B377F9094FCB9&amp;index=13">Vorlesung</a> und dem Tutorium erstellt. </p>
+<p>Ich habe diesen Artikel mit meinem Wissen aus den Folien (DT-VL12), der <a href="http://www.youtube.com/watch?v=K1NAj4ecPDw&amp;list=PL025B377F9094FCB9&amp;index=13">Vorlesung</a> und dem Tutorium erstellt.</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -405,7 +402,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

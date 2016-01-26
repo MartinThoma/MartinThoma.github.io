@@ -105,9 +105,9 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Artificial Intelligences (A.I.s) are computer programs that are able to adjust
-their behaviour according to data they see. So A.I.s are able to adjust to
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Artificial Intelligences (A.I.s) are computer programs that are able to adjust<br />
+their behaviour according to data they see. So A.I.s are able to adjust to<br />
 the data a human player generates.</p>
 
 <div style="width: 522px" class="wp-caption aligncenter">
@@ -135,46 +135,46 @@ the data a human player generates.</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Solved games</h2>
 
-<p>There is a number of games which are definitely solved. That means the A.I.
+<p>There is a number of games which are definitely solved. That means the A.I.<br />
 plays perfectly:</p>
 
 <ul>
-<li>Tic-Tac-Toe</li>
-<li>Connect Four: <a href="http://www.informatik.uni-trier.de/%7Efernau/DSL0607/Masterthesis-Viergewinnt.pdf">A Knowledge-based Approach of Connect-Four</a>. Amsterdam, 1988. Victor Allis.</li>
-<li>Checkers:</li>
+  <li>Tic-Tac-Toe</li>
+  <li>Connect Four: <a href="http://www.informatik.uni-trier.de/~fernau/DSL0607/Masterthesis-Viergewinnt.pdf">A Knowledge-based Approach of Connect-Four</a>. Amsterdam, 1988. Victor Allis.</li>
+  <li>Checkers:</li>
 </ul>
 
 <p>See also: <a href="https://en.wikipedia.org/wiki/Solved_game">Solved Game</a></p>
 
 <h2 id="tocAnchor-1-2">Computers win always</h2>
 
-<p>A second category are games in which A.I.s always win against human players, but
-they don't have a perfect strategy. Or at least we have not proven that they
+<p>A second category are games in which A.I.s always win against human players, but<br />
+they don’t have a perfect strategy. Or at least we have not proven that they<br />
 have a perfect strategy:</p>
 
 <ul>
-<li>Chess</li>
-<li>Go on a 5×5 board</li>
-<li>Reversi on a 4×4 board</li>
+  <li>Chess</li>
+  <li>Go on a 5×5 board</li>
+  <li>Reversi on a 4×4 board</li>
 </ul>
 
 <h2 id="tocAnchor-1-3">Unspecialized Game A.I.s</h2>
 
-<p>The following video is an explanation and demo of software Tom Murphy VII wrote that learns how to play a Nintendo Entertainment System game and then automatically plays it.
-It's called "learnfun" (for learn function).</p>
+<p>The following video is an explanation and demo of software Tom Murphy VII wrote that learns how to play a Nintendo Entertainment System game and then automatically plays it.<br />
+It’s called “learnfun” (for learn function).</p>
 
 <p>You might want to skip to 6:13 for the demo:</p>
 
 <iframe width="512" height="288" src="http://www.youtube.com/embed/xOCurBYI_gY" frameborder="0" allowfullscreen=""></iframe>
 
-<p>Research paper published in SIGBOVIK 2013: "<a href="http://tom7.org/mario/mario.pdf">The first level of Super Mario Bros. is easy with lexicographic ordering a and time travel ...after that it gets a little tricky</a>."</p>
+<p>Research paper published in SIGBOVIK 2013: “<a href="http://tom7.org/mario/mario.pdf">The first level of Super Mario Bros. is easy with lexicographic ordering a and time travel …after that it gets a little tricky</a>.”</p>
 
-<p>There is a follow-up video with Zelda, Punch-Out, Dr. Mario, Contra, Wall Street Kid
+<p>There is a follow-up video with Zelda, Punch-Out, Dr. Mario, Contra, Wall Street Kid<br />
 and Russian Attack:</p>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/YGJHR9Ovszs?list=UU3azLjQuz9s5qk76KEXaTvA" frameborder="0" allowfullscreen=""></iframe>
 
-<p>And a third episode with Super Mario, Gradius, Mega Man 2, Pro Wrestling, Color
+<p>And a third episode with Super Mario, Gradius, Mega Man 2, Pro Wrestling, Color<br />
 a Dinosaur, Nintendo Pinball, Cliffhanger, Arkanoid, Double Dare, Ice hockey:</p>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/Q-WgQcnessA" frameborder="0" allowfullscreen=""></iframe>
@@ -367,7 +367,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,47 +105,44 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p><a href="http://research.microsoft.com/en-us/people/kopf/">Johannes Kopf</a>, a researcher
-at Microsoft, has recently published a stunning video about a software project
-he seems to have participated in. The video is about the automatic creation
+                        <div class="entry" id="contentAfterTitle">
+                            <p><a href="http://research.microsoft.com/en-us/people/kopf/">Johannes Kopf</a>, a researcher<br />
+at Microsoft, has recently published a stunning video about a software project<br />
+he seems to have participated in. The video is about the automatic creation<br />
 of hyperlapse videos:</p>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/sA4Za3Hv6ng" frameborder="0" allowfullscreen=""></iframe>
 
 <blockquote>
-<p>We present a method for converting first-person videos, for example, captured with a helmet camera during activities such as rock climbing or bicycling, into hyperlapse videos: time-lapse videos with a smoothly moving camera.</p>
+  <p>We present a method for converting first-person videos, for example, captured with a helmet camera during activities such as rock climbing or bicycling, into hyperlapse videos: time-lapse videos with a smoothly moving camera.</p>
 </blockquote>
 
-<p>So we are now only speaking about first-person videos. As videos created by
-a helmet camera might be very long and (as he accurately described it)
-"dead boring", you want to speed that up. A timelaps would be a subsampling to
-every n-th frame. Those might be very shaky and hard to watch.
+<p>So we are now only speaking about first-person videos. As videos created by<br />
+a helmet camera might be very long and (as he accurately described it)<br />
+“dead boring”, you want to speed that up. A timelaps would be a subsampling to<br />
+every n-th frame. Those might be very shaky and hard to watch.<br />
 That means you would at least want some image stabilization.</p>
 
 <h2 id="tocAnchor-1-1">Microsoft Hyperlapse</h2>
-
 <p>But the software they created does more. Much more.</p>
 
 <h3 id="tocAnchor-1-1-1">Reconstruction</h3>
-
-<p>First, it reconstructs the geometry of the captured environment. That alone is
-absolutely awesome. They apply a group of techniques called
+<p>First, it reconstructs the geometry of the captured environment. That alone is<br />
+absolutely awesome. They apply a group of techniques called<br />
 <a href="https://en.wikipedia.org/wiki/Structure_from_motion">structure from motion</a>.</p>
 
 <h3 id="tocAnchor-1-1-2">Path planning</h3>
-
-<p>Then they plan the path of the camera. This is a 6-dimensional problem for every
+<p>Then they plan the path of the camera. This is a 6-dimensional problem for every<br />
 point in time where you want to get an image. The 6 dimensions are:</p>
 
 <ul>
-<li>(x, y, z): Position of the camera</li>
-<li>roll: horizontal, vertical angle</li>
-<li>pitch: up, down view angle</li>
-<li>yaw: left, right view angle</li>
+  <li>(x, y, z): Position of the camera</li>
+  <li>roll: horizontal, vertical angle</li>
+  <li>pitch: up, down view angle</li>
+  <li>yaw: left, right view angle</li>
 </ul>
 
-<p>In case you have a problem with imagining roll, pitch and yaw you should take
+<p>In case you have a problem with imagining roll, pitch and yaw you should take<br />
 a look at the following image:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -158,17 +155,16 @@ a look at the following image:</p>
 <p>The chosen path should meet several criteria:</p>
 
 <ul>
-<li>It should be smooth in space</li>
-<li>Every path position should be close to input positions</li>
-<li>The path should be short</li>
-<li>Rotation should be smooth (that is what makes videos "shaky")</li>
-<li>The rendering quality should be as high as possible</li>
+  <li>It should be smooth in space</li>
+  <li>Every path position should be close to input positions</li>
+  <li>The path should be short</li>
+  <li>Rotation should be smooth (that is what makes videos “shaky”)</li>
+  <li>The rendering quality should be as high as possible</li>
 </ul>
 
 <p>The first 3 steps were achived by spline fitting.</p>
 
 <h3 id="tocAnchor-1-1-3">Rendering</h3>
-
 <p>That step combines several output frames to render the desired camera image.</p>
 
 <h2 id="tocAnchor-1-5">Nice timelapses</h2>
@@ -367,7 +363,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

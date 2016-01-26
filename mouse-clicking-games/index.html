@@ -105,65 +105,71 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Do you know games like <a href="http://orteil.dashnet.org/cookieclicker/">cookie clicker</a>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Do you know games like <a href="http://orteil.dashnet.org/cookieclicker/">cookie clicker</a><br />
 where you only have to click a lot?</p>
 
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/08/cookie-cliker.png"><img src="//martin-thoma.com/captions/cookie-cliker.png" alt="Cookie Clicker" width="500" height="253" class=""/></a><p class="wp-caption-text">Cookie Clicker</p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/08/cookie-cliker.png"><img src="//martin-thoma.com/captions/cookie-cliker.png" alt="Cookie Clicker" width="500" height="253" class="" /></a><p class="wp-caption-text">Cookie Clicker</p></div>
 
 <p>You can do that automatically with the following Python script.</p>
 
-<p>Just execute <code>xdotool getmouselocation --shell</code> before that to find the
+<p>Just execute <code>xdotool getmouselocation --shell</code> before that to find the<br />
 position of your mouse.</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
-<span class="sd">&quot;&quot;&quot;Tool to make automatic clicks VERY fast (useful for idle games).&quot;&quot;&quot;</span>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="color:#D42"><span style="color:black">&quot;&quot;&quot;</span><span>Tool to make automatic clicks VERY fast (useful for idle games).</span><span style="color:black">&quot;&quot;&quot;</span></span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">time</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">random</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>(clicks, twiggle, x, y, delay):
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(clicks):
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>        xrand = random.randint(-twiggle, twiggle)
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>        yrand = random.randint(-twiggle, twiggle)
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>        xpos, ypos = x+xrand, y+yrand
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span>        os.system(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">xdotool mousemove %i %i click 1</span><span style="color:#710">&quot;</span></span> % (xpos, ypos))
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span>        <span style="color:#080;font-weight:bold">if</span> delay &gt; <span style="color:#00D">0</span>:
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span>            time.sleep(delay)
+<span class="line-numbers"><a href="#n18" name="n18">18</a></span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span>
+<span class="line-numbers"><a href="#n23" name="n23">23</a></span>    parser = ArgumentParser()
+<span class="line-numbers"><a href="#n24" name="n24">24</a></span>
+<span class="line-numbers"><a href="#n25" name="n25">25</a></span>    <span style="color:#777"># Add more options if you like</span>
+<span class="line-numbers"><a href="#n26" name="n26">26</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-c</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--clicks</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">clicks</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n27" name="n27">27</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">number of clicks that will be done</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n28" name="n28">28</a></span>                        default=<span style="color:#00D">500</span>,
+<span class="line-numbers"><a href="#n29" name="n29">29</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
+<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-t</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--twiggle</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">twiggle</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n31" name="n31">31</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">how much should the cursor move randomly</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n32" name="n32">32</a></span>                        default=<span style="color:#00D">50</span>,
+<span class="line-numbers"><a href="#n33" name="n33">33</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
+<span class="line-numbers"><a href="#n34" name="n34">34</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-x</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">x</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n35" name="n35">35</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">x coordinate where to click</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n36" name="n36">36</a></span>                        default=<span style="color:#00D">711</span>,
+<span class="line-numbers"><a href="#n37" name="n37">37</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
+<span class="line-numbers"><a href="#n38" name="n38">38</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-y</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">y</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n39" name="n39">39</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">y coordinate where to click</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>                        default=<span style="color:#00D">467</span>,
+<span class="line-numbers"><a href="#n41" name="n41">41</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
+<span class="line-numbers"><a href="#n42" name="n42">42</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--delay</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">delay</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n43" name="n43">43</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">delay between clicks</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n44" name="n44">44</a></span>                        default=<span style="color:#60E">0.01</span>,
+<span class="line-numbers"><a href="#n45" name="n45">45</a></span>                        type=<span style="color:#369;font-weight:bold">float</span>)
+<span class="line-numbers"><a href="#n46" name="n46">46</a></span>    args = parser.parse_args()
+<span class="line-numbers"><a href="#n47" name="n47">47</a></span>    main(args.clicks, args.twiggle, args.x, args.y, args.delay)
+<span class="line-numbers"><a href="#n48" name="n48">48</a></span>
+</pre></div>
+</div>
+</div>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">clicks</span><span class="p">,</span> <span class="n">twiggle</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">clicks</span><span class="p">):</span>
-        <span class="n">xrand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">twiggle</span><span class="p">,</span> <span class="n">twiggle</span><span class="p">)</span>
-        <span class="n">yrand</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">twiggle</span><span class="p">,</span> <span class="n">twiggle</span><span class="p">)</span>
-        <span class="n">xpos</span><span class="p">,</span> <span class="n">ypos</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">xrand</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">yrand</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;xdotool mousemove </span><span class="si">%i</span><span class="s"> </span><span class="si">%i</span><span class="s"> click 1&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">xpos</span><span class="p">,</span> <span class="n">ypos</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">delay</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
-
-    <span class="c"># Add more options if you like</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="s">&quot;--clicks&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;clicks&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&quot;number of clicks that will be done&quot;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-t&quot;</span><span class="p">,</span> <span class="s">&quot;--twiggle&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;twiggle&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&quot;how much should the cursor move randomly&quot;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-x&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;x&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&quot;x coordinate where to click&quot;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">711</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-y&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;y&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&quot;y coordinate where to click&quot;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">467</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;--delay&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;delay&quot;</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">&quot;delay between clicks&quot;</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-                        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">clicks</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">twiggle</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">delay</span><span class="p">)</span>
-</code></pre></div>
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/08/cookie-clicker-5min.png"><img src="//martin-thoma.com/captions/cookie-clicker-5min.png" alt="Cookie Clicker after 5 minutes with a script" width="500" height="252" class=""/></a><p class="wp-caption-text">Cookie Clicker after 5 minutes with a script</p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/08/cookie-clicker-5min.png"><img src="//martin-thoma.com/captions/cookie-clicker-5min.png" alt="Cookie Clicker after 5 minutes with a script" width="500" height="252" class="" /></a><p class="wp-caption-text">Cookie Clicker after 5 minutes with a script</p></div>
 
 <p>Have fun playing those games now!</p>
 
@@ -351,7 +357,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

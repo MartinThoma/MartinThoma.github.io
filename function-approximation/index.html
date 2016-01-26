@@ -105,17 +105,17 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I was recently quite disappointed by how bad neural networks are for function
-approximation (see <a href="http://datascience.stackexchange.com/q/9495/8820">How should a neural network for unbound function approximation be structured?</a>). However, I've just found that
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I was recently quite disappointed by how bad neural networks are for function<br />
+approximation (see <a href="http://datascience.stackexchange.com/q/9495/8820">How should a neural network for unbound function approximation be structured?</a>). However, I’ve just found that<br />
 Gaussian processes are great for function approximation!</p>
 
 <p>There are two important types of function approximation:</p>
 
 <ul>
-<li><strong>Interpolation</strong>: What values does the function have in between of known
+  <li><strong>Interpolation</strong>: What values does the function have in between of known<br />
 values?</li>
-<li><strong>Extrapolation</strong>: What values does the function have outsive of the known
+  <li><strong>Extrapolation</strong>: What values does the function have outsive of the known<br />
 values?</li>
 </ul>
 
@@ -164,7 +164,7 @@ values?</li>
    <p class="wp-caption-text">f(x) = x^2</p>
 </div>
 
-<p>I've tried if with higher order polynomials, more complex polynomials. No
+<p>I’ve tried if with higher order polynomials, more complex polynomials. No<br />
 problem.</p>
 
 <h3 id="tocAnchor-1-1-2">Sin</h3>
@@ -182,9 +182,9 @@ problem.</p>
 
 <h3 id="tocAnchor-1-1-3">exp</h3>
 
-<p>Approximating \(f(x) = e^x\) works similar well as polynomials. One can see
-that it does not perfectly fit it, but compared the the range of values seen
-before and the distance from the last seen value I think this is absolutely
+<p>Approximating \(f(x) = e^x\) works similar well as polynomials. One can see<br />
+that it does not perfectly fit it, but compared the the range of values seen<br />
+before and the distance from the last seen value I think this is absolutely<br />
 acceptable:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -196,14 +196,14 @@ acceptable:</p>
 
 <h3 id="tocAnchor-1-1-4">noise</h3>
 
-<p>It is claimed that Gaussian processes implicitly model noise so that they can
-easily deal with noise. However, in my experients this seems not to work so
+<p>It is claimed that Gaussian processes implicitly model noise so that they can<br />
+easily deal with noise. However, in my experients this seems not to work so<br />
 great. The reason might be that I had points in \([-3, 3]\) of the function</p>
 
 <p>\[f(x) = x^2\]</p>
 
-<p>with point-wise gaussian noise \(N \sim \mathcal{N}(0, 1)\). So the noise is
-quite domintant on that intervall. One of the examples where it worked better
+<p>with point-wise gaussian noise \(N \sim \mathcal{N}(0, 1)\). So the noise is<br />
+quite domintant on that intervall. One of the examples where it worked better<br />
 is:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -215,7 +215,7 @@ is:</p>
 
 <h3 id="tocAnchor-1-1-5">Make it brake</h3>
 
-<p>I was a bit suspicious if I had another mistake here. So I wanted it to break.
+<p>I was a bit suspicious if I had another mistake here. So I wanted it to break.<br />
 This was the reason why I created the following function</p>
 
 <p>\[f(x) = \begin{cases}x^2 &amp;\text{if } x \geq 0\\-1 &amp;\text{otherwise}\end{cases}\]</p>
@@ -227,94 +227,98 @@ This was the reason why I created the following function</p>
    <p class="wp-caption-text">Function with discontinuity</p>
 </div>
 
-<p>The predicted value is obviously not correct, but you should note that almost
+<p>The predicted value is obviously not correct, but you should note that almost<br />
 all function values are within the 95% confidence intervall!</p>
 
 <h2 id="tocAnchor-1-7">Code</h2>
 
-<p>The following code needs <a href="http://docs.scipy.org/doc/numpy-1.10.1/user/install.html"><code>numpy</code></a>
-and <a href="http://scikit-learn.org/stable/install.html"><code>sklearn</code></a>. For the plots,
+<p>The following code needs <a href="http://docs.scipy.org/doc/numpy-1.10.1/user/install.html"><code>numpy</code></a><br />
+and <a href="http://scikit-learn.org/stable/install.html"><code>sklearn</code></a>. For the plots,<br />
 you need <a href="http://matplotlib.org/users/installing.html"><code>matplotlib</code></a>.</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
-<span class="sd">"""Example how to use gaussion processes for regression."""</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">gaussian_process</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c"># Create the dataset</span>
-    <span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">y_train</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-    <span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-
-    <span class="c"># Define the Regression Modell and fit it</span>
-    <span class="n">gp</span> <span class="o">=</span> <span class="n">gaussian_process</span><span class="o">.</span><span class="n">GaussianProcess</span><span class="p">(</span><span class="n">theta0</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
-                                          <span class="n">thetaL</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
-                                          <span class="n">thetaU</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
-    <span class="n">gp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-    <span class="c"># Evaluate the result</span>
-    <span class="n">y_pred</span><span class="p">,</span> <span class="n">mse</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">eval_MSE</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"MSE: </span><span class="si">%0.4f</span><span class="s">"</span> <span class="o">%</span> <span class="nb">sum</span><span class="p">(</span><span class="n">mse</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"max MSE: </span><span class="si">%0.4f</span><span class="s">"</span> <span class="o">%</span> <span class="nb">max</span><span class="p">(</span><span class="n">mse</span><span class="p">))</span>
-    <span class="n">plot_graph</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="s">"x^2"</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Function which gets approximated</span>
-<span class="sd">    """</span>
-
-    <span class="n">noise</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)))]</span>
-    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">noise</span>
-    <span class="c"># Totally fails for that one:</span>
-    <span class="c"># y = []</span>
-    <span class="c"># for el in x:</span>
-    <span class="c">#     if el &gt;= 0:</span>
-    <span class="c">#         y.append(el**2)</span>
-    <span class="c">#     else:</span>
-    <span class="c">#         y.append(-1)</span>
-    <span class="c"># return np.array(y)</span>
-
-
-<span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">function_tex</span><span class="p">):</span>
-    <span class="c"># Plot the function, the prediction and the 95% confidence interval</span>
-    <span class="c"># based on the MSE</span>
-    <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
-    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">pl</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">'r:'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">u'$f(x) = </span><span class="si">%s</span><span class="s">$'</span> <span class="o">%</span> <span class="n">function_tex</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">'r.'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">u'Observations'</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="s">'b-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">u'Prediction'</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_pred</span> <span class="o">-</span> <span class="mf">1.9600</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span>
-                           <span class="p">(</span><span class="n">y_pred</span> <span class="o">+</span> <span class="mf">1.9600</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span>
-            <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s">'b'</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s">'None'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'95</span><span class="si">% c</span><span class="s">onfidence interval'</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'$x$'</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'$f(x)$'</span><span class="p">)</span>
-    <span class="n">y_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y_pred</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1.1</span>
-    <span class="n">y_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">y_pred</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1.1</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'upper left'</span><span class="p">)</span>
-    <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#D42"><span style="color:black">"""</span><span>Example how to use gaussion processes for regression.</span><span style="color:black">"""</span></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> np
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">gaussian_process</span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>():
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#777"># Create the dataset</span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    x_train = np.atleast_2d(np.linspace(-<span style="color:#00D">3</span>, <span style="color:#00D">3</span>, num=<span style="color:#00D">50</span>)).T
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    y_train = f(x_train).ravel()
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    x_test = np.atleast_2d(np.linspace(-<span style="color:#00D">5</span>, <span style="color:#00D">5</span>, <span style="color:#00D">1000</span>)).T
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    <span style="color:#777"># Define the Regression Modell and fit it</span>
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    gp = gaussian_process.GaussianProcess(theta0=<span style="color:#60E">1e-2</span>,
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>                                          thetaL=<span style="color:#60E">1e-4</span>,
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>                                          thetaU=<span style="color:#60E">1e-3</span>)
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    gp.fit(x_train, y_train)
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    <span style="color:#777"># Evaluate the result</span>
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    y_pred, mse = gp.predict(x_test, eval_MSE=<span style="color:#069">True</span>)
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">MSE: %0.4f</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">sum</span>(mse))
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">max MSE: %0.4f</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">max</span>(mse))
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    plot_graph(x_test, x_train, y_pred, mse, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">x^2</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">f</span>(x):
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span></span></span>
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span><span style="color:#D42"><span></span><span>    Function which gets approximated</span><span></span></span>
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>    noise = [np.random.normal(loc=<span style="color:#60E">0.0</span>, scale=<span style="color:#60E">1.0</span>) <span style="color:#080;font-weight:bold">for</span> _ <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(<span style="color:#369;font-weight:bold">list</span>(x)))]
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>    noise = np.atleast_2d(noise).T
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>    <span style="color:#080;font-weight:bold">return</span> x**<span style="color:#00D">2</span> + noise
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>    <span style="color:#777"># Totally fails for that one:</span>
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>    <span style="color:#777"># y = []</span>
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>    <span style="color:#777"># for el in x:</span>
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>    <span style="color:#777">#     if el &gt;= 0:</span>
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>    <span style="color:#777">#         y.append(el**2)</span>
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>    <span style="color:#777">#     else:</span>
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>    <span style="color:#777">#         y.append(-1)</span>
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>    <span style="color:#777"># return np.array(y)</span>
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">plot_graph</span>(x, x_train, y_pred, mse, function_tex):
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>    <span style="color:#777"># Plot the function, the prediction and the 95% confidence interval</span>
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>    <span style="color:#777"># based on the MSE</span>
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>    sigma = np.sqrt(mse)
+<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">matplotlib</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">pyplot</span> <span style="color:#080;font-weight:bold">as</span> pl
+<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>    pl.figure()
+<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>    y = f(x_train).ravel()
+<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>    pl.plot(x, f(x), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">r:</span><span style="color:#710">'</span></span>, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">$f(x) = %s$</span><span style="color:#710">'</span></span> % function_tex)
+<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>    pl.plot(x_train, y, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">r.</span><span style="color:#710">'</span></span>, markersize=<span style="color:#00D">10</span>, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">Observations</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>    pl.plot(x, y_pred, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">b-</span><span style="color:#710">'</span></span>, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">Prediction</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>    pl.fill(np.concatenate([x, x[::-<span style="color:#00D">1</span>]]),
+<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>            np.concatenate([y_pred - <span style="color:#60E">1.9600</span> * sigma,
+<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>                           (y_pred + <span style="color:#60E">1.9600</span> * sigma)[::-<span style="color:#00D">1</span>]]),
+<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>            alpha=<span style="color:#60E">.5</span>, fc=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">b</span><span style="color:#710">'</span></span>, ec=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">None</span><span style="color:#710">'</span></span>, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">95% confidence interval</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>    pl.xlabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$x$</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>    pl.ylabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">$f(x)$</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>    y_min = <span style="color:#369;font-weight:bold">min</span>(<span style="color:#369;font-weight:bold">min</span>(y_pred), <span style="color:#369;font-weight:bold">min</span>(y)) * <span style="color:#60E">1.1</span>
+<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>    y_max = <span style="color:#369;font-weight:bold">max</span>(<span style="color:#369;font-weight:bold">max</span>(y_pred), <span style="color:#369;font-weight:bold">max</span>(y)) * <span style="color:#60E">1.1</span>
+<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>    pl.ylim(y_min, y_max)
+<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span>    pl.legend(loc=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">upper left</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span>    pl.show()
+<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>
+<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>
+<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>    main()
+<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-8">See also</h2>
 
 <ul>
-<li><a href="http://www.gaussianprocess.org/">www.gaussianprocess.org</a>: The definitive book about gaussian processes. It's freely available online!</li>
-<li><a href="https://en.wikipedia.org/wiki/Kriging">Wikipedia</a></li>
-<li>sklearn: <a href="http://scikit-learn.org/stable/modules/gaussian_process.html">Gaussian Processes</a></li>
-<li>sklearn: <a href="http://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gp_regression.html">Gaussian Processes regression: basic introductory example</a></li>
+  <li><a href="http://www.gaussianprocess.org/">www.gaussianprocess.org</a>: The definitive book about gaussian processes. It’s freely available online!</li>
+  <li><a href="https://en.wikipedia.org/wiki/Kriging">Wikipedia</a></li>
+  <li>sklearn: <a href="http://scikit-learn.org/stable/modules/gaussian_process.html">Gaussian Processes</a></li>
+  <li>sklearn: <a href="http://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gp_regression.html">Gaussian Processes regression: basic introductory example</a></li>
 </ul>
 
                         </div>
@@ -498,7 +502,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

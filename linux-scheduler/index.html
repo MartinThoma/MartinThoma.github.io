@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Der folgende Text wurde von <a href="http://klammler.eu/">Moritz Klammler</a>, einem Informatik-Studenten am KIT, als E-Mail an die interne Mailingliste der Vorlesung geschrieben. Ich habe nur ein paar Kleinigkeiten umformuliert und die Formattierung geändert.</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -122,10 +122,9 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Mailinglisten-Beitrag</h2>
+<p>Der in der Vorlesung vorgestellte $\mathcal{O}(1)$ Scheduler<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> wurde vom 2.6er Linux Kernel bis Version 2.6.23 verwendet und dann durch den sogenannten Completely Fair Scheduler (CFS)<small><sup><a href="#ref2" name="anchor2" id="anchor2">[2]</a></sup></small> abgelöst, der Rot-Schwarz-Bäume verwendet, und daher in $\mathcal{O}(\log(n))$ läuft – dafür aber komplett fair ist ;-) Beide Scheduler wurden von Ingo Molnár entworfen und größtenteils implementiert. Abgesehen von den Wikipedia Artikeln fand ich auch Ingos eigene Beschreibung<small><sup><a href="#ref3" name="anchor1" id="anchor1">[3]</a></sup></small> sehr interessant.  In der prä-2.6-Ära des Linux Kernels wurde ein Scheduler verwendet, zu dessen Effizienz ich keine Angaben gefunden habe.  Anhand der (ziemlich detaillierten) Beschreibung in Kapitel 10 von „Understanding the Linux Kernel“<small><sup><a href="#ref4" name="anchor4" id="anchor4">[1]</a></sup></small> gehe ich jedoch davon aus, dass es $\mathcal{O}(n)$ gewesen sein muss.  Auch wenn die dort beschriebenen Algorithmen inzwischen mehrfach überholt sind, fand ich das Kapitel sehr lesenswert.</p>
 
-<p>Der in der Vorlesung vorgestellte $\mathcal{O}(1)$ Scheduler<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> wurde vom 2.6er Linux Kernel bis Version 2.6.23 verwendet und dann durch den sogenannten Completely Fair Scheduler (CFS)<small><sup><a href="#ref2" name="anchor2" id="anchor2">[2]</a></sup></small> abgelöst, der Rot-Schwarz-Bäume verwendet, und daher in $\mathcal{O}(\log(n))$ läuft -- dafür aber komplett fair ist ;-) Beide Scheduler wurden von Ingo Molnár entworfen und größtenteils implementiert. Abgesehen von den Wikipedia Artikeln fand ich auch Ingos eigene Beschreibung<small><sup><a href="#ref3" name="anchor1" id="anchor1">[3]</a></sup></small> sehr interessant.  In der prä-2.6-Ära des Linux Kernels wurde ein Scheduler verwendet, zu dessen Effizienz ich keine Angaben gefunden habe.  Anhand der (ziemlich detaillierten) Beschreibung in Kapitel 10 von „Understanding the Linux Kernel“<small><sup><a href="#ref4" name="anchor4" id="anchor4">[1]</a></sup></small> gehe ich jedoch davon aus, dass es $\mathcal{O}(n)$ gewesen sein muss.  Auch wenn die dort beschriebenen Algorithmen inzwischen mehrfach überholt sind, fand ich das Kapitel sehr lesenswert.</p>
-
-<p>Wie in der Vorlesung vermutet wurde, kann man den Scheduler natürlich konfigurieren.  Dazu ist es aber nicht notwendig, neu zu kompilieren -- noch nicht einmal neu zu booten. Stattdessen kann man (beim CFS) einfach über das /proc Dateisystem in die verschiedenen Dateien in</p>
+<p>Wie in der Vorlesung vermutet wurde, kann man den Scheduler natürlich konfigurieren.  Dazu ist es aber nicht notwendig, neu zu kompilieren – noch nicht einmal neu zu booten. Stattdessen kann man (beim CFS) einfach über das /proc Dateisystem in die verschiedenen Dateien in</p>
 
 <p>
    <code>/proc/sys/kernel/...</code>
@@ -137,23 +136,21 @@ MathJax.Hub.Queue(function() {
 
 <p>Da der Bildschirm beim Ausführen des Programms (gewollt) stark flackert, muss ich Epileptikern und anderen empfindlichen Personen unter Umständen leider davon abraten.</p>
 
-<p>Leider lässt der Kernel keine völlig unsinnigen Werte zu.  Man kann also nur bedingt ausprobieren, welchen Einfluss extreme Einstellungen haben / hätten.  Wie in Referenz 4 beschrieben, „friert“ die grafische Oberfläche übrigens auch nicht ein, wenn man größere Scheduling Intervalle wählt, da jeder Tastendruck einen Interrupt auslöst, der -- egal wie geschedulet wird -- immer die Kontrolle an jenen Prozess übergibt, der gerade das Keyboard „gegrabbt“ hat.</p>
+<p>Leider lässt der Kernel keine völlig unsinnigen Werte zu.  Man kann also nur bedingt ausprobieren, welchen Einfluss extreme Einstellungen haben / hätten.  Wie in Referenz 4 beschrieben, „friert“ die grafische Oberfläche übrigens auch nicht ein, wenn man größere Scheduling Intervalle wählt, da jeder Tastendruck einen Interrupt auslöst, der – egal wie geschedulet wird – immer die Kontrolle an jenen Prozess übergibt, der gerade das Keyboard „gegrabbt“ hat.</p>
 
 <p>Grüße</p>
 
 <p>Moritz</p>
 
 <h2 id="tocAnchor-1-2">Video</h2>
-
-<p>Ich habe mal ein Video von Moritz' Programm gemacht:
-<iframe width="420" height="315" src="http://www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen=""></iframe></p>
+<p>Ich habe mal ein Video von Moritz’ Programm gemacht:</p>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/DOOrbrcM3YU" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="tocAnchor-1-3">Referenzen</h2>
-
-<p>[1] <a name="ref1" href="#anchor1" id="ref1">↑</a>: „<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>“ in: Wikipedia, the free encyclopedia.  Abgerufen am 13. November 2012.<br />
-[2] <a name="ref2" href="#anchor2" id="ref2">↑</a>: „<a href="http://en.wikipedia.org/wiki/Completely_Fair_Scheduler">Completely Fair Scheduler</a>“ in: Wikipedia, the free encyclopedia. Abgerufen am 13. November 2012.
-[3] <a name="ref3" href="#anchor3" id="ref3">↑</a>: Ingo Molnár, „<a href="http://people.redhat.com/mingo/cfs-scheduler/sched-design-CFS.txt">This is the CFS scheduler</a>“.  Abgerufen am 13. November 2012.
-[4] <a name="ref4" href="#anchor4" id="ref4">↑</a>: Daniel P. Bovet und Marco Cesati, „<a href="http://oreilly.com/catalog/linuxkernel/chapter/ch10.html">Understanding the Linux Kernel</a>“. O'Reilly, 2000, abgerufen am 13. November 2012.</p>
+<p>[1] <a name="ref1" href="#anchor1" id="ref1">↑</a>: „<a href="http://en.wikipedia.org/wiki/O%281%29_scheduler">O(1) Scheduler</a>“ in: Wikipedia, the free encyclopedia.  Abgerufen am 13. November 2012.   <br />
+[2] <a name="ref2" href="#anchor2" id="ref2">↑</a>: „<a href="http://en.wikipedia.org/wiki/Completely_Fair_Scheduler">Completely Fair Scheduler</a>“ in: Wikipedia, the free encyclopedia. Abgerufen am 13. November 2012.<br />
+[3] <a name="ref3" href="#anchor3" id="ref3">↑</a>: Ingo Molnár, „<a href="http://people.redhat.com/mingo/cfs-scheduler/sched-design-CFS.txt">This is the CFS scheduler</a>“.  Abgerufen am 13. November 2012.<br />
+[4] <a name="ref4" href="#anchor4" id="ref4">↑</a>: Daniel P. Bovet und Marco Cesati, „<a href="http://oreilly.com/catalog/linuxkernel/chapter/ch10.html">Understanding the Linux Kernel</a>“. O’Reilly, 2000, abgerufen am 13. November 2012.</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -342,7 +339,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

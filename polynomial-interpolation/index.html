@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$. </p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Suppose you have a list of $n+1$ given point $(x_i, y_i)$ with $i \in \{0, \dots, n\}$ and $\forall i,j \in \{0, \dots, n\}: i \neq j \Rightarrow x_i \neq x_j$.</p>
 
 <p>Now you want to find a polynomial $\displaystyle p(x) = \sum_{i=0}^n a_i \cdot x^i$ that goes through all of the given points. This means:</p>
 
@@ -137,31 +137,31 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Existence and uniqueness</h2>
-
 <p><strong>Theorem</strong>: When you have a list of $n+1$ points with mutually different $x_i$ there is exactly one polynom of degree $\leq n$ that fits those points.</p>
 
 <p><strong>Proof</strong>:</p>
 
 <p>You can formulate a linear system of equations:</p>
 
-<p>`$\underbrace{\begin{pmatrix}
- x_0^0 &amp; \cdots &amp; x_0^n \
-\vdots &amp; \ddots &amp; \vdots \
+<p>
+   $\underbrace{\begin{pmatrix}
+ x_0^0 &amp; \cdots &amp; x_0^n \\
+\vdots &amp; \ddots &amp; \vdots \\
  x_n^0 &amp; \cdots &amp; x_n^n
 \end{pmatrix}
-}<em>{:= A \in \mathbb{R}^{(n+1) \times (n+1)}}
+}_{:= A \in \mathbb{R}^{(n+1) \times (n+1)}}
 \begin{pmatrix}
-a</em>0 \
-\vdots \
-a_n</p>
-
-<h1 id="\end{pmatrix}">\end{pmatrix}</h1>
-
-<p>\begin{pmatrix}
-y_0 \
-\vdots \
+a_0 \\
+\vdots \\
+a_n
+\end{pmatrix}
+= 
+\begin{pmatrix}
+y_0 \\
+\vdots \\
 y_n
-\end{pmatrix}$`</p>
+\end{pmatrix}$
+</p>
 
 <p>A matrix of the form of $A$ is called <a href="https://en.wikipedia.org/wiki/Vandermonde_matrix">Vandermonde matrix</a>. When the data points $x_i$ are mutually different, it is known that the Vandermonde matrix is invertible (<a href="http://math.stackexchange.com/q/426932/6876">source</a>).</p>
 
@@ -170,8 +170,7 @@ y_n
 <p>So the solution exists and is unique $\blacksquare$</p>
 
 <h2 id="tocAnchor-1-2">Straight forward interpolating polynomials</h2>
-
-<p>For this algorithm, I'll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I'll use the matrix $A$ from section "<a href="#Uniqueness">Uniqueness</a>".</p>
+<p>For this algorithm, I’ll find the polynomial in its monomial from $p(x) = \sum_{i=0}^n a_i x^i$. I’ll use the matrix $A$ from section “<a href="#Uniqueness">Uniqueness</a>”.</p>
 
 <p>You might want to take a look at my article about <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>.</p>
 
@@ -289,23 +288,23 @@ y_n
     <span class="k">return</span> <span class="n">y</span></code></pre>
 </div>
 
-<p>Time complexity to get the polynomial: $\frac{1}{3} n^3 + \mathcal{O}(n^2)$ (where $n$ is the number of points)
+<p>Time complexity to get the polynomial: $\frac{1}{3} n^3 + \mathcal{O}(n^2)$ (where $n$ is the number of points)<br />
 Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number of points)</p>
 
 <p>Time complexity to evaluate the value of $p(x)$ for any $x \in \mathbb{R}$: $\mathcal{O}(n)$.</p>
 
 <h2 id="tocAnchor-1-3">Polynomials</h2>
+<p>
+   $\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$
+</p>
 
-<p>$\displaystyle \mathbb{R}_n[X] := \left \{p:\mathbb{R} \rightarrow \mathbb{R} | p(x) = \sum_{i=0}^n a_i \cdot x^i \text{ with } a_0, \dots, a_n \in \mathbb{R} \right \}$ </p>
-
-<p>So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}<em>n[X]$ forms a vector space for $n \in \mathbb{N}</em>0$. The degree of that vector space is $n+1`$.</p>
+<p>So $\mathbb{R}_n[X]$ are all polynomials with real coefficients and degree not higher than latex]n$. $\mathbb{R}_n[X]$ forms a vector space for $n \in \mathbb{N}_0$. The degree of that vector space is $n+1`$.</p>
 
 <p>What does that mean?</p>
 
 <p>This means you can use different bases for polynomials. The base we usually use for $<code>\mathbb{R}_n[X]</code>$ is $<code>\{x^0, x^1, x^2, x^3, \dots\}</code>$, but you can switch the base.</p>
 
 <h2 id="tocAnchor-1-4">Lagrange interpolation</h2>
-
 <p>Define $<code>n+1</code>$ polynomials like this:</p>
 
 <p>$<code>\displaystyle L_{i}(x) := \prod_{j=0 \atop j \neq i}^n \frac{x-x_j}{x_i - x_j}</code>$</p>
@@ -318,7 +317,7 @@ Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number
 
 <p>$<code>\displaystyle L_{i}(x_p) := \prod_{j=0 \atop j \neq i}^n \frac{x_p-x_j}{x_i - x_j} = 0 \;\; p \in \{0, \dots, n\} \setminus \{i\}</code>$</p>
 
-<p>So the polynomial $<code>y_i \cdot L_{i}(x)</code>$ fits the point $<code>(x_i, y_i)</code>$ and is zero for all other points. This implies that </p>
+<p>So the polynomial $<code>y_i \cdot L_{i}(x)</code>$ fits the point $<code>(x_i, y_i)</code>$ and is zero for all other points. This implies that</p>
 
 <p>$<code>\displaystyle p(x) = \sum_{i=0}^n y_i \cdot L_i(x)</code>$ is an interpolation of our data points. The degree of $<code>p(x)</code>$ is not higher than $<code>n</code>$. You can see that easily when you take a look at the definition of $<code>p(x)</code>$ and $<code>L_i(x)</code>$.</p>
 
@@ -351,18 +350,17 @@ Space complexity for the polynomial: $\mathcal{O}(n^2)$ (where $n$ is the number
     <span class="k">return</span> <span class="n">y</span></code></pre>
 </div>
 
-<p>Time complexity to get the polynomial: $<code>n^2 + \mathcal{O}(n)</code>$ (where $<code>n</code>$ is the number of points)
+<p>Time complexity to get the polynomial: $<code>n^2 + \mathcal{O}(n)</code>$ (where $<code>n</code>$ is the number of points)<br />
 Space complexity for the polynomial: $<code>\mathcal{O}(n^2)</code>$ (where $<code>n</code>$ is the number of points)</p>
 
 <p>Time complexity to evaluate the value of $<code>p(x)</code>$ for any $<code>x \in \mathbb{R}</code>$: $<code>\mathcal{O}(n^2)</code>$.</p>
 
 <h2 id="tocAnchor-1-5">Newton interpolation</h2>
-
 <p>Define</p>
 
 <p>$<code>\displaystyle N_i(x) := \prod_{j=0}^{i-1} (x-x_j)</code>$</p>
 
-<p>So you know that </p>
+<p>So you know that</p>
 
 <p>$<code>N_i(x) = 0 \Leftrightarrow \exists p \in \{1, \dots, i\}: x = x_{i-p}</code>$</p>
 
@@ -370,7 +368,7 @@ Space complexity for the polynomial: $<code>\mathcal{O}(n^2)</code>$ (where $<co
 
 <p>$<code>\displaystyle p(x) = \sum_{i=0}^n c_i \cdot N_i(x)</code>$</p>
 
-<p>for the correct $<code>c_i</code>$. You can do this by solving the following system of equations. Please note that you don't have to store that matrix to get those $<code>c_i</code>$, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.</p>
+<p>for the correct $<code>c_i</code>$. You can do this by solving the following system of equations. Please note that you don’t have to store that matrix to get those $<code>c_i</code>$, <a href="http://en.wikipedia.org/wiki/Divided_differences">divided differences</a> are better.</p>
 
 <p>$<code>\begin{pmatrix}
 1 &amp; &amp; &amp; &amp; 0 \\
@@ -403,10 +401,9 @@ Space complexity for the polynomial: $<code>\mathcal{O}(n^2)</code>$ (where $<co
 
 <p>From my previous posts about <a href="../solving-equations-of-upper-triangular-matrices/">solving equations of upper triangular matrices</a> and <a href="../solving-equations-of-unipotent-lower-triangular-matrices/">lower unitriangular matrices</a> you know that the space complexity of this is in $<code>\Theta(n^2)</code>$.</p>
 
-<p>According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner%27s_method">Horner's method</a> to evaluate this Polynom in $`\mathcal{O}(n)$. But I really don't want to implement this today.</p>
+<p>According to Wikipedia, you can use <a href="http://en.wikipedia.org/wiki/Horner%27s_method">Horner’s method</a> to evaluate this Polynom in $`\mathcal{O}(n)$. But I really don’t want to implement this today.</p>
 
 <h2 id="tocAnchor-1-6">Interactive example</h2>
-
 <iframe src="../html5/polynom-interpolation.htm" width="98%" height="700px"></iframe>
 
 <ul>
@@ -608,7 +605,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

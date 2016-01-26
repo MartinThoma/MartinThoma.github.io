@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Here is the second part "<a href="../shortfilms-part-ii/">Shortfilms, Part II</a>".</div>
 
-<p>I've collected quite a few YouTube videos in my "watch later" list. Most of
+<p>I’ve collected quite a few YouTube videos in my “watch later” list. Most of<br />
 them were short movies which I wanted to share. Here you are!</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -187,7 +187,7 @@ them were short movies which I wanted to share. Here you are!</p>
          <a href="#tocAnchor-1-24"><span class="tocnumber">24</span> <span class="toctext">Devil Claim</span></a>
       </li>
       <li class="toc_level-1 toc_section-25">
-         <a href="#tocAnchor-1-25"><span class="tocnumber">25</span> <span class="toctext">BEAR 'N' WASTELAND</span></a>
+         <a href="#tocAnchor-1-25"><span class="tocnumber">25</span> <span class="toctext">BEAR ‘N’ WASTELAND</span></a>
       </li>
       <li class="toc_level-1 toc_section-26">
          <a href="#tocAnchor-1-26"><span class="tocnumber">26</span> <span class="toctext">BLIK</span></a>
@@ -233,7 +233,7 @@ them were short movies which I wanted to share. Here you are!</p>
 
 <h2 id="tocAnchor-1-6">REWIND</h2>
 
-<p>Not a short movie ... but interesting nevertheless :-)</p>
+<p>Not a short movie … but interesting nevertheless :-)</p>
 
 <iframe width="512" height="288" src="//www.youtube-nocookie.com/embed/Vi6u14oGmh0?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
@@ -297,7 +297,7 @@ them were short movies which I wanted to share. Here you are!</p>
 
 <h2 id="tocAnchor-1-21">ABE</h2>
 
-<p>Freaky ... and scary (Psycho Horror)</p>
+<p>Freaky … and scary (Psycho Horror)</p>
 
 <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/NY_kVDiMkMs?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
@@ -313,7 +313,7 @@ them were short movies which I wanted to share. Here you are!</p>
 
 <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/noEpS9jiego?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
-<h2 id="tocAnchor-1-25">BEAR 'N' WASTELAND</h2>
+<h2 id="tocAnchor-1-25">BEAR ‘N’ WASTELAND</h2>
 
 <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/tW8ZXbhZQgY?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
@@ -344,6 +344,7 @@ them were short movies which I wanted to share. Here you are!</p>
 <h2 id="tocAnchor-1-32">Egghunt</h2>
 
 <iframe width="512" height="384" src="//www.youtube-nocookie.com/embed/52M5EfRkBBo?rel=0" frameborder="0" allowfullscreen=""></iframe>
+
 
                         </div>
                         <div class="postmeta">Posted in
@@ -529,7 +530,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

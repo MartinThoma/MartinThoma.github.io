@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p><a href="https://en.wikipedia.org/wiki/GNU_Octave">GNU Octave</a> is a really neat
+                        <div class="entry" id="contentAfterTitle">
+                            <p><a href="https://en.wikipedia.org/wiki/GNU_Octave">GNU Octave</a> is a really neat<br />
 prototyping language for machine learning tasks. It is dynamically typed.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -145,22 +145,30 @@ prototyping language for machine learning tasks. It is dynamically typed.</p>
 </div><h2 id="tocAnchor-1-1">Installation</h2>
 
 <p>Octave is in the package repositories, so it can be installed by</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get install octave gnuplot-x11 octave-epstk
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ sudo apt-get install octave gnuplot-x11 octave-epstk
+</pre></div>
 </div>
+</div>
+
 <p>and started with</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>octave
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ octave
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Configuration</h2>
 
-<p>Create a file <code>~/.octaverc</code> in your home folder. Write </p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">PS1('&gt;&gt;');
-setenv("GNUTERM","x11");
-</code></pre>
+<p>Create a file <code>~/.octaverc</code> in your home folder. Write</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>PS1('&gt;&gt;');
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>setenv("GNUTERM","x11");
+</pre></div>
+</div>
 </div>
 <p>in it to get a nicer prompt and make sure that plots will work.</p>
 
@@ -168,148 +176,193 @@ setenv("GNUTERM","x11");
 
 <h3 id="tocAnchor-1-3-1">Vectors and Matrices</h3>
 
-<p>Octave has a lot of neat matrix manipulation features. You can create a matrix
+<p>Octave has a lot of neat matrix manipulation features. You can create a matrix<br />
 $A = \begin{pmatrix} 1 &amp; 2\\ 3 &amp; 4\end{pmatrix}$ with</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
-</code></pre>
-</div>
-<p>When you want to transpose a vector / a matrix, you simply add an apostrophe:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">];</span>
-<span class="o">&gt;&gt;</span> <span class="n">A</span><span class="o">'</span>
-<span class="n">ans</span> <span class="p">=</span>
 
-   <span class="mi">1</span>   <span class="mi">3</span>
-   <span class="mi">2</span>   <span class="mi">4</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; A = [1 2; 3 4];
+</pre></div>
 </div>
+</div>
+
+<p>When you want to transpose a vector / a matrix, you simply add an apostrophe:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; A = [1 2; 3 4];
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>&gt;&gt; A'
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>ans =
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>   1   3
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>   2   4
+</pre></div>
+</div>
+</div>
+
 <p>You can multiply two matrices with <code>A*B</code> or use the dot product with <code>A .* B</code>.</p>
 
 <p>The identity matrix $I \in \mathbb{R}^{n \times n}$ can be created with</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="no">I</span> <span class="p">=</span> <span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; I = eye(n);
+</pre></div>
 </div>
+</div>
+
 <p>You can get a part of the matrix by slicing:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="no">I</span> <span class="p">=</span> <span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-<span class="o">&gt;&gt;</span> <span class="no">I</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; I = eye(n);
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>&gt;&gt; I(:, 1:2);
+</pre></div>
 </div>
-<p>But be careful: Vectors and matrices are 1-indexed, not 0-indexed as you might
+</div>
+
+<p>But be careful: Vectors and matrices are 1-indexed, not 0-indexed as you might<br />
 expect!</p>
 
 <p>You can get the size of a matrix with the function <code>size</code> which returns a matrix:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">;</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">];</span>
-<span class="o">&gt;&gt;</span> <span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">ans</span> <span class="p">=</span>
 
-   <span class="mi">2</span>   <span class="mi">3</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; a = [1 2 3; 4 5 6];
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>&gt;&gt; size(a)
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>ans =
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>   2   3
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>
+</pre></div>
 </div>
-<p>If you simple want the "length" you can directly access the first element:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="nb">size</span><span class="p">(</span><span class="n">a</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ans</span> <span class="p">=</span>  <span class="mi">2</span>
-</code></pre>
 </div>
+
+<p>If you simple want the “length” you can directly access the first element:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; size(a)(1)
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>ans =  2
+</pre></div>
+</div>
+</div>
+
 <h3 id="tocAnchor-1-3-2">Sequences</h3>
-
 <p>The sequence <code>0 1 2 3 4 5</code> can be created with <code>[0:5]</code>.</p>
 
-<p>The sequence <code>0.2 0.3 0.4 0.5</code> can be created with <code>[0.2:0.1:0.5]</code>.
+<p>The sequence <code>0.2 0.3 0.4 0.5</code> can be created with <code>[0.2:0.1:0.5]</code>.<br />
 In general: <code>[&lt;start&gt;:&lt;step&gt;:&lt;end&gt;]</code> where <code>&lt;start&gt;</code> and <code>&lt;end&gt;</code> are included.</p>
 
 <p>You can also very simple apply functions to each element:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mf">0.5</span><span class="p">];</span>
-<span class="o">&gt;&gt;</span> <span class="nb">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="n">ans</span> <span class="p">=</span>
 
-   <span class="mf">0.19867</span>   <span class="mf">0.29552</span>   <span class="mf">0.38942</span>   <span class="mf">0.47943</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; t = [0.2:0.1:0.5];
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>&gt;&gt; sin(t)
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>ans =
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>   0.19867   0.29552   0.38942   0.47943
+</pre></div>
 </div>
+</div>
+
 <p>The output can be suppressed with <code>;</code>.</p>
 
 <h3 id="tocAnchor-1-3-3">Plotting</h3>
 
 <p>I have never seen a language where plotting is so easy:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mf">0.01</span><span class="p">:</span><span class="nb">pi</span><span class="p">];</span>
-<span class="o">&gt;&gt;</span> <span class="n">y</span> <span class="p">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="o">&gt;&gt;</span> <span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; x = [0:0.01:pi];
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>&gt;&gt; y = sin(x);
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>&gt;&gt; plot(x, y);
+</pre></div>
 </div>
+</div>
+
 <p>You can add labels and a legend to it, too:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="o">&gt;&gt;</span> <span class="nb">xlabel</span> <span class="p">=</span> <span class="s">"x"</span><span class="p">;</span>
-<span class="o">&gt;&gt;</span> <span class="nb">ylabel</span> <span class="p">=</span> <span class="s">"value"</span><span class="p">;</span>
-<span class="o">&gt;&gt;</span> <span class="nb">legend</span><span class="p">(</span><span class="s">'sin'</span><span class="p">,</span> <span class="s">'cos'</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="nb">title</span><span class="p">(</span><span class="s">"sin and cos"</span><span class="p">)</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&gt;&gt; xlabel = "x";
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>&gt;&gt; ylabel = "value";
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>&gt;&gt; legend('sin', 'cos')
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>&gt;&gt; title("sin and cos")
+</pre></div>
 </div>
+</div>
+
 <p>And finally, you can store the image:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="nb">print</span> <span class="o">-</span><span class="n">dpng</span> <span class="s">'my_plot.png'</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>print -dpng 'my_plot.png'
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-3-4">Control statements</h3>
 
 <h4 id="for">for</h4>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">;</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">"%i: %i\n"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span>^<span class="mi">2</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>for i=1:10;
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    printf("%i: %i\n", i, i^2)
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>end
+</pre></div>
 </div>
+</div>
+
 <h4 id="while">while</h4>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span><span class="p">=</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">"%i: %i\n"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span>^<span class="mi">2</span><span class="p">)</span>
-<span class="k">end</span><span class="p">;</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>i=1;
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>while i &lt;= 10,
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    printf("%i: %i\n", i, i^2)
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>end;
+</pre></div>
 </div>
+</div>
+
 <h4 id="if">if</h4>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="k">if</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">"True\n"</span><span class="p">);</span>
-<span class="k">elseif</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">"Else true"</span><span class="p">);</span>
-<span class="k">else</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">"else"</span><span class="p">);</span>
-<span class="k">end</span><span class="p">;</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>if 2 == 1+1,
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    printf("True\n");
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>elseif 3 == 2+1,
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    printf("Else true");
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>else
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    printf("else");
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>end;
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-3-5">Functions</h3>
 
-<p>Functions have to be saved in a file called <code>[filename].m</code>. One other special
-thing about functions is that you define the variable with the output at the
+<p>Functions have to be saved in a file called <code>[filename].m</code>. One other special<br />
+thing about functions is that you define the variable with the output at the<br />
 beginning:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="k">function</span><span class="w"> </span>y <span class="p">=</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="n">y</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="n">y</span> <span class="p">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
-    <span class="k">end</span><span class="p">;</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>function y = fibonacci(n)
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    if n &lt; 2,
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>        y = 1;
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    else
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>        y = fibonacci(n-1) + fibonacci(n-2);
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    end;
+</pre></div>
 </div>
+</div>
+
 <p>You can also group values you want to give back like this:</p>
-<div class="highlight">
-   <pre><code class="language-octave" data-lang="octave"><span class="k">function</span><span class="w"> </span>[succ, pred] <span class="p">=</span><span class="w"> </span><span class="nf">succ_and_pred</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">succ</span> <span class="p">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-    <span class="n">pred</span> <span class="p">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>function [succ, pred] = succ_and_pred(n)
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    succ = n+1;
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    pred = n-1;
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-9">Resources</h2>
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/GNU_Octave">GNU Octave</a></li>
-<li><a href="http://stackoverflow.com/questions/tagged/octave?sort=votes">stackoverflow.com</a></li>
-<li><a href="https://www.gnu.org/software/octave/doc/interpreter/">Documentation</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/GNU_Octave">GNU Octave</a></li>
+  <li><a href="http://stackoverflow.com/questions/tagged/octave?sort=votes">stackoverflow.com</a></li>
+  <li><a href="https://www.gnu.org/software/octave/doc/interpreter/">Documentation</a></li>
 </ul>
 
                         </div>
@@ -493,7 +546,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Formale Systeme“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Beckert im Wintersemester 2014/2015 gehört.</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -156,7 +156,6 @@ MathJax.Hub.Queue(function() {
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
 
 <h3 id="tocAnchor-1-1-1">Folien</h3>
-
 <table>
   <tr>
     <th>Folien-<br />satz</th>
@@ -265,7 +264,6 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h3 id="tocAnchor-1-1-2">Übungsblätter</h3>
-
 <table>
   <tr>
     <th>Übungsblatt</th>
@@ -346,72 +344,81 @@ MathJax.Hub.Queue(function() {
 
 <h3 id="tocAnchor-1-1-3">JML</h3>
 
-<p>Ein paar Auszüge aus den Folien von Prof. Dr. Beckert. Ich finde daran sieht
+<p>Ein paar Auszüge aus den Folien von Prof. Dr. Beckert. Ich finde daran sieht<br />
 man schön, wie JML funktioniert:</p>
-<div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PostInc</span><span class="o">{</span>
-    <span class="kd">public</span> <span class="n">PostInc</span> <span class="n">rec</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">;</span>
-    <span class="cm">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;</span>
-<span class="cm">      @ rec.x &gt;= 0 &amp;&amp; rec.y &gt;= 0;</span>
-<span class="cm">      @*/</span>
 
-    <span class="cm">/*@ public normal_behavior</span>
-<span class="cm">      @ requires true;</span>
-<span class="cm">      @ ensures rec.x == \old(rec.y) &amp;&amp;</span>
-<span class="cm">      @ rec.y == \old(rec.y) + 1;</span>
-<span class="cm">      @*/</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">postinc</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">rec</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="na">y</span><span class="o">++;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">PostInc</span>{
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#088;font-weight:bold">public</span> PostInc rec;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> x, y;
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#777">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#777">      @ rec.x &gt;= 0 &amp;&amp; rec.y &gt;= 0;</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777">      @*/</span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#777">/*@ public normal_behavior</span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#777">      @ requires true;</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#777">      @ ensures rec.x == \old(rec.y) &amp;&amp;</span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#777">      @ rec.y == \old(rec.y) + 1;</span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#777">      @*/</span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> postinc() {
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        rec.x = rec.y++;
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    }
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>}
+</pre></div>
 </div>
+</div>
+
 <p>Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=3">28JML.pdf#page=3</a></p>
 
 <p>Wichtig ist noch:</p>
-<div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="cm">/*@</span>
-<span class="cm">  @ assignable \nothing;</span>
-<span class="cm">  @ ensures (\forall int j; l &lt;= j &amp;&amp; j &lt; \result; a1[j] != a2[j] );</span>
-<span class="cm">  @*/</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">/*@</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777">  @ assignable \nothing;</span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#777">  @ ensures (\forall int j; l &lt;= j &amp;&amp; j &lt; \result; a1[j] != a2[j] );</span>
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777">  @*/</span>
+</pre></div>
 </div>
-<p>Das <code>assignable \nothing</code> besagt, dass keine Werte (nach außen sichtbar)
+</div>
+
+<p>Das <code>assignable \nothing</code> besagt, dass keine Werte (nach außen sichtbar)<br />
 verändert werden dürfen.</p>
 
-<p>Die Schleifen-Syntax ist <code>\forall int i; B; R</code>, wobei <code>B</code> eine
-Bereichseinschränkung und <code>R</code> der Schleifenrumpf ist. Es gibt auch noch
+<p>Die Schleifen-Syntax ist <code>\forall int i; B; R</code>, wobei <code>B</code> eine<br />
+Bereichseinschränkung und <code>R</code> der Schleifenrumpf ist. Es gibt auch noch<br />
 <code>\exists int i; B; R</code>.</p>
 
 <p>Die Prädikatenlogischen Operatoren sind</p>
 
 <ul>
-<li><code>!</code>: Negation</li>
-<li><code>&amp;&amp;</code>: und</li>
-<li><code>||</code>: oder</li>
-<li><code>==&gt;</code>: Implikation</li>
-<li><code>&lt;==&gt;</code>: Äquivalenz</li>
-<li><code>==</code>: Gleichheit</li>
+  <li><code>!</code>: Negation</li>
+  <li><code>&amp;&amp;</code>: und</li>
+  <li><code>||</code>: oder</li>
+  <li><code>==&gt;</code>: Implikation</li>
+  <li><code>&lt;==&gt;</code>: Äquivalenz</li>
+  <li><code>==</code>: Gleichheit</li>
 </ul>
-<div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">commonEntry</span><span class="o">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="o">;</span>
 
-    <span class="cm">/*@ loop_invariant</span>
-<span class="cm">      @ l &lt;= k &amp;&amp; k &lt;= r &amp;&amp;</span>
-<span class="cm">      @ (\forall int i; l&lt;=i &amp;&amp; i&lt;k; a1[i] != a2[i]);</span>
-<span class="cm">      @ assignable \nothing;</span>
-<span class="cm">      @ decreases a1.length - k;</span>
-<span class="cm">      @*/</span>
-    <span class="k">while</span><span class="o">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">a1</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">==</span> <span class="n">a2</span><span class="o">[</span><span class="n">k</span><span class="o">]){</span><span class="k">break</span><span class="o">;}</span>
-        <span class="n">k</span><span class="o">++;</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> commonEntry(<span style="color:#339;font-weight:bold">int</span> l, <span style="color:#339;font-weight:bold">int</span> r) {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#339;font-weight:bold">int</span> k = l;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#777">/*@ loop_invariant</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#777">      @ l &lt;= k &amp;&amp; k &lt;= r &amp;&amp;</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777">      @ (\forall int i; l&lt;=i &amp;&amp; i&lt;k; a1[i] != a2[i]);</span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#777">      @ assignable \nothing;</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#777">      @ decreases a1.length - k;</span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#777">      @*/</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#080;font-weight:bold">while</span>(k &lt; r) {
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        <span style="color:#080;font-weight:bold">if</span>(a1[k] == a2[k]){<span style="color:#080;font-weight:bold">break</span>;}
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        k++;
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    }
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#080;font-weight:bold">return</span> k;
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>}
+</pre></div>
 </div>
+</div>
+
 <p>Quelle: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/28JML.pdf#page=44">28JML.pdf#page=44</a></p>
 
 <h3 id="tocAnchor-1-1-4">Modallogik</h3>
@@ -451,358 +458,372 @@ Bereichseinschränkung und <code>R</code> der Schleifenrumpf ist. Es gibt auch n
 
 <h3 id="tocAnchor-1-1-5">Kurz und Gut</h3>
 
-<p>Die folgenden Stichpunkte sollte man (größtenteils nur sinngemäß) auswendig
+<p>Die folgenden Stichpunkte sollte man (größtenteils nur sinngemäß) auswendig<br />
 können und verstehen:</p>
 
 <ul>
-<li>Eine Signatur \(\Sigma\) ist eine abzählbare Menge von Symbolen. Die Elemente
-der Signatur heißen "Aussagevariablen".</li>
-<li>Eine Interpretation ist eine Abbildung \(I: \Sigma \rightarrow {W, F}\)</li>
-<li>Ein Modell einer Formel \(A \in For0_\Sigma\) ist eine Interpretation \(I\) mit
-\(val_I(A) = W\).<br />
-Ein Modell einer Formel ist also einfach eine Variablenbelegung, welche die
+  <li>Eine Signatur \(\Sigma\) ist eine abzählbare Menge von Symbolen. Die Elemente<br />
+der Signatur heißen “Aussagevariablen”.</li>
+  <li>Eine Interpretation ist eine Abbildung \(I: \Sigma \rightarrow {W, F}\)</li>
+  <li>Ein Modell einer Formel \(A \in For0_\Sigma\) ist eine Interpretation \(I\) mit<br />
+\(val_I(A) = W\).<br /><br />
+Ein Modell einer Formel ist also einfach eine Variablenbelegung, welche die<br />
 Formel erfüllt.</li>
-<li>Für \(M \subseteq For0_\Sigma, A \in For0_\Sigma\) gilt: \(M \models A\) (lies:
-aus M folgt A), falls jede Variablenbelegung, welche \(M\) erfüllt, auch \(A\)
+  <li>Für \(M \subseteq For0_\Sigma, A \in For0_\Sigma\) gilt: \(M \models A\) (lies:<br />
+aus M folgt A), falls jede Variablenbelegung, welche \(M\) erfüllt, auch \(A\)<br />
 erfüllt.</li>
-<li>\(A \rightarrow B \equiv \neg A \lor B\)</li>
-<li>\(A \models B\) gdw. \(\models A \rightarrow B\)</li>
-<li>Der shannon-Operator \(sh(a,b,c)\) ist if(a) {c} else {b}.</li>
-<li>Die Craig-Interpolation von \(A \rightarrow B\) ersetzt alle
-Aussagevariablen \({\text{Aussagevariable } a \in A | a \notin B}\) mit
-\(c_i\) (\(i=1,\dots,n\)). Die Interpolante ist dann
+  <li>\(A \rightarrow B \equiv \neg A \lor B\)</li>
+  <li>\(A \models B\) gdw. \(\models A \rightarrow B\)</li>
+  <li>Der shannon-Operator \(sh(a,b,c)\) ist if(a) {c} else {b}.</li>
+  <li>Die Craig-Interpolation von \(A \rightarrow B\) ersetzt alle<br />
+Aussagevariablen \({\text{Aussagevariable } a \in A | a \notin B}\) mit<br />
+\(c_i\) (\(i=1,\dots,n\)). Die Interpolante ist dann<br />
 \(C := \bigvee_{(c_1, \dots, c_n) \in {0,1}^n} A[c_1, \dots, c_n]\).</li>
-<li>Eine DNF heißt "vollständig" bzgl. einer Signatur \(\Sigma\), wenn
-falls für jedes \(P \in \Sigma\) in jeder Klausel entweder \(P\) oder \(\neg P\)
+  <li>Eine DNF heißt “vollständig” bzgl. einer Signatur \(\Sigma\), wenn<br />
+falls für jedes \(P \in \Sigma\) in jeder Klausel entweder \(P\) oder \(\neg P\)<br />
 vorkommt.</li>
-<li>Eine DNF heißt "minimal", wenn jede kürzere Formel nicht äquivalent ist.</li>
-<li>KKNF-Konstruktion: (1) Shortcuts \(Q_1, \dots, Q_n\) für binäre Operatoren
-erstellen. Diese Shortcuts dürfen auch andere Shortcuts verwenden
+  <li>Eine DNF heißt “minimal”, wenn jede kürzere Formel nicht äquivalent ist.</li>
+  <li>KKNF-Konstruktion: (1) Shortcuts \(Q_1, \dots, Q_n\) für binäre Operatoren<br />
+erstellen. Diese Shortcuts dürfen auch andere Shortcuts verwenden<br />
 (2) Äquivalenzen auflösen (3) In KNF umformen.</li>
-<li>\(sh(P_i, A, B)\) heißt normiert, wenn \(A\) und \(B\) normiert sind und jede in
+  <li>\(sh(P_i, A, B)\) heißt normiert, wenn \(A\) und \(B\) normiert sind und jede in<br />
 \(A \cup B\) vorkommende Variable \(P_j\) gilt \(i &lt; j\).</li>
-<li>Ein Shannon-Graph heißt reduziert, wenn es keine zwei Knoten \(v,w\) gibt,
-sodass die beiden in \(v\) und \(w\) verwurzelten Teilbäume isomorph sind und es
-auch keinen Knoten gibt, bei dem beide ausgehenden Kanten in den selben
+  <li>Ein Shannon-Graph heißt reduziert, wenn es keine zwei Knoten \(v,w\) gibt,<br />
+sodass die beiden in \(v\) und \(w\) verwurzelten Teilbäume isomorph sind und es<br />
+auch keinen Knoten gibt, bei dem beide ausgehenden Kanten in den selben<br />
 Nachfolger führen.</li>
-<li>Reduzierter Shannon-Graph = OBDD = BDD = ordered binary decisio diagram</li>
-<li>Bei gegebener Indizierung sind reduzierte Shannon-Graphen bis auf Isomorphie
-eindeutig. Ist die Indizierung nicht gegeben, macht die Variablenanordnung
-einen großen Unterschied in der Größe (Knotenmenge) des reduzierten
+  <li>Reduzierter Shannon-Graph = OBDD = BDD = ordered binary decisio diagram</li>
+  <li>Bei gegebener Indizierung sind reduzierte Shannon-Graphen bis auf Isomorphie<br />
+eindeutig. Ist die Indizierung nicht gegeben, macht die Variablenanordnung<br />
+einen großen Unterschied in der Größe (Knotenmenge) des reduzierten<br />
 Shannon-Graphen.</li>
-<li>Multiplikation \(k\)-stelliger Binärzahlen: Für jede Ordnung \(&lt;\) der Variablen
-in \(X={x_0, \dots, x_{k-1}, y_0, \dots, y_{k-1}}\) gibt es einen Index
-\(0 \leq i &lt; 2k\), sodass der BDD \(B_{Mult_i,&lt;}\) mindestens \(2^{k/8}\) Knoten
+  <li>Multiplikation \(k\)-stelliger Binärzahlen: Für jede Ordnung \(&lt;\) der Variablen<br />
+in \(X={x_0, \dots, x_{k-1}, y_0, \dots, y_{k-1}}\) gibt es einen Index<br />
+\(0 \leq i &lt; 2k\), sodass der BDD \(B_{Mult_i,&lt;}\) mindestens \(2^{k/8}\) Knoten<br />
 besitzt.</li>
-<li>Horn-Formel: Formel in KNF, wobei jede Klausel höchstens ein positives
+  <li>Horn-Formel: Formel in KNF, wobei jede Klausel höchstens ein positives<br />
 Literal enthält.</li>
-<li>Negationsnormalform: Negationen nur vor Atomen.</li>
-<li>Bereinigte Formel: (1) \(Frei(A) \cap Bd(A) = \emptyset\) (2) Die hinter
+  <li>Negationsnormalform: Negationen nur vor Atomen.</li>
+  <li>Bereinigte Formel: (1) \(Frei(A) \cap Bd(A) = \emptyset\) (2) Die hinter<br />
 Quantoren stehenden Variablen sind paarweise verschieden.</li>
-<li>Pränexe Normalform: \(A = Q_1 x_1 Q_2 x_2 Q_3 x_3 \dots Q_n x_n B\), wobei \(B\)
+  <li>Pränexe Normalform: \(A = Q_1 x_1 Q_2 x_2 Q_3 x_3 \dots Q_n x_n B\), wobei \(B\)<br />
 quantorenfrei sein muss. Dann heißt \(B\) die Matrix von \(A\).</li>
-<li>Die Pränexe Normalform ist nicht eindeutig.</li>
-<li>Skolem-Normalform: (1) geschlossene Formel (2) \(\forall x_1 \dots \forall x_n B\) (3) Matrix \(B\) ist in KNF</li>
-<li><a href="https://de.wikipedia.org/wiki/G%C3%B6delscher_Vollst%C3%A4ndigkeitssatz">Gödelscher Vollständigkeitssatz</a>:
-Es gibt einen Kalkül der PL1 derart, dass für jede Formelmenge \(\Gamma\) und
-für jede Formel \(\varphi\) gilt: \(\varphi\) folgt genau dann aus \(\Gamma\), wenn
-\(\varphi\) im Kalkül aus \(\Gamma\) hergeleitet werden kann. In Zeichen:
+  <li>Die Pränexe Normalform ist nicht eindeutig.</li>
+  <li>Skolem-Normalform: (1) geschlossene Formel (2) \(\forall x_1 \dots \forall x_n B\) (3) Matrix \(B\) ist in KNF</li>
+  <li><a href="https://de.wikipedia.org/wiki/G%C3%B6delscher_Vollst%C3%A4ndigkeitssatz">Gödelscher Vollständigkeitssatz</a>:<br />
+Es gibt einen Kalkül der PL1 derart, dass für jede Formelmenge \(\Gamma\) und<br />
+für jede Formel \(\varphi\) gilt: \(\varphi\) folgt genau dann aus \(\Gamma\), wenn<br />
+\(\varphi\) im Kalkül aus \(\Gamma\) hergeleitet werden kann. In Zeichen:<br />
 \(\Gamma \models \varphi \Leftrightarrow \Gamma \vdash \varphi\).</li>
-<li><a href="https://de.wikipedia.org/wiki/G%C3%B6delscher_Unvollst%C3%A4ndigkeitssatz">Gödelscher Unvollständigkeitssatz</a>:
-
-<ul>
-<li>Jedes hinreichend mächtige, rekursiv aufzählbare formale System ist
+  <li><a href="https://de.wikipedia.org/wiki/G%C3%B6delscher_Unvollst%C3%A4ndigkeitssatz">Gödelscher Unvollständigkeitssatz</a>:
+    <ul>
+      <li>Jedes hinreichend mächtige, rekursiv aufzählbare formale System ist<br />
 entweder widersprüchlich oder unvollständig.</li>
-<li>Jedes hinreichend mächtige konsistente formale System kann die eigene
+      <li>Jedes hinreichend mächtige konsistente formale System kann die eigene<br />
 Konsistenz nicht beweisen.</li>
-</ul></li>
-<li>Kompaktheitssatz: Wenn A aus einer unendlichen Teilmenge der Formelmenge
+    </ul>
+  </li>
+  <li>Kompaktheitssatz: Wenn A aus einer unendlichen Teilmenge der Formelmenge<br />
 folgt, dann auch aus einer endlichen.</li>
-<li>Endlichkeitssatz: Eine Menge \(M \subseteq For_\Sigma\) hat genau dann ein
+  <li>Endlichkeitssatz: Eine Menge \(M \subseteq For_\Sigma\) hat genau dann ein<br />
 Modell, wenn jede endliche Teilmenge von \(M\) ein Modell hat.</li>
-<li>Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform.</li>
-<li>Tableau-Kalkül:
-
-<ul>
-<li>Typ-\(\alpha\): Alles, was keine Quantoren hat und eindeutig ist</li>
-<li>Typ-\(\beta\): Alles, was keine Quantoren hat, aber nicht eindeutig ist</li>
-<li>Typ-\(\gamma\): Unendlich viele</li>
-<li>Typ-\(\delta\): min. eines</li>
-</ul></li>
-<li>Ob eine prädikatenlogische Formel allgemeingültig ist, ist unentscheidbar.</li>
-<li>Die Menge der allgemeingültigen prädikatenlogischen Formeln ist rekursiv
+  <li>Der Resolutionskalkül arbeitet nur mit Formeln in Skolemnormalform.</li>
+  <li>Tableau-Kalkül:
+    <ul>
+      <li>Typ-\(\alpha\): Alles, was keine Quantoren hat und eindeutig ist</li>
+      <li>Typ-\(\beta\): Alles, was keine Quantoren hat, aber nicht eindeutig ist</li>
+      <li>Typ-\(\gamma\): Unendlich viele</li>
+      <li>Typ-\(\delta\): min. eines</li>
+    </ul>
+  </li>
+  <li>Ob eine prädikatenlogische Formel allgemeingültig ist, ist unentscheidbar.</li>
+  <li>Die Menge der allgemeingültigen prädikatenlogischen Formeln ist rekursiv<br />
 aufzählbar.</li>
-<li>Die Menge der erfüllbaren prädikatenlogischen Formeln ist nicht rekursiv
+  <li>Die Menge der erfüllbaren prädikatenlogischen Formeln ist nicht rekursiv<br />
 aufzählbar.</li>
-<li>Ein Reduktionssystem ist ein Tupel \((D, \succ)\), wobei \(D \neq \emptyset\)
+  <li>Ein Reduktionssystem ist ein Tupel \((D, \succ)\), wobei \(D \neq \emptyset\)<br />
 eine Menge ist und \(\succ\) eine Relation auf \(D\) ist.</li>
-<li>\(\rightarrow\) bezeichnet die reflexive, transitive Hülle von \(\succ\).</li>
-<li>\(\stackrel{+}{\rightarrow}\) bezeichnet die transitive Hülle von \(\succ\).</li>
-<li>\(\leftrightarrow\) bezeichnet die reflexive, transtive und symmetrische Hülle
+  <li>\(\rightarrow\) bezeichnet die reflexive, transitive Hülle von \(\succ\).</li>
+  <li>\(\stackrel{+}{\rightarrow}\) bezeichnet die transitive Hülle von \(\succ\).</li>
+  <li>\(\leftrightarrow\) bezeichnet die reflexive, transtive und symmetrische Hülle<br />
 von \(\succ\).</li>
-<li>\((D, \succ)\) heißt konfluent \(:\Leftrightarrow \forall s_1, s_2, s_3 \in D\) mit \(s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)</li>
-<li>\((D, \succ)\) heißt lokal konfluent \(:\Leftrightarrow \forall s_1, s_2, s_3 \in D\) mit \(s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)</li>
-<li>\((D, \succ)\) heißt noethersch, wenn es keine unendlichen Folgen \(s_0 \succ s_1 \dots \succ s_i \succ \dots\) gibt.</li>
-<li>Ein konfluentes und noethersches Reduktionssystem heißt kanonisch.</li>
-<li>Ein Element \(s \in D\) heißt irreduzibel (oder eine Normalform) in
+  <li>\((D, \succ)\) heißt konfluent \(:\Leftrightarrow \forall s_1, s_2, s_3 \in D\) mit \(s \rightarrow s_1 \land s \rightarrow s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)</li>
+  <li>\((D, \succ)\) heißt lokal konfluent \(:\Leftrightarrow \forall s_1, s_2, s_3 \in D\) mit \(s \succ s_1 \land s \succ s_2 \exists t \in D: s_1 \rightarrow t \land s_2 \rightarrow t\)</li>
+  <li>\((D, \succ)\) heißt noethersch, wenn es keine unendlichen Folgen \(s_0 \succ s_1 \dots \succ s_i \succ \dots\) gibt.</li>
+  <li>Ein konfluentes und noethersches Reduktionssystem heißt kanonisch.</li>
+  <li>Ein Element \(s \in D\) heißt irreduzibel (oder eine Normalform) in<br />
 \((D, \succ)\), wenn kein \(t \in D\) existiert mit \(s \succ t\).</li>
-<li>Sei \(s \in D\). Ein Element \(s_0 \in D\) heißt eine Normalform für \(s\) in
+  <li>Sei \(s \in D\). Ein Element \(s_0 \in D\) heißt eine Normalform für \(s\) in<br />
 \((D, \succ)\), wenn \(s_0\) irreduzibel ist und \(s \rightarrow s_0\) gilt.</li>
-<li>In kanonischen Reduktionssystemen hat jedes Element eine eindeutige
+  <li>In kanonischen Reduktionssystemen hat jedes Element eine eindeutige<br />
 Normalform.</li>
-<li>\((D, \succ)\) ist noethersch und lokal konfluent \(\Rightarrow (D, \succ)\)
+  <li>\((D, \succ)\) ist noethersch und lokal konfluent \(\Rightarrow (D, \succ)\)<br />
 ist konfluent.</li>
-<li>Eine Kripke-Struktur ist ein Tupel \(\mathscr{K} = (S, R, I)\) mit
-
-<ul>
-<li>\(S \neq \emptyset\) ist die Menge der Zustände bzw. der möglichen Welten.
-\(s \in S\) heißt also auch eine "Welt".</li>
-<li>\(R \subseteq S \times S\) ist die Zugänglichkeitsrelation</li>
-<li>\(I: (\Sigma \times S) \rightarrow {W, F}\) ist die Interpretation der
+  <li>Eine Kripke-Struktur ist ein Tupel \(\mathscr{K} = (S, R, I)\) mit
+    <ul>
+      <li>\(S \neq \emptyset\) ist die Menge der Zustände bzw. der möglichen Welten.<br />
+\(s \in S\) heißt also auch eine “Welt”.</li>
+      <li>\(R \subseteq S \times S\) ist die Zugänglichkeitsrelation</li>
+      <li>\(I: (\Sigma \times S) \rightarrow {W, F}\) ist die Interpretation der<br />
 Aussagenlogischen Variablen</li>
-</ul></li>
-<li>\((S, R)\) heißt der Kripke-Rahmen von \(\mathscr{K}\).</li>
-<li>\(\square A \rightarrow A\) ist nur in reflexiven Kripke-Strukturen eine Tautologie.</li>
-<li>Ein endlicher Automat ist ein Tupel \((S, V, \delta, s_0, S_1)\), wobei
-
-<ul>
-<li>\(S\) eine endliche Zustandsmenge ist,</li>
-<li>\(V\) ein endliches Alphabet (terminale Zeichen) ist,</li>
-<li>\(\delta: S \times V \rightarrow S\) eine Funktion ist, die besagt bei welchem Eingabezeichen man von welchem Zustand aus in welchen Zustand kommt,</li>
-<li>\(s_0 \in S\) ein Startzustand und</li>
-<li>\(S_1 \subseteq S\) die Menge der Endzustände ist</li>
-</ul></li>
-<li>\(V^\omega\) ist die Menge der unendlichen Wörter mit Buchstaben aus \(V\).</li>
-<li>\(w(n)\) ist der \(n\)-te Buchstabe des Wortes \(w\).</li>
-<li>\(w \downarrow (n)\) ist das endliche Anfangsstück \(w(0)\dots w(n)\) von \(w\).</li>
-<li>\(\varepsilon \notin V^\omega\)</li>
-<li>Für \(K \in V^*\) und \(J \in V^\omega\) ist \(KJ={w_1 w_2 | w_1 \in K, w_2 \in J}\)</li>
-<li>Für \(K \in V^*\) ist \(\overset{\rightarrow}{K}={w \in V^\omega | w \downarrow (n) \in K \text{ für unendlich viele } n}\)</li>
-<li>Ein Büchi-Automat ist ein nicht deterministischer endlicher Automat, der
-Wörter akzeptiert, wenn es eine Berechnungsfolge mit unendlich vielen
+    </ul>
+  </li>
+  <li>\((S, R)\) heißt der Kripke-Rahmen von \(\mathscr{K}\).</li>
+  <li>\(\square A \rightarrow A\) ist nur in reflexiven Kripke-Strukturen eine Tautologie.</li>
+  <li>Ein endlicher Automat ist ein Tupel \((S, V, \delta, s_0, S_1)\), wobei
+    <ul>
+      <li>\(S\) eine endliche Zustandsmenge ist,</li>
+      <li>\(V\) ein endliches Alphabet (terminale Zeichen) ist,</li>
+      <li>\(\delta: S \times V \rightarrow S\) eine Funktion ist, die besagt bei welchem Eingabezeichen man von welchem Zustand aus in welchen Zustand kommt,</li>
+      <li>\(s_0 \in S\) ein Startzustand und</li>
+      <li>\(S_1 \subseteq S\) die Menge der Endzustände ist</li>
+    </ul>
+  </li>
+  <li>\(V^\omega\) ist die Menge der unendlichen Wörter mit Buchstaben aus \(V\).</li>
+  <li>\(w(n)\) ist der \(n\)-te Buchstabe des Wortes \(w\).</li>
+  <li>\(w \downarrow (n)\) ist das endliche Anfangsstück \(w(0)\dots w(n)\) von \(w\).</li>
+  <li>\(\varepsilon \notin V^\omega\)</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Für \(K \in V^*\) und \(J \in V^\omega\) ist \(KJ={w_1 w_2</td>
+          <td>w_1 \in K, w_2 \in J}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Für \(K \in V^*\) ist \(\overset{\rightarrow}{K}={w \in V^\omega</td>
+          <td>w \downarrow (n) \in K \text{ für unendlich viele } n}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Ein Büchi-Automat ist ein nicht deterministischer endlicher Automat, der<br />
+Wörter akzeptiert, wenn es eine Berechnungsfolge mit unendlich vielen<br />
 Finalzuständen gibt. (vgl. <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/42buechiAut-print.pdf#page=6">Beispiel</a>)</li>
-<li>A <strong>U</strong> B: A gilt, bis B gilt (das U steht für "until"). Allerdings gilt B
-auch irgendwann. Es kann also nicht sein, dass A unendlich lange gilt und B
+  <li>A <strong>U</strong> B: A gilt, bis B gilt (das U steht für “until”). Allerdings gilt B<br />
+auch irgendwann. Es kann also nicht sein, dass A unendlich lange gilt und B<br />
 nie.</li>
-<li>\(A\;\textbf{U}_W\;B\) bedeutet, dass entweder immer A und gleichzeitig nie B
-gilt, oder dass irgendwann B gilt und davor gilt immer A. Das 'W' steht für
-'weak'.</li>
-<li>\(A\;\textbf{V}\;B\): B gilt so lange, bis A gilt. Daher wird V auch
-'Release-Operator' genannt.</li>
-<li>\(\diamond \square P\): Es gibt einen Zeitpunkt, ab dem immer B gilt.</li>
-<li>Zu jeder LTL-Formel gibt es einen effektv konstruierbaren Büchi-Automaten.</li>
-<li>Erfüllbarkeit und Allgmeingültigkeit von LTL-Formeln ist entscheidbar.</li>
-<li>Ein Kalkül ist korrekt, wenn alles was formal ableitbar auch wahr ist. (vgl. <a href="https://de.wikipedia.org/wiki/Korrektheit_(Logik)">Korrektheit (Logik)</a>)</li>
-<li>08Pk1Semantik-print.pdf, Folie 34/37: QxB steht für "Quantor x B", wobei der
-Quantor entweder \(\exists\) oder \(\forall\) ist, \(x\) eine Variable ist und \(B\)
+  <li>\(A\;\textbf{U}_W\;B\) bedeutet, dass entweder immer A und gleichzeitig nie B<br />
+gilt, oder dass irgendwann B gilt und davor gilt immer A. Das ‘W’ steht für<br />
+‘weak’.</li>
+  <li>\(A\;\textbf{V}\;B\): B gilt so lange, bis A gilt. Daher wird V auch<br />
+‘Release-Operator’ genannt.</li>
+  <li>\(\diamond \square P\): Es gibt einen Zeitpunkt, ab dem immer B gilt.</li>
+  <li>Zu jeder LTL-Formel gibt es einen effektv konstruierbaren Büchi-Automaten.</li>
+  <li>Erfüllbarkeit und Allgmeingültigkeit von LTL-Formeln ist entscheidbar.</li>
+  <li>Ein Kalkül ist korrekt, wenn alles was formal ableitbar auch wahr ist. (vgl. <a href="https://de.wikipedia.org/wiki/Korrektheit_(Logik)">Korrektheit (Logik)</a>)</li>
+  <li>08Pk1Semantik-print.pdf, Folie 34/37: QxB steht für “Quantor x B”, wobei der<br />
+Quantor entweder \(\exists\) oder \(\forall\) ist, \(x\) eine Variable ist und \(B\)<br />
 eine Formel ist.</li>
 </ul>
 
 <h2 id="tocAnchor-1-7">Wissens-Check</h2>
-
 <p>Folgende Fragen sollte man für die Klausur schnell beantworten können:</p>
 
 <ul>
-<li>Nenne 3 Basen für die Aussagenlogik. Eine davon soll höchstens einen Operator
+  <li>Nenne 3 Basen für die Aussagenlogik. Eine davon soll höchstens einen Operator<br />
 haben.</li>
-<li>In welcher Komplexitätsklasse ist das Erfüllbarkeitsproblem für 3-KNF?
+  <li>In welcher Komplexitätsklasse ist das Erfüllbarkeitsproblem für 3-KNF?<br />
 In welcher 2-KNF? Wie sieht es mit dem Allgemeingültigkeitsproblemen aus?</li>
-<li>Was ist der Shannon-Graph von \(1\)?</li>
-<li>Was ist der Shannon-Graph von \(0\)?</li>
-<li>Was ist der Shannon-Graph von \(a \lor b\)?</li>
-<li>Was ist der Shannon-Graph von \(a \land b\)?</li>
+  <li>Was ist der Shannon-Graph von \(1\)?</li>
+  <li>Was ist der Shannon-Graph von \(0\)?</li>
+  <li>Was ist der Shannon-Graph von \(a \lor b\)?</li>
+  <li>Was ist der Shannon-Graph von \(a \land b\)?</li>
 </ul>
 
 <h2 id="tocAnchor-1-8">Meine Fragen</h2>
-
 <ul>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>:
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/02ALIntro-print.pdf">02, Folie 19/29</a>:<br />
 Warum wird einmal \(\models\) und dann \(\models_\Sigma\) geschrieben?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf#page=19">07, Folie 19/51</a>: Warum "fast alle" \(x \in Var\)? Was bedeutet das?
-
-<ul>
-<li>Es dürfen nur endlich viele Variablen umbenannt bzw. durch einen Term ersetzt werden. Andernfalls werden die Beweise und Notationen hässlich.
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/07PK1Intro-print.pdf#page=19">07, Folie 19/51</a>: Warum “fast alle” \(x \in Var\)? Was bedeutet das?
+    <ul>
+      <li>Es dürfen nur endlich viele Variablen umbenannt bzw. durch einen Term ersetzt werden. Andernfalls werden die Beweise und Notationen hässlich.<br />
 Abzählbar unendlich viele Variablen sind praktisch, wenn man sich die Existenz immer weiterer Variablen sichern will, die nicht in einer gegebenen Formel auftauchen. Natürlich ist jede Formel endlich, enthält also nur endlich viele Variablen.</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=8">Folie 8/30</a>:
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=8">Folie 8/30</a>:<br />
 Wieso stimmt diese Umformung?
-
-<ul>
-<li>Gebundene Variablen dürfen unabhängig von freien umbenannt werden. Die andere Umformung kann nachvollzogen werden, wenn die Implikation \(A \rightarrow B\) zu \(\neg A \vee B\) umgeformt wird. Man beachte folgende Umformungsregel: \(\neg \forall x F(x) \equiv \exists x \neg F(x)\).</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen "Grundinstanz" und "Instanz"? Was sind "Grundterme"?
-
-<ul>
-<li>Grundterm: Ein Term, der keine Variablen enthält. Instanz: Für quantifizierte Variablen wurden Terme eingesetzt. Grundinstanz: Für alle Variablen wurden Grundterme eingesetzt. Damit enthalten Grundinstanzen überhaupt keine Variablen mehr.</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für \(D = Term_\Sigma^0 \neq\) Menge der Grundterme? Wo gilt 2. nicht?
-
-<ul>
-<li>Ich vermute mal, dass \(Term_\Sigma^0 := \) Menge der Grundterme. Bachte (sofern die Definition stimmt): \(Term_\Sigma^0  \subseteq Term_\Sigma\), da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.
+    <ul>
+      <li>Gebundene Variablen dürfen unabhängig von freien umbenannt werden. Die andere Umformung kann nachvollzogen werden, wenn die Implikation \(A \rightarrow B\) zu \(\neg A \vee B\) umgeformt wird. Man beachte folgende Umformungsregel: \(\neg \forall x F(x) \equiv \exists x \neg F(x)\).</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=23">Folie 23/30</a>: Was ist eine Grundinstanz? Wo ist der Unterschied zwischen “Grundinstanz” und “Instanz”? Was sind “Grundterme”?
+    <ul>
+      <li>Grundterm: Ein Term, der keine Variablen enthält. Instanz: Für quantifizierte Variablen wurden Terme eingesetzt. Grundinstanz: Für alle Variablen wurden Grundterme eingesetzt. Damit enthalten Grundinstanzen überhaupt keine Variablen mehr.</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/09PK1Normalform-print.pdf#page=24">Folie 24/30</a>: Was ist ein Beispiel für \(D = Term_\Sigma^0 \neq\) Menge der Grundterme? Wo gilt 2. nicht?
+    <ul>
+      <li>Ich vermute mal, dass \(Term_\Sigma^0 := \) Menge der Grundterme. Bachte (sofern die Definition stimmt): \(Term_\Sigma^0  \subseteq Term_\Sigma\), da es auch Terme gibt, die Variablen enthalten, falls welche in der Signatur vorhanden sind.<br />
 Was ist die Bedeutung von Herbrand-Strukturen / dem Satz von Herbrand?</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für \(a \land \neg b \lor c \lor d\) erklären?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht \(1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))\)? Wie funktioniert der 1. Schritt in Aufgabe 2?</li>
-<li>Haben reflexive Relationen irreduzible Elemente?
-
-<ul>
-<li>Laut unserer Definition nicht. Aber du kannst jede n-stellige Relation mit dem Komplement der n-stelligen Gleichheits-Relation schneiden, dann erhältst du ihr irreflexives Gegenstück.</li>
-</ul></li>
-<li>Können reflexive Relationen noethersch sein?
-
-<ul>
-<li>Nur, wenn sie leer sind. Ansonsten gibt es immer unendliche Ketten.</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich \(\square \diamond P\) lesen?
-
-<ul>
-<li>Von jeder erreichbaren Welt aus gibt es eine erreichbare Welt, in der P gilt. Die Verbalisierung der Relation "erreichbar" klappt immer ;)</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt \(\diamond\square P\) auf dem Graphen aus? Insbesondere: Warum ist \(w_5\) nicht in \(\diamond\square P\)? Was wäre \([[\square \diamond P]]\)?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf">Blatt 12, Aufgabe 4</a>: Das muss ich noch mal in Ruhe durchgehen.</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf#page=8">21, Folie 8</a>: Was ist \(Th(N)\) und was ist \(Cn(PA)\)?
-
-<ul>
-<li>\(Th(N)\): Theoreme über N, also die Menge aller Formeln, für die die natürlichen Zahlen ein Modell sind. Cn(PA): Menge aller Formeln, die aus den Axiomen der Peano-Artihmetik gefolgert werden können. Da die Peano-Arithmetik korrekt ist, ist jede Formel aus Cn(PA) auch in Th(N).</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=16">50, Folie 16</a>: Was bedeutet es, dass \(Th(N)\) nicht rekursiv ist?
-
-<ul>
-<li>Rekursiv heißt entscheidbar. Da die Peano-Axiome durch die Peano-Artihmetik formalisiert werden können, gibt es eine Formel P(x), die genau dann wahr ist, wenn für x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten lässt. Nach dem Gödelschen Unvollständigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) übereinstimmt: Eine Formel also, die über sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerfüllbar oder allgemeingültig. Wenn \(Th(N)\) entscheidbar wäre und P(x) allgemeingültig, dann entsteht Widerspruch zur Wahl von P und x. Wenn P(x) unerfüllbar wäre, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzulösen, darf "aus den PA-Axiomen herleitbar" nicht mit "im Modell der nat. Zahlen gültig" übersetzt werden.</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5">23, Folie 5</a>: Kann mir jemand ein konkretes Beispiel geben?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strutkuren und insbesondere was bedeutet \(2^P\)?
-
-<ul>
-<li>Eine Omega Struktur Ordnet jedem Zeitpunkt, wenn die natürlichen Zahlen als Zeitstrahl aufgefasst werden, eine Menge von aussagenlogischen Variablen zu, die als "wahr" gelten sollen. \(2^P\) ist die Potenzmenge von P.</li>
-</ul></li>
-<li>Ist \(A\;\textbf{U}_W\;B\) äquivalent zu \(B\;\textbf{V}\;A\)?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 2a</a>: Warum ist \(\diamond (p\;\textbf{U}\;q)\) äquivalent zu \(\diamond q\)? Ich dachte es wäre äquivalent zu
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt6-lsg.pdf">Blatt 6, Lösung zu Aufgabe 4</a>: Den Teil mit der Umwandlung einer Aussagenlogischen Formel verstehe ich nicht. Kann das jemand bitte für \(a \land \neg b \lor c \lor d\) erklären?</li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt9-lsg.pdf">Blatt 9, Lösung zu Aufgabe 1</a>: Ist der Baum, also insbesondere die ersten 4 Knoten, richtig? Warum steht in Knoten 1 nicht \(1\forall x \forall y \forall z (r(x,y) \land r(y,z) \rightarrow r(x,z))\)? Wie funktioniert der 1. Schritt in Aufgabe 2?</li>
+  <li>Haben reflexive Relationen irreduzible Elemente?
+    <ul>
+      <li>Laut unserer Definition nicht. Aber du kannst jede n-stellige Relation mit dem Komplement der n-stelligen Gleichheits-Relation schneiden, dann erhältst du ihr irreflexives Gegenstück.</li>
+    </ul>
+  </li>
+  <li>Können reflexive Relationen noethersch sein?
+    <ul>
+      <li>Nur, wenn sie leer sind. Ansonsten gibt es immer unendliche Ketten.</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/27Modal-print.pdf#page=27">Folie 27</a>: Wie muss ich \(\square \diamond P\) lesen?
+    <ul>
+      <li>Von jeder erreichbaren Welt aus gibt es eine erreichbare Welt, in der P gilt. Die Verbalisierung der Relation “erreichbar” klappt immer ;)</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12-lsg.pdf">Blatt 12, Aufgabe 1b</a>: Was sagt \(\diamond\square P\) auf dem Graphen aus? Insbesondere: Warum ist \(w_5\) nicht in \(\diamond\square P\)? Was wäre \([[\square \diamond P]]\)?</li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt12.pdf">Blatt 12, Aufgabe 4</a>: Das muss ich noch mal in Ruhe durchgehen.</li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/21Peano-print.pdf#page=8">21, Folie 8</a>: Was ist \(Th(N)\) und was ist \(Cn(PA)\)?
+    <ul>
+      <li>\(Th(N)\): Theoreme über N, also die Menge aller Formeln, für die die natürlichen Zahlen ein Modell sind. Cn(PA): Menge aller Formeln, die aus den Axiomen der Peano-Artihmetik gefolgert werden können. Da die Peano-Arithmetik korrekt ist, ist jede Formel aus Cn(PA) auch in Th(N).</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=16">50, Folie 16</a>: Was bedeutet es, dass \(Th(N)\) nicht rekursiv ist?
+    <ul>
+      <li>Rekursiv heißt entscheidbar. Da die Peano-Axiome durch die Peano-Artihmetik formalisiert werden können, gibt es eine Formel P(x), die genau dann wahr ist, wenn für x die Kodierung einer solchen Formel eingesetzt wird, die sich nicht aus den Peano-Axiomen herleiten lässt. Nach dem Gödelschen Unvollständigkeitssatz gibt es nun eine Formel P und x derart, dass x mit der Kodierung von P(x) übereinstimmt: Eine Formel also, die über sich selbst behauptet, sie sei nicht herleitbar. Da es nur ein Modell gibt, ist jede Formel entweder unerfüllbar oder allgemeingültig. Wenn \(Th(N)\) entscheidbar wäre und P(x) allgemeingültig, dann entsteht Widerspruch zur Wahl von P und x. Wenn P(x) unerfüllbar wäre, ist nach Wahl von P und x P(x) herleitbar, was wieder einen Widerspruch darstellt. Um den Widerspruch aufzulösen, darf “aus den PA-Axiomen herleitbar” nicht mit “im Modell der nat. Zahlen gültig” übersetzt werden.</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/23Termersetzung-print.pdf#page=5">23, Folie 5</a>: Kann mir jemand ein konkretes Beispiel geben?</li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/43LTL-print.pdf#page=2">43, Folie 2</a>: Was sind omega-Strutkuren und insbesondere was bedeutet \(2^P\)?
+    <ul>
+      <li>Eine Omega Struktur Ordnet jedem Zeitpunkt, wenn die natürlichen Zahlen als Zeitstrahl aufgefasst werden, eine Menge von aussagenlogischen Variablen zu, die als “wahr” gelten sollen. \(2^P\) ist die Potenzmenge von P.</li>
+    </ul>
+  </li>
+  <li>Ist \(A\;\textbf{U}_W\;B\) äquivalent zu \(B\;\textbf{V}\;A\)?</li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 2a</a>: Warum ist \(\diamond (p\;\textbf{U}\;q)\) äquivalent zu \(\diamond q\)? Ich dachte es wäre äquivalent zu<br />
 \(p\;\textbf{U}\;q\)?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 3</a>:
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 3</a>:<br />
 Wie würde der Automat aussehen, wenn das \(X\) weggelassen würde?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 4</a>:
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/blatt14-lsg.pdf">Blatt 14, 4</a>:<br />
 Das würde ich gerne gemeinsam durchgehen.</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13">50, 13</a>: Was sind die Ziele der Beweistheorie? Was ist die Grundidee des Hilbert-Kalküls?
-
-<ul>
-<li>Ziele: Automatisches Beweisen ermöglichen und die Grenzen bestimmen. Grundidee des Hilbert-Kalküls: Aus Axiomen konstruktiv Formeln folgern. Im Gegensatz zu den praxis-orientierten Beweisverfahren kann der Hilbert-Kalkül leichter in theoretischen Beweisen verwendet werden. Der Gödelsche Unvollständigkeitssatz verwendet z.B. den Hilbert-Kalkül.</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13">50, 13</a>: "Aussagenlogische Tableauregeln aus Wahrheitstafeln konstruieren." - was ist damit gemeint?</li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=15">50, 15</a>: Was ist die Grundidee der Peano-Arithmetik?
-
-<ul>
-<li>Liegt doch eigentlich auf der Hand: Zahlentheoretische Aussagen automatisch beweisen.</li>
-</ul></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=33">50, 33</a>: Wie kann man sich in dem Beispiel den Unterschied zwischen Prädikaten und Funktionen erschließen?
-
-<ul>
-<li>Funktionen sind immer in Prädikaten enthalten. Ein Prädikat darf kein weiteres Prädikat enthalten.</li>
-</ul></li>
-<li>Wie ist Erfüllbarkeit in der Prädikatenlogik definiert? Z.B. erscheint mir
-\(\exists x p(x)\) erfüllbar, wenn nichts weiter gegeben ist. Wenn man aber
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13">50, 13</a>: Was sind die Ziele der Beweistheorie? Was ist die Grundidee des Hilbert-Kalküls?
+    <ul>
+      <li>Ziele: Automatisches Beweisen ermöglichen und die Grenzen bestimmen. Grundidee des Hilbert-Kalküls: Aus Axiomen konstruktiv Formeln folgern. Im Gegensatz zu den praxis-orientierten Beweisverfahren kann der Hilbert-Kalkül leichter in theoretischen Beweisen verwendet werden. Der Gödelsche Unvollständigkeitssatz verwendet z.B. den Hilbert-Kalkül.</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=13">50, 13</a>: “Aussagenlogische Tableauregeln aus Wahrheitstafeln konstruieren.” - was ist damit gemeint?</li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=15">50, 15</a>: Was ist die Grundidee der Peano-Arithmetik?
+    <ul>
+      <li>Liegt doch eigentlich auf der Hand: Zahlentheoretische Aussagen automatisch beweisen.</li>
+    </ul>
+  </li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/50Wiederholung-print.pdf#page=33">50, 33</a>: Wie kann man sich in dem Beispiel den Unterschied zwischen Prädikaten und Funktionen erschließen?
+    <ul>
+      <li>Funktionen sind immer in Prädikaten enthalten. Ein Prädikat darf kein weiteres Prädikat enthalten.</li>
+    </ul>
+  </li>
+  <li>Wie ist Erfüllbarkeit in der Prädikatenlogik definiert? Z.B. erscheint mir<br />
+\(\exists x p(x)\) erfüllbar, wenn nichts weiter gegeben ist. Wenn man aber<br />
 \(p(x)=False\) für alle \(x\) sagt, dann ist es unerfüllbar.
-
-<ul>
-<li>F ist erfüllbar gdw. es ein Modell für F gibt, d.h. eine Interpretation I, sodass val_I(F) = W.</li>
-</ul></li>
-<li>Müssen die Kanten von Shannon-Graphen mit W und F oder mit 1 und 0 beschriftet
-werden? Praktisch alle Altklausuren verwenden 1 und 0, aber ich meine er
+    <ul>
+      <li>F ist erfüllbar gdw. es ein Modell für F gibt, d.h. eine Interpretation I, sodass val_I(F) = W.</li>
+    </ul>
+  </li>
+  <li>Müssen die Kanten von Shannon-Graphen mit W und F oder mit 1 und 0 beschriftet<br />
+werden? Praktisch alle Altklausuren verwenden 1 und 0, aber ich meine er<br />
 hätte in der Vorlesung gesagt, dass wir W und F verwenden sollen.</li>
-<li>Ist die Menge der allgemeingültigen / erfüllbaren / unerfüllbaren Formeln der
-PL1 abzählbar?
-Jede Teilmenge aus \(\Sigma^*\) ist abzählbar für ein endliches Alphabet \(\Sigma\).
+  <li>Ist die Menge der allgemeingültigen / erfüllbaren / unerfüllbaren Formeln der<br />
+PL1 abzählbar?<br />
+Jede Teilmenge aus \(\Sigma^*\) ist abzählbar für ein endliches Alphabet \(\Sigma\).<br />
 Es gibt aber überabzählbar viele Teilmengen, deren Elemente zwar wieder abzählbar sind, aber sowohl die Teilmengen selbst als auch ihre Elemente nicht aufzählbar sind. Beachte: Aufzählbar \(\neq\) Abzählbar.</li>
-<li>Wie kann man \(U\) durch \(U_W\) darstellen?</li>
+  <li>Wie kann man \(U\) durch \(U_W\) darstellen?</li>
 </ul>
 
 <h2 id="tocAnchor-1-9">Altklausuren</h2>
 
 <ul>
-<li>WS2010/2011, 1. Zwischentest, A4: Ist der Markierungsalgorithmus für Hornformeln relevant?</li>
-<li>WS2010/2011, 2. Zwischentest, A1:
-
-<ul>
-<li>Was ist eine kompakte Logik? (PL2 ist laut WS2008/2009, 2.Zwischentest 1b, nicht kompakt)</li>
-<li>Was bedeutet \(Cl_{\exists}(t_1 \doteq t_2)\)?</li>
-</ul></li>
-<li>WS2009/2010, A1c: Wieso gibt es für \(\exists p(x)\) kein Herbrandmodell?</li>
-<li>WS2009/2010, 1.Zwischentest
-
-<ul>
-<li>A1a: Was ist ein "Vereinfachungsschritt" im Davis-Putnam-Verfahren? Was bedeutet es, wenn dort keine Klausel mehr zur Verfügung steht?</li>
-<li>A1a: "Wenn A und B erfüllbar sind, dann ist auch \(A \rightarrow B\) erfüllbar." - Was ist mit \(B = \neg A\)?</li>
-</ul></li>
-<li>WS 2009/2010, 2. Zwischentest (ist beim ersten):
-
-<ul>
-<li>A1a: Warum ist \(\forall x \forall y (x \leftrightarrow y)\) keine Formel der
+  <li>WS2010/2011, 1. Zwischentest, A4: Ist der Markierungsalgorithmus für Hornformeln relevant?</li>
+  <li>WS2010/2011, 2. Zwischentest, A1:
+    <ul>
+      <li>Was ist eine kompakte Logik? (PL2 ist laut WS2008/2009, 2.Zwischentest 1b, nicht kompakt)</li>
+      <li>Was bedeutet \(Cl_{\exists}(t_1 \doteq t_2)\)?</li>
+    </ul>
+  </li>
+  <li>WS2009/2010, A1c: Wieso gibt es für \(\exists p(x)\) kein Herbrandmodell?</li>
+  <li>WS2009/2010, 1.Zwischentest
+    <ul>
+      <li>A1a: Was ist ein “Vereinfachungsschritt” im Davis-Putnam-Verfahren? Was bedeutet es, wenn dort keine Klausel mehr zur Verfügung steht?</li>
+      <li>A1a: “Wenn A und B erfüllbar sind, dann ist auch \(A \rightarrow B\) erfüllbar.” - Was ist mit \(B = \neg A\)?</li>
+    </ul>
+  </li>
+  <li>WS 2009/2010, 2. Zwischentest (ist beim ersten):
+    <ul>
+      <li>A1a: Warum ist \(\forall x \forall y (x \leftrightarrow y)\) keine Formel der<br />
 PL1?</li>
-<li>A4: Will ich gerne durchsprechen</li>
-</ul></li>
-<li>WS 2008/2009:
-
-<ul>
-<li>1a: Warum ist \(\forall x (p(x) \rightarrow q(p(x)))\) keine Formel der PL1?</li>
-<li>1a: Warum ist \(\exists x (p(x) \rightarrow p(f(x)))\) allgemeingültig?</li>
-<li>1b: Was ist ein Beispiel für einen Büchi-Automaten, für den es keinen deterministischen Büchi-Automaten gibt?</li>
-<li>1b: "Für jede geschlossene prädikatenlogische Formel G gilt: Es gibt ein Modell für G oder für das Negat von G oder für beide." - Gilt das nicht für alle prädikatenlogischen Formeln (egal ob geschlossen oder nicht)?</li>
-</ul></li>
-<li>WS 2008/2009, 1. Zwischentest:
-
-<ul>
-<li>1a: Wie lange dauert der kürzeste Resoultionsbeweis in Anzahl der Literale?</li>
-<li>1b: Warum gibt es keine prädikatenlogische Interprätation, in der alle prädikatenlogischen Formeln wahr sind?</li>
-</ul></li>
+      <li>A4: Will ich gerne durchsprechen</li>
+    </ul>
+  </li>
+  <li>WS 2008/2009:
+    <ul>
+      <li>1a: Warum ist \(\forall x (p(x) \rightarrow q(p(x)))\) keine Formel der PL1?</li>
+      <li>1a: Warum ist \(\exists x (p(x) \rightarrow p(f(x)))\) allgemeingültig?</li>
+      <li>1b: Was ist ein Beispiel für einen Büchi-Automaten, für den es keinen deterministischen Büchi-Automaten gibt?</li>
+      <li>1b: “Für jede geschlossene prädikatenlogische Formel G gilt: Es gibt ein Modell für G oder für das Negat von G oder für beide.” - Gilt das nicht für alle prädikatenlogischen Formeln (egal ob geschlossen oder nicht)?</li>
+    </ul>
+  </li>
+  <li>WS 2008/2009, 1. Zwischentest:
+    <ul>
+      <li>1a: Wie lange dauert der kürzeste Resoultionsbeweis in Anzahl der Literale?</li>
+      <li>1b: Warum gibt es keine prädikatenlogische Interprätation, in der alle prädikatenlogischen Formeln wahr sind?</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="tocAnchor-1-10">Material</h2>
-
 <ul>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf">Skript</a></li>
-<li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/">Vorlesungswebsite</a></li>
-<li><a href="https://www.fsmi.uni-karlsruhe.de/Pruefungen/Schriftlich.html">Altklausuren</a></li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/skriptum.pdf">Skript</a></li>
+  <li><a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/">Vorlesungswebsite</a></li>
+  <li><a href="https://www.fsmi.uni-karlsruhe.de/Pruefungen/Schriftlich.html">Altklausuren</a></li>
 </ul>
 
 <p>StackExchange:</p>
 
 <ul>
-<li><a href="http://math.stackexchange.com/q/1150746/6876">What is the operator precedence for quantifiers?</a></li>
-<li><a href="http://math.stackexchange.com/q/1150826/6876">How do you bring quantors to the front of a formula?</a></li>
-<li><a href="http://math.stackexchange.com/a/214352/6876">How to convert to conjunctive normal form?</a></li>
+  <li><a href="http://math.stackexchange.com/q/1150746/6876">What is the operator precedence for quantifiers?</a></li>
+  <li><a href="http://math.stackexchange.com/q/1150826/6876">How do you bring quantors to the front of a formula?</a></li>
+  <li><a href="http://math.stackexchange.com/a/214352/6876">How to convert to conjunctive normal form?</a></li>
 </ul>
 
 <h2 id="tocAnchor-1-11">Übungsbetrieb</h2>
 
 <ul>
-<li>Wo sind die Übungsblätter: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/">Link</a></li>
-<li>Abgabeform: Keine Abgabe</li>
-<li>Turnus: wöchentlich</li>
-<li>Lösungen: Die Lösungen von jeweils zwei Blättern werden dann in den 14-tägig stattfinden Übungen am Freitag besprochen.</li>
-<li>Übungsschein verpflichtend: Es gibt keinen Übungsschein.</li>
-<li>Bonus durch Übungsschein: Es gibt keinen Klausurbonus durch Übungsblätter.</li>
-<li>Anderer Klausurbonus: Man kann durch insgesammt 4 Zwischentests und 2 Praxisaufgaben für die wirkliche
+  <li>Wo sind die Übungsblätter: <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/">Link</a></li>
+  <li>Abgabeform: Keine Abgabe</li>
+  <li>Turnus: wöchentlich</li>
+  <li>Lösungen: Die Lösungen von jeweils zwei Blättern werden dann in den 14-tägig stattfinden Übungen am Freitag besprochen.</li>
+  <li>Übungsschein verpflichtend: Es gibt keinen Übungsschein.</li>
+  <li>Bonus durch Übungsschein: Es gibt keinen Klausurbonus durch Übungsblätter.</li>
+  <li>Anderer Klausurbonus: Man kann durch insgesammt 4 Zwischentests und 2 Praxisaufgaben für die wirkliche<br />
 Klausur Punkte sammeln. Die Teilnahme an den Zwischentests und den Praxisaufgaben ist freiwillig. Die erzielten Übungspunkte werden im Verhältnis 1:10 als Bonuspunkte auf die bestandene Abschlussklausur angerechnet.</li>
 </ul>
 
 <h2 id="tocAnchor-1-12">Termine und Klausurablauf</h2>
 
-<p>Siehe <a href="http://www.informatik.kit.edu/klausuren.php">Klausurtermine-Seite</a> für
+<p>Siehe <a href="http://www.informatik.kit.edu/klausuren.php">Klausurtermine-Seite</a> für<br />
 zukünftige Termine.</p>
 
-<p><strong>Datum</strong>: Freitag, den 6. März 2015 von 11:00 bis 12:00 Uhr (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415">Quelle</a>).<br />
-<strong>Ort</strong>: Gerthsen (<a href="http://www.kithub.de/map/2287">30.21</a>) und HSaF (<a href="http://www.kithub.de/map/2222">50.35</a>) - vgl. <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/klausur1.html">Anmeldeliste</a><br />
-<strong>Punkte</strong>: 60<br />
-<strong>Punkteverteilung</strong>: ? (Stand: 06.03.2015)<br />
-<strong>Bestehensgrenze</strong>: ? (Stand: 06.03.2015)<br />
-<strong>Übungsschein</strong>: Gibt es nicht.<br />
-<strong>Bonuspunkte</strong>: Bis zu 8. Die Punkte aus den 4 Zwischenprüfungen und 2 Praxisaufgaben werden addiert, dann durch 10 geteilt und schließlich kaufmännisch gerundet.<br />
-<strong>Ergebnisse</strong>: Klausur wurde noch nicht geschrieben<br />
-<strong>Einsicht</strong>: steht noch nicht fest (Stand: 06.03.2015)<br />
+<p><strong>Datum</strong>: Freitag, den 6. März 2015 von 11:00 bis 12:00 Uhr (<a href="http://formal.iti.kit.edu/teaching/FormSysWS1415">Quelle</a>).<br /><br />
+<strong>Ort</strong>: Gerthsen (<a href="http://www.kithub.de/map/2287">30.21</a>) und HSaF (<a href="http://www.kithub.de/map/2222">50.35</a>) - vgl. <a href="http://formal.iti.kit.edu/teaching/FormSysWS1415/klausur1.html">Anmeldeliste</a><br /><br />
+<strong>Punkte</strong>: 60<br /><br />
+<strong>Punkteverteilung</strong>: ? (Stand: 06.03.2015)<br /><br />
+<strong>Bestehensgrenze</strong>: ? (Stand: 06.03.2015)<br /><br />
+<strong>Übungsschein</strong>: Gibt es nicht.<br /><br />
+<strong>Bonuspunkte</strong>: Bis zu 8. Die Punkte aus den 4 Zwischenprüfungen und 2 Praxisaufgaben werden addiert, dann durch 10 geteilt und schließlich kaufmännisch gerundet.<br /><br />
+<strong>Ergebnisse</strong>: Klausur wurde noch nicht geschrieben<br /><br />
+<strong>Einsicht</strong>: steht noch nicht fest (Stand: 06.03.2015)<br /><br />
 <strong>Erlaubte Hilfsmittel</strong>: Keine.</p>
 
 <h2 id="tocAnchor-1-13">Ergebnisse</h2>
-
 <p>Klausur wurde noch nicht geschrieben.</p>
 
                         </div>
@@ -986,7 +1007,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

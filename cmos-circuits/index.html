@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>CMOS is a technology used to create digital circuits. The basic idea is to combine a pMOS circuit and a nMOS circuit.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -128,7 +128,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">MOSFET</h2>
-
 <p>Four <abbr title="metal–oxide–semiconductor field-effect transistor">MOSFET</abbr> are important for CMOS:</p>
 
 <table>
@@ -144,32 +143,19 @@ MathJax.Hub.Queue(function() {
 </tr>
 <tr>
 <th>enhancement</th>
-  <td><a href="../images/2013/02/nmos-selbstsperrend.jpg"><img src="../images/2013/02/nmos-selbstsperrend.jpg" alt="nMOS - enhancement type" width="221" height="171" class="size-full wp-image-56751" /></a></td>
-  <td><a href="../images/2013/02/pmos-selbstsperrend.jpg"><img src="../images/2013/02/pmos-selbstsperrend.jpg" alt="pMOS - enhancement type" width="181" height="163" class="size-full wp-image-56771" /></a></td>
-</tr>
-</table>
+  <td><a href="../images/2013/02/nmos-selbstsperrend.jpg"><img src="../images/2013/02/nmos-selbstsperrend.jpg" alt="nMOS - enhancement type" width="221" height="171" class="size-full wp-image-56751" />
+  </a></td><td><a href="../images/2013/02/pmos-selbstsperrend.jpg"><img src="../images/2013/02/pmos-selbstsperrend.jpg" alt="pMOS - enhancement type" width="181" height="163" class="size-full wp-image-56771" /></a></td>
+
+
 
 <h2 id="tocAnchor-1-2">Inverter</h2>
-
-<div style="width: 444px" class="wp-caption aligncenter">
-   <a href="../images/2013/02/cmos-inverter.jpg">
-      <img src="../images/2013/02/cmos-inverter.jpg" alt="Inverter in CMOS technology" width="" height="" class="size-full wp-image-56721" />
-   </a>
-   <p class="wp-caption-text">Inverter in CMOS technology</p>
-</div>
+<div style="width: 444px" class="wp-caption aligncenter"><a href="../images/2013/02/cmos-inverter.jpg"><img src="../images/2013/02/cmos-inverter.jpg" alt="Inverter in CMOS technology" width="" height="" class="size-full wp-image-56721" /></a><p class="wp-caption-text">Inverter in CMOS technology</p></div>
 
 <h2 id="tocAnchor-1-3">NAND</h2>
-
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/02/cmos-nand.jpg">
-      <img src="../images/2013/02/cmos-nand.jpg" alt="NAND gate in CMOS technology" width="" height="" class="size-full wp-image-56731" />
-   </a>
-   <p class="wp-caption-text">NAND gate in CMOS technology</p>
-</div>
+<div style="width: 522px" class="wp-caption aligncenter"><a href="../images/2013/02/cmos-nand.jpg"><img src="../images/2013/02/cmos-nand.jpg" alt="NAND gate in CMOS technology" width="" height="" class="size-full wp-image-56731" /></a><p class="wp-caption-text">NAND gate in CMOS technology</p></div>
 
 <h2 id="tocAnchor-1-4">Images</h2>
-
-<p>I tried to find good software to create those images. I didn't find any that allowed me to create those images. I've tried this:</p>
+I tried to find good software to create those images. I didn't find any that allowed me to create those images. I've tried this:
 
 <ul>
   <li><a href="http://wwwu.uni-klu.ac.at/magostin/cirkuit.html">Cirkuit</a>: Looks good, but crashes.</li>
@@ -179,8 +165,8 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-5">Anything else?</h2>
-
-<p>Which other circuits do we have to know? (Perhaps Transmission Gate?)</p>
+Which other circuits do we have to know? (Perhaps Transmission Gate?)
+</tr></table>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -369,7 +355,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

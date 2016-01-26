@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I've just searched an image I have created some time ago. I knew that I've put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn't simply open your trash can, but it searches files which were deleted, but not overwritten.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I’ve just searched an image I have created some time ago. I knew that I’ve put it on one of my USB-Sticks, but it seems as if I had deleted it. So how could I get the image back? Magic rescue is a program for recovering deleted files. It doesn’t simply open your trash can, but it searches files which were deleted, but not overwritten.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -135,7 +135,7 @@ MathJax.Hub.Queue(function() {
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="sb">`</span><span class="nv">$ </span>magicrescue
 Usage: magicrescue <span class="o">[</span>-I FILE<span class="o">]</span> <span class="o">[</span>-M MODE<span class="o">]</span> <span class="o">[</span>-O <span class="o">[</span>+-<span class="o">=][</span>0x<span class="o">]</span>OFFSET<span class="o">]</span> <span class="o">[</span>-b BLOCKSIZE<span class="o">]</span>
-    -d OUTPUT_DIR -r RECIPE1 <span class="o">[</span>-r RECIPE2 <span class="o">[</span>...<span class="o">]]</span> DEVICE1 <span class="o">[</span>DEVICE2 <span class="o">[</span>...<span class="o">]]</span>
+	-d OUTPUT_DIR -r RECIPE1 <span class="o">[</span>-r RECIPE2 <span class="o">[</span>...<span class="o">]]</span> DEVICE1 <span class="o">[</span>DEVICE2 <span class="o">[</span>...<span class="o">]]</span>
 
   -b  Only consider files starting at a multiple of BLOCKSIZE.
   -d  Mandatory.  Output directory <span class="k">for</span> found files.
@@ -190,7 +190,7 @@ Disk identifier: 0x005f4d47
 -r jpeg-exif -d /home/moose/output/ /dev/sdc1</code></pre>
 </div>
 
-<p>Just got the image back :-) </p>
+<p>Just got the image back :-)</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -370,7 +370,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

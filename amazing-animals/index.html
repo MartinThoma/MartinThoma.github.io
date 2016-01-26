@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Some animals are truly amazing. Just take a look at them. I've also included some video clips of funny individuals.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Some animals are truly amazing. Just take a look at them. I’ve also included some video clips of funny individuals.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -148,7 +148,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Axoltotl</h2>
-
 <div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2012/04/axolotl-300x269.jpg">
       <img src="../images/2012/04/axolotl-300x269.jpg" alt="Axoltol" width="" height="" class="size-medium wp-image-21171" />
@@ -159,52 +158,39 @@ MathJax.Hub.Queue(function() {
 <p>The <a href="http://en.wikipedia.org/wiki/Axolotl">axoltotl</a> is capable of the <strong>regeneration</strong> of entire lost appendages in a period of months, and, in certain cases, more vital structures. Some have indeed been found restoring the less vital parts of their brains. They can also readily accept transplants from other individuals, including eyes and parts of the brain—restoring these alien organs to full functionality. In some cases, axolotls have been known to repair a damaged limb as well as regenerating an additional one, ending up with an extra appendage that makes them attractive to pet owners as a novelty. In metamorphosed individuals, however, the ability to regenerate is greatly diminished. The axolotl is therefore used as a model for the development of limbs in vertebrates.</p>
 
 <h2 id="tocAnchor-1-2">Platypus</h2>
-
 <div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2012/04/Platypus-300x201.jpg">
       <img src="../images/2012/04/Platypus-300x201.jpg" alt="Platypus" width="" height="" class="size-medium wp-image-21181" />
    </a>
    <p class="wp-caption-text">Platypus</p>
 </div>
-
 <p>Together with the four species of echidna, the <a href="http://en.wikipedia.org/wiki/Platypus">platypus</a> is one of the five extant species of monotremes, the only <strong>mammals that lay eggs</strong> instead of giving birth to live young. It is one of the few <a href="http://en.wikipedia.org/wiki/Venomous_mammals">venomous mammals</a>.</p>
 
 <h2 id="tocAnchor-1-3">Mimic Octopus</h2>
-
 <iframe width="512" height="377" src="http://www.youtube.com/embed/H8oQBYw6xxc" frameborder="0" allowfullscreen=""></iframe>
-
 <p>The <a href="http://en.wikipedia.org/wiki/Mimic_Octopus">mimic octopus</a> has a strong ability to mimic other creatures. It grows up to 60 cm (2 feet) in length. Its normal colouring consists of brown and white stripes or spots.</p>
 
 <h2 id="tocAnchor-1-4">Lyrebird</h2>
-
 <iframe width="512" height="377" src="http://www.youtube.com/embed/VjE0Kdfos4Y" frameborder="0" allowfullscreen=""></iframe>
-
 <p>A Lyrebirds are most notable for their <strong>superb ability to mimic natural and artificial sounds</strong> from their environment. Lyrebirds have unique plumes of neutral coloured tailfeathers.</p>
 
 <h2 id="tocAnchor-1-5">Chimpanzee</h2>
-
 <iframe width="512" height="290" src="http://www.youtube.com/embed/zJAH4ZJBiN8" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="tocAnchor-1-6">Ants</h2>
-
 <iframe width="512" height="384" src="http://www.youtube.com/embed/lFg21x2sj-M" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="tocAnchor-1-7">Individuals</h2>
-
 <h3 id="tocAnchor-1-7-1">Einstein le perroquet</h3>
-
 <iframe width="512" height="377" src="http://www.youtube.com/embed/GRUgjMGLr5g" frameborder="0" allowfullscreen=""></iframe>
 
 <h3 id="tocAnchor-1-7-2">Dog, Cat and Rat</h3>
-
 <iframe width="512" height="290" src="http://www.youtube.com/embed/D85yrIgA4Nk" frameborder="0" allowfullscreen=""></iframe>
 
 <h3 id="tocAnchor-1-7-3">Genius dog climbs fence</h3>
-
 <iframe width="512" height="377" src="http://www.youtube.com/embed/MLssW7lyzxw" frameborder="0" allowfullscreen=""></iframe>
 
 <h3 id="tocAnchor-1-7-4">Cat gets caught barking</h3>
-
 <iframe width="512" height="377" src="http://www.youtube.com/embed/aP3gzee1cps" frameborder="0" allowfullscreen=""></iframe>
 
                         </div>
@@ -388,7 +374,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

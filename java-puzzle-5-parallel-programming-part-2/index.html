@@ -105,57 +105,63 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>What is the output of the following script:</p>
-<div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">globalVar</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">globalVar</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-        <span class="n">MyParallelClass</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MyParallelClass</span><span class="o">();</span>
-        <span class="n">MyParallelClass</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MyParallelClass</span><span class="o">();</span>
-
-        <span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
-        <span class="k">new</span> <span class="nf">Thread</span><span class="o">(</span><span class="n">b</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">globalVar</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div><div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyParallelClass</span> <span class="kd">implements</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Runnable</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="na">globalVar</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-                <span class="n">counter</span><span class="o">++;</span>
-            <span class="o">}</span>
-            <span class="n">test</span><span class="o">.</span><span class="na">globalVar</span><span class="o">--;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">test</span> {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">int</span> globalVar;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> main(<span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> args) {
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        globalVar = <span style="color:#00D">1</span>;
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>        MyParallelClass a = <span style="color:#080;font-weight:bold">new</span> MyParallelClass();
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        MyParallelClass b = <span style="color:#080;font-weight:bold">new</span> MyParallelClass();
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Thread</span>(a).start();
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Thread</span>(b).start();
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        <span style="color:#0a8;font-weight:bold">System</span>.out.println(globalVar);
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    }
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>}
+</pre></div>
 </div>
-<p>.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">MyParallelClass</span> <span style="color:#088;font-weight:bold">implements</span> java.lang.Runnable {
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> counter = <span style="color:#00D">0</span>;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#007">@Override</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> run() {
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#080;font-weight:bold">if</span> (test.globalVar &gt; <span style="color:#00D">0</span>) {
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = <span style="color:#00D">0</span>; i &lt; <span style="color:#00D">1000000</span>; i++) {
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>                counter++;
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>            }
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>            test.globalVar--;
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        }
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    }
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>}
+</pre></div>
+</div>
+</div>
+
+<p>.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
 .</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -178,20 +184,18 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Answer</h2>
-
 <p><code>0</code>, <code>1</code> or <code>-1</code>.</p>
 
 <h2 id="tocAnchor-1-2">Explanaition</h2>
-
-<p>First the simple ones:
+<p>First the simple ones:<br />
 <code>0</code> is the result you would expect. One thread executes and reduces <code>globalVar</code> to <code>0</code>, the other one does nothing and then <code>globalVar</code> gets printed.</p>
 
 <p>If the main program is faster than any of the two threads, it prints <code>1</code> before <code>globalVar</code> gets reduced.</p>
 
 <p>Now the most interesting one: <code>-1</code>. This is called a <a href="http://en.wikipedia.org/wiki/Race_condition">race condition</a>. You have to know that <code>globalVar--</code> is not an atomic operation. First you have to get the value, then you have to reduce it and after that you can save the value.</p>
 
-<p>This is an order of execution which would lead to a wrong value:
-</p><table>
+<p>This is an order of execution which would lead to a wrong value:</p>
+<table>
 <tr>
 <th>First Thread</th>
 <th>Second Thread</th>
@@ -220,14 +224,12 @@ execute all four bytecode commands of "test.globalVar--;"
 </table>
 
 <h2 id="tocAnchor-1-3">Resolve this problem</h2>
-
 <ul>
   <li>Use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()">join()</a> if you don't want to get <code>1</code> as output.</li>
   <li>If you don't want to get <code>-1</code>, you should take a look at the keyword <a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html">synchronised</a>.</li>
 </ul>
 
 <h2 id="tocAnchor-1-4">A side note</h2>
-
 <p>With <code>javap -c MyParallelClass</code> you can view the <a href="http://en.wikipedia.org/wiki/Java_bytecode">bytecode</a> of the class <code>MyParallelClass</code>. It looks like this:</p>
 
 <div class="highlight">
@@ -238,35 +240,35 @@ execute all four bytecode commands of "test.globalVar--;"
 
 <span class="kd">public</span> <span class="nf">MyParallelClass</span><span class="o">();</span>
   <span class="nl">Code:</span>
-   <span class="mi">0</span><span class="o">:</span>    <span class="n">aload_0</span>
-   <span class="mi">1</span><span class="o">:</span>    <span class="n">invokespecial</span>    <span class="err">#</span><span class="mi">1</span><span class="o">;</span> <span class="c1">//Method java/lang/Object."&lt;init&gt;":()V</span>
-   <span class="mi">4</span><span class="o">:</span>    <span class="n">aload_0</span>
-   <span class="mi">5</span><span class="o">:</span>    <span class="n">iconst_0</span>
-   <span class="mi">6</span><span class="o">:</span>    <span class="n">putfield</span> <span class="err">#</span><span class="mi">2</span><span class="o">;</span> <span class="c1">//Field counter:I</span>
-   <span class="mi">9</span><span class="o">:</span>    <span class="k">return</span>
+   <span class="mi">0</span><span class="o">:</span>	<span class="n">aload_0</span>
+   <span class="mi">1</span><span class="o">:</span>	<span class="n">invokespecial</span>	<span class="err">#</span><span class="mi">1</span><span class="o">;</span> <span class="c1">//Method java/lang/Object."&lt;init&gt;":()V</span>
+   <span class="mi">4</span><span class="o">:</span>	<span class="n">aload_0</span>
+   <span class="mi">5</span><span class="o">:</span>	<span class="n">iconst_0</span>
+   <span class="mi">6</span><span class="o">:</span>	<span class="n">putfield</span>	<span class="err">#</span><span class="mi">2</span><span class="o">;</span> <span class="c1">//Field counter:I</span>
+   <span class="mi">9</span><span class="o">:</span>	<span class="k">return</span>
 
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">();</span>
   <span class="nl">Code:</span>
-   <span class="mi">0</span><span class="o">:</span>    <span class="n">getstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
-   <span class="mi">3</span><span class="o">:</span>    <span class="n">ifle</span> <span class="mi">38</span>
-   <span class="mi">6</span><span class="o">:</span>    <span class="n">iconst_0</span>
-   <span class="mi">7</span><span class="o">:</span>    <span class="n">istore_1</span>
-   <span class="mi">8</span><span class="o">:</span>    <span class="n">iload_1</span>
-   <span class="mi">9</span><span class="o">:</span>    <span class="n">ldc</span>  <span class="err">#</span><span class="mi">4</span><span class="o">;</span> <span class="c1">//int 1000000</span>
-   <span class="mi">11</span><span class="o">:</span>   <span class="n">if_icmpge</span>    <span class="mi">30</span>
-   <span class="mi">14</span><span class="o">:</span>   <span class="n">aload_0</span>
-   <span class="mi">15</span><span class="o">:</span>   <span class="n">dup</span>
-   <span class="mi">16</span><span class="o">:</span>   <span class="n">getfield</span> <span class="err">#</span><span class="mi">2</span><span class="o">;</span> <span class="c1">//Field counter:I</span>
-   <span class="mi">19</span><span class="o">:</span>   <span class="n">iconst_1</span>
-   <span class="mi">20</span><span class="o">:</span>   <span class="n">iadd</span>
-   <span class="mi">21</span><span class="o">:</span>   <span class="n">putfield</span> <span class="err">#</span><span class="mi">2</span><span class="o">;</span> <span class="c1">//Field counter:I</span>
-   <span class="mi">24</span><span class="o">:</span>   <span class="n">iinc</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">1</span>
-   <span class="mi">27</span><span class="o">:</span>   <span class="k">goto</span> <span class="mi">8</span>
-   <span class="mi">30</span><span class="o">:</span>   <span class="n">getstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
-   <span class="mi">33</span><span class="o">:</span>   <span class="n">iconst_1</span>
-   <span class="mi">34</span><span class="o">:</span>   <span class="n">isub</span>
-   <span class="mi">35</span><span class="o">:</span>   <span class="n">putstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
-   <span class="mi">38</span><span class="o">:</span>   <span class="k">return</span>
+   <span class="mi">0</span><span class="o">:</span>	<span class="n">getstatic</span>	<span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
+   <span class="mi">3</span><span class="o">:</span>	<span class="n">ifle</span>	<span class="mi">38</span>
+   <span class="mi">6</span><span class="o">:</span>	<span class="n">iconst_0</span>
+   <span class="mi">7</span><span class="o">:</span>	<span class="n">istore_1</span>
+   <span class="mi">8</span><span class="o">:</span>	<span class="n">iload_1</span>
+   <span class="mi">9</span><span class="o">:</span>	<span class="n">ldc</span>	<span class="err">#</span><span class="mi">4</span><span class="o">;</span> <span class="c1">//int 1000000</span>
+   <span class="mi">11</span><span class="o">:</span>	<span class="n">if_icmpge</span>	<span class="mi">30</span>
+   <span class="mi">14</span><span class="o">:</span>	<span class="n">aload_0</span>
+   <span class="mi">15</span><span class="o">:</span>	<span class="n">dup</span>
+   <span class="mi">16</span><span class="o">:</span>	<span class="n">getfield</span>	<span class="err">#</span><span class="mi">2</span><span class="o">;</span> <span class="c1">//Field counter:I</span>
+   <span class="mi">19</span><span class="o">:</span>	<span class="n">iconst_1</span>
+   <span class="mi">20</span><span class="o">:</span>	<span class="n">iadd</span>
+   <span class="mi">21</span><span class="o">:</span>	<span class="n">putfield</span>	<span class="err">#</span><span class="mi">2</span><span class="o">;</span> <span class="c1">//Field counter:I</span>
+   <span class="mi">24</span><span class="o">:</span>	<span class="n">iinc</span>	<span class="mi">1</span><span class="o">,</span> <span class="mi">1</span>
+   <span class="mi">27</span><span class="o">:</span>	<span class="k">goto</span>	<span class="mi">8</span>
+   <span class="mi">30</span><span class="o">:</span>	<span class="n">getstatic</span>	<span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
+   <span class="mi">33</span><span class="o">:</span>	<span class="n">iconst_1</span>
+   <span class="mi">34</span><span class="o">:</span>	<span class="n">isub</span>
+   <span class="mi">35</span><span class="o">:</span>	<span class="n">putstatic</span>	<span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
+   <span class="mi">38</span><span class="o">:</span>	<span class="k">return</span>
 
 <span class="o">}</span></code></pre>
 </div>
@@ -276,16 +278,15 @@ execute all four bytecode commands of "test.globalVar--;"
 <p>The interesting part of the bytecode is:</p>
 
 <div class="highlight">
-   <pre><code class="language-java" data-lang="java"><span class="mi">30</span><span class="o">:</span> <span class="n">getstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
-   <span class="mi">33</span><span class="o">:</span>   <span class="n">iconst_1</span>
-   <span class="mi">34</span><span class="o">:</span>   <span class="n">isub</span>
-   <span class="mi">35</span><span class="o">:</span>   <span class="n">putstatic</span>    <span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span></code></pre>
+   <pre><code class="language-java" data-lang="java"><span class="mi">30</span><span class="o">:</span>	<span class="n">getstatic</span>	<span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span>
+   <span class="mi">33</span><span class="o">:</span>	<span class="n">iconst_1</span>
+   <span class="mi">34</span><span class="o">:</span>	<span class="n">isub</span>
+   <span class="mi">35</span><span class="o">:</span>	<span class="n">putstatic</span>	<span class="err">#</span><span class="mi">3</span><span class="o">;</span> <span class="c1">//Field test.globalVar:I</span></code></pre>
 </div>
 
-<p>You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>. </p>
+<p>You can see that the JVM has to execute 4 commands for <code>test.globalVar--;</code>.</p>
 
 <h2 id="tocAnchor-1-5">See also</h2>
-
 <ul>
   <li><a href="http://docs.oracle.com/javase/tutorial/essential/concurrency/atomic.html">Atomic Access</a> in Java</li>
   <li><a href="http://docs.oracle.com/javase/7/docs/api/javax/management/monitor/Monitor.html">Class Monitor</a></li>
@@ -480,7 +481,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

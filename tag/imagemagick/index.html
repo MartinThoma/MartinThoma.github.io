@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;ImageMagick&rdquo;’</h2>
   
@@ -1405,17 +1405,17 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-03-06T23:15:26+01:00">March  6, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/add-a-new-font-to-imagemagick/"><img width="128" height="128" src="//martin-thoma.com/images/2013/03/Imagemagick-logo.png" class="alignleft post_thumbnail wp-post-image" alt="Add a new font to ImageMagick"/></a>
     
 
-    You can list all fonts that are known to ImageMagick by identify -list font. When your font isn&#39;t there, but it is installed, you might want to try these steps:
+    You can list all fonts that are known to ImageMagick by identify -list font. When your font isn’t there, but it is installed, you might want to try these steps:
 
 
   sudo updatedb
   Download imagick_type_gen
-  Execute it: perl imagick_type_gen > types.xml
+  Execute it: perl imagick_type_gen &gt; types.xml
   Copy the result to the folder where it should be
   
     locate type.xml. That was /usr/lib/ImageMagick-6.5.7/config/type.xml for me
@@ -3697,7 +3697,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

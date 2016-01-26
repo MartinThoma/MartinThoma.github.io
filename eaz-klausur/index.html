@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Einführung in die Algebra und Zahlentheorie“ (EAZ) am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Kühnlein im Sommersemester 2013 gehört.</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -134,7 +134,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
-
 <table>
 <tr>
 <td>16.04.2013</td>
@@ -218,7 +217,6 @@ MathJax.Hub.Queue(function() {
 </table>
 
 <h2 id="tocAnchor-1-2">Material</h2>
-
 <ul>
   <li><a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/de">Vorlesungswebsite</a></li>
   <li><a href="https://ankiweb.net/shared/info/1756853157">Mein Anki-Deck</a> (digitale Karteikarten)</li>
@@ -241,7 +239,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-3">Aufbau der Klausur</h2>
-
 <ul>
   <li>Eine Aufgabe, wo man das Legendre-Symbol ausrechnen muss</li>
   <li>Eine Aufgabe, wo man mit dem Satz von Lagrange wichtig ist</li>
@@ -250,7 +247,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-4">Übungsbetrieb</h2>
-
 <ul>
 <li>Wo sind die Übungsblätter: <a href="http://www.math.kit.edu/iag3/lehre/einfalgzahl2013s/de">online</a></li>
 <li>Abgabeform: handschriftlich</li>
@@ -262,24 +258,21 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-5">Termine und Klausurablauf</h2>
-
-<p><strong>Datum</strong>: 05.09.2013, 11:00 Uhr - 13:00 Uhr
-<strong>Zeit</strong>: 2 Stunden
-<strong>Ort</strong>: Hörsaal am Fasanengarten
-<strong>Punkte</strong>: 60 Punkte
-<strong>Bestehensgrenze</strong>: 22 Punkte
-<strong>Übungsschein</strong>: Gibt es (sogar benotet)
+<p><strong>Datum</strong>: 05.09.2013, 11:00 Uhr - 13:00 Uhr<br />
+<strong>Zeit</strong>: 2 Stunden<br />
+<strong>Ort</strong>: Hörsaal am Fasanengarten<br />
+<strong>Punkte</strong>: 60 Punkte<br />
+<strong>Bestehensgrenze</strong>: 22 Punkte<br />
+<strong>Übungsschein</strong>: Gibt es (sogar benotet)<br />
 <strong>Bonuspunkte</strong>: Nein</p>
 
 <h2 id="tocAnchor-1-6">Nicht vergessen</h2>
-
 <ul>
   <li>Studentenausweis</li>
   <li>Kugelschreiber</li>
 </ul>
 
 <h2 id="tocAnchor-1-7">Ergebnisse</h2>
-
 <p>Seit dem 12.09.2013 draußen:</p>
 
 <p>an den Informationstafeln bei den Räumen 4A-21.1 und 4B-01</p>
@@ -462,7 +455,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

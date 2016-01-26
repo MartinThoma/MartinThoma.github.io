@@ -100,83 +100,85 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I've just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the <a href="../images/2012/02/pdf-form.pdf">example PDF-file</a>.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I’ve just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the <a href="../images/2012/02/pdf-form.pdf">example PDF-file</a>.</p>
 
-<p>It looks like this in Chromes PDF reader:
-</p><div style="width: 431px" class="wp-caption aligncenter">
+<p>It looks like this in Chromes PDF reader:</p>
+<div style="width: 431px" class="wp-caption aligncenter">
    <a href="../images/2012/02/pdf-latex-form-chrome.png">
       <img src="../images/2012/02/pdf-latex-form-chrome.png" alt="PDF LaTeX form in Chrome" width="" height="" class="size-full wp-image-16711" />
    </a>
    <p class="wp-caption-text">PDF LaTeX form in Chrome</p>
 </div>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
-<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
-<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
-<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
-<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
-<span class="k">\usepackage</span><span class="na">[margin=2.5cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
 
-<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>  <span class="c">% this is needed for forms and links within the text</span>
-
-<span class="k">\hypersetup</span><span class="nb">{</span> 
-  pdfauthor   = <span class="nb">{</span>Martin Thoma<span class="nb">}</span>, 
-  pdfkeywords = <span class="nb">{</span>Martin Thoma, exmple, LaTeX, form<span class="nb">}</span>, 
-  pdftitle    = <span class="nb">{</span>An example for a LaTeX form<span class="nb">}</span> 
-<span class="nb">}</span> 
-
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-
-<span class="k">\title</span><span class="nb">{</span>An example for a LaTeX form<span class="nb">}</span>
-<span class="k">\author</span><span class="nb">{</span>Martin Thoma<span class="nb">}</span>
-<span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
-
-<span class="k">\section</span><span class="nb">{</span>An example for a <span class="k">\LaTeX</span>~form<span class="nb">}</span>
-
-<span class="k">\begin</span><span class="nb">{</span>Form<span class="nb">}</span>[action=mailto:info@example.com,encoding=html,method=post]
-<span class="k">\subsection</span><span class="nb">{</span>Some general information:<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tabbing<span class="nb">}</span>
-xxxxxxxxxx: <span class="k">\=</span> <span class="k">\kill</span>  <span class="c">% This is needed for the right tab width</span>
-Name:           <span class="k">\&gt;</span> <span class="k">\TextField</span><span class="na">[name=name,width=3cm,charsize=12pt]</span>
-<span class="nb">{</span><span class="k">\mbox</span><span class="nb">{}}</span>
-Prename: <span class="k">\TextField</span><span class="na">[name=vor,width=3cm,charsize=12pt]</span>
-<span class="nb">{</span><span class="k">\mbox</span><span class="nb">{}}</span> <span class="k">\\</span>
-
-City:           <span class="k">\&gt;</span> 
-<span class="k">\ChoiceMenu</span><span class="na">[combo,name=city,width=5cm,charsize=12pt,default=Karlsruhe]</span><span class="nb">{</span><span class="k">\mbox</span><span class="nb">{}}</span>
-<span class="nb">{</span>Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,M<span class="nb">&amp;</span>uuml;nchen<span class="nb">}</span> <span class="k">\\</span>
-
-Sex:    <span class="k">\&gt;</span> 
-<span class="k">\ChoiceMenu</span><span class="na">[radio,default=f,name=sex,charsize=14pt]</span><span class="nb">{</span><span class="k">\mbox</span><span class="nb">{}}{</span>Male=m,Female=f<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>tabbing<span class="nb">}</span>
-
-<span class="k">\subsection</span><span class="nb">{</span>Education:<span class="nb">}</span>
-<span class="k">\CheckBox</span><span class="na">[name=highschool,charsize=12pt]</span><span class="nb">{</span>High School<span class="nb">}</span>
-<span class="k">\CheckBox</span><span class="na">[name=college,charsize=12pt]</span><span class="nb">{</span>College<span class="nb">}</span>
-<span class="k">\CheckBox</span><span class="na">[name=university,charsize=12pt]</span><span class="nb">{</span>University<span class="nb">}</span> <span class="k">\\</span>
-
-
-<span class="k">\Submit</span><span class="nb">{</span>Submit<span class="nb">}</span>
-<span class="k">\Reset</span><span class="nb">{</span>Clear<span class="nb">}</span>
-<span class="k">\hfill</span> ~<span class="k">\\</span>
-<span class="k">\end</span><span class="nb">{</span>Form<span class="nb">}</span>
-
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[a4paper,12pt]{article}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{amssymb} % needed for math
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage{amsmath} % needed for math
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage[utf8]{inputenc} % this is needed for german umlauts
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage[ngerman]{babel} % this is needed for german umlauts
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>\usepackage[margin=2.5cm]{geometry} %layout
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\usepackage{hyperref}  % this is needed for forms and links within the text
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>\hypersetup{ 
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>  pdfauthor   = {Martin Thoma}, 
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>  pdfkeywords = {Martin Thoma, exmple, LaTeX, form}, 
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>  pdftitle    = {An example for a LaTeX form} 
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>} 
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>\begin{document}
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>\title{An example for a LaTeX form}
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>\author{Martin Thoma}
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>\date{\today}
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>\section{An example for a \LaTeX~form}
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>\begin{Form}[action=mailto:info@example.com,encoding=html,method=post]
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>\subsection{Some general information:}
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>\begin{tabbing}
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>xxxxxxxxxx: \= \kill  % This is needed for the right tab width
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>Name:                         \&gt; \TextField[name=name,width=3cm,charsize=12pt]
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>{\mbox{}}
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>Prename: \TextField[name=vor,width=3cm,charsize=12pt]
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>{\mbox{}} \\
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>City:                         \&gt; 
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>\ChoiceMenu[combo,name=city,width=5cm,charsize=12pt,default=Karlsruhe]{\mbox{}}
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>{Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,M&amp;uuml;nchen} \\
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>Sex:         \&gt; 
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>\ChoiceMenu[radio,default=f,name=sex,charsize=14pt]{\mbox{}}{Male=m,Female=f}
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>\end{tabbing}
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>\subsection{Education:}
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>\CheckBox[name=highschool,charsize=12pt]{High School}
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>\CheckBox[name=college,charsize=12pt]{College}
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>\CheckBox[name=university,charsize=12pt]{University} \\
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>\Submit{Submit}
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>\Reset{Clear}
+<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>\hfill ~\\
+<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>\end{Form}
+<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>
+<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>\end{document}
+</pre></div>
 </div>
+</div>
+
 <p>You can save this as pdf-form.tex and run this command in Linux:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">pdflatex pdf-form.tex -output-format<span class="o">=</span>pdf</code></pre>
 </div>
 
-<p>It seems as if the \ChoiceMenu radio option is buggy at the moment. Does anybody know how to fix that?
-edit: Hmm ... it works in Chromes PDF reader, but not in Document Viewer. Mayby Document Viewer is buggy.</p>
+<p>It seems as if the \ChoiceMenu radio option is buggy at the moment. Does anybody know how to fix that?<br />
+edit: Hmm … it works in Chromes PDF reader, but not in Document Viewer. Mayby Document Viewer is buggy.</p>
 
 <h2 id="tocAnchor-1-1">Sources</h2>
-
 <ul>
     <li>TeX Users Group: <a href="http://www.tug.org/applications/hyperref/manual.html#x1-190006">PDF and HTML forms</a></li>
     <li><a href="http://www.qucosa.de/fileadmin/data/qucosa/documents/4512/data/vortrag2.pdf">Teil 2: LATEX und PDF</a> - TU Chemnitz (German)</li>
@@ -361,7 +363,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

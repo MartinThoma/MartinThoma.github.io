@@ -105,12 +105,12 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Explaining away is an effect where which is explained in Pearl (1988) with
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Explaining away is an effect where which is explained in Pearl (1988) with<br />
 an example similar to the following one:</p>
 
 <blockquote>
-<p>A car's engine can fail (\(X\)). The reason might either be a dead battery
+  <p>A car’s engine can fail (\(X\)). The reason might either be a dead battery<br />
 \(Y\) or a blocked fuel pump \(Z\).</p>
 </blockquote>
 
@@ -122,107 +122,106 @@ an example similar to the following one:</p>
    </a>
    <p class="wp-caption-text">A common effect</p>
 </div>
-
-<p>Now assume you know that the engine does not fail (\(X=0\)). This guarantees
-that the battery is not dead (\(Y=0\)) and the fuel pump is not blocked
+<p>Now assume you know that the engine does not fail (\(X=0\)). This guarantees<br />
+that the battery is not dead (\(Y=0\)) and the fuel pump is not blocked<br />
 (\(Z=0\)).</p>
 
-<p>However, if the engine failed (\(X=1\)) it gets more interesting. Let's say the
-engine works with a probability of 90%. From the graph, you can see that we
-assume that a dead battery is independant of a blocked fuel pump. Let's also
-assume that you know that either the fuel pump is blocked or the battery is
+<p>However, if the engine failed (\(X=1\)) it gets more interesting. Let’s say the<br />
+engine works with a probability of 90%. From the graph, you can see that we<br />
+assume that a dead battery is independant of a blocked fuel pump. Let’s also<br />
+assume that you know that either the fuel pump is blocked or the battery is<br />
 dead when the engine failed. There is no other option.</p>
 
-<p>This makes setting the probability distribution up interesting. There is
+<p>This makes setting the probability distribution up interesting. There is<br />
 still 10% left which has to be distributed amongst \(P(X=1,Y=1,Z=1), P(X=1,Y=1,Z=0), P(X=1,Y=0,Z=1)\):</p>
 
 <table>
-   <thead>
-<tr>
-<th>X</th>
-<th>Y</th>
-<th>Z</th>
-<th>P(X,Y,Z)</th>
-<th>comment</th>
-</tr>
-</thead>
-   <tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0.9</td>
-<td>Engine works</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>impossible - blocked fuel pump and working engine</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>impossible - dead battery and working engine</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>impossible - dead battery, blocked fuel pump and working engine</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>impossible - a cause we don't have in our graph</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>a</td>
-<td></td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>b</td>
-<td></td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>c</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>P(X,Y,Z)</th>
+      <th>comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.9</td>
+      <td>Engine works</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>impossible - blocked fuel pump and working engine</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>impossible - dead battery and working engine</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>impossible - dead battery, blocked fuel pump and working engine</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>impossible - a cause we don’t have in our graph</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>a</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>b</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>c</td>
+      <td> </td>
+    </tr>
+  </tbody>
 </table>
 
-<p>However, if you assume that \(Y\) and \(Z\) are independent, given \(X\), then
-you would have to set \(P(Y=0, Z=0|X=1) = P(Y=0|X=1) \cdot P(Z=0|X=1)\) which
-would not be 0 except one of the probabilities would be 0. Or, putting it
-different again: Given that you know the engine is broken, the event of
+<p>However, if you assume that \(Y\) and \(Z\) are independent, given \(X\), then<br />
+you would have to set \(P(Y=0, Z=0|X=1) = P(Y=0|X=1) \cdot P(Z=0|X=1)\) which<br />
+would not be 0 except one of the probabilities would be 0. Or, putting it<br />
+different again: Given that you know the engine is broken, the event of<br />
 a dead battery and a blocked fuel pump are suddenly not independent anymore!</p>
 
 <h2 id="tocAnchor-1-1">What does it mean</h2>
 
-<p>This does not mean there is "suddenly" a causatal connection between a dead
-battery and a blocked fuel pump. It only means you can learn something for
+<p>This does not mean there is “suddenly” a causatal connection between a dead<br />
+battery and a blocked fuel pump. It only means you can learn something for<br />
 your predictions.</p>
 
 <h2 id="tocAnchor-1-2">See also</h2>
 
 <ul>
-<li><a href="http://stats.stackexchange.com/q/54849/25741">Why does “explaining away” make intuitive sense?</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Interaction_information#Example_of_Positive_Interaction_Information">Interaction information</a></li>
+  <li><a href="http://stats.stackexchange.com/q/54849/25741">Why does “explaining away” make intuitive sense?</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Interaction_information#Example_of_Positive_Interaction_Information">Interaction information</a></li>
 </ul>
 
                         </div>
@@ -403,7 +402,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

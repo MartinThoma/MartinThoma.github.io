@@ -105,162 +105,166 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>PyBrain is a Python library for machine learning. It's in version 0.31 and
-the last change is 2 months ago (<a href="https://github.com/pybrain/pybrain">source</a>).
-The source code is licensed under <a href="https://tldrlegal.com/license/bsd-3-clause-license-(revised)">BSD 3 Clause License</a>. The <a href="http://pybrain.org/docs/">documentation</a> is usable, but for
+                        <div class="entry" id="contentAfterTitle">
+                            <p>PyBrain is a Python library for machine learning. It’s in version 0.31 and<br />
+the last change is 2 months ago (<a href="https://github.com/pybrain/pybrain">source</a>).<br />
+The source code is licensed under <a href="https://tldrlegal.com/license/bsd-3-clause-license-(revised)">BSD 3 Clause License</a>. The <a href="http://pybrain.org/docs/">documentation</a> is usable, but for<br />
 from perfect.</p>
 
 <h2 id="tocAnchor-1-1">Classification example</h2>
 
-<p>The following is a slightly modified example from the documentation. It shows
+<p>The following is a slightly modified example from the documentation. It shows<br />
 how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="c"># -*- coding: utf-8 -*-</span>
 
-<span class="c"># Source: http://pybrain.org/docs/tutorial/fnn.html</span>
-<span class="kn">from</span> <span class="nn">pybrain.datasets</span> <span class="kn">import</span> <span class="n">ClassificationDataSet</span>
-<span class="kn">from</span> <span class="nn">pybrain.utilities</span> <span class="kn">import</span> <span class="n">percentError</span>
-<span class="kn">from</span> <span class="nn">pybrain.tools.shortcuts</span> <span class="kn">import</span> <span class="n">buildNetwork</span>
-<span class="kn">from</span> <span class="nn">pybrain.supervised.trainers</span> <span class="kn">import</span> <span class="n">BackpropTrainer</span>
-<span class="kn">from</span> <span class="nn">pybrain.structure.modules</span> <span class="kn">import</span> <span class="n">SoftmaxLayer</span>
-
-<span class="c"># Only needed for data generation and graphical output</span>
-<span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="n">ion</span><span class="p">,</span> <span class="n">ioff</span><span class="p">,</span> <span class="n">figure</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="n">contourf</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">plot</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">diag</span><span class="p">,</span> <span class="n">arange</span><span class="p">,</span> <span class="n">meshgrid</span><span class="p">,</span> <span class="n">where</span>
-<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">multivariate_normal</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">normalvariate</span>
-
-
-<span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
-    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">CLASSES</span> <span class="o">=</span> <span class="mi">3</span>
-    <span class="n">means</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-    <span class="n">cov</span> <span class="o">=</span> <span class="p">[</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">diag</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]),</span> <span class="n">diag</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])]</span>
-    <span class="n">alldata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
-    <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">klass</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">CLASSES</span><span class="p">):</span>
-            <span class="n">features</span> <span class="o">=</span> <span class="n">multivariate_normal</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="n">klass</span><span class="p">],</span> <span class="n">cov</span><span class="p">[</span><span class="n">klass</span><span class="p">])</span>
-            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">features</span>
-            <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxX</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-            <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minY</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxY</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-            <span class="n">alldata</span><span class="o">.</span><span class="n">addSample</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="p">[</span><span class="n">klass</span><span class="p">])</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s">'minX'</span><span class="p">:</span> <span class="n">minX</span><span class="p">,</span> <span class="s">'maxX'</span><span class="p">:</span> <span class="n">maxX</span><span class="p">,</span>
-            <span class="s">'minY'</span><span class="p">:</span> <span class="n">minY</span><span class="p">,</span> <span class="s">'maxY'</span><span class="p">:</span> <span class="n">maxY</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="n">alldata</span><span class="p">}</span>
-
-
-<span class="k">def</span> <span class="nf">generate_data2</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
-    <span class="n">alldata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span>
-    <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxX</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-        <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minY</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">maxY</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-        <span class="n">alldata</span><span class="o">.</span><span class="n">addSample</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">normalvariate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-        <span class="n">alldata</span><span class="o">.</span><span class="n">addSample</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s">'minX'</span><span class="p">:</span> <span class="n">minX</span><span class="p">,</span> <span class="s">'maxX'</span><span class="p">:</span> <span class="n">maxX</span><span class="p">,</span>
-            <span class="s">'minY'</span><span class="p">:</span> <span class="n">minY</span><span class="p">,</span> <span class="s">'maxY'</span><span class="p">:</span> <span class="n">maxY</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="n">alldata</span><span class="p">}</span>
-
-
-<span class="k">def</span> <span class="nf">perceptron</span><span class="p">(</span><span class="n">hidden_neurons</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
-    <span class="n">INPUT_FEATURES</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">CLASSES</span> <span class="o">=</span> <span class="mi">3</span>
-    <span class="n">HIDDEN_NEURONS</span> <span class="o">=</span> <span class="n">hidden_neurons</span>
-    <span class="n">WEIGHTDECAY</span> <span class="o">=</span> <span class="n">weightdecay</span>
-    <span class="n">MOMENTUM</span> <span class="o">=</span> <span class="n">momentum</span>
-
-    <span class="c"># Generate the labeled set</span>
-    <span class="n">g</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">()</span>
-    <span class="c">#g = generate_data2()</span>
-    <span class="n">alldata</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="s">'d'</span><span class="p">]</span>
-    <span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span><span class="p">,</span> <span class="n">minY</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="s">'minX'</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="s">'maxX'</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="s">'minY'</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="s">'maxY'</span><span class="p">]</span>
-
-    <span class="c"># Split data into test and training dataset</span>
-    <span class="n">tstdata</span><span class="p">,</span> <span class="n">trndata</span> <span class="o">=</span> <span class="n">alldata</span><span class="o">.</span><span class="n">splitWithProportion</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-
-    <span class="n">trndata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>  <span class="c"># This is necessary, but I don't know why</span>
-    <span class="n">tstdata</span><span class="o">.</span><span class="n">_convertToOneOfMany</span><span class="p">()</span>  <span class="c"># http://stackoverflow.com/q/8154674/562769</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="s">"Number of training patterns: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">trndata</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Input and output dimensions: </span><span class="si">%i</span><span class="s">, </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span>
-                                                   <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Hidden neurons: </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="n">HIDDEN_NEURONS</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"First sample (input, target, class):"</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">trndata</span><span class="p">[</span><span class="s">'input'</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">trndata</span><span class="p">[</span><span class="s">'target'</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">trndata</span><span class="p">[</span><span class="s">'class'</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="n">fnn</span> <span class="o">=</span> <span class="n">buildNetwork</span><span class="p">(</span><span class="n">trndata</span><span class="o">.</span><span class="n">indim</span><span class="p">,</span> <span class="n">HIDDEN_NEURONS</span><span class="p">,</span> <span class="n">trndata</span><span class="o">.</span><span class="n">outdim</span><span class="p">,</span>
-                       <span class="n">outclass</span><span class="o">=</span><span class="n">SoftmaxLayer</span><span class="p">)</span>
-
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">BackpropTrainer</span><span class="p">(</span><span class="n">fnn</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">trndata</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">MOMENTUM</span><span class="p">,</span>
-                              <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">weightdecay</span><span class="o">=</span><span class="n">WEIGHTDECAY</span><span class="p">)</span>
-
-    <span class="c"># Visualization</span>
-    <span class="n">ticksX</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">minX</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxX</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-    <span class="n">ticksY</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="n">minY</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxY</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">ticksX</span><span class="p">,</span> <span class="n">ticksY</span><span class="p">)</span>
-
-    <span class="c"># need column vectors in dataset, not arrays</span>
-    <span class="n">griddata</span> <span class="o">=</span> <span class="n">ClassificationDataSet</span><span class="p">(</span><span class="n">INPUT_FEATURES</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="n">CLASSES</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
-        <span class="n">griddata</span><span class="o">.</span><span class="n">addSample</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">i</span><span class="p">],</span> <span class="n">Y</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
-        <span class="n">trainer</span><span class="o">.</span><span class="n">trainEpochs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">trnresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(),</span>
-                                 <span class="n">trndata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
-        <span class="n">tstresult</span> <span class="o">=</span> <span class="n">percentError</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">testOnClassData</span><span class="p">(</span>
-                                 <span class="n">dataset</span><span class="o">=</span><span class="n">tstdata</span><span class="p">),</span> <span class="n">tstdata</span><span class="p">[</span><span class="s">'class'</span><span class="p">])</span>
-
-        <span class="k">print</span><span class="p">(</span><span class="s">"epoch: </span><span class="si">%4d</span><span class="s">"</span> <span class="o">%</span> <span class="n">trainer</span><span class="o">.</span><span class="n">totalepochs</span><span class="p">,</span>
-              <span class="s">"  train error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">trnresult</span><span class="p">,</span>
-              <span class="s">"  test error: </span><span class="si">%5.2f%%</span><span class="s">"</span> <span class="o">%</span> <span class="n">tstresult</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">fnn</span><span class="o">.</span><span class="n">activateOnDataset</span><span class="p">(</span><span class="n">griddata</span><span class="p">)</span>
-        <span class="c"># the highest output activation gives the class</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-        <span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># always print on the same canvas</span>
-        <span class="n">ioff</span><span class="p">()</span>  <span class="c"># interactive graphics off</span>
-        <span class="n">clf</span><span class="p">()</span>   <span class="c"># clear the plot</span>
-        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
-            <span class="n">here</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">where</span><span class="p">(</span><span class="n">tstdata</span><span class="p">[</span><span class="s">'class'</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
-            <span class="n">plot</span><span class="p">(</span><span class="n">tstdata</span><span class="p">[</span><span class="s">'input'</span><span class="p">][</span><span class="n">here</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tstdata</span><span class="p">[</span><span class="s">'input'</span><span class="p">][</span><span class="n">here</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s">'o'</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">out</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">!=</span> <span class="n">out</span><span class="o">.</span><span class="n">min</span><span class="p">():</span>  <span class="c"># safety check against flat field</span>
-            <span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>   <span class="c"># plot the contour</span>
-        <span class="n">ion</span><span class="p">()</span>  <span class="c"># interactive graphics on</span>
-        <span class="n">draw</span><span class="p">()</span>  <span class="c"># update the plot</span>
-
-    <span class="n">ioff</span><span class="p">()</span>
-    <span class="n">show</span><span class="p">()</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">ArgumentDefaultsHelpFormatter</span>
-
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">formatter_class</span><span class="o">=</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
-
-    <span class="c"># Add more options if you like</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-H"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"H"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"hidden_neurons"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"number of neurons in the hidden layer"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-d"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"W"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"weightdecay"</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-m"</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">"M"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">,</span>
-                        <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s">"momentum"</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-    <span class="n">perceptron</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">hidden_neurons</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">weightdecay</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">momentum</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers">  <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers">  <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
+<span class="line-numbers">  <a href="#n3" name="n3" id="n3">3</a></span>
+<span class="line-numbers">  <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777"># Source: http://pybrain.org/docs/tutorial/fnn.html</span>
+<span class="line-numbers">  <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.datasets</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ClassificationDataSet</span>
+<span class="line-numbers">  <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.utilities</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">percentError</span>
+<span class="line-numbers">  <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.tools.shortcuts</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">buildNetwork</span>
+<span class="line-numbers">  <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.supervised.trainers</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">BackpropTrainer</span>
+<span class="line-numbers">  <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pybrain.structure.modules</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">SoftmaxLayer</span>
+<span class="line-numbers"> <strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+<span class="line-numbers"> <a href="#n11" name="n11" id="n11">11</a></span><span style="color:#777"># Only needed for data generation and graphical output</span>
+<span class="line-numbers"> <a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">pylab</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ion</span>, <span style="color:#B44;font-weight:bold">ioff</span>, <span style="color:#B44;font-weight:bold">figure</span>, <span style="color:#B44;font-weight:bold">draw</span>, <span style="color:#B44;font-weight:bold">contourf</span>, <span style="color:#B44;font-weight:bold">clf</span>, <span style="color:#B44;font-weight:bold">show</span>, <span style="color:#B44;font-weight:bold">plot</span>
+<span class="line-numbers"> <a href="#n13" name="n13" id="n13">13</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">scipy</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">diag</span>, <span style="color:#B44;font-weight:bold">arange</span>, <span style="color:#B44;font-weight:bold">meshgrid</span>, <span style="color:#B44;font-weight:bold">where</span>
+<span class="line-numbers"> <a href="#n14" name="n14" id="n14">14</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">numpy.random</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">multivariate_normal</span>
+<span class="line-numbers"> <a href="#n15" name="n15" id="n15">15</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">random</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">normalvariate</span>
+<span class="line-numbers"> <a href="#n16" name="n16" id="n16">16</a></span>
+<span class="line-numbers"> <a href="#n17" name="n17" id="n17">17</a></span>
+<span class="line-numbers"> <a href="#n18" name="n18" id="n18">18</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">generate_data</span>(n=<span style="color:#00D">400</span>):
+<span class="line-numbers"> <a href="#n19" name="n19" id="n19">19</a></span>    INPUT_FEATURES = <span style="color:#00D">2</span>
+<span class="line-numbers"> <strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    CLASSES = <span style="color:#00D">3</span>
+<span class="line-numbers"> <a href="#n21" name="n21" id="n21">21</a></span>    means = [(-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>), (<span style="color:#00D">2</span>, <span style="color:#00D">4</span>), (<span style="color:#00D">3</span>, <span style="color:#00D">1</span>)]
+<span class="line-numbers"> <a href="#n22" name="n22" id="n22">22</a></span>    cov = [diag([<span style="color:#00D">1</span>, <span style="color:#00D">1</span>]), diag([<span style="color:#60E">0.5</span>, <span style="color:#60E">1.2</span>]), diag([<span style="color:#60E">1.5</span>, <span style="color:#60E">0.7</span>])]
+<span class="line-numbers"> <a href="#n23" name="n23" id="n23">23</a></span>    alldata = ClassificationDataSet(INPUT_FEATURES, <span style="color:#00D">1</span>, nb_classes=CLASSES)
+<span class="line-numbers"> <a href="#n24" name="n24" id="n24">24</a></span>    minX, maxX = means[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>], means[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]
+<span class="line-numbers"> <a href="#n25" name="n25" id="n25">25</a></span>    minY, maxY = means[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>], means[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]
+<span class="line-numbers"> <a href="#n26" name="n26" id="n26">26</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n):
+<span class="line-numbers"> <a href="#n27" name="n27" id="n27">27</a></span>        <span style="color:#080;font-weight:bold">for</span> klass <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(CLASSES):
+<span class="line-numbers"> <a href="#n28" name="n28" id="n28">28</a></span>            features = multivariate_normal(means[klass], cov[klass])
+<span class="line-numbers"> <a href="#n29" name="n29" id="n29">29</a></span>            x, y = features
+<span class="line-numbers"> <strong><a href="#n30" name="n30" id="n30">30</a></strong></span>            minX, maxX = <span style="color:#369;font-weight:bold">min</span>(minX, x), <span style="color:#369;font-weight:bold">max</span>(maxX, x)
+<span class="line-numbers"> <a href="#n31" name="n31" id="n31">31</a></span>            minY, maxY = <span style="color:#369;font-weight:bold">min</span>(minY, y), <span style="color:#369;font-weight:bold">max</span>(maxY, y)
+<span class="line-numbers"> <a href="#n32" name="n32" id="n32">32</a></span>            alldata.addSample(features, [klass])
+<span class="line-numbers"> <a href="#n33" name="n33" id="n33">33</a></span>    <span style="color:#080;font-weight:bold">return</span> {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">minX</span><span style="color:#710">'</span></span>: minX, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">maxX</span><span style="color:#710">'</span></span>: maxX,
+<span class="line-numbers"> <a href="#n34" name="n34" id="n34">34</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">minY</span><span style="color:#710">'</span></span>: minY, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">maxY</span><span style="color:#710">'</span></span>: maxY, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">d</span><span style="color:#710">'</span></span>: alldata}
+<span class="line-numbers"> <a href="#n35" name="n35" id="n35">35</a></span>
+<span class="line-numbers"> <a href="#n36" name="n36" id="n36">36</a></span>
+<span class="line-numbers"> <a href="#n37" name="n37" id="n37">37</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">generate_data2</span>(n=<span style="color:#00D">400</span>):
+<span class="line-numbers"> <a href="#n38" name="n38" id="n38">38</a></span>    alldata = ClassificationDataSet(<span style="color:#00D">2</span>, <span style="color:#00D">1</span>, nb_classes=<span style="color:#00D">2</span>)
+<span class="line-numbers"> <a href="#n39" name="n39" id="n39">39</a></span>    minX, maxX = <span style="color:#00D">3</span>, <span style="color:#00D">3</span>
+<span class="line-numbers"> <strong><a href="#n40" name="n40" id="n40">40</a></strong></span>    minY, maxY = <span style="color:#00D">2</span>, <span style="color:#00D">2</span>
+<span class="line-numbers"> <a href="#n41" name="n41" id="n41">41</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
+<span class="line-numbers"> <a href="#n42" name="n42" id="n42">42</a></span>        x = normalvariate(<span style="color:#00D">3</span>, <span style="color:#60E">0.6</span>)
+<span class="line-numbers"> <a href="#n43" name="n43" id="n43">43</a></span>        y = normalvariate(<span style="color:#00D">2</span>, <span style="color:#00D">1</span>)
+<span class="line-numbers"> <a href="#n44" name="n44" id="n44">44</a></span>        minX, maxX = <span style="color:#369;font-weight:bold">min</span>(minX, x), <span style="color:#369;font-weight:bold">max</span>(maxX, x)
+<span class="line-numbers"> <a href="#n45" name="n45" id="n45">45</a></span>        minY, maxY = <span style="color:#369;font-weight:bold">min</span>(minY, y), <span style="color:#369;font-weight:bold">max</span>(maxY, y)
+<span class="line-numbers"> <a href="#n46" name="n46" id="n46">46</a></span>        alldata.addSample((x, y), (<span style="color:#00D">0</span>,))
+<span class="line-numbers"> <a href="#n47" name="n47" id="n47">47</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
+<span class="line-numbers"> <a href="#n48" name="n48" id="n48">48</a></span>        x = normalvariate(<span style="color:#00D">7</span>, <span style="color:#60E">0.5</span>)
+<span class="line-numbers"> <a href="#n49" name="n49" id="n49">49</a></span>        y = normalvariate(<span style="color:#00D">1</span>, <span style="color:#60E">0.1</span>)
+<span class="line-numbers"> <strong><a href="#n50" name="n50" id="n50">50</a></strong></span>        alldata.addSample((x, y), (<span style="color:#00D">1</span>,))
+<span class="line-numbers"> <a href="#n51" name="n51" id="n51">51</a></span>    <span style="color:#080;font-weight:bold">return</span> {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">minX</span><span style="color:#710">'</span></span>: minX, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">maxX</span><span style="color:#710">'</span></span>: maxX,
+<span class="line-numbers"> <a href="#n52" name="n52" id="n52">52</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">minY</span><span style="color:#710">'</span></span>: minY, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">maxY</span><span style="color:#710">'</span></span>: maxY, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">d</span><span style="color:#710">'</span></span>: alldata}
+<span class="line-numbers"> <a href="#n53" name="n53" id="n53">53</a></span>
+<span class="line-numbers"> <a href="#n54" name="n54" id="n54">54</a></span>
+<span class="line-numbers"> <a href="#n55" name="n55" id="n55">55</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">perceptron</span>(hidden_neurons=<span style="color:#00D">5</span>, weightdecay=<span style="color:#60E">0.01</span>, momentum=<span style="color:#60E">0.1</span>):
+<span class="line-numbers"> <a href="#n56" name="n56" id="n56">56</a></span>    INPUT_FEATURES = <span style="color:#00D">2</span>
+<span class="line-numbers"> <a href="#n57" name="n57" id="n57">57</a></span>    CLASSES = <span style="color:#00D">3</span>
+<span class="line-numbers"> <a href="#n58" name="n58" id="n58">58</a></span>    HIDDEN_NEURONS = hidden_neurons
+<span class="line-numbers"> <a href="#n59" name="n59" id="n59">59</a></span>    WEIGHTDECAY = weightdecay
+<span class="line-numbers"> <strong><a href="#n60" name="n60" id="n60">60</a></strong></span>    MOMENTUM = momentum
+<span class="line-numbers"> <a href="#n61" name="n61" id="n61">61</a></span>
+<span class="line-numbers"> <a href="#n62" name="n62" id="n62">62</a></span>    <span style="color:#777"># Generate the labeled set</span>
+<span class="line-numbers"> <a href="#n63" name="n63" id="n63">63</a></span>    g = generate_data()
+<span class="line-numbers"> <a href="#n64" name="n64" id="n64">64</a></span>    <span style="color:#777">#g = generate_data2()</span>
+<span class="line-numbers"> <a href="#n65" name="n65" id="n65">65</a></span>    alldata = g[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">d</span><span style="color:#710">'</span></span>]
+<span class="line-numbers"> <a href="#n66" name="n66" id="n66">66</a></span>    minX, maxX, minY, maxY = g[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">minX</span><span style="color:#710">'</span></span>], g[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">maxX</span><span style="color:#710">'</span></span>], g[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">minY</span><span style="color:#710">'</span></span>], g[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">maxY</span><span style="color:#710">'</span></span>]
+<span class="line-numbers"> <a href="#n67" name="n67" id="n67">67</a></span>
+<span class="line-numbers"> <a href="#n68" name="n68" id="n68">68</a></span>    <span style="color:#777"># Split data into test and training dataset</span>
+<span class="line-numbers"> <a href="#n69" name="n69" id="n69">69</a></span>    tstdata, trndata = alldata.splitWithProportion(<span style="color:#60E">0.25</span>)
+<span class="line-numbers"> <strong><a href="#n70" name="n70" id="n70">70</a></strong></span>
+<span class="line-numbers"> <a href="#n71" name="n71" id="n71">71</a></span>    trndata._convertToOneOfMany()  <span style="color:#777"># This is necessary, but I don't know why</span>
+<span class="line-numbers"> <a href="#n72" name="n72" id="n72">72</a></span>    tstdata._convertToOneOfMany()  <span style="color:#777"># http://stackoverflow.com/q/8154674/562769</span>
+<span class="line-numbers"> <a href="#n73" name="n73" id="n73">73</a></span>
+<span class="line-numbers"> <a href="#n74" name="n74" id="n74">74</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Number of training patterns: %i</span><span style="color:#710">"</span></span> % <span style="color:#369;font-weight:bold">len</span>(trndata))
+<span class="line-numbers"> <a href="#n75" name="n75" id="n75">75</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Input and output dimensions: %i, %i</span><span style="color:#710">"</span></span> % (trndata.indim,
+<span class="line-numbers"> <a href="#n76" name="n76" id="n76">76</a></span>                                                   trndata.outdim))
+<span class="line-numbers"> <a href="#n77" name="n77" id="n77">77</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hidden neurons: %i</span><span style="color:#710">"</span></span> % HIDDEN_NEURONS)
+<span class="line-numbers"> <a href="#n78" name="n78" id="n78">78</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">First sample (input, target, class):</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n79" name="n79" id="n79">79</a></span>    print(trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">input</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>], trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">target</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>], trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>][<span style="color:#00D">0</span>])
+<span class="line-numbers"> <strong><a href="#n80" name="n80" id="n80">80</a></strong></span>
+<span class="line-numbers"> <a href="#n81" name="n81" id="n81">81</a></span>    fnn = buildNetwork(trndata.indim, HIDDEN_NEURONS, trndata.outdim,
+<span class="line-numbers"> <a href="#n82" name="n82" id="n82">82</a></span>                       outclass=SoftmaxLayer)
+<span class="line-numbers"> <a href="#n83" name="n83" id="n83">83</a></span>
+<span class="line-numbers"> <a href="#n84" name="n84" id="n84">84</a></span>    trainer = BackpropTrainer(fnn, dataset=trndata, momentum=MOMENTUM,
+<span class="line-numbers"> <a href="#n85" name="n85" id="n85">85</a></span>                              verbose=<span style="color:#069">True</span>, weightdecay=WEIGHTDECAY)
+<span class="line-numbers"> <a href="#n86" name="n86" id="n86">86</a></span>
+<span class="line-numbers"> <a href="#n87" name="n87" id="n87">87</a></span>    <span style="color:#777"># Visualization</span>
+<span class="line-numbers"> <a href="#n88" name="n88" id="n88">88</a></span>    ticksX = arange(minX-<span style="color:#00D">1</span>, maxX+<span style="color:#00D">1</span>, <span style="color:#60E">0.2</span>)
+<span class="line-numbers"> <a href="#n89" name="n89" id="n89">89</a></span>    ticksY = arange(minY-<span style="color:#00D">1</span>, maxY+<span style="color:#00D">1</span>, <span style="color:#60E">0.2</span>)
+<span class="line-numbers"> <strong><a href="#n90" name="n90" id="n90">90</a></strong></span>    X, Y = meshgrid(ticksX, ticksY)
+<span class="line-numbers"> <a href="#n91" name="n91" id="n91">91</a></span>
+<span class="line-numbers"> <a href="#n92" name="n92" id="n92">92</a></span>    <span style="color:#777"># need column vectors in dataset, not arrays</span>
+<span class="line-numbers"> <a href="#n93" name="n93" id="n93">93</a></span>    griddata = ClassificationDataSet(INPUT_FEATURES, <span style="color:#00D">1</span>, nb_classes=CLASSES)
+<span class="line-numbers"> <a href="#n94" name="n94" id="n94">94</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(X.size):
+<span class="line-numbers"> <a href="#n95" name="n95" id="n95">95</a></span>        griddata.addSample([X.ravel()[i], Y.ravel()[i]], [<span style="color:#00D">0</span>])
+<span class="line-numbers"> <a href="#n96" name="n96" id="n96">96</a></span>
+<span class="line-numbers"> <a href="#n97" name="n97" id="n97">97</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">20</span>):
+<span class="line-numbers"> <a href="#n98" name="n98" id="n98">98</a></span>        trainer.trainEpochs(<span style="color:#00D">1</span>)
+<span class="line-numbers"> <a href="#n99" name="n99" id="n99">99</a></span>        trnresult = percentError(trainer.testOnClassData(),
+<span class="line-numbers"><strong><a href="#n100" name="n100" id="n100">100</a></strong></span>                                 trndata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>])
+<span class="line-numbers"><a href="#n101" name="n101" id="n101">101</a></span>        tstresult = percentError(trainer.testOnClassData(
+<span class="line-numbers"><a href="#n102" name="n102" id="n102">102</a></span>                                 dataset=tstdata), tstdata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>])
+<span class="line-numbers"><a href="#n103" name="n103" id="n103">103</a></span>
+<span class="line-numbers"><a href="#n104" name="n104" id="n104">104</a></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">epoch: %4d</span><span style="color:#710">"</span></span> % trainer.totalepochs,
+<span class="line-numbers"><a href="#n105" name="n105" id="n105">105</a></span>              <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">  train error: %5.2f%%</span><span style="color:#710">"</span></span> % trnresult,
+<span class="line-numbers"><a href="#n106" name="n106" id="n106">106</a></span>              <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">  test error: %5.2f%%</span><span style="color:#710">"</span></span> % tstresult)
+<span class="line-numbers"><a href="#n107" name="n107" id="n107">107</a></span>        out = fnn.activateOnDataset(griddata)
+<span class="line-numbers"><a href="#n108" name="n108" id="n108">108</a></span>        <span style="color:#777"># the highest output activation gives the class</span>
+<span class="line-numbers"><a href="#n109" name="n109" id="n109">109</a></span>        out = out.argmax(axis=<span style="color:#00D">1</span>)
+<span class="line-numbers"><strong><a href="#n110" name="n110" id="n110">110</a></strong></span>        out = out.reshape(X.shape)
+<span class="line-numbers"><a href="#n111" name="n111" id="n111">111</a></span>
+<span class="line-numbers"><a href="#n112" name="n112" id="n112">112</a></span>        figure(<span style="color:#00D">1</span>)  <span style="color:#777"># always print on the same canvas</span>
+<span class="line-numbers"><a href="#n113" name="n113" id="n113">113</a></span>        ioff()  <span style="color:#777"># interactive graphics off</span>
+<span class="line-numbers"><a href="#n114" name="n114" id="n114">114</a></span>        clf()   <span style="color:#777"># clear the plot</span>
+<span class="line-numbers"><a href="#n115" name="n115" id="n115">115</a></span>        <span style="color:#080;font-weight:bold">for</span> c <span style="color:#080;font-weight:bold">in</span> [<span style="color:#00D">0</span>, <span style="color:#00D">1</span>, <span style="color:#00D">2</span>]:
+<span class="line-numbers"><a href="#n116" name="n116" id="n116">116</a></span>            here, _ = where(tstdata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">class</span><span style="color:#710">'</span></span>] == c)
+<span class="line-numbers"><a href="#n117" name="n117" id="n117">117</a></span>            plot(tstdata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">input</span><span style="color:#710">'</span></span>][here, <span style="color:#00D">0</span>], tstdata[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">input</span><span style="color:#710">'</span></span>][here, <span style="color:#00D">1</span>], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">o</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n118" name="n118" id="n118">118</a></span>        <span style="color:#080;font-weight:bold">if</span> out.max() != out.min():  <span style="color:#777"># safety check against flat field</span>
+<span class="line-numbers"><a href="#n119" name="n119" id="n119">119</a></span>            contourf(X, Y, out)   <span style="color:#777"># plot the contour</span>
+<span class="line-numbers"><strong><a href="#n120" name="n120" id="n120">120</a></strong></span>        ion()  <span style="color:#777"># interactive graphics on</span>
+<span class="line-numbers"><a href="#n121" name="n121" id="n121">121</a></span>        draw()  <span style="color:#777"># update the plot</span>
+<span class="line-numbers"><a href="#n122" name="n122" id="n122">122</a></span>
+<span class="line-numbers"><a href="#n123" name="n123" id="n123">123</a></span>    ioff()
+<span class="line-numbers"><a href="#n124" name="n124" id="n124">124</a></span>    show()
+<span class="line-numbers"><a href="#n125" name="n125" id="n125">125</a></span>
+<span class="line-numbers"><a href="#n126" name="n126" id="n126">126</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+<span class="line-numbers"><a href="#n127" name="n127" id="n127">127</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
+<span class="line-numbers"><a href="#n128" name="n128" id="n128">128</a></span>
+<span class="line-numbers"><a href="#n129" name="n129" id="n129">129</a></span>    parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
+<span class="line-numbers"><strong><a href="#n130" name="n130" id="n130">130</a></strong></span>
+<span class="line-numbers"><a href="#n131" name="n131" id="n131">131</a></span>    <span style="color:#777"># Add more options if you like</span>
+<span class="line-numbers"><a href="#n132" name="n132" id="n132">132</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-H</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">H</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">int</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">hidden_neurons</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n133" name="n133" id="n133">133</a></span>                        default=<span style="color:#00D">5</span>,
+<span class="line-numbers"><a href="#n134" name="n134" id="n134">134</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">number of neurons in the hidden layer</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n135" name="n135" id="n135">135</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-d</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">W</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">float</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">weightdecay</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n136" name="n136" id="n136">136</a></span>                        default=<span style="color:#60E">0.01</span>,
+<span class="line-numbers"><a href="#n137" name="n137" id="n137">137</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">weightdecay</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n138" name="n138" id="n138">138</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-m</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">M</span><span style="color:#710">"</span></span>, type=<span style="color:#369;font-weight:bold">float</span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">momentum</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n139" name="n139" id="n139">139</a></span>                        default=<span style="color:#60E">0.1</span>,
+<span class="line-numbers"><strong><a href="#n140" name="n140" id="n140">140</a></strong></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">momentum</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><a href="#n141" name="n141" id="n141">141</a></span>    args = parser.parse_args()
+<span class="line-numbers"><a href="#n142" name="n142" id="n142">142</a></span>
+<span class="line-numbers"><a href="#n143" name="n143" id="n143">143</a></span>    perceptron(args.hidden_neurons, args.weightdecay, args.momentum)
+<span class="line-numbers"><a href="#n144" name="n144" id="n144">144</a></span>
+</pre></div>
 </div>
+</div>
+
 <p>See it in action:</p>
 
 <iframe width="420" height="315" src="//www.youtube.com/embed/FjvO3zqVYSw" frameborder="0" allowfullscreen=""></iframe>
@@ -268,14 +272,14 @@ how PyBrain starts learning to classify 2-dimensional datapoints into 3 classes:
 <h2 id="tocAnchor-1-2">Resources</h2>
 
 <ul>
-<li><a href="http://pybrain.org/">Official website</a></li>
-<li>StackExchange
-
-<ul>
-<li><a href="http://stackoverflow.com/questions/tagged/pybrain">StackOverflow</a>: 134 questions</li>
-<li><a href="http://stats.stackexchange.com/search?q=pybrain">stats.SE</a></li>
-</ul></li>
-<li><a href="http://www.reddit.com/r/MachineLearning/search?q=pybrain&amp;restrict_sr=on">reddit.com/r/MachineLearning</a></li>
+  <li><a href="http://pybrain.org/">Official website</a></li>
+  <li>StackExchange
+    <ul>
+      <li><a href="http://stackoverflow.com/questions/tagged/pybrain">StackOverflow</a>: 134 questions</li>
+      <li><a href="http://stats.stackexchange.com/search?q=pybrain">stats.SE</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.reddit.com/r/MachineLearning/search?q=pybrain&amp;restrict_sr=on">reddit.com/r/MachineLearning</a></li>
 </ul>
 
                         </div>
@@ -471,7 +475,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

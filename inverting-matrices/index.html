@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Suppose you have a matrix $A \in \mathbb{R}^{n \times n}$ and you want to invert it. I've already explained <a href="../wie-bestimme-ich-das-inverse-einer-matrix/">how to invert a matrix</a> (<a href="http://www.purplemath.com/modules/mtrxinvr.htm">English explanation</a>), but I didn't provide any code and / or runtime analysis.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Suppose you have a matrix $A \in \mathbb{R}^{n \times n}$ and you want to invert it. I’ve already explained <a href="../wie-bestimme-ich-das-inverse-einer-matrix/">how to invert a matrix</a> (<a href="http://www.purplemath.com/modules/mtrxinvr.htm">English explanation</a>), but I didn’t provide any code and / or runtime analysis.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -235,26 +235,30 @@ MathJax.Hub.Queue(function() {
 <span class="p">}</span></code></pre>
 </div>
 
-<p>This code is VERY similar to the code of <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>. In fact, I've only changed all occurrences of <code>n+1</code> to <code>2*n</code>. I also had to change lines 57-70, as we need to do all operations now on a matrix instead of a vector.</p>
+<p>This code is VERY similar to the code of <a href="../solving-linear-equations-with-gaussian-elimination/" title="Solving linear equations with Gaussian elimination">Gaussian elimination</a>. In fact, I’ve only changed all occurrences of <code>n+1</code> to <code>2*n</code>. I also had to change lines 57-70, as we need to do all operations now on a matrix instead of a vector.</p>
 
 <h3 id="tocAnchor-1-1-1">Time complexity</h3>
-
 <p>Lines 43-52:</p>
 
 <p>$\displaystyle Operations = \sum_{i=0}^{n-1} \left (\sum_{k=i+1}^{n-1} (\sum_{j=i}^{2n} 1) \right ) = \frac{5}{6} n^3 - \frac{5}{6} n$ (see <a href="http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+(sum_%7Bk%3Di%2B1%7D%5E%7Bn-1%7D+(sum_%7Bj%3Di%7D%5E%7B2n%7D+1))">Wolfram|Alpha</a>)</p>
 
 <p>Lines 63-70:</p>
 
-<p>$\displaystyle Operations = \sum_{i=0}^{n-1} \left (\sum_{k=0}^{i-1} (\sum_{j=n}^{2n} 1) \right ) = \frac{1}{2} n^3 - \frac{1}{2} n$ (see <a href="http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+%28sum_%7Bk%3D0%7D%5E%7Bi-1%7D+%28sum_%7Bj%3Dn%7D%5E%7B2n%7D+1%29%29">Wolfram|Alpha</a>)</p>
+<table>
+  <tbody>
+    <tr>
+      <td>$\displaystyle Operations = \sum_{i=0}^{n-1} \left (\sum_{k=0}^{i-1} (\sum_{j=n}^{2n} 1) \right ) = \frac{1}{2} n^3 - \frac{1}{2} n$ (see &lt;a href=”http://www.wolframalpha.com/input/?i=sum_%7Bi%3D0%7D%5E%7Bn-1%7D+%28sum_%7Bk%3D0%7D%5E%7Bi-1%7D+%28sum_%7Bj%3Dn%7D%5E%7B2n%7D+1%29%29”))”&gt;Wolfram</td>
+      <td>Alpha&lt;/a&gt;)</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>So we need about $\frac{4}{3} n^3 + \mathcal{O}(n^2)$ operations to invert a matrix with Gauß-Elimination. </p>
+<p>So we need about $\frac{4}{3} n^3 + \mathcal{O}(n^2)$ operations to invert a matrix with Gauß-Elimination.</p>
 
 <h3 id="tocAnchor-1-1-2">Space complexity</h3>
-
 <p>My algorithm needs space for the inverse matrix, so it is in $\mathcal{O}(n^2)$.</p>
 
 <h2 id="tocAnchor-1-4">Inverting an upper triangular matrix</h2>
-
 <p>Suppose you have an upper triangular matrix $A \in \mathbb{R^{n \times n}}$ that you would like to invert. It could look like this:</p>
 
 <p>
@@ -269,10 +273,9 @@ MathJax.Hub.Queue(function() {
 
 <p>How could we improve the algorithm from above to get speed it up?</p>
 
-<p>Well, we don't need lines 24-53 any more, as those lines bring $A$ to an upper triangular form. But we still need lines 63-70. So we can improve the algorithm to a complexity of $\frac{1}{2} n^3 + \mathcal{O}(n^2)$.</p>
+<p>Well, we don’t need lines 24-53 any more, as those lines bring $A$ to an upper triangular form. But we still need lines 63-70. So we can improve the algorithm to a complexity of $\frac{1}{2} n^3 + \mathcal{O}(n^2)$.</p>
 
 <h2 id="tocAnchor-1-5">See also</h2>
-
 <p>
    <a href="http://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations#Matrix_algebra">Computational complexity of mathematical operations</a>
 </p>
@@ -458,7 +461,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

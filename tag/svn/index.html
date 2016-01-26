@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;svn&rdquo;’</h2>
   
@@ -453,10 +453,10 @@ MathJax.Hub.Queue(function() {
             <time datetime="2014-12-29T20:57:00+01:00">December 29, 2014</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
 
-    This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. Jeder Student mit einem ATIS-Account kann hier einen SVN-Zugang beantragen. Ich werde nun kurz erklären, wie man ihn mit der Konsole benutzt. Import Syntax (Hilfe): svn import [PATH] URL Beispiel: svn import -m &quot;Initial import of the BankAccountReader project.&quot; /home/swt-user/BankAccountReader https://svnserver.informatik.kit.edu/stud/svn/s_thoma/trunk/BankAccountReader Checkout Syntax (Hilfe): svn...
+    This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it. Jeder Student mit einem ATIS-Account kann hier einen SVN-Zugang beantragen. Ich werde nun kurz erklären, wie man ihn mit der Konsole benutzt. Import Syntax (Hilfe): 1svn import [PATH] URL Beispiel: 1svn import -m &quot;Initial import of the BankAccountReader project.&quot; /home/swt-user/BankAccountReader https://svnserver.informatik.kit.edu/stud/svn/s_thoma/trunk/BankAccountReader Checkout Syntax (Hilfe): 1svn...
 
     
     <div class="readmorecontent">
@@ -2660,12 +2660,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-04-25T22:25:11+02:00">April 25, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/eclipse-fur-swt-i-einrichten/"><img width="128" height="128" src="//martin-thoma.com/images/2012/04/eclipse-logo.png" class="alignleft post_thumbnail wp-post-image" alt="Eclipse f&uuml;r SWT I einrichten"/></a>
     
 
-    SWT I ist das Modul Softwaretechnik I am KIT. Dieser Blogpost richtet sich also vor allem an Studenten des KIT von Herrn Prof. Dr. Tichy. Ich arbeite au&szlig;erdem mit Ubuntu Linux. Die momentan aktuellste Version nennt sich Oneiric Ocelot und kann bei UbuntuUsers heruntergeladen werden. Das System k&ouml;nnte z.B. in VirtualBox installiert werden. Installation F&uuml;r die Installation von Java, Subversion (SVN), Eclipse und Checkstyle samt Dokumentation muss folgendes in der Konsole eingegeben werden: { highlight...
+    SWT I ist das Modul Softwaretechnik I am KIT. Dieser Blogpost richtet sich also vor allem an Studenten des KIT von Herrn Prof. Dr. Tichy. Ich arbeite au&szlig;erdem mit Ubuntu Linux. Die momentan aktuellste Version nennt sich Oneiric Ocelot und kann bei UbuntuUsers heruntergeladen werden. Das System k&ouml;nnte z.B. in VirtualBox installiert werden. Installation Für die Installation von Java, Subversion (SVN), Eclipse und Checkstyle samt Dokumentation muss folgendes in der Konsole eingegeben werden: { highlight...
 
     
     <div class="readmorecontent">
@@ -2727,12 +2727,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-04-18T07:00:59+02:00">April 18, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/software-versioning-cheat-sheet/"><img width="128" height="128" src="//martin-thoma.com/images/2012/04/svn-git-logo.png" class="alignleft post_thumbnail wp-post-image" alt="Software Versioning Cheat Sheet"/></a>
     
 
-    This Software Versioning Cheat Sheet has very basic information aboout the installation and usage of Subversion and Git. (The LaTeX Source Code is here.) If you&#39;re at the KIT and you have SWT, then you&#39;ll probably need this command: { highlight bash }svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1{ endhighlight } You will be asked for a password. I hope you remember it. SVN { highlight bash }svn co URL LocalTarget --username yourUserName{ endhighlight } Source:...
+    This Software Versioning Cheat Sheet has very basic information aboout the installation and usage of Subversion and Git. (The LaTeX Source Code is here.) If you’re at the KIT and you have SWT, then you’ll probably need this command: { highlight bash }svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ –username swt1{ endhighlight } You will be asked for a password. I hope you remember it. SVN { highlight bash }svn co URL LocalTarget –username yourUserName{ endhighlight } Source:...
 
     
     <div class="readmorecontent">
@@ -3773,7 +3773,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

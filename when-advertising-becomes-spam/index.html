@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The Web is great. You can easily find and publish information. It is great for trading as you can search through millions of articles and hundreds of vendors to find the product that fits best to your needs and is as cheap as possible. But recently I get a lot of spam from companies I like (<a href="http://en.wikipedia.org/wiki/Amazon.com">Amazon</a>, <a href="http://en.wikipedia.org/wiki/PayPal">PayPal</a> and <a href="http://en.wikipedia.org/wiki/Thalia_(bookstore_chain)">Thalia</a>). I like to get some e-mails from those companies. But how can they provide relevent content instead of spam? When is it good advertising and when does advertising become spam?</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -125,40 +125,36 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Intervall of E-mails</h2>
-
-<p>As a rule of thumb, I would say more e-mails without user-interaction than once
-a month is spam. So it is perfectly fine if I buy ten products in one week to
-get ten sales confirmation e-mails. But is not okay to get more than once a
-month information about the cheapest products, the latest cupons or the latest
-electronics that I could buy as a present for christmas. Of course, if the user
-has actively changed the interval of e-mails to once a week or even every day,
-it is okay to sent him e-mails every day. But this should be opt-in. So the
+<p>As a rule of thumb, I would say more e-mails without user-interaction than once<br />
+a month is spam. So it is perfectly fine if I buy ten products in one week to<br />
+get ten sales confirmation e-mails. But is not okay to get more than once a<br />
+month information about the cheapest products, the latest cupons or the latest<br />
+electronics that I could buy as a present for christmas. Of course, if the user<br />
+has actively changed the interval of e-mails to once a week or even every day,<br />
+it is okay to sent him e-mails every day. But this should be opt-in. So the<br />
 user has to get active to get those e-mails.</p>
 
 <h2 id="tocAnchor-1-2">Easy unsubscribe</h2>
-
-<p>In every e-mail should be a link to unsubscribe from this type of mail. The
-user should not have to login first, before he can unsubscribe. So the link has
+<p>In every e-mail should be a link to unsubscribe from this type of mail. The<br />
+user should not have to login first, before he can unsubscribe. So the link has<br />
 to be randomly generated for every user.</p>
 
 <h2 id="tocAnchor-1-3">Unambiguous sender address</h2>
-
-<p>Thalia uses the address <code>info@produktnews.thalia.de</code> for sending
-product news. This is great, because I can create a filter that automatically
-deletes these e-mails. So although the unsubscribe-link doesn't work, I can get
-rid of this kind of spam without missing my order confirmations that get sent
-from <code>info@thalia.de</code> (that should be something like
+<p>Thalia uses the address <code>info@produktnews.thalia.de</code> for sending<br />
+product news. This is great, because I can create a filter that automatically<br />
+deletes these e-mails. So although the unsubscribe-link doesn’t work, I can get<br />
+rid of this kind of spam without missing my order confirmations that get sent<br />
+from <code>info@thalia.de</code> (that should be something like<br />
 <code>confirmation@thalia.de</code>)</p>
 
-<p>Although Thalia has one address that is clearly only for product information,
-they didn't solve this problem. They also use
-<code>thalia@produktnews.thalia.de</code>, what makes it much more difficult
-for me to filter spam. But it's better than PayPal. They seem to use
+<p>Although Thalia has one address that is clearly only for product information,<br />
+they didn’t solve this problem. They also use<br />
+<code>thalia@produktnews.thalia.de</code>, what makes it much more difficult<br />
+for me to filter spam. But it’s better than PayPal. They seem to use<br />
 <code>paypal@e.paypal.de</code> which could have any content.</p>
 
 <h2 id="tocAnchor-1-4">More ideas?</h2>
-
-<p>Does anybody have more ideas how companies could make online advertising, but
+<p>Does anybody have more ideas how companies could make online advertising, but<br />
 avoid to spam people?</p>
 
                         </div>
@@ -342,7 +338,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;CSV&rdquo;’</h2>
   
@@ -337,12 +337,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2015-02-08T12:48:00+01:00">February  8, 2015</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/python-csv/"><img width="128" height="128" src="//martin-thoma.com/images/logos/python.png" class="alignleft post_thumbnail wp-post-image" alt="Python and CSV"/></a>
     
 
-    Python has a very nice module called csv which makes working with CSV very easy. This mini article is only a reminder for me so that I can easily find how to use it when I forget once again how it is used exactly. Reading CSV files try: from future.builtins import open except: pass import csv with open(&#39;eggs.csv&#39;, &#39;rt&#39;, newline=&#39;&#39;) as csvfile: csvreader = csv.reader(csvfile, delimiter=&#39;;&#39;, quotechar=&#39;&quot;&#39;) next(csvreader, None) # skip the headers for row...
+    Python has a very nice module called csv which makes working with CSV very easy. This mini article is only a reminder for me so that I can easily find how to use it when I forget once again how it is used exactly. Reading CSV files 1try: 2 from future.builtins import open 3except: 4 pass 5 6import csv 7 8with open('eggs.csv', 'rt', newline='') as csvfile: 9 csvreader = csv.reader(csvfile, delimiter=';', quotechar='&quot;') 10 next(csvreader, None)...
 
     
     <div class="readmorecontent">
@@ -3685,7 +3685,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,19 +105,19 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">This is a quick article I had for quite a while as a draft. It might not be finished or have other problems, but I still want to share it.
 
 I wrote this when I did not know much about packaging.</div>
 
-<p>The following article is a wrap-up of the talk <a href="https://www.youtube.com/watch?v=MSs3QmHhvpE">Python Packages</a>
+<p>The following article is a wrap-up of the talk <a href="https://www.youtube.com/watch?v=MSs3QmHhvpE">Python Packages</a><br />
 from Daniel Hepper given at a German <a href="https://2013.de.pycon.org/schedule/sessions/15/">PyCon 2013</a>.</p>
 
-<p>distutils have very limited functionality. This is the reason why you should
-use setuptools. But 'distribute' is compatible to setuptools.</p>
+<p>distutils have very limited functionality. This is the reason why you should<br />
+use setuptools. But ‘distribute’ is compatible to setuptools.</p>
 
-<p><a href="https://pypi.python.org/pypi">PyPi</a> is the Python Package Index. They distribute
-packages in form of "eggs". You can install them with easy_install or with pip.</p>
+<p><a href="https://pypi.python.org/pypi">PyPi</a> is the Python Package Index. They distribute<br />
+packages in form of “eggs”. You can install them with easy_install or with pip.</p>
 
 <p>virtualenv / virtualenvwrapper</p>
 
@@ -167,126 +167,143 @@ packages in form of "eggs". You can install them with easy_install or with pip.<
 </div><h2 id="tocAnchor-1-1">Package Management Tools</h2>
 
 <h3 id="tocAnchor-1-1-1">Distutils</h3>
-
 <p>Distutils is part of the standard library. When you run</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">python setup.py install
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>python setup.py install
+</pre></div>
 </div>
+</div>
+
 <p>then distutils is running.</p>
 
 <p>Major disadvantages of distutils are:</p>
 
 <ul>
-<li>No Meta-data:
-
-<ul>
-<li>no deinstallation</li>
-<li>no dependencies</li>
-</ul></li>
-<li>No Package listing (so you can't automatically search pypi)</li>
+  <li>No Meta-data:
+    <ul>
+      <li>no deinstallation</li>
+      <li>no dependencies</li>
+    </ul>
+  </li>
+  <li>No Package listing (so you can’t automatically search pypi)</li>
 </ul>
 
 <h3 id="tocAnchor-1-1-2">Setuptools</h3>
-
 <p>Setuptools are startet when you install a package with <code>easy_install</code>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">easy_install package
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>easy_install package
+</pre></div>
 </div>
-<p>Setuptools are an extension for distutils. Setuptools offers dependency management.
-With setuptools, so called 'egg files' were introduced. Those files are comparable
+</div>
+
+<p>Setuptools are an extension for distutils. Setuptools offers dependency management.<br />
+With setuptools, so called ‘egg files’ were introduced. Those files are comparable<br />
 to jar files in Java.</p>
 
 <h3 id="tocAnchor-1-1-3">Distribute</h3>
 
-<p>Distribute was a fork of setuptools that got merged back to setuptools. So 
-don't use distribute, but use setuptools.</p>
+<p>Distribute was a fork of setuptools that got merged back to setuptools. So <br />
+don’t use distribute, but use setuptools.</p>
 
 <h2 id="tocAnchor-1-5">Installer</h2>
 
 <h3 id="tocAnchor-1-5-1">PIP</h3>
-
-<p>PIP is short for 'PIP installs Python'. It can only install files from sources;
+<p>PIP is short for ‘PIP installs Python’. It can only install files from sources;<br />
 so it does not support egg files.</p>
 
 <p>PIP commands are</p>
 
 <ul>
-<li>install</li>
-<li>uninstall</li>
-<li>freeze</li>
-<li>search</li>
-<li>bundle</li>
-<li>unzip</li>
-<li>zip</li>
-<li>wheel</li>
-<li>help</li>
+  <li>install</li>
+  <li>uninstall</li>
+  <li>freeze</li>
+  <li>search</li>
+  <li>bundle</li>
+  <li>unzip</li>
+  <li>zip</li>
+  <li>wheel</li>
+  <li>help</li>
 </ul>
 
 <h2 id="tocAnchor-1-7">Environments</h2>
-
-<p>It might be the case that you have to have a Django 1.4 and a Django 1.5 project.
+<p>It might be the case that you have to have a Django 1.4 and a Django 1.5 project.<br />
 In that case, you need different environments.</p>
 
 <h3 id="tocAnchor-1-7-1">Virtualenv</h3>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>pip freeze
-<span class="nv">$ </span>virtualenv my_env
-<span class="nv">$ </span><span class="nb">source </span>my_env/bin/activate
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ pip freeze
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>$ virtualenv my_env
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>$ source my_env/bin/activate
+</pre></div>
 </div>
+</div>
+
 <h3 id="tocAnchor-1-7-2">Virtualenvwrapper</h3>
 
 <h2 id="tocAnchor-1-10">Creating packages</h2>
 
 <p>A project could have this structure:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>tree
-.
-├── LICENSE
-├── MANIFEST
-├── pyconde2013news
-│   └── __init__.py
-├── README
-└── setup.py
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>$ tree
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>.
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>├── LICENSE
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>├── MANIFEST
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>├── pyconde2013news
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>│   └── __init__.py
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>├── README
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>└── setup.py
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+</pre></div>
 </div>
+</div>
+
 <p>With this setup.py:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
-<span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"pycon2013news"</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s">"0.1"</span><span class="p">,</span> <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s">"pycon2013news"</span><span class="p">],)</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">distutils.core</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">setup</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>setup(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>, version=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">0.1</span><span style="color:#710">"</span></span>, py_modules=[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>],)
+</pre></div>
 </div>
+</div>
+
 <p>This can directly be registered on PyPi:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">python setup.py register
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>python setup.py register
+</pre></div>
 </div>
-<p>But a problem of this code is that it does not show the dependencies. So you
+</div>
+
+<p>But a problem of this code is that it does not show the dependencies. So you<br />
 should rather use setuptools for your setup.py:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
-<span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"pycon2013news"</span><span class="p">,</span>
-      <span class="n">version</span><span class="o">=</span><span class="s">"0.1"</span><span class="p">,</span>
-      <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s">"pycon2013news"</span><span class="p">],</span>
-      <span class="n">description</span><span class="o">=</span><span class="s">"Reads latest news headlines from the PyCon.DE 2013 website"</span><span class="p">)</span>
-      <span class="n">author</span><span class="o">=</span><span class="s">"Daniel Hepper"</span><span class="p">,</span>
-      <span class="n">author_email</span><span class="o">=</span><span class="s">"daniel@butfriendly.com"</span><span class="p">,</span>
-      <span class="n">url</span><span class="o">=</span><span class="s">"https://github.com/dhepper/pyconde2013news"</span><span class="p">,</span>
-      <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span>
-          <span class="s">"beautifulsoup4==4.3.2"</span><span class="p">,</span>
-          <span class="s">"requests==2.0.0"</span>
-      <span class="p">]</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">setuptools</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">setup</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>setup(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>      version=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">0.1</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>      py_modules=[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>],
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>      description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Reads latest news headlines from the PyCon.DE 2013 website</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>      author=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Daniel Hepper</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>      author_email=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">daniel@butfriendly.com</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>      url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">https://github.com/dhepper/pyconde2013news</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>      install_requires=[
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">beautifulsoup4==4.3.2</span><span style="color:#710">"</span></span>,
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">requests==2.0.0</span><span style="color:#710">"</span></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>      ]
+</pre></div>
 </div>
-<p>When you add <code>scripts</code> argument to setup, you can later execute those.
+</div>
+
+<p>When you add <code>scripts</code> argument to setup, you can later execute those.<br />
 Entry points are also interesting.</p>
 
 <h2 id="tocAnchor-1-11">Additional information</h2>
 
 <ul>
-<li>http://guide.python-distribute.org/contributing.html</li>
+  <li>http://guide.python-distribute.org/contributing.html</li>
 </ul>
 
                         </div>
@@ -467,7 +484,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

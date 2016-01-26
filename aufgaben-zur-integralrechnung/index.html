@@ -105,32 +105,31 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Hier sind ein paar schöne Aufgaben und ausführliche Lösungsfindungsbeschreibungen zur Integralrechnung.</p>
 
 <p>Diesen Artikel werde ich ergänzen, wenn ich weitere schöne Aufgaben finde.</p>
 
 <h2 id="tocAnchor-1-1">Aufgabe 1</h2>
-
 <p><strong>Aufgabenstellung</strong>:</p>
 
 <p>Berechne das bestimmte Integral $\int_1^2 \frac{\arctan(x)}{x^2} dx$.</p>
 
-<p><strong>Wissen</strong>:
-</p><ul>
+<p><strong>Wissen</strong>:</p>
+<ul>
   <li>Partielle Integration</li>
   <li>Integration durch Substitution</li>
   <li>Partialbruchzerlegung</li>
-  <li>$(\arctan(x))' = \frac{1}{1+x^2}$</li>
-  <li>$\arctan(1) = \frac{1}{4}$</li>
+  <li>`$(\arctan(x))' = \frac{1}{1+x^2}$`</li>
+  <li>`$\arctan(1) = \frac{1}{4}$`</li>
 </ul>
 
 <p><strong>Rechnung</strong>:</p>
 
-<p>Partielle Integration mit:
-</p><ul>
-  <li>$f(x) = \arctan(x) \rightarrow f'(x) = \frac{1}{1+x^2}$</li>
-  <li>$g'(x)= x^{-2} \rightarrow g(x) = -x^{-1}$</li>
+<p>Partielle Integration mit:</p>
+<ul>
+  <li>`$f(x) = \arctan(x) \rightarrow f'(x) = \frac{1}{1+x^2}$`</li>
+  <li>`$g'(x)= x^{-2} \rightarrow g(x) = -x^{-1}$`</li>
 </ul>
 
 <p>
@@ -142,7 +141,7 @@ MathJax.Hub.Queue(function() {
 \end{align}$
 </p>
 
-<p>Partialbruchzerlegung mit:
+<p>Partialbruchzerlegung mit:<br />
 $\frac{A}{x} + \frac{B}{1+x^2} = \frac{1}{x \cdot (1+x^2)}\\
 \Leftrightarrow A \cdot (1+x^2) + B \cdot x = 1\\
 \Leftrightarrow A + Bx + Ax^2 = 1\\
@@ -156,10 +155,10 @@ $\frac{A}{x} + \frac{B}{1+x^2} = \frac{1}{x \cdot (1+x^2)}\\
 \end{align}$
 </p>
 
-<p>Substitution mit:
-</p><ul>
-  <li>$u := 1+x^2$</li>
-  <li>$\frac{du}{dx} = u' = 2x \rightarrow dx = \frac{du}{2x}$</li>
+<p>Substitution mit:</p>
+<ul>
+  <li>`$u := 1+x^2$`</li>
+  <li>`$\frac{du}{dx} = u' = 2x \rightarrow dx = \frac{du}{2x}$`</li>
 </ul>
 
 <p>
@@ -177,20 +176,19 @@ $\frac{A}{x} + \frac{B}{1+x^2} = \frac{1}{x \cdot (1+x^2)}\\
 <p><strong>Kontrolle</strong>: <a href="http://www.wolframalpha.com/input/?i=int+arctan%28x%29%2Fx%5E2+dx">Wolfram|Alpha</a></p>
 
 <h2 id="tocAnchor-1-2">Aufgabe 2</h2>
-
-<p>Diese Aufgabe war in der Analysis I-Klausur vom Herbst 2006 am KIT.
+<p>Diese Aufgabe war in der Analysis I-Klausur vom Herbst 2006 am KIT.<br />
 <strong>Aufgabenstellung</strong>:</p>
 
 <p>Berechne das bestimmte Integral $\displaystyle \int_0^1 \frac{1}{(\sqrt[3]{x}+2) \cdot (\sqrt[3]{x}+1)} dx$.</p>
 
-<p><strong>Wissen</strong>:
-</p><ul>
+<p><strong>Wissen</strong>:</p>
+<ul>
   <li>Integration durch Substitution</li>
   <li>Partialbruchzerlegung</li>
   <li>Logarithmusgesetze</li>
 </ul>
 
-<p><strong>Rechnung</strong>:
+<p><strong>Rechnung</strong>:<br />
 Kommt vielleicht später noch.</p>
 
                         </div>
@@ -374,7 +372,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

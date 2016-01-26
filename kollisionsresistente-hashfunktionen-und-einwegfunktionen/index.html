@@ -105,9 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <h2 id="tocAnchor-1-1">Definitionen</h2>
-
 <div class="definition">
 Sei `$f:X \rightarrow Y$` eine Funktion.
 `$f$` heißt eine Einwegfunktion, genau dann wenn für alle `$x \in X$` gilt:
@@ -123,15 +122,14 @@ Eine Funktion `$H:\{0,1\}^* \rightarrow \{0,1\}^k$` heißt <strong>kollisionsres
 Jeder effiziente Algorithmus findet nur mit kleiner Wahrscheinlichkeit eine Kollision. 
 </div>
 
-<p>Was heißt „kleine Wahrscheinlichkeit“?
-Nach dem Auswerten der Funktion $H$ für $x_1, x_2, \dots x_n$ sollte die Wahrscheinlichkeit nicht signifikant höher sein als $\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$
+<p>Was heißt „kleine Wahrscheinlichkeit“?<br />
+Nach dem Auswerten der Funktion $H$ für $x_1, x_2, \dots x_n$ sollte die Wahrscheinlichkeit nicht signifikant höher sein als $\displaystyle 1-\frac{n!\cdot{{2^k} \choose n}}{{2^k}^n}$<br />
 Diese Wahrscheinlichkeit kommt von dem <a href="http://de.wikipedia.org/wiki/Geburtstagsparadoxon">Geburtstagsparadoxon</a> bzw. dem <a href="http://de.wikipedia.org/wiki/Schubfachprinzip">Schubfachprinzip</a>. Wir haben $2^k$ Schubfächer (Funktionswerte) in die wir die $x_i$ (Urbilder) einordnen können.</p>
 
 <h2 id="tocAnchor-1-2">Satz</h2>
-
-<p><strong>Behauptung</strong>: Jede kollisionsresistente Hashfunktion ist eine Einwegfunktion.
-<strong>Beweis</strong>: durch Widerspruch
-Sei $f$ eine kollisionsresistente Hashfunktion
+<p><strong>Behauptung</strong>: Jede kollisionsresistente Hashfunktion ist eine Einwegfunktion.<br />
+<strong>Beweis</strong>: durch Widerspruch<br />
+Sei $f$ eine kollisionsresistente Hashfunktion<br />
 <u>Annahme</u>: $f$ ist keine Einwegfunktion</p>
 
 <p>Dann existiert ein Angreifer $\mathcal{A}$, der für eine Bild $f(x)$ ein $x'$ findet, sodass $f(x) = f(x')$ gilt.</p>
@@ -330,7 +328,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

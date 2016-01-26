@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <ul>
 <li>Problem A (<a href="https://code.google.com/codejam/contest/2434486/dashboard#s=p0">Osmos</a>):
   <ul>
@@ -124,14 +124,13 @@ MathJax.Hub.Queue(function() {
     <li>Large Set: 255/345 users (74%)</li>
   </ul>
 </li>
-</ul>
 
-<p>More information are on <a href="http://www.go-hero.net/jam/13/round/2">go-hero.net</a>.</p>
+
+More information are on <a href="http://www.go-hero.net/jam/13/round/2">go-hero.net</a>.
 
 <h2 id="tocAnchor-1-1">Osmos</h2>
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">howBigDoIget</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">motes</span><span class="p">):</span>
@@ -172,12 +171,11 @@ MathJax.Hub.Queue(function() {
         <span class="n">solution</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">motes</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">solution</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">:</span>
             <span class="n">solution</span> <span class="o">=</span> <span class="n">N</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solution</span><span class="p">))</span></code></pre>
-</div>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solution</span><span class="p">))</span></code></pre></div>
+
 
 <h2 id="tocAnchor-1-2">Falling Diamonds</h2>
-
-<p>Oncee you've read the task, you should understand some very basic ideas:</p>
+Oncee you've read the task, you should understand some very basic ideas:
 
 <ul>
   <li>First of all, diamonds only fall at `$x=0$`!</li>
@@ -186,28 +184,18 @@ MathJax.Hub.Queue(function() {
   <li>When your target is above the ground, you can let the diamond slide down to calculate the size of the basis.</li>
 </ul>
 
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/05/falling-diamonds-base.jpg">
-      <img src="../images/2013/05/falling-diamonds-base.jpg" alt="A basis for diamonds" width="" height="" class="size-full wp-image-65431" />
-   </a>
-   <p class="wp-caption-text">You have to get those yellow diamonds first, before you can get the orange one.</p>
-</div>
+<div style="width: 522px" class="wp-caption aligncenter"><a href="../images/2013/05/falling-diamonds-base.jpg"><img src="../images/2013/05/falling-diamonds-base.jpg" alt="A basis for diamonds" width="" height="" class="size-full wp-image-65431" /></a><p class="wp-caption-text">You have to get those yellow diamonds first, before you can get the orange one.</p></div>
 
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2013/05/falling-diamonds-slide.jpg">
-      <img src="../images/2013/05/falling-diamonds-slide.jpg" alt="Let Diamonds slide down" width="" height="" class="size-full wp-image-65441" />
-   </a>
-   <p class="wp-caption-text">Let Diamonds slide down</p>
-</div>
+<div style="width: 522px" class="wp-caption aligncenter"><a href="../images/2013/05/falling-diamonds-slide.jpg"><img src="../images/2013/05/falling-diamonds-slide.jpg" alt="Let Diamonds slide down" width="" height="" class="size-full wp-image-65441" /></a><p class="wp-caption-text">Let Diamonds slide down</p></div>
 
-<p>Note that you don't have to calculate a probabilty for the yellow pyramids. You get those with probability of 1.</p>
+Note that you don't have to calculate a probabilty for the yellow pyramids. You get those with probability of 1.
 
-<p>What I've forgot: You should also catch the case that you can fill up the next bigger pyramid. If this is possible, you can guarantee that you will reach your target $(x,y)$.</p>
+What I've forgot: You should also catch the case that you can fill up the next bigger pyramid. If this is possible, you can guarantee that you will reach your target `$(x,y)$`.
 
-<p>The rest is simple math. You have $rest$ diamonds left after you've build the base (yellow). Then you need $y+1$ diamonds slide to the right side. The probability that you have exactly $k$ hits while making $N$ tries with a probability of 50% is $\binom{N}{k} \cdot (\frac{1}{2})^N$. You want at least $k$ hits, so you want $\sum_{i=k}^N \binom{N}{i} \cdot (\frac{1}{2})^N$.</p>
+The rest is simple math. You have `$rest$` diamonds left after you've build the base (yellow). Then you need `$y+1$` diamonds slide to the right side. The probability that you have exactly `$k$` hits while making `$N$` tries with a probability of 50% is `$\binom{N}{k} \cdot (\frac{1}{2})^N$`. You want at least `$k$` hits, so you want `$\sum_{i=k}^N \binom{N}{i} \cdot (\frac{1}{2})^N$`.
 
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">gmpy</span>
@@ -263,8 +251,9 @@ MathJax.Hub.Queue(function() {
       
     <span class="k">for</span> <span class="n">caseNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">testcases</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">N</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">raw_input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%.9Lf</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)))</span></code></pre>
-</div>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%.9Lf</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">caseNr</span><span class="p">,</span> <span class="n">solve</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)))</span></code></pre></div>
+
+</ul>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -447,7 +436,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

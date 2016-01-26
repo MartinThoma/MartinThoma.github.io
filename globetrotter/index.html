@@ -105,12 +105,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <div style="width: 522px" class="wp-caption aligncenter"><a href="../images/2012/07/globetrotter-xl.png"><img src="../images/2012/07/globetrotter-xl.png" alt="Globetrotter - A game to learn cities and countries" width="" height="" class="size-full wp-image-37021"/></a><p class="wp-caption-text">Globetrotter - A game to learn cities and countries</p></div>
-
-<p><strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/crafics/globetrotter-xl">Globetrotter XL</a> on Kongregate
-<strong>Task</strong>: Find a city on a map
-<strong>How to play</strong>: You&#39;re given the name of a city and its country and a map. In the first levels this map has borders, but no names of countries or cities. In the later levels even the borders are not shown.
+                        <div class="entry" id="contentAfterTitle">
+                            <div style="width: 522px" class="wp-caption aligncenter"><a href="../images/2012/07/globetrotter-xl.png"><img src="../images/2012/07/globetrotter-xl.png" alt="Globetrotter - A game to learn cities and countries" width="" height="" class="size-full wp-image-37021" /></a><p class="wp-caption-text">Globetrotter - A game to learn cities and countries</p></div>
+<p><strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/crafics/globetrotter-xl">Globetrotter XL</a> on Kongregate<br />
+<strong>Task</strong>: Find a city on a map<br />
+<strong>How to play</strong>: You’re given the name of a city and its country and a map. In the first levels this map has borders, but no names of countries or cities. In the later levels even the borders are not shown.<br />
 <strong>My Record</strong>: Level 6, about 1400 points</p>
 
                         </div>
@@ -297,7 +296,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

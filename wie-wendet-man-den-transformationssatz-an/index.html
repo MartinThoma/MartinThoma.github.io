@@ -105,25 +105,24 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Folgender Artikel basiert auf meinem Mitschrieb der Analysis III Übung bei Herrn Bolleyer.</div>
 
 <p>Sei $A \in \mathfrak{B}_d$ mit $A^0 \neq \emptyset$ und $\lambda_d (A \setminus A^0) = 0$ sowie $\phi \in C^1(U, \mathbb{R}^d)$ mit $U \subseteq \mathbb{R}^d$ offen und $A \subseteq U$. Weiter sei $\phi$ auf $A^0$ injektiv und $\det(\phi'(x)) \neq 0$ für $x \in A^0$. Sei $f \in \mathfrak{L}^1(\phi(A))$ oder $f \geq 0$ auf $A$ so gilt $\int_{\phi(A)} f(x) dy = \int_A f(\phi(x)) | \det(\phi'(x)) | dx$</p>
 
 <p>In Anwendungen: $Y \in \mathfrak{B}_d$ und $f: Y \rightarrow \overline{\mathbb{R}}$ messbar.</p>
 
-<p><strong>Aufgabe</strong>: Berechne $\int_Y f(x) dy$ falls es existiert.
-<strong>Vorgehensweise:</strong>
-</p><ol type="i" style="list-style-type:lower-roman;">
-   <li>Zeige $f$ integrierbar oder $f \geq 0$ auf $Y$</li>
-   <li>Finde $A \in \mathfrak{B}_d$ und $\phi: A \rightarrow \mathbb{R}^d$ mit $\phi(A) = Y$ und den obigen Eigenschaften<br />
-$\phi$ sollte so gewählt sein, dass die späteren Rechenwege relativ einfach werden.</li>
-    <li>Berechne $\int_{Y} f(y) dy = \int_{\phi(A)} f(y) dy = \int_{A} f(\phi(x)) |\det (\phi'(x)) | dx$</li>
+<p><strong>Aufgabe</strong>: Berechne $\int_Y f(x) dy$ falls es existiert.<br />
+<strong>Vorgehensweise:</strong></p>
+<ol type="i" style="list-style-type:lower-roman;">
+   <li>Zeige `$f$` integrierbar oder `$f \geq 0$` auf `$Y$`</li>
+   <li>Finde `$A \in \mathfrak{B}_d$` und `$\phi: A \rightarrow \mathbb{R}^d$` mit `$\phi(A) = Y$` und den obigen Eigenschaften<br />
+`$\phi$` sollte so gewählt sein, dass die späteren Rechenwege relativ einfach werden.</li>
+    <li>Berechne `$\int_{Y} f(y) dy = \int_{\phi(A)} f(y) dy = \int_{A} f(\phi(x)) |\det (\phi'(x)) | dx$`</li>
 </ol>
 
 <h2 id="tocAnchor-1-1">Beispiele</h2>
-
-<p>Sei $Y := \{(x,y) \in \mathbb{R}^2 | 1 \leq \| (2,2) - (x,y)\| \leq 2\}$.
+<p>Sei $Y := \{(x,y) \in \mathbb{R}^2 | 1 \leq \| (2,2) - (x,y)\| \leq 2\}$.<br />
 Setze $\phi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit $\phi(r, \varphi) := \begin{pmatrix}2\\2\end{pmatrix} + r \cdot \begin{pmatrix}\cos(\varphi)\\ \sin(\varphi) \end{pmatrix}$</p>
 
 <p>$\phi \in C^1(\mathbb{R}^2, \mathbb{R}^2)$ und für $r \in \mathbb{R}$ gilt $\det \phi'(r, \varphi) = \det \left ( \begin{array}{cc}
@@ -133,11 +132,11 @@ Setze $\phi : \mathbb{R}^2 \rightarrow \mathbb{R}^2$ mit $\phi(r, \varphi) := \b
 
 <p>Für $r \neq 0$ gilt also $\det \phi'(r, \varphi) \neq 0$ für jedes $\varphi \in \mathbb{R}$. $\phi$ ist nicht injektiv auf $\mathbb{R}^2$. Setze $A := [1,2] \times [0, 2\pi]$.</p>
 
-<p>Dann ist $A^0 = (1,2) \times (0,2 \pi)$ und$ \phi$ auf $A^0$ injektiv. Außerdem ist $\det \phi'(x) \neq 0$ für $x \in A^0$. </p>
+<p>Dann ist $A^0 = (1,2) \times (0,2 \pi)$ und$ \phi$ auf $A^0$ injektiv. Außerdem ist $\det \phi'(x) \neq 0$ für $x \in A^0$.</p>
 
 <p>Für $f:Y \rightarrow \mathbb{R}$ mit $f(Y_1, Y_2) := Y_1 - Y_2$ gilt $f \in \mathfrak{L}^1(Y)$ ($Y$ kompakt, $f$ stetig)</p>
 
-<p>Außerdem: 
+<p>Außerdem: <br />
 $\begin{align}
 \int_Y f(y) dy &amp;= \int_\phi(A) f(y) dy \\
 &amp;\stackrel{Tr}{=} \int_A f(\phi(r, \varphi)) |\det \phi'(r, \varphi)| d(r, \varphi) \\
@@ -328,7 +327,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Diese Übersicht beinhaltet grundlegende Datenstrukturen. Es gibt weitaus <a href="http://de.wikipedia.org/wiki/Kategorie:Datenstruktur">mehr Datenstrukturen</a> (z.B. <a href="http://de.wikipedia.org/wiki/Bloomfilter">Bloomfilter</a>), als ich hier erwähne. Diese Datenstrukturen wurden in der Vorlesung Algorithmen I bei Frau Zitterbart am KIT erklärt.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -159,54 +159,48 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Array</h2>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/array.png">
       <img src="../images/2012/07/array.png" alt="Array" width="" height="" class="size-full wp-image-34531" />
    </a>
    <p class="wp-caption-text">Array</p>
 </div>
-
-<p>Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. 
-Charakteristika:
-</p><ul>
+<p>Ein Array, auch <a href="http://de.wikipedia.org/wiki/Feld_(Datentyp)">Feld</a> genannt, ist eine Datenstruktur. <br />
+Charakteristika:</p>
+<ul>
   <li>Ein Array hat eine feste, nicht veränderbare Größe.</li>
   <li>Der Zugriff auf jedes beliebige Element erfolgt in konstanter Zeit - ist also insbesondere unabhängig von der Größe!</li>
 </ul>
 
 <h2 id="tocAnchor-1-2">Dynamische Arrays</h2>
-
 <p>Dynamische Arrays sind wie normale Arrays, nur dass sie wachsen können. Sobald ein Element eingefügt werden soll, dass nicht mehr ins Array passen würde, allokiert man ein doppelt so großes Array und kopiert die Elemente um.</p>
 
 <p>In Java ist es ein <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Vector.html">Vector</a> bzw. eine <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html">ArrayList</a>, in <a href="../vectors-in-cpp/" title="Vectors in C++">C++ Vektoren</a>.</p>
 
 <h2 id="tocAnchor-1-3">Hashtabelle</h2>
-
 <blockquote>In der Informatik bezeichnet man eine spezielle Indexstruktur als Hashtabelle (englisch hash table oder hash map) bzw. Streuwerttabelle. Als Indexstruktur werden Hashtabellen verwendet um Datenelemente in einer großen Datenmenge aufzufinden. Zu Hashtabellen alternative Index-Datenstrukturen sind beispielsweise Baumstrukturen (wie etwa ein B+-Baum) und die Skip-List. Hashtabellen zeichnen sich durch einen üblicherweise konstanten Zeitaufwand bei Einfüge- bzw. Entfernen-Operationen aus. Beim Einsatz einer Hashtabelle zur Suche in Datenmengen spricht man auch von einem Hashverfahren oder Streuspeicherverfahren.</blockquote>
-
 <p>Quelle: <a href="http://de.wikipedia.org/wiki/Hashtabelle">Hashtabelle</a></p>
 
-<p>Hashtabellen werden hier benutzt:
-</p><ul>
+<p>Hashtabellen werden hier benutzt:</p>
+<ul>
   <li>Python 3.2.3: Modules/_pickle.c</li>
   <li>Java OpenJDK 7: <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html">java.util.HashTable</a> und sehr viele mehr benutzen es (Properties.java, Dictionary.java, Enum.java, ...)</li>
 </ul>
 
 <p>Sie garantieren eine amortisierte Laufzeit von ${\cal O}(1)$ für Suchen, Löschen und Einfügen.</p>
 
-<p>Folgende Begriffe sollte man kennen: 
-</p><ul>
-  <li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: $h(k) = k \mod m$</li>
-  <li><a href="http://de.wikipedia.org/wiki/Multiplikative_Methode">Multiplikationsmethode</a>: $h(k) = \lfloor A \cdot k \mod 1 \rfloor$, mit z.B. $A \approx \frac{\sqrt{5}-1}{2}$</li>
+<p>Folgende Begriffe sollte man kennen:</p>
+<ul>
+  <li><a href="http://de.wikipedia.org/wiki/Divisionsrestmethode">Divisions-Rest-Methode</a>: `$h(k) = k \mod m$`</li>
+  <li><a href="http://de.wikipedia.org/wiki/Multiplikative_Methode">Multiplikationsmethode</a>: `$h(k) = \lfloor A \cdot k \mod 1 \rfloor$`, mit z.B. `$A \approx \frac{\sqrt{5}-1}{2}$`</li>
   <li>offenes Hashing</li>
-  <li><a href="http://de.wikipedia.org/wiki/Doppel-Hashing">Doppeltes Hashing</a>: $h(k, i) = (h_1(k) + i \cdot h_2(k)) \mod m$</li>
+  <li><a href="http://de.wikipedia.org/wiki/Doppel-Hashing">Doppeltes Hashing</a>: `$h(k, i) = (h_1(k) + i \cdot h_2(k)) \mod m$`</li>
   <li><a href="http://de.wikipedia.org/wiki/Hashtabelle#Lineares_Sondieren">Lineares und quadratische Sondieren</a></li>
-  <li>Belegungsfaktor: $\alpha = \frac{\text{Anzahl gespeicherter Elemente}}{\text{Anzahl der Slots}}$</li>
+  <li>Belegungsfaktor: `$\alpha = \frac{\text{Anzahl gespeicherter Elemente}}{\text{Anzahl der Slots}}$`</li>
   <li>Primäre und sekundäre Clusterbildung</li>
 </ul>
 
 <h2 id="tocAnchor-1-4">Stack</h2>
-
 <div style="width: 111px" class="wp-caption alignright">
    <a href="../images/2012/07/stack-101x300.png">
       <img src="../images/2012/07/stack-101x300.png" alt="Stack a capacity of 5 elements and size of 4." width="" height="" class="size-medium wp-image-34421" />
@@ -214,7 +208,7 @@ Charakteristika:
    <p class="wp-caption-text">Stack a capacity of 5 elements and size of 4.</p>
 </div>
 
-<p>Stacks, auch "<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>" oder "Kellerspeicher" genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und natürlich gibt es auch in <a href="../stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.</p>
+<p>Stacks, auch “<a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>” oder “Kellerspeicher” genannt, sind eine elementare Datenstruktur. Es sollte sie in jeder Sprache geben. In Java ist es in <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">java.util.Stack</a>, in Python sind es <a href="http://docs.python.org/tutorial/datastructures.html#using-lists-as-stacks">Listen</a> und natürlich gibt es auch in <a href="../stacks-in-cpp/" title="Stacks in C++">C++ Stacks</a>.</p>
 
 <p>Wie man am Bild sehr schön sehen kann, definiert ein Stack keine Ordnung über die Elemente. Wenn ein neues Element kommt, wird es auf den Stack gelegt. Man kann auch nur das oberste Element - in diesem Fall a - vom Stack nehmen. Deshalb werden Stacks auch als LIFO-Speicher (<em>L</em>ast <em>I</em>n <em>F</em>irst <em>O</em>ut) bezeichnet.</p>
 
@@ -248,212 +242,212 @@ Charakteristika:
 <p>Ausgabe:</p>
 
 <div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">size: <span class="m">3</span>      capacity: 10
-size: <span class="m">4</span>   capacity: 10
-size: <span class="m">5</span>   capacity: 10
-size: <span class="m">6</span>   capacity: 10
-size: <span class="m">7</span>   capacity: 10
-size: <span class="m">8</span>   capacity: 10
-size: <span class="m">9</span>   capacity: 10
-size: <span class="m">10</span>      capacity: 10
-size: <span class="m">11</span>      capacity: 20
-size: <span class="m">12</span>      capacity: 20
-size: <span class="m">13</span>      capacity: 20
-size: <span class="m">14</span>      capacity: 20
-size: <span class="m">15</span>      capacity: 20
-size: <span class="m">16</span>      capacity: 20
-size: <span class="m">17</span>      capacity: 20
-size: <span class="m">18</span>      capacity: 20
-size: <span class="m">19</span>      capacity: 20
-size: <span class="m">20</span>      capacity: 20
-size: <span class="m">21</span>      capacity: 40
-size: <span class="m">22</span>      capacity: 40
-size: <span class="m">23</span>      capacity: 40
-size: <span class="m">24</span>      capacity: 40
-size: <span class="m">25</span>      capacity: 40
-size: <span class="m">26</span>      capacity: 40
-size: <span class="m">27</span>      capacity: 40
-size: <span class="m">28</span>      capacity: 40
-size: <span class="m">29</span>      capacity: 40
-size: <span class="m">30</span>      capacity: 40
-size: <span class="m">31</span>      capacity: 40
-size: <span class="m">32</span>      capacity: 40
-size: <span class="m">33</span>      capacity: 40
-size: <span class="m">34</span>      capacity: 40
-size: <span class="m">35</span>      capacity: 40
-size: <span class="m">36</span>      capacity: 40
-size: <span class="m">37</span>      capacity: 40
-size: <span class="m">38</span>      capacity: 40
-size: <span class="m">39</span>      capacity: 40
-size: <span class="m">40</span>      capacity: 40
-size: <span class="m">41</span>      capacity: 80
-size: <span class="m">42</span>      capacity: 80
-size: <span class="m">43</span>      capacity: 80
-size: <span class="m">44</span>      capacity: 80
-size: <span class="m">45</span>      capacity: 80
-size: <span class="m">46</span>      capacity: 80
-size: <span class="m">47</span>      capacity: 80
-size: <span class="m">48</span>      capacity: 80
-size: <span class="m">49</span>      capacity: 80
-size: <span class="m">50</span>      capacity: 80
-size: <span class="m">51</span>      capacity: 80
-size: <span class="m">52</span>      capacity: 80
-size: <span class="m">53</span>      capacity: 80
-size: <span class="m">54</span>      capacity: 80
-size: <span class="m">55</span>      capacity: 80
-size: <span class="m">56</span>      capacity: 80
-size: <span class="m">57</span>      capacity: 80
-size: <span class="m">58</span>      capacity: 80
-size: <span class="m">59</span>      capacity: 80
-size: <span class="m">60</span>      capacity: 80
-size: <span class="m">61</span>      capacity: 80
-size: <span class="m">62</span>      capacity: 80
-size: <span class="m">63</span>      capacity: 80
-size: <span class="m">64</span>      capacity: 80
-size: <span class="m">65</span>      capacity: 80
-size: <span class="m">66</span>      capacity: 80
-size: <span class="m">67</span>      capacity: 80
-size: <span class="m">68</span>      capacity: 80
-size: <span class="m">69</span>      capacity: 80
-size: <span class="m">70</span>      capacity: 80
-size: <span class="m">71</span>      capacity: 80
-size: <span class="m">72</span>      capacity: 80
-size: <span class="m">73</span>      capacity: 80
-size: <span class="m">74</span>      capacity: 80
-size: <span class="m">75</span>      capacity: 80
-size: <span class="m">76</span>      capacity: 80
-size: <span class="m">77</span>      capacity: 80
-size: <span class="m">78</span>      capacity: 80
-size: <span class="m">79</span>      capacity: 80
-size: <span class="m">80</span>      capacity: 80
-size: <span class="m">81</span>      capacity: 160
-size: <span class="m">82</span>      capacity: 160
-size: <span class="m">83</span>      capacity: 160
-size: <span class="m">84</span>      capacity: 160
-size: <span class="m">85</span>      capacity: 160
-size: <span class="m">86</span>      capacity: 160
-size: <span class="m">87</span>      capacity: 160
-size: <span class="m">88</span>      capacity: 160
-size: <span class="m">89</span>      capacity: 160
-size: <span class="m">90</span>      capacity: 160
-size: <span class="m">91</span>      capacity: 160
-size: <span class="m">92</span>      capacity: 160
-size: <span class="m">93</span>      capacity: 160
-size: <span class="m">94</span>      capacity: 160
-size: <span class="m">95</span>      capacity: 160
-size: <span class="m">96</span>      capacity: 160
-size: <span class="m">97</span>      capacity: 160
-size: <span class="m">98</span>      capacity: 160
-size: <span class="m">99</span>      capacity: 160
-size: <span class="m">100</span>     capacity: 160
-size: <span class="m">101</span>     capacity: 160
-size: <span class="m">102</span>     capacity: 160
-Element: <span class="m">99</span>   size: <span class="m">101</span>    capacity: 160
-Element: <span class="m">98</span>   size: <span class="m">100</span>    capacity: 160
-Element: <span class="m">97</span>   size: <span class="m">99</span>     capacity: 160
-Element: <span class="m">96</span>   size: <span class="m">98</span>     capacity: 160
-Element: <span class="m">95</span>   size: <span class="m">97</span>     capacity: 160
-Element: <span class="m">94</span>   size: <span class="m">96</span>     capacity: 160
-Element: <span class="m">93</span>   size: <span class="m">95</span>     capacity: 160
-Element: <span class="m">92</span>   size: <span class="m">94</span>     capacity: 160
-Element: <span class="m">91</span>   size: <span class="m">93</span>     capacity: 160
-Element: <span class="m">90</span>   size: <span class="m">92</span>     capacity: 160
-Element: <span class="m">89</span>   size: <span class="m">91</span>     capacity: 160
-Element: <span class="m">88</span>   size: <span class="m">90</span>     capacity: 160
-Element: <span class="m">87</span>   size: <span class="m">89</span>     capacity: 160
-Element: <span class="m">86</span>   size: <span class="m">88</span>     capacity: 160
-Element: <span class="m">85</span>   size: <span class="m">87</span>     capacity: 160
-Element: <span class="m">84</span>   size: <span class="m">86</span>     capacity: 160
-Element: <span class="m">83</span>   size: <span class="m">85</span>     capacity: 160
-Element: <span class="m">82</span>   size: <span class="m">84</span>     capacity: 160
-Element: <span class="m">81</span>   size: <span class="m">83</span>     capacity: 160
-Element: <span class="m">80</span>   size: <span class="m">82</span>     capacity: 160
-Element: <span class="m">79</span>   size: <span class="m">81</span>     capacity: 160
-Element: <span class="m">78</span>   size: <span class="m">80</span>     capacity: 160
-Element: <span class="m">77</span>   size: <span class="m">79</span>     capacity: 160
-Element: <span class="m">76</span>   size: <span class="m">78</span>     capacity: 160
-Element: <span class="m">75</span>   size: <span class="m">77</span>     capacity: 160
-Element: <span class="m">74</span>   size: <span class="m">76</span>     capacity: 160
-Element: <span class="m">73</span>   size: <span class="m">75</span>     capacity: 160
-Element: <span class="m">72</span>   size: <span class="m">74</span>     capacity: 160
-Element: <span class="m">71</span>   size: <span class="m">73</span>     capacity: 160
-Element: <span class="m">70</span>   size: <span class="m">72</span>     capacity: 160
-Element: <span class="m">69</span>   size: <span class="m">71</span>     capacity: 160
-Element: <span class="m">68</span>   size: <span class="m">70</span>     capacity: 160
-Element: <span class="m">67</span>   size: <span class="m">69</span>     capacity: 160
-Element: <span class="m">66</span>   size: <span class="m">68</span>     capacity: 160
-Element: <span class="m">65</span>   size: <span class="m">67</span>     capacity: 160
-Element: <span class="m">64</span>   size: <span class="m">66</span>     capacity: 160
-Element: <span class="m">63</span>   size: <span class="m">65</span>     capacity: 160
-Element: <span class="m">62</span>   size: <span class="m">64</span>     capacity: 160
-Element: <span class="m">61</span>   size: <span class="m">63</span>     capacity: 160
-Element: <span class="m">60</span>   size: <span class="m">62</span>     capacity: 160
-Element: <span class="m">59</span>   size: <span class="m">61</span>     capacity: 160
-Element: <span class="m">58</span>   size: <span class="m">60</span>     capacity: 160
-Element: <span class="m">57</span>   size: <span class="m">59</span>     capacity: 160
-Element: <span class="m">56</span>   size: <span class="m">58</span>     capacity: 160
-Element: <span class="m">55</span>   size: <span class="m">57</span>     capacity: 160
-Element: <span class="m">54</span>   size: <span class="m">56</span>     capacity: 160
-Element: <span class="m">53</span>   size: <span class="m">55</span>     capacity: 160
-Element: <span class="m">52</span>   size: <span class="m">54</span>     capacity: 160
-Element: <span class="m">51</span>   size: <span class="m">53</span>     capacity: 160
-Element: <span class="m">50</span>   size: <span class="m">52</span>     capacity: 160
-Element: <span class="m">49</span>   size: <span class="m">51</span>     capacity: 160
-Element: <span class="m">48</span>   size: <span class="m">50</span>     capacity: 160
-Element: <span class="m">47</span>   size: <span class="m">49</span>     capacity: 160
-Element: <span class="m">46</span>   size: <span class="m">48</span>     capacity: 160
-Element: <span class="m">45</span>   size: <span class="m">47</span>     capacity: 160
-Element: <span class="m">44</span>   size: <span class="m">46</span>     capacity: 160
-Element: <span class="m">43</span>   size: <span class="m">45</span>     capacity: 160
-Element: <span class="m">42</span>   size: <span class="m">44</span>     capacity: 160
-Element: <span class="m">41</span>   size: <span class="m">43</span>     capacity: 160
-Element: <span class="m">40</span>   size: <span class="m">42</span>     capacity: 160
-Element: <span class="m">39</span>   size: <span class="m">41</span>     capacity: 160
-Element: <span class="m">38</span>   size: <span class="m">40</span>     capacity: 160
-Element: <span class="m">37</span>   size: <span class="m">39</span>     capacity: 160
-Element: <span class="m">36</span>   size: <span class="m">38</span>     capacity: 160
-Element: <span class="m">35</span>   size: <span class="m">37</span>     capacity: 160
-Element: <span class="m">34</span>   size: <span class="m">36</span>     capacity: 160
-Element: <span class="m">33</span>   size: <span class="m">35</span>     capacity: 160
-Element: <span class="m">32</span>   size: <span class="m">34</span>     capacity: 160
-Element: <span class="m">31</span>   size: <span class="m">33</span>     capacity: 160
-Element: <span class="m">30</span>   size: <span class="m">32</span>     capacity: 160
-Element: <span class="m">29</span>   size: <span class="m">31</span>     capacity: 160
-Element: <span class="m">28</span>   size: <span class="m">30</span>     capacity: 160
-Element: <span class="m">27</span>   size: <span class="m">29</span>     capacity: 160
-Element: <span class="m">26</span>   size: <span class="m">28</span>     capacity: 160
-Element: <span class="m">25</span>   size: <span class="m">27</span>     capacity: 160
-Element: <span class="m">24</span>   size: <span class="m">26</span>     capacity: 160
-Element: <span class="m">23</span>   size: <span class="m">25</span>     capacity: 160
-Element: <span class="m">22</span>   size: <span class="m">24</span>     capacity: 160
-Element: <span class="m">21</span>   size: <span class="m">23</span>     capacity: 160
-Element: <span class="m">20</span>   size: <span class="m">22</span>     capacity: 160
-Element: <span class="m">19</span>   size: <span class="m">21</span>     capacity: 160
-Element: <span class="m">18</span>   size: <span class="m">20</span>     capacity: 160
-Element: <span class="m">17</span>   size: <span class="m">19</span>     capacity: 160
-Element: <span class="m">16</span>   size: <span class="m">18</span>     capacity: 160
-Element: <span class="m">15</span>   size: <span class="m">17</span>     capacity: 160
-Element: <span class="m">14</span>   size: <span class="m">16</span>     capacity: 160
-Element: <span class="m">13</span>   size: <span class="m">15</span>     capacity: 160
-Element: <span class="m">12</span>   size: <span class="m">14</span>     capacity: 160
-Element: <span class="m">11</span>   size: <span class="m">13</span>     capacity: 160
-Element: <span class="m">10</span>   size: <span class="m">12</span>     capacity: 160
-Element: <span class="m">9</span>    size: <span class="m">11</span>     capacity: 160
-Element: <span class="m">8</span>    size: <span class="m">10</span>     capacity: 160
-Element: <span class="m">7</span>    size: <span class="m">9</span>      capacity: 160
-Element: <span class="m">6</span>    size: <span class="m">8</span>      capacity: 160
-Element: <span class="m">5</span>    size: <span class="m">7</span>      capacity: 160
-Element: <span class="m">4</span>    size: <span class="m">6</span>      capacity: 160
-Element: <span class="m">3</span>    size: <span class="m">5</span>      capacity: 160
-Element: <span class="m">2</span>    size: <span class="m">4</span>      capacity: 160
-Element: <span class="m">1</span>    size: <span class="m">3</span>      capacity: 160
-Element: <span class="m">0</span>    size: <span class="m">2</span>      capacity: 160
-Element: <span class="m">13</span>   size: <span class="m">1</span>      capacity: 160
-Element: <span class="m">12</span>   size: <span class="m">0</span>      capacity: 160</code></pre>
+   <pre><code class="language-bash" data-lang="bash">size: <span class="m">3</span> 	 capacity: 10
+size: <span class="m">4</span> 	 capacity: 10
+size: <span class="m">5</span> 	 capacity: 10
+size: <span class="m">6</span> 	 capacity: 10
+size: <span class="m">7</span> 	 capacity: 10
+size: <span class="m">8</span> 	 capacity: 10
+size: <span class="m">9</span> 	 capacity: 10
+size: <span class="m">10</span> 	 capacity: 10
+size: <span class="m">11</span> 	 capacity: 20
+size: <span class="m">12</span> 	 capacity: 20
+size: <span class="m">13</span> 	 capacity: 20
+size: <span class="m">14</span> 	 capacity: 20
+size: <span class="m">15</span> 	 capacity: 20
+size: <span class="m">16</span> 	 capacity: 20
+size: <span class="m">17</span> 	 capacity: 20
+size: <span class="m">18</span> 	 capacity: 20
+size: <span class="m">19</span> 	 capacity: 20
+size: <span class="m">20</span> 	 capacity: 20
+size: <span class="m">21</span> 	 capacity: 40
+size: <span class="m">22</span> 	 capacity: 40
+size: <span class="m">23</span> 	 capacity: 40
+size: <span class="m">24</span> 	 capacity: 40
+size: <span class="m">25</span> 	 capacity: 40
+size: <span class="m">26</span> 	 capacity: 40
+size: <span class="m">27</span> 	 capacity: 40
+size: <span class="m">28</span> 	 capacity: 40
+size: <span class="m">29</span> 	 capacity: 40
+size: <span class="m">30</span> 	 capacity: 40
+size: <span class="m">31</span> 	 capacity: 40
+size: <span class="m">32</span> 	 capacity: 40
+size: <span class="m">33</span> 	 capacity: 40
+size: <span class="m">34</span> 	 capacity: 40
+size: <span class="m">35</span> 	 capacity: 40
+size: <span class="m">36</span> 	 capacity: 40
+size: <span class="m">37</span> 	 capacity: 40
+size: <span class="m">38</span> 	 capacity: 40
+size: <span class="m">39</span> 	 capacity: 40
+size: <span class="m">40</span> 	 capacity: 40
+size: <span class="m">41</span> 	 capacity: 80
+size: <span class="m">42</span> 	 capacity: 80
+size: <span class="m">43</span> 	 capacity: 80
+size: <span class="m">44</span> 	 capacity: 80
+size: <span class="m">45</span> 	 capacity: 80
+size: <span class="m">46</span> 	 capacity: 80
+size: <span class="m">47</span> 	 capacity: 80
+size: <span class="m">48</span> 	 capacity: 80
+size: <span class="m">49</span> 	 capacity: 80
+size: <span class="m">50</span> 	 capacity: 80
+size: <span class="m">51</span> 	 capacity: 80
+size: <span class="m">52</span> 	 capacity: 80
+size: <span class="m">53</span> 	 capacity: 80
+size: <span class="m">54</span> 	 capacity: 80
+size: <span class="m">55</span> 	 capacity: 80
+size: <span class="m">56</span> 	 capacity: 80
+size: <span class="m">57</span> 	 capacity: 80
+size: <span class="m">58</span> 	 capacity: 80
+size: <span class="m">59</span> 	 capacity: 80
+size: <span class="m">60</span> 	 capacity: 80
+size: <span class="m">61</span> 	 capacity: 80
+size: <span class="m">62</span> 	 capacity: 80
+size: <span class="m">63</span> 	 capacity: 80
+size: <span class="m">64</span> 	 capacity: 80
+size: <span class="m">65</span> 	 capacity: 80
+size: <span class="m">66</span> 	 capacity: 80
+size: <span class="m">67</span> 	 capacity: 80
+size: <span class="m">68</span> 	 capacity: 80
+size: <span class="m">69</span> 	 capacity: 80
+size: <span class="m">70</span> 	 capacity: 80
+size: <span class="m">71</span> 	 capacity: 80
+size: <span class="m">72</span> 	 capacity: 80
+size: <span class="m">73</span> 	 capacity: 80
+size: <span class="m">74</span> 	 capacity: 80
+size: <span class="m">75</span> 	 capacity: 80
+size: <span class="m">76</span> 	 capacity: 80
+size: <span class="m">77</span> 	 capacity: 80
+size: <span class="m">78</span> 	 capacity: 80
+size: <span class="m">79</span> 	 capacity: 80
+size: <span class="m">80</span> 	 capacity: 80
+size: <span class="m">81</span> 	 capacity: 160
+size: <span class="m">82</span> 	 capacity: 160
+size: <span class="m">83</span> 	 capacity: 160
+size: <span class="m">84</span> 	 capacity: 160
+size: <span class="m">85</span> 	 capacity: 160
+size: <span class="m">86</span> 	 capacity: 160
+size: <span class="m">87</span> 	 capacity: 160
+size: <span class="m">88</span> 	 capacity: 160
+size: <span class="m">89</span> 	 capacity: 160
+size: <span class="m">90</span> 	 capacity: 160
+size: <span class="m">91</span> 	 capacity: 160
+size: <span class="m">92</span> 	 capacity: 160
+size: <span class="m">93</span> 	 capacity: 160
+size: <span class="m">94</span> 	 capacity: 160
+size: <span class="m">95</span> 	 capacity: 160
+size: <span class="m">96</span> 	 capacity: 160
+size: <span class="m">97</span> 	 capacity: 160
+size: <span class="m">98</span> 	 capacity: 160
+size: <span class="m">99</span> 	 capacity: 160
+size: <span class="m">100</span> 	 capacity: 160
+size: <span class="m">101</span> 	 capacity: 160
+size: <span class="m">102</span> 	 capacity: 160
+Element: <span class="m">99</span> 	 size: <span class="m">101</span> 	 capacity: 160
+Element: <span class="m">98</span> 	 size: <span class="m">100</span> 	 capacity: 160
+Element: <span class="m">97</span> 	 size: <span class="m">99</span> 	 capacity: 160
+Element: <span class="m">96</span> 	 size: <span class="m">98</span> 	 capacity: 160
+Element: <span class="m">95</span> 	 size: <span class="m">97</span> 	 capacity: 160
+Element: <span class="m">94</span> 	 size: <span class="m">96</span> 	 capacity: 160
+Element: <span class="m">93</span> 	 size: <span class="m">95</span> 	 capacity: 160
+Element: <span class="m">92</span> 	 size: <span class="m">94</span> 	 capacity: 160
+Element: <span class="m">91</span> 	 size: <span class="m">93</span> 	 capacity: 160
+Element: <span class="m">90</span> 	 size: <span class="m">92</span> 	 capacity: 160
+Element: <span class="m">89</span> 	 size: <span class="m">91</span> 	 capacity: 160
+Element: <span class="m">88</span> 	 size: <span class="m">90</span> 	 capacity: 160
+Element: <span class="m">87</span> 	 size: <span class="m">89</span> 	 capacity: 160
+Element: <span class="m">86</span> 	 size: <span class="m">88</span> 	 capacity: 160
+Element: <span class="m">85</span> 	 size: <span class="m">87</span> 	 capacity: 160
+Element: <span class="m">84</span> 	 size: <span class="m">86</span> 	 capacity: 160
+Element: <span class="m">83</span> 	 size: <span class="m">85</span> 	 capacity: 160
+Element: <span class="m">82</span> 	 size: <span class="m">84</span> 	 capacity: 160
+Element: <span class="m">81</span> 	 size: <span class="m">83</span> 	 capacity: 160
+Element: <span class="m">80</span> 	 size: <span class="m">82</span> 	 capacity: 160
+Element: <span class="m">79</span> 	 size: <span class="m">81</span> 	 capacity: 160
+Element: <span class="m">78</span> 	 size: <span class="m">80</span> 	 capacity: 160
+Element: <span class="m">77</span> 	 size: <span class="m">79</span> 	 capacity: 160
+Element: <span class="m">76</span> 	 size: <span class="m">78</span> 	 capacity: 160
+Element: <span class="m">75</span> 	 size: <span class="m">77</span> 	 capacity: 160
+Element: <span class="m">74</span> 	 size: <span class="m">76</span> 	 capacity: 160
+Element: <span class="m">73</span> 	 size: <span class="m">75</span> 	 capacity: 160
+Element: <span class="m">72</span> 	 size: <span class="m">74</span> 	 capacity: 160
+Element: <span class="m">71</span> 	 size: <span class="m">73</span> 	 capacity: 160
+Element: <span class="m">70</span> 	 size: <span class="m">72</span> 	 capacity: 160
+Element: <span class="m">69</span> 	 size: <span class="m">71</span> 	 capacity: 160
+Element: <span class="m">68</span> 	 size: <span class="m">70</span> 	 capacity: 160
+Element: <span class="m">67</span> 	 size: <span class="m">69</span> 	 capacity: 160
+Element: <span class="m">66</span> 	 size: <span class="m">68</span> 	 capacity: 160
+Element: <span class="m">65</span> 	 size: <span class="m">67</span> 	 capacity: 160
+Element: <span class="m">64</span> 	 size: <span class="m">66</span> 	 capacity: 160
+Element: <span class="m">63</span> 	 size: <span class="m">65</span> 	 capacity: 160
+Element: <span class="m">62</span> 	 size: <span class="m">64</span> 	 capacity: 160
+Element: <span class="m">61</span> 	 size: <span class="m">63</span> 	 capacity: 160
+Element: <span class="m">60</span> 	 size: <span class="m">62</span> 	 capacity: 160
+Element: <span class="m">59</span> 	 size: <span class="m">61</span> 	 capacity: 160
+Element: <span class="m">58</span> 	 size: <span class="m">60</span> 	 capacity: 160
+Element: <span class="m">57</span> 	 size: <span class="m">59</span> 	 capacity: 160
+Element: <span class="m">56</span> 	 size: <span class="m">58</span> 	 capacity: 160
+Element: <span class="m">55</span> 	 size: <span class="m">57</span> 	 capacity: 160
+Element: <span class="m">54</span> 	 size: <span class="m">56</span> 	 capacity: 160
+Element: <span class="m">53</span> 	 size: <span class="m">55</span> 	 capacity: 160
+Element: <span class="m">52</span> 	 size: <span class="m">54</span> 	 capacity: 160
+Element: <span class="m">51</span> 	 size: <span class="m">53</span> 	 capacity: 160
+Element: <span class="m">50</span> 	 size: <span class="m">52</span> 	 capacity: 160
+Element: <span class="m">49</span> 	 size: <span class="m">51</span> 	 capacity: 160
+Element: <span class="m">48</span> 	 size: <span class="m">50</span> 	 capacity: 160
+Element: <span class="m">47</span> 	 size: <span class="m">49</span> 	 capacity: 160
+Element: <span class="m">46</span> 	 size: <span class="m">48</span> 	 capacity: 160
+Element: <span class="m">45</span> 	 size: <span class="m">47</span> 	 capacity: 160
+Element: <span class="m">44</span> 	 size: <span class="m">46</span> 	 capacity: 160
+Element: <span class="m">43</span> 	 size: <span class="m">45</span> 	 capacity: 160
+Element: <span class="m">42</span> 	 size: <span class="m">44</span> 	 capacity: 160
+Element: <span class="m">41</span> 	 size: <span class="m">43</span> 	 capacity: 160
+Element: <span class="m">40</span> 	 size: <span class="m">42</span> 	 capacity: 160
+Element: <span class="m">39</span> 	 size: <span class="m">41</span> 	 capacity: 160
+Element: <span class="m">38</span> 	 size: <span class="m">40</span> 	 capacity: 160
+Element: <span class="m">37</span> 	 size: <span class="m">39</span> 	 capacity: 160
+Element: <span class="m">36</span> 	 size: <span class="m">38</span> 	 capacity: 160
+Element: <span class="m">35</span> 	 size: <span class="m">37</span> 	 capacity: 160
+Element: <span class="m">34</span> 	 size: <span class="m">36</span> 	 capacity: 160
+Element: <span class="m">33</span> 	 size: <span class="m">35</span> 	 capacity: 160
+Element: <span class="m">32</span> 	 size: <span class="m">34</span> 	 capacity: 160
+Element: <span class="m">31</span> 	 size: <span class="m">33</span> 	 capacity: 160
+Element: <span class="m">30</span> 	 size: <span class="m">32</span> 	 capacity: 160
+Element: <span class="m">29</span> 	 size: <span class="m">31</span> 	 capacity: 160
+Element: <span class="m">28</span> 	 size: <span class="m">30</span> 	 capacity: 160
+Element: <span class="m">27</span> 	 size: <span class="m">29</span> 	 capacity: 160
+Element: <span class="m">26</span> 	 size: <span class="m">28</span> 	 capacity: 160
+Element: <span class="m">25</span> 	 size: <span class="m">27</span> 	 capacity: 160
+Element: <span class="m">24</span> 	 size: <span class="m">26</span> 	 capacity: 160
+Element: <span class="m">23</span> 	 size: <span class="m">25</span> 	 capacity: 160
+Element: <span class="m">22</span> 	 size: <span class="m">24</span> 	 capacity: 160
+Element: <span class="m">21</span> 	 size: <span class="m">23</span> 	 capacity: 160
+Element: <span class="m">20</span> 	 size: <span class="m">22</span> 	 capacity: 160
+Element: <span class="m">19</span> 	 size: <span class="m">21</span> 	 capacity: 160
+Element: <span class="m">18</span> 	 size: <span class="m">20</span> 	 capacity: 160
+Element: <span class="m">17</span> 	 size: <span class="m">19</span> 	 capacity: 160
+Element: <span class="m">16</span> 	 size: <span class="m">18</span> 	 capacity: 160
+Element: <span class="m">15</span> 	 size: <span class="m">17</span> 	 capacity: 160
+Element: <span class="m">14</span> 	 size: <span class="m">16</span> 	 capacity: 160
+Element: <span class="m">13</span> 	 size: <span class="m">15</span> 	 capacity: 160
+Element: <span class="m">12</span> 	 size: <span class="m">14</span> 	 capacity: 160
+Element: <span class="m">11</span> 	 size: <span class="m">13</span> 	 capacity: 160
+Element: <span class="m">10</span> 	 size: <span class="m">12</span> 	 capacity: 160
+Element: <span class="m">9</span> 	 size: <span class="m">11</span> 	 capacity: 160
+Element: <span class="m">8</span> 	 size: <span class="m">10</span> 	 capacity: 160
+Element: <span class="m">7</span> 	 size: <span class="m">9</span> 	 capacity: 160
+Element: <span class="m">6</span> 	 size: <span class="m">8</span> 	 capacity: 160
+Element: <span class="m">5</span> 	 size: <span class="m">7</span> 	 capacity: 160
+Element: <span class="m">4</span> 	 size: <span class="m">6</span> 	 capacity: 160
+Element: <span class="m">3</span> 	 size: <span class="m">5</span> 	 capacity: 160
+Element: <span class="m">2</span> 	 size: <span class="m">4</span> 	 capacity: 160
+Element: <span class="m">1</span> 	 size: <span class="m">3</span> 	 capacity: 160
+Element: <span class="m">0</span> 	 size: <span class="m">2</span> 	 capacity: 160
+Element: <span class="m">13</span> 	 size: <span class="m">1</span> 	 capacity: 160
+Element: <span class="m">12</span> 	 size: <span class="m">0</span> 	 capacity: 160</code></pre>
 </div>
 
-<p>Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:
-</p><blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>
+<p>Wenn man das ausführt, sieht man es recht schnell. Alternativ schaut man in die Dokumentation und liest:</p>
+<blockquote>The Stack class represents a last-in-first-out (LIFO) stack of objects. It extends class Vector with five operations that allow a vector to be treated as a stack.</blockquote>
 
 <table>
 <tr>
@@ -476,7 +470,6 @@ Element: <span class="m">12</span>   size: <span class="m">0</span>      capacit
 <p>Ein Stack lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
 
 <h2 id="tocAnchor-1-5">Warteschlangen</h2>
-
 <p>Warteschlangen, auch Queues genannt, sind Stacks sehr ähnlich. Beide unterstützen prinzipiell nur zwei Operationen. Bei Stacks nanne es sich PUSH und POP, bei Warteschlangen heißt es ENQUEUE und DEQUEUE. Im Unterschied zum Stack wird bei der Warteschlange das Element nicht von oben wieder weggenommen, sondern von hinten. Das Bild einer Warteschlange ist hier sehr passend.</p>
 
 <table>
@@ -500,11 +493,9 @@ Element: <span class="m">12</span>   size: <span class="m">0</span>      capacit
 <p>Eine Warteschlange lässt sich als doppelt verkettete, zyklische Liste implementieren.</p>
 
 <h2 id="tocAnchor-1-6">Verkettete Listen</h2>
-
 <p>Wie bei allen Datenstrukturen, kann man für verkettete Listen mehr Operationen definieren und umsetzen, als ich hier aufliste. Eine gute Menge von Operationen wird durch das <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html">Java List Interface</a> vorgegeben.</p>
 
 <h3 id="tocAnchor-1-6-1">Einfach verkettete Liste</h3>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/singly-linked-list.png">
       <img src="../images/2012/07/singly-linked-list.png" alt="Singly linked list" width="" height="" class="size-full wp-image-34051" />
@@ -512,8 +503,8 @@ Element: <span class="m">12</span>   size: <span class="m">0</span>      capacit
    <p class="wp-caption-text">Singly linked list</p>
 </div>
 
-<p>Sei $n$ die Anzahl der Elemente der Liste.
-</p><table>
+<p>Sei $n$ die Anzahl der Elemente der Liste.</p>
+<table>
 <tr>
 <th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
@@ -521,48 +512,47 @@ Element: <span class="m">12</span>   size: <span class="m">0</span>      capacit
 </tr>
 <tr>
 <td>Suchen</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
 <tr>
 <td>Minimum</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
 <tr>
 <td>Maximum</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
 <tr>
 <td>Einfügen am Anfang</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
 <tr>
 <td>Wahlfreies Einfügen</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td></td>
 </tr>
 <tr>
 <td>Löschen</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Suchen</td>
 </tr>
 <tr>
 <td>Vorgänger</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td></td>
 </tr>
 <tr>
 <td>Nachfolger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
 </table>
 
 <h3 id="tocAnchor-1-6-2">Doppelt verkettete Liste</h3>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/doubly-linked-list.png">
       <img src="../images/2012/07/doubly-linked-list.png" alt="Doubly linked list" width="" height="" class="size-full wp-image-34031" />
@@ -570,8 +560,8 @@ Element: <span class="m">12</span>   size: <span class="m">0</span>      capacit
    <p class="wp-caption-text">Doubly linked list</p>
 </div>
 
-<p>Sei $n$ die Anzahl der Elemente der Liste.
-</p><table>
+<p>Sei $n$ die Anzahl der Elemente der Liste.</p>
+<table>
 <tr>
 <th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
@@ -579,57 +569,56 @@ Element: <span class="m">12</span>   size: <span class="m">0</span>      capacit
 </tr>
 <tr>
 <td>Suchen</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
 <tr>
 <td>Minimum</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
 <tr>
 <td>Maximum</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Element ist am Ende der Liste</td>
 </tr>
 <tr>
 <td>Einfügen am Anfang</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
 <tr>
 <td>Wahlfreies Einfügen</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td></td>
 </tr>
 <tr>
 <td>Löschen</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Suchen</td>
 </tr>
 <tr>
 <td>Vorgänger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td>Nur hier ist die doppelt-verkettete Liste besser als die einfach verkettete Liste.</td>
 </tr>
 <tr>
 <td>Nachfolger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
 </table>
 
 <h2 id="tocAnchor-1-9">Bäume</h2>
-
-<p>In der Vorlesung wurden Bäume sehr unpräzise eingeführt. Ich versuche das mal etwas präziser zu machen:
-</p><div class="definition">Sei $G = (V, E)$ ein gerichteter Graph.
-$G$ heißt <strong>gerichteter Baum</strong> $: \Leftrightarrow \exists_{r \in V} \forall_{x \in V}:$Es exisitert genau ein Pfad von $r$ nach $x$.</div>
+<p>In der Vorlesung wurden Bäume sehr unpräzise eingeführt. Ich versuche das mal etwas präziser zu machen:</p>
+<div class="definition">Sei `$G = (V, E)$` ein gerichteter Graph.
+`$G$` heißt <strong>gerichteter Baum</strong> `$: \Leftrightarrow \exists_{r \in V} \forall_{x \in V}:$`Es exisitert genau ein Pfad von `$r$` nach `$x$`.</div>
 
 <div class="definition">Sei `$G = (V, E)$` ein gerichteter Baum und sei `$r \in V$` das `$r$` aus der Definition. `$r$` heißt <strong>Wurzel</strong> von `$G$`.</div>
 
-<p>ACHTUNG: Die folgende Definition habe ich mir ausgedacht! NICHT IN DER KLAUSUR VERWENDEN!
-</p><div class="definition">Sei $E \subseteq V \times V$ eine Menge ungerichteter Kanten. 
-Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörigen gerichteten Kanten.</div>
+<p>ACHTUNG: Die folgende Definition habe ich mir ausgedacht! NICHT IN DER KLAUSUR VERWENDEN!</p>
+<div class="definition">Sei `$E \subseteq V \times V$` eine Menge ungerichteter Kanten. 
+Dann bezeichne `$G(E) := \{(v, w) | \{v, w\} \in E\}$` die Menge aller zugehörigen gerichteten Kanten.</div>
 
 <div class="definition">Sei `$U = (V, E)$` ein ungerichteter Graph.
 `$U$` heißt ein <strong>ungerichteter Baum</strong> `$:\Leftrightarrow \exists$` gerichteten Baum `$G = (V, E')$` mit `$E' \subsetneq G(E)$`.</div>
@@ -641,7 +630,6 @@ Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörige
 `$x$` heißt <strong>Kindknoten</strong> von `$y :\Leftrightarrow y$` ist Elternknoten von `$x$`.</div>
 
 <h3 id="tocAnchor-1-9-1">Binäre Bäume</h3>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/binary-tree.png">
       <img src="../images/2012/07/binary-tree.png" alt="Binary tree datastructure" width="" height="" class="size-full wp-image-33851" />
@@ -654,8 +642,8 @@ Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörige
 
 <p>Ich beziehe mich im folgenden auf ungerichtete, binäre Bäume. Soll heißen, jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.</p>
 
-<p>Wie würde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.
-</p><table>
+<p>Wie würde man das implementieren? Im Prinzip wie eine doppelt verkettete Liste. Jeder Knoten hat einen Zeiger auf den Eltern-Knoten und zwei Zeiger auf die Kindknoten.</p>
+<table>
 <tr>
 <th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
@@ -663,59 +651,57 @@ Dann bezeichne $G(E) := \{(v, w) | \{v, w\} \in E\}$ die Menge aller zugehörige
 </tr>
 <tr>
 <td>Suchen</td>
-<td>${\cal O}(|V| + |E|)$</td>
+<td>`${\cal O}(|V| + |E|)$`</td>
 <td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
 </tr>
 <tr>
 <td>Minimum</td>
-<td>${\cal O}(|V| + |E|)$</td>
+<td>`${\cal O}(|V| + |E|)$`</td>
 <td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
 </tr>
 <tr>
 <td>Maximum</td>
-<td>${\cal O}(|V| + |E|)$</td>
+<td>`${\cal O}(|V| + |E|)$`</td>
 <td>→ <a href="http://de.wikipedia.org/wiki/Traversierung#Graphentheorie">Graphentraversierung</a></td>
 </tr>
 <tr>
 <td>Einfügen</td>
-<td>${\cal O}(|V|)$</td>
+<td>`${\cal O}(|V|)$`</td>
 <td></td>
 </tr>
 <tr>
 <td>Löschen</td>
-<td>${\cal O}(|V| + |E|)$</td>
+<td>`${\cal O}(|V| + |E|)$`</td>
 <td>→ Suchen</td>
 </tr>
 <tr>
 <td>Vorgänger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td>Implementierungsabhängig!</td>
 </tr>
 <tr>
 <td>Nachfolger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
 </table>
 
 <h3 id="tocAnchor-1-9-2">Suchbäume</h3>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/binary-search-tree.png">
       <img src="../images/2012/07/binary-search-tree.png" alt="Binary search tree" width="" height="" class="size-full wp-image-33871" />
    </a>
    <p class="wp-caption-text">Binary search tree</p>
 </div>
-
-<p>Dieser Baum hat die gleichen Werte wie der Baum oberhalb, aber es gilt nun:
+<p>Dieser Baum hat die gleichen Werte wie der Baum oberhalb, aber es gilt nun:<br />
 Der Wert aller Knoten links vom aktuellen Konten ist kleiner oder gleich dem des aktuelle, der Wert aller Knoten rechts davon ist echt größer.</p>
 
 <p>Ich beschränke mich hier auf binäre Suchbäume.</p>
 
-<p>Damit ergeben sich folgende Laufzeiten:
-Sei $G = (V, E)$ ein beliebiger binärer Suchbaum.
-Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
-</p><table>
+<p>Damit ergeben sich folgende Laufzeiten:<br />
+Sei $G = (V, E)$ ein beliebiger binärer Suchbaum.<br />
+Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.</p>
+<table>
 <tr>
 <th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
@@ -723,43 +709,42 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
 </tr>
 <tr>
 <td>Suchen</td>
-<td>${\cal O}(|V|)$</td>
+<td>`${\cal O}(|V|)$`</td>
 <td>→ Verkettete Liste</td>
 </tr>
 <tr>
 <td>Minimum</td>
-<td>${\cal O}(|V|)$</td>
+<td>`${\cal O}(|V|)$`</td>
 <td>→ Verkettete Liste</td>
 </tr>
 <tr>
 <td>Maximum</td>
-<td>${\cal O}(|V|)$</td>
+<td>`${\cal O}(|V|)$`</td>
 <td>→ Verkettete Liste</td>
 </tr>
 <tr>
 <td>Einfügen</td>
-<td>${\cal O}(|V|)$</td>
+<td>`${\cal O}(|V|)$`</td>
 <td>→ Verkettete Liste</td>
 </tr>
 <tr>
 <td>Löschen</td>
-<td>${\cal O}(|V|)$</td>
+<td>`${\cal O}(|V|)$`</td>
 <td>→ Verkettete Liste</td>
 </tr>
 <tr>
 <td>Vorgänger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td>Implementierungsabhängig!</td>
 </tr>
 <tr>
 <td>Nachfolger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
 </table>
 
 <h4>Rot-Schwarz-Bäume</h4>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/red-black-tree1.png">
       <img src="../images/2012/07/red-black-tree1.png" alt="Red Black Tree" width="" height="" class="size-full wp-image-34071" />
@@ -767,14 +752,14 @@ Jeder Knoten kennt seine Kinder- <strong>und</strong> seinen Vaterknoten.
    <p class="wp-caption-text">Red Black Tree</p>
 </div>
 
-<p>Sei $G = (V, E)$ ein binärer Suchbaum.
-G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
-</p><ol>
+<p>Sei $G = (V, E)$ ein binärer Suchbaum.<br />
+G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:</p>
+<ol>
   <li>Jeder Knoten ist entweder Rot oder Schwarz.</li>
   <li>Der Wurzelknoten ist schwarz.</li>
   <li>Die Blattknoten sind schwarz.</li>
-  <li>Ein Knoten ist rot $\Rightarrow$ Beide Kinder sind schwarz.</li>
-  <li>$\forall x \in V:$ Alle Pfade von x zu einem Blatt haben die gleiche Anzahl schwarzer Knoten.</li>
+  <li>Ein Knoten ist rot `$\Rightarrow$` Beide Kinder sind schwarz.</li>
+  <li>`$\forall x \in V:$` Alle Pfade von x zu einem Blatt haben die gleiche Anzahl schwarzer Knoten.</li>
 </ol>
 
 <table>
@@ -823,7 +808,6 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 <p>Eine Python-Implementation ist hier zu finden: <a href="https://github.com/MartinThoma/algorithms/blob/master/datastructures/redBlackTree.py">https://github.com/MartinThoma/algorithms</a></p>
 
 <h3 id="tocAnchor-1-9-3">Heaps</h3>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/heap.png">
       <img src="../images/2012/07/heap.png" alt="Ein binärer Min-Heap" width="" height="" class="size-full wp-image-34361" />
@@ -831,8 +815,8 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
    <p class="wp-caption-text">Ein binärer Min-Heap</p>
 </div>
 
-<p>Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">binäre Min-Heaps</a>.
-</p><table>
+<p>Ich beschränke mich im folgenden auf <a href="http://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap">binäre Min-Heaps</a>.</p>
+<table>
 <tr>
 <th>Operation</th>
 <th>Worst-Case-Laufzeit</th>
@@ -840,55 +824,53 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 </tr>
 <tr>
 <td>Suchen</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Falls als array dargestellt, einfach alle Elemente des Arrays durchlaufen</td>
 </tr>
 <tr style="background-color:#99FF99">
 <td>Minimum</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td></td>
 </tr>
 <tr style="background-color:#99FF99">
 <td>Extract-Minimum</td>
-<td>${\cal O}(\log n)$</td>
+<td>`${\cal O}(\log n)$`</td>
 <td>→ Heapify</td>
 </tr>
 <tr>
 <td>Maximum</td>
-<td>${\cal O}(n)$</td>
+<td>`${\cal O}(n)$`</td>
 <td>→ Suche</td>
 </tr>
 <tr>
 <td>Einfügen</td>
-<td>${\cal O}(\log n)$</td>
+<td>`${\cal O}(\log n)$`</td>
 <td>→ Heapify</td>
 </tr>
 <tr>
 <td>Löschen</td>
-<td>${\cal O}(\log n)$</td>
+<td>`${\cal O}(\log n)$`</td>
 <td>→ Heapify (bei bekannter Position des Elements, sonst siehe Suche)</td>
 </tr>
 <tr>
 <td>Vorgänger</td>
-<td>${\cal O}(1)$</td>
+<td>`${\cal O}(1)$`</td>
 <td>Hat keine besondere Bedeutung in Heaps.</td>
 </tr>
 <tr>
 <td>Nachfolger</td>
-<td>${\cal O} (1)$</td>
+<td>`${\cal O} (1)$`</td>
 <td>Hat keine besondere Bedeutung in Heaps.</td>
 </tr>
 </table>
 
 <h3 id="tocAnchor-1-9-4">B-Bäume</h3>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/b-tree-2.png">
       <img src="../images/2012/07/b-tree-2.png" alt="B-Baum der Ordnung 2" width="" height="" class="size-full wp-image-34581" />
    </a>
    <p class="wp-caption-text">B-Baum der Ordnung 2</p>
 </div>
-
 <div style="width: 510px" class="wp-caption aligncenter">
    <a href="../images/2012/07/b-tree-3.png">
       <img src="../images/2012/07/b-tree-3.png" alt="B-Baum der Ordnung 3" width="" height="" class="size-full wp-image-34591" />
@@ -897,13 +879,12 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 </div>
 
 <blockquote>Ein B-Baum ist ein immer vollständig balancierter Baum, der Daten sortiert nach Schlüsseln speichert. Er kann binär sein, ist aber im Allgemeinen kein Binärbaum. Das Einfügen, Suchen und Löschen von Daten in B-Bäumen ist in amortisiert logarithmischer Zeit möglich. B-Bäume wachsen – und schrumpfen – anders als viele Suchbäume von den Blättern hin zur Wurzel.</blockquote>
-
 <p>Quelle: <a href="http://de.wikipedia.org/wiki/B-Baum">Wikipedia</a></p>
 
 <p>Die beiden abgebildeten B-Bäume sind entstanden, indem die Zahlen von 0 bis 19 in aufsteigener Reihenfolge eingefügt wurden.</p>
 
-<p>Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:
-</p><ul>
+<p>Für einen B-Baum der Ordnung t, $t \geq 2$, gilt:</p>
+<ul>
   <li>Alle Pfade von der Wurzel zu einem Blatt sind gleich lang.</li>
   <li>Die Wurzel hat mindestens 2, höchstens 2t Kinder.</li>
   <li>Alle anderen inneren Knoten haben mindestens t, höchstens 2t Kinder.</li>
@@ -915,22 +896,20 @@ G heißt Rot-Schwarz-Baum $: \Leftrightarrow$ Für G gilt:
 <p>Mehr zu B-Bäumen gibt es in diesem <a href="../b-baume/" title="B-Bäume">Artikel über B-Bäume</a>.</p>
 
 <h3 id="tocAnchor-1-9-5">Tries</h3>
-
 <div style="width: 210px" class="wp-caption aligncenter">
    <a href="../images/2012/07/trie.png">
       <img src="../images/2012/07/trie.png" alt="Trie" width="" height="" class="size-full wp-image-34621" />
    </a>
    <p class="wp-caption-text">Trie</p>
 </div>
-
 <p>Bildquelle: <a href="http://commons.wikimedia.org/wiki/File:Trie.svg">Wikipedia</a></p>
 
-<p>Ein Trie ist ein spezieller digitaler Baum. 
-</p><blockquote>Ein Trie oder Präfixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
-Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a>
+<p>Ein Trie ist ein spezieller digitaler Baum.</p>
+<blockquote>Ein Trie oder Präfixbaum ist eine Datenstruktur, die in der Informatik zum Suchen nach Zeichenketten verwendet wird. Es handelt sich dabei um einen speziellen Suchbaum zur gleichzeitigen Speicherung mehrerer Zeichenketten.</blockquote>
+<p>Quelle: <a href="http://de.wikipedia.org/wiki/Trie">Wikipedia</a></p>
 
-<p>Wo werden Tries genutzt?
-</p><ul>
+<p>Wo werden Tries genutzt?</p>
+<ul>
   <li>Python charmap encoder (<a href="http://mail.python.org/pipermail/patches/2006-May/019891.html">source</a>)</li>
   <li>Der <a href="http://docs.oracle.com/javase/7/docs/api/java/text/Normalizer.html">Normalizer</a> scheint Tries zu verwenden.</li>
 </ul>
@@ -1116,7 +1095,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

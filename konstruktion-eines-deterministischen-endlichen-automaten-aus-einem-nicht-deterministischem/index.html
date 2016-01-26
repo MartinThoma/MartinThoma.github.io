@@ -105,12 +105,12 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:
-$Q = \{S, q_1, q_2\}$
-$\Sigma = \{a, b\}$
-$\delta = \text{siehe Grafik}$
-$F = \{S\}$
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Der nicht-deterministische endliche Automat zu dem regulärem Ausdruck $(a \cup (ab(b)^\text{*}ba))^\text{*}$ ist folgender:<br />
+$Q = \{S, q_1, q_2\}$<br />
+$\Sigma = \{a, b\}$<br />
+$\delta = \text{siehe Grafik}$<br />
+$F = \{S\}$<br />
 $NEA = \left( Q, \Sigma, \delta, S, F \right)$</p>
 
 <div style="width: 375px" class="wp-caption aligncenter">
@@ -122,13 +122,13 @@ $NEA = \left( Q, \Sigma, \delta, S, F \right)$</p>
 
 <p>Will man daraus nun den endlichen Automaten konstruieren, läuft das im Prinzip über eine Potenzmengenkonstruktion.</p>
 
-<p>Zuerst defnieren wir:
+<p>Zuerst defnieren wir:<br />
 $\tilde{S} = E(S) = \{S\}$</p>
 
-<p>Dann erstellen wir folgende Tabelle:
-</p><table style="border:1px solid #000;">
+<p>Dann erstellen wir folgende Tabelle:</p>
+<table style="border:1px solid #000;">
   <tr>
-    <th style="border:1px solid #000;">$\tilde{S}$</th>
+    <th style="border:1px solid #000;">`$\tilde{S}$`</th>
     <th style="border:1px solid #000;">{S}</th>
   </tr>
   <tr>
@@ -141,10 +141,10 @@ $\tilde{S} = E(S) = \{S\}$</p>
   </tr>
 </table>
 
-<p>Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:
-</p><table style="border:1px solid #000;">
+<p>Dann überprüft man, welche Zustände erreicht werden können, wenn man vom jedem Zustand in der Startmenge (hier also nur S) a einliest. Das ist in diesem Fall q1 oder S. Also haben wir eine weitere Zustandsmenge {q1, S}. Diese wird als neue Spalte in unsere Tabelle geschrieben:</p>
+<table style="border:1px solid #000;">
   <tr>
-    <th style="border:1px solid #000;">$\tilde{S}$</th>
+    <th style="border:1px solid #000;">`$\tilde{S}$`</th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
   </tr>
@@ -152,24 +152,24 @@ $\tilde{S} = E(S) = \{S\}$</p>
     <th style="border:1px solid #000;">a
     </th><td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;"> </td>
-  </tr>
-  <tr>
+  
+  </tr><tr>
     <th style="border:1px solid #000;">b</th>
     <td style="border:1px solid #000;"> </td>
     <td style="border:1px solid #000;"> </td>
   </tr>
-</table>
 
-<p>Nun geht man also jede Spalte, von links nach rechts durch. Für jede Spalte wird jede Zeile, von oben nach unten, überprüft. Mit jeder Überprüfung kann eine neue Zustandsmenge als Spalte hinzukommen.
-Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.</p>
 
-<p>Am Ende schaut die Tablle wie folgt aus:
-</p><table style="border:1px solid #000;">
+Nun geht man also jede Spalte, von links nach rechts durch. Für jede Spalte wird jede Zeile, von oben nach unten, überprüft. Mit jeder Überprüfung kann eine neue Zustandsmenge als Spalte hinzukommen.
+Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealphabet.
+
+Am Ende schaut die Tablle wie folgt aus:
+<table style="border:1px solid #000;">
   <tr>
-    <th style="border:1px solid #000;">$\tilde{S}$</th>
+    <th style="border:1px solid #000;">`$\tilde{S}$`</th>
     <th style="border:1px solid #000;">{S}</th>
     <th style="border:1px solid #000;">{q1, S}</th>
-    <th style="border:1px solid #000;">$\emptyset$</th>
+    <th style="border:1px solid #000;">`$\emptyset$`</th>
     <th style="border:1px solid #000;">{q2}</th>
     <th style="border:1px solid #000;">{q1, q2}</th>
   </tr>
@@ -177,38 +177,31 @@ Die Anzahl der Zeilen ist eine Kopfzeile + die Anzahl der Zeichen im Eingabealph
     <th style="border:1px solid #000;">a
     </th><td style="border:1px solid #000;">{q1, S}</td>
     <td style="border:1px solid #000;">{q1, S}</td>
-    <td style="border:1px solid #000;">$\emptyset$</td>
-    <td style="border:1px solid #000;">$\emptyset$</td>
+    <td style="border:1px solid #000;">`$\emptyset$`</td>
+    <td style="border:1px solid #000;">`$\emptyset$`</td>
     <td style="border:1px solid #000;">{S}</td>
-  </tr>
-  <tr>
+  
+  </tr><tr>
     <th style="border:1px solid #000;">b</th>
-    <td style="border:1px solid #000;">$\emptyset$</td>
+    <td style="border:1px solid #000;">`$\emptyset$`</td>
     <td style="border:1px solid #000;">{q2}</td>
-    <td style="border:1px solid #000;">$\emptyset$</td>
+    <td style="border:1px solid #000;">`$\emptyset$`</td>
     <td style="border:1px solid #000;">{q1, q2}</td>
     <td style="border:1px solid #000;">{q1, q2}</td>
   </tr>
-</table>
 
-<p>$\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}$
-$\tilde{F} = \{\{S\}, \{q_1, S\}\}$</p>
 
-<p>Die Übergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:</p>
+`$\tilde{Q} = \{\{S\}, \{q_1, S\}, \{q_2\}, \{q_1, q_2\}\}$`
+`$\tilde{F} = \{\{S\}, \{q_1, S\}\}$`
 
-<div style="width: 522px" class="wp-caption aligncenter">
-   <a href="../images/2011/10/deterministic-fsm.png">
-      <img src="//martin-thoma.com/captions/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" width="390" height="196" class="size-full wp-image-8421" />
-   </a>
-   <p class="wp-caption-text">Deterministic Finite State machine (create from a non-deterministic version)</p>
-</div>
+Die Übergangsfunktion wurde mit dieser Tabelle schon hinreichend dargestellt. Nun folgt eine Darstellung der deterministischen Variante des nichtdeterministischen Automaten:
+
+<div style="width: 522px" class="wp-caption aligncenter"><a href="../images/2011/10/deterministic-fsm.png"><img src="//martin-thoma.com/captions/deterministic-fsm.png" alt="Deterministic Finite State machine (create from a non-deterministic version)" width="390" height="196" class="size-full wp-image-8421" /></a><p class="wp-caption-text">Deterministic Finite State machine (create from a non-deterministic version)</p></div>
 
 <h2 id="tocAnchor-1-1">Material</h2>
+Die .gv sieht so aus:
 
-<p>Die .gv sieht so aus:</p>
-
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">digraph finite_state_machine {
+<div class="highlight"><pre><code class="language-text" data-lang="text">digraph finite_state_machine {
     rankdir=LR;
     size="8,5"
  
@@ -235,14 +228,14 @@ $\tilde{F} = \{\{S\}, \{q_1, S\}\}$</p>
     q1q2 -&gt; q1q2 [ label = "b"];
 
     T -&gt; T       [label = "a, b"];
-}</code></pre>
-</div>
+}</code></pre></div>
 
-<p>Unter Linux kann man mit <a href="http://wiki.ubuntuusers.de/Graphviz">GraphViz</a> mit folgendem Befehl die Datei erstellen:</p>
 
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">dot -Tpng graph.gv -o deterministic-fsm.png</code></pre>
-</div>
+Unter Linux kann man mit <a href="http://wiki.ubuntuusers.de/Graphviz">GraphViz</a> mit folgendem Befehl die Datei erstellen:
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">dot -Tpng graph.gv -o deterministic-fsm.png</code></pre></div>
+
+</table></table>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -428,7 +421,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

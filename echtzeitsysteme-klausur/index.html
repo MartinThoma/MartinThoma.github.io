@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Echtzeitsysteme“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://rob.ipr.kit.edu/mitarbeiter_96.php">Herrn Prof. Dr. Wörn</a> im Sommersemester 2015 gehört.</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -145,7 +145,7 @@ MathJax.Hub.Queue(function() {
 
 <h3 id="tocAnchor-1-1-1">Vorlesung</h3>
 
-<p>Der Dozent verwendete einige Abkürzungen, die mir nicht geläufig waren. Diese
+<p>Der Dozent verwendete einige Abkürzungen, die mir nicht geläufig waren. Diese<br />
 habe ich unter anderem in der folgenden Tabelle aufgeführt.</p>
 
 <table>
@@ -230,36 +230,36 @@ priority-preemptive Unterbrechungsbehandlung</td>
 <h3 id="tocAnchor-1-1-2">Abkürzungen</h3>
 
 <ul>
-<li>LLF: Least-Laxity-First-Scheduling</li>
-<li>EDF: Earliest-Deadline-First-Scheduling</li>
-<li>GPS: Guaranteed Percentage Scheduling</li>
+  <li>LLF: Least-Laxity-First-Scheduling</li>
+  <li>EDF: Earliest-Deadline-First-Scheduling</li>
+  <li>GPS: Guaranteed Percentage Scheduling</li>
 </ul>
 
 <h3 id="tocAnchor-1-1-3">Wichtiges</h3>
 
 <ul>
-<li>Ist eine Übertragungsfunktion in Pol-und-Nullstellenform $G(s)$ stabil?
+  <li>Ist eine Übertragungsfunktion in Pol-und-Nullstellenform $G(s)$ stabil?<br />
 → Ja, falls der Realanteil aller Pole negativ ist.</li>
-<li>Ist eine Funktion $G(s)$ stabile?
+  <li>Ist eine Funktion $G(s)$ stabile?<br />
 → Ja, falls die Nullstellen der Gleichung $G(s)+1=0$ links der $i$-Achse liegen.</li>
-<li>Ist $G(i \omega)$ stabil?
+  <li>Ist $G(i \omega)$ stabil?<br />
 → Ja, falls die Kurve (-1, 0i) NICHT umfährt (siehe <a href="https://de.wikipedia.org/wiki/Stabilit%C3%A4tskriterium_von_Nyquist#Spezielles_Nyquistkriterium_.2F_.E2.80.9ELinke-Hand-Regel.E2.80.9C">Nyquistkriterium</a>)</li>
 </ul>
 
 <h4 id="hurwitz-kriterium">Hurwitz-Kriterium</h4>
 
-<p>Ein System $a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = 0$ ist dann stabil,
+<p>Ein System $a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = 0$ ist dann stabil,<br />
 wenn</p>
 
 <ol>
-<li>alle Koeffizienten $a_i &gt; 0$ UND</li>
-<li>alle <a href="https://de.wikipedia.org/wiki/Minor_(Lineare_Algebra)#Hauptminoren">Hauptabschnittsdeterminanten</a> (auch Hauptminoren genannt) positiv sind.</li>
+  <li>alle Koeffizienten $a_i &gt; 0$ UND</li>
+  <li>alle <a href="https://de.wikipedia.org/wiki/Minor_(Lineare_Algebra)#Hauptminoren">Hauptabschnittsdeterminanten</a> (auch Hauptminoren genannt) positiv sind.</li>
 </ol>
 
-<p>Insbesondere gilt für $a_2 \cdot \ddot{x} + a_1 \dot{x} + a_0 x = 0$, dass die
+<p>Insbesondere gilt für $a_2 \cdot \ddot{x} + a_1 \dot{x} + a_0 x = 0$, dass die<br />
 Hauptabschnittsdeterminanten von</p>
 
-<p>$$\begin{pmatrix}a_1 &amp; 0\\0 &amp; a_0\end{pmatrix}$$
+<p>$$\begin{pmatrix}a_1 &amp; 0\\0 &amp; a_0\end{pmatrix}$$<br />
 zu überprüfen sind. Das ist jedoch schon durch das erste Kriterium erfüllt.</p>
 
 <p>Bei $a_3 \cdot x^{(3)} + a_2 \cdot \ddot{x} + a_1 \dot{x} + a_0 x = 0$ ist</p>
@@ -271,20 +271,20 @@ zu überprüfen sind. Das ist jedoch schon durch das erste Kriterium erfüllt.</
 <p>zu überprüfen, also:</p>
 
 <ul>
-<li>$a_2 &gt; 0$?</li>
-<li>$a_2 \cdot a_1 - a_0 &gt; 0$? (the determinant of size 2 and 3 is the same)</li>
+  <li>$a_2 &gt; 0$?</li>
+  <li>$a_2 \cdot a_1 - a_0 &gt; 0$? (the determinant of size 2 and 3 is the same)</li>
 </ul>
 
 <h4 id="schaltungen">Schaltungen</h4>
 
 <ul>
-<li>Subtrahierer: $U_A = \frac{R_0 (R_1 + R_3)}{R_1 (R_0 + R_2)} \cdot U_2 - \frac{R_3}{R_1} \cdot U_1$</li>
-<li>Invertierender Addierer: $U_A = - \left (\sum_{i=1}^{N-1} \frac{U_i}{R_i} \right ) \cdot R_N$</li>
-<li>Integrierer: $- \frac{1}{RC} \int U_E \mathrm{d}t$</li>
-<li>Differenzierer: $U_A = - R_N \cdot I_E$</li>
-<li>Invertierender OP: $y = - \frac{R_N}{R_1}$</li>
-<li>Nicht-Invertierender OP: $y = \frac{R_N+R_1}{R_1}$</li>
-<li>Parallelverfahren (vgl. ES 2 - 37)</li>
+  <li>Subtrahierer: $U_A = \frac{R_0 (R_1 + R_3)}{R_1 (R_0 + R_2)} \cdot U_2 - \frac{R_3}{R_1} \cdot U_1$</li>
+  <li>Invertierender Addierer: $U_A = - \left (\sum_{i=1}^{N-1} \frac{U_i}{R_i} \right ) \cdot R_N$</li>
+  <li>Integrierer: $- \frac{1}{RC} \int U_E \mathrm{d}t$</li>
+  <li>Differenzierer: $U_A = - R_N \cdot I_E$</li>
+  <li>Invertierender OP: $y = - \frac{R_N}{R_1}$</li>
+  <li>Nicht-Invertierender OP: $y = \frac{R_N+R_1}{R_1}$</li>
+  <li>Parallelverfahren (vgl. ES 2 - 37)</li>
 </ul>
 
 <h2 id="tocAnchor-1-5">Typische Klausur</h2>
@@ -292,199 +292,199 @@ zu überprüfen sind. Das ist jedoch schon durch das erste Kriterium erfüllt.</
 <p>Die Klausuren sind alle sehr ähnlich zu einander:</p>
 
 <ul>
-<li>Regelung
-
-<ul>
-<li>Zeitkonstante Regelung: 7 Punkte
-
-<ul>
-<li>Definition Regelung / Steuerung: 1 Punkt</li>
-<li>Laplace-Bereich / Übergangsfunktion: 1 Punkt</li>
-<li>Transformationstabelle / Differentialgleichung: 1 Punkt</li>
-<li>Ist ein gegebenes System stabil? (mit Übergangsfunktion): 1 Punkt</li>
-<li>PID-Regler / stabilität / Fehler: 2 Punkte</li>
-<li>Gütegrad von Regelungssystem: 1.5 Punkte</li>
-<li>Bode-Diagramm: 1.5 Punkte</li>
-</ul></li>
-<li>Zeitdiskrete Regelung: 8 Punkte
-
-<ul>
-<li>Aliasing / Abtasttheorem: 1 Punkt</li>
-<li>Z-Transformierte Übertragungsfunktion G(z): 2 Punkte</li>
-<li>Z-Transformierte / PD-Regelalgorithmus: 1 Punkt</li>
-<li>Z-Transformierte / Regelkreis: 1 Punkt</li>
-<li>Differenzialgleichungen → Differenzengleichung: 2 Punkte</li>
-<li>Digital vs. Kontinuierlich (Diskretisierung): 1 Punkte</li>
-<li>Stabilität eines Systems: 1 Punkt</li>
-</ul></li>
-</ul></li>
-<li>Rechnerarchitekturen / Busse / Operationsverstärker
-
-<ul>
-<li>Rechnerarchitekturen und Busse: 10 Punkte
-
-<ul>
-<li>Watchdog: 1 Punkt</li>
-<li>Echtzeitausgabeeinheit (Konzept, Definition, Eigenschaften): 1 Punkt</li>
-<li>Befehlsskalarer Prozessor / Sprungbedingungen: 1 Punkt</li>
-<li>Bus-Eigenschaften: 2 Punkte
-
-<ul>
-<li>Echtzeitfähig oder nicht</li>
-<li>Synchron ↔ asynchron</li>
-<li>Getrennter Adress- und Datenbus ↔ multiplex</li>
-<li>Burst-Datentransfer erlaubt oder auch nicht</li>
-</ul></li>
-</ul></li>
-<li>Operationsverstärker in Analog- und Digitaltechnik: 8 Punkte
-
-<ul>
-<li>Schaltsymbol Operationsverstärker (mit Versorgungsspannung), Anschlüsse
+  <li>Regelung
+    <ul>
+      <li>Zeitkonstante Regelung: 7 Punkte
+        <ul>
+          <li>Definition Regelung / Steuerung: 1 Punkt</li>
+          <li>Laplace-Bereich / Übergangsfunktion: 1 Punkt</li>
+          <li>Transformationstabelle / Differentialgleichung: 1 Punkt</li>
+          <li>Ist ein gegebenes System stabil? (mit Übergangsfunktion): 1 Punkt</li>
+          <li>PID-Regler / stabilität / Fehler: 2 Punkte</li>
+          <li>Gütegrad von Regelungssystem: 1.5 Punkte</li>
+          <li>Bode-Diagramm: 1.5 Punkte</li>
+        </ul>
+      </li>
+      <li>Zeitdiskrete Regelung: 8 Punkte
+        <ul>
+          <li>Aliasing / Abtasttheorem: 1 Punkt</li>
+          <li>Z-Transformierte Übertragungsfunktion G(z): 2 Punkte</li>
+          <li>Z-Transformierte / PD-Regelalgorithmus: 1 Punkt</li>
+          <li>Z-Transformierte / Regelkreis: 1 Punkt</li>
+          <li>Differenzialgleichungen → Differenzengleichung: 2 Punkte</li>
+          <li>Digital vs. Kontinuierlich (Diskretisierung): 1 Punkte</li>
+          <li>Stabilität eines Systems: 1 Punkt</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Rechnerarchitekturen / Busse / Operationsverstärker
+    <ul>
+      <li>Rechnerarchitekturen und Busse: 10 Punkte
+        <ul>
+          <li>Watchdog: 1 Punkt</li>
+          <li>Echtzeitausgabeeinheit (Konzept, Definition, Eigenschaften): 1 Punkt</li>
+          <li>Befehlsskalarer Prozessor / Sprungbedingungen: 1 Punkt</li>
+          <li>Bus-Eigenschaften: 2 Punkte
+            <ul>
+              <li>Echtzeitfähig oder nicht</li>
+              <li>Synchron ↔ asynchron</li>
+              <li>Getrennter Adress- und Datenbus ↔ multiplex</li>
+              <li>Burst-Datentransfer erlaubt oder auch nicht</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Operationsverstärker in Analog- und Digitaltechnik: 8 Punkte
+        <ul>
+          <li>Schaltsymbol Operationsverstärker (mit Versorgungsspannung), Anschlüsse<br />
 beschriften: 1 Punkt</li>
-<li>Eingangsströme (real/ideal): 1 Punkt</li>
-<li>Operationsverstärker: 4 Punkte</li>
-<li>Prinzip Operationswandler: 1 Punkt</li>
-<li>Asymmetrische / differenzielle Datenübertragung: 1 Punkt</li>
-<li>A/D-Wandler: 2 Punkte</li>
-</ul></li>
-</ul></li>
-<li>Echtzeitkommunikation / Programmierung: 7 Punkte
-
-<ul>
-<li>ISO / OSI-Schichtenmodell: 1.5 Punkte</li>
-<li>Manchester-Codierung: 1.5 Punkte</li>
-<li>Übertragungsfehler: 1.5 Punkte</li>
-<li>CAN-Dataframes: 2.5 Punkte</li>
-<li>Zusätzliche Forderungen an Echtzeitsysteme: 1 Punkt</li>
-<li>FPP-Scheduling: 2 Punkte</li>
-<li>Periodenabweichung: 2 Punkte</li>
-<li>Optimales Scheduling: 1 Punkt</li>
-<li>Schwankungen: 1 Punkt</li>
-</ul></li>
-<li>Echtzeit-OS / SPS
-
-<ul>
-<li>Echtzeit-OS: 7 Punkte
-
-<ul>
-<li>Zusätzliche Anforderungen: 1 Punkt</li>
-<li>Zusätzliche Anforderungen Middleware: 1 Punkt</li>
-<li>Beispiele: 1 Punkt</li>
-<li>Sperrsynchronisation: 2 Punkte</li>
-<li>Seitenadressierung: 2 Punkte</li>
-</ul></li>
-<li>SPS: 8 Punkte
-
-<ul>
-<li><abbr title="Funktionspointer">FUP</abbr> → <abbr title="Anweisungsliste">AWL</abbr>: 2.5 Punkte</li>
-<li>FUP → Structured Text: 2.5 Punkte</li>
-<li>3 Verarbeitungsschirtte von SPS im zyklischen Programmbetrieb: 1 Punkt</li>
-<li>Konventionelle SPS ↔ Soft: 1 Punkt</li>
-<li>Graphische ↔ textuelle Programmiersprache: 1 Punkt</li>
-</ul></li>
-</ul></li>
+          <li>Eingangsströme (real/ideal): 1 Punkt</li>
+          <li>Operationsverstärker: 4 Punkte</li>
+          <li>Prinzip Operationswandler: 1 Punkt</li>
+          <li>Asymmetrische / differenzielle Datenübertragung: 1 Punkt</li>
+          <li>A/D-Wandler: 2 Punkte</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Echtzeitkommunikation / Programmierung: 7 Punkte
+    <ul>
+      <li>ISO / OSI-Schichtenmodell: 1.5 Punkte</li>
+      <li>Manchester-Codierung: 1.5 Punkte</li>
+      <li>Übertragungsfehler: 1.5 Punkte</li>
+      <li>CAN-Dataframes: 2.5 Punkte</li>
+      <li>Zusätzliche Forderungen an Echtzeitsysteme: 1 Punkt</li>
+      <li>FPP-Scheduling: 2 Punkte</li>
+      <li>Periodenabweichung: 2 Punkte</li>
+      <li>Optimales Scheduling: 1 Punkt</li>
+      <li>Schwankungen: 1 Punkt</li>
+    </ul>
+  </li>
+  <li>Echtzeit-OS / SPS
+    <ul>
+      <li>Echtzeit-OS: 7 Punkte
+        <ul>
+          <li>Zusätzliche Anforderungen: 1 Punkt</li>
+          <li>Zusätzliche Anforderungen Middleware: 1 Punkt</li>
+          <li>Beispiele: 1 Punkt</li>
+          <li>Sperrsynchronisation: 2 Punkte</li>
+          <li>Seitenadressierung: 2 Punkte</li>
+        </ul>
+      </li>
+      <li>SPS: 8 Punkte
+        <ul>
+          <li><abbr title="Funktionspointer">FUP</abbr> → <abbr title="Anweisungsliste">AWL</abbr>: 2.5 Punkte</li>
+          <li>FUP → Structured Text: 2.5 Punkte</li>
+          <li>3 Verarbeitungsschirtte von SPS im zyklischen Programmbetrieb: 1 Punkt</li>
+          <li>Konventionelle SPS ↔ Soft: 1 Punkt</li>
+          <li>Graphische ↔ textuelle Programmiersprache: 1 Punkt</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="tocAnchor-1-6">Material und Links</h2>
 
 <ul>
-<li><a href="http://www.math.kit.edu/stoch/lehre/wt2015s/de">Vorlesungswebsite</a></li>
-<li><a href="https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html">Ilias</a></li>
-<li><a href="https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme">Klausur-Musterlösungen</a></li>
-<li>Meine <a href="https://ankiweb.net/shared/info/1877369263">Anki-Karten</a> (bestehend aus Teilen von <a href="https://ankiweb.net/shared/info/2095784594">Echtzeitsysteme - KIT Wörn</a> und <a href="https://ankiweb.net/shared/info/2071108701">Echtzeitsysteme KIT Wörn Wissensfragen Klausur</a> sowie weiteren Karten)</li>
+  <li><a href="http://www.math.kit.edu/stoch/lehre/wt2015s/de">Vorlesungswebsite</a></li>
+  <li><a href="https://ilias.studium.kit.edu/goto_produktiv_crs_409322.html">Ilias</a></li>
+  <li><a href="https://github.com/MartinThoma/KIT-Musterloesungen/tree/master/Echtzeitsysteme">Klausur-Musterlösungen</a></li>
+  <li>Meine <a href="https://ankiweb.net/shared/info/1877369263">Anki-Karten</a> (bestehend aus Teilen von <a href="https://ankiweb.net/shared/info/2095784594">Echtzeitsysteme - KIT Wörn</a> und <a href="https://ankiweb.net/shared/info/2071108701">Echtzeitsysteme KIT Wörn Wissensfragen Klausur</a> sowie weiteren Karten)</li>
 </ul>
 
 <p>StackOverflow:</p>
 
 <ul>
-<li><a href="http://stackoverflow.com/q/3851677/562769">What is the difference between DMA and memory-mapped IO?</a></li>
+  <li><a href="http://stackoverflow.com/q/3851677/562769">What is the difference between DMA and memory-mapped IO?</a></li>
 </ul>
 
 <h2 id="tocAnchor-1-7">Übungsbetrieb</h2>
 
 <ul>
-<li>Wo sind die Übungsblätter: ? (Ilias?)</li>
-<li>Abgabeform: Keine Abgabe</li>
-<li>Abgabe (wochentag): Keine Abgabe</li>
-<li>Rücknahme: -</li>
-<li>Turnus: ?</li>
-<li>Übungsschein verpflichtend: Es gibt keinen Übungsschein.</li>
-<li>Bonus durch Übungsschein: Es gibt keinen Übungsschein.</li>
+  <li>Wo sind die Übungsblätter: ? (Ilias?)</li>
+  <li>Abgabeform: Keine Abgabe</li>
+  <li>Abgabe (wochentag): Keine Abgabe</li>
+  <li>Rücknahme: -</li>
+  <li>Turnus: ?</li>
+  <li>Übungsschein verpflichtend: Es gibt keinen Übungsschein.</li>
+  <li>Bonus durch Übungsschein: Es gibt keinen Übungsschein.</li>
 </ul>
 
 <h2 id="tocAnchor-1-8">Termine und Klausurablauf</h2>
 
-<p><strong>Datum</strong>: Donnerstag, der 24.09.2015 von 14:00 Uhr-15:00 Uhr (<a href="http://www.informatik.kit.edu/klausuren.php?kid=522.35">Quelle</a>)<br />
-<strong>Ort</strong>: Gehrtsen HS (<a href="https://www.kithub.de/map/2144">Geb. 30.21</a>)<br />
-<strong>Punkte</strong>: 60<br />
+<p><strong>Datum</strong>: Donnerstag, der 24.09.2015 von 14:00 Uhr-15:00 Uhr (<a href="http://www.informatik.kit.edu/klausuren.php?kid=522.35">Quelle</a>)<br /><br />
+<strong>Ort</strong>: Gehrtsen HS (<a href="https://www.kithub.de/map/2144">Geb. 30.21</a>)<br /><br />
+<strong>Punkte</strong>: 60<br /><br />
 <strong>Punkteverteilung</strong>: 4 Aufgaben à 15 Punkte:</p>
 
 <ul>
-<li>Regelung</li>
-<li>Rechnerarchitekturen, Busse, Operationsverstärker, Analog-/Digitaltechnik</li>
-<li>Echtzeitkommunikation und Echtzeitprogrammierung</li>
-<li>Echtzeitbetriebssysteme und SPS</li>
+  <li>Regelung</li>
+  <li>Rechnerarchitekturen, Busse, Operationsverstärker, Analog-/Digitaltechnik</li>
+  <li>Echtzeitkommunikation und Echtzeitprogrammierung</li>
+  <li>Echtzeitbetriebssysteme und SPS</li>
 </ul>
 
-<p><strong>Bestehensgrenze</strong>: ?<br />
-<strong>Übungsschein</strong>: Gibt es nicht.<br />
-<strong>Bonuspunkte</strong>: Gibt es nicht.<br />
-<strong>Ergebnisse</strong>: Die Noten der Klausur werden am Schwarzen Brett im IAR-IPR (Geb. 40.28, Foyer, links) ausgehängt. Noch ist nichts da (Stand: 24.09.2015)<br />
-<strong>Einsicht</strong>: wird über <a href="https://ilias.studium.kit.edu/goto_produktiv_fold_450985.html">Ilias</a> bekannt gegeben<br />
+<p><strong>Bestehensgrenze</strong>: ?<br /><br />
+<strong>Übungsschein</strong>: Gibt es nicht.<br /><br />
+<strong>Bonuspunkte</strong>: Gibt es nicht.<br /><br />
+<strong>Ergebnisse</strong>: Die Noten der Klausur werden am Schwarzen Brett im IAR-IPR (Geb. 40.28, Foyer, links) ausgehängt. Noch ist nichts da (Stand: 24.09.2015)<br /><br />
+<strong>Einsicht</strong>: wird über <a href="https://ilias.studium.kit.edu/goto_produktiv_fold_450985.html">Ilias</a> bekannt gegeben<br /><br />
 <strong>Erlaubte Hilfsmittel</strong>: Keine</p>
 
 <h2 id="tocAnchor-1-9">Fazit</h2>
 
-<p>Dieses Modul kann man sich getrost schenken. Wenn man vorher nichts von
-Regelungstechnik weiß, ist man hinterher auch nicht schlauer. Es scheint so zu
+<p>Dieses Modul kann man sich getrost schenken. Wenn man vorher nichts von<br />
+Regelungstechnik weiß, ist man hinterher auch nicht schlauer. Es scheint so zu<br />
 sein, dass die klausurrelevanten Teile alle in den Übungen besprochen werden.</p>
 
-<p>Die bereitgestellten <strong>Materialien</strong> hätten besser sein können. Es gibt zwar
-ein Skript welches sogar eine ISBN-Nummer hat, aber insbesondere bei dem
-Regelungstechnik-Teil ist es nicht sonderlich hilfreich. Ich hatte das Gefühl,
-dass mir da einfach Grundlagen fehlen. Diese werden auch nicht erklärt. Zu den
-PDF-Folien muss man sagen, dass diese zwar schnell im Ilias hochgeladen wurden,
-aber teilweise zu viele Informationen hatten. Es war nicht klar, was wichtig
-ist. Außerdem hat teilweise, wenn man nur die Folien angesehen hat, der
+<p>Die bereitgestellten <strong>Materialien</strong> hätten besser sein können. Es gibt zwar<br />
+ein Skript welches sogar eine ISBN-Nummer hat, aber insbesondere bei dem<br />
+Regelungstechnik-Teil ist es nicht sonderlich hilfreich. Ich hatte das Gefühl,<br />
+dass mir da einfach Grundlagen fehlen. Diese werden auch nicht erklärt. Zu den<br />
+PDF-Folien muss man sagen, dass diese zwar schnell im Ilias hochgeladen wurden,<br />
+aber teilweise zu viele Informationen hatten. Es war nicht klar, was wichtig<br />
+ist. Außerdem hat teilweise, wenn man nur die Folien angesehen hat, der<br />
 Kontext gefehlt.</p>
 
-<p>Ein <strong>Highlight</strong> waren Videos, in denen Roboter Kugeln auf einem Tablett
-sehr schnell transportieren. Dazu müssen die Roboter das Tablett im
-richtigen Winkel neigen. Das war ein Highlight der Vorlesung. Schade, dass
+<p>Ein <strong>Highlight</strong> waren Videos, in denen Roboter Kugeln auf einem Tablett<br />
+sehr schnell transportieren. Dazu müssen die Roboter das Tablett im<br />
+richtigen Winkel neigen. Das war ein Highlight der Vorlesung. Schade, dass<br />
 nie erklärt wurde wie so etwas berechnet wird.</p>
 
-<p><strong>Vorwissen</strong> in der Regelungstechnik und bei Differentialgleichungen ist
+<p><strong>Vorwissen</strong> in der Regelungstechnik und bei Differentialgleichungen ist<br />
 sicher hilfreich.</p>
 
-<p>Die <strong>Klausurvorbereitung</strong> besteht hauptsächlich aus Auswendiglernen.
-Verständnis ist wohl nicht nötig (mal schauen... ich konnte keinen
-Notenschlüssel finden.), da die Klausuren immer nahezu identisch aufgebaut
+<p>Die <strong>Klausurvorbereitung</strong> besteht hauptsächlich aus Auswendiglernen.<br />
+Verständnis ist wohl nicht nötig (mal schauen… ich konnte keinen<br />
+Notenschlüssel finden.), da die Klausuren immer nahezu identisch aufgebaut<br />
 sind.</p>
 
-<p>Meine <strong>Empfehlung</strong> an Studenten ist, in die Übung zu gehen. Da kommen die
+<p>Meine <strong>Empfehlung</strong> an Studenten ist, in die Übung zu gehen. Da kommen die<br />
 klausurrelevanten Sachen. Teilweise 1-zu-1 die gleichen Fragen.</p>
 
 <p><strong>Verbesserungsvorschläge</strong> für die Dozenten hätte ich auch ein paar:</p>
 
 <ol>
-<li>Es sollte Tutorien geben.</li>
-<li>Es sollte einen verpflichtenden Übungsschein geben. Mit 50% der Punkte hat
-man den Übungsschein, ab 75% gibts Bonuspunkte für die Klausur. Diese
-Übungsblätter werden von den Tutoren korrigiert und besprochen. Wenn die
-Studenten es reihenweise nicht schaffen merkt man schon, wo man die
+  <li>Es sollte Tutorien geben.</li>
+  <li>Es sollte einen verpflichtenden Übungsschein geben. Mit 50% der Punkte hat<br />
+man den Übungsschein, ab 75% gibts Bonuspunkte für die Klausur. Diese<br />
+Übungsblätter werden von den Tutoren korrigiert und besprochen. Wenn die<br />
+Studenten es reihenweise nicht schaffen merkt man schon, wo man die<br />
 Vorlesung verbessern muss.</li>
-<li>Veröffentlichung der Musterlösungen zu den Klausuren.</li>
-<li>Anpassung des Skripts, z.B. wurde der VME-Bus durch den PCIe-Bus ersetzt.</li>
-<li>Anpassung des Modulhandbuchs. Man sollte den Leuten <em>empfehlen</em>, zuvor
-die Vorlesung "Betriebssysteme" gehört zu haben.</li>
-<li>Ein <a href="https://de.wikibooks.org/wiki/Hauptseite">Wikibook</a> beginnen. Wenn man
-das für jedes Modul machen würde, könnte man auch Abhängigkeiten besser
-sehen und Studenten könnten fehlendes Wissen leichter nachholen. Außerdem
-würde man das Wissen frei verfügbar machen und man könnte die Exzellenz der
-Lehre zeigen, falls man wirklich der Meinung ist die Lehre am KIT sei
-exzellent. Über die Diskussionsseiten könnten Studenten und andere
-weitgehend anonym ihre Fragen stellen und Verbesserungsvorschläge machen.
-Über das Wiki-System könnten freiwillige Helfer insbesondere bei
+  <li>Veröffentlichung der Musterlösungen zu den Klausuren.</li>
+  <li>Anpassung des Skripts, z.B. wurde der VME-Bus durch den PCIe-Bus ersetzt.</li>
+  <li>Anpassung des Modulhandbuchs. Man sollte den Leuten <em>empfehlen</em>, zuvor<br />
+die Vorlesung “Betriebssysteme” gehört zu haben.</li>
+  <li>Ein <a href="https://de.wikibooks.org/wiki/Hauptseite">Wikibook</a> beginnen. Wenn man<br />
+das für jedes Modul machen würde, könnte man auch Abhängigkeiten besser<br />
+sehen und Studenten könnten fehlendes Wissen leichter nachholen. Außerdem<br />
+würde man das Wissen frei verfügbar machen und man könnte die Exzellenz der<br />
+Lehre zeigen, falls man wirklich der Meinung ist die Lehre am KIT sei<br />
+exzellent. Über die Diskussionsseiten könnten Studenten und andere<br />
+weitgehend anonym ihre Fragen stellen und Verbesserungsvorschläge machen.<br />
+Über das Wiki-System könnten freiwillige Helfer insbesondere bei<br />
 zeitaufwendigen Grafiken helfen.</li>
 </ol>
 
@@ -666,7 +666,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

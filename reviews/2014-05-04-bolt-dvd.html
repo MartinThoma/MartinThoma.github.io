@@ -100,14 +100,14 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Obwohl der Film ein netter Animationsfilm im Disney-Stil ist, der normalerweise von mir 4 Sterne bekommen hätte, muss ich mal wieder anmerken, dass er unter Linux - vermutlich wegen DRMs / Kopierschutz - nicht funktioniert.</p>
 
-<p>libdvdcss2, libdvdread, ubuntu restricted extras - alles ist installiert. Der VLC spielt es gar nicht erst ab und kaffeine schmiert mit </p>
+<p>libdvdcss2, libdvdread, ubuntu restricted extras - alles ist installiert. Der VLC spielt es gar nicht erst ab und kaffeine schmiert mit</p>
 
 <p>pa_write() failed while trying to wake up the mainloop: Bad file descriptor</p>
 
-<p>ab. Siehe <a href="http://pastebin.com/77eGs8Dy">pastebin.com/77eGs8Dy</a> für den genauen
+<p>ab. Siehe <a href="http://pastebin.com/77eGs8Dy">pastebin.com/77eGs8Dy</a> für den genauen<br />
 Fehler. Getestet wurde es unter Linux Mint 16.</p>
 
                         </div>
@@ -290,7 +290,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>4230 tried the first problem, but only 3189 people are listed in the <a href="http://code.google.com/codejam/contest/1781488/scoreboard?c=1781488">scoreboard</a>.</p>
 
 <ul>
@@ -141,37 +141,36 @@ MathJax.Hub.Queue(function() {
 <span class="n">testcases</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
  
 <span class="k">def</span> <span class="nf">line2intlist</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-    <span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
-    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
-    <span class="k">return</span> <span class="n">numbers</span>
+	<span class="nb">list</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+	<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span> <span class="p">]</span>
+	<span class="k">return</span> <span class="n">numbers</span>
 
 <span class="k">def</span> <span class="nf">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">startPoint</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-        <span class="n">reachable</span> <span class="o">=</span> <span class="p">[</span><span class="n">startPoint</span><span class="p">]</span>
-        <span class="n">justAppended</span> <span class="o">=</span> <span class="p">[</span><span class="n">startPoint</span><span class="p">]</span>
-        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">justAppended</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">newJustAppended</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">justAppended</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">classDict</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
-                    <span class="k">if</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">reachable</span><span class="p">:</span>
-                        <span class="k">return</span> <span class="s">"Yes"</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">newJustAppended</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
-                        <span class="n">reachable</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
-            <span class="n">justAppended</span> <span class="o">=</span> <span class="n">newJustAppended</span>
-    <span class="k">return</span> <span class="s">"No"</span>
+	<span class="k">for</span> <span class="n">startPoint</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+		<span class="n">reachable</span> <span class="o">=</span> <span class="p">[</span><span class="n">startPoint</span><span class="p">]</span>
+		<span class="n">justAppended</span> <span class="o">=</span> <span class="p">[</span><span class="n">startPoint</span><span class="p">]</span>
+		<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">justAppended</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="n">newJustAppended</span> <span class="o">=</span> <span class="p">[]</span>
+			<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">justAppended</span><span class="p">:</span>
+				<span class="k">for</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">classDict</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+					<span class="k">if</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">reachable</span><span class="p">:</span>
+						<span class="k">return</span> <span class="s">"Yes"</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="n">newJustAppended</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+						<span class="n">reachable</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+			<span class="n">justAppended</span> <span class="o">=</span> <span class="n">newJustAppended</span>
+	<span class="k">return</span> <span class="s">"No"</span>
  
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">testcases</span><span class="p">):</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-    <span class="n">classDict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">classNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">liste</span> <span class="o">=</span> <span class="n">line2intlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
-        <span class="n">classDict</span><span class="p">[</span><span class="n">classNr</span><span class="p">]</span> <span class="o">=</span> <span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span></code></pre>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+	<span class="n">classDict</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="k">for</span> <span class="n">classNr</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">liste</span> <span class="o">=</span> <span class="n">line2intlist</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">())</span>
+		<span class="n">classDict</span><span class="p">[</span><span class="n">classNr</span><span class="p">]</span> <span class="o">=</span> <span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"Case #</span><span class="si">%i</span><span class="s">: </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">getAnswer</span><span class="p">(</span><span class="n">classDict</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-2">See also</h2>
-
 <ul>
   <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Google_Code_Jam">Google Code Jam</a></li>
   <li><a href="http://www.go-hero.net/jam/12/">Google Code Jam Statistics</a></li>
@@ -367,7 +366,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

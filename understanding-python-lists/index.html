@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>This article is about Python lists. I just want to show you some examples of the unexpected behaviour (for non-python-programmers) of lists in Python.</p>
 
 <p>Imagine you have the following Python source code:</p>
@@ -141,7 +141,6 @@ MathJax.Hub.Queue(function() {
 <p>The reason for this strange behaviour is how lists are handled in Python. The variable itself is basically only the pointer to the list. If you slice the list (myList[:]) you copy each value of the list into another list. If myList was a nested list, it contained the pointers to the sublists. So, if you want to make a deep copy, you have to use the copy module.</p>
 
 <h2 id="tocAnchor-1-1">Scoping</h2>
-
 <p>phimuemue added this example in my old blog:</p>
 
 <p>Another issue I ran into concerns the scoping of Python:</p>
@@ -152,7 +151,7 @@ MathJax.Hub.Queue(function() {
 <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c"># yields 3</span></code></pre>
 </div>
 
-<p>That means, python doesn't create a new variable for the list comprehension but uses the outer i.</p>
+<p>That means, python doesn’t create a new variable for the list comprehension but uses the outer i.</p>
 
 <h2 id="tocAnchor-1-2">Recursive Lists</h2>
 
@@ -349,7 +348,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

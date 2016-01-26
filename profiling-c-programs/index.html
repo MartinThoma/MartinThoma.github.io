@@ -105,11 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>If you have a working program and you want to improve its execution speed, you might want to profile it. An easy way to do so, is adding global variables, increasing them at interesting points and counting how often these points are executed. A more sophisticated way is using a profiler.</p>
 
 <h2 id="tocAnchor-1-1">valgrind and kcachegrind</h2>
-
 <p>Install valgrind and kcachegrind. For Ubuntu users:</p>
 
 <div class="highlight">
@@ -122,8 +121,8 @@ MathJax.Hub.Queue(function() {
    <pre><code class="language-bash" data-lang="bash">valgrind --tool<span class="o">=</span>callgrind ./connectfour</code></pre>
 </div>
 
-<p>(I've profiled a connect four application. Replace that with your application)
-This command will create a file called similar to "callgrind.out.4846".</p>
+<p>(I’ve profiled a connect four application. Replace that with your application)<br />
+This command will create a file called similar to “callgrind.out.4846”.</p>
 
 <p>Take a look at the profile:</p>
 
@@ -131,8 +130,8 @@ This command will create a file called similar to "callgrind.out.4846".</p>
    <pre><code class="language-bash" data-lang="bash">kcachegrind callgrind.out.4846</code></pre>
 </div>
 
-<p>You can also create a call-graph:
-</p><div style="width: 522px" class="wp-caption aligncenter">
+<p>You can also create a call-graph:</p>
+<div style="width: 522px" class="wp-caption aligncenter">
    <a href="../images/2012/11/call-graph2.png">
       <img src="../images/2012/11/call-graph2.png" alt="Call graph of connect four game graph creation program" width="" height="" class="size-full wp-image-49691" />
    </a>
@@ -322,7 +321,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

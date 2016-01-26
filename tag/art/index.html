@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Art&rdquo;’</h2>
   
@@ -2841,10 +2841,10 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-02-23T19:56:14+01:00">February 23, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
 
-    Anamorphic Art Anamorphosis is a distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image. Here is a good example by Felice Varini: { caption align=&quot;aligncenter&quot; width=&quot;512&quot; caption=&quot;Anamorphic Art - Source: illusion.scene360.com&quot; url=&quot;../images/2012/02/anamorphic-art.png&quot; alt=&quot;Anamorphic Art&quot; height=&quot;524&quot; class=&quot;size-full wp-image-15541&quot; } Pavement Drawings Pavement Drawings can be combined with anamorphic art. One great artist I&#39;ve found is Julian Beever. Here is one example: { caption align=&quot;aligncenter&quot;...
+    Anamorphic Art Anamorphosis is a distorted projection or perspective requiring the viewer to use special devices or occupy a specific vantage point to reconstitute the image. Here is a good example by Felice Varini: { caption align=”aligncenter” width=”512” caption=”Anamorphic Art - Source: illusion.scene360.com” url=”../images/2012/02/anamorphic-art.png” alt=”Anamorphic Art” height=”524” class=”size-full wp-image-15541” } Pavement Drawings Pavement Drawings can be combined with anamorphic art. One great artist I’ve found is Julian Beever. Here is one example: { caption align=”aligncenter”...
 
     
     <div class="readmorecontent">
@@ -3680,7 +3680,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

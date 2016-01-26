@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;home improvement&rdquo;’</h2>
   
@@ -2785,12 +2785,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-03-05T22:08:41+01:00">March  5, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/how-to-fill-holes-in-your-wall-ceiling/"><img width="128" height="128" src="//martin-thoma.com/images/2011/10/do-it-yourself-thumb.jpg" class="alignleft post_thumbnail wp-post-image" alt="How to fill holes in your wall / ceiling"/></a>
     
 
-    { caption align=&quot;alignright&quot; width=&quot;128&quot; caption=&quot;Do-it-yourself - Some random tools (Thumbnail)&quot; url=&quot;../images/2011/10/do-it-yourself-thumb.jpg&quot; alt=&quot;Do-it-yourself - Some random tools (Thumbnail)&quot; height=&quot;128&quot; class=&quot;size-full wp-image-4861 &quot; } I&#39;ve decided to fill some holes in my ceiling and my wall today. I don&#39;t want to paint my room the next time as it is too cold at the moment, but the holes were really ugly. I&#39;ve added a photo of them. So I went to the next hardware store and asked...
+    { caption align=”alignright” width=”128” caption=”Do-it-yourself - Some random tools (Thumbnail)” url=”../images/2011/10/do-it-yourself-thumb.jpg” alt=”Do-it-yourself - Some random tools (Thumbnail)” height=”128” class=”size-full wp-image-4861 “ } I’ve decided to fill some holes in my ceiling and my wall today. I don’t want to paint my room the next time as it is too cold at the moment, but the holes were really ugly. I’ve added a photo of them. So I went to the next hardware store and asked...
 
     
     <div class="readmorecontent">
@@ -3235,7 +3235,7 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-10-08T12:01:40+02:00">October  8, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/kitchen-renovation-part-1/"><img width="128" height="128" src="//martin-thoma.com/images/2011/10/do-it-yourself-thumb.jpg" class="alignleft post_thumbnail wp-post-image" alt="Kitchen renovation - Part 1"/></a>
     
@@ -3721,7 +3721,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

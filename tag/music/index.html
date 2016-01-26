@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;music&rdquo;’</h2>
   
@@ -2235,12 +2235,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-08-01T10:45:49+02:00">August  1, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/how-to-write-music-with-latex/"><img width="128" height="128" src="//martin-thoma.com/images/2012/08/latex-music-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="How to write music with LaTeX"/></a>
     
 
-    It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to write a little tutorial show some examples. Symbols { caption align=&quot;aligncenter&quot; width=&quot;512&quot; caption=&quot;Some basic music symbols&quot; url=&quot;../images/2012/08/music-notes.png&quot; alt=&quot;Some basic music symbols&quot; height=&quot;42&quot; class=&quot;size-full wp-image-37171&quot; } latex \documentclass[a4paper,12pt]{article} \usepackage{wasysym} \begin{document} \eighthnote ~~~ \halfnote ~~~ \twonotes ~~~ \fullnote ~~~ \quarternote ~~~ $\natural$ ~~~ $\flat$ ~~~ $\sharp$ \end{document} The harmony package offers some additional symbols: { caption align=&quot;aligncenter&quot; width=&quot;512&quot;...
+    It is possible to write music with LaTeX. My girlfriend was quite surprised of this, so I decided to write a little tutorial show some examples. Symbols { caption align=”aligncenter” width=”512” caption=”Some basic music symbols” url=”../images/2012/08/music-notes.png” alt=”Some basic music symbols” height=”42” class=”size-full wp-image-37171” } latex \documentclass[a4paper,12pt]{article} \usepackage{wasysym} \begin{document} \eighthnote ~~~ \halfnote ~~~ \twonotes ~~~ \fullnote ~~~ \quarternote ~~~ $\natural$ ~~~ $\flat$ ~~~ $\sharp$ \end{document} The harmony package offers some additional symbols: { caption align=”aligncenter” width=”512”...
 
     
     <div class="readmorecontent">
@@ -3691,7 +3691,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

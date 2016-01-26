@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Today, a fellow student claimed that it would take much time to check the first 1,000,000 numbers for primes. I claimed that it would be a matter of seconds to do so for the first 1,000,000,000 numbers.</p>
 
 <p>So, lets prove my claim.</p>
@@ -195,27 +195,26 @@ MathJax.Hub.Queue(function() {
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out <span class="m">100000000</span> &gt; primes.txt
 
-real    0m57.274s
-user    0m41.855s
-sys 0m15.229s</code></pre>
+real	0m57.274s
+user	0m41.855s
+sys	0m15.229s</code></pre>
 </div>
 
-<p>So 41 seconds for all primes not bigger than 100,000,000. </p>
+<p>So 41 seconds for all primes not bigger than 100,000,000.</p>
 
 <p>Now, lets test it for 1,000,000,000:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; primes.txt
 
-real    18m18.205s
-user    15m56.904s
-sys 2m12.500s</code></pre>
+real	18m18.205s
+user	15m56.904s
+sys	2m12.500s</code></pre>
 </div>
 
-<p>16 minutes ... not exactly "seconds". But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
+<p>16 minutes … not exactly “seconds”. But please keep in mind that I also wrote the result to a txt-file. This txt file is 502.0 MB big. It takes quite a lot of time to write such an amount of data from memory to disk.</p>
 
 <h2 id="tocAnchor-1-2">Sieve of Eratosthenes</h2>
-
 <h3 id="tocAnchor-1-2-1">A first try</h3>
 
 <div class="highlight">
@@ -250,16 +249,15 @@ sys 2m12.500s</code></pre>
    <pre><code class="language-bash" data-lang="bash">make<span class="p">;</span><span class="nb">time</span> ./generate-prime-list.out <span class="m">1000000000</span> &gt; testPrimes.txt
 g++ -std<span class="o">=</span>c++0x -Wall -pedantic -O3 -D NDEBUG generate-prime-list.cpp -o generate-prime-list.out
 
-real    3m20.436s
-user    1m4.908s
-sys 2m11.748s</code></pre>
+real	3m20.436s
+user	1m4.908s
+sys	2m11.748s</code></pre>
 </div>
 
-<p>I'm getting closer to "seconds". :-)</p>
+<p>I’m getting closer to “seconds”. :-)</p>
 
 <h3 id="tocAnchor-1-2-2">ofstream, endl, \n and buffers</h3>
-
-<p>Writing 502.0 MB takes some time. It's not getting better when I pipe this through bash. So lets write it directly:</p>
+<p>Writing 502.0 MB takes some time. It’s not getting better when I pipe this through bash. So lets write it directly:</p>
 
 <div class="highlight">
    <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;fstream&gt; </span><span class="c1">// ofstream</span>
@@ -293,9 +291,9 @@ sys 2m11.748s</code></pre>
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    3m21.249s
-user    1m4.016s
-sys 2m12.332s</code></pre>
+real	3m21.249s
+user	1m4.016s
+sys	2m12.332s</code></pre>
 </div>
 
 <p>Ok, no real change :-/</p>
@@ -307,9 +305,9 @@ sys 2m12.332s</code></pre>
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    0m49.539s
-user    0m46.619s
-sys 0m0.920s</code></pre>
+real	0m49.539s
+user	0m46.619s
+sys	0m0.920s</code></pre>
 </div>
 
 <p>Another reason why this might be slow could be too many system calls. So I could buffer some and write them in blocks. I could also just write blocks of unsigned long numbers instead of a string representation. This might lead to a much smaller file size which in consequence is faster to write:</p>
@@ -353,9 +351,9 @@ sys 0m0.920s</code></pre>
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    0m39.700s
-user    0m38.546s
-sys 0m0.640s</code></pre>
+real	0m39.700s
+user	0m38.546s
+sys	0m0.640s</code></pre>
 </div>
 
 <p>38 seconds for all primes from 2 to 1,000,000,000. The file size is now only 203.4 MB.</p>
@@ -393,10 +391,9 @@ sys 0m0.640s</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-2-3">Improve sieving</h3>
-
 <p>The following change was suggested by <em>Niklas B.</em>. Thanks!</p>
 
-<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j*i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don't have to start sieving at <code>2*p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, ..., current-1-th prime. </p>
+<p>Take a look at the inner for loop. This one does the sieving, so it gets executed very often. In this loop, you have to calculate <code>j*i</code> for checking the condition of the loop and again for setting it to false. You can get rid of one of those operations. Additionally, you don’t have to start sieving at <code>2*p</code>, but you can start at <code>p*p</code> as you already sieved out all multiples of the first, second, …, current-1-th prime.</p>
 
 <div class="highlight">
    <pre><code class="language-cpp" data-lang="cpp"><span class="cp">#include &lt;stdio.h&gt; </span><span class="c1">// fopen</span>
@@ -441,20 +438,18 @@ sys 0m0.640s</code></pre>
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    0m24.222s
-user    0m23.485s
-sys 0m0.436s</code></pre>
+real	0m24.222s
+user	0m23.485s
+sys	0m0.436s</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-2-4">primesieve</h3>
+<p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, …) $&lt; 2^{64}$ using a highly optimized implementation of the sieve of Eratosthenes.</p>
 
-<p><a href="https://code.google.com/p/primesieve/">Primesieve</a> is a free software program and C++ library that generates prime numbers and prime k-tuplets (twin primes, prime triplets, ...) $&lt; 2^{64}$ using a highly optimized implementation of the sieve of Eratosthenes.</p>
-
-<p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file...</p>
+<p>According to the GUI, it finds all 50,847,534 primes below 1,000,000,000 in 0.16 seconds. But write them to a file…</p>
 
 <h2 id="tocAnchor-1-7">Sieve of Atkin</h2>
-
-<p>Arthur Oliver Lonsdale Atkin (July 31, 1925 – December 28, 2008) was a British mathematician who invented this sieve. I've implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
+<p>Arthur Oliver Lonsdale Atkin (July 31, 1925 – December 28, 2008) was a British mathematician who invented this sieve. I’ve implemented it according to the <a href="http://en.wikipedia.org/wiki/Sieve_of_Atkin#Pseudocode">pseudocode provided in Wikipedia</a>. A <a href="http://stackoverflow.com/a/12066272/562769">very long explanation of Atkins sieve</a> is on StackOverflow</p>
 
 <h3 id="tocAnchor-1-7-1">My first implementation</h3>
 
@@ -470,36 +465,36 @@ sys 0m0.436s</code></pre>
     <span class="kt">FILE</span><span class="o">*</span> <span class="n">pFile</span><span class="p">;</span>
     <span class="n">pFile</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"huge-prime-list.bin"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">);</span>
 
-    <span class="kt">long</span> <span class="kt">long</span> <span class="n">root</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">limit</span><span class="p">));</span>
+	<span class="kt">long</span> <span class="kt">long</span> <span class="n">root</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">limit</span><span class="p">));</span>
 
     <span class="c1">// initialize the sieve</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+	<span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">limit</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
 
     <span class="c1">// put in candidate primes: </span>
     <span class="c1">// integers which have an odd number of</span>
     <span class="c1">// representations by certain quadratic forms</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">long</span> <span class="kt">long</span> <span class="n">xSquare</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
                 <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">!</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
             <span class="p">}</span>
 
-            <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">!</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
             <span class="p">}</span>
 
-            <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">xSquare</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">limit</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="o">!</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
             <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
     <span class="c1">// eliminate composites by sieving</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">root</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="p">{</span>
             <span class="kt">long</span> <span class="kt">long</span> <span class="n">add</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
             <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">k</span> <span class="o">=</span> <span class="n">add</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">k</span> <span class="o">+=</span> <span class="n">add</span><span class="p">)</span> <span class="p">{</span>
@@ -517,11 +512,11 @@ sys 0m0.436s</code></pre>
     <span class="n">primTmp</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
     <span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">primTmp</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pFile</span><span class="p">);</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">is_prime</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="p">{</span>
             <span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pFile</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
 
     <span class="n">fclose</span><span class="p">(</span><span class="n">pFile</span><span class="p">);</span>
 <span class="p">}</span>
@@ -542,33 +537,31 @@ sys 0m0.436s</code></pre>
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./generate-prime-list.out 1000000000
 
-real    1m6.001s
-user    1m4.724s
-sys 0m0.604s</code></pre>
+real	1m6.001s
+user	1m4.724s
+sys	0m0.604s</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-7-2">Primegen</h3>
+<p><a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It’s a little bit cluttered with 80 files and 3854 LOC in total.</p>
 
-<p><a href="http://cr.yp.to/primegen.html">Primegen</a> is an implementation by <a href="http://en.wikipedia.org/wiki/Daniel_J._Bernstein">Daniel J. Bernstein</a>. It's a little bit cluttered with 80 files and 3854 LOC in total.</p>
-
-<p>When I have some time, I'll update this article and create a new version of my sieve with ideas from Primegen.</p>
+<p>When I have some time, I’ll update this article and create a new version of my sieve with ideas from Primegen.</p>
 
 <p>Primegen is fast:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">time</span> ./primes &gt; primes.txt
 
-real    0m11.677s
-user    0m10.649s
-sys 0m0.708s</code></pre>
+real	0m11.677s
+user	0m10.649s
+sys	0m0.708s</code></pre>
 </div>
 
 <p>About 11 seconds for writing all primes between 2 and 1,000,000,000 to a txt file.</p>
 
 <h2 id="tocAnchor-1-10">See also</h2>
-
-<p>You might want to try the following Project Euler problem sets:
-</p><ul>
+<p>You might want to try the following Project Euler problem sets:</p>
+<ul>
 <li>Project Euler
   <ul>
     <li><a href="http://projecteuler.net/problem=3">Problem 3</a>: What is the largest prime factor of the number 600851475143 ?</li>
@@ -584,11 +577,10 @@ sys 0m0.708s</code></pre>
   </ul>
 </li>
 <li><a href="http://sweet.ua.pt/tos/software/prime_sieve.html">Segmented sieve of Eratosthenes</a></li>
-<li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above $10^9$ which I didn't.</li>
+<li><a href="http://www.troubleshooters.com/codecorn/primenumbers/primenumbers.htm">Fun with prime numbers</a>: This looks almost like my article. It might be interesting, because the author thought about finding primes above `$10^9$` which I didn't.</li>
 </ul>
 
 <h2 id="tocAnchor-1-11">Finally</h2>
-
 <p>The last script that took 23 seconds for calculating and writing all primes in 2 to 1,000,000,000 seems to be the best one. Do you know anything else that could get improved? Please provide a working example (e.g. as a <a href="https://gist.github.com/">gist</a>)</p>
 
                         </div>
@@ -778,7 +770,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

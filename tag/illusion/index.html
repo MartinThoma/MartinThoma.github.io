@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;illusion&rdquo;’</h2>
   
@@ -2727,12 +2727,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-03-27T12:05:01+02:00">March 27, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/incredible-optical-illusions/"><img width="128" height="128" src="//martin-thoma.com/images/2012/03/fraser-spiral-illusion-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Incredible Optical Illusions"/></a>
     
 
-    Some really great and short examples of illusions. If you want an explanation of them, I have added a link to the corresponding Wikipedia article. Checker shadow illusion { caption align=&quot;aligncenter&quot; width=&quot;300&quot; caption=&quot;Checker shadow illusion&quot; url=&quot;../images/2012/03/checker-shadow-illusion-300x232.png&quot; alt=&quot;Checker shadow illusion&quot; height=&quot;232&quot; class=&quot;size-medium wp-image-20311&quot; } Checker shadow illusion: The pieces A and B are of the same color. Ebbinghaus illusion { caption align=&quot;aligncenter&quot; width=&quot;240&quot; caption=&quot;Ebbinghaus illusion&quot; url=&quot;../images/2012/03/eigenhaus-illusion.png&quot; alt=&quot;Ebbinghaus illusion&quot; height=&quot;148&quot; class=&quot;size-full wp-image-20261&quot; } Ebbinghaus illusion: the first...
+    Some really great and short examples of illusions. If you want an explanation of them, I have added a link to the corresponding Wikipedia article. Checker shadow illusion { caption align=”aligncenter” width=”300” caption=”Checker shadow illusion” url=”../images/2012/03/checker-shadow-illusion-300x232.png” alt=”Checker shadow illusion” height=”232” class=”size-medium wp-image-20311” } Checker shadow illusion: The pieces A and B are of the same color. Ebbinghaus illusion { caption align=”aligncenter” width=”240” caption=”Ebbinghaus illusion” url=”../images/2012/03/eigenhaus-illusion.png” alt=”Ebbinghaus illusion” height=”148” class=”size-full wp-image-20261” } Ebbinghaus illusion: the first...
 
     
     <div class="readmorecontent">
@@ -3682,7 +3682,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

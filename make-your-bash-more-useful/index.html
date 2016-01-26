@@ -105,39 +105,47 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I just had the problem, that the bash prompt of my universities 
-computer I've connected to via SSH looked like this:
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I just had the problem, that the bash prompt of my universities <br />
+computer I’ve connected to via SSH looked like this:<br />
 <code>bash-4.0</code>$`</p>
 
 <h2 id="tocAnchor-1-1">Change the prompt</h2>
-
-<p>I think it's much more useful to see the path you're currently using.
-To get the current path in your bash promt, you have to add the 
+<p>I think it’s much more useful to see the path you’re currently using.<br />
+To get the current path in your bash promt, you have to add the <br />
 following snippet to your <code>.bashrc</code>:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="c"># This will limit the path to 30 characters.</span>
-<span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">'if [ ${#PWD} -gt 30 ]; then </span>
-<span class="s1">myPWD=${PWD:0:12}...</span>
-<span class="s1">${PWD:${#PWD}-15}; else myPWD=$PWD; fi'</span>
-<span class="nv">PS1</span><span class="o">=</span><span class="s2">"\u@\h \$myPWD$ "</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span># This will limit the path to 30 characters.
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>PROMPT_COMMAND='if [ ${#PWD} -gt 30 ]; then 
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>myPWD=${PWD:0:12}...
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>${PWD:${#PWD}-15}; else myPWD=$PWD; fi'
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>PS1="\u@\h \$myPWD$ "
+</pre></div>
 </div>
+</div>
+
 <p>(Source: <a href="http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html">cyberciti.biz</a>)</p>
 
-<p>Reload your bash config with <code>source .bashrc</code> and you should 
+<p>Reload your bash config with <code>source .bashrc</code> and you should <br />
 instantly see the changes.</p>
 
 <h2 id="tocAnchor-1-2">Aliases</h2>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="c"># Add color to ls</span>
-<span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s2">"ls --color"</span>
-</code></pre>
-</div><div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="c"># simply update an svn-repository</span>
-<span class="nb">alias </span><span class="nv">swt</span><span class="o">=</span><span class="s1">'svn up /home/moose/Studium/SWT'</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span># Add color to ls
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>alias ls="ls --color"
+</pre></div>
 </div>
+</div>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span># simply update an svn-repository
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>alias swt='svn up /home/moose/Studium/SWT'
+</pre></div>
+</div>
+</div>
+
                         </div>
                         <div class="postmeta">Posted in
                             
@@ -319,7 +327,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

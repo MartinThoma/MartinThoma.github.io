@@ -105,24 +105,24 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>The website logotournament.com offers a service for designers and owners of
-companies. You can define how much money you would like to spend for a new
+                        <div class="entry" id="contentAfterTitle">
+                            <p>The website logotournament.com offers a service for designers and owners of<br />
+companies. You can define how much money you would like to spend for a new<br />
 logo-set and how this logo should look like.</p>
 
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/12/logotournament.png"><img src="//martin-thoma.com/captions/logotournament.png" alt="Logo Tournament Website" width="500" height="326" class=""/></a><p class="wp-caption-text">Logo Tournament Website</p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/12/logotournament.png"><img src="//martin-thoma.com/captions/logotournament.png" alt="Logo Tournament Website" width="500" height="326" class="" /></a><p class="wp-caption-text">Logo Tournament Website</p></div>
 
-<p>Just take a look at the contest brief of Move Ahead. I&#39;ve made a screenshot of
-their Website. They use the typical Joomla-Icon. Their Logo isn&#39;t very good.</p>
+<p>Just take a look at the contest brief of Move Ahead. I’ve made a screenshot of<br />
+their Website. They use the typical Joomla-Icon. Their Logo isn’t very good.</p>
 
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/12/logo-tournament-move-ahead.png"><img src="//martin-thoma.com/captions/logo-tournament-move-ahead.png" alt="Proposed Logos on Logo Tournament" width="500" height="394" class=""/></a><p class="wp-caption-text">Proposed Logos on Logo Tournament</p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/12/logo-tournament-move-ahead.png"><img src="//martin-thoma.com/captions/logo-tournament-move-ahead.png" alt="Proposed Logos on Logo Tournament" width="500" height="394" class="" /></a><p class="wp-caption-text">Proposed Logos on Logo Tournament</p></div>
 
-<p>Now take a look at the best submitted logos. Great, aren&#39;t they? At the moment,
-105 logos have been submitted for $375. The company can decide which ones they
-like and rank them. They pay only for one logo set, but they can choose from
+<p>Now take a look at the best submitted logos. Great, aren’t they? At the moment,<br />
+105 logos have been submitted for $375. The company can decide which ones they<br />
+like and rank them. They pay only for one logo set, but they can choose from<br />
 105 logos.</p>
 
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/12/move-ahead-website-2011-03-07.png"><img src="//martin-thoma.com/captions/move-ahead-website-2011-03-07.png" alt="Move Ahead Website" width="500" height="354" class=""/></a><p class="wp-caption-text">Move Ahead Website</p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/2014/12/move-ahead-website-2011-03-07.png"><img src="//martin-thoma.com/captions/move-ahead-website-2011-03-07.png" alt="Move Ahead Website" width="500" height="354" class="" /></a><p class="wp-caption-text">Move Ahead Website</p></div>
 
 <p><em>Note</em>: This is a quick post from one of my old blogs.</p>
 
@@ -307,7 +307,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

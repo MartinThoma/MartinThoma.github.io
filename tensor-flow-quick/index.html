@@ -105,41 +105,41 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Tensor Flow is a machine learning toolkit which recently got published by
-Google. They published it under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache License 2.0</a>. Looking at the source code overview, it seems to be mainly C++
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Tensor Flow is a machine learning toolkit which recently got published by<br />
+Google. They published it under <a href="https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)">Apache License 2.0</a>. Looking at the source code overview, it seems to be mainly C++<br />
 with a significant bit of Python.</p>
 
-<p>I guess the abstract of the
-<a href="http://download.tensorflow.org/paper/whitepaper2015.pdf">Whitepaper</a> is a good
+<p>I guess the abstract of the<br />
+<a href="http://download.tensorflow.org/paper/whitepaper2015.pdf">Whitepaper</a> is a good<br />
 description what TensorFlow is:</p>
 
 <blockquote>
-<p>TensorFlow is an interface for expressing machine learning algorithms, and an
-implementation for executing such algorithms. A computation expressed using
-TensorFlow can be executed with little or no change on a wide variety of
-heterogeneous systems, ranging from mobile devices such as phones and tablets
-up to large-scale distributed systems of hundreds of machines and thousands
-of computational devices such as GPU cards. The system is flexible and can be
-used to express a wide variety of algorithms, including training and
-inference algorithms for deep neural network models, and it has been used for
-conducting research and for deploying machine learning systems into
-production across more than a dozen areas of computer science and other
-fields, including speech recognition, computer vision, robotics, information
-retrieval, natural language processing, geographic information extraction,
-and computational drug discovery. This paper describes the TensorFlow
-interface and an implementation of that interface that we have built at
-Google. The TensorFlow API and a reference implementation were released as an
-open-source package under the Apache 2.0 license in November, 2015 and are
+  <p>TensorFlow is an interface for expressing machine learning algorithms, and an<br />
+implementation for executing such algorithms. A computation expressed using<br />
+TensorFlow can be executed with little or no change on a wide variety of<br />
+heterogeneous systems, ranging from mobile devices such as phones and tablets<br />
+up to large-scale distributed systems of hundreds of machines and thousands<br />
+of computational devices such as GPU cards. The system is flexible and can be<br />
+used to express a wide variety of algorithms, including training and<br />
+inference algorithms for deep neural network models, and it has been used for<br />
+conducting research and for deploying machine learning systems into<br />
+production across more than a dozen areas of computer science and other<br />
+fields, including speech recognition, computer vision, robotics, information<br />
+retrieval, natural language processing, geographic information extraction,<br />
+and computational drug discovery. This paper describes the TensorFlow<br />
+interface and an implementation of that interface that we have built at<br />
+Google. The TensorFlow API and a reference implementation were released as an<br />
+open-source package under the Apache 2.0 license in November, 2015 and are<br />
 available at www.tensorflow.org.</p>
 </blockquote>
 
 <p>The core seems to be written in C++, but it has a Python front end.</p>
 
-<p>By now, I couldn't test much because I just made my GPU machine unusable
-(while trying to get the GPU General Computing practical software to run...).
-I'll try to expand this article as soon as possible, but I guess it might
-take several weeks until I have enough time. Lets see...</p>
+<p>By now, I couldn’t test much because I just made my GPU machine unusable<br />
+(while trying to get the GPU General Computing practical software to run…).<br />
+I’ll try to expand this article as soon as possible, but I guess it might<br />
+take several weeks until I have enough time. Lets see…</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -170,173 +170,182 @@ take several weeks until I have enough time. Lets see...</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Installation</h2>
 
-<p>The documentation about the installation makes a VERY good impression. Better
-than anything I can write in a few minutes, so ... <a href="http://tensorflow.org/get_started/os_setup.md">RTFM</a>
+<p>The documentation about the installation makes a VERY good impression. Better<br />
+than anything I can write in a few minutes, so … <a href="http://tensorflow.org/get_started/os_setup.md">RTFM</a><br />
  😜</p>
 
-<p>For Linux systems with CUDA and without root privileges, you can install it
+<p>For Linux systems with CUDA and without root privileges, you can install it<br />
 with:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
+</pre></div>
 </div>
-<p>But remember you have to set the environment variable <code>LD_LIBRARY_PATH</code> and
-<code>CUDA_HOME</code>. For many configurations, adding the following lines to your
+</div>
+
+<p>But remember you have to set the environment variable <code>LD_LIBRARY_PATH</code> and<br />
+<code>CUDA_HOME</code>. For many configurations, adding the following lines to your<br />
 <code>.bashrc</code> will work:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">"$LD_LIBRARY_PATH:/usr/local/cuda/lib64"</span>
-<span class="nb">export </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>export CUDA_HOME=/usr/local/cuda
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">MNIST</h2>
 
-<p>The following code can be used to check if your Tensor Flow installation is
-working. You have to have the <a href="https://gist.github.com/MartinThoma/f37150d0c521f598b08a"><code>get_mnist_data_tf.py</code></a>
-in the same directory as the following script. I've - more or less - directly
-copied it from <a href="http://tensorflow.org/tutorials/mnist/pros/index.md">the tutorial</a>.
+<p>The following code can be used to check if your Tensor Flow installation is<br />
+working. You have to have the <a href="https://gist.github.com/MartinThoma/f37150d0c521f598b08a"><code>get_mnist_data_tf.py</code></a><br />
+in the same directory as the following script. I’ve - more or less - directly<br />
+copied it from <a href="http://tensorflow.org/tutorials/mnist/pros/index.md">the tutorial</a>.<br />
 Just execute the script below and see if it finishes without throwing errors.</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">get_mnist_data_tf</span> <span class="kn">import</span> <span class="n">read_data_sets</span>
-<span class="n">mnist</span> <span class="o">=</span> <span class="n">read_data_sets</span><span class="p">(</span><span class="s">"MNIST_data/"</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
-<span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">InteractiveSession</span><span class="p">()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="s">"float"</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">784</span><span class="p">])</span>
-<span class="n">y_</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="s">"float"</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">784</span><span class="p">,</span><span class="mi">10</span><span class="p">]))</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">10</span><span class="p">]))</span>
-<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">())</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-<span class="n">cross_entropy</span> <span class="o">=</span> <span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">y_</span><span class="o">*</span><span class="n">tf</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-<span class="n">train_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cross_entropy</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-  <span class="n">batch</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-  <span class="n">train_step</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_</span><span class="p">:</span> <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
-<span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">,</span> <span class="s">"float"</span><span class="p">))</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">,</span>
-                               <span class="n">y_</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">}))</span>
-
-
-<span class="k">def</span> <span class="nf">weight_variable</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
-  <span class="n">initial</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">bias_variable</span><span class="p">(</span><span class="n">shape</span><span class="p">):</span>
-  <span class="n">initial</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">conv2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s">'SAME'</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">max_pool_2x2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                        <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s">'SAME'</span><span class="p">)</span>
-
-<span class="n">W_conv1</span> <span class="o">=</span> <span class="n">weight_variable</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span>
-<span class="n">b_conv1</span> <span class="o">=</span> <span class="n">bias_variable</span><span class="p">([</span><span class="mi">32</span><span class="p">])</span>
-
-<span class="n">x_image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="n">h_conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x_image</span><span class="p">,</span> <span class="n">W_conv1</span><span class="p">)</span> <span class="o">+</span> <span class="n">b_conv1</span><span class="p">)</span>
-<span class="n">h_pool1</span> <span class="o">=</span> <span class="n">max_pool_2x2</span><span class="p">(</span><span class="n">h_conv1</span><span class="p">)</span>
-
-<span class="n">W_conv2</span> <span class="o">=</span> <span class="n">weight_variable</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">])</span>
-<span class="n">b_conv2</span> <span class="o">=</span> <span class="n">bias_variable</span><span class="p">([</span><span class="mi">64</span><span class="p">])</span>
-
-<span class="n">h_conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv2d</span><span class="p">(</span><span class="n">h_pool1</span><span class="p">,</span> <span class="n">W_conv2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b_conv2</span><span class="p">)</span>
-<span class="n">h_pool2</span> <span class="o">=</span> <span class="n">max_pool_2x2</span><span class="p">(</span><span class="n">h_conv2</span><span class="p">)</span>
-
-<span class="n">W_fc1</span> <span class="o">=</span> <span class="n">weight_variable</span><span class="p">([</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1024</span><span class="p">])</span>
-<span class="n">b_fc1</span> <span class="o">=</span> <span class="n">bias_variable</span><span class="p">([</span><span class="mi">1024</span><span class="p">])</span>
-
-<span class="n">h_pool2_flat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">h_pool2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">64</span><span class="p">])</span>
-<span class="n">h_fc1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">h_pool2_flat</span><span class="p">,</span> <span class="n">W_fc1</span><span class="p">)</span> <span class="o">+</span> <span class="n">b_fc1</span><span class="p">)</span>
-
-<span class="n">keep_prob</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="s">"float"</span><span class="p">)</span>
-<span class="n">h_fc1_drop</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">h_fc1</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
-
-<span class="n">W_fc2</span> <span class="o">=</span> <span class="n">weight_variable</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">b_fc2</span> <span class="o">=</span> <span class="n">bias_variable</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
-
-<span class="n">y_conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">h_fc1_drop</span><span class="p">,</span> <span class="n">W_fc2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b_fc2</span><span class="p">)</span>
-
-<span class="n">cross_entropy</span> <span class="o">=</span> <span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">y_</span><span class="o">*</span><span class="n">tf</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_conv</span><span class="p">))</span>
-<span class="n">train_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cross_entropy</span><span class="p">)</span>
-<span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_conv</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">,</span> <span class="s">"float"</span><span class="p">))</span>
-<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">())</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-  <span class="n">batch</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span>
-        <span class="n">x</span><span class="p">:</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_</span><span class="p">:</span> <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">})</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"step </span><span class="si">%d</span><span class="s">, training accuracy </span><span class="si">%g</span><span class="s">"</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">train_accuracy</span><span class="p">))</span>
-  <span class="n">train_step</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_</span><span class="p">:</span> <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"test accuracy </span><span class="si">%g</span><span class="s">"</span><span class="o">%</span><span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">y_</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}))</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">get_mnist_data_tf</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">read_data_sets</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>mnist = read_data_sets(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">MNIST_data/</span><span style="color:#710">"</span></span>, one_hot=<span style="color:#069">True</span>)
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">tensorflow</span> <span style="color:#080;font-weight:bold">as</span> tf
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>sess = tf.InteractiveSession()
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>x = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>, shape=[<span style="color:#069">None</span>, <span style="color:#00D">784</span>])
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>y_ = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>, shape=[<span style="color:#069">None</span>, <span style="color:#00D">10</span>])
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>W = tf.Variable(tf.zeros([<span style="color:#00D">784</span>,<span style="color:#00D">10</span>]))
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>b = tf.Variable(tf.zeros([<span style="color:#00D">10</span>]))
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>sess.run(tf.initialize_all_variables())
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>y = tf.nn.softmax(tf.matmul(x,W) + b)
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>cross_entropy = -tf.reduce_sum(y_*tf.log(y))
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>train_step = tf.train.GradientDescentOptimizer(<span style="color:#60E">0.01</span>).minimize(cross_entropy)
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>  batch = mnist.train.next_batch(<span style="color:#00D">50</span>)
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>  train_step.run(feed_dict={x: batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>]})
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>correct_prediction = tf.equal(tf.argmax(y,<span style="color:#00D">1</span>), tf.argmax(y_,<span style="color:#00D">1</span>))
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>))
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>print(accuracy.eval(feed_dict={x: mnist.test.images,
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>                               y_: mnist.test.labels}))
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">weight_variable</span>(shape):
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>  initial = tf.truncated_normal(shape, stddev=<span style="color:#60E">0.1</span>)
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>  <span style="color:#080;font-weight:bold">return</span> tf.Variable(initial)
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">bias_variable</span>(shape):
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>  initial = tf.constant(<span style="color:#60E">0.1</span>, shape=shape)
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>  <span style="color:#080;font-weight:bold">return</span> tf.Variable(initial)
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">conv2d</span>(x, W):
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>  <span style="color:#080;font-weight:bold">return</span> tf.nn.conv2d(x, W, strides=[<span style="color:#00D">1</span>, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>], padding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SAME</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">max_pool_2x2</span>(x):
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>  <span style="color:#080;font-weight:bold">return</span> tf.nn.max_pool(x, ksize=[<span style="color:#00D">1</span>, <span style="color:#00D">2</span>, <span style="color:#00D">2</span>, <span style="color:#00D">1</span>],
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>                        strides=[<span style="color:#00D">1</span>, <span style="color:#00D">2</span>, <span style="color:#00D">2</span>, <span style="color:#00D">1</span>], padding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SAME</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>W_conv1 = weight_variable([<span style="color:#00D">5</span>, <span style="color:#00D">5</span>, <span style="color:#00D">1</span>, <span style="color:#00D">32</span>])
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>b_conv1 = bias_variable([<span style="color:#00D">32</span>])
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>x_image = tf.reshape(x, [-<span style="color:#00D">1</span>,<span style="color:#00D">28</span>,<span style="color:#00D">28</span>,<span style="color:#00D">1</span>])
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>h_pool1 = max_pool_2x2(h_conv1)
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>W_conv2 = weight_variable([<span style="color:#00D">5</span>, <span style="color:#00D">5</span>, <span style="color:#00D">32</span>, <span style="color:#00D">64</span>])
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>b_conv2 = bias_variable([<span style="color:#00D">64</span>])
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>
+<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>h_pool2 = max_pool_2x2(h_conv2)
+<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>
+<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>W_fc1 = weight_variable([<span style="color:#00D">7</span> * <span style="color:#00D">7</span> * <span style="color:#00D">64</span>, <span style="color:#00D">1024</span>])
+<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>b_fc1 = bias_variable([<span style="color:#00D">1024</span>])
+<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>
+<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>h_pool2_flat = tf.reshape(h_pool2, [-<span style="color:#00D">1</span>, <span style="color:#00D">7</span>*<span style="color:#00D">7</span>*<span style="color:#00D">64</span>])
+<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>
+<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>keep_prob = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>)
+<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>
+<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>W_fc2 = weight_variable([<span style="color:#00D">1024</span>, <span style="color:#00D">10</span>])
+<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>b_fc2 = bias_variable([<span style="color:#00D">10</span>])
+<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>
+<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span>y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
+<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span>
+<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
+<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>train_step = tf.train.AdamOptimizer(<span style="color:#60E">1e-4</span>).minimize(cross_entropy)
+<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span>correct_prediction = tf.equal(tf.argmax(y_conv,<span style="color:#00D">1</span>), tf.argmax(y_,<span style="color:#00D">1</span>))
+<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>))
+<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>sess.run(tf.initialize_all_variables())
+<span class="line-numbers"><a href="#n72" name="n72" id="n72">72</a></span><span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
+<span class="line-numbers"><a href="#n73" name="n73" id="n73">73</a></span>  batch = mnist.train.next_batch(<span style="color:#00D">50</span>)
+<span class="line-numbers"><a href="#n74" name="n74" id="n74">74</a></span>  <span style="color:#080;font-weight:bold">if</span> i%<span style="color:#00D">100</span> == <span style="color:#00D">0</span>:
+<span class="line-numbers"><a href="#n75" name="n75" id="n75">75</a></span>    train_accuracy = accuracy.eval(feed_dict={
+<span class="line-numbers"><a href="#n76" name="n76" id="n76">76</a></span>        x:batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>], keep_prob: <span style="color:#60E">1.0</span>})
+<span class="line-numbers"><a href="#n77" name="n77" id="n77">77</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">step %d, training accuracy %g</span><span style="color:#710">"</span></span>%(i, train_accuracy))
+<span class="line-numbers"><a href="#n78" name="n78" id="n78">78</a></span>  train_step.run(feed_dict={x: batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>], keep_prob: <span style="color:#60E">0.5</span>})
+<span class="line-numbers"><a href="#n79" name="n79" id="n79">79</a></span>
+<span class="line-numbers"><strong><a href="#n80" name="n80" id="n80">80</a></strong></span>print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">test accuracy %g</span><span style="color:#710">"</span></span>%accuracy.eval(feed_dict={
+<span class="line-numbers"><a href="#n81" name="n81" id="n81">81</a></span>    x: mnist.test.images, y_: mnist.test.labels, keep_prob: <span style="color:#60E">1.0</span>}))
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-3">Observations</h2>
 
-<p>While looking at the MNIST example, I made a couple of observations. Let's
+<p>While looking at the MNIST example, I made a couple of observations. Let’s<br />
 begin with the nice parts:</p>
 
 <ul>
-<li>Tensor Flow has a usable documentation (e.g. <a href="http://tensorflow.org/api_docs/python/nn.md">The neural network part</a>). Not great, as Lasagne where you have lots of details (e.g. <a href="http://lasagne.readthedocs.org/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid">activation functions</a>)</li>
-<li>Seems to be quite easy to use.</li>
-<li>Seems to be well-tested by simply being used in many different projects by
+  <li>Tensor Flow has a usable documentation (e.g. <a href="http://tensorflow.org/api_docs/python/nn.md">The neural network part</a>). Not great, as Lasagne where you have lots of details (e.g. <a href="http://lasagne.readthedocs.org/en/latest/modules/nonlinearities.html#lasagne.nonlinearities.sigmoid">activation functions</a>)</li>
+  <li>Seems to be quite easy to use.</li>
+  <li>Seems to be well-tested by simply being used in many different projects by<br />
 Google.</li>
-<li>Just like Theano (and thus Lasagne), Tensor flow has automatic
+  <li>Just like Theano (and thus Lasagne), Tensor flow has automatic<br />
 differenciation.</li>
 </ul>
 
 <p>Not sure:</p>
 
 <ul>
-<li>How easy is it to share trained models? In which format would you do so?</li>
-<li>How easy is it to understand a shared model?</li>
-<li>How easy is it to get something new to Tensor Flow like recurrent layers?
-(Actually, this seems rather to show that either the Whitepaper is a bit
-misleading or the documentation / Google search is not that good. In the
-whitepaper they write something about LTSM models, but I couldn't find any docs
-about that. Only by manually going through the manual,
+  <li>How easy is it to share trained models? In which format would you do so?</li>
+  <li>How easy is it to understand a shared model?</li>
+  <li>How easy is it to get something new to Tensor Flow like recurrent layers?<br />
+(Actually, this seems rather to show that either the Whitepaper is a bit<br />
+misleading or the documentation / Google search is not that good. In the<br />
+whitepaper they write something about LTSM models, but I couldn’t find any docs<br />
+about that. Only by manually going through the manual,<br />
 <a href="http://tensorflow.org/tutorials/recurrent/index.md">I found it</a>)</li>
 </ul>
 
 <p>Not so nice:</p>
 
 <ul>
-<li>Doesn't work with Python 3.</li>
-<li>They don't follow <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>. I know
-that there is a <a href="https://google.github.io/styleguide/pyguide.html">Python style guide by Google</a>,
-but it does not seem to follow that one either. See the next section for
+  <li>Doesn’t work with Python 3.</li>
+  <li>They don’t follow <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>. I know<br />
+that there is a <a href="https://google.github.io/styleguide/pyguide.html">Python style guide by Google</a>,<br />
+but it does not seem to follow that one either. See the next section for<br />
 some more detailed feedback.</li>
-<li>Just like the other Toolkits, you need CUDA. It doesn't work with OpenCL.</li>
+  <li>Just like the other Toolkits, you need CUDA. It doesn’t work with OpenCL.</li>
 </ul>
 
 <h3 id="tocAnchor-1-3-1">PEP8</h3>
 
 <ul>
-<li>Whitespace
-
-<ul>
-<li><code>W = tf.Variable(tf.zeros([784,10]))</code> should be
-<code>W = tf.Variable(tf.zeros([784, 10]))</code>.
+  <li>Whitespace
+    <ul>
+      <li><code>W = tf.Variable(tf.zeros([784,10]))</code> should be<br />
+<code>W = tf.Variable(tf.zeros([784, 10]))</code>.<br />
 Missing whitespaces happened quite often.</li>
-<li>Indent with 2 spaces instead of 4 spaces. The Google guide seems
-also to use 4 (<a href="W%20=%20tf.Variable(tf.zeros(%5B784,10%5D))">example</a>).</li>
-<li>Newlines between functions are missing.</li>
-</ul></li>
-<li>Print statement instead of a print function was used &amp;rightarrow;
+      <li>Indent with 2 spaces instead of 4 spaces. The Google guide seems<br />
+also to use 4 (<a href="W = tf.Variable(tf.zeros([784,10]))">example</a>).</li>
+      <li>Newlines between functions are missing.</li>
+    </ul>
+  </li>
+  <li>Print statement instead of a print function was used &amp;rightarrow;<br />
 only Python 2, not Python 3.</li>
-<li>I'm not sure why <code>y_</code> has the trailing underscore. According to
-<a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles">PEP8</a>,
-a single trailing underscore is used by convention to avoid conflicts with
+  <li>I’m not sure why <code>y_</code> has the trailing underscore. According to<br />
+<a href="https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles">PEP8</a>,<br />
+a single trailing underscore is used by convention to avoid conflicts with<br />
 Python keyword.</li>
-<li>A mixture of different styles as pointed out on <a href="http://beust.com/weblog/2015/11/09/tensorflows-rough-exterior/">Credric's Blog</a></li>
+  <li>A mixture of different styles as pointed out on <a href="http://beust.com/weblog/2015/11/09/tensorflows-rough-exterior/">Credric’s Blog</a></li>
 </ul>
 
 <h2 id="tocAnchor-1-5">Videos</h2>
@@ -349,41 +358,41 @@ Python keyword.</li>
 
 <h2 id="tocAnchor-1-6">Alternatives / Similar software</h2>
 
-<p>As I don't really know by now what Tensor Flow is doing, I can't pin-point
+<p>As I don’t really know by now what Tensor Flow is doing, I can’t pin-point<br />
 alternatives. But I have some educated guesses:</p>
 
 <ul>
-<li><a href="http://deeplearning.net/software/theano/">Theano</a> has been around for quite
-a while and seems to have a similar approach with its computational graph.
-Enhanced by <a href="http://lasagne.readthedocs.org/en/latest/">Lasagne</a>, it is a
-pretty good alternative when it comes to neural networks. Lasagne has an
-exceptionally good documentation, but parts of the tutorial could still be
+  <li><a href="http://deeplearning.net/software/theano/">Theano</a> has been around for quite<br />
+a while and seems to have a similar approach with its computational graph.<br />
+Enhanced by <a href="http://lasagne.readthedocs.org/en/latest/">Lasagne</a>, it is a<br />
+pretty good alternative when it comes to neural networks. Lasagne has an<br />
+exceptionally good documentation, but parts of the tutorial could still be<br />
 improved.</li>
-<li><a href="http://caffe.berkeleyvision.org/">Caffe</a> was something I recently tried.
-I didn't like it too much due to the lack of documentation, but it certainly
+  <li><a href="http://caffe.berkeleyvision.org/">Caffe</a> was something I recently tried.<br />
+I didn’t like it too much due to the lack of documentation, but it certainly<br />
 is a big project. Especially when it comes to images.</li>
-<li>I haven't tried, but they look promising:
-
-<ul>
-<li><a href="http://chainer.org/">Chainer</a></li>
-<li><a href="http://mxnet.readthedocs.org/en/latest/">MXNet</a></li>
-<li><a href="http://rll.berkeley.edu/cgt/">CGT</a></li>
-<li><a href="http://torch.ch/">Torch</a> has a very nice example for <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">a character
+  <li>I haven’t tried, but they look promising:
+    <ul>
+      <li><a href="http://chainer.org/">Chainer</a></li>
+      <li><a href="http://mxnet.readthedocs.org/en/latest/">MXNet</a></li>
+      <li><a href="http://rll.berkeley.edu/cgt/">CGT</a></li>
+      <li><a href="http://torch.ch/">Torch</a> has a very nice example for <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">a character<br />
 predictor</a>.</li>
-</ul></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="tocAnchor-1-7">See also</h2>
 
 <ul>
-<li><a href="http://tensorflow.org/">Official Website</a>
-
-<ul>
-<li><a href="https://github.com/tensorflow/tensorflow">github.com/tensorflow</a></li>
-<li><a href="http://download.tensorflow.org/paper/whitepaper2015.pdf">TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems</a></li>
-</ul></li>
-<li><a href="https://news.ycombinator.com/item?id=10532957">news.ycombinator.com</a></li>
-<li><a href="https://www.reddit.com/r/programming/comments/3s4vkn/google_brains_deep_learning_library_tensorflow_is/">reddit.com/r/programming</a></li>
+  <li><a href="http://tensorflow.org/">Official Website</a>
+    <ul>
+      <li><a href="https://github.com/tensorflow/tensorflow">github.com/tensorflow</a></li>
+      <li><a href="http://download.tensorflow.org/paper/whitepaper2015.pdf">TensorFlow: Large-Scale Machine Learning on Heterogeneous Distributed Systems</a></li>
+    </ul>
+  </li>
+  <li><a href="https://news.ycombinator.com/item?id=10532957">news.ycombinator.com</a></li>
+  <li><a href="https://www.reddit.com/r/programming/comments/3s4vkn/google_brains_deep_learning_library_tensorflow_is/">reddit.com/r/programming</a></li>
 </ul>
 
                         </div>
@@ -567,7 +576,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

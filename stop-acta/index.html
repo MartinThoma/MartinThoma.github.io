@@ -105,14 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div style="width: 138px" class="wp-caption alignright">
    <a href="../images/2012/01/acta-krake.png">
       <img src="../images/2012/01/acta-krake.png" alt="ACTA Krake" width="" height="" class="size-full wp-image-13091" />
    </a>
    <p class="wp-caption-text">Stopp ACTA!</p>
 </div>
-
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -135,9 +134,8 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">What is ACTA?</h2>
-
-<p>The Anti-Counterfeiting Trade Agreement (ACTA) is a trade agreement between the following states:
-</p><ul>
+<p>The Anti-Counterfeiting Trade Agreement (ACTA) is a trade agreement between the following states:</p>
+<ul>
   <li>United States: signed 1 October 2011 in Tokyo</li>
   <li>Australia: signed 1 October 2011 in Tokyo</li>
   <li>Canada: signed 1 October 2011 in Tokyo</li>
@@ -159,28 +157,23 @@ MathJax.Hub.Queue(function() {
   <li>Switzerland: </li>
 </ul>
 
-<p>Those countries describe it as a response "to the increase in global trade of counterfeit goods and pirated copyright protected works." It would create a governing body outside international institutions such as the World Trade Organization (WTO), the World Intellectual Property Organization (WIPO) or the United Nations. The scope of ACTA includes counterfeit goods, generic medicines and copyright infringement on the Internet.</p>
+<p>Those countries describe it as a response “to the increase in global trade of counterfeit goods and pirated copyright protected works.” It would create a governing body outside international institutions such as the World Trade Organization (WTO), the World Intellectual Property Organization (WIPO) or the United Nations. The scope of ACTA includes counterfeit goods, generic medicines and copyright infringement on the Internet.</p>
 
-<p>An official Summary of Key Elements Under Discussion published November 2009 states that "ACTA aims to build on existing international rules in the area of intellectual property, in particular on the TRIPS Agreement, and is intended to address a number of enforcement issues where participants have identified that an international legal framework does not exist or needs to be strengthened."</p>
+<p>An official Summary of Key Elements Under Discussion published November 2009 states that “ACTA aims to build on existing international rules in the area of intellectual property, in particular on the TRIPS Agreement, and is intended to address a number of enforcement issues where participants have identified that an international legal framework does not exist or needs to be strengthened.”</p>
 
-<p>On 10 March 2010, the European Parliament adopted a resolution criticizing the ACTA with 663 in favor of the resolution and 13 against, arguing that "in order to respect fundamental rights, such as the right to freedom of expression and the right to privacy" certain changes in the ACTA content and the process should be made.</p>
+<p>On 10 March 2010, the European Parliament adopted a resolution criticizing the ACTA with 663 in favor of the resolution and 13 against, arguing that “in order to respect fundamental rights, such as the right to freedom of expression and the right to privacy” certain changes in the ACTA content and the process should be made.</p>
 
 <h2 id="tocAnchor-1-2">Who is for ACTA?</h2>
-
-<p>Well, I guess the signing government and parliaments. I've also heard that <a href="http://en.wikipedia.org/wiki/MPAA">MPAA</a> is for ACTA (<a href="http://www.mpaa.org/resources/eea2c91a-7608-4b3a-9305-ec414c47b67f.pdf">source</a>).</p>
+<p>Well, I guess the signing government and parliaments. I’ve also heard that <a href="http://en.wikipedia.org/wiki/MPAA">MPAA</a> is for ACTA (<a href="http://www.mpaa.org/resources/eea2c91a-7608-4b3a-9305-ec414c47b67f.pdf">source</a>).</p>
 
 <h2 id="tocAnchor-1-3">Who is against ACTA?</h2>
-
 <ul>
   <li><a href="http://en.wikipedia.org/wiki/Electronic_Frontier_Foundation">Electronic Frontier Foundation</a> (EFF)</li>
   <li><a href="http://en.wikipedia.org/wiki/Chaos_Computer_Club">Chaos Computer Club</a></li>
   <li>several pirate partys, e.g. the German Piratenpartei (<a href="http://web.piratenpartei.de/papiere/2010/acta">source</a>)</li>
 </ul>
-
 <h3 id="tocAnchor-1-3-1">And why?</h3>
-
 <iframe width="560" height="315" src="http://www.youtube.com/embed/citzRjwk-sQ" frameborder="0" allowfullscreen=""></iframe>
-
 <ul>
   <li>treaty will restrict fundamental civil and digital rights:
     <ul>
@@ -192,7 +185,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-5">See also</h2>
-
 <ul>
   <li>Wikpedia: <a href="http://en.wikipedia.org/wiki/Anti-Counterfeiting_Trade_Agreement">ACTA</a> (big parts of my article are from this wiki-article)</li>
   <li><a href="http://freeknowledge.eu/acta-a-global-threat-to-freedoms-open-letter">open letter 1</a></li>
@@ -382,7 +374,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

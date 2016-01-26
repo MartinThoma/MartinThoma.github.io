@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;gdb&rdquo;’</h2>
   
@@ -1721,10 +1721,10 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-11-30T17:00:15+01:00">November 30, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
 
-    As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn&#39;t even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I didn&#39;t don&#39;t know any good online resource for C, so I&#39;ve always searched with Google for answers to questions that I couldn&#39;t properly formulate. One question that is important for beginners is How do I...
+    As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn’t even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I didn't don’t know any good online resource for C, so I’ve always searched with Google for answers to questions that I couldn’t properly formulate. One question that is important for beginners is How do I...
 
     
     <div class="readmorecontent">
@@ -3689,7 +3689,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

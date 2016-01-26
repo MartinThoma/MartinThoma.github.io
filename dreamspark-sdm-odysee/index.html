@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I need to have Windows for work. As a student I <em>should</em> have free access to
-it. But when I try to download it, I have to use Microsofts
-"Secure Download Manager" (SDM). As a Ubuntu (Linux) user, this is easier
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I need to have Windows for work. As a student I <em>should</em> have free access to<br />
+it. But when I try to download it, I have to use Microsofts<br />
+“Secure Download Manager” (SDM). As a Ubuntu (Linux) user, this is easier<br />
 said than done.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -121,7 +121,7 @@ said than done.</p>
          <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">The problem</span></a>
       </li>
       <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Reverse Engineering ... a little bit</span></a>
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Reverse Engineering … a little bit</span></a>
       </li>
       <li class="toc_level-1 toc_section-4">
          <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">VMs</span></a>
@@ -135,16 +135,16 @@ said than done.</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">TL;DR</h2>
 
-<p>You need a Windows PC to download Windows. Ask a friend to download it. That
-might be the easiest way. If you have a Windows PC and get the same error as I
+<p>You need a Windows PC to download Windows. Ask a friend to download it. That<br />
+might be the easiest way. If you have a Windows PC and get the same error as I<br />
 get, you might need to re-install the system. (No, rebooting does not help.)</p>
 
-<p>What I've tried and what does not work:</p>
+<p>What I’ve tried and what does not work:</p>
 
 <ul>
-<li>Wine</li>
-<li>VMs</li>
-<li>Avoiding SDM</li>
+  <li>Wine</li>
+  <li>VMs</li>
+  <li>Avoiding SDM</li>
 </ul>
 
 <p>What I am currently trying: Installing Windows 7 on another computer.<em>argh</em></p>
@@ -165,12 +165,12 @@ get, you might need to re-install the system. (No, rebooting does not help.)</p>
 </div>
 
 <blockquote>
-<p>Das Feature, das Sie verwenden möchten, befindet sich auf einer Netzressource,
+  <p>Das Feature, das Sie verwenden möchten, befindet sich auf einer Netzressource,<br />
 die nicht zur Verfügung steht.</p>
 
-<p>Klicken Sie auf "OK", um den Vorgang zu wiederholen. Oder geben Sie in das
-untenstehende Feld den Pfad zu einem anderen Ordner ein, der das
-Installationspaket "SDM_DE.msi" enthält.</p>
+  <p>Klicken Sie auf “OK”, um den Vorgang zu wiederholen. Oder geben Sie in das<br />
+untenstehende Feld den Pfad zu einem anderen Ordner ein, der das<br />
+Installationspaket “SDM_DE.msi” enthält.</p>
 </blockquote>
 
 <p>(Sorry, I only get the German error message.)</p>
@@ -178,63 +178,66 @@ Installationspaket "SDM_DE.msi" enthält.</p>
 <p>When I give the path of the SDM_DE.msi I get:</p>
 
 <blockquote>
-<p>Die Datei "Z:\sdm\SDM_DE.msi" ist kein gültiges Installationspaket für das
-Produkt "Secure Download Manager". Suchen Sie das Installationspaket
-"SDM_DE.msi" in einem Order, von dem aus Sie
-"Secure Download Manager" installieren können.</p>
+  <p>Die Datei “Z:\sdm\SDM_DE.msi” ist kein gültiges Installationspaket für das<br />
+Produkt “Secure Download Manager”. Suchen Sie das Installationspaket<br />
+“SDM_DE.msi” in einem Order, von dem aus Sie<br />
+“Secure Download Manager” installieren können.</p>
 </blockquote>
 
 <p>Then I got desperate and followed <a href="https://threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu/">threadsofscience.wordpress.com/2013/02/13/downloading-dreamspark-microsoft-windows-on-ubuntu</a> (similar: http://boris-spinner.de/secure-download-manager-sdm-unter-linux-ausfuehren/).</p>
 
-<p>It seems as if I need Linux to emulate Windows to get Windows ... it's a
+<p>It seems as if I need Linux to emulate Windows to get Windows … it’s a<br />
 strange world.</p>
 
 <blockquote>
-<p>wine: Bad EXE format for Z:\home\moose\Downloads\SDM_EN.msi.</p>
+  <p>wine: Bad EXE format for Z:\home\moose\Downloads\SDM_EN.msi.</p>
 </blockquote>
 
-<p>Seems to be a 32-bit / 64-bit problem ...</p>
+<p>Seems to be a 32-bit / 64-bit problem …</p>
 
 <ul>
-<li>http://wiki.winehq.org/FAQ#32_bit_wineprefix</li>
-<li>https://appdb.winehq.org/objectManager.php?sClass=version&amp;iId=31542</li>
+  <li>http://wiki.winehq.org/FAQ#32_bit_wineprefix</li>
+  <li>https://appdb.winehq.org/objectManager.php?sClass=version&amp;iId=31542</li>
 </ul>
 
 <p>After trying to fix it, I get</p>
 
 <blockquote>
-<p>err:msidb:get_tablecolumns column 1 out of range
-err:msidb:get_tablecolumns column 2 out of range
-fixme:storage:create_storagefile Storage share mode not implemented.
-err:msidb:get_tablecolumns column 1 out of range
-err:msidb:get_tablecolumns column 2 out of range
-err:msidb:get_tablecolumns column 1 out of range
-err:msidb:get_tablecolumns column 2 out of range
-err:msidb:get_tablecolumns column 1 out of range
-err:msidb:get_tablecolumns column 2 out of range
-err:msidb:get_tablecolumns column 3 out of range
-err:msidb:get_tablecolumns column 1 out of range
-err:msidb:get_tablecolumns column 2 out of range
-err:msidb:get_tablecolumns column 3 out of range
-err:msidb:get_tablecolumns column 1 out of range
-err:msidb:get_tablecolumns column 2 out of range
-err:msidb:get_tablecolumns column 3 out of range
-err:msidb:get_tablecolumns column 1 out of range
-err:msidb:get_tablecolumns column 2 out of range
+  <p>err:msidb:get_tablecolumns column 1 out of range<br />
+err:msidb:get_tablecolumns column 2 out of range<br />
+fixme:storage:create_storagefile Storage share mode not implemented.<br />
+err:msidb:get_tablecolumns column 1 out of range<br />
+err:msidb:get_tablecolumns column 2 out of range<br />
+err:msidb:get_tablecolumns column 1 out of range<br />
+err:msidb:get_tablecolumns column 2 out of range<br />
+err:msidb:get_tablecolumns column 1 out of range<br />
+err:msidb:get_tablecolumns column 2 out of range<br />
+err:msidb:get_tablecolumns column 3 out of range<br />
+err:msidb:get_tablecolumns column 1 out of range<br />
+err:msidb:get_tablecolumns column 2 out of range<br />
+err:msidb:get_tablecolumns column 3 out of range<br />
+err:msidb:get_tablecolumns column 1 out of range<br />
+err:msidb:get_tablecolumns column 2 out of range<br />
+err:msidb:get_tablecolumns column 3 out of range<br />
+err:msidb:get_tablecolumns column 1 out of range<br />
+err:msidb:get_tablecolumns column 2 out of range<br />
 err:msidb:get_tablecolumns column 3 out of range</p>
 </blockquote>
 
-<h2 id="tocAnchor-1-3">Reverse Engineering ... a little bit</h2>
+<h2 id="tocAnchor-1-3">Reverse Engineering … a little bit</h2>
 
 <p>Taking a look at the <code>1234567890ab.sdx</code> file reveals that it contains only a single url:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">http://kit.onthehub.com/WebStore/Account/SdmAuthorize.aspx?o=12345678-1234-1234-123a-12234567890a&amp;ws=12345678-1234-1234-1234-1234567890ab&amp;uid=12345678-1234-1234-1234-1234567890ab&amp;abc=5
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>http://kit.onthehub.com/WebStore/Account/SdmAuthorize.aspx?o=12345678-1234-1234-123a-12234567890a&amp;ws=12345678-1234-1234-1234-1234567890ab&amp;uid=12345678-1234-1234-1234-1234567890ab&amp;abc=5
+</pre></div>
 </div>
-<p>(I've replaced the numbers by 123... to avoid problems with other people using
+</div>
+
+<p>(I’ve replaced the numbers by 123… to avoid problems with other people using<br />
 my link to download stuff)</p>
 
-<p>However, I cannot simply download it there. There is a page with two downloads,
+<p>However, I cannot simply download it there. There is a page with two downloads,<br />
 but when I click on download nothing happens.</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -244,33 +247,36 @@ but when I click on download nothing happens.</p>
    <p class="wp-caption-text">SDM download page</p>
 </div>
 
-<p>So I use Chrome developer tools
+<p>So I use Chrome developer tools<br />
 (<kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>i</kbd>) to see the request.</p>
 
-<p>It's a GET request which gets the response:</p>
-<div class="highlight">
-   <pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;information&gt;</span>
-    <span class="nt">&lt;oiopua&gt;</span>12345678-1234-1234-1234-1234567890ab<span class="nt">&lt;/oiopua&gt;</span>
-    <span class="nt">&lt;edv&gt;</span>1234567890^^1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<span class="nt">&lt;/edv&gt;</span>
-    <span class="nt">&lt;linkAvailable&gt;</span>1<span class="nt">&lt;/linkAvailable&gt;</span>
-    <span class="nt">&lt;errorTextKey</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;invokeExternalDownload&gt;</span>0<span class="nt">&lt;/invokeExternalDownload&gt;</span>
-    <span class="nt">&lt;fileURL&gt;</span>http://software.dreamspark.com/dreamspark/GERMAN/de_windows_8.1_with_update_x64_dvd_4048209.01.sdc<span class="nt">&lt;/fileURL&gt;</span>
-<span class="nt">&lt;/information&gt;</span>
-</code></pre>
-</div>
-<p>Although I can download the <code>.sdc</code> file, I cannot use it. It is an encrypted
-file (which would give the <code>.iso</code>, but I don't know how to encrypt it.).</p>
+<p>It’s a GET request which gets the response:</p>
 
-<p>If you are interested in the file format, you might want to read
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;information&gt;</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#070;font-weight:bold">&lt;oiopua&gt;</span>12345678-1234-1234-1234-1234567890ab<span style="color:#070;font-weight:bold">&lt;/oiopua&gt;</span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#070;font-weight:bold">&lt;edv&gt;</span>1234567890^^1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<span style="color:#070;font-weight:bold">&lt;/edv&gt;</span>
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#070;font-weight:bold">&lt;linkAvailable&gt;</span>1<span style="color:#070;font-weight:bold">&lt;/linkAvailable&gt;</span>
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#070;font-weight:bold">&lt;errorTextKey</span> <span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    <span style="color:#070;font-weight:bold">&lt;invokeExternalDownload&gt;</span>0<span style="color:#070;font-weight:bold">&lt;/invokeExternalDownload&gt;</span>
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#070;font-weight:bold">&lt;fileURL&gt;</span>http://software.dreamspark.com/dreamspark/GERMAN/de_windows_8.1_with_update_x64_dvd_4048209.01.sdc<span style="color:#070;font-weight:bold">&lt;/fileURL&gt;</span>
+<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span><span style="color:#070;font-weight:bold">&lt;/information&gt;</span>
+</pre></div>
+</div>
+</div>
+
+<p>Although I can download the <code>.sdc</code> file, I cannot use it. It is an encrypted<br />
+file (which would give the <code>.iso</code>, but I don’t know how to encrypt it.).</p>
+
+<p>If you are interested in the file format, you might want to read<br />
 <a href="https://en.wikipedia.org/wiki/Secure_Digital_Container">Secure Digital Container</a></p>
 
 <h2 id="tocAnchor-1-4">VMs</h2>
 
-<p>Another try is installing a VM. You can download some at
+<p>Another try is installing a VM. You can download some at<br />
 https://www.modern.ie/en-us/virtualization-tools#downloads</p>
 
-<p>I downloaded IE11, Win 8.1. Importing the VM took about 15 minutes on my computer.
+<p>I downloaded IE11, Win 8.1. Importing the VM took about 15 minutes on my computer.<br />
 Then I got another error:</p>
 
 <div style="width: 510px" class="wp-caption aligncenter">
@@ -282,18 +288,18 @@ Then I got another error:</p>
 
 <h2 id="tocAnchor-1-5">Installing Windows 7</h2>
 
-<p>12:50 I fortunately had a Windows 7 DVD lying around. Installing it will
-probably take another 2 hours or so...</p>
+<p>12:50 I fortunately had a Windows 7 DVD lying around. Installing it will<br />
+probably take another 2 hours or so…</p>
 
-<p>13:23 - <em>argh</em> ... I just found another reason to hate Windows. I've just
-installed Windows 7. Cable-based network does not work out of the box.
+<p>13:23 - <em>argh</em> … I just found another reason to hate Windows. I’ve just<br />
+installed Windows 7. Cable-based network does not work out of the box.<br />
 I have to install drivers from http://www.helpjet.net/files-Acer-TravelMate-5735Z.html#ANetwork</p>
 
 <h2 id="tocAnchor-1-6">Related</h2>
 
 <ul>
-<li><a href="http://superuser.com/questions/734924/install-windows-8-1-from-dreamspark-download-on-ubuntu">Install Windows 8.1 from Dreamspark download on Ubuntu</a></li>
-<li><a href="//martin-thoma.com/why-are-microsoft-products-so-user-unfriendly/">Why are Microsoft products so User unfriendly?</a></li>
+  <li><a href="http://superuser.com/questions/734924/install-windows-8-1-from-dreamspark-download-on-ubuntu">Install Windows 8.1 from Dreamspark download on Ubuntu</a></li>
+  <li><a href="//martin-thoma.com/why-are-microsoft-products-so-user-unfriendly/">Why are Microsoft products so User unfriendly?</a></li>
 </ul>
 
                         </div>
@@ -483,7 +489,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

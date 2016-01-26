@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>This <a href="../images/2012/04/versioning-cheat-sheet.pdf">Software Versioning Cheat Sheet</a> has very basic information aboout the installation and usage of Subversion and Git. (The <a href="../images/2012/04/versioning-cheat-sheet.zip">LaTeX Source Code</a> is here.)</p>
 
-<p>If you're at the KIT and you have SWT, then you'll probably need this command:</p>
+<p>If you’re at the KIT and you have SWT, then you’ll probably need this command:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">svn checkout https://svn.ipd.kit.edu/lehre/vorlesung/SWT1/SS12/stud/ SWT/ --username swt1</code></pre>
@@ -175,7 +175,6 @@ MathJax.Hub.Queue(function() {
 <p>Source: <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.log.html">svn log</a></p>
 
 <h3 id="tocAnchor-1-1-1">Updating the repository</h3>
-
 <p>You can update a SVN repository with this command:</p>
 
 <div class="highlight">
@@ -193,15 +192,17 @@ MathJax.Hub.Queue(function() {
       </code></pre>
 </div>
 
-<p>Now you only have to enter "swt" to execute "svn up /home/moose/Studium/SWT".</p>
+<p>Now you only have to enter “swt” to execute “svn up /home/moose/Studium/SWT”.</p>
 
 <h3 id="tocAnchor-1-1-2">Nice diffs</h3>
-
 <p>You can modify your config file:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">gedit ~/.subversion/config
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>gedit ~/.subversion/config
+</pre></div>
 </div>
+</div>
+
 <p>and change <code>diff-cmd</code> to <code>meld</code>.</p>
 
 <h3 id="tocAnchor-1-1-3">Compare revisions</h3>
@@ -215,27 +216,35 @@ MathJax.Hub.Queue(function() {
 <h2 id="tocAnchor-1-5">Git</h2>
 
 <h3 id="tocAnchor-1-5-1">Global configuration</h3>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git config --global user.name <span class="s2">"Martin Thoma"</span>
-<span class="nv">$ </span>git config --global user.email info@martin-thoma.de
-<span class="nv">$ </span>git config --global color.ui <span class="nb">true</span>
-</code></pre>
-</div>
-<h3 id="tocAnchor-1-5-2">Nice diffs</h3>
 
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ git config --global user.name "Martin Thoma"
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>$ git config --global user.email info@martin-thoma.de
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>$ git config --global color.ui true
+</pre></div>
+</div>
+</div>
+
+<h3 id="tocAnchor-1-5-2">Nice diffs</h3>
 <p>If you want a GUI for <code>git diff</code>, then you should do the following:</p>
 
 <p>Install meld:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash">sudo apt-get install meld
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>sudo apt-get install meld
+</pre></div>
 </div>
+</div>
+
 <p>Got to <code>/bin</code> and create a Shell-Script called <strong>git-meld</strong> with the following content:</p>
-<div class="highlight">
-   <pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
-meld <span class="s2">"$2"</span> <span class="s2">"$5"</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>#!/bin/bash
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>meld "$2" "$5"
+</pre></div>
 </div>
+</div>
+
 <p>Make it executable:</p>
 
 <div class="highlight">
@@ -248,8 +257,8 @@ meld <span class="s2">"$2"</span> <span class="s2">"$5"</span>
    <pre><code class="language-bash" data-lang="bash">git config --global diff.external git-meld</code></pre>
 </div>
 
-<p>Enjoy this experience when entering <code>git diff</code>:
-</p><div style="width: 310px" class="wp-caption aligncenter">
+<p>Enjoy this experience when entering <code>git diff</code>:</p>
+<div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2012/04/git-meld-300x129.png">
       <img src="../images/2012/04/git-meld-300x129.png" alt="Using Meld with GIT" width="" height="" class="size-medium wp-image-35541" />
    </a>
@@ -259,10 +268,8 @@ meld <span class="s2">"$2"</span> <span class="s2">"$5"</span>
 <p>See also <a href="http://jeetworks.org/node/90">jeetworks.org</a> for some other solutions.</p>
 
 <h3 id="tocAnchor-1-5-3">GitHub</h3>
-
 <h4>Preparation</h4>
-
-<p>Read the guide "<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>" for more information on SSH and "<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>" for Git-specific questions.</p>
+<p>Read the guide “<a href="https://help.github.com/articles/generating-ssh-keys">Generating SSH keys</a>” for more information on SSH and “<a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Getting Started - First-Time Git Setup</a>” for Git-specific questions.</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/.ssh
@@ -272,7 +279,6 @@ git config --global user.email info@martin-thoma.de</code></pre>
 </div>
 
 <h4>Clone</h4>
-
 <p>Clone a GITHub repository:</p>
 
 <div class="highlight">
@@ -280,7 +286,6 @@ git config --global user.email info@martin-thoma.de</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-5-4">Snippets</h3>
-
 <p>Reset a single file to the latest revision on the server:</p>
 
 <div class="highlight">
@@ -294,7 +299,6 @@ git config --global user.email info@martin-thoma.de</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-10">Resources</h2>
-
 <ul>
   <li><a href="http://svnbook.red-bean.com/en/1.6/">Version Control with Subversion</a>: a great explanation how to use subversion, e.g. <a href="http://svnbook.red-bean.com/en/1.6/svn.ref.svn.c.export.html">svn export</a></li>
   <li>StackOverflow: <a href="http://stackoverflow.com/questions/3233059/basic-subversion-question">Which files should be put under version controll?</a></li>
@@ -488,7 +492,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

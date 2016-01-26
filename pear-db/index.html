@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>PEAR is short for <strong>P</strong>HP <strong>E</strong>xtension and <strong>A</strong>pplication <strong>R</strong>epository. It provides a very easy method to get some common classes.</p>
 
 <p>PEAR MDB2 is a database class. It is a successor of PEAR DB. I took a look at version 1.4.1 which is currently the latest stable one.</p>
@@ -127,7 +127,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Install PEAR</h2>
-
 <p>You can install PEAR on Ubuntu via</p>
 
 <div class="highlight">
@@ -135,14 +134,16 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <p>You can check if it is installed with <a href="http://php.net/manual/en/function.phpinfo.php">phpinfo()</a>:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nb">phpinfo</span><span class="p">();</span><span class="cp">?&gt;</span><span class="x"></span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span> <span style="color:#369;font-weight:bold">phpinfo</span>();<span style="font-weight:bold;color:#666">?&gt;</span>
+</pre></div>
 </div>
+</div>
+
 <p>Something like <strong>.:/usr/share/php:/usr/share/pear</strong> should be in your <strong>include_path</strong>.</p>
 
 <h2 id="tocAnchor-1-2">Install PEAR MDB2</h2>
-
 <p>PEAR MDB2 is then simply installed via</p>
 
 <div class="highlight">
@@ -156,67 +157,80 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-3">Usage</h2>
-
 <p>I took a small chess database to test this package. You can set it up with <a href="http://code.google.com/p/community-chess/source/browse/trunk/install/chess.sql?spec=svn99&amp;r=98">this sql file</a>.</p>
 
-<p>It's sad, but only including <strong>MDB2.php</strong> shows 5 "Deprecated"-messages and 6 warings because of "Strict Standards".</p>
+<p>It’s sad, but only including <strong>MDB2.php</strong> shows 5 “Deprecated”-messages and 6 warings because of “Strict Standards”.</p>
 
 <p>You can easily connect to the database:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">require_once "MDB2.php";</span>
 
-<span class="x">$db   = new MDB2();</span>
-<span class="x">$dsn  = "mysql://chessuser:localpass@localhost/chess";</span>
-<span class="x">$mdb2 = MDB2::factory($dsn);</span>
-<span class="x">$mdb2-&gt;setFetchMode(MDB2_FETCHMODE_ASSOC);</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#369;font-weight:bold">require_once</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">MDB2.php</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$db</span>   = <span style="color:#080;font-weight:bold">new</span> <span style="color:#036;font-weight:bold">MDB2</span>();
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#950">$dsn</span>  = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">mysql://chessuser:localpass@localhost/chess</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#950">$mdb2</span> = <span style="color:#036;font-weight:bold">MDB2</span>::factory(<span style="color:#950">$dsn</span>);
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span><span style="color:#950">$mdb2</span>-&gt;setFetchMode(<span style="color:#036;font-weight:bold">MDB2_FETCHMODE_ASSOC</span>);
+</pre></div>
 </div>
+</div>
+
 <p>It is also very easy to fetch some data:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
-<span class="x">$result = $mdb2-&gt;query($sql);</span>
-<span class="x">while ($row = $result-&gt;fetchRow()) {</span>
-<span class="x">    print_r($row);</span>
-<span class="x">}</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$result</span> = <span style="color:#950">$mdb2</span>-&gt;query(<span style="color:#950">$sql</span>);
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">while</span> (<span style="color:#950">$row</span> = <span style="color:#950">$result</span>-&gt;fetchRow()) {
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$row</span>);
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>}
+</pre></div>
 </div>
-<p>or </p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
-<span class="x">$data = $mdb2-&gt;queryAll($sql);</span>
-<span class="x">print_r($data);</span>
-</code></pre>
 </div>
+
+<p>or</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$data</span> = <span style="color:#950">$mdb2</span>-&gt;queryAll(<span style="color:#950">$sql</span>);
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$data</span>);
+</pre></div>
+</div>
+</div>
+
 <p>This results in:</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">Array
-(
-    [user_id] =&gt; 1
-    [user_name] =&gt; abc
-    [user_password] =&gt; 900150983cd24fb0d6963f7d28e17f72
-    [currentchesssoftware] =&gt; 0
-)
-Array
-(
-    [user_id] =&gt; 2
-    [user_name] =&gt; test
-    [user_password] =&gt; 098f6bcd4621d373cade4e832627b4f6
-    [currentchesssoftware] =&gt; 0
-)
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>Array
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>(
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    [user_id] =&gt; 1
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    [user_name] =&gt; abc
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    [user_password] =&gt; 900150983cd24fb0d6963f7d28e17f72
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    [currentchesssoftware] =&gt; 0
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>)
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>Array
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>(
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    [user_id] =&gt; 2
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    [user_name] =&gt; test
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    [user_password] =&gt; 098f6bcd4621d373cade4e832627b4f6
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    [currentchesssoftware] =&gt; 0
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>)
+</pre></div>
 </div>
+</div>
+
 <p>You can set limits via MDB2:</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="x">$sql    = 'SELECT * FROM `chess_users`';</span>
-<span class="x">$mdb2-&gt;setLimit(1);</span>
-<span class="x">$data = $mdb2-&gt;queryAll($sql);</span>
-<span class="x">print_r($data);</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$mdb2</span>-&gt;setLimit(<span style="color:#00D">1</span>);
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$data</span> = <span style="color:#950">$mdb2</span>-&gt;queryAll(<span style="color:#950">$sql</span>);
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$data</span>);
+</pre></div>
 </div>
-<p>MDB2 offers lots of other features like choosing a (non)persistent connection, prepared statements or debuggin option. If you're interested in PEAR MDB2 I recommend to take a look at installationwiki.org.</p>
+</div>
+
+<p>MDB2 offers lots of other features like choosing a (non)persistent connection, prepared statements or debuggin option. If you’re interested in PEAR MDB2 I recommend to take a look at installationwiki.org.</p>
 
 <h2 id="tocAnchor-1-4">Sources</h2>
-
 <ul>
     <li><a href="http://en.wikipedia.org/wiki/PEAR" title="PEAR">PEAR</a>. Recieved 24 September 2011.</li>
     <li><a href="http://pear.php.net/package/MDB2" title="PEAR MDB2">PEAR MDB2</a>. Recieved 24 September 2011.</li>
@@ -410,7 +424,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

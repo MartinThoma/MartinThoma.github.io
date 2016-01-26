@@ -100,8 +100,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn't even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I <strike>didn't</strike> don't know any good online resource for C, so I've always searched with Google for answers to questions that I couldn't properly formulate. One question that is important for beginners is <a href="http://stackoverflow.com/q/12949290/562769">How do I find missing C header files (without Internet)?</a> and another one might be: How can I debug my programs?</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>As I began with programming C, I had enormous difficulties to produce working code. Most of the time it didn’t even compile, but when it compiled and I got a runtime error, I basically read my whole code again. I <strike>didn't</strike> don’t know any good online resource for C, so I’ve always searched with Google for answers to questions that I couldn’t properly formulate. One question that is important for beginners is <a href="http://stackoverflow.com/q/12949290/562769">How do I find missing C header files (without Internet)?</a> and another one might be: How can I debug my programs?</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -117,26 +117,24 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Compile time vs. runtime</h2>
-
-<p>A typical C workflow looks like this: You have an idea, you write your code, you compile it and you run it.
-</p><div style="width: 522px" class="wp-caption aligncenter">
+<p>A typical C workflow looks like this: You have an idea, you write your code, you compile it and you run it.</p>
+<div style="width: 522px" class="wp-caption aligncenter">
    <a href="../images/2012/11/c-workflow.png">
       <img src="../images/2012/11/c-workflow.png" alt="C workflow" width="" height="" class="size-full wp-image-49641" />
    </a>
    <p class="wp-caption-text">C workflow</p>
 </div>
 
-<p>You might make multiple errors. Simple typos or syntax errors are almost always detected at compile time. They are called "compile time errors". Others, like the access of an array-index that isn't in the array might only occur sometimes at runtime, depending on the input. Those are runtime errors and they are much more difficult to detect. Additionally, they can not be reproduced that easily as compile time errors can.</p>
+<p>You might make multiple errors. Simple typos or syntax errors are almost always detected at compile time. They are called “compile time errors”. Others, like the access of an array-index that isn’t in the array might only occur sometimes at runtime, depending on the input. Those are runtime errors and they are much more difficult to detect. Additionally, they can not be reproduced that easily as compile time errors can.</p>
 
 <h2 id="tocAnchor-1-2">gdb</h2>
-
 <p>If you want to find runtime errors, you should deactivate all optimization flags and add debugging symbols. A gcc call might look like this:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">gcc mySourceFile.c -g</code></pre>
 </div>
 
-<p>This produces a binary file called "a.out".</p>
+<p>This produces a binary file called “a.out”.</p>
 
 <p>Now should run gdb - GNU debug:</p>
 
@@ -153,7 +151,6 @@ MathJax.Hub.Queue(function() {
 <p>You should now be able to see the line in which the runtime-error occurs.</p>
 
 <h2 id="tocAnchor-1-3">valgrind</h2>
-
 <p>You might want to give valgrind a try.</p>
 
 <p><em>Uninitialised value was created by a stack allocation at 0x80488BC</em>: This could mean that you used an uninitialized variable. Check your variable initializations from the given point. Add <code>--track-origins=yes&lt;/code and run valgrind again.</code></p>
@@ -345,7 +342,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Boolean algebra&rdquo;’</h2>
   
@@ -1555,7 +1555,7 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-01-17T17:46:27+01:00">January 17, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/wie-wende-ich-die-shannon-zerlegung-an/"><img width="128" height="128" src="//martin-thoma.com/images/2013/01/george-boole-thumbnail.jpg" class="alignleft post_thumbnail wp-post-image" alt="Wie wende ich die Shannon-Zerlegung an?"/></a>
     
@@ -1820,10 +1820,10 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-11-08T13:18:09+01:00">November  8, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
 
-    Definition Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher Algebren erarbeitet: Sei $B$ eine Menge und $\sqcap: B \times B \rightarrow B$ sowie $\sqcup: B \times B \rightarrow B$ Verkn&uuml;fungen auf B. Weiter gelte: H1: Kommutativgesetze $\forall a,b \in B: a \sqcap b = b \sqcap a$ $\forall a,b \in B: a \sqcup b = b \sqcup a$ H2: Distributivgesetze $\forall a,b,c \in B: a \sqcap (b \sqcup c) = (a \sqcap b) \sqcup...
+    Definition Edward Vermilye Huntington hat eine sehr kompakte Definition boolescher Algebren erarbeitet: Sei $B$ eine Menge und $\sqcap: B \times B \rightarrow B$ sowie $\sqcup: B \times B \rightarrow B$ Verknüfungen auf B. Weiter gelte: H1: Kommutativgesetze `$\forall a,b \in B: a \sqcap b = b \sqcap a$` `$\forall a,b \in B: a \sqcup b = b \sqcup a$` H2: Distributivgesetze `$\forall a,b,c \in B: a \sqcap (b \sqcup c) = (a \sqcap b) \sqcup...
 
     
     <div class="readmorecontent">
@@ -3722,7 +3722,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

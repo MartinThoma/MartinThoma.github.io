@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:
-</p><ul>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Die folgende Tabelle gibt einen Überblick über formale Sprachen, die Automaten die sie akzeptieren und die Grammatiken, die sie erzeugen. Dabei haben die Grammatiken die Form $G = (V, \Sigma, P, S)$:</p>
+<ul>
   <li>V: Die Menge der Nicht-Terminale. Für sie benutze ich Großbuchstaben.</li>
-  <li>$\Sigma$: Die Menge der Terminale. Für sie benutze ich Kleinbuchstaben.</li>
+  <li>`$\Sigma$`: Die Menge der Terminale. Für sie benutze ich Kleinbuchstaben.</li>
   <li>P: Die Produktion, also die Regeln mit denen die Grammatik die Sprache erzeugt. Nur diese hat unterschiedliche Bedingungen, je nach dem welchem Typ die Grammatik angehört.</li>
-  <li>S: Das Startsymbol aus $\Sigma$.</li>
+  <li>S: Das Startsymbol aus `$\Sigma$`.</li>
 </ul>
 
 <table>
@@ -121,8 +121,8 @@ MathJax.Hub.Queue(function() {
 </th><th rowspan="2">Regeln
 </th><th colspan="4">Abgeschlossen unter
 </th><th rowspan="2">Modell
-</th></tr>
-<tr>
+
+</th></tr><tr>
 <th>`$\cup$`</th>
 <th>`$\cap$`</th>
 <th>`$\cdot$`</th>
@@ -168,44 +168,43 @@ MathJax.Hub.Queue(function() {
 <td><img src="../images/2012/01/yes.png" alt="yes" title="yes" width="13" height="13" class="size-full wp-image-12931" /></td>
 <td><a href="http://de.wikipedia.org/wiki/Endlicher_Automat">Endliche Automaten</a> (<a href="http://de.wikipedia.org/wiki/Moore-Automat">Moore</a>, <a href="http://de.wikipedia.org/wiki/Mealy-Automat">Mealy</a>, <a href="http://de.wikipedia.org/wiki/Akzeptor_(Informatik)">Akzeptoren</a>)</td>
 </tr>
-</table>
 
-<p><strong>Legende:</strong>
+
+<strong>Legende:</strong>
 Typ.: Der Typ der Grammatik in der <a href="http://de.wikipedia.org/wiki/Chomsky-Hierarchie">Chomsky-Hierarchie</a>
 D.: "Deterministisch"
 ND.: "Nicht Deterministisch"
 <span style="background-color:#F08080;">semi-entscheidbar</span>
-<span style="background-color:#90EE90;">entscheidbar</span>, es kann also in endlicher Zeit entschieden werden, ob ein Wort in der Sprache liegt (vgl. <a href="http://de.wikipedia.org/wiki/Wortproblem">Wortproblem</a>).</p>
+<span style="background-color:#90EE90;">entscheidbar</span>, es kann also in endlicher Zeit entschieden werden, ob ein Wort in der Sprache liegt (vgl. <a href="http://de.wikipedia.org/wiki/Wortproblem">Wortproblem</a>).
 
-<p><strong>Nicht-Abeschlossenheit der Kontextfreien Sprachen:</strong>
-$L_1 = \{a^jb^ic^i | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$
-$L_2 = \{a^ib^ic^j | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$
-$L_1 \cap L_2 = \{a^ib^ic^i | i \in \mathbb{N}_0\}$
-$(L_1 \cup L_2)^C = L_1^C \cap L_2^C$</p>
+<strong>Nicht-Abeschlossenheit der Kontextfreien Sprachen:</strong>
+`$L_1 = \{a^jb^ic^i | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$`
+`$L_2 = \{a^ib^ic^j | j \in \mathbb{N}_0, i \in \mathbb{N}_0\}$`
+`$L_1 \cap L_2 = \{a^ib^ic^i | i \in \mathbb{N}_0\}$`
+`$(L_1 \cup L_2)^C = L_1^C \cap L_2^C$`
 
 <h2 id="tocAnchor-1-1">Weitere Aussagen</h2>
+Sei L eine Sprache.
+`$L \in {\cal L_3} \Leftrightarrow$` Es existiert ein regulärer Ausdruck für L.
+`$L \in {\cal L_3} \Leftrightarrow$` Die Anzahl der Äquivalenzklassen der <a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a> bzgl. der Sprache ist endlich.
+`$L \in {\cal L_3} \Rightarrow$` Das <a href="../pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regulär (Pumping-Lemma)">Pumping-Lemma</a> ist erfüllt.
 
-<p>Sei L eine Sprache.
-$L \in {\cal L_3} \Leftrightarrow$ Es existiert ein regulärer Ausdruck für L.
-$L \in {\cal L_3} \Leftrightarrow$ Die Anzahl der Äquivalenzklassen der <a href="http://de.wikipedia.org/wiki/Nerode-Relation">Nerode-Relation</a> bzgl. der Sprache ist endlich.
-$L \in {\cal L_3} \Rightarrow$ Das <a href="../pumping-lemma/" title="Beweis durch Widerspruch: Eine Sprache ist nicht regulär (Pumping-Lemma)">Pumping-Lemma</a> ist erfüllt.</p>
+Für reguläre Sprachen ist das Leerheitsproblem (`$L(G) \stackrel{?}{=} \emptyset$`) entscheidbar.
+Für reguläre Sprachen ist das Endlichkeitsproblem (`$L(G) \stackrel{?}{&lt;} \infty$`) entscheidbar.
 
-<p>Für reguläre Sprachen ist das Leerheitsproblem ($L(G) \stackrel{?}{=} \emptyset$) entscheidbar.
-Für reguläre Sprachen ist das Endlichkeitsproblem ($L(G) \stackrel{?}{&lt;} \infty$) entscheidbar.</p>
+Für kontextfreie Sprachen ist das Leerheitsproblem entscheidbar.
+Für kontextfreie Sprachen ist das Endlichkeitsproblem entscheidbar.
 
-<p>Für kontextfreie Sprachen ist das Leerheitsproblem entscheidbar.
-Für kontextfreie Sprachen ist das Endlichkeitsproblem entscheidbar.</p>
+Für Typ 0 und Typ 1 Sprachen ist das Leerheitsproblem nicht entscheidbar.
 
-<p>Für Typ 0 und Typ 1 Sprachen ist das Leerheitsproblem nicht entscheidbar.</p>
-
-<p>$L \in {\cal L_2} \Leftrightarrow L$ wird von einem nichtdeterministischem Kellerautomaten erkannt.</p>
+`$L \in {\cal L_2} \Leftrightarrow L$` wird von einem nichtdeterministischem Kellerautomaten erkannt.
 
 <h2 id="tocAnchor-1-2">Quellen</h2>
-
 <ul>
     <li>Uwe Schöning: <i>Theoretische Informatik- kurz gefasst</i>. 5. Auflage. Spektrum Akademischer Verlag, Heidelberg <span style="white-space:nowrap;">2008</span>, ISBN 978-3-8274-1824-1, <span class="plainlinks-print"><a rel="nofollow" class="external text" href="http://d-nb.info/986529222">DNB 986529222</a></span>.</li>
     <li>Tutorium, Skript, Vorlesung: Theoretische Grundlagen der Informatik am KIT bei Prof. Dr. Dorothea Wagner</li>
 </ul>
+</table>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -400,7 +399,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

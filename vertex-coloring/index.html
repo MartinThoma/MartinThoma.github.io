@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">This is a quick article I had for quite a while as a draft.
 It might not be finished or have other problems, but I still want to share
 it.</div>
@@ -144,7 +144,7 @@ it.</div>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">The problem</h2>
-The <span style="font-variant: small-caps;">Vertex Coloring</span> problem can be described like this:
+<p>The <span style="font-variant: small-caps;">Vertex Coloring</span> problem can be described like this:</p>
 <div class="definition">
 <span style="font-variant: small-caps;">Vertex Coloring</span>
 Let `$G = (V, E)$` be an undirected graph.
@@ -164,13 +164,11 @@ Minimize `$n$`.
 <p>You have a graph. Then you take pencils and color the vertices such all vertices that are connected are not of the same color.</p>
 
 <h2 id="tocAnchor-1-2">Example</h2>
-
 <p>All of the following graphs show valid thee colorings:</p>
 
-<p>[caption id="attachment_69831" align="aligncenter" width="500"]<a href="../images/2013/06/graph-with-three-colorings.png"><img src="../images/2013/06/graph-with-three-colorings.png" alt="Valid thee colorings of one graph" width="500" height="429" class="size-full wp-image-69831" /></a> Valid thee colorings of one graph<br />Source: <a href="http://commons.wikimedia.org/wiki/File:Graph_with_all_three-colourings_2.svg">Wikipedia</a>[/caption]</p>
+<p>[caption id=”attachment_69831” align=”aligncenter” width=”500”]<a href="../images/2013/06/graph-with-three-colorings.png"><img src="../images/2013/06/graph-with-three-colorings.png" alt="Valid thee colorings of one graph" width="500" height="429" class="size-full wp-image-69831" /></a> Valid thee colorings of one graph<br />Source: <a href="http://commons.wikimedia.org/wiki/File:Graph_with_all_three-colourings_2.svg">Wikipedia</a>[/caption]</p>
 
 <h2 id="tocAnchor-1-3">Interesting facts</h2>
-
 <ul>
   <li>`$1 \leq \chi(G) \leq |V|$`: You need at least one color and you could color all vertices with a different color</li>
   <li>`$\chi(K_n) = n$`: All <abbr title="all vertices are connected with all other vertices.">complete graphs</abbr> with `$n$` vertices need exactly `$n$` colors. One color for each vertex.</li>
@@ -181,44 +179,39 @@ Minimize `$n$`.
 </ul>
 
 <h2 id="tocAnchor-1-4">Algorithms</h2>
-
 <p>I think learning from errors is important. This is the reason why I share the following algorithm that do not work.</p>
 
 <h3 id="tocAnchor-1-4-1">First WRONG try: Fix adjacent vertices</h3>
+<p>[caption id=”attachment_69891” align=”aligncenter” width=”512”]<a href="../images/2013/06/Vertex-coloring.png"><img src="../images/2013/06/Vertex-coloring.png" alt="A vertex coloring algorithm that does not work" width="512" height="281" class="size-full wp-image-69891" /></a> A vertex coloring algorithm that does not work[/caption]</p>
 
-<p>[caption id="attachment_69891" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring.png"><img src="../images/2013/06/Vertex-coloring.png" alt="A vertex coloring algorithm that does not work" width="512" height="281" class="size-full wp-image-69891" /></a> A vertex coloring algorithm that does not work[/caption]</p>
+<p>The time complexity of this algorithm is in $\mathcal{O}(|V|^2)$. This should make you suspicious, as <span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$. So if it was correct, it would solve the <a href="http://en.wikipedia.org/wiki/P_versus_NP_problem">P vs. NP problem</a> which is worth a million dollars.</p>
 
-<p>The time complexity of this algorithm is in $\mathcal{O}(|V|^2)$. This should make you suspicious, as <span style="font-variant: small-caps;">Vertex Coloring</span> is in $\mathcal{NPC}$. So if it was correct, it would solve the <a href="http://en.wikipedia.org/wiki/P_versus_NP_problem">P vs. NP problem</a> which is worth a million dollars. </p>
+<p>But an example why it doesn’t work is better. Just try it for the following graph:</p>
 
-<p>But an example why it doesn't work is better. Just try it for the following graph:</p>
-
-<p>[caption id="attachment_69921" align="aligncenter" width="512"]<a href="../images/2013/06/graph-v6-e8.png"><img src="../images/2013/06/graph-v6-e8.png" alt="Example that does not work with the provided algorithm" width="512" height="368" class="size-full wp-image-69921" /></a> Example that does not work with the provided algorithm[/caption]</p>
+<p>[caption id=”attachment_69921” align=”aligncenter” width=”512”]<a href="../images/2013/06/graph-v6-e8.png"><img src="../images/2013/06/graph-v6-e8.png" alt="Example that does not work with the provided algorithm" width="512" height="368" class="size-full wp-image-69921" /></a> Example that does not work with the provided algorithm[/caption]</p>
 
 <h3 id="tocAnchor-1-4-2">Second WRONG try: Fix current vertex</h3>
-
-<p>[caption id="attachment_69971" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png"><img src="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png" alt="Another vertex coloring algorithm" width="512" height="315" class="size-full wp-image-69971" /></a> Another vertex coloring algorithm[/caption]</p>
+<p>[caption id=”attachment_69971” align=”aligncenter” width=”512”]<a href="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png"><img src="../images/2013/06/Vertex-coloring-wrong-algorithm-2.png" alt="Another vertex coloring algorithm" width="512" height="315" class="size-full wp-image-69971" /></a> Another vertex coloring algorithm[/caption]</p>
 
 <p>This algorithm gives a valid coloring, but the coloring is not minimal.</p>
 
 <p>Example:</p>
 
-<p>When you apply the algorithm the the graph below, you will get a coloring with four colors. But obviously, it is possible to color it with three colors.
-[caption id="attachment_69951" align="aligncenter" width="512"]<a href="../images/2013/06/graph-v6-e81.png"><img src="../images/2013/06/graph-v6-e81.png" alt="Graph that can be vertex-colored with 3 colors" width="512" height="368" class="size-full wp-image-69951" /></a> Graph that can be vertex-colored with 3 colors[/caption]</p>
+<p>When you apply the algorithm the the graph below, you will get a coloring with four colors. But obviously, it is possible to color it with three colors.<br />
+[caption id=”attachment_69951” align=”aligncenter” width=”512”]<a href="../images/2013/06/graph-v6-e81.png"><img src="../images/2013/06/graph-v6-e81.png" alt="Graph that can be vertex-colored with 3 colors" width="512" height="368" class="size-full wp-image-69951" /></a> Graph that can be vertex-colored with 3 colors[/caption]</p>
 
 <h3 id="tocAnchor-1-4-3">Brute force</h3>
+<p>It’s always a good idea to think about brute force algorithms. On the one hand, they are simple. So you can intuitively  understand why they are correct and see their time / space complexity. On the other hand, you can use them for sanity checks of better algorithms for small problem instances.</p>
 
-<p>It's always a good idea to think about brute force algorithms. On the one hand, they are simple. So you can intuitively  understand why they are correct and see their time / space complexity. On the other hand, you can use them for sanity checks of better algorithms for small problem instances.</p>
-
-<p>Here is a brute force algorithm for the vertex coloring problem
-[caption id="attachment_70001" align="aligncenter" width="512"]<a href="../images/2013/06/Vertex-coloring-brute-force.png"><img src="../images/2013/06/Vertex-coloring-brute-force.png" alt="Brute force a minimal vertex coloring" width="512" height="333" class="size-full wp-image-70001" /></a> Brute force a minimal vertex coloring[/caption]</p>
+<p>Here is a brute force algorithm for the vertex coloring problem<br />
+[caption id=”attachment_70001” align=”aligncenter” width=”512”]<a href="../images/2013/06/Vertex-coloring-brute-force.png"><img src="../images/2013/06/Vertex-coloring-brute-force.png" alt="Brute force a minimal vertex coloring" width="512" height="333" class="size-full wp-image-70001" /></a> Brute force a minimal vertex coloring[/caption]</p>
 
 <p>You need $\sum_{i=2}^n i^n$ steps at maximum. Wow. This is MUCH. Even when you only want to check if $i$ colors are enough, you need $i^n$.</p>
 
-<p>You could use the second algorithm to get a better upper bound and try the next smaller ones. As soon as you don't get valid colorings, you know that the number of colors you've used in the last valid coloring was the minimum number.</p>
+<p>You could use the second algorithm to get a better upper bound and try the next smaller ones. As soon as you don’t get valid colorings, you know that the number of colors you’ve used in the last valid coloring was the minimum number.</p>
 
 <h2 id="tocAnchor-1-8">Zero-knowledge protocol</h2>
-
-<p>Vertex coloring is relevant for so called "zero-knowledge protocols". This is a method by which one party (the prover) can prove to another party (the verifier) that a given statement is true, without conveying any additional information apart from the fact that the statement is indeed true.</p>
+<p>Vertex coloring is relevant for so called “zero-knowledge protocols”. This is a method by which one party (the prover) can prove to another party (the verifier) that a given statement is true, without conveying any additional information apart from the fact that the statement is indeed true.</p>
 
 <blockquote>A zero-knowledge proof must satisfy three properties:
 <ul>
@@ -227,7 +220,6 @@ Minimize `$n$`.
 <li><strong>Zero-knowledge</strong>: if the statement is true, no cheating verifier learns anything other than this fact.  This is formalized by showing that every cheating verifier has some ''simulator'' that, given only the statement to be proven (and no access to the prover), can produce a transcript that "looks like" an interaction between the honest prover and the cheating verifier.</li>
 </ul>
 </blockquote>
-
 <p>Source: <a href="http://en.wikipedia.org/wiki/Zero-knowledge_proof#Definition">Wikipedia</a></p>
 
 <p>Another great example is the following:</p>
@@ -239,16 +231,14 @@ Here is the proof system. You give the two balls to your friend so that he is ho
 By looking at their colors, you can of course say with certainty whether or not he switched them. On the other hand, if they were the same color and hence indistinguishable, there is no way you could guess correctly with probability higher than `$\frac{1}{2}$`.
 
 If you and your friend repeat this "proof" `$t$` times (for large `$t$`), your friend should become convinced that the balls are indeed differently colored; otherwise, the probability that you would have succeeded at identifying all the switch/non-switches is at most `$2^{-t}$`. Furthermore, the proof is "zero-knowledge" because your friend never learns which ball is green and which is red; indeed, he gains no knowledge about how to distinguish the balls.</blockquote>
-
 <p>Source: <a href="http://mathoverflow.net/questions/22624/example-of-a-good-zero-knowledge-proof/22628#22628">mathoverflow.net</a></p>
 
-<p>Lets make this more concrete. Say you want to authenticate somebody. This person is identified as the "only" person who knows a three-coloring of a big graph. This makes him/her special.
-If you simply asked him "what's the three coloring for your graph?" he would no longer be the only person who knows the three coloring. </p>
+<p>Lets make this more concrete. Say you want to authenticate somebody. This person is identified as the “only” person who knows a three-coloring of a big graph. This makes him/her special.<br />
+If you simply asked him “what’s the three coloring for your graph?” he would no longer be the only person who knows the three coloring.</p>
 
 <p>So you want to get sure that he knows a three coloring without getting it.</p>
 
 <h2 id="tocAnchor-1-9">See also</h2>
-
 <ul>
   <li><a href="http://web.mit.edu/~ezyang/Public/graph/svg.html">Interactive zero knowledge 3-colorability demonstration</a></li>
 </ul>
@@ -434,7 +424,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

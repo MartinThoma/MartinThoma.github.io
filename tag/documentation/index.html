@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Documentation&rdquo;’</h2>
   
@@ -293,12 +293,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2015-04-08T19:39:00+02:00">April  8, 2015</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/python-code-documentation/"><img width="128" height="128" src="//martin-thoma.com/images/logos/python.png" class="alignleft post_thumbnail wp-post-image" alt="Python Code Documentation"/></a>
     
 
-    Documentating your code is important when you make non-trivial projects. The standard way to document Python code is with Sphinx. You write the documentation files with reStructuredText. One of the most important Sphinx plugins is autodoc. This allows you to generate the documentation of modules, classes and functions automatically by using their docstrings. There are 3 standard ways to write docstrings: Sphinxy, Googley or NumPyDocy. The Sphinx Way def preprocessing(self, algorithms): &quot;&quot;&quot;Apply preprocessing algorithms. :param...
+    Documentating your code is important when you make non-trivial projects. The standard way to document Python code is with Sphinx. You write the documentation files with reStructuredText. One of the most important Sphinx plugins is autodoc. This allows you to generate the documentation of modules, classes and functions automatically by using their docstrings. There are 3 standard ways to write docstrings: Sphinxy, Googley or NumPyDocy. The Sphinx Way 1def preprocessing(self, algorithms): 2 &quot;&quot;&quot;Apply preprocessing algorithms....
 
     
     <div class="readmorecontent">
@@ -2625,12 +2625,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2012-04-29T12:04:32+02:00">April 29, 2012</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/how-to-print-source-code-with-latex/"><img width="128" height="128" src="//martin-thoma.com/images/2012/01/latex-logo.png" class="alignleft post_thumbnail wp-post-image" alt="How to print Source Code with LaTeX"/></a>
     
 
-    I often need to print source code. Some years ago for a German competition called &quot;Bundeswettbewerb Informatik&quot;, now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I&#39;ve also included example PDF files. listings Minimal example { caption align=&quot;aligncenter&quot; width=&quot;590&quot; caption=&quot;LaTeX Java Source Code: listings&quot; url=&quot;../images/2012/04/latex-java-source-listings.png&quot; alt=&quot;LaTeX Java Source Code: listings&quot; height=&quot;185&quot; class=&quot;size-full wp-image-23851&quot; } Here is...
+    I often need to print source code. Some years ago for a German competition called “Bundeswettbewerb Informatik”, now for projects at my university. If you use LaTeX, you can simply include the source code into your document! Here are three examples with listings and minted. I’ve also included example PDF files. listings Minimal example { caption align=”aligncenter” width=”590” caption=”LaTeX Java Source Code: listings” url=”../images/2012/04/latex-java-source-listings.png” alt=”LaTeX Java Source Code: listings” height=”185” class=”size-full wp-image-23851” } Here is...
 
     
     <div class="readmorecontent">
@@ -3721,7 +3721,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

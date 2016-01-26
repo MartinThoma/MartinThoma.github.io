@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;OpenSource&rdquo;’</h2>
   
@@ -1515,12 +1515,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-01-26T09:59:46+01:00">January 26, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/software-licenses/"><img width="128" height="128" src="//martin-thoma.com/images/2013/01/TLDRLegal-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Software Licenses"/></a>
     
 
-    Do you know the difference between MIT-license and BSD license? I don&#39;t. And I don&#39;t want to read the MIT license, although it is very short. And I definitely don&#39;t want to read the Apache 2.0 license. Instead of reading all licenses, you could first read A Short Guide To Open-Source And Similar Licenses. Even shorter: TL;DR - Open Source Licenses Explained in Plain English. { caption align=&quot;aligncenter&quot; width=&quot;300&quot; caption=&quot;TL;DR Legal&quot; url=&quot;../images/2013/01/TLDRLegal-300x158.png&quot; alt=&quot;TL;DR Legal&quot; height=&quot;158&quot;...
+    Do you know the difference between MIT-license and BSD license? I don’t. And I don’t want to read the MIT license, although it is very short. And I definitely don’t want to read the Apache 2.0 license. Instead of reading all licenses, you could first read A Short Guide To Open-Source And Similar Licenses. Even shorter: TL;DR - Open Source Licenses Explained in Plain English. { caption align=”aligncenter” width=”300” caption=”TL;DR Legal” url=”../images/2013/01/TLDRLegal-300x158.png” alt=”TL;DR Legal” height=”158”...
 
     
     <div class="readmorecontent">
@@ -3007,12 +3007,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-12-23T01:38:37+01:00">December 23, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/vrms-virtual-richard-m-stallman/"><img width="128" height="128" src="//martin-thoma.com/images/2011/12/Richard-Stallman1.jpg" class="alignleft post_thumbnail wp-post-image" alt="vrms - virtual Richard M. Stallman"/></a>
     
 
-    { caption align=&quot;alignright&quot; width=&quot;200&quot; caption=&quot;Richard Stallman&quot; url=&quot;../images/2011/12/Richard-Stallman-200x300.jpg&quot; alt=&quot;Richard Stallman&quot; height=&quot;300&quot; class=&quot;size-medium wp-image-10141 &quot; } I&#39;ve just installed vrms - the virtual richard stallman :D Richard Stallman is an American software freedom activist and computer programmer. He launched the GNU Project to create a free Unix-like operating system, and he has been the project&#39;s lead architect and organizer. With the launch of the GNU Project, he initiated the free software movement; he founded the Free Software...
+    { caption align=”alignright” width=”200” caption=”Richard Stallman” url=”../images/2011/12/Richard-Stallman-200x300.jpg” alt=”Richard Stallman” height=”300” class=”size-medium wp-image-10141 “ } I’ve just installed vrms - the virtual richard stallman :D Richard Stallman is an American software freedom activist and computer programmer. He launched the GNU Project to create a free Unix-like operating system, and he has been the project’s lead architect and organizer. With the launch of the GNU Project, he initiated the free software movement; he founded the Free Software...
 
     
     <div class="readmorecontent">
@@ -3199,12 +3199,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-10-19T12:30:01+02:00">October 19, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/community-chess/"><img width="128" height="128" src="//martin-thoma.com/images/2011/10/logo.png" class="alignleft post_thumbnail wp-post-image" alt="Community Chess"/></a>
     
 
-    Community Chess is one of my projects. I can make something usefull and play a bit. This project has now an own URL: community-chess.com It&#39;s a little bit crappy at the moment as I&#39;ve just started studying, but I&#39;ll fix that. If you like to help, please write me an e-mail (info@martin-thoma.de). Everybody can help. Here are some examples: I need some people who can create a better desing / color scheme use it and...
+    Community Chess is one of my projects. I can make something usefull and play a bit. This project has now an own URL: community-chess.com It’s a little bit crappy at the moment as I’ve just started studying, but I’ll fix that. If you like to help, please write me an e-mail (info@martin-thoma.de). Everybody can help. Here are some examples: I need some people who can create a better desing / color scheme use it and...
 
     
     <div class="readmorecontent">
@@ -3765,7 +3765,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

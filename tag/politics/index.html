@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Politics&rdquo;’</h2>
   
@@ -241,7 +241,7 @@ MathJax.Hub.Queue(function() {
             <time datetime="2015-05-19T19:17:00+02:00">May 19, 2015</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/get-a-feeling-for-energy/"><img width="128" height="128" src="//martin-thoma.com/images/logos/energy.png" class="alignleft post_thumbnail wp-post-image" alt="Getting a Feeling for Energy"/></a>
     
@@ -567,12 +567,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2014-12-02T15:18:00+01:00">December  2, 2014</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/the-impact-of-strong-ais/"><img width="128" height="128" src="//martin-thoma.com/images/logos/ai.png" class="alignleft post_thumbnail wp-post-image" alt="The Impact of strong AIs"/></a>
     
 
-    An artificial intelligence (AI) is a computer program which acts - according to its developers - intelligent. That could be anything. Typical examples are route finding algorithms, chess programs, ego shooter computer opponents and classifiers. The last category of AIs (classifiers) is huge and includes programs which try to find out what you were writing (see my bachelor&#39;s thesis), try to figure out who is on an image (face recognition) or what was spoken (automatic...
+    An artificial intelligence (AI) is a computer program which acts - according to its developers - intelligent. That could be anything. Typical examples are route finding algorithms, chess programs, ego shooter computer opponents and classifiers. The last category of AIs (classifiers) is huge and includes programs which try to find out what you were writing (see my bachelor’s thesis), try to figure out who is on an image (face recognition) or what was spoken (automatic...
 
     
     <div class="readmorecontent">
@@ -859,10 +859,10 @@ MathJax.Hub.Queue(function() {
             <time datetime="2014-05-10T02:04:00+02:00">May 10, 2014</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
 
-    I&#39;ve recently had a very interesting discussion with some friends. We talked about a lot of stuff and I don&#39;t want to go into detail about the topics we&#39;ve discussed, but rather some thoughts about discussions. Types of discussions There are many ways people talk to each other: Small Talk is about being together and feeling fine. We do it when we are together waiting for something or just because it feels good. It&#39;s not...
+    I’ve recently had a very interesting discussion with some friends. We talked about a lot of stuff and I don’t want to go into detail about the topics we’ve discussed, but rather some thoughts about discussions. Types of discussions There are many ways people talk to each other: Small Talk is about being together and feeling fine. We do it when we are together waiting for something or just because it feels good. It’s not...
 
     
     <div class="readmorecontent">
@@ -3767,7 +3767,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

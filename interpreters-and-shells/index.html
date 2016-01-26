@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Should you ever be in the position to write a shell or interpreter I hope you
-will make sure the following things work. Take it as a quality guide. They
-are ordered by level of importance. The first thing is the most basic one that
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Should you ever be in the position to write a shell or interpreter I hope you<br />
+will make sure the following things work. Take it as a quality guide. They<br />
+are ordered by level of importance. The first thing is the most basic one that<br />
 has to work, the last one is less necessary, but much cooler if you support it.</p>
 
-<p>In the following, I'll only talk about shells. But most of it will also apply 
+<p>In the following, I’ll only talk about shells. But most of it will also apply <br />
 to interpreters.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -152,136 +152,131 @@ to interpreters.</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Level 0: Robustness</h2>
-
-<p>A shell has to be robust. Users rely on it when GUI doesn't work. This means
+<p>A shell has to be robust. Users rely on it when GUI doesn’t work. This means<br />
 it should definitely not fail. Never.</p>
 
-<p>And just to make sure that you get me correct. Commands get "Entered". So the
-user pushes "enter" when he wants something to happen. Everything the shell does
-meanwhile should not change the system (except for shell-related stuff) and not
+<p>And just to make sure that you get me correct. Commands get “Entered”. So the<br />
+user pushes “enter” when he wants something to happen. Everything the shell does<br />
+meanwhile should not change the system (except for shell-related stuff) and not<br />
 be able to slow down / crash the system.</p>
 
 <h2 id="tocAnchor-1-2">Level 1: Speed</h2>
+<p>I expect a shell to start without recognizable delay. I’m not too sure how fast ‘without recognizable delay’ means. In the most extreme case it would be about 1/100 of a second, because when monitors have 100Hz they are said to be flicker free. You could not even see that. But I think it is not necessary.</p>
 
-<p>I expect a shell to start without recognizable delay. I'm not too sure how fast 'without recognizable delay' means. In the most extreme case it would be about 1/100 of a second, because when monitors have 100Hz they are said to be flicker free. You could not even see that. But I think it is not necessary.</p>
-
-<p>Another measure would be reaction time. I've just did an online test and saw that
-my reaction time is about 0.2 seconds. So a shell should be ready for user input
+<p>Another measure would be reaction time. I’ve just did an online test and saw that<br />
+my reaction time is about 0.2 seconds. So a shell should be ready for user input<br />
 after this time.</p>
 
 <h2 id="tocAnchor-1-3">Level 2: Left / Right arrow keys</h2>
-
-<p>When I enter a command, it happens that I forget something. In this case I want
+<p>When I enter a command, it happens that I forget something. In this case I want<br />
 to be able to navigate with left / right arrow keys through the console.</p>
 
 <h2 id="tocAnchor-1-4">Level 3: History with up / down arrow keys</h2>
-
-<p>When you use the up-array, you should get the last command you've entered.
-When you press it twice, you get the second last command...
-So the shell should save your last commands in a so called "history". This 
+<p>When you use the up-array, you should get the last command you’ve entered.<br />
+When you press it twice, you get the second last command…<br />
+So the shell should save your last commands in a so called “history”. This <br />
 history should be at least</p>
 
 <h2 id="tocAnchor-1-5">Level 4: Customization</h2>
-
 <ul>
-<li>Promt</li>
-<li>History length</li>
+  <li>Promt</li>
+  <li>History length</li>
 </ul>
 
 <h2 id="tocAnchor-1-6">Level 5: Path autocompletion</h2>
-
-<p>The path should autocomplete when you hit <kbd>Tab</kbd>. The autocomplete should
+<p>The path should autocomplete when you hit <kbd>Tab</kbd>. The autocomplete should<br />
 work as follows:</p>
 
 <ol>
-<li>The autocomplete should never get farer than one folder.</li>
-<li>If there are multiple possibilities to autocomplete, then it should only
-autocomplete what is in common. After a second <kbd>Tab</kbd> it should display
-the possibilities and after a third <kbd>Tab</kbd> the shell should go to the
-first possibility so that you can hit enter to use this possibility.</li>
+  <li>The autocomplete should never get farer than one folder.</li>
+  <li>If there are multiple possibilities to autocomplete, then it should only<br />
+  autocomplete what is in common. After a second <kbd>Tab</kbd> it should display<br />
+  the possibilities and after a third <kbd>Tab</kbd> the shell should go to the<br />
+  first possibility so that you can hit enter to use this possibility.</li>
 </ol>
 
 <h2 id="tocAnchor-1-7">Level 6: Command autocompletion</h2>
-
 <p>The autocomplete function should also complete commands.</p>
 
 <h2 id="tocAnchor-1-8">Level 7: Fuzzy autocompletion</h2>
-
-<p>When you make a typo in a path and hit <kbd>Tab</kbd> the shell should correct
+<p>When you make a typo in a path and hit <kbd>Tab</kbd> the shell should correct<br />
 the typo if possible.</p>
 
 <h2 id="tocAnchor-1-9">Additional stuff</h2>
-
 <p>Some stuff is nice to have, but not really essential:</p>
 
 <ul>
-<li>Some default commands like <code>help</code>, <code>time</code>, <code>pwd</code>, <code>cd</code> and <code>echo</code>.</li>
-<li><kbd>Ctrl</kbd> + <kbd>D</kbd> as a shortcut for exiting.</li>
-<li><kbd>Ctrl</kbd> + <kbd>C</kbd> should stop the current command.</li>
-<li>The configuration file should be stored in the home folder of the user and it should be called <code>.[name]rc</code>. The dot makes the file invisible by convention and 'rc' means 'resource configuration'.</li>
-<li>The prompt configuration should be easy. Some patterns that are used quite often are 
-
-<ul>
-<li><code>\w</code> for the working directory, where `$HOME</code> gets abbreviated with <code>~</code></li>
-<li><code>\u</code> the username</li>
-<li><code>\h</code> the hostname</li>
-<li>Using colors for different parts</li>
-</ul></li>
-<li>Navigation with <kbd>Pos 1</kbd> and <kbd>End</kbd> should work.</li>
+  <li>Some default commands like <code>help</code>, <code>time</code>, <code>pwd</code>, <code>cd</code> and <code>echo</code>.</li>
+  <li><kbd>Ctrl</kbd> + <kbd>D</kbd> as a shortcut for exiting.</li>
+  <li><kbd>Ctrl</kbd> + <kbd>C</kbd> should stop the current command.</li>
+  <li>The configuration file should be stored in the home folder of the user and it should be called <code>.[name]rc</code>. The dot makes the file invisible by convention and ‘rc’ means ‘resource configuration’.</li>
+  <li>The prompt configuration should be easy. Some patterns that are used quite often are
+    <ul>
+      <li><code>\w</code> for the working directory, where ``$HOME<code> gets abbreviated with </code>~`</li>
+      <li><code>\u</code> the username</li>
+      <li><code>\h</code> the hostname</li>
+      <li>Using colors for different parts</li>
+    </ul>
+  </li>
+  <li>Navigation with <kbd>Pos 1</kbd> and <kbd>End</kbd> should work.</li>
 </ul>
 
 <h2 id="tocAnchor-1-10">Ranking</h2>
-
-<p>Here is how some shells rank. Please note, that it's very difficult to check
+<p>Here is how some shells rank. Please note, that it’s very difficult to check<br />
 if a shell is robust. :</p>
 
-<p><strong>Level 0</strong>: Windows XP / Windows 7 default shell; Windows Power shell<br />
-The shell is too slow. I don't know if this is still a problem in Windows 8, but
+<p><strong>Level 0</strong>: Windows XP / Windows 7 default shell; Windows Power shell<br /><br />
+The shell is too slow. I don’t know if this is still a problem in Windows 8, but<br />
 I guess so.</p>
 
 <p>The <code>scala</code> interactive interpreter is slow.</p>
 
-<p><strong>Level 1</strong>: <code>csh</code> prints "^[[D" when I press the left arrow and "^[[C" when 
-I press the right arrow. When I press <kbd>Tab</kbd> it only prints tab. What
+<p><strong>Level 1</strong>: <code>csh</code> prints “^[[D” when I press the left arrow and “^[[C” when <br />
+I press the right arrow. When I press <kbd>Tab</kbd> it only prints tab. What<br />
 a crap.</p>
 
-<p><strong>Level 3</strong>: <code>python</code> seems to have possibilities to execute arbitrary python code at
-startup by specifying the environment variable <code>PYTHONSTARTUP</code>, but somehow this
-does not work on my system.<br />
+<p><strong>Level 3</strong>: <code>python</code> seems to have possibilities to execute arbitrary python code at<br />
+startup by specifying the environment variable <code>PYTHONSTARTUP</code>, but somehow this<br />
+does not work on my system.<br /><br />
 However, customizing the prompt is fairly easy:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">ps1</span> <span class="o">=</span> <span class="s">"--&gt;"</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>sys.ps1 = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--&gt;</span><span style="color:#710">"</span></span>
+</pre></div>
 </div>
-<p><strong>Level 4</strong>: <code>GHCi</code>, a Haskell compiler, has mastered level 4. The prompt can be
+</div>
+
+<p><strong>Level 4</strong>: <code>GHCi</code>, a Haskell compiler, has mastered level 4. The prompt can be<br />
 configured via <code>~/.ghci</code> by adding <code>:set prompt "ghci&gt; "</code>.</p>
 
 <p>If you want to show the current path, you can do it like this (<a href="http://stackoverflow.com/a/11263118/562769">source</a>):</p>
-<div class="highlight">
-   <pre><code class="language-haskell" data-lang="haskell"><span class="kr">let</span> <span class="n">cur</span> <span class="n">fill</span> <span class="ow">=</span> <span class="kr">do</span> <span class="p">{</span> <span class="n">cwd</span> <span class="ow">&lt;-</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">getCurrentDirectory</span><span class="p">;</span> <span class="n">return</span> <span class="p">(</span><span class="s">":set prompt </span><span class="se">\"</span><span class="s">"</span> <span class="o">++</span> <span class="n">cwd</span> <span class="o">++</span> <span class="n">fill</span> <span class="o">++</span> <span class="s">" </span><span class="se">\"</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span>
-<span class="kt">:</span><span class="n">def</span> <span class="n">doprompt</span> <span class="p">(</span><span class="nf">\</span><span class="kr">_</span> <span class="ow">-&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
-<span class="kt">:</span><span class="n">def</span> <span class="n">mycd</span> <span class="p">(</span><span class="nf">\</span><span class="n">dir</span> <span class="ow">-&gt;</span> <span class="kt">System</span><span class="o">.</span><span class="kt">Directory</span><span class="o">.</span><span class="n">setCurrentDirectory</span> <span class="n">dir</span> <span class="o">&gt;&gt;</span> <span class="n">cur</span> <span class="s">"&gt;"</span><span class="p">)</span>
-<span class="kt">:</span><span class="n">doprompt</span>
-</code></pre>
-</div>
-<p><strong>Level 4.5</strong>: <code>bash</code> is robust, takes about 0.11 seconds to start, has a history of 
-500 lines as you can verify with <code>echo $HISTSIZE<code>, is customizable with</code>.bashrc`.</p>
 
-<p><code>tcsh</code> takes about 0.02 seconds to start, has a default history size of 100 lines
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>let cur fill = do { cwd &lt;- System.Directory.getCurrentDirectory; return (":set prompt \"" ++ cwd ++ fill ++ " \""); }
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>:def doprompt (\_ -&gt; cur "&gt;")
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>:def mycd (\dir -&gt; System.Directory.setCurrentDirectory dir &gt;&gt; cur "&gt;")
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>:doprompt
+</pre></div>
+</div>
+</div>
+
+<p><strong>Level 4.5</strong>: <code>bash</code> is robust, takes about 0.11 seconds to start, has a history of <br />
+500 lines as you can verify with <code>echo $</code>HISTSIZE<code>, is customizable with </code>.bashrc`.</p>
+
+<p><code>tcsh</code> takes about 0.02 seconds to start, has a default history size of 100 lines<br />
 as you can verify with <code>echo $history</code>, is customizable with <code>.tcshrc</code> and <code>.cshrc</code>.</p>
 
-<p>Rubys interactive interpreter <code>irb</code> seems to be fast enough, has a history,
-the prompt can be configured in <code>~/.riplrc</code> (<a href="http://stackoverflow.com/a/6097629/562769">source</a>). I don't know if the history length is limited and can be adjusted.</p>
+<p>Rubys interactive interpreter <code>irb</code> seems to be fast enough, has a history,<br />
+the prompt can be configured in <code>~/.riplrc</code> (<a href="http://stackoverflow.com/a/6097629/562769">source</a>). I don’t know if the history length is limited and can be adjusted.</p>
 
 <p>All shells in this level have path autocompletion as described in 5.1, but do not have autocompletion as described in 5.2.</p>
 
 <p><strong>Level 7</strong>: ZSH is the best shell I have ever used. Especially with <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>.</p>
 
 <h2 id="tocAnchor-1-11">Additional resources</h2>
-
 <ul>
-<li><a href="http://www.understudy.net/custom.html">How to change your shell prompt</a>:
+  <li><a href="http://www.understudy.net/custom.html">How to change your shell prompt</a>:<br />
 A list of files and commands that might be useful.</li>
 </ul>
 
@@ -463,7 +458,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

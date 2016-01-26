@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;ML&rdquo;’</h2>
   
@@ -685,12 +685,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2014-07-18T17:40:00+02:00">July 18, 2014</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/introduction-to-octave/"><img width="128" height="128" src="//martin-thoma.com/images/logos/octave.png" class="alignleft post_thumbnail wp-post-image" alt="Introduction to Octave"/></a>
     
 
-    GNU Octave is a really neat prototyping language for machine learning tasks. It is dynamically typed. Installation Octave is in the package repositories, so it can be installed by $ sudo apt-get install octave gnuplot-x11 octave-epstk and started with $ octave Configuration Create a file ~/.octaverc in your home folder. Write PS1(&#39;&gt;&gt;&#39;); setenv(&quot;GNUTERM&quot;,&quot;x11&quot;); in it to get a nicer prompt and make sure that plots will work. The Language Vectors and Matrices Octave has a...
+    GNU Octave is a really neat prototyping language for machine learning tasks. It is dynamically typed. Installation Octave is in the package repositories, so it can be installed by 1$ sudo apt-get install octave gnuplot-x11 octave-epstk and started with 1$ octave Configuration Create a file ~/.octaverc in your home folder. Write 1PS1('&gt;&gt;'); 2setenv(&quot;GNUTERM&quot;,&quot;x11&quot;); in it to get a nicer prompt and make sure that plots will work. The Language Vectors and Matrices Octave has a...
 
     
     <div class="readmorecontent">
@@ -759,7 +759,7 @@ MathJax.Hub.Queue(function() {
             <time datetime="2014-06-27T06:39:00+02:00">June 27, 2014</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/what-are-pfiles/"><img width="128" height="128" src="//martin-thoma.com/images/logos/ai.png" class="alignleft post_thumbnail wp-post-image" alt="What are pfiles?"/></a>
     
@@ -3724,7 +3724,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

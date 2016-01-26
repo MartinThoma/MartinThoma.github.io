@@ -105,18 +105,18 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I&#39;ve created a <a href="http://www.youtube.com/watch?v=QDV4E9ldelM&list=PL1EB0B7290460E720">playlist</a> with 51 songs on YouTube about two years ago.</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I’ve created a <a href="http://www.youtube.com/watch?v=QDV4E9ldelM&amp;list=PL1EB0B7290460E720">playlist</a> with 51 songs on YouTube about two years ago.</p>
 
-<p>Let&#39;s see the stats:
+<p>Let’s see the stats:</p>
 <ul>
   <li>6 of 51 are still available</li>
   <li>5 had copyright problems</li>
   <li>17 songs are not available because of <a href="http://en.wikipedia.org/wiki/Gesellschaft_f%C3%BCr_musikalische_Auff%C3%BChrungs-_und_mechanische_Vervielf%C3%A4ltigungsrechte">GEMA</a></li>
   <li>22 are gone for other reasons</li>
-</ul></p>
+</ul>
 
-<div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/03/youtube-gema-300x134.png"><img src="../images/2013/03/youtube-gema-300x134.png" alt="YouTube Video is not available in Germany because of GEMA" width="" height="" class="size-medium wp-image-60991"/></a><p class="wp-caption-text">YouTube Video is not available in Germany because of GEMA</p></div>
+<div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/03/youtube-gema-300x134.png"><img src="../images/2013/03/youtube-gema-300x134.png" alt="YouTube Video is not available in Germany because of GEMA" width="" height="" class="size-medium wp-image-60991" /></a><p class="wp-caption-text">YouTube Video is not available in Germany because of GEMA</p></div>
 
 <table>
   <thead>
@@ -147,7 +147,7 @@ MathJax.Hub.Queue(function() {
       <td>Unfortunately, this SME-music-content is not available in Germany because GEMA has not granted the respective music publishing rights.</td>
     </tr>
     <tr>
-      <td><abbr title="Within Temptation - Running up that hill; Warlock - F&uuml;r Immer; Smells Like Teen Spirit Misheard; Metallica - Master Of Puppets; The Rasmus - Livin' in a world without you; The Fratellis - (13) Nobody's Favourite Actor; The Fratellis - My Friend John; Blink 182 - All The Small Things; Blink-182 - What's My Age Again?">9 songs</abbr></</td>
+      <td><abbr title="Within Temptation - Running up that hill; Warlock - F&uuml;r Immer; Smells Like Teen Spirit Misheard; Metallica - Master Of Puppets; The Rasmus - Livin' in a world without you; The Fratellis - (13) Nobody's Favourite Actor; The Fratellis - My Friend John; Blink 182 - All The Small Things; Blink-182 - What's My Age Again?">9 songs</abbr>&lt;/</td>
       <td>[...] UMG-music-content is not available in Germany because GEMA [...]</td>
     </tr>
     <tr>
@@ -155,7 +155,7 @@ MathJax.Hub.Queue(function() {
       <td>Unfortunately, this video is not available in Germany because it may contain music for which GEMA has not granted the respective music rights.</td>
     </tr>
     <tr>
-      <td><abbr title="Nightwish - Kinslayer; Wishmaster - The Misheard">2 songs</abbr></</td>
+      <td><abbr title="Nightwish - Kinslayer; Wishmaster - The Misheard">2 songs</abbr>&lt;/</td>
       <td>This video is not available in your country.</td>
     </tr>
     <tr>
@@ -386,7 +386,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

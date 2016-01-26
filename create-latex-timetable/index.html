@@ -105,68 +105,73 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>LaTeX is a quite cool document markup language and document preparation system. You can easily create mathematical formulas.</p>
 
-<p>Today I&#39;ve created a LaTeX timetable. Well, to be honest I have only used the timetable package from Pascal Gwosdek found on <a href="http://www.planetk.de/index.php/Stundenplan">planetk.de</a>.</p>
+<p>Today I’ve created a LaTeX timetable. Well, to be honest I have only used the timetable package from Pascal Gwosdek found on <a href="http://www.planetk.de/index.php/Stundenplan">planetk.de</a>.</p>
 
 <p>Here is the LaTeX-Code:</p>
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper,10pt]</span><span class="nb">{</span>report<span class="nb">}</span>
 
-<span class="c">% Definitions</span>
-<span class="k">\usepackage</span><span class="nb">{</span>lscape<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="na">[height=25cm]</span><span class="nb">{</span>geometry<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>timetable<span class="nb">}</span>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>\documentclass[a4paper,10pt]{report}
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>% Definitions
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>\usepackage{lscape}
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>\usepackage[height=25cm]{geometry}
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>\usepackage{timetable}
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>\begin{document}
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>\thispagestyle{empty}
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>\begin{landscape}
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>\noindent\printheading{Stundenplan von Martin Thoma - 1. Semester}
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>% Define the layout of your time tables
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>\setslotsize{2.8cm}{0.3cm}
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span>\setslotcount {5} {40}
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span>\settopheight{3}
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span>\settextframe{0.8mm}
+<span class="line-numbers"><a href="#n18" name="n18">18</a></span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span>% Retro
+<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>\setframetype[t]{1}
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span>\seteventcornerradius{0pt}
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span>
+<span class="line-numbers"><a href="#n23" name="n23">23</a></span>% Print timestamps into event blocks
+<span class="line-numbers"><a href="#n24" name="n24">24</a></span>%\setprinttimestamps{2}
+<span class="line-numbers"><a href="#n25" name="n25">25</a></span>
+<span class="line-numbers"><a href="#n26" name="n26">26</a></span>% Define event types
+<span class="line-numbers"><a href="#n27" name="n27">27</a></span>\defineevent{lecture}{0.0} {0.28}{1.0} {1.0}{1.0}{1.0}
+<span class="line-numbers"><a href="#n28" name="n28">28</a></span>\defineevent{exercise-course}    {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+<span class="line-numbers"><a href="#n29" name="n29">29</a></span>\defineevent{tutorial}   {0.6} {0.8} {1.0} {1.0}{1.0}{1.0}
+<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>\defineevent{langcourse} {1.0} {0.4} {0.2} {1.0}{1.0}{1.0}
+<span class="line-numbers"><a href="#n31" name="n31">31</a></span>\defineevent{work}       {0.21}{0.5} {0.16}{1.0}{1.0}{1.0}
+<span class="line-numbers"><a href="#n32" name="n32">32</a></span>
+<span class="line-numbers"><a href="#n33" name="n33">33</a></span>% Start the time table
+<span class="line-numbers"><a href="#n34" name="n34">34</a></span>\begin{timetable}
+<span class="line-numbers"><a href="#n35" name="n35">35</a></span>  \hours{8}{15}{1}
+<span class="line-numbers"><a href="#n36" name="n36">36</a></span>  \germandays{1}
+<span class="line-numbers"><a href="#n37" name="n37">37</a></span>  \event 1 {0945} {1115} {Betriebssysteme}                        {Bellosa}          {10.23 Nusselt}     {lecture}
+<span class="line-numbers"><a href="#n38" name="n38">38</a></span>  \event 1 {1130} {1300} {Wahrscheinlichkeits-theorie}            {Hug}              {11.40 Tulla HS}    {lecture}
+<span class="line-numbers"><a href="#n39" name="n39">39</a></span>  \event 1 {1400} {1530} {Programmieren}                          {Pretschner}       {50.35 HS a. F.}    {lecture}
+<span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>  \event 1 {1545} {1715} {LinAlg und Ana}                         {Leuzinger}        {30.46 Neue Chemie} {exercise-course}
+<span class="line-numbers"><a href="#n41" name="n41">41</a></span>  \event 2 {0800} {0930} {Analysis I}                             {Schmoeger}        {30.46 Neue Chemie} {lecture}
+<span class="line-numbers"><a href="#n42" name="n42">42</a></span>  \event 2 {0945} {1115} {Betriebssysteme}                        {Bellosa}          {20.40 HS 37}       {exercise-course}
+<span class="line-numbers"><a href="#n43" name="n43">43</a></span>  \event 2 {1130} {1300} {Theoretische Grundlagen der Informatik} {Wagner}           {30.21 Gerthsen}    {lecture}
+<span class="line-numbers"><a href="#n44" name="n44">44</a></span>  \event 3 {0800} {0930} {LinAlg und Analytische Geometrie I}     {Leuzinger}        {10.21 Daimler}     {lecture}
+<span class="line-numbers"><a href="#n45" name="n45">45</a></span>  \event 3 {1400} {1530} {Grundbegriffe der Informatik}           {Schultz}          {50.35 HS a. F.}    {lecture}
+<span class="line-numbers"><a href="#n46" name="n46">46</a></span>  \event 4 {0800} {0930} {Analysis I}                             {Schmoeger}        {30.46 Neue Chemie} {lecture}
+<span class="line-numbers"><a href="#n47" name="n47">47</a></span>  \event 4 {1130} {1300} {Theoretische Grundlagen der Informatik} {Wagner}           {30.21 Gerthsen}    {lecture}
+<span class="line-numbers"><a href="#n48" name="n48">48</a></span>  \event 5 {0800} {0930} {LinAlg und Analytische Geometrie I}     {Leuzinger}        {11.40 Tulla HS}    {lecture}
+<span class="line-numbers"><a href="#n49" name="n49">49</a></span>  \event 5 {0945} {1115} {Grundbegriffe der Informatik}           {Schultz}          {50.35 HS a. F.}    {exercise-course}
+<span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>  \event 5 {1545} {1715} {Analysis I}                             {Schmoeger}        {10.21 Benz}        {exercise-course}
+<span class="line-numbers"><a href="#n51" name="n51">51</a></span>\end{timetable}
+<span class="line-numbers"><a href="#n52" name="n52">52</a></span>\end{landscape}
+<span class="line-numbers"><a href="#n53" name="n53">53</a></span>\end{document}
+</pre></div>
+</div>
+</div>
 
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\thispagestyle</span><span class="nb">{</span>empty<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>landscape<span class="nb">}</span>
-<span class="k">\noindent\printheading</span><span class="nb">{</span>Stundenplan von Martin Thoma - 1. Semester<span class="nb">}</span>
-
-<span class="c">% Define the layout of your time tables</span>
-<span class="k">\setslotsize</span><span class="nb">{</span>2.8cm<span class="nb">}{</span>0.3cm<span class="nb">}</span>
-<span class="k">\setslotcount</span> <span class="nb">{</span>5<span class="nb">}</span> <span class="nb">{</span>40<span class="nb">}</span>
-<span class="k">\settopheight</span><span class="nb">{</span>3<span class="nb">}</span>
-<span class="k">\settextframe</span><span class="nb">{</span>0.8mm<span class="nb">}</span>
-
-<span class="c">% Retro</span>
-<span class="k">\setframetype</span><span class="na">[t]</span><span class="nb">{</span>1<span class="nb">}</span>
-<span class="k">\seteventcornerradius</span><span class="nb">{</span>0pt<span class="nb">}</span>
-
-<span class="c">% Print timestamps into event blocks</span>
-<span class="c">%\setprinttimestamps{2}</span>
-
-<span class="c">% Define event types</span>
-<span class="k">\defineevent</span><span class="nb">{</span>lecture<span class="nb">}{</span>0.0<span class="nb">}</span> <span class="nb">{</span>0.28<span class="nb">}{</span>1.0<span class="nb">}</span> <span class="nb">{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}</span>
-<span class="k">\defineevent</span><span class="nb">{</span>exercise-course<span class="nb">}</span>    <span class="nb">{</span>1.0<span class="nb">}</span> <span class="nb">{</span>0.4<span class="nb">}</span> <span class="nb">{</span>0.2<span class="nb">}</span> <span class="nb">{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}</span>
-<span class="k">\defineevent</span><span class="nb">{</span>tutorial<span class="nb">}</span>   <span class="nb">{</span>0.6<span class="nb">}</span> <span class="nb">{</span>0.8<span class="nb">}</span> <span class="nb">{</span>1.0<span class="nb">}</span> <span class="nb">{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}</span>
-<span class="k">\defineevent</span><span class="nb">{</span>langcourse<span class="nb">}</span> <span class="nb">{</span>1.0<span class="nb">}</span> <span class="nb">{</span>0.4<span class="nb">}</span> <span class="nb">{</span>0.2<span class="nb">}</span> <span class="nb">{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}</span>
-<span class="k">\defineevent</span><span class="nb">{</span>work<span class="nb">}</span>       <span class="nb">{</span>0.21<span class="nb">}{</span>0.5<span class="nb">}</span> <span class="nb">{</span>0.16<span class="nb">}{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}{</span>1.0<span class="nb">}</span>
-
-<span class="c">% Start the time table</span>
-<span class="k">\begin</span><span class="nb">{</span>timetable<span class="nb">}</span>
-  <span class="k">\hours</span><span class="nb">{</span>8<span class="nb">}{</span>15<span class="nb">}{</span>1<span class="nb">}</span>
-  <span class="k">\germandays</span><span class="nb">{</span>1<span class="nb">}</span>
-  <span class="k">\event</span> 1 <span class="nb">{</span>0945<span class="nb">}</span> <span class="nb">{</span>1115<span class="nb">}</span> <span class="nb">{</span>Betriebssysteme<span class="nb">}</span>                        <span class="nb">{</span>Bellosa<span class="nb">}</span>          <span class="nb">{</span>10.23 Nusselt<span class="nb">}</span>     <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 1 <span class="nb">{</span>1130<span class="nb">}</span> <span class="nb">{</span>1300<span class="nb">}</span> <span class="nb">{</span>Wahrscheinlichkeits-theorie<span class="nb">}</span>            <span class="nb">{</span>Hug<span class="nb">}</span>              <span class="nb">{</span>11.40 Tulla HS<span class="nb">}</span>    <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 1 <span class="nb">{</span>1400<span class="nb">}</span> <span class="nb">{</span>1530<span class="nb">}</span> <span class="nb">{</span>Programmieren<span class="nb">}</span>                          <span class="nb">{</span>Pretschner<span class="nb">}</span>       <span class="nb">{</span>50.35 HS a. F.<span class="nb">}</span>    <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 1 <span class="nb">{</span>1545<span class="nb">}</span> <span class="nb">{</span>1715<span class="nb">}</span> <span class="nb">{</span>LinAlg und Ana<span class="nb">}</span>                         <span class="nb">{</span>Leuzinger<span class="nb">}</span>        <span class="nb">{</span>30.46 Neue Chemie<span class="nb">}</span> <span class="nb">{</span>exercise-course<span class="nb">}</span>
-  <span class="k">\event</span> 2 <span class="nb">{</span>0800<span class="nb">}</span> <span class="nb">{</span>0930<span class="nb">}</span> <span class="nb">{</span>Analysis I<span class="nb">}</span>                             <span class="nb">{</span>Schmoeger<span class="nb">}</span>        <span class="nb">{</span>30.46 Neue Chemie<span class="nb">}</span> <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 2 <span class="nb">{</span>0945<span class="nb">}</span> <span class="nb">{</span>1115<span class="nb">}</span> <span class="nb">{</span>Betriebssysteme<span class="nb">}</span>                        <span class="nb">{</span>Bellosa<span class="nb">}</span>          <span class="nb">{</span>20.40 HS 37<span class="nb">}</span>       <span class="nb">{</span>exercise-course<span class="nb">}</span>
-  <span class="k">\event</span> 2 <span class="nb">{</span>1130<span class="nb">}</span> <span class="nb">{</span>1300<span class="nb">}</span> <span class="nb">{</span>Theoretische Grundlagen der Informatik<span class="nb">}</span> <span class="nb">{</span>Wagner<span class="nb">}</span>           <span class="nb">{</span>30.21 Gerthsen<span class="nb">}</span>    <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 3 <span class="nb">{</span>0800<span class="nb">}</span> <span class="nb">{</span>0930<span class="nb">}</span> <span class="nb">{</span>LinAlg und Analytische Geometrie I<span class="nb">}</span>     <span class="nb">{</span>Leuzinger<span class="nb">}</span>        <span class="nb">{</span>10.21 Daimler<span class="nb">}</span>     <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 3 <span class="nb">{</span>1400<span class="nb">}</span> <span class="nb">{</span>1530<span class="nb">}</span> <span class="nb">{</span>Grundbegriffe der Informatik<span class="nb">}</span>           <span class="nb">{</span>Schultz<span class="nb">}</span>          <span class="nb">{</span>50.35 HS a. F.<span class="nb">}</span>    <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 4 <span class="nb">{</span>0800<span class="nb">}</span> <span class="nb">{</span>0930<span class="nb">}</span> <span class="nb">{</span>Analysis I<span class="nb">}</span>                             <span class="nb">{</span>Schmoeger<span class="nb">}</span>        <span class="nb">{</span>30.46 Neue Chemie<span class="nb">}</span> <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 4 <span class="nb">{</span>1130<span class="nb">}</span> <span class="nb">{</span>1300<span class="nb">}</span> <span class="nb">{</span>Theoretische Grundlagen der Informatik<span class="nb">}</span> <span class="nb">{</span>Wagner<span class="nb">}</span>           <span class="nb">{</span>30.21 Gerthsen<span class="nb">}</span>    <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 5 <span class="nb">{</span>0800<span class="nb">}</span> <span class="nb">{</span>0930<span class="nb">}</span> <span class="nb">{</span>LinAlg und Analytische Geometrie I<span class="nb">}</span>     <span class="nb">{</span>Leuzinger<span class="nb">}</span>        <span class="nb">{</span>11.40 Tulla HS<span class="nb">}</span>    <span class="nb">{</span>lecture<span class="nb">}</span>
-  <span class="k">\event</span> 5 <span class="nb">{</span>0945<span class="nb">}</span> <span class="nb">{</span>1115<span class="nb">}</span> <span class="nb">{</span>Grundbegriffe der Informatik<span class="nb">}</span>           <span class="nb">{</span>Schultz<span class="nb">}</span>          <span class="nb">{</span>50.35 HS a. F.<span class="nb">}</span>    <span class="nb">{</span>exercise-course<span class="nb">}</span>
-  <span class="k">\event</span> 5 <span class="nb">{</span>1545<span class="nb">}</span> <span class="nb">{</span>1715<span class="nb">}</span> <span class="nb">{</span>Analysis I<span class="nb">}</span>                             <span class="nb">{</span>Schmoeger<span class="nb">}</span>        <span class="nb">{</span>10.21 Benz<span class="nb">}</span>        <span class="nb">{</span>exercise-course<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>timetable<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>landscape<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre></div>
-<p>Here is the <a href='../images/2011/10/timetable.sty'>timetable</a> and the <a href='../images/2011/10/example.tex'>example timtable in LaTeX</a>.
-If you have a Linux machine, you can create the timetable with this command:
+<p>Here is the <a href="../images/2011/10/timetable.sty">timetable</a> and the <a href="../images/2011/10/example.tex">example timtable in LaTeX</a>.<br />
+If you have a Linux machine, you can create the timetable with this command:<br />
 <code>bash
 pdflatex example.tex -output-format=pdf
 </code></p>
@@ -349,7 +354,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

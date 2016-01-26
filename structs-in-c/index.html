@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>I guess this article isn't very interesting, except if you have VERY little experience with C / C++. I only give some complete code examples. If you want some text, you could read <a href="http://en.wikibooks.org/wiki/C%2B%2B_Programming/Structures">C++ Programming/Structures</a> (a wikibook).</p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p>I guess this article isn’t very interesting, except if you have VERY little experience with C / C++. I only give some complete code examples. If you want some text, you could read <a href="http://en.wikibooks.org/wiki/C%2B%2B_Programming/Structures">C++ Programming/Structures</a> (a wikibook).</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -141,7 +141,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Point</h2>
-
 <h3 id="tocAnchor-1-1-1">Basic example</h3>
 
 <div class="highlight">
@@ -189,13 +188,10 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-4">More stuff</h2>
-
 <h3 id="tocAnchor-1-4-1">Initialization</h3>
-
 <p><code>Point a = {}</code> initializes all values of point to 0.</p>
 
 <h3 id="tocAnchor-1-4-2">Constructors</h3>
-
 <p>You can write constructors for structs:</p>
 
 <div class="highlight">
@@ -239,7 +235,6 @@ Distance: 10.00</code></pre>
 </div>
 
 <h3 id="tocAnchor-1-4-3">Functions in structs</h3>
-
 <p>You can also add functions to structs:</p>
 
 <div class="highlight">
@@ -281,7 +276,6 @@ Distance: 13.00</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-8">Read also</h2>
-
 <ul>
   <li>Wikipedia: <a href="http://en.wikipedia.org/wiki/Struct_(C_programming_language)">struct (C programming language)</a></li>
   <li><a href="../cpp-operator-overloading/" title="C++ Operator overloading">Operator overloading</a></li>
@@ -472,7 +466,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

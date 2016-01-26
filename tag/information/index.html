@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Information&rdquo;’</h2>
   
@@ -3337,7 +3337,7 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-09-24T19:02:34+02:00">September 24, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/google-ngram-viewer/"><img width="128" height="128" src="//martin-thoma.com/images/2011/09/NGram-Viewer.png" class="alignleft post_thumbnail wp-post-image" alt="Google Ngram Viewer"/></a>
     
@@ -3405,12 +3405,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-09-23T19:32:15+02:00">September 23, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/data-visualization/"><img width="128" height="128" src="//martin-thoma.com/images/2011/09/Gapminder1.jpg" class="alignleft post_thumbnail wp-post-image" alt="Data Visualization"/></a>
     
 
-    The United States public debt increased from `$10.7 trillion in 2008 to \$`14.2 trillion by February 2011. Google processes about 24 petabytes of data per day. About 21.9 people live in Mumbai. Today it is incredibly easy to gain raw data, but without context they aren&#39;t worth anything. You have to know some different information of the same context with which you can compare the given information. If I told you that 24 petabytes equals...
+    The United States public debt increased from `$10.7 trillion in 2008 to $`14.2 trillion by February 2011. Google processes about 24 petabytes of data per day. About 21.9 people live in Mumbai. Today it is incredibly easy to gain raw data, but without context they aren’t worth anything. You have to know some different information of the same context with which you can compare the given information. If I told you that 24 petabytes equals...
 
     
     <div class="readmorecontent">
@@ -3736,7 +3736,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

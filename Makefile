@@ -15,7 +15,7 @@ test:
 	# do preprocessing
 	./_preprocess.py
 	# draft build
-	jekyll build --draft --verbose --trace
+	jekyll build --verbose --trace
 	# postprocessing
 	./_postprocess.py
 	# restore pre-preprocessing state

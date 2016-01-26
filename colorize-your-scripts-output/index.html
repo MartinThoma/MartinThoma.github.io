@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The bash is very nice if you want to know exactly what your scripts are doing. Unfortunately, its almost always white colored text on a black background, without any accentuation. No bold text, nothing underlined and no colors are used.</p>
 
 <p>You can change this standard behaviour. You can add color to your output.</p>
@@ -145,7 +145,7 @@ MathJax.Hub.Queue(function() {
 <span class="nb">echo</span> <span class="s2">"Roses are `${txtred}red$`{txtreset}."</span></code></pre>
 </div>
 
-<p>Simply copy this example line by line and then you'll see the expected example.</p>
+<p>Simply copy this example line by line and then you’ll see the expected example.</p>
 
 <p>A shorter way would be</p>
 
@@ -176,7 +176,6 @@ setaf <span class="m">7</span> Gray</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-4">Misc</h2>
-
 <p>Make your text bold:</p>
 
 <div class="highlight">
@@ -190,10 +189,9 @@ setaf <span class="m">7</span> Gray</code></pre>
 </div>
 
 <h2 id="tocAnchor-1-5">Advanced Example</h2>
+<p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all “[ERROR]” output. So you want to apply a red and bold modification to the stream.</p>
 
-<p>Imagine you had a script which generated much output. All messages are important for you, but some are more important than others. You definitely want to see all "[ERROR]" output. So you want to apply a red and bold modification to the stream.</p>
-
-<p>This is the way how "[ERROR]" gets red and bold:</p>
+<p>This is the way how “[ERROR]” gets red and bold:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash"><span class="sb">`</span>tput setaf 1<span class="sb">``</span>tput bold<span class="sb">`</span><span class="o">[</span>ERROR<span class="o">]</span><span class="sb">`</span>tput sgr0<span class="sb">`</span></code></pre>
@@ -205,9 +203,9 @@ setaf <span class="m">7</span> Gray</code></pre>
    <pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">"`tput setaf 1``tput bold`[ERROR]`tput sgr0`"</span></code></pre>
 </div>
 
-<p>I've created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
+<p>I’ve created a little python script called output.py for testing purposes. It simply outputs a quite long <a href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> text with some random [ERROR] messages.</p>
 
-<p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is </p>
+<p>The next task is to replace the [ERROR] messages. The tool of my choice is sed. See the <a href="http://linux.die.net/man/1/sed">sed man page</a> for more information. The basic usage is</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">sed <span class="s1">'s/search/replace/'</span></code></pre>
@@ -225,14 +223,13 @@ setaf <span class="m">7</span> Gray</code></pre>
    <pre><code class="language-bash" data-lang="bash">python output.py <span class="p">|</span> sed <span class="s1">'s/[ERROR]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/'</span></code></pre>
 </div>
 
-<p>Doesn't work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ' instead of ". If you change this, everything is fine:</p>
+<p>Doesn’t work? Well, lets analyse it. Instead of replacing <code>tput setaf 1</code> it gets printed directly. This means, something we did prevented the bash of replacing our command. If you look carefully at the command, you might see that I used ‘ instead of “. If you change this, everything is fine:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">python output.py <span class="p">|</span> sed <span class="s2">"s/\[ERROR\]/`tput setaf 1``tput bold`[ERROR]`tput sgr0`/"</span></code></pre>
 </div>
 
 <h2 id="tocAnchor-1-6">Colorize C / C++ output</h2>
-
 <p>You need <a href="http://en.wikipedia.org/wiki/ANSI_escape_code">ANSI color codes</a>:</p>
 
 <div class="highlight">
@@ -258,12 +255,12 @@ setaf <span class="m">7</span> Gray</code></pre>
 <span class="p">}</span></code></pre>
 </div>
 
-<p>\033 is the ASCII 27 ESC character. It has to be followed by "[". After that you can write one or two numbers separated by ";". Then you have to write "m". You can get back to standard output with "\033[0m".
+<p>\033 is the ASCII 27 ESC character. It has to be followed by “[”. After that you can write one or two numbers separated by “;”. Then you have to write “m”. You can get back to standard output with “\033[0m”.<br />
 The numbers 30–37 change the color, 4 is a single underline.</p>
 
-<p>I guess these will also work for Java, but I didn't test it.</p>
+<p>I guess these will also work for Java, but I didn’t test it.</p>
 
-<p>Do you know what setaf or sgr stand for? Do you know further "terminal enhancement" tricks? Just leave a post!</p>
+<p>Do you know what setaf or sgr stand for? Do you know further “terminal enhancement” tricks? Just leave a post!</p>
 
                         </div>
                         <div class="postmeta">Posted in
@@ -452,7 +449,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

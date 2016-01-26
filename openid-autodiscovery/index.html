@@ -105,24 +105,22 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p><a href="../5-web-technologies-which-should-be-used-more-often/#OpenID">OpenID</a> is a web technology that gives the users the possibility to use one website for authentification on another web service. The <em>OpenID Attribute Exchange</em> makes registration processes simpler, as the user can automatically allow the website to get some information like the e-mail adress, the gender and the full name.</p>
 
-<p>The next step to an even simpler login process would be autodiscovery. This means there would be no need to do anything for logging in. You simply have to go to the website and be logged at your OpenID provider (e.g. Google). This is quite easily possible if the user was logged in before. You leave a cookie that gives you the information which OpenID he uses. So you simply don't let him logout. I don't know if it is a good idea to do so.</p>
+<p>The next step to an even simpler login process would be autodiscovery. This means there would be no need to do anything for logging in. You simply have to go to the website and be logged at your OpenID provider (e.g. Google). This is quite easily possible if the user was logged in before. You leave a cookie that gives you the information which OpenID he uses. So you simply don’t let him logout. I don’t know if it is a good idea to do so.</p>
 
-<p>The registration process is much trickier. Due to the <a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>, you can't read other cookies than those you have set. So you can't check if there is a cookie from Google, Facebook or Yahoo.<br />
+<p>The registration process is much trickier. Due to the <a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>, you can’t read other cookies than those you have set. So you can’t check if there is a cookie from Google, Facebook or Yahoo.<br /><br />
 You could try if the user has a Google account, as Google uses a discovery URL (https://www.google.com/accounts/o8/id) instead of the usual OpenID (something like https://me.yahoo.com/martinthoma). So, by chance you will be able to let a user register without forcing him to interact in any way with your website. He has to allow your website to get his data at his OpenID provider, though.</p>
 
 <h2 id="tocAnchor-1-1">Futher reading</h2>
-
 <ul>
 <li>Wikipedia:
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/OpenID">OpenID</a>: an open standard that describes how users can be authenticated in a decentralized manner, eliminating the need for services to provide their own ad hoc systems and allowing users to consolidate their digital identities</li>
 <li><a href="http://en.wikipedia.org/wiki/Yadis">Yadis</a>: a communications protocol for discovery of services such as OpenID, OAuth, and XDI connected to a Yadis ID</li>
 </ul>
-
-<p></p></li>
+</li>
 <li><a href="http://openid.net/specs/openid-attribute-exchange-1_0.html">OpenID Attribute Exchange 1.0</a>: Specification</li>
 <li><a href="https://docs.google.com/document/pub?id=1O7jyQLb7dW6EnJrFsWZDyh0Yq0aFJU5UJ4i5QzYlTjU&amp;pli=1">Guide to Running a User Account System</a>: by Eric Sachs of Google’s Identity team</li>
 </ul>
@@ -305,7 +303,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

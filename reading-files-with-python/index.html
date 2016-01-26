@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Reading (and writing) files with Python is very easy. Here are some
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Reading (and writing) files with Python is very easy. Here are some<br />
 minimalistic code examples for beginners.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -138,103 +138,124 @@ minimalistic code examples for beginners.</p>
    </ul>
 </div><h2 id="tocAnchor-1-1">Reading</h2>
 
-<p>A very common way to handle the contents of a file is by reading the file
-completely and then working with a single big string. The only reason not to
-do so is because your file is too big. For your information, this is how long
+<p>A very common way to handle the contents of a file is by reading the file<br />
+completely and then working with a single big string. The only reason not to<br />
+do so is because your file is too big. For your information, this is how long<br />
 reading a file takes (all times are in seconds, reading is executed 100 times):</p>
-<div class="highlight">
-   <pre><code class="language-text" data-lang="text">file size         min       max    median   average
----------------------------------------------------
-10 KiB         0.0000    0.0008    0.0000    0.0002
-100 KiB        0.0000    0.0009    0.0001    0.0002
-1 MiB          0.0003    0.0013    0.0005    0.0006
-10 MiB         0.0041    0.0079    0.0047    0.0049
-100 MiB        0.0627    0.0778    0.0655    0.0663
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>file size         min       max    median   average
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>---------------------------------------------------
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>10 KiB         0.0000    0.0008    0.0000    0.0002
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>100 KiB        0.0000    0.0009    0.0001    0.0002
+<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>1 MiB          0.0003    0.0013    0.0005    0.0006
+<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>10 MiB         0.0041    0.0079    0.0047    0.0049
+<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>100 MiB        0.0627    0.0778    0.0655    0.0663
+</pre></div>
 </div>
-<p>As you can see, reading files is quite fast. However, I would recommend the
-start thinking if reading the complete file is appropriate when the file
-size exceeds 100 MiB as you might get different problems then. For example,
-the content of the file might not fit in your main memory (typically 4GiB,
-type <code>cat /proc/meminfo | grep MemTotal</code> to get how much main memory your
+</div>
+
+<p>As you can see, reading files is quite fast. However, I would recommend the<br />
+start thinking if reading the complete file is appropriate when the file<br />
+size exceeds 100 MiB as you might get different problems then. For example,<br />
+the content of the file might not fit in your main memory (typically 4GiB,<br />
+type <code>cat /proc/meminfo | grep MemTotal</code> to get how much main memory your<br />
 computer has).</p>
 
-<p>See <a href="https://gist.github.com/MartinThoma/eb1e56405009839804e7">source code</a>
+<p>See <a href="https://gist.github.com/MartinThoma/eb1e56405009839804e7">source code</a><br />
 for details how I measured it.</p>
 
 <h3 id="tocAnchor-1-1-1">Completely</h3>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'filename.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</code></pre>
-</div>
-<p>is all you need to read a text file completely in a Python string variable
-<code>content</code>. You could, for example, split the whole string to a list of lines:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="n">lines</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-</code></pre>
-</div>
-<h3 id="tocAnchor-1-1-2">Line by line</h3>
 
-<p>You can read a text file line by line, but keep in mind that this will still
-have the endline character <code>\n</code> in each <code>line</code>!</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'filename.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    content = f.read()
+</pre></div>
 </div>
+</div>
+
+<p>is all you need to read a text file completely in a Python string variable<br />
+<code>content</code>. You could, for example, split the whole string to a list of lines:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>lines = content.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#b0b">\n</span><span style="color:#710">'</span></span>)
+</pre></div>
+</div>
+</div>
+
+<h3 id="tocAnchor-1-1-2">Line by line</h3>
+<p>You can read a text file line by line, but keep in mind that this will still<br />
+have the endline character <code>\n</code> in each <code>line</code>!</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#080;font-weight:bold">for</span> line <span style="color:#080;font-weight:bold">in</span> f:
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>        print(line)
+</pre></div>
+</div>
+</div>
+
 <h2 id="tocAnchor-1-4">Writing</h2>
 
-<p>To open files, you have to specify a mode. This is either reading, writing or
-appending (binary or text data). If you don't specify it, the default value
+<p>To open files, you have to specify a mode. This is either reading, writing or<br />
+appending (binary or text data). If you don’t specify it, the default value<br />
 is reading. So for writing you have to specify it:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'filename.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">)</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    f.write(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello world!</span><span style="color:#710">"</span></span>)
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-5">Python 3</h2>
 
-<p>Python 3 has some new features which are very nice to have. To get them in
+<p>Python 3 has some new features which are very nice to have. To get them in<br />
 Python 2, you have to add</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-</code></pre>
-</div>
-<p>at the beginning of your code before other imports happen. Now you can print to
-files:</p>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'file.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">print_function</span>
+</pre></div>
 </div>
-<p>The <a href="https://docs.python.org/3.0/library/functions.html#print"><code>print</code></a>
-function has also a "end" parameter which defaults to <code>\n</code>. This means it adds
-<code>\n</code> automatically at the end of each printed line. You might not want that
+</div>
+
+<p>at the beginning of your code before other imports happen. Now you can print to<br />
+files:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">print_function</span>
+<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
+<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">file.txt</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello World!</span><span style="color:#710">"</span></span>, file=f)
+</pre></div>
+</div>
+</div>
+
+<p>The <a href="https://docs.python.org/3.0/library/functions.html#print"><code>print</code></a><br />
+function has also a “end” parameter which defaults to <code>\n</code>. This means it adds<br />
+<code>\n</code> automatically at the end of each printed line. You might not want that<br />
 e.g. in a Windows environment where it should be <code>\r\n</code>.</p>
 
 <h2 id="tocAnchor-1-6">with</h2>
 
-<p>You might wonder what
-<a href="https://docs.python.org/3/reference/datamodel.html#context-managers"><code>with</code></a>
-does. My advice for newbees would be not to worry too much about it, it is
-just the way you juse I/O with Python. If you come from the C / C++ world, you
-might know that you have to close files when you opened them. The <code>with</code>
+<p>You might wonder what<br />
+<a href="https://docs.python.org/3/reference/datamodel.html#context-managers"><code>with</code></a><br />
+does. My advice for newbees would be not to worry too much about it, it is<br />
+just the way you juse I/O with Python. If you come from the C / C++ world, you<br />
+might know that you have to close files when you opened them. The <code>with</code><br />
 statement makes sure that the file is closed when the block is finished.</p>
 
 <h2 id="tocAnchor-1-7">See also</h2>
 
 <ul>
-<li><a href="https://docs.python.org/3/tutorial/inputoutput.html">Python documentation: Input and Output</a></li>
-<li><a href="https://docs.python.org/3.0/library/functions.html#print"><code>print</code></a></li>
-<li><a href="https://docs.python.org/3.0/library/functions.html#open"><code>open</code></a></li>
-<li><a href="https://docs.python.org/3/reference/datamodel.html#context-managers"><code>with</code></a></li>
-<li><a href="https://docs.python.org/2/library/stdtypes.html#file-objects">File Objects</a></li>
-<li><a href="//martin-thoma.com/python-csv/">Python and CSV</a></li>
-<li><a href="//martin-thoma.com/how-to-parse-command-line-arguments-in-python/">How to parse command line arguments in Python</a></li>
+  <li><a href="https://docs.python.org/3/tutorial/inputoutput.html">Python documentation: Input and Output</a></li>
+  <li><a href="https://docs.python.org/3.0/library/functions.html#print"><code>print</code></a></li>
+  <li><a href="https://docs.python.org/3.0/library/functions.html#open"><code>open</code></a></li>
+  <li><a href="https://docs.python.org/3/reference/datamodel.html#context-managers"><code>with</code></a></li>
+  <li><a href="https://docs.python.org/2/library/stdtypes.html#file-objects">File Objects</a></li>
+  <li><a href="//martin-thoma.com/python-csv/">Python and CSV</a></li>
+  <li><a href="//martin-thoma.com/how-to-parse-command-line-arguments-in-python/">How to parse command line arguments in Python</a></li>
 </ul>
 
                         </div>
@@ -415,7 +436,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

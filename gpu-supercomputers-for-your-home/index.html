@@ -105,33 +105,33 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>A few days ago I got some of my neural net code to work with a GPU.
-The GPU is called "Tesla C2075". It is able to get 515 GFlops peak performance.
+                        <div class="entry" id="contentAfterTitle">
+                            <p>A few days ago I got some of my neural net code to work with a GPU.<br />
+The GPU is called “Tesla C2075”. It is able to get 515 GFlops peak performance.<br />
 It has 448 CUDA cores that work with 1.15 GHz and it has 6GB GDDR5 memory.</p>
 
-<p>My code needed about 10 hours to run before. After that, it only needed 10
-minutes. That is 60 times faster! The library that did this miracle for me is
+<p>My code needed about 10 hours to run before. After that, it only needed 10<br />
+minutes. That is 60 times faster! The library that did this miracle for me is<br />
 called <a href="http://deeplearning.net/software/theano/">Theano</a>)</p>
 
-<p>Out of curiosity, I've searched for current high-end gamer graphic cards.
+<p>Out of curiosity, I’ve searched for current high-end gamer graphic cards.<br />
 I found nVidia Titan Z:</p>
 
 <iframe width="512" height="288" src="//www.youtube.com/embed/2JjxgJcXVE0" frameborder="0" allowfullscreen=""></iframe>
 
-<p>The Titan Z has 5760 CUDA cores. It can get 4061 GFLOPS x2 and has 12 GB of
+<p>The Titan Z has 5760 CUDA cores. It can get 4061 GFLOPS x2 and has 12 GB of<br />
 memory. That technological wonder-work costs only 2802 Euro.</p>
 
-<p>To put that into perspective: In 2005, you would probably have been on place
+<p>To put that into perspective: In 2005, you would probably have been on place<br />
 68 of the TOP500 supercomputers world wide! (<a href="http://www.top500.org/list/2005/06/?page=1">source</a>).</p>
 
-<p>Isn't that crazy?</p>
+<p>Isn’t that crazy?</p>
 
 <h2 id="tocAnchor-1-1">See also:</h2>
 
 <ul>
-<li><a href="http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-titan-z/specifications">Titan Z Specification</a></li>
-<li><a href="http://superuser.com/questions/805217/what-are-the-differences-between-scientific-gpus-and-gaming-gpus">What are the differences between “scientific GPUs” and “gaming GPUs”?</a></li>
+  <li><a href="http://www.geforce.com/hardware/desktop-gpus/geforce-gtx-titan-z/specifications">Titan Z Specification</a></li>
+  <li><a href="http://superuser.com/questions/805217/what-are-the-differences-between-scientific-gpus-and-gaming-gpus">What are the differences between “scientific GPUs” and “gaming GPUs”?</a></li>
 </ul>
 
                         </div>
@@ -330,7 +330,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

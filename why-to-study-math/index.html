@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <iframe width="512" height="288" src="http://www.youtube.com/embed/aYIv4jggQJc" frameborder="0" allowfullscreen=""></iframe>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -132,14 +132,13 @@ MathJax.Hub.Queue(function() {
    </ul>
 </div><h2 id="tocAnchor-1-1">Math is beautiful</h2>
 
-<p>See also:
-</p><ul>
+<p>See also:</p>
+<ul>
   <li><a href="http://www.youtube.com/watch?v=I1UzGC15sBI&amp;feature=youtu.be&amp;t=3m18s">Different sizes of infinity</a></li>
   <li><a href="http://youtu.be/ud-GOdM255c">Beauty in Maths: math animation no.7</a> - 5D Visualization of three equations</li>
 </ul>
 
 <h2 id="tocAnchor-1-2">Math is important</h2>
-
 <p>If you are interested in natural science, you will defenitely need math. Here are a few examples where math is directly needed:</p>
 
 <ul>
@@ -152,7 +151,6 @@ MathJax.Hub.Queue(function() {
 <p>Although I guess you could continue this list, but the most important reason is that it teaches you how to think logically.</p>
 
 <h2 id="tocAnchor-1-3">Jobs are better</h2>
-
 <div style="width: 405px" class="wp-caption aligncenter">
    <a href="../images/2012/07/reddit-math-degree.png">
       <img src="../images/2012/07/reddit-math-degree.png" alt="What you earn with a math-degree ;-)" width="" height="" class="size-full wp-image-34701" />
@@ -161,11 +159,9 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-4">Math is worth a lot of money</h2>
-
 <iframe width="512" height="384" src="http://www.youtube.com/embed/BbX44YSsQ2I" frameborder="0" allowfullscreen=""></iframe>
 
 <h2 id="tocAnchor-1-5">Math is fun</h2>
-
 <div style="width: 410px" class="wp-caption aligncenter">
    <a href="../images/2012/07/topologist-cup.jpg">
       <img src="../images/2012/07/topologist-cup.jpg" alt="Only topologists really understand this joke, I guess..." width="" height="" class="size-full wp-image-34721" />
@@ -372,7 +368,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

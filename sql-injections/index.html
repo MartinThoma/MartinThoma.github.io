@@ -105,8 +105,8 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p><abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables. </p>
+                        <div class="entry" id="contentAfterTitle">
+                            <p><abbr title="Structured Query Language">SQL</abbr> is a language that allows prorammers to access data in databases. Most of the time (always?) you pass your queries in form of strings to the database. In online services it is quite common that the programmer formulates a template and the user fills in variables.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -128,7 +128,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Example: IMDb</h2>
-
 <p>Take a look at <a href="http://www.imdb.com/">IMDb</a>. Users can search for movies by title:</p>
 
 <div style="width: 310px" class="wp-caption aligncenter">
@@ -138,7 +137,7 @@ MathJax.Hub.Queue(function() {
    <p class="wp-caption-text">IMDb: User Interface to search for a movie by title</p>
 </div>
 
-<p>When you search for "Harry Potter" for example, the following happens:</p>
+<p>When you search for “Harry Potter” for example, the following happens:</p>
 
 <div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2013/07/imdb-search-query-300x156.png">
@@ -150,79 +149,87 @@ MathJax.Hub.Queue(function() {
 <p>You obviously interacted with imdb.com in a very dynamic way. The output of the website depends on what you typed in and IMDb has to search in its database for your search terms.</p>
 
 <p>The programmers might have created a query that looks like this</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="err">$</span><span class="n">_GET</span><span class="p">[</span><span class="s1">'q'</span><span class="p">]</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span> * <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">movie</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">WHERE</span> title=<span style="color:#F00;background-color:#FAA">$</span>_GET[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">q</span><span style="color:#710">'</span></span>]
+</pre></div>
 </div>
+</div>
+
 <p>Where <code>$`_GET['q']</code> is your query.</p>
 
 <h2 id="tocAnchor-1-2">Proof of concept</h2>
-
-<p>You need:
-</p><ul>
+<p>You need:</p>
+<ul>
   <li>Apache Web Server</li>
   <li>PHP</li>
   <li>MySQL</li>
   <li>PhpMyAdmin (for convenience)</li>
 </ul>
 
-<p>When you search for "LAMP" (for Linux users) or for "WAMP" (for Windows users) you find a lot of information how to install this.</p>
+<p>When you search for “LAMP” (for Linux users) or for “WAMP” (for Windows users) you find a lot of information how to install this.</p>
 
 <p>Place the following as <code>hack.php</code> in your web servers directory (might be <code>/var/www</code>):</p>
-<div class="highlight">
-   <pre><code class="language-php" data-lang="php"><span class="cp">&lt;?</span>
-<span class="nv">$mysqlhost</span> <span class="o">=</span> <span class="s2">"localhost"</span><span class="p">;</span>
-<span class="nv">$mysqluser</span> <span class="o">=</span> <span class="s2">"root"</span><span class="p">;</span>
-<span class="nv">$mysqlpwd</span> <span class="o">=</span> <span class="s2">"asdfasdf"</span><span class="p">;</span>
-<span class="nv">$connection</span> <span class="o">=</span> <span class="nb">mysql_connect</span><span class="p">(</span><span class="nv">$mysqlhost</span><span class="p">,</span> <span class="nv">$mysqluser</span><span class="p">,</span> <span class="nv">$mysqlpwd</span><span class="p">)</span> <span class="k">or</span> <span class="k">die</span>
-<span class="p">(</span><span class="s2">"Your connection string was wrong"</span><span class="p">);</span>
-<span class="nv">$db_selected</span> <span class="o">=</span> <span class="nb">mysql_select_db</span><span class="p">(</span><span class="s1">'imdb'</span><span class="p">,</span> <span class="nv">$connection</span><span class="p">);</span>
 
-<span class="nv">$q</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'q'</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$q</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_query</span><span class="p">(</span><span class="s2">"SELECT * FROM `movies` WHERE title='</span><span class="si">$q</span><span class="s2">'"</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">die</span><span class="p">(</span><span class="s1">'MySQL query error: '</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
-    <span class="p">}</span>
-    <span class="k">echo</span> <span class="s2">"Found "</span><span class="o">.</span><span class="nb">mysql_num_rows</span><span class="p">(</span><span class="nv">$result</span><span class="p">)</span><span class="o">.</span><span class="s2">" movies:&lt;br/&gt;"</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nb">mysql_fetch_assoc</span><span class="p">(</span><span class="nv">$result</span><span class="p">))</span> <span class="p">{</span>
-        <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="o">.</span><span class="s2">": "</span><span class="o">.</span><span class="nv">$row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span><span class="o">.</span><span class="s2">"&lt;br/&gt;"</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
-
-<span class="x">&lt;form method="get" action="hack.php"&gt;</span>
-<span class="x">  &lt;input type="text" name="q"/&gt;</span>
-<span class="x">  &lt;input type="submit" /&gt;</span>
-<span class="x">&lt;/form&gt;</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?</span>
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$mysqlhost</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">localhost</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$mysqluser</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">root</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#950">$mysqlpwd</span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">asdfasdf</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#950">$connection</span> = mysql_connect(<span style="color:#950">$mysqlhost</span>, <span style="color:#950">$mysqluser</span>, <span style="color:#950">$mysqlpwd</span>) <span style="color:#080;font-weight:bold">or</span> <span style="color:#369;font-weight:bold">die</span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Your connection string was wrong</span><span style="color:#710">"</span></span>);
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#950">$db_selected</span> = mysql_select_db(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">imdb</span><span style="color:#710">'</span></span>, <span style="color:#950">$connection</span>);
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#950">$q</span> = <span style="color:#369;font-weight:bold">$_GET</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">q</span><span style="color:#710">'</span></span>];
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$q</span> != <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>) {
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#950">$result</span> = mysql_query(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">SELECT * FROM `movies` WHERE title='</span><span style="color:#950">$q</span><span style="color:#D20">'</span><span style="color:#710">"</span></span>);
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    <span style="color:#080;font-weight:bold">if</span> (!<span style="color:#950">$result</span>) {
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        <span style="color:#369;font-weight:bold">die</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">MySQL query error: </span><span style="color:#710">'</span></span> . mysql_error());
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    }
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    <span style="color:#369;font-weight:bold">echo</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Found </span><span style="color:#710">"</span></span>.mysql_num_rows(<span style="color:#950">$result</span>).<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> movies:&lt;br/&gt;</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    <span style="color:#080;font-weight:bold">while</span> (<span style="color:#950">$row</span> = mysql_fetch_assoc(<span style="color:#950">$result</span>)) {
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>        <span style="color:#369;font-weight:bold">echo</span> <span style="color:#950">$row</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">id</span><span style="color:#710">"</span></span>].<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">: </span><span style="color:#710">"</span></span>.<span style="color:#950">$row</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">title</span><span style="color:#710">"</span></span>].<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&lt;br/&gt;</span><span style="color:#710">"</span></span>;
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    }
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>}
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="font-weight:bold;color:#666">?&gt;</span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span><span style="color:#070;font-weight:bold">&lt;form</span> <span style="color:#b48">method</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">get</span><span style="color:#710">"</span></span> <span style="color:#b48">action</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">hack.php</span><span style="color:#710">"</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>  <span style="color:#070;font-weight:bold">&lt;input</span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">text</span><span style="color:#710">"</span></span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">q</span><span style="color:#710">"</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>  <span style="color:#070;font-weight:bold">&lt;input</span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">submit</span><span style="color:#710">"</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span><span style="color:#070;font-weight:bold">&lt;/form&gt;</span>
+</pre></div>
 </div>
+</div>
+
 <p>Now create a database called <code>imdb</code> with PHPMyAdmin and execute the following SQL:</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span>
-  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">title</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
-<span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">title</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Harry Potter'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'Lord of the Rings'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'Rise of the Silver Surfer'</span><span class="p">);</span>
-
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span>
-  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">username</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">password</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">email</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span>
-<span class="p">)</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">3</span> <span class="p">;</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">password</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">email</span><span class="o">`</span><span class="p">)</span> <span class="k">VALUES</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'admin'</span><span class="p">,</span> <span class="s1">'qewrtqwert'</span><span class="p">,</span> <span class="s1">'admin@imdb.com'</span><span class="p">),</span>
-<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'user'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="s1">'mylittlepony@stupid.com'</span><span class="p">);</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> <span style="color:#080;font-weight:bold">IF</span> <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#080;font-weight:bold">EXISTS</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">movies</span><span style="color:#710">`</span></span> (
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span> <span style="color:#0a8;font-weight:bold">int</span>(<span style="color:#00D">11</span>) <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span> <span style="color:#088;font-weight:bold">AUTO_INCREMENT</span>,
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">title</span><span style="color:#710">`</span></span> <span style="color:#0a8;font-weight:bold">varchar</span>(<span style="color:#00D">255</span>) <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span>,
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>  <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>) <span style="color:#088;font-weight:bold">AUTO_INCREMENT</span>=<span style="color:#00D">4</span>;
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#B06;font-weight:bold">INSERT</span> <span style="color:#B06;font-weight:bold">INTO</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">movies</span><span style="color:#710">`</span></span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">title</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">VALUES</span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>(<span style="color:#00D">1</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Harry Potter</span><span style="color:#710">'</span></span>),
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>(<span style="color:#00D">2</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Lord of the Rings</span><span style="color:#710">'</span></span>),
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>(<span style="color:#00D">3</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Rise of the Silver Surfer</span><span style="color:#710">'</span></span>);
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#B06;font-weight:bold">CREATE</span> <span style="color:#339;font-weight:bold">TABLE</span> <span style="color:#080;font-weight:bold">IF</span> <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#080;font-weight:bold">EXISTS</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">users</span><span style="color:#710">`</span></span> (
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span> <span style="color:#0a8;font-weight:bold">int</span>(<span style="color:#00D">11</span>) <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span> <span style="color:#088;font-weight:bold">AUTO_INCREMENT</span>,
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">username</span><span style="color:#710">`</span></span> <span style="color:#0a8;font-weight:bold">varchar</span>(<span style="color:#00D">255</span>) <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span>,
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">password</span><span style="color:#710">`</span></span> <span style="color:#0a8;font-weight:bold">varchar</span>(<span style="color:#00D">32</span>) <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span>,
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">email</span><span style="color:#710">`</span></span> <span style="color:#0a8;font-weight:bold">varchar</span>(<span style="color:#00D">255</span>) <span style="color:#080;font-weight:bold">NOT</span> <span style="color:#069">NULL</span>,
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>  <span style="color:#088;font-weight:bold">PRIMARY</span> <span style="color:#339;font-weight:bold">KEY</span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>) <span style="color:#088;font-weight:bold">AUTO_INCREMENT</span>=<span style="color:#00D">3</span> ;
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#B06;font-weight:bold">INSERT</span> <span style="color:#B06;font-weight:bold">INTO</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">users</span><span style="color:#710">`</span></span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">username</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">password</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">email</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">VALUES</span>
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>(<span style="color:#00D">1</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">qewrtqwert</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">admin@imdb.com</span><span style="color:#710">'</span></span>),
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>(<span style="color:#00D">2</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">secret</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mylittlepony@stupid.com</span><span style="color:#710">'</span></span>);
+</pre></div>
 </div>
+</div>
+
 <p>Now go to <a href="http://localhost/hack.php">http://localhost/hack.php</a>. It should look like this:</p>
 
 <div style="width: 310px" class="wp-caption aligncenter">
@@ -232,7 +239,7 @@ MathJax.Hub.Queue(function() {
    <p class="wp-caption-text">Screenshot of my minimal example</p>
 </div>
 
-<p>When you search for "Harry Potter" it should show you "1: Harry Potter". Note that there could be a lot of information, but I wanted to keep this example as small as possible.</p>
+<p>When you search for “Harry Potter” it should show you “1: Harry Potter”. Note that there could be a lot of information, but I wanted to keep this example as small as possible.</p>
 
 <div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2013/07/hack-normal-use.png">
@@ -242,10 +249,13 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <p>This resulted in the following query:</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Harry Potter'</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span> * <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">movies</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">WHERE</span> title=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Harry Potter</span><span style="color:#710">'</span></span>
+</pre></div>
 </div>
+</div>
+
 <p>But a Hacker could also enter a string like this: <code>' OR '1'='1</code>:</p>
 
 <div style="width: 310px" class="wp-caption aligncenter">
@@ -256,15 +266,21 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <p>Even worse, the attacker could know that you use MySQL. Then he might know that MySQL uses <a href="http://dev.mysql.com/doc/refman/5.1/en/information-schema.html">INFORMATION_SCHEMA tables</a>. He might enter this into the title input element:</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="s1">' UNION SELECT table_name, table_type FROM information_schema.tables WHERE '</span><span class="mi">1</span><span class="s1">'='</span><span class="mi">1</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20"> UNION SELECT table_name, table_type FROM information_schema.tables WHERE </span><span style="color:#710">'</span></span><span style="color:#00D">1</span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">=</span><span style="color:#710">'</span></span><span style="color:#00D">1</span>
+</pre></div>
 </div>
+</div>
+
 <p>which results in this query:</p>
-<div class="highlight">
-   <pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">`</span><span class="n">movies</span><span class="o">`</span> <span class="k">WHERE</span> <span class="n">title</span><span class="o">=</span><span class="s1">''</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">table_name</span><span class="p">,</span> <span class="n">table_type</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">WHERE</span> <span class="s1">'1'</span><span class="o">=</span><span class="s1">'1'</span>
-</code></pre>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span> * <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">movies</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">WHERE</span> title=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">UNION</span> <span style="color:#B06;font-weight:bold">SELECT</span> table_name, table_type <span style="color:#080;font-weight:bold">FROM</span> information_schema.tables <span style="color:#080;font-weight:bold">WHERE</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">1</span><span style="color:#710">'</span></span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">1</span><span style="color:#710">'</span></span>
+</pre></div>
 </div>
+</div>
+
 <p>which gives:</p>
 
 <div style="width: 278px" class="wp-caption aligncenter">
@@ -284,7 +300,6 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h2 id="tocAnchor-1-3">History</h2>
-
 <p>Just a few famous examples to show you that this happens all the time:</p>
 
 <ul>
@@ -304,7 +319,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-4">Solutions</h2>
-
 <ul>
   <li>Sanitize user input, e.g. with <a href="http://de2.php.net/mysql_real_escape_string">mysql_real_escape_string</a></li>
   <li>Use <a href="http://php.net/manual/en/pdo.prepared-statements.php">prepared statements</a></li>
@@ -312,7 +326,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-5">See also</h2>
-
 <ul>
   <li><a href="../challenge-websites/">Challenge Websites</a>: Try if you can write SQL injections yourself :-)</li>
 </ul>
@@ -507,7 +520,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

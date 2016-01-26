@@ -105,10 +105,10 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>A key feature of Amazon is its rating system. Rating systems are relatively
-straight-forward to build, but they need much data and get better with more
-data. I think Amazon builds a monopoly that way. However, I also think we
+                        <div class="entry" id="contentAfterTitle">
+                            <p>A key feature of Amazon is its rating system. Rating systems are relatively<br />
+straight-forward to build, but they need much data and get better with more<br />
+data. I think Amazon builds a monopoly that way. However, I also think we<br />
 could build an Universal Rating System (URS).</p>
 
 <p>Just as important as pure rating are reviews.</p>
@@ -118,50 +118,50 @@ could build an Universal Rating System (URS).</p>
 <p>Directly neccessary are</p>
 
 <ul>
-<li><strong>Identification of people</strong>: The same person should not be able to write
-multiple reviews or make multiple ratings for the same product. It is not
-important to tell which online-identity belongs to which person. In fact, I
-think it would be good if it was possible to keep users anonym while making
+  <li><strong>Identification of people</strong>: The same person should not be able to write<br />
+multiple reviews or make multiple ratings for the same product. It is not<br />
+important to tell which online-identity belongs to which person. In fact, I<br />
+think it would be good if it was possible to keep users anonym while making<br />
 sure that everybody has only one online-identity.</li>
-<li><strong>Identification of products</strong>: Users have to be able to find products and
-they have to find reviews to that product. So some kind of product
+  <li><strong>Identification of products</strong>: Users have to be able to find products and<br />
+they have to find reviews to that product. So some kind of product<br />
 identification number is necessary.</li>
-<li><strong>Ratings for reviews</strong></li>
-<li><strong>Uploading photographs</strong></li>
-<li><strong>Product description</strong>: This should be objective.</li>
+  <li><strong>Ratings for reviews</strong></li>
+  <li><strong>Uploading photographs</strong></li>
+  <li><strong>Product description</strong>: This should be objective.</li>
 </ul>
 
 <p>Indirectly necessary are</p>
 
 <ul>
-<li><strong>Recommendations</strong>: If users see that they get good recommendations from
-an independant source they might use the system. If they see that those
-recommendations imporve with more reviews and more ratings, they add more
+  <li><strong>Recommendations</strong>: If users see that they get good recommendations from<br />
+an independant source they might use the system. If they see that those<br />
+recommendations imporve with more reviews and more ratings, they add more<br />
 of them. This way the system gets better.</li>
-<li><strong>Possibility to compare products</strong>: Examples are
-<a href="http://www.phonearena.com/">phonearena.com</a>, <a href="http://ark.intel.com/">ark.intel.com</a>
+  <li><strong>Possibility to compare products</strong>: Examples are<br />
+<a href="http://www.phonearena.com/">phonearena.com</a>, <a href="http://ark.intel.com/">ark.intel.com</a><br />
 and others. But they are always limited to some products.</li>
-<li><strong>Search</strong>: Users should be able to search for a product by specifying it.
-This could be a price range, a category, a review average, a minimum number
-of reviews, ...</li>
-<li><strong>Easy login</strong>: Something like OpenID that makes it easy for users to
+  <li><strong>Search</strong>: Users should be able to search for a product by specifying it.<br />
+This could be a price range, a category, a review average, a minimum number<br />
+of reviews, …</li>
+  <li><strong>Easy login</strong>: Something like OpenID that makes it easy for users to<br />
 create an account and sign in.</li>
-<li>*<em>Right incentives</em>: Having a great community is much about giving the right
-incentives. Badages and Karma are a great way to do so as shown with
+  <li><em>*Right incentives</em>: Having a great community is much about giving the right<br />
+incentives. Badages and Karma are a great way to do so as shown with<br />
 StackExchange.</li>
 </ul>
 
 <p>Non-software parts</p>
 
 <ul>
-<li><strong>Advertisment</strong>: People have to get informed about such a system.</li>
-<li><strong>Organization</strong>: The software should be OpenSource, the data should be
-published (as far as possible without breaking privacy) and
-the organization which runs the software should be a nonprofit organization.
+  <li><strong>Advertisment</strong>: People have to get informed about such a system.</li>
+  <li><strong>Organization</strong>: The software should be OpenSource, the data should be<br />
+published (as far as possible without breaking privacy) and<br />
+the organization which runs the software should be a nonprofit organization.<br />
 The reason is simply that it prevents abuse.</li>
-<li><strong>Product registration</strong>: Companies should have the possibility to register
+  <li><strong>Product registration</strong>: Companies should have the possibility to register<br />
 their products to get an identification number.</li>
-<li><strong>Project name</strong>: A good name is important. Any ideas?</li>
+  <li><strong>Project name</strong>: A good name is important. Any ideas?</li>
 </ul>
 
 <h2 id="tocAnchor-1-2">Existing Projects</h2>
@@ -348,7 +348,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

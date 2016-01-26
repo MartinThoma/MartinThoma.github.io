@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>find is a very mighty tool. It allows you to apply a very detailed search syntax. Every Linux user should know how to use it.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -118,55 +118,65 @@ MathJax.Hub.Queue(function() {
          <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Redirecting errors</span></a>
       </li>
       <li class="toc_level-1 toc_section-3">
-         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Snippets</span></a>
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Real life example</span></a>
       </li>
       <li class="toc_level-1 toc_section-4">
-         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Further reading</span></a>
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Snippets</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-5">
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Further reading</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Very basic usage</h2>
-
 <p>
    <a href="../images/2011/09/find-basic1.png">
       <img src="../images/2011/09/find-basic1.png" alt="`$ find  /home -iname 'Tux*'" title="$` find  /home -iname 'Tux*'" width="500" height="100" class="alignnone size-full wp-image-2671" />
    </a>
 </p>
 
-<p>I told you I would start with the very basics, didn't I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.</p>
+<p>I told you I would start with the very basics, didn’t I? So, you can need the option -iname if you want to do basic matching against the filename. The * can be used as a placeholder.</p>
 
 <h2 id="tocAnchor-1-2">Redirecting errors</h2>
-
-<p>You might get some "Permission denied" errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
+<p>You might get some “Permission denied” errors. They are very bothersome if you combine commands in the bash. So you redirect them to /dev/null, a special file which discards everything it gets:</p>
 
 <p>
-   <a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null&quot; title=&quot;find /home -iname 'Tux*' 2&gt;/dev/null&quot; width=&quot;500&quot; height=&quot;100&quot; class=&quot;alignnone size-full wp-image-2691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&#10;&#10;&lt;h2&gt;Real life example&lt;/h2&gt;&#10;&#10;&lt;p&gt;I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.&#10;The easiest way to achieve this is via find, xargs and sed:&lt;/p&gt;&#10;&#10;&lt;div class=" highlight="" /><pre><code class="language-bash" data-lang="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span></code></pre>
+   <a href="../images/2011/09/find-error-redirection.png">
+      <img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname 'Tux*' 2&gt;/dev/null" title="find /home -iname 'Tux*' 2&gt;/dev/null" width="500" height="100" class="alignnone size-full wp-image-2691" />
+   </a>
+</p>
 
-<p>Now the explanation of the different commands:
-<strong>find:</strong>
-</p><ul>
+<h2 id="tocAnchor-1-3">Real life example</h2>
+<p>I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it’s time to change a database table a bit. It got a lot more rows and the old name doesn’t really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.<br />
+The easiest way to achieve this is via find, xargs and sed:</p>
+
+<div class="highlight">
+   <pre><code class="language-bash" data-lang="bash">find . -path <span class="s1">'*/.svn'</span> -prune -o -type f -print0 <span class="p">|</span> xargs -0 sed -i <span class="s1">'s/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'</span></code></pre>
+</div>
+
+<p>Now the explanation of the different commands:<br />
+<strong>find:</strong></p>
+<ul>
     <li>.: search in the current working directory</li>
     <li>-path '*/.svn' -prune': If a directory starting with .svn is in the path to the file, skip it</li>
     <li>-o: atlernative (OR)</li>
     <li>-type f: only search for files</li>
     <li>-print0: print  the  full  file name on the standard output, followed by a null character (instead of the newline character that -print uses).  This allows file names that contain newlines or other types of white space  to  be  correctly  interpreted by programs that process the find output.  This option corresponds to the -0 option of xargs.</li>
 </ul>
-<strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.
-<strong>sed:</strong>
+<p><strong>xargs</strong> -0: exchanges the arguments. -0 means that input items are terminated by a null character instead of by whitespace, and the quotes and backslash are not special (every character is taken lit erally).  Disables the end of file string, which is treated like any other argument.  Useful when input  items  might  contain  white  space,  quote marks, or backslashes.  The GNU find -print0 option produces input suitable for this mode.<br />
+<strong>sed:</strong></p>
 <ul>
     <li>-i: edit the given file in-place. If you would not use -i, it would just print everything in standard output</li>
     <li>/g: edit the file globaly. If you would not use g, sed would only replace the first occurence of SOFTWARE_USER_TABLE</li>
-</ul></a>
-</p>
+</ul>
 
-<h2 id="tocAnchor-1-3">Snippets</h2>
-
+<h2 id="tocAnchor-1-4">Snippets</h2>
 <p>move all files in subdirectories to a single directory:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">find -type f -exec mv <span class="o">{}</span> collection/ <span class="se">\;</span></code></pre>
 </div>
 
-<p>find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don't know how:</p>
+<p>find all files which are bigger than 20MB and print their location and size. Maybe you could use du for this one, but I don’t know how:</p>
 
 <div class="highlight">
    <pre><code class="language-bash" data-lang="bash">find / -type f -size +20000k -exec ls -lh <span class="o">{}</span> <span class="se">\;</span> 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">'{ print `$5 ":\t" $`8 }'</span></code></pre>
@@ -178,8 +188,7 @@ MathJax.Hub.Queue(function() {
    <pre><code class="language-bash" data-lang="bash">find /home -user alice</code></pre>
 </div>
 
-<h2 id="tocAnchor-1-4">Further reading</h2>
-
+<h2 id="tocAnchor-1-5">Further reading</h2>
 <p>Note that you should use grep if you want to search for patterns in single files.</p>
 
 <ul>
@@ -371,7 +380,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

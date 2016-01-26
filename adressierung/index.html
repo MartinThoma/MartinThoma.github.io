@@ -100,7 +100,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Dies ist eine Zusammenfassung von mir zu dem Themen Caches, Addressierung und TLB. Ich habe insbesondere bei dem letzem Teil (Cache-Typen und TLBs) das Gefühl, dass ich das noch nicht richtig verstanden habe, deshalb ist der Inhalt hier mit Vorsicht zu genießen. Bitte meldet mir Fehler oder Unstimmigkeiten (per E-Mail an info@martin-thoma.de oder direkt als Kommentar).</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -134,105 +134,97 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Allgemeines</h2>
-
 <p>CPU-Caches sind aus Cache-Zeilen aufgebaut. Diese sind die kleinsten adressierbaren Einheiten im Cache. Die Länge der Cache-Zeilen variiert, aber 32-64 Byte sind üblich.<small><sup><a href="#ref1" name="anchor1" id="anchor1">[1]</a></sup></small> Nun ist der Cache deutlich kleiner als der Hauptspeicher und man muss eine schnelle Möglichkeit haben, Hauptspeicher-Adressen auf den Cache abzubilden.</p>
 
-<p>Eine Möglichkeit das zu machen, ist ein sog. „direct mapped
-cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch
-schnell von der Hardware umgesetzt werden können muss. Also unterteilt man
-gedanklich die Hauptspeicheradressen in 3 Teile:
-</p><ul>
-    <li>Tag</li>
-    <li>Index</li>
-    <li>Block-Offset</li>
+<p>Eine Möglichkeit das zu machen, ist ein sog. „direct mapped<br />
+cache“. Das ist im Prinzip eine Hash-Funktion, die zusätlich noch<br />
+schnell von der Hardware umgesetzt werden können muss. Also unterteilt man<br />
+gedanklich die Hauptspeicheradressen in 3 Teile:</p>
+<ul>
+	<li>Tag</li>
+	<li>Index</li>
+	<li>Block-Offset</li>
 </ul>
 
-<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer
-Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die
-Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu
+<p>Der Index gibt direkt die Cache-Zeile an, in der die Daten einer<br />
+Hauptspeicheradresse landen werden. Es wäre also z.B. möglich, die<br />
+Pins des Adressbus, auf denen die Index-Bits liegen, auf einen Multiplexer zu<br />
 legen, der die entsprechende Cache-Zeile durchschaltet.</p>
 
 <p>Es gilt also: Index-Länge in Bit = $\log_2(\text{Cache-Zeilen})$</p>
 
-<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile
-landen. Um diese unterscheiden zu können, speichert man folgendes in einer
-Cache-Zeile:
-</p><ul>
-    <li>Tag</li>
-    <li>Datenblock</li>
-    <li>Flags</li>
+<p>Nun kann es passieren, dass viele Hauptspeicher-Adressen in der selben Zeile<br />
+landen. Um diese unterscheiden zu können, speichert man folgendes in einer<br />
+Cache-Zeile:</p>
+<ul>
+	<li>Tag</li>
+	<li>Datenblock</li>
+	<li>Flags</li>
 </ul>
 
-<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.
-Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird
-der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.
-Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man
+<p>Der Datenblock beinhaltet die eigentlichen Daten aus dem Hauptspeicher.<br />
+Benötigt nun ein Programm die Daten aus einer Hauptspeicheradresse, wird<br />
+der Index dieser Adresse extrahiert und an dieser Cache-Zeile nachgeschaut.<br />
+Wenn dann die Tags übereinstimmen, ist es die richtige Adresse und man<br />
 kann die Daten aus dem Cache entnehmen.</p>
 
-<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen
+<p>Da man durch den Block-Offset ja eine ganze Reihe von Hauptspeicher-Adressen<br />
 zusammenfasst, muss gelten:</p>
 
-<p>Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$
+<p>Größe der Cache-Zeile $= 2^{\text{Länge des Block-offsets}} \cdot$<br />
 Größe des Inhalts einer Hauptspeicheradresse</p>
 
 <p>Der Block-Offset wird nicht weiter verwendet. Es wird schlicht ignoriert.</p>
 
-<p>Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im
-Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-
-Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der
+<p>Der Tag muss aktiv im Cache gespeichert werden und die Länge des Tags im<br />
+Cache muss mindestens so lang sein wie die Tag-Länge der Hauptspeicher-<br />
+Adresse. Natürlich wird der Tag im Cache genau so lang sein wie der in der<br />
 Hauptspeicher-Adresse. Man hat ja keinen Speicher zu verschenken.</p>
 
-<p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine
-Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt
+<p>Bei einem Voll-Assoziativem Cache würde es also keinen Index geben. Eine<br />
+Hauptspeicher-Adresse würde dann nur in Tag und Block-Offset geteilt<br />
 werden.</p>
 
 <p>Bei einem $n$-fach Satzassoziativem Cache gibt es $\frac{\text{Cachzeilen}}{n}$ Sätze mit jeweils $n$ Cachezeilen. Das Datenwort kann nur in einem Satz stehen, dort aber an einer beliebigen Stelle. Nun geht die CPU wie folgt vor:</p>
 
 <ol>
-    <li>Datenwort mit Hauptspeicheradresse x = `$x_\text{tag}$` | `$x_\text{index}$` | `$x_\text{blockoffset}$` wird benötigt</li>
-    <li>`$x_\text{index}$` = der zu durchsuchende Satz im Cache<br />
-    Dieser Satz wird zu den `$n$` Vergleichern durchgeschaltet</li>
-    <li>Jeder Vergleicher vergleich den `$x_\text{tag}$` und den in der Cache-Zeile gespeicherten tag</li>
-    <li>Wird die Adresse gefunden → Cache Hit<br />
-    Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
+	<li>Datenwort mit Hauptspeicheradresse x = `$x_\text{tag}$` | `$x_\text{index}$` | `$x_\text{blockoffset}$` wird benötigt</li>
+	<li>`$x_\text{index}$` = der zu durchsuchende Satz im Cache<br />
+	Dieser Satz wird zu den `$n$` Vergleichern durchgeschaltet</li>
+	<li>Jeder Vergleicher vergleich den `$x_\text{tag}$` und den in der Cache-Zeile gespeicherten tag</li>
+	<li>Wird die Adresse gefunden → Cache Hit<br />
+	Datenwort in keiner Cache-Zeile: Cache-Miss, Hauptspeicherzugriff</li>
 </ol>
 
 <h2 id="tocAnchor-1-2">Physical address and virtual address</h2>
-
-<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.
+<p>Die physische Adresse entspricht dem, womit man den Speicherbaustein anspricht. Nun kann es möglich sein, dass man mehrere RAM-Bausteine hat oder dass das Programm theoretische mehr Speicher braucht als an Hauptspeicher zur verfügung steht. Dennoch will man als Programmierer einheitlich adressieren. Also nutzt man im Userspace virtuelle Adressen (Im Kernel-Space können sowohl physische als auch virtuelle Adressen genutzt werden, siehe <a href="http://stackoverflow.com/a/6261020/562769">StackOverflow</a>). Außerdem will man Speicherschutz herstellen.<br />
 Die virtuellen Adressen sind scheinbar zusammenhängend und der Adressraum ist sehr groß. Der virtuelle Adressraum ist in Blöcke (Pages) unterteilt und die Pages werden von langsamen, aber großen auf schnelle, aber kleine Speichermedien je nach Bedarf aus- oder eingelagert.</p>
 
-<p>Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollte man sich folgendes anschauen:
-</p><ul>
+<p>Das passiert allerdings selten. Um zu sehen, wie häufig das der Fall ist, sollte man sich folgendes anschauen:</p>
+<ul>
   <li>/proc/swaps</li>
   <li>/proc/meminfo - ein paar <a href="http://www.centos.org/docs/5/html/5.2/Deployment_Guide/s2-proc-meminfo.html">Erklärungen zu meminfo</a></li>
   <li><code>vmstat -s</code></li>
 </ul>
 
 <h2 id="tocAnchor-1-3">Cache-Modelle</h2>
-
 <p>Fordert nun ein Prozess die Daten einer virtuellen Adresse an, kommt es nun auf die verschiedenen Cache-Modelle (PIPT, VIPT, VIVIT) an. Es gilt jedoch immer: Die CPU schaut im TLB nach, ob sie direkt erfahren kann, wo die Daten sind. Falls das nicht funktiniert, geht es wie folgt weiter:</p>
 
 <h3 id="tocAnchor-1-3-1">Physically Indexed, Physically Tagged</h3>
-
 <p>Hier wird der index und der tag aus der physischen Adresse gezogen. Damit muss zuerst die MMU die virtuelle Adresse in eine physische Adresse umwandeln, bevor man im Cache nachschauen kann.</p>
 
 <h3 id="tocAnchor-1-3-2">Virtually indexed, physically tagged</h3>
-
 <p>Man bekommt den Index aus der virtuellen Adresse, kann im Cache nachschauen ob dort überhaupt etwas steht, falls ja muss aber noch die MMU die physische Adresse nachschlagen damit man den tag überprüfen kann.</p>
 
 <div class="frage">Frage: Wieso steht in den Folien "No ambiguities"?<br />Annahme: Wir haben eine virtuelle Adresse 123456789. Der Index sind die Ziffern [4,6] also 456. Nun wird das auf die physische Adresse 123456789 gemappt. Der Tag sind die Ziffern [1,3] also 123.<br />Nun haben wir eine zweite virtuelle Adresse 000456000. Der index sind die Ziffern [4,6] also 456. Die zugehörige phyische Adresse sein 123000000. Der Tag sind die Ziffern [1,3] also 123.<br />Nun müsste doch fehlerhaft ein Cache-Hit herauskommen, oder?</div>
 
 <h3 id="tocAnchor-1-3-3">Physically Indexed / Virtually Tagged</h3>
-
 <p>Macht keinen Sinn, weil man Probleme wegen Doppeldeutigkeiten bekommen kann und man auf jeden Fall immer zuerst die MMU nutzen kann.</p>
 
 <h3 id="tocAnchor-1-3-4">Virtually Indexed / Virtually Tagged</h3>
-
 <p>Kein MMU-Zugriff benötigt, also schneller als die anderen Varianten. Birgt aber ein paar Probleme (Ambiguity, Alias)</p>
 
 <h2 id="tocAnchor-1-8">Quellen</h2>
-
 <p>[^1] <a href="http://alasir.com/articles/cache_principles/cache_line_tag_index.html">Functional Principles of Cache Memory</a></p>
 
 <ul>
@@ -431,7 +423,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

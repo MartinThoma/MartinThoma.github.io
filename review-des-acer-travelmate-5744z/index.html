@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Vor ein paar Tagen ist mein <span itemprop="name">Acer Travelmate 5744Z</span>, das ich bei Amazon für <span itemprop="offers" itemscope="" itemtype="http://schema.org/Offer"><span itemprop="price">305,95</span> <span itemprop="priceCurrency">Euro</span></span> bekommen habe, angekommen. Ich habe es mit „Linux“ als System gekauft. Wie sich herausstellte, ist MeeGo release 1.0 mit dem Kernel 2.6.37, installiert. Das System startet zwar in sensationellen 29 Sekunden, aber Ubuntu ist mir doch lieber.</p>
 
 <p>edit: <em>argh</em> - also mit Ubuntu 12.04 (und Lubuntu 12.04 sowie Ubuntu mit Gnome/Gnome Classic/Cinnamon) bin ich nicht zufrieden. Windows 7 hat tatsächlich, ganz im Gegensatz zu allen Ubuntu-Arten, die Treiber CD benötigt. Naja.</p>
@@ -124,14 +124,13 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Technische Daten</h2>
-
 <p><strong>Prozessor</strong>: Intel Pentium P6200 mit 2.13 GHz, 2 Kerne, 3 MB Cache (Quelle: <a href="http://ark.intel.com/products/50176/Intel-Pentium-Processor-P6200-3M-Cache-2_13-GHz">ark.intel.com</a>)</p>
 
 <p><strong>Arbeitsspeicher</strong>: 4GB DDR3 (3704 MiB laut lshw)</p>
 
 <p><strong>Harddisk</strong>: WDC WD3200BPVT-2 (320 GB, 5400 RPM, 2.5-inch, 8MB cache)</p>
 
-<p><strong>Display</strong>: 15,6" mit max. 1366px x 768px. Matt, LED LCD; Maximale Helligkeit von 174 cd/m² laut<a href="http://www.notebookcheck.com/Test-Acer-TravelMate-5744Z-P624G50Mikk-Notebook.71588.0.html">notebookcheck.com</a></p>
+<p><strong>Display</strong>: 15,6” mit max. 1366px x 768px. Matt, LED LCD; Maximale Helligkeit von 174 cd/m² laut<a href="http://www.notebookcheck.com/Test-Acer-TravelMate-5744Z-P624G50Mikk-Notebook.71588.0.html">notebookcheck.com</a></p>
 
 <p><strong>Grafikkarte</strong>: Intel HD Graphics (onboard) - Intel GMA HD</p>
 
@@ -147,8 +146,8 @@ MathJax.Hub.Queue(function() {
 
 <p><strong>B x H x T</strong>: 38.1 cm x 2.57 - 3.38 cm x 25.3 cm</p>
 
-<p><strong>Weiteres</strong>:
-</p><ul>
+<p><strong>Weiteres</strong>:</p>
+<ul>
   <li>Acer Nplify 802.11b/g/n: 
 <blockquote>Acer Nplify, a high-throughput wireless solution, delivers superior performance and reliable connections while enabling emerging voice, video and data applications.</blockquote>
 </li>
@@ -159,7 +158,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-2">Linux Sorgenkinder</h2>
-
 <ul>
   <li><strong>Webcam</strong>: Funktioniert out of the box</li>
   <li><strong>WLAN</strong>: Funktioniert out of the box (WTF, ich kann bei mir das Uni-WLAN sehen!?! - Ein AR9485 Wireless Network Adapter von Atheros Communications Inc.)</li>
@@ -168,7 +166,6 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h2 id="tocAnchor-1-3">Fazit</h2>
-
 <p>Tolles Low-Budget Notebook, das einwandfrei unter Linux (und Windows) funktioniert!</p>
 
 <p>Was ich gerne noch hätte (aber bei diesem Preis nicht erwarten darf): Bluetooth</p>
@@ -365,7 +362,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -100,19 +100,19 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>I like the player.</p>
 
 <ul>
-<li>It plays, even if the screen is black.</li>
-<li>It stops when you remove the headphones (which comes in handy when you listen to it when you go to bed. Just pull the headphones out and it stops).</li>
-<li>It has options to stop after the current file / folder / all files</li>
-<li>The buttons are big</li>
+  <li>It plays, even if the screen is black.</li>
+  <li>It stops when you remove the headphones (which comes in handy when you listen to it when you go to bed. Just pull the headphones out and it stops).</li>
+  <li>It has options to stop after the current file / folder / all files</li>
+  <li>The buttons are big</li>
 </ul>
 
-<p>What I don&#39;t like (1.5 stars less) is that the audio sounds strange when you stop / continue often. Then, you can only make a restart.</p>
+<p>What I don’t like (1.5 stars less) is that the audio sounds strange when you stop / continue often. Then, you can only make a restart.</p>
 
-<p>I also don&#39;t like (0.5 stars less) that it is not too clear how to find the files / folders you want to play back.</p>
+<p>I also don’t like (0.5 stars less) that it is not too clear how to find the files / folders you want to play back.</p>
 
 <p>https://play.google.com/store/apps/details?id=de.stohelit.audiobookplayer&amp;hl=en_GB</p>
 
@@ -296,7 +296,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

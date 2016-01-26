@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>If you like to print highlighted MIPS assembly code in LaTeX, you can use the listings package. Sadly, no MIPS language file exits by default in LaTeX, but awg has created one and provides it on his blog. Just download <a href="../images/2012/06/mips.sty_.zip">mips.sty</a> (thanks to <a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Adam Gordon</a>!) and place it in your project folder. Then you can create a project like this:</p>
 
 <div style="width: 522px" class="wp-caption aligncenter">
@@ -114,82 +114,84 @@ MathJax.Hub.Queue(function() {
    </a>
    <p class="wp-caption-text">Highlight MIPS Assembly code with LaTeX listings.</p>
 </div>
-<div class="highlight">
-   <pre><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span> <span class="c">% needed for math</span>
-<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span> <span class="c">% needed for math</span>
-<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
-<span class="k">\usepackage</span><span class="na">[ngerman]</span><span class="nb">{</span>babel<span class="nb">}</span> <span class="c">% this is needed for german umlauts</span>
-<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>    <span class="c">% this is needed for correct output of umlauts in pdf</span>
-<span class="k">\usepackage</span><span class="na">[margin=2.5cm]</span><span class="nb">{</span>geometry<span class="nb">}</span> <span class="c">%layout</span>
-<span class="k">\usepackage</span><span class="nb">{</span>listings<span class="nb">}</span> <span class="c">% needed for the inclusion of source code</span>
-<span class="k">\usepackage</span><span class="nb">{</span>mips<span class="nb">}</span>
 
-<span class="c">% the following is needed for syntax highlighting</span>
-<span class="k">\usepackage</span><span class="nb">{</span>color<span class="nb">}</span>
-
-<span class="k">\definecolor</span><span class="nb">{</span>dkgreen<span class="nb">}{</span>rgb<span class="nb">}{</span>0,0.6,0<span class="nb">}</span>
-<span class="k">\definecolor</span><span class="nb">{</span>gray<span class="nb">}{</span>rgb<span class="nb">}{</span>0.5,0.5,0.5<span class="nb">}</span>
-<span class="k">\definecolor</span><span class="nb">{</span>mauve<span class="nb">}{</span>rgb<span class="nb">}{</span>0.58,0,0.82<span class="nb">}</span>
-
-<span class="k">\lstset</span><span class="nb">{</span> <span class="c">%</span>
-  language=[mips]Assembler,       <span class="c">% the language of the code</span>
-  basicstyle=<span class="k">\footnotesize</span>,       <span class="c">% the size of the fonts that are used for the code</span>
-  numbers=left,                   <span class="c">% where to put the line-numbers</span>
-  numberstyle=<span class="k">\tiny\color</span><span class="nb">{</span>gray<span class="nb">}</span>,  <span class="c">% the style that is used for the line-numbers</span>
-  stepnumber=1,                   <span class="c">% the step between two line-numbers. If it's 1, each line </span>
-                                  <span class="c">% will be numbered</span>
-  numbersep=5pt,                  <span class="c">% how far the line-numbers are from the code</span>
-  backgroundcolor=<span class="k">\color</span><span class="nb">{</span>white<span class="nb">}</span>,  <span class="c">% choose the background color. You must add \usepackage{color}</span>
-  showspaces=false,               <span class="c">% show spaces adding particular underscores</span>
-  showstringspaces=false,         <span class="c">% underline spaces within strings</span>
-  showtabs=false,                 <span class="c">% show tabs within strings adding particular underscores</span>
-  frame=single,                   <span class="c">% adds a frame around the code</span>
-  rulecolor=<span class="k">\color</span><span class="nb">{</span>black<span class="nb">}</span>,        <span class="c">% if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))</span>
-  tabsize=4,                      <span class="c">% sets default tabsize to 2 spaces</span>
-  captionpos=b,                   <span class="c">% sets the caption-position to bottom</span>
-  breaklines=true,                <span class="c">% sets automatic line breaking</span>
-  breakatwhitespace=false,        <span class="c">% sets if automatic breaks should only happen at whitespace</span>
-  title=<span class="k">\lstname</span>,                 <span class="c">% show the filename of files included with \lstinputlisting;</span>
-                                  <span class="c">% also try caption instead of title</span>
-  keywordstyle=<span class="k">\color</span><span class="nb">{</span>blue<span class="nb">}</span>,          <span class="c">% keyword style</span>
-  commentstyle=<span class="k">\color</span><span class="nb">{</span>dkgreen<span class="nb">}</span>,       <span class="c">% comment style</span>
-  stringstyle=<span class="k">\color</span><span class="nb">{</span>mauve<span class="nb">}</span>,         <span class="c">% string literal style</span>
-  escapeinside=<span class="nb">{</span><span class="k">\%*</span><span class="nb">}{</span>*)<span class="nb">}</span>,            <span class="c">% if you want to add a comment within your code</span>
-  morekeywords=<span class="nb">{</span>*,...<span class="nb">}</span>               <span class="c">% if you want to add more keywords to the set</span>
-<span class="nb">}</span>
-
-<span class="c">% this is needed for forms and links within the text</span>
-<span class="k">\usepackage</span><span class="nb">{</span>hyperref<span class="nb">}</span>  
-
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">% Variablen                                                          %</span>
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\authorName</span><span class="nb">}{</span>Martin Thoma<span class="nb">}</span>
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\tags</span><span class="nb">}{</span><span class="k">\authorName</span>, my, tags<span class="nb">}</span>
-<span class="k">\title</span><span class="nb">{</span>Aufgabe 5<span class="nb">}</span>
-<span class="k">\author</span><span class="nb">{</span><span class="k">\authorName</span><span class="nb">}</span>
-<span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
-
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">% PDF Meta information                                               %</span>
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="k">\hypersetup</span><span class="nb">{</span>
-  pdfauthor   = <span class="nb">{</span><span class="k">\authorName</span><span class="nb">}</span>,
-  pdfkeywords = <span class="nb">{</span><span class="k">\tags</span><span class="nb">}</span>,
-  pdftitle    = <span class="nb">{</span>This is the title<span class="nb">}</span>
-<span class="nb">}</span> 
-
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">% THE DOCUMENT BEGINS                                                %</span>
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-    <span class="k">\lstinputlisting</span><span class="nb">{</span>aufgabe-5.s<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[a4paper,12pt]{article}
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{amssymb} % needed for math
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage{amsmath} % needed for math
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage[utf8]{inputenc} % this is needed for german umlauts
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage[ngerman]{babel} % this is needed for german umlauts
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>\usepackage[margin=2.5cm]{geometry} %layout
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\usepackage{listings} % needed for the inclusion of source code
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\usepackage{mips}
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span> 
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>% the following is needed for syntax highlighting
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>\usepackage{color}
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>  
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\definecolor{dkgreen}{rgb}{0,0.6,0}
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>\definecolor{gray}{rgb}{0.5,0.5,0.5}
+<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>\definecolor{mauve}{rgb}{0.58,0,0.82}
+<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span> 
+<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>\lstset{ %
+<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>  language=[mips]Assembler,       % the language of the code
+<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>  numbers=left,                   % where to put the line-numbers
+<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>                                  % will be numbered
+<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>  numbersep=5pt,                  % how far the line-numbers are from the code
+<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>  showspaces=false,               % show spaces adding particular underscores
+<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>  showstringspaces=false,         % underline spaces within strings
+<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>  showtabs=false,                 % show tabs within strings adding particular underscores
+<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>  frame=single,                   % adds a frame around the code
+<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>  tabsize=4,                      % sets default tabsize to 2 spaces
+<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>  captionpos=b,                   % sets the caption-position to bottom
+<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>  breaklines=true,                % sets automatic line breaking
+<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>                                  % also try caption instead of title
+<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>  keywordstyle=\color{blue},          % keyword style
+<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>  commentstyle=\color{dkgreen},       % comment style
+<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>  stringstyle=\color{mauve},         % string literal style
+<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>  escapeinside={\%*}{*)},            % if you want to add a comment within your code
+<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>  morekeywords={*,...}               % if you want to add more keywords to the set
+<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>}
+<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span> 
+<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>% this is needed for forms and links within the text
+<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>\usepackage{hyperref}  
+<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span> 
+<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>% Variablen                                                          %
+<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>\newcommand{\authorName}{Martin Thoma}
+<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>\newcommand{\tags}{\authorName, my, tags}
+<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>\title{Aufgabe 5}
+<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>\author{\authorName}
+<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>\date{\today}
+<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span> 
+<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>% PDF Meta information                                               %
+<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>\hypersetup{
+<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>  pdfauthor   = {\authorName},
+<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>  pdfkeywords = {\tags},
+<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>  pdftitle    = {This is the title}
+<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>} 
+<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span> 
+<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>% THE DOCUMENT BEGINS                                                %
+<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span>\begin{document}
+<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>    \lstinputlisting{aufgabe-5.s}
+<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>\end{document}
+</pre></div>
 </div>
-<h2 id="tocAnchor-1-1">See also</h2>
+</div>
 
+<h2 id="tocAnchor-1-1">See also</h2>
 <ul>
   <li><a href="../how-to-print-source-code-with-latex/" title="How to print Source Code with LaTeX">How to print Source Code with LaTeX"</a></li>
   <li><a href="http://blog.xvx.ca/typesetting-mips-assembly-with-latex">Typesetting MIPS Assembly Code in LaTeX</a></li>
@@ -380,7 +382,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

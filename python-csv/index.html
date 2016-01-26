@@ -105,11 +105,11 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Python has a very nice module called
-<a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
-which makes working with <abbr title="comma seperated values">CSV</abbr> very
-easy. This mini article is only a reminder for me so that I can easily find
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Python has a very nice module called<br />
+<a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a><br />
+which makes working with <abbr title="comma seperated values">CSV</abbr> very<br />
+easy. This mini article is only a reminder for me so that I can easily find<br />
 how to use it when I forget once again how it is used exactly.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -126,45 +126,51 @@ how to use it when I forget once again how it is used exactly.</p>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Reading CSV files</h2>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">future.builtins</span> <span class="kn">import</span> <span class="nb">open</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
 
-<span class="kn">import</span> <span class="nn">csv</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'eggs.csv'</span><span class="p">,</span> <span class="s">'rt'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-    <span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">';'</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s">'"'</span><span class="p">)</span>
-    <span class="nb">next</span><span class="p">(</span><span class="n">csvreader</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>  <span class="c"># skip the headers</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csvreader</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">try</span>:
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">future.builtins</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">open</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">except</span>:
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#080;font-weight:bold">pass</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">csv</span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">eggs.csv</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">rt</span><span style="color:#710">'</span></span>, newline=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> csvfile:
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    csvreader = csv.reader(csvfile, delimiter=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">;</span><span style="color:#710">'</span></span>, quotechar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">"</span><span style="color:#710">'</span></span>)
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#369;font-weight:bold">next</span>(csvreader, <span style="color:#069">None</span>)  <span style="color:#777"># skip the headers</span>
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> csvreader:
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">, </span><span style="color:#710">'</span></span>.join(row))
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-2">Writing CSV files</h2>
-<div class="highlight">
-   <pre><code class="language-python" data-lang="python"><span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">future.builtins</span> <span class="kn">import</span> <span class="nb">open</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
 
-<span class="kn">import</span> <span class="nn">csv</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'eggs.csv'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-    <span class="n">csvwriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span>
-                           <span class="n">delimiter</span><span class="o">=</span><span class="s">';'</span><span class="p">,</span>
-                           <span class="n">quotechar</span><span class="o">=</span><span class="s">'"'</span><span class="p">,</span>
-                           <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
-    <span class="n">csvwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s">'Spam'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="s">'Baked Beans'</span><span class="p">])</span>  <span class="c"># Write header</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">container</span><span class="p">:</span>
-        <span class="n">csvwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>  <span class="c"># Write data</span>
-</code></pre>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">try</span>:
+<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">future.builtins</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">open</span>
+<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">except</span>:
+<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#080;font-weight:bold">pass</span>
+<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
+<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">csv</span>
+<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
+<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">eggs.csv</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>, newline=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> csvfile:
+<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    csvwriter = csv.writer(csvfile,
+<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                           delimiter=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">;</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>                           quotechar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">"</span><span style="color:#710">'</span></span>,
+<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                           quoting=csv.QUOTE_MINIMAL)
+<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    csvwriter.writerow([<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Spam</span><span style="color:#710">'</span></span>] * <span style="color:#00D">5</span> + [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Baked Beans</span><span style="color:#710">'</span></span>])  <span style="color:#777"># Write header</span>
+<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> container:
+<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        csvwriter.writerow(row)  <span style="color:#777"># Write data</span>
+</pre></div>
 </div>
+</div>
+
 <h2 id="tocAnchor-1-3">See also</h2>
 
 <ul>
-<li><a href="http://stackoverflow.com/q/23051062/562769">Open files in 'rt' and 'wt' modes</a></li>
-<li><a href="http://stackoverflow.com/questions/tagged/python+csv?sort=votes&amp;pageSize=50">Python+CSV on StackOverflow</a></li>
+  <li><a href="http://stackoverflow.com/q/23051062/562769">Open files in ‘rt’ and ‘wt’ modes</a></li>
+  <li><a href="http://stackoverflow.com/questions/tagged/python+csv?sort=votes&amp;pageSize=50">Python+CSV on StackOverflow</a></li>
 </ul>
 
                         </div>
@@ -348,7 +354,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

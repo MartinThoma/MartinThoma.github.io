@@ -105,33 +105,38 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>Recently, the <a href="https://en.wikipedia.org/wiki/Heartbleed">Heartbleed bug</a> was
+                        <div class="entry" id="contentAfterTitle">
+                            <p>Recently, the <a href="https://en.wikipedia.org/wiki/Heartbleed">Heartbleed bug</a> was<br />
 discovered. It works like this:</p>
 
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/xkcd/heartbleed_explanation.png"><img src="//martin-thoma.com/captions/heartbleed_explanation.png" alt="Heartbleed Explanation" width="375" height="800" class=""/></a><p class="wp-caption-text">Heartbleed Explanation<br/>From <a href='http://xkcd.com/1354/'>xkcd</a></p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/xkcd/heartbleed_explanation.png"><img src="//martin-thoma.com/captions/heartbleed_explanation.png" alt="Heartbleed Explanation" width="375" height="800" class="" /></a><p class="wp-caption-text">Heartbleed Explanation<br />From <a href="http://xkcd.com/1354/">xkcd</a></p></div>
 
 <p>One effect of that bug is that you have to change your password.</p>
 
-<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/xkcd/heartbleed.png"><img src="//martin-thoma.com/captions/heartbleed.png" alt="Heartbleed" width="500" height="207" class=""/></a><p class="wp-caption-text">From <a href='http://xkcd.com/1353/'>xkcd</a></p></div>
+<div style="width: 510px" class="wp-caption aligncenter"><a href="../images/xkcd/heartbleed.png"><img src="//martin-thoma.com/captions/heartbleed.png" alt="Heartbleed" width="500" height="207" class="" /></a><p class="wp-caption-text">From <a href="http://xkcd.com/1353/">xkcd</a></p></div>
 
 <p>You can do that from home via SSH. Just replace <code>s_thoma</code> by <code>s_[your last name]</code>:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ssh s_thoma@i08fs1.ira.uka.de
-s_thoma@i08fs1.ira.uka.de<span class="err">&#39;</span>s password: 
-s_thoma@i08fs1<span class="o">(</span>~<span class="o">)</span><span class="nv">$ </span>passwd
-Changing password <span class="k">for</span> user s_thoma.
-Enter login<span class="o">(</span>AD<span class="o">)</span> password: 
-Current Password: 
-New password: 
-Retype new password: 
-AD password information changed <span class="k">for</span> s_thoma
-passwd: all authentication tokens updated successfully.
-s_thoma@i08fs1<span class="o">(</span>~<span class="o">)</span><span class="nv">$ </span><span class="nb">exit</span>
-<span class="nb">logout</span>
-Connection to i08fs1.ira.uka.de closed.
-</code></pre></div>
-<p>In case you don&#39;t remember your password: Take a look at your Browser settings.
-You&#39;ve probably entered it already for looking at your printing account and
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>$ ssh s_thoma@i08fs1.ira.uka.de
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>s_thoma@i08fs1.ira.uka.de's password: 
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>s_thoma@i08fs1(~)$ passwd
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>Changing password for user s_thoma.
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>Enter login(AD) password: 
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>Current Password: 
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>New password: 
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>Retype new password: 
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>AD password information changed for s_thoma
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>passwd: all authentication tokens updated successfully.
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>s_thoma@i08fs1(~)$ exit
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>logout
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>Connection to i08fs1.ira.uka.de closed.
+</pre></div>
+</div>
+</div>
+
+<p>In case you don’t remember your password: Take a look at your Browser settings.<br />
+You’ve probably entered it already for looking at your printing account and<br />
 eventually your browser saved it.</p>
 
                         </div>
@@ -324,7 +329,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

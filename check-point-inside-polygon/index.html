@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>Suppose you have a with $n$ sides. This is called a $n$-glon.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -130,7 +130,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Basics about polygones</h2>
-
 <p>A $n$-glon can be defined by a list of $n$ points.</p>
 
 <p>Note that the order is important:</p>
@@ -142,18 +141,15 @@ MathJax.Hub.Queue(function() {
    <p class="wp-caption-text">[A, B, C, D, E, F, G] != [A, B, C, D, F, E, G]</p>
 </div>
 
-<p>I will not consider self-intersecting polygones for the following statements. I'm aware of them, but whenever you have a self-intersecting polygon you can create multiple polygones that cover the same area and don't intersect each other (some pairs might have a finite number of points in common, but not an infinite number).</p>
+<p>I will not consider self-intersecting polygones for the following statements. I’m aware of them, but whenever you have a self-intersecting polygon you can create multiple polygones that cover the same area and don’t intersect each other (some pairs might have a finite number of points in common, but not an infinite number).</p>
 
 <h2 id="tocAnchor-1-2">Is a point in a triangle / a rectangle</h2>
-
 <p>It is quite easy to check weather a point is inside of a triangle or inside of a rectangle. I have already written an article about <a href="../how-to-check-if-a-point-is-inside-a-rectangle/">how to check if a point is inside of a rectangle</a>.</p>
 
 <h2 id="tocAnchor-1-3">Is a point inside of a n-glon?</h2>
-
-<p>Let $P$ be a point and $N = [P_1, P_2, \dots, P_n]$ be a $n$-glon. It is now much more difficult to check if $P$ is inside of $N$. The area-approach works for convex $n$-glons, but that's it.</p>
+<p>Let $P$ be a point and $N = [P_1, P_2, \dots, P_n]$ be a $n$-glon. It is now much more difficult to check if $P$ is inside of $N$. The area-approach works for convex $n$-glons, but that’s it.</p>
 
 <h3 id="tocAnchor-1-3-1">Count Crossing Line Segments</h3>
-
 <p>However, you can try another approach which I have visualized in the following image:</p>
 
 <div style="width: 522px" class="wp-caption ">
@@ -170,8 +166,7 @@ MathJax.Hub.Queue(function() {
 <p>This algorithm is in $\mathcal{O}(n^2)$ time complexity (it does need a constant amount of additional space).</p>
 
 <h3 id="tocAnchor-1-3-2">Triangularization</h3>
-
-<p>When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing $N$ into triangles. </p>
+<p>When you have a lot of querys, you might want to divide your polygon into convex polygones. The easiest way to do this might be dividing $N$ into triangles.</p>
 
 <p>That way, you can check for every triangle if $P$ is inside of it. I assume that the number of triangles is not bigger than $n$. As the check is in constant time for one triangle, you would have an algorithm that needs $\mathcal{O}(n)$ time and space for its checks (+ some preprocessing which is done only once).</p>
 
@@ -359,7 +354,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

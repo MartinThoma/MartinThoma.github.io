@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
    <ul class="toc_list">
@@ -137,20 +137,17 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Angaben</h2>
-
-<p>Gegeben sind zwei Untervektorräume des $\mathbb{R}^4$:
+<p>Gegeben sind zwei Untervektorräume des $\mathbb{R}^4$:<br />
 $U_1 := \left [\begin{pmatrix} 2 \\ 5 \\ 3 \\ 17 \end{pmatrix}, \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix}, \begin{pmatrix} 1 \\ 3 \\ 3 \\ 7 \end{pmatrix}, \begin{pmatrix} -1 \\ 1 \\ -1 \\ 1 \end{pmatrix} \right ]$</p>
 
 <p>$U_2 := \left [\begin{pmatrix} 0 \\ 0 \\ 4 \\ 2 \end{pmatrix}, \begin{pmatrix} 3 \\ 1 \\ 4 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 7 \\ 1 \\ 8 \end{pmatrix}, \begin{pmatrix} 36 \\ 126 \\ 8 \\ 139 \end{pmatrix} \right ]$.</p>
 
 <h2 id="tocAnchor-1-2">Aufgabe</h2>
-
 <p>Finde eine Basis für $U_1 \cap U_2$.</p>
 
 <p>Zusatzaufgabe: Finde eine Basis für $U_1 + U_2$.</p>
 
 <h2 id="tocAnchor-1-3">Basis finden</h2>
-
 <p>Will man eine möglichst einfache Basis, also ein minimales Erzeugendensystem mit möglichst kleinen Zahlen zu einem gegebenem Vektorraum finden, so kann man das <a href="http://de.wikipedia.org/wiki/Gau%C3%9Fsches_Eliminationsverfahren">Gaußsche Eliminationsverfahren</a> auf die erzeugenden Vektoren anwenden. Dazu transponiert man die Vektoren:</p>
 
 <p>
@@ -182,7 +179,7 @@ $U_1 := \left [\begin{pmatrix} 2 \\ 5 \\ 3 \\ 17 \end{pmatrix}, \begin{pmatrix} 
   0 &amp; 0 &amp; \frac{1}{2} &amp; -1\\
   0 &amp; 0 &amp; -\frac{5}{2} &amp; 5
 \end{array} \right)  \rightsquigarrow
-$
+$<br />
 $\left( \begin{array}{c c c c}
   1 &amp;-1 &amp; 1 &amp;-1\\
   0 &amp; 1 &amp; \frac{1}{2} &amp; 2\\
@@ -203,15 +200,14 @@ $\left( \begin{array}{c c c c}
   0 &amp; 1 &amp; 0 &amp; \frac{49}{38}\\
   0 &amp; 0 &amp; 1 &amp; \frac{1}{2}\\
   0 &amp; 0 &amp; 0 &amp; 0
-\end{array} \right)$heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%2C+7%2C+1%2C+8%7D%2C%7B3%2C+1%2C+4%2C+1%7D%2C%7B0%2C+0%2C+4%2C+2%7D%2C%7B36%2C+126%2C+8%2C+139%7D%7D%5D">Wolfram|Alpha</a>. </p>
+\end{array} \right)$heraus, siehe <a href="http://www.wolframalpha.com/input/?i=RowReduce%5B%7B%7B2%2C+7%2C+1%2C+8%7D%2C%7B3%2C+1%2C+4%2C+1%7D%2C%7B0%2C+0%2C+4%2C+2%7D%2C%7B36%2C+126%2C+8%2C+139%7D%7D%5D">Wolfram|Alpha</a>.</p>
 
 <p>Die Basis für $U_2$ ist also $\left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ -\frac{29}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ \frac{49}{38} \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ \frac{1}{2} \end{pmatrix} \right \}$</p>
 
 <h2 id="tocAnchor-1-4">Zassenhaus-Algorithmus</h2>
-
 <p>Bemerkung: Ich habe für den Zassenhaus-Algorithmus leiter die falsche Basis genommen. Der Rechenfehler zieht sich bis zum Ende durch. Wenn ich mal Zeit habe, werde ich es korrigieren (Alternativ: Wenn es jemand von euch macht, kann er den TeX-Code ja als Kommentar bereitstellen).</p>
 
-<p>Man transponiert die Basisvektoren von $U_1$ und $U_2$ und schreibt sie in eine Matrix:
+<p>Man transponiert die Basisvektoren von $U_1$ und $U_2$ und schreibt sie in eine Matrix:<br />
 $\left( \begin{array}{c | c}
   U_1^T &amp; U_1^T \\
   \hline
@@ -237,7 +233,7 @@ $\left( \begin{array}{c | c}
   0 &amp; 0 &amp; 0 &amp; - \frac{181}{38} &amp; -1 &amp; 0 &amp; 0 &amp; -4 \\
   0 &amp; 0 &amp; 0 &amp; -  \frac{65}{38} &amp; 0 &amp; -1 &amp; 0 &amp; -3 \\
   0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; - \frac{38}{75} &amp; \frac{76}{75}
-\end{array} \right) \rightsquigarrow $
+\end{array} \right) \rightsquigarrow $<br />
 $\left( \begin{array}{c c c c | c c c c}
   1 &amp; 0 &amp; 0 &amp; 4 &amp; 1 &amp; 0 &amp; 0 &amp; 4 \\
   0 &amp; 1 &amp; 0 &amp; 3 &amp; 0 &amp; 1 &amp; 0 &amp; 3 \\
@@ -257,13 +253,11 @@ $\left( \begin{array}{c c c c | c c c c}
   0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp;  13 &amp; - 26
 \end{array} \right)$</p>
 
-<p>Rechts unten steht nun die Basis für $U_1 \cap U_2 = \left [ \left \{ \begin{pmatrix} -1 \\ 0 \\ 181 \\ 62 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 13 \\ -26 \end{pmatrix}   \right \} \right ]$.
+<p>Rechts unten steht nun die Basis für $U_1 \cap U_2 = \left [ \left \{ \begin{pmatrix} -1 \\ 0 \\ 181 \\ 62 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 13 \\ -26 \end{pmatrix}   \right \} \right ]$.<br />
 Zusätzlich steht links oben die Basis für $U_1 + U_2$. Wenn man das noch etwas umformt ist es die Standardbasis des $\mathbb{R}^4$.</p>
 
 <h2 id="tocAnchor-1-5">Methode 2</h2>
-
 <h3 id="tocAnchor-1-5-1">Angabe</h3>
-
 <p>$U_1 = \left [ 
 \left \{\begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \\ 3 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \\ -2 \end{pmatrix} \right \}
 \right ]$,</p>
@@ -275,11 +269,10 @@ Zusätzlich steht links oben die Basis für $U_1 + U_2$. Wenn man das noch etwas
 </p>
 
 <h3 id="tocAnchor-1-5-2">Rechnung</h3>
-
-<p>Es gilt:
-$x \in U_1 \cap U_2$ 
-$\Leftrightarrow x \in U_1 \land x \in U_2$ 
-$\Leftrightarrow x = a \cdot x_1 + b \cdot x_2 + c \cdot x_3 = d \cdot y_1 + e \cdot y_2 + f \cdot y_3$ mit $a, b, c, d, e, f  \in \mathbb{R}$.
+<p>Es gilt:<br />
+$x \in U_1 \cap U_2$ <br />
+$\Leftrightarrow x \in U_1 \land x \in U_2$ <br />
+$\Leftrightarrow x = a \cdot x_1 + b \cdot x_2 + c \cdot x_3 = d \cdot y_1 + e \cdot y_2 + f \cdot y_3$ mit $a, b, c, d, e, f  \in \mathbb{R}$.<br />
 $\begin{pmatrix}
 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0\\
@@ -292,7 +285,7 @@ $\begin{pmatrix}
 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0\\
 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1\\
 0 &amp; 0 &amp; 0 &amp; -\frac{181}{38} &amp; -\frac{65}{38} &amp; -\frac{75}{38}
-\end{pmatrix}$
+\end{pmatrix}$<br />
 $\rightsquigarrow  \begin{pmatrix}
 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\
 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0\\
@@ -307,16 +300,15 @@ $\rightsquigarrow  \begin{pmatrix}
 0 &amp; 0 &amp; 0 &amp; 1 &amp; \frac{65}{181} &amp; \frac{75}{181}
 \end{pmatrix}$</p>
 
-<p>Nun führt der -1 - Trick zu dieser Lösung:
+<p>Nun führt der -1 - Trick zu dieser Lösung:<br />
 $\mathcal{L} = \left [ \left \{ \begin{pmatrix} -\frac{65}{181} \\ 1 \\ 0 \\ \frac{65}{181} \\ -1 \\ 0\end{pmatrix}, \begin{pmatrix} -\frac{75}{181} \\ 0 \\ 1 \\ \frac{75}{181} \\ 0 \\ -1 \end{pmatrix}   \right \} \right ] =
 \left [ \left \{ \begin{pmatrix} -65 \\ 181 \\ 0 \\ 65 \\ -181 \\ 0\end{pmatrix}, \begin{pmatrix} -75 \\ 0 \\ 181 \\ 75 \\ 0 \\ -181 \end{pmatrix}   \right \} \right ]$</p>
 
 <p>Das ist also die Lösung für Belegungen von a, b, c, d, e, f, sodass der resultierende Vektor sowohl in $U_1$, als auch in $U_2$ ist.</p>
 
-<p>Allerdings sieht es so aus, als hätte ich mich irgendwo verrechnet ... Sieht jemand den Fehler?</p>
+<p>Allerdings sieht es so aus, als hätte ich mich irgendwo verrechnet … Sieht jemand den Fehler?</p>
 
 <h2 id="tocAnchor-1-8">Siehe auch</h2>
-
 <p>
    <a href="http://werkzeuge.wieschoo.com/zassenalgo.php">Interaktiver Zassenhaus-Algorithmus</a>
 </p>
@@ -502,7 +494,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

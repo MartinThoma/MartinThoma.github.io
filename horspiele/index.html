@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">This is a quic article I had for quite a while as a draft. It
 might not be finished or have other problems, but I still want to share
 it.</div>
 
-<p>Ich habe früher (damals, als ich noch keinen PC hatte :-) ) sehr gerne
-Hörspiele gehört. Nun, mit meinem neuen Smartphone, dachte ich könnte ich das
+<p>Ich habe früher (damals, als ich noch keinen PC hatte :-) ) sehr gerne<br />
+Hörspiele gehört. Nun, mit meinem neuen Smartphone, dachte ich könnte ich das<br />
 ja mal wieder machen.</p>
 
 <p>Auf der Suche nach (kostenlosen) Hörspielen habe ich folgendes gefunden:</p>
@@ -120,9 +120,9 @@ ja mal wieder machen.</p>
   <li><a href="http://neuvertonung.de/">Neuvertonung.de</a>: Eine kleine Gruppe hat „Die drei ???“ neu vertont. Eine Liste der Folgen gibts <a href="http://fragezeichen.neuvertonung.de/folgen.php?Details=on">hier</a>.</li>
   <li>YouTube
     <ul>
-        <li><a href="https://www.youtube.com/watch?v=3JrW71xO58g&index=13&list=WL">Der Hexenmeister - Atmosphärisches Hörbuch / Hörspiel</a></li>
-        <li><a href="https://www.youtube.com/watch?v=5EJ3y13qOV8&index=17&list=WL">Die Barash-Tyr Chroniken</a></li>
-        <li><a href="https://www.youtube.com/watch?v=B0gdM_gYBNo&list=WL&index=25">Meuterei auf der Bounty</a></li>
+        <li><a href="https://www.youtube.com/watch?v=3JrW71xO58g&amp;index=13&amp;list=WL">Der Hexenmeister - Atmosphärisches Hörbuch / Hörspiel</a></li>
+        <li><a href="https://www.youtube.com/watch?v=5EJ3y13qOV8&amp;index=17&amp;list=WL">Die Barash-Tyr Chroniken</a></li>
+        <li><a href="https://www.youtube.com/watch?v=B0gdM_gYBNo&amp;list=WL&amp;index=25">Meuterei auf der Bounty</a></li>
     </ul>
   </li>
 </ul>
@@ -305,7 +305,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

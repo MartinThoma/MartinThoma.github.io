@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesungen „Digitaltechnik und Entwurfsverfahren“ sowie „Rechnerorganisation“ des Moduls „Technische Informatik“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Asfour gehört.</div>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
@@ -145,9 +145,8 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Vorbereitung DT</h2>
-
-<p><strong>Themen</strong>:
-</p><ul>
+<p><strong>Themen</strong>:</p>
+<ul>
   <li>Zahlensysteme: Horner-Schema, Euklidischer Algorithmus</li>
   <li>Zahlendarstellungen: Wie wandle ich eine Zahl von 10-er-System ins Zahlensystem xy um und umgekehrt?
    <ul>
@@ -158,19 +157,19 @@ MathJax.Hub.Queue(function() {
      <li>Zweier-Komplement → <span class="hint" title="Wie Einer-Komplement, 1 addieren">Antwort</span></li>
      <li>Exzess-q → <span class="hint" title="Man fasst die durch Exzess-q dargestellte Zahl als Binärzahl auf, addiert -q darauf und erhält so die dargestellte Zahl">Antwort</span></li>
     </ul>
-    </ul></li>
+    
     <li>Komma
      <ul>
        <li>Festkomma → <span class="hint" title="int, long, char">Beispiele</span></li>
-       <li>Gleitkomma → <span class="hint" title="float, double">Beispiele</span> ($\pm \text{Mantisse} \cdot b^\text{Exponent}$)</li>
+       <li>Gleitkomma → <span class="hint" title="float, double">Beispiele</span> (`$\pm \text{Mantisse} \cdot b^\text{Exponent}$`)</li>
      </ul>
     </li>
     </ul>
-  
+  </li>
   <li>IEEE 754 Format
     <ul>
       <li><a href="../a-practical-approach-to-floats/">A practical approach to floats</a></li>
-      <li>Wie wird NaN dargestellt? Wie wird $-\infty$ und $+\infty$ dargestellt?</li>
+      <li>Wie wird NaN dargestellt? Wie wird `$-\infty$` und `$+\infty$` dargestellt?</li>
       <li>Was ist eine normalisierte Zahl, was eine denormalisierte?</li>
     </ul>
   </li>
@@ -197,12 +196,11 @@ MathJax.Hub.Queue(function() {
   <li>Was macht man, wenn bei der Addition zweier BCD-Zahlen ein Übertrag in die nächste BCD-Ziffer auftritt? → <span class="hint" title="6 auf die Stelle addieren, die den Übertrag auf die nächste Stelle verursachte.">Antwort</span></li>
   <li>Was macht man, wenn bei der Addition zweier BCD-Zahlen bei der Korrekturaddition ein Übertrag auftrat? → <span class="hint" title="Nichts.">Antwort</span></li>
   <li>Was ist die PPS-Methode? → <span class="hint" title="Eine Multiplikationsmethode (Partial Product sum). Siehe DT-VL21.pdf">Antwort</span></li>
-
+</ul>
 
 <h2 id="tocAnchor-1-2">Vorbereitung RO</h2>
-
-<p><strong>Themen</strong>:
-</p><ul>
+<p><strong>Themen</strong>:</p>
+<ul>
   <li>Y-Diagramm</li>
   <li>Aufbau eines Mikroprozessors</li>
   <li>Umrechnen von Zahlensystemen</li>
@@ -210,8 +208,10 @@ MathJax.Hub.Queue(function() {
   <li>Cache-Speicher</li>
 </ul>
 
-<p><strong>Begriffe</strong>
-</p><ul>
+<p>
+   <strong>Begriffe</strong>
+</p>
+<ul>
   <li>Was sind Tristate-Treiber? → <span class="hint" title="Gatterform, die nicht nur Hi und Lo weiterleiten kann, sondern auch einen dritten, gegen Spannungen beider Polaritäten, hochohmigen Zustand haben können. Dadurch kann z.B. ein Baustein vom Bus abgetrennt werden. Sie dienen zum Abschalten des gleichzeitigen Zugriffs mehrerer Komponenten auf Systembusse.">Antwort</span></li>
   <li>Was ist der Unterschied zwischen <span class="hint" title="Symbolische Repräsentation der Maschinensprache, die für den Menschen verständlich und anschaulich ist, z.B. add `$s2, $`s1, `$s0">Assembler</span>, <span class="hint" title="Repräsentation von Anweisungen, die für einen Mikroprozessor unmittelbar verständlich sind, z.B. 00000000110000100011000000100001">Maschinensprache</span> und Mikrobefehlen?</li>
   <li>Wofür stehen RISC und CISC und was sind Beispiele? → <span class="hint" title="Reduced Instruction Set Computer (z.B. MIPS), Complex Instruction Set Computer (z.B. x86)">Antwort</span></li>
@@ -243,9 +243,7 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <h3 id="tocAnchor-1-2-1">MIPS</h3>
-
 <h4>Befehlsformate</h4>
-
 <div style="width: 310px" class="wp-caption aligncenter">
    <a href="../images/2013/01/mips-befehlsformate-300x136.png">
       <img src="../images/2013/01/mips-befehlsformate-300x136.png" alt="MIPS Befehlsformate" width="" height="" class="size-medium wp-image-62151" />
@@ -255,13 +253,12 @@ MathJax.Hub.Queue(function() {
 
 <p>Typ-R Befehle sind arithmetisch-logische Befehle wie add, sub, and, or sowie Vergleichsbefehle wie <abbr title="set on less than">slt</abbr>.</p>
 
-<p>Typ-I Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:
-<code>lw $<code>rt, imm(</code>$rs)</code>
-<code>sw $<code>rt, imm(</code>$rs)</code>
-<code>beq $<code>rs,</code>$rt, immediate</code>: Hier wird immediate als 16-Bit vorzeichenbehaftete Zahl interpretiert und als Offset benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + immediate</p>
+<p>Typ-I Befehle sind Lade- und Speicherbefehle sowie Verzweigungsbefehle:<br />
+<code>lw $`rt, imm(`$rs)</code><br />
+<code>sw $`rt, imm(`$rs)</code><br />
+<code>beq $`rs, `$rt, immediate</code>: Hier wird immediate als 16-Bit vorzeichenbehaftete Zahl interpretiert und als Offset benutzt. Die Basisadresse ist dabei im PC. Also lautet die Zieladresse: (PC zum Zeitpunkt des Befehls + 4) + immediate</p>
 
 <h4>Grundlegende Befehle</h4>
-
 <table>
   <thead>
     <tr>
@@ -276,8 +273,8 @@ MathJax.Hub.Queue(function() {
     </tr>
     <tr>
       <td>sll `$rd, $`rd, shamt</td>
-      <td>shift left logical: `$rd = $`rs 
-    </td></tr>
+      <td>shift left logical: `$rd = $`rs &lt;&lt; shamt</td>
+    </tr>
     <tr>
       <td>ble Rsrc1, Src2, label</td>
       <td>Branch on Less Than Equal: Rsrc1 ≤ Src2</td>
@@ -288,8 +285,8 @@ MathJax.Hub.Queue(function() {
     </tr>
     <tr>
       <td>slti `$rt, $`rs, imm</td>
-      <td>Store less than immediate: if(`$rs 
-    </td></tr>
+      <td>Store less than immediate: if(`$rs &lt; imm) {$`rt = 1;} else {$rt = 0}</td>
+    </tr>
     <tr>
       <td>la Rdest, address</td>
       <td>Load computed address, not the contents of the location, into register Rdest</td>
@@ -307,7 +304,6 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <h4>Fetch-Phase</h4>
-
 <p>In der Fetch-Phase muss das die neue Instruktion ins <abbr title="Instruktionsregister">IR</abbr> geladen werden und der <abbr title="Program counter">PC</abbr> um eins erhöht werden:</p>
 
 <ol>
@@ -328,15 +324,13 @@ MathJax.Hub.Queue(function() {
 0000 0000 1001 0000 0000 0000 0101</code></pre>
 </div>
 
-
 <h2 id="tocAnchor-1-5">Fragen</h2>
 <div class="question">
 <span class="question">Zeichnen Sie ein Y-Diagramm.</span>
 <div class="answer">
 <div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/01/y-diagramm-300x206.png"><img src="../images/2013/01/y-diagramm-300x206.png" alt="Y-Diagramm" width="" height="" class="size-medium wp-image-61531" /></a><p class="wp-caption-text">Y-Diagramm<br />Quelle: <a href="http://ti.ira.uka.de/TI-2/Vorlesung/Vorlesung.php">Folien von Prof. Dr. Asfour</a></p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie ist ein Von-Neumann-Rechner aufgebaut?</span>
@@ -349,16 +343,14 @@ Der BUS beinhaltet Adress-, Daten- und Steuerleitungen.
 
 Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Architektur nicht zwischen Daten und Programmen unterschieden.
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie ist ein Mikroprozessor aufgebaut?</span>
 <div class="answer">
 <div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/01/aufbau-mikroprozessor-300x212.png"><img src="../images/2013/01/aufbau-mikroprozessor-300x212.png" alt="Aufbau eines Mikroprozessors" width="" height="" class="size-medium wp-image-61841" /></a><p class="wp-caption-text">Aufbau eines Mikroprozessors<br />Quelle: <a href="http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10">Folien von Prof. Dr. Asfour</a></p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Aus welchen Phasen besteht die Befehlsausführung?</span>
@@ -369,8 +361,7 @@ Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Archi
   <li>Ausführungsphase</li>
 </ul>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Warum gibt es mehr als ein Befehlsregister?</span>
@@ -380,8 +371,7 @@ Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Archi
   <li>Opcode-Prefetching</li>
 </ul>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Was ist der Unterschied zwischen BCD in gepackter Darstellung und BCD in ungepackter Darstellung?</span>
@@ -389,32 +379,28 @@ Im Gegensatz zur Harvard-Architektur wird beim Speicher in der Von-Neumann-Archi
 Bei BCD in gepackter Darstellung werden in einem Byte (8 Bit) zwei BCD-Zahlen dargestellt.
 In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Pipeline-Konflikte: Welche Forwarding-Techniken gibt es und wie werden sie umgesetzt?</span>
 <div class="answer">
 <div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/01/forwarding-techniken2-300x249.png"><img src="../images/2013/01/forwarding-techniken2-300x249.png" alt="Forwarding-Techniken" width="" height="" class="size-medium wp-image-62451" /></a><p class="wp-caption-text">Forwarding-Techniken<br />Quelle: Quelle: <a href="http://ti.ira.uka.de/TI-2/Vorlesung/RO-VL06.pdf#page=10">Folien von Prof. Dr. Asfour</a></p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Welche Halbleiterspeichertypen gibt es?</span>
 <div class="answer">
 <div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png"><img src="../images/2013/01/halbleiterspeicher-klassifizierung-300x77.png" alt="Klassifizierung von Halbleiterspeicher" width="" height="" class="size-medium wp-image-62511" /></a><p class="wp-caption-text">Klassifizierung von Halbleiterspeicher</p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Skizzieren Sie eine SRAM-Zelle.</span>
 <div class="answer">
 <div style="width: 310px" class="wp-caption aligncenter"><a href="../images/2013/01/cmos-sram-cell-300x300.png"><img src="../images/2013/01/cmos-sram-cell-300x300.png" alt="CMOS SRAM Zelle" width="" height="" class="size-medium wp-image-62521" /></a><p class="wp-caption-text">CMOS SRAM Zelle</p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie unterscheiden sich RISC- und CISC-Architekturen?</span>
@@ -458,16 +444,14 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
   </tbody>
 </table>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie sieht das Schaltsymbol eines Halbaddierers aus?</span>
 <div class="answer">
 <div style="width: 298px" class="wp-caption aligncenter"><a href="../images/2013/01/addierer-schaltsymbol.png"><img src="../images/2013/01/addierer-schaltsymbol.png" alt="Schaltsymbol eines Halbaddierers" width="" height="" class="size-full wp-image-62671" /></a><p class="wp-caption-text">Schaltsymbol eines Halbaddierers</p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <div class="question">
 <span class="question">Wie kann man die Datenabhängigkeiten einer Pipeline spezifizieren und erkennen?</span>
@@ -477,11 +461,9 @@ In der ungepackten Darstellung wird in einem Byte nur eine BCD-Zahl dargestellt.
 Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befehl, Ziel-Register und Operanden-Register macht. Dabei muss man insbesondere bei der Multiplikation, <code>sw</code> und <code>lw</code> aufpassen. Folgendes (sehr gekrizeltes) Beispiel für die <a href="http://ti.ira.uka.de/Klausur/AlteKlausuren/k_ss_12.pdf#page=11">Klausur vom 26. Juli 2012</a>:
 <div style="width: 522px" class="wp-caption alignnone"><a href="../images/2013/01/datenabhaengigkeiten-erkennen.jpg"><img src="../images/2013/01/datenabhaengigkeiten-erkennen.jpg" alt="Datenabhängigkeiten schnell erkennen" width="" height="" class="size-full wp-image-63101" /></a><p class="wp-caption-text">Datenabhängigkeiten schnell erkennen</p></div>
 </div>
-
-<p></p></div>
+</div>
 
 <h2 id="tocAnchor-1-6">Material</h2>
-
 <ul>
   <li><a href="http://ti.ira.uka.de/">TI-Website</a>
     <ul>
@@ -493,13 +475,12 @@ Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befeh
   <li><a href="http://www.titut.de/">titut.de</a>, <a href="http://tutorium.chrismandery.de/">tutorium.chrismandery.de</a></li>
 </ul>
 
-<p>StackOverflow:
-</p><ul>
+<p>StackOverflow:</p>
+<ul>
   <li><a href="http://stackoverflow.com/q/4115847/562769">Strange jump in MIPS assembly</a></li>
 </ul>
 
 <h2 id="tocAnchor-1-7">Aufbau der Klausur</h2>
-
 <p>Die Klausuren sind alle sehr ähnlich aufgebaut. Eine typische Klausur hat 10 Aufgaben zu diesen Themen:</p>
 
 <ol>
@@ -516,15 +497,14 @@ Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befeh
 </ol>
 
 <h2 id="tocAnchor-1-8">Termine und Klausurablauf</h2>
-
-<p><strong>Datum</strong>: Mittwoch, den 3. April 2013 von 14:00 bis 16:00 Uhr
-<strong>Ort</strong>: <a href="http://kit.carstengriesheimer.de/map/1458">Gaede</a> (bei mir; siehe <a href="http://ti.ira.uka.de/Klausur/Hoersaalverteilung.htm">Hörsaaleinteilung</a>, die seit dem 2. April 2013 draußen ist)
-<strong>Dauer</strong>: 1 h DT, 1 h RO
-<strong>Punkte</strong>: (vermutlich) 90
-<strong>Bestehensgrenze</strong>: (vermutlich) 40
-<strong>Übungsschein</strong>: Wird nicht ins Studienportal eingetragen
-<strong>Bonuspunkte</strong>: 
-</p><ul>
+<p><strong>Datum</strong>: Mittwoch, den 3. April 2013 von 14:00 bis 16:00 Uhr<br />
+<strong>Ort</strong>: <a href="http://kit.carstengriesheimer.de/map/1458">Gaede</a> (bei mir; siehe <a href="http://ti.ira.uka.de/Klausur/Hoersaalverteilung.htm">Hörsaaleinteilung</a>, die seit dem 2. April 2013 draußen ist)<br />
+<strong>Dauer</strong>: 1 h DT, 1 h RO<br />
+<strong>Punkte</strong>: (vermutlich) 90<br />
+<strong>Bestehensgrenze</strong>: (vermutlich) 40<br />
+<strong>Übungsschein</strong>: Wird nicht ins Studienportal eingetragen<br />
+<strong>Bonuspunkte</strong>:</p>
+<ul>
   <li>Übungsschein RO: 1 Bonuspunkt</li>
   <li>Übungsschein DT: 1 Bonuspunkt</li>
   <li>Für die Probeklausuren jeweils:
@@ -538,14 +518,12 @@ Erkennen kann man sie sehr schnell, indem man eine Tabelle mit den Spalten Befeh
 </ul>
 
 <h2 id="tocAnchor-1-9">Nicht vergessen</h2>
-
 <ul>
   <li>Studentenausweis</li>
   <li>Kugelschreiber</li>
 </ul>
 
 <h2 id="tocAnchor-1-10">Ergebnisse</h2>
-
 <p>Die Klausureinsicht ist am Montag, den 29. April 2013. Für die Einsicht muss man sich <a href="http://ti.ira.uka.de/Klausur/Einsicht/">hier</a> anmelden.</p>
 
                         </div>
@@ -729,7 +707,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Labels&rdquo;’</h2>
   
@@ -3215,12 +3215,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2011-10-08T06:21:25+02:00">October  8, 2011</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/5-web-technologies-which-should-be-used-more-often/"><img width="128" height="128" src="//martin-thoma.com/images/2011/10/OpenID.png" class="alignleft post_thumbnail wp-post-image" alt="5 Web Technologies which should be used more often"/></a>
     
 
-    { caption align=&quot;alignright&quot; width=&quot;100&quot; caption=&quot;RSS-Feeds&quot; url=&quot;../images/2011/10/RSS-Feeds.png&quot; alt=&quot;RSS-Feeds&quot; height=&quot;100&quot; class=&quot;size-full wp-image-4411&quot; } RSS-Feeds Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your Feed Reader makes an update, you can get instantly a little notice. Its a bit like e-mail, but you have the possibility to stop this service. You can&#39;t get spam, as the Feed owner doesn&#39;t get an identifier for you....
+    { caption align=”alignright” width=”100” caption=”RSS-Feeds” url=”../images/2011/10/RSS-Feeds.png” alt=”RSS-Feeds” height=”100” class=”size-full wp-image-4411” } RSS-Feeds Everyone who wants to get informed about updates on websites has to use RSS Feeds. Every time any website you have in your Feed Reader makes an update, you can get instantly a little notice. Its a bit like e-mail, but you have the possibility to stop this service. You can’t get spam, as the Feed owner doesn’t get an identifier for you....
 
     
     <div class="readmorecontent">
@@ -3700,7 +3700,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 </nav>
 
             	<div id="content">			
-						<div class="entry">
+						<div class="entry" id="contentAfterTitle">
                             <!-- type: tag-wp -->
 <h2 class="pagetitle">Posts Tagged ‘Posts Tagged &ldquo;Google Maps&rdquo;’</h2>
   
@@ -1119,12 +1119,12 @@ MathJax.Hub.Queue(function() {
             <time datetime="2013-07-06T20:45:32+02:00">July  6, 2013</time> 
             <!--<span>No Comments / 1 comment / 2 comments</span> TODO-->
         </div>
-        <div class="entry">
+        <div class="entry" id="contentAfterTitle">
     
     <a href="//martin-thoma.com/improve-german-public-transportation/"><img width="128" height="128" src="//martin-thoma.com/images/2013/07/bus.png" class="alignleft post_thumbnail wp-post-image" alt="Improve German Public Transportation"/></a>
     
 
-    Public transportation in Germany is much worse than it could be. I&#39;ve got quite angry today because of that and thought about ways to improve the situation. A story from today: I&#39;ve bought two tickets to get from Karlsruhe to Augsburg (230 km) in about a month. I wanted to visit my dad in summer break just after an exam. I&#39;ve bought a fixed connection to get there for &quot;only&quot; 35 Euro instead of 59...
+    Public transportation in Germany is much worse than it could be. I’ve got quite angry today because of that and thought about ways to improve the situation. A story from today: I’ve bought two tickets to get from Karlsruhe to Augsburg (230 km) in about a month. I wanted to visit my dad in summer break just after an exam. I’ve bought a fixed connection to get there for “only” 35 Euro instead of 59...
 
     
     <div class="readmorecontent">
@@ -3688,7 +3688,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

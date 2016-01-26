@@ -105,17 +105,17 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p><a href="http://en.wikipedia.org/wiki/Project_Euler">Project Euler</a> is a series of challenging mathematical/computer programming problems that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.</p>
 
 <p>The motivation for starting Project Euler, and its continuation, is to provide a platform for the inquiring mind to delve into unfamiliar areas and learn new concepts in a fun and recreational context.</p>
 
-<p>Today, I would like to discuss problem 142. I've seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself. </p>
+<p>Today, I would like to discuss problem 142. I’ve seen a <a href="http://blog.san-ss.com.ar/2011/12/project-euler-problem-142-solved.html">post from Santiago Alessandri</a>, so I liked to do the task by myself.</p>
 
-<p>The task is:
-</p><blockquote>Find the smallest x + y + z with integers $x &gt; y &gt; z &gt; 0$ such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
+<p>The task is:</p>
+<blockquote>Find the smallest x + y + z with integers `$x &gt; y &gt; z &gt; 0$` such that x + y, x - y, x + z, x - z, y + z, y - z are all perfect squares.</blockquote>
 
-<p>I don't want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
+<p>I don’t want to post the solution (if you want to cheat, I guess you could easily Google it), but some thoughts that might help you to get in the right direction.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -131,7 +131,6 @@ MathJax.Hub.Queue(function() {
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">First thought: Brute-force</h2>
-
 <p><a href="http://en.wikipedia.org/wiki/Brute-force_search">Brute-force</a> is the easiest way that could give you the solution. So I wrote this piece of code:</p>
 
 <div class="highlight">
@@ -149,79 +148,94 @@ MathJax.Hub.Queue(function() {
         <span class="k">return</span> <span class="bp">False</span>
 
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1000</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">x</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">):</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
-                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
-                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
-                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
-                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
-                    <span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)):</span>
-                        <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
-                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></code></pre>
+	<span class="k">print</span> <span class="n">x</span>
+	<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">):</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
+					<span class="ow">and</span> <span class="n">is_square</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">z</span><span class="p">)):</span>
+						<span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s"> - </span><span class="si">%i</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+						<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></code></pre>
 </div>
 
 <p>This is quite fast until you reach about 500. So this is not a good way to solve it.</p>
 
 <h2 id="tocAnchor-1-2">Apply some math</h2>
-
-<p>You can formalize the task like this:
-Find the smallest $x, y, z \in \mathbb{N}$, so that:
-</p><ol>
-  <li>$x &gt; y &gt; z &gt; 0$</li>
-  <li>$a = x + y$</li>
-  <li>$b = x - y$</li>
-  <li>$c = x + z$</li>
-  <li>$d = x - z$</li>
-  <li>$e = y + z$</li>
-  <li>$f = y - z$</li>
+<p>You can formalize the task like this:<br />
+Find the smallest $x, y, z \in \mathbb{N}$, so that:</p>
+<ol>
+  <li>`$x &gt; y &gt; z &gt; 0$`</li>
+  <li>`$a = x + y$`</li>
+  <li>`$b = x - y$`</li>
+  <li>`$c = x + z$`</li>
+  <li>`$d = x - z$`</li>
+  <li>`$e = y + z$`</li>
+  <li>`$f = y - z$`</li>
 </ol>
 
 <p>With $a, b, c, d, e, f \in Squares$.</p>
 
-<p>Now you can make the following conclusions:
-</p><ol>
-  <li>$\overset{A.1, A.2, A.3}{\implies} a &gt; b$</li>
-  <li>$\overset{A.1, A.4, A.5}{\implies} c &gt; d$</li>
-  <li>$\overset{A.1, A.6, A.7}{\implies} e &gt; f$</li>
+<p>Now you can make the following conclusions:</p>
+<ol>
+  <li>`$\overset{A.1, A.2, A.3}{\implies} a &gt; b$`</li>
+  <li>`$\overset{A.1, A.4, A.5}{\implies} c &gt; d$`</li>
+  <li>`$\overset{A.1, A.6, A.7}{\implies} e &gt; f$`</li>
 </ol>
 
 <ol>
-<li><p>$a &gt; c$:
-$y &gt; z$
-$\Leftrightarrow x + y &gt; x + z$
-$\Leftrightarrow a &gt; c$</p></li>
-<li><p>$c &gt; e$:
-$x &gt; y$
-$\Leftrightarrow x + z &gt; y + z$
-$c &gt; e$</p></li>
-<li><p>a is the biggest element (see B.1, B.4, B.6)</p></li>
-<li><p>$b &lt; c$:
-$-y &lt; z$
-$\Leftrightarrow x - y &lt; x + z$
-$b &lt; c$</p></li>
-<li><p>c is the second biggest element (see B.7, B.2, B.5, B.8)</p></li>
-<li><p>$b &lt; d$:
-$ y &gt; z$
-$\Leftrightarrow -y &lt; -z$
-$\Leftrightarrow x - y &lt; x - z$
-$b &lt; d$</p></li>
-<li><p>$d &gt; f$:
-$ x &gt; y$
-$\Leftrightarrow x - z &gt; y - z$
-$d &gt; f$</p></li>
-<li><p>I can't tell anything about the relationship between:
-</p><ul>
-<li>d and e</li>
-<li>b and f</li>
-<li>b and e</li>
-</ul></li>
+  <li>
+    <p>$a &gt; c$:<br />
+$y &gt; z$<br />
+$\Leftrightarrow x + y &gt; x + z$<br />
+$\Leftrightarrow a &gt; c$</p>
+  </li>
+  <li>
+    <p>$c &gt; e$:<br />
+$x &gt; y$<br />
+$\Leftrightarrow x + z &gt; y + z$<br />
+$c &gt; e$</p>
+  </li>
+  <li>
+    <p>a is the biggest element (see B.1, B.4, B.6)</p>
+  </li>
+  <li>
+    <p>$b &lt; c$:<br />
+$-y &lt; z$<br />
+$\Leftrightarrow x - y &lt; x + z$<br />
+$b &lt; c$</p>
+  </li>
+  <li>
+    <p>c is the second biggest element (see B.7, B.2, B.5, B.8)</p>
+  </li>
+  <li>
+    <p>$b &lt; d$:<br />
+$ y &gt; z$<br />
+$\Leftrightarrow -y &lt; -z$<br />
+$\Leftrightarrow x - y &lt; x - z$<br />
+$b &lt; d$</p>
+  </li>
+  <li>
+    <p>$d &gt; f$:<br />
+$ x &gt; y$<br />
+$\Leftrightarrow x - z &gt; y - z$<br />
+$d &gt; f$</p>
+  </li>
+  <li>
+    <p>I can’t tell anything about the relationship between:</p>
+  </li>
 </ol>
+<ul>
+  <li>d and e</li>
+  <li>b and f</li>
+  <li>b and e</li>
+</ul>
 
-<p>Lets conclude:
-</p><div style="width: 308px" class="wp-caption aligncenter">
+<p>Lets conclude:</p>
+<div style="width: 308px" class="wp-caption aligncenter">
    <a href="../images/2012/04/euler-142-graph.png">
       <img src="../images/2012/04/euler-142-graph.png" alt="Graph that visualizes the situation of the squares of Euler 142" width="" height="" class="size-full wp-image-21421" />
    </a>
@@ -230,15 +244,14 @@ $d &gt; f$</p></li>
 
 <p>You also know:</p>
 
-<p>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$
+<p>$x = \frac{a - b}{2} \implies \text{ (a - b) has to be even} \implies \text{a and b have the same parity.}$<br />
 The same argumentation can be used for (c, d) and (e, f).</p>
 
 <p>$x &gt; y &gt; z &gt; 0 \land a = x + y \implies a \geq 5$.</p>
 
-<p>With this in mind you don't have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.</p>
+<p>With this in mind you don’t have to loop over three variables but only over two. This is much faster. As z is over 1000 you need it. My new script took about 1.5 minutes.</p>
 
 <h2 id="tocAnchor-1-3">Material</h2>
-
 <p>Some material like the LaTeX-file can be found in the <a href="../images/2012/04/euler-142.zip">Project Euler 142 Archive</a>.</p>
 
                         </div>
@@ -425,7 +438,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

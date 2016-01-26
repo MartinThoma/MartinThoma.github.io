@@ -105,7 +105,7 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <div class="definition">Let `$(G, \cdot)$` be a group and `$M$` a set. A <strong>group action</strong> is a function:
 `$G \circ M \rightarrow M$`
 that satisfies the following two conditions
@@ -113,25 +113,24 @@ that satisfies the following two conditions
   <li>Identity: `$\forall m \in M: e_G \circ m = m$`</li>
   <li>Associativity: `$\forall g, h \in G, m \in M: (g \cdot h) \circ m= g \circ (h \circ m)$`</li>
 </ul></div>
-
 <div class="definition">Let `$m \in M$`. Then `$G_m := \{g \in G | g \circ m = m\}$` is called the <strong>stabilizer</strong> of `$m$`.</div>
 
 <p><strong>Theorem</strong>: $G_m$ is a group</p>
 
-<p><strong>Proof</strong>: </p>
+<p><strong>Proof</strong>:</p>
 
 <p>Let $m \in M$.</p>
 
 <p>$\stackrel{identity}{\Rightarrow}e_G \in G_m$</p>
 
-<p>Let $a \in G_m$. This means, that $a \circ m = m$. And $\exists a^{-1} \in G$, as $G$ is a group.
-$a^{-1} \cdot a = e_G$, this means $(a^{-1} \cdot a) \circ m = m$. 
+<p>Let $a \in G_m$. This means, that $a \circ m = m$. And $\exists a^{-1} \in G$, as $G$ is a group.<br />
+$a^{-1} \cdot a = e_G$, this means $(a^{-1} \cdot a) \circ m = m$. <br />
 $\stackrel{associativity}{\Rightarrow}a^{-1} \circ (a \circ m) = m \Leftrightarrow a^{-1} \circ m = m \Leftrightarrow a^{-1} \in G_m$</p>
 
-<p>Let $a, b \in G_m$. 
+<p>Let $a, b \in G_m$. <br />
 Then: $a \circ m = m$ and $b \circ m = m$</p>
 
-<p>$\Rightarrow a \circ (b \circ m) = m$
+<p>$\Rightarrow a \circ (b \circ m) = m$<br />
 $\stackrel{associativity}{\Rightarrow} (a \cdot b) \circ m = m \Leftrightarrow (a \cdot b) \in G_m \blacksquare$</p>
 
                         </div>
@@ -312,7 +311,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

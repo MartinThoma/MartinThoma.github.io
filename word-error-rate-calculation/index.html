@@ -105,13 +105,13 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
+                        <div class="entry" id="contentAfterTitle">
                             <p>The Word Error Rate (short: WER) is a way to measure performance of an <abbr title="Automatic Speech Recognizer">ASR</abbr>. It compares a reference to an hypothesis and is defined like this:</p>
 
 <p>[\mathit{WER} = \frac{S+D+I}{N}]</p>
 
-<p>where
-</p><ul>
+<p>where</p>
+<ul>
   <li>S is the number of substitutions,</li>
   <li>D is the number of deletions,</li>
   <li>I is the number of insertions and</li>
@@ -142,56 +142,55 @@ MathJax.Hub.Queue(function() {
 <pre>REF: What a bright day
 HYP: What a day</pre>
 
-<p>In this case, a deletion happened. "Bright" was deleted by the ASR.</p>
+<p>In this case, a deletion happened. “Bright” was deleted by the ASR.</p>
 
 <pre>REF: What a day
 HYP: What a bright day</pre>
 
-<p>In this case, an insertion happened. "Bright" was inserted by the ASR.</p>
+<p>In this case, an insertion happened. “Bright” was inserted by the ASR.</p>
 
 <pre>REF: What a bright day
 HYP: What a light day</pre>
 
-<p>In this case, an substitution happened. "Bright" was substituted by "light" by
+<p>In this case, an substitution happened. “Bright” was substituted by “light” by<br />
 the ASR.</p>
 
 <h2 id="tocAnchor-1-2">Range of values</h2>
 
-<p>As only addition and division with non-negative
-numbers happen, WER cannot get negativ. It is 0 exactly when the hypothesis is
+<p>As only addition and division with non-negative<br />
+numbers happen, WER cannot get negativ. It is 0 exactly when the hypothesis is<br />
 the same as the reference.</p>
 
-<p>WER can get arbitrary large, because the ASR can insert an arbitrary amount of
+<p>WER can get arbitrary large, because the ASR can insert an arbitrary amount of<br />
 words.</p>
 
 <h2 id="tocAnchor-1-3">Calculation</h2>
-
 <p>Interestingly, the WER is just the Levenshtein distance for words.</p>
 
-<p>I've understood it after I saw this on the German Wikipedia:</p>
+<p>I’ve understood it after I saw this on the German Wikipedia:</p>
 
-<p>[
-\begin{align}
-m &amp;= |r|\
-n &amp;= |h|\
-\end{align}
+<p>[<br />
+\begin{align}<br />
+m &amp;= |r|\<br />
+n &amp;= |h|\<br />
+\end{align}<br />
 ]</p>
 
-<p>[
-\begin{align}
-D_{0, 0} &amp;= 0\
-D_{i, 0} &amp;= i, 1 \leq i \leq m\
-D_{0, j} &amp;= j, 1 \leq j \leq n
+<p>[<br />
+\begin{align}<br />
+D_{0, 0} &amp;= 0\<br />
+D_{i, 0} &amp;= i, 1 \leq i \leq m\<br />
+D_{0, j} &amp;= j, 1 \leq j \leq n<br />
 \end{align}]</p>
 
-<p>[
-\text{For } 1 \leq i\leq m, 1\leq j \leq n\
-D_{i, j} = \min \begin{cases}
-D_{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\
-D_{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \
-D_{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \
-D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}
-\end{cases}
+<p>[<br />
+\text{For } 1 \leq i\leq m, 1\leq j \leq n\<br />
+D_{i, j} = \min \begin{cases}<br />
+D_{i - 1, j - 1}&amp;+ 0 \ {\rm if}\ u_i = v_j\<br />
+D_{i - 1, j - 1}&amp;+ 1 \ {\rm(Replacement)} \<br />
+D_{i, j - 1}&amp;+ 1 \ {\rm(Insertion)} \<br />
+D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}<br />
+\end{cases}<br />
 ]</p>
 
 <p>But I have written a piece of pseudocode to make it even easier to code this algorithm:</p>
@@ -251,9 +250,8 @@ D_{i - 1, j}&amp;+ 1 \ {\rm(Deletion)}
 </div>
 
 <h2 id="tocAnchor-1-5">Explanation</h2>
-
-<p>No matter at what stage of the code you are, the following is always true:
-</p><ul>
+<p>No matter at what stage of the code you are, the following is always true:</p>
+<ul>
   <li>If <code>r[i]</code> equals <code>h[j]</code> you don't have to change anything. The error will be the same as it was for <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
   <li>If its a substitution, you have the same number of errors as you had before when comparing the <code>r[:i-1]</code> and <code>h[:j-1]</code></li>
   <li>If it was an insertion, then the hypothesis will be longer than the reference. So you can delete one from the hypothesis and compare the rest. As this is the other way around for deletion, you don't have to worry when you have to delete something.</li>
@@ -446,7 +444,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 

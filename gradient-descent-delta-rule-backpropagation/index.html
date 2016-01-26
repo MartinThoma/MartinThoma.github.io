@@ -105,25 +105,25 @@ MathJax.Hub.Queue(function() {
                             </time>
                         </div>
 
-                        <div class="entry">
-                            <p>If you learn about machine learning you will stumble over three terms that are
+                        <div class="entry" id="contentAfterTitle">
+                            <p>If you learn about machine learning you will stumble over three terms that are<br />
 related:</p>
 
 <ul>
-<li>Gradient descent,</li>
-<li>the Delta rule and</li>
-<li>backpropagation</li>
+  <li>Gradient descent,</li>
+  <li>the Delta rule and</li>
+  <li>backpropagation</li>
 </ul>
 
-<p>Gradient descent is a way to find a minimum in a high-dimensional space. You
+<p>Gradient descent is a way to find a minimum in a high-dimensional space. You<br />
 go in direction of the steepest descent.</p>
 
-<p>The delta rule is an update rule for single layer perceptrons. It makes use
+<p>The delta rule is an update rule for single layer perceptrons. It makes use<br />
 of gradient descent.</p>
 
-<p>Backpropagation is a special form of gradient descent, where a rule can be
-formulated which has some recursively defined parts. Those parts belong
-to neurons of different layers and get calculated from the output-layer
+<p>Backpropagation is a special form of gradient descent, where a rule can be<br />
+formulated which has some recursively defined parts. Those parts belong<br />
+to neurons of different layers and get calculated from the output-layer<br />
 (last layer) to the first hidden layer.</p>
 
 <h2 id="tocAnchor-1-1">See also</h2>
@@ -131,9 +131,9 @@ to neurons of different layers and get calculated from the output-layer
 <p>Wikipedia pages:</p>
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient descent</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Delta_rule">Delta rule</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Backpropagation">Backpropagation</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient descent</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Delta_rule">Delta rule</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Backpropagation">Backpropagation</a></li>
 </ul>
 
                         </div>
@@ -317,7 +317,39 @@ var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"
 /* ]]> */
 </script>
 <script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
 
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
 </body>
 </html>
 
