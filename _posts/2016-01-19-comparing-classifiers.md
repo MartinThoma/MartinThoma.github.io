@@ -31,6 +31,9 @@ This article gives you an overview over some classifiers:
 * [Naive Bayes](http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html)
 * [LDA](http://scikit-learn.org/0.16/modules/generated/sklearn.lda.LDA.html)
 * [QDA](http://scikit-learn.org/0.16/modules/generated/sklearn.qda.QDA.html)
+* [RBMs](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html)
+* [Logistic Regression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+* [RBM](http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.BernoulliRBM.html) + Logistic Regression Classifier
 
 Of course, neural networks are also one very powerful ML classifier I may not
 forget. As sklearn does not have neural networks, I've installed
@@ -448,87 +451,99 @@ Accuracy: 0.5561
   <tbody>
     <tr>
         <td>MLP (500:200)</td>
-        <td align="right">97.98%</td>
-        <td align="right">79.5696s</td>
-        <td align="right">0.3480s</td>
+        <td style="text-align: right">97.98%</td>
+        <td style="text-align: right">79.5696s</td>
+        <td style="text-align: right">0.3480s</td>
     </tr>
     <tr>
         <td>Dropout NN (500:200)</td>
-        <td align="right">97.80%</td>
-        <td align="right">118.2654s</td>
-        <td align="right">0.3918s</td>
+        <td style="text-align: right">97.80%</td>
+        <td style="text-align: right">118.2654s</td>
+        <td style="text-align: right">0.3918s</td>
     </tr>
     <tr>
         <td>CNN<br/>(32 5&times;5 filters : 2&times;2 max pool : 64 5&times;5 filters : 2&times;2 max pool : 1024)</td>
-        <td align="right">97.69%</td>
-        <td align="right">391.8810s</td>
-        <td align="right">1.2035s</td>
+        <td style="text-align: right">97.69%</td>
+        <td style="text-align: right">391.8810s</td>
+        <td style="text-align: right">1.2035s</td>
     </tr>
     <tr>
         <td>Adjusted SVM</td>
-        <td align="right"><b>98.40%</b></td>
-        <td align="right">347.1539s</td>
-        <td align="right" class="danger">234.5724s</td>
+        <td style="text-align: right"><b>98.40%</b></td>
+        <td style="text-align: right">347.1539s</td>
+        <td style="text-align: right" class="danger">234.5724s</td>
     </tr>
     <tr>
         <td>Linear SVM</td>
-        <td align="right">94.16%</td>
-        <td align="right">168.6950s</td>
-        <td align="right" class="danger">158.0101s</td>
+        <td style="text-align: right">94.16%</td>
+        <td style="text-align: right">168.6950s</td>
+        <td style="text-align: right" class="danger">158.0101s</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=50, n_jobs=10)</td>
-        <td align="right">96.41%</td>
-        <td align="right">2.1359s</td>
-        <td align="right" class="danger">26.0763s</td>
+        <td style="text-align: right">96.41%</td>
+        <td style="text-align: right">2.1359s</td>
+        <td style="text-align: right" class="danger">26.0763s</td>
     </tr>
     <tr>
         <td>Random Forest (n_estimators=10, max_features=1, max_depth=5)</td>
-        <td align="right" class="danger">57.15%</td>
-        <td align="right"><b>0.2077s</b></td>
-        <td align="right" class="danger">22.2770s</td>
+        <td style="text-align: right" class="danger">57.15%</td>
+        <td style="text-align: right"><b>0.2077s</b></td>
+        <td style="text-align: right" class="danger">22.2770s</td>
     </tr>
     <tr>
         <td>k nearest neightbors (k=3)</td>
-        <td align="right">96.95%</td>
-        <td align="right">4.6439s</td>
-        <td align="right" class="danger">1261.7815s</td>
+        <td style="text-align: right">96.95%</td>
+        <td style="text-align: right">4.6439s</td>
+        <td style="text-align: right" class="danger">1261.7815s</td>
     </tr>
     <tr>
         <td>Decision Tree(max_depth=5)</td>
-        <td align="right" class="danger">65.40%</td>
-        <td align="right">3.1346s</td>
-        <td align="right"><b>0.0313s</b></td>
+        <td style="text-align: right" class="danger">65.40%</td>
+        <td style="text-align: right">3.1346s</td>
+        <td style="text-align: right"><b>0.0313s</b></td>
     </tr>
     <tr>
         <td>Adaboost</td>
-        <td align="right" class="danger">73.67%</td>
-        <td align="right">37.6443s</td>
-        <td align="right">1.5815s</td>
+        <td style="text-align: right" class="danger">73.67%</td>
+        <td style="text-align: right">37.6443s</td>
+        <td style="text-align: right">1.5815s</td>
     </tr>
     <tr>
         <td>Naive Bayes</td>
-        <td align="right" class="danger">56.15%</td>
-        <td align="right">0.3814s</td>
-        <td align="right">0.8863s</td>
+        <td style="text-align: right" class="danger">56.15%</td>
+        <td style="text-align: right">0.3814s</td>
+        <td style="text-align: right">0.8863s</td>
     </tr>
     <tr>
         <td>LDA</td>
-        <td align="right">86.42%</td>
-        <td align="right">20.6464s</td>
-        <td align="right">0.0910s</td>
+        <td style="text-align: right">86.42%</td>
+        <td style="text-align: right">20.6464s</td>
+        <td style="text-align: right">0.0910s</td>
     </tr>
     <tr>
         <td>QDA</td>
-        <td align="right" class="danger">55.61%</td>
-        <td align="right">23.0527s</td>
-        <td align="right" class="danger">6.2259s</td>
+        <td style="text-align: right" class="danger">55.61%</td>
+        <td style="text-align: right">23.0527s</td>
+        <td style="text-align: right" class="danger">6.2259s</td>
     </tr>
     <tr>
         <td>Gradient Boosting</td>
-        <td align="right" class="danger">94.35%</td>
-        <td align="right">2409.8094s</td>
-        <td align="right">0.4159s</td>
+        <td style="text-align: right">94.35%</td>
+        <td style="text-align: right">2409.8094s</td>
+        <td style="text-align: right">0.4159s</td>
+    </tr>
+    <tr>
+        <td>Logistic Regression (C=1)</td>
+        <td style="text-align: right">91.47%</td>
+        <td style="text-align: right">272.1309s</td>
+        <td style="text-align: right">0.0531s</td>
+    </tr>
+    <tr>
+        <td>Logistic Regression (C=10000)</td>
+        <td style="text-align: right">91.23%</td>
+        <td style="text-align: right">1807.0624s</td>
+        <td style="text-align: right">0.0529s</td>
     </tr>
   </tbody>
 </table>
@@ -551,75 +566,123 @@ Just for fun, I tried the script from above with very minor adjustments to the
   <tbody>
     <tr>
         <td>AdaBoost</td>
-        <td align="right" >92.00%</td>
-        <td align="right">0.1203s</td>
-        <td align="right" >0.0101s</td>
+        <td style="text-align: right" >92.00%</td>
+        <td style="text-align: right">0.1203s</td>
+        <td style="text-align: right" >0.0101s</td>
     </tr>
     <tr>
         <td>Decision Tree</td>
-        <td align="right" >92.00%</td>
-        <td align="right">0.0005s</td>
-        <td align="right" ><b>0.0001s</b></td>
+        <td style="text-align: right" >92.00%</td>
+        <td style="text-align: right">0.0005s</td>
+        <td style="text-align: right" ><b>0.0001s</b></td>
     </tr>
     <tr>
         <td>Gradient Boosting</td>
-        <td align="right" >92.00%</td>
-        <td align="right">0.2227s</td>
-        <td align="right" >0.0007s</td>
+        <td style="text-align: right" >92.00%</td>
+        <td style="text-align: right">0.2227s</td>
+        <td style="text-align: right" >0.0007s</td>
     </tr>
     <tr>
         <td>LDA</td>
-        <td align="right" ><b>96.00%</b></td>
-        <td align="right">0.0027s</td>
-        <td align="right" >0.0002s</td>
+        <td style="text-align: right" ><b>96.00%</b></td>
+        <td style="text-align: right">0.0027s</td>
+        <td style="text-align: right" >0.0002s</td>
     </tr>
     <tr>
         <td>NN 20:5</td>
-        <td align="right" >90.00%</td>
-        <td align="right">1.6628s</td>
-        <td align="right" >0.0046s</td>
+        <td style="text-align: right" >90.00%</td>
+        <td style="text-align: right">1.6628s</td>
+        <td style="text-align: right" >0.0046s</td>
     </tr>
     <tr>
         <td>Naive Bayes</td>
-        <td align="right" >90.00%</td>
-        <td align="right">0.0010s</td>
-        <td align="right" >0.0004s</td>
+        <td style="text-align: right" >90.00%</td>
+        <td style="text-align: right">0.0010s</td>
+        <td style="text-align: right" >0.0004s</td>
     </tr>
     <tr>
         <td>QDA</td>
-        <td align="right" >94.00%</td>
-        <td align="right">0.0009s</td>
-        <td align="right" >0.0003s</td>
+        <td style="text-align: right" >94.00%</td>
+        <td style="text-align: right">0.0009s</td>
+        <td style="text-align: right" >0.0003s</td>
     </tr>
     <tr>
         <td>Random Forest</td>
-        <td align="right" >90.00%</td>
-        <td align="right">0.2147s</td>
-        <td align="right" >0.1395s</td>
+        <td style="text-align: right" >90.00%</td>
+        <td style="text-align: right">0.2147s</td>
+        <td style="text-align: right" >0.1395s</td>
     </tr>
     <tr>
         <td>Random Forest 2</td>
-        <td align="right" >90.00%</td>
-        <td align="right">0.1481s</td>
-        <td align="right" >0.1249s</td>
+        <td style="text-align: right" >90.00%</td>
+        <td style="text-align: right">0.1481s</td>
+        <td style="text-align: right" >0.1249s</td>
     </tr>
     <tr>
         <td>SVM, adj.</td>
-        <td align="right" >90.00%</td>
-        <td align="right">0.0010s</td>
-        <td align="right" >0.0004s</td>
+        <td style="text-align: right" >90.00%</td>
+        <td style="text-align: right">0.0010s</td>
+        <td style="text-align: right" >0.0004s</td>
     </tr>
     <tr>
         <td>SVM, linear</td>
-        <td align="right" class="danger">88.00%</td>
-        <td align="right">0.0006s</td>
-        <td align="right" >0.0002s</td>
+        <td style="text-align: right" class="danger">88.00%</td>
+        <td style="text-align: right">0.0006s</td>
+        <td style="text-align: right" >0.0002s</td>
     </tr>
     <tr>
         <td>k nn</td>
-        <td align="right" >92.00%</td>
-        <td align="right">0.0007s</td>
-        <td align="right" >0.0009s</td>
+        <td style="text-align: right" >92.00%</td>
+        <td style="text-align: right">0.0007s</td>
+        <td style="text-align: right" >0.0009s</td>
+    </tr>
+    <tr>
+        <td>Logistic Regression (C=1)</td>
+        <td style="text-align: right" class="danger">88.00%</td>
+        <td style="text-align: right" >0.0011s</td>
+        <td style="text-align: right" ><b>0.0001s</b></td>
+    </tr>
+    <tr>
+        <td>Logistic Regression (C=1000)</td>
+        <td style="text-align: right" >92.00%</td>
+        <td style="text-align: right" >0.0010s</td>
+        <td style="text-align: right" >0.0002s</td>
+    </tr>
+    <tr>
+        <td>RBM 100</td>
+        <td style="text-align: right" class="danger">78.00%</td>
+        <td style="text-align: right" >0.0233s</td>
+        <td style="text-align: right" >0.0003s</td>
+    </tr>
+    <tr>
+        <td>RBM 100, n_iter=20</td>
+        <td style="text-align: right" class="danger">70.00%</td>
+        <td style="text-align: right" >0.0427s</td>
+        <td style="text-align: right" >0.0003s</td>
+    </tr>
+    <tr>
+        <td>RBM 200, n_iter=40, LR=0.01, Reg: C=1</td>
+        <td style="text-align: right" class="danger">88.00%</td>
+        <td style="text-align: right" >0.2463s</td>
+        <td style="text-align: right" >0.0005s</td>
+    </tr>
+    <tr>
+        <td>RBM 200, n_iter=40, LR=0.01, Reg: C=10000</td>
+        <td style="text-align: right" >90.00%</td>
+        <td style="text-align: right" >0.2437s</td>
+        <td style="text-align: right" >0.0005s</td>
+    </tr>
+    <tr>
+        <td>RBM 256</td>
+        <td style="text-align: right" class="danger">84.00%</td>
+        <td style="text-align: right" >0.0424s</td>
+        <td style="text-align: right" >0.0006s</td>
+    </tr>
+    <tr>
+        <td>RBM 512, n_iter=100</td>
+        <td style="text-align: right" class="danger">84.00%</td>
+        <td style="text-align: right" >0.0723s</td>
+        <td style="text-align: right" >0.0010s</td>
     </tr>
 </tbody>
 </table>
