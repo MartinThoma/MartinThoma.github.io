@@ -489,7 +489,9 @@ Siehe auch:
       Es ist gleichzeitig ein Spezialfall von
       <abbr title="Markov Random Fields">MRFs</abbr>.
 
-      Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).</dd>
+      Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
+      <br/>
+      Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010.</dd>
   <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a> von Hugo Larochelle)</dt>
   <dd>Contrastive Divergence ist ein Trainingsalgorithmus für RBMs.
 
