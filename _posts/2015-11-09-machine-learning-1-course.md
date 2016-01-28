@@ -579,10 +579,15 @@ Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
 Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
 
 <dl>
-  <dt><dfn>Entscheidungsbaum</dfn></dt>
+  <dt><dfn>Entscheidungsbaum</dfn> (<dfn>Decision Tree</dfn>)</dt>
   <dd>Ein Entscheidungsbaum ist ein Klassifikator in Baumstruktur. Die
       inneren Knoten des Entscheidungsbaumes sind Attributtests, die Blätter
-      sind Klassen.</dd>
+      sind Klassen.<br/>
+      <br/>
+      Typischerweise wird ein Entscheidungsbaum aufgebaut, indem das jeweilige
+      Attribut mit dem höchsten Information Gain als nächster Knoten hinzugefügt
+      wird. Siehe
+      <a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees">Information gain in decision trees</a> für weitere Informationen.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/ID3"><dfn>ID3</dfn></a> (siehe <a href="(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
   <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/C4.5"><dfn>C4.5</dfn></a> (siehe <a href="(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
@@ -1211,6 +1216,7 @@ until c = c'
 * [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * StackExchange
   * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)
+   * [What is the difference between a (dynamic) Bayes network and a HMM?](http://datascience.stackexchange.com/q/10000/8820)
 * [Zusammenfassung der Vorlesung ML 2](//martin-thoma.com/machine-learning-2-course/)
 * Udacity
   * [Knowledge-Based AI: Cognitive Systems](https://www.udacity.com/course/knowledge-based-ai-cognitive-systems--ud409): Unter anderem gibt es eine Lektion zu Explanation-Based Learning (erklärungsbasierte Generalisierung)
