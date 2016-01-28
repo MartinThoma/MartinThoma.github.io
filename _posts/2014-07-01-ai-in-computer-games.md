@@ -39,6 +39,15 @@ have a perfect strategy:
 * Go on a 5×5 board
 * Reversi on a 4×4 board
 
+
+Update: There are advances on the 19×19 field:
+
+* [Paper](https://storage.googleapis.com/deepmind-data/assets/papers/deepmind-mastering-go.pdf)
+* Nature: [Mastering the game of Go with deep neural networks and tree search](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html)
+* YouTube by nature: [The computer that mastered Go](https://www.youtube.com/watch?v=g-dKXOlsf98)
+* Google Blog: [AlphaGo: using machine learning to master the ancient game of Go](https://googleblog.blogspot.de/2016/01/alphago-machine-learning-game-go.html)
+
+
 ## Unspecialized Game A.I.s
 
 The following video is an explanation and demo of software Tom Murphy VII wrote that learns how to play a Nintendo Entertainment System game and then automatically plays it.
