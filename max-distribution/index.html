@@ -115,32 +115,32 @@ it. How do I plot it? With Python, of course ☺</p>
 <p>Here is the program:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> plt
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy.random</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>():
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#777"># Generate Data</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    n = <span style="color:#00D">10000</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    numbers_a = numpy.random.uniform(size=samples)
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    numbers_b = numpy.random.uniform(size=samples)
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    numbers_c = numpy.random.uniform(size=samples)
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    numbers_max = [<span style="color:#369;font-weight:bold">max</span>(a, b, c)
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>                   <span style="color:#080;font-weight:bold">for</span> a, b, c <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">zip</span>(numbers_a, numbers_b, numbers_c)]
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    <span style="color:#777"># Plot data</span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    plt.hist(numbers_max)
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    plt.title(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Histogram</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    plt.xlabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">value</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    plt.ylabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">count</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    plt.show()
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    main()
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> plt
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy.random</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>():
+    <span style="color:#777"># Generate Data</span>
+    n = <span style="color:#00D">10000</span>
+    numbers_a = numpy.random.uniform(size=samples)
+    numbers_b = numpy.random.uniform(size=samples)
+    numbers_c = numpy.random.uniform(size=samples)
+    numbers_max = [<span style="color:#369;font-weight:bold">max</span>(a, b, c)
+                   <span style="color:#080;font-weight:bold">for</span> a, b, c <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">zip</span>(numbers_a, numbers_b, numbers_c)]
+
+    <span style="color:#777"># Plot data</span>
+    plt.hist(numbers_max)
+    plt.title(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Histogram</span><span style="color:#710">"</span></span>)
+    plt.xlabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">value</span><span style="color:#710">"</span></span>)
+    plt.ylabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">count</span><span style="color:#710">"</span></span>)
+    plt.show()
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+    main()
+
 </pre></div>
 </div>
 </div>
@@ -169,56 +169,56 @@ it. How do I plot it? With Python, of course ☺</p>
 harder to read:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> plt
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy.random</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>(samples, n):
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#777"># Generate Data</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    numbers_l = []
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    n = n + <span style="color:#00D">1</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#080;font-weight:bold">for</span> _ <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n):
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        numbers_l.append(numpy.random.uniform(size=samples))
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#777"># Plot data</span>
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    plots = []
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1</span>, n):
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>        <span style="color:#777"># Build data structure</span>
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        sublist = numbers_l[:i]
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        max_list = numbers_l[<span style="color:#00D">0</span>]
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        <span style="color:#080;font-weight:bold">for</span> numbers_list <span style="color:#080;font-weight:bold">in</span> sublist:
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>            <span style="color:#080;font-weight:bold">for</span> i, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(numbers_list):
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>                max_list[i] = <span style="color:#369;font-weight:bold">max</span>(max_list[i], el)
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>        plot_i = plt.hist(max_list, histtype=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">step</span><span style="color:#710">'</span></span>, bins=<span style="color:#00D">200</span>)
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        plots.append(plot_i)
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    plt.title(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Histogram</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>    plt.xlabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">value</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>    plt.ylabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">count</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>    plt.show()
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>    parser = ArgumentParser(description=__doc__,
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>                            formatter_class=ArgumentDefaultsHelpFormatter)
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-n</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>                        default=<span style="color:#00D">3</span>,
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>,
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-s</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--samples</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">samples</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>                        default=<span style="color:#00D">1000</span>,
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>,
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">number of samples per Y_n</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>    <span style="color:#080;font-weight:bold">return</span> parser
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>    args = get_parser().parse_args()
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>    main(args.samples, args.n)
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">as</span> plt
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy.random</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>(samples, n):
+    <span style="color:#777"># Generate Data</span>
+    numbers_l = []
+    n = n + <span style="color:#00D">1</span>
+    <span style="color:#080;font-weight:bold">for</span> _ <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n):
+        numbers_l.append(numpy.random.uniform(size=samples))
+
+    <span style="color:#777"># Plot data</span>
+    plots = []
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1</span>, n):
+        <span style="color:#777"># Build data structure</span>
+        sublist = numbers_l[:i]
+        max_list = numbers_l[<span style="color:#00D">0</span>]
+        <span style="color:#080;font-weight:bold">for</span> numbers_list <span style="color:#080;font-weight:bold">in</span> sublist:
+            <span style="color:#080;font-weight:bold">for</span> i, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(numbers_list):
+                max_list[i] = <span style="color:#369;font-weight:bold">max</span>(max_list[i], el)
+        plot_i = plt.hist(max_list, histtype=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">step</span><span style="color:#710">'</span></span>, bins=<span style="color:#00D">200</span>)
+        plots.append(plot_i)
+    plt.title(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Histogram</span><span style="color:#710">"</span></span>)
+    plt.xlabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">value</span><span style="color:#710">"</span></span>)
+    plt.ylabel(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">count</span><span style="color:#710">"</span></span>)
+    plt.show()
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
+    parser = ArgumentParser(description=__doc__,
+                            formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-n</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>,
+                        default=<span style="color:#00D">3</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-s</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--samples</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">samples</span><span style="color:#710">"</span></span>,
+                        default=<span style="color:#00D">1000</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">number of samples per Y_n</span><span style="color:#710">"</span></span>)
+    <span style="color:#080;font-weight:bold">return</span> parser
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+    args = get_parser().parse_args()
+    main(args.samples, args.n)
 </pre></div>
 </div>
 </div>

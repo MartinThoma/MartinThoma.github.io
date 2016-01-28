@@ -249,7 +249,7 @@ My Record: Level 6, about 1400 points
     <a href="//martin-thoma.com/java-puzzle-5-parallel-programming-part-2/"><img width="128" height="128" src="//martin-thoma.com/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #5: Parallel Programming, Part 2"/></a>
     
 
-    What is the output of the following script: 1public class test { 2 public static int globalVar; 3 4 public static void main(String[] args) { 5 globalVar = 1; 6 7 MyParallelClass a = new MyParallelClass(); 8 MyParallelClass b = new MyParallelClass(); 9 10 new Thread(a).start(); 11 new Thread(b).start(); 12 13 System.out.println(globalVar); 14 } 15} 1public class MyParallelClass implements java.lang.Runnable { 2 public int counter = 0; 3 4 @Override 5 public void run() {...
+    What is the output of the following script: public class test { public static int globalVar; public static void main(String[] args) { globalVar = 1; MyParallelClass a = new MyParallelClass(); MyParallelClass b = new MyParallelClass(); new Thread(a).start(); new Thread(b).start(); System.out.println(globalVar); } } public class MyParallelClass implements java.lang.Runnable { public int counter = 0; @Override public void run() { if (test.globalVar &gt; 0) { for (int i = 0; i &lt; 1000000; i++) { counter++; }...
 
     
     <div class="readmorecontent">

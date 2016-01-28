@@ -151,9 +151,9 @@ MathJax.Hub.Queue(function() {
 <p>You should create a method that checks if a coordinate is on your board. This can be as simple as this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> isOnBoard(<span style="color:#339;font-weight:bold">int</span> x, <span style="color:#339;font-weight:bold">int</span> y) {
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#00D">0</span> &lt;= x &amp;&amp; x &lt; width &amp;&amp; <span style="color:#00D">0</span> &lt;= y &amp;&amp; y &lt; height;
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>}
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> isOnBoard(<span style="color:#339;font-weight:bold">int</span> x, <span style="color:#339;font-weight:bold">int</span> y) {
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#00D">0</span> &lt;= x &amp;&amp; x &lt; width &amp;&amp; <span style="color:#00D">0</span> &lt;= y &amp;&amp; y &lt; height;
+}
 </pre></div>
 </div>
 </div>
@@ -162,29 +162,29 @@ MathJax.Hub.Queue(function() {
 <p>You can create a method like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">/**</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"> * This method checks XYZ and does XYZ.</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#777"> * </span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777"> * @param player the current player</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#777"> * @param xDir -1 if you want to go to the left, 0 if you don't want </span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777"> *            to move in x-direction and 1 if you want to go to </span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#777"> *            the right</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#777"> * @param yDir -1 if you want to go to the bottom, 0 if you don't </span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#777"> *            want to move in y-direction and 1 if you want to go </span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#777"> *            to the top</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#777"> */</span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> myBoardAction(Player player, <span style="color:#339;font-weight:bold">int</span> xDir, <span style="color:#339;font-weight:bold">int</span> yDir) {
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> x = <span style="color:#00D">0</span>; x &lt; board.width; x++) {
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> y = <span style="color:#00D">0</span>; y &lt; board.height; y++) {
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> c = <span style="color:#00D">0</span>; c &lt; SOME_CONSTANT; c++) {
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>                <span style="color:#080;font-weight:bold">if</span> (board.isOnBoard(x + c * xDir, y + c * yDir)
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>                   &amp;&amp; board.checkXYZ(x + c * xDir, y + c * yDir)) {
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>                    doXYZ();
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>                }
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>            }
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>        }
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    }
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>}
+  <div class="code"><pre><span style="color:#777">/**
+ * This method checks XYZ and does XYZ.
+ * 
+ * @param player the current player
+ * @param xDir -1 if you want to go to the left, 0 if you don't want 
+ *            to move in x-direction and 1 if you want to go to 
+ *            the right
+ * @param yDir -1 if you want to go to the bottom, 0 if you don't 
+ *            want to move in y-direction and 1 if you want to go 
+ *            to the top
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> myBoardAction(Player player, <span style="color:#339;font-weight:bold">int</span> xDir, <span style="color:#339;font-weight:bold">int</span> yDir) {
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> x = <span style="color:#00D">0</span>; x &lt; board.width; x++) {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> y = <span style="color:#00D">0</span>; y &lt; board.height; y++) {
+            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> c = <span style="color:#00D">0</span>; c &lt; SOME_CONSTANT; c++) {
+                <span style="color:#080;font-weight:bold">if</span> (board.isOnBoard(x + c * xDir, y + c * yDir)
+                   &amp;&amp; board.checkXYZ(x + c * xDir, y + c * yDir)) {
+                    doXYZ();
+                }
+            }
+        }
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -196,10 +196,10 @@ MathJax.Hub.Queue(function() {
 <p>Ah, and if you want to check a condition for all diagonals, horizontals and verticals the hole board, you can call it like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>myBoardAction(player, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>); <span style="color:#777">// top right</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>myBoardAction(player,-<span style="color:#00D">1</span>, <span style="color:#00D">1</span>); <span style="color:#777">// top left</span>
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>myBoardAction(player, <span style="color:#00D">1</span>, <span style="color:#00D">0</span>); <span style="color:#777">// vertical</span>
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>myBoardAction(player, <span style="color:#00D">0</span>, <span style="color:#00D">1</span>); <span style="color:#777">// horizontal</span>
+  <div class="code"><pre>myBoardAction(player, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>); <span style="color:#777">// top right</span>
+myBoardAction(player,-<span style="color:#00D">1</span>, <span style="color:#00D">1</span>); <span style="color:#777">// top left</span>
+myBoardAction(player, <span style="color:#00D">1</span>, <span style="color:#00D">0</span>); <span style="color:#777">// vertical</span>
+myBoardAction(player, <span style="color:#00D">0</span>, <span style="color:#00D">1</span>); <span style="color:#777">// horizontal</span>
 </pre></div>
 </div>
 </div>

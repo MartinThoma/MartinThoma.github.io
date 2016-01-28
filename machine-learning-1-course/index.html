@@ -428,14 +428,14 @@ Bewusstsein, Überleben in komplexen Welten, )</li>
 <p>Pseudocode:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>initialize Q[num_states, num_actions]
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>start in state s
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>repeat:
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    select and execute action a
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>    r ← R(s, a)  # Receive reward
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    s' ← T(s, a) # Get on new state
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>    Q[s', a] ← (1- α) * Q[s, a] + α * (r + γ max_{a'} Q[s', a'])
-<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    s ← s'
+  <div class="code"><pre>initialize Q[num_states, num_actions]
+start in state s
+repeat:
+    select and execute action a
+    r ← R(s, a)  # Receive reward
+    s' ← T(s, a) # Get on new state
+    Q[s', a] ← (1- α) * Q[s, a] + α * (r + γ max_{a'} Q[s', a'])
+    s ← s'
 </pre></div>
 </div>
 </div>
@@ -813,10 +813,15 @@ Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
 <p>Slide name: <code>MLI_08_Entscheidungsbaeume_slides1.pdf</code></p>
 
 <dl>
-  <dt><dfn>Entscheidungsbaum</dfn></dt>
+  <dt><dfn>Entscheidungsbaum</dfn> (<dfn>Decision Tree</dfn>)</dt>
   <dd>Ein Entscheidungsbaum ist ein Klassifikator in Baumstruktur. Die
       inneren Knoten des Entscheidungsbaumes sind Attributtests, die Blätter
-      sind Klassen.</dd>
+      sind Klassen.<br />
+      <br />
+      Typischerweise wird ein Entscheidungsbaum aufgebaut, indem das jeweilige
+      Attribut mit dem höchsten Information Gain als nächster Knoten hinzugefügt
+      wird. Siehe
+      <a href="https://en.wikipedia.org/wiki/Information_gain_in_decision_trees">Information gain in decision trees</a> für weitere Informationen.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/ID3"><dfn>ID3</dfn></a> (siehe <a href="(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
   <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>
   <dt><a href="https://de.wikipedia.org/wiki/C4.5"><dfn>C4.5</dfn></a> (siehe <a href="(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3">pseudocode</a>)</dt>
@@ -1139,15 +1144,15 @@ ausprobieren willst.</li>
 <p>Grundalgorithmus:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>Fitness-Function f
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>Population p
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>while f(p) ≠ optimal:
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    p_parents ← selection(p)
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    p_children ← generate_children(p_parents)
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    p ← p_parents + p_children
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    fitness ← f(p)
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    p ← selection_kill(p, fitness)
+  <div class="code"><pre>Fitness-Function f
+Population p
+
+while f(p) ≠ optimal:
+    p_parents ← selection(p)
+    p_children ← generate_children(p_parents)
+    p ← p_parents + p_children
+    fitness ← f(p)
+    p ← selection_kill(p, fitness)
 </pre></div>
 </div>
 </div>
@@ -1458,6 +1463,7 @@ until c = c'
   <li>StackExchange
     <ul>
       <li><a href="http://datascience.stackexchange.com/q/8642/8820">What is the difference between concept learning and classification?</a></li>
+      <li><a href="http://datascience.stackexchange.com/q/10000/8820">What is the difference between a (dynamic) Bayes network and a HMM?</a></li>
     </ul>
   </li>
   <li><a href="//martin-thoma.com/machine-learning-2-course/">Zusammenfassung der Vorlesung ML 2</a></li>

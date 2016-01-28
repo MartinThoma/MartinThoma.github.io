@@ -200,16 +200,16 @@ values. Seems as if this is pretty much useless.</li>
 <h3 id="tocAnchor-1-1-1">Most active authors</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">as</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">created_packages</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span> <span style="color:#088;font-weight:bold">ASC</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>LIMIT
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#00D">50</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">as</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">created_packages</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span> <span style="color:#088;font-weight:bold">ASC</span>
+LIMIT
+    <span style="color:#00D">50</span>
 </pre></div>
 </div>
 </div>
@@ -306,7 +306,7 @@ values. Seems as if this is pretty much useless.</li>
 <p>The total number of authors is 28 183 (06.12.2015):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span> <span style="color:#369;font-weight:bold">COUNT</span>(<span style="color:#080;font-weight:bold">DISTINCT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">AS</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">total_authors</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span> <span style="color:#369;font-weight:bold">COUNT</span>(<span style="color:#080;font-weight:bold">DISTINCT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">author</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">AS</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">total_authors</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
 </pre></div>
 </div>
 </div>
@@ -318,7 +318,7 @@ have missed some values, I checked which entry was the longest one for all
 columns. I did this with</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, LENGTH(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span> LENGTH(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, LENGTH(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>) <span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span> LENGTH(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
 </pre></div>
 </div>
 </div>
@@ -473,14 +473,14 @@ bug reports. If this is empty, I would guess the package is dead.</p>
 <h3 id="tocAnchor-1-4-2">Platform</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">platform</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">platform</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">platform</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">platform</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
 </pre></div>
 </div>
 </div>
@@ -584,14 +584,14 @@ sense. Here is how you add it on PyPI:</p>
 <p>Another important one. Add a license to your software!</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">license</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    packages
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">license</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">license</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    packages
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">license</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
 </pre></div>
 </div>
 </div>
@@ -775,16 +775,16 @@ and listed <a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">her
 image:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) / <span style="color:#00D">53533</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_classifiers</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">WHERE</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">LIKE</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">License%</span><span style="color:#710">"</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) / <span style="color:#00D">53533</span>
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_classifiers</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">WHERE</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">LIKE</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">License%</span><span style="color:#710">"</span></span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">classifier</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
 </pre></div>
 </div>
 </div>
@@ -826,14 +826,14 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <h2 id="tocAnchor-1-10">Package type</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packagetype</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>    packagetype
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packagetype</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    packagetype
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
 </pre></div>
 </div>
 </div>
@@ -888,15 +888,15 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <h2 id="tocAnchor-1-11">Downloads</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">url</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">JOIN</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>  <span style="color:#088;font-weight:bold">DESC</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>LIMIT <span style="color:#00D">10</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">url</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">JOIN</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">urls</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>  <span style="color:#088;font-weight:bold">DESC</span>
+LIMIT <span style="color:#00D">10</span>
 </pre></div>
 </div>
 </div>
@@ -957,17 +957,17 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <p>and</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">JOIN</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>)  <span style="color:#088;font-weight:bold">DESC</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>LIMIT <span style="color:#00D">10</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">JOIN</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">downloads</span><span style="color:#710">`</span></span>)  <span style="color:#088;font-weight:bold">DESC</span>
+LIMIT <span style="color:#00D">10</span>
 </pre></div>
 </div>
 </div>
@@ -1028,15 +1028,15 @@ classifier. I guess many of them are not in the official list of classifiers.</p
 <p>What is the biggest Python package?</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">release_number</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">size</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">JOIN</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">size</span><span style="color:#710">`</span></span> <span style="color:#088;font-weight:bold">DESC</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>LIMIT <span style="color:#00D">30</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">release_number</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">size</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">JOIN</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package_id</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">releases</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">size</span><span style="color:#710">`</span></span> <span style="color:#088;font-weight:bold">DESC</span>
+LIMIT <span style="color:#00D">30</span>
 </pre></div>
 </div>
 </div>

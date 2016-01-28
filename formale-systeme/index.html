@@ -348,22 +348,22 @@ MathJax.Hub.Queue(function() {
 man schön, wie JML funktioniert:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">PostInc</span>{
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#088;font-weight:bold">public</span> PostInc rec;
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> x, y;
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#777">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#777">      @ rec.x &gt;= 0 &amp;&amp; rec.y &gt;= 0;</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777">      @*/</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#777">/*@ public normal_behavior</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#777">      @ requires true;</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#777">      @ ensures rec.x == \old(rec.y) &amp;&amp;</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#777">      @ rec.y == \old(rec.y) + 1;</span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#777">      @*/</span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> postinc() {
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        rec.x = rec.y++;
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    }
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>}
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">PostInc</span>{
+    <span style="color:#088;font-weight:bold">public</span> PostInc rec;
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> x, y;
+    <span style="color:#777">/*@ public invariant x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp;
+      @ rec.x &gt;= 0 &amp;&amp; rec.y &gt;= 0;
+      @*/</span>
+
+    <span style="color:#777">/*@ public normal_behavior
+      @ requires true;
+      @ ensures rec.x == \old(rec.y) &amp;&amp;
+      @ rec.y == \old(rec.y) + 1;
+      @*/</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> postinc() {
+        rec.x = rec.y++;
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -373,10 +373,10 @@ man schön, wie JML funktioniert:</p>
 <p>Wichtig ist noch:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">/*@</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777">  @ assignable \nothing;</span>
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#777">  @ ensures (\forall int j; l &lt;= j &amp;&amp; j &lt; \result; a1[j] != a2[j] );</span>
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777">  @*/</span>
+  <div class="code"><pre><span style="color:#777">/*@
+  @ assignable \nothing;
+  @ ensures (\forall int j; l &lt;= j &amp;&amp; j &lt; \result; a1[j] != a2[j] );
+  @*/</span>
 </pre></div>
 </div>
 </div>
@@ -400,21 +400,21 @@ Bereichseinschränkung und <code>R</code> der Schleifenrumpf ist. Es gibt auch n
 </ul>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> commonEntry(<span style="color:#339;font-weight:bold">int</span> l, <span style="color:#339;font-weight:bold">int</span> r) {
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#339;font-weight:bold">int</span> k = l;
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#777">/*@ loop_invariant</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#777">      @ l &lt;= k &amp;&amp; k &lt;= r &amp;&amp;</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777">      @ (\forall int i; l&lt;=i &amp;&amp; i&lt;k; a1[i] != a2[i]);</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#777">      @ assignable \nothing;</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#777">      @ decreases a1.length - k;</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#777">      @*/</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#080;font-weight:bold">while</span>(k &lt; r) {
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        <span style="color:#080;font-weight:bold">if</span>(a1[k] == a2[k]){<span style="color:#080;font-weight:bold">break</span>;}
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        k++;
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    }
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#080;font-weight:bold">return</span> k;
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>}
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> commonEntry(<span style="color:#339;font-weight:bold">int</span> l, <span style="color:#339;font-weight:bold">int</span> r) {
+    <span style="color:#339;font-weight:bold">int</span> k = l;
+
+    <span style="color:#777">/*@ loop_invariant
+      @ l &lt;= k &amp;&amp; k &lt;= r &amp;&amp;
+      @ (\forall int i; l&lt;=i &amp;&amp; i&lt;k; a1[i] != a2[i]);
+      @ assignable \nothing;
+      @ decreases a1.length - k;
+      @*/</span>
+    <span style="color:#080;font-weight:bold">while</span>(k &lt; r) {
+        <span style="color:#080;font-weight:bold">if</span>(a1[k] == a2[k]){<span style="color:#080;font-weight:bold">break</span>;}
+        k++;
+    }
+    <span style="color:#080;font-weight:bold">return</span> k;
+}
 </pre></div>
 </div>
 </div>

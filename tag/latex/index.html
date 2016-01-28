@@ -2760,7 +2760,7 @@ MathJax.Hub.Queue(function() {
     <a href="//martin-thoma.com/my-latex-tikz-template/"><img width="128" height="128" src="//martin-thoma.com/images/2012/01/latex-logo.png" class="alignleft post_thumbnail wp-post-image" alt="My LaTeX Tikz Template"/></a>
     
 
-    Sometimes I would like to create a single picture with Tikz for later usage on Wikipedia or my Blog. This is my LaTeX Tikz template I use in such a situation: The templates latex-document.tex 1\documentclass[varwidth=true, border=2pt]{standalone} 2 3\usepackage{tikz} 4\usetikzlibrary{arrows,positioning} 5 6\begin{document} 7\begin{tikzpicture} 8  Your Codes should be here 9\end{tikzpicture} 10\end{document} Standalone Preview-Environment 1\documentclass{article} 2\usepackage[pdftex,active,tightpage]{preview} 3\setlength\PreviewBorder{2mm} 4 5\usepackage{tikz} 6\usetikzlibrary{arrows,positioning} 7 8\begin{document} 9\begin{preview} 10\begin{tikzpicture} 11  Your Codes should be here 12\end{tikzpicture} 13\end{preview} 14\end{document} Makefile 1SOURCE...
+    Sometimes I would like to create a single picture with Tikz for later usage on Wikipedia or my Blog. This is my LaTeX Tikz template I use in such a situation: The templates latex-document.tex \documentclass[varwidth=true, border=2pt]{standalone} \usepackage{tikz} \usetikzlibrary{arrows,positioning} \begin{document} \begin{tikzpicture}  Your Codes should be here \end{tikzpicture} \end{document} Standalone Preview-Environment \documentclass{article} \usepackage[pdftex,active,tightpage]{preview} \setlength\PreviewBorder{2mm} \usepackage{tikz} \usetikzlibrary{arrows,positioning} \begin{document} \begin{preview} \begin{tikzpicture}  Your Codes should be here \end{tikzpicture} \end{preview} \end{document} Makefile SOURCE = latex-document.tex DELAY = 80 DENSITY...
 
     
     <div class="readmorecontent">
@@ -3607,7 +3607,7 @@ MathJax.Hub.Queue(function() {
         <div class="entry" id="contentAfterTitle">
     
 
-    I’ve just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the example PDF-file. It looks like this in Chromes PDF reader: { caption align=”aligncenter” width=”421” caption=”PDF LaTeX form in Chrome” url=”../images/2012/02/pdf-latex-form-chrome.png” alt=”PDF LaTeX form in Chrome” height=”279” class=”size-full wp-image-16711” } 1\documentclass[a4paper,12pt]{article} 2\usepackage{amssymb}  needed for math 3\usepackage{amsmath}  needed for math 4\usepackage[utf8]{inputenc}  this is needed for...
+    I’ve just stumbled across a full, working example how to create a html form within an LaTeX document. You can fill this form within your PDF-Reader. Here is the example PDF-file. It looks like this in Chromes PDF reader: { caption align=”aligncenter” width=”421” caption=”PDF LaTeX form in Chrome” url=”../images/2012/02/pdf-latex-form-chrome.png” alt=”PDF LaTeX form in Chrome” height=”279” class=”size-full wp-image-16711” } \documentclass[a4paper,12pt]{article} \usepackage{amssymb}  needed for math \usepackage{amsmath}  needed for math \usepackage[utf8]{inputenc}  this is needed for...
 
     
     <div class="readmorecontent">
@@ -3730,7 +3730,7 @@ MathJax.Hub.Queue(function() {
     <a href="//martin-thoma.com/plotting-function-graphs-with-latex/"><img width="128" height="128" src="//martin-thoma.com/images/2012/01/latex-logo.png" class="alignleft post_thumbnail wp-post-image" alt="Plotting function graphs with LaTeX"/></a>
     
 
-    It’s crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. I have used this command to generate the PDF-file: 1pdflatex latex.tex -output-format=pdf gnuplot { caption align=”aligncenter” width=”300” caption=”gnuplot” url=”../images/2012/01/gnuplot-300x246.png” alt=”gnuplot” height=”246” class=”size-medium wp-image-12781” } ```latex \documentclass{article} \usepackage{tikz} \usepackage{pgfplots} \begin{document} \begin{tikzpicture} \begin{axis} \addplot+[id=parable,domain=-5:5] gnuplot{4*x**2 - 5} node[pin=180:{$4x^2-5$}]{}; \end{axis} \end{tikzpicture} \end{document} ``` tikzpicture { caption...
+    It’s crazy how much time I have wasted today just for searching for a working example how to plot a function within LaTeX. Here are two complete examples which worked for me. I have used this command to generate the PDF-file: pdflatex latex.tex -output-format=pdf gnuplot { caption align=”aligncenter” width=”300” caption=”gnuplot” url=”../images/2012/01/gnuplot-300x246.png” alt=”gnuplot” height=”246” class=”size-medium wp-image-12781” } ```latex \documentclass{article} \usepackage{tikz} \usepackage{pgfplots} \begin{document} \begin{tikzpicture} \begin{axis} \addplot+[id=parable,domain=-5:5] gnuplot{4*x**2 - 5} node[pin=180:{$4x^2-5$}]{}; \end{axis} \end{tikzpicture} \end{document} ``` tikzpicture { caption...
 
     
     <div class="readmorecontent">
@@ -3907,7 +3907,7 @@ MathJax.Hub.Queue(function() {
     <a href="//martin-thoma.com/how-to-draw-a-finite-state-machine/"><img width="128" height="128" src="//martin-thoma.com/images/2011/10/deterministic-finite-state-machine-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="How to draw a finite-state machine"/></a>
     
 
-    Finite-state machines are necessary to show that some problems are computable (or not). As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use graphviz. Nondeterministic finite-state machine { caption align=”aligncenter” width=”365” caption=”Nondeterministic finite-state machine” url=”../images/2011/10/myFiniteStateMachine1.png” alt=”Nondeterministic finite-state machine” height=”119” class=”size-full wp-image-8141 “ } This image is created from a gv-file. I saved it as fsm.gv: 1digraph finite_state_machine { 2 rankdir=LR; 3 size=&quot;8,5&quot;...
+    Finite-state machines are necessary to show that some problems are computable (or not). As I am currently learning something about them, I would like to be able to plot those finite automatons automatically. I will use graphviz. Nondeterministic finite-state machine { caption align=”aligncenter” width=”365” caption=”Nondeterministic finite-state machine” url=”../images/2011/10/myFiniteStateMachine1.png” alt=”Nondeterministic finite-state machine” height=”119” class=”size-full wp-image-8141 “ } This image is created from a gv-file. I saved it as fsm.gv: digraph finite_state_machine { rankdir=LR; size=&quot;8,5&quot; node [shape...
 
     
     <div class="readmorecontent">
@@ -4041,7 +4041,7 @@ MathJax.Hub.Queue(function() {
     <a href="//martin-thoma.com/create-latex-timetable/"><img width="128" height="128" src="//martin-thoma.com/images/2012/01/latex-logo.png" class="alignleft post_thumbnail wp-post-image" alt="Create LaTeX timetable"/></a>
     
 
-    LaTeX is a quite cool document markup language and document preparation system. You can easily create mathematical formulas. Today I’ve created a LaTeX timetable. Well, to be honest I have only used the timetable package from Pascal Gwosdek found on planetk.de. Here is the LaTeX-Code: 1\documentclass[a4paper,10pt]{report} 2 3 Definitions 4\usepackage{lscape} 5\usepackage[height=25cm]{geometry} 6\usepackage{timetable} 7 8\begin{document} 9\thispagestyle{empty} 10\begin{landscape} 11\noindent\printheading{Stundenplan von Martin Thoma - 1. Semester} 12 13 Define the layout of your time tables 14\setslotsize{2.8cm}{0.3cm} 15\setslotcount {5}...
+    LaTeX is a quite cool document markup language and document preparation system. You can easily create mathematical formulas. Today I’ve created a LaTeX timetable. Well, to be honest I have only used the timetable package from Pascal Gwosdek found on planetk.de. Here is the LaTeX-Code: \documentclass[a4paper,10pt]{report}  Definitions \usepackage{lscape} \usepackage[height=25cm]{geometry} \usepackage{timetable} \begin{document} \thispagestyle{empty} \begin{landscape} \noindent\printheading{Stundenplan von Martin Thoma - 1. Semester}  Define the layout of your time tables \setslotsize{2.8cm}{0.3cm} \setslotcount {5} {40} \settopheight{3} \settextframe{0.8mm}...
 
     
     <div class="readmorecontent">

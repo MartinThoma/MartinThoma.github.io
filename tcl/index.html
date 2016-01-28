@@ -161,17 +161,17 @@ described by the <a href="../tcl-12-rules.html">12 Rules for Tcl</a>.</p>
 <h3 id="tocAnchor-1-1-1">Hello World</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>set myVariable "Hallo World!"
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>puts $myVariable
+  <div class="code"><pre>set myVariable "Hallo World!"
+puts $myVariable
 </pre></div>
 </div>
 </div>
 
 <h3 id="tocAnchor-1-1-2">Loop over a list</h3>
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>% foreach element {1 2 3} {
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    puts $element
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>}
+  <div class="code"><pre>% foreach element {1 2 3} {
+    puts $element
+}
 </pre></div>
 </div>
 </div>
@@ -179,17 +179,17 @@ described by the <a href="../tcl-12-rules.html">12 Rules for Tcl</a>.</p>
 <h3 id="tocAnchor-1-1-3">Fibonacci</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>proc fib {n} {
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    if {$n &lt; 2} {
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>        return $n
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    } else {
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        return [expr {[fib [expr {$n-2}]] + [fib [expr {$n-1}]]}]
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    }
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>}
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>for {set x 0} {$x&lt;10} {incr x} {
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    puts [fib $x]
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>}
+  <div class="code"><pre>proc fib {n} {
+    if {$n &lt; 2} {
+        return $n
+    } else {
+        return [expr {[fib [expr {$n-2}]] + [fib [expr {$n-1}]]}]
+    }
+}
+
+for {set x 0} {$x&lt;10} {incr x} {
+    puts [fib $x]
+}
 </pre></div>
 </div>
 </div>
@@ -200,11 +200,11 @@ described by the <a href="../tcl-12-rules.html">12 Rules for Tcl</a>.</p>
 recommend this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>if 0 {
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    Any Tcl code to be commented out (with matching braces, of course!)
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    or any other kind of text, will be ignored - and even [exit] won't fire
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    because it's in braces, so left unevaluated!
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>}
+  <div class="code"><pre>if 0 {
+    Any Tcl code to be commented out (with matching braces, of course!)
+    or any other kind of text, will be ignored - and even [exit] won't fire
+    because it's in braces, so left unevaluated!
+}
 </pre></div>
 </div>
 </div>
@@ -247,30 +247,30 @@ recommend this:</p>
 <h3 id="tocAnchor-1-1-6">99 bottles of beer</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>#!/usr/bin/tclsh
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span># 99.tcl; Tcl version of 99 Bottles of Beer Song
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>proc findBString { count } {
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>  return [switch -exact -- $count {
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    0       { expr {"No more bottles"}  }
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    1       { expr {"1 bottle"}         }
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    default { expr {"$count bottles"}   }
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>  }]
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>}
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>set bottles 99
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>set bString [findBString $bottles]
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>while {$bottles + 1} {
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>  puts "$bString of beer on the wall.  $bString of beer."
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>  incr bottles -1
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>  if {$bottles + 1} {
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    set bString [findBString $bottles]
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    puts "Take one down, pass it round, $bString of beer on the wall.\n"
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>  } else {
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    puts "Go to the store and buy some more...99 bottles of beer."
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>  }
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>}
+  <div class="code"><pre>#!/usr/bin/tclsh
+
+# 99.tcl; Tcl version of 99 Bottles of Beer Song
+
+proc findBString { count } {
+  return [switch -exact -- $count {
+    0       { expr {"No more bottles"}  }
+    1       { expr {"1 bottle"}         }
+    default { expr {"$count bottles"}   }
+  }]
+}
+
+set bottles 99
+set bString [findBString $bottles]
+while {$bottles + 1} {
+  puts "$bString of beer on the wall.  $bString of beer."
+  incr bottles -1
+  if {$bottles + 1} {
+    set bString [findBString $bottles]
+    puts "Take one down, pass it round, $bString of beer on the wall.\n"
+  } else {
+    puts "Go to the store and buy some more...99 bottles of beer."
+  }
+}
 </pre></div>
 </div>
 </div>

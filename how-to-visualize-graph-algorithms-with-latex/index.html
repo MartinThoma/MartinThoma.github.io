@@ -149,26 +149,26 @@ I recently found a great animation of Prim’s algorithm done by <a href="http:/
 First include all packages / create the general structure of the document:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[hyperref={pdfpagelabels=false}]{beamer}
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{lmodern}
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage[utf8]{inputenc} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage[ngerman]{babel} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\usepackage{verbatim}
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\usepackage{tikz}
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>\usetikzlibrary{arrows,shapes}
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>\usetheme{Frankfurt}
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\usefonttheme{professionalfonts}
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>\begin{document}
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>\begin{frame}
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        Your content will be here.
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>\end{frame}
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>\end{document}
+  <div class="code"><pre>\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+
+% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+\usetheme{Frankfurt}
+\usefonttheme{professionalfonts}
+
+\begin{document}
+\begin{frame}
+        Your content will be here.
+\end{frame}
+\end{document}
 </pre></div>
 </div>
 </div>
@@ -176,22 +176,22 @@ First include all packages / create the general structure of the document:</p>
 <p>Simple graphs could look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\begin{figure}
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>        \begin{tikzpicture}[-&gt;,scale=1.8, auto,swap]
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>                % Draw the vertices.
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>                \node (a) at (0,0) {$a (this is text)$};
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>                \node (b) at (0,1) {$b$};
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>                \node (c) at (1,1) {$c$};
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>                \node (d) at (1,0) {$d$};
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>                \node (e) at (3,1) {$d$};
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                % Connect vertices with edges and draw weights
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>                \path (a) edge node {} (b);
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                \path (b) edge node {} (c);
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>                \path (c) edge node {} (d);
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>                \path (d) edge node {} (a);
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        \end{tikzpicture}
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>\end{figure}
+  <div class="code"><pre>\begin{figure}
+        \begin{tikzpicture}[-&gt;,scale=1.8, auto,swap]
+                % Draw the vertices.
+                \node (a) at (0,0) {$a (this is text)$};
+                \node (b) at (0,1) {$b$};
+                \node (c) at (1,1) {$c$};
+                \node (d) at (1,0) {$d$};
+                \node (e) at (3,1) {$d$};
+
+                % Connect vertices with edges and draw weights
+                \path (a) edge node {} (b);
+                \path (b) edge node {} (c);
+                \path (c) edge node {} (d);
+                \path (d) edge node {} (a);
+        \end{tikzpicture}
+\end{figure}
 </pre></div>
 </div>
 </div>
@@ -228,11 +228,11 @@ First include all packages / create the general structure of the document:</p>
 <p>Now the magic begins. You consecutively add frames to the layer:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>        \begin{pgfonlayer}{background}
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>                \path&lt;2-&gt;[draw,line width=5pt,-,red!50] (a.center) edge node {} (b.center);
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>                \path&lt;10-&gt;[draw,line width=5pt,-,red!50] (b.center) edge node {} (d.center);
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>                \path&lt;12-&gt;[draw,line width=5pt,-,red!50] (d.center) edge node {} (e.center);
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>        \end{pgfonlayer}
+  <div class="code"><pre>        \begin{pgfonlayer}{background}
+                \path&lt;2-&gt;[draw,line width=5pt,-,red!50] (a.center) edge node {} (b.center);
+                \path&lt;10-&gt;[draw,line width=5pt,-,red!50] (b.center) edge node {} (d.center);
+                \path&lt;12-&gt;[draw,line width=5pt,-,red!50] (d.center) edge node {} (e.center);
+        \end{pgfonlayer}
 </pre></div>
 </div>
 </div>
@@ -241,52 +241,52 @@ First include all packages / create the general structure of the document:</p>
 
 <h3 id="tocAnchor-1-1-3">Status quo</h3>
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[hyperref={pdfpagelabels=false}]{beamer}
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{lmodern}
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span> 
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage[utf8]{inputenc} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage[ngerman]{babel} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span> 
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\usepackage{verbatim}
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\usepackage{tikz}
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>\usetikzlibrary{arrows,shapes}
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span> 
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>\usetheme{Frankfurt}
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\usefonttheme{professionalfonts}
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span> 
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>\begin{document}
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>\pgfdeclarelayer{background}
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>\pgfdeclarelayer{foreground}
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>\pgfsetlayers{background,main,foreground}
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>\begin{frame}
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>\begin{figure}
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>    \begin{tikzpicture}[-&gt;,scale=1.8, auto,swap]
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>        % Draw the vertices.
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>        \node (a) at (0,0) {$a (this is text)$};
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>        \node (b) at (0,1) {$b$};
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>        \node (c) at (1,1) {$c$};
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>        \node (d) at (1,0) {$d$};
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>                \node (e) at (3,1) {$d$};
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span> 
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>        % Connect vertices with edges and draw weights
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>        \path (a) edge node {} (b);
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>        \path (b) edge node {} (c);
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>        \path (c) edge node {} (d);
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>        \path (d) edge node {} (a);
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>                \begin{pgfonlayer}{background}
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>                        \path&lt;2-&gt;[draw,line width=5pt,-,red!50] (a.center) edge node {} (b.center);
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>                        \path&lt;10-&gt;[draw,line width=5pt,-,red!50] (b.center) edge node {} (d.center);
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>                        \path&lt;12-&gt;[draw,line width=5pt,-,red!50] (d.center) edge node {} (e.center);
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>                \end{pgfonlayer}
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>    \end{tikzpicture}
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>\end{figure}
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>\end{frame}
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>\end{document}
+  <div class="code"><pre>\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+ 
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+ 
+\usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+ 
+% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+\usetheme{Frankfurt}
+\usefonttheme{professionalfonts}
+ 
+\begin{document}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\begin{frame}
+\begin{figure}
+    \begin{tikzpicture}[-&gt;,scale=1.8, auto,swap]
+        % Draw the vertices.
+        \node (a) at (0,0) {$a (this is text)$};
+        \node (b) at (0,1) {$b$};
+        \node (c) at (1,1) {$c$};
+        \node (d) at (1,0) {$d$};
+                \node (e) at (3,1) {$d$};
+ 
+        % Connect vertices with edges and draw weights
+        \path (a) edge node {} (b);
+        \path (b) edge node {} (c);
+        \path (c) edge node {} (d);
+        \path (d) edge node {} (a);
+
+                \begin{pgfonlayer}{background}
+                        \path&lt;2-&gt;[draw,line width=5pt,-,red!50] (a.center) edge node {} (b.center);
+                        \path&lt;10-&gt;[draw,line width=5pt,-,red!50] (b.center) edge node {} (d.center);
+                        \path&lt;12-&gt;[draw,line width=5pt,-,red!50] (d.center) edge node {} (e.center);
+                \end{pgfonlayer}
+    \end{tikzpicture}
+\end{figure}
+\end{frame}
+\end{document}
 </pre></div>
 </div>
 </div>
@@ -307,89 +307,89 @@ First include all packages / create the general structure of the document:</p>
 <p>You can make loops:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>        % Draw the vertices.
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>        \foreach \pos / \identifier / \name in {{(0,0)/a/a (this is text)}, 
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>                {(0,1)/b/b}, {(1,1)/c/c}, {(1,0)/d/d}, {(3,1)/e/d}}
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>                \node (\identifier) at \pos {$\name$};
+  <div class="code"><pre>        % Draw the vertices.
+        \foreach \pos / \identifier / \name in {{(0,0)/a/a (this is text)}, 
+                {(0,1)/b/b}, {(1,1)/c/c}, {(1,0)/d/d}, {(3,1)/e/d}}
+                \node (\identifier) at \pos {$\name$};
 </pre></div>
 </div>
 </div>
 
 <h2 id="tocAnchor-1-6">The whole, working template</h2>
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[hyperref={pdfpagelabels=false}]{beamer}
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{lmodern}
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage[utf8]{inputenc} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage[ngerman]{babel} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\usepackage{verbatim}
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\usepackage{tikz}
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>\usetikzlibrary{arrows,shapes}
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>% Define some styles for graphs
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\tikzstyle{selected vertex} = [vertex, fill=red!24]
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>\tikzstyle{blue vertex} = [vertex, fill=blue!24]
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>\tikzstyle{edge} = [draw,thick,-]
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>\tikzstyle{weight} = [font=\small]
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>\usetheme{Frankfurt}
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>\usefonttheme{professionalfonts}
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>% disables bottom navigation bar
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>\beamertemplatenavigationsymbolsempty
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>% http://tex.stackexchange.com/questions/23727/converting-beamer-slides-to-animated-images
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>\setbeamertemplate{navigation symbols}{}%
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>\begin{document}
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>\pgfdeclarelayer{background}
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>\pgfsetlayers{background,main}
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>\begin{frame}
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>        \begin{figure}
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>                \begin{tikzpicture}[-&gt;,scale=1.8, auto,swap]
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>                        % Draw the vertices. First you define a list.
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>                        \foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>                                                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f}, 
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>                                                                        {(4,2)/g}, {(5,2)/h}, {(4,0)/i},
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>                                                                        {(5,0)/j}}
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>                                \node[vertex] (\name) at \pos {$\name$};
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>                        % Connect vertices with edges and draw weights
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>                        \foreach \source/ \dest /\pos in {a/b/, b/c/, c/d/, d/a/,
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>                                                                                c/e/bend left, d/e/, e/c/,
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>                                                                                e/f/, f/g/, f/i/,
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>                                                                                g/f/bend right, i/f/bend left,
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>                                                                                g/h/, h/j/, j/i/, i/g/}
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>                                \path (\source) edge [\pos] node {} (\dest);
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>                        % Start animating the edge selection. 
-<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>                        % For convenience we use a background layer to 
-<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>                        % highlight edges. This way we don't have to worry about 
-<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>                        % the highlighting covering weight labels. 
-<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>                        \begin{pgfonlayer}{background}
-<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>                                \foreach \source / \dest / \fr / \pos in {d/a/1/,
-<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>                                                a/b/2/, b/c/3/, c/d/4/, d/e/5/, e/c/6/, 
-<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>                                                c/e/7/bend left, e/f/8/, f/g/9/,
-<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>                                                g/f/10/bend right, f/i/11/, i/g/12/, g/h/13/, 
-<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>                                                h/j/14/, j/i/15/, i/f/16/bend left}
-<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>                                    \path&lt;\fr-&gt;[selected edge] (\source.center) edge 
-<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>                                                                                [\pos] node {} (\dest.center);
-<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span>                        \end{pgfonlayer}
-<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span>                \end{tikzpicture}
-<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>        \end{figure}
-<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span>        sed diam nonumy eirmod tempor invidunt ut labore et dolore
-<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>        magna aliquyam erat, sed diam voluptua. At vero eos et 
-<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>        accusam et.
-<span class="line-numbers"><a href="#n72" name="n72" id="n72">72</a></span>\end{frame}
-<span class="line-numbers"><a href="#n73" name="n73" id="n73">73</a></span>\end{document}
+  <div class="code"><pre>\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+
+\usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+
+% Define some styles for graphs
+\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{blue vertex} = [vertex, fill=blue!24]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{weight} = [font=\small]
+\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
+\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
+
+% see http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+\usetheme{Frankfurt}
+\usefonttheme{professionalfonts}
+
+% disables bottom navigation bar
+\beamertemplatenavigationsymbolsempty
+
+% http://tex.stackexchange.com/questions/23727/converting-beamer-slides-to-animated-images
+\setbeamertemplate{navigation symbols}{}%
+
+\begin{document}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\begin{frame}
+        \begin{figure}
+                \begin{tikzpicture}[-&gt;,scale=1.8, auto,swap]
+                        % Draw the vertices. First you define a list.
+                        \foreach \pos/\name in {{(0,0)/a}, {(0,2)/b}, {(1,2)/c},
+                                                    {(1,0)/d}, {(2,1)/e}, {(3,1)/f}, 
+                                                                        {(4,2)/g}, {(5,2)/h}, {(4,0)/i},
+                                                                        {(5,0)/j}}
+                                \node[vertex] (\name) at \pos {$\name$};
+
+                        % Connect vertices with edges and draw weights
+                        \foreach \source/ \dest /\pos in {a/b/, b/c/, c/d/, d/a/,
+                                                                                c/e/bend left, d/e/, e/c/,
+                                                                                e/f/, f/g/, f/i/,
+                                                                                g/f/bend right, i/f/bend left,
+                                                                                g/h/, h/j/, j/i/, i/g/}
+                                \path (\source) edge [\pos] node {} (\dest);
+
+                        % Start animating the edge selection. 
+                        % For convenience we use a background layer to 
+                        % highlight edges. This way we don't have to worry about 
+                        % the highlighting covering weight labels. 
+                        \begin{pgfonlayer}{background}
+                                \foreach \source / \dest / \fr / \pos in {d/a/1/,
+                                                a/b/2/, b/c/3/, c/d/4/, d/e/5/, e/c/6/, 
+                                                c/e/7/bend left, e/f/8/, f/g/9/,
+                                                g/f/10/bend right, f/i/11/, i/g/12/, g/h/13/, 
+                                                h/j/14/, j/i/15/, i/f/16/bend left}
+                                    \path&lt;\fr-&gt;[selected edge] (\source.center) edge 
+                                                                                [\pos] node {} (\dest.center);
+                        \end{pgfonlayer}
+                \end{tikzpicture}
+        \end{figure}
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+        sed diam nonumy eirmod tempor invidunt ut labore et dolore
+        magna aliquyam erat, sed diam voluptua. At vero eos et 
+        accusam et.
+\end{frame}
+\end{document}
 </pre></div>
 </div>
 </div>

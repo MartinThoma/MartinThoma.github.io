@@ -174,18 +174,18 @@ imports the package.</p>
 <h3 id="tocAnchor-1-1-1">Non-weighted</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">JOIN</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>LIMIT <span style="color:#00D">20</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">JOIN</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+LIMIT <span style="color:#00D">20</span>
 </pre></div>
 </div>
 </div>
@@ -202,20 +202,20 @@ imports the package.</p>
 <p>and without the system packages:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">JOIN</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">WHERE</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">on_pypi</span><span style="color:#710">`</span></span> = <span style="color:#00D">1</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>LIMIT <span style="color:#00D">20</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">JOIN</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">WHERE</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">on_pypi</span><span style="color:#710">`</span></span> = <span style="color:#00D">1</span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">COUNT</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+LIMIT <span style="color:#00D">20</span>
 </pre></div>
 </div>
 </div>
@@ -231,18 +231,18 @@ imports the package.</p>
 <p>How often gets a single module included over all packages?</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">JOIN</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>LIMIT <span style="color:#00D">20</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
+    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">JOIN</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+LIMIT <span style="color:#00D">20</span>
 </pre></div>
 </div>
 </div>
@@ -260,20 +260,20 @@ imports the package.</p>
 packages, I execute the following query:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>)
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">JOIN</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">WHERE</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">on_pypi</span><span style="color:#710">`</span></span> = <span style="color:#00D">1</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>LIMIT <span style="color:#00D">20</span>
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>,
+    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>)
+<span style="color:#080;font-weight:bold">FROM</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">JOIN</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">ON</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span> = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">WHERE</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">on_pypi</span><span style="color:#710">`</span></span> = <span style="color:#00D">1</span>
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">ORDER</span> <span style="color:#080;font-weight:bold">BY</span>
+    <span style="color:#369;font-weight:bold">SUM</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">times</span><span style="color:#710">`</span></span>) <span style="color:#088;font-weight:bold">DESC</span>
+LIMIT <span style="color:#00D">20</span>
 </pre></div>
 </div>
 </div>
@@ -295,20 +295,20 @@ packages is by checking which packages get neither used by others nor use
 other packages</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#B06;font-weight:bold">SELECT</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">WHERE</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">in</span> (
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#B06;font-weight:bold">SELECT</span> <span style="color:#080;font-weight:bold">DISTINCT</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package</span><span style="color:#710">`</span></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        <span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>            dependencies)
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">OR</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">in</span> (
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        <span style="color:#B06;font-weight:bold">SELECT</span> <span style="color:#080;font-weight:bold">DISTINCT</span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        <span style="color:#080;font-weight:bold">FROM</span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>)
+  <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">name</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">FROM</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">packages</span><span style="color:#710">`</span></span>
+<span style="color:#080;font-weight:bold">WHERE</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">in</span> (
+        <span style="color:#B06;font-weight:bold">SELECT</span> <span style="color:#080;font-weight:bold">DISTINCT</span>
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">package</span><span style="color:#710">`</span></span>
+        <span style="color:#080;font-weight:bold">FROM</span>
+            dependencies)
+<span style="color:#080;font-weight:bold">OR</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">id</span><span style="color:#710">`</span></span> <span style="color:#080;font-weight:bold">in</span> (
+        <span style="color:#B06;font-weight:bold">SELECT</span> <span style="color:#080;font-weight:bold">DISTINCT</span>
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>.<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">needs_package</span><span style="color:#710">`</span></span>
+        <span style="color:#080;font-weight:bold">FROM</span>
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">`</span><span style="color:#D20">dependencies</span><span style="color:#710">`</span></span>)
 </pre></div>
 </div>
 </div>
@@ -351,7 +351,7 @@ themselves:</p>
 <p>One interesting thing I’ve learned is that you can use <code>pip</code> like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ pip search "djan$"
+  <div class="code"><pre>$ pip search "djan$"
 </pre></div>
 </div>
 </div>

@@ -125,7 +125,7 @@ the steps with which I made it work:</p>
 </div><h2 id="tocAnchor-1-1">Find the Apache2 config</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ /usr/sbin/apache2 -V
+  <div class="code"><pre>$ /usr/sbin/apache2 -V
 </pre></div>
 </div>
 </div>
@@ -139,12 +139,12 @@ I’ve added <code>Options ExecCGI</code> and <code>AddHandler cgi-script .py</c
 looks like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>&lt;Directory /var/www/&gt;
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    Options Indexes FollowSymLinks ExecCGI
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    AddHandler cgi-script .py
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    AllowOverride None
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>    Require all granted
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>&lt;/Directory&gt;
+  <div class="code"><pre>&lt;Directory /var/www/&gt;
+    Options Indexes FollowSymLinks ExecCGI
+    AddHandler cgi-script .py
+    AllowOverride None
+    Require all granted
+&lt;/Directory&gt;
 </pre></div>
 </div>
 </div>
@@ -154,13 +154,13 @@ looks like this:</p>
 <p>Create the following <code>test.py</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: UTF-8 -*-</span>
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Content-Type: text/html</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello World! The answer to live, the universe and everything is %i.</span><span style="color:#710">"</span></span> %
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>      (<span style="color:#00D">2</span>*<span style="color:#00D">21</span>))
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: UTF-8 -*-</span>
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Content-Type: text/html</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>)
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello World! The answer to live, the universe and everything is %i.</span><span style="color:#710">"</span></span> %
+      (<span style="color:#00D">2</span>*<span style="color:#00D">21</span>))
+
 </pre></div>
 </div>
 </div>
@@ -170,7 +170,7 @@ looks like this:</p>
 <p>If that doesn’t work, take a look at the apache log files:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ tail -f /var/log/apache2/error.log
+  <div class="code"><pre>$ tail -f /var/log/apache2/error.log
 </pre></div>
 </div>
 </div>

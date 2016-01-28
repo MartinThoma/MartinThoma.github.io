@@ -199,103 +199,103 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 <h2 id="tocAnchor-1-2">C++ Code</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#579">#include</span> <span style="color:#B44;font-weight:bold">&lt;iostream&gt;</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#579">#include</span> <span style="color:#B44;font-weight:bold">&lt;cmath&gt;</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#579">#include</span> <span style="color:#B44;font-weight:bold">&lt;vector&gt;</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#088;font-weight:bold">using</span> <span style="color:#080;font-weight:bold">namespace</span> std;
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#088;font-weight:bold">void</span> print(vector&lt; vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; &gt; A) {
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#0a8;font-weight:bold">int</span> n = A.size();
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> j=<span style="color:#00D">0</span>; j&lt;n+<span style="color:#00D">1</span>; j++) {
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>            cout &lt;&lt; A[i][j] &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>;
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>            <span style="color:#080;font-weight:bold">if</span> (j == n-<span style="color:#00D">1</span>) {
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>                cout &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">| </span><span style="color:#710">"</span></span>;
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>            }
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        }
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>        cout &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>;
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    }
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    cout &lt;&lt; endl;
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>}
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; gauss(vector&lt; vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; &gt; A) {
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    <span style="color:#0a8;font-weight:bold">int</span> n = A.size();
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>        <span style="color:#777">// Search for maximum in this column</span>
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>        <span style="color:#0a8;font-weight:bold">double</span> maxEl = abs(A[i][i]);
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>        <span style="color:#0a8;font-weight:bold">int</span> maxRow = i;
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>            <span style="color:#080;font-weight:bold">if</span> (abs(A[k][i]) &gt; maxEl) {
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>                maxEl = abs(A[k][i]);
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>                maxRow = k;
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>            }
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>        }
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>        <span style="color:#777">// Swap maximum row with current row (column by column)</span>
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i; k&lt;n+<span style="color:#00D">1</span>;k++) {
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>            <span style="color:#0a8;font-weight:bold">double</span> tmp = A[maxRow][k];
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>            A[maxRow][k] = A[i][k];
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>            A[i][k] = tmp;
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>        }
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>        <span style="color:#777">// Make all rows below this one 0 in current column</span>
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>            <span style="color:#0a8;font-weight:bold">double</span> c = -A[k][i]/A[i][i];
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> j=i; j&lt;n+<span style="color:#00D">1</span>; j++) {
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>                <span style="color:#080;font-weight:bold">if</span> (i==j) {
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>                    A[k][j] = <span style="color:#00D">0</span>;
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>                } <span style="color:#080;font-weight:bold">else</span> {
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>                    A[k][j] += c * A[i][j];
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>                }
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>            }
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>        }
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>    }
-<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>
-<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>    <span style="color:#777">// Solve equation Ax=b for an upper triangular matrix A</span>
-<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>    vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; x(n);
-<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=n-<span style="color:#00D">1</span>; i&gt;=<span style="color:#00D">0</span>; i--) {
-<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>        x[i] = A[i][n]/A[i][i];
-<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i-<span style="color:#00D">1</span>;k&gt;=<span style="color:#00D">0</span>; k--) {
-<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>            A[k][n] -= A[k][i] * x[i];
-<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>        }
-<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>    }
-<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>    <span style="color:#080;font-weight:bold">return</span> x;
-<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>}
-<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span>
-<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span><span style="color:#0a8;font-weight:bold">int</span> main() {
-<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>    <span style="color:#0a8;font-weight:bold">int</span> n;
-<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>    cin &gt;&gt; n;
-<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span>
-<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>    vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; line(n+<span style="color:#00D">1</span>,<span style="color:#00D">0</span>);
-<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>    vector&lt; vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; &gt; A(n,line);
-<span class="line-numbers"><a href="#n72" name="n72" id="n72">72</a></span>
-<span class="line-numbers"><a href="#n73" name="n73" id="n73">73</a></span>    <span style="color:#777">// Read input data</span>
-<span class="line-numbers"><a href="#n74" name="n74" id="n74">74</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
-<span class="line-numbers"><a href="#n75" name="n75" id="n75">75</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> j=<span style="color:#00D">0</span>; j&lt;n; j++) {
-<span class="line-numbers"><a href="#n76" name="n76" id="n76">76</a></span>            cin &gt;&gt; A[i][j];
-<span class="line-numbers"><a href="#n77" name="n77" id="n77">77</a></span>        }
-<span class="line-numbers"><a href="#n78" name="n78" id="n78">78</a></span>    }
-<span class="line-numbers"><a href="#n79" name="n79" id="n79">79</a></span>
-<span class="line-numbers"><strong><a href="#n80" name="n80" id="n80">80</a></strong></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
-<span class="line-numbers"><a href="#n81" name="n81" id="n81">81</a></span>        cin &gt;&gt; A[i][n];
-<span class="line-numbers"><a href="#n82" name="n82" id="n82">82</a></span>    }
-<span class="line-numbers"><a href="#n83" name="n83" id="n83">83</a></span>
-<span class="line-numbers"><a href="#n84" name="n84" id="n84">84</a></span>    <span style="color:#777">// Print input</span>
-<span class="line-numbers"><a href="#n85" name="n85" id="n85">85</a></span>    print(A);
-<span class="line-numbers"><a href="#n86" name="n86" id="n86">86</a></span>
-<span class="line-numbers"><a href="#n87" name="n87" id="n87">87</a></span>    <span style="color:#777">// Calculate solution</span>
-<span class="line-numbers"><a href="#n88" name="n88" id="n88">88</a></span>    vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; x(n);
-<span class="line-numbers"><a href="#n89" name="n89" id="n89">89</a></span>    x = gauss(A);
-<span class="line-numbers"><strong><a href="#n90" name="n90" id="n90">90</a></strong></span>
-<span class="line-numbers"><a href="#n91" name="n91" id="n91">91</a></span>    <span style="color:#777">// Print result</span>
-<span class="line-numbers"><a href="#n92" name="n92" id="n92">92</a></span>    cout &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Result:</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>;
-<span class="line-numbers"><a href="#n93" name="n93" id="n93">93</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
-<span class="line-numbers"><a href="#n94" name="n94" id="n94">94</a></span>        cout &lt;&lt; x[i] &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>;
-<span class="line-numbers"><a href="#n95" name="n95" id="n95">95</a></span>    }
-<span class="line-numbers"><a href="#n96" name="n96" id="n96">96</a></span>    cout &lt;&lt; endl;
-<span class="line-numbers"><a href="#n97" name="n97" id="n97">97</a></span>}
+  <div class="code"><pre><span style="color:#579">#include</span> <span style="color:#B44;font-weight:bold">&lt;iostream&gt;</span>
+<span style="color:#579">#include</span> <span style="color:#B44;font-weight:bold">&lt;cmath&gt;</span>
+<span style="color:#579">#include</span> <span style="color:#B44;font-weight:bold">&lt;vector&gt;</span>
+
+<span style="color:#088;font-weight:bold">using</span> <span style="color:#080;font-weight:bold">namespace</span> std;
+
+<span style="color:#088;font-weight:bold">void</span> print(vector&lt; vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; &gt; A) {
+    <span style="color:#0a8;font-weight:bold">int</span> n = A.size();
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> j=<span style="color:#00D">0</span>; j&lt;n+<span style="color:#00D">1</span>; j++) {
+            cout &lt;&lt; A[i][j] &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>;
+            <span style="color:#080;font-weight:bold">if</span> (j == n-<span style="color:#00D">1</span>) {
+                cout &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">| </span><span style="color:#710">"</span></span>;
+            }
+        }
+        cout &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>;
+    }
+    cout &lt;&lt; endl;
+}
+
+vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; gauss(vector&lt; vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; &gt; A) {
+    <span style="color:#0a8;font-weight:bold">int</span> n = A.size();
+
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
+        <span style="color:#777">// Search for maximum in this column</span>
+        <span style="color:#0a8;font-weight:bold">double</span> maxEl = abs(A[i][i]);
+        <span style="color:#0a8;font-weight:bold">int</span> maxRow = i;
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
+            <span style="color:#080;font-weight:bold">if</span> (abs(A[k][i]) &gt; maxEl) {
+                maxEl = abs(A[k][i]);
+                maxRow = k;
+            }
+        }
+
+        <span style="color:#777">// Swap maximum row with current row (column by column)</span>
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i; k&lt;n+<span style="color:#00D">1</span>;k++) {
+            <span style="color:#0a8;font-weight:bold">double</span> tmp = A[maxRow][k];
+            A[maxRow][k] = A[i][k];
+            A[i][k] = tmp;
+        }
+
+        <span style="color:#777">// Make all rows below this one 0 in current column</span>
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
+            <span style="color:#0a8;font-weight:bold">double</span> c = -A[k][i]/A[i][i];
+            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> j=i; j&lt;n+<span style="color:#00D">1</span>; j++) {
+                <span style="color:#080;font-weight:bold">if</span> (i==j) {
+                    A[k][j] = <span style="color:#00D">0</span>;
+                } <span style="color:#080;font-weight:bold">else</span> {
+                    A[k][j] += c * A[i][j];
+                }
+            }
+        }
+    }
+
+    <span style="color:#777">// Solve equation Ax=b for an upper triangular matrix A</span>
+    vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; x(n);
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=n-<span style="color:#00D">1</span>; i&gt;=<span style="color:#00D">0</span>; i--) {
+        x[i] = A[i][n]/A[i][i];
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> k=i-<span style="color:#00D">1</span>;k&gt;=<span style="color:#00D">0</span>; k--) {
+            A[k][n] -= A[k][i] * x[i];
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> x;
+}
+
+<span style="color:#0a8;font-weight:bold">int</span> main() {
+    <span style="color:#0a8;font-weight:bold">int</span> n;
+    cin &gt;&gt; n;
+
+    vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; line(n+<span style="color:#00D">1</span>,<span style="color:#00D">0</span>);
+    vector&lt; vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; &gt; A(n,line);
+
+    <span style="color:#777">// Read input data</span>
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> j=<span style="color:#00D">0</span>; j&lt;n; j++) {
+            cin &gt;&gt; A[i][j];
+        }
+    }
+
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
+        cin &gt;&gt; A[i][n];
+    }
+
+    <span style="color:#777">// Print input</span>
+    print(A);
+
+    <span style="color:#777">// Calculate solution</span>
+    vector&lt;<span style="color:#0a8;font-weight:bold">double</span>&gt; x(n);
+    x = gauss(A);
+
+    <span style="color:#777">// Print result</span>
+    cout &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Result:</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>;
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">int</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
+        cout &lt;&lt; x[i] &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>;
+    }
+    cout &lt;&lt; endl;
+}
 </pre></div>
 </div>
 </div>
@@ -303,12 +303,12 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 <p>You can call it like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>./gauss.out &lt; 3x3.in
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>1        2        3        | 1
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>4        5        6        | 1
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>1        0        1        | 1
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>Result:        0 -1 1
+  <div class="code"><pre>./gauss.out &lt; 3x3.in
+1        2        3        | 1
+4        5        6        | 1
+1        0        1        | 1
+
+Result:        0 -1 1
 </pre></div>
 </div>
 </div>
@@ -316,87 +316,87 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 <h2 id="tocAnchor-1-3">Python code</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pprint</span>(A):
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    n = <span style="color:#369;font-weight:bold">len</span>(A)
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        line = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n+<span style="color:#00D">1</span>):
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>            line += <span style="color:#369;font-weight:bold">str</span>(A[i][j]) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>            <span style="color:#080;font-weight:bold">if</span> j == n-<span style="color:#00D">1</span>:
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                line += <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">| </span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        print(line)
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">gauss</span>(A):
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    n = <span style="color:#369;font-weight:bold">len</span>(A)
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>        <span style="color:#777"># Search for maximum in this column</span>
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>        maxEl = <span style="color:#369;font-weight:bold">abs</span>(A[i][i])
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>        maxRow = i
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i+<span style="color:#00D">1</span>, n):
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#369;font-weight:bold">abs</span>(A[k][i]) &gt; maxEl:
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>                maxEl = <span style="color:#369;font-weight:bold">abs</span>(A[k][i])
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>                maxRow = k
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>        <span style="color:#777"># Swap maximum row with current row (column by column)</span>
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i, n+<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>            tmp = A[maxRow][k]
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>            A[maxRow][k] = A[i][k]
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>            A[i][k] = tmp
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>        <span style="color:#777"># Make all rows below this one 0 in current column</span>
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i+<span style="color:#00D">1</span>, n):
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>            c = -A[k][i]/A[i][i]
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>            <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i, n+<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>                <span style="color:#080;font-weight:bold">if</span> i == j:
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>                    A[k][j] = <span style="color:#00D">0</span>
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>                <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>                    A[k][j] += c * A[i][j]
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>    <span style="color:#777"># Solve equation Ax=b for an upper triangular matrix A</span>
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>    x = [<span style="color:#00D">0</span> <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n)]
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>        x[i] = A[i][n]/A[i][i]
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>            A[k][n] -= A[k][i] * x[i]
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>    <span style="color:#080;font-weight:bold">return</span> x
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
-<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">fractions</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Fraction</span>
-<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>    n = <span style="color:#369;font-weight:bold">input</span>()
-<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>
-<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>    A = [[<span style="color:#00D">0</span> <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n+<span style="color:#00D">1</span>)] <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n)]
-<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>
-<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>    <span style="color:#777"># Read input data</span>
-<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
-<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>        line = <span style="color:#369;font-weight:bold">map</span>(Fraction, <span style="color:#369;font-weight:bold">raw_input</span>().split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>))
-<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>        <span style="color:#080;font-weight:bold">for</span> j, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(line):
-<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>            A[i][j] = el
-<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>    <span style="color:#369;font-weight:bold">raw_input</span>()
-<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span>
-<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span>    line = <span style="color:#369;font-weight:bold">raw_input</span>().split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>    lastLine = <span style="color:#369;font-weight:bold">map</span>(Fraction, line)
-<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
-<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span>        A[i][n] = lastLine[i]
-<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>
-<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>    <span style="color:#777"># Print input</span>
-<span class="line-numbers"><a href="#n72" name="n72" id="n72">72</a></span>    pprint(A)
-<span class="line-numbers"><a href="#n73" name="n73" id="n73">73</a></span>
-<span class="line-numbers"><a href="#n74" name="n74" id="n74">74</a></span>    <span style="color:#777"># Calculate solution</span>
-<span class="line-numbers"><a href="#n75" name="n75" id="n75">75</a></span>    x = gauss(A)
-<span class="line-numbers"><a href="#n76" name="n76" id="n76">76</a></span>
-<span class="line-numbers"><a href="#n77" name="n77" id="n77">77</a></span>    <span style="color:#777"># Print result</span>
-<span class="line-numbers"><a href="#n78" name="n78" id="n78">78</a></span>    line = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Result:</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n79" name="n79" id="n79">79</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
-<span class="line-numbers"><strong><a href="#n80" name="n80" id="n80">80</a></strong></span>        line += <span style="color:#369;font-weight:bold">str</span>(x[i]) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n81" name="n81" id="n81">81</a></span>    print(line)
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pprint</span>(A):
+    n = <span style="color:#369;font-weight:bold">len</span>(A)
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
+        line = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>
+        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n+<span style="color:#00D">1</span>):
+            line += <span style="color:#369;font-weight:bold">str</span>(A[i][j]) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>
+            <span style="color:#080;font-weight:bold">if</span> j == n-<span style="color:#00D">1</span>:
+                line += <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">| </span><span style="color:#710">"</span></span>
+        print(line)
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>)
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">gauss</span>(A):
+    n = <span style="color:#369;font-weight:bold">len</span>(A)
+
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
+        <span style="color:#777"># Search for maximum in this column</span>
+        maxEl = <span style="color:#369;font-weight:bold">abs</span>(A[i][i])
+        maxRow = i
+        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i+<span style="color:#00D">1</span>, n):
+            <span style="color:#080;font-weight:bold">if</span> <span style="color:#369;font-weight:bold">abs</span>(A[k][i]) &gt; maxEl:
+                maxEl = <span style="color:#369;font-weight:bold">abs</span>(A[k][i])
+                maxRow = k
+
+        <span style="color:#777"># Swap maximum row with current row (column by column)</span>
+        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i, n+<span style="color:#00D">1</span>):
+            tmp = A[maxRow][k]
+            A[maxRow][k] = A[i][k]
+            A[i][k] = tmp
+
+        <span style="color:#777"># Make all rows below this one 0 in current column</span>
+        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i+<span style="color:#00D">1</span>, n):
+            c = -A[k][i]/A[i][i]
+            <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i, n+<span style="color:#00D">1</span>):
+                <span style="color:#080;font-weight:bold">if</span> i == j:
+                    A[k][j] = <span style="color:#00D">0</span>
+                <span style="color:#080;font-weight:bold">else</span>:
+                    A[k][j] += c * A[i][j]
+
+    <span style="color:#777"># Solve equation Ax=b for an upper triangular matrix A</span>
+    x = [<span style="color:#00D">0</span> <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n)]
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
+        x[i] = A[i][n]/A[i][i]
+        <span style="color:#080;font-weight:bold">for</span> k <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(i-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
+            A[k][n] -= A[k][i] * x[i]
+    <span style="color:#080;font-weight:bold">return</span> x
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">fractions</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Fraction</span>
+    n = <span style="color:#369;font-weight:bold">input</span>()
+
+    A = [[<span style="color:#00D">0</span> <span style="color:#080;font-weight:bold">for</span> j <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n+<span style="color:#00D">1</span>)] <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(n)]
+
+    <span style="color:#777"># Read input data</span>
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
+        line = <span style="color:#369;font-weight:bold">map</span>(Fraction, <span style="color:#369;font-weight:bold">raw_input</span>().split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>))
+        <span style="color:#080;font-weight:bold">for</span> j, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(line):
+            A[i][j] = el
+    <span style="color:#369;font-weight:bold">raw_input</span>()
+
+    line = <span style="color:#369;font-weight:bold">raw_input</span>().split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>)
+    lastLine = <span style="color:#369;font-weight:bold">map</span>(Fraction, line)
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
+        A[i][n] = lastLine[i]
+
+    <span style="color:#777"># Print input</span>
+    pprint(A)
+
+    <span style="color:#777"># Calculate solution</span>
+    x = gauss(A)
+
+    <span style="color:#777"># Print result</span>
+    line = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Result:</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">0</span>, n):
+        line += <span style="color:#369;font-weight:bold">str</span>(x[i]) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\t</span><span style="color:#710">"</span></span>
+    print(line)
 </pre></div>
 </div>
 </div>
@@ -404,53 +404,53 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 <h2 id="tocAnchor-1-4">JavaScript code</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">/** Solve a linear system of equations given by a n&amp;times;n matrix</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777">    with a result vector n&amp;times;1. */</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">function</span> <span style="color:#06B;font-weight:bold">gauss</span>(A) {
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#080;font-weight:bold">var</span> n = A.length;
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>        <span style="color:#777">// Search for maximum in this column</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        <span style="color:#080;font-weight:bold">var</span> maxEl = Math.abs(A[i][i]);
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        <span style="color:#080;font-weight:bold">var</span> maxRow = i;
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        <span style="color:#080;font-weight:bold">for</span>(<span style="color:#080;font-weight:bold">var</span> k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>            <span style="color:#080;font-weight:bold">if</span> (Math.abs(A[k][i]) &gt; maxEl) {
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                maxEl = Math.abs(A[k][i]);
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>                maxRow = k;
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>            }
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        }
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>        <span style="color:#777">// Swap maximum row with current row (column by column)</span>
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> k=i; k&lt;n+<span style="color:#00D">1</span>; k++) {
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>            <span style="color:#080;font-weight:bold">var</span> tmp = A[maxRow][k];
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>            A[maxRow][k] = A[i][k];
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>            A[i][k] = tmp;
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>        }
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        <span style="color:#777">// Make all rows below this one 0 in current column</span>
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>        <span style="color:#080;font-weight:bold">for</span> (k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>            <span style="color:#080;font-weight:bold">var</span> c = -A[k][i]/A[i][i];
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>            <span style="color:#080;font-weight:bold">for</span>(<span style="color:#080;font-weight:bold">var</span> j=i; j&lt;n+<span style="color:#00D">1</span>; j++) {
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>                <span style="color:#080;font-weight:bold">if</span> (i==j) {
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>                    A[k][j] = <span style="color:#00D">0</span>;
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>                } <span style="color:#080;font-weight:bold">else</span> {
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>                    A[k][j] += c * A[i][j];
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>                }
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>            }
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>        }
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>    }
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>    <span style="color:#777">// Solve equation Ax=b for an upper triangular matrix A</span>
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>    <span style="color:#080;font-weight:bold">var</span> x= <span style="color:#080;font-weight:bold">new</span> Array(n);
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> i=n-<span style="color:#00D">1</span>; i&gt;-<span style="color:#00D">1</span>; i--) {
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>        x[i] = A[i][n]/A[i][i];
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> k=i-<span style="color:#00D">1</span>; k&gt;-<span style="color:#00D">1</span>; k--) {
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>            A[k][n] -= A[k][i] * x[i];
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>        }
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>    }
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>    <span style="color:#080;font-weight:bold">return</span> x;
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>}
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>
+  <div class="code"><pre><span style="color:#777">/** Solve a linear system of equations given by a n&amp;times;n matrix
+    with a result vector n&amp;times;1. */</span>
+<span style="color:#080;font-weight:bold">function</span> <span style="color:#06B;font-weight:bold">gauss</span>(A) {
+    <span style="color:#080;font-weight:bold">var</span> n = A.length;
+
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> i=<span style="color:#00D">0</span>; i&lt;n; i++) {
+        <span style="color:#777">// Search for maximum in this column</span>
+        <span style="color:#080;font-weight:bold">var</span> maxEl = Math.abs(A[i][i]);
+        <span style="color:#080;font-weight:bold">var</span> maxRow = i;
+        <span style="color:#080;font-weight:bold">for</span>(<span style="color:#080;font-weight:bold">var</span> k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
+            <span style="color:#080;font-weight:bold">if</span> (Math.abs(A[k][i]) &gt; maxEl) {
+                maxEl = Math.abs(A[k][i]);
+                maxRow = k;
+            }
+        }
+
+        <span style="color:#777">// Swap maximum row with current row (column by column)</span>
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> k=i; k&lt;n+<span style="color:#00D">1</span>; k++) {
+            <span style="color:#080;font-weight:bold">var</span> tmp = A[maxRow][k];
+            A[maxRow][k] = A[i][k];
+            A[i][k] = tmp;
+        }
+
+        <span style="color:#777">// Make all rows below this one 0 in current column</span>
+        <span style="color:#080;font-weight:bold">for</span> (k=i+<span style="color:#00D">1</span>; k&lt;n; k++) {
+            <span style="color:#080;font-weight:bold">var</span> c = -A[k][i]/A[i][i];
+            <span style="color:#080;font-weight:bold">for</span>(<span style="color:#080;font-weight:bold">var</span> j=i; j&lt;n+<span style="color:#00D">1</span>; j++) {
+                <span style="color:#080;font-weight:bold">if</span> (i==j) {
+                    A[k][j] = <span style="color:#00D">0</span>;
+                } <span style="color:#080;font-weight:bold">else</span> {
+                    A[k][j] += c * A[i][j];
+                }
+            }
+        }
+    }
+
+    <span style="color:#777">// Solve equation Ax=b for an upper triangular matrix A</span>
+    <span style="color:#080;font-weight:bold">var</span> x= <span style="color:#080;font-weight:bold">new</span> Array(n);
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> i=n-<span style="color:#00D">1</span>; i&gt;-<span style="color:#00D">1</span>; i--) {
+        x[i] = A[i][n]/A[i][i];
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> k=i-<span style="color:#00D">1</span>; k&gt;-<span style="color:#00D">1</span>; k--) {
+            A[k][n] -= A[k][i] * x[i];
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> x;
+}
+
 </pre></div>
 </div>
 </div>
@@ -458,64 +458,64 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 <h2 id="tocAnchor-1-5">PHP</h2>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777">/**</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#777"> * Gaussian elimination</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777"> * @param  array $A matrix</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#777"> * @param  array $x vector</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777"> * @return array    solution vector</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#777"> */</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">function</span> <span style="color:#06B;font-weight:bold">gauss</span>(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>) {
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="color:#777"># Just make a single matrix</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$i</span>=<span style="color:#00D">0</span>; <span style="color:#950">$i</span> &lt; <span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$A</span>); <span style="color:#950">$i</span>++) {
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][] = <span style="color:#950">$x</span>[<span style="color:#950">$i</span>];
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    }
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#950">$n</span> = <span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$A</span>);
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$i</span>=<span style="color:#00D">0</span>; <span style="color:#950">$i</span> &lt; <span style="color:#950">$n</span>; <span style="color:#950">$i</span>++) {
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>        <span style="color:#777"># Search for maximum in this column</span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>        <span style="color:#950">$maxEl</span> = <span style="color:#369;font-weight:bold">abs</span>(<span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$i</span>]);
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        <span style="color:#950">$maxRow</span> = <span style="color:#950">$i</span>;
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>+<span style="color:#00D">1</span>; <span style="color:#950">$k</span> &lt; <span style="color:#950">$n</span>; <span style="color:#950">$k</span>++) {
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>            <span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">abs</span>(<span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>]) &gt; <span style="color:#950">$maxEl</span>) {
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>                <span style="color:#950">$maxEl</span> = <span style="color:#369;font-weight:bold">abs</span>(<span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>]);
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>                <span style="color:#950">$maxRow</span> = <span style="color:#950">$k</span>;
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>            }
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        }
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>        <span style="color:#777"># Swap maximum row with current row (column by column)</span>
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>; <span style="color:#950">$k</span> &lt; <span style="color:#950">$n</span>+<span style="color:#00D">1</span>; <span style="color:#950">$k</span>++) {
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>            <span style="color:#950">$tmp</span> = <span style="color:#950">$A</span>[<span style="color:#950">$maxRow</span>][<span style="color:#950">$k</span>];
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>            <span style="color:#950">$A</span>[<span style="color:#950">$maxRow</span>][<span style="color:#950">$k</span>] = <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$k</span>];
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>            <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$k</span>] = <span style="color:#950">$tmp</span>;
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>        }
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>        <span style="color:#777"># Make all rows below this one 0 in current column</span>
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>+<span style="color:#00D">1</span>; <span style="color:#950">$k</span> &lt; <span style="color:#950">$n</span>; <span style="color:#950">$k</span>++) {
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>            <span style="color:#950">$c</span> = -<span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>]/<span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$i</span>];
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$j</span>=<span style="color:#950">$i</span>; <span style="color:#950">$j</span> &lt; <span style="color:#950">$n</span>+<span style="color:#00D">1</span>; <span style="color:#950">$j</span>++) {
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>                <span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$i</span>==<span style="color:#950">$j</span>) {
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>                    <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$j</span>] = <span style="color:#00D">0</span>;
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>                } <span style="color:#080;font-weight:bold">else</span> {
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>                    <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$j</span>] += <span style="color:#950">$c</span> * <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$j</span>];
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>                }
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>            }
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>        }
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>    }
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>    <span style="color:#777"># Solve equation Ax=b for an upper triangular matrix $A</span>
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>    <span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array_fill</span>(<span style="color:#00D">0</span>, <span style="color:#950">$n</span>, <span style="color:#00D">0</span>);
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$i</span>=<span style="color:#950">$n</span>-<span style="color:#00D">1</span>; <span style="color:#950">$i</span> &gt; -<span style="color:#00D">1</span>; <span style="color:#950">$i</span>--) {
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>        <span style="color:#950">$x</span>[<span style="color:#950">$i</span>] = <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$n</span>]/<span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$i</span>];
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>-<span style="color:#00D">1</span>; <span style="color:#950">$k</span> &gt; -<span style="color:#00D">1</span>; <span style="color:#950">$k</span>--) {
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>            <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$n</span>] -= <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>] * <span style="color:#950">$x</span>[<span style="color:#950">$i</span>];
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>        }
-<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>    }
-<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>
-<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#950">$x</span>;
-<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>}
-<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+  <div class="code"><pre><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span style="color:#777">/**
+ * Gaussian elimination
+ * @param  array $A matrix
+ * @param  array $x vector
+ * @return array    solution vector
+ */</span>
+<span style="color:#080;font-weight:bold">function</span> <span style="color:#06B;font-weight:bold">gauss</span>(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>) {
+    <span style="color:#777"># Just make a single matrix</span>
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$i</span>=<span style="color:#00D">0</span>; <span style="color:#950">$i</span> &lt; <span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$A</span>); <span style="color:#950">$i</span>++) {
+        <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][] = <span style="color:#950">$x</span>[<span style="color:#950">$i</span>];
+    }
+    <span style="color:#950">$n</span> = <span style="color:#369;font-weight:bold">count</span>(<span style="color:#950">$A</span>);
+
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$i</span>=<span style="color:#00D">0</span>; <span style="color:#950">$i</span> &lt; <span style="color:#950">$n</span>; <span style="color:#950">$i</span>++) {
+        <span style="color:#777"># Search for maximum in this column</span>
+        <span style="color:#950">$maxEl</span> = <span style="color:#369;font-weight:bold">abs</span>(<span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$i</span>]);
+        <span style="color:#950">$maxRow</span> = <span style="color:#950">$i</span>;
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>+<span style="color:#00D">1</span>; <span style="color:#950">$k</span> &lt; <span style="color:#950">$n</span>; <span style="color:#950">$k</span>++) {
+            <span style="color:#080;font-weight:bold">if</span> (<span style="color:#369;font-weight:bold">abs</span>(<span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>]) &gt; <span style="color:#950">$maxEl</span>) {
+                <span style="color:#950">$maxEl</span> = <span style="color:#369;font-weight:bold">abs</span>(<span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>]);
+                <span style="color:#950">$maxRow</span> = <span style="color:#950">$k</span>;
+            }
+        }
+
+
+        <span style="color:#777"># Swap maximum row with current row (column by column)</span>
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>; <span style="color:#950">$k</span> &lt; <span style="color:#950">$n</span>+<span style="color:#00D">1</span>; <span style="color:#950">$k</span>++) {
+            <span style="color:#950">$tmp</span> = <span style="color:#950">$A</span>[<span style="color:#950">$maxRow</span>][<span style="color:#950">$k</span>];
+            <span style="color:#950">$A</span>[<span style="color:#950">$maxRow</span>][<span style="color:#950">$k</span>] = <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$k</span>];
+            <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$k</span>] = <span style="color:#950">$tmp</span>;
+        }
+
+        <span style="color:#777"># Make all rows below this one 0 in current column</span>
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>+<span style="color:#00D">1</span>; <span style="color:#950">$k</span> &lt; <span style="color:#950">$n</span>; <span style="color:#950">$k</span>++) {
+            <span style="color:#950">$c</span> = -<span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>]/<span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$i</span>];
+            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$j</span>=<span style="color:#950">$i</span>; <span style="color:#950">$j</span> &lt; <span style="color:#950">$n</span>+<span style="color:#00D">1</span>; <span style="color:#950">$j</span>++) {
+                <span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">$i</span>==<span style="color:#950">$j</span>) {
+                    <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$j</span>] = <span style="color:#00D">0</span>;
+                } <span style="color:#080;font-weight:bold">else</span> {
+                    <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$j</span>] += <span style="color:#950">$c</span> * <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$j</span>];
+                }
+            }
+        }
+    }
+
+    <span style="color:#777"># Solve equation Ax=b for an upper triangular matrix $A</span>
+    <span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array_fill</span>(<span style="color:#00D">0</span>, <span style="color:#950">$n</span>, <span style="color:#00D">0</span>);
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$i</span>=<span style="color:#950">$n</span>-<span style="color:#00D">1</span>; <span style="color:#950">$i</span> &gt; -<span style="color:#00D">1</span>; <span style="color:#950">$i</span>--) {
+        <span style="color:#950">$x</span>[<span style="color:#950">$i</span>] = <span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$n</span>]/<span style="color:#950">$A</span>[<span style="color:#950">$i</span>][<span style="color:#950">$i</span>];
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#950">$k</span>=<span style="color:#950">$i</span>-<span style="color:#00D">1</span>; <span style="color:#950">$k</span> &gt; -<span style="color:#00D">1</span>; <span style="color:#950">$k</span>--) {
+            <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$n</span>] -= <span style="color:#950">$A</span>[<span style="color:#950">$k</span>][<span style="color:#950">$i</span>] * <span style="color:#950">$x</span>[<span style="color:#950">$i</span>];
+        }
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#950">$x</span>;
+}
+<span style="font-weight:bold;color:#666">?&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -523,21 +523,21 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 <p>And some tiny tests:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>));
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">3</span>);
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777">### array (size=1)</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#777">###      0 =&gt; float 0.42857142857143 = 3 / 7</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>));
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">0</span>);
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span><span style="color:#777">### array (size=1)</span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#777">###      0 =&gt; int 0</span>
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+  <div class="code"><pre><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>));
+<span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">3</span>);
+<span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
+<span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
+<span style="color:#777">### array (size=1)</span>
+<span style="color:#777">###      0 =&gt; float 0.42857142857143 = 3 / 7</span>
+
+<span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>));
+<span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">0</span>);
+<span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
+<span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
+<span style="color:#777">### array (size=1)</span>
+<span style="color:#777">###      0 =&gt; int 0</span>
+<span style="font-weight:bold;color:#666">?&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -552,15 +552,15 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 </table>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>, <span style="color:#00D">1</span>), <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">5</span>, <span style="color:#00D">3</span>));
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">1</span>, <span style="color:#00D">3</span>);
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777">### array (size=2)</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#777">###  0 =&gt; float 0</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#777">###  1 =&gt; float 1</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+  <div class="code"><pre><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>, <span style="color:#00D">1</span>), <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">5</span>, <span style="color:#00D">3</span>));
+<span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">1</span>, <span style="color:#00D">3</span>);
+<span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
+<span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
+<span style="color:#777">### array (size=2)</span>
+<span style="color:#777">###  0 =&gt; float 0</span>
+<span style="color:#777">###  1 =&gt; float 1</span>
+<span style="font-weight:bold;color:#666">?&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -575,15 +575,15 @@ a_{n,1} \cdot x_1 + a_{n,2} x_2 + \dots + a_{n,n} \cdot x_{n} &amp;= b_n
 </table>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>, <span style="color:#00D">1</span>), <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">5</span>, <span style="color:#00D">3</span>));
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">1</span>, <span style="color:#00D">1</span>);
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777">### array (size=2)</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#777">###  0 =&gt; float 0.125</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#777">###  1 =&gt; float 0.125</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="font-weight:bold;color:#666">?&gt;</span>
+  <div class="code"><pre><span style="font-weight:bold;color:#666">&lt;?php</span>
+<span style="color:#950">$A</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">7</span>, <span style="color:#00D">1</span>), <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">5</span>, <span style="color:#00D">3</span>));
+<span style="color:#950">$x</span> = <span style="color:#369;font-weight:bold">array</span>(<span style="color:#00D">1</span>, <span style="color:#00D">1</span>);
+<span style="color:#950">$result</span> = gauss(<span style="color:#950">$A</span>, <span style="color:#950">$x</span>);
+<span style="color:#369;font-weight:bold">var_dump</span>(<span style="color:#950">$result</span>);
+<span style="color:#777">### array (size=2)</span>
+<span style="color:#777">###  0 =&gt; float 0.125</span>
+<span style="color:#777">###  1 =&gt; float 0.125</span>
+<span style="font-weight:bold;color:#666">?&gt;</span>
 </pre></div>
 </div>
 </div>

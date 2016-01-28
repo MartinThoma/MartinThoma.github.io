@@ -178,7 +178,7 @@ than anything I can write in a few minutes, so … <a href="http://tensorflow.or
 with:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
+  <div class="code"><pre>$ pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.5.0-cp27-none-linux_x86_64.whl --user
 </pre></div>
 </div>
 </div>
@@ -188,8 +188,8 @@ with:</p>
 <code>.bashrc</code> will work:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>export CUDA_HOME=/usr/local/cuda
+  <div class="code"><pre>export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+export CUDA_HOME=/usr/local/cuda
 </pre></div>
 </div>
 </div>
@@ -203,87 +203,87 @@ copied it from <a href="http://tensorflow.org/tutorials/mnist/pros/index.md">the
 Just execute the script below and see if it finishes without throwing errors.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">get_mnist_data_tf</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">read_data_sets</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>mnist = read_data_sets(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">MNIST_data/</span><span style="color:#710">"</span></span>, one_hot=<span style="color:#069">True</span>)
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">tensorflow</span> <span style="color:#080;font-weight:bold">as</span> tf
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>sess = tf.InteractiveSession()
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>x = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>, shape=[<span style="color:#069">None</span>, <span style="color:#00D">784</span>])
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>y_ = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>, shape=[<span style="color:#069">None</span>, <span style="color:#00D">10</span>])
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>W = tf.Variable(tf.zeros([<span style="color:#00D">784</span>,<span style="color:#00D">10</span>]))
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>b = tf.Variable(tf.zeros([<span style="color:#00D">10</span>]))
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>sess.run(tf.initialize_all_variables())
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>y = tf.nn.softmax(tf.matmul(x,W) + b)
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>cross_entropy = -tf.reduce_sum(y_*tf.log(y))
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>train_step = tf.train.GradientDescentOptimizer(<span style="color:#60E">0.01</span>).minimize(cross_entropy)
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>  batch = mnist.train.next_batch(<span style="color:#00D">50</span>)
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>  train_step.run(feed_dict={x: batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>]})
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>correct_prediction = tf.equal(tf.argmax(y,<span style="color:#00D">1</span>), tf.argmax(y_,<span style="color:#00D">1</span>))
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>))
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>print(accuracy.eval(feed_dict={x: mnist.test.images,
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>                               y_: mnist.test.labels}))
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">weight_variable</span>(shape):
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>  initial = tf.truncated_normal(shape, stddev=<span style="color:#60E">0.1</span>)
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>  <span style="color:#080;font-weight:bold">return</span> tf.Variable(initial)
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">bias_variable</span>(shape):
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>  initial = tf.constant(<span style="color:#60E">0.1</span>, shape=shape)
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>  <span style="color:#080;font-weight:bold">return</span> tf.Variable(initial)
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">conv2d</span>(x, W):
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>  <span style="color:#080;font-weight:bold">return</span> tf.nn.conv2d(x, W, strides=[<span style="color:#00D">1</span>, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>], padding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SAME</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">max_pool_2x2</span>(x):
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>  <span style="color:#080;font-weight:bold">return</span> tf.nn.max_pool(x, ksize=[<span style="color:#00D">1</span>, <span style="color:#00D">2</span>, <span style="color:#00D">2</span>, <span style="color:#00D">1</span>],
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>                        strides=[<span style="color:#00D">1</span>, <span style="color:#00D">2</span>, <span style="color:#00D">2</span>, <span style="color:#00D">1</span>], padding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SAME</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>W_conv1 = weight_variable([<span style="color:#00D">5</span>, <span style="color:#00D">5</span>, <span style="color:#00D">1</span>, <span style="color:#00D">32</span>])
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>b_conv1 = bias_variable([<span style="color:#00D">32</span>])
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>x_image = tf.reshape(x, [-<span style="color:#00D">1</span>,<span style="color:#00D">28</span>,<span style="color:#00D">28</span>,<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>h_pool1 = max_pool_2x2(h_conv1)
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>W_conv2 = weight_variable([<span style="color:#00D">5</span>, <span style="color:#00D">5</span>, <span style="color:#00D">32</span>, <span style="color:#00D">64</span>])
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>b_conv2 = bias_variable([<span style="color:#00D">64</span>])
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>h_pool2 = max_pool_2x2(h_conv2)
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>W_fc1 = weight_variable([<span style="color:#00D">7</span> * <span style="color:#00D">7</span> * <span style="color:#00D">64</span>, <span style="color:#00D">1024</span>])
-<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>b_fc1 = bias_variable([<span style="color:#00D">1024</span>])
-<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>
-<span class="line-numbers"><a href="#n56" name="n56" id="n56">56</a></span>h_pool2_flat = tf.reshape(h_pool2, [-<span style="color:#00D">1</span>, <span style="color:#00D">7</span>*<span style="color:#00D">7</span>*<span style="color:#00D">64</span>])
-<span class="line-numbers"><a href="#n57" name="n57" id="n57">57</a></span>h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
-<span class="line-numbers"><a href="#n58" name="n58" id="n58">58</a></span>
-<span class="line-numbers"><a href="#n59" name="n59" id="n59">59</a></span>keep_prob = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><strong><a href="#n60" name="n60" id="n60">60</a></strong></span>h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
-<span class="line-numbers"><a href="#n61" name="n61" id="n61">61</a></span>
-<span class="line-numbers"><a href="#n62" name="n62" id="n62">62</a></span>W_fc2 = weight_variable([<span style="color:#00D">1024</span>, <span style="color:#00D">10</span>])
-<span class="line-numbers"><a href="#n63" name="n63" id="n63">63</a></span>b_fc2 = bias_variable([<span style="color:#00D">10</span>])
-<span class="line-numbers"><a href="#n64" name="n64" id="n64">64</a></span>
-<span class="line-numbers"><a href="#n65" name="n65" id="n65">65</a></span>y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
-<span class="line-numbers"><a href="#n66" name="n66" id="n66">66</a></span>
-<span class="line-numbers"><a href="#n67" name="n67" id="n67">67</a></span>cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
-<span class="line-numbers"><a href="#n68" name="n68" id="n68">68</a></span>train_step = tf.train.AdamOptimizer(<span style="color:#60E">1e-4</span>).minimize(cross_entropy)
-<span class="line-numbers"><a href="#n69" name="n69" id="n69">69</a></span>correct_prediction = tf.equal(tf.argmax(y_conv,<span style="color:#00D">1</span>), tf.argmax(y_,<span style="color:#00D">1</span>))
-<span class="line-numbers"><strong><a href="#n70" name="n70" id="n70">70</a></strong></span>accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>))
-<span class="line-numbers"><a href="#n71" name="n71" id="n71">71</a></span>sess.run(tf.initialize_all_variables())
-<span class="line-numbers"><a href="#n72" name="n72" id="n72">72</a></span><span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
-<span class="line-numbers"><a href="#n73" name="n73" id="n73">73</a></span>  batch = mnist.train.next_batch(<span style="color:#00D">50</span>)
-<span class="line-numbers"><a href="#n74" name="n74" id="n74">74</a></span>  <span style="color:#080;font-weight:bold">if</span> i%<span style="color:#00D">100</span> == <span style="color:#00D">0</span>:
-<span class="line-numbers"><a href="#n75" name="n75" id="n75">75</a></span>    train_accuracy = accuracy.eval(feed_dict={
-<span class="line-numbers"><a href="#n76" name="n76" id="n76">76</a></span>        x:batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>], keep_prob: <span style="color:#60E">1.0</span>})
-<span class="line-numbers"><a href="#n77" name="n77" id="n77">77</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">step %d, training accuracy %g</span><span style="color:#710">"</span></span>%(i, train_accuracy))
-<span class="line-numbers"><a href="#n78" name="n78" id="n78">78</a></span>  train_step.run(feed_dict={x: batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>], keep_prob: <span style="color:#60E">0.5</span>})
-<span class="line-numbers"><a href="#n79" name="n79" id="n79">79</a></span>
-<span class="line-numbers"><strong><a href="#n80" name="n80" id="n80">80</a></strong></span>print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">test accuracy %g</span><span style="color:#710">"</span></span>%accuracy.eval(feed_dict={
-<span class="line-numbers"><a href="#n81" name="n81" id="n81">81</a></span>    x: mnist.test.images, y_: mnist.test.labels, keep_prob: <span style="color:#60E">1.0</span>}))
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">get_mnist_data_tf</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">read_data_sets</span>
+mnist = read_data_sets(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">MNIST_data/</span><span style="color:#710">"</span></span>, one_hot=<span style="color:#069">True</span>)
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">tensorflow</span> <span style="color:#080;font-weight:bold">as</span> tf
+sess = tf.InteractiveSession()
+x = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>, shape=[<span style="color:#069">None</span>, <span style="color:#00D">784</span>])
+y_ = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>, shape=[<span style="color:#069">None</span>, <span style="color:#00D">10</span>])
+W = tf.Variable(tf.zeros([<span style="color:#00D">784</span>,<span style="color:#00D">10</span>]))
+b = tf.Variable(tf.zeros([<span style="color:#00D">10</span>]))
+sess.run(tf.initialize_all_variables())
+y = tf.nn.softmax(tf.matmul(x,W) + b)
+cross_entropy = -tf.reduce_sum(y_*tf.log(y))
+train_step = tf.train.GradientDescentOptimizer(<span style="color:#60E">0.01</span>).minimize(cross_entropy)
+<span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
+  batch = mnist.train.next_batch(<span style="color:#00D">50</span>)
+  train_step.run(feed_dict={x: batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>]})
+correct_prediction = tf.equal(tf.argmax(y,<span style="color:#00D">1</span>), tf.argmax(y_,<span style="color:#00D">1</span>))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>))
+
+print(accuracy.eval(feed_dict={x: mnist.test.images,
+                               y_: mnist.test.labels}))
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">weight_variable</span>(shape):
+  initial = tf.truncated_normal(shape, stddev=<span style="color:#60E">0.1</span>)
+  <span style="color:#080;font-weight:bold">return</span> tf.Variable(initial)
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">bias_variable</span>(shape):
+  initial = tf.constant(<span style="color:#60E">0.1</span>, shape=shape)
+  <span style="color:#080;font-weight:bold">return</span> tf.Variable(initial)
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">conv2d</span>(x, W):
+  <span style="color:#080;font-weight:bold">return</span> tf.nn.conv2d(x, W, strides=[<span style="color:#00D">1</span>, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>, <span style="color:#00D">1</span>], padding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SAME</span><span style="color:#710">'</span></span>)
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">max_pool_2x2</span>(x):
+  <span style="color:#080;font-weight:bold">return</span> tf.nn.max_pool(x, ksize=[<span style="color:#00D">1</span>, <span style="color:#00D">2</span>, <span style="color:#00D">2</span>, <span style="color:#00D">1</span>],
+                        strides=[<span style="color:#00D">1</span>, <span style="color:#00D">2</span>, <span style="color:#00D">2</span>, <span style="color:#00D">1</span>], padding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SAME</span><span style="color:#710">'</span></span>)
+
+W_conv1 = weight_variable([<span style="color:#00D">5</span>, <span style="color:#00D">5</span>, <span style="color:#00D">1</span>, <span style="color:#00D">32</span>])
+b_conv1 = bias_variable([<span style="color:#00D">32</span>])
+
+x_image = tf.reshape(x, [-<span style="color:#00D">1</span>,<span style="color:#00D">28</span>,<span style="color:#00D">28</span>,<span style="color:#00D">1</span>])
+
+h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+h_pool1 = max_pool_2x2(h_conv1)
+
+W_conv2 = weight_variable([<span style="color:#00D">5</span>, <span style="color:#00D">5</span>, <span style="color:#00D">32</span>, <span style="color:#00D">64</span>])
+b_conv2 = bias_variable([<span style="color:#00D">64</span>])
+
+h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+h_pool2 = max_pool_2x2(h_conv2)
+
+W_fc1 = weight_variable([<span style="color:#00D">7</span> * <span style="color:#00D">7</span> * <span style="color:#00D">64</span>, <span style="color:#00D">1024</span>])
+b_fc1 = bias_variable([<span style="color:#00D">1024</span>])
+
+h_pool2_flat = tf.reshape(h_pool2, [-<span style="color:#00D">1</span>, <span style="color:#00D">7</span>*<span style="color:#00D">7</span>*<span style="color:#00D">64</span>])
+h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+
+keep_prob = tf.placeholder(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>)
+h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+
+W_fc2 = weight_variable([<span style="color:#00D">1024</span>, <span style="color:#00D">10</span>])
+b_fc2 = bias_variable([<span style="color:#00D">10</span>])
+
+y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
+
+cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
+train_step = tf.train.AdamOptimizer(<span style="color:#60E">1e-4</span>).minimize(cross_entropy)
+correct_prediction = tf.equal(tf.argmax(y_conv,<span style="color:#00D">1</span>), tf.argmax(y_,<span style="color:#00D">1</span>))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">float</span><span style="color:#710">"</span></span>))
+sess.run(tf.initialize_all_variables())
+<span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#00D">1000</span>):
+  batch = mnist.train.next_batch(<span style="color:#00D">50</span>)
+  <span style="color:#080;font-weight:bold">if</span> i%<span style="color:#00D">100</span> == <span style="color:#00D">0</span>:
+    train_accuracy = accuracy.eval(feed_dict={
+        x:batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>], keep_prob: <span style="color:#60E">1.0</span>})
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">step %d, training accuracy %g</span><span style="color:#710">"</span></span>%(i, train_accuracy))
+  train_step.run(feed_dict={x: batch[<span style="color:#00D">0</span>], y_: batch[<span style="color:#00D">1</span>], keep_prob: <span style="color:#60E">0.5</span>})
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">test accuracy %g</span><span style="color:#710">"</span></span>%accuracy.eval(feed_dict={
+    x: mnist.test.images, y_: mnist.test.labels, keep_prob: <span style="color:#60E">1.0</span>}))
 </pre></div>
 </div>
 </div>

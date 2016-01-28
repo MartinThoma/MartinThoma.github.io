@@ -112,59 +112,59 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[a4paper,12pt]{article}
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage{amssymb} % needed for math
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage{amsmath} % needed for math
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usepackage[utf8]{inputenc} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage[ngerman]{babel} % this is needed for german umlauts
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>\usepackage[margin=2.5cm]{geometry} %layout
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\usepackage{hyperref}  % this is needed for forms and links within the text
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>\hypersetup{ 
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>  pdfauthor   = {Martin Thoma}, 
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>  pdfkeywords = {Martin Thoma, exmple, LaTeX, form}, 
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>  pdftitle    = {An example for a LaTeX form} 
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>} 
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>\begin{document}
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>\title{An example for a LaTeX form}
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>\author{Martin Thoma}
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>\date{\today}
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>\section{An example for a \LaTeX~form}
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>\begin{Form}[action=mailto:info@example.com,encoding=html,method=post]
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>\subsection{Some general information:}
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>\begin{tabbing}
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>xxxxxxxxxx: \= \kill  % This is needed for the right tab width
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>Name:                         \&gt; \TextField[name=name,width=3cm,charsize=12pt]
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>{\mbox{}}
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>Prename: \TextField[name=vor,width=3cm,charsize=12pt]
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>{\mbox{}} \\
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>City:                         \&gt; 
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>\ChoiceMenu[combo,name=city,width=5cm,charsize=12pt,default=Karlsruhe]{\mbox{}}
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>{Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,M&amp;uuml;nchen} \\
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>Sex:         \&gt; 
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>\ChoiceMenu[radio,default=f,name=sex,charsize=14pt]{\mbox{}}{Male=m,Female=f}
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>\end{tabbing}
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>\subsection{Education:}
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>\CheckBox[name=highschool,charsize=12pt]{High School}
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>\CheckBox[name=college,charsize=12pt]{College}
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>\CheckBox[name=university,charsize=12pt]{University} \\
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>\Submit{Submit}
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>\Reset{Clear}
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>\hfill ~\\
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>\end{Form}
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>\end{document}
+  <div class="code"><pre>\documentclass[a4paper,12pt]{article}
+\usepackage{amssymb} % needed for math
+\usepackage{amsmath} % needed for math
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
+\usepackage[margin=2.5cm]{geometry} %layout
+
+\usepackage{hyperref}  % this is needed for forms and links within the text
+
+\hypersetup{ 
+  pdfauthor   = {Martin Thoma}, 
+  pdfkeywords = {Martin Thoma, exmple, LaTeX, form}, 
+  pdftitle    = {An example for a LaTeX form} 
+} 
+
+\begin{document}
+
+\title{An example for a LaTeX form}
+\author{Martin Thoma}
+\date{\today}
+
+\section{An example for a \LaTeX~form}
+
+\begin{Form}[action=mailto:info@example.com,encoding=html,method=post]
+\subsection{Some general information:}
+\begin{tabbing}
+xxxxxxxxxx: \= \kill  % This is needed for the right tab width
+Name:                         \&gt; \TextField[name=name,width=3cm,charsize=12pt]
+{\mbox{}}
+Prename: \TextField[name=vor,width=3cm,charsize=12pt]
+{\mbox{}} \\
+
+City:                         \&gt; 
+\ChoiceMenu[combo,name=city,width=5cm,charsize=12pt,default=Karlsruhe]{\mbox{}}
+{Chemnitz,Dresden,Leipzig,Berlin,Hamburg,Karlsruhe,M&amp;uuml;nchen} \\
+
+Sex:         \&gt; 
+\ChoiceMenu[radio,default=f,name=sex,charsize=14pt]{\mbox{}}{Male=m,Female=f}
+\end{tabbing}
+
+\subsection{Education:}
+\CheckBox[name=highschool,charsize=12pt]{High School}
+\CheckBox[name=college,charsize=12pt]{College}
+\CheckBox[name=university,charsize=12pt]{University} \\
+
+
+\Submit{Submit}
+\Reset{Clear}
+\hfill ~\\
+\end{Form}
+
+\end{document}
 </pre></div>
 </div>
 </div>

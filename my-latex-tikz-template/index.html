@@ -139,16 +139,16 @@ MathJax.Hub.Queue(function() {
 <h3 id="tocAnchor-1-1-1">latex-document.tex</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass[varwidth=true, border=2pt]{standalone}
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\usepackage{tikz}
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>\usetikzlibrary{arrows,positioning} 
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\begin{document}
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>\begin{tikzpicture}
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    % Your Codes should be here
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\end{tikzpicture}
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>\end{document}
+  <div class="code"><pre>\documentclass[varwidth=true, border=2pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+
+\begin{document}
+\begin{tikzpicture}
+    % Your Codes should be here
+\end{tikzpicture}
+\end{document}
 </pre></div>
 </div>
 </div>
@@ -157,20 +157,20 @@ MathJax.Hub.Queue(function() {
 <h4>Preview-Environment</h4>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>\documentclass{article}
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>\usepackage[pdftex,active,tightpage]{preview}
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>\setlength\PreviewBorder{2mm}
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>\usepackage{tikz}
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>\usetikzlibrary{arrows,positioning} 
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>\begin{document}
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>\begin{preview}
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>\begin{tikzpicture}
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    % Your Codes should be here
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>\end{tikzpicture}
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>\end{preview}
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>\end{document}
+  <div class="code"><pre>\documentclass{article}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+
+\begin{document}
+\begin{preview}
+\begin{tikzpicture}
+    % Your Codes should be here
+\end{tikzpicture}
+\end{preview}
+\end{document}
 </pre></div>
 </div>
 </div>
@@ -178,33 +178,33 @@ MathJax.Hub.Queue(function() {
 <h3 id="tocAnchor-1-1-2">Makefile</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>SOURCE = latex-document.tex
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>DELAY = 80
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>DENSITY = 300
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>make:
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>        pdflatex $(SOURCE).tex -output-format=pdf
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        make clean
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>clean:
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        rm -rf  $(TARGET) *.class *.html *.log *.aux
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>animatedGif:
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        pdfcrop $(SOURCE).pdf
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>        make clean
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>transparentGif:
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        convert $(SOURCE).pdf -transparent white result.gif
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        make clean
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>svg:
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>        pdf2svg $(SOURCE).pdf $(SOURCE).svg
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        # Necessary, as pdf2svg does not always create valid svgs:
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>        inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>        # Alternatively, only this one (produces worse results):
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>        #inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
+  <div class="code"><pre>SOURCE = latex-document.tex
+
+DELAY = 80
+DENSITY = 300
+
+make:
+        pdflatex $(SOURCE).tex -output-format=pdf
+        make clean
+
+clean:
+        rm -rf  $(TARGET) *.class *.html *.log *.aux
+
+animatedGif:
+        pdfcrop $(SOURCE).pdf
+        convert -verbose -delay $(DELAY) -loop 0 -density $(DENSITY) $(SOURCE)-crop.pdf $(SOURCE).gif
+        make clean
+
+transparentGif:
+        convert $(SOURCE).pdf -transparent white result.gif
+        make clean
+
+svg:
+        pdf2svg $(SOURCE).pdf $(SOURCE).svg
+        # Necessary, as pdf2svg does not always create valid svgs:
+        inkscape $(SOURCE).svg --export-plain-svg=$(SOURCE).svg
+        # Alternatively, only this one (produces worse results):
+        #inkscape $(SOURCE).pdf --export-plain-svg=$(SOURCE).svg
 </pre></div>
 </div>
 </div>
@@ -221,18 +221,18 @@ MathJax.Hub.Queue(function() {
 <p>Make sure that you have a valid LaTeX installation. <code>pdflatex --version</code> should output something like:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>pdfTeX 3.1415926-2.3-1.40.12 (TeX Live 2011)
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>kpathsea version 6.0.1
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>Copyright 2011 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>There is NO warranty.  Redistribution of this software is
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>covered by the terms of both the pdfTeX copyright and
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>the Lesser GNU General Public License.
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>For more information about these matters, see the file
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>named COPYING and the pdfTeX source.
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>Compiled with libpng 1.5.2; using libpng 1.5.2
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>Compiled with zlib 1.2.5; using zlib 1.2.5
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>Compiled with xpdf version 3.02pl5
+  <div class="code"><pre>pdfTeX 3.1415926-2.3-1.40.12 (TeX Live 2011)
+kpathsea version 6.0.1
+Copyright 2011 Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
+There is NO warranty.  Redistribution of this software is
+covered by the terms of both the pdfTeX copyright and
+the Lesser GNU General Public License.
+For more information about these matters, see the file
+named COPYING and the pdfTeX source.
+Primary author of pdfTeX: Peter Breitenlohner (eTeX)/Han The Thanh (pdfTeX).
+Compiled with libpng 1.5.2; using libpng 1.5.2
+Compiled with zlib 1.2.5; using zlib 1.2.5
+Compiled with xpdf version 3.02pl5
 </pre></div>
 </div>
 </div>
@@ -240,13 +240,13 @@ MathJax.Hub.Queue(function() {
 <p>Make sure you can execute Makefiles. <code>make --version</code> should output something like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>GNU Make 3.81
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>Copyright (C) 2006  Free Software Foundation, Inc.
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>This is free software; see the source for copying conditions.
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>PARTICULAR PURPOSE.
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>This program built for i486-pc-linux-gnu
+  <div class="code"><pre>GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for i486-pc-linux-gnu
 </pre></div>
 </div>
 </div>

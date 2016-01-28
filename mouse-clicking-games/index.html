@@ -117,54 +117,54 @@ where you only have to click a lot?</p>
 position of your mouse.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span><span style="color:#D42"><span style="color:black">&quot;&quot;&quot;</span><span>Tool to make automatic clicks VERY fast (useful for idle games).</span><span style="color:black">&quot;&quot;&quot;</span></span>
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">time</span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">random</span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>(clicks, twiggle, x, y, delay):
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(clicks):
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>        xrand = random.randint(-twiggle, twiggle)
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>        yrand = random.randint(-twiggle, twiggle)
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>        xpos, ypos = x+xrand, y+yrand
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>        os.system(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">xdotool mousemove %i %i click 1</span><span style="color:#710">&quot;</span></span> % (xpos, ypos))
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>        <span style="color:#080;font-weight:bold">if</span> delay &gt; <span style="color:#00D">0</span>:
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>            time.sleep(delay)
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>
-<span class="line-numbers"><a href="#n19" name="n19">19</a></span>
-<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
-<span class="line-numbers"><a href="#n21" name="n21">21</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>
-<span class="line-numbers"><a href="#n23" name="n23">23</a></span>    parser = ArgumentParser()
-<span class="line-numbers"><a href="#n24" name="n24">24</a></span>
-<span class="line-numbers"><a href="#n25" name="n25">25</a></span>    <span style="color:#777"># Add more options if you like</span>
-<span class="line-numbers"><a href="#n26" name="n26">26</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-c</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--clicks</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">clicks</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n27" name="n27">27</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">number of clicks that will be done</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n28" name="n28">28</a></span>                        default=<span style="color:#00D">500</span>,
-<span class="line-numbers"><a href="#n29" name="n29">29</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
-<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-t</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--twiggle</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">twiggle</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n31" name="n31">31</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">how much should the cursor move randomly</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n32" name="n32">32</a></span>                        default=<span style="color:#00D">50</span>,
-<span class="line-numbers"><a href="#n33" name="n33">33</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
-<span class="line-numbers"><a href="#n34" name="n34">34</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-x</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">x</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n35" name="n35">35</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">x coordinate where to click</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n36" name="n36">36</a></span>                        default=<span style="color:#00D">711</span>,
-<span class="line-numbers"><a href="#n37" name="n37">37</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
-<span class="line-numbers"><a href="#n38" name="n38">38</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-y</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">y</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n39" name="n39">39</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">y coordinate where to click</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>                        default=<span style="color:#00D">467</span>,
-<span class="line-numbers"><a href="#n41" name="n41">41</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>)
-<span class="line-numbers"><a href="#n42" name="n42">42</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--delay</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">delay</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n43" name="n43">43</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">delay between clicks</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n44" name="n44">44</a></span>                        default=<span style="color:#60E">0.01</span>,
-<span class="line-numbers"><a href="#n45" name="n45">45</a></span>                        type=<span style="color:#369;font-weight:bold">float</span>)
-<span class="line-numbers"><a href="#n46" name="n46">46</a></span>    args = parser.parse_args()
-<span class="line-numbers"><a href="#n47" name="n47">47</a></span>    main(args.clicks, args.twiggle, args.x, args.y, args.delay)
-<span class="line-numbers"><a href="#n48" name="n48">48</a></span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#D42"><span style="color:black">&quot;&quot;&quot;</span><span>Tool to make automatic clicks VERY fast (useful for idle games).</span><span style="color:black">&quot;&quot;&quot;</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">time</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">random</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>(clicks, twiggle, x, y, delay):
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(clicks):
+        xrand = random.randint(-twiggle, twiggle)
+        yrand = random.randint(-twiggle, twiggle)
+        xpos, ypos = x+xrand, y+yrand
+        os.system(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">xdotool mousemove %i %i click 1</span><span style="color:#710">&quot;</span></span> % (xpos, ypos))
+        <span style="color:#080;font-weight:bold">if</span> delay &gt; <span style="color:#00D">0</span>:
+            time.sleep(delay)
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>
+
+    parser = ArgumentParser()
+
+    <span style="color:#777"># Add more options if you like</span>
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-c</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--clicks</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">clicks</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">number of clicks that will be done</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#00D">500</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-t</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--twiggle</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">twiggle</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">how much should the cursor move randomly</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#00D">50</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-x</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">x</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">x coordinate where to click</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#00D">711</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-y</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">y</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">y coordinate where to click</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#00D">467</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--delay</span><span style="color:#710">&quot;</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">delay</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">delay between clicks</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#60E">0.01</span>,
+                        type=<span style="color:#369;font-weight:bold">float</span>)
+    args = parser.parse_args()
+    main(args.clicks, args.twiggle, args.x, args.y, args.delay)
+
 </pre></div>
 </div>
 </div>

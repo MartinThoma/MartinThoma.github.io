@@ -133,8 +133,8 @@ read a file / print some output.</p>
 <p>Copy the following text to a text file <code>test.txt</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>Die süße, kleine, lärmende Überfliegerin lebt in der Haute-Côte-Nord.
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>Dort hat es momemtan 32°C.
+  <div class="code"><pre>Die süße, kleine, lärmende Überfliegerin lebt in der Haute-Côte-Nord.
+Dort hat es momemtan 32°C.
 </pre></div>
 </div>
 </div>
@@ -143,8 +143,8 @@ read a file / print some output.</p>
 has like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ file test.txt
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>test.txt: UTF-8 Unicode text
+  <div class="code"><pre>$ file test.txt
+test.txt: UTF-8 Unicode text
 </pre></div>
 </div>
 </div>
@@ -153,9 +153,9 @@ has like this:</p>
 with other encodings, you can change the encoding like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ iconv -f UTF-8 -t ISO-8859-1 test.txt &gt; test-iso-8859-1.txt
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>$ file test-iso-8859-1.txt 
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>test-iso-8859-1.txt: ISO-8859 text
+  <div class="code"><pre>$ iconv -f UTF-8 -t ISO-8859-1 test.txt &gt; test-iso-8859-1.txt
+$ file test-iso-8859-1.txt 
+test-iso-8859-1.txt: ISO-8859 text
 </pre></div>
 </div>
 </div>
@@ -167,8 +167,8 @@ with a comment. The first lines of Python code should probably always look
 like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: UTF-8 -*-</span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: UTF-8 -*-</span>
 </pre></div>
 </div>
 </div>
@@ -181,7 +181,7 @@ like this:</p>
 via Sublime Text:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>[Decode error - output not utf-8]
+  <div class="code"><pre>[Decode error - output not utf-8]
 </pre></div>
 </div>
 </div>
@@ -189,8 +189,8 @@ via Sublime Text:</p>
 <p>The same code, executed via ZSH, gives:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>Dort hat es momemtan 32�C.
+  <div class="code"><pre>Die s��e, kleine, l�rmende �berfliegerin lebt in der Haute-C�te-Nord.
+Dort hat es momemtan 32�C.
 </pre></div>
 </div>
 </div>
@@ -198,21 +198,21 @@ via Sublime Text:</p>
 <p>You can fix that by adjusting the code the following way:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: UTF-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777"># Make it work with Python 2 and Python 3</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>PY3 = sys.version &gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">3</span><span style="color:#710">'</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> PY3:
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">future.builtins</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">open</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#777"># Specify the encoding while opening it</span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">test-iso-8859-1.txt</span><span style="color:#710">"</span></span>, encoding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ISO-8859-1</span><span style="color:#710">"</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    content = f.read()
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>content = content.encode(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">UTF-8</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">replace</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>print(content)
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: UTF-8 -*-</span>
+
+<span style="color:#777"># Make it work with Python 2 and Python 3</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+PY3 = sys.version &gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">3</span><span style="color:#710">'</span></span>
+
+<span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> PY3:
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">future.builtins</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">open</span>
+
+<span style="color:#777"># Specify the encoding while opening it</span>
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">test-iso-8859-1.txt</span><span style="color:#710">"</span></span>, encoding=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ISO-8859-1</span><span style="color:#710">"</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+    content = f.read()
+content = content.encode(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">UTF-8</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">replace</span><span style="color:#710">'</span></span>)
+print(content)
 </pre></div>
 </div>
 </div>

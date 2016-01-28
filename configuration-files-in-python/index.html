@@ -163,16 +163,16 @@ that contains Python code. You might want to call it something like
 <p>A configuration file could look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">preprocessing</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>mysql = {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>}
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>preprocessing_queue = [preprocessing.scale_and_center,
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>                       preprocessing.dot_reduction,
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>                       preprocessing.connect_lines]
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>use_anonymous = <span style="color:#069">True</span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">preprocessing</span>
+mysql = {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>,
+         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>,
+         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>,
+         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>}
+preprocessing_queue = [preprocessing.scale_and_center,
+                       preprocessing.dot_reduction,
+                       preprocessing.connect_lines]
+use_anonymous = <span style="color:#069">True</span>
 </pre></div>
 </div>
 </div>
@@ -180,9 +180,9 @@ that contains Python code. You might want to call it something like
 <p>Within the actual code, you can use it like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">databaseconfig</span> <span style="color:#080;font-weight:bold">as</span> cfg
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>connect(mysql[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>], mysql[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>], mysql[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>])
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">databaseconfig</span> <span style="color:#080;font-weight:bold">as</span> cfg
+connect(mysql[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>], mysql[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>], mysql[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">password</span><span style="color:#710">'</span></span>])
 </pre></div>
 </div>
 </div>
@@ -201,22 +201,22 @@ languages.</p>
 <p>The configuration might look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>{
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#606"><span style="color:#404">"</span><span>mysql</span><span style="color:#404">"</span></span>:{
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>        <span style="color:#606"><span style="color:#404">"</span><span>host</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">localhost</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>        <span style="color:#606"><span style="color:#404">"</span><span>user</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">root</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        <span style="color:#606"><span style="color:#404">"</span><span>passwd</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">my secret password</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#606"><span style="color:#404">"</span><span>db</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write-math</span><span style="color:#710">"</span></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    },
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#606"><span style="color:#404">"</span><span>other</span><span style="color:#404">"</span></span>:{
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        <span style="color:#606"><span style="color:#404">"</span><span>preprocessing_queue</span><span style="color:#404">"</span></span>:[
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>            ],
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        <span style="color:#606"><span style="color:#404">"</span><span>use_anonymous</span><span style="color:#404">"</span></span>:<span style="color:#088">true</span>
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    }
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>}
+  <div class="code"><pre>{
+    <span style="color:#606"><span style="color:#404">"</span><span>mysql</span><span style="color:#404">"</span></span>:{
+        <span style="color:#606"><span style="color:#404">"</span><span>host</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">localhost</span><span style="color:#710">"</span></span>,
+        <span style="color:#606"><span style="color:#404">"</span><span>user</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">root</span><span style="color:#710">"</span></span>,
+        <span style="color:#606"><span style="color:#404">"</span><span>passwd</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">my secret password</span><span style="color:#710">"</span></span>,
+        <span style="color:#606"><span style="color:#404">"</span><span>db</span><span style="color:#404">"</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write-math</span><span style="color:#710">"</span></span>
+    },
+    <span style="color:#606"><span style="color:#404">"</span><span>other</span><span style="color:#404">"</span></span>:{
+        <span style="color:#606"><span style="color:#404">"</span><span>preprocessing_queue</span><span style="color:#404">"</span></span>:[
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">"</span></span>,
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">"</span></span>,
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">"</span></span>
+            ],
+        <span style="color:#606"><span style="color:#404">"</span><span>use_anonymous</span><span style="color:#404">"</span></span>:<span style="color:#088">true</span>
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -224,11 +224,11 @@ languages.</p>
 <p>You can read it like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">json</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">config.json</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> json_data_file:
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    data = json.load(json_data_file)
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>print(data)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">json</span>
+
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">config.json</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> json_data_file:
+    data = json.load(json_data_file)
+print(data)
 </pre></div>
 </div>
 </div>
@@ -236,14 +236,14 @@ languages.</p>
 <p>which outputs</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>},
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing_queue</span><span style="color:#710">'</span></span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>                                     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>                                     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">'</span></span>],
-<span class="line-numbers"><a href="#n8" name="n8" id="n8">8</a></span>            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>: <span style="color:#069">True</span>}}
+  <div class="code"><pre>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>,
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>,
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>,
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>},
+ <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing_queue</span><span style="color:#710">'</span></span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">'</span></span>,
+                                     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">'</span></span>,
+                                     <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">'</span></span>],
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#E40">u</span><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>: <span style="color:#069">True</span>}}
 </pre></div>
 </div>
 </div>
@@ -251,9 +251,9 @@ languages.</p>
 <p>Writing JSON files is also easy. Just build up the dictionary and use</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">json</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">config.json</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> outfile:
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    json.dump(data, outfile)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">json</span>
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">config.json</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> outfile:
+    json.dump(data, outfile)
 </pre></div>
 </div>
 </div>
@@ -275,17 +275,17 @@ It is available for several programming languages.</p>
 <p>The file itself might look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#606">mysql</span>:
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#606">host</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">localhost</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#606">user</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">root</span></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#606">passwd</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">my secret password</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#606">db</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">write-math</span></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#606">other</span>:
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#606">preprocessing_queue</span>:
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">preprocessing.scale_and_center</span></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">preprocessing.dot_reduction</span></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">preprocessing.connect_lines</span></span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#606">use_anonymous</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">yes</span></span>
+  <div class="code"><pre><span style="color:#606">mysql</span>:
+    <span style="color:#606">host</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">localhost</span></span>
+    <span style="color:#606">user</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">root</span></span>
+    <span style="color:#606">passwd</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">my secret password</span></span>
+    <span style="color:#606">db</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">write-math</span></span>
+<span style="color:#606">other</span>:
+    <span style="color:#606">preprocessing_queue</span>:
+        - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">preprocessing.scale_and_center</span></span>
+        - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">preprocessing.dot_reduction</span></span>
+        - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">preprocessing.connect_lines</span></span>
+    <span style="color:#606">use_anonymous</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">yes</span></span>
 </pre></div>
 </div>
 </div>
@@ -293,15 +293,15 @@ It is available for several programming languages.</p>
 <p>You can read it like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">yaml</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.yml</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">r</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> ymlfile:
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    cfg = yaml.load(ymlfile)
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">for</span> section <span style="color:#080;font-weight:bold">in</span> cfg:
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    print(section)
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>print(cfg[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>])
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>print(cfg[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>])
+  <div class="code"><pre><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">yaml</span>
+
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.yml</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">r</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> ymlfile:
+    cfg = yaml.load(ymlfile)
+
+<span style="color:#080;font-weight:bold">for</span> section <span style="color:#080;font-weight:bold">in</span> cfg:
+    print(section)
+print(cfg[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>])
+print(cfg[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>])
 </pre></div>
 </div>
 </div>
@@ -309,16 +309,16 @@ It is available for several programming languages.</p>
 <p>It outputs:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>other
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>mysql
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>}
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing_queue</span><span style="color:#710">'</span></span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">'</span></span>],
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>: <span style="color:#069">True</span>}
+  <div class="code"><pre>other
+mysql
+{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>,
+ <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>,
+ <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>,
+ <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>}
+{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing_queue</span><span style="color:#710">'</span></span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">'</span></span>,
+                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">'</span></span>,
+                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">'</span></span>],
+ <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>: <span style="color:#069">True</span>}
 </pre></div>
 </div>
 </div>
@@ -338,17 +338,17 @@ Just build up a dictionary.</p>
 <p>INI files look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>[mysql]
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>host=localhost
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>user=root
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>passwd=my secret password
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>db=write-math
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>[other]
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>preprocessing_queue=["preprocessing.scale_and_center",
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>                     "preprocessing.dot_reduction",
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                     "preprocessing.connect_lines"]
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>use_anonymous=yes
+  <div class="code"><pre>[mysql]
+host=localhost
+user=root
+passwd=my secret password
+db=write-math
+
+[other]
+preprocessing_queue=["preprocessing.scale_and_center",
+                     "preprocessing.dot_reduction",
+                     "preprocessing.connect_lines"]
+use_anonymous=yes
 </pre></div>
 </div>
 </div>
@@ -359,30 +359,30 @@ Just build up a dictionary.</p>
 <p>The file can be loaded and used like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ConfigParser</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">io</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#777"># Load the configuration file</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.yml</span><span style="color:#710">"</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    sample_config = f.read()
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>config = ConfigParser.RawConfigParser(allow_no_value=<span style="color:#069">True</span>)
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>config.readfp(io.BytesIO(sample_config))
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#777"># List all contents</span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">List all contents</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#080;font-weight:bold">for</span> section <span style="color:#080;font-weight:bold">in</span> config.sections():
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Section: %s</span><span style="color:#710">"</span></span> % section)
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    <span style="color:#080;font-weight:bold">for</span> options <span style="color:#080;font-weight:bold">in</span> config.options(section):
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">x %s:::%s:::%s</span><span style="color:#710">"</span></span> % (options,
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>                                  config.get(section, options),
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>                                  <span style="color:#369;font-weight:bold">str</span>(<span style="color:#369;font-weight:bold">type</span>(options))))
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span><span style="color:#777"># Print some contents</span>
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\n</span><span style="color:#D20">Print some contents</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>print(config.get(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>))  <span style="color:#777"># Just get the value</span>
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>print(config.getboolean(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>))  <span style="color:#777"># You know the datatype?</span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ConfigParser</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">io</span>
+
+<span style="color:#777"># Load the configuration file</span>
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.yml</span><span style="color:#710">"</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+    sample_config = f.read()
+config = ConfigParser.RawConfigParser(allow_no_value=<span style="color:#069">True</span>)
+config.readfp(io.BytesIO(sample_config))
+
+<span style="color:#777"># List all contents</span>
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">List all contents</span><span style="color:#710">"</span></span>)
+<span style="color:#080;font-weight:bold">for</span> section <span style="color:#080;font-weight:bold">in</span> config.sections():
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Section: %s</span><span style="color:#710">"</span></span> % section)
+    <span style="color:#080;font-weight:bold">for</span> options <span style="color:#080;font-weight:bold">in</span> config.options(section):
+        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">x %s:::%s:::%s</span><span style="color:#710">"</span></span> % (options,
+                                  config.get(section, options),
+                                  <span style="color:#369;font-weight:bold">str</span>(<span style="color:#369;font-weight:bold">type</span>(options))))
+
+<span style="color:#777"># Print some contents</span>
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#b0b">\n</span><span style="color:#D20">Print some contents</span><span style="color:#710">"</span></span>)
+print(config.get(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>))  <span style="color:#777"># Just get the value</span>
+print(config.getboolean(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>))  <span style="color:#777"># You know the datatype?</span>
 </pre></div>
 </div>
 </div>
@@ -390,21 +390,21 @@ Just build up a dictionary.</p>
 <p>which outputs</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>List <span style="color:#369;font-weight:bold">all</span> contents
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>Section: mysql
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>x host:::localhost:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>x user:::root:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>x passwd:::my secret password:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>x db:::write-math:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>Section: other
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>x preprocessing_queue:::[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">"</span></span>]:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>x use_anonymous:::yes:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>Print some contents
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>yes
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="color:#069">True</span>
+  <div class="code"><pre>List <span style="color:#369;font-weight:bold">all</span> contents
+Section: mysql
+x host:::localhost:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
+x user:::root:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
+x passwd:::my secret password:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
+x db:::write-math:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
+Section: other
+x preprocessing_queue:::[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">"</span></span>,
+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">"</span></span>,
+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">"</span></span>]:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
+x use_anonymous:::yes:::&lt;<span style="color:#369;font-weight:bold">type</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">str</span><span style="color:#710">'</span></span>&gt;
+
+Print some contents
+yes
+<span style="color:#069">True</span>
 </pre></div>
 </div>
 </div>
@@ -416,30 +416,30 @@ instead of a simple string.</p>
 <h4 id="writing-configuration">Writing configuration</h4>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>configfile_name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.yaml</span><span style="color:#710">"</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#777"># Check if there is already a configurtion file</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> os.path.isfile(configfile_name):
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="color:#777"># Create the configuration file as it doesn't exist yet</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    cfgfile = <span style="color:#369;font-weight:bold">open</span>(configfile_name, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="color:#777"># Add content to the file</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    Config = ConfigParser.ConfigParser()
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    Config.add_section(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    Config.add_section(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>               <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing_queue</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>               [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">'</span></span>,
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">'</span></span>])
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>, <span style="color:#069">True</span>)
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    Config.write(cfgfile)
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>    cfgfile.close()
+  <div class="code"><pre><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+configfile_name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.yaml</span><span style="color:#710">"</span></span>
+
+<span style="color:#777"># Check if there is already a configurtion file</span>
+<span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> os.path.isfile(configfile_name):
+    <span style="color:#777"># Create the configuration file as it doesn't exist yet</span>
+    cfgfile = <span style="color:#369;font-weight:bold">open</span>(configfile_name, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>)
+
+    <span style="color:#777"># Add content to the file</span>
+    Config = ConfigParser.ConfigParser()
+    Config.add_section(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>)
+    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">host</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">localhost</span><span style="color:#710">'</span></span>)
+    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">user</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">root</span><span style="color:#710">'</span></span>)
+    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">passwd</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my secret password</span><span style="color:#710">'</span></span>)
+    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mysql</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">db</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">write-math</span><span style="color:#710">'</span></span>)
+    Config.add_section(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>)
+    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>,
+               <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing_queue</span><span style="color:#710">'</span></span>,
+               [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.scale_and_center</span><span style="color:#710">'</span></span>,
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.dot_reduction</span><span style="color:#710">'</span></span>,
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">preprocessing.connect_lines</span><span style="color:#710">'</span></span>])
+    Config.set(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">other</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use_anonymous</span><span style="color:#710">'</span></span>, <span style="color:#069">True</span>)
+    Config.write(cfgfile)
+    cfgfile.close()
 </pre></div>
 </div>
 </div>
@@ -447,16 +447,16 @@ instead of a simple string.</p>
 <p>results in</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>[mysql]
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>host = localhost
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>user = root
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>passwd = my secret password
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>db = write-math
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>[other]
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>preprocessing_queue = ['preprocessing.scale_and_center', 'preprocessing.dot_reduction', 'preprocessing.connect_lines']
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>use_anonymous = True
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
+  <div class="code"><pre>[mysql]
+host = localhost
+user = root
+passwd = my secret password
+db = write-math
+
+[other]
+preprocessing_queue = ['preprocessing.scale_and_center', 'preprocessing.dot_reduction', 'preprocessing.connect_lines']
+use_anonymous = True
+
 </pre></div>
 </div>
 </div>
@@ -468,15 +468,15 @@ However, parsing / writing XML is easy and there are plenty of possibilities to
 do so with Python. One is BeautifulSoup:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">BeautifulSoup</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">BeautifulSoup</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.xml</span><span style="color:#710">"</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    content = f.read()
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>y = BeautifulSoup(content)
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>print(y.mysql.host.contents[<span style="color:#00D">0</span>])
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">for</span> tag <span style="color:#080;font-weight:bold">in</span> y.other.preprocessing_queue:
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    print(tag)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">BeautifulSoup</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">BeautifulSoup</span>
+
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">config.xml</span><span style="color:#710">"</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+    content = f.read()
+
+y = BeautifulSoup(content)
+print(y.mysql.host.contents[<span style="color:#00D">0</span>])
+<span style="color:#080;font-weight:bold">for</span> tag <span style="color:#080;font-weight:bold">in</span> y.other.preprocessing_queue:
+    print(tag)
 </pre></div>
 </div>
 </div>
@@ -484,22 +484,22 @@ do so with Python. One is BeautifulSoup:</p>
 <p>where the config.xml might look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;config&gt;</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#070;font-weight:bold">&lt;mysql&gt;</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>        <span style="color:#070;font-weight:bold">&lt;host&gt;</span>localhost<span style="color:#070;font-weight:bold">&lt;/host&gt;</span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>        <span style="color:#070;font-weight:bold">&lt;user&gt;</span>root<span style="color:#070;font-weight:bold">&lt;/user&gt;</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        <span style="color:#070;font-weight:bold">&lt;passwd&gt;</span>my secret password<span style="color:#070;font-weight:bold">&lt;/passwd&gt;</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#070;font-weight:bold">&lt;db&gt;</span>write-math<span style="color:#070;font-weight:bold">&lt;/db&gt;</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#070;font-weight:bold">&lt;/mysql&gt;</span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#070;font-weight:bold">&lt;other&gt;</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        <span style="color:#070;font-weight:bold">&lt;preprocessing_queue&gt;</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>            <span style="color:#070;font-weight:bold">&lt;li&gt;</span>preprocessing.scale_and_center<span style="color:#070;font-weight:bold">&lt;/li&gt;</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>            <span style="color:#070;font-weight:bold">&lt;li&gt;</span>preprocessing.dot_reduction<span style="color:#070;font-weight:bold">&lt;/li&gt;</span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>            <span style="color:#070;font-weight:bold">&lt;li&gt;</span>preprocessing.connect_lines<span style="color:#070;font-weight:bold">&lt;/li&gt;</span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>        <span style="color:#070;font-weight:bold">&lt;/preprocessing_queue&gt;</span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        <span style="color:#070;font-weight:bold">&lt;use_anonymous</span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">true</span><span style="color:#710">"</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    <span style="color:#070;font-weight:bold">&lt;/other&gt;</span>
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#070;font-weight:bold">&lt;/config&gt;</span>
+  <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;config&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;mysql&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;host&gt;</span>localhost<span style="color:#070;font-weight:bold">&lt;/host&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;user&gt;</span>root<span style="color:#070;font-weight:bold">&lt;/user&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;passwd&gt;</span>my secret password<span style="color:#070;font-weight:bold">&lt;/passwd&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;db&gt;</span>write-math<span style="color:#070;font-weight:bold">&lt;/db&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/mysql&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;other&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;preprocessing_queue&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;li&gt;</span>preprocessing.scale_and_center<span style="color:#070;font-weight:bold">&lt;/li&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;li&gt;</span>preprocessing.dot_reduction<span style="color:#070;font-weight:bold">&lt;/li&gt;</span>
+            <span style="color:#070;font-weight:bold">&lt;li&gt;</span>preprocessing.connect_lines<span style="color:#070;font-weight:bold">&lt;/li&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/preprocessing_queue&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;use_anonymous</span> <span style="color:#b48">value</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">true</span><span style="color:#710">"</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/other&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/config&gt;</span>
 </pre></div>
 </div>
 </div>

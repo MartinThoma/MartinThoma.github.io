@@ -216,49 +216,49 @@ MathJax.Hub.Queue(function() {
 <p>I will use <a href="http://docs.python.org/2/library/fractions.html">fractions</a> for operations as I don’t want to lose precision while dividing.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">solveUpperTriangularMatrix</span>(R, b):
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#777"># Convert R and b to Fraction</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">fractions</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Fraction</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    fR, fb = [], []
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    <span style="color:#080;font-weight:bold">for</span> x, line <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(R):
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        fLine = []
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        <span style="color:#080;font-weight:bold">for</span> y, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(line):
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>            fLine.append(Fraction(el))
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        fR.append(fLine)
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#080;font-weight:bold">for</span> el <span style="color:#080;font-weight:bold">in</span> b:
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        fb.append(Fraction(el))
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    <span style="color:#777"># The solution will be here</span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    x = [Fraction(<span style="color:#00D">0</span>)] * <span style="color:#369;font-weight:bold">len</span>(b)
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>    <span style="color:#080;font-weight:bold">for</span> step <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(b)-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        <span style="color:#080;font-weight:bold">if</span> fR[step][step] == <span style="color:#00D">0</span>:
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>            <span style="color:#080;font-weight:bold">if</span> fb[step] != <span style="color:#00D">0</span>:
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">No solution</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>            <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Infinity solutions</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>            x[step] = fb[step] / fR[step][step]
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>        <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(step-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>            fb[row] -= fR[row][step]*x[step]
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>    <span style="color:#080;font-weight:bold">return</span> x
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>    R = [[<span style="color:#00D">2</span>, <span style="color:#00D">7</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">4</span>, <span style="color:#00D">5</span>],
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">9</span>, <span style="color:#00D">0</span>],
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">4</span>]]
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>    b =  [<span style="color:#00D">3</span>, <span style="color:#00D">1</span>, <span style="color:#00D">4</span>, <span style="color:#00D">1</span>, <span style="color:#00D">5</span>]
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>    x = solveUpperTriangularMatrix(R, b)
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>    print(x)
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>    <span style="color:#777"># Convert x to float</span>
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>    x = <span style="color:#369;font-weight:bold">map</span>(<span style="color:#369;font-weight:bold">float</span>, x)
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>    print(x)
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">solveUpperTriangularMatrix</span>(R, b):
+    <span style="color:#777"># Convert R and b to Fraction</span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">fractions</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Fraction</span>
+    fR, fb = [], []
+    <span style="color:#080;font-weight:bold">for</span> x, line <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(R):
+        fLine = []
+        <span style="color:#080;font-weight:bold">for</span> y, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(line):
+            fLine.append(Fraction(el))
+        fR.append(fLine)
+    <span style="color:#080;font-weight:bold">for</span> el <span style="color:#080;font-weight:bold">in</span> b:
+        fb.append(Fraction(el))
+
+    <span style="color:#777"># The solution will be here</span>
+    x = [Fraction(<span style="color:#00D">0</span>)] * <span style="color:#369;font-weight:bold">len</span>(b)
+    <span style="color:#080;font-weight:bold">for</span> step <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(b)-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
+        <span style="color:#080;font-weight:bold">if</span> fR[step][step] == <span style="color:#00D">0</span>:
+            <span style="color:#080;font-weight:bold">if</span> fb[step] != <span style="color:#00D">0</span>:
+                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">No solution</span><span style="color:#710">"</span></span>
+            <span style="color:#080;font-weight:bold">else</span>:
+                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Infinity solutions</span><span style="color:#710">"</span></span>
+        <span style="color:#080;font-weight:bold">else</span>:
+            x[step] = fb[step] / fR[step][step]
+
+        <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(step-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
+            fb[row] -= fR[row][step]*x[step]
+    <span style="color:#080;font-weight:bold">return</span> x
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    R = [[<span style="color:#00D">2</span>, <span style="color:#00D">7</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">4</span>, <span style="color:#00D">5</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">9</span>, <span style="color:#00D">0</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">4</span>]]
+    b =  [<span style="color:#00D">3</span>, <span style="color:#00D">1</span>, <span style="color:#00D">4</span>, <span style="color:#00D">1</span>, <span style="color:#00D">5</span>]
+    x = solveUpperTriangularMatrix(R, b)
+    print(x)
+
+    <span style="color:#777"># Convert x to float</span>
+    x = <span style="color:#369;font-weight:bold">map</span>(<span style="color:#369;font-weight:bold">float</span>, x)
+    print(x)
 </pre></div>
 </div>
 </div>
@@ -267,40 +267,40 @@ MathJax.Hub.Queue(function() {
 <p>Just like for <a href="../solving-equations-of-unipotent-lower-triangular-matrices/" title="Solving equations of unipotent lower triangular matrices">unipotent lower triangular matrices</a>, we can operate directly on the given input:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">solveUpperTriangularMatrix</span>(R, b):
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#777"># Convert R and b to Fraction</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">fractions</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Fraction</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#080;font-weight:bold">for</span> x, line <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(R):
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        <span style="color:#080;font-weight:bold">for</span> y, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(line):
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>            R[x][y] = Fraction(el)
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#080;font-weight:bold">for</span> x, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(b):
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>        b[x] = Fraction(el)
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#777"># The solution will be here</span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#080;font-weight:bold">for</span> step <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(b)-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        <span style="color:#080;font-weight:bold">if</span> R[step][step] == <span style="color:#00D">0</span>:
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>            <span style="color:#080;font-weight:bold">if</span> b[step] != <span style="color:#00D">0</span>:
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">No solution</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>            <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Infinity solutions</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>            b[step] = b[step] / R[step][step]
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>        <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(step-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>            b[row] -= R[row][step]*b[step]
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>    R = [[<span style="color:#00D">2</span>, <span style="color:#00D">7</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">4</span>, <span style="color:#00D">5</span>],
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">9</span>, <span style="color:#00D">0</span>],
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">4</span>]]
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>    b =  [<span style="color:#00D">3</span>, <span style="color:#00D">1</span>, <span style="color:#00D">4</span>, <span style="color:#00D">1</span>, <span style="color:#00D">5</span>]
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>    solveUpperTriangularMatrix(R, b)
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>    print(b)
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">solveUpperTriangularMatrix</span>(R, b):
+    <span style="color:#777"># Convert R and b to Fraction</span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">fractions</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Fraction</span>
+    <span style="color:#080;font-weight:bold">for</span> x, line <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(R):
+        <span style="color:#080;font-weight:bold">for</span> y, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(line):
+            R[x][y] = Fraction(el)
+    <span style="color:#080;font-weight:bold">for</span> x, el <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(b):
+        b[x] = Fraction(el)
+
+    <span style="color:#777"># The solution will be here</span>
+    <span style="color:#080;font-weight:bold">for</span> step <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(<span style="color:#369;font-weight:bold">len</span>(b)-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
+        <span style="color:#080;font-weight:bold">if</span> R[step][step] == <span style="color:#00D">0</span>:
+            <span style="color:#080;font-weight:bold">if</span> b[step] != <span style="color:#00D">0</span>:
+                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">No solution</span><span style="color:#710">"</span></span>
+            <span style="color:#080;font-weight:bold">else</span>:
+                <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Infinity solutions</span><span style="color:#710">"</span></span>
+        <span style="color:#080;font-weight:bold">else</span>:
+            b[step] = b[step] / R[step][step]
+
+        <span style="color:#080;font-weight:bold">for</span> row <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">range</span>(step-<span style="color:#00D">1</span>, <span style="color:#00D">0</span>-<span style="color:#00D">1</span>, -<span style="color:#00D">1</span>):
+            b[row] -= R[row][step]*b[step]
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    R = [[<span style="color:#00D">2</span>, <span style="color:#00D">7</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">1</span>, <span style="color:#00D">8</span>, <span style="color:#00D">2</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">8</span>, <span style="color:#00D">4</span>, <span style="color:#00D">5</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">9</span>, <span style="color:#00D">0</span>],
+         [<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, <span style="color:#00D">4</span>]]
+    b =  [<span style="color:#00D">3</span>, <span style="color:#00D">1</span>, <span style="color:#00D">4</span>, <span style="color:#00D">1</span>, <span style="color:#00D">5</span>]
+    solveUpperTriangularMatrix(R, b)
+    print(b)
 </pre></div>
 </div>
 </div>
@@ -309,7 +309,7 @@ MathJax.Hub.Queue(function() {
 <p>You could think that the conversion to fraction is not necessary. But if you simply remove line 5 to 16, you will get:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>[1, 0, -1, 0, 1]
+  <div class="code"><pre>[1, 0, -1, 0, 1]
 </pre></div>
 </div>
 </div>
@@ -318,7 +318,7 @@ MathJax.Hub.Queue(function() {
 passing it to <code>solveUpperTriangularMatrix</code>, you will get</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>[0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25]
+  <div class="code"><pre>[0.8717447916666666, -0.25651041666666663, -0.3368055555555556, 0.1111111111111111, 1.25]
 </pre></div>
 </div>
 </div>
@@ -326,7 +326,7 @@ passing it to <code>solveUpperTriangularMatrix</code>, you will get</p>
 <p>which is almost the same as when we calculated with Fraction and converted to float afterwards:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>[0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25]
+  <div class="code"><pre>[0.8717447916666666, -0.2565104166666667, -0.3368055555555556, 0.1111111111111111, 1.25]
 </pre></div>
 </div>
 </div>

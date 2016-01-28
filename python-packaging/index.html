@@ -170,7 +170,7 @@ packages in form of “eggs”. You can install them with easy_install or with p
 <p>Distutils is part of the standard library. When you run</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>python setup.py install
+  <div class="code"><pre>python setup.py install
 </pre></div>
 </div>
 </div>
@@ -193,7 +193,7 @@ packages in form of “eggs”. You can install them with easy_install or with p
 <p>Setuptools are startet when you install a package with <code>easy_install</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>easy_install package
+  <div class="code"><pre>easy_install package
 </pre></div>
 </div>
 </div>
@@ -233,9 +233,9 @@ In that case, you need different environments.</p>
 
 <h3 id="tocAnchor-1-7-1">Virtualenv</h3>
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>$ pip freeze
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>$ virtualenv my_env
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>$ source my_env/bin/activate
+  <div class="code"><pre>$ pip freeze
+$ virtualenv my_env
+$ source my_env/bin/activate
 </pre></div>
 </div>
 </div>
@@ -247,15 +247,15 @@ In that case, you need different environments.</p>
 <p>A project could have this structure:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>$ tree
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>.
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>├── LICENSE
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>├── MANIFEST
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>├── pyconde2013news
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>│   └── __init__.py
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>├── README
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>└── setup.py
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+  <div class="code"><pre>$ tree
+.
+├── LICENSE
+├── MANIFEST
+├── pyconde2013news
+│   └── __init__.py
+├── README
+└── setup.py
+
 </pre></div>
 </div>
 </div>
@@ -263,8 +263,8 @@ In that case, you need different environments.</p>
 <p>With this setup.py:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">distutils.core</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">setup</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>setup(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>, version=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">0.1</span><span style="color:#710">"</span></span>, py_modules=[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>],)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">distutils.core</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">setup</span>
+setup(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>, version=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">0.1</span><span style="color:#710">"</span></span>, py_modules=[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>],)
 </pre></div>
 </div>
 </div>
@@ -272,7 +272,7 @@ In that case, you need different environments.</p>
 <p>This can directly be registered on PyPi:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>python setup.py register
+  <div class="code"><pre>python setup.py register
 </pre></div>
 </div>
 </div>
@@ -281,18 +281,18 @@ In that case, you need different environments.</p>
 should rather use setuptools for your setup.py:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">setuptools</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">setup</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>setup(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>      version=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">0.1</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>      py_modules=[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>],
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>      description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Reads latest news headlines from the PyCon.DE 2013 website</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>      author=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Daniel Hepper</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>      author_email=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">daniel@butfriendly.com</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>      url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">https://github.com/dhepper/pyconde2013news</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>      install_requires=[
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">beautifulsoup4==4.3.2</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">requests==2.0.0</span><span style="color:#710">"</span></span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>      ]
+  <div class="code"><pre><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">setuptools</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">setup</span>
+setup(name=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>,
+      version=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">0.1</span><span style="color:#710">"</span></span>,
+      py_modules=[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">pycon2013news</span><span style="color:#710">"</span></span>],
+      description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Reads latest news headlines from the PyCon.DE 2013 website</span><span style="color:#710">"</span></span>)
+      author=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Daniel Hepper</span><span style="color:#710">"</span></span>,
+      author_email=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">daniel@butfriendly.com</span><span style="color:#710">"</span></span>,
+      url=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">https://github.com/dhepper/pyconde2013news</span><span style="color:#710">"</span></span>,
+      install_requires=[
+          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">beautifulsoup4==4.3.2</span><span style="color:#710">"</span></span>,
+          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">requests==2.0.0</span><span style="color:#710">"</span></span>
+      ]
 </pre></div>
 </div>
 </div>

@@ -136,7 +136,7 @@ MathJax.Hub.Queue(function() {
 <p>You can check if it is installed with <a href="http://php.net/manual/en/function.phpinfo.php">phpinfo()</a>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="font-weight:bold;color:#666">&lt;?php</span> <span style="color:#369;font-weight:bold">phpinfo</span>();<span style="font-weight:bold;color:#666">?&gt;</span>
+  <div class="code"><pre><span style="font-weight:bold;color:#666">&lt;?php</span> <span style="color:#369;font-weight:bold">phpinfo</span>();<span style="font-weight:bold;color:#666">?&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -164,12 +164,12 @@ MathJax.Hub.Queue(function() {
 <p>You can easily connect to the database:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#369;font-weight:bold">require_once</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">MDB2.php</span><span style="color:#710">"</span></span>;
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$db</span>   = <span style="color:#080;font-weight:bold">new</span> <span style="color:#036;font-weight:bold">MDB2</span>();
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#950">$dsn</span>  = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">mysql://chessuser:localpass@localhost/chess</span><span style="color:#710">"</span></span>;
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span><span style="color:#950">$mdb2</span> = <span style="color:#036;font-weight:bold">MDB2</span>::factory(<span style="color:#950">$dsn</span>);
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span><span style="color:#950">$mdb2</span>-&gt;setFetchMode(<span style="color:#036;font-weight:bold">MDB2_FETCHMODE_ASSOC</span>);
+  <div class="code"><pre><span style="color:#369;font-weight:bold">require_once</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">MDB2.php</span><span style="color:#710">"</span></span>;
+
+<span style="color:#950">$db</span>   = <span style="color:#080;font-weight:bold">new</span> <span style="color:#036;font-weight:bold">MDB2</span>();
+<span style="color:#950">$dsn</span>  = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">mysql://chessuser:localpass@localhost/chess</span><span style="color:#710">"</span></span>;
+<span style="color:#950">$mdb2</span> = <span style="color:#036;font-weight:bold">MDB2</span>::factory(<span style="color:#950">$dsn</span>);
+<span style="color:#950">$mdb2</span>-&gt;setFetchMode(<span style="color:#036;font-weight:bold">MDB2_FETCHMODE_ASSOC</span>);
 </pre></div>
 </div>
 </div>
@@ -177,11 +177,11 @@ MathJax.Hub.Queue(function() {
 <p>It is also very easy to fetch some data:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$result</span> = <span style="color:#950">$mdb2</span>-&gt;query(<span style="color:#950">$sql</span>);
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">while</span> (<span style="color:#950">$row</span> = <span style="color:#950">$result</span>-&gt;fetchRow()) {
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    <span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$row</span>);
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>}
+  <div class="code"><pre><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
+<span style="color:#950">$result</span> = <span style="color:#950">$mdb2</span>-&gt;query(<span style="color:#950">$sql</span>);
+<span style="color:#080;font-weight:bold">while</span> (<span style="color:#950">$row</span> = <span style="color:#950">$result</span>-&gt;fetchRow()) {
+    <span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$row</span>);
+}
 </pre></div>
 </div>
 </div>
@@ -189,9 +189,9 @@ MathJax.Hub.Queue(function() {
 <p>or</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$data</span> = <span style="color:#950">$mdb2</span>-&gt;queryAll(<span style="color:#950">$sql</span>);
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$data</span>);
+  <div class="code"><pre><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
+<span style="color:#950">$data</span> = <span style="color:#950">$mdb2</span>-&gt;queryAll(<span style="color:#950">$sql</span>);
+<span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$data</span>);
 </pre></div>
 </div>
 </div>
@@ -199,20 +199,20 @@ MathJax.Hub.Queue(function() {
 <p>This results in:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>Array
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>(
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    [user_id] =&gt; 1
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    [user_name] =&gt; abc
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    [user_password] =&gt; 900150983cd24fb0d6963f7d28e17f72
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    [currentchesssoftware] =&gt; 0
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>)
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>Array
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>(
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    [user_id] =&gt; 2
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    [user_name] =&gt; test
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    [user_password] =&gt; 098f6bcd4621d373cade4e832627b4f6
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    [currentchesssoftware] =&gt; 0
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>)
+  <div class="code"><pre>Array
+(
+    [user_id] =&gt; 1
+    [user_name] =&gt; abc
+    [user_password] =&gt; 900150983cd24fb0d6963f7d28e17f72
+    [currentchesssoftware] =&gt; 0
+)
+Array
+(
+    [user_id] =&gt; 2
+    [user_name] =&gt; test
+    [user_password] =&gt; 098f6bcd4621d373cade4e832627b4f6
+    [currentchesssoftware] =&gt; 0
+)
 </pre></div>
 </div>
 </div>
@@ -220,10 +220,10 @@ MathJax.Hub.Queue(function() {
 <p>You can set limits via MDB2:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#950">$mdb2</span>-&gt;setLimit(<span style="color:#00D">1</span>);
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#950">$data</span> = <span style="color:#950">$mdb2</span>-&gt;queryAll(<span style="color:#950">$sql</span>);
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span><span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$data</span>);
+  <div class="code"><pre><span style="color:#950">$sql</span>    = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SELECT * FROM `chess_users`</span><span style="color:#710">'</span></span>;
+<span style="color:#950">$mdb2</span>-&gt;setLimit(<span style="color:#00D">1</span>);
+<span style="color:#950">$data</span> = <span style="color:#950">$mdb2</span>-&gt;queryAll(<span style="color:#950">$sql</span>);
+<span style="color:#369;font-weight:bold">print_r</span>(<span style="color:#950">$data</span>);
 </pre></div>
 </div>
 </div>

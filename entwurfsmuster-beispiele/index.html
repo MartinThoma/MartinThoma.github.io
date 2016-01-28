@@ -127,23 +127,23 @@ MathJax.Hub.Queue(function() {
 <strong>Beispiel</strong>: <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html#getRuntime%28%29">java.lang.Runtime.getRuntime()</a></p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Singleton</span> {
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#777">// an instance of a singleton</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> Singleton instance = <span style="color:#069">null</span>;
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#777">// private default constructor to prevent the external creation</span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    <span style="color:#777">// of more instances</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#088;font-weight:bold">private</span> Singleton() {
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>    }
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#777">// static method which returns the instance</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">synchronized</span> Singleton getInstance() {
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>            instance = <span style="color:#080;font-weight:bold">new</span> Singleton();
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        }
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        <span style="color:#080;font-weight:bold">return</span> instance;
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    }
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>}
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Singleton</span> {
+    <span style="color:#777">// an instance of a singleton</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> Singleton instance = <span style="color:#069">null</span>;
+
+    <span style="color:#777">// private default constructor to prevent the external creation</span>
+    <span style="color:#777">// of more instances</span>
+    <span style="color:#088;font-weight:bold">private</span> Singleton() {
+    }
+
+    <span style="color:#777">// static method which returns the instance</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">synchronized</span> Singleton getInstance() {
+        <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
+            instance = <span style="color:#080;font-weight:bold">new</span> Singleton();
+        }
+        <span style="color:#080;font-weight:bold">return</span> instance;
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -153,28 +153,28 @@ MathJax.Hub.Queue(function() {
 Das Bequemlichkeitsmuster ist einfach das Überladen einer Methode:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Bequemlichkeitsklasse</span> {
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#777">// convenience class</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#339;font-weight:bold">int</span> v1, v2, v3;
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#339;font-weight:bold">int</span> anfrage(<span style="color:#339;font-weight:bold">int</span> p1, <span style="color:#339;font-weight:bold">int</span> p2, <span style="color:#339;font-weight:bold">int</span> p3) {
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#080;font-weight:bold">return</span> p1 * p2 * p3;
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    }
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    <span style="color:#339;font-weight:bold">int</span> anfrage(<span style="color:#339;font-weight:bold">int</span> p1) {
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        <span style="color:#080;font-weight:bold">return</span> anfrage(p1, v2, v3);
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    }
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>    <span style="color:#339;font-weight:bold">int</span> anfrage() {
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>        <span style="color:#080;font-weight:bold">return</span> anfrage(v1, v2, v3);
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    }
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    <span style="color:#339;font-weight:bold">void</span> setzeZustand(<span style="color:#339;font-weight:bold">int</span> p1, <span style="color:#339;font-weight:bold">int</span> p2, <span style="color:#339;font-weight:bold">int</span> p3) {
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        v1 = p1;
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>        v2 = p2;
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>        v3 = p3;
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    }
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>}
+  <div class="code"><pre><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Bequemlichkeitsklasse</span> {
+    <span style="color:#777">// convenience class</span>
+    <span style="color:#339;font-weight:bold">int</span> v1, v2, v3;
+
+    <span style="color:#339;font-weight:bold">int</span> anfrage(<span style="color:#339;font-weight:bold">int</span> p1, <span style="color:#339;font-weight:bold">int</span> p2, <span style="color:#339;font-weight:bold">int</span> p3) {
+        <span style="color:#080;font-weight:bold">return</span> p1 * p2 * p3;
+    }
+
+    <span style="color:#339;font-weight:bold">int</span> anfrage(<span style="color:#339;font-weight:bold">int</span> p1) {
+        <span style="color:#080;font-weight:bold">return</span> anfrage(p1, v2, v3);
+    }
+
+    <span style="color:#339;font-weight:bold">int</span> anfrage() {
+        <span style="color:#080;font-weight:bold">return</span> anfrage(v1, v2, v3);
+    }
+
+    <span style="color:#339;font-weight:bold">void</span> setzeZustand(<span style="color:#339;font-weight:bold">int</span> p1, <span style="color:#339;font-weight:bold">int</span> p2, <span style="color:#339;font-weight:bold">int</span> p3) {
+        v1 = p1;
+        v2 = p2;
+        v3 = p3;
+    }
+}
 </pre></div>
 </div>
 </div>

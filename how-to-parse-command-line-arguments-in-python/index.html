@@ -148,23 +148,23 @@ MathJax.Hub.Queue(function() {
 <p>It is very easy to add command line <del>options</del> argument (if you require an option, it would not be an option any more, would it? I’ll try to call them arguments from now on):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>parser = ArgumentParser()
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#777"># Add more options if you like</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-f</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--file</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">myFilenameVariable</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>                    help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write report to FILE</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-q</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--quiet</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                    action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">store_false</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">verbose</span><span style="color:#710">"</span></span>, default=<span style="color:#069">True</span>,
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>                    help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">don't print status messages to stdout</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>args = parser.parse_args()
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>print(args.myFilenameVariable)
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>
+
+parser = ArgumentParser()
+
+<span style="color:#777"># Add more options if you like</span>
+parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-f</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--file</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">myFilenameVariable</span><span style="color:#710">"</span></span>,
+                    help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write report to FILE</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
+parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-q</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--quiet</span><span style="color:#710">"</span></span>,
+                    action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">store_false</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">verbose</span><span style="color:#710">"</span></span>, default=<span style="color:#069">True</span>,
+                    help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">don't print status messages to stdout</span><span style="color:#710">"</span></span>)
+
+args = parser.parse_args()
+
+print(args.myFilenameVariable)
 </pre></div>
 </div>
 </div>
@@ -240,44 +240,44 @@ optional arguments:
 <h3 id="tocAnchor-1-1-4">Example 2: less</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">mul</span>(A, B):
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    a, b, c = A
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    d, e, f = B
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#080;font-weight:bold">return</span> a*d + b*e, a*e + b*f, b*e + c*f
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pow</span>(A, n):
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#080;font-weight:bold">if</span> n == <span style="color:#00D">1</span>:     <span style="color:#080;font-weight:bold">return</span> A
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#080;font-weight:bold">if</span> n &amp; <span style="color:#00D">1</span> == <span style="color:#00D">0</span>: <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">pow</span>(mul(A, A), n//<span style="color:#00D">2</span>)
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>    <span style="color:#080;font-weight:bold">else</span>:          <span style="color:#080;font-weight:bold">return</span> mul(A, <span style="color:#369;font-weight:bold">pow</span>(mul(A, A), (n-<span style="color:#00D">1</span>)//<span style="color:#00D">2</span>))
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">fib</span>(n):
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>    <span style="color:#080;font-weight:bold">if</span> n &lt; <span style="color:#00D">2</span>: <span style="color:#080;font-weight:bold">return</span> n
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">pow</span>((<span style="color:#00D">1</span>,<span style="color:#00D">1</span>,<span style="color:#00D">0</span>), n-<span style="color:#00D">1</span>)[<span style="color:#00D">0</span>]
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">argparse</span>
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    parser = argparse.ArgumentParser(description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">less script</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-f</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--file</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">filename</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write report to FILE</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-n</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>, default=<span style="color:#00D">10</span>, type=<span style="color:#369;font-weight:bold">int</span>,
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">how many lines get printed</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-q</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--quiet</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>                        action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">store_false</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">verbose</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>                        default=<span style="color:#069">True</span>,
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">don't print status messages to stdout</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>    args = parser.parse_args()
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>    <span style="color:#080;font-weight:bold">if</span> args.verbose:
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Will open file now and print %i lines.</span><span style="color:#710">"</span></span> % args.n)
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>    f = <span style="color:#369;font-weight:bold">open</span>(args.filename, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">r</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">xrange</span>(args.n):
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>        <span style="color:#080;font-weight:bold">print</span> f.readline()
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">mul</span>(A, B):
+    a, b, c = A
+    d, e, f = B
+    <span style="color:#080;font-weight:bold">return</span> a*d + b*e, a*e + b*f, b*e + c*f
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">pow</span>(A, n):
+    <span style="color:#080;font-weight:bold">if</span> n == <span style="color:#00D">1</span>:     <span style="color:#080;font-weight:bold">return</span> A
+    <span style="color:#080;font-weight:bold">if</span> n &amp; <span style="color:#00D">1</span> == <span style="color:#00D">0</span>: <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">pow</span>(mul(A, A), n//<span style="color:#00D">2</span>)
+    <span style="color:#080;font-weight:bold">else</span>:          <span style="color:#080;font-weight:bold">return</span> mul(A, <span style="color:#369;font-weight:bold">pow</span>(mul(A, A), (n-<span style="color:#00D">1</span>)//<span style="color:#00D">2</span>))
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">fib</span>(n):
+    <span style="color:#080;font-weight:bold">if</span> n &lt; <span style="color:#00D">2</span>: <span style="color:#080;font-weight:bold">return</span> n
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">pow</span>((<span style="color:#00D">1</span>,<span style="color:#00D">1</span>,<span style="color:#00D">0</span>), n-<span style="color:#00D">1</span>)[<span style="color:#00D">0</span>]
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">argparse</span>
+
+    parser = argparse.ArgumentParser(description=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">less script</span><span style="color:#710">"</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-f</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--file</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">filename</span><span style="color:#710">"</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write report to FILE</span><span style="color:#710">"</span></span>, metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-n</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>, default=<span style="color:#00D">10</span>, type=<span style="color:#369;font-weight:bold">int</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">how many lines get printed</span><span style="color:#710">"</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-q</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--quiet</span><span style="color:#710">"</span></span>,
+                        action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">store_false</span><span style="color:#710">"</span></span>, dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">verbose</span><span style="color:#710">"</span></span>,
+                        default=<span style="color:#069">True</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">don't print status messages to stdout</span><span style="color:#710">"</span></span>)
+
+    args = parser.parse_args()
+    <span style="color:#080;font-weight:bold">if</span> args.verbose:
+        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Will open file now and print %i lines.</span><span style="color:#710">"</span></span> % args.n)
+
+    f = <span style="color:#369;font-weight:bold">open</span>(args.filename, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">r</span><span style="color:#710">'</span></span>)
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">xrange</span>(args.n):
+        <span style="color:#080;font-weight:bold">print</span> f.readline()
 </pre></div>
 </div>
 </div>
@@ -287,59 +287,59 @@ optional arguments:
 <p>This is how I use it most of the time. I want to show defaults in help:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#D42"><span style="color:black">"""</span><span>Example for a simple program with a command line parser.</span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">is_valid_file</span>(parser, arg):
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    <span style="color:#D42"><span style="color:black">"""</span><span></span></span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span><span style="color:#D42"><span></span><span>    Check if arg is a valid file that already exists on the file system.</span><span></span></span>
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span><span style="color:#D42"><span></span><span></span></span>
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span><span style="color:#D42"><span></span><span>    Parameters</span><span></span></span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span><span style="color:#D42"><span></span><span>    ----------</span><span></span></span>
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span><span style="color:#D42"><span></span><span>    parser : argparse object</span><span></span></span>
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span><span style="color:#D42"><span></span><span>    arg : str</span><span></span></span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span><span style="color:#D42"><span></span><span></span></span>
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span><span style="color:#D42"><span></span><span>    Returns</span><span></span></span>
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span><span style="color:#D42"><span></span><span>    -------</span><span></span></span>
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#D42"><span></span><span>    arg</span><span></span></span>
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>    arg = os.path.abspath(arg)
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    <span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> os.path.exists(arg):
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>        parser.error(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The file %s does not exist!</span><span style="color:#710">"</span></span> % arg)
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>        <span style="color:#080;font-weight:bold">return</span> arg
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Get parser object for script xy.py.</span><span style="color:black">"""</span></span>
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>    parser = ArgumentParser(description=__doc__,
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>                            formatter_class=ArgumentDefaultsHelpFormatter)
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-f</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--file</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">filename</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span>                        type=<span style="color:#080;font-weight:bold">lambda</span> x: is_valid_file(parser, x),
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write report to FILE</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span>                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-n</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>                        default=<span style="color:#00D">10</span>,
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>                        type=<span style="color:#369;font-weight:bold">int</span>,
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">how many lines get printed</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-q</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--quiet</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>                        action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">store_false</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">verbose</span><span style="color:#710">"</span></span>,
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>                        default=<span style="color:#069">True</span>,
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">don't print status messages to stdout</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>    <span style="color:#080;font-weight:bold">return</span> parser
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span>    args = get_parser().parse_args()
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>Example for a simple program with a command line parser.</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">is_valid_file</span>(parser, arg):
+    <span style="color:#D42"><span style="color:black">"""</span><span>
+</span><span>    Check if arg is a valid file that already exists on the file system.</span><span>
+</span><span>
+</span><span>    Parameters</span><span>
+</span><span>    ----------</span><span>
+</span><span>    parser : argparse object</span><span>
+</span><span>    arg : str</span><span>
+</span><span>
+</span><span>    Returns</span><span>
+</span><span>    -------</span><span>
+</span><span>    arg</span><span>
+</span><span>    </span><span style="color:black">"""</span></span>
+    arg = os.path.abspath(arg)
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#080;font-weight:bold">not</span> os.path.exists(arg):
+        parser.error(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The file %s does not exist!</span><span style="color:#710">"</span></span> % arg)
+    <span style="color:#080;font-weight:bold">else</span>:
+        <span style="color:#080;font-weight:bold">return</span> arg
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
+    <span style="color:#D42"><span style="color:black">"""</span><span>Get parser object for script xy.py.</span><span style="color:black">"""</span></span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
+    parser = ArgumentParser(description=__doc__,
+                            formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-f</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--file</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">filename</span><span style="color:#710">"</span></span>,
+                        type=<span style="color:#080;font-weight:bold">lambda</span> x: is_valid_file(parser, x),
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">write report to FILE</span><span style="color:#710">"</span></span>,
+                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">FILE</span><span style="color:#710">"</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-n</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">n</span><span style="color:#710">"</span></span>,
+                        default=<span style="color:#00D">10</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">how many lines get printed</span><span style="color:#710">"</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-q</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--quiet</span><span style="color:#710">"</span></span>,
+                        action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">store_false</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">verbose</span><span style="color:#710">"</span></span>,
+                        default=<span style="color:#069">True</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">don't print status messages to stdout</span><span style="color:#710">"</span></span>)
+    <span style="color:#080;font-weight:bold">return</span> parser
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    args = get_parser().parse_args()
 </pre></div>
 </div>
 </div>

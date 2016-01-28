@@ -140,17 +140,17 @@ when it is too slow.</p>
 Python:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">fib</span>(n):
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Calculate the n-th Fibonacci number.</span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>    <span style="color:#080;font-weight:bold">if</span> n &lt;= <span style="color:#00D">1</span>:
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>        <span style="color:#080;font-weight:bold">return</span> n
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        <span style="color:#080;font-weight:bold">return</span> fib(n-<span style="color:#00D">1</span>) + fib(n-<span style="color:#00D">2</span>)
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    n = <span style="color:#00D">37</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The %ith Fibonacci number is %i.</span><span style="color:#710">"</span></span> % (n, fib(n)))
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">fib</span>(n):
+    <span style="color:#D42"><span style="color:black">"""</span><span>Calculate the n-th Fibonacci number.</span><span style="color:black">"""</span></span>
+    <span style="color:#080;font-weight:bold">if</span> n &lt;= <span style="color:#00D">1</span>:
+        <span style="color:#080;font-weight:bold">return</span> n
+    <span style="color:#080;font-weight:bold">else</span>:
+        <span style="color:#080;font-weight:bold">return</span> fib(n-<span style="color:#00D">1</span>) + fib(n-<span style="color:#00D">2</span>)
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+    n = <span style="color:#00D">37</span>
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The %ith Fibonacci number is %i.</span><span style="color:#710">"</span></span> % (n, fib(n)))
+
 </pre></div>
 </div>
 </div>
@@ -158,18 +158,18 @@ Python:</p>
 <p>and exactly the same for Rust</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>pub extern fn fib(n: u32) -&gt; u32 {
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    if n &lt;= 1 {
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>        return n;
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>    } else {
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>        return fib(n-1) + fib(n-2);
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>    }
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>}
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>fn main() {
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>    let n = 37;
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    println!("The {0}th Fibonacci number is {1}.", n, fib(n))
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>}
+  <div class="code"><pre>pub extern fn fib(n: u32) -&gt; u32 {
+    if n &lt;= 1 {
+        return n;
+    } else {
+        return fib(n-1) + fib(n-2);
+    }
+}
+
+fn main() {
+    let n = 37;
+    println!("The {0}th Fibonacci number is {1}.", n, fib(n))
+}
 </pre></div>
 </div>
 </div>
@@ -187,16 +187,16 @@ that there are only minor changes / overhead:</p>
 <p><strong>fibonacci.rt</strong>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>#![crate_type = "dylib"]
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>#[no_mangle]
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>pub extern fn fib(n: u32) -&gt; u32 {
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    if n &lt;= 1 {
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>        return n;
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    } else {
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        return fib(n-1) + fib(n-2);
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>    }
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>}
+  <div class="code"><pre>#![crate_type = "dylib"]
+
+#[no_mangle]
+pub extern fn fib(n: u32) -&gt; u32 {
+    if n &lt;= 1 {
+        return n;
+    } else {
+        return fib(n-1) + fib(n-2);
+    }
+}
 </pre></div>
 </div>
 </div>
@@ -206,15 +206,15 @@ that there are only minor changes / overhead:</p>
 <p>Python:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span>#!/usr/bin/env python
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>import ctypes
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>fiblib = ctypes.CDLL("./libfibonacci.so")
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>fib = fiblib.fib
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>n = 37
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>print("The %ith Fibonacci number is %i." % (n, fib(n)))
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>
+  <div class="code"><pre>#!/usr/bin/env python
+
+import ctypes
+
+fiblib = ctypes.CDLL("./libfibonacci.so")
+fib = fiblib.fib
+n = 37
+print("The %ith Fibonacci number is %i." % (n, fib(n)))
+
 </pre></div>
 </div>
 </div>

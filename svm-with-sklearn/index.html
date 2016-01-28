@@ -236,136 +236,136 @@ the MNIST dataset.</p>
 </ul>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers">  <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers">  <a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers">  <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#D42"><span style="color:black">"""</span><span></span></span>
-<span class="line-numbers">  <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#D42"><span></span><span>Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset).</span><span></span></span>
-<span class="line-numbers">  <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#D42"><span></span><span style="color:black">"""</span></span>
-<span class="line-numbers">  <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers">  <a href="#n7" name="n7" id="n7">7</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> np
-<span class="line-numbers">  <a href="#n8" name="n8" id="n8">8</a></span>
-<span class="line-numbers">  <a href="#n9" name="n9" id="n9">9</a></span>
-<span class="line-numbers"> <strong><a href="#n10" name="n10" id="n10">10</a></strong></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>():
-<span class="line-numbers"> <a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Orchestrate the retrival of data, training and testing.</span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n12" name="n12" id="n12">12</a></span>    data = get_data()
-<span class="line-numbers"> <a href="#n13" name="n13" id="n13">13</a></span>
-<span class="line-numbers"> <a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#777"># Get classifier</span>
-<span class="line-numbers"> <a href="#n15" name="n15" id="n15">15</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.svm</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">SVC</span>
-<span class="line-numbers"> <a href="#n16" name="n16" id="n16">16</a></span>    clf = SVC(probability=<span style="color:#069">False</span>,  <span style="color:#777"># cache_size=200,</span>
-<span class="line-numbers"> <a href="#n17" name="n17" id="n17">17</a></span>              kernel=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">rbf</span><span style="color:#710">"</span></span>, C=<span style="color:#60E">2.8</span>, gamma=<span style="color:#60E">.0073</span>)
-<span class="line-numbers"> <a href="#n18" name="n18" id="n18">18</a></span>
-<span class="line-numbers"> <a href="#n19" name="n19" id="n19">19</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Start fitting. This may take a while</span><span style="color:#710">"</span></span>)
-<span class="line-numbers"> <strong><a href="#n20" name="n20" id="n20">20</a></strong></span>
-<span class="line-numbers"> <a href="#n21" name="n21" id="n21">21</a></span>    <span style="color:#777"># take all of it - make that number lower for experiments</span>
-<span class="line-numbers"> <a href="#n22" name="n22" id="n22">22</a></span>    examples = <span style="color:#369;font-weight:bold">len</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>])
-<span class="line-numbers"> <a href="#n23" name="n23" id="n23">23</a></span>    clf.fit(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][:examples], data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][:examples])
-<span class="line-numbers"> <a href="#n24" name="n24" id="n24">24</a></span>
-<span class="line-numbers"> <a href="#n25" name="n25" id="n25">25</a></span>    analyze(clf, data)
-<span class="line-numbers"> <a href="#n26" name="n26" id="n26">26</a></span>
-<span class="line-numbers"> <a href="#n27" name="n27" id="n27">27</a></span>
-<span class="line-numbers"> <a href="#n28" name="n28" id="n28">28</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">analyze</span>(clf, data):
-<span class="line-numbers"> <a href="#n29" name="n29" id="n29">29</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span></span></span>
-<span class="line-numbers"> <strong><a href="#n30" name="n30" id="n30">30</a></strong></span><span style="color:#D42"><span></span><span>    Analyze how well a classifier performs on data.</span><span></span></span>
-<span class="line-numbers"> <a href="#n31" name="n31" id="n31">31</a></span><span style="color:#D42"><span></span><span></span></span>
-<span class="line-numbers"> <a href="#n32" name="n32" id="n32">32</a></span><span style="color:#D42"><span></span><span>    Parameters</span><span></span></span>
-<span class="line-numbers"> <a href="#n33" name="n33" id="n33">33</a></span><span style="color:#D42"><span></span><span>    ----------</span><span></span></span>
-<span class="line-numbers"> <a href="#n34" name="n34" id="n34">34</a></span><span style="color:#D42"><span></span><span>    clf : classifier object</span><span></span></span>
-<span class="line-numbers"> <a href="#n35" name="n35" id="n35">35</a></span><span style="color:#D42"><span></span><span>    data : dict</span><span></span></span>
-<span class="line-numbers"> <a href="#n36" name="n36" id="n36">36</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n37" name="n37" id="n37">37</a></span>    <span style="color:#777"># Get confusion matrix</span>
-<span class="line-numbers"> <a href="#n38" name="n38" id="n38">38</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">metrics</span>
-<span class="line-numbers"> <a href="#n39" name="n39" id="n39">39</a></span>    predicted = clf.predict(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>])
-<span class="line-numbers"> <strong><a href="#n40" name="n40" id="n40">40</a></strong></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Confusion matrix:</span><span style="color:#b0b">\n</span><span style="color:#D20">%s</span><span style="color:#710">"</span></span> %
-<span class="line-numbers"> <a href="#n41" name="n41" id="n41">41</a></span>          metrics.confusion_matrix(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>],
-<span class="line-numbers"> <a href="#n42" name="n42" id="n42">42</a></span>                                   predicted))
-<span class="line-numbers"> <a href="#n43" name="n43" id="n43">43</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Accuracy: %0.4f</span><span style="color:#710">"</span></span> % metrics.accuracy_score(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>],
-<span class="line-numbers"> <a href="#n44" name="n44" id="n44">44</a></span>                                                     predicted))
-<span class="line-numbers"> <a href="#n45" name="n45" id="n45">45</a></span>
-<span class="line-numbers"> <a href="#n46" name="n46" id="n46">46</a></span>    <span style="color:#777"># Print example</span>
-<span class="line-numbers"> <a href="#n47" name="n47" id="n47">47</a></span>    try_id = <span style="color:#00D">1</span>
-<span class="line-numbers"> <a href="#n48" name="n48" id="n48">48</a></span>    out = clf.predict(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][try_id])  <span style="color:#777"># clf.predict_proba</span>
-<span class="line-numbers"> <a href="#n49" name="n49" id="n49">49</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">out: %s</span><span style="color:#710">"</span></span> % out)
-<span class="line-numbers"> <strong><a href="#n50" name="n50" id="n50">50</a></strong></span>    size = <span style="color:#369;font-weight:bold">int</span>(<span style="color:#369;font-weight:bold">len</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][try_id])**(<span style="color:#60E">0.5</span>))
-<span class="line-numbers"> <a href="#n51" name="n51" id="n51">51</a></span>    view_image(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][try_id].reshape((size, size)),
-<span class="line-numbers"> <a href="#n52" name="n52" id="n52">52</a></span>               data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][try_id])
-<span class="line-numbers"> <a href="#n53" name="n53" id="n53">53</a></span>
-<span class="line-numbers"> <a href="#n54" name="n54" id="n54">54</a></span>
-<span class="line-numbers"> <a href="#n55" name="n55" id="n55">55</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">view_image</span>(image, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>):
-<span class="line-numbers"> <a href="#n56" name="n56" id="n56">56</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span></span></span>
-<span class="line-numbers"> <a href="#n57" name="n57" id="n57">57</a></span><span style="color:#D42"><span></span><span>    View a single image.</span><span></span></span>
-<span class="line-numbers"> <a href="#n58" name="n58" id="n58">58</a></span><span style="color:#D42"><span></span><span></span></span>
-<span class="line-numbers"> <a href="#n59" name="n59" id="n59">59</a></span><span style="color:#D42"><span></span><span>    Parameters</span><span></span></span>
-<span class="line-numbers"> <strong><a href="#n60" name="n60" id="n60">60</a></strong></span><span style="color:#D42"><span></span><span>    ----------</span><span></span></span>
-<span class="line-numbers"> <a href="#n61" name="n61" id="n61">61</a></span><span style="color:#D42"><span></span><span>    image : numpy array</span><span></span></span>
-<span class="line-numbers"> <a href="#n62" name="n62" id="n62">62</a></span><span style="color:#D42"><span></span><span>        Make sure this is of the shape you want.</span><span></span></span>
-<span class="line-numbers"> <a href="#n63" name="n63" id="n63">63</a></span><span style="color:#D42"><span></span><span>    label : str</span><span></span></span>
-<span class="line-numbers"> <a href="#n64" name="n64" id="n64">64</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n65" name="n65" id="n65">65</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">show</span>, <span style="color:#B44;font-weight:bold">imshow</span>, <span style="color:#B44;font-weight:bold">cm</span>
-<span class="line-numbers"> <a href="#n66" name="n66" id="n66">66</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Label: %s</span><span style="color:#710">"</span></span> % label)
-<span class="line-numbers"> <a href="#n67" name="n67" id="n67">67</a></span>    imshow(image, cmap=cm.gray)
-<span class="line-numbers"> <a href="#n68" name="n68" id="n68">68</a></span>    show()
-<span class="line-numbers"> <a href="#n69" name="n69" id="n69">69</a></span>
-<span class="line-numbers"> <strong><a href="#n70" name="n70" id="n70">70</a></strong></span>
-<span class="line-numbers"> <a href="#n71" name="n71" id="n71">71</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_data</span>():
-<span class="line-numbers"> <a href="#n72" name="n72" id="n72">72</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span></span></span>
-<span class="line-numbers"> <a href="#n73" name="n73" id="n73">73</a></span><span style="color:#D42"><span></span><span>    Get data ready to learn with.</span><span></span></span>
-<span class="line-numbers"> <a href="#n74" name="n74" id="n74">74</a></span><span style="color:#D42"><span></span><span></span></span>
-<span class="line-numbers"> <a href="#n75" name="n75" id="n75">75</a></span><span style="color:#D42"><span></span><span>    Returns</span><span></span></span>
-<span class="line-numbers"> <a href="#n76" name="n76" id="n76">76</a></span><span style="color:#D42"><span></span><span>    -------</span><span></span></span>
-<span class="line-numbers"> <a href="#n77" name="n77" id="n77">77</a></span><span style="color:#D42"><span></span><span>    dict</span><span></span></span>
-<span class="line-numbers"> <a href="#n78" name="n78" id="n78">78</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n79" name="n79" id="n79">79</a></span>    simple = <span style="color:#069">False</span>
-<span class="line-numbers"> <strong><a href="#n80" name="n80" id="n80">80</a></strong></span>    <span style="color:#080;font-weight:bold">if</span> simple:  <span style="color:#777"># Load the simple, but similar digits dataset</span>
-<span class="line-numbers"> <a href="#n81" name="n81" id="n81">81</a></span>        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.datasets</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">load_digits</span>
-<span class="line-numbers"> <a href="#n82" name="n82" id="n82">82</a></span>        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.utils</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">shuffle</span>
-<span class="line-numbers"> <a href="#n83" name="n83" id="n83">83</a></span>        digits = load_digits()
-<span class="line-numbers"> <a href="#n84" name="n84" id="n84">84</a></span>        x = [np.array(el).flatten() <span style="color:#080;font-weight:bold">for</span> el <span style="color:#080;font-weight:bold">in</span> digits.images]
-<span class="line-numbers"> <a href="#n85" name="n85" id="n85">85</a></span>        y = digits.target
-<span class="line-numbers"> <a href="#n86" name="n86" id="n86">86</a></span>
-<span class="line-numbers"> <a href="#n87" name="n87" id="n87">87</a></span>        <span style="color:#777"># Scale data to [-1, 1] - This is of mayor importance!!!</span>
-<span class="line-numbers"> <a href="#n88" name="n88" id="n88">88</a></span>        <span style="color:#777"># In this case, I know the range and thus I can (and should) scale</span>
-<span class="line-numbers"> <a href="#n89" name="n89" id="n89">89</a></span>        <span style="color:#777"># manually. However, this might not always be the case.</span>
-<span class="line-numbers"> <strong><a href="#n90" name="n90" id="n90">90</a></strong></span>        <span style="color:#777"># Then try sklearn.preprocessing.MinMaxScaler or</span>
-<span class="line-numbers"> <a href="#n91" name="n91" id="n91">91</a></span>        <span style="color:#777"># sklearn.preprocessing.StandardScaler</span>
-<span class="line-numbers"> <a href="#n92" name="n92" id="n92">92</a></span>        x = x/<span style="color:#60E">255.0</span>*<span style="color:#00D">2</span> - <span style="color:#00D">1</span>
-<span class="line-numbers"> <a href="#n93" name="n93" id="n93">93</a></span>
-<span class="line-numbers"> <a href="#n94" name="n94" id="n94">94</a></span>        x, y = shuffle(x, y, random_state=<span style="color:#00D">0</span>)
-<span class="line-numbers"> <a href="#n95" name="n95" id="n95">95</a></span>
-<span class="line-numbers"> <a href="#n96" name="n96" id="n96">96</a></span>        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.cross_validation</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">train_test_split</span>
-<span class="line-numbers"> <a href="#n97" name="n97" id="n97">97</a></span>        x_train, x_test, y_train, y_test = train_test_split(x, y,
-<span class="line-numbers"> <a href="#n98" name="n98" id="n98">98</a></span>                                                            test_size=<span style="color:#60E">0.33</span>,
-<span class="line-numbers"> <a href="#n99" name="n99" id="n99">99</a></span>                                                            random_state=<span style="color:#00D">42</span>)
-<span class="line-numbers"><strong><a href="#n100" name="n100" id="n100">100</a></strong></span>        data = {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_train,
-<span class="line-numbers"><a href="#n101" name="n101" id="n101">101</a></span>                          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_train},
-<span class="line-numbers"><a href="#n102" name="n102" id="n102">102</a></span>                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_test,
-<span class="line-numbers"><a href="#n103" name="n103" id="n103">103</a></span>                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_test}}
-<span class="line-numbers"><a href="#n104" name="n104" id="n104">104</a></span>    <span style="color:#080;font-weight:bold">else</span>:  <span style="color:#777"># Load the original dataset</span>
-<span class="line-numbers"><a href="#n105" name="n105" id="n105">105</a></span>        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.datasets</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">fetch_mldata</span>
-<span class="line-numbers"><a href="#n106" name="n106" id="n106">106</a></span>        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.utils</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">shuffle</span>
-<span class="line-numbers"><a href="#n107" name="n107" id="n107">107</a></span>        mnist = fetch_mldata(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">MNIST original</span><span style="color:#710">'</span></span>)
-<span class="line-numbers"><a href="#n108" name="n108" id="n108">108</a></span>
-<span class="line-numbers"><a href="#n109" name="n109" id="n109">109</a></span>        x = mnist.data
-<span class="line-numbers"><strong><a href="#n110" name="n110" id="n110">110</a></strong></span>        y = mnist.target
-<span class="line-numbers"><a href="#n111" name="n111" id="n111">111</a></span>
-<span class="line-numbers"><a href="#n112" name="n112" id="n112">112</a></span>        <span style="color:#777"># Scale data to [-1, 1] - This is of mayor importance!!!</span>
-<span class="line-numbers"><a href="#n113" name="n113" id="n113">113</a></span>        x = x/<span style="color:#60E">255.0</span>*<span style="color:#00D">2</span> - <span style="color:#00D">1</span>
-<span class="line-numbers"><a href="#n114" name="n114" id="n114">114</a></span>
-<span class="line-numbers"><a href="#n115" name="n115" id="n115">115</a></span>        x, y = shuffle(x, y, random_state=<span style="color:#00D">0</span>)
-<span class="line-numbers"><a href="#n116" name="n116" id="n116">116</a></span>
-<span class="line-numbers"><a href="#n117" name="n117" id="n117">117</a></span>        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.cross_validation</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">train_test_split</span>
-<span class="line-numbers"><a href="#n118" name="n118" id="n118">118</a></span>        x_train, x_test, y_train, y_test = train_test_split(x, y,
-<span class="line-numbers"><a href="#n119" name="n119" id="n119">119</a></span>                                                            test_size=<span style="color:#60E">0.33</span>,
-<span class="line-numbers"><strong><a href="#n120" name="n120" id="n120">120</a></strong></span>                                                            random_state=<span style="color:#00D">42</span>)
-<span class="line-numbers"><a href="#n121" name="n121" id="n121">121</a></span>        data = {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_train,
-<span class="line-numbers"><a href="#n122" name="n122" id="n122">122</a></span>                          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_train},
-<span class="line-numbers"><a href="#n123" name="n123" id="n123">123</a></span>                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_test,
-<span class="line-numbers"><a href="#n124" name="n124" id="n124">124</a></span>                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_test}}
-<span class="line-numbers"><a href="#n125" name="n125" id="n125">125</a></span>    <span style="color:#080;font-weight:bold">return</span> data
-<span class="line-numbers"><a href="#n126" name="n126" id="n126">126</a></span>
-<span class="line-numbers"><a href="#n127" name="n127" id="n127">127</a></span>
-<span class="line-numbers"><a href="#n128" name="n128" id="n128">128</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
-<span class="line-numbers"><a href="#n129" name="n129" id="n129">129</a></span>    main()
-<span class="line-numbers"><strong><a href="#n130" name="n130" id="n130">130</a></strong></span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>
+</span><span>Train a SVM to categorize 28x28 pixel images into digits (MNIST dataset).</span><span>
+</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> np
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>():
+    <span style="color:#D42"><span style="color:black">"""</span><span>Orchestrate the retrival of data, training and testing.</span><span style="color:black">"""</span></span>
+    data = get_data()
+
+    <span style="color:#777"># Get classifier</span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.svm</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">SVC</span>
+    clf = SVC(probability=<span style="color:#069">False</span>,  <span style="color:#777"># cache_size=200,</span>
+              kernel=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">rbf</span><span style="color:#710">"</span></span>, C=<span style="color:#60E">2.8</span>, gamma=<span style="color:#60E">.0073</span>)
+
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Start fitting. This may take a while</span><span style="color:#710">"</span></span>)
+
+    <span style="color:#777"># take all of it - make that number lower for experiments</span>
+    examples = <span style="color:#369;font-weight:bold">len</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>])
+    clf.fit(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][:examples], data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][:examples])
+
+    analyze(clf, data)
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">analyze</span>(clf, data):
+    <span style="color:#D42"><span style="color:black">"""</span><span>
+</span><span>    Analyze how well a classifier performs on data.</span><span>
+</span><span>
+</span><span>    Parameters</span><span>
+</span><span>    ----------</span><span>
+</span><span>    clf : classifier object</span><span>
+</span><span>    data : dict</span><span>
+</span><span>    </span><span style="color:black">"""</span></span>
+    <span style="color:#777"># Get confusion matrix</span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">metrics</span>
+    predicted = clf.predict(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>])
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Confusion matrix:</span><span style="color:#b0b">\n</span><span style="color:#D20">%s</span><span style="color:#710">"</span></span> %
+          metrics.confusion_matrix(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>],
+                                   predicted))
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Accuracy: %0.4f</span><span style="color:#710">"</span></span> % metrics.accuracy_score(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>],
+                                                     predicted))
+
+    <span style="color:#777"># Print example</span>
+    try_id = <span style="color:#00D">1</span>
+    out = clf.predict(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][try_id])  <span style="color:#777"># clf.predict_proba</span>
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">out: %s</span><span style="color:#710">"</span></span> % out)
+    size = <span style="color:#369;font-weight:bold">int</span>(<span style="color:#369;font-weight:bold">len</span>(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][try_id])**(<span style="color:#60E">0.5</span>))
+    view_image(data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>][try_id].reshape((size, size)),
+               data[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>][<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>][try_id])
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">view_image</span>(image, label=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>):
+    <span style="color:#D42"><span style="color:black">"""</span><span>
+</span><span>    View a single image.</span><span>
+</span><span>
+</span><span>    Parameters</span><span>
+</span><span>    ----------</span><span>
+</span><span>    image : numpy array</span><span>
+</span><span>        Make sure this is of the shape you want.</span><span>
+</span><span>    label : str</span><span>
+</span><span>    </span><span style="color:black">"""</span></span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">matplotlib.pyplot</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">show</span>, <span style="color:#B44;font-weight:bold">imshow</span>, <span style="color:#B44;font-weight:bold">cm</span>
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Label: %s</span><span style="color:#710">"</span></span> % label)
+    imshow(image, cmap=cm.gray)
+    show()
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_data</span>():
+    <span style="color:#D42"><span style="color:black">"""</span><span>
+</span><span>    Get data ready to learn with.</span><span>
+</span><span>
+</span><span>    Returns</span><span>
+</span><span>    -------</span><span>
+</span><span>    dict</span><span>
+</span><span>    </span><span style="color:black">"""</span></span>
+    simple = <span style="color:#069">False</span>
+    <span style="color:#080;font-weight:bold">if</span> simple:  <span style="color:#777"># Load the simple, but similar digits dataset</span>
+        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.datasets</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">load_digits</span>
+        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.utils</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">shuffle</span>
+        digits = load_digits()
+        x = [np.array(el).flatten() <span style="color:#080;font-weight:bold">for</span> el <span style="color:#080;font-weight:bold">in</span> digits.images]
+        y = digits.target
+
+        <span style="color:#777"># Scale data to [-1, 1] - This is of mayor importance!!!</span>
+        <span style="color:#777"># In this case, I know the range and thus I can (and should) scale</span>
+        <span style="color:#777"># manually. However, this might not always be the case.</span>
+        <span style="color:#777"># Then try sklearn.preprocessing.MinMaxScaler or</span>
+        <span style="color:#777"># sklearn.preprocessing.StandardScaler</span>
+        x = x/<span style="color:#60E">255.0</span>*<span style="color:#00D">2</span> - <span style="color:#00D">1</span>
+
+        x, y = shuffle(x, y, random_state=<span style="color:#00D">0</span>)
+
+        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.cross_validation</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">train_test_split</span>
+        x_train, x_test, y_train, y_test = train_test_split(x, y,
+                                                            test_size=<span style="color:#60E">0.33</span>,
+                                                            random_state=<span style="color:#00D">42</span>)
+        data = {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_train,
+                          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_train},
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_test,
+                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_test}}
+    <span style="color:#080;font-weight:bold">else</span>:  <span style="color:#777"># Load the original dataset</span>
+        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.datasets</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">fetch_mldata</span>
+        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.utils</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">shuffle</span>
+        mnist = fetch_mldata(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">MNIST original</span><span style="color:#710">'</span></span>)
+
+        x = mnist.data
+        y = mnist.target
+
+        <span style="color:#777"># Scale data to [-1, 1] - This is of mayor importance!!!</span>
+        x = x/<span style="color:#60E">255.0</span>*<span style="color:#00D">2</span> - <span style="color:#00D">1</span>
+
+        x, y = shuffle(x, y, random_state=<span style="color:#00D">0</span>)
+
+        <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">sklearn.cross_validation</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">train_test_split</span>
+        x_train, x_test, y_train, y_test = train_test_split(x, y,
+                                                            test_size=<span style="color:#60E">0.33</span>,
+                                                            random_state=<span style="color:#00D">42</span>)
+        data = {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">train</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_train,
+                          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_train},
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">test</span><span style="color:#710">'</span></span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">X</span><span style="color:#710">'</span></span>: x_test,
+                         <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">y</span><span style="color:#710">'</span></span>: y_test}}
+    <span style="color:#080;font-weight:bold">return</span> data
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+    main()
+
 </pre></div>
 </div>
 </div>

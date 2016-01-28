@@ -241,8 +241,8 @@ does not work on my system.<br />
 However, customizing the prompt is fairly easy:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>sys.ps1 = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--&gt;</span><span style="color:#710">"</span></span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+sys.ps1 = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--&gt;</span><span style="color:#710">"</span></span>
 </pre></div>
 </div>
 </div>
@@ -253,10 +253,10 @@ configured via <code>~/.ghci</code> by adding <code>:set prompt "ghci&gt; "</cod
 <p>If you want to show the current path, you can do it like this (<a href="http://stackoverflow.com/a/11263118/562769">source</a>):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>let cur fill = do { cwd &lt;- System.Directory.getCurrentDirectory; return (":set prompt \"" ++ cwd ++ fill ++ " \""); }
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>:def doprompt (\_ -&gt; cur "&gt;")
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>:def mycd (\dir -&gt; System.Directory.setCurrentDirectory dir &gt;&gt; cur "&gt;")
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>:doprompt
+  <div class="code"><pre>let cur fill = do { cwd &lt;- System.Directory.getCurrentDirectory; return (":set prompt \"" ++ cwd ++ fill ++ " \""); }
+:def doprompt (\_ -&gt; cur "&gt;")
+:def mycd (\dir -&gt; System.Directory.setCurrentDirectory dir &gt;&gt; cur "&gt;")
+:doprompt
 </pre></div>
 </div>
 </div>

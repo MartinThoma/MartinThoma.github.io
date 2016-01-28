@@ -144,13 +144,13 @@ do so is because your file is too big. For your information, this is how long
 reading a file takes (all times are in seconds, reading is executed 100 times):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>file size         min       max    median   average
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>---------------------------------------------------
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>10 KiB         0.0000    0.0008    0.0000    0.0002
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>100 KiB        0.0000    0.0009    0.0001    0.0002
-<span class="line-numbers"><a href="#n5" name="n5" id="n5">5</a></span>1 MiB          0.0003    0.0013    0.0005    0.0006
-<span class="line-numbers"><a href="#n6" name="n6" id="n6">6</a></span>10 MiB         0.0041    0.0079    0.0047    0.0049
-<span class="line-numbers"><a href="#n7" name="n7" id="n7">7</a></span>100 MiB        0.0627    0.0778    0.0655    0.0663
+  <div class="code"><pre>file size         min       max    median   average
+---------------------------------------------------
+10 KiB         0.0000    0.0008    0.0000    0.0002
+100 KiB        0.0000    0.0009    0.0001    0.0002
+1 MiB          0.0003    0.0013    0.0005    0.0006
+10 MiB         0.0041    0.0079    0.0047    0.0049
+100 MiB        0.0627    0.0778    0.0655    0.0663
 </pre></div>
 </div>
 </div>
@@ -168,8 +168,8 @@ for details how I measured it.</p>
 <h3 id="tocAnchor-1-1-1">Completely</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    content = f.read()
+  <div class="code"><pre><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+    content = f.read()
 </pre></div>
 </div>
 </div>
@@ -178,7 +178,7 @@ for details how I measured it.</p>
 <code>content</code>. You could, for example, split the whole string to a list of lines:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>lines = content.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#b0b">\n</span><span style="color:#710">'</span></span>)
+  <div class="code"><pre>lines = content.split(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#b0b">\n</span><span style="color:#710">'</span></span>)
 </pre></div>
 </div>
 </div>
@@ -188,9 +188,9 @@ for details how I measured it.</p>
 have the endline character <code>\n</code> in each <code>line</code>!</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#080;font-weight:bold">for</span> line <span style="color:#080;font-weight:bold">in</span> f:
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>        print(line)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+    <span style="color:#080;font-weight:bold">for</span> line <span style="color:#080;font-weight:bold">in</span> f:
+        print(line)
 </pre></div>
 </div>
 </div>
@@ -202,9 +202,9 @@ appending (binary or text data). If you don’t specify it, the default value
 is reading. So for writing you have to specify it:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span>    f.write(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello world!</span><span style="color:#710">"</span></span>)
+  <div class="code"><pre>
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">filename.txt</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+    f.write(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello world!</span><span style="color:#710">"</span></span>)
 </pre></div>
 </div>
 </div>
@@ -215,7 +215,7 @@ is reading. So for writing you have to specify it:</p>
 Python 2, you have to add</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">print_function</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">print_function</span>
 </pre></div>
 </div>
 </div>
@@ -224,10 +224,10 @@ Python 2, you have to add</p>
 files:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">print_function</span>
-<span class="line-numbers"><a href="#n2" name="n2" id="n2">2</a></span>
-<span class="line-numbers"><a href="#n3" name="n3" id="n3">3</a></span><span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">file.txt</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
-<span class="line-numbers"><a href="#n4" name="n4" id="n4">4</a></span>    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello World!</span><span style="color:#710">"</span></span>, file=f)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">__future__</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">print_function</span>
+
+<span style="color:#080;font-weight:bold">with</span> <span style="color:#369;font-weight:bold">open</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">file.txt</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">w</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">as</span> f:
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Hello World!</span><span style="color:#710">"</span></span>, file=f)
 </pre></div>
 </div>
 </div>

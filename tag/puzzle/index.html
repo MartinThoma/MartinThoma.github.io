@@ -1854,7 +1854,7 @@ MathJax.Hub.Queue(function() {
         <div class="entry" id="contentAfterTitle">
     
 
-    What is the output of the following script? 1public class SomeClass { 2 public static void main(String[] args) { 3 int x = 2147483647; // 2147483647 == 2**31 - 1 4 if (x &lt; 2*x) { 5 System.out.println(&quot;Everything's ok:&quot;); 6 } else { 7 System.out.println(&quot;It's weird:&quot;); 8 } 9 10 System.out.println(&quot;x = &quot; + x); 11 System.out.println(&quot;2*x = &quot; + 2*x); 12 } 13} . . . . . . . . . . ....
+    What is the output of the following script? public class SomeClass { public static void main(String[] args) { int x = 2147483647; // 2147483647 == 2**31 - 1 if (x &lt; 2*x) { System.out.println(&quot;Everything's ok:&quot;); } else { System.out.println(&quot;It's weird:&quot;); } System.out.println(&quot;x = &quot; + x); System.out.println(&quot;2*x = &quot; + 2*x); } } . . . . . . . . . . . . . . . . . . . . . ....
 
     
     <div class="readmorecontent">
@@ -2682,7 +2682,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="//martin-thoma.com/java-puzzle-5-parallel-programming-part-2/"><img width="128" height="128" src="//martin-thoma.com/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #5: Parallel Programming, Part 2"/></a>
     
 
-    What is the output of the following script: 1public class test { 2 public static int globalVar; 3 4 public static void main(String[] args) { 5 globalVar = 1; 6 7 MyParallelClass a = new MyParallelClass(); 8 MyParallelClass b = new MyParallelClass(); 9 10 new Thread(a).start(); 11 new Thread(b).start(); 12 13 System.out.println(globalVar); 14 } 15} 1public class MyParallelClass implements java.lang.Runnable { 2 public int counter = 0; 3 4 @Override 5 public void run() {...
+    What is the output of the following script: public class test { public static int globalVar; public static void main(String[] args) { globalVar = 1; MyParallelClass a = new MyParallelClass(); MyParallelClass b = new MyParallelClass(); new Thread(a).start(); new Thread(b).start(); System.out.println(globalVar); } } public class MyParallelClass implements java.lang.Runnable { public int counter = 0; @Override public void run() { if (test.globalVar &gt; 0) { for (int i = 0; i &lt; 1000000; i++) { counter++; }...
 
     
     <div class="readmorecontent">
@@ -2760,7 +2760,7 @@ The ; means, that no block is executed. The { ... } is just a code block and not
     <a href="//martin-thoma.com/java-puzzle-4-parallel-programming/"><img width="128" height="128" src="//martin-thoma.com/images/2012/07/java-thumb.png" class="alignleft post_thumbnail wp-post-image" alt="Java Puzzle #4: Parallel Programming"/></a>
     
 
-    What is the output of the following Java Snippet: 1public class MyParallelClass implements java.lang.Runnable { 2 public String name; 3 4 public myParallelTry(String name) { 5 this.name = name; 6 } 7 8 @Override 9 public void run() { 10 System.out.println(name); 11 } 12} 1public class test { 2 public static void main(String[] args) { 3 MyParallelClass a = new MyParallelClass(&quot;A&quot;); 4 MyParallelClass b = new MyParallelClass(&quot;B&quot;); 5 MyParallelClass c = new MyParallelClass(&quot;C&quot;); 6 MyParallelClass...
+    What is the output of the following Java Snippet: public class MyParallelClass implements java.lang.Runnable { public String name; public myParallelTry(String name) { this.name = name; } @Override public void run() { System.out.println(name); } } public class test { public static void main(String[] args) { MyParallelClass a = new MyParallelClass(&quot;A&quot;); MyParallelClass b = new MyParallelClass(&quot;B&quot;); MyParallelClass c = new MyParallelClass(&quot;C&quot;); MyParallelClass d = new MyParallelClass(&quot;D&quot;); new Thread(a).start(); new Thread(b).start(); new Thread(c).start(); new Thread(d).start(); System.out.println(&quot;-&quot;); new Thread(a).start();...
 
     
     <div class="readmorecontent">

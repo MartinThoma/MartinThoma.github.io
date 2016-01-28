@@ -110,68 +110,68 @@ MathJax.Hub.Queue(function() {
 photos. The following script helps me to do so:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span><span style="color:#D42"><span style="color:black">&quot;&quot;&quot;</span><span>Batch-Rename files in a folder according to some rules.</span><span style="color:black">&quot;&quot;&quot;</span></span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">rename</span>(rename, starts=<span style="color:#069">None</span>, ends=<span style="color:#069">None</span>, test=<span style="color:#069">False</span>):
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>    <span style="color:#D42"><span style="color:black">&quot;&quot;&quot;</span><span></span></span>
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span><span style="color:#D42"><span></span><span>    Rename all files which end with `ends` and start with `starts` to</span><span></span></span>
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span><span style="color:#D42"><span></span><span>    `rename-[Number]`.</span><span></span></span>
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">&quot;&quot;&quot;</span></span>
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>    files = [f <span style="color:#080;font-weight:bold">for</span> f <span style="color:#080;font-weight:bold">in</span> os.listdir(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">.</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">if</span> os.path.isfile(f)]
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>    <span style="color:#777"># Sort files by last modification</span>
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>    files.sort(key=<span style="color:#080;font-weight:bold">lambda</span> x: os.stat(x).st_mtime)
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>    <span style="color:#080;font-weight:bold">if</span> starts <span style="color:#080;font-weight:bold">is</span> <span style="color:#080;font-weight:bold">not</span> <span style="color:#069">None</span>:
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>        files = [f <span style="color:#080;font-weight:bold">for</span> f <span style="color:#080;font-weight:bold">in</span> files <span style="color:#080;font-weight:bold">if</span> f.lower().startswith(starts.lower())]
-<span class="line-numbers"><a href="#n19" name="n19">19</a></span>    <span style="color:#080;font-weight:bold">if</span> ends <span style="color:#080;font-weight:bold">is</span> <span style="color:#080;font-weight:bold">not</span> <span style="color:#069">None</span>:
-<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>        files = [f <span style="color:#080;font-weight:bold">for</span> f <span style="color:#080;font-weight:bold">in</span> files <span style="color:#080;font-weight:bold">if</span> f.lower().endswith(ends.lower())]
-<span class="line-numbers"><a href="#n21" name="n21">21</a></span>    <span style="color:#080;font-weight:bold">for</span> i, f <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(files, start=<span style="color:#00D">1</span>):
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>        filename, ext = os.path.splitext(f)
-<span class="line-numbers"><a href="#n23" name="n23">23</a></span>        ext = ext.lower()
-<span class="line-numbers"><a href="#n24" name="n24">24</a></span>        new_name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s-%i%s</span><span style="color:#710">&quot;</span></span> % (rename, i, ext)
-<span class="line-numbers"><a href="#n25" name="n25">25</a></span>        <span style="color:#080;font-weight:bold">if</span> test:
-<span class="line-numbers"><a href="#n26" name="n26">26</a></span>            print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">{0:&lt;40}-&gt; {1:&lt;20}</span><span style="color:#710">&quot;</span></span>.format(f, new_name))
-<span class="line-numbers"><a href="#n27" name="n27">27</a></span>        <span style="color:#080;font-weight:bold">else</span>:
-<span class="line-numbers"><a href="#n28" name="n28">28</a></span>            os.rename(f, new_name)
-<span class="line-numbers"><a href="#n29" name="n29">29</a></span>
-<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>
-<span class="line-numbers"><a href="#n31" name="n31">31</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
-<span class="line-numbers"><a href="#n32" name="n32">32</a></span>    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
-<span class="line-numbers"><a href="#n33" name="n33">33</a></span>    parser = ArgumentParser(description=__doc__,
-<span class="line-numbers"><a href="#n34" name="n34">34</a></span>                            formatter_class=ArgumentDefaultsHelpFormatter)
-<span class="line-numbers"><a href="#n35" name="n35">35</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-n</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--name</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n36" name="n36">36</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">name</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n37" name="n37">37</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">new name</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n38" name="n38">38</a></span>                        required=<span style="color:#069">True</span>,
-<span class="line-numbers"><a href="#n39" name="n39">39</a></span>                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">NAME</span><span style="color:#710">&quot;</span></span>)
-<span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-s</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--starts</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n41" name="n41">41</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">starts</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n42" name="n42">42</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Get files which start with this string</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n43" name="n43">43</a></span>                        default=<span style="color:#069">None</span>,
-<span class="line-numbers"><a href="#n44" name="n44">44</a></span>                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">STARTS</span><span style="color:#710">&quot;</span></span>)
-<span class="line-numbers"><a href="#n45" name="n45">45</a></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-e</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--ends</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n46" name="n46">46</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ends</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n47" name="n47">47</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Get files which end with this string</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n48" name="n48">48</a></span>                        default=<span style="color:#069">None</span>,
-<span class="line-numbers"><a href="#n49" name="n49">49</a></span>                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ENDS</span><span style="color:#710">&quot;</span></span>)
-<span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-t</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--test</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n51" name="n51">51</a></span>                        action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">store_true</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n52" name="n52">52</a></span>                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">test</span><span style="color:#710">&quot;</span></span>,
-<span class="line-numbers"><a href="#n53" name="n53">53</a></span>                        default=<span style="color:#069">False</span>,
-<span class="line-numbers"><a href="#n54" name="n54">54</a></span>                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">don't change anything, just show what would be </span><span style="color:#710">&quot;</span></span>
-<span class="line-numbers"><a href="#n55" name="n55">55</a></span>                             <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">done</span><span style="color:#710">&quot;</span></span>)
-<span class="line-numbers"><a href="#n56" name="n56">56</a></span>    <span style="color:#080;font-weight:bold">return</span> parser
-<span class="line-numbers"><a href="#n57" name="n57">57</a></span>
-<span class="line-numbers"><a href="#n58" name="n58">58</a></span>
-<span class="line-numbers"><a href="#n59" name="n59">59</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
-<span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span>    args = get_parser().parse_args()
-<span class="line-numbers"><a href="#n61" name="n61">61</a></span>    rename(args.name, starts=args.starts, ends=args.ends, test=args.test)
-<span class="line-numbers"><a href="#n62" name="n62">62</a></span>
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#D42"><span style="color:black">&quot;&quot;&quot;</span><span>Batch-Rename files in a folder according to some rules.</span><span style="color:black">&quot;&quot;&quot;</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">os</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">rename</span>(rename, starts=<span style="color:#069">None</span>, ends=<span style="color:#069">None</span>, test=<span style="color:#069">False</span>):
+    <span style="color:#D42"><span style="color:black">&quot;&quot;&quot;</span><span>
+</span><span>    Rename all files which end with `ends` and start with `starts` to</span><span>
+</span><span>    `rename-[Number]`.</span><span>
+</span><span>    </span><span style="color:black">&quot;&quot;&quot;</span></span>
+    files = [f <span style="color:#080;font-weight:bold">for</span> f <span style="color:#080;font-weight:bold">in</span> os.listdir(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">.</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">if</span> os.path.isfile(f)]
+    <span style="color:#777"># Sort files by last modification</span>
+    files.sort(key=<span style="color:#080;font-weight:bold">lambda</span> x: os.stat(x).st_mtime)
+    <span style="color:#080;font-weight:bold">if</span> starts <span style="color:#080;font-weight:bold">is</span> <span style="color:#080;font-weight:bold">not</span> <span style="color:#069">None</span>:
+        files = [f <span style="color:#080;font-weight:bold">for</span> f <span style="color:#080;font-weight:bold">in</span> files <span style="color:#080;font-weight:bold">if</span> f.lower().startswith(starts.lower())]
+    <span style="color:#080;font-weight:bold">if</span> ends <span style="color:#080;font-weight:bold">is</span> <span style="color:#080;font-weight:bold">not</span> <span style="color:#069">None</span>:
+        files = [f <span style="color:#080;font-weight:bold">for</span> f <span style="color:#080;font-weight:bold">in</span> files <span style="color:#080;font-weight:bold">if</span> f.lower().endswith(ends.lower())]
+    <span style="color:#080;font-weight:bold">for</span> i, f <span style="color:#080;font-weight:bold">in</span> <span style="color:#369;font-weight:bold">enumerate</span>(files, start=<span style="color:#00D">1</span>):
+        filename, ext = os.path.splitext(f)
+        ext = ext.lower()
+        new_name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%s-%i%s</span><span style="color:#710">&quot;</span></span> % (rename, i, ext)
+        <span style="color:#080;font-weight:bold">if</span> test:
+            print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">{0:&lt;40}-&gt; {1:&lt;20}</span><span style="color:#710">&quot;</span></span>.format(f, new_name))
+        <span style="color:#080;font-weight:bold">else</span>:
+            os.rename(f, new_name)
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
+    parser = ArgumentParser(description=__doc__,
+                            formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-n</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--name</span><span style="color:#710">&quot;</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">name</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">new name</span><span style="color:#710">&quot;</span></span>,
+                        required=<span style="color:#069">True</span>,
+                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">NAME</span><span style="color:#710">&quot;</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-s</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--starts</span><span style="color:#710">&quot;</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">starts</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Get files which start with this string</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#069">None</span>,
+                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">STARTS</span><span style="color:#710">&quot;</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-e</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--ends</span><span style="color:#710">&quot;</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ends</span><span style="color:#710">&quot;</span></span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Get files which end with this string</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#069">None</span>,
+                        metavar=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ENDS</span><span style="color:#710">&quot;</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-t</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">--test</span><span style="color:#710">&quot;</span></span>,
+                        action=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">store_true</span><span style="color:#710">&quot;</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">test</span><span style="color:#710">&quot;</span></span>,
+                        default=<span style="color:#069">False</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">don't change anything, just show what would be </span><span style="color:#710">&quot;</span></span>
+                             <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">done</span><span style="color:#710">&quot;</span></span>)
+    <span style="color:#080;font-weight:bold">return</span> parser
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">__main__</span><span style="color:#710">'</span></span>:
+    args = get_parser().parse_args()
+    rename(args.name, starts=args.starts, ends=args.ends, test=args.test)
+
 </pre></div>
 </div>
 </div>

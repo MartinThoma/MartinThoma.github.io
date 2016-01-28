@@ -173,40 +173,40 @@ $A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$</
 <div class="important">Please look at Jans comment. There is an error in my Python code, but I don't have the time to correct it.</div>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">isPinRectangle</span>(r, P):
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span></span></span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span><span style="color:#D42"><span></span><span>        r: A list of four points, each has a x- and a y- coordinate</span><span></span></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#D42"><span></span><span>        P: A point</span><span></span></span>
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span><span style="color:#D42"><span></span><span>    </span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    areaRectangle = <span style="color:#60E">0.5</span>*<span style="color:#369;font-weight:bold">abs</span>(
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        <span style="color:#777">#                 y_A      y_C      x_D      x_B</span>
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>                        (r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])*(r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>])
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>        <span style="color:#777">#                  y_B     y_D       x_A     x_C</span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>                      + (r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])*(r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>])
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>                    )
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    ABP = <span style="color:#60E">0.5</span>*(
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>             r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>            +r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>            +r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>          )
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>    BCP = <span style="color:#60E">0.5</span>*(
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span>             r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>            +r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>            +r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>          )
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>    CDP = <span style="color:#60E">0.5</span>*(
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>             r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>            +r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>            +r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>          )
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>    DAP = <span style="color:#60E">0.5</span>*(
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>             r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>            +r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>            +r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>          )
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>    <span style="color:#080;font-weight:bold">return</span> areaRectangle == (ABP+BCP+CDP+DAP)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">isPinRectangle</span>(r, P):
+    <span style="color:#D42"><span style="color:black">"""</span><span>
+</span><span>        r: A list of four points, each has a x- and a y- coordinate</span><span>
+</span><span>        P: A point</span><span>
+</span><span>    </span><span style="color:black">"""</span></span>
+
+    areaRectangle = <span style="color:#60E">0.5</span>*<span style="color:#369;font-weight:bold">abs</span>(
+        <span style="color:#777">#                 y_A      y_C      x_D      x_B</span>
+                        (r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])*(r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>])
+        <span style="color:#777">#                  y_B     y_D       x_A     x_C</span>
+                      + (r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])*(r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>])
+                    )
+
+    ABP = <span style="color:#60E">0.5</span>*(
+             r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
+          )
+    BCP = <span style="color:#60E">0.5</span>*(
+             r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
+          )
+    CDP = <span style="color:#60E">0.5</span>*(
+             r[<span style="color:#00D">2</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">2</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
+          )
+    DAP = <span style="color:#60E">0.5</span>*(
+             r[<span style="color:#00D">3</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">0</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">1</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>])
+            +r[<span style="color:#00D">1</span>][<span style="color:#00D">0</span>]*(r[<span style="color:#00D">3</span>][<span style="color:#00D">1</span>]-r[<span style="color:#00D">0</span>][<span style="color:#00D">1</span>])
+          )
+    <span style="color:#080;font-weight:bold">return</span> areaRectangle == (ABP+BCP+CDP+DAP)
 </pre></div>
 </div>
 </div>
@@ -215,61 +215,61 @@ $A_\text{triangle} = \frac{1}{2} (x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2))$</
 <p>The same idea can easily be adopted to triangles:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1" id="n1">1</a></span><span style="color:#777">#!/usr/bin/env python</span>
-<span class="line-numbers"> <a href="#n2" name="n2" id="n2">2</a></span><span style="color:#777"># -*- coding: utf-8 -*-</span>
-<span class="line-numbers"> <a href="#n3" name="n3" id="n3">3</a></span>
-<span class="line-numbers"> <a href="#n4" name="n4" id="n4">4</a></span><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Point</span>:
-<span class="line-numbers"> <a href="#n5" name="n5" id="n5">5</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Represents a two dimensional point.</span><span style="color:black">"""</span></span>
-<span class="line-numbers"> <a href="#n6" name="n6" id="n6">6</a></span>
-<span class="line-numbers"> <a href="#n7" name="n7" id="n7">7</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>, x, y):
-<span class="line-numbers"> <a href="#n8" name="n8" id="n8">8</a></span>        <span style="color:#069">self</span>.x = x
-<span class="line-numbers"> <a href="#n9" name="n9" id="n9">9</a></span>        <span style="color:#069">self</span>.y = y
-<span class="line-numbers"><strong><a href="#n10" name="n10" id="n10">10</a></strong></span>
-<span class="line-numbers"><a href="#n11" name="n11" id="n11">11</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__get__</span>(<span style="color:#069">self</span>, obj, cls=<span style="color:#069">None</span>):
-<span class="line-numbers"><a href="#n12" name="n12" id="n12">12</a></span>        <span style="color:#080;font-weight:bold">return</span> obj
-<span class="line-numbers"><a href="#n13" name="n13" id="n13">13</a></span>
-<span class="line-numbers"><a href="#n14" name="n14" id="n14">14</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__repr__</span>(<span style="color:#069">self</span>):
-<span class="line-numbers"><a href="#n15" name="n15" id="n15">15</a></span>        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">P(%.2lf|%.2lf)</span><span style="color:#710">"</span></span> % (<span style="color:#069">self</span>.x, <span style="color:#069">self</span>.y)
-<span class="line-numbers"><a href="#n16" name="n16" id="n16">16</a></span>
-<span class="line-numbers"><a href="#n17" name="n17" id="n17">17</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__str__</span>(<span style="color:#069">self</span>):
-<span class="line-numbers"><a href="#n18" name="n18" id="n18">18</a></span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">repr</span>(<span style="color:#069">self</span>)
-<span class="line-numbers"><a href="#n19" name="n19" id="n19">19</a></span>
-<span class="line-numbers"><strong><a href="#n20" name="n20" id="n20">20</a></strong></span><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Triangle</span>:
-<span class="line-numbers"><a href="#n21" name="n21" id="n21">21</a></span>    <span style="color:#D42"><span style="color:black">"""</span><span>Represents a triangle in R^2.</span><span style="color:black">"""</span></span>
-<span class="line-numbers"><a href="#n22" name="n22" id="n22">22</a></span>
-<span class="line-numbers"><a href="#n23" name="n23" id="n23">23</a></span>    epsilon = <span style="color:#60E">0.001</span>
-<span class="line-numbers"><a href="#n24" name="n24" id="n24">24</a></span>
-<span class="line-numbers"><a href="#n25" name="n25" id="n25">25</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>, a, b, c):
-<span class="line-numbers"><a href="#n26" name="n26" id="n26">26</a></span>        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(a, Point)
-<span class="line-numbers"><a href="#n27" name="n27" id="n27">27</a></span>        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(b, Point)
-<span class="line-numbers"><a href="#n28" name="n28" id="n28">28</a></span>        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(c, Point)
-<span class="line-numbers"><a href="#n29" name="n29" id="n29">29</a></span>        <span style="color:#069">self</span>.a = a
-<span class="line-numbers"><strong><a href="#n30" name="n30" id="n30">30</a></strong></span>        <span style="color:#069">self</span>.b = b
-<span class="line-numbers"><a href="#n31" name="n31" id="n31">31</a></span>        <span style="color:#069">self</span>.c = c
-<span class="line-numbers"><a href="#n32" name="n32" id="n32">32</a></span>
-<span class="line-numbers"><a href="#n33" name="n33" id="n33">33</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">getArea</span>(<span style="color:#069">self</span>):
-<span class="line-numbers"><a href="#n34" name="n34" id="n34">34</a></span>        <span style="color:#D42"><span style="color:black">"""</span><span>Get area of this triangle.</span><span></span></span>
-<span class="line-numbers"><a href="#n35" name="n35" id="n35">35</a></span><span style="color:#D42"><span></span><span>           &gt;&gt;&gt; Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span><span></span></span>
-<span class="line-numbers"><a href="#n36" name="n36" id="n36">36</a></span><span style="color:#D42"><span></span><span>           50.0</span><span></span></span>
-<span class="line-numbers"><a href="#n37" name="n37" id="n37">37</a></span><span style="color:#D42"><span></span><span>           &gt;&gt;&gt; Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span><span></span></span>
-<span class="line-numbers"><a href="#n38" name="n38" id="n38">38</a></span><span style="color:#D42"><span></span><span>           100.0</span><span></span></span>
-<span class="line-numbers"><a href="#n39" name="n39" id="n39">39</a></span><span style="color:#D42"><span></span><span>        </span><span style="color:black">"""</span></span>
-<span class="line-numbers"><strong><a href="#n40" name="n40" id="n40">40</a></strong></span>        a, b, c = <span style="color:#069">self</span>.a, <span style="color:#069">self</span>.b, <span style="color:#069">self</span>.c
-<span class="line-numbers"><a href="#n41" name="n41" id="n41">41</a></span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">abs</span>(a.x*(b.y-c.y)+b.x*(c.y-a.y)+c.x*(a.y-b.y))/<span style="color:#00D">2</span>
-<span class="line-numbers"><a href="#n42" name="n42" id="n42">42</a></span>
-<span class="line-numbers"><a href="#n43" name="n43" id="n43">43</a></span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">isInside</span>(<span style="color:#069">self</span>, p):
-<span class="line-numbers"><a href="#n44" name="n44" id="n44">44</a></span>        <span style="color:#D42"><span style="color:black">"""</span><span>Check if p is inside this triangle.</span><span style="color:black">"""</span></span>
-<span class="line-numbers"><a href="#n45" name="n45" id="n45">45</a></span>        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(p, Point)
-<span class="line-numbers"><a href="#n46" name="n46" id="n46">46</a></span>        currentArea = <span style="color:#069">self</span>.getArea()
-<span class="line-numbers"><a href="#n47" name="n47" id="n47">47</a></span>        pab = Triangle(p,<span style="color:#069">self</span>.a, <span style="color:#069">self</span>.b)
-<span class="line-numbers"><a href="#n48" name="n48" id="n48">48</a></span>        pac = Triangle(p,<span style="color:#069">self</span>.a, <span style="color:#069">self</span>.c)
-<span class="line-numbers"><a href="#n49" name="n49" id="n49">49</a></span>        pbc = Triangle(p,<span style="color:#069">self</span>.b, <span style="color:#069">self</span>.c)
-<span class="line-numbers"><strong><a href="#n50" name="n50" id="n50">50</a></strong></span>        newArea = pab.getArea()+pac.getArea()+pbc.getArea()
-<span class="line-numbers"><a href="#n51" name="n51" id="n51">51</a></span>        <span style="color:#080;font-weight:bold">return</span> (<span style="color:#369;font-weight:bold">abs</span>(currentArea - newArea) &lt; Triangle.epsilon)
-<span class="line-numbers"><a href="#n52" name="n52" id="n52">52</a></span>
-<span class="line-numbers"><a href="#n53" name="n53" id="n53">53</a></span><span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
-<span class="line-numbers"><a href="#n54" name="n54" id="n54">54</a></span>    <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">doctest</span>
-<span class="line-numbers"><a href="#n55" name="n55" id="n55">55</a></span>    doctest.testmod()
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Point</span>:
+    <span style="color:#D42"><span style="color:black">"""</span><span>Represents a two dimensional point.</span><span style="color:black">"""</span></span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>, x, y):
+        <span style="color:#069">self</span>.x = x
+        <span style="color:#069">self</span>.y = y
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__get__</span>(<span style="color:#069">self</span>, obj, cls=<span style="color:#069">None</span>):
+        <span style="color:#080;font-weight:bold">return</span> obj
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__repr__</span>(<span style="color:#069">self</span>):
+        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">P(%.2lf|%.2lf)</span><span style="color:#710">"</span></span> % (<span style="color:#069">self</span>.x, <span style="color:#069">self</span>.y)
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__str__</span>(<span style="color:#069">self</span>):
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">repr</span>(<span style="color:#069">self</span>)
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Triangle</span>:
+    <span style="color:#D42"><span style="color:black">"""</span><span>Represents a triangle in R^2.</span><span style="color:black">"""</span></span>
+
+    epsilon = <span style="color:#60E">0.001</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>, a, b, c):
+        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(a, Point)
+        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(b, Point)
+        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(c, Point)
+        <span style="color:#069">self</span>.a = a
+        <span style="color:#069">self</span>.b = b
+        <span style="color:#069">self</span>.c = c
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">getArea</span>(<span style="color:#069">self</span>):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Get area of this triangle.</span><span>
+</span><span>           &gt;&gt;&gt; Triangle(Point(0.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span><span>
+</span><span>           50.0</span><span>
+</span><span>           &gt;&gt;&gt; Triangle(Point(-10.,0.), Point(10.,0.), Point(10.,10.)).getArea()</span><span>
+</span><span>           100.0</span><span>
+</span><span>        </span><span style="color:black">"""</span></span>
+        a, b, c = <span style="color:#069">self</span>.a, <span style="color:#069">self</span>.b, <span style="color:#069">self</span>.c
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#369;font-weight:bold">abs</span>(a.x*(b.y-c.y)+b.x*(c.y-a.y)+c.x*(a.y-b.y))/<span style="color:#00D">2</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">isInside</span>(<span style="color:#069">self</span>, p):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Check if p is inside this triangle.</span><span style="color:black">"""</span></span>
+        <span style="color:#080;font-weight:bold">assert</span> <span style="color:#369;font-weight:bold">isinstance</span>(p, Point)
+        currentArea = <span style="color:#069">self</span>.getArea()
+        pab = Triangle(p,<span style="color:#069">self</span>.a, <span style="color:#069">self</span>.b)
+        pac = Triangle(p,<span style="color:#069">self</span>.a, <span style="color:#069">self</span>.c)
+        pbc = Triangle(p,<span style="color:#069">self</span>.b, <span style="color:#069">self</span>.c)
+        newArea = pab.getArea()+pac.getArea()+pbc.getArea()
+        <span style="color:#080;font-weight:bold">return</span> (<span style="color:#369;font-weight:bold">abs</span>(currentArea - newArea) &lt; Triangle.epsilon)
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">doctest</span>
+    doctest.testmod()
 </pre></div>
 </div>
 </div>
