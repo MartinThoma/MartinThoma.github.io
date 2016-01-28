@@ -16,7 +16,11 @@ Artificial Intelligences (A.I.s) are computer programs that are able to adjust
 their behaviour according to data they see. So A.I.s are able to adjust to
 the data a human player generates.
 
-{% caption align="aligncenter" width="512" caption="Password Strength" url="http://imgs.xkcd.com/comics/game_ais.png" alt="Game A.I.s"  height="601" class="size-medium" %}
+<figure>
+    <img src="http://imgs.xkcd.com/comics/game_ais.png" alt="Game A.I.s">
+    <figcaption>Game A.I.s</figcaption>
+</figure>
+
 
 ## Solved games
 
