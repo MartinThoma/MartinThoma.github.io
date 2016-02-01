@@ -43,8 +43,17 @@ And some options were not simple / good enough:
   still want to keep it. Just in case.
 
 
+## Books
+
+* Native Germans learning Portugues: Klett: "Beleza!". ISBN 978-3-12-528910-9.
+
+
 ## Links
 
 * [Google Translate](https://translate.google.com/#pt/en/sou%20carioca)
-* http://verben.woxikon.de/verbformen-portugiesisch/trabalhar.php
-* http://www.portugiesischkurs.net/index.php?id=verbenkonjugator&pw=falar&pwID=1181
+* [German ↔ Portugues](http://dict.leo.org/ptde/index_de.html)
+* Conjugate verbs:
+    * http://verben.woxikon.de/verbformen-portugiesisch/trabalhar.php
+    * http://www.conjugateverb.com/pt/viver
+    * http://www.conjuga-me.net/en/verbo-querer
+    * http://www.portugiesischkurs.net/index.php?id=verbenkonjugator&pw=falar&pwID=1181
