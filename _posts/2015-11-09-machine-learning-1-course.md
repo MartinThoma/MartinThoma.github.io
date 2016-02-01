@@ -17,13 +17,6 @@ featured_image: logos/klausur.png
 
 Slide name: `ML-Einordnungskriterien.pdf`
 
-* **Inferenztyp**: Induktiv (Version Space Algorithmus, , <abbr title="Case-Based">CBR</abbr>, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (; Von allgemeinen auf spezielles)
-* **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
-* **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (\\(k\\)-Means)
-* **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht&nbsp;inkrementell (\\(k\\)-Means, \\(k\\)-NN, ID3)
-* **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
-* **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (EBG)
-
 <table class="table">
     <thead>
         <tr>
@@ -52,24 +45,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
     </thead>
     <tbody>
         <tr>
-            <td>&nbsp;</td>
-            <td>k-means clustering</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td><abbr title="k nearest neighbor">\\(k\\)-NN</abbr></td>
+            <td colspan="2"><abbr title="k nearest neighbor"><span markdown="0">\(k\)</span>-NN</abbr></td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
@@ -84,8 +60,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td><abbr title="Support Vector Machines">SVMs</abbr></td>
+            <td colspan="2"><abbr title="Support Vector Machines">SVMs</abbr></td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
@@ -131,8 +106,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td>CBR</td>
+            <td colspan="2">CBR</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">x</td>
@@ -147,8 +121,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td><abbr title="Erklärungsbasierte Generalisierung">EBG</abbr></td>
+            <td colspan="2"><abbr title="Erklärungsbasierte Generalisierung">EBG</abbr></td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">x</td>
@@ -194,8 +167,37 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td>Version-Space Algorithmus</td>
+            <td colspan="2">Bayessche Netze</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">HMMs</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">Version-Space Algorithmus</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">x</td>
@@ -210,8 +212,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td>Specific-to-General Konzeptlernen</td>
+            <td colspan="2">Specific-to-General Konzeptlernen</td>
             <td style="text-align: center;">?</td>
             <td style="text-align: center;">?</td>
             <td style="text-align: center;">x</td>
@@ -226,40 +227,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">?</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td>Bayessche Netze</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>HMMs</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>AHC</td>
+            <td colspan="2">k-means clustering</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
@@ -274,8 +242,22 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td>COBWEB</td>
+            <td colspan="2">AHC</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">COBWEB</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">x</td>
