@@ -15,6 +15,7 @@ alias: /programmierparadigmen/index.html
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Programmierparadigmen&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn Prof. Dr. Snelting im Wintersemester 2013/2014 gehört.</div>
 
 ## Behandelter Stoff ##
+
 ### Vorlesung ###
 <table>
 <tr>
@@ -96,6 +97,7 @@ alias: /programmierparadigmen/index.html
 </table>
 
 ### Tutorium ###
+
 #### 16.12.2013 ####
 
 ```haskell
