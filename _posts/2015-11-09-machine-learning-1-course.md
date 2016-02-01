@@ -26,7 +26,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <th colspan="2" style="text-align: center; border-right: solid;">Lernvorgang</th>
             <th colspan="2" style="text-align: center; border-right: solid;">Beispielgebung</th>
             <th colspan="2" style="text-align: center; border-right: solid;">Beispielumfang</th>
-            <th colspan="2" style="text-align: center; border-right: solid;">Hintergrundwissen</th>
+            <th colspan="2" style="text-align: center;">Hintergrundwissen</th>
         </tr>
         <tr>
             <td style="text-align: center;"><abbr title="induktiv">ind.</abbr></td>
@@ -60,7 +60,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2"><abbr title="Support Vector Machines">SVMs</abbr></td>
+            <td colspan="2"><abbr title="Support Vector Machines"><a href="#svm">SVMs</a></abbr></td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
@@ -75,10 +75,10 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="1" rowspan="2">Decision Trees</td>
+            <td colspan="1" rowspan="2"><a href="#decision-trees">Decision Trees</a></td>
             <td>ID3</td>
-            <td style="text-align: center; border-right: solid;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">x</td>
@@ -152,7 +152,7 @@ Slide name: `ML-Einordnungskriterien.pdf`
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">HMMs</td>
+            <td colspan="2"><abbr title="Hidden Markov Models"><a href="#hmm">HMMs</a></abbr></td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
@@ -784,7 +784,7 @@ Slide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`
   aber das auswerten vergleichsweise billig ist?
 
 
-### SVM
+### <a name="svm"></a> SVM
 
 Slide name: `MLI_07_SVM_slides1.pdf`
 
@@ -827,7 +827,7 @@ Dieser Term wird in der <i>Structural Risc Minimization</i> minimiert.
 </div>
 
 
-### Entscheidungsbäume
+### <a name="decision-trees"></a> Entscheidungsbäume
 
 Slide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`
 
@@ -972,7 +972,7 @@ Fragen:
 * [Is there any domain where Bayesian Networks outperform neural networks?](http://datascience.stackexchange.com/q/9818/8820)
 
 
-### HMM
+### <a name="hmm"></a> HMM
 
 Slide name: `MLI_10_HMM_slides1.pdf`
 
@@ -1312,12 +1312,7 @@ Slides: `MLI_14_UnueberwachtesLernen_slides1.pdf`
 
         Ergebisse können durch ein Dendrogramm beschrieben werden.
 
-        Anwendung:
-
-        <ul>
-            <li>Einordnung von Schrauben in ein Ordnungssystem</li>
-            <li></li>
-        </ul>
+        Anwendung: Einordnung von Schrauben in ein Ordnungssystem
     </dd>
     <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>
     <dd>AHC ist ein hierarchisches Clusteringverfahren.
