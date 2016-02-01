@@ -17,12 +17,282 @@ featured_image: logos/klausur.png
 
 Slide name: `ML-Einordnungskriterien.pdf`
 
-* **Inferenztyp**: Induktiv (Version Space Algorithmus, <abbr title="k nearest neighbor">\\(k\\)-NN</abbr>, <abbr title="Case-Based">CBR</abbr>, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (<abbr title="Erklärungsbasierte Generalisierung">EBG</abbr>; Von allgemeinen auf spezielles)
+* **Inferenztyp**: Induktiv (Version Space Algorithmus, , <abbr title="Case-Based">CBR</abbr>, ID3, ID5R, von Beispielen auf allgemeine Regel "raten") ↔ Deduktiv (; Von allgemeinen auf spezielles)
 * **Lernebene**: symbolisch (Special-to-General Konzeptlernen, CBR, ID3, ID5R; Semantik in Daten von der der Algorithmus Gebrauch macht) ↔ subsymbolisch (Neuronale Netze, k-NN; Daten sind Signale)
 * **Lernvorgang**: überwacht (k-NN, CBR, ID3, ID5R) ↔ unüberwacht (\\(k\\)-Means)
 * **Beispielgebung**: inkrementell (Version Space Algorithmus, CBR, ID5R) ↔ nicht&nbsp;inkrementell (\\(k\\)-Means, \\(k\\)-NN, ID3)
 * **Beispielumfang**: umfangreich (Neuronale Netze, k-NN, ID3, ID5R) ↔ gering (CBR)
 * **Hintergrundwissen**: empirisch (SVMs, k-NN, CBR, ID3, ID5R) ↔ axiomatisch (EBG)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th rowspan="2" colspan="2">Algorithmus</th>
+            <th colspan="2" style="text-align: center;">Inferenztyp</th>
+            <th colspan="2" style="text-align: center;">Lernebene</th>
+            <th colspan="2" style="text-align: center;">Lernvorgang</th>
+            <th colspan="2" style="text-align: center;">Beispielgebung</th>
+            <th colspan="2" style="text-align: center;">Beispielumfang</th>
+            <th colspan="2" style="text-align: center;">Hintergrundwissen</th>
+        </tr>
+        <tr>
+            <td style="text-align: center;"><abbr title="induktiv">ind.</abbr></td>
+            <td style="text-align: center;"><abbr title="deduktiv">ded.</abbr></td>
+            <td style="text-align: center;"><abbr title="symbolisch">symb.</abbr></td>
+            <td style="text-align: center;"><abbr title="subsymbolisch">subsymb.</abbr></td>
+            <td style="text-align: center;">&uuml;berwacht</td>
+            <td style="text-align: center;"><abbr title="unüberwacht">un&uuml;b.</abbr></td>
+            <td style="text-align: center;"><abbr title="inkrementell">inkr.</abbr></td>
+            <td style="text-align: center;"><abbr title="nicht inkrementell">nicht inkr.</abbr></td>
+            <td style="text-align: center;">gering</td>
+            <td style="text-align: center;">gro&szlig;</td>
+            <td style="text-align: center;"><abbr title="empirisch">emp.</abbr></td>
+            <td style="text-align: center;"><abbr title="axiomatisch">axio.</abbr></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+            <td>k-means clustering</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><abbr title="k nearest neighbor">\\(k\\)-NN</abbr></td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><abbr title="Support Vector Machines">SVMs</abbr></td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="1" rowspan="2">Decision Trees</td>
+            <td>ID3</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>ID5R</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>CBR</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><abbr title="Erklärungsbasierte Generalisierung">EBG</abbr></td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+        </tr>
+        <tr>
+            <td colspan="1" rowspan="2"><abbr title="neuronale Netze">NN</abbr></td>
+            <td>klassisch</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Auto-Encoder</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Version-Space Algorithmus</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Specific-to-General Konzeptlernen</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">-</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+            <td style="text-align: center;">?</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Bayessche Netze</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>HMMs</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>AHC</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>COBWEB</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+
+
 
 
 ### Einführung
@@ -169,7 +439,8 @@ Siehe auch:
 
       Es gilt: \[Q^\pi(s, \pi(s)) = V^\pi(s)\]</dd>
    <dt><a name="rl-eligibility-trace"></a><dfn>Eligibility Traces</dfn></dt>
-   <dd>
+   <dd>Die Idee scheint einfach zu sein, dass man ein späteres Update auch auf
+       frühere Ereignisse "zurückpropagiert".
        TODO
 
        See also: <a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html">Reinforcement Learning: An Introduction</a> by Sutton.
@@ -1146,7 +1417,8 @@ until c = c'
     <li>SVMs
     <ul>
         <li>Wie funktioniert SRM bei SVMs?<br/>
-            → TODO (Dualität zwischen Feature- und Hypothesenraum?)</li>
+            → Dualität zwischen Feature- und Hypothesenraum: Radius der Hyperkugel
+               wird minimiert.</li>
         <li>Warum lernen SVMs "korrekt"?<br/>
             → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension
             eines Klassifiers, welcher Datenpunkte im \(n\)-Dimensionalen Raum
