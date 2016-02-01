@@ -21,24 +21,24 @@ Slide name: `ML-Einordnungskriterien.pdf`
     <thead>
         <tr>
             <th rowspan="2" colspan="2">Algorithmus</th>
-            <th colspan="2" style="text-align: center;">Inferenztyp</th>
-            <th colspan="2" style="text-align: center;">Lernebene</th>
-            <th colspan="2" style="text-align: center;">Lernvorgang</th>
-            <th colspan="2" style="text-align: center;">Beispielgebung</th>
-            <th colspan="2" style="text-align: center;">Beispielumfang</th>
-            <th colspan="2" style="text-align: center;">Hintergrundwissen</th>
+            <th colspan="2" style="text-align: center; border-right: solid;">Inferenztyp</th>
+            <th colspan="2" style="text-align: center; border-right: solid;">Lernebene</th>
+            <th colspan="2" style="text-align: center; border-right: solid;">Lernvorgang</th>
+            <th colspan="2" style="text-align: center; border-right: solid;">Beispielgebung</th>
+            <th colspan="2" style="text-align: center; border-right: solid;">Beispielumfang</th>
+            <th colspan="2" style="text-align: center; border-right: solid;">Hintergrundwissen</th>
         </tr>
         <tr>
             <td style="text-align: center;"><abbr title="induktiv">ind.</abbr></td>
-            <td style="text-align: center;"><abbr title="deduktiv">ded.</abbr></td>
+            <td style="text-align: center; border-right: solid;"><abbr title="deduktiv">ded.</abbr></td>
             <td style="text-align: center;"><abbr title="symbolisch">symb.</abbr></td>
-            <td style="text-align: center;"><abbr title="subsymbolisch">subsymb.</abbr></td>
+            <td style="text-align: center; border-right: solid;"><abbr title="subsymbolisch">subsymb.</abbr></td>
             <td style="text-align: center;">&uuml;berwacht</td>
-            <td style="text-align: center;"><abbr title="unüberwacht">un&uuml;b.</abbr></td>
+            <td style="text-align: center; border-right: solid;"><abbr title="unüberwacht">un&uuml;b.</abbr></td>
             <td style="text-align: center;"><abbr title="inkrementell">inkr.</abbr></td>
-            <td style="text-align: center;"><abbr title="nicht inkrementell">nicht inkr.</abbr></td>
+            <td style="text-align: center; border-right: solid;"><abbr title="nicht inkrementell">nicht inkr.</abbr></td>
             <td style="text-align: center;">gering</td>
-            <td style="text-align: center;">gro&szlig;</td>
+            <td style="text-align: center; border-right: solid;">gro&szlig;</td>
             <td style="text-align: center;"><abbr title="empirisch">emp.</abbr></td>
             <td style="text-align: center;"><abbr title="axiomatisch">axio.</abbr></td>
         </tr>
@@ -47,229 +47,229 @@ Slide name: `ML-Einordnungskriterien.pdf`
         <tr>
             <td colspan="2"><abbr title="k nearest neighbor"><span markdown="0">\(k\)</span>-NN</abbr></td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2"><abbr title="Support Vector Machines">SVMs</abbr></td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="1" rowspan="2">Decision Trees</td>
             <td>ID3</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td>ID5R</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="2">CBR</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="2"><abbr title="Erklärungsbasierte Generalisierung">EBG</abbr></td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
         </tr>
         <tr>
             <td colspan="1" rowspan="2"><abbr title="neuronale Netze">NN</abbr></td>
             <td>klassisch</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td>Auto-Encoder</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">Bayessche Netze</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">HMMs</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">Version-Space Algorithmus</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">Specific-to-General Konzeptlernen</td>
             <td style="text-align: center;">?</td>
-            <td style="text-align: center;">?</td>
+            <td style="text-align: center; border-right: solid;">?</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">-</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">?</td>
+            <td style="text-align: center; border-right: solid;">?</td>
             <td style="text-align: center;">?</td>
+            <td style="text-align: center; border-right: solid;">?</td>
             <td style="text-align: center;">?</td>
-            <td style="text-align: center;">?</td>
-            <td style="text-align: center;">?</td>
-            <td style="text-align: center;">?</td>
+            <td style="text-align: center; border-right: solid;">?</td>
             <td style="text-align: center;">?</td>
             <td style="text-align: center;">?</td>
         </tr>
         <tr>
             <td colspan="2">k-means clustering</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">AHC</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">x</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">COBWEB</td>
             <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">x</td>
             <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">CBR</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2"><abbr title="Erklärungsbasierte Generalisierung">EBG</abbr></td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center; border-right: solid;">x</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
+            <td style="text-align: center;">x</td>
+            <td style="text-align: center; border-right: solid;">&nbsp;</td>
             <td style="text-align: center;">&nbsp;</td>
             <td style="text-align: center;">x</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
-            <td style="text-align: center;">x</td>
-            <td style="text-align: center;">&nbsp;</td>
         </tr>
     </tbody>
 </table>
