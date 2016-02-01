@@ -230,6 +230,43 @@ maximum exactness). Then I could read what other people think of something,
 even if there is no comments section.
 
 
+## Charity Search & Find
+
+"Vermittlung" ([recruiting?](http://ell.stackexchange.com/q/80159/11067)) of
+people who have the ability needed for charity organizations.
+
+People:
+
+* profile / abilities
+    * Text, grade / level?
+    * tags?
+* location
+* Karma?
+* Filtering
+
+Projects:
+
+* Profile page for each project
+* photos
+* members / oranization / roles / karma / contributers
+* domain
+
+Other elements:
+
+* Forum: phpBB? Disqus?
+* File uploads: Imgur?
+* Calendar
+* E-Mail list: GNU Mailman?
+* Surveys: Limemonkey?
+
+
+## Database administration interface
+
+It would be nice to have a database administration interface similar to
+phpMyAdmin for other databases, too (postgres, sqlite). One could also make
+it a web service (dbadmin.io or something similar).
+
+
 ## Chrome
 I had some <a href="../how-chrome-could-be-improved-2nd-post/">ideas how to improve Chrome</a>.
 
