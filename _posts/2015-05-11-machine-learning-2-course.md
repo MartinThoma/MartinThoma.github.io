@@ -432,7 +432,10 @@ I suggest reading the first two chapters of the online book
 <a href="http://www.gaussianprocess.org/">gaussianprocess.org</a> before
 starting to read the slides.
 
-See also: [Function Approximation](https://martin-thoma.com/function-approximation/)
+See also:
+
+* [Function Approximation](https://martin-thoma.com/function-approximation/)
+* The Talking Machines: [OpenAI and Gaussian Processes](http://www.thetalkingmachines.com/blog/2016/1/28/openai-and-gaussian-processes)
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Lineare_Regression"><dfn>Lineare Regression</dfn></a></dt>
