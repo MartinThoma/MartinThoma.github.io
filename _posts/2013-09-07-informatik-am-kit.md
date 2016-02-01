@@ -133,7 +133,7 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium beträgt 6 Semester und 180
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>Programmierparadigmen</td>
+    <td><a href="../programmierparadigmen-klausur/">Programmierparadigmen</a></td>
     <td>6</td>
     <td>&nbsp;</td>
   </tr>
@@ -146,7 +146,7 @@ Die Regelstudienzeit des Bachelor-Informatik-Studium beträgt 6 Semester und 180
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>$\sum$</td>
+    <td><span markdown="0">\(\sum\)</span></td>
     <td>124</td>
     <td>&nbsp;</td>
   </tr>
@@ -224,10 +224,12 @@ Auf Anfrage kann man aber wohl noch weitere machen. So studiert ein Bekannter in
   <tr>
     <td><a href="../eaz-klausur/">Einführung in die Algebra und Zahlentheorie</a></td>
     <td>9</td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>Topologie und Geometrie</td>
     <td>9</td>
+    <td>&nbsp;</td>
   </tr>
 </table>
 
