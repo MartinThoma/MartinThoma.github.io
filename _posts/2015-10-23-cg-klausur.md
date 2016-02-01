@@ -95,7 +95,83 @@ featured_image: logos/klausur.png
 
 ### Folien
 
-#### 10.12.2015
+#### Bilder, Farbe, Perzeption
+
+Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
+
+<dl>
+    <dt><dfn>Frame Buffer</dfn></dt>
+    <dd>Speichert Bilder zur direkten wiedergabe auf dem Bildschirm.</dd>
+    <dt><dfn>Ditherhing</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Dynamikumfang</dfn></dt>
+    <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegrätes (Bildschirm, Beamer):
+        \[R_d = \frac{I_{\text{max} + k}}{I_{\text{min}} + k}\]
+
+        TODO: Was ist \(k\)? Was ist \(I_{max} / I_{min}\)?</dd>
+    <dt><dfn>Gamma-Korrektur</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Transferfunktion</dfn></dt>
+    <dd>TODO</dd>
+</dl>
+
+Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
+
+<dl>
+    <dt><dfn>Additive Farmbischung</dfn></dt>
+    <dd>Grundfarben: Rot, Grün, Blau<br/>
+        Anwendung: Bildschirm</dd>
+    <dt><dfn>Subtraktive Farbmischung</dfn></dt>
+    <dd>Grundfarben: Cyan, Magenta, Gelb<br/>
+        Anwendung: Drucker</dd>
+    <dt><dfn>Graßmansche Gesetze</dfn></dt>
+    <dd>Jeder Farbeindruck kann mit 3 Grundgrößen beschrieben werden.</dd>
+</dl>
+
+* RGB-Farbraum
+* HSV-Farbraum
+* CIE Color Matching Functions
+* XYZ Color Space
+* Chromatizität
+* xyY Farbraum
+* Weber-Fechner-Gesetz
+* Machsche Streifen / Bandeffekte
+* Hermann-Gitter / Laterale Hemmung
+* Windows clear type / Subpixel
+
+
+#### Raytracing
+
+Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
+
+* Nyquist-Shannon-Abtasttheorem
+* Vektoren, Ortsvektoren, Skalarprodukt
+* Parametrisierte Geraden- und Ebenendarstellung
+* Baryzentrische Koordinaten
+* Strahl-Kugel-Schnitt
+* Spekulare Reflektion
+* Diffuse (Lambertsche) Reflektion
+* BRDF - Bidirectional Reflectance Distribution Function
+* Phong Beleuchtungsmodell
+* Snellsches Brechungsgesetz
+* Fresnel-Effekt
+* Anti-Aliasing Strategien: Uniformes Supersampling, Adaptives Supersampling,
+  Stochastisches Supersampling
+* Schattenstrahlen
+* Bewegungs- und Tiefenunschärfe
+* Imperfekte Spiegelung und Transmission
+
+
+#### Räumliche Datenstrukturen
+
+Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
+
+* Hüllkörper
+  * Axis-Aligned Bounding Boxes (AABB)
+  * Bounding Volume Hierachies (BVH)
+* Reguläre Gitter
+* Oktalbaum (Octree)
+* kD-Baum
 
 <dl>
   <dt><dfn>BSP-Baum</dfn></dt>
@@ -103,6 +179,16 @@ featured_image: logos/klausur.png
   <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
   <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
 </dl>
+
+
+#### Rasterisierung, Clipping und Projektionstransformationen
+
+Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
+
+* Tiefenpuffer, Z-Buffer
+* Clipping
+* Sutherland-Hodgeman Polygon Clipping
+
 
 #### 19.01.2016
 
@@ -163,11 +249,29 @@ von eurem Rechner) die "Intel Virtualization Technology" aktiviert sein.
 aber auch nicht :-/)
 
 
+#### Blatt 6
+
+* [glm::gtx::transform](http://glm.g-truc.net/0.9.0/api/a00192.html)
+
+
 ## Material und Links
 
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
 * [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * [E-Mail Verteiler](https://lists.ira.uni-karlsruhe.de/mailman/listinfo/cg.cg)
+
+Siehe auch
+
+* [World, View and Projection Transformation Matrices](http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
+* [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
+* OpenGL [Tutorial 3 : Matrices](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
+
+
+## Literatur
+
+* P. Shirley, S. Marschner: Fundamentals of Computer Graphics, 3rd Edition<br/>
+  → Kapitel 3-4, Kapitel 7-9, Kapitel 11-12 (Data Structures for Graphics)
+
 
 ## Übungsbetrieb
 
