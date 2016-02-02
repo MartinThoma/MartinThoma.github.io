@@ -810,9 +810,9 @@ Bonuspunkte.
 
 ## Termine und Klausurablauf
 
-**Datum**: Mündliche Prüfung (in Zukunft schriftlich)<br/>
-**Ort**: nach Absprache<br/>
-**Zeit**: 15&nbsp;min<br/>
+**Datum**: Freitag, der 29.07.2016 von 12:30-13:30 Uhr<br/>
+**Ort**: Hörsäle Hertz, Gr. HS und MTI<br/>
+**Zeit**: 60&nbsp;min<br/>
 **Übungsschein**: gibt es nicht<br/>
 **Bonuspunkte**: gibt es nicht<br/>
 **Ergebnisse**: werden ca. 5&nbsp;-&nbsp;10&nbsp;min. nach der mündlichen Prüfung gesagt<br/>
