@@ -257,7 +257,7 @@ Wurde durch die WCF gepr&auml;gt und ist <a href="http://stackoverflow.com/q/889
   <li>Address (Wo ist der Endpoint?)</li>
   <li>Binding (Wie verbinde ich? Protokoll? Encoding?)</li>
   <li>Contract (Welche Informationen will ich &uuml;bertragen?)</li>
-</li>
+</ul>
 Siehe auch: <a href="http://fczaja.blogspot.de/2010/10/wcf-endpoint-abc.html">Filip's Technical Blog</a>
 </div>
 </div>
@@ -299,6 +299,7 @@ Workshops &rarr; Notes from members &rarr; Briefing package with membership vote
 </div>
 </div>
 
+
 <h2>Hintergrundwissen</h2>
 <a href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/">What really happens when you navigate to a URL</a>
 <ul>
@@ -310,7 +311,7 @@ Workshops &rarr; Notes from members &rarr; Briefing package with membership vote
 <h2>Termine</h2>
 Web Engineering wird m&uuml;ndlich gepr&uuml;ft. Dazu muss man sich bei Herrn Matthias Keller (matthias.keller@kit.edu) melden und einen Termin ausmachen. Zus&auml;tzlich muss man sich &uuml;ber QISPOS anmelden.
 
-<strong>Datum</strong>: Dienstag, der 19. Februar 2013 um 14:30 Uhr (individuell, siehe Organisation)
-<strong>Ort</strong>: Geb. 20.21 (SCC), Raum 303 (individuell, siehe Organisation)
-<strong>Dauer</strong>: 15 Minuten
+<strong>Datum</strong>: Dienstag, der 19. Februar 2013 um 14:30 Uhr (individuell, siehe Organisation)<br/>
+<strong>Ort</strong>: Geb. 20.21 (SCC), Raum 303 (individuell, siehe Organisation)<br/>
+<strong>Dauer</strong>: 15 Minuten<br/>
 <strong>Punkte</strong>: 4 ECTS
