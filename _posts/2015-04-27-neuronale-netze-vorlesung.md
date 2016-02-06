@@ -46,7 +46,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>12.05.2015</td>
     <td>Auto-Encoder</td>
-    <td>Denoising- und Sparse Autoencoder, Bottleneck-Features<a href="https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz">Kullback-Leibler-Divergenz</a>; <a href="https://de.wikipedia.org/wiki/Kettenregel#Mathematische_Formulierung">Kettenregel</a></td>
+    <td>Denoising- und Sparse Autoencoder, Bottleneck-Features, <a href="https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz">Kullback-Leibler-Divergenz</a>; <a href="https://de.wikipedia.org/wiki/Kettenregel#Mathematische_Formulierung">Kettenregel</a></td>
 </tr>
 <tr>
     <td>13.05.2015</td>
@@ -99,7 +99,7 @@ featured_image: logos/klausur.png
 * Features: Nominal, Ordinal, Intervallskaliert, Verhältnisskaliert
 
 <dl>
-  <dt><dfn>Bayes-Rule</dfn> (Source: <a href="https://en.wikipedia.org/wiki/Bayes%27_rule">wikipedia</a>)</dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Bayes%27_rule"><dfn>Bayes-Rule</dfn></a></dt>
   <dd>Given events \(A_1\), \(A_2\) and \(B\), Bayes' rule states that the conditional odds of \(A_1:A_2\) given \(B\) are equal to the marginal odds of \(A_1:A_2\) multiplied by the Bayes factor or likelihood ratio \(\Lambda\):
 
 \[O(A_1:A_2|B) = \Lambda(A_1:A_2|B) \cdot O(A_1:A_2) ,\]
@@ -119,7 +119,7 @@ where
       \(f(x) = \frac {1}{\sigma\sqrt{2\pi}} e^{-\frac {1}{2} \left(\frac{x-\mu}{\sigma}\right)^2}\)<br/>
       heißt \(\mathcal N\left(\mu, \sigma^2\right)\)-verteilt, normalverteilt
       mit den Erwartungswert \(\mu\) und Varianz \(\sigma^2\).</dd>
-  <dt><dfn>Multivariate Normalverteilung</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung">Wikipedia</a>)</dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung"><dfn>Multivariate Normalverteilung</dfn></a></dt>
   <dd>Eine \(p\)-dimensionale reelle Zufallsvariable \(X\) ist normalverteilt
       mit Erwartungswertvektor \(\mu\) und  (positiv definiter) Kovarianzmatrix
       \(\Sigma\), wenn sie eine Dichtefunktion der Form
@@ -129,7 +129,7 @@ besitzt. Man schreibt
   <dt><dfn>Gauß'scher Klassifizierer</dfn></dt>
   <dd>Ein (naiver) Bayes-Klassifikator, welcher von normalverteilten Daten
       ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
-  <dt><dfn>Principal Component Analysis</dfn> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn> - vgl. <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Wikipedia</a>)</dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis"><dfn>Principal Component Analysis</dfn></a> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn>)</dt>
   <dd>Die Hauptkomponentenanalyse ist ein Verfahren zur
       Dimensionalitätsreduktion von ungelabelten Daten im \(\mathbb{R}^n\).
       Sie projeziert die Daten auf diejenige Hyperebene im
@@ -146,6 +146,15 @@ besitzt. Man schreibt
 
       Außerdem gilt: \(C_X = \frac{1}{n-1} X X^T\) </dd>
 </dl>
+
+### V03: LVQ
+
+Slide name: `V03_2015-04-21_LVQ.pdf`
+
+* k-Means
+* Fuzzy k-Means
+* Vector Quantization (VQ) is an unsupervised clustering algorithm
+* Learning Vector Quantization is supervised.
 
 
 ### V04: Perceptron
@@ -216,7 +225,7 @@ Slide name: `V05_2015-04-29_Features.pdf`
   <dt><dfn>Multilayer Perceptron</dfn></dt>
   <dd>A Multilayer Perceptron is a special type of Feed Forward Neural Network.
       It consists of fully connected layers only.</dd>
-  <dt><dfn>Metrik</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition">Wikipedia</a>)</dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition"><dfn>Metrik</dfn></a></dt>
   <dd>Sei \(X\) eine Menge und \(d:X \times X \rightarrow \mathbb{R}\) eine
       Abbildung. \(d\) heißt Metrik auf \(X\), wenn gilt:
       <ul>
@@ -225,11 +234,11 @@ Slide name: `V05_2015-04-29_Features.pdf`
           <li>\(d(x,y) \leq d(x,z) + d(z,y)\)</li>
       </ul>
   </dd>
-  <dt><dfn>Jaccard-Metrik</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Jaccard-Koeffizient#Jaccard-Metrik">Wikipedia</a>)</dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Jaccard-Koeffizient#Jaccard-Metrik"><dfn>Jaccard-Metrik</dfn></a></dt>
   <dd>Es seien \(A, B\) Mengen und \(J(A, B) := \frac{|A \cup B| - |A \cap B|}{|A \cup B|}\).
       Dann heißt \(J\) die Jaccard-Metrik.
   </dd>
-  <dt><dfn>Levenshtein-Distanz</dfn> (siehe <a href="https://de.wikipedia.org/wiki/Levenshtein-Distanz">Wikipedia</a>)</dt>
+  <dt><a href="https://de.wikipedia.org/wiki/Levenshtein-Distanz"><dfn>Levenshtein-Distanz</dfn></a></dt>
   <dd>Es seien \(a, b\) Zeichenketten, \(|a|\) die Länge der Zeichenkette \(a\)
       und \(\delta_{a_i \neq b_j}\) genau dann 1, wenn das \(i\)-te Zeichen von
       \(a\) und das \(j\)-te Zeichen von \(b\) sich unterscheiden.
@@ -261,9 +270,8 @@ Fragen:
 Slide name: `V06_2015-05-05_Backpropagation.pdf`
 
 <dl>
-    <dt><dfn>Kreuzentropie Fehlerfunktion</dfn>
-        (<dfn>Cross-Entropy</dfn>,
-         vgl. <a href="https://de.wikipedia.org/wiki/Kreuzentropie">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Kreuzentropie"><dfn>Kreuzentropie Fehlerfunktion</dfn></a>
+        (<dfn>Cross-Entropy</dfn>)</dt>
     <dd>\[E_{-x} = - \sum_{k}[t_k^x \log(o_k^x) + (1-t_k^x) \log (1- o_k^x)]\]
         wobei \(x\) der Feature-Vektor ist, \(k\) ein Neuron des letzen
         Layers, \(t\) der wahre Wert (d.h. der gewünschte Output),
@@ -279,14 +287,14 @@ Slide name: `V06_2015-05-05_Backpropagation.pdf`
 Slide name: `V07_12-05-2015_Feature_Learning.pdf`
 
 <dl>
-    <dt><dfn>Autoencoder</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Autoencoder">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Autoencoder"><dfn>Autoencoder</dfn></a></dt>
     <dd>Ein Autoencoder ist ein neuronales Netz, welches darauf trainiert wird
         die Input-Daten am Output wieder zu replizieren.</dd>
     <dt><dfn>Bottleneck Features</dfn></dt>
     <dd>Unter Bottleneck-Features versteht man eine Schicht in einem
         neuronalem Netz, welche wesentlich kleiner ist als die vorhergehende
         und nachfolgende Schicht.</dd>
-    <dt><dfn>Kullback-Leibler-Divergenz</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence"><dfn>Kullback-Leibler-Divergenz</dfn></a></dt>
     <dd>Die Kullback-Leibler-Divergenz ist ein Maß für die Unterschiedlichkeit
         zweier Wahrscheinlichkeitsverteilungen \(P, Q\). Für
         diskrete Verteilungen ist sie definiert als:
@@ -326,12 +334,12 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dt><dfn>Performance Scheduling</dfn></dt>
     <dd>Measure the error on the cross validation set and decrease the learning
         rate when the algorithm stops improving.</dd>
-    <dt><dfn>RProp</dfn> (siehe <a href="https://en.wikipedia.org/wiki/Rprop">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Rprop"><dfn>RProp</dfn></a></dt>
     <dd>RProp is a learning rate scheduling method which is only based on the
         sign of the gradient. It increases the learning rate when the sign of
         the gradient doesn't change and increases it when the sign of the
         gradient changes.</dd>
-    <dt><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn> (siehe <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a></dt>
     <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
     <dd>Newbob scheduling is a combination of Exponential decay learning rate
@@ -380,7 +388,7 @@ Fragen:
 Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
 
 <dl>
-    <dt><dfn>Markov Decision Process</dfn> (<dfn>MDP</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markov Decision Process</dfn></a> (<dfn>MDP</dfn>)</dt>
     <dd>Ein Markovscher Entscheidungsprozess ist ein 5-Tupel
         \((S, A, T, r, p_0)\), wobei
         <ul>
@@ -441,7 +449,7 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
         </ol>
         where \(\alpha\) is the learning rate.
     </dd>
-    <dt><dfn>Temporal Difference Learning</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning"><dfn>Temporal Difference Learning</dfn></a></dt>
     <dd>TODO?</dd>
 </dl>
 
@@ -471,7 +479,7 @@ TODOs:
 Slide name: `V10_2015-05-26_SOM.pdf`
 
 <dl>
-    <dt><dfn>Selbstorganisierende Karten</dfn> (<dfn>SOM</dfn>, <dfn>Kohonennetze</dfn>, vgl. <a href="https://de.wikipedia.org/wiki/Selbstorganisierende_Karte">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Selbstorganisierende_Karte"><dfn>Selbstorganisierende Karten</dfn></a> (<dfn>SOM</dfn>, <dfn>Kohonennetze</dfn>)</dt>
     <dd>SOMs sind eine Art von Neuronalen Netzen.</dd>
 </dl>
 
@@ -485,21 +493,21 @@ Siehe auch:
 Slide name: V11_2015-05-27_RBMs
 
 <dl>
-    <dt><dfn>Hopfield-Netz</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Hopfield-Netz">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Hopfield-Netz"><dfn>Hopfield-Netz</dfn></a></dt>
     <dd>Ein Hopfield-Netz besteht nur aus einer Schicht von McCulloch-Pitts
         Neuronen. Jedes Neuron ist mit jedem anderen Neuron (also nicht sich
         selbst) und allen Inputs verbunden. Die Schicht funktioniert
         gleichzeitig als Ein- und Ausgabeschicht.</dd>
-    <dt><dfn>Boltzmann-Maschine</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine"><dfn>Boltzmann-Maschine</dfn></a></dt>
     <dd>Boltzmann-Maschinen sind stochastische neuronale Netzwerke, welche
         duch belibige ungerichtete Graphen repräsentiert werden können. Die
         neuronen sind binär; sie feuern also entweder oder nicht. Es gibt
         insbesondere keine Unterschiede in der Stärke mit der sie feuern.</dd>
-    <dt><dfn>Restricted Boltzmann machine</dfn> (<dfn>RBM</dfn>, vgl. <a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine"><dfn>Restricted Boltzmann machine</dfn></a> (<dfn>RBM</dfn>)</dt>
     <dd>Im Gegensatz zur Boltzmann-Maschine muss die Restricted
         Boltzmann-Machine (RBM) aus einem bipartitem Graph bestehen. Dies
         erlaubt ein effizienteres Trainingsverfahren.</dd>
-    <dt><dfn>Simulated annealing</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Simulated_annealing">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Simulated_annealing"><dfn>Simulated annealing</dfn></a></dt>
     <dd>Simulated annealing ist ein heuristisches Optimierungsverfahren.
 
         Sei \(D\) ein Wertebereich einer Funktion \(f: D \rightarrow \mathbb{R}\)
@@ -543,17 +551,17 @@ Siehe auch:
 Slide name: `V12_2015-06-02_RNNs.pdf`
 
 <dl>
-    <dt><dfn>Elman-Netz</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Elman-Netz">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Elman-Netz"><dfn>Elman-Netz</dfn></a></dt>
     <dd>Ein rekurrentes neuronales Netzwerk, bei dem die Ausgabe eines
         hidden layers im nächsten Zeitschritt als Eingabe verwendet wird.</dd>
-    <dt><dfn>Jordan-Netz</dfn> (vgl. <a href="https://de.wikipedia.org/wiki/Jordan-Netz">Wikipedia</a>)</dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Jordan-Netz"><dfn>Jordan-Netz</dfn></a></dt>
     <dd>Ein rekurrentes neuronales Netzwerk, bei dem die Ausgabe der
         Ausgabeschicht im nächsten Zeitschritt als Eingabe verwendet wird.</dd>
     <dt><dfn>Backpropagation through Time</dfn> (<dfn>BPTT</dfn>)</dt>
     <dd>Ein Trainingsalgorithmus für rekurrente neuronale Netze, bei dem
         das Netz "ausgerollt" wird. Das rekurrente Netz wird also als unendlich
         großes nicht-rekurrentes Netz behandelt.</dd>
-    <dt><dfn>Vanishing gradient problem</dfn> (vgl. <a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Vanishing_gradient_problem"><dfn>Vanishing gradient problem</dfn></a></dt>
     <dd>Das Problem des verschwindenden Gradienten ist eine Herausforderung im
         Kontext neuronaler Netze, welche mit Backpropagation trainiert
         werden. Insbesondere bei sehr tiefen oder rekurrenten Netzen
@@ -584,7 +592,7 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
     <dd>In der Update-Regel \(\Delta w_{ij}^* (t+1) = \Delta w_{ij} (t+1) + \alpha \Delta w_{ij}(t)\) wird der Term \(\Delta w_{ij}(t)\) als <i>Momentum</i> bezeichnet.
         Der Skalar \(\alpha \in [0, 1]\) gewichtet diesen und ist ein
         Hyperparameter.</dd>
-    <dt><dfn>Quickprop</dfn> (<a href="https://en.wikipedia.org/wiki/Quickprop">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Quickprop"><dfn>Quickprop</dfn></a></dt>
     <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. TODO: Wie funktioniert es?</dd>
     <dt><dfn>Weight Decay</dfn></dt>
     <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} w_{ij}^2\)</dd>
@@ -635,14 +643,14 @@ Fragen:
 Slide name: `V14_2015-06-10_DNN_CV .pdf`
 
 <dl>
-    <dt><dfn>SIFT</dfn> (<dfn>Scale-invariant feature transform</dfn>, siehe <a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform"><dfn>SIFT</dfn></a> (<dfn>Scale-invariant feature transform</dfn>)</dt>
     <dd>Unter SIFT versteht man bestimmte Features in der Bildverarbeitung,
         welche invariant unter skalierung sind.</dd>
-    <dt><dfn>Texton</dfn> (siehe <a href="https://en.wikipedia.org/wiki/Texton">Wikipedia</a> und <a href="http://vcla.stat.ucla.edu/old/Chengen_Research/texton.htm">UCLA</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Texton"><dfn>Texton</dfn></a> (siehe <a href="http://vcla.stat.ucla.edu/old/Chengen_Research/texton.htm">UCLA</a>)</dt>
     <dd>Unter einem Texton versteht man grundlegende, kleine Features eines
         Bildes. Diese Bilden die kleinsten als unterschiedlich wahrnehmbaren
         Einheiten.</dd>
-    <dt><dfn>Convolutional Neural Network</dfn> (<dfn>CNN</dfn>, siehe <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Wikipedia</a>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Convolutional_neural_network"><dfn>Convolutional Neural Network</dfn></a> (<dfn>CNN</dfn>)</dt>
     <dd>Ein CNN ist ein Neuronales Netzwerk, welches mindestens eine Schicht
         hat, welche die Parameter eines Kernels für eine Faltung lernt.</dd>
     <dt><dfn>Feature Map</dfn></dt>
