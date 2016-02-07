@@ -361,7 +361,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         at neuron \(k\) of the network for the feature vector \(x\).</dd>
 </dl>
 
-{% caption align="aligncenter" width="500" alt="RProp by Ryan Harris" text="RProp by Ryan Harris (<a href="https://www.youtube.com/watch?v=Cy2g9_hR-5Y">source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp" url="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" %}
+{% caption align="aligncenter" width="500" alt="RProp by Ryan Harris" text="RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp" url="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" %}
 
 * Pretraining
 * <abbr title="Time Delay Neural Networks">TDNNs</abbr>, <abbr title="Convolutional Neural Networks">CNNs</abbr>
