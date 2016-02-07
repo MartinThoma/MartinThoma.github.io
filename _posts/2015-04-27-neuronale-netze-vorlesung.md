@@ -508,7 +508,16 @@ Slide name: `V10_2015-05-26_SOM.pdf`
             <div>\[j_{\text{min}} = \text{arg min}_j \sum_{i=1}^n (x_i - w_{ji})^2\]</div></li>
         <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons sowie der Nachbarschaft an.</li>
         <li><b>Repeat</b>: Und zurück zu Schritt 2.</li>
-    </ol></dd>
+    </ol>
+
+    Siehe auch:
+
+    <ul>
+        <li>Uwe Schneider: <a href="http://www2.htw-dresden.de/~iwe/Belege/Schneider/som.html">Self Organizing Map -- ein Demonstrationsbeispiel</a>, 2001.</li>
+        <li><a href="https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/">Self-Organizing Maps with Google’s TensorFlow</a></li>
+        <li>J. A. Bullinaria: <a href="http://www.cs.bham.ac.uk/~jxb/NN/l16.pdf">Self Organizing Maps: Fundamentals</a>, 2004.</li>
+    </ul>
+    </dd>
 </dl>
 
 Siehe auch:
@@ -653,7 +662,7 @@ Speed-ups des Trainings sind möglich durch:
 
 * Momentum
 * Überspringen von bereits gut gelernten Beispielen
-* Dynamische Anpassung der Lernrate $\eta$
+* Dynamische Anpassung der Lernrate `$\eta$`
 * Quickprop
 * Gute Initialisierung
 
@@ -719,6 +728,108 @@ mir folgendes aufgefallen:
   einem Strich im 45-Grad Winkel ... (TODO: Beispiele aufzeichnen)
 * Typischerweise ist der Input links (oder alternativ unten) und der Output
   rechts (oder alternativ oben)
+
+
+## Einordnung
+
+Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
+
+* **Deterministisch / Stochastisch**: Ist die Aktivierung der neuronen
+  stochastische oder deterministisch?
+* **Auswertung**: Feed-Forward oder Rekurrent?
+* **Training**: Wie lernt man?
+* **Verwendung**: Wo wird das Netzwerk typischerweise eingesetzt?
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>Netzwerk</th>
+        <th>Determinitisch</th>
+        <th>Auswertung</th>
+        <th>Training</th>
+        <th>Verwendung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <th>McCullch-Pitts Neuron</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised</td>
+        <td>Classification of linear separable data</td>
+    </tr>
+    <tr>
+        <th>Rosenblatt Perceptron</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised</td>
+        <td>Classification of linear separable data</td>
+    </tr>
+    <tr>
+        <th>Multilayer Perceptron</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised (Backkpropagation)</td>
+        <td>Classification</td>
+    </tr>
+    <tr>
+        <th>CNN</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised (Backkpropagation + weight sharing)</td>
+        <td>Computer Vision</td>
+    </tr>
+    <tr>
+        <th><abbr title="Time Delay Neural Networks">TDNNs</abbr></th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised (Backkpropagation + weight sharing)</td>
+        <td><abbr title="Automatic Speech Recognition">ASR</abbr></td>
+    </tr>
+    <tr>
+        <th>LSTM</th>
+        <td>Yes</td>
+        <td>Recurrent</td>
+        <td>BPTT</td>
+        <td>Mapping sequences (Generating texts, machine translation)</td>
+    </tr>
+    <tr>
+        <th>SOM</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Unsupervised (competitive learning)</td>
+        <td>Mapping of high-dimensional data on 2D</td>
+    </tr>
+    <tr>
+        <th>Hopfield networks</th>
+        <td>Yes</td>
+        <td>Recurrent</td>
+        <td>Hebbsche Lernregel</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <th>Helmholtz machines</th>
+        <td>stochastic</td>
+        <td>TODO</td>
+        <td>wake-sleep algorithm</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <th>Boltzman machines</th>
+        <td>stochastic</td>
+        <td>TODO</td>
+        <td>TODO</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <th>RBMs</th>
+        <td>stochastic</td>
+        <td>TODO</td>
+        <td>Contrastive Divergence&nbsp;(CD-k)</td>
+        <td>TODO</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Deutsch ↔ Englisch
