@@ -642,13 +642,16 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
   * [Google TensorFlow](https://martin-thoma.com/tensor-flow-quick/)
 
 <dl>
-    <dt><dfn>Cascade Correlation</dfn></dt>
+    <dt><dfn>Cascade Correlation</dfn> (siehe Fahlman und Lebiere: <a href="http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf">The Cascade-Correlation Learning Architecture</a>)</dt>
     <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum erzeugen
         von Feed-Forward Neuronalen Netzen. Diese haben eine andere Architektur
         als typische multilayer Perceptrons. Bei Netzen, welche durch
         Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
         den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen
-        Hidden Units in der Schicht zuvor.</dd>
+        Hidden Units in der Schicht zuvor.<br/>
+        <br/>
+        Siehe <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)
+        und <a href="http://datascience.stackexchange.com/q/9672/8820">How exactly does adding a new unit work in Cascade Correlation?</a></dd>
     <dt><a href="https://en.wikipedia.org/wiki/Rprop"><abbr title="Resilient Propagation"><dfn>RPROP</dfn></abbr></a> (siehe <a href="https://www.youtube.com/watch?v=Cy2g9_hR-5Y">YouTube</a> - 15:00min)</dt>
     <dd><i>Rprop</i> ist eine Gewichtsupdate-Regel für neuronale Netze. Sie
         betrachtet nur das Vorzeichen des Gradienten, jedoch nicht den Betrag.
@@ -749,7 +752,6 @@ Slide name: `MLI_05_Neuronale_Netze_slides1.pdf`
 #### Siehe auch
 
 * [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)
-* [How exactly does adding a new unit work in Cascade Correlation?](http://datascience.stackexchange.com/q/9672/8820)
 * [What are prototypes in RBF networks?](http://datascience.stackexchange.com/q/9869/8820)
 
 
