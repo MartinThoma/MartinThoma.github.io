@@ -539,7 +539,15 @@ Slide name: `V11_2015-05-27_RBMs`
     <dd>Boltzmann-Maschinen sind stochastische neuronale Netzwerke, welche
         duch belibige ungerichtete Graphen repräsentiert werden können. Die
         neuronen sind binär; sie feuern also entweder oder nicht. Es gibt
-        insbesondere keine Unterschiede in der Stärke mit der sie feuern.</dd>
+        insbesondere keine Unterschiede in der Stärke mit der sie feuern.
+
+        Siehe auch:
+
+        <ul>
+            <li><a href="http://www.scholarpedia.org/article/Boltzmann_machine">Scholarpedia</a></li>
+            <li></li>
+        </ul>
+        </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine"><dfn>Restricted Boltzmann machine</dfn></a> (<dfn>RBM</dfn>)</dt>
     <dd>Im Gegensatz zur Boltzmann-Maschine muss die Restricted
         Boltzmann-Machine (RBM) aus einem bipartitem Graph bestehen. Dies
@@ -730,7 +738,7 @@ mir folgendes aufgefallen:
   rechts (oder alternativ oben)
 
 
-## Einordnung
+## <a name="einordnung"></a> Einordnung
 
 Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
 
@@ -744,7 +752,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   <thead>
     <tr>
         <th>Netzwerk</th>
-        <th>Determinitisch</th>
+        <th>Deterministisch</th>
         <th>Auswertung</th>
         <th>Training</th>
         <th>Verwendung</th>
@@ -753,49 +761,49 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   <tbody>
     <tr>
         <th>McCullch-Pitts Neuron</th>
-        <td>Yes</td>
+        <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Supervised</td>
         <td>Classification of linear separable data</td>
     </tr>
     <tr>
         <th>Rosenblatt Perceptron</th>
-        <td>Yes</td>
+        <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Supervised</td>
         <td>Classification of linear separable data</td>
     </tr>
     <tr>
         <th>Multilayer Perceptron</th>
-        <td>Yes</td>
+        <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
-        <td>Supervised (Backkpropagation)</td>
+        <td>Supervised (Backpropagation)</td>
         <td>Classification</td>
     </tr>
     <tr>
-        <th>CNN</th>
-        <td>Yes</td>
+        <th><abbr title="Convolutional Neural Networks">CNN</abbr></th>
+        <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
-        <td>Supervised (Backkpropagation + weight sharing)</td>
+        <td>Supervised (Backpropagation + weight sharing)</td>
         <td>Computer Vision</td>
     </tr>
     <tr>
         <th><abbr title="Time Delay Neural Networks">TDNNs</abbr></th>
-        <td>Yes</td>
+        <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
-        <td>Supervised (Backkpropagation + weight sharing)</td>
+        <td>Supervised (Backpropagation + weight sharing)</td>
         <td><abbr title="Automatic Speech Recognition">ASR</abbr></td>
     </tr>
     <tr>
         <th>LSTM</th>
-        <td>Yes</td>
+        <td style="text-align: center;">Yes</td>
         <td>Recurrent</td>
         <td>BPTT</td>
         <td>Mapping sequences (Generating texts, machine translation)</td>
     </tr>
     <tr>
-        <th>SOM</th>
-        <td>Yes</td>
+        <th><abbr title="Self-Organizing Maps">SOM</abbr></th>
+        <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Unsupervised (competitive learning)</td>
         <td>Mapping of high-dimensional data on 2D</td>
@@ -804,8 +812,8 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <th>Hopfield networks</th>
         <td>Yes</td>
         <td>Recurrent</td>
-        <td>Hebbsche Lernregel</td>
-        <td>TODO</td>
+        <td>Unsupervised (Hebbsche Lernregel)</td>
+        <td>Associative memories, <a href="http://perso.ens-lyon.fr/eric.thierry/Graphes2010/alice-julien-laferriere.pdf">travelling salesman</a></td>
     </tr>
     <tr>
         <th>Helmholtz machines</th>
@@ -830,16 +838,6 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     </tr>
   </tbody>
 </table>
-
-
-## Deutsch ↔ Englisch
-
-Da Englisch und Deutsch in der Informatik immer wieder wild gemischt wird,
-habe ich hier mal eine kleine Liste mit Übersetzungen begonnen:
-
-* Gitter: Lattice
-* Gradientenabstieg: Gradient descent
-* Mittlerer quadratischer Fehler: Mean Squared Error (MSE)
 
 
 ## Prüfungsfragen
