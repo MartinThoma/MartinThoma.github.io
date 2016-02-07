@@ -530,7 +530,7 @@ Siehe auch:
 Slide name: `V11_2015-05-27_RBMs`
 
 <dl>
-    <dt><a href="https://de.wikipedia.org/wiki/Hopfield-Netz"><dfn>Hopfield-Netz</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Hopfield-Netz"><dfn>Hopfield-Netz</dfn></a> (siehe [<a href="#ref-hop82" name="ref-hop82-anchor">Hop82</a>], [<a href="#ref-kri05" name="ref-kri05-anchor">Kri05</a>])</dt>
     <dd>Ein Hopfield-Netz besteht nur aus einer Schicht von McCulloch-Pitts
         Neuronen. Jedes Neuron ist mit jedem anderen Neuron (also nicht sich
         selbst) und allen Inputs verbunden. Die Schicht funktioniert
@@ -541,17 +541,53 @@ Slide name: `V11_2015-05-27_RBMs`
         neuronen sind binär; sie feuern also entweder oder nicht. Es gibt
         insbesondere keine Unterschiede in der Stärke mit der sie feuern.
 
-        Siehe auch:
-
-        <ul>
-            <li><a href="http://www.scholarpedia.org/article/Boltzmann_machine">Scholarpedia</a></li>
-            <li></li>
-        </ul>
+        Siehe auch: <a href="http://www.scholarpedia.org/article/Boltzmann_machine">Scholarpedia</a>
         </dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine"><dfn>Restricted Boltzmann machine</dfn></a> (<dfn>RBM</dfn>)</dt>
-    <dd>Im Gegensatz zur Boltzmann-Maschine muss die Restricted
-        Boltzmann-Machine (RBM) aus einem bipartitem Graph bestehen. Dies
-        erlaubt ein effizienteres Trainingsverfahren.</dd>
+  <dt><a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine"><dfn>Restricted Boltzmann machine</dfn></a> (<dfn>RBM</dfn>)</dt>
+  <dd>Eine <i>RBM</i> ist ein neuronales Netz mit nur einem Hidden Layer.
+      Es ist gleichzeitig ein Spezialfall von
+      <abbr title="Markov Random Fields">MRFs</abbr>.
+
+      Im Gegensatz zur Boltzmann-Maschine muss die Restricted Boltzmann-Machine
+      (RBM) aus einem bipartitem Graph bestehen. Dies erlaubt ein effizienteres
+      Trainingsverfahren (Contrastive Divergence).
+
+      Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
+      <br/>
+      Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010.</dd>
+  <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a> von Hugo Larochelle)</dt>
+  <dd>Contrastive Divergence ist ein Trainingsalgorithmus für RBMs.
+
+      Ein Hyperparameter ist \(k \in \mathbb{N}\).
+
+      Er geht wie folgt vor:
+
+      <ol>
+          <li>Lege den Trainingsvektor \(x^{(t)}\) an die Eingabeknoten an.</li>
+          <li>Berechne die Wahrscheinlichkeit für jede Hidden Unit, dass diese gleich 1 ist. Setze sie mit dieser Wahrscheinlichkeit gleich 1.</li>
+          <li>Berechne die Wahrscheinlichkeit für jeden Eingabeknoten, dass dieser gleich 1 ist. Setze ihn mit dieser Wahrscheinlichkeit gleich 1.</li>
+          <li>Gehe zu Schritt 2. Wiederhole dies für \(k\) Schritte (dies wird auch Gibbs-Sampling genannt).
+              Das, was nach dem \(k\)-fachem Gibbs-Sampling in der Eingabeschicht
+              steht wird auch "negative sample \(\tilde x\)" genannt.</li>
+          <li>Update der Parameter:
+            \[\begin{align}
+                W &\leftarrow W + \alpha (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
+                b &\leftarrow b + \alpha (h(x^{(t)}) - h(\tilde x))\\
+                c &\leftarrow c + \alpha (x^{(t)} - \tilde x)
+              \end{align}
+            \]
+            wobei \(\alpha \in (0, 1) \) die Lernrate ist,
+            \(b \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
+            \(c \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
+            \(h\) ist eine Zufallsvariable, welche der Hidden Layer ist. Diese
+            sind abhängig von der Eingabeschicht.
+          </li>
+      </ol>
+
+      In der Praxis funktioniert es schon mit \(k=1\) für Pre-Training. Wenn
+      \(k\) groß ist konvergiert \(\tilde x\) gegen den wahren Modellwert. Das
+      wäre dann eine Monte-Carlo Estimation.
+  </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Simulated_annealing"><dfn>Simulated annealing</dfn></a></dt>
     <dd>Simulated annealing ist ein heuristisches Optimierungsverfahren.
 
@@ -639,7 +675,12 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         Der Skalar \(\alpha \in [0, 1]\) gewichtet diesen und ist ein
         Hyperparameter.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Quickprop"><dfn>Quickprop</dfn></a></dt>
-    <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. TODO: Wie funktioniert es?</dd>
+    <dd>Quickprop ist ein Trainingsverfahren für neuronale Netze. Der Lernalgorithmus
+        nimmt an, dass die Fehlerebene lokal durch eine parabel approximiert
+        werden kann. Das Gewichtsupdate im Schritt \(k\) ist demnach vom
+        Gradienten und dem Gewichtsupdate das vorherigen Schrittes abhängig:
+
+        \[\Delta^{(k)} \, w_{ij} = \Delta^{(k-1)} \, w_{ij} \left ( \frac{\nabla_{ij} \, E^{(k)}}{\nabla_{ij} \, E^{(k-1)} - \nabla_{ij} \, E^{(k)}} \right)\]</dd>
     <dt><dfn>Weight Decay</dfn></dt>
     <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} w_{ij}^2\)</dd>
     <dt><dfn>Weight Elimination</dfn></dt>
@@ -660,10 +701,12 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
         <br/>
         Siehe <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)
         und <a href="http://datascience.stackexchange.com/q/9672/8820">How exactly does adding a new unit work in Cascade Correlation?</a></dd>
-    <dt><dfn>Meiosis Netzwerke</dfn> (siehe Stephen Jose Hanson: [Meiosis Networks ](http://papers.nips.cc/paper/227-meiosis-networks.pdf))</dt>
+    <dt><dfn>Meiosis Netzwerke</dfn> (siehe Stephen Jose Hanson: <a href="http://papers.nips.cc/paper/227-meiosis-networks.pdf">Meiosis Networks</a>)</dt>
     <dd>Meiosis Netzwerke bauen ein neuronales Netz auf. Sie beginnen mit einer
         einzelnen hidden Unit. Diese hidden Unit wird aufgespalten, wenn die
-        "unsicherheit" zu groß ist. (TODO)</dd>
+        "Unsicherheit" zu groß ist. (TODO)</dd>
+    <dt><dfn>Automativ Structure Optimalization</dfn> (<dfn>ASO</dfn>)</dt>
+    <dd>TODO</dd>
 </dl>
 
 Speed-ups des Trainings sind möglich durch:
@@ -688,8 +731,7 @@ Lernen kann getweakt werden:
 * Schrittweise Netzkonstruktion
     * Cascade Correlation
     * Meiosis Netzwerke
-    * <abbr title="Automativ Structure Optimalization">ASO</abbr>: TODO - wie
-      funktioniert das?
+    * <abbr title="Automativ Structure Optimalization">ASO</abbr>
 
 Fragen:
 
@@ -802,11 +844,11 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td>Mapping sequences (Generating texts, machine translation)</td>
     </tr>
     <tr>
-        <th><abbr title="Self-Organizing Maps">SOM</abbr></th>
+        <th><abbr title="Self-Organizing Maps">SOMs</abbr></th>
         <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Unsupervised (competitive learning)</td>
-        <td>Mapping of high-dimensional data on 2D</td>
+        <td>Visualisierung / Dimensionalitätsreduktion: Mapping of high-dimensional data on 2D</td>
     </tr>
     <tr>
         <th>Hopfield networks</th>
@@ -823,7 +865,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td>TODO</td>
     </tr>
     <tr>
-        <th>Boltzman machines</th>
+        <th>Boltzmann machines</th>
         <td>stochastic</td>
         <td>TODO</td>
         <td>TODO</td>
@@ -878,6 +920,16 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
 * [Machine Learning 1](//martin-thoma.com/machine-learning-1-course/) und [Machine Learning 2](//martin-thoma.com/machine-learning-2-course/) am KIT
 * Coursera: [Neural Networks for Machine Learning](https://class.coursera.org/neuralnets-2012-001/lecture) by Geoffrey Hinton
+
+
+## Literatur
+
+* [<a href="#ref-mit97-anchor" name="ref-mit97">Mit97</a>] T. Mitchell.
+  Machine Learning. McGraw-Hill, 1997.
+* [<a href="#ref-hop82-anchor" name="ref-hop82">Hop82</a>] J. J. Hopfield.
+  [Neural networks and physical systems with emergent collective computational abilities](http://www.pnas.org/content/79/8/2554.full.pdf) in Proceedings of the national academy of sciences, 1982.
+* [<a href="#ref-kri05-anchor" name="ref-kri05">Kri05</a>] D. Kriesel.
+  [Neuronale Netze](http://www.dkriesel.com/_media/science/neuronalenetze-de-zeta2-2col-dkrieselcom.pdf). 2005.
 
 
 ## Übungsbetrieb
