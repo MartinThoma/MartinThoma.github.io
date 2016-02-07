@@ -25,7 +25,7 @@ featured_image: logos/klausur.png
 </tr>
 <tr>
     <td>15.04.2015</td>
-    <td><a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap1_V33.pdf">Einleitung</a></td>
+    <td><a href="#intro">Einleitung</a></td>
     <td>-</td>
 </tr>
 <tr>
@@ -81,7 +81,7 @@ featured_image: logos/klausur.png
 </tr>
 </table>
 
-### NN01-Intro.pdf
+### <a name="intro"></a> NN01-Intro.pdf
 
 * Human Brain vs. Computer (Processing/Processors, Accuracy, Speed, Hardware, Design)
 * Aufbau eines biologischen Neurons (vgl. [Wikipedia](https://de.wikipedia.org/wiki/Nervenzelle#.C3.9Cberblick_.C3.BCber_den_Aufbau_einer_Nervenzelle))
@@ -361,8 +361,10 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         at neuron \(k\) of the network for the feature vector \(x\).</dd>
 </dl>
 
+{% caption align="aligncenter" width="500" alt="RProp by Ryan Harris" text="RProp by Ryan Harris (<a href="https://www.youtube.com/watch?v=Cy2g9_hR-5Y">source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp" url="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" %}
+
 * Pretraining
-* TDNNs CNNs
+* <abbr title="Time Delay Neural Networks">TDNNs</abbr>, <abbr title="Convolutional Neural Networks">CNNs</abbr>
 * Design choices (hyperparameters):
     * Topology (Width of layers, number of layers)
     * Activation functions
@@ -371,7 +373,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     * Training function
     * Preprocessing
     * Initial Weights
-* MSE vs CE:
+* MSE vs <abbr title="Cross Entropy">CE</abbr>:
     * MSE penetalizes large differences much more than small ones
     * MSE works well for function approximation
     * CE works well on classification tasks
@@ -405,9 +407,11 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
         </ul>
     </dd>
     <dt><dfn>Diskontierungsfaktor</dfn></dt>
-    <dd>Ein Diskontierungsfaktor \(\gamma \in [0, 1]\) encodiert
+    <dd>Ein Diskontierungsfaktor
+        <span markdown="0">\(\gamma \in [0, 1]\)</span> encodiert
         den Bedeutungsverlust zwischen einer direkten Belohnung und
-        einer späteren Belohnung. Es sollte \(\gamma &lt; 1\) gelten um
+        einer späteren Belohnung. Es sollte
+        <span markdown="0">\(\gamma &lt; 1\)</span> gelten um
         unendliche Belohnungen zu vermeiden.</dd>
     <dt><dfn>Strategie</dfn> (engl. <dfn>Policy</dfn>)</dt>
     <dd>Eine Strategie \(\pi:S \rightarrow A\) sagt einem Agenten welche
@@ -460,11 +464,13 @@ Konvention:
 
 Fragen:
 
-* Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor \(\gamma = 0\)
+* Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
+  <span markdown="0">\(\gamma = 0\)</span>
   ist? → Nur der aktuelle Reward ist wichtig. Effektiv nimmt der Agent immer
   das nächste Feld, welche den höchsten Reward bietet (bzw. die Aktion, die
   den größten 1-Aktion Erwartungswert liefert).
-* Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor \(\gamma = 1\)
+* Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
+  <span markdown="0">\(\gamma = 1\)</span>
   ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
 
 TODOs:
@@ -479,8 +485,30 @@ TODOs:
 Slide name: `V10_2015-05-26_SOM.pdf`
 
 <dl>
+    <dt><dfn>Hebbsche Lernregel</dfn></dt>
+    <dd>what fires together, wires together</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Selbstorganisierende_Karte"><dfn>Selbstorganisierende Karten</dfn></a> (<dfn>SOM</dfn>, <dfn>Kohonennetze</dfn>)</dt>
-    <dd>SOMs sind eine Art von Neuronalen Netzen.</dd>
+    <dd>SOMs sind eine Art von Neuronalen Netzen. Die neuronen von SOMs sind
+    auf einem Gitter angeordnet. Es gibt nur zwei Schichten: Die Input-Neuronen
+    und die Neuronen auf dem Gitter. Jedes Input-Neuron ist mit jedem Neuron
+    auf dem Gitter verbunden.
+
+    Training:
+    <ol>
+        <li><b>Initialisierung</b>: Die Gewichte
+            <span markdown="0">\(w_{ji}\)</span> von dem
+            <span markdown="0">\(i\)</span>-ten Input-Neuron zum Neuron (<span markdown="0">\(i = 1, ..., n\)</span>)
+            <span markdown="0">\(j\)</span> auf dem Gitter werden zufällig
+            initialisiert.</li>
+        <li><b>Sampling</b>: Nehme ein zufälliges Beispiel
+            <span markdown="0">\(x\)</span> der Trainingsdaten.</li>
+        <li><b>Matching</b>: Finde das Neuron
+            <span markdown="0">\(j_{\text{min}}\)</span>, für das die Gewichte
+            dem Input am ähnlichsten sind:
+            <div>\[j_{\text{min}} = \text{arg min}_j \sum_{i=1}^n (x_i - w_{ji})^2\]</div></li>
+        <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons sowie der Nachbarschaft an.</li>
+        <li><b>Repeat</b>: Und zurück zu Schritt 2.</li>
+    </ol></dd>
 </dl>
 
 Siehe auch:
@@ -490,7 +518,7 @@ Siehe auch:
 
 ### V11: RBMs
 
-Slide name: V11_2015-05-27_RBMs
+Slide name: `V11_2015-05-27_RBMs`
 
 <dl>
     <dt><a href="https://de.wikipedia.org/wiki/Hopfield-Netz"><dfn>Hopfield-Netz</dfn></a></dt>
@@ -544,7 +572,7 @@ Fragen:
 Siehe auch:
 
 * Deeplearning.net: [Restricted Boltzmann Machines (RBM)](http://deeplearning.net/tutorial/rbm.html)
-* Wikipedia: [Restricted Boltzmann machine](https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine)
+* A. Barra, A. Bernacchia, E. Santucci und P. Contucci: [On the equivalence of Hopfield networks and Boltzmann Machines](http://www.sciencedirect.com/science/article/pii/S0893608012001608)in *Neural Networks*, 2012.
 
 
 ### V12: RNNs
@@ -584,7 +612,8 @@ Siehe auch:
 * YouTube: [Vanishing Gradient](https://www.youtube.com/watch?v=SKMpmAOUa2Q) (5:24 min)
 * [Where does the name 'LSTM' come from?](http://datascience.stackexchange.com/q/9510/8820)
 
-### V13: NNlearning-tricks
+
+### V13: NN learning tricks
 Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
 
 <dl>
@@ -604,12 +633,23 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
 
         Besser: Entferne Verbindungen, die geringen Einfluss auf die
         Fehlerfunktion haben.</dd>
-    <dt><dfn>Cascade Correlation Architecture</dfn> (siehe Fahlman und Lebiere: <a href="http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf">The Cascade-Correlation Learning Architecture</a>)</dt>
-    <dd>Die Cascade Correlation Architecture wird Schritt für Schritt
-        aufgebaut. Sie ist keine typische Multilayer-Architektur.</dd>
+    <dt><dfn>Cascade Correlation</dfn> (siehe Fahlman und Lebiere: <a href="http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf">The Cascade-Correlation Learning Architecture</a>)</dt>
+    <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum erzeugen
+        von Feed-Forward Neuronalen Netzen. Diese haben eine andere Architektur
+        als typische multilayer Perceptrons. Bei Netzen, welche durch
+        Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit
+        den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen
+        Hidden Units in der Schicht zuvor.<br/>
+        <br/>
+        Siehe <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)
+        und <a href="http://datascience.stackexchange.com/q/9672/8820">How exactly does adding a new unit work in Cascade Correlation?</a></dd>
+    <dt><dfn>Meiosis Netzwerke</dfn> (siehe Stephen Jose Hanson: [Meiosis Networks ](http://papers.nips.cc/paper/227-meiosis-networks.pdf))</dt>
+    <dd>Meiosis Netzwerke bauen ein neuronales Netz auf. Sie beginnen mit einer
+        einzelnen hidden Unit. Diese hidden Unit wird aufgespalten, wenn die
+        "unsicherheit" zu groß ist. (TODO)</dd>
 </dl>
 
-Speed-ups sind möglich durch:
+Speed-ups des Trainings sind möglich durch:
 
 * Momentum
 * Überspringen von bereits gut gelernten Beispielen
@@ -630,7 +670,7 @@ Lernen kann getweakt werden:
     * Optimal Brain Surgeon
 * Schrittweise Netzkonstruktion
     * Cascade Correlation
-    * Meiosis Netzwerke (siehe Stephen Jose Hanson: [Meiosis Networks ](http://papers.nips.cc/paper/227-meiosis-networks.pdf))
+    * Meiosis Netzwerke
     * <abbr title="Automativ Structure Optimalization">ASO</abbr>: TODO - wie
       funktioniert das?
 
@@ -664,6 +704,7 @@ Facts:
 
 
 ### V15: Speech-Independence
+
 Slide name: `V15_2015-06-17_Speech-Independence.pdf`
 
 
@@ -678,6 +719,35 @@ mir folgendes aufgefallen:
   einem Strich im 45-Grad Winkel ... (TODO: Beispiele aufzeichnen)
 * Typischerweise ist der Input links (oder alternativ unten) und der Output
   rechts (oder alternativ oben)
+
+
+## Deutsch ↔ Englisch
+
+Da Englisch und Deutsch in der Informatik immer wieder wild gemischt wird,
+habe ich hier mal eine kleine Liste mit Übersetzungen begonnen:
+
+* Gitter: Lattice
+* Gradientenabstieg: Gradient descent
+* Mittlerer quadratischer Fehler: Mean Squared Error (MSE)
+
+
+## Prüfungsfragen
+
+<ul>
+    <li>Was ist der Unterschied zwischen Backpropagation und Gradient descent?<br/>
+        → Backpropagation ist eine geschickte Umsetzung des Gradientenabstiegs,
+           bei der es vermieden wird Berechnungen mehrfach durchzuführen.</li>
+    <li>Welche Typen von Neuronalen Netzen gibt es?<br/>
+        → Hopfield-Netze,
+           <abbr title="Restricted Boltzmann Machines">RBMs</abbr>,
+           Feed-Forward Netze,
+           Perceptrons (McCullch-Pitts, Rosenblatt,
+           <abbr title="Multilayer Peceptrons">MLPs</abbr>),
+           <abbr title="Convolutional Neural Networks">CNNs</abbr>,
+           rekurrente Netze (LSTM),
+           <abbr title="Self-Organizing Maps">SOMs</abbr>,
+           <abbr title="Time Delay Neural Networks">TDNNs</abbr></li>
+</ul>
 
 
 ## Material und Links
