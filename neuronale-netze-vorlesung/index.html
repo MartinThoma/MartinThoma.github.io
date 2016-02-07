@@ -168,19 +168,22 @@ MathJax.Hub.Queue(function() {
          <a href="#tocAnchor-1-18"><span class="tocnumber">2</span> <span class="toctext">Visualisierung von Netzen</span></a>
       </li>
       <li class="toc_level-1 toc_section-19">
-         <a href="#tocAnchor-1-19"><span class="tocnumber">3</span> <span class="toctext">Deutsch ↔ Englisch</span></a>
+         <a href="#tocAnchor-1-19"><span class="tocnumber">3</span> <span class="toctext">Einordnung</span></a>
       </li>
       <li class="toc_level-1 toc_section-20">
-         <a href="#tocAnchor-1-20"><span class="tocnumber">4</span> <span class="toctext">Prüfungsfragen</span></a>
+         <a href="#tocAnchor-1-20"><span class="tocnumber">4</span> <span class="toctext">Deutsch ↔ Englisch</span></a>
       </li>
       <li class="toc_level-1 toc_section-21">
-         <a href="#tocAnchor-1-21"><span class="tocnumber">5</span> <span class="toctext">Material und Links</span></a>
+         <a href="#tocAnchor-1-21"><span class="tocnumber">5</span> <span class="toctext">Prüfungsfragen</span></a>
       </li>
       <li class="toc_level-1 toc_section-22">
-         <a href="#tocAnchor-1-22"><span class="tocnumber">6</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-22"><span class="tocnumber">6</span> <span class="toctext">Material und Links</span></a>
       </li>
       <li class="toc_level-1 toc_section-23">
-         <a href="#tocAnchor-1-23"><span class="tocnumber">7</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-23"><span class="tocnumber">7</span> <span class="toctext">Übungsbetrieb</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-24">
+         <a href="#tocAnchor-1-24"><span class="tocnumber">8</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
@@ -726,7 +729,16 @@ ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.</
             <div>\[j_{\text{min}} = \text{arg min}_j \sum_{i=1}^n (x_i - w_{ji})^2\]</div></li>
         <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons sowie der Nachbarschaft an.</li>
         <li><b>Repeat</b>: Und zurück zu Schritt 2.</li>
-    </ol></dd>
+    </ol>
+
+    Siehe auch:
+
+    <ul>
+        <li>Uwe Schneider: <a href="http://www2.htw-dresden.de/~iwe/Belege/Schneider/som.html">Self Organizing Map -- ein Demonstrationsbeispiel</a>, 2001.</li>
+        <li><a href="https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/">Self-Organizing Maps with Google’s TensorFlow</a></li>
+        <li>J. A. Bullinaria: <a href="http://www.cs.bham.ac.uk/~jxb/NN/l16.pdf">Self Organizing Maps: Fundamentals</a>, 2004.</li>
+    </ul>
+    </dd>
 </dl>
 
 <p>Siehe auch:</p>
@@ -967,7 +979,110 @@ einem Strich im 45-Grad Winkel … (TODO: Beispiele aufzeichnen)</li>
 rechts (oder alternativ oben)</li>
 </ul>
 
-<h2 id="tocAnchor-1-19">Deutsch ↔ Englisch</h2>
+<h2 id="tocAnchor-1-19">Einordnung</h2>
+
+<p>Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:</p>
+
+<ul>
+  <li><strong>Deterministisch / Stochastisch</strong>: Ist die Aktivierung der neuronen
+stochastische oder deterministisch?</li>
+  <li><strong>Auswertung</strong>: Feed-Forward oder Rekurrent?</li>
+  <li><strong>Training</strong>: Wie lernt man?</li>
+  <li><strong>Verwendung</strong>: Wo wird das Netzwerk typischerweise eingesetzt?</li>
+</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>Netzwerk</th>
+        <th>Determinitisch</th>
+        <th>Auswertung</th>
+        <th>Training</th>
+        <th>Verwendung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <th>McCullch-Pitts Neuron</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised</td>
+        <td>Classification of linear separable data</td>
+    </tr>
+    <tr>
+        <th>Rosenblatt Perceptron</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised</td>
+        <td>Classification of linear separable data</td>
+    </tr>
+    <tr>
+        <th>Multilayer Perceptron</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised (Backkpropagation)</td>
+        <td>Classification</td>
+    </tr>
+    <tr>
+        <th>CNN</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised (Backkpropagation + weight sharing)</td>
+        <td>Computer Vision</td>
+    </tr>
+    <tr>
+        <th><abbr title="Time Delay Neural Networks">TDNNs</abbr></th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Supervised (Backkpropagation + weight sharing)</td>
+        <td><abbr title="Automatic Speech Recognition">ASR</abbr></td>
+    </tr>
+    <tr>
+        <th>LSTM</th>
+        <td>Yes</td>
+        <td>Recurrent</td>
+        <td>BPTT</td>
+        <td>Mapping sequences (Generating texts, machine translation)</td>
+    </tr>
+    <tr>
+        <th>SOM</th>
+        <td>Yes</td>
+        <td>Feed-Forward</td>
+        <td>Unsupervised (competitive learning)</td>
+        <td>Mapping of high-dimensional data on 2D</td>
+    </tr>
+    <tr>
+        <th>Hopfield networks</th>
+        <td>Yes</td>
+        <td>Recurrent</td>
+        <td>Hebbsche Lernregel</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <th>Helmholtz machines</th>
+        <td>stochastic</td>
+        <td>TODO</td>
+        <td>wake-sleep algorithm</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <th>Boltzman machines</th>
+        <td>stochastic</td>
+        <td>TODO</td>
+        <td>TODO</td>
+        <td>TODO</td>
+    </tr>
+    <tr>
+        <th>RBMs</th>
+        <td>stochastic</td>
+        <td>TODO</td>
+        <td>Contrastive Divergence (CD-k)</td>
+        <td>TODO</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tocAnchor-1-20">Deutsch ↔ Englisch</h2>
 
 <p>Da Englisch und Deutsch in der Informatik immer wieder wild gemischt wird,
 habe ich hier mal eine kleine Liste mit Übersetzungen begonnen:</p>
@@ -978,7 +1093,7 @@ habe ich hier mal eine kleine Liste mit Übersetzungen begonnen:</p>
   <li>Mittlerer quadratischer Fehler: Mean Squared Error (MSE)</li>
 </ul>
 
-<h2 id="tocAnchor-1-20">Prüfungsfragen</h2>
+<h2 id="tocAnchor-1-21">Prüfungsfragen</h2>
 
 <ul>
     <li>Was ist der Unterschied zwischen Backpropagation und Gradient descent?<br />
@@ -996,7 +1111,7 @@ habe ich hier mal eine kleine Liste mit Übersetzungen begonnen:</p>
            <abbr title="Time Delay Neural Networks">TDNNs</abbr></li>
 </ul>
 
-<h2 id="tocAnchor-1-21">Material und Links</h2>
+<h2 id="tocAnchor-1-22">Material und Links</h2>
 
 <ul>
   <li><a href="http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php">Vorlesungswebsite</a></li>
@@ -1021,11 +1136,11 @@ habe ich hier mal eine kleine Liste mit Übersetzungen begonnen:</p>
   <li>Coursera: <a href="https://class.coursera.org/neuralnets-2012-001/lecture">Neural Networks for Machine Learning</a> by Geoffrey Hinton</li>
 </ul>
 
-<h2 id="tocAnchor-1-22">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-23">Übungsbetrieb</h2>
 
 <p>Übungsblätter sind freiwillig.</p>
 
-<h2 id="tocAnchor-1-23">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-24">Termine und Klausurablauf</h2>
 
 <p><strong>Datum</strong>: nach Terminvereinbarung<br />
 <strong>Ort</strong>: <a href="http://www.kithub.de/map/2210">Gebäude 50.20</a><br />
