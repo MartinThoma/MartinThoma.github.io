@@ -445,7 +445,8 @@ Schnürringe, Synapsen)</li>
 
 <ul>
   <li>Welche Feed Forward Neuronalen Netze existieren, die keine Multilayer
-Perceptronen sind?</li>
+Perceptronen sind?<br />
+→ CNNs, TDNNs, SOMs.</li>
   <li>Welche Skalentypen gibt es für Merkmale (Features)?
     <ul>
       <li>Nominale Merkmale: Nur Gleichheit kann überprüft werden</li>
@@ -670,8 +671,12 @@ Bottleneck-Feature resultieren, die PCA ähnelt.</li>
         </ol>
         where \(\alpha\) is the learning rate.
     </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning"><dfn>Temporal Difference Learning</dfn></a></dt>
-    <dd>TODO?</dd>
+    <dt><dfn>Temporal Difference Learning</dfn> (<dfn>TD-Learning</dfn>)</dt>
+    <dd>Siehe <a href="../machine-learning-1-course/#td-learning">ML1</a></dd>
+    <dt><dfn>Q-Learning</dfn></dt>
+    <dd>Siehe <a href="../machine-learning-1-course/#q-learning">ML1</a></dd>
+    <dt><dfn>SARSA</dfn></dt>
+    <dd>Siehe <a href="../machine-learning-1-course/#sarsa">ML1</a></dd>
 </dl>
 
 <p>Konvention:</p>
@@ -691,14 +696,7 @@ den größten 1-Aktion Erwartungswert liefert).</li>
   <li>Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
 <span>\(\gamma = 1\)</span>
 ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.</li>
-</ul>
-
-<p>TODOs:</p>
-
-<ul>
-  <li>What is Policy Iteration?</li>
-  <li>SARSA - State-Action-Reward-State-Action</li>
-  <li>Q-Learning</li>
+  <li>What is Policy Iteration? (TODO)</li>
 </ul>
 
 <h3 id="tocAnchor-1-1-11">V10: SOM</h3>
@@ -757,7 +755,14 @@ ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.</
     <dd>Ein Hopfield-Netz besteht nur aus einer Schicht von McCulloch-Pitts
         Neuronen. Jedes Neuron ist mit jedem anderen Neuron (also nicht sich
         selbst) und allen Inputs verbunden. Die Schicht funktioniert
-        gleichzeitig als Ein- und Ausgabeschicht.</dd>
+        gleichzeitig als Ein- und Ausgabeschicht.
+
+        Hopfield-Netze werden in einem einzigen durchgang Trainiert. Dabei wird
+        auf das Gewicht von Neuron \(i\) zu Neuron \(j\) + 1 addiert, wenn
+        das Bit \(i\) des Trainingsmusters gleich ist. Falls das nicht der Fall
+        ist, wird von dem Gewicht 1 subtrahiert. Jedes Gewicht ist zum start
+        des Trainings 0. Das Training ist also einfach nur ein Zählen, wie
+        häufig die Stellen übereinstimmen.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine"><dfn>Boltzmann-Maschine</dfn></a></dt>
     <dd>Boltzmann-Maschinen sind stochastische neuronale Netzwerke, welche
         duch belibige ungerichtete Graphen repräsentiert werden können. Die
@@ -836,21 +841,11 @@ ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.</
 <p>Anwendungen:</p>
 
 <ul>
+  <li>Hopfield-Netze: Hopfield-Netze kann man für das <abbr title="Traveling Salesman Problem">TSP</abbr> einsetzen und auch als Assoziativspeicher nutzen. Allerdings haben sich Hopfield-Netze nie wirklich durchgesetzt.</li>
   <li>RBMs:
     <ul>
       <li>Collaborative Filtering: User-rating prediction for movie database. The
 problem is that not every user has rated all movies.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Fragen:</p>
-
-<ul>
-  <li>Hopfield-Netze:
-    <ul>
-      <li>Wie trainiert man sie?</li>
-      <li>Wo werden / wurden sie benutzt?</li>
     </ul>
   </li>
 </ul>
@@ -1041,10 +1036,10 @@ stochastische oder deterministisch?</li>
   <li><strong>Verwendung</strong>: Wo wird das Netzwerk typischerweise eingesetzt?</li>
 </ul>
 
-<table class="table">
+<table class="table" style="width:800px;">
   <thead>
     <tr>
-        <th>Netzwerk</th>
+        <th style="width: 180px;">Netzwerk</th>
         <th>Deterministisch</th>
         <th>Auswertung</th>
         <th>Training</th>
@@ -1088,10 +1083,10 @@ stochastische oder deterministisch?</li>
         <td><abbr title="Automatic Speech Recognition">ASR</abbr></td>
     </tr>
     <tr>
-        <th>LSTM</th>
+        <th><abbr title="Long Short-Term Memory">LSTM</abbr></th>
         <td style="text-align: center;">Yes</td>
         <td>Recurrent</td>
-        <td>BPTT</td>
+        <td><abbr title="Backpropagation Through Time">BPTT</abbr></td>
         <td>Mapping sequences (Generating texts, machine translation)</td>
     </tr>
     <tr>
@@ -1103,7 +1098,7 @@ stochastische oder deterministisch?</li>
     </tr>
     <tr>
         <th>Hopfield networks</th>
-        <td>Yes</td>
+        <td style="text-align: center;">Yes</td>
         <td>Recurrent</td>
         <td>Unsupervised (Hebbsche Lernregel)</td>
         <td>Associative memories, <a href="http://perso.ens-lyon.fr/eric.thierry/Graphes2010/alice-julien-laferriere.pdf">travelling salesman</a></td>
@@ -1119,7 +1114,7 @@ stochastische oder deterministisch?</li>
         <th>Boltzmann machines</th>
         <td>stochastic</td>
         <td>TODO</td>
-        <td>TODO</td>
+        <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/bm.pdf">Annealed Importance Sampling</a></td>
         <td>TODO</td>
     </tr>
     <tr>
@@ -1127,7 +1122,7 @@ stochastische oder deterministisch?</li>
         <td>stochastic</td>
         <td>TODO</td>
         <td>Contrastive Divergence (CD-k)</td>
-        <td>TODO</td>
+        <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf">Collaborative Filtering</a></td>
     </tr>
   </tbody>
 </table>
