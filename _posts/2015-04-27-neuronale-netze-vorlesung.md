@@ -255,7 +255,8 @@ Slide name: `V05_2015-04-29_Features.pdf`
 Fragen:
 
 * Welche Feed Forward Neuronalen Netze existieren, die keine Multilayer
-  Perceptronen sind?
+  Perceptronen sind?<br/>
+  → CNNs, TDNNs, SOMs.
 * Welche Skalentypen gibt es für Merkmale (Features)?
     * Nominale Merkmale: Nur Gleichheit kann überprüft werden
     * Ordinale Merkmale: Es existiert eine "kleiner gleich"-Relation
@@ -453,8 +454,12 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
         </ol>
         where \(\alpha\) is the learning rate.
     </dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Temporal_Difference_Learning"><dfn>Temporal Difference Learning</dfn></a></dt>
-    <dd>TODO?</dd>
+    <dt><dfn>Temporal Difference Learning</dfn> (<dfn>TD-Learning</dfn>)</dt>
+    <dd>Siehe <a href="../machine-learning-1-course/#td-learning">ML1</a></dd>
+    <dt><dfn>Q-Learning</dfn></dt>
+    <dd>Siehe <a href="../machine-learning-1-course/#q-learning">ML1</a></dd>
+    <dt><dfn>SARSA</dfn></dt>
+    <dd>Siehe <a href="../machine-learning-1-course/#sarsa">ML1</a></dd>
 </dl>
 
 Konvention:
@@ -472,12 +477,7 @@ Fragen:
 * Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
   <span markdown="0">\(\gamma = 1\)</span>
   ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
-
-TODOs:
-
-* What is Policy Iteration?
-* SARSA - State-Action-Reward-State-Action
-* Q-Learning
+* What is Policy Iteration? (TODO)
 
 
 ### V10: SOM
@@ -534,7 +534,14 @@ Slide name: `V11_2015-05-27_RBMs`
     <dd>Ein Hopfield-Netz besteht nur aus einer Schicht von McCulloch-Pitts
         Neuronen. Jedes Neuron ist mit jedem anderen Neuron (also nicht sich
         selbst) und allen Inputs verbunden. Die Schicht funktioniert
-        gleichzeitig als Ein- und Ausgabeschicht.</dd>
+        gleichzeitig als Ein- und Ausgabeschicht.
+
+        Hopfield-Netze werden in einem einzigen durchgang Trainiert. Dabei wird
+        auf das Gewicht von Neuron \(i\) zu Neuron \(j\) + 1 addiert, wenn
+        das Bit \(i\) des Trainingsmusters gleich ist. Falls das nicht der Fall
+        ist, wird von dem Gewicht 1 subtrahiert. Jedes Gewicht ist zum start
+        des Trainings 0. Das Training ist also einfach nur ein Zählen, wie
+        häufig die Stellen übereinstimmen.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine"><dfn>Boltzmann-Maschine</dfn></a></dt>
     <dd>Boltzmann-Maschinen sind stochastische neuronale Netzwerke, welche
         duch belibige ungerichtete Graphen repräsentiert werden können. Die
@@ -612,15 +619,10 @@ Slide name: `V11_2015-05-27_RBMs`
 
 Anwendungen:
 
+* Hopfield-Netze: Hopfield-Netze kann man für das <abbr title="Traveling Salesman Problem">TSP</abbr> einsetzen und auch als Assoziativspeicher nutzen. Allerdings haben sich Hopfield-Netze nie wirklich durchgesetzt.
 * RBMs:
     * Collaborative Filtering: User-rating prediction for movie database. The
       problem is that not every user has rated all movies.
-
-Fragen:
-
-* Hopfield-Netze:
-    * Wie trainiert man sie?
-    * Wo werden / wurden sie benutzt?
 
 Siehe auch:
 
@@ -790,10 +792,10 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
 * **Training**: Wie lernt man?
 * **Verwendung**: Wo wird das Netzwerk typischerweise eingesetzt?
 
-<table class="table">
+<table class="table" style="width:800px;">
   <thead>
     <tr>
-        <th>Netzwerk</th>
+        <th style="width: 180px;">Netzwerk</th>
         <th>Deterministisch</th>
         <th>Auswertung</th>
         <th>Training</th>
@@ -837,10 +839,10 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td><abbr title="Automatic Speech Recognition">ASR</abbr></td>
     </tr>
     <tr>
-        <th>LSTM</th>
+        <th><abbr title="Long Short-Term Memory">LSTM</abbr></th>
         <td style="text-align: center;">Yes</td>
         <td>Recurrent</td>
-        <td>BPTT</td>
+        <td><abbr title="Backpropagation Through Time">BPTT</abbr></td>
         <td>Mapping sequences (Generating texts, machine translation)</td>
     </tr>
     <tr>
@@ -852,7 +854,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     </tr>
     <tr>
         <th>Hopfield networks</th>
-        <td>Yes</td>
+        <td style="text-align: center;">Yes</td>
         <td>Recurrent</td>
         <td>Unsupervised (Hebbsche Lernregel)</td>
         <td>Associative memories, <a href="http://perso.ens-lyon.fr/eric.thierry/Graphes2010/alice-julien-laferriere.pdf">travelling salesman</a></td>
@@ -868,7 +870,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <th>Boltzmann machines</th>
         <td>stochastic</td>
         <td>TODO</td>
-        <td>TODO</td>
+        <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/bm.pdf">Annealed Importance Sampling</a></td>
         <td>TODO</td>
     </tr>
     <tr>
@@ -876,7 +878,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td>stochastic</td>
         <td>TODO</td>
         <td>Contrastive Divergence&nbsp;(CD-k)</td>
-        <td>TODO</td>
+        <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf">Collaborative Filtering</a></td>
     </tr>
   </tbody>
 </table>
