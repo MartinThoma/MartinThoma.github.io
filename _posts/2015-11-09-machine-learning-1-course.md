@@ -465,7 +465,7 @@ Algorithmen:
     </dd>
     <dt><dfn>Q-Learning</dfn></dt>
     <dd>Siehe <a href="#q-learning">nächster Abschnitt</a></dd>
-    <dt><a href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn>SARSA</dfn></a> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
+    <dt><a name="sarsa" href="https://en.wikipedia.org/wiki/State-Action-Reward-State-Action"><dfn>SARSA</dfn></a> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>
     <dd>SARSA is a learning algorithm which updates the Q-function:
 
     \[Q(s_t,a_t) \leftarrow (1-\alpha) \cdot Q(s_t,a_t) + \alpha [r_{t+1} + \gamma Q(s_{t+1}, a_{t+1})]\]
@@ -508,7 +508,7 @@ See also:
 * [Mario Q-learning](https://www.youtube.com/watch?v=ntZ0Hc1_LsY) on YouTube. 2010.
 
 
-#### TD-Learning
+#### <a name="td-learning"></a> TD-Learning
 
 * R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.
 
