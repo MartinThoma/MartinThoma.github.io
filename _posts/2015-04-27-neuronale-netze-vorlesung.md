@@ -196,17 +196,13 @@ Fakten:
 * Das Rosenblatt-Perzeptron findet eine lineare Trenngrenze, wenn sie
   existiert.
 * Probleme vom Rosenblatt-Perzeptron:
-  * XOR
-  * Nicht-linear trennbare Daten
+  * Nicht-linear trennbare Daten wie z.B. das XOR-Problem
   * Nicht-trennbare Daten
   * Wahl der Lernrate und der Startgewichte
 * Aufbau eines biologischen Neurons (Axon, Dendriten, Zellkörper, Ranviersche
   Schnürringe, Synapsen)
 * Glia-Zellen
 
-Fragen:
-
-* Folie 6: Ist der Input nicht in [0, 1]?
 
 ### V05: Features
 
@@ -215,6 +211,8 @@ Slide name: `V05_2015-04-29_Features.pdf`
 <dl>
   <dt><dfn>Rectified Linear Unit</dfn> (<dfn>ReLU</dfn>)</dt>
   <dd>\(\varphi(x) = \max(0, x)\)</dd>
+  <dt><dfn>Leaky ReLU</dfn></dt>
+  <dd>\(\varphi(x) = \max(0.01x, x)\)</dd>
   <dt><dfn>Softplus</dfn></dt>
   <dd>\(\varphi(x) = \log(1 + e^x)\)</dd>
   <dt><dfn>Feed Forward Neural Network</dfn></dt>
@@ -265,6 +263,7 @@ Fragen:
         * Es existiert jedoch kein "wirklicher" Nullpunkt
     * Verhältnisskalierte Merkmale: Wie Intervallskaliert, aber mit absolutem
       Nullpunkt.
+
 
 ### V06: Backpropagation
 
@@ -340,7 +339,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         sign of the gradient. It increases the learning rate when the sign of
         the gradient doesn't change and increases it when the sign of the
         gradient changes.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a></dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
     <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
     <dd>Newbob scheduling is a combination of Exponential decay learning rate
@@ -358,7 +357,8 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dt><dfn>Mean Squared Error function</dfn> (MSE)</dt>
     <dd>\[E_{MSE}(w) = \frac{1}{2}\sum_{x \in X} \sum_{k} (t_k^x - o_k^x)^2\]
         where \(w\) is the weight vector, \(X\) is the set of training
-        examples (feature vectors), \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}\) and \(o_k^x\) is the output
+        examples (feature vectors), \(k\) is the range of output neurons,
+        \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}\) and \(o_k^x\) is the output
         at neuron \(k\) of the network for the feature vector \(x\).</dd>
     <dt><dfn>Convolutional Neural Networks</dfn> (<dfn>CNNs</dfn>)</dt>
     <dd>Feed-Forward Neuronale Netze, welche durch geteilte Gewichte (weight
@@ -369,8 +369,8 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         werden in der <abbr title="Automatic Speech Recognition">ASR</abbr>
         verwendet und lernen auch Filter. Allerdings wird hier über die Zeit
         hinweg gefaltet.</dd>
-    <dt><dfn>Multi-State Time-Delay Neural Networks</dfn> (<dfn>MS-TDNNs</dfn>)</dt>
-    <dd>TODO</dd>
+    <dt><dfn>Multi-State Time-Delay Neural Networks</dfn> (<dfn>MS-TDNNs</dfn>, siehe [<a href="#ref-haf92" name="ref-haf92-anchor">Haf92</a>])</dt>
+    <dd>MS-TDNNs codieren die alignment-Suche im Netzwerk.</dd>
 </dl>
 
 {% caption align="aligncenter" width="500" alt="RProp by Ryan Harris" text="RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp" url="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" %}
@@ -388,12 +388,6 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     * MSE penetalizes large differences much more than small ones
     * MSE works well for function approximation
     * CE works well on classification tasks
-
-
-Fragen:
-
-* AdaGrad (Folie 34)
-* Optimal drain damage (Folie 36)
 
 
 ### V09: Reinforcement Learning
@@ -470,6 +464,12 @@ Slide name: `V09_2015-05-26-Reinforcement-Learning.pdf`
     <dd>Siehe <a href="../machine-learning-1-course/#q-learning">ML1</a></dd>
     <dt><dfn>SARSA</dfn></dt>
     <dd>Siehe <a href="../machine-learning-1-course/#sarsa">ML1</a></dd>
+    <dt><dfn>Policy Iteration</dfn> (Siehe <a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume4/kaelbling96a-html/node20.html">CMU</a>)</dt>
+    <dd>Die Policy iteration verbessert die V-Funktion indem die
+        Gleichungen
+        \[V^\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V^\pi(s')\]
+        gelöst werden und dann für jeden Zustand eine neue policy gesetz wird:
+        \[\pi'(s) = \text{arg max}_a (R(s, a) + \gamma \sum_{s'} T(s, a, s') V^\pi(s'))\]</dd>
 </dl>
 
 Konvention:
@@ -481,13 +481,14 @@ Fragen:
 
 * Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
   <span markdown="0">\(\gamma = 0\)</span>
-  ist? → Nur der aktuelle Reward ist wichtig. Effektiv nimmt der Agent immer
+  ist?<br/>
+  → Nur der aktuelle Reward ist wichtig. Effektiv nimmt der Agent immer
   das nächste Feld, welche den höchsten Reward bietet (bzw. die Aktion, die
   den größten 1-Aktion Erwartungswert liefert).
 * Was bedeutet es, wenn in einem MDP der Diskontierungsfaktor
   <span markdown="0">\(\gamma = 1\)</span>
-  ist? → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
-* What is Policy Iteration? (TODO)
+  ist?<br/>
+  → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
 
 
 ### V10: SOM
@@ -748,6 +749,7 @@ Speed-ups des Trainings sind möglich durch:
 
 Lernen kann getweakt werden:
 
+* Den Betrag des Gradienten um eine kleine Konstante vergrößern (Folie 19+20)
 * Fehlerfunktion anpassen
     * <abbr title="Mean Squared Error">MSE</abbr>
     * Cross-Entropy
@@ -761,10 +763,6 @@ Lernen kann getweakt werden:
     * Cascade Correlation
     * Meiosis Netzwerke
     * <abbr title="Automatic Structure Optimalization">ASO</abbr>
-
-Fragen:
-
-* Folie 19: Was passiert hier? (TODO)
 
 
 ### V14: DNN CV
@@ -804,7 +802,7 @@ mir folgendes aufgefallen:
 * Im Innenren von Neuronen wird die Aktivierungsfunktion "geplottet". Das heißt
   bei der Sigmoidfunktion wird etwas S-Förmiges dargestellt, bei der
   sign-Funktion etwas eckiges, bei ReLU ein horizontaler Strich gefolgt von
-  einem Strich im 45-Grad Winkel ... (TODO: Beispiele aufzeichnen)
+  einem Strich im 45-Grad Winkel.
 * Typischerweise ist der Input links (oder alternativ unten) und der Output
   rechts (oder alternativ oben)
 
@@ -920,15 +918,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         → Backpropagation ist eine geschickte Umsetzung des Gradientenabstiegs,
            bei der es vermieden wird Berechnungen mehrfach durchzuführen.</li>
     <li>Welche Typen von Neuronalen Netzen gibt es?<br/>
-        → Hopfield-Netze,
-           <abbr title="Restricted Boltzmann Machines">RBMs</abbr>,
-           Feed-Forward Netze,
-           Perceptrons (McCullch-Pitts, Rosenblatt,
-           <abbr title="Multilayer Peceptrons">MLPs</abbr>),
-           <abbr title="Convolutional Neural Networks">CNNs</abbr>,
-           rekurrente Netze (LSTM),
-           <abbr title="Self-Organizing Maps">SOMs</abbr>,
-           <abbr title="Time Delay Neural Networks">TDNNs</abbr></li>
+        → Siehe <a href="#einordnung">Einordnung</a></li>
 </ul>
 
 
@@ -946,6 +936,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   * [What is \\(\alpha \sin(\theta) + \beta \frac{d \theta}{d t}\\) in the inverted pole problem?](http://robotics.stackexchange.com/q/8617/11257)
   * ✓ [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
   * [The cross-entropy error function in neural networks](http://datascience.stackexchange.com/q/9302/8820)
+  * [What is the “dying ReLU” problem in neural networks?](http://datascience.stackexchange.com/q/5706/8820) and [How does rectilinear activation function solve the vanishing gradient problem in neural networks?](http://stats.stackexchange.com/q/176794/25741)
 * [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
@@ -963,6 +954,8 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   [Neuronale Netze](http://www.dkriesel.com/_media/science/neuronalenetze-de-zeta2-2col-dkrieselcom.pdf). 2005.
 * [<a href="#ref-bod93-anchor" name="ref-bod93">Bod93</a>] U. Bodenhausen und A. Waibel.
   [Tuning by doing: Flexibility through automatic structure optimization](http://isl.anthropomatik.kit.edu/cmu-kit/downloads/tuning_by_Doing_Flexibility_through_automatic_structure_optimization(1).pdf) in Third European Conference on Speech Communication and Technology, 1993.
+* [<a href="#ref-haf92-anchor" name="ref-haf92">Haf92</a>] P. Haffner und A. Waibel.
+  [Multi-state time delay networks for continuous speech recognition](http://isl.anthropomatik.kit.edu/downloads/0135_Kopie_.pdf) in Advances in neural information processing systems, 1992.
 
 
 ## Übungsbetrieb
