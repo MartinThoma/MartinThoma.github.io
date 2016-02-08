@@ -360,12 +360,22 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         where \(w\) is the weight vector, \(X\) is the set of training
         examples (feature vectors), \(t_k^x = \begin{cases}1 &\text{if } x \text{ is of class }k\\0&\text{otherwise}\end{cases}\) and \(o_k^x\) is the output
         at neuron \(k\) of the network for the feature vector \(x\).</dd>
+    <dt><dfn>Convolutional Neural Networks</dfn> (<dfn>CNNs</dfn>)</dt>
+    <dd>Feed-Forward Neuronale Netze, welche durch geteilte Gewichte (weight
+        sharing) grafische Filter lernen. CNNs sind aktuell in der Computer
+        Vission Stand der Technik.</dd>
+    <dt><dfn>Time-Delay Neural Networks</dfn> (<dfn>TDNNs</dfn>)</dt>
+    <dd>TDNNs wenden wie CNNs weight sharing an um Filter zu lernen. Sie
+        werden in der <abbr title="Automatic Speech Recognition">ASR</abbr>
+        verwendet und lernen auch Filter. Allerdings wird hier über die Zeit
+        hinweg gefaltet.</dd>
+    <dt><dfn>Multi-State Time-Delay Neural Networks</dfn> (<dfn>MS-TDNNs</dfn>)</dt>
+    <dd>TODO</dd>
 </dl>
 
 {% caption align="aligncenter" width="500" alt="RProp by Ryan Harris" text="RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp" url="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" %}
 
 * Pretraining
-* <abbr title="Time Delay Neural Networks">TDNNs</abbr>, <abbr title="Convolutional Neural Networks">CNNs</abbr>
 * Design choices (hyperparameters):
     * Topology (Width of layers, number of layers)
     * Activation functions
@@ -559,6 +569,13 @@ Slide name: `V11_2015-05-27_RBMs`
       (RBM) aus einem bipartitem Graph bestehen. Dies erlaubt ein effizienteres
       Trainingsverfahren (Contrastive Divergence).
 
+      Die Energie des Netzwerkes ist
+      \[- \sum_{i < j} w_{ij} s_i s_j - \sum_i b_i s_i\]
+      wobei \(s_i, s_j\) die binären Zustände der Knoten \(i, j\) sind. Der
+      Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzuständen
+      wahrscheinlichkeiten zuweisen, die direkt Proportional zu \(e^{-E}\))
+      sind.
+
       Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
       <br/>
       Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010.</dd>
@@ -707,8 +724,18 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
     <dd>Meiosis Netzwerke bauen ein neuronales Netz auf. Sie beginnen mit einer
         einzelnen hidden Unit. Diese hidden Unit wird aufgespalten, wenn die
         "Unsicherheit" zu groß ist. (TODO)</dd>
-    <dt><dfn>Automativ Structure Optimalization</dfn> (<dfn>ASO</dfn>)</dt>
-    <dd>TODO</dd>
+    <dt><dfn>Automatic Structure Optimization</dfn> (<dfn>ASO</dfn>, siehe [<a href="#ref-bod93" name="ref-bod93-anchor">Bod93</a>])</dt>
+    <dd>Der ASO-Algorithmus passt folgende Hyperparameter im Training
+        automatisch an:
+
+        <ul>
+            <li>Anzahl der Hidden Units</li>
+            <li>Größe des Input-Fensers (ASR-Spezifisch)</li>
+            <li>Anzahl der Zustände, welche "Accoustic Events" repräsentieren</li>
+        </ul>
+
+
+    </dd>
 </dl>
 
 Speed-ups des Trainings sind möglich durch:
@@ -733,7 +760,7 @@ Lernen kann getweakt werden:
 * Schrittweise Netzkonstruktion
     * Cascade Correlation
     * Meiosis Netzwerke
-    * <abbr title="Automativ Structure Optimalization">ASO</abbr>
+    * <abbr title="Automatic Structure Optimalization">ASO</abbr>
 
 Fragen:
 
@@ -859,6 +886,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td>Unsupervised (Hebbsche Lernregel)</td>
         <td>Associative memories, <a href="http://perso.ens-lyon.fr/eric.thierry/Graphes2010/alice-julien-laferriere.pdf">travelling salesman</a></td>
     </tr>
+    <!--
     <tr>
         <th>Helmholtz machines</th>
         <td>stochastic</td>
@@ -866,10 +894,11 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td>wake-sleep algorithm</td>
         <td>TODO</td>
     </tr>
+    -->
     <tr>
         <th>Boltzmann machines</th>
         <td>stochastic</td>
-        <td>TODO</td>
+        <td>Simulated Annealing</td>
         <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/bm.pdf">Annealed Importance Sampling</a></td>
         <td>TODO</td>
     </tr>
@@ -932,6 +961,8 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   [Neural networks and physical systems with emergent collective computational abilities](http://www.pnas.org/content/79/8/2554.full.pdf) in Proceedings of the national academy of sciences, 1982.
 * [<a href="#ref-kri05-anchor" name="ref-kri05">Kri05</a>] D. Kriesel.
   [Neuronale Netze](http://www.dkriesel.com/_media/science/neuronalenetze-de-zeta2-2col-dkrieselcom.pdf). 2005.
+* [<a href="#ref-bod93-anchor" name="ref-bod93">Bod93</a>] U. Bodenhausen und A. Waibel.
+  [Tuning by doing: Flexibility through automatic structure optimization](http://isl.anthropomatik.kit.edu/cmu-kit/downloads/tuning_by_Doing_Flexibility_through_automatic_structure_optimization(1).pdf) in Third European Conference on Speech Communication and Technology, 1993.
 
 
 ## Übungsbetrieb
