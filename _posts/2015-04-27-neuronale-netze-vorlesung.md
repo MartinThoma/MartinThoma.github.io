@@ -910,7 +910,7 @@ mir folgendes aufgefallen:
         <td>&nbsp;</td>
     </tr>
     <tr>
-        <td>Softmax</td>
+        <td><a href="../softmax">Softmax</a></td>
         <td><span markdown="0">\(o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}\)</span></td>
         <td><span markdown="0">\([0, 1]^K\)</span></td>
         <td style="text-align: center;">Ja</td>
@@ -1045,6 +1045,9 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         → Siehe <a href="#einordnung">Einordnung</a></li>
     <li>Welche Aktivierungsfuktionen gibt es?<br/>
         → Siehe <a href="#activations">Übersicht</a></li>
+    <li>Wofür kann man neuronale Netze einsetzen?<br/>
+        → Klassifikation, <a href="http://datascience.stackexchange.com/q/9495/8820">Funktionsapproximation</a>, Encoding, Dimensionalitätsreduktion,
+        Assoziativspeicher</li>
 </ul>
 
 
