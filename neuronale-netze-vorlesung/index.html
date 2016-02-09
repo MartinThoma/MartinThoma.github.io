@@ -1069,7 +1069,7 @@ rechts (oder alternativ oben)</li>
         <th>Funktion <span>\(\varphi(x)\)</span></th>
         <th>Wertebereich</th>
         <th>Differenzierbar</th>
-        <th><span>\(\varphi'(x) \neq 0\)</span></th>
+        <th><span>\(\varphi'(x)\)</span></th>
         <th>Layer</th>
         <th>Kommentar</th>
     </tr>
@@ -1078,27 +1078,27 @@ rechts (oder alternativ oben)</li>
     <tr>
         <td>Signum</td>
         <td><span>\(\varphi(x) = \begin{cases}+1 &amp;\text{if } x &gt; 0\\-1 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
-        <td><span>\{-1, 1\}</span></td>
+        <td><span>\(\{-1, 1\}\)</span></td>
         <td style="text-align: center;">Ja (außer 0)</td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;"><span>\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td> </td>
     </tr>
     <tr>
         <td>Heavy-Side Step function</td>
         <td><span>\(\varphi(x) = \begin{cases}+1 &amp;\text{if } x &gt; 0\\0 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
-        <td><span>\{0, 1\}</span></td>
+        <td><span>\(\{0, 1\}\)</span></td>
         <td style="text-align: center;">Ja (außer 0)</td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;"><span>\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>McCullch-Pitts; Rosenblatt</td>
     </tr>
     <tr>
         <td>Sigmoid</td>
         <td><span>\(\varphi(x) = \frac{1}{1+e^{-x}}\)</span></td>
-        <td><span>[0, 1]</span></td>
+        <td><span>\([0, 1]\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span>\(\varphi'(x) = \frac{e^x}{(e^x +1)^2}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Geglättete Version der Heavy-Side Step function</td>
     </tr>
@@ -1107,53 +1107,62 @@ rechts (oder alternativ oben)</li>
         <td><span>\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)\)</span></td>
         <td><span>[-1, 1]</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span>\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Geglättete Version der Signumsfunktion</td>
     </tr>
     <tr>
         <td>ReLU</td>
         <td><span>\(\varphi(x) = \max(0, x)\)</span></td>
-        <td><span>[0, \infty)</span></td>
+        <td><span>\([0, \infty)\)</span></td>
         <td style="text-align: center;">Ja (außer 0)</td>
-        <td style="text-align: center;">Ja (wenn &gt; 0)</td>
+        <td style="text-align: center;"><span>\(\varphi'(x) = \begin{cases}1 &amp;\text{if } x &gt; 0\\0 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Standard in CNNs</td>
     </tr>
     <tr>
         <td>Leaky ReLU</td>
         <td><span>\(\varphi(x) = \max(0.01x, x)\)</span></td>
-        <td><span>(-\infty, +\infty)</span></td>
+        <td><span>\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Ja (außer 0)</td>
-        <td style="text-align: center;">Ja (außer 0)</td>
+        <td style="text-align: center;"><span>\(\varphi'(x) = \begin{cases}1 &amp;\text{if } x &gt; 0\\0.01 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Behebt dying neuron Problem</td>
     </tr>
     <tr>
         <td>Softplus</td>
         <td><span>\(\varphi(x) = \log(e^x + 1)\)</span></td>
-        <td><span>(0, \infty)</span></td>
+        <td><span>\((0, \infty)\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span>\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Geglättete ReLU</td>
     </tr>
     <tr>
         <td>Softmax</td>
         <td><span>\(o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}\)</span></td>
-        <td><span>[0, 1]^K</span></td>
+        <td><span>\([0, 1]^K\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;">Differenzierbar</td>
         <td style="text-align: center;">Ja</td>
         <td>Standard für Klassifizierungsprobleme, da der Output als Wahrscheinlichkeitsverteilung interpretiert werden kann.</td>
     </tr>
     <tr>
         <td>Maxout</td>
         <td><span>\(h(\mathbf{x}) = \max_{x \in \mathbf{x}} x\)</span></td>
-        <td><span>(-\infty, +\infty)</span></td>
-        <td>Nein</td>
-        <td>-</td>
-        <td>Nein</td>
+        <td><span>\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;">-</td>
+        <td style="text-align: center;">Nein</td>
+        <td>Arbeitet auf den nicht aufsummierten inputs</td>
+    </tr>
+    <tr>
+        <td>ELU</td>
+        <td><span>\(\varphi(\mathbf{x}) = \begin{cases}x &amp;\text{if } x &gt; 0\\\alpha (e^x - 1) &amp;\text{otherwise}\end{cases}\)</span></td>
+        <td><span>\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span>\(\varphi(\mathbf{x}) = \begin{cases}1 &amp;\text{if } x &gt; 0\\\alpha e^x &amp;\text{otherwise}\end{cases}\)</span></td>
+        <td style="text-align: center;">Nein</td>
         <td>Arbeitet auf den nicht aufsummierten inputs</td>
     </tr>
   </tbody>
