@@ -171,12 +171,27 @@ Slide name: `V04_2015-04-28_Perceptron.pdf`
       Stufenfunktion
       \(\varphi(x) = \begin{cases}1 &\text{falls } x > 0\\0 &\text{sonst} \end{cases}\)
       angewendet.
+
+      Man lernt mit MCP Neuronen, indem man
+      \[\Delta w = \eta \delta x\]
+      \[w \gets w + \Delta w\]
+      berechnet, wobei \(\eta \in (0, 1)\) die Lernrate ist, \(x\) ein Trainingsdatum
+      und \(\delta = y_{\text{target}} - y\) die Abweichung vom gewünschten
+      Ergebnis ist. Diese Regel wird auch Perceptron Learning Rule genannt.
   </dd>
   <dt><dfn>Rosenblatt-Perzeptron</dfn></dt>
   <dd>Wie das McCulloch–Pitts (MCP) Neuron, nur ist \(x_i \in \mathbb{R}\) und
       ein Lernalgorithmus ist gegeben. Dieser addiert den
-      \(\lambda \in (0, 1)\) gewichteten, fehlklassifizierten Vektor auf die
-      Gewichte \(w_i\). \(\lambda\) heißt die <i>Lernrate</i>.
+      \(\eta \in (0, 1)\) gewichteten, fehlklassifizierten Vektor auf die
+      Gewichte \(w_i\). \(\eta\) heißt die <i>Lernrate</i>.
+
+      Man lernt mit MCP Neuronen, indem man
+      \[\Delta w = \eta \delta x\]
+      \[w \gets w + \Delta w\]
+      berechnet, wobei \(\eta \in (0, 1)\) die Lernrate ist, \(x\) ein Trainingsdatum
+      und \(\delta = - \frac{\partial E}{\partial w}\) der Gradient auf der
+      Fehleroberfläche in Abhängigkeit von den Gewichten ist. Es wird also
+      Gradient descent verwendet.
   </dd>
   <dt><dfn>Pocket Perceptron Algorithm</dfn></dt>
   <dd>Ein Lernalgorithmus für ein Rosenblatt-Perzeptron. Dieser konvergiert zu
@@ -898,10 +913,10 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td>stochastic</td>
         <td>Simulated Annealing</td>
         <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/bm.pdf">Annealed Importance Sampling</a></td>
-        <td>TODO</td>
+        <td>(not used)</td>
     </tr>
     <tr>
-        <th>RBMs</th>
+        <th><abbr title="Restricted Boltzmann Machines">RBMs</abbr></th>
         <td>stochastic</td>
         <td>TODO</td>
         <td>Contrastive Divergence&nbsp;(CD-k)</td>
