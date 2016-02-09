@@ -831,7 +831,7 @@ mir folgendes aufgefallen:
         <th>Funktion <span markdown="0">\(\varphi(x)\)</span></th>
         <th>Wertebereich</th>
         <th>Differenzierbar</th>
-        <th><span markdown="0">\(\varphi'(x) \neq 0\)</span></th>
+        <th><span markdown="0">\(\varphi'(x)\)</span></th>
         <th>Layer</th>
         <th>Kommentar</th>
     </tr>
@@ -840,27 +840,27 @@ mir folgendes aufgefallen:
     <tr>
         <td>Signum</td>
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\-1 &\text{if } x < 0\end{cases}\)</span></td>
-        <td><span markdown="0">\{-1, 1\}</span></td>
+        <td><span markdown="0">\(\{-1, 1\}\)</span></td>
         <td style="text-align: center;">Ja (au&szlig;er 0)</td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>&nbsp;</td>
     </tr>
     <tr>
         <td>Heavy-Side Step function</td>
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
-        <td><span markdown="0">\{0, 1\}</span></td>
+        <td><span markdown="0">\(\{0, 1\}\)</span></td>
         <td style="text-align: center;">Ja (au&szlig;er 0)</td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>McCullch-Pitts; Rosenblatt</td>
     </tr>
     <tr>
         <td>Sigmoid</td>
         <td><span markdown="0">\(\varphi(x) = \frac{1}{1+e^{-x}}\)</span></td>
-        <td><span markdown="0">[0, 1]</span></td>
+        <td><span markdown="0">\([0, 1]\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \frac{e^x}{(e^x +1)^2}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Gegl&auml;ttete Version der Heavy-Side Step function</td>
     </tr>
@@ -869,53 +869,62 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)\)</span></td>
         <td><span markdown="0">[-1, 1]</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Gegl&auml;ttete Version der Signumsfunktion</td>
     </tr>
     <tr>
         <td>ReLU</td>
         <td><span markdown="0">\(\varphi(x) = \max(0, x)\)</span></td>
-        <td><span markdown="0">[0, \infty)</span></td>
+        <td><span markdown="0">\([0, \infty)\)</span></td>
         <td style="text-align: center;">Ja (au&szlig;er 0)</td>
-        <td style="text-align: center;">Ja (wenn &gt; 0)</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Standard in CNNs</td>
     </tr>
     <tr>
         <td>Leaky ReLU</td>
         <td><span markdown="0">\(\varphi(x) = \max(0.01x, x)\)</span></td>
-        <td><span markdown="0">(-\infty, +\infty)</span></td>
+        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Ja (au&szlig;er 0)</td>
-        <td style="text-align: center;">Ja (au&szlig;er 0)</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Behebt dying neuron Problem</td>
     </tr>
     <tr>
         <td>Softplus</td>
         <td><span markdown="0">\(\varphi(x) = \log(e^x + 1)\)</span></td>
-        <td><span markdown="0">(0, \infty)</span></td>
+        <td><span markdown="0">\((0, \infty)\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Gegl&auml;ttete ReLU</td>
     </tr>
     <tr>
         <td>Softmax</td>
         <td><span markdown="0">\(o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}\)</span></td>
-        <td><span markdown="0">[0, 1]^K</span></td>
+        <td><span markdown="0">\([0, 1]^K\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;">Differenzierbar</td>
         <td style="text-align: center;">Ja</td>
         <td>Standard f&uuml;r Klassifizierungsprobleme, da der Output als Wahrscheinlichkeitsverteilung interpretiert werden kann.</td>
     </tr>
     <tr>
         <td>Maxout</td>
         <td><span markdown="0">\(h(\mathbf{x}) = \max_{x \in \mathbf{x}} x\)</span></td>
-        <td><span markdown="0">(-\infty, +\infty)</span></td>
-        <td>Nein</td>
-        <td>-</td>
-        <td>Nein</td>
+        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;">-</td>
+        <td style="text-align: center;">Nein</td>
+        <td>Arbeitet auf den nicht aufsummierten inputs</td>
+    </tr>
+    <tr>
+        <td>ELU</td>
+        <td><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}\)</span></td>
+        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}\)</span></td>
+        <td style="text-align: center;">Nein</td>
         <td>Arbeitet auf den nicht aufsummierten inputs</td>
     </tr>
   </tbody>
