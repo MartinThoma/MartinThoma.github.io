@@ -842,7 +842,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\-1 &\text{if } x < 0\end{cases}\)</span></td>
         <td><span markdown="0">\(\{-1, 1\}\)</span></td>
         <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = 0\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>&nbsp;</td>
     </tr>
@@ -851,7 +851,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
         <td><span markdown="0">\(\{0, 1\}\)</span></td>
         <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = 0\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>McCullch-Pitts; Rosenblatt</td>
     </tr>
@@ -860,7 +860,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \frac{1}{1+e^{-x}}\)</span></td>
         <td><span markdown="0">\([0, 1]\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \frac{e^x}{(e^x +1)^2}\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = \frac{e^x}{(e^x +1)^2}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Gegl&auml;ttete Version der Heavy-Side Step function</td>
     </tr>
@@ -869,7 +869,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)\)</span></td>
         <td><span markdown="0">\([-1, 1]\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Gegl&auml;ttete Version der Signumsfunktion</td>
     </tr>
@@ -878,7 +878,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \max(0, x)\)</span></td>
         <td><span markdown="0">\([0, \infty)\)</span></td>
         <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Standard in CNNs</td>
     </tr>
@@ -887,7 +887,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \max(0.01x, x)\)</span></td>
         <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Behebt dying neuron Problem</td>
     </tr>
@@ -896,7 +896,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(x) = \log(e^x + 1)\)</span></td>
         <td><span markdown="0">\((0, \infty)\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Gegl&auml;ttete ReLU</td>
     </tr>
@@ -905,7 +905,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}\)</span></td>
         <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}\)</span></td>
+        <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>&nbsp;</td>
     </tr>
@@ -914,7 +914,7 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\(o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}\)</span></td>
         <td><span markdown="0">\([0, 1]^K\)</span></td>
         <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;">Differenzierbar</td>
+        <td>Differenzierbar</td>
         <td style="text-align: center;">Ja</td>
         <td>Standard f&uuml;r Klassifizierungsprobleme, da der Output als Wahrscheinlichkeitsverteilung interpretiert werden kann.</td>
     </tr>
