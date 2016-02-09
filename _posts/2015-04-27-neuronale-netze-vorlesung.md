@@ -822,7 +822,7 @@ mir folgendes aufgefallen:
   rechts (oder alternativ oben)
 
 
-## <a href="activations"></a> Aktivierungsfunktionen
+## <a name="activations"></a> Aktivierungsfunktionen
 
 <table class="table" style="width:800px;">
   <thead>
@@ -841,7 +841,7 @@ mir folgendes aufgefallen:
         <td>Signum</td>
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\-1 &\text{if } x < 0\end{cases}\)</span></td>
         <td><span markdown="0">\(\{-1, 1\}\)</span></td>
-        <td style="text-align: center;">Ja (au&szlig;er 0)</td>
+        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
         <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>&nbsp;</td>
@@ -850,7 +850,7 @@ mir folgendes aufgefallen:
         <td>Heavy-Side Step function</td>
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
         <td><span markdown="0">\(\{0, 1\}\)</span></td>
-        <td style="text-align: center;">Ja (au&szlig;er 0)</td>
+        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
         <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>McCullch-Pitts; Rosenblatt</td>
@@ -865,9 +865,9 @@ mir folgendes aufgefallen:
         <td>Gegl&auml;ttete Version der Heavy-Side Step function</td>
     </tr>
     <tr>
-        <td>tanh</td>
+        <td><abbr title="Tangens Hyperbolicus">tanh</abbr></td>
         <td><span markdown="0">\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)\)</span></td>
-        <td><span markdown="0">[-1, 1]</span></td>
+        <td><span markdown="0">\([-1, 1]\)</span></td>
         <td style="text-align: center;">Ja</td>
         <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
         <td style="text-align: center;">Nein</td>
@@ -877,7 +877,7 @@ mir folgendes aufgefallen:
         <td>ReLU</td>
         <td><span markdown="0">\(\varphi(x) = \max(0, x)\)</span></td>
         <td><span markdown="0">\([0, \infty)\)</span></td>
-        <td style="text-align: center;">Ja (au&szlig;er 0)</td>
+        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
         <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Standard in CNNs</td>
@@ -886,7 +886,7 @@ mir folgendes aufgefallen:
         <td>Leaky ReLU</td>
         <td><span markdown="0">\(\varphi(x) = \max(0.01x, x)\)</span></td>
         <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
-        <td style="text-align: center;">Ja (au&szlig;er 0)</td>
+        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
         <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Behebt dying neuron Problem</td>
@@ -899,6 +899,15 @@ mir folgendes aufgefallen:
         <td style="text-align: center;"><span markdown="0">\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Gegl&auml;ttete ReLU</td>
+    </tr>
+    <tr>
+        <td>ELU</td>
+        <td><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}\)</span></td>
+        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}\)</span></td>
+        <td style="text-align: center;">Nein</td>
+        <td>&nbsp;</td>
     </tr>
     <tr>
         <td>Softmax</td>
@@ -915,15 +924,6 @@ mir folgendes aufgefallen:
         <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td style="text-align: center;">-</td>
-        <td style="text-align: center;">Nein</td>
-        <td>Arbeitet auf den nicht aufsummierten inputs</td>
-    </tr>
-    <tr>
-        <td>ELU</td>
-        <td><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}\)</span></td>
-        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
-        <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;"><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Arbeitet auf den nicht aufsummierten inputs</td>
     </tr>
