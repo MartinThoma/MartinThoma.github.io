@@ -1060,7 +1060,7 @@ einem Strich im 45-Grad Winkel.</li>
 rechts (oder alternativ oben)</li>
 </ul>
 
-<h2 id="tocAnchor-1-19"><a href="activations"></a> Aktivierungsfunktionen</h2>
+<h2 id="tocAnchor-1-19"><a name="activations" id="activations"></a> Aktivierungsfunktionen</h2>
 
 <table class="table" style="width:800px;">
   <thead>
@@ -1079,7 +1079,7 @@ rechts (oder alternativ oben)</li>
         <td>Signum</td>
         <td><span>\(\varphi(x) = \begin{cases}+1 &amp;\text{if } x &gt; 0\\-1 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
         <td><span>\(\{-1, 1\}\)</span></td>
-        <td style="text-align: center;">Ja (außer 0)</td>
+        <td style="text-align: center;">Ja<br />(außer 0)</td>
         <td style="text-align: center;"><span>\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td> </td>
@@ -1088,7 +1088,7 @@ rechts (oder alternativ oben)</li>
         <td>Heavy-Side Step function</td>
         <td><span>\(\varphi(x) = \begin{cases}+1 &amp;\text{if } x &gt; 0\\0 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
         <td><span>\(\{0, 1\}\)</span></td>
-        <td style="text-align: center;">Ja (außer 0)</td>
+        <td style="text-align: center;">Ja<br />(außer 0)</td>
         <td style="text-align: center;"><span>\(\varphi'(x) = 0\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>McCullch-Pitts; Rosenblatt</td>
@@ -1103,9 +1103,9 @@ rechts (oder alternativ oben)</li>
         <td>Geglättete Version der Heavy-Side Step function</td>
     </tr>
     <tr>
-        <td>tanh</td>
+        <td><abbr title="Tangens Hyperbolicus">tanh</abbr></td>
         <td><span>\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)\)</span></td>
-        <td><span>[-1, 1]</span></td>
+        <td><span>\([-1, 1]\)</span></td>
         <td style="text-align: center;">Ja</td>
         <td style="text-align: center;"><span>\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
         <td style="text-align: center;">Nein</td>
@@ -1115,7 +1115,7 @@ rechts (oder alternativ oben)</li>
         <td>ReLU</td>
         <td><span>\(\varphi(x) = \max(0, x)\)</span></td>
         <td><span>\([0, \infty)\)</span></td>
-        <td style="text-align: center;">Ja (außer 0)</td>
+        <td style="text-align: center;">Ja<br />(außer 0)</td>
         <td style="text-align: center;"><span>\(\varphi'(x) = \begin{cases}1 &amp;\text{if } x &gt; 0\\0 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Standard in CNNs</td>
@@ -1124,7 +1124,7 @@ rechts (oder alternativ oben)</li>
         <td>Leaky ReLU</td>
         <td><span>\(\varphi(x) = \max(0.01x, x)\)</span></td>
         <td><span>\((-\infty, +\infty)\)</span></td>
-        <td style="text-align: center;">Ja (außer 0)</td>
+        <td style="text-align: center;">Ja<br />(außer 0)</td>
         <td style="text-align: center;"><span>\(\varphi'(x) = \begin{cases}1 &amp;\text{if } x &gt; 0\\0.01 &amp;\text{if } x &lt; 0\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Behebt dying neuron Problem</td>
@@ -1137,6 +1137,15 @@ rechts (oder alternativ oben)</li>
         <td style="text-align: center;"><span>\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Geglättete ReLU</td>
+    </tr>
+    <tr>
+        <td>ELU</td>
+        <td><span>\(\varphi(\mathbf{x}) = \begin{cases}x &amp;\text{if } x &gt; 0\\\alpha (e^x - 1) &amp;\text{otherwise}\end{cases}\)</span></td>
+        <td><span>\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span>\(\varphi(\mathbf{x}) = \begin{cases}1 &amp;\text{if } x &gt; 0\\\alpha e^x &amp;\text{otherwise}\end{cases}\)</span></td>
+        <td style="text-align: center;">Nein</td>
+        <td> </td>
     </tr>
     <tr>
         <td>Softmax</td>
@@ -1153,15 +1162,6 @@ rechts (oder alternativ oben)</li>
         <td><span>\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td style="text-align: center;">-</td>
-        <td style="text-align: center;">Nein</td>
-        <td>Arbeitet auf den nicht aufsummierten inputs</td>
-    </tr>
-    <tr>
-        <td>ELU</td>
-        <td><span>\(\varphi(\mathbf{x}) = \begin{cases}x &amp;\text{if } x &gt; 0\\\alpha (e^x - 1) &amp;\text{otherwise}\end{cases}\)</span></td>
-        <td><span>\((-\infty, +\infty)\)</span></td>
-        <td style="text-align: center;">Ja</td>
-        <td style="text-align: center;"><span>\(\varphi(\mathbf{x}) = \begin{cases}1 &amp;\text{if } x &gt; 0\\\alpha e^x &amp;\text{otherwise}\end{cases}\)</span></td>
         <td style="text-align: center;">Nein</td>
         <td>Arbeitet auf den nicht aufsummierten inputs</td>
     </tr>
