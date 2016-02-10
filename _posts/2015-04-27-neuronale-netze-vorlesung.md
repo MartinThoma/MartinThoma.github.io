@@ -355,7 +355,9 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         the gradient doesn't change and increases it when the sign of the
         gradient changes.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
-    <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]</dd>
+    <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]
+
+    where \(\eta_0\) is an initial learning rate, \(t\) is the epoch, \(i,j\) refer to neurons.</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
     <dd>Newbob scheduling is a combination of Exponential decay learning rate
         scheduling and performance scheduling. It starts with a learning rate
@@ -595,7 +597,8 @@ Slide name: `V11_2015-05-27_RBMs`
       Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
       <br/>
       Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010.</dd>
-  <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a> von Hugo Larochelle)</dt>
+      sowie <a href="https://www.youtube.com/watch?v=lekCh_i32iE">Interence in RBMs</a>
+  <dt><a name="contrastive-divergence"></a><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-\(k\)</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a>, <a href="https://www.youtube.com/watch?v=wMb7cads0go">2</a> von Hugo Larochelle)</dt>
   <dd>Contrastive Divergence ist ein Trainingsalgorithmus für RBMs.
 
       Ein Hyperparameter ist \(k \in \mathbb{N}\).
@@ -619,8 +622,9 @@ Slide name: `V11_2015-05-27_RBMs`
             wobei \(\alpha \in (0, 1) \) die Lernrate ist,
             \(b \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
             \(c \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
-            \(h\) ist eine Zufallsvariable, welche der Hidden Layer ist. Diese
-            sind abhängig von der Eingabeschicht.
+            \(h = \text{sigmoid}(b + W x)\) ist ein Vektor, welcher für die
+            einzelnen Hidden Units sagt wie wahrscheinlich es ist, dass diese
+            gleich 1 sind.
           </li>
       </ol>
 
@@ -653,9 +657,7 @@ Slide name: `V11_2015-05-27_RBMs`
 Anwendungen:
 
 * Hopfield-Netze: Hopfield-Netze kann man für das <abbr title="Traveling Salesman Problem">TSP</abbr> einsetzen und auch als Assoziativspeicher nutzen. Allerdings haben sich Hopfield-Netze nie wirklich durchgesetzt.
-* RBMs:
-    * Collaborative Filtering: User-rating prediction for movie database. The
-      problem is that not every user has rated all movies.
+* RBMs: [Collaborative Filtering](../collaborative-filtering/)
 
 Siehe auch:
 
@@ -701,6 +703,7 @@ Siehe auch:
 * YouTube: [Vanishing Gradient](https://www.youtube.com/watch?v=SKMpmAOUa2Q) (5:24 min)
 * [Where does the name 'LSTM' come from?](http://datascience.stackexchange.com/q/9510/8820)
 * Greff, Srivastava, Koutník, Steunebrink, Schmidhuber: [LSTM: A Search Space Odyssey](http://arxiv.org/abs/1503.04069v1). arxiv, 2015.
+* Reddit: [The Idea of LSTMs](https://www.reddit.com/r/MachineLearning/comments/44bxdj/scrn_vs_lstm/czp4hqr)
 
 
 ### V13: NN learning tricks
@@ -971,7 +974,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
 
 * **Deterministisch / Stochastisch**: Ist die Aktivierung der neuronen
   stochastische oder deterministisch?
-* **Auswertung**: Feed-Forward oder Rekurrent?
+* **Inferenz**: Feed-Forward oder Rekurrent? Wie funktioniert die Auswertung?
 * **Training**: Wie lernt man?
 * **Verwendung**: Wo wird das Netzwerk typischerweise eingesetzt?
 
@@ -980,7 +983,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     <tr>
         <th style="width: 180px;">Netzwerk</th>
         <th>Deterministisch</th>
-        <th>Auswertung</th>
+        <th>Inferenz</th>
         <th>Training</th>
         <th>Verwendung</th>
     </tr>
@@ -1033,7 +1036,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Unsupervised (competitive learning)</td>
-        <td>Visualisierung / Dimensionalitätsreduktion: Mapping of high-dimensional data on 2D</td>
+        <td>Visualisierung / Dimensionalitätsreduktion: Mapping of high-dimensional data on 2D; <abbr title="Content-Based Image Retrival">CBIR</abbr>; <a href="https://www.youtube.com/watch?v=8tnxgfE6glI">TSP</a></td>
     </tr>
     <tr>
         <th>Hopfield networks</th>
@@ -1061,8 +1064,9 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     <tr>
         <th><abbr title="Restricted Boltzmann Machines">RBMs</abbr></th>
         <td>stochastic</td>
-        <td>TODO</td>
-        <td>Contrastive Divergence&nbsp;(CD-k)</td>
+        <td><span markdown="0">\(p(h_j=1|x) = sigmoid(b_j + W_j x)\)</span><br/>
+            <span markdown="0">\(p(x_k=1|h) = sigmoid(c_k + h^T W_k)\)</span></td>
+        <td><a href="#contrastive-divergence">Contrastive Divergence</a>&nbsp;(CD-k)</td>
         <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf">Collaborative Filtering</a></td>
     </tr>
   </tbody>
@@ -1082,6 +1086,12 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     <li>Wofür kann man neuronale Netze einsetzen?<br/>
         → Klassifikation, <a href="http://datascience.stackexchange.com/q/9495/8820">Funktionsapproximation</a>, Encoding, Dimensionalitätsreduktion,
         Assoziativspeicher</li>
+    <li>Welche Möglichkeiten zur Regularisierung gibt es?<br/>
+        → L1, L2, Dropout, Weight Decay</li>
+    <li>Wie kann der Standard Gradient descent Algorithmus angepasst werden
+        um den Lernvorgang zu beschleunigen?<br/>
+        → Momentum, Exponential Decay Learning Rate, Performance Scheduling,
+           Newbob, AdaGrad, RProp</li>
 </ul>
 
 
