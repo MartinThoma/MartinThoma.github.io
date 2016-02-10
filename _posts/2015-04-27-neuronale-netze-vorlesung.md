@@ -694,7 +694,8 @@ Slide name: `V12_2015-06-02_RNNs.pdf`
 
 Siehe auch:
 
-* [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+* Andrej Karpathy: [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), 21. May 2015.
+* Christopher Olah: [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), 27. August 2015.
 * [Char-Predictor online Demo](http://www.cs.toronto.edu/~ilya/fourth.cgi?prefix=E%3D&numChars=300)
 * [Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 * YouTube: [Vanishing Gradient](https://www.youtube.com/watch?v=SKMpmAOUa2Q) (5:24 min)
@@ -828,107 +829,114 @@ mir folgendes aufgefallen:
   <thead>
     <tr>
         <th>Name</th>
-        <th>Funktion <span markdown="0">\(\varphi(x)\)</span></th>
-        <th>Wertebereich</th>
-        <th>Differenzierbar</th>
+        <th>Function <span markdown="0">\(\varphi(x)\)</span></th>
+        <th>Range of values</th>
+        <th>Differentiable</th>
         <th><span markdown="0">\(\varphi'(x)\)</span></th>
         <th>Layer</th>
-        <th>Kommentar</th>
+        <th>Comment</th>
     </tr>
   </thead>
   <tbody>
     <tr>
         <td>Signum</td>
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\-1 &\text{if } x < 0\end{cases}\)</span></td>
-        <td><span markdown="0">\(\{-1, 1\}\)</span></td>
-        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
+        <td style="text-align: center;"><span markdown="0">\(\{-1, 1\}\)</span></td>
+        <td style="text-align: center;">Yes<br/>(except 0)</td>
         <td><span markdown="0">\(\varphi'(x) = 0\)</span></td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;">No</td>
         <td>&nbsp;</td>
     </tr>
     <tr>
         <td>Heavy-Side Step function</td>
         <td><span markdown="0">\(\varphi(x) = \begin{cases}+1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
-        <td><span markdown="0">\(\{0, 1\}\)</span></td>
-        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
+        <td style="text-align: center;"><span markdown="0">\(\{0, 1\}\)</span></td>
+        <td style="text-align: center;">Yes<br/>(except 0)</td>
         <td><span markdown="0">\(\varphi'(x) = 0\)</span></td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;">No</td>
         <td>McCullch-Pitts; Rosenblatt</td>
     </tr>
     <tr>
         <td>Sigmoid</td>
         <td><span markdown="0">\(\varphi(x) = \frac{1}{1+e^{-x}}\)</span></td>
-        <td><span markdown="0">\([0, 1]\)</span></td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\([0, 1]\)</span></td>
+        <td style="text-align: center;">Yes</td>
         <td><span markdown="0">\(\varphi'(x) = \frac{e^x}{(e^x +1)^2}\)</span></td>
-        <td style="text-align: center;">Nein</td>
-        <td>Gegl&auml;ttete Version der Heavy-Side Step function</td>
+        <td style="text-align: center;">No</td>
+        <td>Smoothed version of the heavy-side step function</td>
     </tr>
     <tr>
         <td><abbr title="Tangens Hyperbolicus">tanh</abbr></td>
         <td><span markdown="0">\(\varphi(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \tanh(x)\)</span></td>
-        <td><span markdown="0">\([-1, 1]\)</span></td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\([-1, 1]\)</span></td>
+        <td style="text-align: center;">Yes</td>
         <td><span markdown="0">\(\varphi'(x) = \text{sech}^2(x)\)</span></td>
-        <td style="text-align: center;">Nein</td>
-        <td>Gegl&auml;ttete Version der Signumsfunktion</td>
+        <td style="text-align: center;">No</td>
+        <td>Smoothed version of the signum function</td>
     </tr>
     <tr>
         <td>ReLU</td>
         <td><span markdown="0">\(\varphi(x) = \max(0, x)\)</span></td>
-        <td><span markdown="0">\([0, \infty)\)</span></td>
-        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
+        <td style="text-align: center;"><span markdown="0">\([0, \infty)\)</span></td>
+        <td style="text-align: center;">Yes<br/>(except 0)</td>
         <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0 &\text{if } x < 0\end{cases}\)</span></td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;">No</td>
         <td>Standard in CNNs</td>
     </tr>
     <tr>
         <td>Leaky ReLU</td>
         <td><span markdown="0">\(\varphi(x) = \max(0.01x, x)\)</span></td>
-        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
-        <td style="text-align: center;">Ja<br/>(au&szlig;er 0)</td>
+        <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Yes<br/>(except 0)</td>
         <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}\)</span></td>
-        <td style="text-align: center;">Nein</td>
-        <td>Behebt dying neuron Problem</td>
+        <td style="text-align: center;">No</td>
+        <td>Fixes the dying ReLU problem<sup>[<a href="http://datascience.stackexchange.com/q/5706/8820">1</a>]</sup></td>
     </tr>
     <tr>
         <td>Softplus</td>
         <td><span markdown="0">\(\varphi(x) = \log(e^x + 1)\)</span></td>
-        <td><span markdown="0">\((0, \infty)\)</span></td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\((0, \infty)\)</span></td>
+        <td style="text-align: center;">Yes</td>
         <td><span markdown="0">\(\varphi'(x) = \frac{e^x}{e^x + 1}\)</span></td>
-        <td style="text-align: center;">Nein</td>
-        <td>Gegl&auml;ttete ReLU</td>
+        <td style="text-align: center;">No</td>
+        <td>Smoothed ReLU</td>
     </tr>
     <tr>
         <td>ELU</td>
         <td><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}\)</span></td>
-        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
-        <td style="text-align: center;">Ja</td>
+        <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">Yes</td>
         <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\\alpha e^x &\text{otherwise}\end{cases}\)</span></td>
-        <td style="text-align: center;">Nein</td>
+        <td style="text-align: center;">No</td>
         <td>&nbsp;</td>
     </tr>
     <tr>
         <td><a href="../softmax">Softmax</a></td>
         <td><span markdown="0">\(o(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}\)</span></td>
-        <td><span markdown="0">\([0, 1]^K\)</span></td>
-        <td style="text-align: center;">Ja</td>
-        <td>Differenzierbar</td>
-        <td style="text-align: center;">Ja</td>
-        <td>Standard f&uuml;r Klassifizierungsprobleme, da der Output als Wahrscheinlichkeitsverteilung interpretiert werden kann.</td>
+        <td style="text-align: center;"><span markdown="0">\([0, 1]^K\)</span></td>
+        <td style="text-align: center;">Yes</td>
+        <td>differentiable</td>
+        <td style="text-align: center;">Yes</td>
+        <td>Standard for classification problems as the output can be interpreted as a probability distribution.</td>
     </tr>
     <tr>
         <td>Maxout</td>
-        <td><span markdown="0">\(h(\mathbf{x}) = \max_{x \in \mathbf{x}} x\)</span></td>
-        <td><span markdown="0">\((-\infty, +\infty)\)</span></td>
-        <td style="text-align: center;">Nein</td>
+        <td><span markdown="0">\(o(\mathbf{z}) = \max_{z \in \mathbf{z}} z\)</span></td>
+        <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
+        <td style="text-align: center;">No</td>
         <td style="text-align: center;">-</td>
-        <td style="text-align: center;">Nein</td>
-        <td>Arbeitet auf den nicht aufsummierten inputs</td>
+        <td style="text-align: center;">Yes</td>
+        <td>&nbsp;</td>
     </tr>
   </tbody>
 </table>
+
+See also:
+
+<ul>
+    <li>Bing Xu, Naiyan Wang, Tianqi Chen, Mu Li: <a href="http://arxiv.org/abs/1505.00853">Empirical Evaluation of Rectified Activations in Convolutional Network</a>. arxiv, 2015</li>
+    <li>Djork-Arné Clevert, Thomas Unterthiner, Sepp Hochreiter: <a href="http://arxiv.org/abs/1511.07289">Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs)</a>. arxiv, 2015.</li>
+</ul>
 
 
 ## <a name="einordnung"></a> Einordnung
