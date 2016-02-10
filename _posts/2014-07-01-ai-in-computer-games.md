@@ -3,8 +3,7 @@ layout: post
 title: A.I. in Computer Games
 author: Martin Thoma
 date: 2014-07-01 23:52
-categories:
-- Cyberculture
+category: Machine Learning
 tags:
 - AI
 - games

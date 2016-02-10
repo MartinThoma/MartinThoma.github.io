@@ -3,7 +3,7 @@ layout: post
 title: Function Approximation
 author: Martin Thoma
 date: 2016-01-18 20:00
-category: Code
+category: Machine Learning
 tags:
 - Machine Learning
 - Regression

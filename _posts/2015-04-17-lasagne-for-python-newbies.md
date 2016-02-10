@@ -3,8 +3,7 @@ layout: post
 title: Lasagne for Python Newbies
 author: Martin Thoma
 date: 2015-04-17 19:26
-categories:
-- Code
+category: Machine Learning
 tags:
 - Python
 - Machine Learning

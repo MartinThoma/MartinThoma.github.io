@@ -3,8 +3,7 @@ layout: post
 title: Classification with PyBrain
 author: Martin Thoma
 date: 2014-06-16 01:02
-categories:
-- Code
+category: Machine Learning
 tags:
 - Python
 - PyBrain

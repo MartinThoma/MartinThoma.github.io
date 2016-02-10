@@ -3,7 +3,7 @@ layout: post
 title: Comparing Classifiers
 author: Martin Thoma
 date: 2016-01-19 20:13
-category: Cyberculture
+category: Machine Learning
 tags:
 - Python
 - Machine Learning

@@ -3,7 +3,7 @@ layout: post
 title: Using SVMs with sklearn
 author: Martin Thoma
 date: 2016-01-14 12:25
-category: Code
+category: Machine Learning
 tags:
 - Python
 - Machine Learning

@@ -3,8 +3,7 @@ layout: post
 title: Tensor Flow - A quick impression
 author: Martin Thoma
 date: 2015-11-11 22:33
-categories:
-- Code
+category: Machine Learning
 tags:
 - Machine Learning
 - Python

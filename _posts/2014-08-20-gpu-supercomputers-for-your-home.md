@@ -3,8 +3,7 @@ layout: post
 title: GPUs - Supercomputers for your home
 author: Martin Thoma
 date: 2014-08-20 23:26
-categories:
-- Code
+category: Machine Learning
 tags:
 - Python
 - Theano

@@ -362,7 +362,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         \(\eta_0\). When the validation error stops decreasing, switch to
         exponentially decaying learning rate. Terminate when the validation
         error stops decreasing again.</dd>
-    <dt><dfn>Cross Entropy Error function</dfn> (CE)</dt>
+    <dt><a name="dfn-cross-entropy"></a><dfn>Cross Entropy Error function</dfn> (CE)</dt>
     <dd>\[E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x + (1-t_k^x) \log(1-o_k^x))]\]
         where \(w\) is the weight vector, \(X\) is the set of training
         examples (feature vectors),
@@ -399,7 +399,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     * Training function
     * Preprocessing
     * Initial Weights
-* MSE vs <abbr title="Cross Entropy">CE</abbr>:
+* MSE vs <a href="#dfn-cross-entropy"><abbr title="Cross Entropy">CE</abbr></a>:
     * MSE penetalizes large differences much more than small ones
     * MSE works well for function approximation
     * CE works well on classification tasks
@@ -700,6 +700,7 @@ Siehe auch:
 * [Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
 * YouTube: [Vanishing Gradient](https://www.youtube.com/watch?v=SKMpmAOUa2Q) (5:24 min)
 * [Where does the name 'LSTM' come from?](http://datascience.stackexchange.com/q/9510/8820)
+* Greff, Srivastava, Koutník, Steunebrink, Schmidhuber: [LSTM: A Search Space Odyssey](http://arxiv.org/abs/1503.04069v1). arxiv, 2015.
 
 
 ### V13: NN learning tricks
@@ -768,7 +769,7 @@ Lernen kann getweakt werden:
 * Den Betrag des Gradienten um eine kleine Konstante vergrößern (Folie 19+20)
 * Fehlerfunktion anpassen
     * <abbr title="Mean Squared Error">MSE</abbr>
-    * Cross-Entropy
+    * <a href="#dfn-cross-entropy">Cross-Entropy</a>
     * <abbr title="Classification Figure of Merit">CFM</abbr>
 * Overfitting verhindern
     * Weight decay
@@ -937,6 +938,31 @@ See also:
     <li>Bing Xu, Naiyan Wang, Tianqi Chen, Mu Li: <a href="http://arxiv.org/abs/1505.00853">Empirical Evaluation of Rectified Activations in Convolutional Network</a>. arxiv, 2015</li>
     <li>Djork-Arné Clevert, Thomas Unterthiner, Sepp Hochreiter: <a href="http://arxiv.org/abs/1511.07289">Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs)</a>. arxiv, 2015.</li>
 </ul>
+
+
+## <a name="topology-learning"></a> Topology Learning
+
+**Growing approaches**
+
+* Fahlman, Lebiere: [The Cascade-Correlation Learning Architecture](http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf). 1989.
+* Hanson: [Meiosis Networks](http://papers.nips.cc/paper/227-meiosis-networks.pdf). 1990.
+* Côté, Larochelle: [An Infinite Restricted Boltzmann Machine](http://arxiv.org/abs/1502.02476). 2015
+
+**Pruning approaches**
+
+* Le Cun, Denker, Solla: [Optimal Brain Damage](http://yann.lecun.com/exdb/publis/pdf/lecun-90b.pdf). 1989.
+* Hassibi, Stork: [Optimal Brain Surgeon and General Network Pruning](http://ee.caltech.edu/Babak/pubs/conferences/00298572.pdf). 1993.
+
+**Genetic Approaches**
+
+* [NEAT](https://www.cs.ucf.edu/~kstanley/neat.html)
+* [HyperNEAT](http://eplex.cs.ucf.edu/hyperNEATpage/)
+
+See also:
+
+* Reddit: [Interesting papers on learning automatically learning neural network topology](https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/)
+
+
 
 
 ## <a name="einordnung"></a> Einordnung

@@ -15,6 +15,8 @@ module Jekyll
             return "maths"
         elsif @loweredInput == "my bits and bytes"
             return "bits-and-bytes"
+        elsif @loweredInput == "machine learning"
+            return "machine-learning"
         elsif @loweredInput == "german posts"
             return "deutschland"
         elsif @loweredInput == "cyberculture"
