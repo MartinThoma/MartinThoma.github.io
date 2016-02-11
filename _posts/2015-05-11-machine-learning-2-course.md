@@ -487,51 +487,10 @@ Siehe auch:
   <dt><dfn>Deep Belief Netz</dfn> (<dfn>DBN</dfn>)</dt>
   <dd>Ein Deep Belief Netz ist ein gerichtetes, azyklisches, probabilistisches
       graphisches Modell.</dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine"><dfn>Restricted Boltzmann machine</dfn></a> (<dfn>RBM</dfn>)</dt>
-  <dd>Eine <i>RBM</i> ist ein neuronales Netz mit nur einem Hidden Layer.
-      Es ist gleichzeitig ein Spezialfall von
-      <abbr title="Markov Random Fields">MRFs</abbr>.
-
-      Im Gegensatz zur Boltzmann-Maschine muss die Restricted Boltzmann-Machine
-      (RBM) aus einem bipartitem Graph bestehen. Dies erlaubt ein effizienteres
-      Trainingsverfahren (Contrastive Divergence).
-
-      Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
-      <br/>
-      Siehe <a href="https://www.cs.toronto.edu/~hinton/absps/guideTR.pdf">A Practical Guide to Training Restricted Boltzmann Machines</a> von Hinton, 2010.</dd>
-  <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, siehe <a href="https://www.youtube.com/watch?v=MD8qXWucJBY">YouTube Video</a> von Hugo Larochelle)</dt>
-  <dd>Contrastive Divergence ist ein Trainingsalgorithmus für RBMs.
-
-      Ein Hyperparameter ist \(k \in \mathbb{N}\).
-
-      Er geht wie folgt vor:
-
-      <ol>
-          <li>Lege den Trainingsvektor \(x^{(t)}\) an die Eingabeknoten an.</li>
-          <li>Berechne die Wahrscheinlichkeit für jede Hidden Unit, dass diese gleich 1 ist. Setze sie mit dieser Wahrscheinlichkeit gleich 1.</li>
-          <li>Berechne die Wahrscheinlichkeit für jeden Eingabeknoten, dass dieser gleich 1 ist. Setze ihn mit dieser Wahrscheinlichkeit gleich 1.</li>
-          <li>Gehe zu Schritt 2. Wiederhole dies für \(k\) Schritte (dies wird auch Gibbs-Sampling genannt).
-              Das, was nach dem \(k\)-fachem Gibbs-Sampling in der Eingabeschicht
-              steht wird auch "negative sample \(\tilde x\)" genannt.</li>
-          <li>Update der Parameter:
-            \[\begin{align}
-                W &\leftarrow W + \alpha (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
-                b &\leftarrow b + \alpha (h(x^{(t)}) - h(\tilde x))\\
-                c &\leftarrow c + \alpha (x^{(t)} - \tilde x)
-              \end{align}
-            \]
-            wobei \(\alpha \in (0, 1) \) die Lernrate ist,
-            \(b \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
-            \(c \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
-            \(h\) ist eine Zufallsvariable, welche der Hidden Layer ist. Diese
-            sind abhängig von der Eingabeschicht.
-          </li>
-      </ol>
-
-      In der Praxis funktioniert es schon mit \(k=1\) für Pre-Training. Wenn
-      \(k\) groß ist konvergiert \(\tilde x\) gegen den wahren Modellwert. Das
-      wäre dann eine Monte-Carlo Estimation.
-  </dd>
+  <dt><dfn>Restricted Boltzmann machine</dfn> (<dfn>RBM</dfn>)</dt>
+  <dd>Siehe <a href="../neuronale-netze-vorlesung/#rbm">Neuronale Netze</a></dd>
+  <dt><dfn>Contrastive Divergence</dfn> (<dfn>CD</dfn>, <dfn>CD-\(k\)</dfn>)</dt>
+  <dd>Siehe <a href="../neuronale-netze-vorlesung/#contrastive-divergence">Neuronale Netze</a></dd>
   <dt><dfn>Contrastive Wake-Sleep Algorithm</dfn> (siehe <a href="https://www.youtube.com/watch?v=znQfKBOGnJ8">The wake-sleep algorithm</a> von Hinton - Lecture 13d aus "<a href="https://www.coursera.org/course/neuralnets">Neural Networks for Machine Learning</a>")</dt>
   <dd>Der Wake-Sleep Algorithmus ist ein Trainingsalgorithmus für gerichtete
       graphische Modelle wie Sigmoid Belief Networks. Er ist nicht für RBMs.

@@ -553,7 +553,7 @@ Siehe auch:
 * [Self-Organizing Maps with Google’s TensorFlow](https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/)
 * [Kohonen's Self Organizing Feature Maps](http://www.ai-junkie.com/ann/som/som1.html) by ai-junkie
 
-### V11: RBMs
+### <a name="rbm"></a> V11: RBMs
 
 Slide name: `V11_2015-05-27_RBMs`
 
