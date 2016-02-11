@@ -352,8 +352,9 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dt><a href="https://en.wikipedia.org/wiki/Rprop"><dfn>RProp</dfn></a></dt>
     <dd>RProp is a learning rate scheduling method which is only based on the
         sign of the gradient. It increases the learning rate when the sign of
-        the gradient doesn't change and increases it when the sign of the
-        gradient changes.</dd>
+        the gradient doesn't change and decreases or resets it when the sign of the
+        gradient changes. Rprop has an own learning rate for every single
+        feature.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#AdaGrad"><dfn><abbr title="adaptive gradient">AdaGrad</abbr></dfn></a> (vgl. Folie 34)</dt>
     <dd>\[\eta_{tij} = \frac{\eta_0}{\sqrt{1 + \sum_k {(\frac{\partial E^{t-k}}{\partial w_{ij}})}^2}}\]
 
@@ -534,24 +535,21 @@ Slide name: `V10_2015-05-26_SOM.pdf`
             <span markdown="0">\(j_{\text{min}}\)</span>, für das die Gewichte
             dem Input am ähnlichsten sind:
             <div>\[j_{\text{min}} = \text{arg min}_j \sum_{i=1}^n (x_i - w_{ji})^2\]</div></li>
-        <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons sowie der Nachbarschaft an.</li>
+        <li><b>Update</b>: Passe die Gewichte des gewinnenden Neurons \(i\) sowie der Nachbarschaft \(j\) an: \(w_j = w_j + \eta h(j, i(x))(x - w)\)</li>
         <li><b>Repeat</b>: Und zurück zu Schritt 2.</li>
     </ol>
 
     Siehe auch:
 
     <ul>
-        <li>Uwe Schneider: <a href="http://www2.htw-dresden.de/~iwe/Belege/Schneider/som.html">Self Organizing Map -- ein Demonstrationsbeispiel</a>, 2001.</li>
+        <li>Uwe Schneider: <a href="http://www2.htw-dresden.de/~iwe/Belege/Schneider/som.html">Self Organizing Map - ein Demonstrationsbeispiel</a>, 2001.</li>
         <li><a href="https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/">Self-Organizing Maps with Google’s TensorFlow</a></li>
         <li>J. A. Bullinaria: <a href="http://www.cs.bham.ac.uk/~jxb/NN/l16.pdf">Self Organizing Maps: Fundamentals</a>, 2004.</li>
+        <li><a href="http://www.ai-junkie.com/ann/som/som1.html">Kohonen's Self Organizing Feature Maps</a> by ai-junkie</li>
     </ul>
     </dd>
 </dl>
 
-Siehe auch:
-
-* [Self-Organizing Maps with Google’s TensorFlow](https://codesachin.wordpress.com/2015/11/28/self-organizing-maps-with-googles-tensorflow/)
-* [Kohonen's Self Organizing Feature Maps](http://www.ai-junkie.com/ann/som/som1.html) by ai-junkie
 
 ### <a name="rbm"></a> V11: RBMs
 
@@ -567,14 +565,18 @@ Slide name: `V11_2015-05-27_RBMs`
         Hopfield-Netze werden in einem einzigen durchgang Trainiert. Dabei wird
         auf das Gewicht von Neuron \(i\) zu Neuron \(j\) + 1 addiert, wenn
         das Bit \(i\) des Trainingsmusters gleich ist. Falls das nicht der Fall
-        ist, wird von dem Gewicht 1 subtrahiert. Jedes Gewicht ist zum start
-        des Trainings 0. Das Training ist also einfach nur ein Zählen, wie
-        häufig die Stellen übereinstimmen.</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine"><dfn>Boltzmann-Maschine</dfn></a></dt>
-    <dd>Boltzmann-Maschinen sind stochastische neuronale Netzwerke, welche
-        duch belibige ungerichtete Graphen repräsentiert werden können. Die
-        neuronen sind binär; sie feuern also entweder oder nicht. Es gibt
-        insbesondere keine Unterschiede in der Stärke mit der sie feuern.
+        ist, wird von dem Gewicht 1 subtrahiert:
+
+        \[w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p)\]
+
+        Jedes Gewicht ist zum start des Trainings 0. Das Training ist also
+        einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.</dd>
+  <dt><a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine"><dfn>Boltzmann-Maschine</dfn></a></dt>
+  '   <dd>Boltzmann-Maschinen sind
+        stochastische neuronale Netzwerke, welche duch belibige ungerichtete
+        Graphen repräsentiert werden können. Die neuronen sind binär; sie
+        feuern also entweder oder nicht. Es gibt insbesondere keine
+        Unterschiede in der Stärke mit der sie feuern.
 
         Siehe auch: <a href="http://www.scholarpedia.org/article/Boltzmann_machine">Scholarpedia</a>
         </dd>
@@ -614,14 +616,14 @@ Slide name: `V11_2015-05-27_RBMs`
               steht wird auch "negative sample \(\tilde x\)" genannt.</li>
           <li>Update der Parameter:
             \[\begin{align}
-                W &\leftarrow W + \alpha (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
-                b &\leftarrow b + \alpha (h(x^{(t)}) - h(\tilde x))\\
-                c &\leftarrow c + \alpha (x^{(t)} - \tilde x)
+                W &\leftarrow W + \eta (h(x^{(t)}) {x^{(t)}}^T - h(\tilde x) {\tilde x}^T)\\
+                b_h &\leftarrow b_h + \eta (h(x^{(t)}) - h(\tilde x))\\
+                b_v &\leftarrow b_v + \eta (x^{(t)} - \tilde x)
               \end{align}
             \]
-            wobei \(\alpha \in (0, 1) \) die Lernrate ist,
-            \(b \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
-            \(c \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
+            wobei \(\eta \in (0, 1) \) die Lernrate ist,
+            \(b_h \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
+            \(b_v \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
             \(h = \text{sigmoid}(b + W x)\) ist ein Vektor, welcher für die
             einzelnen Hidden Units sagt wie wahrscheinlich es ist, dass diese
             gleich 1 sind.
@@ -763,9 +765,9 @@ Speed-ups des Trainings sind möglich durch:
 
 * Momentum
 * Überspringen von bereits gut gelernten Beispielen
-* Dynamische Anpassung der Lernrate `$\eta$`
+* Dynamische Anpassung der Lernrate <span markdown="0">\(\eta\)</span>
 * Quickprop
-* Gute Initialisierung
+* Gute Initialisierung (z.b. <span markdown="0">\(w \sim U(- 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}}, 4 \cdot \sqrt{\frac{6}{n_j + n_{j+1}}})\)</span>)
 
 Lernen kann getweakt werden:
 
@@ -879,7 +881,7 @@ mir folgendes aufgefallen:
         <td>Smoothed version of the signum function</td>
     </tr>
     <tr>
-        <td>ReLU</td>
+        <td><abbr title="Rectified Linear Unit">ReLU</abbr></td>
         <td><span markdown="0">\(\varphi(x) = \max(0, x)\)</span></td>
         <td style="text-align: center;"><span markdown="0">\([0, \infty)\)</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
@@ -906,7 +908,7 @@ mir folgendes aufgefallen:
         <td>Smoothed ReLU</td>
     </tr>
     <tr>
-        <td>ELU</td>
+        <td><abbr title="Exponential Linear Unit">ELU</abbr></td>
         <td><span markdown="0">\(\varphi(\mathbf{x}) = \begin{cases}x &\text{if } x > 0\\\alpha (e^x - 1) &\text{otherwise}\end{cases}\)</span></td>
         <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Yes</td>
@@ -1064,8 +1066,8 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     <tr>
         <th><abbr title="Restricted Boltzmann Machines">RBMs</abbr></th>
         <td>stochastic</td>
-        <td><span markdown="0">\(p(h_j=1|x) = sigmoid(b_j + W_j x)\)</span><br/>
-            <span markdown="0">\(p(x_k=1|h) = sigmoid(c_k + h^T W_k)\)</span></td>
+        <td><span markdown="0">\(p(h_j=1|x) = \text{sigmoid}(b_j + W_j x)\)</span><br/>
+            <span markdown="0">\(p(x_k=1|h) = \text{sigmoid}(c_k + h^T W_k)\)</span></td>
         <td><a href="#contrastive-divergence">Contrastive Divergence</a>&nbsp;(CD-k)</td>
         <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf">Collaborative Filtering</a></td>
     </tr>
