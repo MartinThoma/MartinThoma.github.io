@@ -572,7 +572,7 @@ Bottleneck-Feature resultieren, die PCA ähnelt.</li>
         exponentially decaying learning rate. Terminate when the validation
         error stops decreasing again.</dd>
     <dt><a name="dfn-cross-entropy" id="dfn-cross-entropy"></a><dfn>Cross Entropy Error function</dfn> (CE)</dt>
-    <dd>\[E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x + (1-t_k^x) \log(1-o_k^x))]\]
+    <dd>\[E_{CE}(w) = - \sum_{x \in X} \sum_{k} [t_k^x \log(o_k^x) + (1-t_k^x) \log(1-o_k^x)]\]
         where \(w\) is the weight vector, \(X\) is the set of training
         examples (feature vectors),
         \(t_k^x = \begin{cases}1 &amp;\text{if } x \text{ is of class }k\\0&amp;\text{otherwise}\end{cases}\)
@@ -911,7 +911,7 @@ ist?<br />
         niedrig ist, sodass das Netz sehr langsam lernt. Aufgrund numerischer
         Ungenauigkeit kann dies sogar dazu führen, dass das Netz in den
         ersten Schichten nicht lernen kann.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/Long_short-term_memory"><dfn>Long short-term memory</dfn></a> (vgl. <dfn>LSTM</dfn>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Long_short-term_memory"><dfn>Long short-term memory</dfn></a> (<dfn>LSTM</dfn>)</dt>
     <dd>Ein LSTM ist ein Typ eines neuronalen Netzwerks. Das besondere an
         LSTM Netzen sind "intelligente" Neuronen, welche über Gates bestimmen
         ob ein Wert gespeichert wird und wie lange.</dd>
@@ -949,7 +949,7 @@ ist?<br />
     <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} w_{ij}^2\)</dd>
     <dt><dfn>Weight Elimination</dfn></dt>
     <dd>Passe die Fehlerfunktion an: \(E = MSE + \lambda \sum_{i,j} \frac{w_{ij}^2}{1+w_{ij}^2}\)</dd>
-    <dt><dfn>Optimal Brain Damage</dfn></dt>
+    <dt><dfn>Optimal Brain Damage</dfn> (<dfn>OBD</dfn>)</dt>
     <dd>Optimal Brain Damage entfernt nach dem Training Verbindungen die
         sehr kleine \(|w_{ij}|\) haben.
 
@@ -963,8 +963,9 @@ ist?<br />
         den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen
         Hidden Units in der Schicht zuvor.<br />
         <br />
-        Siehe <a href="https://www.youtube.com/watch?v=1E3XZr-bzZ4">YouTube</a> (4:05 min)
-        und <a href="http://datascience.stackexchange.com/q/9672/8820">How exactly does adding a new unit work in Cascade Correlation?</a></dd>
+        <iframe width="512" height="288" src="https://www.youtube-nocookie.com/embed/1E3XZr-bzZ4" frameborder="0" allowfullscreen=""></iframe>
+        <br />
+        Siehe <a href="http://datascience.stackexchange.com/q/9672/8820">How exactly does adding a new unit work in Cascade Correlation?</a></dd>
     <dt><dfn>Meiosis Netzwerke</dfn> (siehe Stephen Jose Hanson: <a href="http://papers.nips.cc/paper/227-meiosis-networks.pdf">Meiosis Networks</a>)</dt>
     <dd>Meiosis Netzwerke bauen ein neuronales Netz auf. Sie beginnen mit einer
         einzelnen hidden Unit. Diese hidden Unit wird aufgespalten, wenn die
@@ -1331,6 +1332,10 @@ stochastische oder deterministisch?</li>
         → Siehe <a href="#einordnung">Einordnung</a></li>
     <li>Welche Aktivierungsfuktionen gibt es?<br />
         → Siehe <a href="#activations">Übersicht</a></li>
+    <li>Welche Aktivierungsfunktionen machen bei einem einzelnen Perzeptron keinen Sinn?
+        → Softmax wegen der Normierung; Maxout</li>
+    <li>Welche Aktivierungsfunktion macht in einem MLP keinen Sinn?
+        → Nur lineare, da insgesamt eine lineare Funktion herauskommt.</li>
     <li>Wofür kann man neuronale Netze einsetzen?<br />
         → Klassifikation, <a href="http://datascience.stackexchange.com/q/9495/8820">Funktionsapproximation</a>, Encoding, Dimensionalitätsreduktion,
         Assoziativspeicher</li>
@@ -1340,6 +1345,10 @@ stochastische oder deterministisch?</li>
         um den Lernvorgang zu beschleunigen?<br />
         → Momentum, Exponential Decay Learning Rate, Performance Scheduling,
            Newbob, AdaGrad, RProp</li>
+    <li>Welche Alternativen zu standard Gradient Descent gibt es?<br />
+        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>)</li>
+    <li>Wie kann man Netztopologien aufbauen?<br />
+        → Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon. Siehe <a href="https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/">Reddit</a></li>
 </ul>
 
 <h2 id="tocAnchor-1-23">Material und Links</h2>
