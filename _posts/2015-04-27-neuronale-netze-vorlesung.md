@@ -531,6 +531,11 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     und die Neuronen auf dem Gitter. Jedes Input-Neuron ist mit jedem Neuron
     auf dem Gitter verbunden.
 
+    <figure>
+          <img src="//images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
+          <caption>Draft of self-organizing map (SOM).</caption>
+      </figure>
+
     Training:
     <ol>
         <li><b>Initialisierung</b>: Die Gewichte
