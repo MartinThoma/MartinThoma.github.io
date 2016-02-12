@@ -11,7 +11,7 @@ tags:
 - Neural Networks
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Neuronale Netze&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isl.anthropomatik.kit.edu/english/21_74.php">Herrn Prof. Dr. Alexander Waibel</a> im Sommersemester 2015 gehört. Der Artikel wird bis zur mündlichen Prüfung laufend erweitert.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Neuronale Netze&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://isl.anthropomatik.kit.edu/english/21_74.php">Herrn Prof. Dr. Alexander Waibel</a> im Sommersemester 2015 gehört.</div>
 
 ## Behandelter Stoff
 
@@ -240,7 +240,7 @@ Slide name: `V05_2015-04-29_Features.pdf`
       It consists of fully connected layers only.
 
       <figure>
-          <img src="//images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
+          <img src="//martin-thoma.com/images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
           <caption>Draft of multilayer Perceptron (MLP). The bias units are
                    grey, the input units are red, the hidden units are green
                    and the output unit is blue. The edges are directed from
@@ -532,7 +532,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     auf dem Gitter verbunden.
 
     <figure>
-          <img src="//images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
+          <img src="//martin-thoma.com/images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
           <caption>Draft of self-organizing map (SOM).</caption>
       </figure>
 
@@ -587,7 +587,7 @@ Slide name: `V11_2015-05-27_RBMs`
         einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.
 
       <figure>
-          <img src="//images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
+          <img src="//martin-thoma.com/images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
           <caption>Draft of Hopfield network. Every node is an input node.
                    The McCullogh-Pitts nodes are updated asynchronously. When
                    the state of the node doesn't change any more, they contain
@@ -622,7 +622,7 @@ Slide name: `V11_2015-05-27_RBMs`
       sind.
 
       <figure>
-          <img src="//images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
+          <img src="//martin-thoma.com/images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
           <caption>Draft of an RBM. The learned parameters are red.</caption>
       </figure>
 
