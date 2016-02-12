@@ -237,13 +237,22 @@ Slide name: `V05_2015-04-29_Features.pdf`
       vector.</dd>
   <dt><dfn>Multilayer Perceptron</dfn></dt>
   <dd>A Multilayer Perceptron is a special type of Feed Forward Neural Network.
-      It consists of fully connected layers only.</dd>
+      It consists of fully connected layers only.
+
+      <figure>
+          <img src="//images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
+          <caption>Draft of multilayer Perceptron (MLP). The bias units are
+                   grey, the input units are red, the hidden units are green
+                   and the output unit is blue. The edges are directed from
+                   input, to hidden, to output and from the bias to hidden / output.</caption>
+      </figure>
+  </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition"><dfn>Metrik</dfn></a></dt>
   <dd>Sei \(X\) eine Menge und \(d:X \times X \rightarrow \mathbb{R}\) eine
       Abbildung. \(d\) heißt Metrik auf \(X\), wenn gilt:
       <ul>
           <li>\(d(x, y) = 0 \geq x=y \;\;\; \forall x, y \in X\)</li>
-          <li>\(d(x,y)=d(y,x=\)</li>
+          <li>\(d(x,y)=d(y,x)\)</li>
           <li>\(d(x,y) \leq d(x,z) + d(z,y)\)</li>
       </ul>
   </dd>
@@ -567,12 +576,23 @@ Slide name: `V11_2015-05-27_RBMs`
         das Bit \(i\) des Trainingsmusters gleich ist. Falls das nicht der Fall
         ist, wird von dem Gewicht 1 subtrahiert:
 
-        \[w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p)\]
+        \[w_{ij} = \sum_{p} (2 a^{(i)}_p - 1) \cdot (2 a^{(j)}_p - 1)\]
 
         Jedes Gewicht ist zum start des Trainings 0. Das Training ist also
-        einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.</dd>
+        einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.
+
+      <figure>
+          <img src="//images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
+          <caption>Draft of Hopfield network. Every node is an input node.
+                   The McCullogh-Pitts nodes are updated asynchronously. When
+                   the state of the node doesn't change any more, they contain
+                   the output of the network. Learned are the weights between
+                   the nodes.</caption>
+      </figure>
+
+        </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Boltzmann-Maschine"><dfn>Boltzmann-Maschine</dfn></a></dt>
-  '   <dd>Boltzmann-Maschinen sind
+     <dd>Boltzmann-Maschinen sind
         stochastische neuronale Netzwerke, welche duch belibige ungerichtete
         Graphen repräsentiert werden können. Die neuronen sind binär; sie
         feuern also entweder oder nicht. Es gibt insbesondere keine
@@ -595,6 +615,11 @@ Slide name: `V11_2015-05-27_RBMs`
       Name "Boltzmann" kommt von dieser Energie (man kann den Netzwerkzuständen
       wahrscheinlichkeiten zuweisen, die direkt Proportional zu \(e^{-E}\))
       sind.
+
+      <figure>
+          <img src="//images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
+          <caption>Draft of an RBM. The learned parameters are red.</caption>
+      </figure>
 
       Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
       <br/>
@@ -624,7 +649,7 @@ Slide name: `V11_2015-05-27_RBMs`
             wobei \(\eta \in (0, 1) \) die Lernrate ist,
             \(b_h \in \mathbb{R}^n_h\) der Bias-Vektor der Hidden Units und
             \(b_v \in \mathbb{R}^{n_v}\) der Bias-Vektor der Eingabeknoten ist.
-            \(h = \text{sigmoid}(b + W x)\) ist ein Vektor, welcher für die
+            \(h = \text{sigmoid}(b_h + W x)\) ist ein Vektor, welcher für die
             einzelnen Hidden Units sagt wie wahrscheinlich es ist, dass diese
             gleich 1 sind.
           </li>
@@ -698,7 +723,7 @@ Slide name: `V12_2015-06-02_RNNs.pdf`
 
 Siehe auch:
 
-* Andrej Karpathy: [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), 21. May 2015.
+* Andrej Karpathy: [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), 21.&nbsp;May&nbsp;2015.
 * Christopher Olah: [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), 27. August 2015.
 * [Char-Predictor online Demo](http://www.cs.toronto.edu/~ilya/fourth.cgi?prefix=E%3D&numChars=300)
 * [Recurrent Neural Networks Tutorial, Part 1 – Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
@@ -747,7 +772,8 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
     <dt><dfn>Meiosis Netzwerke</dfn> (siehe Stephen Jose Hanson: <a href="http://papers.nips.cc/paper/227-meiosis-networks.pdf">Meiosis Networks</a>)</dt>
     <dd>Meiosis Netzwerke bauen ein neuronales Netz auf. Sie beginnen mit einer
         einzelnen hidden Unit. Diese hidden Unit wird aufgespalten, wenn die
-        "Unsicherheit" zu groß ist. (TODO)</dd>
+        "Unsicherheit" zu groß ist (vgl. paper für Kritierum).<br/>
+        </dd>
     <dt><dfn>Automatic Structure Optimization</dfn> (<dfn>ASO</dfn>, siehe [<a href="#ref-bod93" name="ref-bod93-anchor">Bod93</a>])</dt>
     <dd>Der ASO-Algorithmus passt folgende Hyperparameter im Training
         automatisch an:
@@ -757,8 +783,16 @@ Slide name: `V13_2015-06-09_NNlearning-tricks.pdf`
             <li>Größe des Input-Fensers (ASR-Spezifisch)</li>
             <li>Anzahl der Zustände, welche "Accoustic Events" repräsentieren</li>
         </ul>
-
-
+    </dd>
+    <dt><dfn>Classification Figure of Merit</dfn> (<dfn>CFM</dfn>, siehe [<a href="#ref-ham90" name="ref-ham90-anchor">Ham90</a>])</dt>
+    <dd>
+        \[E_{CFM}(w) = \sum_k \frac{\alpha}{1 + e^{-\beta \Delta_k + \gamma}}\]
+        wobei
+        <ul>
+            <li>\(k\): Klasse</li>
+            <li>\(\alpha, \beta, \gamma\): Hyperparameter</li>
+            <li>\(\Delta_k = o_t - o_k\): Differenz des wahren (true) nodes und des anderen Knotens.</li>
+        </ul>
     </dd>
 </dl>
 
@@ -892,7 +926,7 @@ mir folgendes aufgefallen:
     </tr>
     <tr>
         <td>Leaky ReLU</td>
-        <td><span markdown="0">\(\varphi(x) = \max(0.01x, x)\)</span></td>
+        <td><span markdown="0">\(\varphi(x) = \max(\alpha x, x)\)</span> mit typischerweise <span markdown="0">\(\alpha = 0.01\)</span></td>
         <td style="text-align: center;"><span markdown="0">\((-\infty, +\infty)\)</span></td>
         <td style="text-align: center;">Yes<br/>(except 0)</td>
         <td><span markdown="0">\(\varphi'(x) = \begin{cases}1 &\text{if } x > 0\\0.01 &\text{if } x < 0\end{cases}\)</span></td>
@@ -993,7 +1027,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   </thead>
   <tbody>
     <tr>
-        <th>McCullch-Pitts Neuron</th>
+        <th>McCulloch-Pitts Neuron</th>
         <td style="text-align: center;">Yes</td>
         <td>Feed-Forward</td>
         <td>Supervised</td>
@@ -1067,9 +1101,9 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
     <tr>
         <th><abbr title="Restricted Boltzmann Machines">RBMs</abbr></th>
         <td>stochastic</td>
-        <td><span markdown="0">\(p(h_j=1|x) = \text{sigmoid}(b_j + W_j x)\)</span><br/>
-            <span markdown="0">\(p(x_k=1|h) = \text{sigmoid}(c_k + h^T W_k)\)</span></td>
-        <td><a href="#contrastive-divergence">Contrastive Divergence</a>&nbsp;(CD-k)</td>
+        <td><span markdown="0">\(p(h_j=1|x) = \text{sigmoid}(b_{v,j} + W_j x)\)</span><br/>
+            <span markdown="0">\(p(x_k=1|h) = \text{sigmoid}(b_{h,k} + h^T W_k)\)</span></td>
+        <td><a href="#contrastive-divergence">Contrastive Divergence</a>&nbsp;(CD-\(k\))</td>
         <td><a href="http://www.cs.toronto.edu/~rsalakhu/papers/rbmcf.pdf">Collaborative Filtering</a></td>
     </tr>
   </tbody>
@@ -1086,9 +1120,9 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         → Siehe <a href="#einordnung">Einordnung</a></li>
     <li>Welche Aktivierungsfuktionen gibt es?<br/>
         → Siehe <a href="#activations">Übersicht</a></li>
-    <li>Welche Aktivierungsfunktionen machen bei einem einzelnen Perzeptron keinen Sinn?
+    <li>Welche Aktivierungsfunktionen machen bei einem einzelnen Perzeptron keinen Sinn?<br/>
         → Softmax wegen der Normierung; Maxout</li>
-    <li>Welche Aktivierungsfunktion macht in einem MLP keinen Sinn?
+    <li>Welche Aktivierungsfunktion macht in einem MLP keinen Sinn?<br/>
         → Nur lineare, da insgesamt eine lineare Funktion herauskommt.</li>
     <li>Wofür kann man neuronale Netze einsetzen?<br/>
         → Klassifikation, <a href="http://datascience.stackexchange.com/q/9495/8820">Funktionsapproximation</a>, Encoding, Dimensionalitätsreduktion,
@@ -1100,9 +1134,9 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
         → Momentum, Exponential Decay Learning Rate, Performance Scheduling,
            Newbob, AdaGrad, RProp</li>
     <li>Welche Alternativen zu standard Gradient Descent gibt es?<br/>
-        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>)</li>
+        → Quickprop, (L-)BFGS, Conjugate Gradient, Quasi-Newtonian (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/4582s0/overview_of_optimization_algorithms/">Reddit</a>).</li>
     <li>Wie kann man Netztopologien aufbauen?<br/>
-        → Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon. Siehe <a href="https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/">Reddit</a></li>
+        → Meiosis, Cascade Correlation, Optimal Brain Damage / Surgeon (vgl. <a href="https://www.reddit.com/r/MachineLearning/comments/44ld5c/interesting_papers_on_learning_automatically/">Reddit</a>).</li>
 </ul>
 
 
@@ -1140,6 +1174,8 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   [Tuning by doing: Flexibility through automatic structure optimization](http://isl.anthropomatik.kit.edu/cmu-kit/downloads/tuning_by_Doing_Flexibility_through_automatic_structure_optimization(1).pdf) in Third European Conference on Speech Communication and Technology, 1993.
 * [<a href="#ref-haf92-anchor" name="ref-haf92">Haf92</a>] P. Haffner und A. Waibel.
   [Multi-state time delay networks for continuous speech recognition](http://isl.anthropomatik.kit.edu/downloads/0135_Kopie_.pdf) in Advances in neural information processing systems, 1992.
+* [<a href="#ref-ham90-anchor" name="ref-ham90">Ham90</a>] J. Hampshire and A. Waibel.
+  A Novel Objective Function for Improved Phoneme Recognition Using Time Delay Neural Networks. IEEE Transactions on Neural Networks, 1990.
 
 
 ## Übungsbetrieb
