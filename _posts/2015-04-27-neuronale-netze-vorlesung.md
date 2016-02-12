@@ -241,10 +241,10 @@ Slide name: `V05_2015-04-29_Features.pdf`
 
       <figure>
           <img src="//martin-thoma.com/images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
-          <caption>Draft of multilayer Perceptron (MLP). The bias units are
+          <figcaption>Draft of multilayer Perceptron (MLP). The bias units are
                    grey, the input units are red, the hidden units are green
                    and the output unit is blue. The edges are directed from
-                   input, to hidden, to output and from the bias to hidden / output.</caption>
+                   input, to hidden, to output and from the bias to hidden / output.</figcaption>
       </figure>
   </dd>
   <dt><a href="https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition"><dfn>Metrik</dfn></a></dt>
@@ -533,7 +533,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
 
     <figure>
           <img src="//martin-thoma.com/images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
-          <caption>Draft of self-organizing map (SOM).</caption>
+          <figcaption>Draft of self-organizing map (SOM).</figcaption>
       </figure>
 
     Training:
@@ -588,11 +588,11 @@ Slide name: `V11_2015-05-27_RBMs`
 
       <figure>
           <img src="//martin-thoma.com/images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
-          <caption>Draft of Hopfield network. Every node is an input node.
+          <figcaption>Draft of Hopfield network. Every node is an input node.
                    The McCullogh-Pitts nodes are updated asynchronously. When
                    the state of the node doesn't change any more, they contain
                    the output of the network. Learned are the weights between
-                   the nodes.</caption>
+                   the nodes.</figcaption>
       </figure>
 
         </dd>
@@ -623,7 +623,7 @@ Slide name: `V11_2015-05-27_RBMs`
 
       <figure>
           <img src="//martin-thoma.com/images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
-          <caption>Draft of an RBM. The learned parameters are red.</caption>
+          <figcaption>Draft of an RBM. The learned parameters are red.</figcaption>
       </figure>
 
       Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
