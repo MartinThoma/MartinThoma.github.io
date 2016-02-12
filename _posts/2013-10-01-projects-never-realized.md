@@ -229,6 +229,45 @@ can add comments to other websites on an URL basis (including anchors for
 maximum exactness). Then I could read what other people think of something,
 even if there is no comments section.
 
+The comment should contain a very specific link. For some websites - like
+wikipedia - a permalink can be created. Others might change the content after
+a comment was made. For this reason a screenshot should be taken.
+
+Deep links help to make a comment to exactly what you mean. Help the user to
+use deep links.
+
+Identifiers besides URLs:
+
+* Books have ISBN numbers.
+* There are ISSN numbers.
+* Other products have bar codes.
+* People have lots of identifiers (names, ORCiD, e-mail). However, the
+  possibility to add comments to a person should be examined carefully. They
+  might not like it. They might not get useful comments / to much "shitstorm".
+  They might also use legal means to prevent comments.
+
+To make comments more useful, gamification can be used:
+
+* People have "karma". It represents the value they've added to the community.
+    * They start with 0 karma.
+    * At X karma, they get the "trusted user" rights.
+* Everybody can add comments by default
+    * Moderators might restrict this to "trusted users"
+    * Only trusted users can add URLs within the comment.
+* Upvotes for good comments
+    * Upvotes give karma to the creator of the comment
+    * You are only allowed to upvote when you are a trusted user
+* Downvotes for bad comments
+    * Downvotes remove karma from the creator of the comment
+    * The downvoter gets also karma removed (to prevent bashing people)
+* Users with more than 10 comments with less than -5 rating get soft deleted.
+* Moderators can delete users if they are purely spam
+    * It is a "soft delete"
+* Users can veto soft deletes. In this case they have to speak with a
+  moderator, after they passed some Captchas.
+
+
+
 
 ## Charity Search & Find
 
