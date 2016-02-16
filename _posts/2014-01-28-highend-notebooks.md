@@ -56,8 +56,6 @@ I want a silent notebook, because I'm very sensitive to noise.
 My current notebook has **less than 30 dB in normal mode** (no heavy load).
 That should set the mark.
 
-Another keyboard-thing: <kbd>Ctrl</kbd> has to be at the lower left (→ no thinkpads).
-
 A SD-Card Reader would be nice, but it is not required. Just like
 a RJ-45 for network cables and a DVD drive you can get it via USB.
 
@@ -131,6 +129,16 @@ In many cases I will need some more equipment:
 * MicroHDMI 2 VGA adapter: Samsung AA-AH2NMHB/E for 29.90 Euro
 * USB Ethernet adapter: "Cable Matters - SuperSpeed USB 3.0" for 16 Euro
 * External DVD burner: Samsung SE-208DB for 30 Euro works with DVD±R Dual layer disks and DVD±RW disks. Is there anything more important to look at?
+
+
+Others:
+
+* Lenovo Thinkpad T450s
+* TUXEDO Book BU1505
+* Samsung ATIV Book 9 2014 Edition
+* Lenovo ThinkPad X1
+* [Notebook for developers](http://hardwarerecs.stackexchange.com/questions/1495/notebook-for-developers)
+
 
 ## Acer ##
 
