@@ -239,7 +239,7 @@ Slide name: `V05_2015-04-29_Features.pdf`
   <dd>A Multilayer Perceptron is a special type of Feed Forward Neural Network.
       It consists of fully connected layers only.
 
-      <figure>
+      <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
           <figcaption>Draft of multilayer Perceptron (MLP). The bias units are
                    grey, the input units are red, the hidden units are green
@@ -397,7 +397,8 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
         verwendet und lernen auch Filter. Allerdings wird hier über die Zeit
         hinweg gefaltet.</dd>
     <dt><dfn>Multi-State Time-Delay Neural Networks</dfn> (<dfn>MS-TDNNs</dfn>, siehe [<a href="#ref-haf92" name="ref-haf92-anchor">Haf92</a>])</dt>
-    <dd>MS-TDNNs codieren die alignment-Suche im Netzwerk.</dd>
+    <dd>MS-TDNNs codieren die alignment-Suche im Netzwerk. Sie sind
+        hybride Netze (so wie HMM-DeepNN Hybrids von Mircosoft).</dd>
 </dl>
 
 {% caption align="aligncenter" width="500" alt="RProp by Ryan Harris" text="RProp by Ryan Harris (<a href='https://www.youtube.com/watch?v=Cy2g9_hR-5Y'>source</a>). Rot ist der Gradientenabstieg, blau ist mit momentum, rosa ist RProp" url="../images/2016/02/visualizing-opt-algorithms-rprop-gradient-descent-momentum.png" %}
@@ -531,7 +532,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
     und die Neuronen auf dem Gitter. Jedes Input-Neuron ist mit jedem Neuron
     auf dem Gitter verbunden.
 
-    <figure>
+    <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
           <figcaption>Draft of self-organizing map (SOM).</figcaption>
       </figure>
@@ -586,7 +587,7 @@ Slide name: `V11_2015-05-27_RBMs`
         Jedes Gewicht ist zum start des Trainings 0. Das Training ist also
         einfach nur ein Zählen, wie häufig die Stellen übereinstimmen.
 
-      <figure>
+      <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
           <figcaption>Draft of Hopfield network. Every node is an input node.
                    The McCullogh-Pitts nodes are updated asynchronously. When
@@ -621,7 +622,7 @@ Slide name: `V11_2015-05-27_RBMs`
       wahrscheinlichkeiten zuweisen, die direkt Proportional zu \(e^{-E}\))
       sind.
 
-      <figure>
+      <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
           <figcaption>Draft of an RBM. The learned parameters are red.</figcaption>
       </figure>
@@ -867,6 +868,14 @@ mir folgendes aufgefallen:
   einem Strich im 45-Grad Winkel.
 * Typischerweise ist der Input links (oder alternativ unten) und der Output
   rechts (oder alternativ oben)
+
+
+## Interpretation of errors
+
+<figure class="wp-caption aligncenter">
+    <img src="2d-epochs-overfitting.png" alt="Training and Testing error" />
+    <figcaption>Training and Testing error over epochs. At some point overfitting happens.</figcaption>
+</figure>
 
 
 ## <a name="activations"></a> Aktivierungsfunktionen
