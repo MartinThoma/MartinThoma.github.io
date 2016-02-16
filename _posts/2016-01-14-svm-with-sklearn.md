@@ -43,7 +43,7 @@ with an example how to use SVMs with sklearn.
           problem is:
           \[
           \begin{aligned}
-              \text{minimize}_{\mathbf{w}}\,&\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
+              \text{minimize}_{\mathbf{w}, b}\,&\frac{1}{2} \|\mathbf{w}\|^2 + C \cdot \sum_{i=1}^m \xi_i\\
               \text{s.t. }& \forall_{i=1}^m y_i \cdot (\langle \mathbf{w}, \mathbf{x}_i\rangle + b) \geq 1 - \xi_i
           \end{aligned}\]
 
@@ -66,7 +66,7 @@ with an example how to use SVMs with sklearn.
           The optimization problem is now, according to [<a href="#ref-bur98" name="ref-bur98-anchor">Bur98</a>] (a great read; if you really want to understand it I can recommend it!):
           \[
           \begin{aligned}
-              \text{maximize}_{\mathbf{w}}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
+              \text{maximize}_{\alpha_i}\,& \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \langle \mathbf{x}_i, \mathbf{x}_j \rangle\\
               \text{s.t. } & \forall_{i=1}^m 0 \leq \alpha_i \leq C\\
               \text{s.t. } & \sum_{i=1}^m \alpha_i y_i = 0
           \end{aligned}\]</li>
