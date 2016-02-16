@@ -266,6 +266,8 @@ To make comments more useful, gamification can be used:
 * Users can veto soft deletes. In this case they have to speak with a
   moderator, after they passed some Captchas.
 
+For reviews there are microformats which should be used.
+
 
 
 
@@ -297,6 +299,46 @@ Other elements:
 * Calendar
 * E-Mail list: GNU Mailman?
 * Surveys: Limemonkey?
+
+
+## Job Portal for cheap jobs
+
+It seems to me that LinkedIn is mainly for high-paid jobs. However, "cheap"
+jobs like cleaning people or handymen are also looking for jobs
+
+
+## Social Network
+
+like Facebook (Groups, pages, sharing, upvoting), but with Markdown.
+
+
+## Bug Tracker for Users
+
+* OpenID login
+* Profiles for users
+    * Private: Contact data
+    * Public: name, biography
+    * Statistical: Links to bugs
+* Software:
+    * id, name
+    * description
+    * url
+    * download_url
+    * source_url
+    * is_open_source
+    * license
+* Bug
+    * title
+    * description
+    * software_id
+* Monetarization:
+    * Offering Beta-Testers
+    * Official accounts to administrate bugs
+    * "security status"
+* Educating users how to commit issues
+* Screenshots: imgur.com
+* Seach terms: QA (quality assurance), bugs
+* Alternative Products: User Echo
 
 
 ## Database administration interface
