@@ -873,9 +873,20 @@ mir folgendes aufgefallen:
 ## Interpretation of errors
 
 <figure class="wp-caption aligncenter">
-    <img src="2d-epochs-overfitting.png" alt="Training and Testing error" />
+    <img src="//martin-thoma.com/images/2016/02/2d-epochs-overfitting.png" alt="Training and Testing error over epochs" />
     <figcaption>Training and Testing error over epochs. At some point overfitting happens.</figcaption>
 </figure>
+
+<figure class="wp-caption aligncenter">
+    <img src="//martin-thoma.com/images/2016/02/variance-bias.png" alt="Training and Testing error over training data" />
+    <figcaption>Training and Testing error over training data. At some point overfitting happens.</figcaption>
+</figure>
+
+If you have a problem with high variance, you can train more epochs, get more
+data or better features.
+
+If you have a problem with high bias, you should get better features or a
+better classifier.
 
 
 ## <a name="activations"></a> Aktivierungsfunktionen
