@@ -1169,7 +1169,7 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   * ✓ [(Why) do activation functions have to be monotonic?](http://datascience.stackexchange.com/q/9233/8820)
   * [The cross-entropy error function in neural networks](http://datascience.stackexchange.com/q/9302/8820)
   * [What is the “dying ReLU” problem in neural networks?](http://datascience.stackexchange.com/q/5706/8820) and [How does rectilinear activation function solve the vanishing gradient problem in neural networks?](http://stats.stackexchange.com/q/176794/25741)
-* [Visualizing Optimization Algos](http://imgur.com/a/Hqolp)
+* [Visualizing Optimization Algos](http://imgur.com/a/Hqolp) [2](http://imgur.com/s25RsOr) on imgur.com by [Alec Radford](https://www.reddit.com/r/MachineLearning/comments/2gopfa/visualizing_gradient_optimization_techniques/cklhott)
 * [Neural Network demo](http://phiresky.github.io/kogsys-demos/neural-network/)
 * [Skript von Marvin Ritter](https://github.com/Marvin182/NeuralNets)
 * [Machine Learning 1](//martin-thoma.com/machine-learning-1-course/) und [Machine Learning 2](//martin-thoma.com/machine-learning-2-course/) am KIT

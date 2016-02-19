@@ -42,12 +42,12 @@ $L_1 \setminus L_2 = \{aba, bab\}$<small><sup><a href="#ref3" name="anchor3">[3]
 </ul>
 
 <h2>Termin</h2>
-<strong>Datum</strong>: Mittwoch, der 22.02.2012 um 14:00 Uhr (siehe <a href="http://i11www.iti.uni-karlsruhe.de/teaching/winter2011/tgi/index">Vorlesungswebsite</a>)
-<strong>Ort</strong>: Steht <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/anmeldung.pdf">hier</a>. Ich schreibe im Tulla, manche noch im Gaede und andere im HS a. F., Daimler oder Benz. Laut dieser Liste schreiben 295 Personen diese Klausur!
-<strong>Dauer</strong>: 120 min. (siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi1112-t1.pdf">erste Folie</a>) 
-<strong>Punkte</strong>: Bisher waren es meist ca. 60, von denen man 20 zum Bestehen ben&ouml;tigt hat.
+<strong>Datum</strong>: Mittwoch, der 22.02.2012 um 14:00 Uhr (siehe <a href="http://i11www.iti.uni-karlsruhe.de/teaching/winter2011/tgi/index">Vorlesungswebsite</a>)<br/>
+<strong>Ort</strong>: Steht <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/anmeldung.pdf">hier</a>. Ich schreibe im Tulla, manche noch im Gaede und andere im HS a. F., Daimler oder Benz. Laut dieser Liste schreiben 295 Personen diese Klausur!<br/>
+<strong>Dauer</strong>: 120 min. (siehe <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/tgi1112-t1.pdf">erste Folie</a>)<br/>
+<strong>Punkte</strong>: Bisher waren es meist ca. 60, von denen man 20 zum Bestehen ben&ouml;tigt hat.<br/>
 <strong>&Uuml;bungsschein</strong>: <a href="http://i11www.iti.uni-karlsruhe.de/_media/teaching/winter2011/tgi/scheine.pdf">Liste</a> der 195 Leute, die ihn bestanden haben. Der &Uuml;bungsschein bringt einen Klausurbonus. Allerdings habe ich keine Ahnung, wie hoch dieser ist.
-edit: +0,3 zur Klausurnot (Danke Alexander ☺ )
+edit: +0,3 zur Klausurnot (Danke Alexander ☺)<br/>
 
 Ach ja, ich habe "<a href="http://info.php-4.info/attachment.php?attachmentid=260&sid=dcc186e19164016b828792ff3c04a046">Yet Another Info 3 Resume</a>" noch gar nicht verlinkt. Das ist sehr kurz und hat viele wichtige Informationen.
 

@@ -136,13 +136,13 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 </ul>
 
 <h2>Termine und Klausurablauf</h2>
-<strong>Datum</strong>: 05.09.2013, 11:00 Uhr - 13:00 Uhr
-<strong>Zeit</strong>: 2 Stunden
-<strong>Ort</strong>: H&ouml;rsaal am Fasanengarten
-<strong>Punkte</strong>: 60 Punkte
-<strong>Bestehensgrenze</strong>: 22 Punkte
-<strong>&Uuml;bungsschein</strong>: Gibt es (sogar benotet)
-<strong>Bonuspunkte</strong>: Nein
+<strong>Datum</strong>: 05.09.2013, 11:00 Uhr - 13:00 Uhr<br/>
+<strong>Zeit</strong>: 2 Stunden<br/>
+<strong>Ort</strong>: H&ouml;rsaal am Fasanengarten<br/>
+<strong>Punkte</strong>: 60 Punkte<br/>
+<strong>Bestehensgrenze</strong>: 22 Punkte<br/>
+<strong>&Uuml;bungsschein</strong>: Gibt es (sogar benotet)<br/>
+<strong>Bonuspunkte</strong>: Nein<br/>
 
 <h2>Nicht vergessen</h2>
 <ul>

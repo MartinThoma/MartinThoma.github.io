@@ -37,21 +37,22 @@ F&uuml;r die Klausur in Algorithmen I sollte man Folgendes auf jeden Fall wissen
 Das ist ein Graph, bei dem der Algorithmus von Dijkstra fehlschl&auml;gt:
 
 {% caption align="aligncenter" width="278" caption="Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt." url="../images/2012/07/dijkstra-fail.gif" alt="Minimales Beispiel f&uuml;r einen Graphen, bei dem der Dijkstra-Algorithmus fehlschl&auml;gt."  height="278" class=" wp-image-31761 "  %}
+
 <h2>Termine</h2>
-<strong>Datum</strong>: Dienstag, der 31.07.2012 um 17:00 Uhr
+<strong>Datum</strong>: Dienstag, der 31.07.2012 um 17:00 Uhr<br/>
 <strong>Ort</strong>: 
-<blockquote>Die Sitze sind alphabetisch nach Ihrem Nachnamen eingeteilt:
-A-C   H&ouml;rsaal am Fasanengarten(50.35)
-D-J    Gerthsen H&ouml;rsaal(30.21)
-K-O   Audimax(30.95)
-P-R   Daimler(10.21)
-S        Benz(10.21)
-T-V   Tulla(11.40)
+<blockquote>Die Sitze sind alphabetisch nach Ihrem Nachnamen eingeteilt:<br/>
+A-C   H&ouml;rsaal am Fasanengarten(50.35)<br/>
+D-J    Gerthsen H&ouml;rsaal(30.21)<br/>
+K-O   Audimax(30.95)<br/>
+P-R   Daimler(10.21)<br/>
+S        Benz(10.21)<br/>
+T-V   Tulla(11.40)<br/>
 W-Z  Neue Chemie(30.46) </blockquote>
 
-<strong>Dauer</strong>: 120 min. (<a href="https://studium.kit.edu/sites/vab/0x32F499D5541AEE45A9509B71A4796335/Start/homepage.aspx">Quelle</a>)
-<strong>Punkte</strong>: 60
-<strong>&Uuml;bungsschein</strong>: Gibt es nicht. Bonuspunkte gibt es auch nicht.
+<strong>Dauer</strong>: 120 min. (<a href="https://studium.kit.edu/sites/vab/0x32F499D5541AEE45A9509B71A4796335/Start/homepage.aspx">Quelle</a>)<br/>
+<strong>Punkte</strong>: 60<br/>
+<strong>&Uuml;bungsschein</strong>: Gibt es nicht. Bonuspunkte gibt es auch nicht.<br/>
 <strong>Sitzplatzverteilung</strong>: <a href="https://studium.kit.edu/sites/vab/0x32F499D5541AEE45A9509B71A4796335/Vorlesungsunterlagen/Forms/AllItems.aspx">hier</a>
 
 <h2>Nicht vergessen</h2>
