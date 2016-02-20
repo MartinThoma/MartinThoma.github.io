@@ -5,8 +5,10 @@ author: Martin Thoma
 date: 2016-02-20 11:29
 category: German
 tags:
-- Rating
-featured_image: logos/star.png
+- Water
+- Karlsruhe
+- Networks
+featured_image: logos/water.png
 ---
 
 Seit 10:00 Uhr (20.02.2016) geht bei mir (Parkstraße, Oststadt, Karlsruhe)
@@ -43,3 +45,30 @@ edit: In der nächsten halben Stunde (also um 12:00 Uhr, 20.02.2016) soll sich d
 
 Wasserrohrbruch in der Könisberger Straße. Warum der Wasserrohrbruch passiert
 ist wissen die Stadtwerke noch nicht.
+
+
+## Update, 12:20
+
+Bei mir läuft das Wasser wieder.
+
+Ich war gerade bei der Stelle, wo der Wasserrohrbruch passiert sein soll. Es waren ca. 10 Feuerwehrleute, 2 Polizisten, 2 Pressesprecher und 2 Redakteure da. Dafür, dass so viele Leute davon betroffen sind erstaunlich wenige. Und man hat im Prinzip kein Wasser gesehen.
+
+In der Nähe der Stelle ist eine große Baustelle, aber es waren keine Bauarbeiter
+dort.
+
+Auf meine Nachfrage, warum die Leitung kaputt gegangen ist gab es nur ein
+Achselzucken: "Das passiert halt manchmal."
+
+Bisher habe ich (ohne groß darüber nachzudenken) gedacht, dass das
+"Netzwerkproblem" für das Internet, für Güter und Waren (Zug- und
+Straßennetzwerke) und für Wasser im Grunde sehr ähnlich ist (was anfälligkeiten
+für Ausfälle von Quellen / Knotenpunkten / Kanten angeht). Ein wesentlicher
+Unterschied der mir bis gerade eben so nicht bewusst war ist die Tatsache, dass
+ein Rohrbruch als neue extreme Senke zu modellieren ist. Es ist also nicht
+einfach das Entfernen eines Knotens /  einer Kante, sondern das Ersetzen einer
+Kante durch eine Senke.
+
+
+## Siehe auch
+
+* swr.de: [Rohrbruch in Karlsruhe](http://www.swr.de/landesschau-aktuell/bw/nach-wasserrohrbruch-grosse-teile-von-karlsruhe-ohne-wasser/-/id=1622/did=16989964/nid=1622/10mx6vm/), 20.02.2016
