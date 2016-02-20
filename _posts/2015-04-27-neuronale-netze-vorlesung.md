@@ -241,7 +241,7 @@ Slide name: `V05_2015-04-29_Features.pdf`
 
       <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/feed-forward-perceptron.png" alt="Draft of a multilayer Perceptron (MLP)." />
-          <figcaption>Draft of multilayer Perceptron (MLP). The bias units are
+          <figcaption>Figure 1: Draft of multilayer Perceptron (MLP). The bias units are
                    grey, the input units are red, the hidden units are green
                    and the output unit is blue. The edges are directed from
                    input, to hidden, to output and from the bias to hidden / output.</figcaption>
@@ -534,7 +534,7 @@ Slide name: `V10_2015-05-26_SOM.pdf`
 
     <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/self-organizing-map.png" alt="Draft of a self-organizing map (SOM)." />
-          <figcaption>Draft of self-organizing map (SOM).</figcaption>
+          <figcaption>Figure 2: Draft of self-organizing map (SOM).</figcaption>
       </figure>
 
     Training:
@@ -589,7 +589,7 @@ Slide name: `V11_2015-05-27_RBMs`
 
       <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/hopfield-network.png" alt="Draft of a hopfield network." />
-          <figcaption>Draft of Hopfield network. Every node is an input node.
+          <figcaption>Figure 3: Draft of Hopfield network. Every node is an input node.
                    The McCullogh-Pitts nodes are updated asynchronously. When
                    the state of the node doesn't change any more, they contain
                    the output of the network. Learned are the weights between
@@ -624,7 +624,7 @@ Slide name: `V11_2015-05-27_RBMs`
 
       <figure class="wp-caption aligncenter">
           <img src="//martin-thoma.com/images/2016/02/restricted-botzmann-machine.png" alt="Draft of an RBM." />
-          <figcaption>Draft of an RBM. The learned parameters are red.</figcaption>
+          <figcaption>Figure 4: Draft of an RBM. The learned parameters are red.</figcaption>
       </figure>
 
       Es werden keine Verbindungen zwischen den Hidden Units erlaubt (daher das "restricted" - Quelle: <a href="https://youtu.be/IcOMKXAw5VA?t=5m42s">Hinton, 2015</a>).<br/>
@@ -874,12 +874,12 @@ mir folgendes aufgefallen:
 
 <figure class="wp-caption aligncenter">
     <img src="//martin-thoma.com/images/2016/02/2d-epochs-overfitting.png" alt="Training and Testing error over epochs" />
-    <figcaption>Training and Testing error over epochs. At some point overfitting happens.</figcaption>
+    <figcaption>Figure 5: Training and Testing error over epochs. At some point overfitting happens.</figcaption>
 </figure>
 
 <figure class="wp-caption aligncenter">
     <img src="//martin-thoma.com/images/2016/02/variance-bias.png" alt="Training and Testing error over training data" />
-    <figcaption>Training and Testing error over training data. At some point overfitting happens.</figcaption>
+    <figcaption>Figure 6: Training and Testing error over training data. At some point overfitting happens.</figcaption>
 </figure>
 
 If you have a problem with high variance, you can train more epochs, get more
@@ -887,6 +887,9 @@ data or better features.
 
 If you have a problem with high bias, you should get better features or a
 better classifier.
+
+Please note that Figure&nbsp;6 also gives you a feeling for how much new
+training data will help you with your problem.
 
 
 ## <a name="activations"></a> Aktivierungsfunktionen
