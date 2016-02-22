@@ -21,7 +21,7 @@ Im Daidalosnet steht dazu:
 Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studiums und von fachlichen und au&szlig;erfachlichen Aktivitäten gewonnen haben. Ein Umfang von zwei bis drei Seiten ist angemessen.</blockquote>
 
 <h2>Wer bekommt wann den Studienbericht?</h2>
-<blockquote>Stipendiaten, die endgültig in die Studienstiftung aufgenommen worden sind, schreiben Jahresberichte jeweils zum <strong>1. August</strong>. Stipendiaten vor der endgültigen Aufnahme schreiben Semesterberichte, jeweils zum <strong>1. März</strong> und zum 1. August.</blockquote>
+<blockquote>Stipendiaten, die in den ersten vier Fachsemestern (vor Antragsstellung auf Weiterförderung) aufgenommen werden, schreiben jeweils zum <strong>1. März</strong> und <strong>1. September</strong> Semesterberichte (im Jahr der Antragsstellung auf Weiterförderung: zusammen mit dem Antrag bereits zum 1. August); alle anderen Stipendiaten schreiben den Jahresbericht zum <strong>1. September</strong>.</blockquote>
 
 Mit dem Semesterbericht für das WS 2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden:
 
