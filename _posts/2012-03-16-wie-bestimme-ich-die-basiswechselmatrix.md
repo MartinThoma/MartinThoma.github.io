@@ -13,58 +13,60 @@ featured_image: 2012/03/Basiswechselmatrix.png
 ---
 Eine Basiswechselmatrix oder auch Übergangsmatrix dient dem Basiswechsel.
 
-Angenommen man hat zwei Basen des $\mathbb{R}^2$-Vektorraumes:
+Angenommen man hat zwei Basen des <span markdown="0">\(\mathbb{R}^2\)</span>-Vektorraumes:
 
-\[B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}\]
+<div>\[B = \{\overbrace{\begin{pmatrix} 1 \\ 2 \end{pmatrix}}^{b_1}, \overbrace{\begin{pmatrix} 2 \\ 3 \end{pmatrix}}^{b_2} \}\]</div>
 
 und
 
-\[\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}\]
+<div>\[\bar B = \{\underbrace{\begin{pmatrix} 3 \\ 5 \end{pmatrix}}_{\bar b_1}, \underbrace{\begin{pmatrix} 8 \\ 13 \end{pmatrix}}_{\bar b_2} \}\]</div>
 
-Sei nun $v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ ein Vektor zur Standardbasis.
-Da $B$ und $\bar B$ auch Basen des $\mathbb{R}^2$ sind, kann man v auch zu diesen Basen darstellen:
-$\Theta_{B}(v) = \begin{pmatrix} -1 \\ 1 \end{pmatrix}$ und 
-$\Theta_{\bar B}(v) = \begin{pmatrix} -5 \\ 2 \end{pmatrix}$
+Sei nun <span markdown="0">\(v := \begin{pmatrix} 1 \\ 1 \end{pmatrix}\)</span> ein Vektor zur Standardbasis.
+Da <span markdown="0">\(B\)</span> und <span markdown="0">\(\bar B\)</span> auch Basen des <span markdown="0">\(\mathbb{R}^2\)</span> sind, kann man v auch zu diesen Basen darstellen:
+<span markdown="0">\(\Theta_{B}(v) = \begin{pmatrix} -1 \\ 1 \end{pmatrix}\)</span> und
+<span markdown="0">\(\Theta_{\bar B}(v) = \begin{pmatrix} -5 \\ 2 \end{pmatrix}\)</span>
 
 Wie kann man nun diese neue Darstellung berechnen?
 Nun, wir bestimmen eine Matrix A für die gilt:
-$A \cdot \Theta_B(v) = \Theta_{\bar B}(v) ~~~ \forall v \in \mathbb{R}^2$. Diese Matrix findet man, indem man beide geordneten Basen nebeneinander schreibt und die rechte Seite "durchgaußt":
-$\left( \begin{array}{c c | c c} 
+<span markdown="0">\(A \cdot \Theta_B(v) = \Theta_{\bar B}(v) ~~~ \forall v \in \mathbb{R}^2\)</span>. Diese Matrix findet man, indem man beide geordneten Basen nebeneinander schreibt und die rechte Seite "durchgaußt":
+
+<span markdown="0">\(\left( \begin{array}{c c | c c}
   1 & 2 & 3 &  8 \\
   2 & 3 & 5 & 13
-\end{array} \right) 
-\rightsquigarrow 
-\left( \begin{array}{c c | c c} 
+\end{array} \right)
+\rightsquigarrow
+\left( \begin{array}{c c | c c}
   \frac{1}{3} & \frac{2}{3} & 1 &  \frac{8}{3} \\
         2     & 3           & 5 & 13
-\end{array} \right) 
+\end{array} \right)
 \rightsquigarrow \\
-\left( \begin{array}{c c | c c} 
+\left( \begin{array}{c c | c c}
   \frac{1}{3}   & \frac{2}{3}    & 1 &  \frac{8}{3} \\
   \frac{6-5}{3} & \frac{9-10}{3} & 0 & \frac{39-8 \cdot 5}{3}
-\end{array} \right) 
+\end{array} \right)
 \rightsquigarrow
-\left( \begin{array}{c c | c c} 
+\left( \begin{array}{c c | c c}
   \frac{1}{3}   & \frac{2}{3}    & 1 &  \frac{8}{3} \\
   \frac{1}{3}   & -\frac{1}{3}   & 0 & -\frac{1}{3}
-\end{array} \right) 
+\end{array} \right)
 \rightsquigarrow \\
-\left( \begin{array}{c c | c c} 
+\left( \begin{array}{c c | c c}
   \frac{9}{3}   & -\frac{6}{3}   & 1 & 0 \\
   \frac{1}{3}   & -\frac{1}{3}   & 0 & -\frac{1}{3}
-\end{array} \right) 
+\end{array} \right)
 \rightsquigarrow
-\left( \begin{array}{c c | c c} 
+\left( \begin{array}{c c | c c}
   3 & -2 & 1 &  0 \\
   -1 & 1 & 0 &  1
-\end{array} \right)$
+\end{array} \right)\)</span>
 
-Links steht die geordnete Basis B und rechts die geordnete Basis $\bar B$, also (von | nach) und rechts wendet man Gauß an.
+Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown="0">\(\bar B\)</span>, also (von | nach) und rechts wendet man Gauß an.
 
 Nun noch die Kontrolle, ob es stimmen kann:
-\[\underbrace{\begin{pmatrix} 3 & -2 \\ -1 & 1 \end{pmatrix}}_{A_{B \bar B}} 
+
+<div>\[\underbrace{\begin{pmatrix} 3 & -2 \\ -1 & 1 \end{pmatrix}}_{A_{B \bar B}}
 \cdot
-\underbrace{\begin{pmatrix} -1 \\ 1 \end{pmatrix}}_{\Theta_{B}(v)} = \underbrace{\begin{pmatrix} -5 \\ 2 \end{pmatrix}}_{\Theta_{\bar B}(v)}\]
+\underbrace{\begin{pmatrix} -1 \\ 1 \end{pmatrix}}_{\Theta_{B}(v)} = \underbrace{\begin{pmatrix} -5 \\ 2 \end{pmatrix}}_{\Theta_{\bar B}(v)}\]</div>
 
 <h2>Siehe auch</h2>
 <ul>
