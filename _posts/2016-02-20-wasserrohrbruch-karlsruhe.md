@@ -20,10 +20,8 @@ Die Website der Stadtwerke ist überlastet, aber Twitter gibt Informationen:
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-Auch auf Facebook gibts ein paar Informationen von den Stadtwerken:
-
-<div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-post" data-href="https://www.facebook.com/stadtwerkeka/posts/1052594468095542" data-width="500"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/stadtwerkeka/posts/1052594468095542"><p>+++++++++  EILMELDUNG +++++++++++Liebe Kunden, aktuell haben wir einen g&#xf6;&#xdf;eren Wasserrohrbruch in der K&#xf6;nigsberger...</p>Posted by <a href="https://www.facebook.com/stadtwerkeka/">Stadtwerke Karlsruhe</a> on&nbsp;<a href="https://www.facebook.com/stadtwerkeka/posts/1052594468095542">Samstag, 20. Februar 2016</a></blockquote></div></div>
-
+Auch auf Facebook gibts ein paar Informationen von den Stadtwerken
+([Link](https://www.facebook.com/stadtwerkeka/)).
 
 ## Wer ist Betroffen?
 
@@ -45,6 +43,15 @@ edit: In der nächsten halben Stunde (also um 12:00 Uhr, 20.02.2016) soll sich d
 
 Wasserrohrbruch in der Könisberger Straße. Warum der Wasserrohrbruch passiert
 ist wissen die Stadtwerke noch nicht.
+
+edit: Hier ein paar Informationen von der Website ([Quelle](http://www.stadtwerke-karlsruhe.de/swka-de/aktuelles/2016/02/20160220b.php)):
+
+> Am Samstag um 9:43 Uhr kam es zum Bruch einer Haupt-Trinkwasserleitung in der Karlsruher Waldstadt. Die Leitung hat einen Durchmesser von 60 cm, stammt aus dem Jahr 1962 und hat normalerweise eine Lebensdauer von rund 90 Jahren. Warum es zum Bruch kam, steht noch nicht fest. Die Leitung wurde inzwischen abgesperrt, die Aufgrabungen beginnen am Montag. Alle Haushalte sind inzwischen wieder mit Wasser versorgt, der Druck im gesamten Stadtnetz hat sich normalisiert. Haushalte, die aktuell noch Probleme mit dem Wasserdruck haben, melden sich bitte telefonisch bei der Störungsstelle unter 599-12. Oft sind die Filter der Hausinstallation verstopft und müssen gereinigt werden.
+>
+> **Enormer Wasserverlust**
+> Aus der gebrochenen Leitung flossen über 1 Million Liter Wasser. Das ist rund ein Drittel so viel Wasser wie ganz Karlsruhe in einer Stunde verbraucht. Durch den enormen Wasserverlust kam es im gesamten Stadtnetz zu einem Druckverlust und damit zu Einschränkungen in der Wasserversorgung. Normalerweise liegt der Druck bei 4 bis 5 bar, in den westlichen und südlichen Stadtteilen fiel er auf 2 bis 3 bar, in Durlach auf 1,3 bar und in der Waldstadt auf 0,1 bar, so dass dort kaum noch Wasser aus den Leitungen kam.  Außerdem wurden im Umfeld der Störungsstelle in der Waldstadt einige Keller überflutet. Sie wurden von der Feuerwehr ausgepumpt.
+>
+> Leider kam es parallel zum Wasserrohrbruch zu einer technischen Störung der Stadtwerke-Server, so dass die Homepages der Stadtwerke und der Stadtwerke Netzservice Gesellschaft längere Zeit nicht erreichbar waren.
 
 
 ## Update, 12:20
