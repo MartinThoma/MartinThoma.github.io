@@ -102,8 +102,8 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
 <dl>
     <dt><dfn>Frame Buffer</dfn></dt>
     <dd>Speichert Bilder zur direkten wiedergabe auf dem Bildschirm.</dd>
-    <dt><dfn>Ditherhing</dfn></dt>
-    <dd>TODO</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Dithering_(Bildbearbeitung)"><dfn>Ditherhing</dfn> (<dfn>Fehlerdiffusion</dfn>)</a></dt>
+    <dd>Ditherhing ist eine Methode zur Illusion einer größeren Farbtiefe.</dd>
     <dt><dfn>Dynamikumfang</dfn></dt>
     <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegrätes (Bildschirm, Beamer):
         \[R_d = \frac{I_{\text{max} + k}}{I_{\text{min}} + k}\]
@@ -112,6 +112,8 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
     <dt><dfn>Gamma-Korrektur</dfn></dt>
     <dd>TODO</dd>
     <dt><dfn>Transferfunktion</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Gammut</dfn> (<dfn>Farbgammut</dfn>)</dt>
     <dd>TODO</dd>
 </dl>
 
@@ -126,15 +128,21 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
         Anwendung: Drucker</dd>
     <dt><dfn>Graßmansche Gesetze</dfn></dt>
     <dd>Jeder Farbeindruck kann mit 3 Grundgrößen beschrieben werden.</dd>
+    <dt><dfn>Weber-Fechner-Gesetz</dfn></dt>
+    <dd>Das Weber-Fechner-Gesetz macht eine Aussage über die subjektiv
+        empfundene Stärke von Sinneseindrücken im Abhängigkeit von der
+        Intensität des Helligkeitsunterschiedes:
+
+        TODO</dd>
 </dl>
 
-* RGB-Farbraum
-* HSV-Farbraum
+* RGB-Farbraum: Addition der Spektren, wird bei CRT/LCD-Farbmonitoren verwendet.
+* CMY, CMYK: Subtraktive Farbmischung, wird bei Druckern verwendet. K (schwarz) nur aus praktischen Gründen.
+* HSV-Farbraum: Weder Additiv noch subtraktiv, wird bei Benutzerschnittstellen verwendet
 * CIE Color Matching Functions
-* XYZ Color Space
+* XYZ Color Space: Farbraum für Konversion zwischen Farbräumen
 * Chromatizität
 * xyY Farbraum
-* Weber-Fechner-Gesetz
 * Machsche Streifen / Bandeffekte
 * Hermann-Gitter / Laterale Hemmung
 * Windows clear type / Subpixel
@@ -160,6 +168,83 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 * Schattenstrahlen
 * Bewegungs- und Tiefenunschärfe
 * Imperfekte Spiegelung und Transmission
+
+
+#### Transformationen und homogene Koordinaten
+
+Slide: `03_ Transformationen und homogene Koordinaten.pdf`
+
+<dl>
+    <dt><dfn>Orthogonale Matrix</dfn></dt>
+    <dd>Eine quadratische Matrix \(M \in \mathbb{R}^{n \times n}\) heißt
+        genau dann orthogonal, wenn
+        \[M^T \cdot M = M \cdot M^T = I_{n \times n}\]
+
+        Für orthogonale Matrizen gilt also \(M^{-1} = M^T\)</dd>
+    <dt><dfn>Homogene Koordinaten</dfn></dt>
+    <dd>Der euklidische bzw. affine Raum wird um sog. <i>Fernpunkte</i>
+        ergänzt.</dd>
+    <dt><dfn>Rotation</dfn></dt>
+    <dd>Die Rotation um (0, 0) in homogenen Koordinaten geht wie folgt:
+        \[\begin{pmatrix}\cos \alpha & -\sin \alpha & 0\\ \sin \alpha & \cos \alpha & 0 \\ 0 '& 0 & 1\end{pmatrix}\]
+    </dd>
+    <dt><dfn>Skalierung</dfn></dt>
+    <dd>Eine Skalierung in homogenen Koordinaten geht wie folgt:
+        \[\begin{pmatrix}s_x & 0 & 0 & 0\\ 0 & s_y & 0 & 0\\ 0 & 0 & s_x & 0\\ 0 & 0 & 0 & 1\end{pmatrix}\]
+    </dd>
+    <dt><dfn>Scherung</dfn></dt>
+    <dd>Eine Scherung in homogenen Koordinaten geht wie folgt:
+        \[\begin{pmatrix}1 & 0 & d_x & 0\\ 0 & 1 & d_y & 0\\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1\end{pmatrix}\]
+    </dd>
+    <dt><dfn>Koordinatensysteme</dfn></dt>
+    <dd>
+        <ul>
+            <li>Objektkoordinaten: Sie werden durch die <i>Modelltransformation</i> zu</li>
+            <li>Weltkoordinaten: Sie werden durch die <i>Kameratransformation</i> zu</li>
+            <li>Kamerakoordinaten</li>
+        </ul>
+
+        Der Ursprung des Welt-Koordiantensystems wird mit 0 bezeichnet.
+        Die Basisvektoren mit \(x, y\).
+
+        Das Modellkoordinatensystem hat den Ursprung \(e\) und die Basisvektoren
+        \(u, v\)
+    </dd>
+</dl>
+
+* Transformationen werden grundsätzlich so dargestellt: <div>\[x' \gets M \cdot x\]</div>
+  Es wird also der zu transformierende Vektor von rechts mit der Transformationsmatrix M
+  multipliziert.
+* Spiegelung an der y-Achse ist eine Multiplikation der x-Koordinaten mit (-1)
+* Hierarchisches Modellieren, Szenengraph
+
+
+#### Texturen
+
+Slide: `04_ Texturen.pdf`
+
+<dl>
+    <dt><dfn>Texturen</dfn></dt>
+    <dd>Texturen können vielfältig eingesetzt werden:
+
+    <ul>
+        <li>Klassische Feinstrukturierung</li>
+        <li>Reflektionseigenschaften</li>
+        <li>Farbe</li>
+        <li>Normalenvektoren (Bump- oder Normal mapping)</li>
+        <li>Beleuchtung
+        <ul>
+            <li>Environment Mapping, Reflection Mapping</li>
+            <li>Shadow Mapping, Light Mapping</li>
+        </ul>
+        </li>
+        <li>Geometrie (Displacement Mapping)</li>
+    </ul>
+
+    Texturkoordinaten werden üblicherweise mit \((s, t)\) bezeichnet. Manchmal
+    auch mit \((u, v)\).
+    </dd>
+</dl>
 
 
 #### Räumliche Datenstrukturen
@@ -270,7 +355,7 @@ Siehe auch
 ## Literatur
 
 * P. Shirley, S. Marschner: Fundamentals of Computer Graphics, 3rd Edition<br/>
-  → Kapitel 3-4, Kapitel 7-9, Kapitel 11-12 (Data Structures for Graphics)
+  → Kapitel 3-9, Kapitel 11-12 (Data Structures for Graphics)
 
 
 ## Übungsbetrieb
