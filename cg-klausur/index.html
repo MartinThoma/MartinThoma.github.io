@@ -232,8 +232,8 @@ MathJax.Hub.Queue(function() {
 <dl>
     <dt><dfn>Frame Buffer</dfn></dt>
     <dd>Speichert Bilder zur direkten wiedergabe auf dem Bildschirm.</dd>
-    <dt><dfn>Ditherhing</dfn></dt>
-    <dd>TODO</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Dithering_(Bildbearbeitung)"><dfn>Ditherhing</dfn> (<dfn>Fehlerdiffusion</dfn>)</a></dt>
+    <dd>Ditherhing ist eine Methode zur Illusion einer größeren Farbtiefe.</dd>
     <dt><dfn>Dynamikumfang</dfn></dt>
     <dd>Der Dynamikumfang beschreibt den erreichbaren Kontrast eines Wiedergabegrätes (Bildschirm, Beamer):
         \[R_d = \frac{I_{\text{max} + k}}{I_{\text{min}} + k}\]
@@ -242,6 +242,8 @@ MathJax.Hub.Queue(function() {
     <dt><dfn>Gamma-Korrektur</dfn></dt>
     <dd>TODO</dd>
     <dt><dfn>Transferfunktion</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Gammut</dfn> (<dfn>Farbgammut</dfn>)</dt>
     <dd>TODO</dd>
 </dl>
 
@@ -256,16 +258,22 @@ MathJax.Hub.Queue(function() {
         Anwendung: Drucker</dd>
     <dt><dfn>Graßmansche Gesetze</dfn></dt>
     <dd>Jeder Farbeindruck kann mit 3 Grundgrößen beschrieben werden.</dd>
+    <dt><dfn>Weber-Fechner-Gesetz</dfn></dt>
+    <dd>Das Weber-Fechner-Gesetz macht eine Aussage über die subjektiv
+        empfundene Stärke von Sinneseindrücken im Abhängigkeit von der
+        Intensität des Helligkeitsunterschiedes:
+
+        TODO</dd>
 </dl>
 
 <ul>
-  <li>RGB-Farbraum</li>
-  <li>HSV-Farbraum</li>
+  <li>RGB-Farbraum: Addition der Spektren, wird bei CRT/LCD-Farbmonitoren verwendet.</li>
+  <li>CMY, CMYK: Subtraktive Farbmischung, wird bei Druckern verwendet. K (schwarz) nur aus praktischen Gründen.</li>
+  <li>HSV-Farbraum: Weder Additiv noch subtraktiv, wird bei Benutzerschnittstellen verwendet</li>
   <li>CIE Color Matching Functions</li>
-  <li>XYZ Color Space</li>
+  <li>XYZ Color Space: Farbraum für Konversion zwischen Farbräumen</li>
   <li>Chromatizität</li>
   <li>xyY Farbraum</li>
-  <li>Weber-Fechner-Gesetz</li>
   <li>Machsche Streifen / Bandeffekte</li>
   <li>Hermann-Gitter / Laterale Hemmung</li>
   <li>Windows clear type / Subpixel</li>
@@ -293,6 +301,83 @@ Stochastisches Supersampling</li>
   <li>Bewegungs- und Tiefenunschärfe</li>
   <li>Imperfekte Spiegelung und Transmission</li>
 </ul>
+
+<h4 id="transformationen-und-homogene-koordinaten">Transformationen und homogene Koordinaten</h4>
+
+<p>Slide: <code>03_ Transformationen und homogene Koordinaten.pdf</code></p>
+
+<dl>
+    <dt><dfn>Orthogonale Matrix</dfn></dt>
+    <dd>Eine quadratische Matrix \(M \in \mathbb{R}^{n \times n}\) heißt
+        genau dann orthogonal, wenn
+        \[M^T \cdot M = M \cdot M^T = I_{n \times n}\]
+
+        Für orthogonale Matrizen gilt also \(M^{-1} = M^T\)</dd>
+    <dt><dfn>Homogene Koordinaten</dfn></dt>
+    <dd>Der euklidische bzw. affine Raum wird um sog. <i>Fernpunkte</i>
+        ergänzt.</dd>
+    <dt><dfn>Rotation</dfn></dt>
+    <dd>Die Rotation um (0, 0) in homogenen Koordinaten geht wie folgt:
+        \[\begin{pmatrix}\cos \alpha &amp; -\sin \alpha &amp; 0\\ \sin \alpha &amp; \cos \alpha &amp; 0 \\ 0 '&amp; 0 &amp; 1\end{pmatrix}\]
+    </dd>
+    <dt><dfn>Skalierung</dfn></dt>
+    <dd>Eine Skalierung in homogenen Koordinaten geht wie folgt:
+        \[\begin{pmatrix}s_x &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; s_y &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; s_x &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\]
+    </dd>
+    <dt><dfn>Scherung</dfn></dt>
+    <dd>Eine Scherung in homogenen Koordinaten geht wie folgt:
+        \[\begin{pmatrix}1 &amp; 0 &amp; d_x &amp; 0\\ 0 &amp; 1 &amp; d_y &amp; 0\\ 0 &amp; 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix}\]
+    </dd>
+    <dt><dfn>Koordinatensysteme</dfn></dt>
+    <dd>
+        <ul>
+            <li>Objektkoordinaten: Sie werden durch die <i>Modelltransformation</i> zu</li>
+            <li>Weltkoordinaten: Sie werden durch die <i>Kameratransformation</i> zu</li>
+            <li>Kamerakoordinaten</li>
+        </ul>
+
+        Der Ursprung des Welt-Koordiantensystems wird mit 0 bezeichnet.
+        Die Basisvektoren mit \(x, y\).
+
+        Das Modellkoordinatensystem hat den Ursprung \(e\) und die Basisvektoren
+        \(u, v\)
+    </dd>
+</dl>
+
+<ul>
+  <li>Transformationen werden grundsätzlich so dargestellt: &lt;div&gt;[x’ \gets M \cdot x]&lt;/div&gt;
+Es wird also der zu transformierende Vektor von rechts mit der Transformationsmatrix M
+multipliziert.</li>
+  <li>Spiegelung an der y-Achse ist eine Multiplikation der x-Koordinaten mit (-1)</li>
+  <li>Hierarchisches Modellieren, Szenengraph</li>
+</ul>
+
+<h4 id="texturen">Texturen</h4>
+
+<p>Slide: <code>04_ Texturen.pdf</code></p>
+
+<dl>
+    <dt><dfn>Texturen</dfn></dt>
+    <dd>Texturen können vielfältig eingesetzt werden:
+
+    <ul>
+        <li>Klassische Feinstrukturierung</li>
+        <li>Reflektionseigenschaften</li>
+        <li>Farbe</li>
+        <li>Normalenvektoren (Bump- oder Normal mapping)</li>
+        <li>Beleuchtung
+        <ul>
+            <li>Environment Mapping, Reflection Mapping</li>
+            <li>Shadow Mapping, Light Mapping</li>
+        </ul>
+        </li>
+        <li>Geometrie (Displacement Mapping)</li>
+    </ul>
+
+    Texturkoordinaten werden üblicherweise mit \((s, t)\) bezeichnet. Manchmal
+    auch mit \((u, v)\).
+    </dd>
+</dl>
 
 <h4 id="rumliche-datenstrukturen">Räumliche Datenstrukturen</h4>
 
@@ -448,7 +533,7 @@ aber auch nicht :-/)</p>
 
 <ul>
   <li>P. Shirley, S. Marschner: Fundamentals of Computer Graphics, 3rd Edition<br />
-→ Kapitel 3-4, Kapitel 7-9, Kapitel 11-12 (Data Structures for Graphics)</li>
+→ Kapitel 3-9, Kapitel 11-12 (Data Structures for Graphics)</li>
 </ul>
 
 <h2 id="tocAnchor-1-8">Übungsbetrieb</h2>
