@@ -271,5 +271,9 @@ think of the following measures:
 
 ## See also
 
-* [Quick Start with Gephi](https://gephi.org/tutorials/gephi-tutorial-quick_start.pdf)
-* [Features of Gephi](http://gephi.org/features/)
+* Analysis of PyPI
+    * K. Gullikson: [Python Dependency Analysis](http://kgullikson88.github.io/blog/pypi-analysis.html): A well-written article with some very nice images.
+    * O. Girardot: [State of the Python/PyPI Dependency Graph](https://ogirardot.wordpress.com/2013/01/05/state-of-the-pythonpypi-dependency-graph/): One very nice, interactive image of the dependency graph.
+* Building big graphs
+    * [Quick Start with Gephi](https://gephi.org/tutorials/gephi-tutorial-quick_start.pdf)
+    * [Features of Gephi](http://gephi.org/features/)
