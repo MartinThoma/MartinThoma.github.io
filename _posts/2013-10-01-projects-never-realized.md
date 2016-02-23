@@ -69,6 +69,18 @@ implementation. For this project, you would need:
 * Somebody, who has experience with gamification.
 * Somebody, who has contacts to politics and knows how to advertise.
 
+
+## Advertisement Site
+
+I actually want advertisement. But I want also to easily keep track of it.
+I don't want to look at stuff just to see that the advertisment was old. And
+I don't want advertisment when I have lots to do and no time to buy things
+anyway.
+
+So giving people the possibility to go to a website and look at advertisment
+the way they want might be very interesting.
+
+
 ## Wikipedia AI
 Try to categorize images in
 [Category:Uncategorized images](https://en.wikipedia.org/wiki/Category:Uncategorized_images)
