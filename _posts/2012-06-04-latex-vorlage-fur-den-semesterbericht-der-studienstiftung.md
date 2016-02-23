@@ -21,9 +21,9 @@ Im Daidalosnet steht dazu:
 Nach der Lektüre des Berichtes sollten die Leser ein Bild vom Verlauf des Studiums und von fachlichen und au&szlig;erfachlichen Aktivitäten gewonnen haben. Ein Umfang von zwei bis drei Seiten ist angemessen.</blockquote>
 
 <h2>Wer bekommt wann den Studienbericht?</h2>
-<blockquote>Stipendiaten, die in den ersten vier Fachsemestern (vor Antragsstellung auf Weiterförderung) aufgenommen werden, schreiben jeweils zum <strong>1. März</strong> und <strong>1. September</strong> Semesterberichte (im Jahr der Antragsstellung auf Weiterförderung: zusammen mit dem Antrag bereits zum 1. August); alle anderen Stipendiaten schreiben den Jahresbericht zum <strong>1. September</strong>.</blockquote>
+<blockquote>Stipendiaten, die in den ersten vier Fachsemestern (vor Antragsstellung auf Weiterförderung) aufgenommen werden, schreiben jeweils zum <strong>1.&nbsp;März</strong> und <strong>1.&nbsp;September</strong> Semesterberichte (im Jahr der Antragsstellung auf Weiterförderung: zusammen mit dem Antrag bereits zum 1.&nbsp;August); alle anderen Stipendiaten schreiben den Jahresbericht zum <strong>1.&nbsp;September</strong>.</blockquote>
 
-Mit dem Semesterbericht für das WS 2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden:
+Mit dem Semesterbericht für das WS&nbsp;2012/2013 soll der Bericht nicht mehr an den zuständigen Referenten bzw. Vertrauensdozenten geschickt werden, sondern direkt ins Daidalosnet geladen werden:
 
 <blockquote>Bitte laden Sie Ihren Bericht als PDF-Dokument im Daidalosnet hoch. Sie finden die Eingabemaske in Ihrem eigenen Kurzprofil ("<strong>Meine Einstellungen</strong>" unten rechts) - hier ist in der unteren Bildschirmhälfte die Rubrik "<strong>Studienberichte</strong>" zu finden. Wenn Sie hier einen als "offen" gekennzeichneten Eintrag finden, müssen Sie uns einen Bericht zukommen lassen - bitte folgen Sie dem Link in der Zeile unter "offen", um zur Eingabemaske zu gelangen. Sowohl Ihr/e Referent/in als auch Ihr/e Vertrauensdozent/in erhalten automatisch eine Kopie des Berichts per E-Mail.</blockquote>
 
