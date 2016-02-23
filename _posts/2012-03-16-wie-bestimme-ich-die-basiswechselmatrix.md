@@ -60,7 +60,7 @@ Nun, wir bestimmen eine Matrix A für die gilt:
   -1 & 1 & 0 &  1
 \end{array} \right)\)</span>
 
-Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown="0">\(\bar B\)</span>, also (von | nach) und rechts wendet man Gauß an.
+Links steht die geordnete Basis B und rechts die geordnete Basis <span markdown="0">\(\bar B\)</span>, also (von \| nach) und rechts wendet man Gauß an.
 
 Nun noch die Kontrolle, ob es stimmen kann:
 
