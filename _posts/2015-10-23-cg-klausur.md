@@ -13,8 +13,6 @@ featured_image: logos/klausur.png
 
 ## Behandelter Stoff
 
-### Vorlesung
-
 <table>
 <tr>
     <th>Datum</th>
@@ -93,9 +91,9 @@ featured_image: logos/klausur.png
 </tr>
 </table>
 
-### Folien
+## Folien
 
-#### Bilder, Farbe, Perzeption
+### Bilder, Farbe, Perzeption
 
 Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
 
@@ -148,7 +146,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
 * Windows clear type / Subpixel
 
 
-#### Raytracing
+### Raytracing
 
 Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 
@@ -170,7 +168,7 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 * Imperfekte Spiegelung und Transmission
 
 
-#### Transformationen und homogene Koordinaten
+### Transformationen und homogene Koordinaten
 
 Slide: `03_ Transformationen und homogene Koordinaten.pdf`
 
@@ -219,7 +217,7 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
 * Hierarchisches Modellieren, Szenengraph
 
 
-#### Texturen
+### Texturen
 
 Slide: `04_ Texturen.pdf`
 
@@ -243,11 +241,24 @@ Slide: `04_ Texturen.pdf`
 
     Texturkoordinaten werden üblicherweise mit \((s, t)\) bezeichnet. Manchmal
     auch mit \((u, v)\).
+
+    Eine Textur ist im Einheitsquadrat.
+
+    Eine Textur kann folgendermaßen auf ein Objekt gemappt werden, indem das
+    Objekt in einen Hilfskörper (z.B. Kugel, Würfel, Zylinder) gesteckt wird,
+    auf welchen die Textur bereits gemappt wurde. Dann kann die Textur
+    folgendermaßen auf das Objekt übertragen werden:
+
+    <ul>
+        <li>Normale des Hilfskörpers auf das Objekt</li>
+        <li>Normale des Objekts auf den Hilfskörper</li>
+        <li>Linie durch den Mittelpunkt des Objekts auf den Hilfskörper</li>
+    </ul>
     </dd>
 </dl>
 
 
-#### Räumliche Datenstrukturen
+### Räumliche Datenstrukturen
 
 Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 
@@ -259,14 +270,49 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 * kD-Baum
 
 <dl>
-  <dt><dfn>BSP-Baum</dfn></dt>
-  <dd>TODO</dd>
-  <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
-  <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
+    <dt><dfn>BSP-Baum</dfn> (<dfn>Binary Space Partition Baum</dfn>)</dt>
+    <dd>TODO</dd>
+    <dt><dfn>kD-Baum</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
+    <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
+    <dt><dfn>Bounding-Volume-Hierachies</dfn> (<dfn>BVH</dfn>)</dt>
+    <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
+        Man hat also komplexe Objekte. Für diese Objekte muss man Schnittests
+        machen. Das bedeutet im einfachsten fall, dass man für \(n\) Dreiecke
+        und einen Strahl genau \(n\) Schnittests machen muss.
+
+        Nun könnte man aber - je nach den Objekten - diese in jeweils zwei
+        Quader unterteilen. Wenn der Strahl nur einen Quader schneidet, dann muss
+        man auch nur für die Objekte in diesem Quader Schnittests durchführen.
+        Innerhalb des Quaders kann man natürlich noch weiter die Objekte in
+        Hüllkörper (üblicherweise Quader) unterteilen.
+
+        Typische Hüllkörper sind:
+
+        <ul>
+            <li>AABB: Axis-Aligned Bounding Boxes</li>
+            <li>Bounding Spheres</li>
+            <li>OBB: Oriented Bounding Boxes</li>
+            <li>Slabs: Schnitt von Paaren paralleler Halbebenen</li>
+        </ul></dd>
+    <dt><dfn>Oktalbäume</dfn> (<a href="https://en.wikipedia.org/wiki/Octree"><dfn>Octree</dfn></a>)</dt>
+    <dt><dfn>Gitter</dfn></dt>
+    <dd>Schnitttests können beschleunigt werden, indem über den Raum ein
+        Gitter gelegt wird. Der Raum wird also in kleinere Teile zerlegt.
+
+        </dd>
+    <dd>Ein Octree unterteilt einen Quader in 8 kleiner Quader. Diese können
+        wiederum in 8 kleinere Quader unterteilt werden.</dd>
 </dl>
 
 
-#### Rasterisierung, Clipping und Projektionstransformationen
+#### AABB
+
+* Folie 18 - 29: TODO
+
+
+### Rasterisierung, Clipping und Projektionstransformationen
 
 Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
 
@@ -275,7 +321,7 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
 * Sutherland-Hodgeman Polygon Clipping
 
 
-#### 19.01.2016
+### 19.01.2016
 
 <dl>
     <dt><dfn>Perlin-Noise</dfn></dt>
@@ -285,9 +331,6 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
 </dl>
 
 
-### Prüfungsfragen
-
-Kommt noch... spätestens wenn die Klausur naht.
 
 ### Übungen
 
@@ -379,12 +422,12 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 
 
 **Ort**: <a href="https://www.kithub.de/map/2086">10.21 (Daimler und Benz)</a><br/>
-**Punkte**: ?<br/>
-**Zeit**: ? min<br/>
+**Punkte**: 120<br/>
+**Zeit**: 60 min<br/>
 **Punkteverteilung**: ?<br/>
 **Bestehensgrenze**: ?<br/>
-**Übungsschein**: ?<br/>
-**Bonuspunkte**: ?<br/>
+**Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt.<br/>
+**Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 23.10.2015)<br/>
+**Einsicht**: Noch nicht bekannt (Stand: 22.02.2016)<br/>
 **Erlaubte Hilfsmittel**: keine
