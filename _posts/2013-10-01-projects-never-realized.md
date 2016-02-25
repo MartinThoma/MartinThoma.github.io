@@ -313,6 +313,24 @@ Other elements:
 * Surveys: Limemonkey?
 
 
+## Online CV
+
+A service to create an online CV. Manage your CV only in one place instead of
+many (LinkedIn, StackExchange, ORCiD, ResearchGate, ...).
+
+Sadly, many nice URLs are already gone:
+
+* cv.me, its.me, about.me
+* note.me, write.me, ping.me, help.me
+* lookat.me
+
+
+Things to link:
+
+* arXiv profile page
+* http://dblp.uni-trier.de/ - http://dblp.uni-trier.de/pers/hd/t/Thoma_0001:Martin
+
+
 ## Job Portal for cheap jobs
 
 It seems to me that LinkedIn is mainly for high-paid jobs. However, "cheap"
@@ -387,6 +405,31 @@ following tasks simpler.
 Also, I would like to create an app that helps users to create formulas. This
 app should run on smartphones and on tablets. I don't think that this can be
 done with pure JavaScript.
+
+
+## Jabber Messaging App
+
+There are some commercial messangers which are wide-spread (WhatsApp, Facebook Messanger, Skype),
+some known secure messangers (Threema, Signal) and lots of other messangers
+(see [Comparison of instant messaging clients](https://en.wikipedia.org/wiki/Comparison_of_instant_messaging_clients), [2](https://de.wikipedia.org/wiki/Liste_von_mobilen_Instant-Messengern)).
+
+However, there seems not to be a single client which has the following:
+
+* Security
+    * Free Software
+    * Encryption of text messages
+* Support of Android and iOS as well as a web interface
+* Support of open protocolls (XMPP - see [Comparison of instant messaging protocols](https://en.wikipedia.org/wiki/Comparison_of_instant_messaging_protocols))
+    * Support of sharing pictures
+    * Support of sharing short audio messages
+    * Efficient voice calls
+    * Efficient video calls
+* Text messaging features
+    * Emoticons
+    * UTF-8
+    * Typing indicator
+    * Status: Message on server / Message on target client / Message read
+
 
 ## Open Hardware
 I'm fascinated by the idea of open hardware. That means that you publish plans
