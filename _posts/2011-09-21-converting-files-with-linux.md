@@ -128,10 +128,10 @@ $ ffmpeg -i Original.mp4 -f mp3 -ab 192000 -vn New.mp3
 <b>mod2avi</b>:
 ?
 
-<b>mts2ogg</b> (<a href="https://en.wikipedia.org/wiki/.m2ts">MTS format info</a>):
+<b>mts2avi</b> (<a href="https://en.wikipedia.org/wiki/.m2ts">MTS format info</a>):
 
 ```bash
-
+$ ffmpeg -i 00008.MTS -acodec copy -vcodec libx264 -crf 21 -r 30000/1001 -deinterlace -y -threads 0 output_file.avi
 ```
 
 <b>vcd2avi</b>:
