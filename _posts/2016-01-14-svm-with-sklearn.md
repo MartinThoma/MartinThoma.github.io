@@ -436,3 +436,4 @@ of degree&nbsp;9 as well as some preprocessing.
 * Trung Huynh's tech blog: [Digit Recognition using SVM in Python](http://www.trungh.com/2013/04/digit-recognition-using-svm-in-python/)
 * [Classifier comparison](http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html)
 * [Supervised learning](http://scikit-learn.org/stable/supervised_learning.html)
+* [How can SVM 'find' an infinite feature space where linear separation is always possible?](http://stats.stackexchange.com/questions/80398/how-can-svm-find-an-infinite-feature-space-where-linear-separation-is-always-p)
