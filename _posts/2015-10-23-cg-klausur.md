@@ -271,16 +271,22 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 
 <dl>
     <dt><dfn>BSP-Baum</dfn> (<dfn>Binary Space Partition Baum</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>Teile den Raum mithilfe von Ebenen in zwei Teile. Die Ebenen dürfen
+        beliebig im Raum liegen.
+
+        Somit wird eine Baumstruktur aufgebaut, welche den Raum in immer
+        kleinere Teile teilt.</dd>
     <dt><dfn>kD-Baum</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Ein BSP-Baum, welcher nur achsenparallele Ebenen erlaubt.</dd>
     <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
     <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
     <dt><dfn>Bounding-Volume-Hierachies</dfn> (<dfn>BVH</dfn>)</dt>
     <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
         Man hat also komplexe Objekte. Für diese Objekte muss man Schnittests
-        machen. Das bedeutet im einfachsten fall, dass man für \(n\) Dreiecke
+        machen. Das bedeutet im einfachsten Fall, dass man für \(n\) Dreiecke
         und einen Strahl genau \(n\) Schnittests machen muss.
+
+        Interessanterweise dürfen sich Hüllkörper überlappen.
 
         Nun könnte man aber - je nach den Objekten - diese in jeweils zwei
         Quader unterteilen. Wenn der Strahl nur einen Quader schneidet, dann muss
@@ -316,9 +322,21 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 
 Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
 
-* Tiefenpuffer, Z-Buffer
-* Clipping
-* Sutherland-Hodgeman Polygon Clipping
+<dl>
+    <dt><dfn>Tiefenpuffer</dfn> (<dfn>Z-Buffer</dfn>)</dt>
+    <dd>Es wird ein Bild gespeichert, welches für jeden Pixel die Tiefe
+        des vordersten Objekts angibt.</dd>
+    <dt><dfn>Clipping</dfn></dt>
+    <dd>Abschneiden von Linien und Poligonen, die außerhalb des sichtbaren
+        Bereichs liegen. Dies ist wichtig für die behandlung problematischer
+        Fälle bei Projektionen.</dd>
+    <dt><dfn>Algorithmus von Sutherland-Hodgeman</dfn></dt>
+    <dd>Dient dem Clipping von Polygonen.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Frustum"><dfn>Frustum</dfn></a></dt>
+    <dd>Ein Frustum ist ein Kegelstumpf, wobei in der Computergrafik eher ein
+        Pyramidenstumpf gemeint ist. Das <i>View Frustum</i> ist der Bereich
+        der Szene, der sichtbar ist.</dd>
+</dl>
 
 
 ### 19.01.2016
@@ -330,6 +348,38 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
     <dd>Sammlung von Noise-Funktionen</dd>
 </dl>
 
+
+### Prozedurale Modellierung, Content Creation
+
+Slides: `08_ Prozedurale Modellierung, Content Creation.pdf`
+
+TODO
+
+Slides: `08_ Prozedurale Modellierung (freiwilliges Bonus Material).pdf`
+
+TODO
+
+### Kurven und Flachen
+
+Slides: `09_ Kurven und Flachen.pdf`
+
+
+<dl>
+    <dt><dfn>Kubische Bézierkurven</dfn></dt>
+    <dd>Kubische Bézierkurven sind von der Form
+        \[f(u) = (1-u)^3 b_0 + 3u (1-u)^2 b_1 + 3u^2 (1-u) b_2 + u^3 b_3\]
+        wobei \(b_0, b_1, b_2 \in \mathbb{R}^n\) und \(u \in [0, 1]\) gilt.
+
+        Diese Faktoren (also \((1-u)^3, 3u (1-u)^2, 3u^2 (1-u), u^3\))
+        werden auch Bernstein-Polynome genannt. Genau wie die Monome sind sie
+        eine Basis für Polynome.</dd>
+    <dt><dfn>Bernstein-Polynome</dfn></dt>
+    <dd>\[B_i^n(u) = \binom{n}{i} u^i (1-u)^{n-i}\]</dd>
+    <dt><dfn>Béziersplines</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>B-Splines</dfn></dt>
+    <dd>TODO</dd>
+</dl>
 
 
 ### Übungen
@@ -426,7 +476,7 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 **Zeit**: 60 min<br/>
 **Punkteverteilung**: ?<br/>
 **Bestehensgrenze**: ?<br/>
-**Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt.<br/>
+**Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt. Mit mindestens 72&nbsp;Punkten (60% von 120 Punkten) hat man den Übungsschein.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: ?<br/>
 **Einsicht**: Noch nicht bekannt (Stand: 22.02.2016)<br/>
