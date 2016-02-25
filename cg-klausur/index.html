@@ -139,21 +139,27 @@ MathJax.Hub.Queue(function() {
                <a href="#tocAnchor-1-2-7"><span class="tocnumber">2.7</span> <span class="toctext">19.01.2016</span></a>
             </li>
             <li class="toc_level-2 toc_section-10">
-               <a href="#tocAnchor-1-2-8"><span class="tocnumber">2.8</span> <span class="toctext">Übungen</span></a>
+               <a href="#tocAnchor-1-2-8"><span class="tocnumber">2.8</span> <span class="toctext">Prozedurale Modellierung, Content Creation</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-11">
+               <a href="#tocAnchor-1-2-9"><span class="tocnumber">2.9</span> <span class="toctext">Kurven und Flachen</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-12">
+               <a href="#tocAnchor-1-2-10"><span class="tocnumber">2.10</span> <span class="toctext">Übungen</span></a>
             </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-11">
-         <a href="#tocAnchor-1-11"><span class="tocnumber">3</span> <span class="toctext">Material und Links</span></a>
-      </li>
-      <li class="toc_level-1 toc_section-12">
-         <a href="#tocAnchor-1-12"><span class="tocnumber">4</span> <span class="toctext">Literatur</span></a>
-      </li>
       <li class="toc_level-1 toc_section-13">
-         <a href="#tocAnchor-1-13"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-13"><span class="tocnumber">3</span> <span class="toctext">Material und Links</span></a>
       </li>
       <li class="toc_level-1 toc_section-14">
-         <a href="#tocAnchor-1-14"><span class="tocnumber">6</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-14"><span class="tocnumber">4</span> <span class="toctext">Literatur</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-15">
+         <a href="#tocAnchor-1-15"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-16">
+         <a href="#tocAnchor-1-16"><span class="tocnumber">6</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
@@ -423,16 +429,22 @@ multipliziert.</li>
 
 <dl>
     <dt><dfn>BSP-Baum</dfn> (<dfn>Binary Space Partition Baum</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>Teile den Raum mithilfe von Ebenen in zwei Teile. Die Ebenen dürfen
+        beliebig im Raum liegen.
+
+        Somit wird eine Baumstruktur aufgebaut, welche den Raum in immer
+        kleinere Teile teilt.</dd>
     <dt><dfn>kD-Baum</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Ein BSP-Baum, welcher nur achsenparallele Ebenen erlaubt.</dd>
     <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
     <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
     <dt><dfn>Bounding-Volume-Hierachies</dfn> (<dfn>BVH</dfn>)</dt>
     <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
         Man hat also komplexe Objekte. Für diese Objekte muss man Schnittests
-        machen. Das bedeutet im einfachsten fall, dass man für \(n\) Dreiecke
+        machen. Das bedeutet im einfachsten Fall, dass man für \(n\) Dreiecke
         und einen Strahl genau \(n\) Schnittests machen muss.
+
+        Interessanterweise dürfen sich Hüllkörper überlappen.
 
         Nun könnte man aber - je nach den Objekten - diese in jeweils zwei
         Quader unterteilen. Wenn der Strahl nur einen Quader schneidet, dann muss
@@ -468,11 +480,21 @@ multipliziert.</li>
 
 <p>Side: <code>06_ Rasterisierung, Clipping und Projektionstransformationen.pdf</code></p>
 
-<ul>
-  <li>Tiefenpuffer, Z-Buffer</li>
-  <li>Clipping</li>
-  <li>Sutherland-Hodgeman Polygon Clipping</li>
-</ul>
+<dl>
+    <dt><dfn>Tiefenpuffer</dfn> (<dfn>Z-Buffer</dfn>)</dt>
+    <dd>Es wird ein Bild gespeichert, welches für jeden Pixel die Tiefe
+        des vordersten Objekts angibt.</dd>
+    <dt><dfn>Clipping</dfn></dt>
+    <dd>Abschneiden von Linien und Poligonen, die außerhalb des sichtbaren
+        Bereichs liegen. Dies ist wichtig für die behandlung problematischer
+        Fälle bei Projektionen.</dd>
+    <dt><dfn>Algorithmus von Sutherland-Hodgeman</dfn></dt>
+    <dd>Dient dem Clipping von Polygonen.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Frustum"><dfn>Frustum</dfn></a></dt>
+    <dd>Ein Frustum ist ein Kegelstumpf, wobei in der Computergrafik eher ein
+        Pyramidenstumpf gemeint ist. Das <i>View Frustum</i> ist der Bereich
+        der Szene, der sichtbar ist.</dd>
+</dl>
 
 <h3 id="tocAnchor-1-2-7">19.01.2016</h3>
 
@@ -483,7 +505,38 @@ multipliziert.</li>
     <dd>Sammlung von Noise-Funktionen</dd>
 </dl>
 
-<h3 id="tocAnchor-1-2-8">Übungen</h3>
+<h3 id="tocAnchor-1-2-8">Prozedurale Modellierung, Content Creation</h3>
+
+<p>Slides: <code>08_ Prozedurale Modellierung, Content Creation.pdf</code></p>
+
+<p>TODO</p>
+
+<p>Slides: <code>08_ Prozedurale Modellierung (freiwilliges Bonus Material).pdf</code></p>
+
+<p>TODO</p>
+
+<h3 id="tocAnchor-1-2-9">Kurven und Flachen</h3>
+
+<p>Slides: <code>09_ Kurven und Flachen.pdf</code></p>
+
+<dl>
+    <dt><dfn>Kubische Bézierkurven</dfn></dt>
+    <dd>Kubische Bézierkurven sind von der Form
+        \[f(u) = (1-u)^3 b_0 + 3u (1-u)^2 b_1 + 3u^2 (1-u) b_2 + u^3 b_3\]
+        wobei \(b_0, b_1, b_2 \in \mathbb{R}^n\) und \(u \in [0, 1]\) gilt.
+
+        Diese Faktoren (also \((1-u)^3, 3u (1-u)^2, 3u^2 (1-u), u^3\))
+        werden auch Bernstein-Polynome genannt. Genau wie die Monome sind sie
+        eine Basis für Polynome.</dd>
+    <dt><dfn>Bernstein-Polynome</dfn></dt>
+    <dd>\[B_i^n(u) = \binom{n}{i} u^i (1-u)^{n-i}\]</dd>
+    <dt><dfn>Béziersplines</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>B-Splines</dfn></dt>
+    <dd>TODO</dd>
+</dl>
+
+<h3 id="tocAnchor-1-2-10">Übungen</h3>
 
 <h4 id="blatt-1">Blatt 1</h4>
 
@@ -571,7 +624,7 @@ aber auch nicht :-/)</p>
   <li><a href="http://glm.g-truc.net/0.9.0/api/a00192.html">glm::gtx::transform</a></li>
 </ul>
 
-<h2 id="tocAnchor-1-11">Material und Links</h2>
+<h2 id="tocAnchor-1-13">Material und Links</h2>
 
 <ul>
   <li><a href="http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php">Vorlesungswebsite</a></li>
@@ -587,14 +640,14 @@ aber auch nicht :-/)</p>
   <li>OpenGL <a href="http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/">Tutorial 3 : Matrices</a></li>
 </ul>
 
-<h2 id="tocAnchor-1-12">Literatur</h2>
+<h2 id="tocAnchor-1-14">Literatur</h2>
 
 <ul>
   <li>P. Shirley, S. Marschner: Fundamentals of Computer Graphics, 3rd Edition<br />
 → Kapitel 3-9, Kapitel 11-12 (Data Structures for Graphics)</li>
 </ul>
 
-<h2 id="tocAnchor-1-13">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-15">Übungsbetrieb</h2>
 
 <p>Es gibt Übungsblätter und Übungen, aber keine Tutorien und keine Bonuspunkte.</p>
 
@@ -604,7 +657,7 @@ benötigt man 60% der Punkte der Übungsblätter. Die Übungsblätter werden üb
 Die Übungsblätter erscheinen alle 2 Wochen. Es gibt also min.
 6 Übungsblätter und min. 120 Punkte. Die Deadline ist Montag, 11:00.</p>
 
-<h2 id="tocAnchor-1-14">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-16">Termine und Klausurablauf</h2>
 
 <p><strong>Datum</strong>: Mittwoch, der 09.03.2015 von 14:00 Uhr (Quelle: <a href="http://www.informatik.kit.edu/klausuren.php?kid=546.35">informatik.kit.edu</a>)<br /></p>
 
@@ -619,7 +672,7 @@ Die Übungsblätter erscheinen alle 2 Wochen. Es gibt also min.
 <strong>Zeit</strong>: 60 min<br />
 <strong>Punkteverteilung</strong>: ?<br />
 <strong>Bestehensgrenze</strong>: ?<br />
-<strong>Übungsschein</strong>: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt.<br />
+<strong>Übungsschein</strong>: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt. Mit mindestens 72 Punkten (60% von 120 Punkten) hat man den Übungsschein.<br />
 <strong>Bonuspunkte</strong>: Gibt es nicht.<br />
 <strong>Ergebnisse</strong>: ?<br />
 <strong>Einsicht</strong>: Noch nicht bekannt (Stand: 22.02.2016)<br />
