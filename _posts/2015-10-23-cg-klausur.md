@@ -376,7 +376,21 @@ Slides: `09_ Kurven und Flachen.pdf`
     <dt><dfn>Bernstein-Polynome</dfn></dt>
     <dd>\[B_i^n(u) = \binom{n}{i} u^i (1-u)^{n-i}\]</dd>
     <dt><dfn>Béziersplines</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Ein Bézierspline ist eine Liste von Bézierkurven.</dd>
+    <dt><dfn>\(C^k\)-stetige Splines</dfn></dt>
+    <dd>Es seien
+    <div>\[\begin{align}F(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{f}_i\\
+                        G(u) &= \sum_{i=0}^n B_i^n(u) \mathbf{g}_i\end{align}\]
+
+    Der Spline aus \(F, G\) heißt
+
+    <ul>
+        <li>\(C^0\) stetig \(:\Leftrightarrow F(1) = G(0) \Leftrightarrow \mathbf{f}_n = \mathbf{g}_0\)</li>
+        <li>\(C^1\) stetig \(:\Leftrightarrow F'(1) = G'(0) \land C^0 \Leftrightarrow \mathbf{f}_n - f_{n-1} = \mathbf{g}_1 - \mathbf{g}_0 \land C^0\)</li>
+        <li>\(C^2\) stetig \(:\Leftrightarrow F''(1) = G''(0) \land C^1 \Leftrightarrow \mathbf{f}_{n-1} + (\mathbf{f}_{n-1} - \mathbf{f}_{n-2}) = \mathbf{g}_{1} + (\mathbf{g}_{1} - \mathbf{g}_{2}) \land C^1\)</li>
+    </ul>
+    </div>
+    </dd>
     <dt><dfn>B-Splines</dfn></dt>
     <dd>TODO</dd>
 </dl>
