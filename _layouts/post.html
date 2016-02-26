@@ -8,6 +8,10 @@
                 <div id="content">
                     <article class="post type-post format-standard hentry clearfix" itemscope itemType="{% if page.itemtype %}{{page.itemtype}}{% else %}http://schema.org/BlogPosting{% endif %}">
                         <h2 class="title entry-title" itemprop="headline">{{ page.title }}</h2>
+                        {% if page.featured_image %}
+                            <meta name="image" itemprop="image" content="{{ site.baseurl }}/images/{{ page.featured_image }}" />
+                        {% endif %}
+                        <link itemprop="mainEntityOfPage" href="{{ site.baseurl }}{{ page.url | replace:'index.html',''}}" />
                         <div class="postdate entry-date date-header">
                             <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{% assign d = page.date | date: "%d" | plus:'0' %}
                                 {{ page.date | date: "%B" }}
