@@ -6,10 +6,10 @@
             <div class="span-16">
                 {% include header.html %}
                 <div id="content">
-                    <article class="post type-post format-standard hentry clearfix {% if page.itemtype %}itemscope itemtype="{{page.itemtype}}"{% endif %}">
-                        <h2 class="title entry-title">{{ page.title }}</h2>
-                        <div class="postdate entry-date">
-                            <time datetime="{{ page.date | date_to_xmlschema }}">{% assign d = page.date | date: "%d" | plus:'0' %}
+                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="{% if page.itemtype %}{{page.itemtype}}{{% else %}}http://schema.org/BlogPosting{{% endif %}}">
+                        <h2 class="title entry-title" itemprop="headline">{{ page.title }}</h2>
+                        <div class="postdate entry-date date-header">
+                            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{% assign d = page.date | date: "%d" | plus:'0' %}
                                 {{ page.date | date: "%B" }}
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st,
@@ -21,7 +21,7 @@
                             </time>
                         </div>
 
-                        <div class="entry" id="contentAfterTitle">
+                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
                             {{ content | toc_generate }}
                         </div>
                         <div class="postmeta">Posted in
@@ -33,7 +33,7 @@
                                     <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}/">{{ tag }}</a>
                                 {% else %}, <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}/">{{ tag }}</a>
                                 {% endif %}
-                            {% endfor %} by <a rel="author" class="vcard author" href="{{ site.baseurl }}/author/{{ page.author | downcase | replace:' ','-' }}/"><span class="fn">{{ page.author }}</span></a> on <span class="updated"><span class="value-title" title="{{ page.date }}">{% assign d = page.date | date: "%d" | plus:'0' %}
+                            {% endfor %} by <a rel="author" class="vcard author post-author" itemprop="author" href="{{ site.baseurl }}/author/{{ page.author | downcase | replace:' ','-' }}/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span></a> on <span class="updated"><span class="value-title" title="{{ page.date }}">{% assign d = page.date | date: "%d" | plus:'0' %}
                                 {{ page.date | date: "%B" }}
                                 {% case d %}
                                   {% when 1 or 21 or 31 %}{{ d }}st
