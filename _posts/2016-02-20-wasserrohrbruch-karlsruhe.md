@@ -53,6 +53,8 @@ edit: Hier ein paar Informationen von der Website ([Quelle](http://www.stadtwerk
 >
 > Leider kam es parallel zum Wasserrohrbruch zu einer technischen Störung der Stadtwerke-Server, so dass die Homepages der Stadtwerke und der Stadtwerke Netzservice Gesellschaft längere Zeit nicht erreichbar waren.
 
+edit: Es stellt sich heraus, dass es wohl ein Materialfehler war ([Quelle](http://www.stadtwerke-karlsruhe.de/swka-de/aktuelles/2016/02/20150225.php)).
+
 
 ## Update, 12:20
 
