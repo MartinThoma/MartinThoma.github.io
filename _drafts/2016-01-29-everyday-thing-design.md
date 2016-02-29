@@ -33,3 +33,15 @@ is designed.
 
 * Make the valve (instrument?) be in the sink. So when you just cleaned your
   hands and they are still wet you don't make the rest of the bath wet.
+
+
+## Doors
+
+Doors should be desinged in a way that it is obvious in which way they are to
+open. They should not require a sign. For example, if you have to push it, it
+should only have a flat surface.
+
+
+## See also
+
+* Donald Norman: The Design of Everyday Things.
