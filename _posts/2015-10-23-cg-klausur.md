@@ -148,7 +148,38 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
 
 ### Raytracing
 
-Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
+Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`#
+
+<dl>
+    <dt><dfn>Ray-Tracing</dfn></dt>
+    <dd>Ray-Tracing ist ein Verfahren zum Erzeugen Fotorealistischer Bilder.
+        Dabei geht man prinzipiell wie folgt vor:
+
+        <ol>
+            <li><b>Strahlerzeugung</b>: Für jeden Pixel werden Sichtstrahlen erzeugt</li>
+            <li><b>Schnittberechnung</b>: Finde das primitiv (z.B. Dreieck) welches der Strahl schneidet und welches am nächsten zur Kamera ist und vor der Kamera liegt.</li>
+            <li><b>Schattierung</b>: Beleuchtungsberechnung (shading)</li>
+        </ol></dd>
+    <dt><dfn>Phong-Beleuchtungsmodell</dfn></dt>
+    <dd>Das Phong-Beleuchtungsmodell besteht aus 3&nbsp;Komponenten:
+        <ul>
+            <li>Ambiente Beleuchtung: Materialkoeffizient \(k_a\)</li>
+            <li>Diffuse Beleuchtung: Materialkoeffizient \(k_d\)</li>
+            <li>Spekulare Beleuchtung: Materialkoeffizient \(k_s\) sowie Phong-Exponent \(n\)</li>
+        </ul>
+
+        Das Ergibt folgende Formel für die Intensität \(I\):
+
+       \[I = k_a \cdot I_L + k_d \cdot I_L \cdot (N \cdot L) + k_s \cdot I_L \cdot (R_L \cdot V)^n\]
+
+       hierbei ist \(I_L\) die Lichtintensität, die Richtung die das Licht nimmt \(L\) sowie die Oberflächennormale \(N\) und der Lichtreflektionsvektor \(R_L\). Der Vektor \(R_L\) liegt in der selben Ebene wie \(N\) und \(L\). Es gilt \(R_L = 2N \cdot (N \cdot L) - L\).</dd>
+    <dt><dfn>Z-Fighting</dfn></dt>
+    <dd>Polygone, welche in der selben Ebene liegen führen zu einem Flackern
+        welches der beiden Polygone nun angezeigt wird. Dies kann verhindert
+        werden, indem eines der Polygone minimal verschoben wird.</dd>
+    <dt><dfn>Tessellation</dfn></dt>
+    <dd>Parkettierung, also das Füllen einer Fläche mit Primitiven.</dd>
+</dl>
 
 * Nyquist-Shannon-Abtasttheorem
 * Vektoren, Ortsvektoren, Skalarprodukt
@@ -255,6 +286,26 @@ Slide: `04_ Texturen.pdf`
         <li>Linie durch den Mittelpunkt des Objekts auf den Hilfskörper</li>
     </ul>
     </dd>
+    <dt><dfn>Cube Map</dfn></dt>
+    <dd>Um den Hintergrund darzustellen, kann man die Szene in einen von
+        innen texturierten Cubus stecken. Ein Reflektionsrichtung \(\mathbf{r} = (r_x, r_y, r_z)\)
+        bestimmt den Punkt auf dem Mantel des Würfels.
+
+        Die betragsmäßig größte Komponente von \(\mathbf{r}\) bestimmt, welche
+        Würfelfläche (links, rechts, vorne, hinten, oben, unten) genommen wird.
+
+        Abhängig von der orientierung des koordinatensystems in bezug auf die
+        Cube map kann sich dann also folgende Regel ergeben:
+        <ul>
+            <li>Wenn \(|r_x|\) am größten ist, ist es rechts (&lt; 0) oder links (&gt; 0),</li>
+            <li>wenn \(|r_y|\) am größten ist, ist es vorne (&lt; 0) oder hinten (&gt; 0)</li>
+            <li>wenn \(|r_z|\) am größten ist, ist es oben (&lt; 0) oder unten (&gt; 0)</li>
+        </ul>
+
+        Die Texturkoordinaten \((s, t)\) werden z.B. für (right) wie folgt erechnet:
+
+        \[s = \frac{r_y}{2 \cdot  r_x}, \;\;\; t = \frac{r_z}{2 \cdot  r_x}\]
+        </dd>
 </dl>
 
 
@@ -339,6 +390,59 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
 </dl>
 
 
+### OpenGL
+
+Slides: `07_ OpenGL (freiwilliges Bonusmaterial).pdf`, `07_ OpenGL (Teil 1).pdf`, `07_ OpenGL (Teil 2 und 3).pdf`
+
+<dl>
+    <dt><dfn>GL</dfn></dt>
+    <dd>Short for "Graphics Library"</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/OpenGL_Utility_Toolkit"><dfn>GLUT</dfn></a></dt>
+    <dd>OpenGL Utility Toolkit: Window manipulation, mouse and keyboard interactions.
+
+        You need to include:
+
+```c
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+```
+
+</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Gouraud_Shading"><dfn>Gouraud Shading</dfn></a></dt>
+    <dd>Berechne Parameter wie z.B. Farbe an den Eckpunkten; interpoliere
+        innerhalb des Polygons.</dd>
+    <dt><dfn><a href="https://de.wikipedia.org/wiki/Phong_Shading">Phong Shading</a></dfn></dt>
+    <dd>Beleuchtungsberechnung mit interpolierter Normalen.
+
+        <span style="color: red; font-weight: bold;">Phong-Shading hat mit dem Phong-Beleuchtungsmodell inhaltlich nichts
+        zu tun.</span></dd>
+    <dt><dfn>Backface Culling</dfn></dt>
+    <dd>Dreiecke, auf deren Rückseite man blickt werden üblicherweise nicht
+        gezeichnet. (<code>glEnable(GL_CULL_FACE); glCullFace(GL_BACK);</code>)</dd>
+    <dt><dfn>Stencil-Puffer</dfn></dt>
+    <dd>TODO</dd>
+</dl>
+
+OpenGL-Funktionen:
+
+<ul>
+    <li>gluLookAt</li>
+    <li>glClear</li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+Siehe auch:
+
+<ul>
+    <li><a href="http://www.glprogramming.com/red/">GLProgramming.com</a></li>
+    <li><a href="http://www.opengl.org/registry/doc/glspec45.core.pdf">GL Specs</a></li>
+    <li><a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.50.pdf">GLSL Specs</a></li>
+</ul>
+
+
 ### 19.01.2016
 
 <dl>
@@ -393,6 +497,8 @@ Slides: `09_ Kurven und Flachen.pdf`
     </dd>
     <dt><dfn>B-Splines</dfn></dt>
     <dd>TODO</dd>
+    <dt><dfn>Algorithmus von De Casteljau</dfn></dt>
+    <dd>Siehe <a href="https://github.com/MartinThoma/algorithms/tree/master/de-casteljau-algorithm">Code</a>.</dd>
 </dl>
 
 
@@ -457,6 +563,7 @@ Siehe auch
 * [World, View and Projection Transformation Matrices](http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
 * OpenGL [Tutorial 3 : Matrices](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
+* [OpenGL Cheat Sheet](http://www.khronos.org/files/opengl45-quick-reference-card.pdf)
 
 
 ## Literatur
@@ -493,5 +600,5 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 **Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt. Mit mindestens 72&nbsp;Punkten (60% von 120 Punkten) hat man den Übungsschein.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 22.02.2016)<br/>
-**Erlaubte Hilfsmittel**: keine
+**Einsicht**: Noch nicht bekannt (Stand: 29.02.2016)<br/>
+**Erlaubte Hilfsmittel**: keine (aber ein Geodreieck wird wohl OK sein)
