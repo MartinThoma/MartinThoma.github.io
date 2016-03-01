@@ -107,7 +107,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
         \[R_d = \frac{I_{\text{max} + k}}{I_{\text{min}} + k}\]
 
         TODO: Was ist \(k\)? Was ist \(I_{max} / I_{min}\)?</dd>
-    <dt><dfn>Gamma-Korrektur</dfn></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Gammakorrektur"><dfn>Gamma-Korrektur</dfn></a></dt>
     <dd>TODO</dd>
     <dt><dfn>Transferfunktion</dfn></dt>
     <dd>TODO</dd>
