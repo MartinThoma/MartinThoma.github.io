@@ -133,7 +133,7 @@ In many cases I will need some more equipment:
 
 Others:
 
-* Lenovo Thinkpad T450s
+* Lenovo Thinkpad T450s (20BWS1UT00 with i5-5200U, Nvidia GeForce 940M). See [notebookcheck](http://www.notebookcheck.com/Test-Lenovo-ThinkPad-T450s-940M-Ultrabook.142299.0.html)
 * TUXEDO Book BU1505
 * Samsung ATIV Book 9 2014 Edition
 * Lenovo ThinkPad X1
