@@ -163,9 +163,9 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`#
     <dt><dfn>Phong-Beleuchtungsmodell</dfn></dt>
     <dd>Das Phong-Beleuchtungsmodell besteht aus 3&nbsp;Komponenten:
         <ul>
-            <li>Ambiente Beleuchtung: Materialkoeffizient \(k_a\)</li>
-            <li>Diffuse Beleuchtung: Materialkoeffizient \(k_d\)</li>
-            <li>Spekulare Beleuchtung: Materialkoeffizient \(k_s\) sowie Phong-Exponent \(n\)</li>
+            <li>Ambiente Beleuchtung: Materialkoeffizient \(k_a\). Ambiente Beleuchtung ist indirekte Beleuchtung, also Licht von anderen Oberflächen</li>
+            <li>Diffuse Beleuchtung: Materialkoeffizient \(k_d\). Diffuse Beleuchtung ist die Streuung des Lichts nahe beim "Streupunkt" (nach dem Lambertschen Gesetz).</li>
+            <li>Spekulare Beleuchtung: Materialkoeffizient \(k_s\) sowie Phong-Exponent \(n\). Unter spekularer Beleuchtung versteht man direkte Spiegelung der Lichtquelle (imperfekte Spiegelung)</li>
         </ul>
 
         Das Ergibt folgende Formel für die Intensität \(I\):
@@ -179,6 +179,16 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`#
         werden, indem eines der Polygone minimal verschoben wird.</dd>
     <dt><dfn>Tessellation</dfn></dt>
     <dd>Parkettierung, also das Füllen einer Fläche mit Primitiven.</dd>
+    <dt><dfn>Distributed Ray Tracing</dfn></dt>
+    <dd>Bilder welche mit dem Whitted-Style Ray Tracing Verfahren gerendert
+        wurden sehen zu perfekt aus. Die perfekte Spiegelung und Trasmission,
+        die harten Schattenkanten und die unendliche Schärfentiefe kennen wir
+        von realen Kameras so nicht.
+
+        Distributed Ray Tracing ist eine alternative zu Whitted-Style Ray
+        Tracing, welche diese Probleme zu lösen versucht. Dabei wird bei jeder
+        Spiegelung nicht ein Schattenstrahl verschickt, sondern viele welche
+        sich um den "Perfekten" Strahl konzentrieren.</dd>
 </dl>
 
 * Nyquist-Shannon-Abtasttheorem
@@ -306,6 +316,26 @@ Slide: `04_ Texturen.pdf`
 
         \[s = \frac{r_y}{2 \cdot  r_x}, \;\;\; t = \frac{r_z}{2 \cdot  r_x}\]
         </dd>
+    <dt><dfn>Mip-Map</dfn> (<dfn>Mip map</dfn>, <dfn>Mipmap</dfn>, <dfn>Auflösungspyramide</dfn>)</dt>
+    <dd>Mip steht für lat. <i>multum in parvo</i> (viel in wenig). Eine
+        Mip-Map ist eine Vorfilterung von Texturen. Mip-Mapping hilft, wenn man
+        in einem sehr flachem Winkel auf eine Ebene blickt.
+
+
+        In einer Mip-Map wird die Original-Textur gespeichert, dann in der
+        ersten Stufe eine Textur welche in beiden Dimensionen auf die hälfte
+        verkleinert wurde (also 1/4 der ursprünglichen Größe).
+
+        Es wird diejenige Mip-Map Stufe \(n\) gewählt, sodass gilt
+
+        \[\text{Texelgröße}(n) \leq \text{Größe Pixelfootprint auf Textur} < Texelgröße(n+1)\]
+
+        Dann wird eine Trilineare Interpolation der 8 nächsten Texel durchgeführt:
+        <ul>
+            <li>Bilinear auf Stufe \(n\), bilinear auf Stufe \(n+1\)</li>
+            <li>linear zwischen diesen beiden Farben</li>
+        </ul>
+        </dd>
 </dl>
 
 
@@ -398,17 +428,7 @@ Slides: `07_ OpenGL (freiwilliges Bonusmaterial).pdf`, `07_ OpenGL (Teil 1).pdf`
     <dt><dfn>GL</dfn></dt>
     <dd>Short for "Graphics Library"</dd>
     <dt><a href="https://en.wikipedia.org/wiki/OpenGL_Utility_Toolkit"><dfn>GLUT</dfn></a></dt>
-    <dd>OpenGL Utility Toolkit: Window manipulation, mouse and keyboard interactions.
-
-        You need to include:
-
-```c
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
-```
-
-</dd>
+    <dd>OpenGL Utility Toolkit: Window manipulation, mouse and keyboard interactions.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Gouraud_Shading"><dfn>Gouraud Shading</dfn></a></dt>
     <dd>Berechne Parameter wie z.B. Farbe an den Eckpunkten; interpoliere
         innerhalb des Polygons.</dd>
@@ -420,18 +440,26 @@ Slides: `07_ OpenGL (freiwilliges Bonusmaterial).pdf`, `07_ OpenGL (Teil 1).pdf`
     <dt><dfn>Backface Culling</dfn></dt>
     <dd>Dreiecke, auf deren Rückseite man blickt werden üblicherweise nicht
         gezeichnet. (<code>glEnable(GL_CULL_FACE); glCullFace(GL_BACK);</code>)</dd>
-    <dt><dfn>Stencil-Puffer</dfn></dt>
-    <dd>TODO</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Stencilbuffer"><dfn>Stencil-Puffer</dfn></a></dt>
+    <dd>Ein Stencil-Puffer ist eine Stanzmaske, welche für jeden Pixel im
+        Framebuffer einen 8-bit Wert speichert. Im einfachsten Fall begrenzt
+        der Stencil-Puffer das Renderinggebiet.</dd>
 </dl>
+
+In order to use GLUT, you need to include:
+
+```c
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+```
+
 
 OpenGL-Funktionen:
 
 <ul>
-    <li>gluLookAt</li>
-    <li>glClear</li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li><code>gluLookAt</code></li>
+    <li><code>glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT )</code></li>
 </ul>
 
 Siehe auch:
@@ -443,21 +471,37 @@ Siehe auch:
 </ul>
 
 
-### 19.01.2016
+### Prozedurale Modellierung, Content Creation
+
+Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
 
 <dl>
     <dt><dfn>Perlin-Noise</dfn></dt>
     <dd>Zufallszahlen-Pool + Hash + Permutation</dd>
     <dt><dfn>Oktave</dfn></dt>
     <dd>Sammlung von Noise-Funktionen</dd>
+    <dt><dfn>Pixelbasierte Textursynthese</dfn></dt>
+    <dd>Man hat ein kleines Beispiel (Exemplar) und erzeugt daraus - Pixel für
+        Pixel - eine komplette Textur.
+
+        Dieses Verfahren ist langsam.</dd>
+    <dt><dfn>Patchbasierte Textursynthese</dfn></dt>
+    <dd>Verwende bei der Texturgenerierung nicht nur einzelne Pixel aus dem
+        Beispiel, sondern größere Patches.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Lindenmayer-System"><dfn>Lindenmayer-System</dfn></a> (<dfn>L-System</dfn>)</dt>
+    <dd>Ein Lindenmayer-System ist eine Grammatik \(G = (V, \Sigma, \omega, P)\),
+        wobei
+
+        <ul>
+            <li>\(V \neq \emptyset\) das Alphabet ist,</li>
+            <li>\(\Sigma \subseteq V\) die Menge der Konstanten ist,</li>
+            <li>\(\omega \in V^*\) das Startwort ist,</li>
+            <li>\(P \subseteq (V^* \setminus \Sigma^*) \times V^*\) die Menge der Ersetzungsregeln ist</li>
+        </ul>
+
+        
+        </dd>
 </dl>
-
-
-### Prozedurale Modellierung, Content Creation
-
-Slides: `08_ Prozedurale Modellierung, Content Creation.pdf`
-
-TODO
 
 Slides: `08_ Prozedurale Modellierung (freiwilliges Bonus Material).pdf`
 
@@ -562,8 +606,14 @@ Siehe auch
 
 * [World, View and Projection Transformation Matrices](http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
-* OpenGL [Tutorial 3 : Matrices](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
-* [OpenGL Cheat Sheet](http://www.khronos.org/files/opengl45-quick-reference-card.pdf)
+
+Software
+
+* OpenGL
+    * OpenGL [Tutorial 3 : Matrices](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
+    * [OpenGL Cheat Sheet](http://www.khronos.org/files/opengl45-quick-reference-card.pdf)
+* [Terragen](http://planetside.co.uk/products/terragen3): Erzeugung von Landschaften
+* [xfrog](http://xfrog.com/): Erzeugung von Pflanzen
 
 
 ## Literatur
@@ -600,5 +650,5 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 **Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt. Mit mindestens 72&nbsp;Punkten (60% von 120 Punkten) hat man den Übungsschein.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 29.02.2016)<br/>
+**Einsicht**: Noch nicht bekannt (Stand: 01.03.2016)<br/>
 **Erlaubte Hilfsmittel**: keine (aber ein Geodreieck wird wohl OK sein)
