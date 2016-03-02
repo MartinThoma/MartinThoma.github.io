@@ -17,8 +17,8 @@ I begin to fall in love with JavaScript and HTML5. You can access your Webcam wi
 <h3>HTML5</h3>
 You need:
 <ul>
-  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><canvas></a></li>
-  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><video></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><code>&lt;canvas&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a></li>
 </ul>
 
 This is the bare minimum HTML code you need for valid HTML:
