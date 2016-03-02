@@ -118,99 +118,154 @@ MathJax.Hub.Queue(function() {
 <h3 id="tocAnchor-1-1-1">HTML5</h3>
 <p>You need:</p>
 <ul>
-  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><canvas>
-  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><video>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><code>&lt;canvas&gt;</code></a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a></li>
+</ul>
 
+<p>This is the bare minimum HTML code you need for valid HTML:</p>
 
-This is the bare minimum HTML code you need for valid HTML:
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#34b">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;html&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;head&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;title&gt;</span>Some title<span style="color:#070;font-weight:bold">&lt;/title&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;/head&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;body&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;video</span> <span style="color:#b48">autoplay</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">vid</span><span style="color:#710">"</span></span> <span style="color:#b48">style</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#606">display</span>:<span style="color:#088">none</span>;<span style="color:#710">"</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/video&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;canvas</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">canvas</span><span style="color:#710">"</span></span> <span style="color:#b48">width</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">640</span><span style="color:#710">"</span></span> <span style="color:#b48">height</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">480</span><span style="color:#710">"</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/canvas&gt;</span>
+                <span style="color:#070;font-weight:bold">&lt;script</span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">text/javascript</span><span style="color:#710">"</span></span> <span style="color:#b48">src</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">graphic-filter.js</span><span style="color:#710">"</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+<span style="background-color:hsla(0,0%,0%,0.07);color:black">                </span><span style="color:#070;font-weight:bold">&lt;/script&gt;</span>
+        <span style="color:#070;font-weight:bold">&lt;/body&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/html&gt;</span>
+</pre></div>
+</div>
+</div>
 
-```html
-&lt;!DOCTYPE html&gt;
-
-    
-        <title>Some title</title>
-    
-    
-		<video autoplay="" id="vid" style="display:none;"></video>
-		<canvas id="canvas" width="640" height="480"></canvas>
-		<script type="text/javascript" src="graphic-filter.js"><![CDATA[
-		]]></script>
-	
-
-```
-
-<h3>JavaScript</h3>
-Important functions / datastructures are:
+<h3 id="tocAnchor-1-1-2">JavaScript</h3>
+<p>Important functions / datastructures are:</p>
 <ul>
   <li><a href="https://developer.mozilla.org/en-US/docs/WebRTC/navigator.getUserMedia">getUserMedia</a>: see <a href="http://caniuse.com/stream">support by browsers</a></li>
   <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a>: WTF? The image is a ONE dimensional array of integers in 0, ..., 255. So the first 4 array elements describe the pixel (0|0) with its RGBA value</li>
 </ul>
 
-A starting point for your code might be:
+<p>A starting point for your code might be:</p>
 
-```javascript
-'use strict';
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">use strict</span><span style="color:#710">'</span></span>;
 
-var video = document.querySelector("#vid");
-var canvas = document.querySelector('#canvas');
-var context = canvas.getContext('2d');
-var localMediaStream = null;
+<span style="color:#080;font-weight:bold">var</span> video = document.querySelector(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">#vid</span><span style="color:#710">"</span></span>);
+<span style="color:#080;font-weight:bold">var</span> canvas = document.querySelector(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#canvas</span><span style="color:#710">'</span></span>);
+<span style="color:#080;font-weight:bold">var</span> context = canvas.getContext(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">2d</span><span style="color:#710">'</span></span>);
+<span style="color:#080;font-weight:bold">var</span> localMediaStream = <span style="color:#069">null</span>;
 
-var onCameraFail = function (e) {
-    console.log('Camera did not work.', e);
+<span style="color:#080;font-weight:bold">var</span> <span style="color:#06B;font-weight:bold">onCameraFail</span> = <span style="color:#080;font-weight:bold">function</span> (e) {
+    console.log(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Camera did not work.</span><span style="color:#710">'</span></span>, e);
 };
 
-setInterval(function snapshot() {
-    if (localMediaStream) {
-        context.drawImage(video, 0, 0);
-        var width = 640;
-        var height = 480;
-        var imgDataNormal = context.getImageData(0, 0, width, height);
-        var imgData = context.createImageData(width, height);
+setInterval(<span style="color:#080;font-weight:bold">function</span> <span style="color:#06B;font-weight:bold">snapshot</span>() {
+    <span style="color:#080;font-weight:bold">if</span> (localMediaStream) {
+        context.drawImage(video, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>);
+        <span style="color:#080;font-weight:bold">var</span> width = <span style="color:#00D">640</span>;
+        <span style="color:#080;font-weight:bold">var</span> height = <span style="color:#00D">480</span>;
+        <span style="color:#080;font-weight:bold">var</span> imgDataNormal = context.getImageData(<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, width, height);
+        <span style="color:#080;font-weight:bold">var</span> imgData = context.createImageData(width, height);
 
-        // convert image to grayscale
-        for (var i = 0; i &lt; imgData.width*imgData.height*4; i += 4) {
-            var r = imgDataNormal.data[i + 0];
-            var g = imgDataNormal.data[i + 1];
-            var b = imgDataNormal.data[i + 2];
-            var brightness = (3*r+4*g+b)&gt;&gt;&gt;3;
+        <span style="color:#777">// convert image to grayscale</span>
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> i = <span style="color:#00D">0</span>; i &lt; imgData.width*imgData.height*<span style="color:#00D">4</span>; i += <span style="color:#00D">4</span>) {
+            <span style="color:#080;font-weight:bold">var</span> r = imgDataNormal.data[i + <span style="color:#00D">0</span>];
+            <span style="color:#080;font-weight:bold">var</span> g = imgDataNormal.data[i + <span style="color:#00D">1</span>];
+            <span style="color:#080;font-weight:bold">var</span> b = imgDataNormal.data[i + <span style="color:#00D">2</span>];
+            <span style="color:#080;font-weight:bold">var</span> brightness = (<span style="color:#00D">3</span>*r+<span style="color:#00D">4</span>*g+b)&gt;&gt;&gt;<span style="color:#00D">3</span>;
             imgData.data[i] = brightness;
-            imgData.data[i+1] = brightness;
-            imgData.data[i+2] = brightness;
+            imgData.data[i+<span style="color:#00D">1</span>] = brightness;
+            imgData.data[i+<span style="color:#00D">2</span>] = brightness;
         }
 
-        context.putImageData(imgData, 0, 0);
+        context.putImageData(imgData, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>);
     }
-}, 500);
+}, <span style="color:#00D">500</span>);
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 window.URL = window.URL || window.webkitURL;
-navigator.getUserMedia({video:true}, function (stream) {
+navigator.getUserMedia({<span style="color:#606">video</span>:<span style="color:#069">true</span>}, <span style="color:#080;font-weight:bold">function</span> (stream) {
     video.src = window.URL.createObjectURL(stream);
     localMediaStream = stream;
 }, onCameraFail);
 console.log(localMediaStream);
-```
+</pre></div>
+</div>
+</div>
 
-<h2 id="tocAnchor-1-3">Interactive example</h2>
+<h2 id="tocAnchor-1-4">Interactive example</h2>
 <div class="info">
 You need a webcam for this:
 <a href="../html5/graphic-filters/graphic-filters.htm" target="_blank">Open demonstration in new window</a>
 </div>
 
-This is what it should look like:
-<div style="width: 674px" class="wp-caption aligncenter"><a href="../images/2013/07/graphic-webcam-html5-js-example.png"><img src="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" width="" height="" class="size-full wp-image-72801" /></a><p class="wp-caption-text">Webcam example</p></div>
+<p>This is what it should look like:</p>
+<div style="width: 674px" class="wp-caption aligncenter">
+   <a href="../images/2013/07/graphic-webcam-html5-js-example.png">
+      <img src="../images/2013/07/graphic-webcam-html5-js-example.png" alt="Webcam example" width="" height="" class="size-full wp-image-72801" />
+   </a>
+   <p class="wp-caption-text">Webcam example</p>
+</div>
 
-And it gives these results:
-<ul class="gallery mw-gallery-traditional"><li class="gallerybox" style="width: 155px"><div style="width: 155px"><div class="thumb" style="width: 150px;"><div style="margin:21px auto;height: 113px;line-height: 150px;"><a href="../images/2013/07/prewitt-x-filter-example.png" class="image"><img src="//martin-thoma.com/captions/prewitt-x-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;" /></a></div></div><div class="gallerytext">Prewitt x-filter example</div></div></li><li class="gallerybox" style="width: 155px"><div style="width: 155px"><div class="thumb" style="width: 150px;"><div style="margin:21px auto;height: 113px;line-height: 150px;"><a href="../images/2013/07/prewitt-y-filter-example.png" class="image"><img src="//martin-thoma.com/captions/prewitt-y-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;" /></a></div></div><div class="gallerytext">Prewitt y-filter example</div></div></li><li class="gallerybox" style="width: 155px"><div style="width: 155px"><div class="thumb" style="width: 150px;"><div style="margin:21px auto;height: 113px;line-height: 150px;"><a href="../images/2013/07/laplace-filter-example.png" class="image"><img src="//martin-thoma.com/captions/laplace-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;" /></a></div></div><div class="gallerytext">Laplace filter example</div></div></li></ul>
+<p>And it gives these results:</p>
+<ul class="gallery mw-gallery-traditional">
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/prewitt-x-filter-example.png" class="image">
+                  <img src="//martin-thoma.com/captions/prewitt-x-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Prewitt x-filter example</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/prewitt-y-filter-example.png" class="image">
+                  <img src="//martin-thoma.com/captions/prewitt-y-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Prewitt y-filter example</div>
+      </div>
+   </li>
+   <li class="gallerybox" style="width: 155px">
+      <div style="width: 155px">
+         <div class="thumb" style="width: 150px;">
+            <div style="margin:21px auto;height: 113px;line-height: 150px;">
+               <a href="../images/2013/07/laplace-filter-example.png" class="image">
+                  <img src="//martin-thoma.com/captions/laplace-filter-example.png" alt="" style="max-width: 120px; max-height: 120px;" />
+               </a>
+            </div>
+         </div>
+         <div class="gallerytext">Laplace filter example</div>
+      </div>
+   </li>
+</ul>
 
-By the way, you can check if a website is currently accessing your webcam (with Google Chrome):
+<p>By the way, you can check if a website is currently accessing your webcam (with Google Chrome):</p>
 
-<div style="width: 380px" class="wp-caption aligncenter"><a href="../images/2013/07/webcam-red-dot.png"><img src="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" width="" height="" class="size-full wp-image-72811" /></a><p class="wp-caption-text">Webcam indicator on tab in Google Chrome</p></div>
+<div style="width: 380px" class="wp-caption aligncenter">
+   <a href="../images/2013/07/webcam-red-dot.png">
+      <img src="../images/2013/07/webcam-red-dot.png" alt="Webcam indicator on tab in Google Chrome" width="" height="" class="size-full wp-image-72811" />
+   </a>
+   <p class="wp-caption-text">Webcam indicator on tab in Google Chrome</p>
+</div>
 
-If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable "Web RTC" in "chrome://flags":
-<div style="width: 190px" class="wp-caption aligncenter"><a href="../images/2013/07/enable-webrtc-180x300.png"><img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" width="" height="" class="size-medium wp-image-73191" /></a><p class="wp-caption-text">Enamble Web-RTC in Chrome for Android</p></div>
-</video></a></li></canvas></a></li></ul>
+<p>If you want to use these examples from your Android phone, you might have to enable getUserMedia. To do this, enable “Web RTC” in “chrome://flags”:</p>
+<div style="width: 190px" class="wp-caption aligncenter">
+   <a href="../images/2013/07/enable-webrtc-180x300.png">
+      <img src="../images/2013/07/enable-webrtc-180x300.png" alt="Enamble Web-RTC in Chrome for Android" width="" height="" class="size-medium wp-image-73191" />
+   </a>
+   <p class="wp-caption-text">Enamble Web-RTC in Chrome for Android</p>
+</div>
 
                         </div>
                         <div class="postmeta">Posted in
