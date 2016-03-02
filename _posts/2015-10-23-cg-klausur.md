@@ -113,6 +113,15 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
     <dd>TODO</dd>
     <dt><dfn>Gammut</dfn> (<dfn>Farbgammut</dfn>)</dt>
     <dd>TODO</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Farbtemperatur"><dfn>Farbtemperatur</dfn></a></dt>
+    <dd>Die Farbtemperatur ist ein Maß, um einen jeweiligen Farbeindruck einer
+        Lichtquelle zu bestimmen.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Schwarzer_K%C3%B6rper"><dfn>Schwarzkörper</dfn></a>, <dfn>Schwarzkörperstrahlung</dfn></dt>
+    <dd>Ein Schwarzkörper ist eine idealisierte thermische Strahlungsquelle.
+        Die idealisierung besteht darin, dass der Körper die komplette
+        auftretende Strahlung vollständig absorbiert. Gleichzeitig sendet er
+        Wärmestrahlung (Schwarzkörperstrahlung) aus, welche nur von seiner
+        Temperatur abhängig ist.</dd>
 </dl>
 
 Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
@@ -606,6 +615,7 @@ Siehe auch
 
 * [World, View and Projection Transformation Matrices](http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
+* [Interactive Graphic Filters example](https://martin-thoma.com/html5/graphic-filters/graphic-filters.htm)
 
 Software
 
