@@ -112,7 +112,8 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
     <dt><dfn>Transferfunktion</dfn></dt>
     <dd>TODO</dd>
     <dt><dfn>Gammut</dfn> (<dfn>Farbgammut</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>Der Gamut eines Monitors entspricht dem Spektrum der darauf
+        darstellbaren Farben.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Farbtemperatur"><dfn>Farbtemperatur</dfn></a></dt>
     <dd>Die Farbtemperatur ist ein Maß, um einen jeweiligen Farbeindruck einer
         Lichtquelle zu bestimmen.</dd>
@@ -135,7 +136,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
         Anwendung: Drucker</dd>
     <dt><dfn>Graßmansche Gesetze</dfn></dt>
     <dd>Jeder Farbeindruck kann mit 3 Grundgrößen beschrieben werden.</dd>
-    <dt><dfn>Weber-Fechner-Gesetz</dfn></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/Weber-Fechner-Gesetz"><dfn>Weber-Fechner-Gesetz</dfn></a></dt>
     <dd>Das Weber-Fechner-Gesetz macht eine Aussage über die subjektiv
         empfundene Stärke von Sinneseindrücken im Abhängigkeit von der
         Intensität des Helligkeitsunterschiedes:
@@ -157,7 +158,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
 
 ### Raytracing
 
-Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`#
+Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 
 <dl>
     <dt><dfn>Ray-Tracing</dfn></dt>
@@ -416,6 +417,9 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
     <dt><dfn>Tiefenpuffer</dfn> (<dfn>Z-Buffer</dfn>)</dt>
     <dd>Es wird ein Bild gespeichert, welches für jeden Pixel die Tiefe
         des vordersten Objekts angibt.</dd>
+    <dt><dfn>Tiefentest</dfn></dt>
+    <dd>Finden des Bildteiles, der für einen gegebenen Pixel am nächsten vor
+        der Kamera ist.</dd>
     <dt><dfn>Clipping</dfn></dt>
     <dd>Abschneiden von Linien und Poligonen, die außerhalb des sichtbaren
         Bereichs liegen. Dies ist wichtig für die behandlung problematischer
@@ -426,6 +430,10 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
     <dd>Ein Frustum ist ein Kegelstumpf, wobei in der Computergrafik eher ein
         Pyramidenstumpf gemeint ist. Das <i>View Frustum</i> ist der Bereich
         der Szene, der sichtbar ist.</dd>
+    <dt><dfn>Outcodes</dfn></dt>
+    <dd>Outcodes sind ein 4-Bit binärcode für die Bereiche um die Zeichenebene:
+        \[(x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})\]
+    </dd>
 </dl>
 
 
@@ -489,6 +497,20 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
     <dd>Zufallszahlen-Pool + Hash + Permutation</dd>
     <dt><dfn>Oktave</dfn></dt>
     <dd>Sammlung von Noise-Funktionen</dd>
+    <dt><dfn>Turbulenzfunktion</dfn></dt>
+    <dd>Eine <i>Turbulenzfunktion</i> summiert das Ergebnis (Oktave) mehrerer
+        Noise-Funktionen auf:
+
+        \[\text{turbulence}(x) = \sum_k (\frac{1}{2})^k n (2^k \cdot x)\]
+
+        Einsatzgebiete:
+
+        <ul>
+            <li>Natürliche Oberflächen</li>
+            <li>Feuer</li>
+        </ul>
+
+        </dd>
     <dt><dfn>Pixelbasierte Textursynthese</dfn></dt>
     <dd>Man hat ein kleines Beispiel (Exemplar) und erzeugt daraus - Pixel für
         Pixel - eine komplette Textur.
@@ -507,8 +529,6 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
             <li>\(\omega \in V^*\) das Startwort ist,</li>
             <li>\(P \subseteq (V^* \setminus \Sigma^*) \times V^*\) die Menge der Ersetzungsregeln ist</li>
         </ul>
-
-        
         </dd>
 </dl>
 
@@ -516,7 +536,7 @@ Slides: `08_ Prozedurale Modellierung (freiwilliges Bonus Material).pdf`
 
 TODO
 
-### Kurven und Flachen
+### Kurven und Flächen
 
 Slides: `09_ Kurven und Flachen.pdf`
 
@@ -616,6 +636,7 @@ Siehe auch
 * [World, View and Projection Transformation Matrices](http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
 * [Interactive Graphic Filters example](https://martin-thoma.com/html5/graphic-filters/graphic-filters.htm)
+* [Interactive Blending example (OpenGL)](http://www.andersriggelsen.dk/glblendfunc.php)
 
 Software
 

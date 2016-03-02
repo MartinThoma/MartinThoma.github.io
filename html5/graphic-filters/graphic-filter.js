@@ -237,7 +237,7 @@ var refreshRate = document.getElementById('refreshRate').value;
 
 var timerVar = setInterval(snapshot, refreshRate);
 
-function updateTimer() {
+document.getElementById('refreshRate').onchange = function updateTimer() {
     window.clearInterval(timerVar);
     var refreshRate = document.getElementById('refreshRate').value;
     timerVar = setInterval(snapshot, refreshRate);
