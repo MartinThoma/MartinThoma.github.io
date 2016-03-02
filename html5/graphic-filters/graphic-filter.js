@@ -95,29 +95,132 @@ setInterval(function snapshot() {
         }
 
 		var filter = document.getElementById('filter').value;
+        var k1 = document.getElementById('k1');
+        var k2 = document.getElementById('k2');
+        var k3 = document.getElementById('k3');
+        var k4 = document.getElementById('k4');
+        var k5 = document.getElementById('k5');
+        var k6 = document.getElementById('k6');
+        var k7 = document.getElementById('k7');
+        var k8 = document.getElementById('k8');
+        var k9 = document.getElementById('k9');
 
         if(filter != 'harris') {
 		    var matrix;
 		    if (filter === 'prewitt-x') {
 			    matrix = [[-1,0,1],[-1,0,1],[-1,0,1]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'prewitt-y') {
 			    matrix = [[-1,-1,-1],[0,0,0],[1,1,1]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'prewitt-y-switched') {
 			    matrix = [[1,1,1],[0,0,0],[-1,-1,-1]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'sobel-x') {
 			    matrix = [[1,0,-1],[2,0,-2],[1,0,-1]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'sobel-y') {
 			    matrix = [[1,2,1],[0,0,0],[-1,-2,-1]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'kirsh-x') {
 			    matrix = [[5,-3,-3],[5,0,-3],[5,-3,-3]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'kirsh-y') {
 			    matrix = [[5,5,5],[-3,0,-3],[-3,-3,-3]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'laplace') {
 			    matrix = [[0,1,0],[1,-4,1],[0,1,0]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    } else if (filter == 'canny-edge-detector') {
 			    matrix = [[2.0/159,4.0/159,5.0/159,4.0/159,2.0/159],[4.0/159,9.0/159,12.0/159,9.0/159,4.0/159],[5.0/159,12.0/159,15.0/159,12.0/159,5.0/159],[4.0/159,9.0/159,12.0/159,9.0/159,4.0/159],[2.0/159,4.0/159,5.0/159,4.0/159,2.0/159]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
+            } else if (filter == 'custom') {
+                matrix = [[k1.value, k2.value, k3.value],
+                          [k4.value, k5.value, k6.value],
+                          [k7.value, k8.value, k9.value]];
 		    } else {
-			    matrix = [[1]];
+			    matrix = [[0,0,0],[0,1,0],[0,0,0]];
+                k1.value = matrix[0][0];
+                k2.value = matrix[0][1];
+                k3.value = matrix[0][2];
+                k4.value = matrix[1][0];
+                k5.value = matrix[1][1];
+                k6.value = matrix[1][2];
+                k7.value = matrix[2][0];
+                k8.value = matrix[2][1];
+                k9.value = matrix[2][2];
 		    }
 
             context.putImageData(imgData, 0, 0);
