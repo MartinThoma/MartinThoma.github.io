@@ -81,6 +81,15 @@ So giving people the possibility to go to a website and look at advertisment
 the way they want might be very interesting.
 
 
+## Site for Documents
+
+Who wants to read all of the legal stuff we have to sign all the times?
+
+I would really like to have a website where standard contracts are. Some people
+read them and highlight the important stuff / the implications. A bit like
+[tldrlegal.com](https://tldrlegal.com/), but not only for licenses.
+
+
 ## Wikipedia AI
 Try to categorize images in
 [Category:Uncategorized images](https://en.wikipedia.org/wiki/Category:Uncategorized_images)
