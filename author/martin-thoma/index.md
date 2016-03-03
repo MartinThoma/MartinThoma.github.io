@@ -6,6 +6,7 @@ date: 2011-09-21 18:35:30.000000000 +02:00
 categories: []
 tags: []
 context: about
+description: Profile page of Martin Thoma
 gplus: https://plus.google.com/+MartinThoma/about
 twitter: https://twitter.com/#!/themoosemind
 stackoverflow: https://careers.stackoverflow.com/thoma
