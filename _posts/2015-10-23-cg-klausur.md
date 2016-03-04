@@ -630,6 +630,7 @@ aber auch nicht :-/)
 * [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)
 * [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)
 * [E-Mail Verteiler](https://lists.ira.uni-karlsruhe.de/mailman/listinfo/cg.cg)
+* [Inoffizielle Musterlösungen](https://github.com/MartinThoma/KIT-Musterloesungen) für die Altklausuren
 
 Siehe auch
 
