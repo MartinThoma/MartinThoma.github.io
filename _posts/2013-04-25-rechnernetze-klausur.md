@@ -11,7 +11,9 @@ featured_image: 2012/02/klausur-test-thumbnail.jpg
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Einführung in Rechnernetze&ldquo; des Moduls &bdquo;Kommunikation und Datenhaltung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei Herrn <a href="http://pcs.tm.kit.edu/21_beigl.php">Prof. Dr. Beigl</a> im Sommersemester 2013 gehört.</div>
 
-<h2>Behandelter Stoff</h2>
+
+## Behandelter Stoff
+
 <table>
 <tr>
 
@@ -143,7 +145,9 @@ Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (in
 </tr>
 </table>
 
-<h2>Fragen</h2>
+
+## Fragen
+
 <div class="question">
 <span class="question">Welche Qualitätsparameter sind für Rechnernetze denkbar?</span>
 <div class="answer">
@@ -157,7 +161,9 @@ Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (in
 </div>
 </div>
 
-<h2>Material</h2>
+
+## Material
+
 <ul>
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">Vorlesungswebsite</a></li>
   <li><a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Forum/AllItems.aspx">Forum</a></li>
@@ -165,9 +171,12 @@ Falls hier was fehlt, könnt ihr mich gerne in den Kommentaren oder per Mail (in
   <li>Ein <a href="http://www.youtube.com/watch?v=0apqZ4jsGmI">Video über CRC</a></li>
   <li>Der Wikipedia-Artikel <a href="http://de.wikipedia.org/wiki/Routing">Routing</a> beinhaltet viele wichtige Informationen.</li>
   <li><a href="http://packetcrafter.wordpress.com/2011/02/13/tcp-flags-hackers-playground/">TCP flags: Hackers Playground</a></li>
+  <li><a href="http://www.work-at-google.com/curriculum-vitae.html">René Pickhardt</a> und weitere: <a href="https://en.wikiversity.org/wiki/Web_Science">Web Science MOOC</a> auf der Wikiversity.</li>
 </ul>
 
-<h2>Aufbau der Klausur</h2>
+
+## Aufbau der Klausur
+
 Häufige Aufgabenstellungen sind:
 <ul>
   <li>Berechnen einer Subnetzmaske bzw. ob eine IP-Adresse in einem gegebenem Subnetz enthalten ist</li>
@@ -176,10 +185,13 @@ Häufige Aufgabenstellungen sind:
   <li>Protokollablauf durchspielen</li>
 </ul>
 
-<h2>Übungsbetrieb</h2>
+
+## Übungsbetrieb
 Übungsblätter sind <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Vorlesungsunterlagen/Forms/AllItems.aspx?RootFolder=%2fsites%2fvab%2f0x2E18BE2A290A424EB98916CA7A6FF3FD%2fVorlesungsunterlagen%2fUebung&FolderCTID=&View=%7bF9CB46E3-13F6-4910-9A2E-BF24D999D119%7d">hier</a>.
 
-<h2>Termine und Klausurablauf</h2>
+
+## Termine und Klausurablauf
+
 <strong>Datum</strong>: Donnerstag, den 1. August 2013 von 14:00 bis 15:00 Uhr<br/>
 <strong>Ort</strong>: Seit 28.07.2013 <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Start/homepage.aspx">online</a>:<br/>
 <table>
@@ -291,12 +303,14 @@ Häufige Aufgabenstellungen sind:
 <strong>Übungsschein</strong>: Nein<br/>
 <strong>Bonuspunkte</strong>: Nein
 
-<h2>Nicht vergessen</h2>
+
+## Nicht vergessen
 <ul>
   <li>Studentenausweis</li>
   <li>Kugelschreiber</li>
 </ul>
 
-<h2>Ergebnisse</h2>
+
+## Ergebnisse
 Sind nun <a href="https://studium.kit.edu/sites/vab/0x2E18BE2A290A424EB98916CA7A6FF3FD/Lists/Ankuendigungen/DispForm.aspx?ID=11">online</a>. Hier ist die Statistik:
 {% caption align="aligncenter" width="300" caption="Klausurergebnisse Rechnernetze 2013" url="../images/2013/04/klausur-rechnernetze-2013-300x274.png" alt="Klausurergebnisse Rechnernetze 2013"  height="274" class="size-medium wp-image-76302" %}
