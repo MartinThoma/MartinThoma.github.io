@@ -180,7 +180,7 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 
         Das Ergibt folgende Formel für die Intensität \(I\):
 
-       \[I = k_a \cdot I_L + k_d \cdot I_L \cdot (N \cdot L) + k_s \cdot I_L \cdot (R_L \cdot V)^n\]
+       \[I = \overbrace{k_a \cdot I_L}^{\text{ambient}} + \overbrace{k_d \cdot I_L \cdot (N \cdot L)}^{\text{diffus}} + \overbrace{k_s \cdot I_L \cdot (R_L \cdot V)^n}^{\text{spekular}}\]
 
        hierbei ist \(I_L\) die Lichtintensität, die Richtung die das Licht nimmt \(L\) sowie die Oberflächennormale \(N\) und der Lichtreflektionsvektor \(R_L\). Der Vektor \(R_L\) liegt in der selben Ebene wie \(N\) und \(L\). Es gilt \(R_L = 2N \cdot (N \cdot L) - L\).</dd>
     <dt><dfn>Z-Fighting</dfn></dt>
@@ -637,12 +637,15 @@ Siehe auch
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
 * [Interactive Graphic Filters example](https://martin-thoma.com/html5/graphic-filters/graphic-filters.htm)
 * [Interactive Blending example (OpenGL)](http://www.andersriggelsen.dk/glblendfunc.php)
+* [Minimal OpenGL example](https://github.com/MartinThoma/algorithms/tree/master/OpenGL/color-cube)
+* [Minimal GLSL example](https://open.gl/drawing)
 
 Software
 
 * OpenGL
     * OpenGL [Tutorial 3 : Matrices](http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/)
     * [OpenGL Cheat Sheet](http://www.khronos.org/files/opengl45-quick-reference-card.pdf)
+    * [glBegin](https://wiki.delphigl.com/index.php/glBegin) / [2](https://www.opengl.org/sdk/docs/man2/xhtml/glBegin.xml)
 * [Terragen](http://planetside.co.uk/products/terragen3): Erzeugung von Landschaften
 * [xfrog](http://xfrog.com/): Erzeugung von Pflanzen
 
@@ -681,5 +684,11 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 **Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt. Mit mindestens 72&nbsp;Punkten (60% von 120 Punkten) hat man den Übungsschein.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 01.03.2016)<br/>
-**Erlaubte Hilfsmittel**: keine (aber ein Geodreieck wird wohl OK sein)
+**Einsicht**: Noch nicht bekannt (Stand: 04.03.2016)<br/>
+**Erlaubte Hilfsmittel**:
+
+<ul>
+    <li>Stift</li>
+    <li>Geodreieck</li>
+    <li>Zirkel</li>
+</ul>
