@@ -108,7 +108,7 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil1.pdf`
 
         TODO: Was ist \(k\)? Was ist \(I_{max} / I_{min}\)?</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Gammakorrektur"><dfn>Gamma-Korrektur</dfn></a></dt>
-    <dd>TODO</dd>
+    <dd>\[I_{\text{out}} = I_{\text{in}}^\gamma\]</dd>
     <dt><dfn>Transferfunktion</dfn></dt>
     <dd>TODO</dd>
     <dt><dfn>Gammut</dfn> (<dfn>Farbgammut</dfn>)</dt>
@@ -141,7 +141,10 @@ Slide: `01_ Bilder, Farbe, Perzeption - Teil2.pdf`
         empfundene Stärke von Sinneseindrücken im Abhängigkeit von der
         Intensität des Helligkeitsunterschiedes:
 
-        TODO</dd>
+        \[E = c \cdot \frac{R}{R_0}\]
+
+        wobei \(E\) die empfundene Reizstärke, \(c\) eine Konstante, \(R\) die
+        tatsächliche Reizstärke und \(R_0\) eine Referenzreizstärke ist.</dd>
 </dl>
 
 * RGB-Farbraum: Addition der Spektren, wird bei CRT/LCD-Farbmonitoren verwendet.
@@ -219,6 +222,33 @@ Side: `02_ Raytracing (enthalt Abtastung aus Kapitel 1).pdf`
 * Imperfekte Spiegelung und Transmission
 
 
+Übungsfolien: `01_ Rasterisierung.pdf`
+
+* Rasterisierung von Linien
+    * Brute-Force
+    * Inkrementelle Berechnung
+    * Bresenham Algorithmus
+* Rasterisierung von Polygonen
+* Sichtbarkeitsproblem
+    * Maler-Algorithmus (Painters algorithm)
+        * Vorgehen: Sortiere Dreiecke von hinten nach vorne und zeichne sie so.
+        * Probleme: Abstandsmaß / Zyklen
+
+
+Übungsfolien: `07_ Distributed Raytracing.pdf`
+
+Hier sind eigentlich nur schöne Bilder. Ohne Kontext bringt der Foliensatz nichts :-/
+
+* Distributed Raytracing kann Tiefenunschärfe, weiche Schatten und indirekte
+  Beleuchtung.
+* Monte Carlo Integration
+* Pathtracing
+* Many-Lights Method
+* Voxel Cone Tracing
+* Radiance Caches
+* Finite Elemente / Radiosity
+
+
 ### Transformationen und homogene Koordinaten
 
 Slide: `03_ Transformationen und homogene Koordinaten.pdf`
@@ -266,6 +296,31 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
   multipliziert.
 * Spiegelung an der y-Achse ist eine Multiplikation der x-Koordinaten mit (-1)
 * Hierarchisches Modellieren, Szenengraph
+
+Übungsfolien: `02_ Bildoperationen.pdf`
+
+<dl>
+    <dt><dfn>Filter</dfn> (<dfn>Bildfilter</dfn>)</dt>
+    <dd>Ein Bildfilter ist ein Algorithmus, welcher als Input ein Bild bekommt
+        und als Output ein Bild liefert.
+
+        Typischerweise werden lineare Filter verwendet.
+
+        Beispiele:
+
+        <ul>
+            <li>Helligkeitsänderung</li>
+            <li>Kontraständerung (z.B. unschärfe (blur), schärfen (sharpen))</li>
+            <li>Desaturierung</li>
+            <li>Kantendetektion</li>
+        </ul></dd>
+    <dt><dfn>Linearer Filter</dfn></dt>
+    <dd>Gewichtete Summe benachbarter Pixel-Werte.
+
+        Siehe <a href="https://martin-thoma.com/graphic-filters/">Interaktives Beispiel</a></dd>
+    <dt><dfn>Morphologische Filter</dfn></dt>
+    <dd>Strukturverändernde Operation (z.B. Dilatation, Erosion, Öffnung, Schließung)</dd>
+</dl>
 
 
 ### Texturen
@@ -345,8 +400,36 @@ Slide: `04_ Texturen.pdf`
             <li>Bilinear auf Stufe \(n\), bilinear auf Stufe \(n+1\)</li>
             <li>linear zwischen diesen beiden Farben</li>
         </ul>
+
+        Mip-Maps benötigen zusätzlich 1/3 der ursprünglichen Texturgröße.
         </dd>
 </dl>
+
+Übungsfolien: `04_ Texturen und Transformationen.pdf`
+
+<dl>
+    <dt><dfn>Limitationen von Whitted-Style Raytracing</dfn></dt>
+    <dd><ul>
+        <li>Keine Kaustiken oder korrekte Dispersion</li>
+        <li>Keine indirekte Beleuchtung</li>
+        <li>Keine Flächenlichtquellen</li>
+        <li>Kein Motion-Blur oder Tiefenunschärfe</li>
+    </ul>
+
+    Mögliche Lösung: Distributed Raytracing</dd>
+    <dt><dfn>Stratified Supersampling</dfn></dt>
+    <dd>Strahlen werden durch zufällige Superpixelpositionen geschossen,
+        aber möglichst gleichmäßig um Klumpen zu vermeiden.</dd>
+</dl>
+
+* Transformationen
+* Texturen
+    * Repeating / Clamping
+    * Bilineare Filterung
+    * Aliasing bei Verkleinerung
+        * Lösung: Überabtastung oder Vorfilterung (z.B. Mip-Maps)
+    * Mip-Maps
+        * Auswahl der richtigen Texturgröße
 
 
 ### Räumliche Datenstrukturen
@@ -361,6 +444,12 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 * kD-Baum
 
 <dl>
+    <dt><dfn>AABB</dfn> (<dfn>Axis-Aligned Bounding Box</dfn>)</dt>
+    <dd>Axis-Aligned Bounding Boxes sind Rechtecke (Quader in 3D), deren Seiten
+        parallel zu den Achsen des Koordinatensystems stehen. Sie werden als
+        Hüllkörper verwendet.
+
+        Alles wichtige zu AABBs kann man in Folie 18 - 29 nachlesen.</dd>
     <dt><dfn>BSP-Baum</dfn> (<dfn>Binary Space Partition Baum</dfn>)</dt>
     <dd>Teile den Raum mithilfe von Ebenen in zwei Teile. Die Ebenen dürfen
         beliebig im Raum liegen.
@@ -369,8 +458,7 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
         kleinere Teile teilt.</dd>
     <dt><dfn>kD-Baum</dfn></dt>
     <dd>Ein BSP-Baum, welcher nur achsenparallele Ebenen erlaubt.</dd>
-    <dt><dfn>Surface Area Heuristics</dfn> (<dfn>SAH</dfn>)</dt>
-    <dd>Schätzfunktion für die Oberfläche eines Objekts (TODO?).</dd>
+    <dt><dfn>Surface Area Heuristic</dfn> (<dfn>SAH</dfn>)</dt>
     <dt><dfn>Bounding-Volume-Hierachies</dfn> (<dfn>BVH</dfn>)</dt>
     <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
         Man hat also komplexe Objekte. Für diese Objekte muss man Schnittests
@@ -393,6 +481,11 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
             <li>OBB: Oriented Bounding Boxes</li>
             <li>Slabs: Schnitt von Paaren paralleler Halbebenen</li>
         </ul></dd>
+    <dd>Die SAH ist ein Kriterium zum aufbau von BVHs / kD-Bäumen.
+
+        Im Mittel sollen zufällige Strahlen, die den betrachteten Knoten
+        schneiden, den gleichen Aufwand verursachen, egal welcher Kindknoten
+        traversiert wird</dd>
     <dt><dfn>Oktalbäume</dfn> (<a href="https://en.wikipedia.org/wiki/Octree"><dfn>Octree</dfn></a>)</dt>
     <dt><dfn>Gitter</dfn></dt>
     <dd>Schnitttests können beschleunigt werden, indem über den Raum ein
@@ -404,9 +497,9 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 </dl>
 
 
-#### AABB
+Übungsfolien: `05_ BVH.pdf`
 
-* Folie 18 - 29: TODO
+* Median-Split: Die Entscheidung wird anhand der Mittelpunkte der AABBs getroffen.
 
 
 ### Rasterisierung, Clipping und Projektionstransformationen
@@ -434,6 +527,48 @@ Side: `06_ Rasterisierung, Clipping und Projektionstransformationen.pdf`
     <dd>Outcodes sind ein 4-Bit binärcode für die Bereiche um die Zeichenebene:
         \[(x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})\]
     </dd>
+</dl>
+
+Übungsfolien: `09_ Clipping.pdf`
+
+<dl>
+    <dt>Clipping von Linien</dt>
+    <dd>Ein Rechteck \((x_{\text{min}}, x_{\text{max}}, y_{\text{min}}, y_{\text{max}})\)
+        und eine Linie \(P_1 = (x_1, y_1), P_2 = (x_2, y_2)\) ist gegeben.
+
+        Es gibt den "trivial reject" Fall, bei dem die komplette Linie
+        außerhalb liegt und den "trivial accept" Fall, bei dem die komplette
+        Linie innerhalb des Rechtecks liegt.</dd>
+    <dt><dfn>Cohen-Sutherland Algorithmus</dfn></dt>
+    <dd>Der Cohen-Sutherland Algorithmus dient dem Clipping von Linien mit
+        einem Rechteck.
+
+        Man unterteilt die Ebene, in der das Rechteck liegt in 9 Bereiche:
+        (links oben, links mitte, links unten, mitte oben, mitte mitte,...).
+        Die Punkte bekommen nun jeweils einen "Outcode" der ihre Position
+        bzgl. dieser Bereiche bestimmt:
+
+        \[\text{Outcode} = (x < x_{\text{min}}, x > x_{\text{max}}, y < y_{\text{min}}, y > y_{\text{max}})\]
+
+        Mit den Outcodes gilt nun:
+
+        <ul>
+            <li>Trivial Accept: Outcode(\(P_1\)) \(\lor\) Outcode(\(P_2\)) = 0</li>
+            <li>Trivial Reject: Outcode(\(P_1\)) \(\land\) Outcode(\(P_2\)) \(\neq\) 0</li>
+        </ul>
+
+        Interessant ist, dass in den nicht-trivialen Fällen zwar immer ein Teil
+        der Strecke außerhalb des Rechtecks liegt, aber nicht unbedingt auch
+        ein Teil innerhalb des Rechtecks liegen muss.</dd>
+    <dt><dfn>\(\alpha\)-Clipping</dfn></dt>
+    <dd>Führe Window Edge Coordinates (WEC) ein. Diese sind ein
+        vorzeichenbehafteter Abstand zu den Clipping-Kanten. Wenn eine
+        Koordinate negativ ist, dann liegt der Punkt außerhalb des
+        Rechtecks.
+
+        Ich habe den Algorithmus in <a href="https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L146">Python-Pseudocode</a> geschrieben.</dd>
+    <dt><dfn>Sutherland-Hodgeman Polygon Clipping</dfn></dt>
+    <dd>Clipping wird Kante für Kante durchgeführt.</dd>
 </dl>
 
 
@@ -488,6 +623,68 @@ Siehe auch:
 </ul>
 
 
+Übungsfolien: `08_ Shaders.pdf`
+
+<dl>
+    <dt><dfn>Rasterisierungspipeline</dfn></dt>
+    <dd><ol>
+        <li>Geometrie-Verarbeitung</li>
+        <li>Rasterisierung</li>
+        <li>Pro-Fragment Operationen</li>
+    </ol></dd>
+    <dt><dfn>Koordinatensystem-Pipeline</dfn></dt>
+    <dd><ul>
+        <li>Objekt-Koordinaten</li>
+        <li>Welt-Koordinaten</li>
+        <li>Kamera-Koordinaten</li>
+        <li>Clip Space Koordianten</li>
+        <li>Normalisierte Geräte-Koordinaten</li>
+        <li>Bildschirm-Koordinaten</li>
+    </ul></dd>
+    <dt><dfn>Vertex-Shader</dfn></dt>
+    <dd>Eingabe:
+        <ul>
+            <li>Position</li>
+            <li>Normale</li>
+            <li>Farbe oder Texturkoordinate</li>
+        </ul>
+
+        Ausgabe:
+        <ul>
+            <li>Weitergeleitete Vertex-Attribute</li>
+            <li>Position nach MVP-Transformation</li>
+        </ul>
+    </dd>
+    <dt><dfn>Fragment-Shader</dfn></dt>
+    <dd>Eingabe:
+        <ul>
+            <li>Interpolierte Vertex-Attribute</li>
+            <li>Beleuchtungsinformationen</li>
+        </ul>
+
+        Ausgabe:
+        <ul>
+            <li>Farbe des Fragmentes</li>
+        </ul>
+    </dd>
+    <dt><dfn>Shading</dfn></dt>
+    <dd>
+        <ul>
+            <li>Flat Shading: Beleuchtungsberechnung pro Vertex (oder pro
+                Fragment) mit Facetten-Normale</li>
+            <li>Gouraud-Shading: Beleuchtungsberechnung pro Vertex mit
+                gemittelter Normale der anliegenden Facetten</li>
+            <li>Phong-Shading: Shading bzw. Beleuchtungsberechnung pro Fragment
+                mit interpolierter Normale</li>
+        </ul>
+    </dd>
+</dl>
+
+* Cube-Maps
+* Diffuse Vorfilterung
+* Texturzugriffe in GLSL
+
+
 ### Prozedurale Modellierung, Content Creation
 
 Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
@@ -534,7 +731,16 @@ Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
 
 Slides: `08_ Prozedurale Modellierung (freiwilliges Bonus Material).pdf`
 
-TODO
+<dl>
+    <dt><dfn>Turbulenz-Texturen</dfn></dt>
+    <dd>z.B. Diamon Square / Midpoint Displacement Algorithmus</dd>
+</dl>
+
+* Prozedurale Shader
+* Raymarching
+* Fraktale / Mandelbrot-Menge
+* L-Systeme / D0L-Systeme
+
 
 ### Kurven und Flächen
 
@@ -638,8 +844,12 @@ Siehe auch
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
 * [Interactive Graphic Filters example](https://martin-thoma.com/html5/graphic-filters/graphic-filters.htm)
 * [Interactive Blending example (OpenGL)](http://www.andersriggelsen.dk/glblendfunc.php)
-* [Minimal OpenGL example](https://github.com/MartinThoma/algorithms/tree/master/OpenGL/color-cube)
+* Martin Thoma: [Minimal OpenGL example](https://github.com/MartinThoma/algorithms/tree/master/OpenGL/color-cube)
+* Martin Thoma: [alpha-cliping pythonic pseudocode](https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L146)
 * [Minimal GLSL example](https://open.gl/drawing)
+* [A Primer on Bézier Curves](http://pomax.github.io/bezierinfo/)
+* [What is the worst case time complexity for intersection tests with BVHs?](http://cs.stackexchange.com/q/53986/2914)
+* Íñigo Quílez: [Raymarching Distance Fields](http://iquilezles.org/www/articles/raymarchingdf/raymarchingdf.htm)
 
 Software
 
