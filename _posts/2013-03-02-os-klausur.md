@@ -266,7 +266,7 @@ LPIC-1 - Vorbereitung auf die Pr&uuml;fung des Linux Professinal Institute. ISBN
   <li>150 - 169 Punkte: 3 Bonuspunkte</li>
   <li>170 - x Punkte: 4 Bonuspunkte</li>
 </ul>
-<a href="https://studium.kit.edu/sites/vab/0xC1937D6957186A468FE059ECE05D74B8/Vorlesungsunterlagen/BS-WS1213-00aOrga.pdf">Quelle</a>
+<a href="https://studium.kit.edu/sites/vab/0xC1937D6957186A468FE059ECE05D74B8/Vorlesungsunterlagen/BS-WS1213-00aOrga.pdf">Quelle</a><br/>
 <strong>Nicht vergessen</strong>: Studentenausweis<br/>
 <strong>Einsicht</strong>: 09.04.2013 (war seit sp&auml;testens 13.02.2013 bekannt)<br/>
 <strong>Ort der Einsicht</strong>: 07.07 (<a href="https://maps.google.com/maps?q=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Forschungsstelle+f%C3%BCr+Brandschutztechnik+am+KIT,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&hl=de&ie=UTF8&ll=49.012738,8.423853&spn=0.015622,0.042272&geocode=FYXh6wIdLouAAA&hnear=Vincenz-Prie%C3%9Fnitz-Stra%C3%9Fe+1,+Oststadt+76131+Karlsruhe,+Baden-W%C3%BCrttemberg,+Deutschland&t=m&z=15">Vincenz-Priessnitz-Str. 1</a>, 2.OG, links), Raum 215<br/>
