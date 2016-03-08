@@ -62,6 +62,18 @@ for i in *.JPG; do convert $i -resize 1200x1200 $i; done; convert *.JPG merged.p
 $ djpeg "OldPicture.jpg" | ppmtopgm | cjpeg -qual 70 >"NewPicture.jpg"
 ```
 
+**webp2png**: First install `webp`, then
+
+```bash
+$ dwebp OldPicture.webp -o NewPicture.png
+```
+
+**png2webp**: First install `webp`, then
+
+```bash
+$ cwebp OldPicture.png -o NewPicture.webp
+```
+
 
 <b>Rename Pictures</b>:
 
