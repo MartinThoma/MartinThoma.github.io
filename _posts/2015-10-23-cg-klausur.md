@@ -918,7 +918,7 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 * 06.03.2016: Abmeldeschluss
 
 
-**Ort**:</a><br/>
+**Ort**:<br/>
 
 <ul>
     <li>A... - Kon...: <a href="https://www.kithub.de/map/2086">Benz-Hörsaal Geb. 10.21</a></li>
@@ -933,7 +933,7 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 **Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt. Mit mindestens 72&nbsp;Punkten (60% von 120 Punkten) hat man den Übungsschein.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 04.03.2016)<br/>
+**Einsicht**: Noch nicht bekannt (Stand: 08.03.2016)<br/>
 **Erlaubte Hilfsmittel**:
 
 <ul>
