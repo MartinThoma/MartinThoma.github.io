@@ -25,9 +25,16 @@ air-to-surface Brimstone missiles cost £100&thinsp;000. Britain has fired at le
 
 From the same article:
 
-> Two jihadists were killed with Paveway IV laser-guided bombs (US$20,000 each)
-> and five were killed by US-made Hellfire missiles ($70,000 a piece) fired
-> from Reaper UAVs.
+> Two jihadists were killed with Paveway IV laser-guided bombs (20,000
+> US-Dollar each) and five were killed by US-made Hellfire missiles (70,000
+> US-Dollar a piece) fired from Reaper UAVs.
+
+Another [article](https://theweek.com/articles/609228/america-dropped-23000-bombs-last-year-heres-where-exploded):
+
+> American aircraft fired at least 23,144 bombs and missiles in 2015 alone,
+> according to data compiled by Micah Zenko, an expert on U.S. military
+> planning and operations who is a senior fellow at the Council on Foreign
+> Relations.
 
 Now you should also know that one hour of a Eurofighter in air costs
 73992&nbsp;Euro ([source](http://www.spiegel.de/spiegel/vorab/a-714332.html)).
