@@ -888,6 +888,13 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 
 
 **Ort**: <a href="https://www.kithub.de/map/2086">10.21 (Daimler und Benz)</a><br/>
+
+<ul>
+    <li>A... - Kon...             Benz-Hörsaal Geb. 10.21</li>
+    <li>Kop... - Stumpf...    Daimler-Hörsaal Geb. 10.21</li>
+    <li>Stumpp... - Z...       Redtenbacher Hörsaal Geb. 10.91, Raum 050</li>
+</ul>
+
 **Punkte**: 120<br/>
 **Zeit**: 60 min<br/>
 **Punkteverteilung**: ?<br/>
