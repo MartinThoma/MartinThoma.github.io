@@ -615,6 +615,28 @@ Slides: `07_ OpenGL (freiwilliges Bonusmaterial).pdf`, `07_ OpenGL (Teil 1).pdf`
     <dd>Short for "Graphics Library"</dd>
     <dt><a href="https://en.wikipedia.org/wiki/OpenGL_Utility_Toolkit"><dfn>GLUT</dfn></a></dt>
     <dd>OpenGL Utility Toolkit: Window manipulation, mouse and keyboard interactions.</dd>
+    <dt><dfn>Shading</dfn></dt>
+    <dd>
+        <ul>
+            <li>Flat shading:
+                \[\begin{align}
+        n &= \langle x_1-x_2, x_3-x_2\rangle\\
+        f &= \langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
+        \end{align}\]</li>
+            <li>Gouraud-Shading
+                \[\begin{align}
+        c'_i &= c_i \langle n_i, L \rangle^+\\
+        f &= \lambda_1 c'_1 + \lambda_2 c'_2 + \lambda_3 c'_3
+        \end{align}\]</li>
+            <li>Phong-Shading
+                \[\begin{align}
+        n &= \lambda_1 n_1 + \lambda_2 n_2 + \lambda_3 n_3\\
+        f &=\langle n , L \rangle^+ \cdot (\lambda_1 c_1 + \lambda_2 c_2 + \lambda_3 c_3)
+        \end{align}\]</li>
+        </ul>
+
+
+    </dd>
     <dt><a href="https://de.wikipedia.org/wiki/Gouraud_Shading"><dfn>Gouraud Shading</dfn></a></dt>
     <dd>Berechne Parameter wie z.B. Farbe an den Eckpunkten; interpoliere
         innerhalb des Polygons.</dd>
@@ -882,7 +904,9 @@ Siehe auch
 * Martin Thoma: [alpha-cliping pythonic pseudocode](https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L146)
 * [Minimal GLSL example](https://open.gl/drawing)
 * [A Primer on Bézier Curves](http://pomax.github.io/bezierinfo/)
-* [What is the worst case time complexity for intersection tests with BVHs?](http://cs.stackexchange.com/q/53986/2914)
+* StackExchange:
+    * [What is the worst case time complexity for intersection tests with BVHs?](http://cs.stackexchange.com/q/53986/2914)
+    * [Ray Tracing vs Rasterization](http://stackoverflow.com/q/15078820/562769)
 * Íñigo Quílez: [Raymarching Distance Fields](http://iquilezles.org/www/articles/raymarchingdf/raymarchingdf.htm)
 
 Software
