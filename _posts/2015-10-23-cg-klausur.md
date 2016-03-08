@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Computergrafik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr. Ing. Carsten Dachsbacher</a> im Wintersemester 2015/2016 gehört. Der Artikel ist noch am Entstehen.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Computergrafik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr. Ing. Carsten Dachsbacher</a> im Wintersemester 2015/2016 gehört.</div>
 
 ## Behandelter Stoff
 
@@ -87,7 +87,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>19.01.2016</td>
     <td>Erzeugung von Landschaften</td>
-    <td>Rotes / Rosa Rauschane, Lattice Value Noise, Perlin-Noise</td>
+    <td>Rotes / Rosa Rauschen, Lattice Value Noise, Perlin-Noise</td>
 </tr>
 </table>
 
@@ -291,11 +291,14 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
     </dd>
 </dl>
 
-* Transformationen werden grundsätzlich so dargestellt: <div>\[x' \gets M \cdot x\]</div>
-  Es wird also der zu transformierende Vektor von rechts mit der Transformationsmatrix M
-  multipliziert.
-* Spiegelung an der y-Achse ist eine Multiplikation der x-Koordinaten mit (-1)
-* Hierarchisches Modellieren, Szenengraph
+<ul>
+    <li>Transformationen werden grundsätzlich so dargestellt: \[x' \gets M \cdot x\]
+
+        Es wird also der zu transformierende Vektor von rechts mit der
+        Transformationsmatrix \(M\) multipliziert.</li>
+    <li>Spiegelung an der \(y\)-Achse ist eine Multiplikation der \(x\)-Koordinaten mit (-1)</li>
+    <li>Hierarchisches Modellieren, Szenengraph</li>
+</ul>
 
 Übungsfolien: `02_ Bildoperationen.pdf`
 
