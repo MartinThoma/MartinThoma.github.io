@@ -56,9 +56,9 @@ Additionally I needed a hammer to get the wall plugs into the wall, some differe
 
 {% caption align="aligncenter" width="300" caption="To save some money and to be sure that it really fits, I waited with the renovation until the washing machine was delivered. After it was here I had to move it quite often to get the ledge at it&#039;s place." url="../images/2011/10/kitchen-working-washing-machine-300x225.jpg" alt="Washing machine"  height="225" class="size-medium wp-image-4741" %}
 
-{% caption align="aligncenter" width="300" caption="As I removed the old countertop, I saw that a tube was loose. This had to be fixed. So I mounted it to the wall." url="../images/2011/10/kitchen-working-loose-tube-300x225.jpg" alt="A loose tube was mounted to the wall"  height="225" class="size-medium wp-image-4821" %}
+{% caption align="aligncenter" width="300" caption="As I removed the old countertop, I saw that a tube was loose. This had to be fixed. So I mounted it to the wall." url="../images/2011/10/kitchen-working-loose-tube-300x225.jpg" alt="A loose tube was mounted to the wall with some new (longer) screws."  height="225" class="size-medium wp-image-4821" %}
 
-{% caption align="aligncenter" width="300" caption="Adding a working ledge is very important. It gives your countertop the needed stability and you can make sure that it&#039;s exactly horizontally.  Therefore you should use a spirit level." url="../images/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge"  height="225" class="size-medium wp-image-4721" %}
+{% caption align="aligncenter" width="300" caption="Adding a working ledge is very important. I simply took some wood which was about the right size (4cm x 1cm) / length (about 1.5m). It gives your countertop the needed stability and you can make sure that it&#039;s exactly horizontally.  Therefore you should use a spirit level. I drilled a small, long hole in the wall and used long wall plugs / screws. They are about 4cm in the wall. As you don't see those later, it doesn't have to look nice, but it has to be stable." url="../images/2011/10/kitchen-working-ledge2-300x225.jpg" alt="Adding a working ledge"  height="225" class="size-medium wp-image-4721" %}
 
 {% caption align="aligncenter" width="300" caption="You have to connect both countertops very good. If you don&#039;t do so, you will get water in there which will destroy the countertop over time. So we filled the space in between with wood glue and pressed them together with this screw construction." url="../images/2011/10/kitchen-working-connection-300x214.jpg" alt="Connect countertops"  height="214" class="size-medium wp-image-4811" %}
 
@@ -67,6 +67,10 @@ Additionally I needed a hammer to get the wall plugs into the wall, some differe
 {% caption align="aligncenter" width="300" caption="Angle joints fix the countertop to the wall. I used 23 angle joints with 46 screws. Nothing will separate my countertop from the wall :D" url="../images/2011/10/kitchen-working-angle-joints-300x225.jpg" alt="Angle joints for crabbing the countertop to the wall"  height="225" class="size-medium wp-image-4801" %}
 
 {% caption align="aligncenter" width="300" caption="Removing silicone leftovers is a pretty time intensive work. You can remove a lot with a knife, but if the underground is tender you have to use some chemicals." url="../images/2011/10/kitchen-working-silicone-leftovers-300x225.jpg" alt="Silicone leftovers"  height="225" class="size-medium wp-image-4711" %}
+
+The chemicals I used are called "Max Bahr - Silikon Entferner". It seems to be
+called "Caulk Remover" in English. I had to apply mine with a brush which was
+in the package. After 10 minutes, I could remove some more of the caulk.
 
 {% caption align="aligncenter" width="300" caption="If you want to make a clean silicone clogging, you should mask the surrounding area." url="../images/2011/10/kitchen-masked-countertop-300x225.jpg" alt="Masked countertop"  height="225" class="size-medium wp-image-4701" %}
 
