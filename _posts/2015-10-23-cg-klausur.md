@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Computergrafik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer">Herrn Prof. Dr. Ing. Carsten Dachsbacher</a> im Wintersemester 2015/2016 gehört.</div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Computergrafik&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://cg.ivd.kit.edu/dachsbacher/">Herrn Prof. Dr. Ing. Carsten Dachsbacher</a> im Wintersemester 2015/2016 gehört.</div>
 
 ## Behandelter Stoff
 
@@ -695,6 +695,12 @@ Keyword in Shadern:
     <li><code>attribute</code>: Attribut eines Vertex; nur für Vertex-Shader; z.B. Farbe oder Normale</li>
     <li><code>varying</code>: weitergegebene/interpolierte Werte (schreiben in einem Shader, lesen im darauffolgenden Shader)</li>
 </ul>
+
+In Vertex-Shadern:
+
+```cpp
+gl_Position = P * V * M * vec4(position, 1.0);
+```
 
 Siehe auch:
 
