@@ -324,7 +324,7 @@ Slide: `03_ Transformationen und homogene Koordinaten.pdf`
     <dt><dfn>Linearer Filter</dfn></dt>
     <dd>Gewichtete Summe benachbarter Pixel-Werte.
 
-        Siehe <a href="https://martin-thoma.com/graphic-filters/">Interaktives Beispiel</a></dd>
+        Siehe <b><a href="https://martin-thoma.com/graphic-filters/">Interaktives Beispiel</a></b></dd>
     <dt><dfn>Morphologische Filter</dfn></dt>
     <dd>Strukturverändernde Operation (z.B. Dilatation, Erosion, Öffnung, Schließung)</dd>
 </dl>
@@ -682,6 +682,17 @@ OpenGL-Funktionen:
     <li><code>glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT )</code></li>
 </ul>
 
+
+Keyword in Shadern:
+
+<ul>
+    <li><code>in</code>: Input-Variable</li>
+    <li><code>out</code>: Output-Variable</li>
+    <li><code>uniform</code>: Bei jedem Shader-Aufruf gleich (also insbesondere für jeden Vertex gleich); read-only; z.B. Transformationsmatrix</li>
+    <li><code>attribute</code>: Attribut eines Vertex; nur für Vertex-Shader; z.B. Farbe oder Normale</li>
+    <li><code>varying</code>: weitergegebene/interpolierte Werte (schreiben in einem Shader, lesen im darauffolgenden Shader)</li>
+</ul>
+
 Siehe auch:
 
 <ul>
@@ -923,10 +934,10 @@ Siehe auch
 
 * [World, View and Projection Transformation Matrices](http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
 * [How to calculate transformation matrix](http://stackoverflow.com/questions/18019968/how-to-calculate-transformation-matrix)
-* [Interactive Graphic Filters example](https://martin-thoma.com/html5/graphic-filters/graphic-filters.htm)
+* Martin Thoma: [**Interactive Graphic Filters example**](https://martin-thoma.com/html5/graphic-filters/graphic-filters.htm)
 * [Interactive Blending example (OpenGL)](http://www.andersriggelsen.dk/glblendfunc.php)
 * Martin Thoma: [Minimal OpenGL example](https://github.com/MartinThoma/algorithms/tree/master/OpenGL/color-cube)
-* Martin Thoma: [alpha-cliping pythonic pseudocode](https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L146)
+* Martin Thoma: [**alpha-cliping pythonic pseudocode**](https://github.com/MartinThoma/algorithms/blob/master/alpha-clipping/main.py#L149)
 * [Minimal GLSL example](https://open.gl/drawing)
 * [A Primer on Bézier Curves](http://pomax.github.io/bezierinfo/)
 * StackExchange:
