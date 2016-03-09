@@ -540,6 +540,9 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
         </dd>
     <dd>Ein Octree unterteilt einen Quader in 8 kleiner Quader. Diese können
         wiederum in 8 kleinere Quader unterteilt werden.</dd>
+    <dt><dfn>Mailboxing</dfn></dt>
+    <dd>Speichern des Ergebnisses eines Schnitttests mit einem Objekt, um
+        erneute Schnitttests zu verhindern.</dd>
 </dl>
 
 
