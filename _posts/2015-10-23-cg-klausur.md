@@ -87,7 +87,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>19.01.2016</td>
     <td>Erzeugung von Landschaften</td>
-    <td>Rotes / Rosa Rauschen, Lattice Value Noise, Perlin-Noise</td>
+    <td>Rotes / Rosa Rauschen, Lattice Value Noise, Perlin-Rauschen</td>
 </tr>
 </table>
 
@@ -746,15 +746,28 @@ Siehe auch:
 Slides: `08_ Prozedurale Modellierung, Content Creation.pdf` am 19.01.2016
 
 <dl>
-    <dt><dfn>Perlin-Noise</dfn></dt>
+    <dt><dfn>Rauschfunktion</dfn> (<dfn>Noise-Funktion</dfn>)</dt>
+    <dd>Eine Funktion
+        \[n: \mathbb{R}^n \rightarrow [a, b] \subsetneq \mathbb{R}\]
+        heißt Rauschfunktion, wenn gilt:
+
+        <ul>
+            <li><b>Periodenfrei</b>: Eine Rauschfunktion darf keine sichtbare
+                Periodizität aufweisen.</li>
+            <li><b>Räumliche Korrelation</b>:
+                \(n(\mathbf{x}) \approx n(\mathbf{x} + \varepsilon)\)</li>
+            <li>definierte Frequenzverteilung, bandlimitiert (Aliasing reduzieren)</li>
+        </ul>
+     </dd>
+    <dt><dfn>Perlin-Rauschen</dfn> (<dfn>Perlin-Noise</dfn>)</dt>
     <dd>Zufallszahlen-Pool + Hash + Permutation</dd>
     <dt><dfn>Oktave</dfn></dt>
-    <dd>Sammlung von Noise-Funktionen</dd>
+    <dd>Sammlung von Rauschfunktionen</dd>
     <dt><dfn>Turbulenzfunktion</dfn></dt>
-    <dd>Eine <i>Turbulenzfunktion</i> summiert das Ergebnis (Oktave) mehrerer
-        Noise-Funktionen auf:
+    <dd>Eine <i>Turbulenzfunktion</i> summiert \(k\) Ergebnisse (Oktave) mehrerer
+        Rauschfunktionen auf:
 
-        \[\text{turbulence}(x) = \sum_k (\frac{1}{2})^k n (2^k \cdot x)\]
+        \[\text{turbulence}(x) = \sum_k \left (\frac{1}{2} \right )^k \cdot n (2^k \cdot x)\]
 
         Einsatzgebiete:
 
