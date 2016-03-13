@@ -42,6 +42,12 @@ open. They should not require a sign. For example, if you have to push it, it
 should only have a flat surface.
 
 
+## University Websites
+
+* http://www.webdesigndegreecenter.org/best-designed-college-websites/
+* https://www.nngroup.com/articles/university-sites/
+
+
 ## See also
 
 * Donald Norman: The Design of Everyday Things.
