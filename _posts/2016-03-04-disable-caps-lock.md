@@ -8,7 +8,7 @@ tags:
 - Ubuntu
 featured_image: logos/caps-lock.png
 ---
-I've just hit caps lock accidentially. This key is so useless; I never ever
+I've just hit caps lock accidentally. This key is so useless; I never ever
 wanted to hit it.
 
 So I deactivated it:
