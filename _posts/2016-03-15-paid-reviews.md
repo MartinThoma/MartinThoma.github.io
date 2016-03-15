@@ -100,5 +100,5 @@ Best regards,
 Martin Thoma
 ```
 
-One shady businesses I found so far is `packtpub.com`. They contacted me more
+One shady business I found so far is `packtpub.com`. They contacted me more
 than once and wanted me to work for free.
