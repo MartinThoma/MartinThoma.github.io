@@ -35,18 +35,18 @@ This is likely not to be the case when I review a masters thesis.
 
 ## Getting in Touch
 
-Just send me an E-Mail (info@martin-thoma.de). Make sure to include what you
-want to be reviewed (title of the work at least, better would be a short
-description). Key information I want is:
+Just send me an E-Mail (`info@martin-thoma.de`). Make sure to include what you
+want to be reviewed. Key information I want is:
 
 * Language of the work (English or German)
 * Type of work (e.g. book, bachelors thesis, masters thesis, paper)
 * Title of the work (e.g. "A review of Semantic Segmentation")
+* A short description what it is about.
 * What should I focus on?
     * Spelling, Typos, Grammar
     * Expressions
     * Typesetting
-    * Logic and structure
+    * Logic, structure and consistency
     * Factual correctness
 
 If you want me to review it, you should either send me a PDF or give it to me
@@ -65,7 +65,7 @@ I make book reviews for 50&nbsp;Euro&nbsp;/&nbsp;hour or
 2.50&nbsp;Euro&nbsp;/&nbsp;page (as you like).
 
 If you want me to review your bachelors or masters thesis, I'll do
-so for 30&nbsp;Euro&nbsp;/&nbsp;hour or 1.50&nbsp;Euro&nbsp;per&nbsp;page.
+so for 30&nbsp;Euro&nbsp;/&nbsp;hour or 1.50&nbsp;Euro&nbsp;/&nbsp;page.
 
 
 ## Hints
@@ -76,8 +76,29 @@ following tools
 
 * Text-Based:
     * [Academic-Writing-Check](https://github.com/devd/Academic-Writing-Check)
-    * aspell
+    * `aspell`
 * LaTeX
     * Searching for "Warning" in the LaTeX log
     * Search for "?" in the PDF to find missing references
-    * Try [`nag`](http://tex.stackexchange.com/q/117751/5645)
+    * Try the package `nag` (see [How to use nag](http://tex.stackexchange.com/q/117751/5645))
+
+
+## My Copy-Paste answer for dubious E-Mails
+
+```
+Dear Sir or Madam,
+
+Yes, I am interested in writing a review for your work.
+
+This makes either 50 Euro/hour or 2.50 Euro/page. What would you prefer?
+How would you like to pay?
+
+You might want to answer some key questions about your work.
+See https://martin-thoma.com/paid-reviews/
+
+Best regards,
+Martin Thoma
+```
+
+One shady businesses I found so far is `packtpub.com`. They contacted me more
+than once and wanted me to work for free.
