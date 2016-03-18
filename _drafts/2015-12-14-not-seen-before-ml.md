@@ -32,6 +32,11 @@ waiting times:
 * Opening a file with a single line which is very long &rightarrow; Sublime
   Text gets really slow
 
+<figure class="wp-caption aligncenter img-thumbnail">
+    <img src="../images/2015/12/ml-not-seen-before-renaming-time.png" alt="Renaming becomes really slow" />
+    <figcaption class="text-center">Renaming becomes really slow</figcaption>
+</figure>
+
 
 ## Swapping
 
