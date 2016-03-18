@@ -13,7 +13,7 @@ featured_image: 2011/09/Lolcat.jpg
 ---
 Cats are sometimes so crazy.
 
-This cat obviously loves beeing thrown on a bed.
+This cat obviously loves being thrown on a bed.
 
 Have fun with the Lolcat-Clip:
 

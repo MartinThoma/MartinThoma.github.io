@@ -9,7 +9,7 @@ tags:
 - Python
 featured_image: 2011/09/Python-Logo.png
 ---
-This article is about Python lists. I just want to show you some examples of the unexpected behaviour (for non-python-programmers) of lists in Python.
+This article is about Python lists. I just want to show you some examples of the unexpected behavior (for non-python-programmers) of lists in Python.
 
 Imagine you have the following Python source code:
 {% highlight python %}#!/usr/bin/python
@@ -59,7 +59,7 @@ How should the output look like? Think about it a second, then scroll down.
 [[1,5,7],[0,6],[],[8,1,6]]
 [[1,5,7],[3,6],[],[8,1,6]]{% endhighlight %}
 
-The reason for this strange behaviour is how lists are handled in Python. The variable itself is basically only the pointer to the list. If you slice the list (myList[:]) you copy each value of the list into another list. If myList was a nested list, it contained the pointers to the sublists. So, if you want to make a deep copy, you have to use the copy module.
+The reason for this strange behavior is how lists are handled in Python. The variable itself is basically only the pointer to the list. If you slice the list (myList[:]) you copy each value of the list into another list. If myList was a nested list, it contained the pointers to the sublists. So, if you want to make a deep copy, you have to use the copy module.
 
 <h2>Scoping</h2>
 phimuemue added this example in my old blog:
@@ -83,4 +83,4 @@ print(a)
 [1, 2, 3, [4, 5, 6, [...]]]
 {% endhighlight %}
 
-Do you know more examples of unexpected behaviour of python lists? Please share them in the comments!
+Do you know more examples of unexpected behavior of python lists? Please share them in the comments!

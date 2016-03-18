@@ -14,7 +14,7 @@ tags:
 - PDF
 featured_image: 2011/09/Gnome-Terminal.png
 ---
-The following tipps work under a Linux terminal and were tested with Ubuntu 10.04 LTS.
+The following tips work under a Linux terminal and were tested with Ubuntu 10.04 LTS.
 
 I guess they will also work with other systems, as the programs are available for them.
 
@@ -50,7 +50,7 @@ for i in *.jpg; do convert $i -resize 1600x1600 $i; done
 ```
 
 In case you have just taken many photos of a document and you want to send it
-as a single PDF via email. Thats the way to go:
+as a single PDF via email. That's the way to go:
 
 ```bash
 for i in *.JPG; do convert $i -resize 1200x1200 $i; done; convert *.JPG merged.pdf

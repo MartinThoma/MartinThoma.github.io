@@ -19,6 +19,6 @@ The belief that a cosmic jewish zombie who was his own father can make you live 
 <a href="http://en.wikipedia.org/w/index.php?title=Special:Log&amp;type=delete&amp;user=&amp;page=22.86+Centimetre+Nails" rel="nofollow">22.86 Centimetre Nails</a> was a redirect to <a href="http://en.wikipedia.org/wiki/Nine_Inch_Nails" rel="nofollow">Nine Inch Nails</a>.
 Comment: Trent Reznor is not likely to go metric any time soon. :D
 
-<a href="http://en.wikipedia.org/w/index.php?title=Special:Log&amp;type=delete&amp;user=&amp;page=Category:Recursive+categories" rel="nofollow">Recursive categories</a> - joke page which subcategoried itself
+<a href="http://en.wikipedia.org/w/index.php?title=Special:Log&amp;type=delete&amp;user=&amp;page=Category:Recursive+categories" rel="nofollow">Recursive categories</a> - joke page which subcategorized itself
 
 <a href="http://en.wikipedia.org/w/index.php?title=Special:Log&amp;type=delete&amp;user=&amp;page=Noooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" rel="nofollow">Nooooooooooooooooooooooooooooooooooooooooooooooo[... 200 more ...]ooooooo</a> - a redirect to <a href="http://en.wikipedia.org/wiki/Darth_Vader" rel="nofollow">Darth Vader</a>

@@ -79,7 +79,7 @@ in the package. After 10 minutes, I could remove some more of the caulk.
 <h2>The new kitchen</h2>
 {% caption align="aligncenter" width="600" caption="Kitchen after renovation" url="../images/2011/10/kitchen-after.png" alt="Kitchen after renovation"  height="450" class="size-full wp-image-4651"  %}
 
-{% caption align="aligncenter" width="300" caption="Exact work: It fitted only with a few milimeters left. Good that I added some space to make sure it will fit. If I made the plate exactly as big as it could have been according to my first plan, I would have been in trouble." url="../images/2011/10/kitchen-after-exact-work-300x225.jpg" alt="Exact work: It fitted only with a few milimeters left"  height="225" class="size-medium wp-image-4771" %}
+{% caption align="aligncenter" width="300" caption="Exact work: It fitted only with a few millimeters left. Good that I added some space to make sure it will fit. If I made the plate exactly as big as it could have been according to my first plan, I would have been in trouble." url="../images/2011/10/kitchen-after-exact-work-300x225.jpg" alt="Exact work: It fitted only with a few millimeters left"  height="225" class="size-medium wp-image-4771" %}
 
 <h2>Conclusion</h2>
 I am proud of the result. The new kitchen looks nice, the countertop is very exact horizontally, no water drips out. Some parts could have been done better (like the silicone clogging), but I guess most could not be much better.

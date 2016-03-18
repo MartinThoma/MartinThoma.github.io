@@ -91,7 +91,7 @@ is basically the same as
 date_parse ("2011-05-11 00:00:00");
 ```
 
-You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as beeing greater. If you use the functions you'll be fine.
+You can compare the Array to an integer, but I don't know what PHP does. It seems as if the array would always be considered as being greater. If you use the functions you'll be fine.
 
 <h2>MySQL</h2>
 <h3>time formats and functions</h3>

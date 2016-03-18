@@ -24,7 +24,7 @@ You might get some "Permission denied" errors. They are very bothersome if you c
 <a href="../images/2011/09/find-error-redirection.png"><img src="../images/2011/09/find-error-redirection.png" alt="find /home -iname &#039;Tux*&#039; 2>/dev/null" title="find /home -iname &#039;Tux*&#039; 2>/dev/null" width="500" height="100" class="alignnone size-full wp-image-2691" /></a>
 
 <h2>Real life example</h2>
-I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurences in all strings by the new string. Except for .svn-directories, of course.
+I am also a developer who likes to have good names for constants, database tables and variables. Sometimes, like today, I think it's time to change a database table a bit. It got a lot more rows and the old name doesn't really fit any longer. I used a constant for the table name in all scripts. This constant was SOFTWARE_USER_TABLE and should now be USER_INFO_TABLE. So I have to search recursively and case-sensitive in my project and replace all occurrences in all strings by the new string. Except for .svn-directories, of course.
 The easiest way to achieve this is via find, xargs and sed:
 {% highlight bash %}find . -path '*/.svn' -prune -o -type f -print0 | xargs -0 sed -i 's/SOFTWARE_USER_TABLE/USER_INFO_TABLE/g'{% endhighlight %}
 
@@ -41,7 +41,7 @@ Now the explanation of the different commands:
 <strong>sed:</strong>
 <ul>
     <li>-i: edit the given file in-place. If you would not use -i, it would just print everything in standard output</li>
-    <li>/g: edit the file globaly. If you would not use g, sed would only replace the first occurence of SOFTWARE_USER_TABLE</li>
+    <li>/g: edit the file globally. If you would not use g, sed would only replace the first occurrence of SOFTWARE_USER_TABLE</li>
 </ul>
 
 <h2>Snippets</h2>

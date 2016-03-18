@@ -10,7 +10,7 @@ tags:
 - learning
 featured_image: 2011/11/for-loop.png
 ---
-If you have to learn a new programming language it is most of the time quite easy. You know the structures and the way you have to think if you want to solve a problem. The first time it might be hard, but the more languages you learn the more simmilarities you'll recognize.
+If you have to learn a new programming language it is most of the time quite easy. You know the structures and the way you have to think if you want to solve a problem. The first time it might be hard, but the more languages you learn the more similarities you'll recognize.
 
 I also have to learn a special variant of <a href="http://en.wikipedia.org/wiki/Pseudocode">pseudocode</a> at the moment. It is quite hard to know what pseudocode does if it isn't unambiguously defined. I had problems with for loops for example.
 
@@ -22,11 +22,11 @@ For loops have some properties you simply have to define:
 </ul>
 
 <h2>General structure</h2>
-A for loop usually consists of an initialisation part, a condition and an interation step:
+A for loop usually consists of an initialization part, a condition and an iteration step:
 
 {% caption align="aligncenter" width="285" caption="The structure of a for loop." url="../images/2011/11/for-loop-structure1.png" alt="for loop structure"  height="176" class="size-full wp-image-9251" %}
 
-<h2>Pythons special strutcure</h2>
+<h2>Pythons special structure</h2>
 Python uses a generator or lists to loop:
 {% highlight python %}#!/usr/bin/python
 # -*- coding: utf-8 -*-

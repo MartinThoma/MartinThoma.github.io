@@ -9,7 +9,7 @@ tags:
 - WordPress
 featured_image: 2011/09/WordPress-Logo.png
 ---
-This article is about creating a new WordPress blog. This includes installing and basic custominzation. 
+This article is about creating a new WordPress blog. This includes installing and basic customization. 
 
 You need to know how how to upload files and how your MySQL database credentials.
 
@@ -49,7 +49,7 @@ Webserver with:
 <ul>
 	<li><a href="http://akismet.com/">Akismet</a>: Protect your blog from spam. Don't forget to add your API Key.</li>
 	<li><a href="http://wordpress.org/extend/plugins/sociable">Sociable</a>: A little, customizable link bar with icons to share the post on social networks. I miss Google+ ☹</li>
-	<li><a href="http://wordpress.org/extend/plugins/syntaxhighlighter/">SyntaxHighlighter Evolved</a>: A syntax highliter. Absolutely necessary, if you want to write about code. If you don't write about code, you don't need it.</li>
+	<li><a href="http://wordpress.org/extend/plugins/syntaxhighlighter/">SyntaxHighlighter Evolved</a>: A syntax highlighter. Absolutely necessary, if you want to write about code. If you don't write about code, you don't need it.</li>
 	<li><a href="http://wordpress.org/extend/plugins/twitter-tools/">Twitter Tools</a>: a plugin that creates a complete integration between your WordPress blog and your Twitter account.</li>
 	<li><a href="http://wordpress.org/extend/plugins/wordpress-seo/">WordPress SEO by Yoast</a>: XML-Sitemap, binding for Google/Bing Webmaster Tools</li>
 	<li><a href="http://wordpress.org/extend/plugins/wp-piwik/">WP-Piwik</a>: Piwik is an OpenSource alternative to Google Analytics. You can get some information about your readers.
@@ -78,7 +78,7 @@ RewriteCond %{HTTP_HOST} !^www.martin-thoma.com$
 RewriteRule ^(.*)$ http://www.martin-thoma.com/$1 [R=301]{% endhighlight %}
 
 
-<strong>Imprint</strong>: In Germany, you have to create an imprint. Even if you don't have to create one, I strongly recomment giving your readers the possibility to get to know who writes the posts. It gives you more credibility.
+<strong>Imprint</strong>: In Germany, you have to create an imprint. Even if you don't have to create one, I strongly recommend giving your readers the possibility to get to know who writes the posts. It gives you more credibility.
 
 <h2>Piwik</h2>
 <ul>

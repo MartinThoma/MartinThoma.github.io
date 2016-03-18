@@ -12,7 +12,7 @@ tags:
 - Whitespace
 - Python
 ---
-Have you ever heard of polyglots? This is sooo crazy. A <a href="http://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot</a> is a program which can be interpreded as many programming languages. You don't believe me that something crazy like that is possible? Here is an example I've made:     
+Have you ever heard of polyglots? This is so crazy. A <a href="http://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot</a> is a program which can be interpreted as many programming languages. You don't believe me that something crazy like that is possible? Here is an example I've made:     
           
         
           
@@ -173,4 +173,4 @@ I used three languages in this piece of code: <a href="http://en.wikipedia.org/w
 
 It might be considered as cheating to use comments as often as I did and using two esoteric programming languages. Whitespace works only with whitespaces (space, tab) and Brainfuck needs only +-.;<>[]. Everything else is interpreted as a comment.
 
-When I have much more freetime and I don't know what to do, I'll probably write some code with a more interesting output and which is not that obivous.
+When I have much more freetime and I don't know what to do, I'll probably write some code with a more interesting output and which is not that obvious.

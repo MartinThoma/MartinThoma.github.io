@@ -24,9 +24,9 @@ The <a href="http://en.wikipedia.org/wiki/M%C3%BCller-Lyer_illusion">M&uuml;ller
 
 <h2>Fraser spiral illusion</h2>
 {% caption align="aligncenter" width="512" caption="Fraser spiral illusion" url="../images/2012/03/fraser-spiral-illusion.png" alt="Fraser spiral illusion"  height="514" class="size-full wp-image-20201" %}
-Although you think you see a spiral, there are only concentric circles. This illusion is knowen as <a href="http://en.wikipedia.org/wiki/Fraser_spiral_illusion">Fraser spiral illusion</a>.
+Although you think you see a spiral, there are only concentric circles. This illusion is known as <a href="http://en.wikipedia.org/wiki/Fraser_spiral_illusion">Fraser spiral illusion</a>.
 
-<h2>Grid illiusion</h2>
+<h2>Grid illusion</h2>
 {% caption align="aligncenter" width="320" caption="Grid illusion" url="../images/2012/03/grid-illusion.png" alt="Grid illusion"  height="320" class="size-full wp-image-20221" %}
 Dark dots seem to appear and disappear in the <a href="http://en.wikipedia.org/wiki/Grid_illusion">Grid illusion</a>.
 

@@ -10,7 +10,7 @@ tags:
 - Chrome
 featured_image: 2012/04/google-chrome-logo.png
 ---
-Google Chorme is the browser of my choice. It is fast, has developer tools and looks great. But it could be improved. I'll describe some features I miss.
+Google Chrome is the browser of my choice. It is fast, has developer tools and looks great. But it could be improved. I'll describe some features I miss.
 
 <h2>Disable sound for tabs</h2>
 Sometimes I watch a movie while I play a flash game. Some flash games don't offer an option to mute them. So I would like to get the possibility to disable sound for one tab.
@@ -40,7 +40,7 @@ It would be great, if I could enter the number of the page I want to view. For e
 
 <h2>Security</h2>
 <h3>Extensions</h3>
-Auto-Disable extensions for https. Only PayPal, Amazon, Ebay, GMail and my bank accounts work with https. I don't need my Addons for these sites and I would appreciate if I could auto-disable them for https.
+Auto-Disable extensions for https. Only PayPal, Amazon, Ebay, GMail and my bank accounts work with https. I don't need my addons for these sites and I would appreciate if I could auto-disable them for https.
 
 <h3>Password Reuse Visualizer</h3>
 Firefox offers a tool which helps to identify passwords, that get reused often. It is called "<a href="https://addons.mozilla.org/de/firefox/addon/password-reuse-visualizer/">Password Reuse Visualizer</a>" and looks like this:

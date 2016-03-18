@@ -12,7 +12,7 @@ tags:
 - project
 featured_image: 2011/10/logo.png
 ---
-Community Chess is one of my projects. I can make something usefull and play a bit.
+Community Chess is one of my projects. I can make something useful and play a bit.
 This project has now an own URL:
 [community-chess.com](http://community-chess.com/)
 
@@ -24,7 +24,7 @@ Everybody can help. Here are some examples:
 
 I need some people who
 <ul>
-  <li>can create a better desing / color scheme</li>
+  <li>can create a better design / color scheme</li>
   <li>use it and know chess rules</li>
   <li>know how to customize phpBB</li>
   <li>know how to write Ajax for a better GUI (playChess.php works with PHP and HTML at the moment)</li>

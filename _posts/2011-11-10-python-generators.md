@@ -11,9 +11,9 @@ featured_image: 2011/09/Python-Logo.png
 ---
 Python has a quite mighty tool: Generators.
 
-Generators help you to program interators. They look almost like normal functions, but they have yield as a special keyword. yield is used instead of return.
+Generators help you to program iterators. They look almost like normal functions, but they have yield as a special keyword. yield is used instead of return.
 
-Imagine you wanted to display n fibonacci numbers. This could be your normal approach:
+Imagine you wanted to display n Fibonacci numbers. This could be your normal approach:
 
 {% highlight python %}#!/usr/bin/python
 # -*- coding: utf-8 -*-

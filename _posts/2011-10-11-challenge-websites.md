@@ -23,7 +23,7 @@ Some people think its exciting to get to know the internals of a system. Questio
 <small>If you are not one of those guys, you might ask yourself "Why -2147483648? Why not -1234?". Well, the simple answer is that in almost every programming language integers have 32 bytes. This means, you can store 2^32 values in this variable. As you have negative numbers, only 2^31 for each side. As you have 0, for one side one less. The range of an integer is in most languages -2^31 to +(2^31 -1). So if you take the absolute value of -2^31, you're out of that range.</small>
 It is much more interesting to get to know what could possibly go wrong in other systems and to show others your punditry than setting up an isolated system and trying to get unexpected results. If you don't know about challenge websites it is quite likely that you will try your knowledge on productive systems. This might result in a real damage.
 
-Another reason why challenge websites should get more famous is the moral compass. Even very young children can get an awfully amout of knowledge in computers. They might be able to hack others, but they don't have a feeling for whats wrong and right. If they try their knowledge in on a challenge website, they get a community they can talk to. I guess the administrators will not be happy if they exploit their systems, but if they tell them how to fix it I guess they would not go to the police. (As it is very likely that the attacker didn't really cause any damage like the loss of personal information or shutting down a system for which customers paid for, I think it is very unlikely that they will got to police.). I think it's very likely that they will give the credits for the patch / bug on their site. hacker.org does so, for example.
+Another reason why challenge websites should get more famous is the moral compass. Even very young children can get an awfully amount of knowledge in computers. They might be able to hack others, but they don't have a feeling for whats wrong and right. If they try their knowledge in on a challenge website, they get a community they can talk to. I guess the administrators will not be happy if they exploit their systems, but if they tell them how to fix it I guess they would not go to the police. (As it is very likely that the attacker didn't really cause any damage like the loss of personal information or shutting down a system for which customers paid for, I think it is very unlikely that they will got to police.). I think it's very likely that they will give the credits for the patch / bug on their site. hacker.org does so, for example.
 
 I could also imagine that software companies could be interested in such websites. Wouldn't it be a great idea to post programming challenges and to contact the people who rank high?
 <h2>What are common categories?</h2>
@@ -71,7 +71,7 @@ Some common steganographic challenges are:
 	<li>Playing with the bits of an image</li>
 </ul>
 <h3>CrackIts</h3>
-CrackIts are challenges where you have to change a binary to get the results. Cracks are quite common. Perhaps you know that some illegal versions a very expesive software which can be found online don't need the registration code. They were cracked.
+CrackIts are challenges where you have to change a binary to get the results. Cracks are quite common. Perhaps you know that some illegal versions a very expensive software which can be found online don't need the registration code. They were cracked.
 <h3>Flash / Java Applets</h3>
 It is basically always decompiling and understanding the crappy output.
 As a reallife-application you could imagine an online game where you want to get into the highscore. Decompile it, look at the place where it gets submitted and submit your wished high score.
@@ -82,7 +82,7 @@ A classical logic challenge is the <a title="Sphinx riddle" href="http://en.wiki
 
 I guess you can imagine what a math challenge is? 1 + 1 = x, solve to x would be one. The <a title="Impossible Puzzle" href="http://en.wikipedia.org/wiki/Impossible_Puzzle">Impossible Puzzle</a> would be another one.
 
-The science challenges are like the homework I had to do in school. Some are very difficult, others are quite easy. But the kind of quesions which were very simmilar to the questions in school.
+The science challenges are like the homework I had to do in school. Some are very difficult, others are quite easy. But the kind of questions which were very similar to the questions in school.
 <h3>Information Gathering</h3>
 Almost every challenge could also be in the "Information Gathering" category. Who doesn't try Google first? (Except if the answer is obvious, of course.)
 

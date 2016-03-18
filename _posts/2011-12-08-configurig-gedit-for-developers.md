@@ -47,11 +47,11 @@ The <a href="http://live.gnome.org/Gedit/Plugins/BetterPythonConsole">Better Pyt
 You install it by extracting and copying the whole folder (with plugins!) to ~/gnome2/gedit.
 
 <h2>What could be better</h2>
-The design could be simmilar to Chrome ☺ So they could have some nicer tabs. Nothing really important.
+The design could be similar to Chrome ☺ So they could have some nicer tabs. Nothing really important.
 
 I really miss comment folding since I have to write Java code with a lot of Doc comments
 
-<h2>Further reading and ressources</h2>
+<h2>Further reading and resources</h2>
 <ul>
     <li><a href="http://projects.gnome.org/gedit/">Official Website</a>: You can find the Windows Binary here.</li>
     <li><a href="http://live.gnome.org/Gedit/ExternalToolsPluginCommands">External Tools</a></li>

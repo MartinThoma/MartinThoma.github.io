@@ -12,9 +12,9 @@ featured_image: 2011/10/404-Not-Found.png
 ---
 <a href="../images/2011/10/404-Not-Found.png"><img src="../images/2011/10/404-Not-Found.png" alt="" title="404 Not Found" width="128" height="128" class="alignleft size-full wp-image-7061" /></a> A 404 http status code means that no document could be found at the given URL. The reason could be a misspelled URL or moved content. 
 
-Anyway, the user needs help now. The standard error page doesn't provide much information, so you should create a custome one.
+Anyway, the user needs help now. The standard error page doesn't provide much information, so you should create a custom one.
 
-If you like more information, just google for "custom 404 page".
+If you like more information, just Google for "custom 404 page".
 
 <h2>How to create a custom 404 error page</h2>
 Simply add the following line to your .htaccess file:

@@ -37,7 +37,7 @@ The process seems to be too complex for many users, so Google developed the <a h
 <a href="http://en.wikipedia.org/wiki/Ajax_(programming)" rel="nofollow">Ajax</a> is a programming style. If you like to view another page or get some information which isn't already loaded, you don't have to reload the whole page. The Pages simply display the new content as soon as it has loaded the content. GMail makes heavy use of Ajax.
 
 <h2>Hierarchical Labels</h2>
-Well, I guess this is less a technology than an idea. I think it would be gread if labels were used more often. I'd like to sort my personal files with labels, not with folders. The advantage of labels in comparison with folders is that you can add any number of labels to one object (file, e-mail, ...). But you can have a file only in one path if you don't copy the file. So you have to know how the person is thinking, if you want to find the file you are searching for.
+Well, I guess this is less a technology than an idea. I think it would be great if labels were used more often. I'd like to sort my personal files with labels, not with folders. The advantage of labels in comparison with folders is that you can add any number of labels to one object (file, e-mail, ...). But you can have a file only in one path if you don't copy the file. So you have to know how the person is thinking, if you want to find the file you are searching for.
 
 Example: You search for a file about you favorite books. Unfortunately, you don't remember if it was an Excel-file or a Word-file. Now you have this tree structure:
 

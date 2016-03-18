@@ -11,16 +11,16 @@ tags:
 - password
 featured_image: 2011/10/password-checker.png
 ---
-Today I've changed my PayPal password, because I thought it was time to do so. Now I know that the password changing service of PayPal can be improved quite a lot. I had to type the password about twelve times! This is the reason why I thought it was time to create some principles for good password chaning services:
+Today I've changed my PayPal password, because I thought it was time to do so. Now I know that the password changing service of PayPal can be improved quite a lot. I had to type the password about twelve times! This is the reason why I thought it was time to create some principles for good password changing services:
 
-<strong>User authentification</strong>: It is important that only the user can change the password. You have to force the user to type in his old password again. This should be done as a first step in the authentification. Nothing is more frustrating than beeing forced to type in your old password again and again as your new password wasn't valid. You could check if he typed in his old password less than a minute ago.
+<strong>User authentication</strong>: It is important that only the user can change the password. You have to force the user to type in his old password again. This should be done as a first step in the authentication. Nothing is more frustrating than being forced to type in your old password again and again as your new password wasn't valid. You could check if he typed in his old password less than a minute ago.
 
-<strong>Eliminate typos</strong>: Like every good service, PayPal wants you to type the password and the verification. It would be good, if two symbols were added to the textbox. One for the activiation of <a href="http://en.wikipedia.org/wiki/Caps_lock">caps lock</a> and one for <a href="http://en.wikipedia.org/wiki/Num_lock">num lock</a>. I think this has to be done by the browser.
+<strong>Eliminate typos</strong>: Like every good service, PayPal wants you to type the password and the verification. It would be good, if two symbols were added to the textbox. One for the activation of <a href="http://en.wikipedia.org/wiki/Caps_lock">caps lock</a> and one for <a href="http://en.wikipedia.org/wiki/Num_lock">num lock</a>. I think this has to be done by the browser.
 
-<strong>Clientside validation</strong>: The first time, I used a password which was considered as weak. A JavaScript informed me that it was weak, but I could submit the form. The form should be validated on the client. If it is not valid, don't let him submit the form. (The password has to be validated also on the server, of course.)
+<strong>Client-side validation</strong>: The first time, I used a password which was considered as weak. A JavaScript informed me that it was weak, but I could submit the form. The form should be validated on the client. If it is not valid, don't let him submit the form. (The password has to be validated also on the server, of course.)
 
 <strong>Allow all characters</strong>: I was very negatively surprised as I was informed that PayPal doesn't allow "non-printable characters" like spaces. They informed me after I submitted, of course.
-It does make sense to warn the user if he uses special characters which might be difficult to type on other systems, like german umlauts (&auml;&ouml;&uuml;&Auml;&Ouml;&Uuml;&szlig;). But why the hell do they force me to use underscores instead of spaces? Do they print my password? Do they want that I print my password?
+It does make sense to warn the user if he uses special characters which might be difficult to type on other systems, like German umlauts (&auml;&ouml;&uuml;&Auml;&Ouml;&Uuml;&szlig;). But why the hell do they force me to use underscores instead of spaces? Do they print my password? Do they want that I print my password?
 
 
 <strong>Allow "weak" passwords</strong>:

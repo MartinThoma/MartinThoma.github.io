@@ -17,5 +17,5 @@ Now I've found a clone called "Warlight":
 
 <strong>Go to the Game</strong>: <a href="http://www.kongregate.com/games/FizzerWL/warlight">WarLight</a> on Kongregate
 <strong>Task</strong>: Conquer the world.
-<strong>How to play</strong>: Each turn you get armies depending on the number of countries / territories you controll.
+<strong>How to play</strong>: Each turn you get armies depending on the number of countries / territories you control.
 <strong>My Record</strong>: I could solve Level 1 - 3 and Europe.

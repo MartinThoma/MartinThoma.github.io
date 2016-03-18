@@ -45,7 +45,7 @@ They also got a new URL. Before the new one is kit.edu, but it seems as if many 
 This could be fixed with the following steps:
 <ul>
     <li>Find old URLs / Links (e.g. with <bbr title="Regular Expressions">RegEx</abbr> and a <a href="http://en.wikipedia.org/wiki/Web_crawler">crawler</a>)</li>
-    <li>Introduce the new URL by one of those two possibilites:
+    <li>Introduce the new URL by one of those two possibilities:
         <ul>
           <li>Make HTML-redirections for the new ones (e.g. from fsmi.kit.edu to www.fsmi.uni-karlsruhe.de)</li>
           <li>Move the content from the old space to the new space. Make sure that nothing breaks by adding a <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection">301 status code</a>.</li>

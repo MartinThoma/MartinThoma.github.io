@@ -45,10 +45,10 @@ Here are two great examples of data visualization.
 <param name="flashvars" value="vu=http://video.ted.com/talks/dynamic/HansRosling_2006-medium.flv&su=http://images.ted.com/images/ted/tedindex/embed-posters/HansRosling-2006.embed_thumbnail.jpg&vw=320&vh=240&ap=0&ti=92&lang=&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=hans_rosling_shows_the_best_stats_you_ve_ever_seen;year=2006;theme=technology_history_and_destiny;theme=unconventional_explanations;theme=women_reshaping_the_world;theme=rethinking_poverty;theme=numbers_at_play;theme=presentation_innovation;event=TED2006;tag=Global+Issues;tag=Google;tag=africa;tag=asia;tag=demo;tag=development;tag=economics;tag=health;tag=statistics;tag=visualizations;&preAdTag=tconf.ted/embed;tile=1;sz=512x288;" />
 <embed src="http://video.ted.com/assets/player/swf/EmbedPlayer.swf" pluginspace="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" bgColor="#ffffff" width="334" height="326" allowFullScreen="true" allowScriptAccess="always" flashvars="vu=http://video.ted.com/talks/dynamic/HansRosling_2006-medium.flv&su=http://images.ted.com/images/ted/tedindex/embed-posters/HansRosling-2006.embed_thumbnail.jpg&vw=320&vh=240&ap=0&ti=92&lang=&introDuration=15330&adDuration=4000&postAdDuration=830&adKeys=talk=hans_rosling_shows_the_best_stats_you_ve_ever_seen;year=2006;theme=technology_history_and_destiny;theme=unconventional_explanations;theme=women_reshaping_the_world;theme=rethinking_poverty;theme=numbers_at_play;theme=presentation_innovation;event=TED2006;tag=Global+Issues;tag=Google;tag=africa;tag=asia;tag=demo;tag=development;tag=economics;tag=health;tag=statistics;tag=visualizations;"></embed></object>
 
-<h2>Sources and furhter reading</h2>
+<h2>Sources and further reading</h2>
 <ul>
   <li><a href="http://www.gapminder.org/">Gapminder</a>: A tool for data visualization.</li>
-  <li><a href="http://en.wikipedia.org/wiki/United_States_public_debt">United States public debt.</a> Recieved 23 September 2011.</li>
+  <li><a href="http://en.wikipedia.org/wiki/United_States_public_debt">United States public debt.</a> Received 23 September 2011.</li>
   <li><a href="http://dl.acm.org/citation.cfm?doid=1327452.1327492" title="MapReduce">MapReduce.</a>  Portal.acm.org. Retrieved 16 August 2009.</li>
-  <li><a href="http://en.wikipedia.org/wiki/Mumbai" title="Mumbai">Mumbai.</a> Recieved 23 September 2009.</li>
+  <li><a href="http://en.wikipedia.org/wiki/Mumbai" title="Mumbai">Mumbai.</a> Received 23 September 2009.</li>
 </ul>
