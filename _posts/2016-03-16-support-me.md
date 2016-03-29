@@ -11,6 +11,8 @@ featured_image: logos/web.png
 Keeping my blog online costs money. When you like my blog, you should support
 me in keeping it online.
 
+
+## PayPal
 Support me [via PayPal](https://www.paypal.me/MartinThoma).
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -20,13 +22,17 @@ Support me [via PayPal](https://www.paypal.me/MartinThoma).
 <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
 </form>
 
+## Amazon
+
+[Wish list](http://www.amazon.de/registry/wishlist/2M6EGNFH2KLUS)
+
 
 ## Expenses
 
 
 <table>
     <tr>
-        <th>Date (DD.MM.YYYY)</th>
+        <th><abbr title="DD.MM.YYYY">Date</abbr></th>
         <th>Money</th>
         <th>Comment</th>
     </tr>
@@ -97,32 +103,32 @@ Support me [via PayPal](https://www.paypal.me/MartinThoma).
     </tr>
     <tr>
         <td>22.01.2014</td>
-        <td>$10.87</td>
+        <td>10.87 US-Dollar</td>
         <td>Domain Registration for write math.com via namecheap.com for 1 year</td>
     </tr>
     <tr>
         <td>18.06.2014</td>
-        <td>$9.87</td>
+        <td>9.87 US-Dollar</td>
         <td>Domain Transfer for martin-thoma.com</td>
     </tr>
     <tr>
         <td>23.12.2014</td>
-        <td>$10.87</td>
+        <td>10.87 US-Dollar</td>
         <td>Domain Renewal&nbsp;write-math.com for 1 year via namecheap.com</td>
     </tr>
     <tr>
         <td>02.09.2015</td>
-        <td>$94.23</td>
+        <td>94.23 US-Dollar</td>
         <td>Domain Renewal for martin-thoma.com for&nbsp;9 years via namecheap.com</td>
     </tr>
     <tr>
         <td>25.10.2015</td>
-        <td>$8.40</td>
+        <td>8.40 US-Dollar</td>
         <td>Domain Registration for ml-ka.de for 1 year via&nbsp;namecheap.com</td>
     </tr>
     <tr>
         <td>25.11.2015</td>
-        <td>$10.87</td>
+        <td>10.87 US-Dollar</td>
         <td>Domain Renewal&nbsp;write-math.com for 1 year via namecheap.com</td>
     </tr>
 </table>
