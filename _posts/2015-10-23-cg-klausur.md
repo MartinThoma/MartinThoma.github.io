@@ -1005,7 +1005,7 @@ Die Übungsblätter erscheinen alle 2&nbsp;Wochen. Es gibt also min.
 **Übungsschein**: Gibt es. Dieser wird für das Modul, aber nicht für die Klausur benötigt. Mit mindestens 72&nbsp;Punkten (60% von 120 Punkten) hat man den Übungsschein.<br/>
 **Bonuspunkte**: Gibt es nicht.<br/>
 **Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 08.03.2016)<br/>
+**Einsicht**: Noch nicht bekannt (Stand: 29.03.2016)<br/>
 **Erlaubte Hilfsmittel**:
 
 <ul>
