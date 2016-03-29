@@ -101,19 +101,19 @@ man nun wissen, dass er nicht sofort statt findet. Für einzelne Atome kann man
 auch gar nicht sagen wann genau es sein wird. Allerdings kann man für eine
 große Menge an Atomen die Aussage machen, dass nach X Jahren die Hälfte davon
 zerfallen sein wird. Nach weiteren X Jahren wiederum die Hälfte usw.<br/>
-Dieses X ist für einen festen Isotop-Typ konstant. Teilweise ist es im bereich
+Dieses X ist für einen festen Isotop-Typ konstant. Teilweise ist es im Bereich
 weniger Sekundenbruchteile, und bei <sup>135</sup>Cs sind es beispielsweise
 2,3&nbsp;Mio. Jahre. Diese Zeit, in der statistisch gesehen die Hälfte der
 Atome in kleinere Atome zerfällt nennt man <strong>Halbwertszeit</strong>.
 
 Jedes mal wenn so ein Zerfallsvorgang frei wird, wird auch Energie frei bzw.
-sehr schnelle Teilchen. Man könnte das als eine Art bombardierung der Umwelt
+sehr schnelle Teilchen. Man könnte das als eine Art Bombardierung der Umwelt
 mit sehr kleinen Teilchen sehen. Und bei den Spaltprodukten, dem Atommüll,
 dauert diese Bombardierung leider sehr lange an. Die Teilchen sind so klein,
 dass sie leicht eingeatmet werden können. Wenn sie dann im inneren des Körpers
 zerfallen richten sie dort enormen Schaden an.
 
-Es gibt tatäschlich nicht nur eine Art wie sie zerfallen können, sondern drei
+Es gibt tatsächlich nicht nur eine Art wie sie zerfallen können, sondern drei
 verschiedene. Bei der ersten, der Alpha-Strahlung, werden vergleichsweise große
 Teilchen frei, die aber allein schon durch die Luft so schnell und stark
 abgebremst werden, dass die Teilchen an sich relativ leicht zu handhaben sind.
@@ -189,8 +189,8 @@ für die nächsten z.B. 5&nbsp;Jahre sicher sind. Dann prüft man es erneut. Wen
 man weiß, dass man die Lagerstätte regelmäßig prüfen muss kann man die
 Lagerstätte so einrichten, dass diese Prüfung leicht ist. Man könnte
 Robotersysteme erstellen, welche eine Fernwartung erlauben. Es sollte auf jeden
-Fall redundante Systeme zur bergung der Container geben. Die Systeme sollten
-robost gebaut werden. Wie man an den versagenden Robotern bei Fukushima
+Fall redundante Systeme zur Bergung der Container geben. Die Systeme sollten
+robust gebaut werden. Wie man an den versagenden Robotern bei Fukushima
 sieht<sup>[<a href="#ref-new16" name="ref-new16-anchor">New16</a>]</sup> müssen
 die Systeme unbedingt vorher getestet werden.
 
