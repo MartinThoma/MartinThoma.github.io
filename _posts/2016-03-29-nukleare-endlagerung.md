@@ -175,7 +175,7 @@ Obwohl das auch mal anders lautete:
 Nun gibt es noch 4.6 der mich besonders stört. Das ist einfach unrealistisch.
 Natürlich wird man keinen Ort auf der Erde finden bei dem für mehrere Millionen
 Jahre davon auszugehen ist, dass dieser ohne Eingriffe und Wartungsarbeiten
-den Müll sicher wegschließt.<sup>[<a href="#ref-2" name="ref-2-anchor">2</a>]</sup>
+den Müll sicher wegschließt.<sup>[<a href="#ref-1" name="ref-1-anchor">1</a>]</sup>
 Da es immer noch keine wirklich sichere Methode
 gibt Dinge ins All zu befördern (vgl. [Liste von Katastrophen der Raumfahrt](https://de.wikipedia.org/wiki/Liste_von_Katastrophen_der_Raumfahrt))
 muss es aber auf der Erde sein. Daher sollte man diesen Punkt einfach
@@ -223,7 +223,7 @@ paar:
 
 Wir haben also mindestens
 
-\[11 \text{ Jahre } \cdot 400 \frac{\text{Tonnen}}{\text{Jahr}} = 4400\text{ Tonnen}\]
+<div markdown="0">\[11 \text{ Jahre } \cdot 400 \frac{\text{Tonnen}}{\text{Jahr}} = 4400\text{ Tonnen}\]</div>
 
 an Atommüll. Hinzu kommen diese [Kokillen](https://de.wikipedia.org/wiki/Kokille) von
 vor 2005, von denen ich leider nicht weiß wie groß die sind.
@@ -231,7 +231,7 @@ vor 2005, von denen ich leider nicht weiß wie groß die sind.
 Laut [kiefermedia.de](http://www.kiefermedia.de/fakten/atommuell) haben wir
 in Deutschland bis 2022 etwas 17&thinsp;200&nbsp;Tonnen Atommüll, laut [Greenpeace](https://www.greenpeace.de/themen/energiewende/atomkraft/atommuell) wird es bis dahin 15&thinsp;000&nbsp;Tonnen Atommüll geben.
 Laut [BUND](http://www.bund.net/themen_und_projekte/atomkraft/atommuell/) sind
-es 17&thinsp;000&nbsp;Tonnen und 300&thinsp;000&nbsp;m<sup>3</sup>.<sup>[<a href="#ref-1" name="ref-1-anchor">1</a>]</sup>
+es 17&thinsp;000&nbsp;Tonnen und 300&thinsp;000&nbsp;m<sup>3</sup>.<sup>[<a href="#ref-2" name="ref-2-anchor">2</a>]</sup>
 
 Laut [Statistischem Bundesamt](http://de.statista.com/statistik/daten/studie/167241/umfrage/jaehrlich-produzierte-menge-an-atommuell-in-ausgewaehlten-laendern/) sind in Deutschland alleine im
 Jahr 2009 etwa 450&nbsp;Tonnen Atommüll angefallen. Diese 450&nbsp;Tonnen
@@ -239,7 +239,7 @@ wurden in vielen Quellen als "Jährlich anfallender Atommüll" genannt. Als ob
 das jedes Jahr gleich wäre. Dann hätten wir heute keine ~17&thinsp;000&nbsp;Tonnen
 Atommüll sondern
 
-\[(2016-1960) \cdot 450 \text{ Tonnen} = 25200\text{ Tonnen}\]
+<div markdown="0">\[(2016-1960) \cdot 450 \text{ Tonnen} = 25200\text{ Tonnen}\]</div>
 
 
 ## Siehe auch
@@ -250,13 +250,13 @@ Atommüll sondern
 
 ## Fußnoten
 
-* [<a href="#ref-1-anchor" name="ref-1">1</a>] Das würde eine Dichte von nur
+* [<a href="#ref-1-anchor" name="ref-1">1</a>] Der Homo Sapiens ist etwa
+  200&thinsp;000&nbsp;Jahre alt; die ersten staatlichen Gebilde sind
+  ca.&nbsp;6000&nbsp;Jahre alt. Und da wollen wir für etwas planen, was mehr
+  als 100&thinsp;000&nbsp;Jahre in der Zukunft liegt? Lächerlich.
+* [<a href="#ref-2-anchor" name="ref-2">2</a>] Das würde eine Dichte von nur
   57&nbsp;kg/m<sup>3</sup> ergeben. Eisen hat eine Dichte von 7874&nbsp;kg/m<sup>3</sup>
   und Wasser eine Dichte von 1000&nbsp;kg/m<sup>3</sup>.
-* [<a href="#ref-2-anchor" name="ref-2">2</a>] Der Homo Sapiens ist etwa
-  200&thinsp;000 Jahre alt; die ersten staatlichen Gebilde sind ca. 6000 Jahre
-  alt. Und da wollen wir für etwas plane, was mehr als 100&thinsp;000 Jahre in
-  der Zukunft liegt? Lächerlich.
 
 
 ## Einzelnachweise
