@@ -1,0 +1,107 @@
+---
+layout: post
+title: ! 'PHP: PEAR MDB2'
+author: Martin Thoma
+date: 2011-09-24 01:38:35.000000000 +02:00
+categories:
+- Code
+tags:
+- PHP
+- Web Development
+- PEAR
+- Database
+featured_image: 2011/09/PEAR-Logo.png
+---
+PEAR is short for <strong>P</strong>HP <strong>E</strong>xtension and <strong>A</strong>pplication <strong>R</strong>epository. It provides a very easy method to get some common classes.
+
+PEAR MDB2 is a database class. It is a successor of PEAR DB. I took a look at version 1.4.1 which is currently the latest stable one.
+
+<h2>Install PEAR</h2>
+You can install PEAR on Ubuntu via
+{% highlight bash %}sudo apt-get install php-pear{% endhighlight %}
+
+You can check if it is installed with <a href="http://php.net/manual/en/function.phpinfo.php">phpinfo()</a>:
+
+```php
+<?php phpinfo();?>
+```
+
+Something like <strong>.:/usr/share/php:/usr/share/pear</strong> should be in your <strong>include_path</strong>.
+
+<h2>Install PEAR MDB2</h2>
+PEAR MDB2 is then simply installed via
+{% highlight bash %}sudo pear install MDB2{% endhighlight %}
+
+Then install the optional MySQL package:
+{% highlight bash %}sudo pear install pear/MDB2#mysql{% endhighlight %}
+
+<h2>Usage</h2>
+I took a small chess database to test this package. You can set it up with <a href="http://code.google.com/p/community-chess/source/browse/trunk/install/chess.sql?spec=svn99&r=98">this sql file</a>.
+
+It's sad, but only including <strong>MDB2.php</strong> shows 5 "Deprecated"-messages and 6 warings because of "Strict Standards".
+
+You can easily connect to the database:
+
+```php
+require_once "MDB2.php";
+
+$db   = new MDB2();
+$dsn  = "mysql://chessuser:localpass@localhost/chess";
+$mdb2 = MDB2::factory($dsn);
+$mdb2->setFetchMode(MDB2_FETCHMODE_ASSOC);
+```
+
+It is also very easy to fetch some data:
+
+```php
+$sql    = 'SELECT * FROM `chess_users`';
+$result = $mdb2->query($sql);
+while ($row = $result->fetchRow()) {
+    print_r($row);
+}
+```
+
+or 
+
+```php
+$sql    = 'SELECT * FROM `chess_users`';
+$data = $mdb2->queryAll($sql);
+print_r($data);
+```
+
+This results in:
+
+```text
+Array
+(
+    [user_id] => 1
+    [user_name] => abc
+    [user_password] => 900150983cd24fb0d6963f7d28e17f72
+    [currentchesssoftware] => 0
+)
+Array
+(
+    [user_id] => 2
+    [user_name] => test
+    [user_password] => 098f6bcd4621d373cade4e832627b4f6
+    [currentchesssoftware] => 0
+)
+```
+
+You can set limits via MDB2:
+
+```php
+$sql    = 'SELECT * FROM `chess_users`';
+$mdb2->setLimit(1);
+$data = $mdb2->queryAll($sql);
+print_r($data);
+```
+
+MDB2 offers lots of other features like choosing a (non)persistent connection, prepared statements or debuggin option. If you're interested in PEAR MDB2 I recommend to take a look at installationwiki.org.
+
+<h2>Sources</h2>
+<ul>
+    <li><a href="http://en.wikipedia.org/wiki/PEAR" title="PEAR">PEAR</a>. Recieved 24 September 2011.</li>
+    <li><a href="http://pear.php.net/package/MDB2" title="PEAR MDB2">PEAR MDB2</a>. Recieved 24 September 2011.</li>
+    <li><a href="http://www.installationwiki.org/MDB2">MDB2</a> on installationwiki.org. Recieved 24 September 2011.</li>
+</ul>
