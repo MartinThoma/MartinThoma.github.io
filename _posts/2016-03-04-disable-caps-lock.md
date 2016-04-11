@@ -33,3 +33,12 @@ X-GNOME-Autostart-enabled=true
 
 
 No more issues with caps lock ♡.
+
+
+## More functionality
+
+I've just received a remark by Micha that one could add useful functionality.
+For example with [Xmodmap](https://github.com/rosetree/tildeslash/blob/master/.Xmodmap)
+or within the [Ubuntu settings](https://help.ubuntu.com/stable/ubuntu-help/keyboard-shortcuts-set.html)
+one can make this a [compose key](https://en.wikipedia.org/wiki/Compose_key)
+for special characters such as ·×⋄.
