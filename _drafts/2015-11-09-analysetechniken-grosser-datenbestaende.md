@@ -13,7 +13,7 @@ featured_image: logos/klausur.png
 
 ## Behandelter Stoff
 
-### Vorlesung
+### Übersicht
 
 <table>
 <tr>
@@ -23,12 +23,18 @@ featured_image: logos/klausur.png
 </tr>
 <tr>
     <td>20.10.2015, 08:00</td>
-    <td>Einleitung</td>
+    <td>Einleitung (Folie 1-26)</td>
     <td>Overfitting, Entscheidungsbäume, 1-Rules (→ Decision Strump), Outliers<br/>
         Mengenwertige Attribute, Kategorische Attribute, Zeitreihen<br/>
         Clustering<br/>
         Market Basket Analysis: Zusammenhang zwischen Waren<br/>
         Association rules (A priory Algorithmus)
+    </td>
+</tr>
+<tr>
+    <td>20.10.2015, 11:30</td>
+    <td>Einleitung (Folie 27-)</td>
+    <td>Predictive Maintenance
     </td>
 </tr>
 <tr>
@@ -54,7 +60,57 @@ featured_image: logos/klausur.png
 </tr>
 </table>
 
-### Folien
+
+### Einleitung
+
+Slides: `1-Einleitung.pdf`
+
+* 3 Aufgabentypen: Klassifikation, Clustering und finden von [Association Rules](https://de.wikipedia.org/wiki/Assoziationsanalyse)
+
+
+<dl>
+  <dt><a href="https://en.wikipedia.org/wiki/Decision_stump"><dfn>1-Rule</dfn></a> (<dfn>Decision stump</dfn>)</dt>
+  <dd>1-Rules ist ein Klassifikationsverfahren. Jedes Attribut wird für sich
+      betrachtet. Es wird anhand von dem Attribut gesplittet, bei dem die
+      Fehlerquote am geringsten ist.</dd>
+  <dt><dfn>Clustering</dfn></dt>
+  <dd>Suchen von Punkten, die nahe bei einander liegen.
+
+      Unterschiede:
+
+      <ul>
+          <li>Attribute: Abstandsmaße</li>
+          <li>Form</li>
+          <li>Dichte</li>
+          <li>Größe</li>
+          <li>Zeitlicher Aspekt: Alte Daten weniger wichtig</li>
+          <li>Alternate Clustering</li>
+      </ul>
+  </dd>
+  <dt><dfn>Association Rules</dfn></dt>
+  <dd>z.B. in Market Basket Analysis. Frequent item sets
+
+      A priori Algorithmus zum finden von Association Rules. TODO
+  </dd>
+  <dt><dfn>Predictive Maintenance</dfn></dt>
+  <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
+      und damit gewartet werden müssen.
+
+      Dabei gibt es zwei Fehlerarten, die unterschiedliche hohe Kosten
+      aufweisen:
+      <ul>
+          <li>Ausfall wird vorhergesagt, tritt aber nicht ein: Unnötige Wartung</li>
+          <li>Ausfall wird nicht vorhergesagt, tritt aber ein: Teurer Ausfall</li>
+      </ul>
+  </dd>
+
+  <dt><dfn>Subspace Search</dfn></dt>
+  <dd>TODO</dd>
+
+  <dt><dfn>Change detection</dfn></dt>
+  <dd>TODO</dd>
+</dl>
+
 
 ### Prüfungsfragen
 
@@ -66,7 +122,11 @@ Kommt noch.
 
 ## Material und Links
 
+Die Vorlesung wurde gestreamt und ist unter
+[mml-streamdb01.ira.uka.de](http://mml-streamdb01.ira.uka.de/) verfügbar.
+
 * [Vorlesungswebsite](https://dbis.ipd.kit.edu/2261.php)
+* [Ilias](https://ilias.studium.kit.edu/goto_produktiv_crs_477914.html)
 
 
 ## Übungsbetrieb
@@ -77,7 +137,9 @@ Kommt noch.
 ## Termine und Klausurablauf
 
 Es ist noch nicht klar, ob es eine mündliche oder eine schriftliche Prüfung
-wird. Vermutlich schriftlich.
+wird.
+
+Falls es mündlich ist, soll es mindestens einen Termin pro Monat geben.
 
 **Datum**: Noch nicht bekannt (Stand: 09.11.2015)<br/>
 **Ort**: Noch nicht bekannt (Stand: 09.11.2015)<br/>
