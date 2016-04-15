@@ -66,7 +66,9 @@ featured_image: logos/klausur.png
 * Gesamtstichprobe wird in die disjunkten Mengen Lernstrichprobe,
   Validierungsstichprobe und Teststichprobe zerlegt.
 
-#### ME-Kap2_V84.pdf
+#### Merkmale
+
+Slides: `ME-Kap2_V84.pdf`
 
 In diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.
 
