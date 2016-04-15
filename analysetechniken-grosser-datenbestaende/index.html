@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+  <!-- type: head.html -->
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    
+        <meta name="image" content="https://martin-thoma.com/images/logos/klausur.png" />
+        <meta name="thumbnail" content="//martin-thoma.com/images/logos/klausur.png" />
+        <meta property="og:image" content="//martin-thoma.com/images/logos/klausur.png" />
+    
+
+    <meta property="og:type" content="blog"/>
+
+    <title>Analysetechniken für große Datenbestände - Klausur</title>
+    <meta property="og:title" content="Analysetechniken für große Datenbestände - Klausur" />
+    <meta property="og:url" content="//martin-thoma.com/analysetechniken-grosser-datenbestaende" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="//martin-thoma.com/analysetechniken-grosser-datenbestaende" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@themoosemind"/>
+<meta name="twitter:creator" content="@themoosemind"/>
+<meta name="twitter:title" content="Analysetechniken für große Datenbestände - Klausur"/>
+
+    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
+
+
+    <meta name="twitter:image" content="//martin-thoma.com/images/logos/klausur.png"/>
+
+
+
+<meta name="twitter:url" content="//martin-thoma.com/analysetechniken-grosser-datenbestaende"/>
+<meta name="twitter:domain" content="Martin Thoma.com"/>
+
+
+    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
+    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
+    <style type="text/css">div#toc_container {width: 275px;}</style>
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- Latest compiled and minified CSS bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<!-- type: post.html -->
+<body>
+    <div id="wrapper">
+        <div id="container" class="container">
+            <div class="span-16">
+                <!-- type: header.html -->
+<div id="header" role="banner">
+    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
+    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
+</div>
+<nav class="navcontainer" role="navigation">
+    <ul id="nav">
+        <li class=""><a href="//martin-thoma.com">Home</a></li>
+        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
+    </ul>
+</nav>
+
+                <div id="content">
+                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
+                        <h2 class="title entry-title" itemprop="name headline">Analysetechniken für große Datenbestände - Klausur</h2>
+                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/analysetechniken-grosser-datenbestaende" />
+                        <div class="postdate entry-date date-header">
+                            <time datetime="2016-04-15T11:22:00+02:00" itemprop="datePublished">
+                                April
+                                15th,
+                                  
+                                2016
+                            </time>
+                        </div>
+
+                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
+                            <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung „Analysetechniken für große Datenbestände“ am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://dbis.ipd.kit.edu/english/336.php">Herrn Prof. Dr.-Ing. Klemens Böhm</a> im Wintersemester 2015/2016 gehört. Der Artikel ist noch am Entstehen.</div>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Behandelter Stoff</span></a>
+         <ul>
+            <li class="toc_level-2 toc_section-2">
+               <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Übersicht</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-3">
+               <a href="#tocAnchor-1-1-2"><span class="tocnumber">1.2</span> <span class="toctext">Einleitung</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-4">
+               <a href="#tocAnchor-1-1-3"><span class="tocnumber">1.3</span> <span class="toctext">Statistische Grundlagen</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-5">
+               <a href="#tocAnchor-1-1-4"><span class="tocnumber">1.4</span> <span class="toctext">Räumliche Indexstrutkuren</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-6">
+               <a href="#tocAnchor-1-1-5"><span class="tocnumber">1.5</span> <span class="toctext">Klassifikation mit Entscheidungsbäumen</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-7">
+               <a href="#tocAnchor-1-1-6"><span class="tocnumber">1.6</span> <span class="toctext">Evaluation</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-8">
+               <a href="#tocAnchor-1-1-7"><span class="tocnumber">1.7</span> <span class="toctext">Association Rules</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-9">
+               <a href="#tocAnchor-1-1-8"><span class="tocnumber">1.8</span> <span class="toctext">Prüfungsfragen</span></a>
+            </li>
+            <li class="toc_level-2 toc_section-10">
+               <a href="#tocAnchor-1-1-9"><span class="tocnumber">1.9</span> <span class="toctext">Übungen</span></a>
+            </li>
+         </ul>
+      </li>
+      <li class="toc_level-1 toc_section-11">
+         <a href="#tocAnchor-1-11"><span class="tocnumber">2</span> <span class="toctext">Material und Links</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-12">
+         <a href="#tocAnchor-1-12"><span class="tocnumber">3</span> <span class="toctext">Übungsbetrieb</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-13">
+         <a href="#tocAnchor-1-13"><span class="tocnumber">4</span> <span class="toctext">Vorlesungsempfehlungen</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-14">
+         <a href="#tocAnchor-1-14"><span class="tocnumber">5</span> <span class="toctext">Termine und Klausurablauf</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
+
+<h3 id="tocAnchor-1-1-1">Übersicht</h3>
+
+<table>
+<tr>
+    <th>Datum</th>
+    <th>Kapitel</th>
+    <th>Inhalt</th>
+</tr>
+<tr>
+    <td>20.10.2015, 08:00</td>
+    <td>Einleitung (Folie 1-26)</td>
+    <td>Overfitting, Entscheidungsbäume, 1-Rules (→ Decision Strump), Outliers<br />
+        Mengenwertige Attribute, Kategorische Attribute, Zeitreihen<br />
+        Clustering<br />
+        Market Basket Analysis: Zusammenhang zwischen Waren<br />
+        Association rules (A priory Algorithmus)
+    </td>
+</tr>
+<tr>
+    <td>20.10.2015, 11:30</td>
+    <td>Einleitung, Statistische Tests (Folie 27 - 43)</td>
+    <td>Predictive Maintenance
+    </td>
+</tr>
+<tr>
+    <td>27.10.2015, 08:00</td>
+    <td>Statistische Tests (Folie 38 - )</td>
+    <td>`$\chi^2$`-Test, `$\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$` mit erwartetem Wert `$e$` (Sind zwei Zufallsvariablen unabhängig)<br />
+    Kolmogorov-Smirnov-Test (Sind 2 Verteilungen unabhängig; bei kontinuierlichen Zufallsvariablen)<br />
+    Wilcoxon-Wann-Whitney Test<br />
+    Bernoulli-Experiment (Folie 53?)<br />
+    Datenreduktion (Attribute entfernen, z.B. PCA; Datensätze entfernen, z.B. Clustering; Attributsgenauigkeit reduzieren)<br />
+    Diskretisierung: Zielfunktion ist Information Gain. Dieser soll minimiert werden.
+    </td>
+</tr>
+<tr>
+    <td>03.11.2015, 08:00</td>
+    <td>Räumliche Indexstrukturen</td>
+    <td>Widerholung der Statistischen Tests</td>
+</tr>
+<tr>
+    <td>03.11.2015, 11:30</td>
+    <td>Entscheidungsbäume, Evaluation (1-18)</td>
+    <td>Split-Attribute, Pruning; Loss-Funktionen</td>
+</tr>
+<tr>
+    <td>17.11.2015, 08:00</td>
+    <td>Evaluation (19-47)</td>
+    <td>Qulitätsmaße (Korrelationskoeffizient)</td>
+</tr>
+<tr>
+    <td>17.11.2015, 11:30</td>
+    <td>Evaluation, Association Rules (1-26)</td>
+    <td>Association Rules, Frequent Itemset, Apriori-Algorithmus</td>
+</tr>
+<tr>
+    <td>24.11.2015, 08:00</td>
+    <td>Association Rules (12-TODO)</td>
+    <td>Apriori-Algorithmus, Hash-Tree, Multidimensionale Association Rules</td>
+</tr>
+<tr>
+    <td>08.12.2015, 08:00</td>
+    <td>R-Übung</td>
+    <td>-</td>
+</tr>
+<tr>
+    <td>26.01.2016, 08:00</td>
+    <td>Übung</td>
+    <td>-</td>
+</tr>
+</table>
+
+<h3 id="tocAnchor-1-1-2">Einleitung</h3>
+
+<p>Slides: <code>1-Einleitung.pdf</code></p>
+
+<ul>
+  <li>3 Aufgabentypen: Klassifikation, Clustering und finden von <a href="https://de.wikipedia.org/wiki/Assoziationsanalyse">Association Rules</a></li>
+</ul>
+
+<dl>
+  <dt><a href="https://en.wikipedia.org/wiki/Decision_stump"><dfn>1-Rule</dfn></a> (<dfn>Decision stump</dfn>)</dt>
+  <dd>1-Rules ist ein Klassifikationsverfahren. Jedes Attribut wird für sich
+      betrachtet. Es wird anhand von dem Attribut gesplittet, bei dem die
+      Fehlerquote am geringsten ist.</dd>
+  <dt><dfn>Clustering</dfn></dt>
+  <dd>Suchen von Punkten, die nahe bei einander liegen.
+
+      Unterschiede:
+
+      <ul>
+          <li>Attribute: Abstandsmaße</li>
+          <li>Form</li>
+          <li>Dichte</li>
+          <li>Größe</li>
+          <li>Zeitlicher Aspekt: Alte Daten weniger wichtig</li>
+          <li>Alternate Clustering</li>
+      </ul>
+  </dd>
+  <dt><dfn>Association Rules</dfn></dt>
+  <dd>z.B. in Market Basket Analysis. Frequent item sets
+
+      A priori Algorithmus zum finden von Association Rules. TODO
+  </dd>
+  <dt><dfn>Predictive Maintenance</dfn></dt>
+  <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
+      und damit gewartet werden müssen.
+
+      Dabei gibt es zwei Fehlerarten, die unterschiedliche hohe Kosten
+      aufweisen:
+      <ul>
+          <li>Ausfall wird vorhergesagt, tritt aber nicht ein: Unnötige Wartung</li>
+          <li>Ausfall wird nicht vorhergesagt, tritt aber ein: Teurer Ausfall</li>
+      </ul>
+  </dd>
+
+  <dt><dfn>Subspace Search</dfn></dt>
+  <dd>TODO</dd>
+
+  <dt><dfn>Change detection</dfn></dt>
+  <dd>TODO</dd>
+</dl>
+
+<h3 id="tocAnchor-1-1-3">Statistische Grundlagen</h3>
+
+<p>Slides: <code>2-statistGrundlagen.pdf</code></p>
+
+<dl>
+    <dt><dfn>Kennzahlen für Daten</dfn></dt>
+    <dd>
+        <ul>
+            <li>Median / Mean</li>
+            <li>Min / Max</li>
+            <li>Quantile</li>
+            <li>Varianz / Streuung</li>
+            <li>Outlier</li>
+        </ul>
+    </dd>
+    <dt><dfn>Aggregatfunktion</dfn></dt>
+    <dd>Eine Funktion, welche als Eingabe eine Menge von Werten erwartet und
+        einen Wert ausgibt (z.B. SUM, COUNT, MIN, MAX, AVG, MEAN,
+        häufigster Wert, Truncated Average, mid range).
+
+        Aggregatfunktionen sind entweder <strong>distributiv</strong>,
+        <strong>algebraisch</strong> oder <strong>holistisch</strong>.
+    </dd>
+    <dt><dfn>Distributive Aggregatfunktion</dfn></dt>
+    <dd>
+        Es gibt eine Funktion \(G\), so dass
+        \[F(\{X_{i,j}\}) = G(\{F(X_{i,j} | i=1, \dots, l) | j = 1, \dots, J\})\]
+
+        MIN, MAX und COUNT sind distributive Aggregatfunktionen.
+    </dd>
+    <dt><dfn>Algebraische Aggregatfunktion</dfn></dt>
+    <dd>Es gibt eine Funktion \(G\), die ein \(M\)-Tupel liefert und \(H\),
+        so dass
+        \[F(\{X_{i,j}\}) = H(\{G(\{X_{i,j} | i=1, \dots, l\}) | j=1, \dots, J\})\]
+
+        AVG ist eine Algebraische Aggregatfunktion. Hier berechnet \(G\) die
+        Summe und gibt zusätzlich die Anzahl der Werte zurück. \(H\) summiert
+        die Summen auf und teilt das Ergebnis durch die Gesamtzahl.
+
+        Weitere: Truncated Average</dd>
+    <dt><dfn>Holistische Aggregatfunktion</dfn></dt>
+    <dd>Man kann keine Beschränkung des Speicherbedarfs für Sub-Aggregate,
+        d.h. Aggregate über \(\{X_{i,j}| i=1, \dots, l\}\), angeben.
+
+        Der häufigste Wert und der Median sind holistische Aggregatfunktionen.</dd>
+    <dt><dfn>Self-Maintainable Aggregatfunktion</dfn></dt>
+    <dd>Wenn man den aktuellen Wert der Aggregatfunktion kennt und man löscht
+        einen Wert bzw. fügt einen Wert ein, dann kann man direkt den neuen
+        Wert der Aggregatfunktion über den angepassten Datenbestand berechnen.
+
+        Nicht-self-maintainable ist der häufigste Wert.
+
+        MIN und MAX ist self-maintainable bzgl. Einfügen.</dd>
+    <dt><dfn>Mid-Range</dfn></dt>
+    <dd>\[\frac{MAX-MIN}{2}\]</dd>
+    <dt><dfn>Entropie</dfn></dt>
+    <dd>\[E(S) = - \sum_{j} p_j \cdot \log p_j\]
+
+        \(E(S)=0\) ist minimal, wenn es ein \(j\) gibt mit \(p_j = 1\).
+        \(E(S)=\log(n)\) ist maximal, wenn \(p_i = p_j\) gilt für \(i, j\).</dd>
+    <dt><dfn>Korrelationsmaße</dfn></dt>
+    <dd>Sind üblicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
+        nicht-normiertes Korrelationsmaß.</dd>
+    <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
+    <dd>TODO</dd>
+    <dt><dfn>Chi-Quadrat-Test</dfn></dt>
+    <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.
+
+        Gegeben sind zwei Verteilungen. Die Frage ist, ob sie unabhängig sind.
+
+        \[\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}\]
+
+        Daraus wird ein \(p\)-Wert abgeleitet. Wenn dieser unter einem
+        Schwellwert wie \(\alpha = 0.01\) ist, dann wird die Hypothese, dass
+        die Verteilungen unabhängig sind, zurückgewiesen.</dd>
+    <dt><dfn>Kolmogorov-Smirnov-Test</dfn></dt>
+    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen</dd>
+</dl>
+
+<p>Weitere</p>
+
+<ul>
+    <li>Boxplots: Whiskers</li>
+    <li>Histogramme</li>
+    <li>Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge \(\Omega\),
+        Wahrscheinlichkeitsmaß, Kovarianzmatrix, Bernoulli-Experiment</li>
+</ul>
+
+<p>Siehe auch:</p>
+
+<ul>
+  <li><a href="https://martin-thoma.com/mustererkennung-klausur/#me-kap2v84pdf">Arten von Merkmalen</a></li>
+</ul>
+
+<h3 id="tocAnchor-1-1-4">Räumliche Indexstrutkuren</h3>
+
+<p>Slides: <code>3-Informatik-Grundlagen.pdf</code></p>
+
+<p>TODO</p>
+
+<h3 id="tocAnchor-1-1-5">Klassifikation mit Entscheidungsbäumen</h3>
+
+<p>Slides: <code>4-Entscheidungsbaeume.pdf</code></p>
+
+<dl>
+    <dt><dfn>Qualitätskriterien für Entscheidungsbäume</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Ergebnisqualität</li>
+            <li>Kompaktheit: Je kompakter der Baum, desto besser kann die
+                Entscheidung vom Benutzer nachempfunden werden.</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>Wahl der Split-Attribute</dfn></dt>
+    <dd>Entropie eines Splits minimieren:
+
+    \[E(S_1, S_2) = \frac{n_1}{n} E(S_1) + \frac{n_2}{n} E(S_2)\]
+
+    </dd>
+    <dt><dfn>Overfitting</dfn></dt>
+    <dd>Entscheidungsbaum ist zu sehr an Trainingsdatenbestand angepasst</dd>
+    <dt><dfn>Prepruning</dfn> (<dfn>Forward pruning</dfn>)</dt>
+    <dd>Schon beim Erstellen des Entscheidungsbaumes wird ab einer gewissen
+        Tiefe abgebrochen</dd>
+    <dt><dfn>Postpruning</dfn> (<dfn>Backward pruning</dfn>)</dt>
+    <dd>Der Entscheidungsbaum wird komplett aufgebaut, aber dannach wird
+        greprunt.</dd>
+</dl>
+
+<h3 id="tocAnchor-1-1-6">Evaluation</h3>
+
+<p>Slides: <code>5-Evaluation.pdf</code></p>
+
+<dl>
+    <dt><dfn>Resubsitution Error</dfn></dt>
+    <dd>Trainingsfehler</dd>
+    <dt><dfn>Cross-Validation</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Stratification</dfn></dt>
+    <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitiionen etwa gleich verteilt ist.</dd>
+    <dt><dfn>Loss function</dfn></dt>
+    <dd>Eine Funktion, die angibt, wie viel man durch eine unkorrekte
+        Vorhersage verliert.</dd>
+    <dt><dfn>Informational Loss function</dfn></dt>
+    <dd>\[- \log_2 p_i\] - Wahrscheinlichkeiten der nicht-eintretenden Klassen spielen keine Rolle</dd>
+    <dt><dfn>Quadratic Loss function</dfn></dt>
+    <dd>\[\sum_{j} (p_j - a_j)^2\] mit tatsächlichem Label \(a_j \in \{0,1\}\)
+        und geschätzter Wahrscheinlichkeit \(p_j\) für die Klasse \(j\).</dd>
+    <dt><dfn>Bias</dfn></dt>
+    <dd>Das Verfahren an sich funktioniert nicht gut. Selbst beliebig viele
+        Trainingsdaten beheben dieses Problem nicht. Der Fehler ist
+        inhärent im Verfahren verankert.</dd>
+    <dt><dfn>Varianz</dfn></dt>
+    <dd>Fehler welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
+    <dt><dfn>Gesamt-Erfolgsquote</dfn></dt>
+    <dd>\[\frac{TP+TN}{TP+TN+FP+FN}\]</dd>
+    <dt><dfn>Kappa-Koeffizient</dfn></dt>
+    <dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugehörigkeit
+        schätzt.</dd>
+    <dt><dfn>Lift-Faktor</dfn></dt>
+    <dd>Faktor, um den sich die Rücklaufquote erhöht.</dd>
+    <dt><dfn>ROC</dfn> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
+    <dd>x-Achse: \(\frac{FP}{FP+TN} \cdot 100\) (FP-Rate),<br />
+        y-Achse: \(\frac{TP}{TP+FN} \cdot 100\) (TP-Rate)</dd>
+    <dt><dfn>Precision</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Recall</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Correlation Coefficient</dfn></dt>
+    <dd>Der Correlation Coefficient ist kein Fehlermaß. Der
+        \(CC(p, a)\) ist groß, wenn sich \(p\) und \(a\) ähnlich sind.
+
+        \[CC(p, a) = \frac{COV(p, a)}{\sigma(p) \cdot \sigma(a)}\]
+
+        Mit \(\sigma(x) = \frac{1}{n-1} \cdot \sum_{i} (x_i - \bar{x})^2\)</dd>
+    <dt><dfn>Code</dfn></dt>
+    <dd>Abbildung, die jedem Element des Alphabets eine Folge aus 0en und
+        1en zuweist.
+
+        Beispiele:
+
+        <ul>
+            <li>Morse-Code</li>
+            <li>Unicode</li>
+            <li>Ascii-Code</li>
+        </ul></dd>
+    <dt><dfn>Minimum Description Length</dfn> (<dfn>MDL</dfn>)</dt>
+    <dd>TODO</dd>
+</dl>
+
+<p>Weiteres:</p>
+
+<ul>
+  <li>Qualitätsmaße für numerische Vorhersagen</li>
+</ul>
+
+<h3 id="tocAnchor-1-1-7">Association Rules</h3>
+
+<dl>
+    <dt><dfn>Frequent Itemset</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Association rules</dfn></dt>
+    <dd>Drücken aus wie Phänomene zueinander in Beziehung stehen.</dd>
+    <dt><dfn>Support</dfn></dt>
+    <dd>Anzahl der Transaktionen, die das Itemset I unterhalten wird Support von I genannt.</dd>
+    <dt><dfn>Closedness</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Support</dfn></dt>
+    <dd>Der Support(A \cup B) ist die Anzahl der Mengen, die \(A \cup B\) enthalten.</dd>
+    <dt><dfn>Confidence</dfn></dt>
+    <dd>Confidence von \(A \Rightarrow B\) ist \(\frac{Support(A \cup B)}{support(A)}\)</dd>
+    <dt><dfn>Apriori Algorithmus</dfn></dt>
+    <dd>
+
+        <ol>
+            <li>Erzeuge alle einelementigen Frequent Itemsets</li>
+            <li>for k in range(2, n): Erzeuge die k-Elementigen frequent Itemsets (join, prune, support counting)</li>
+            <li>Frequent itemsets: Association Rules</li>
+        </ol>
+
+        Der Algorithmus nutzt aus, dass eine notwendige Bedingung für k-Elementige
+        Frequent Itemsets ist, dass alle k-1-elementigen Frequent Itemsets auch
+        Frequent sein müssen.
+    </dd>
+</dl>
+
+<h3 id="tocAnchor-1-1-8">Prüfungsfragen</h3>
+
+<ul>
+  <li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen Support und hohe Confidence hat?</li>
+  <li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen Support und geringe Confidence hat?</li>
+  <li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule geringen Support und hohe Confidence hat?</li>
+  <li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule geringen Support und geringe Confidence hat?</li>
+  <li>Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum? (Antwort: 24.11.2015, 14:34)</li>
+</ul>
+
+<h3 id="tocAnchor-1-1-9">Übungen</h3>
+
+<p>Kommt noch.</p>
+
+<h2 id="tocAnchor-1-11">Material und Links</h2>
+
+<p>Die Vorlesung wurde gestreamt und ist unter
+<a href="http://mml-streamdb01.ira.uka.de/">mml-streamdb01.ira.uka.de</a> verfügbar.</p>
+
+<ul>
+  <li><a href="https://dbis.ipd.kit.edu/2261.php">Vorlesungswebsite</a></li>
+  <li><a href="https://ilias.studium.kit.edu/goto_produktiv_crs_477914.html">Ilias</a></li>
+</ul>
+
+<h2 id="tocAnchor-1-12">Übungsbetrieb</h2>
+
+<p>?</p>
+
+<h2 id="tocAnchor-1-13">Vorlesungsempfehlungen</h2>
+
+<p>Folgende Vorlesungen sind ähnlich:</p>
+
+<ul>
+  <li><a href="https://martin-thoma.com/mustererkennung-klausur/">Mustererkennung</a></li>
+  <li><a href="https://martin-thoma.com/machine-learning-1-course/">Machine Learning 1</a></li>
+  <li><a href="https://martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></li>
+  <li><a href="https://martin-thoma.com/neuronale-netze-vorlesung/">Neuronale Netze</a></li>
+</ul>
+
+<h2 id="tocAnchor-1-14">Termine und Klausurablauf</h2>
+
+<p>Es ist noch nicht klar, ob es eine mündliche oder eine schriftliche Prüfung
+wird.</p>
+
+<p>Falls es mündlich ist, soll es mindestens einen Termin pro Monat geben.</p>
+
+<p><strong>Datum</strong>: Noch nicht bekannt (Stand: 09.11.2015)<br />
+<strong>Ort</strong>: Noch nicht bekannt (Stand: 09.11.2015)<br />
+<strong>Punkte</strong>: ?<br />
+<strong>Zeit</strong>: ?<br />
+<strong>Punkteverteilung</strong>: ?<br />
+<strong>Bestehensgrenze</strong>: ?<br />
+<strong>Übungsschein</strong>: ?<br />
+<strong>Bonuspunkte</strong>: ?<br />
+<strong>Ergebnisse</strong>: ?<br />
+<strong>Einsicht</strong>: Noch nicht bekannt (Stand: 09.11.2015)<br />
+<strong>Erlaubte Hilfsmittel</strong>: keine</p>
+
+                        </div>
+                        <div class="postmeta">Posted in
+                            
+                                <a href="//martin-thoma.com/category/deutschland/">german posts</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags:
+                            
+                                
+                                    <a href="//martin-thoma.com/tag/klausur/">Klausur</a>
+                                
+                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2016-04-15 11:22:00 +0200">
+                                April
+                                15th
+                                  ,
+                                2016</span></span></div>
+
+                            <div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="//martin-thoma.com/microsoft-vision-api/" rel="prev">Microsoft Vision API</a>
+                                
+                                </div>
+                                <div class="alignright">
+                                
+                                </div>
+                            </div>
+
+                        </article>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                                <!-- comment discuss code -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!-- comment discuss code -->
+
+                        </div>
+                    </div>
+                </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
+<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
+</div>
+
+                <div id="sidebar">
+                <!-- type: searchbox.html - TODO-->
+<ul>
+    <li id="search">
+        <div class="searchlayout">
+            <form method="get" id="searchform" action="//google.com/cse" role="search">
+                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
+                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
+                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
+            </form>
+        </div>
+    </li>
+</ul>
+
+                <div class="addthis_toolbox">
+    <div class="custom_images">
+            <a href="//twitter.com/share?url=//martin-thoma.com/analysetechniken-grosser-datenbestaende&amp;hashtags=klausur,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="//del.icio.us/post?url=//martin-thoma.com/analysetechniken-grosser-datenbestaende&amp;title=Analysetechniken%20für%20große%20Datenbestände%20-%20Klausur" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/analysetechniken-grosser-datenbestaende" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/analysetechniken-grosser-datenbestaende&amp;title=Analysetechniken%20für%20große%20Datenbestände%20-%20Klausur" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/analysetechniken-grosser-datenbestaende&amp;title=Analysetechniken%20für%20große%20Datenbestände%20-%20Klausur" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/analysetechniken-grosser-datenbestaende" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
+            <a href="//reddit.com/submit?url=//martin-thoma.com/analysetechniken-grosser-datenbestaende&amp;title=Analysetechniken%20für%20große%20Datenbestände%20-%20Klausur" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+    </div>
+</div>
+
+                <ul>
+                    <li id="categories-3" class="widget widget_categories">
+                        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+    </ul>
+
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div><!--/container-->
+            <footer id="footer">
+                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+            </footer><!--/footer-->
+
+    </div><!--/wrapper-->
+<!-- type: footer -->
+<!-- TOC Plus -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+</body>
+</html>
+
