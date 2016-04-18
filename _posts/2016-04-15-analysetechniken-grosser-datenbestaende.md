@@ -80,6 +80,11 @@ featured_image: logos/klausur.png
     <td>Korrekturen zu Kapitel "Evaluation"; Wiederholung von Apriori-Algorithmus und Hash-Filter; ab Minute 27 FP-Trees</td>
 </tr>
 <tr>
+    <td>01.12.2015, 11:30</td>
+    <td>Kapitel 8 (Pattern Mining mit Constraints)</td>
+    <td>TODO</td>
+</tr>
+<tr>
     <td>08.12.2015, 08:00</td>
     <td>R-Übung</td>
     <td>-</td>
