@@ -9,7 +9,7 @@ tags:
 - Klausur
 featured_image: logos/klausur.png
 ---
-<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href="//martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a></div>
+<div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href="//martin-thoma.com/machine-learning-2-course/">Machine Learning 2</a>.</div>
 
 ## Folien
 
@@ -1491,6 +1491,17 @@ until c = c'
 
 Es gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine
 Bonuspunkte.
+
+
+## Vorlesungsempfehlungen
+
+Folgende Vorlesungen sind ähnlich:
+
+* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
+* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
+* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
+* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
+* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
 
 
 ## Termine und Klausurablauf

@@ -1206,6 +1206,17 @@ Neuronale netze kann man durch folgende Kriterien mit einander vergleichen:
   A Novel Objective Function for Improved Phoneme Recognition Using Time Delay Neural Networks. IEEE Transactions on Neural Networks, 1990.
 
 
+## Vorlesungsempfehlungen
+
+Folgende Vorlesungen sind ähnlich:
+
+* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
+* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
+* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
+* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
+* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
+
+
 ## Übungsbetrieb
 
 Übungsblätter sind freiwillig.

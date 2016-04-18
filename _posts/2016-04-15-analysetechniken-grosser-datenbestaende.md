@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Analysetechniken für große Datenbestände - Klausur
+title: Analysetechniken für große Datenbestände
 author: Martin Thoma
 date: 2016-04-15 11:22
 categories:
@@ -28,7 +28,7 @@ featured_image: logos/klausur.png
         Mengenwertige Attribute, Kategorische Attribute, Zeitreihen<br/>
         Clustering<br/>
         Market Basket Analysis: Zusammenhang zwischen Waren<br/>
-        Association rules (A priory Algorithmus)
+        Association rules (Apriori Algorithmus)
     </td>
 </tr>
 <tr>
@@ -40,7 +40,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>27.10.2015, 08:00</td>
     <td>Statistische Tests (Folie 38 - )</td>
-    <td>$\chi^2$-Test, $\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}$ mit erwartetem Wert $e$ (Sind zwei Zufallsvariablen unabhängig)<br/>
+    <td>\(\chi^2\)-Test, \(\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(h_{ij}- e_{ij})^2}{e_{ij}}\) mit erwartetem Wert \(e\) (Sind zwei Zufallsvariablen unabhängig)<br/>
     Kolmogorov-Smirnov-Test (Sind 2 Verteilungen unabhängig; bei kontinuierlichen Zufallsvariablen)<br/>
     Wilcoxon-Wann-Whitney Test<br/>
     Bernoulli-Experiment (Folie 53?)<br/>
@@ -66,12 +66,18 @@ featured_image: logos/klausur.png
 <tr>
     <td>17.11.2015, 11:30</td>
     <td>Evaluation, Association Rules (1-26)</td>
-    <td>Association Rules, Frequent Itemset, Apriori-Algorithmus</td>
+    <td>41 min Evaluation, dann Association Rules. Frequent Itemset, Apriori-Algorithmus</td>
 </tr>
 <tr>
     <td>24.11.2015, 08:00</td>
-    <td>Association Rules (12-TODO)</td>
-    <td>Apriori-Algorithmus, Hash-Tree, Multidimensionale Association Rules</td>
+    <td>Kapitel 6: Association Rules (12-Ende), Kapitel 7 (1-TODO)</td>
+    <td>Apriori-Algorithmus, Hash-Tree, Multidimensionale Association Rules,
+        Level-Crossing-Association Rules, FP-Trees</td>
+</tr>
+<tr>
+    <td>01.12.2015, 08:00</td>
+    <td>Kapitel 7, Kapitel 8 (Pattern Mining mit Constraints)</td>
+    <td>Korrekturen zu Kapitel "Evaluation"; Wiederholung von Apriori-Algorithmus und Hash-Filter; ab Minute 27 FP-Trees</td>
 </tr>
 <tr>
     <td>08.12.2015, 08:00</td>
@@ -115,7 +121,7 @@ Slides: `1-Einleitung.pdf`
   <dt><dfn>Association Rules</dfn></dt>
   <dd>z.B. in Market Basket Analysis. Frequent item sets
 
-      A priori Algorithmus zum finden von Association Rules. TODO
+      Apriori Algorithmus zum finden von Association Rules. TODO
   </dd>
   <dt><dfn>Predictive Maintenance</dfn></dt>
   <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
@@ -237,9 +243,11 @@ Slides: `3-Informatik-Grundlagen.pdf`
 TODO
 
 
-### Klassifikation mit Entscheidungsbäumen
+### Entscheidungsbäumen
 
 Slides: `4-Entscheidungsbaeume.pdf`
+
+Dieses Kapitel beschäftigt sich mit der Klassifikation mit Entscheidungsbäumen.
 
 <dl>
     <dt><dfn>Qualitätskriterien für Entscheidungsbäume</dfn></dt>
@@ -304,10 +312,18 @@ Slides: `5-Evaluation.pdf`
     <dt><dfn>ROC</dfn> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
     <dd>x-Achse: \(\frac{FP}{FP+TN} \cdot 100\) (FP-Rate),<br/>
         y-Achse: \(\frac{TP}{TP+FN} \cdot 100\) (TP-Rate)</dd>
-    <dt><dfn>Precision</dfn></dt>
-    <dd>TODO</dd>
-    <dt><dfn>Recall</dfn></dt>
-    <dd>TODO</dd>
+    <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
+    <dd>\[TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]\]
+
+        Der Recall gibt den Anteil der erkannten positiven aus allen positiven
+        an.
+
+        <i>Sensitivität</i> ist ein in der Medizin üblicher Begriff.</dd>
+    <dt><dfn>Precision</dfn> (<dfn>Genauigkeit</dfn>)</dt>
+    <dd>\[Precision = \frac{TP}{TP + FP} \in [0, 1]\]
+
+        Die Precision gibt den Anteil der real positiven aus den als positiv
+        erkannten an.</dd>
     <dt><dfn>Correlation Coefficient</dfn></dt>
     <dd>Der Correlation Coefficient ist kein Fehlermaß. Der
         \(CC(p, a)\) ist groß, wenn sich \(p\) und \(a\) ähnlich sind.
@@ -337,44 +353,147 @@ Weiteres:
 
 ### Association Rules
 
+Slides: `6-Association-Rules-1.pdf` und `7-Association-Rules-2.pdf`
+
+Es zieht sich die Warenkorbanalyse als Beispiel durch. Allerdings sind folgende
+Anwendungen von Association Rules denkbar:
+
+* Netflix: Man kennt User und welche Filme diese mögen (5 Sterne). Welche
+  weiteren, unbewerteten Filme könnten diesen gefallen?
+* Amazon: Im Warenkorb sind Produkte XY. Was wird der User wohl noch kaufen?
+* Online-Konfiguratoren: Welche Konfigurationen sollte man "bündeln", z.B. bei
+  Autos in eine "Sport-Variante"?
+* Last FM: Music Recommendations
+* Medicine: [Implementation of Apriori Algorithm in Health Care Sector: A Survey](http://static.ijcsce.org/wp-content/uploads/2013/12/IJCSCE110513.pdf)
+
 <dl>
     <dt><dfn>Frequent Itemset</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Ein Frequent Itemset ist eine Menge von Items, die häufig zusammen
+        gekauft werden.</dd>
+    <dt><dfn>Transaktion</dfn> (<dfn>Itemset</dfn>)</dt>
+    <dd>Menge von Items, die zusammen gekauft wurden.</dd>
     <dt><dfn>Association rules</dfn></dt>
-    <dd>Drücken aus wie Phänomene zueinander in Beziehung stehen.</dd>
+    <dd>Drücken aus wie Phänomene zueinander in Beziehung stehen.
+
+        Beispiel: Wer Bier kauft, der kauft auch Chips.</dd>
     <dt><dfn>Support</dfn></dt>
-    <dd>Anzahl der Transaktionen, die das Itemset I unterhalten wird Support von I genannt.</dd>
-    <dt><dfn>Closedness</dfn></dt>
-    <dd>TODO</dd>
-    <dt><dfn>Support</dfn></dt>
-    <dd>Der Support(A \cup B) ist die Anzahl der Mengen, die \(A \cup B\) enthalten.</dd>
+    <dd>Anzahl der Transaktionen, die das Itemset I unterhalten wird Support von I genannt.<br/>
+        Der \(\text{support}(A \cup B)\) ist die Anzahl der Mengen, die \(A \cup B\) enthalten.</dd>
+    <dt><dfn>Closed Itemset</dfn></dt>
+    <dd>Ein Itemset \(I\) heißt closed, wenn es keine echte Obermenge \(I' \supsetneq I\) gibt,
+        die den gleichen support \(\text{supp}(I') = \text{supp}(I)\) hat.</dd>
     <dt><dfn>Confidence</dfn></dt>
     <dd>Confidence von \(A \Rightarrow B\) ist \(\frac{Support(A \cup B)}{support(A)}\)</dd>
     <dt><dfn>Apriori Algorithmus</dfn></dt>
-    <dd>
+    <dd>Der Apriori-Algorithmus ist ein Generate-and-Test-Algorithmus zum
+        Finden von Frequent Itemsets.
 
         <ol>
             <li>Erzeuge alle einelementigen Frequent Itemsets</li>
-            <li>for k in range(2, n): Erzeuge die k-Elementigen frequent Itemsets (join, prune, support counting)</li>
+            <li>for k in range(2, n): Erzeuge die \(k\)-elementigen frequent
+                Itemsets (join, prune, support counting)</li>
             <li>Frequent itemsets: Association Rules</li>
         </ol>
 
-        Der Algorithmus nutzt aus, dass eine notwendige Bedingung für k-Elementige
-        Frequent Itemsets ist, dass alle k-1-elementigen Frequent Itemsets auch
-        Frequent sein müssen.
+        Der Algorithmus nutzt aus, dass eine notwendige Bedingung für
+        \(k\)-elementige Frequent Itemsets ist, dass alle \(k-1\)-elementigen
+        Frequent Itemsets auch Frequent sein müssen.
+
+        Verbesserungen:
+
+        <ul>
+            <li>Stichproben verwenden (Sampling)</li>
+            <li>Aggressiver durch Datenbestand gehen (z.B. von k=3 zu k=6 springen)</li>
+            <li>Hashfilter</li>
+        </ul>
     </dd>
+    <dt><dfn>FP-Trees</dfn></dt>
+    <dd>Datenstrutkur zum schnellen Finden von Frequent Itemsets.
+
+    TODO
+
+    Jede Transaktion entspricht einem Pfad im FP-Tree.
+    Für jedes Item gibt es eine verkettete Liste, die das Vorkommen im Baum
+    angibt.
+
+    Jeder Knoten im Baum ist ein Item und die Häufigkeit des Präfixes.
+
+    <ol>
+        <li>Für jedes Item: Zähle in wie vielen Transaktionen das Item vorkommt.</li>
+        <li>Sortiere Items in Transaktion absteigend nach Häufigkeit. Bei gleicher Häufigkeit wird z.B. alphabetisch sortiert. Damit ergibt sich eine eindeutige Reihenfolge.</li>
+        <li>Sortiere Transaktionen nach den Items innerhalb der Transaktionen.</li>
+        <li>Aufbau des FP-Trees
+        <ol>
+            <li>Aufbau des Baums</li>
+            <li>Aufbau der Header-Tabelle</li>
+        </ol>
+        </li>
+    </ol>
+
+    </dd>
+    <dt><dfn>Sampling</dfn></dt>
+    <dd>Berechnung auf einer Stichprobe durchführen</dd>
+    <dt><dfn>Negative Border</dfn></dt>
+    <dd>Die negative border ist abhängig vom minimalen geforderten Support.
+        Wenn dieser Schwellenwert größer wird, wandert die negative border
+        nach oben; es gibt also weniger frequent Itemsets.</dd>
+    <dt><dfn>Projected Database</dfn></dt>
+    <dd>Zerlegung des Datenbestands in Partitionen (z.B. Transaktionen mit Item A
+        und Transaktionen ohne Item A).</dd>
 </dl>
 
 
-### Prüfungsfragen
+Siehe auch:
 
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen Support und hohe Confidence hat?
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen Support und geringe Confidence hat?
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule geringen Support und hohe Confidence hat?
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule geringen Support und geringe Confidence hat?
-* Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum? (Antwort: 24.11.2015, 14:34)
+* [Market Basket Analysis with R](http://www.salemmarafi.com/code/market-basket-analysis-with-r/comment-page-1/)
+* [Market Basket Analysis and Recommendation Engines](https://www.knime.org/knime-applications/market-basket-analysis-and-recommendation-engines)
 
-### Übungen
+### Constraints
+
+Slides: `8-ConstrainedAssociationRules.pdf`
+
+
+<dl>
+    <dt><dfn>Constraint-Typen</dfn></dt>
+    <dd>
+        <ul>
+            <li>Data Constraints: Einschränken auf konkrete Werte, z.B. Transaktionen bei denen der Ort Karlsruhe ist.</li>
+            <li>Rule Constraints: z.B. nur Itemsets der Größe 3</li>
+        </ul>
+    </dd>
+</dl>
+
+Meta-Rule Guided mining
+
+
+
+### Weitere
+
+
+Slides: `9-Clustering-1.pdf`
+Slides: `9-Clustering-2.pdf`
+Slides: `10-StatistModellierung.pdf`
+Slides: `11-SupportVectorMachines.pdf`
+Slides: `12-Ensembles.pdf`
+
+
+## Prüfungsfragen
+
+* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
+  Support und hohe Confidence hat?
+* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
+  Support und geringe Confidence hat?
+* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  geringen Support und hohe Confidence hat?
+* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  geringen Support und geringe Confidence hat?
+* Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?<br/>
+  → (Antwort: 24.11.2015, 14:34)
+* Wie groß sollte man die Hash-Tabelle machen?<br/>
+  → So groß wie sinnvoll möglich. Der verfügbare Arbeitsspeicher ist hier eine
+  Grenze.
+
+## Übungen
 
 Kommt noch.
 
@@ -396,9 +515,10 @@ Die Vorlesung wurde gestreamt und ist unter
 
 Folgende Vorlesungen sind ähnlich:
 
-* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
+* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
 * [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
 * [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
+* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
 
 
@@ -409,14 +529,14 @@ wird.
 
 Falls es mündlich ist, soll es mindestens einen Termin pro Monat geben.
 
-**Datum**: Noch nicht bekannt (Stand: 09.11.2015)<br/>
-**Ort**: Noch nicht bekannt (Stand: 09.11.2015)<br/>
-**Punkte**: ?<br/>
-**Zeit**: ?<br/>
-**Punkteverteilung**: ?<br/>
-**Bestehensgrenze**: ?<br/>
-**Übungsschein**: ?<br/>
-**Bonuspunkte**: ?<br/>
-**Ergebnisse**: ?<br/>
-**Einsicht**: Noch nicht bekannt (Stand: 09.11.2015)<br/>
+**Datum**: Noch ist es eine mündliche Prüfung<br/>
+**Ort**: Noch ist es eine mündliche Prüfung<br/>
+**Punkte**: Noch ist es eine mündliche Prüfung<br/>
+**Zeit**: Noch ist es eine mündliche Prüfung<br/>
+**Punkteverteilung**: Noch ist es eine mündliche Prüfung<br/>
+**Bestehensgrenze**: Noch ist es eine mündliche Prüfung<br/>
+**Übungsschein**: Gibt es nicht.<br/>
+**Bonuspunkte**: Gibt es nicht.<br/>
+**Ergebnisse**: Noch ist es eine mündliche Prüfung<br/>
+**Einsicht**: Noch ist es eine mündliche Prüfung<br/>
 **Erlaubte Hilfsmittel**: keine

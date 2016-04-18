@@ -154,10 +154,10 @@ Mahalanobis Norm $\|m\| := \sqrt{m^T A m}$ mit $A$ positiv definit.
 1. Finde $m_0$, sodass $J_0(m) := \sum_{k=1}^N \|m - m_k\|^2$ minimal ist, also
    $m_0 = \frac{1}{N} \sum_{k=1}^N m_k$
 2. Finde Gerade $h: m = \bar{m} + ae$, welche die Punkte optimal repräsentiert.
-    1. Finden der $a_k$ (TODO: Was ist das?)
-       Fehlermaß $J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2$.
+    1. Finden der $a_k$ (TODO: Was ist das?)<br/>
+       Fehlermaß $J_1(a_1, \dots, a_N, e) = \sum_{k=1}^N \|\bar{m} + a_k e - m_k \|^2$.<br/>
        Ergibt: $a_k = e^T (m_k - \bar{m})$
-    2. Berechnung des optimalen Richtungsvektors
+    2. Berechnung des optimalen Richtungsvektors<br/>
        Streumatrix $S := \sum_{k=1}^N (m_k - \bar{m}) (m_k - \bar{m})^T$
 3. Finden eines affinen $d'$-dimensionalen Unterraumes des Merkmalsraumes,
    welcher die Daten $D$ mit minimalen quadratischem Fehler repräsentiert.
@@ -255,13 +255,14 @@ sind:
 * [Kreuzvalidierungsverfahren](https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren) / Leave-one-out
 * Boosting
 
+
 ### Prüfungsfragen
 
 * Warum ist ein hochdimensionaler Merkmalsraum schlecht
   ([curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality))?
   - Je nach Klassifikator, viele zu lernende Parameter
   - Daten haben einen sehr hohen Abstand zueinander → Gefahr des Overfittings
-* Wie kann man die Dimension des Merkmalsraumes reduzieren?
+* Wie kann man die Dimension des Merkmalsraumes reduzieren?<br/>
   → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
   (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
 * Wie viele Möglichkeiten gibt es 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)
@@ -270,21 +271,24 @@ sind:
   - Unterschiedliche Einheiten (→ Entdimensionalisieren)
   - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)
   - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)
-* Wie funktioniert MDA?
-  → Sie maximiert $J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}$
+* Wie funktioniert MDA?<br/>
+  → Sie maximiert <span markdown=0>\(J(w) = \frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}\)</span>
   (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)
 * Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur
-  Merkmalsauswahl? → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale
+  Merkmalsauswahl?<br/>
+  → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale
   Algorithmus benötigt bereits einen Klassifikator.
-* Wie lautet die Fundamentalformel der Bayesschen Klassifikation?
+* Wie lautet die Fundamentalformel der Bayesschen Klassifikation?<br/>
   → $P(A|B) = \frac{P(A)\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal
   ist und A die Klasse)
-* Wie lautet die Hauptformel der PCA?
+* Wie lautet die Hauptformel der PCA?<br/>
   $m' = A^T \cdot (m - \bar{m})$, wobei $A$ die Basiswechselmatrix ist.
-* Wie kann man invariante Merkmale erzeugen? → Integration über eine
-  Transformationsgruppe, Differentielle Methode, Normalisierung
-* Wie kann man normalisieren? → Fourierdeskriptoren kann man invariant bzgl.
-  Translation und Rotation und radialer Streckung (Skalierung) machen
+* Wie kann man invariante Merkmale erzeugen?<br/>
+  → Integration über eine Transformationsgruppe, Differentielle Methode,
+  Normalisierung
+* Wie kann man normalisieren?<br/>
+  → Fourierdeskriptoren kann man invariant bzgl. Translation und Rotation und
+  radialer Streckung (Skalierung) machen
 * Wie lauten die Prinzipien (A) - (E) der SVMs?
     - (A) Lineare Trennung mit maximalen Abstand der Trennebenen zu den
           nächstgelegenen Stichproben (Support Vektoren)
@@ -315,6 +319,17 @@ sind:
 
 Es gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine
 Bonuspunkte.
+
+
+## Vorlesungsempfehlungen
+
+Folgende Vorlesungen sind ähnlich:
+
+* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
+* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)
+* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
+* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
+* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)
 
 
 ## Termine und Klausurablauf
