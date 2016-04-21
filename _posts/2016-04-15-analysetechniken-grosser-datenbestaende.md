@@ -81,8 +81,18 @@ featured_image: logos/klausur.png
 </tr>
 <tr>
     <td>01.12.2015, 11:30</td>
-    <td>Kapitel 8 (Pattern Mining mit Constraints)</td>
+    <td>Kapitel 8 (Pattern Mining mit Constraints), Kapitel 9 (Clustering)</td>
     <td>TODO</td>
+</tr>
+<tr>
+    <td>15.12.2015, 08:00</td>
+    <td>Kapitel 9 (Clustering)</td>
+    <td>k-means; CF-Trees</td>
+</tr>
+<tr>
+    <td>15.12.2015, 11:30</td>
+    <td>Kapitel 9 (Clustering)</td>
+    <td>CF-Trees; Hierarchisches Clustern mit Minimum Spanning Tree; DIANA; Hochdimensionale Merkmalsräume</td>
 </tr>
 <tr>
     <td>08.12.2015, 08:00</td>
@@ -90,9 +100,29 @@ featured_image: logos/klausur.png
     <td>-</td>
 </tr>
 <tr>
+    <td>19.01.2016, 08:00</td>
+    <td>Kapitel 9</td>
+    <td>Jaccard Koeffizient</td>
+</tr>
+<tr>
+    <td>19.01.2016, 11:30</td>
+    <td>Kapitel 9</td>
+    <td>Jaccard Koeffizient</td>
+</tr>
+<tr>
     <td>26.01.2016, 08:00</td>
     <td>Übung</td>
     <td>-</td>
+</tr>
+<tr>
+    <td>26.01.2016, 11:30</td>
+    <td>Kapitel 10</td>
+    <td>Regression</td>
+</tr>
+<tr>
+    <td>02.02.2016, 08:00</td>
+    <td>Kapitel 10</td>
+    <td>Logistische Regression, Cross Entropy</td>
 </tr>
 </table>
 
@@ -101,10 +131,13 @@ featured_image: logos/klausur.png
 
 Slides: `1-Einleitung.pdf`
 
-* 3 Aufgabentypen: Klassifikation, Clustering und finden von [Association Rules](https://de.wikipedia.org/wiki/Assoziationsanalyse)
-
-
 <dl>
+  <dt><dfn>Aufgabentypen</dfn></dt>
+  <dd><ul>
+      <li>Klassifikation</li>
+      <li>Clustering</li>
+      <li>Finden von <a href="https://de.wikipedia.org/wiki/Assoziationsanalyse">Association Rules</a></li>
+  </ul></dd>
   <dt><a href="https://en.wikipedia.org/wiki/Decision_stump"><dfn>1-Rule</dfn></a> (<dfn>Decision stump</dfn>)</dt>
   <dd>1-Rules ist ein Klassifikationsverfahren. Jedes Attribut wird für sich
       betrachtet. Es wird anhand von dem Attribut gesplittet, bei dem die
@@ -466,20 +499,251 @@ Slides: `8-ConstrainedAssociationRules.pdf`
             <li>Rule Constraints: z.B. nur Itemsets der Größe 3</li>
         </ul>
     </dd>
+    <dt><dfn>1-var Constraint</dfn></dt>
+    <dd>Nur eine Seite (links oder rechts) der Association Rule wird
+        eingeschränkt.</dd>
+    <dt><dfn>2-var Constraint</dfn></dt>
+    <dd>Beide Seiten (links und rechts) der Association Rule werden
+        eingeschränkt.</dd>
+    <dt><dfn>Anti-Monotonizität</dfn></dt>
+    <dd>Ein 1-var Constraint heißt anti-monoton, wenn für alle Mengen \(S, S'\)
+        gilt:
+
+        \[(S \supseteq S' \land (S \text{ erfüllt } C )) \Rightarrow S' \text{ erfüllt } C\]
+
+        Wenn also ein Constraint \(C\) für eine Menge \(S\) erfüllt ist, dann
+        auch für jede Teilmenge \(S'\).
+
+        Beispiele:
+        <ul>
+            <li>\(\min(S) \geq v, \;\;\; v \in \mathbb{R}\) ist anti-monoton</li>
+            <li>\(\max(s) \geq v, \;\;\; v \in \mathbb{R}\) ist nicht anti-monoton</li>
+            <li>\(\text{size}(s) \leq v, \;\;\; v \in \mathbb{N}\) ist anti-monoton</li>
+            <li>\(\text{size}(s) \geq v, \;\;\; v \in \mathbb{N}\) ist nicht anti-monoton</li>
+        </ul>
+
+        Eine gutartige Eigenschaft von Constraints. Hier kann das
+        Constraint sehr früh überprüft werden.</dd>
+    <dt><dfn>Succinctness</dfn></dt>
+    <dd>Ein Constraint heißt succinct, wenn alle Itemsets die es erfüllen
+        schnell erzeugt werden können.
+
+        Beispiel: Man hat das Constraint, dass der Typ "Non-Food" sein soll.
+        Aber es gibt nur 3 Produkte die diesen Typ haben.
+
+    Kandidaten, die das Constraint nicht erfüllen werden gar nicht erst
+        erzeugt.</dd>
 </dl>
 
-Meta-Rule Guided mining
+* Meta-Rule Guided mining
+* Constraint durch schwächeres Anti-Monotones Constraint ersetzen.
 
 
-
-### Weitere
-
+### Clustering
 
 Slides: `9-Clustering-1.pdf`
 Slides: `9-Clustering-2.pdf`
+
+<dl>
+    <dt><dfn>Silhouette-Koeffizient</dfn></dt>
+    <dd>Sei \(C = (C_1, \dots, C_k)\) ein Clustering.
+
+    <ul>
+        <li>\(a(o) = \frac{1}{|C(o)|} \sum_{p \in C(o)} dist(o, p)\): Durchschnittlicher Abstand zwischen Objekt o und anderen Objekten in seinem Cluster</li>
+        <li>\(b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)\): Durchschnittlicher Abstand zum zweitnächsten Cluster</li>
+        <li>\(s(o) = \begin{cases}\end{cases}\) - Silhouette eines Objekts. Es gilt:
+            \[s(o) \in [-1, 1]\]</li>
+        <li>\(\text{silh}(C) = \frac{1}{|C|} \sum_{C_i \in C} \frac{1}{|C_i|} \sum_{o \in C_i} s(o)\).
+            Es gilt:
+            \[\text{silh}(C) \in [-1; 1]\]
+            Es ist ein möglichst großer Wert gewünscht. Alles kleiner als 0 ist schlecht.</li>
+    </ul>
+    </dd>
+    <dt><dfn>Distanzfunktionen für Cluster</dfn></dt>
+    <dd>
+        <ul>
+            <li>Durschnittlicher Objektabstand</li>
+            <li>Single Link: Maximaler bzw. Minimaler Abstand</li>
+        </ul>
+    </dd>
+    <dt><dfn>\(k\)-means Clustering</dfn></dt>
+    <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
+    <dt><dfn>CLARANS</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>CF-Tree</dfn> (<dfn>Clustering Feature Tree</dfn>)</dt>
+    <dd>Ein CF-Tree ist ein höhenbalancierter Baum. Jeder Knoten des Baums
+        entspricht ein Cluster.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/BIRCH"><dfn>BIRCH</dfn> (<dfn>Balanced Iterative Reducing and Clustering using Hierarchies</dfn>)</a></dt>
+    <dd>KEIN hierarchisches Clustering ("hierarchies" bezieht sich auf den Baum, nicht auf das Clusteringergebnis)
+
+    Clustering-Feature (N, LS, SS) für Cluster \(C_i\) mit
+    <ul>
+        <li>\(N = |C_i|\): Anzahl der Punkte im Cluster</li>
+        <li>\(LS = \sum_{i \in C_i} X_i\)</li>
+        <li>\(SS = \sum_{i \in C_i} X_i^2\)</li>
+    </ul>
+
+    </dd>
+    <dt><dfn>Hierarchisches Clustering</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Probabilistisches Clustering</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Zentrum eines Centroids</dfn></dt>
+    <dd>\[X_0 = \frac{1}{N} \sum_{i=1}^N X_i\]</dd>
+    <dt><dfn>Radius eines Centroids</dfn></dt>
+    <dd>\[R(C_i) = {(\frac{1}{|C_i|} \sum_{j \in C_i}^N {(X_j - X_0)}^2)}^2\]</dd>
+    <dt><dfn>Durchmesser eines Centroids</dfn></dt>
+    <dd>\[D(C_i) = {(\frac{1}{|C_i| \cdot (|D_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i}^N {(X_j - X_k)}^2)}^2\]</dd>
+    <dt><dfn>Interclusterdistanz</dfn></dt>
+    <dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
+
+        \[D_2 = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}\]</dd>
+    <dt><dfn>Agglomeratives Clustering</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Jedes Objekt ist ein Cluster. Füge die Cluster in die Menge \(M\) ein.</li>
+            <li>Berechne alle paarweise Abstände zwischen Clustern in \(M\). Das ist in \(\mathcal{O}(|M|^2)\).</li>
+            <li>Merge das Paar \(A, B\) mit kleinstem Abstand zu \(C = A \cup B\). Entferne \(A, B\) aus \(M\) und füge \(C\) ein.</li>
+            <li>Abbruch, wenn \(|M| = 1\)</li>
+            <li>Gehe zu Schritt 2.</li>
+        </ul>
+
+        Gesamtkomplexität: \(\mathcal{O}(n^2)\)
+    </dd>
+    <dt><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
+    <dd>TODO (Splinter group)</dd>
+    <dt><dfn>Projected Clustering</dfn></dt>
+    <dd>Input sind die Anzahl \(k\) der Cluster, die gefunden werden sollen und
+        die durchschnittliche Anzahl der Dimensionen pro Cluster \(l\).
+
+        Output ist eine Partitionierung der Daten in \(k+1\) Mengen</dd>
+    <dt><dfn>Manhatten Segmental Distance</dfn></dt>
+    <dd>\(d(x_1, x_2) = \frac{1}{n} \cdot \sum_{i=1}^n |x_1^{(i)} - x_2^{(i)}|\) wobei
+        \(n\) die Anzahl der Dimensionen von \(x_1, x_2\) ist.</dd>
+    <dt><dfn>Jaccard Koeffizient</dfn></dt>
+    <dd>\[J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]\]</dd>
+    <dt><dfn>DB-Scan</dfn></dt>
+    <dd>
+
+    Unterscheidet:
+
+    <ul>
+        <li>Dichte Objekte: Epsion-Umgebung hat viele Datenobjekte.</li>
+        <li>Dichte-erreibare Objekte: In Epsilon-Umgebung von dichten Objekt.</li>
+        <li>Ausreißer: Weder dicht noch dichte-erreichbar.</li>
+    </ul>
+
+    Idee: Gehe über alle Punkte \(p \in P\) genau ein mal. Sei \(P' = P\) die
+    Menge der nicht-markierten Punkte. Solange es noch
+    </dd>
+    <dt><dfn>Noise</dfn></dt>
+    <dd>Noise sind Punkte, die zu keinem Cluster gehören.</dd>
+    <dt><dfn>Outlier</dfn></dt>
+    <dd>Noise, welcher weit von jedem Objekt entfernt ist.</dd>
+    <dt><dfn>Core-Distanz</dfn></dt>
+    <dd>\(C(o) = \min\{\varepsilon \in \mathbb{R} | o \text{ ist mit DBSCAN } und \varepsilon \text{ dicht}\}\)
+        Die Core-Distanz eines Objekts \(o\) ist also die kleinste Distanz, sodass
+        \(o\) noch ein dichtes Objekt ist.</dd>
+    <dt><dfn>Reachability-Distanz</dfn></dt>
+    <dd>\[\text{reach\_d}() = \begin{cases}d(p, o)               &\text{if } d(p, o) > \text{coreDist}(p, o)\\
+                                 \text{coreDist}(p, o) &\text{if } d(p, o) < \text{coreDist}(p, o)\end{cases}\]</dd>
+    <dt><dfn>OPTICS</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>ControlList (Priority Queue) enthält nur Objekte, die noch
+                nicht in der Output-Liste sind.</li>
+            <li>Kriterium: Minimale reachability-distanz zu Objekten in der
+                Output-Liste.</li>
+            <li>Rekursiv expandieren wie bei DB-SCAN.</li>
+        </ul>
+    </dd>
+    <dt><dfn>EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
+    <dd>TODO</dd>
+</dl>
+
+
+### Statistische Modellierung
+
 Slides: `10-StatistModellierung.pdf`
+
+<dl>
+    <dt><dfn>Naive Baies</dfn></dt>
+    <dd>\[P(H | E) = \frac{P(E_1 | H) \cdot \dots \cdot P(E_n | H) \cdot P(H)}{P(E)}\]</dd>
+    <dt><dfn>Laplace-Smoothing</dfn></dt>
+    <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit \(k\) initilisiert.
+        Beachte, dass man auch die Gesamtzahl dann um \(k\) erhöhen muss.</dd>
+    <dt><dfn>Bayessche Netze</dfn></dt>
+    <dd>Ein bayessches Netz ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>.
+        Ein Knoten für jedes Attribut sowie Klassenzugehörigkeit.
+        Kanten zwischen nicht unabhängigen Attributen.<br/>
+        <br/>
+        Netzkonstruktion: Meist von Hand (z.B. anhand von Kausalitäten)<br/>
+        <br/>
+        Finden der Maximum-Likelihood-Parameter.<br/>
+        <br/>
+        Behandeln fehlender Werte</dd>
+    <dt><dfn>Duplikateleminierung</dfn></dt>
+    <dd>Spezialfall von Klassifikation</dd>
+    <dt><dfn>Versteckte Variablen</dfn></dt>
+    <dd>Abstraktion, damit der Raum der zu betrachteten Variablen bei Bayesschen Netzen kleiner wird.</dd>
+</dl>
+
+Siehe auch:
+
+* [Is the direction of edges in a Bayes Network irrelevant?](http://datascience.stackexchange.com/q/10064/8820)
+
+
+### Support Vector Machines
+
 Slides: `11-SupportVectorMachines.pdf`
+
+<dl>
+    <dt><dfn>Lineare Regression</dfn></dt>
+    <dd>Model \(y = M x\), wobei \(x \in \mathbb{R}^n\) die Features sind,
+        \(y \in \mathbb{R}^m\) die Vorhersage und \(M \in \mathbb{R}^{n \times m}\)
+        die Modellparameter.</dd>
+    <dt><dfn>Cross Entropy Fehlermaß</dfn></dt>
+    <dd>\[E_{CE}(w) = \sum_{i=1}^n (1-y_i) \cdot \log (1-p) + y_i \cdot \log p]\]</dd>
+    <dt><dfn>SVM</dfn> (<dfn>Support Vector Machine</dfn>)</dt>
+    <dd>See <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>.</dd>
+</dl>
+
+
+### Ensembles
+
 Slides: `12-Ensembles.pdf`
+
+<dl>
+    <dt><dfn>Ensembles</dfn></dt>
+    <dd>Mehrere Instanzen auf Trainingsdaten trainieren.
+
+    Vorteile:
+
+    <ul>
+        <li>Overfitting wird minimiert.</li>
+        <li>Besseres gesamtsystem</li>
+        <li>TODO: Gibt es mehr?</li>
+    </ul>
+
+    Typische Techniken sind Bagging und Boosting.</dd>
+    <dt><dfn>Bagging</dfn></dt>
+    <dd>Ensemble-Learning Technik, bei der Stichproben des
+        Trainingsdatenbestandes für die Classifier verwendet werden.
+    </dd>
+    <dt><dfn>MetaCost</dfn></dt>
+    <dd>MetaCost ist ein Verfahren zum Relabeling (TODO: Was ist Relabeling?).
+        MetaCost wendet Bagging an.
+    </dd>
+    <dt><dfn>Boosting</dfn></dt>
+    <dd>Boosting ist eine Ensemble-Learning-Technik, die mehrere Modelle vom
+        gleichen Typ durch Voting / Durchschnittsberechnung kombiniert. Dabei
+        nimmt Boosting Rücksicht auf zuvor falsch Klassifizierte Beispiele
+        und gewichtet diese stärker.
+
+        Gewichtungsänderung für korrekte Objekte bei Fehllerrate e: \(\frac{e}{1-e}\)</dd>
+</dl>
 
 
 ## Prüfungsfragen
@@ -497,6 +761,14 @@ Slides: `12-Ensembles.pdf`
 * Wie groß sollte man die Hash-Tabelle machen?<br/>
   → So groß wie sinnvoll möglich. Der verfügbare Arbeitsspeicher ist hier eine
   Grenze.
+* Welche zwei Sprachen haben wir für die Formulierung der Constraints
+  kennengelernt?<br/>
+  → TODO
+* Warum ist SQL nicht geeignet um Constraints zu formulieren?<br/>
+  → TODO
+* Wie kann man Radius, Durchmesser und Interclusterdistanz aus N, LS, SS herleiten?<br/>
+  → TODO
+
 
 ## Übungen
 
