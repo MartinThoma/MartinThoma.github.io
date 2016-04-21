@@ -330,11 +330,11 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
                measurement of this time step.</li>
        </ul>
     </dd>
-    <dt><dfn>Expectation Maximizaion Algorithm</dfn> (<dfn>EM-Algorithmus</dfn>)</dt>
+    <dt><a href="" name="em-algorithmus"></a><dfn>Expectation Maximizaion Algorithm</dfn> (<dfn>EM-Algorithmus</dfn>)</dt>
     <dd>
-        Der EM-Algorithmus kann als ein Clusteringalgorithmus mit weicher
-        Clusterzugehörigkeit gesehen werden. Er findet die Parameter für
-        gegebene Verteilungen (üblicherweise multivariate Normalverteilungen).
+        Der EM-Algorithmus ist ein Clusteringalgorithmus mit weicher
+        Clusterzugehörigkeit. Er findet die Parameter für gegebene Verteilungen
+        (üblicherweise multivariate Normalverteilungen).
 
         Er löst das Henne-Ei Problem
         <ul>
@@ -350,12 +350,23 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
         Verteilung schätzen muss ist es schwer. Man kann "zufällig" die
         initialen Parameter wählen, dann die Zuordnung machen.
 
-        Der EM-Algorithmus iteriert also:
+        Der EM-Algorithmus iteriert nach der initialisierung der Parameter:
 
         <ul>
-            <li><b>Expectation</b>: Weise alle Datenpunkte ihrem Cluster zu.</li>
-            <li><b>Maximization</b>: Berechne die Parameter der Cluster neu.</li>
+            <li><b>Expectation</b>: Schätze für jeden Datenpunkte die
+                Clusterzugehörigkeit.</li>
+            <li><strong>Maximization</strong>: Parameter der Cluster neu
+                berechnen. Also für jeden Cluster \(A\)
+                <ul>
+                    <li>\(\mu_A = \frac{\sum_{i=1}^N w_{i, A} \cdot x_i}{\sum_{i=1}^N w_{i, A}}\)</li>
+                    <li>\(\sigma_A^2 = \frac{\sum_{i=1}^N w_{i,A} (x_i + \mu_A)^2}{\sum_{i=1}^N w_{i,A}}\)</li>
+                </ul>
+                wobei \(w_{i,A}\) die Wahrscheinlichkeit der Zugehörigkeit des
+                Punktes \(i\) zu Cluster \(A\) ist.
+                </li>
         </ul>
+
+        Der EM-Algorithmus ist mit \(k\)-means verwandt.
 
         Siehe <a href="https://www.youtube.com/watch?v=REypj2sy_5U">Mixture Models 1: the EM algorithm</a>
 

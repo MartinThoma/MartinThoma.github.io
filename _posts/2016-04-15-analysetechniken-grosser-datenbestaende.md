@@ -70,7 +70,7 @@ featured_image: logos/klausur.png
 </tr>
 <tr>
     <td>24.11.2015, 08:00</td>
-    <td>Kapitel 6: Association Rules (12-Ende), Kapitel 7 (1-TODO)</td>
+    <td>Kapitel 6: Association Rules (12-Ende), Kapitel 7 (1-12)</td>
     <td>Apriori-Algorithmus, Hash-Tree, Multidimensionale Association Rules,
         Level-Crossing-Association Rules, FP-Trees</td>
 </tr>
@@ -82,7 +82,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>01.12.2015, 11:30</td>
     <td>Kapitel 8 (Pattern Mining mit Constraints), Kapitel 9 (Clustering)</td>
-    <td>TODO</td>
+    <td>Meta-Rule-Guided Mining, Anti-Monotonizität, Support-basiertes Pruning, Constrained Sequences, Clustering Criterion Function</td>
 </tr>
 <tr>
     <td>15.12.2015, 08:00</td>
@@ -102,12 +102,12 @@ featured_image: logos/klausur.png
 <tr>
     <td>19.01.2016, 08:00</td>
     <td>Kapitel 9</td>
-    <td>Jaccard Koeffizient</td>
+    <td>Jaccard Koeffizient, ...</td>
 </tr>
 <tr>
     <td>19.01.2016, 11:30</td>
-    <td>Kapitel 9</td>
-    <td>Jaccard Koeffizient</td>
+    <td>Kapitel 9; Kapitel 10 (1 - )</td>
+    <td>EM-Algorithmus; Generative Modelle</td>
 </tr>
 <tr>
     <td>26.01.2016, 08:00</td>
@@ -326,8 +326,15 @@ Slides: `5-Evaluation.pdf`
 <dl>
     <dt><dfn>Resubsitution Error</dfn></dt>
     <dd>Trainingsfehler</dd>
-    <dt><dfn>Cross-Validation</dfn></dt>
-    <dd>TODO</dd>
+    <dt><dfn>\(k\)-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
+    <dd>Unterteile den Datensatz in \(k\) Teile. Dabei sollten die Klassen in
+        etwa gleich häufig in allen Teilen vorkommen.
+
+        Mache nun \(k\) durchläufe, wobei der \(k\)-te Datensatz immer zum
+        Testen und alle anderen zum Trainieren verwendet werden. Berechne die
+        \(k\) Testfehler. Mittle diese am Ende. Das ist ein besserer Schätzwert
+        für den realen Fehler als eine einmalige Unterteilung in Training- und
+        Testmenge.</dd>
     <dt><dfn>Stratification</dfn></dt>
     <dd>Sicherstellen, dass bestimmte Eigenschaften (z.B. Klassenzugehörigkeit) in Partitiionen etwa gleich verteilt ist.</dd>
     <dt><dfn>Loss function</dfn></dt>
@@ -450,13 +457,13 @@ Anwendungen von Association Rules denkbar:
         </ul>
     </dd>
     <dt><dfn>FP-Trees</dfn></dt>
-    <dd>Datenstrutkur zum schnellen Finden von Frequent Itemsets.
+    <dd>Datenstrutkur zum schnellen Finden von Frequent Itemsets.<br/>
 
     TODO
 
     Jede Transaktion entspricht einem Pfad im FP-Tree.
     Für jedes Item gibt es eine verkettete Liste, die das Vorkommen im Baum
-    angibt.
+    angibt.<br/>
 
     Jeder Knoten im Baum ist ein Item und die Häufigkeit des Präfixes.
 
@@ -591,7 +598,9 @@ Slides: `9-Clustering-2.pdf`
     <dt><dfn>Hierarchisches Clustering</dfn></dt>
     <dd>TODO</dd>
     <dt><dfn>Probabilistisches Clustering</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Datenobjekte werden nicht hart zu einem Cluster zugeordnet sondern
+        weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
+        zugeordnet.</dd>
     <dt><dfn>Zentrum eines Centroids</dfn></dt>
     <dd>\[X_0 = \frac{1}{N} \sum_{i=1}^N X_i\]</dd>
     <dt><dfn>Radius eines Centroids</dfn></dt>
@@ -646,14 +655,15 @@ Slides: `9-Clustering-2.pdf`
     <dt><dfn>Outlier</dfn></dt>
     <dd>Noise, welcher weit von jedem Objekt entfernt ist.</dd>
     <dt><dfn>Core-Distanz</dfn></dt>
-    <dd>\(C(o) = \min\{\varepsilon \in \mathbb{R} | o \text{ ist mit DBSCAN } und \varepsilon \text{ dicht}\}\)
+    <dd>\(C(o) = \min\{\varepsilon \in \mathbb{R} | o \text{ ist mit DBSCAN und } \varepsilon \text{ dicht}\}\).<br/>
         Die Core-Distanz eines Objekts \(o\) ist also die kleinste Distanz, sodass
         \(o\) noch ein dichtes Objekt ist.</dd>
     <dt><dfn>Reachability-Distanz</dfn></dt>
     <dd>\[\text{reach\_d}() = \begin{cases}d(p, o)               &\text{if } d(p, o) > \text{coreDist}(p, o)\\
                                  \text{coreDist}(p, o) &\text{if } d(p, o) < \text{coreDist}(p, o)\end{cases}\]</dd>
     <dt><dfn>OPTICS</dfn></dt>
-    <dd>
+    <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
+        epsilon (Radius für Cluster-Distanz) automatisch Cluster findet.
 
         <ul>
             <li>ControlList (Priority Queue) enthält nur Objekte, die noch
@@ -662,9 +672,16 @@ Slides: `9-Clustering-2.pdf`
                 Output-Liste.</li>
             <li>Rekursiv expandieren wie bei DB-SCAN.</li>
         </ul>
+
+        Siehe <a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf">OPTICS: Ordering Points To Identify the Clustering Structure</a>.
     </dd>
-    <dt><dfn>EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
+    <dt><dfn>Reachability-Plot</dfn></dt>
     <dd>TODO</dd>
+    <dt><dfn>EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
+    <dd>Siehe <a href="https://martin-thoma.com/machine-learning-2-course#em-algorithmus">ML 2</a>.</dd>
+    <dt><dfn>Overall Likelihood</dfn></dt>
+    <dd>Die Overall Likelihood ist ein Gütemaß für Clusterings.
+        \[\prod_{i} \left ( p_A P(x_i | A) + p_B P(x_i | B) \right )\]</dd>
 </dl>
 
 
@@ -772,6 +789,9 @@ Slides: `12-Ensembles.pdf`
   → TODO
 * Wie kann man Radius, Durchmesser und Interclusterdistanz aus N, LS, SS herleiten?<br/>
   → TODO
+* Was spricht dagegen, \(\mathbf{\varepsilon}\) in OPTICS riesig zu wählen?<br/>
+  → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
+     Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
 
 
 ## Übungen
