@@ -129,7 +129,7 @@ besitzt. Man schreibt
   <dt><dfn>Gauß'scher Klassifizierer</dfn></dt>
   <dd>Ein (naiver) Bayes-Klassifikator, welcher von normalverteilten Daten
       ausgeht heißt <i>Gauß'scher Klassifizierer</i>.</dd>
-  <dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis"><dfn>Principal Component Analysis</dfn></a> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn>)</dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Principal_component_analysis" name="pca"><dfn>Principal Component Analysis</dfn></a> (<dfn>PCA</dfn>, <dfn>Hauptkomponentenanalyse</dfn>)</dt>
   <dd>Die Hauptkomponentenanalyse ist ein Verfahren zur
       Dimensionalitätsreduktion von ungelabelten Daten im \(\mathbb{R}^n\).
       Sie projeziert die Daten auf diejenige Hyperebene im

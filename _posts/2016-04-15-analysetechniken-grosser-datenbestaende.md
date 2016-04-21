@@ -249,7 +249,7 @@ Slides: `2-statistGrundlagen.pdf`
     <dd>Sind üblicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
         nicht-normiertes Korrelationsmaß.</dd>
     <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>TODO (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
     <dt><dfn>Chi-Quadrat-Test</dfn></dt>
     <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.
 
@@ -744,8 +744,8 @@ Slides: `12-Ensembles.pdf`
 
     <ul>
         <li>Overfitting wird minimiert.</li>
-        <li>Besseres gesamtsystem</li>
-        <li>TODO: Gibt es mehr?</li>
+        <li>Besseres Gesamtsystem</li>
+        <li>TODO: Gibt es mehr Vorteile von Ensembles gegenüber einzelnen Classifieren?</li>
     </ul>
 
     Typische Techniken sind Bagging und Boosting.</dd>
