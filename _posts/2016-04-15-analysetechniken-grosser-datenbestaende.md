@@ -157,9 +157,13 @@ Slides: `1-Einleitung.pdf`
       </ul>
   </dd>
   <dt><dfn>Association Rules</dfn></dt>
-  <dd>z.B. in Market Basket Analysis. Frequent item sets
+  <dd>Association Rules sind Regeln der Form:
+      Wenn eine Transaktion A enthält, dann auch B (formal: \(A \Rightarrow B\)).
 
-      Apriori Algorithmus zum finden von Association Rules. TODO
+      Association rules werden z.B. in der Market Basket Analysis eingesetzt.
+      Sie können aus Frequent item sets relativ einfach erzeugt werden.
+
+      Der Apriori Algorithmus dient dem Finden von Association Rules.
   </dd>
   <dt><dfn>Predictive Maintenance</dfn></dt>
   <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
