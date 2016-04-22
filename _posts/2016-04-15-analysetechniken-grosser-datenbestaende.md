@@ -793,7 +793,7 @@ Slides: `11-SupportVectorMachines.pdf`
 
 ### Ensembles
 
-Slides: `12-Ensembles.pdf`
+Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learning-1-course/#boosting">ML 1</a>)
 
 <dl>
     <dt><dfn>Ensembles</dfn></dt>
