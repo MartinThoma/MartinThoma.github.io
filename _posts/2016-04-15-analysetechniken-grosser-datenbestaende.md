@@ -268,16 +268,51 @@ Slides: `2-statistGrundlagen.pdf`
 
         Daraus wird ein \(p\)-Wert abgeleitet. Wenn dieser unter einem
         Schwellwert wie \(\alpha = 0.01\) ist, dann wird die Hypothese, dass
-        die Verteilungen unabhängig sind, zurückgewiesen.</dd>
+        die Verteilungen unabhängig sind, zurückgewiesen.
+
+        TODO</dd>
     <dt><dfn>Kolmogorov-Smirnov-Test</dfn></dt>
-    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen</dd>
+    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen. TODO</dd>
+    <dt><dfn>Wilcoxon-Mann-Whitney Test</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Datenreduktion</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Numerosity Reduction: Reduziere die Anzahl der betrachteten
+                Datenobjekte
+            <ul>
+                <li>Parametrische Verfahren: Nehme eine bekannte
+                    Wahrscheinlichkeitsverteilung der Datenobjekte an und
+                    schätze deren Paramter. Arbeite  dann nur mit der
+                    Verteilung</li>
+                <li>Nichtparametrische Verfahren: Sampling, Clustering,
+                    Histogramme</li>
+            </ul>
+            </li>
+            <li>Dimensionality Reduction: Reduziere die Anzahl der Attribute.
+
+            <ul>
+                <li>Forward Feature Construction: Starte nur mit einem Feature
+                    und gebe dem Classifier so lange neue Features, bis die
+                    gewünschte Genauigkeit erreicht wurde.</li>
+                <li>Feature Elimination: Starte mit allen Features und
+                    entferne so lange Features, wie die gewünschte Genauigkeit
+                    erhalten bleibt.</li>
+                <li>PCA</li>
+            </ul>
+            </li>
+            <li>Diskretisierung: Reduziere die Werte pro Attribut.</li>
+        </ul>
+
+    </dd>
 </dl>
 
 Weitere
 
 <ul>
     <li>Boxplots: Whiskers</li>
-    <li>Histogramme</li>
+    <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
     <li>Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge \(\Omega\),
         Wahrscheinlichkeitsmaß, Kovarianzmatrix, Bernoulli-Experiment</li>
 </ul>
@@ -287,7 +322,26 @@ Weitere
 
 Slides: `3-Informatik-Grundlagen.pdf`
 
-TODO
+<dl>
+    <dt><dfn>Index</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Anfragetypen</dfn></dt>
+    <dd>
+        
+        <ul>
+            <li>Punkt-Anfragen</li>
+            <li>Bereichs-Anfragen</li>
+            <li>Nearest-Neighbor-Anfragen (NN-Anfragen)</li>
+        </ul>
+
+    </dd>
+    <dt><dfn>kD-Baum</dfn></dt>
+    <dd>Splitte Raum mit Hyperebenen. Es entsteht ein Binärbaum.</dd>
+    <dt><dfn>kDB-Baum</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>R-Baum</dfn></dt>
+    <dd>TODO: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
+</dl>
 
 
 ### Entscheidungsbäume
@@ -776,6 +830,28 @@ Slides: `12-Ensembles.pdf`
 
 * Was ist Overfitting?<br/>
   → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
+* Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
+  für jede Dimension separat einen B-Baum angelegt hat?<br/>
+  → TODO
+* Wie ist der R-Baum aufgebaut?<br/>
+  → TODO
+* Wie funktioniert die Suche nach dem nächsten Nachbarn mit dem R-Baum?<br/>
+  → TODO
+* Was ändert sich, wenn die Objekte eine räumliche Ausdehnung haben?<br/>
+  → TODO (Dto. Anfragen)
+* Stören uns Überlappungen von Knoten des R-Baums? Wenn ja, warum?<br/>
+  → TODO
+* Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?<br/>
+  → TODO
+* Wie funktioniert Einfügen in den R-Baum, inklusive Split?<br/>
+  → TODO
+* Was für Anfragen unterstützen die diversen räumlichen Indexstrukturen?<br/>
+  → TODO
+* Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen
+  die NN-Sphere überlappen?<br/>
+  → TODO
+* Welche Classifier kennen Sie?<br/>
+  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze (TODO: einer fehlt!)
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
   Support und hohe Confidence hat?
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
