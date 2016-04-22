@@ -482,14 +482,23 @@ Slide: `04_ Texturen.pdf`
 
 Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 
-* Hüllkörper
-  * Axis-Aligned Bounding Boxes (AABB)
-  * Bounding Volume Hierachies (BVH)
-* Reguläre Gitter
-* Oktalbaum (Octree)
-* kD-Baum
-
 <dl>
+    <dt><dfn>Räumliche Datenstrukturen</dfn></dt>
+    <dd>
+
+    <ul>
+        <li>Hüllkörper
+        <ul>
+            <li>Axis-Aligned Bounding Boxes (AABB)</li>
+            <li>Bounding Volume Hierachies (BVH)</li>
+        </ul>
+        </li>
+        <li>Reguläre Gitter</li>
+        <li>Oktalbaum (Octree)</li>
+        <li>kD-Baum</li>
+    </ul>
+
+    </dd>
     <dt><dfn>AABB</dfn> (<dfn>Axis-Aligned Bounding Box</dfn>)</dt>
     <dd>Axis-Aligned Bounding Boxes sind Rechtecke (Quader in 3D), deren Seiten
         parallel zu den Achsen des Koordinatensystems stehen. Sie werden als
@@ -502,9 +511,13 @@ Slide: `05_ Raumliche Datenstrukturen.pdf` (10.12.2015)
 
         Somit wird eine Baumstruktur aufgebaut, welche den Raum in immer
         kleinere Teile teilt.</dd>
-    <dt><dfn>kD-Baum</dfn></dt>
-    <dd>Ein BSP-Baum, welcher nur achsenparallele Ebenen erlaubt.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/K-d_tree" name="kd-tree"><dfn>kD-Baum</dfn></a></dt>
+    <dd>Ein BSP-Baum, welcher nur achsenparallele Ebenen erlaubt.
+        Der Raum wird also mit achsenparallelen Hyperebenen geteilt; es
+        entsteht ein Binärbaum welcher den Raum partitioniert.</dd>
     <dt><dfn>Surface Area Heuristic</dfn> (<dfn>SAH</dfn>)</dt>
+    <dd>Wähle die Split-Ebene so, dass die Kosten der Traversierung minimiert
+        werden.</dd>
     <dt><dfn>Bounding-Volume-Hierachies</dfn> (<dfn>BVH</dfn>)</dt>
     <dd>BVHs sind eine Datenstruktur, welche den Raum in Hüllkörper unterteilt.
         Man hat also komplexe Objekte. Für diese Objekte muss man Schnittests

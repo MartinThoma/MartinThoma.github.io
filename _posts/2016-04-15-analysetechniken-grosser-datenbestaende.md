@@ -259,10 +259,15 @@ Slides: `2-statistGrundlagen.pdf`
         nicht-normiertes Korrelationsmaß.</dd>
     <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>TODO (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
-    <dt><dfn>Chi-Quadrat-Test</dfn></dt>
-    <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.
-
-        Gegeben sind zwei Verteilungen. Die Frage ist, ob sie unabhängig sind.
+    <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn>Chi-Quadrat-Test</dfn></a></dt>
+    <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.<br/>
+        <br/>
+        Gegeben sind zwei Verteilungen von Zufallsvariablen \(X, Y\). Die Frage
+        ist, ob sie unabhängig sind.<br/>
+        Dazu zählt man die Ausprägungen \(i=1, \dots, m_1\) des Merkmals \(X\)
+        und die Ausprägungen \(j=1, \dots, m_2\) des Merkmals \(Y\) sowie
+        wie häufig diese in Kombination auftreten (\(n_{ij}\)). Man schätzt den
+        erwarteten Wert durch \(e_{ij} = \frac{1}{n} \left(\sum_{k=1}^{m_2} n_{ik} \right) \cdot \left (\sum_{k=1}^{m_2} n_{kj}\right )\). Der Chi-Quadrat wert ist dann:
 
         \[\chi^2 = \sum_{i=1}^{m_1} \sum_{j=1}^{m_2} \frac{(n_{ij} - e_{ij})^2}{e_{ij}}\]
 
@@ -270,11 +275,33 @@ Slides: `2-statistGrundlagen.pdf`
         Schwellwert wie \(\alpha = 0.01\) ist, dann wird die Hypothese, dass
         die Verteilungen unabhängig sind, zurückgewiesen.
 
-        TODO</dd>
-    <dt><dfn>Kolmogorov-Smirnov-Test</dfn></dt>
-    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen. TODO</dd>
-    <dt><dfn>Wilcoxon-Mann-Whitney Test</dfn></dt>
-    <dd>TODO</dd>
+        Die Nullhypothese, dass \(X, Y\) unabhängig sind wird auf dem
+        Signifikanzniveau \(\alpha\) verworfen, falls
+
+        \[\chi^2 > \chi^2_{(1-\alpha; (m_1-1)(m_2-1))}\]
+
+        </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test"><dfn>Kolmogorow-Smirnow-Test</dfn></a> (<dfn>KSA-Test</dfn>)</dt>
+    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen, also:
+        \[H_0: F_X(x) = F_0(x)\]
+
+        Es wird die empirsche Verteilungsfunktion \(S\) gebildet und diese mit
+        der hypothetischen Verteilungsfunktion \(F_0\) verglichen, wobei
+        \(S(x_0) = 0\) gesetzt wird:
+        \[d_{\max} = \max(\max_{i=1, \dots, n}|S(x_i) - F_0(x_i)|, \max_{i=1, \dots, n} |S(x_{i-1} - F_0(x_i))|)\]
+        \(H_0\) wird verworfen, wenn \(d_{\max} > d_\alpha\), wobei \(d_\alpha\)
+        bis zu \(n=35\) tabelliert vorliegt. Bei großerem \(n\) kann
+        näherungsweise
+        \[d_\alpha = \sqrt{\frac{-\frac{1}{2} \ln(\frac{\alpha}{2})}{n}}\]
+        </dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Wilcoxon-Mann-Whitney-Test"><dfn>Wilcoxon-Mann-Whitney-Test</dfn></a> (\(U\)-Test)</dt>
+    <dd>Es seien \(X,Y\) Zufallsvariablen mit Verteilungsfunktionen
+        \(F_X(x) = F_Y(x-a)\) für ein \(a \in \mathbb{R}\).<br/>
+        <br/>
+        \(H_0: a = 0\) vs \(H_1: a \neq 0\)<br/>
+        Vorgehen: Gemeinsame Stichprobe sortieren, Rangsumme für \(X\) und \(Y\)
+        bilden, Betrag der Differenz mit Tabelleneintrag vergleichen.
+    </dd>
     <dt><dfn>Datenreduktion</dfn></dt>
     <dd>
 
@@ -323,11 +350,12 @@ Weitere
 Slides: `3-Informatik-Grundlagen.pdf`
 
 <dl>
-    <dt><dfn>Index</dfn></dt>
-    <dd>TODO</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Datenbankindex"><dfn>Index</dfn></a></dt>
+    <dd>Beschleunigung der Suche von linearer Suchzeit auf logarithmische
+        durch <a href="https://de.wikipedia.org/wiki/B%2B-Baum">B<sup>+</sup>-Bäume</a>.</dd>
     <dt><dfn>Anfragetypen</dfn></dt>
     <dd>
-        
+
         <ul>
             <li>Punkt-Anfragen</li>
             <li>Bereichs-Anfragen</li>
@@ -336,7 +364,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
 
     </dd>
     <dt><dfn>kD-Baum</dfn></dt>
-    <dd>Splitte Raum mit Hyperebenen. Es entsteht ein Binärbaum.</dd>
+    <dd>Siehe <a href="https://martin-thoma.com/cg-klausur/#kd-tree">Computergrafik</a></dd>
     <dt><dfn>kDB-Baum</dfn></dt>
     <dd>TODO</dd>
     <dt><dfn>R-Baum</dfn></dt>
@@ -830,6 +858,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 
 * Was ist Overfitting?<br/>
   → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
+* Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0">\(X, Y\)</span>?<br/>
+  → <span markdown="0">\(\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\)</span>
 * Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
   für jede Dimension separat einen B-Baum angelegt hat?<br/>
   → TODO
