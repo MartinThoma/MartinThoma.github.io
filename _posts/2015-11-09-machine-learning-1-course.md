@@ -380,6 +380,7 @@ Siehe auch:
     * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)
     * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This expalins TD-learning.
 * [What is the Q function and what is the V function in reinforcement learning?](http://datascience.stackexchange.com/q/9832/8820)
+* [Demystifying Deep Reinforcement Learning](http://www.nervanasys.com/demystifying-deep-reinforcement-learning/)
 
 <dl>
   <dt><a href="https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>
@@ -482,7 +483,10 @@ Algorithmen:
 </dl>
 
 
-#### Q-Learning
+#### <a name="q-learning"></a> Q-Learning
+
+Das "Q" in der Q-Funktion steht für "quality".
+
 * [Q-learning](https://en.wikipedia.org/wiki/Q-learning)
     * [YouTube: Lecture 18: RL Part 1: Q-Learning](https://www.youtube.com/watch?v=yS5F_vm9Ahk): 1:16:11. BrownCS141 Spring 2014.
     * [YouTube: PacMan](https://www.youtube.com/watch?v=3sLV0OJLdns)
@@ -536,6 +540,9 @@ Slide name: `MLI_04_Lerntheorie_slides1.pdf`
   wenn sie möglichst wenige Variablen und Hypothesen enthält, und wenn diese in
   klaren logischen Beziehungen zueinander stehen, aus denen der zu erklärende
   Sachverhalt logisch folgt.</dd>
+  <dt><a href="" name="overfitting"></a><dfn>Overfitting</dfn></dt>
+  <dd>Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe
+      Generalisierungsfähgikeit</dd>
   <dt><a href="https://en.wikipedia.org/wiki/Structural_risk_minimization"><dfn>Structural Risc Minimization</dfn></a> (<dfn>SRM</dfn>)</dt>
   <dd>Unter <i>Structural risk minimization</i> versteht man die Abwägung
       zwischen einem einfachen Modell und einem komplexen Modell, welches

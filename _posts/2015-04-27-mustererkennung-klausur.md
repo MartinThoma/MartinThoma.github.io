@@ -24,7 +24,7 @@ featured_image: logos/klausur.png
 <tr>
     <td>15.04.2015</td>
     <td><a href="https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap1_V33.pdf">Einleitung</a></td>
-    <td>$\hat{w}$ - das <code>^</code> bedeutet, dass die Klasse geschätzt ist.</td>
+    <td>\(\hat{w}\) - das <code>^</code> bedeutet, dass die Klasse geschätzt ist.</td>
 </tr>
 <tr>
     <td>22.04.2015</td>
@@ -266,7 +266,8 @@ sind:
   → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA
   (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA
 * Wie viele Möglichkeiten gibt es 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)
-* Was ist Overfitting? (Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe Generalisierungsfähgikeit)
+* Was ist Overfitting?<br/>
+  → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
 * Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?
   - Unterschiedliche Einheiten (→ Entdimensionalisieren)
   - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)

@@ -176,12 +176,8 @@ Slides: `1-Einleitung.pdf`
           <li>Ausfall wird nicht vorhergesagt, tritt aber ein: Teurer Ausfall</li>
       </ul>
   </dd>
-
-  <dt><dfn>Subspace Search</dfn></dt>
-  <dd>TODO</dd>
-
   <dt><dfn>Change detection</dfn></dt>
-  <dd>TODO</dd>
+  <dd>Erkennung wesentlicher Veränderungen in einer Zeitreihe.</dd>
 </dl>
 
 
@@ -190,6 +186,8 @@ Slides: `1-Einleitung.pdf`
 Slides: `2-statistGrundlagen.pdf`
 
 <dl>
+    <dt><dfn>Skalen</dfn></dt>
+    <dd>Siehe <a href="https://martin-thoma.com/mustererkennung-klausur/#merkmale">Mustererkennung</a></dd>
     <dt><dfn>Kennzahlen für Daten</dfn></dt>
     <dd>
         <ul>
@@ -200,11 +198,22 @@ Slides: `2-statistGrundlagen.pdf`
             <li>Outlier</li>
         </ul>
     </dd>
+    <dt><dfn>Metrische Daten</dfn></dt>
+    <dd>Ein Metrischer Raum ist eine Menge \(M\) mit einer Funktion
+        \(d: M \times M \rightarrow \mathbb{R}_0^+\) für die gilt:
+
+        <ul>
+            <li>Symmetrie: \(\forall p,q \in M: d(p, q) = d(q, p) \)</li>
+            <li>Definitheit: \(\forall p,q \in M: d(p, q) = 0 \Leftrightarrow p = q\)</li>
+            <li>Dreiecksungleichung: \(\forall p,q,r \in M: d(p, r) \leq d(p,q) + d(q, r)\)</li>
+        </ul>
+
+    </dd>
     <dt><dfn>Aggregatfunktion</dfn></dt>
     <dd>Eine Funktion, welche als Eingabe eine Menge von Werten erwartet und
         einen Wert ausgibt (z.B. SUM, COUNT, MIN, MAX, AVG, MEAN,
-        häufigster Wert, Truncated Average, mid range).
-
+        häufigster Wert, Truncated Average, mid range).<br/>
+        <br/>
         Aggregatfunktionen sind entweder <strong>distributiv</strong>,
         <strong>algebraisch</strong> oder <strong>holistisch</strong>.
     </dd>
@@ -222,21 +231,21 @@ Slides: `2-statistGrundlagen.pdf`
 
         AVG ist eine Algebraische Aggregatfunktion. Hier berechnet \(G\) die
         Summe und gibt zusätzlich die Anzahl der Werte zurück. \(H\) summiert
-        die Summen auf und teilt das Ergebnis durch die Gesamtzahl.
-
+        die Summen auf und teilt das Ergebnis durch die Gesamtzahl.<br/>
+        <br/>
         Weitere: Truncated Average</dd>
     <dt><dfn>Holistische Aggregatfunktion</dfn></dt>
     <dd>Man kann keine Beschränkung des Speicherbedarfs für Sub-Aggregate,
-        d.h. Aggregate über \(\{X_{i,j}| i=1, \dots, l\}\), angeben.
-
+        d.h. Aggregate über \(\{X_{i,j}| i=1, \dots, l\}\), angeben.<br/>
+        <br/>
         Der häufigste Wert und der Median sind holistische Aggregatfunktionen.</dd>
     <dt><dfn>Self-Maintainable Aggregatfunktion</dfn></dt>
     <dd>Wenn man den aktuellen Wert der Aggregatfunktion kennt und man löscht
         einen Wert bzw. fügt einen Wert ein, dann kann man direkt den neuen
-        Wert der Aggregatfunktion über den angepassten Datenbestand berechnen.
-
-        Nicht-self-maintainable ist der häufigste Wert.
-
+        Wert der Aggregatfunktion über den angepassten Datenbestand berechnen.<br/>
+        <br/>
+        Nicht-self-maintainable ist der häufigste Wert.<br/>
+        <br/>
         MIN und MAX ist self-maintainable bzgl. Einfügen.</dd>
     <dt><dfn>Mid-Range</dfn></dt>
     <dd>\[\frac{MAX-MIN}{2}\]</dd>
@@ -273,10 +282,6 @@ Weitere
         Wahrscheinlichkeitsmaß, Kovarianzmatrix, Bernoulli-Experiment</li>
 </ul>
 
-Siehe auch:
-
-* [Arten von Merkmalen](https://martin-thoma.com/mustererkennung-klausur/#me-kap2v84pdf)
-
 
 ### Räumliche Indexstrutkuren
 
@@ -285,7 +290,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
 TODO
 
 
-### Entscheidungsbäumen
+### Entscheidungsbäume
 
 Slides: `4-Entscheidungsbaeume.pdf`
 
@@ -769,6 +774,8 @@ Slides: `12-Ensembles.pdf`
 
 ## Prüfungsfragen
 
+* Was ist Overfitting?<br/>
+  → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
   Support und hohe Confidence hat?
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen

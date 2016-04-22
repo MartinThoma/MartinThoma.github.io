@@ -518,6 +518,10 @@ Fragen:
   ist?<br/>
   → Der Agent versucht die Summe der Belohnungen insgesamt zu maximieren.
 
+Siehe auch:
+
+* [Demystifying Deep Reinforcement Learning](http://www.nervanasys.com/demystifying-deep-reinforcement-learning/)
+
 
 ### V10: SOM
 
