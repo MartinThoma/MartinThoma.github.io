@@ -132,7 +132,7 @@ MathJax.Hub.Queue(function() {
                <a href="#tocAnchor-1-1-4"><span class="tocnumber">1.4</span> <span class="toctext">Räumliche Indexstrutkuren</span></a>
             </li>
             <li class="toc_level-2 toc_section-6">
-               <a href="#tocAnchor-1-1-5"><span class="tocnumber">1.5</span> <span class="toctext">Entscheidungsbäumen</span></a>
+               <a href="#tocAnchor-1-1-5"><span class="tocnumber">1.5</span> <span class="toctext">Entscheidungsbäume</span></a>
             </li>
             <li class="toc_level-2 toc_section-7">
                <a href="#tocAnchor-1-1-6"><span class="tocnumber">1.6</span> <span class="toctext">Evaluation</span></a>
@@ -340,12 +340,8 @@ MathJax.Hub.Queue(function() {
           <li>Ausfall wird nicht vorhergesagt, tritt aber ein: Teurer Ausfall</li>
       </ul>
   </dd>
-
-  <dt><dfn>Subspace Search</dfn></dt>
-  <dd>TODO</dd>
-
   <dt><dfn>Change detection</dfn></dt>
-  <dd>TODO</dd>
+  <dd>Erkennung wesentlicher Veränderungen in einer Zeitreihe.</dd>
 </dl>
 
 <h3 id="tocAnchor-1-1-3">Statistische Grundlagen</h3>
@@ -353,6 +349,8 @@ MathJax.Hub.Queue(function() {
 <p>Slides: <code>2-statistGrundlagen.pdf</code></p>
 
 <dl>
+    <dt><dfn>Skalen</dfn></dt>
+    <dd>Siehe <a href="https://martin-thoma.com/mustererkennung-klausur/#merkmale">Mustererkennung</a></dd>
     <dt><dfn>Kennzahlen für Daten</dfn></dt>
     <dd>
         <ul>
@@ -363,11 +361,22 @@ MathJax.Hub.Queue(function() {
             <li>Outlier</li>
         </ul>
     </dd>
+    <dt><dfn>Metrische Daten</dfn></dt>
+    <dd>Ein Metrischer Raum ist eine Menge \(M\) mit einer Funktion
+        \(d: M \times M \rightarrow \mathbb{R}_0^+\) für die gilt:
+
+        <ul>
+            <li>Symmetrie: \(\forall p,q \in M: d(p, q) = d(q, p) \)</li>
+            <li>Definitheit: \(\forall p,q \in M: d(p, q) = 0 \Leftrightarrow p = q\)</li>
+            <li>Dreiecksungleichung: \(\forall p,q,r \in M: d(p, r) \leq d(p,q) + d(q, r)\)</li>
+        </ul>
+
+    </dd>
     <dt><dfn>Aggregatfunktion</dfn></dt>
     <dd>Eine Funktion, welche als Eingabe eine Menge von Werten erwartet und
         einen Wert ausgibt (z.B. SUM, COUNT, MIN, MAX, AVG, MEAN,
-        häufigster Wert, Truncated Average, mid range).
-
+        häufigster Wert, Truncated Average, mid range).<br />
+        <br />
         Aggregatfunktionen sind entweder <strong>distributiv</strong>,
         <strong>algebraisch</strong> oder <strong>holistisch</strong>.
     </dd>
@@ -385,21 +394,21 @@ MathJax.Hub.Queue(function() {
 
         AVG ist eine Algebraische Aggregatfunktion. Hier berechnet \(G\) die
         Summe und gibt zusätzlich die Anzahl der Werte zurück. \(H\) summiert
-        die Summen auf und teilt das Ergebnis durch die Gesamtzahl.
-
+        die Summen auf und teilt das Ergebnis durch die Gesamtzahl.<br />
+        <br />
         Weitere: Truncated Average</dd>
     <dt><dfn>Holistische Aggregatfunktion</dfn></dt>
     <dd>Man kann keine Beschränkung des Speicherbedarfs für Sub-Aggregate,
-        d.h. Aggregate über \(\{X_{i,j}| i=1, \dots, l\}\), angeben.
-
+        d.h. Aggregate über \(\{X_{i,j}| i=1, \dots, l\}\), angeben.<br />
+        <br />
         Der häufigste Wert und der Median sind holistische Aggregatfunktionen.</dd>
     <dt><dfn>Self-Maintainable Aggregatfunktion</dfn></dt>
     <dd>Wenn man den aktuellen Wert der Aggregatfunktion kennt und man löscht
         einen Wert bzw. fügt einen Wert ein, dann kann man direkt den neuen
-        Wert der Aggregatfunktion über den angepassten Datenbestand berechnen.
-
-        Nicht-self-maintainable ist der häufigste Wert.
-
+        Wert der Aggregatfunktion über den angepassten Datenbestand berechnen.<br />
+        <br />
+        Nicht-self-maintainable ist der häufigste Wert.<br />
+        <br />
         MIN und MAX ist self-maintainable bzgl. Einfügen.</dd>
     <dt><dfn>Mid-Range</dfn></dt>
     <dd>\[\frac{MAX-MIN}{2}\]</dd>
@@ -422,33 +431,81 @@ MathJax.Hub.Queue(function() {
 
         Daraus wird ein \(p\)-Wert abgeleitet. Wenn dieser unter einem
         Schwellwert wie \(\alpha = 0.01\) ist, dann wird die Hypothese, dass
-        die Verteilungen unabhängig sind, zurückgewiesen.</dd>
+        die Verteilungen unabhängig sind, zurückgewiesen.
+
+        TODO</dd>
     <dt><dfn>Kolmogorov-Smirnov-Test</dfn></dt>
-    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen</dd>
+    <dd>Test auf unabhängigkeit kontinuierlicher Verteilungen. TODO</dd>
+    <dt><dfn>Wilcoxon-Mann-Whitney Test</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Datenreduktion</dfn></dt>
+    <dd>
+
+        <ul>
+            <li>Numerosity Reduction: Reduziere die Anzahl der betrachteten
+                Datenobjekte
+            <ul>
+                <li>Parametrische Verfahren: Nehme eine bekannte
+                    Wahrscheinlichkeitsverteilung der Datenobjekte an und
+                    schätze deren Paramter. Arbeite  dann nur mit der
+                    Verteilung</li>
+                <li>Nichtparametrische Verfahren: Sampling, Clustering,
+                    Histogramme</li>
+            </ul>
+            </li>
+            <li>Dimensionality Reduction: Reduziere die Anzahl der Attribute.
+
+            <ul>
+                <li>Forward Feature Construction: Starte nur mit einem Feature
+                    und gebe dem Classifier so lange neue Features, bis die
+                    gewünschte Genauigkeit erreicht wurde.</li>
+                <li>Feature Elimination: Starte mit allen Features und
+                    entferne so lange Features, wie die gewünschte Genauigkeit
+                    erhalten bleibt.</li>
+                <li>PCA</li>
+            </ul>
+            </li>
+            <li>Diskretisierung: Reduziere die Werte pro Attribut.</li>
+        </ul>
+
+    </dd>
 </dl>
 
 <p>Weitere</p>
 
 <ul>
     <li>Boxplots: Whiskers</li>
-    <li>Histogramme</li>
+    <li>Histogramme: Nicht geeignet für viele Dimensionen.</li>
     <li>Wahrscheinlichkeitsraum, Ereignis, Ergebnis, Ergebnismenge \(\Omega\),
         Wahrscheinlichkeitsmaß, Kovarianzmatrix, Bernoulli-Experiment</li>
-</ul>
-
-<p>Siehe auch:</p>
-
-<ul>
-  <li><a href="https://martin-thoma.com/mustererkennung-klausur/#me-kap2v84pdf">Arten von Merkmalen</a></li>
 </ul>
 
 <h3 id="tocAnchor-1-1-4">Räumliche Indexstrutkuren</h3>
 
 <p>Slides: <code>3-Informatik-Grundlagen.pdf</code></p>
 
-<p>TODO</p>
+<dl>
+    <dt><dfn>Index</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>Anfragetypen</dfn></dt>
+    <dd>
+        
+        <ul>
+            <li>Punkt-Anfragen</li>
+            <li>Bereichs-Anfragen</li>
+            <li>Nearest-Neighbor-Anfragen (NN-Anfragen)</li>
+        </ul>
 
-<h3 id="tocAnchor-1-1-5">Entscheidungsbäumen</h3>
+    </dd>
+    <dt><dfn>kD-Baum</dfn></dt>
+    <dd>Splitte Raum mit Hyperebenen. Es entsteht ein Binärbaum.</dd>
+    <dt><dfn>kDB-Baum</dfn></dt>
+    <dd>TODO</dd>
+    <dt><dfn>R-Baum</dfn></dt>
+    <dd>TODO: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
+</dl>
+
+<h3 id="tocAnchor-1-1-5">Entscheidungsbäume</h3>
 
 <p>Slides: <code>4-Entscheidungsbaeume.pdf</code></p>
 
@@ -899,7 +956,7 @@ Slides: <code>9-Clustering-2.pdf</code></p>
 
 <h3 id="tocAnchor-1-1-12">Ensembles</h3>
 
-<p>Slides: <code>12-Ensembles.pdf</code></p>
+<p>Slides: <code>12-Ensembles.pdf</code> (vgl. <a href="https://martin-thoma.com/machine-learning-1-course/#boosting">ML 1</a>)</p>
 
 <dl>
     <dt><dfn>Ensembles</dfn></dt>
@@ -934,6 +991,30 @@ Slides: <code>9-Clustering-2.pdf</code></p>
 <h2 id="tocAnchor-1-14">Prüfungsfragen</h2>
 
 <ul>
+  <li>Was ist Overfitting?<br />
+→ Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a></li>
+  <li>Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
+für jede Dimension separat einen B-Baum angelegt hat?<br />
+→ TODO</li>
+  <li>Wie ist der R-Baum aufgebaut?<br />
+→ TODO</li>
+  <li>Wie funktioniert die Suche nach dem nächsten Nachbarn mit dem R-Baum?<br />
+→ TODO</li>
+  <li>Was ändert sich, wenn die Objekte eine räumliche Ausdehnung haben?<br />
+→ TODO (Dto. Anfragen)</li>
+  <li>Stören uns Überlappungen von Knoten des R-Baums? Wenn ja, warum?<br />
+→ TODO</li>
+  <li>Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?<br />
+→ TODO</li>
+  <li>Wie funktioniert Einfügen in den R-Baum, inklusive Split?<br />
+→ TODO</li>
+  <li>Was für Anfragen unterstützen die diversen räumlichen Indexstrukturen?<br />
+→ TODO</li>
+  <li>Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen
+die NN-Sphere überlappen?<br />
+→ TODO</li>
+  <li>Welche Classifier kennen Sie?<br />
+→ Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze (TODO: einer fehlt!)</li>
   <li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
 Support und hohe Confidence hat?</li>
   <li>Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
