@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
 				"pro",
 				"processed"
 			],
@@ -510,10 +514,6 @@
 			[
 				"mip",
 				"mip_levels"
-			],
-			[
-				"eva",
-				"evaluate_bilinear"
 			]
 		]
 	},
@@ -531,29 +531,26 @@
 			"file": "_posts/2016-04-15-analysetechniken-grosser-datenbestaende.md",
 			"settings":
 			{
-				"buffer_size": 36716,
+				"buffer_size": 39613,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "---\nlayout: post\ntitle: Mustererkennung - Klausur\nauthor: Martin Thoma\ndate: 2015-04-27 21:15\ncategories:\n- German posts\ntags:\n- Klausur\nfeatured_image: logos/klausur.png\n---\n<div class=\"info\">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Mustererkennung&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href=\"http://ies.anthropomatik.kit.edu/mitarbeiter.php?person=beyerer\">Herrn Prof. Dr.-Ing. Jürgen Beyerer</a> im Sommersemester 2015 gehört und einige Abschnitte direkt aus den Folien übernommen.</div>\n\n## Behandelter Stoff\n\n### Vorlesung\n\n<table>\n<tr>\n    <th>Datum</th>\n    <th>Kapitel</th>\n    <th>Inhalt</th>\n</tr>\n<tr>\n    <td>15.04.2015</td>\n    <td><a href=\"https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap1_V33.pdf\">Einleitung</a></td>\n    <td>\\(\\hat{w}\\) - das <code>^</code> bedeutet, dass die Klasse geschätzt ist.</td>\n</tr>\n<tr>\n    <td>22.04.2015</td>\n    <td><a href=\"https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap2_V85.pdf\">Kapitel 2 - Merkmale</a>: 1-31?</td>\n    <td>Welt; Domäne; Objekte; Klassen; Merkmalsraum; Merkmalsvektor; Klassifikation; Skalen (nominal, ordinal, intervall-, verhältnis- und absolutskaliert); Projektionen; <a href=\"https://de.wikipedia.org/wiki/Norm_(Mathematik)#Definition\">Norm</a> (Minkowski, Euklidisch, Chebychev, Mahalanobis); <a href=\"https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition\">Metrik</a> (Tanimoto)</td>\n</tr>\n<tr>\n    <td>14.07.2015</td>\n    <td><a href=\"http://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap8_V25.pdf\">Kapitel 8 - Klassifikatoren</a> (1-28), <a href=\"https://ies.anthropomatik.kit.edu/ies/download/lehre/me/ME-Kap9_V29.pdf\">Kapitel 9</a>: 1-?</td>\n    <td>Entscheidungsbäume, Grammatiken; Lernen nach Vapnik, VC-dimension, Kreuzvalidierung und Leave-One-Out, Boosting</td>\n</tr>\n</table>\n\n### Folien\n\n#### ME-Kap1_V31.pdf\n\n**Einleitendes Kapitel** welches erklärt, was Klassifikation ist.\n\n* Beispiele für Klassifikation: Blumen/Schmetterlinge in Arten; Schrauben in Schraubentypen; Schüttgut in Mineralien, Pflanzen, Glasscheiben, Diamante, ...\n* Formalismen\n  * Domäne $\\Omega \\subseteq $ Welt, Elemente der Domäne heißen Objekte, Objekte werden in paarweise disjunkte Äquivalenzklassen $\\omega_i$ gruppiert, sodass jedes Objekt genau eine Äquivalenzklasse hat.\n  * Man beobachtet / misst Eigenschaften realer Objekte. Dies kann als Funktion\n    **m** aufgefasst werden, die von der Domäne in den Merkmalsraum abbildet.\n    Optimalerweise ist diese Abbildung injektiv, bei ungünstig gewählten\n    Merkmalen jedoch nicht. Klassifikatoren arbeiten auf dem Merkmalsraum und\n    finden eine Partition des Merkmalsraumes in Klassen\n* **Muster**: Gesamtheit der beobachteten / gemessenen Werte einer einzelnen\n  Stichprobe (eines einzelnen Objekts).\n* **Erkennung**: (Wieder)erkennung von etwas, was bereits bekannt ist.\n* **Merkmale**: eruirbare, charakteristische Eigenschaften, die als Basis für\n  die Untersuchung von Mustern dienen soll.\n* **Mustererkennungsschritte**: Sensierung ergibt Muster; Vorverarbeitung;\n  Segmentierung; Merkmalsextraktion ergibt Merkmale; Klassifikation ergibt\n  Äquivalenzklassen\n* **Überwachtes lernen**: Vorklassifizierte Beispiele sowie die Klassenstruktur\n  sind gegeben; eventuell auch Auftrittswahrscheinlichkeiten $P(\\omega_i)$ der\n  Klassen\n* Gesamtstichprobe wird in die disjunkten Mengen Lernstrichprobe,\n  Validierungsstichprobe und Teststichprobe zerlegt.\n\n#### Merkmale\n\nSlides: `ME-Kap2_V84.pdf`\n\nIn diesem Foliensatz geht es um **Merkmale** und ihre Eigenschaften.\n\n<table border=\"1\">\n    <tr>\n        <th rowspan=\"3\">&nbsp;</th>\n        <th colspan=\"5\">Skala</th>\n    </tr>\n    <tr>\n        <th colspan=\"2\">qualitativ</th>\n        <th colspan=\"3\">quantitativ (metrisch)</th>\n    </tr>\n    <tr>\n        <th>Nominal-</th>\n        <th>Ordinal-</th>\n        <th>Intervall-</th>\n        <th>Verh&auml;ltnis-</th>\n        <th>Absolut</th>\n    </tr>\n    <tr>\n        <th>Empirische Relation</th>\n        <td>~ &Auml;quivalenz</td>\n        <td>~ &Auml;quivalenz<br/>Ordnung</td>\n        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition</td>\n        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>\n        <td>~ &Auml;quivalenz<br/>Ordnung<br/>Emp. Addition<br/>Emp. Multipliation</td>\n    </tr>\n    <tr>\n        <th>Zul&auml;ssige Transformationen</th>\n        <td>m' = f(m)<br/>f bijektiv</td>\n        <td>m' = f(m)<br/>f streng monoton</td>\n        <td>m' = am+b<br/>mit a&gt;0</td>\n        <td>m' = am<br/>mit a&gt;0</td>\n        <td>m' = m</td>\n    </tr>\n    <tr>\n        <th>Beispiele zugeh&ouml;rige Merkmale</th>\n        <td>Telefonnummern, Kfz-Kennz., Typen, PLZ, Geschlecht</td>\n        <td>G&uuml;teklassen, H&auml;rtegrad, Windst&auml;rke</td>\n        <td>Temp. in &deg;C, &deg;F, Kalenderzeit, geographische H&ouml;he</td>\n        <td>Masse, L&auml;nge, el. Strom</td>\n        <td>Quantenzahlen, Teilchenanzahl, Fehlerzahl</td>\n    </tr>\n    <tr>\n        <th>Werte von m</th>\n        <td>Zahlen, Namen, Symbole</td>\n        <td>in der Regel nat&uuml;rliche Zahlen</td>\n        <td>in der Regel reele Zahlen</td>\n        <td>in der Regel reele Zahlen &gt; 0</td>\n        <td>in der Regel nat&uuml;rliche Zahlen</td>\n    </tr>\n</table>\n\nDer Merkmalsraum ist häufig ein $\\mathbb{R}^n$ mit $n>3$. Er kann auf\nvorhandene Strukturen analysiert werden, indem er auf einen 2- oder\n3-dimensionalen unterraum projeziert wird. Dies kann bei einfachen Projektionen\njedoch nicht erfolgreich sein, wenn beispielsweise zwei Klassen Schalenförmig\num den Urspruch angeordnet sind.\n\nUm Stichproben im Merkmalsraum zu vergleichen können Metriken benutzt werden.\nEine [Metrik](https://de.wikipedia.org/wiki/Metrischer_Raum#Formale_Definition)\nist eine Abbildung $d(m_1, m_2)$, für die gilt:\n\n* Positive Definitheit: $d(m_1, m_2) \\geq 0$ und $d(m_1, m_2) = 0 \\Leftrightarrow m_1 = m_2$,\n* Symmetrie: $d(m_1, m_2) = d(m_2, m_1)$,\n* Dreiecksungleichung: $d(m_1, m_2) \\leq d(m_1, m_3) + d(m_3, m_2)$\n\nMetriken können durch [Normen](https://de.wikipedia.org/wiki/Norm_(Mathematik)#Definition)\nerzeugt werden, indem $d(m_1, m_2) := \\|m_1 - m_2\\|$ definiert wird. Eine Norm\nist eine Abbildung $\\| \\cdot \\|: V \\rightarrow \\mathbb{R}_0^+, x \\mapsto \\|x\\|$\nfür die gilt:\n\n* Definitheit: $\\|x\\| = 0 \\Rightarrow x = 0$\n* Absolute Homogenität: $\\|\\alpha \\cdot x \\| = \\alpha \\cdot \\| x \\|$\n* Dreiecksungleichung: $\\|x+y\\| \\leq \\|x\\| + \\|y\\|$\n\nTypische Normen sind die\n[euklidische Norm](https://de.wikipedia.org/wiki/Euklidische_Norm) und die\nMahalanobis Norm $\\|m\\| := \\sqrt{m^T A m}$ mit $A$ positiv definit.\n\n**Hauptkomponentenanalyse** (HKA, engl. PCA)\n\n1. Finde $m_0$, sodass $J_0(m) := \\sum_{k=1}^N \\|m - m_k\\|^2$ minimal ist, also\n   $m_0 = \\frac{1}{N} \\sum_{k=1}^N m_k$\n2. Finde Gerade $h: m = \\bar{m} + ae$, welche die Punkte optimal repräsentiert.\n    1. Finden der $a_k$ (TODO: Was ist das?)<br/>\n       Fehlermaß $J_1(a_1, \\dots, a_N, e) = \\sum_{k=1}^N \\|\\bar{m} + a_k e - m_k \\|^2$.<br/>\n       Ergibt: $a_k = e^T (m_k - \\bar{m})$\n    2. Berechnung des optimalen Richtungsvektors<br/>\n       Streumatrix $S := \\sum_{k=1}^N (m_k - \\bar{m}) (m_k - \\bar{m})^T$\n3. Finden eines affinen $d'$-dimensionalen Unterraumes des Merkmalsraumes,\n   welcher die Daten $D$ mit minimalen quadratischem Fehler repräsentiert.\n\nSiehe [gist](https://gist.github.com/MartinThoma/09799f5d143c09399eed) für\neine kurze Python-Implementierung. Keine Garantie für die Korrektheit!\n\n* Kernelized PCA\n* Independent Component Analysis (ICA)\n* Multiple Discriminant Analysis (MDA)\n\n\n#### ME-Kap3_V52.pdf\n\n**Bayessche Klassifikatoren** wählen die Klasse aus, die die größte\nWahrscheinlichkeit besitzt. Dazu verfolgt man den Ansatz\n\n$$P(\\omega|m) = \\frac{p(m|\\omega) \\cdot P(\\omega)}{p(m)}$$\n\nDabei wird $P(\\omega|m)$ die *A Posteriori Wahrscheinlichkeitsverteilung*\nund $P(\\omega)$ die *A Priori Wahrscheinlichkeitsverteilung* genannt.\n\n#### ME-Kap4_V33.pdf\n\n**Parameterschätzung** kann entweder mit der Likelihood-Methodik oder mit der\nBayesschen Methodik durchgeführt werden. Die Idee der Likelihood-Methodik ist\nes, den Parameter $\\theta$ als unbekannte konstante (d.h. nicht-stochastische)\nGröße anzusehen. Man wählt $\\theta$ also so, dass die Wahrscheinlichkeit der\nBeobachtungen gegeben $\\theta$ maximiert wird.\n\nDie Bayessche Methodik geht dagegen davon aus, dass $\\theta$ auch eine\nZufallsvariable ist und über eine Wahrscheinlichkeitsverteilung beschrieben\nwerden kann.\n\nSchätzer können verschiedene Qualitätskriterien erfüllen, z.B.\n[Erwartungstreue](https://de.wikipedia.org/wiki/Erwartungstreue)\noder [Konsistenz](https://de.wikipedia.org/wiki/Konsistenz_(Statistik)).\n\nBei der Parameterschätzung können folgende Fehler passieren:\n\n* Bayesscher Fehler: (TODO: Was ist das?)\n* Modellfehler: Unpassendes Modell gewählt (Falsche Verteilungsannahme?)\n* Schätzfehler: Zu wenige Daten um Parameter korrekt zu bestimmen\n\n\n#### ME-Kap5_V31.pdf\n\n**Parameterfreie Methoden** heißen \"parameterfrei\", weil sie keine konkrete\nWahrscheinlichkeitsverteilung parametrisieren und den Parameter schätzen.\nDie Parameterfreien Methoden können sehr wohl Parameter benutzen. Beispiele\nsind:\n\n* [Parzen Window](https://de.wikipedia.org/wiki/Kerndichtesch%C3%A4tzer)\n* [Nächste Nachbarn](https://de.wikipedia.org/wiki/N%C3%A4chste-Nachbarn-Klassifikation)\n\n\n#### ME-Kap6_V18.pdf\n\n**Allgemeine Problemstellungen**:\n\n* Dimension des Merkmalsraumes\n* Overfitting\n\n#### ME-Kap7_V54.pdf\n\n**Spezielle Klassifikatoren**:\n\n* Lineare Diskriminanzfunktionen: Linear bezieht sich hier auf die Kombination\n  der Merkmale. Man kann allerdings Merkmale wählen, die z.B. das quadrat eines\n  gemessenen wertes sind.\n* Perzeptron\n* Lineare Regression\n* Künstliche Neuronale Netze\n* Support Vector Machines (SVMs)\n* Matched Filter\n* HMMs (Sequenzen)\n* Klassifikation mit Rückweisung (Maximum / Minimum / Differenz / Abstand)\n\n#### ME-Kap8_V21.pdf\n\n**Klassifikation bei nominalen Merkmalen**:\n\n* Entscheidungsbäume\n* String-Verfahren\n* Grammatiken\n\n\n#### ME-Kap9_V27.pdf\n\n**Klassifikatorunabhängige Prinzipien**:\n\n* Generalisierung / Generalisierungsfähigkeit\n* VC-Konfidenz / VC-Dimension\n* Structural Risc Minimization\n* [Kreuzvalidierungsverfahren](https://de.wikipedia.org/wiki/Kreuzvalidierungsverfahren) / Leave-one-out\n* Boosting\n\n\n### Prüfungsfragen\n\n* Warum ist ein hochdimensionaler Merkmalsraum schlecht\n  ([curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality))?\n  - Je nach Klassifikator, viele zu lernende Parameter\n  - Daten haben einen sehr hohen Abstand zueinander → Gefahr des Overfittings\n* Wie kann man die Dimension des Merkmalsraumes reduzieren?<br/>\n  → Merkmalsauswahl, suboptimales iteratives Verfahren, HKA\n  (Varianzen maximieren), MDA (Klassentrennbarkeit maximieren), ICA\n* Wie viele Möglichkeiten gibt es 5 Merkmale aus 10 auszuwählen? → [Binomialkoeffizient](https://de.wikipedia.org/wiki/Binomialkoeffizient)\n* Was ist Overfitting?<br/>\n  → Siehe <a href=\"https://martin-thoma.com/machine-learning-1-course/#overfitting\">ML 1</a>\n* Welche Probleme gibt es, wenn man Länge, Masse und Temperatur als Merkmale hat?\n  - Unterschiedliche Einheiten (→ Entdimensionalisieren)\n  - Unterschiedliche Skalen (→ Teilen durch Varianz oder durch Wertebereich)\n  - Unterschiedliche Wertebereiche (→ Durchschnitt abziehen)\n* Wie funktioniert MDA?<br/>\n  → Sie maximiert <span markdown=0>\\(J(w) = \\frac{|m'_1 - m'_2|^2}{s'_1^2 - s'_2^2}\\)</span>\n  (im 2-Klassen Fall, wobei $w$ die Ebene ist, auf die projeziert wird)\n* Wie unterscheidet sich PCA/MDA von dem suboptimalen Algorithmus zur\n  Merkmalsauswahl?<br/>\n  → PCA/MDA sind Klassifikatorunabhängig, aber der suboptimale\n  Algorithmus benötigt bereits einen Klassifikator.\n* Wie lautet die Fundamentalformel der Bayesschen Klassifikation?<br/>\n  → $P(A|B) = \\frac{P(A)\\, P(B | A)}{P(B)}$ (wobei üblicherweise B das Merkmal\n  ist und A die Klasse)\n* Wie lautet die Hauptformel der PCA?<br/>\n  $m' = A^T \\cdot (m - \\bar{m})$, wobei $A$ die Basiswechselmatrix ist.\n* Wie kann man invariante Merkmale erzeugen?<br/>\n  → Integration über eine Transformationsgruppe, Differentielle Methode,\n  Normalisierung\n* Wie kann man normalisieren?<br/>\n  → Fourierdeskriptoren kann man invariant bzgl. Translation und Rotation und\n  radialer Streckung (Skalierung) machen\n* Wie lauten die Prinzipien (A) - (E) der SVMs?\n    - (A) Lineare Trennung mit maximalen Abstand der Trennebenen zu den\n          nächstgelegenen Stichproben (Support Vektoren)\n    - (B) Duale Formulierung des linearen Klassifikators.\n          (vgl. [Wiki](https://de.wikipedia.org/wiki/Support_Vector_Machine#Duales_Problem), $k(m) = w^T m + b = \\langle w, m \\rangle + b = \\sum_{j=1}^N \\alpha_j z_j \\langle m_j, m \\rangle + b$)\n    - (C) Nichtlineare Abbildung der primären Merkmale in einen\n          hochdimensionalen Merkmalsraum $\\Phi$\n    - (D) Implizite Nutzung des unter Umständen $\\infty$-dimensionalen\n          Eigenfunktionsraumes einer sog. Kernfunktion $K$ als transformierten\n          Merkmalsraum $\\Phi$. Dabei müssen die transformierten Merkmale nicht\n          explizit berechnet werden und der Klassifikator hat trotz der hohen\n          Dimension von $\\Phi$ nur eine niedrige Zahl von freien Parametern\n          (Kernel-Trick).\n    - (E) Relaxation der Forderung nach linearer Trennbarkeit durch Einführung\n          von Schlupfvariablen (slack variables).\n* Wie lautet die Dichtefunktion der [$d$-dimensionale Gaußverteilung](https://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung)? $f_X(x) = \\frac{1}{\\sqrt{(2\\pi \\det{\\Sigma})}} \\exp(-\\frac{1}{2}(x-\\mu)^T \\Sigma^{-1} (x-\\mu))$\n* Wie lautet Mercers Theorem? → [wiki](https://de.wikipedia.org/wiki/Satz_von_Mercer)\n* Wie ist die [Kullback-Leibler-Divergenz](https://de.wikipedia.org/wiki/Kullback-Leibler-Divergenz) defininiert?\n\n## Material und Links\n\n* [Vorlesungswebsite](http://ies.anthropomatik.kit.edu/lehre_mustererkennung.php): Ist passwortgeschützt. Das Passwort (das ausnahmsweise mal nicht zu erraten ist) kann ich hier natürlich nicht schreiben. Aber der Benutzername ist `asbstudent`.\n* SVMs\n  * [Why bother with the dual problem when fitting SVM?](http://stats.stackexchange.com/q/19181/25741)\n  * [A Tutorial on Support Vector Machines for Pattern Recognition](http://research.microsoft.com/pubs/67119/svmtutorial.pdf)\n\n## Übungsbetrieb\n\nEs gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine\nBonuspunkte.\n\n\n## Vorlesungsempfehlungen\n\nFolgende Vorlesungen sind ähnlich:\n\n* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)\n* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)\n* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)\n* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)\n* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)\n\n\n## Termine und Klausurablauf\n\n**Datum**: Donnerstag, der 10.09.2015 von 11:00-13:00 Uhr (Quelle: Wurde in der Vorlesung vom 22.04.2015 gesagt)<br/>\n**Ort**: <a href=\"http://www.kithub.de/map/2287\">Gerthsen-Hörsal</a><br/>\n**Punkte**: 90<br/>\n**Zeit**: 90 min<br/>\n**Punkteverteilung**: ?<br/>\n\n<ul>\n    <li>ab 60.5: 1.7</li>\n</ul>\n\n**Bestehensgrenze**: ?<br/>\n**Übungsschein**: gibt es nicht<br/>\n**Bonuspunkte**: gibt es nicht<br/>\n**Ergebnisse**: Am 30.09.2015 war die (vorläufige) Note im Notenauszug<br/>\n**Einsicht**: Montag 12.10.2015,  9:00-15:00 Uhr im <a href=\"https://www.kithub.de/map/2577\">Geb. 50.21</a>, Raum 015.1<br/>\n**Erlaubte Hilfsmittel**: keine\n\n\n## Notenverteilung\n\nWenn ihr mir schreibt was ihr habt, kann ich das updaten:\n\n* 1,3: min 1\n* 2,0: min 1",
-			"file": "_posts/2015-04-27-mustererkennung-klausur.md",
-			"file_size": 15807,
-			"file_write_time": 131057880294995439,
+			"file": "/home/moose/Desktop/testpy.py",
 			"settings":
 			{
-				"buffer_size": 15693,
+				"buffer_size": 105,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "---\nlayout: post\ntitle: Machine Learning 1\nauthor: Martin Thoma\ndate: 2015-11-09 16:02\ncategories:\n- German posts\ntags:\n- Klausur\nfeatured_image: logos/klausur.png\n---\n<div class=\"info\">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Machine Learning 1&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href=\"http://www.fzi.de/wir-ueber-uns/organisation/mitarbeiter/address/39/?no_cache=1\">Herrn Prof. Dr. Zöllner</a> im Wintersemester 2014/2015 gehört.<br/>Es gibt auch einen Artikel über <a href=\"//martin-thoma.com/machine-learning-2-course/\">Machine Learning 2</a>.</div>\n\n## Folien\n\n### Einordnungskriterien\n\nSlide name: `ML-Einordnungskriterien.pdf`\n\n<table class=\"table\">\n    <thead>\n        <tr>\n            <th rowspan=\"2\" colspan=\"2\">Algorithmus</th>\n            <th colspan=\"2\" style=\"text-align: center; border-right: solid;\">Inferenztyp</th>\n            <th colspan=\"2\" style=\"text-align: center; border-right: solid;\">Lernebene</th>\n            <th colspan=\"2\" style=\"text-align: center; border-right: solid;\">Lernvorgang</th>\n            <th colspan=\"2\" style=\"text-align: center; border-right: solid;\">Beispielgebung</th>\n            <th colspan=\"2\" style=\"text-align: center; border-right: solid;\">Beispielumfang</th>\n            <th colspan=\"2\" style=\"text-align: center;\">Hintergrundwissen</th>\n        </tr>\n        <tr>\n            <td style=\"text-align: center;\"><abbr title=\"induktiv\">ind.</abbr></td>\n            <td style=\"text-align: center; border-right: solid;\"><abbr title=\"deduktiv\">ded.</abbr></td>\n            <td style=\"text-align: center;\"><abbr title=\"symbolisch\">symb.</abbr></td>\n            <td style=\"text-align: center; border-right: solid;\"><abbr title=\"subsymbolisch\">subsymb.</abbr></td>\n            <td style=\"text-align: center;\">&uuml;berwacht</td>\n            <td style=\"text-align: center; border-right: solid;\"><abbr title=\"unüberwacht\">un&uuml;b.</abbr></td>\n            <td style=\"text-align: center;\"><abbr title=\"inkrementell\">inkr.</abbr></td>\n            <td style=\"text-align: center; border-right: solid;\"><abbr title=\"nicht inkrementell\">nicht inkr.</abbr></td>\n            <td style=\"text-align: center;\">gering</td>\n            <td style=\"text-align: center; border-right: solid;\">gro&szlig;</td>\n            <td style=\"text-align: center;\"><abbr title=\"empirisch\">emp.</abbr></td>\n            <td style=\"text-align: center;\"><abbr title=\"axiomatisch\">axio.</abbr></td>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td colspan=\"2\"><abbr title=\"k nearest neighbor\"><span markdown=\"0\">\\(k\\)</span>-NN</abbr></td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\"><abbr title=\"Support Vector Machines\"><a href=\"#svm\">SVMs</a></abbr></td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"1\" rowspan=\"2\"><a href=\"#decision-trees\">Decision Trees</a></td>\n            <td>ID3</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td>ID5R</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"1\" rowspan=\"2\"><abbr title=\"neuronale Netze\">NN</abbr></td>\n            <td>klassisch</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td>Auto-Encoder</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\">Bayessche Netze</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\"><abbr title=\"Hidden Markov Models\"><a href=\"#hmm\">HMMs</a></abbr></td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\">Version-Space Algorithmus</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\">Specific-to-General Konzeptlernen</td>\n            <td style=\"text-align: center;\">?</td>\n            <td style=\"text-align: center; border-right: solid;\">?</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">?</td>\n            <td style=\"text-align: center; border-right: solid;\">?</td>\n            <td style=\"text-align: center;\">?</td>\n            <td style=\"text-align: center; border-right: solid;\">?</td>\n            <td style=\"text-align: center;\">?</td>\n            <td style=\"text-align: center; border-right: solid;\">?</td>\n            <td style=\"text-align: center;\">?</td>\n            <td style=\"text-align: center;\">?</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\">k-means clustering</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\">AHC</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\">COBWEB</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\">CBR</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n        </tr>\n        <tr>\n            <td colspan=\"2\"><abbr title=\"Erklärungsbasierte Generalisierung\">EBG</abbr></td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center; border-right: solid;\">x</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n            <td style=\"text-align: center; border-right: solid;\">&nbsp;</td>\n            <td style=\"text-align: center;\">&nbsp;</td>\n            <td style=\"text-align: center;\">x</td>\n        </tr>\n    </tbody>\n</table>\n\n\n\n\n### Einführung\n\nSlide name: `MLI_01_Einfuehrung_slides1.pdf`\n\n* Was ist Intelligenz? (Problemlösen, Erinnern, Sprache, Kreativität,\n  Bewusstsein, Überleben in komplexen Welten, )\n* Wissensrepräsentation:\n    * Assoziierte Paare (Eingangs- und Ausgangsvariablen)\n    * Entscheidungsbäume (Klassen diskriminieren)\n    * Parameter in algebraischen ausdrücken\n    * Formale Grammatiken\n    * Logikbasierte Ausdrücke\n    * Taxonomien\n    * Semantische Netze\n    * Markov-Ketten\n\n<dl>\n  <dt><dfn>Machine Learning</dfn> von Tom Mitchell</dt>\n  <dd>A computer program is said to learn from experience E with respect to\n      some class of tasks T and performance measure P, if its performance at\n      tasks in T, as measured by P, improves with experience E.</dd>\n  <dt><dfn>Deduktion</dfn></dt>\n  <dd>Die Deduktion ist eine Schlussfolgerung von gegebenen Prämissen auf die\n      logisch zwingenden Konsequenzen. Deduktion ist schon bei Aristoteles als\n      „Schluss vom Allgemeinen auf das Besondere“ verstanden worden.</dd>\n  <dt><dfn>Modus ponens</dfn></dt>\n  <dd>Der Modus ponens ist eine Art des logischen Schließens. Er besagt: Wenn\n      die Prämissen \\(A \\rightarrow B\\) und \\(A\\) gelten, dann gilt auch \\(B\\).</dd>\n  <dt><dfn>Abduktion</dfn> by Peirce</dt>\n  <dd>Deduction proves that something must be; Induction shows that something\n      actually is operative; Abduction merely suggests that something may\n      be.</dd>\n</dl>\n\n\n### Induktives Lernen\n\nSlide name: `MLI_02_InduktivesLernen_slides1.pdf`\n\n<dl>\n    <dt><dfn>Version Space</dfn></dt>\n    <dd>Der Raum aller Hypotesen, welche mit den Trainingsbeispielen konsistent sind.</dd>\n    <dt><dfn>Version Space Algorithmus</dfn></dt>\n    <dd>Der Version Space Algorithmus ist ein binärer Klassifikator für\n        diskrete Feature-Spaces. Er startet mit der generellsten Hypothese\n        \\(G = (?, \\dots, ?)\\) - alles ist wahr - und der speziellsten Hypothese\n        \\(S = (\\#, \\dots, \\#)\\) - nichts ist wahr. Wenn ein Beispiel mit dem Label\n        <code>true</code> gesehen wird, dann wird die speziellste Hypothese\n        angepasst und veralgemeinert. Wenn ein Beispiel mit dem Label\n        <code>false</code> gesehen wird, wird die generellste Hypothese spezialisiert.<br/>\n        So kann man den Raum aller mit den Trainingsdaten konsistenten\n        Hypothesen finden.</dd>\n    <dt><dfn>Konzept</dfn></dt>\n    <dd>Ein <i>Konzept</i> beschreibt eine Untermenge von Objekten oder\n        Ereignissen definiert auf einer größerer Menge.</dd>\n    <dt><dfn>Konsistenz</dfn></dt>\n    <dd>Keine negativen Beispiele werden positiv klassifiziert.</dd>\n    <dt><dfn>Vollständigkeit</dfn></dt>\n    <dd>Alle positiven Beispiele werden als positiv klassifiziert.</dd>\n</dl>\n\n* Algorithmen: Bäume (Wälder?)\n    * Suche vom Allgemeinen zum Speziellen: Negative Beispiele führen zur Spezialisierung\n    * Suche vom Speziellen zum Allgemeinen: Positive Beispiele führen zur Verallgemeinerung\n    * [Version Space](https://de.wikipedia.org/wiki/Versionsraum): Beides gleichzeitig anwenden\n* Präzendenzgraphen: In welcher Reihenfolge werden Aktionen ausgeführt?\n\nVersion Space Algorithmus ist:\n\n* Induktiver Inferenztyp\n* Symbolische Ebene des Lernens\n* Überwachtes Lernen\n* Inkrementelle Beispielgebung\n* Umfangreich (viele Beispiele)\n* Empirisches Hintergrundwissen\n* Voraussetzungen: Konsistente Beispiele, korrekte Hypothese im Hypothesenraum\n* Positive Aspekte:\n  * Es ist feststellbar, welche Art von Beispielen noch nötig ist\n  * Es ist feststellbar, wann das Lernen abgeschlossen ist\n\nWeiteres\n\n<dl>\n  <dt><dfn>Inductive bias</dfn></dt>\n  <dd>Induktives Lernen benötigt Vorannahmen.</dd>\n  <dt><dfn>Bias</dfn> (\"Vorzugskriterium\")</dt>\n  <dd>Vorschrift, nach der Hypothese gebildet werden.</dd>\n</dl>\n\n\n### Reinforcement Learning\n\nSlide name: `MLI_03_ReinforcementLearning_slides1.pdf`\n\nSiehe auch:\n\n* [Neuronale Netze](../neuronale-netze-vorlesung/#tocAnchor-1-1-9)\n* [Machine Learning 2](../machine-learning-2-course/#tocAnchor-1-1-5)\n* [Cat vs. Mouse code](https://github.com/MartinThoma/cat-vs-mouse)\n* Berkeley\n    * CS188 Intro to AI: [Project 3: Reinforcement Learning](http://ai.berkeley.edu/reinforcement.html)\n    * Dan Klein, Pieter Abbeel: [Lecture 10: Reinforcement Learning](https://www.youtube.com/watch?v=w33Lplx49_A) on YouTube. University of California, Berkeley. This expalins TD-learning.\n* [What is the Q function and what is the V function in reinforcement learning?](http://datascience.stackexchange.com/q/9832/8820)\n* [Demystifying Deep Reinforcement Learning](http://www.nervanasys.com/demystifying-deep-reinforcement-learning/)\n\n<dl>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Markow-Entscheidungsproblem\"><dfn>Markovsches Entscheidungsproblem</dfn></a> (<dfn>Markov Decision Process</dfn>, <dfn>MDP</dfn>)</dt>\n  <dd>Ein Markovsches Entscheidungsproblem ist ein 5-Tupel \\(S, A, P, R, \\gamma\\)\n      mit:\n\n      <ul>\n          <li>\\(S\\): Endliche Zustandsmenge (states)</li>\n          <li>\\(A(s)\\): Die Menge von möglichen Aktionen im Zustand \\(s\\)</li>\n          <li>\\(P(s, s', a) = P(s_{t+1} = s' | s_t = s, a_t = a)\\): Die Wahrscheinlichkeit\n              im Zeitschritt \\(t+1\\) im Zustand \\(s'\\) zu sein, wenn man zum Zeitpunkt\n              \\(t\\) im Zustand \\(s\\) ist und die Aktion \\(a\\) ausführt</li>\n          <li>\\(R(s, s', a) \\in \\mathbb{R}\\): Die direkte Belohnung, wenn durch die Aktion \\(a\\) vom Zustand \\(s\\) in den Zustand \\(s'\\) gekommen ist.</li>\n          <li>\\(\\gamma \\in [0, 1]\\): Der Diskontierungsfaktor, welche die\n              Bedeutung von direkten Belohnungen im Vergleich zu künftigen\n              Belohnungen anzeigt.</li>\n      </ul></dd>\n  <dt><a href=\"https://en.wikipedia.org/wiki/Reinforcement_learning\"><dfn>Reinforcement Learning</dfn></a> (<dfn>RL</dfn>, <dfn><a href=\"https://de.wikipedia.org/wiki/Best%C3%A4rkendes_Lernen\">Bestärkendes Lernen</a></dfn>)</dt>\n  <dd>Beim bestärkenden Lernen liegt ein Markow-Entscheidungsproblemen vor.\n      Es gibt also einen Agenten, der Aktionen ausführen kann. Diese können\n      (nicht notwendigerweise sofort) bewertet werden.</dd>\n  <dt><dfn>Policy</dfn></dt>\n  <dd>Eine <b>policy \\(\\pi: S \\rightarrow A\\)</b> ist die Vorschrift, in\n      welchem Zustand welche Aktion ausgeführt werden soll.</dd>\n  <dt><dfn>Policy Learning</dfn></dt>\n  <dd>Unter <i>Policy Learning</i> versteht man die Suche nach einer\n      optimalen Policy \\(\\pi^*\\).</dd>\n  <dt><dfn>Value-Funktion</dfn></dt>\n  <dd>Die Funktion \\(V^\\pi: S \\rightarrow \\mathbb{R}\\) heißt Value-Funktion.\n      Sie gibt den erwarteten Wert (nicht die Belohnung, da bei der V-Funktion\n      noch der Diskontierungsfaktor eingeht!) eines Zustands \\(s\\) unter der\n      policy \\(\\pi\\) an.\n\n      Mit \\(V^*\\) wird der Wert unter der optimalen policy bezeichnet.</dd>\n  <dt><dfn>Q-Funktion</dfn></dt>\n  <dd>Die Funktion \\(Q^\\pi: S \\times A \\rightarrow \\mathbb{R}\\) gibt den erwarteten\n      Wert einer eines Zustandes \\(s\\) unter der policy \\(\\pi\\), wenn die\n      Aktion \\(a\\) ausgeführt wird an.\n\n      Es gilt: \\[Q^\\pi(s, \\pi(s)) = V^\\pi(s)\\]</dd>\n   <dt><a name=\"rl-eligibility-trace\"></a><dfn>Eligibility Traces</dfn></dt>\n   <dd>Die Idee scheint einfach zu sein, dass man ein späteres Update auch auf\n       frühere Ereignisse \"zurückpropagiert\".\n       TODO\n\n       See also: <a href=\"https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node72.html\">Reinforcement Learning: An Introduction</a> by Sutton.\n   </dd>\n</dl>\n\n* Beispiel für RL: Roboter muss zu einem Ziel navigieren\n\nAlgorithmen:\n\n<dl>\n    <dt><dfn>Simple Value Iteration</dfn></dt>\n    <dd>Simple Value Iteration estimates the value function by updating it\n        as long as necessary to converge:\n\n        \\[\\hat{V}^*(s_t) \\leftarrow r_t + \\gamma \\hat{V}^*(s_{t+1})\\]\n\n        \"Simple\" means that the transition function is deterministic.\n        <!--\n        In the\n        non-deterministic case the update rule is\n\n        \\[\\hat{V}^*(s_t) \\leftarrow r_t + \\gamma E(\\hat{V}^*(s_{t+1}))\\] -->\n\n        It is explained in\n\n        <ul>\n            <li>Sebastian Thrun: <a href=\"https://www.youtube.com/watch?v=oefOCk3koZo\">Unit 9 17 Value Iteration 1</a> on YouTube.</li>\n            <li>Sebastian Thrun: <a href=\"https://www.youtube.com/watch?v=8-pzJXUiXrM\">Unit 9 17 Value Iteration 2</a> on YouTube.</li>\n            <li>Sebastian Thrun: <a href=\"https://www.youtube.com/watch?v=glHKJ359Cnc\">Unit 9 17 Value Iteration 3</a> on YouTube.</li>\n        </ul>\n    </dd>\n    <dt><dfn>Simple Temporal Difference Learning</dfn></dt>\n    <dd>Simple Temporal Difference Learning is just like\n        Simple Value Iteration, but now the Value function is updated with\n        a learning rate \\(\\alpha\\):\n        \\[\\hat{V}^*(s_t) \\leftarrow (1-\\alpha) \\cdot \\hat{V}^*(s_t) + \\alpha(r_t + \\gamma \\hat{V}^*(s_{t+1}))\\]\n\n        Mehr dazu im <a href=\"#td-learning\">nächsten Abschnitt</a>.\n    </dd>\n    <dt><dfn>Q-Learning</dfn></dt>\n    <dd>Siehe <a href=\"#q-learning\">nächster Abschnitt</a></dd>\n    <dt><a name=\"sarsa\" href=\"https://en.wikipedia.org/wiki/State-Action-Reward-State-Action\"><dfn>SARSA</dfn></a> (<dfn>State-Action-Reward-State-Action</dfn>)</dt>\n    <dd>SARSA is a learning algorithm which updates the Q-function:\n\n    \\[Q(s_t,a_t) \\leftarrow (1-\\alpha) \\cdot Q(s_t,a_t) + \\alpha [r_{t+1} + \\gamma Q(s_{t+1}, a_{t+1})]\\]\n\n    where \\(\\alpha \\in (0, 1)\\) is the learning rate and \\(\\gamma \\in [0, 1]\\)\n    is the discount factor.\n\n    </dd>\n    <dt><dfn>SARSA(\\(\\lambda\\))</dfn></dt>\n    <dd>SARSA(\\(\\lambda\\)) ist SARSA mit Eligibility Traces.\n\n    TODO\n    </dd>\n</dl>\n\n\n#### <a name=\"q-learning\"></a> Q-Learning\n\nDas \"Q\" in der Q-Funktion steht für \"quality\".\n\n* [Q-learning](https://en.wikipedia.org/wiki/Q-learning)\n    * [YouTube: Lecture 18: RL Part 1: Q-Learning](https://www.youtube.com/watch?v=yS5F_vm9Ahk): 1:16:11. BrownCS141 Spring 2014.\n    * [YouTube: PacMan](https://www.youtube.com/watch?v=3sLV0OJLdns)\n\nPseudocode:\n\n```text\ninitialize Q[num_states, num_actions]\nstart in state s\nrepeat:\n    select and execute action a\n    r ← R(s, a)  # Receive reward\n    s' ← T(s, a) # Get on new state\n    Q[s', a] ← (1- α) * Q[s, a] + α * (r + γ max_{a'} Q[s', a'])\n    s ← s'\n```\n\nwhere \\\\(\\alpha \\in (0, 1]\\\\) is a learning rate and \\\\(\\gamma\\\\) is a discount\nfactor.\n\nSee also:\n\n* [Mario Q-learning](https://www.youtube.com/watch?v=ntZ0Hc1_LsY) on YouTube. 2010.\n\n\n#### <a name=\"td-learning\"></a> TD-Learning\n\n* R. Sutton und A. Barto: [Temporal-Difference Learning](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node60.html). 1998.\n\nDer TD-Learning Algorithmus beschäftigt sich mit dem Schätzen der Value-Funktion\n\\\\(V^\\pi\\\\) für eine gegebene Policy \\\\(\\pi\\\\). Das wird auch <i>policy evaluation</i>\noder <i>prediction</i> genannt.\n\n* [TD-Learning](https://de.wikipedia.org/wiki/Temporal_Difference_Learning) (Temporal Difference Learning)\n\n\n#### Siehe auch\n\n* [Optimalitätsprinzip von Bellman](https://de.wikipedia.org/wiki/Optimalit%C3%A4tsprinzip_von_Bellman)\n* Guest Post (Part I): [Demystifying Deep Reinforcement Learning](http://www.nervanasys.com/demystifying-deep-reinforcement-learning/)\n\n\n### Lerntheorie\n\nSlide name: `MLI_04_Lerntheorie_slides1.pdf`\n\n<dl>\n  <dt><dfn>Ockhams Rasiermesser</dfn> (Quelle: <a href=\"https://de.wikipedia.org/wiki/Ockhams_Rasiermesser\">Wikipedia</a>)</dt>\n  <dd>Von mehreren möglichen Erklärungen für ein und denselben Sachverhalt ist\n  die einfachste Theorie allen anderen vorzuziehen. Eine Theorie ist einfach,\n  wenn sie möglichst wenige Variablen und Hypothesen enthält, und wenn diese in\n  klaren logischen Beziehungen zueinander stehen, aus denen der zu erklärende\n  Sachverhalt logisch folgt.</dd>\n  <dt><a href=\"\" name=\"overfitting\"></a><dfn>Overfitting</dfn></dt>\n  <dd>Zu starke Anpassung des Klassifizierers an die Lerndaten; geringe\n      Generalisierungsfähgikeit</dd>\n  <dt><a href=\"https://en.wikipedia.org/wiki/Structural_risk_minimization\"><dfn>Structural Risc Minimization</dfn></a> (<dfn>SRM</dfn>)</dt>\n  <dd>Unter <i>Structural risk minimization</i> versteht man die Abwägung\n      zwischen einem einfachen Modell und einem komplexen Modell, welches\n      auf den Trainingsdaten besser funktioniert aber eventuell mehr unter\n      Overfitting leidet.</dd>\n  <dt><dfn>Vapnik-Chervonenkis Dimension</dfn> (<dfn>VC-Dimension</dfn>)</dt>\n  <dd>Die <abbr title=\"Vapnik-Chervonenkis\">VC</abbr>-Dimension \\(VC(H, X) \\in \\mathbb{N} \\cup \\infty\\)\n      eines Hypothesenraumes \\(H\\) ist gleich der maximalen Anzahl an\n      Datenpunkten aus \\(X\\), die von \\(H\\) beliebig in zwei Mengen gespalten\n      werden können. Dabei muss es nur eine Teilmenge \\(X' \\subseteq X \\) der\n      Größe \\(n\\) geben, damit \\(VC(H, X) \\geq n\\) gilt.\n\n      Falls beliebige Teilmengen von \\(X\\) durch \\(H\\) separiert werden können,\n      so gilt \\(VC(H, X) = \\infty\\).\n\n      Praktisch gesehen ist \\(X\\), die Menge aller möglichen Features, sowie\n      \\(H\\), die Menge aller möglichen Trennlinien im Feature-Space, vorgegeben.\n      Die Frage ist ob man eine Teilmenge \\(X' \\subseteq X\\) findet mit\n      \\(|X'| = n\\), sodass man für \\(X'\\) jede Mögliche Teilung in zwei\n      Mengen durch \\(H\\) realisieren kann.</dd>\n  <dt><a href=\"https://en.wikipedia.org/wiki/Probably_approximately_correct_learning\">Probably approximately correct learning</a> (<dfn>PAC</dfn>)</dt>\n  <dd>PAC macht eine Aussage über die Anzahl der benötigten Stichproben, wenn\n      man einen bestimmten realen Fehler mit einer frei zu wählenden\n      Wahrscheinlichkeit bekommen will.</dd>\n</dl>\n\n* Lernmaschine wird definiert durch Hypothesenraum \\\\(\\{h_\\alpha: \\alpha \\in A\\}\\\\)\n  und Lernverfahren. Das Lernverfahren ist die Methode um \\\\(\\alpha_{\\text{opt}}\\\\)\n  mit Hilfe von Lernbeispielen zu finden.\n* Probleme beim Lernen:\n    * Größe des Hypothesenraums im Vergleich zur Anzahl der Trainingsdaten.\n    * Das Verfahren könnte nur suboptimale Lösungen finden.\n    * Das Verfahren könnte die passende Hypothese nicht beinhalten.\n* Lernproblemtypen: Sei die Menge der Lernbeispiele in \\\\(X \\times Y\\\\), mit \\\\(X \\times Y =\\\\)...\n    * \\\\(\\\\{Attribut_1, Attribut_2, ...\\\\} \\times \\\\{True, False\\\\}\\\\): Konzeptlernen\n    * \\\\(\\mathbb{R}^n \\times \\\\{Klasse_1, ..., Klasse_n\\\\}\\\\): Klassifikation\n    * \\\\(\\mathbb{R}^n \\times \\mathbb{R}\\\\): Regression\n* Gradientenabstieg, Overfitting\n* Kreuzvalidierung\n* PAC\n    * Folie 35: Was ist eine Instanz der Länge \\\\(n\\\\)?<br/>\n      Eine Hypothese mit \\\\(n\\\\) Literalen.\n\n\n#### Boosting\n<dl>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Boosting\"><dfn>Boosting</dfn></a></dt>\n  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen, indem\n      Trainingsbeispiele unterschiedlich gewichtet werden.</dd>\n  <dt><a href=\"https://en.wikipedia.org/wiki/Bootstrap_aggregating\"><dfn>Bagging</dfn></a> (<dfn>Bootstrap aggregating</dfn>)</dt>\n  <dd>Kombiniere mehrere schwache Modelle um ein gutes zu bekommen. Dabei\n      bekommt jedes schwache Modell nur eine Teilmenge aller Trainingsdaten.</dd>\n  <dt><dfn>AdaBoost</dfn> (<dfn>Adaptive Boosting</dfn>; see <a href=\"https://www.youtube.com/watch?v=ix6IvwbVpw0\">YouTube</a>)</dt>\n  <dd>Learn a classifier for data. Get examples where the classifier got it\n      wrong. Train new classifier on the wrong ones.</dd>\n</dl>\n\n* Folie 22:\n    * Wofür steht \\\\(i\\\\) und welchen Wertebereich hat \\\\(i\\\\)?<br/>\n      → \\\\(i\\\\) ist eine Zählvariable, welche die Trainingsdaten durchnummeriert.\n    * Stellt \\\\(W_k(i)\\\\) die Wahrscheinlichkeit dar, dass Beispiel \\\\(i\\\\) im \\\\(k\\\\)-ten\n      Durchlauf für das Training verwendet wird?<br/>\n      → Nein. \\\\(W_k(i)\\\\) ist das Gewicht des \\\\(i\\\\)-ten Trainingsbeispiels\n      für den \\\\(k\\\\)-ten klassifikator. Siehe Folie&nbsp;24 und folgende für\n      ein Beispiel.\n\n\nSiehe auch:\n\n* Alexander Ihler: <a href=\"https://www.youtube.com/watch?v=ix6IvwbVpw0\">AdaBoost</a>.\n\n\n{% caption align=\"aligncenter\" width=\"500\" alt=\"Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches\" text=\"Ensemble Learning Techniques: Boosting, Bagging, Random Subspaces, Pasting, Random Patches\" url=\"../images/2015/12/ml-ensemble-learning.png\" %}\n\n\n#### VC-Dimension\n\n<dl>\n  <dt><dfn>VC-Dimension</dfn>, siehe <a href=\"https://youtu.be/puDzy2XmR5c\">YouTube</a> und [<a href=\"#ref-mit97\" name=\"ref-mit97-anchor\">Mit97</a>]</dt>\n  <dd>Sei \\(H^\\alpha = \\{h_\\alpha : \\alpha \\in A\\}\\) der Hypothesenraum. Die\n      VC-Dimension \\(VC(h_\\alpha)\\) von \\(H^\\alpha\\) ist gleich der maximalen\n      Anzahl von beliebig platzierten Datenpunkten, die von \\(H^\\alpha\\) separiert\n      werden können.</dd>\n</dl>\n\n* Folie 44: \\\\(\\eta \\in [0, 1]\\\\) ist ein Parameter, der beliebig gewählt\n  werden kann. Siehe Info-Box <a href=\"#fehlerabschaetzung\">Abschätzung des realen Fehlers</a>.\n\n\n### Neuronale Netze\n\nSlide name: `MLI_05_Neuronale_Netze_slides1.pdf`\n\n* Einsatzfelder:\n    * Klassifiktion: Spracherkennung, Schrifterkennung\n    * Funktionsapproximation\n    * Mustervervollständigung: Kodierung, Bilderkennung (NODO: Warum zählt das nicht zu Klassifikation?)\n* Perzeptron von Rosenblatt (1960)\n    * Auswertung: Input-Vektor und Bias mit Gewichten multiplizieren, addieren und Aktivierungsfunktion anwenden.\n    * Training: Zufällige Initialisierung des Gewichtsvektors, addieren von fehlklassifizierten Vektoren auf Gewichtsvektor.\n* Gradientenabstieg\n* Software:\n  * [Lasagne](http://lasagne.readthedocs.org/en/latest/index.html): Python, hat eine exzellente Dokumentation, die auch größtenteils auf explizit auf Literatur verweist und die Formeln hinter den Funktionen direkt angibt.\n  * [Google TensorFlow](https://martin-thoma.com/tensor-flow-quick/)\n\n<dl>\n    <dt><dfn>Cascade Correlation</dfn> (siehe Fahlman und Lebiere: <a href=\"http://papers.nips.cc/paper/207-the-cascade-correlation-learning-architecture.pdf\">The Cascade-Correlation Learning Architecture</a>)</dt>\n    <dd>Cascade Correlation ist ein konstruktiver Algorithmus zum erzeugen\n        von Feed-Forward Neuronalen Netzen. Diese haben eine andere Architektur\n        als typische multilayer Perceptrons. Bei Netzen, welche durch\n        Cascade Correlation aufgebaut werden, ist jede Hidden Unit mit\n        den Input-Neuronen verbunden, mit den Output-Neuronen und mit allen\n        Hidden Units in der Schicht zuvor.<br/>\n        <br/>\n        Siehe <a href=\"https://www.youtube.com/watch?v=1E3XZr-bzZ4\">YouTube</a> (4:05 min)\n        und <a href=\"http://datascience.stackexchange.com/q/9672/8820\">How exactly does adding a new unit work in Cascade Correlation?</a></dd>\n    <dt><a href=\"https://en.wikipedia.org/wiki/Rprop\"><abbr title=\"Resilient Propagation\"><dfn>RPROP</dfn></abbr></a> (siehe <a href=\"https://www.youtube.com/watch?v=Cy2g9_hR-5Y\">YouTube</a> - 15:00min)</dt>\n    <dd><i>Rprop</i> ist eine Gewichtsupdate-Regel für neuronale Netze. Sie\n        betrachtet nur das Vorzeichen des Gradienten, jedoch nicht den Betrag.\n        Jedes Gewicht wird unabhängig von den anderen behandelt.\n\n        Der Algorithmus hat Konstanten \\(\\eta^- \\in \\mathbb{R}_{\\le 1}\\) sowie\n        \\(\\eta^+ \\in \\mathbb{R}_{\\ge 1}\\). Für jedes Gewicht ist außerdem\n        \\(\\eta=1\\) zu Beginn.\n\n        Bei jedem Gewichtsupdate wird überprüft, ob sich das Vorzeichen des\n        Gradienten für dieses Gewicht geändert hat. Falls ja, wird das Gewicht\n        um \\(\\eta \\cdot \\eta^+\\) bzw \\(\\eta \\cdot \\eta^-\\) geändert. Außerdem\n        kann eine minimale bzw. eine Maximale Änderung gesetzt werden.\n        </dd>\n    <dt><a href=\"https://en.wikipedia.org/wiki/Delta_rule\"><dfn>Delta-Regel</dfn></a>, siehe <a href=\"http://www.neuronalesnetz.de/delta.html\">neuronalesnetz.de</a></dt>\n    <dd>Die Delta-Regel ist ein Lernalgorithmus für neuronale Netze mit nur\n        einer Schicht. Sie ist ein Spezialfall des algemeineren\n        Backpropagation-Algorithmus und lautet wie folgt:\n        \\[\\Delta w_{ji} = \\alpha (t_j - y_j) \\varphi'(h_j) x_i\\]\n        wobei\n\n        <ul>\n        <li>\\(\\Delta w_{ji} \\in \\mathbb{R}\\) die Änderung des Gewichts von Input \\(i\\)\n        zum Neuron \\(j\\),</li>\n        <li>\\(\\alpha \\in [0, 1]\\) die Lernrate (typischerweise \\(\\alpha \\approx 0.1\\)),</li>\n        <li>\\(t_j \\in \\mathbb{R}\\) der Zielwert des Neurons \\(j\\),</li>\n        <li>\\(y_j \\in \\mathbb{R}\\) die tatsächliche Ausgabe,</li>\n        <li>\\(\\varphi'\\) die Ableitung der Aktivierungsfunktion des Neurons,</li>\n        <li>\\(h_j \\in \\mathbb{R}\\) die gewichtete Summe der Eingaben des Neurons und</li>\n        <li>\\(x_i \\in \\mathbb{R}\\) der \\(i\\)-te Input</li>\n        </ul>\n\n        ist.\n    </dd>\n    <dt><dfn>Gradient-Descent Algorithmus</dfn></dt>\n    <dd>Der Gradient-Descent Algorithmus ist ein Optimierungsalgorithmus für\n        differenzierbare Funktionen. Er startet an einer zufälligen Stelle \\(x_0\\).\n        Dann wird folgender Schritt mehrfach ausgeführt:\n        \\[x_0 \\gets x_0 - \\alpha \\cdot \\text(grad) f (x_0)\\]\n        wobei \\(\\alpha \\in (0, 1]\\) die Lernrate ist und \\(f\\) die zu\n        optimierende Funktion. Dabei könnte \\(\\alpha\\) mit der Zeit auch\n        kleiner gemacht werden.\n    </dd>\n    <dt><dfn>Backpropagation</dfn> (siehe <a href=\"http://neuralnetworksanddeeplearning.com/chap2.html\">neuralnetworksanddeeplearning.com</a>)</dt>\n    <dd>Der Backpropagation-Algorithmus ist eine Variante des Gradient-Descent\n        Algorithmus, welche für <abbr title=\"multilayer Perceptrons\">MLPs</abbr>\n        angepasst wurde. Sie besteht aus drei Schritten:\n\n        <ul>\n            <li><b>Forward-Pass</b>: Lege die Input-Features an das Netz an und erhalte den Output</li>\n            <li><b>Fehlerberechnung</b>: Mache das für alle Daten</li>\n            <li><b>Backward-Pass</b>: Passe die Gewichte </li>\n        </ul>\n\n        Im Grunde ist Backpropagation nur eine Geschwindigkeitsoptimierte\n        Variante des Gradient-Descent Algorithmus, da die Gradienten im\n        Backpropagation-Algorithmus auf geschickte Weise berechnet werden.</dd>\n    <dt><a href=\"https://de.wikipedia.org/wiki/Radiale_Basisfunktion\"><dfn>Radiale Basisfunktion</dfn></a> (<dfn>Radial Basis Function</dfn>, <dfn>RBF</dfn>)</dt>\n    <dd>Eine <i>radiale Basisfunktion</i> ist eine Funktion \\(f: D \\rightarrow \\mathbb{R}\\),\n        für die \\(f(x) = f(\\|x\\|)\\) gilt bzw. allgemeiner, für die ein \\(c \\in D\\)\n        existiert, sodass \\(f(x, c) = f(\\|x - c\\|)\\) gilt.\n\n        Der Wert der Funktion hängt also nur von der Distanz zum Ursprung bzw.\n        allgemeiner zu einem Punkt \\(c \\in D\\) ab.\n\n        Ein typisches Beispiel sind gaußsche RBFs:\n        \\(f(x) = e^{-(a (x - c)^2)}\\), wobei \\(a, c\\) Konstanten sind.</dd>\n    <dt><a href=\"https://en.wikipedia.org/wiki/Radial_basis_function_network\"><dfn>Radial-Basis Funktion Netz</dfn></a> (<dfn>RBF-Netz</dfn>)</dt>\n    <dd>Ein <i>Radial-Basis Funktion Netz</i> ist eine neuronales Netz,\n        welches als Aktivierungsfunktionen RBFs verwendet. Dabei gibt es dann\n        für jedes Neuron im Grunde zwei Parameter: Der Radius und das Zentrum\n        (vgl. Folie&nbsp;39 für die Gewichtsanpassung).\n    </dd>\n    <dt><a name=\"dda-algorithm\"></a><dfn>Dynamic Decay Adjustment</dfn> (<dfn>DDA</dfn>)</dt>\n    <dd>DDA ist ein konstruktiver Lernalgorithmus für RBF-Netze welcher\n        in [<a href=\"#ref-ber95\" name=\"ref-ber95-anchor\">Ber95</a>] vorgestellt\n        wird.\n\n        Bei den Netzwerken, die DDA annimmt, gibt es sog. <i>Prototypen</i>.\n        Das scheinen einfach Neuronen mit RBF-Aktivierungsfunktionen zu sein,\n        welche für eine Klasse stehen.\n\n        Zwei Schwellwerte, \\(\\theta^+\\) und \\(\\theta^-\\), werden eingeführt.\n        Der Schwellwert \\(\\theta^+\\) muss beim Training eines Beispiels der\n        Klasse \\(y_1\\) von einem Neuron der Klasse \\(y_1\\) überschritten\n        werden. Falls das nicht der Fall ist, wird ein neues Neuron\n        hinzugefügt.<br/>\n        Der Schwellwert \\(\\theta^-\\) ist eine obere Grenze für die Aktivierung\n        von Neuronen, die zu anderen Klassen gehören. Ist eine Aktivierung\n        höher, wird der Radius des zugehörigen Neurons verringert.<br/>\n        \\(\\theta^+ = 0.4\\) und \\(\\theta^- = 0.2\\) sind sinnvolle Werte.\n        <br/>\n        Laut einem Prüfungsprotokoll lernt DDA nach Vapnik korrekt.<br/>\n        <br/>\n        Siehe auch: <a href=\"http://www.ra.cs.uni-tuebingen.de/SNNS/UserManual/node193.html\">The Dynamic Decay Adjustment Algorithm</a></dd>\n</dl>\n\n#### Siehe auch\n\n* [Neuronale Netze - Vorlesung](//martin-thoma.com/neuronale-netze-vorlesung/)\n* [What are prototypes in RBF networks?](http://datascience.stackexchange.com/q/9869/8820)\n\n\n### Instanzbasiertes Lernen\n\nSlide name: `MLI_06_InstanzbasiertesLernen_slides1.pdf`\n\n<dl>\n  <dt><dfn>Instanzenbasiertes Lernen</dfn> bzw. <dfn>Lazy Learning</dfn></dt>\n  <dd><i>Instanzenbasiertes Lernen</i> ist ein Lernverfahren, welches einfach nur\n      die Beispiele abspeichert, also faul (engl. lazy) ist. Soll der Lerner\n      neue Daten klassifizieren, so wird die Klasse des ähnlichsten\n      Datensatzes gewählt.</dd>\n  <dt><dfn>Case-based Reasoning</dfn> bzw. kurz <dfn>CBR</dfn></dt>\n  <dd><i>CBR</i> ist ein allgemeines, abstraktes Framework und kein direkt anwendbarer\n      Algorithmus. Die Idee ist, dass nach ähnlichen, bekannten Fällen gesucht\n      wird, auf die der aktuelle Fall übertragen werden kann.</dd>\n  <dt><dfn>Fall</dfn> im Kontext des CBR</dt>\n  <dd>Ein Fall ist eine Abstraktion eines Ereignisses, die in Zeit und Raum\n      begrenzt ist. Ein Fall enthält eine Problembeschreibung, eine Lösung und\n      ein Ergebnis. Zusätzlich kann ein Fall eine Erklärung enthalten warum\n      das Ergebnis auftrat, Informationen über die Lösungsmethode, Verweise\n      auf andere Fälle oder Güteinformationen enthalten.</dd>\n</dl>\n\n* Beispiel für Lazy Learning: <abbr title=\"k Nearest Neighbors\">\\(k\\)-NN</abbr>,\n  <abbr title=\"Case-based Reasoning\">CBR</abbr>\n\n* NODO: Folie 3: „Fleißige“ Lernalgorithmen mit dem gleichen Hypothesenraum sind\n  eingeschränkter - was ist damit gemeint? Was sind fleißige Lernalgorithmen?\n  Lernalgorithmen, welche den meisten Rechenaufwand beim Lernen investieren, wo\n  aber das auswerten vergleichsweise billig ist?\n\n\n### <a name=\"svm\"></a> SVM\n\nSlide name: `MLI_07_SVM_slides1.pdf`\n\nEine Erklärung von <abbr title=\"Support Vector Machines\">SVMs</abbr>\nfindet sich im Artikel [Using SVMs with sklearn](//martin-thoma.com/svm-with-sklearn/).\n\n* SVMs sind laut Vapnik die Lernmaschine mit der kleinsten möglichen VC-\n  Dimension, falls die Klassen linear trennbar sind.\n* Primäres Optimierungsproblem: Finde einen Sattelpunkt der Funktion<br/>\n  \\\\(L_P = L(\\vec{w}, b, \\vec{\\alpha}) = \\frac{1}{2}\\|\\vec{w}\\|^2 - \\sum_{i=1}^N \\alpha_i (y_i(\\vec{w}\\vec{x_i}+b)-1)\\\\)\n  wobei \\\\(\\alpha_1, \\dots, \\alpha_N \\geq 0\\\\) Lagrange-Multiplikatoren sind\n* Soft Margin Hyperebene\n* Der Parameter \\(C\\) dient der Regularisierung. Ist \\(C\\) groß gibt es wenige\n  Missklassifikationen in der Trainingsdatenmenge. Ist \\(C\\) klein, werden die\n  Margins größer.\n* Nichtlineare Kernelmethoden\n* Kernel-Trick\n\n\n<div class=\"alert alert-info\"><h4><a name=\"fehlerabschaetzung\"></a>Abschätzung des realen Fehlers</h4>\nDer reale Fehler kann durch den empirischen Fehler und die VC-Dimension wie\nfolgt abgeschätzt werden:\n\nMit Wahrscheinlichkeit \\(P(1-\\eta)\\) gilt:\n\\[E(h_\\alpha) \\leq E_{emp}(h_\\alpha) + \\sqrt{\\frac{VC(h_\\alpha)}{N} \\cdot (\\log(2 N / VC(h_\\alpha)) + 1) - \\frac{\\log(\\eta  / 4)}{N}}\\]\n\nwobei gilt:\n\n<ul>\n    <li>\\(E(h_\\alpha)\\) ist der reale Fehler der mit der Hypothese \\(h_\\alpha\\)\n        gemacht wird</li>\n    <li>\\(E_{emp}(h_\\alpha)\\) ist der empirische Fehler der mit der Hypothese \\(h_\\alpha\\)\n        gemacht wird</li>\n    <li>\\(VC(h_\\alpha)\\) ist die VC-Dimension der Lernmaschine</li>\n    <li>\\(N\\) ist die Anzahl der Lernbeispiele</li>\n    <li>\\(0 \\leq \\eta \\leq 1\\)</li>\n</ul>\n\nDieser Term wird in der <i>Structural Risc Minimization</i> minimiert.\n</div>\n\n\n### <a name=\"decision-trees\"></a> Entscheidungsbäume\n\nSlide name: `MLI_08_Entscheidungsbaeume_slides1.pdf`\n\n<dl>\n  <dt><dfn>Entscheidungsbaum</dfn> (<dfn>Decision Tree</dfn>)</dt>\n  <dd>Ein Entscheidungsbaum ist ein Klassifikator in Baumstruktur. Die\n      inneren Knoten des Entscheidungsbaumes sind Attributtests, die Blätter\n      sind Klassen.<br/>\n      <br/>\n      Typischerweise wird ein Entscheidungsbaum aufgebaut, indem das jeweilige\n      Attribut mit dem höchsten Information Gain als nächster Knoten hinzugefügt\n      wird. Siehe\n      <a href=\"https://en.wikipedia.org/wiki/Information_gain_in_decision_trees\">Information gain in decision trees</a> für weitere Informationen.</dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/ID3\"><dfn>ID3</dfn></a> (siehe <a href=\"(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3\">pseudocode</a>)</dt>\n  <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes.</dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/C4.5\"><dfn>C4.5</dfn></a> (siehe <a href=\"(https://github.com/MartinThoma/LaTeX-examples/tree/master/source-code/Pseudocode/ID3\">pseudocode</a>)</dt>\n  <dd>ID3 ist ein Top-Bottom Verfahren zum Aufbau eines Entscheidungsbaumes, welches auf ID3 basiert.</dd>\n  <dt><dfn>Random Forest</dfn>, Quelle: <a href=\"https://de.wikipedia.org/wiki/Random_Forest\">Wikipedia</a></dt>\n  <dd>Ein Random Forest ist ein Klassifikationsverfahren, welches aus mehreren\n  verschiedenen, unkorrelierten Entscheidungsbäumen besteht. Alle\n  Entscheidungsbäume sind unter einer bestimmten Art von Randomisierung während\n  des Lernprozesses gewachsen. Für eine Klassifikation darf jeder Baum in\n  diesem Wald eine Entscheidung treffen und die Klasse mit den meisten Stimmen\n  entscheidet die endgültige Klassifikation.</dd>\n</dl>\n\n* Der Algorithmus ID5R dienen dem Aufbau eines Entscheidungsbaumes.\n* C4.5 unterstützt - im Gegensatz zu ID3 - kontinuierliche Attributwerte.\n  Außerdem kann C4.5 mit fehlenden Attributwerten umgehen.\n* Mögliches Qualtitätsmaß ist Entropie:<br/>\n  \\\\(Entropie(S) = - p_\\oplus \\log_2 p_\\oplus - p_\\ominus \\log_2 p_\\ominus\\\\)\n  wobei \\\\(\\oplus\\\\) die positiven Beispiele und \\\\(\\ominus\\\\) die negativen Beispiele\n  bezeichnet.\n* Folie 41: Wo ist der Vorteil von ID5R im Vergleich zu ID3, wenn das\n  Ergebnis äquivalent ist?<br/>\n  → ID5R kann inkrementell verwendet werden. Es ist bei ID5R - im Gegensatz\n  zu ID3 - also nicht nötig bei neuen Trainingsdaten neu zu trainieren.\n* Random Forest: Erstelle mehrere Entscheidungsbäume mit einer zufälligen\n  Wahl an Attributen. Jeder Baum stimmt für eine Klasse und die Klasse, für die\n  die meisten Stimmen, wird gewählt.\n\n\n### Bayes Lernen\n\nSlide name: `MLI_09_BayesLernen_slides1.pdf`\n\nSiehe auch:\n\n* [Dynamische Bayesssche Netze](https://martin-thoma.com/machine-learning-2-course/#dynamic-bayes-networks) in ML2\n\n<dl>\n  <dt><dfn>Satz von Bayes</dfn></dt>\n  <dd>Seien \\(A, B\\) Ereignisse, \\(P(B) > 0\\). Dann gilt:\n      \\(P(A|B) = \\frac{P(B|A) \\cdot P(A)}{P(B)}\\)<br/>\n      Dabei wird \\(P(A)\\) a priori Wahrscheinlichkeit, \\(P(B|A)\\) likelihood,\n      und \\(P(A|B)\\) a posteriori Wahrscheinlichkeit genannt.</dd>\n  <dt><dfn>Naiver Bayes-Klassifikator</dfn></dt>\n  <dd>Ein Klassifizierer heißt naiver Bayes-Klassifikator, wenn er den\n      Satz von Bayes unter der naiven Annahme der Unabhängigkeit der Features\n      benutzt.</dd>\n  <dt><dfn>Produktregel</dfn></dt>\n  <dd>\\(P(A \\land B) = P(A|B) \\cdot P(B) = P(B|A) \\cdot P(A)\\)</dd>\n  <dt><dfn>Summenregel</dfn></dt>\n  <dd>\\(P(A \\lor B) = P(A) + P(B) - P(A \\land P)\\)</dd>\n  <dt><dfn>Theorem der totalen Wahrscheinlichkeit</dfn></dt>\n  <dd>Es seien \\(A_1, \\dots, A_n\\) Ereignisse mit \\(i \\neq j \\Rightarrow A_i \\cap A_j = \\emptyset \\;\\;\\;\\forall i, j \\in 1, \\dots, n\\) und \\(\\sum_{i=1}^n A_i = 1\\). Dann gilt:<br/>\n      \\(P(B) = \\sum_{i=1}^n P(B|A_i) P(A_i)\\)</dd>\n  <dt><dfn>Maximum A Posteriori Hypothese</dfn> (MAP-Hypothese)</dt>\n  <dd>Sei \\(H\\) der Raum aller Hypothesen und \\(D\\) die Menge der beobachteten\n      Daten. Dann heißt<br/>\n      \\(h_{MAP} = \\text{arg max}_{h \\in H} P(h|D) \\cdot P(h)\\)<br/>\n      die Menge der Maximum A Posteriori Hypothesen.</dd>\n  <dt><dfn>Maximum Likelihood Hypothese</dfn> (ML-Hypothese)</dt>\n  <dd>Sei \\(H\\) der Raum aller Hypothesen und \\(D\\) die Menge der beobachteten\n      Daten. Dann heißt<br/>\n      \\(h_{ML} = \\text{arg max}_{h \\in H} P(h|D)\\)<br/>\n      die Menge der Maximum Likelihood Hypothesen.</dd>\n  <dt><dfn>Normalverteilung</dfn></dt>\n  <dd>Eine stetige Zufallsvariable \\(X\\) mit der Wahrscheinlichkeitsdichte\n      \\(f\\colon\\mathbb{R}\\to\\mathbb{R}\\), gegeben durch<br/>\n      \\(f(x) = \\frac {1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac {1}{2} \\left(\\frac{x-\\mu}{\\sigma}\\right)^2}\\)<br/>\n      heißt \\(\\mathcal N\\left(\\mu, \\sigma^2\\right)\\)-verteilt, normalverteilt\n      mit den Erwartungswert \\(\\mu\\) und Varianz \\(\\sigma^2\\).</dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Minimum_Description_Length\"><dfn>Prinzip der minimalen Beschreibungslänge</dfn></a></dt>\n  <dd>Das Prinzip der minimalen Beschreibungslänge ist eine formale\n      Beschreibung von Ockhams Rasiermesser. Nach diesem Prinzip werden\n      Hypothesen bevorzugt, die zur besten Kompression gegebener Daten führen.\n  </dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Gibbs-Sampling\"><dfn>Gibbs-Algorithmus</dfn></a> (<a href=\"http://stats.stackexchange.com/a/10216/25741\">stats.stackexchange</a>)</dt>\n  <dd>Der Algorithmus von Gibbs ist eine Methode um Stichproben von bedingten\n      Verteilungen zu erzeugen.\n  </dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Bedingte_Unabh%C3%A4ngigkeit\"><dfn>Bedingte Unabhängigkeit</dfn></a></dt>\n  <dd>Seien \\(X, Y, Z\\) Zufallsvariablen. Dann heißt \\(X\\) bedingt unabhängig\n      von \\(Y\\) gegeben \\(Z\\), wenn \\[P(X|Y,Z) = P(X|Z)\\] gilt.\n  </dd>\n  <dt><a href=\"https://en.wikipedia.org/wiki/Additive_smoothing\"><dfn>Add \\(k\\) smoothing</dfn></a></dt>\n  <dd>Unter Add-\\(k\\)-smoothing versteht man eine Technik, durch die\n      sichergestellt wird, dass die geschätzte Wahrscheinlichkeit für kein\n      Ereignis gleich null ist. Wenn man \\(d \\in \\mathbb{N}\\) mögliche\n      Ergebnisse eines Experiments hat, \\(N \\in \\mathbb{N}\\) experimente\n      durchgeführt werden, dann schätzt man die Wahrscheinlichkeit von dem\n      Ergebnis \\(i\\) mit\n      \\[\\hat{\\theta_i} = \\frac{x_i + k}{N+ kd}, \\]\n      wobei \\(x_i\\) die Anzahl der Beobachtungen von \\(i\\) ist und \\(k \\geq 0\\)\n      der Glättungsparameter ist.\n  </dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Bayessches_Netz\"><dfn>Bayessches Netz</dfn></a> (Quelle: [<a href=\"#ref-dar09\" name=\"ref-dar09-anchor\">Dar09</a>])</dt>\n  <dd>Ein bayessches Netz ist ein Tupel \\((G, \\Theta)\\) mit:\n\n  <ul>\n      <li>\\(G = (\\mathbf{X}, E)\\) ist ein <abbr title=\"Directed Acyclical Graph\">DAG</abbr>\n          der <b>Struktur</b> des Bayesschen Netzwerks genant wird. Dabei\n          ist \\(\\mathbf{X} = \\{X_1, X_2, \\dots, X_n\\}\\) die Menge der Knoten.\n          Jeder Knoten entspricht einer Zufallsvariablen.\n\n          Existiert eine gerichtete Kante \\((X_i, X_j) \\in E\\), so existiert\n          eine direkte Abhängigkeit zwischen \\(X_i\\) und \\(X_j\\).</li>\n      <li>\\(Theta\\) ist die Menge der bedingten Wahrscheinlichkeitsverteilungen\n          und heißt <b>Parametrisierung</b> des bayesschen Netzwerks. Es\n          existiert für jedes \\(X_i\\) genau eine Verteilung in \\(\\Theta\\),\n          welche in Abhängigkeit der Elternknoten beschrieben wird.</li>\n  </ul>\n\n  In einem bayesschem Netz berechnet sich die gemeinsame Verteilung wie folgt:\n\n  \\[P(X_1, \\dots, X_N) = \\prod_{i=1}^N P(X_i | \\text{Eltern}(X_i))\\]\n\n  Die Modelierung von Bayesschen Netzen erfolgt meist durch den Menschen mit\n  Expertenwissen. Alternativ kann die Struktur durch\n  <abbr title=\"Markov Chain Monte Carlo\">MCMC</abbr> bestimmt werden.\n  Sobald die Struktur gegeben ist wird die Menge der Verteilungen \\(\\Theta\\)\n  durch den Expectation Maximization Algorithmus bestimmt.\n  </dd>\n</dl>\n\nFragen:\n\n* Folie 23: Warum ist \\\\(h_{MAP(x)}\\\\) nicht die wahrscheinlichste\n  Klassifikation?\n* Folie 24: Was ist \\\\(V\\\\)?\n* [Is there any domain where Bayesian Networks outperform neural networks?](http://datascience.stackexchange.com/q/9818/8820)\n\n\n### <a name=\"hmm\"></a> HMM\n\nSlide name: `MLI_10_HMM_slides1.pdf`\n\n<dl>\n  <dt><dfn>Markov-Bedingung</dfn> (Beschränkter Horizont)</dt>\n  <dd>\\(P(q_{t+1}=S_{t+1}|q_t = S_t, q_{t-1} = S_{t-1}, \\dots) = P(q_{t+1}=S_{t+1}|q_t = S_t)\\)</dd>\n  <dt><dfn>Hidden Markov Modell</dfn> (<dfn>HMM</dfn>)</dt>\n  <dd>Eine HMM ist ein Tupel \\(\\lambda = (S, V, A, B, \\Pi)\\):\n      <ul>\n          <li>\\(S = \\{S_1, \\dots, S_n\\}\\): Menge der Zustände</li>\n          <li>\\(V = \\{v_1, \\dots, v_m\\}\\): Menge der Ausgabezeichen</li>\n          <li>\\(A \\in [0,1]^{n \\times n}\\) = (a_{ij}): Übergangsmatrix, die die Wahrscheinlichkeit von Zustand \\(i\\) in Zustand \\(j\\) zu kommen beinhaltet</li>\n          <li>\\(B = (b_{ik})\\) die Emissionswahrscheinlichkeit \\(v_k\\) im Zustand \\(S_i\\) zu beobachten</li>\n          <li>\\(\\Pi = (\\pi_i) = P(q_1 = i)\\): Die Startverteilung, wobei \\(q_t\\) den Zustand zum Zeitpunkt \\(t\\) bezeichnet</li>\n      </ul></dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Forward-Algorithmus\"><dfn>Vorwärts-Algorithmus</dfn></a></dt>\n  <dd>Der Vorwärts-Algorithmus löst das Evaluierungsproblem. Er benutzt dazu\n      dynamische Programmierung: Die Variablen \\(\\alpha_t(i) = P(o_1 o_2 \\dots o_t; q_t = s_i | \\lambda)\\) gibt die Wahrscheinlichkeit\n      an zum Zeitpunkt \\(t \\in 1 \\leq t \\leq T\\) im Zustand \\(s_i \\in S\\) zu\n      sein und die Sequenz \\(o_1 o_2 \\dots o_t\\) beobachtet zu haben. Diese\n      werden rekursiv berechnet. Dabei beginnt man mit Zeitpunkt \\(t=1\\), berechnet\n      die Wahrscheinlichkeit \\(o_1\\) beobachtet zu haben für jeden Zustand.\n      <br/>\n      Die Wahrscheinlichkeit der beobachteten Sequenz, gegeben die HMM \\(\\lambda\\),\n      ist dann einfach die Summe der \\(\\alpha_i\\) des letzten Zeitschritts.</dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Backward-Algorithmus\"><dfn>Rückwärts-Algorithmus</dfn></a></dt>\n  <dd>Der Rückwärts-Algorithmus löst das Dekodierungsproblem. Er benutzt dazu\n      dynamische Programmierung: Die Variablen \\(\\beta_t(i) = P(o_{t+1} o_{t+2} \\dots o_{T}|q_t = s_i, \\lambda)\\) geben\n      die Wahrscheinlichkeit an, dass die Sequenz \\(o_{t+1} o_{t+2} \\dots o_{T}\\)\n      beobachtet werden wird, gegeben das HMM&nbsp;\\(\\lambda\\) und den\n      Startzustand&nbsp;\\(s_i\\).</dd>\n  <dt><dfn>Forward-Backward Algorithm</dfn></dt>\n  <dd>Der Forward-Backward Algorithmus berechnet für jeden Zeitpunkt die\n      Wahrscheinlichkeitsverteilung der Zustände. Dafür glättet er die Werte\n      des Vorwärts- und des Rückwärts-Algorithmus:\n      \\[\\gamma_t(i) = \\frac{\\alpha_t(i) \\beta_t(i)}{P(O|\\lambda)}\\]\n\n      Er findet jedoch nicht die wahrscheinlichste Zustandssequenz.\n      </dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Viterbi-Algorithmus\"><dfn>Viterbi-Algorithmus</dfn></a></dt>\n  <dd>Löst P2:\n      <br/>\n  Siehe <a href=\"../apply-viterbi-algorithm/\">How to apply the Viterbi algorithm</a></dd>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus\"><dfn>Baum-Welch-Algorithmus</dfn></a></dt>\n  <dd>Löst P3:\n\n      Gegeben sei eine Trainingssequenz \\(O_{\\text{train}}\\) und ein Modell\n      \\[\\lambda = \\{S, V, A, B, \\Pi\\}\\]\n\n\n      Gesucht ist ein Modell\n\n      \\[\\bar \\lambda = \\text{arg max}_{\\bar \\lambda = \\{S, V, \\bar A, \\bar B, \\bar Pi\\}} P(O_{\\text{train}}|\\lambda)\\]\n\n      Der Baum-Welch-Algorithmus geht wie folgt vor:\n\n      <ol>\n          <li>Bestimme \\(P(O_{\\text{train}} | \\lambda)\\)</li>\n          <li>Schätze ein besseres Modell \\(\\bar \\lambda\\): TODO - Genauer! (Folie 31 - 36)</li>\n      </ol>\n\n      Iteriere diese Schritte so lange, bis ein lokales Maximum gefunden wurde.\n      </dd>\n  <dt><dfn>Ergodisches Modell</dfn></dt>\n  <dd>Unter dem <i>ergodischen Modell</i> versteht man im Kontext von\n      <abbr title=\"Hidden Markov Models\">HMMs</abbr> die vollverbundene\n      Topologie inclusive Schleifen.</dd>\n  <dt><dfn>Bakis-Modell</dfn> (<dfn>Links-nach-Rechts-Modell</dfn>)</dt>\n  <dd>Unter dem <i>Bakis-Modell</i> versteht man im Kontext von\n      <abbr title=\"Hidden Markov Models\">HMMs</abbr> eine Links-nach-Rechts\n      Topologie, bei der maximal ein Zustand übersprungen werden kann.\n      Das bedeutet, es gibt eine Ordnung über den Zuständen. Von einem\n      Zustand \\(i\\) kommt man in die Zustände \\(i, i+1, i+2\\).</dd>\n</dl>\n\nDie drei Probleme von HMMs sind\n\n* **P1 - Evaluierungsproblem**: Wie wahrscheinlich ist eine Sequenz\n  \\\\(\\bf{o} = o_1 o_2 \\dots o_T\\\\)\n  gegeben ein HMM \\\\(\\lambda\\\\), also \\\\(P(\\bf{o}|\\lambda)\\\\).\n* **P2 - Dekodierungsproblem**: Finden der wahrscheinlichsten Zustandssequenz <span markdown=\"0\">\\(s_1, \\dots, s_T\\)</span>,\n  gegeben eine Sequenz von Beobachtungen \\\\(\\bf{o} = o_1 o_2 \\dots o_T\\\\).\n* **P3 - Lernproblem**: Optimieren der Modellparameter\n\n\nAnwendungen:\n\n* Gestenerkennung\n* Phonem-Erkennung\n\n\n### Markov Logik Netze\n\nSlides: `MLI_11-MLN_slides1`\n\nMarkov Logik Netze sind Sammlungen von Tupeln aus Gewichten \\\\(w_i\\\\) und\nprädikatenlogischen Formeln. Die Idee hinter Markov Logik Netzen ist ein\naufweichen der harten Bedingungen der Prädikatenlogik. Eine prädikatenlogische\nFormel ist entweder wahr oder falsch. Eine Formel in MLNs kann auch \"meistens\"\nerfüllt sein. Das wird durch das Gewicht repräsentiert.\n\n<dl>\n  <dt><a href=\"https://de.wikipedia.org/wiki/Markov_Logik_Netze\"><dfn>Markov Logik Netze</dfn></a> (<dfn>MLN</dfn>)</dt>\n  <dd>Ein Markov Logik Netz ist ein Menge aus Tupeln \\(L = (F_i, w_i)\\), wobei \\(F_i\\) eine Formel der Prädikatenlogik erster Ordnung und \\(w_i \\in \\mathbb{R}\\) ein Gewicht ist.\n      Ein MLN ist eine Schablone für ein MRF.</dd>\n  <dt><a name=\"mrf-definition\"></a><dfn>Markov Random Field</dfn> (<dfn>Markov Netzwerk</dfn>, <dfn>MRF</dfn>)</dt>\n  <dd>Ein MRF ist ein ungerichtetes Probabilistisches Grafisches Modell.<br/>\n      MRFs sind zur Modellierung von Korrelation geeignet.</dd>\n  <dt><a name=\"mln-jpd\"></a><dfn>Verbundwahrscheinlichkeit in MLNs</dfn></dt>\n  <dd>\\(P(x) = \\frac{1}{Z} \\exp(\\sum_{i} w_i f_i(x))\\) wobei \\(f_i\\) das \\(i\\)-te Feature und \\(w_i\\) ein\n           Gewicht ist. Beispielsweise könnte \\[f_i(x) = f_i(\\text{smoking}, \\text{cancer}) = \\begin{cases}1 &\\text{if } \\neg \\text{smoking} \\lor \\text{cancer}\\\\ 0 &\\text{otherwise}\\end{cases}\\]\n           gelten.</dd>\n  <dt><a name=\"mln-inference\"></a><dfn>Inferenz in MLNs</dfn></dt>\n  <dd><abbr title=\"Maximum a posteriori\">MAP</abbr>:\n      \\[\\begin{align}\\text{arg max}_y P(y | x) &= \\frac{1}{Z} \\exp(\\sum_{i} w_i n_i(x, y))\\\\\n         &= \\sum_{i} w_i n_i(x, y) \\end{align}\\]</dd>\n</dl>\n\n\nSiehe auch:\n\n* Matthew Richardson, Pedro Domingos: [Markov logic networks](http://link.springer.com/article/10.1007/s10994-006-5833-1)\n* Pedro Domingos, Matthew Richardson: [Markov Logic: A Unifying Framework for Statistical Relational Learning](http://homes.cs.washington.edu/~pedrod/papers/srl04.pdf), 2007.\n* Coursera: [Probabilistic Graphical Models](https://www.coursera.org/course/pgm)\n* Pedro Domingos: [Unifying Logical and Statistical AI](https://www.youtube.com/watch?v=bW5DzNZgGxY), September 2009.\n* Software: [Alchemy](https://alchemy.cs.washington.edu/)\n* YouTube: [11 4 M4 Markov Logic Formalism 11 39](https://www.youtube.com/watch?v=BLAoNJvQZQ4)\n\n\n### Evolutionäre Algorithmen\n\nSlides: `MLI_12_EvolutionaereAlgorithmen_slides1.pdf`\n\nSiehe auch:\n\n* [<a href=\"#ref-mit97\" name=\"ref-mit97-anchor\">Mit97</a>]\n* [DEAP](http://deap.readthedocs.org/en/master/index.html) wenn du es\n  ausprobieren willst.\n* [Difference between genetic algorithms and evolution strategies?](http://stackoverflow.com/q/7787232/562769)\n\n<dl>\n    <dt><dfn>Individuum</dfn></dt>\n    <dd>Eine mögliche Hypothese</dd>\n    <dt><dfn>Population</dfn> (<dfn>Generation</dfn>)</dt>\n    <dd>Hypothesenmenge</dd>\n    <dt><dfn>Erzeugung von Nachkommen</dfn></dt>\n    <dd>Generierung neuer Hypothesen durch Rekombination und Mutation</dd>\n    <dt><dfn>Fitness-Funktion</dfn></dt>\n    <dd>Die Fitness-Funktion ist das zu optimierende Kriterium. Sie beschreibt\n        die Güte einer Hypothese.</dd>\n    <dt><dfn>Selektion</dfn></dt>\n    <dd>Auswahl der Hypothesen, welche die beste Problemlösung erzeugen.</dd>\n    <dt><dfn>Evolutionäre Strategien</dfn></dt>\n    <dd>Das Wissen wird durch reele Zahlen und Vektoren repräsentiert.</dd>\n    <dt><dfn>Genetische Programmierung</dfn></dt>\n    <dd>Das Wissen wird duch baumartige Strukturen repräsentiert.</dd>\n    <dt><dfn>Mutation</dfn></dt>\n    <dd>Unter <i>Mutation</i> versteht man die zufällige Änderung einzelner\n        Gene.\n\n        Beispiele:\n\n        <ul>\n            <li>Bit-Inversion: Zufällig Gleichverteilt pro Gen / Feste Anzahl,\n                aber zufällige Gene</li>\n            <li>Translation: Verschieben von Teilsequenzen</li>\n            <li>Invertiertes Einfügen</li>\n            <li>Spezielle Mutationsoperatoren sind anwendungsspezifisch</li>\n        </ul>\n    </dd>\n    <dt><dfn>Rekombination</dfn></dt>\n    <dd>Bei der <i>Rekombination</i> werden die Eigenschaften zweier Eltern\n        gemischt. Dies kann Diskret passieren, wenn manche Gene von einem\n        Elternteil übernommen werden und andere vom anderen Elternteil.\n        Alternativ kann die Rekombination auch durch <i>intermediäre\n        Rekombination</i> passieren. Das bedeutet, das ein Gen gemittelt\n        wird.</dd>\n</dl>\n\nGrundalgorithmus:\n\n```text\nFitness-Function f\nPopulation p\n\nwhile f(p) ≠ optimal:\n    p_parents ← selection(p)\n    p_children ← generate_children(p_parents)\n    p ← p_parents + p_children\n    fitness ← f(p)\n    p ← selection_kill(p, fitness)\n```\n\nProbleme:\n\n* Genetischer Drift: Manche Individuen vermehren sich zufällig mehr als andere.\n  Diese sind nicht unbedingt besser für das Problem geeignet.\n* Crowding, Ausreißerproblem: Fitte Individuen dominieren die Population. Das\n  ist ein Problem wegen lokaler Maxima.\n\n\nMating:\n\n* Inselmodell: Die Evolution läuft weitgehend getrennt. Es passiert nur\n  vereinzelt, dass Individuen der Inseln ausgetauscht werden.\n* Nachbarschaftsmodell: Nachkommen dürfen nur von Individuen erzeugt werden,\n  die in ihrer Nachbarschaft die beste Fitness besitzen\n* Globales Modell: Alle dürfen sich mit allen verbinden.\n\nEvolution:\n\n* Lamark'sche Evolution: Die Individuen ändern sich nach der Erzeugung. Sie\n  lernen also. Dabei wird der Genotyp verändert und auch vererbt.\n* Baldwin'sche Evolution: Die Individuen ändern sich nach der Erzeugung, aber\n  der Genotyp bleibt gleich\n* Hybride Verfahren: Es gibt sich verändernde und gleich bleibende Phänotypen.\n\n\nAnwendungen:\n\n* Traveling Salesman\n* Flugplanoptimierung\n* Mischung von Kaffesorten\n* Cybermotten: Motten müssen optimales Muster finden, um sich vor einer Fläche\n               weißen Rauschens zu verbergen.\n* Snakebot (Ivan Tanev) [<a href=\"#ref-pro06\" name=\"ref-pro06-anchor\">Pro06</a>]\n\n\n### Deduktives Lernen\n\nSlides: `MLI_13_DeduktivesLernen_slides1.pdf`\n\nSiehe auch: [Formale Systeme](//martin-thoma.com/formale-systeme/)\n\n<dl>\n    <dt><dfn>Modus Ponens</dfn></dt>\n    <dd>\\[\\frac{A, A \\rightarrow B}{B}\\]</dd>\n    <dt><dfn>Erklärungsbasiertes Lernen</dfn> (<dfn>EBL</dfn>, <dfn>Explanation Based Learning</dfn> by [<a href=\"#ref-mit97\" name=\"ref-mit97-anchor\">Mit97</a>])</dt>\n    <dd>The key insight behind explanation-based generalization is that it is\n        possible to form a justified generalization of a single positive\n        training example provided the learning system is endowed with some\n        <b>explanatory capabilitie</b>. In particular, the system must be able\n        to explain to itself <b>why the training example is an example of the\n        concept</b> under study. Thus, the generalizer is presumed to possess a\n        definition of the concept under study as well as <b>domain\n        knowledge</b> for constructing the required explanation.</dd>\n    <dt><dfn>Explanation Based Generalization</dfn> (<dfn>EBG</dfn>)</dt>\n    <dd>EBG ist ein Prozess, bei dem implizites Wissen in explizites\n        umgewandelt wird.\n\n        EBG geht wie folgt vor:\n\n        <ol>\n            <li>Explain: Finden einer Erklärung, warum das Beispiel die\n                Definition des Zielkonzepts erfüllt. Dies ist einfaches\n                Anwenden des Modus Ponens.</li>\n            <li>Generalize: Generalisieren der Erklärung; bestimme also\n                hinreichende Bedingungen unter denen die gefundene\n                Erklärungsstruktur gültig ist.</li>\n        </ol>\n\n        Bei der EBG werden also Makro-Operatoren erzeugt.\n\n        Ein Beispiel für Software welche EBG benutzt ist\n        <abbr title=\"STanford Resarch Institute Problem Solver\">STRIPS</abbr>.\n    </dd>\n    <dt><dfn>KBANN</dfn> (<dfn>Knowledge-Based Artificial Neural Networks</dfn>)</dt>\n    <dd>KBANN ist ein hybrides Verfahren. Die Idee ist ein neuronales Netz\n        geschickt zu konstruieren. Dieses wird dann wie gewohnt mit\n        Gradient Descent durch Trainingsbeispiele verfeinert.\n\n        Der Algorithmus gibt eine Netzarchtiktur vor:\n        <ul>\n             <li>Dabei wird pro Instanzattribut ein Netz-Input verwendet. Für\n                 jede Klausel wird ein Neuron hinzugefügt.</li>\n             <li>Dieses ist mit dem Instanzattribut durch das Gewicht \\(w\\)\n                 verbunden wenn es nicht negiert ist, sonst durch das Gewicht\n                 \\(-w\\).</li>\n             <li>Der Schwellwert der Aktivierungsfunktion wird auf\n                 \\(-(n- 0.5)w\\) gesetzt, wobei \\(n\\) die Anzahl der nicht-negierten\n                 Bedingungsteile ist.</li>\n            <li>Verbinde die restlichen Neuronen von Schicht \\(i\\) mit Schicht\n                \\(i+1\\) indem zufällige kleine Gewichte gesetzt werden.</li>\n         </ul>\n\n         Angewendet werden kann KBANN:\n         <ul>\n             <li>Lernen von physikalischen Objektklassen</li>\n             <li>Erkennung von biologischen Konzepten in DNS-Sequenzen</li>\n         </ul>\n    </dd>\n</dl>\n\n\n### <a name=\"unsupervised-learning\"></a> Unüberwachte Lernverfahren\n\nSlides: `MLI_14_UnueberwachtesLernen_slides1.pdf`\n\n<dl>\n    <dt><dfn>\\(k\\)-means Clustering</dfn></dt>\n    <dd>Der \\(k\\)-means Clustering Algorithmus finden \\(k\\) Cluster in einem\n        Datensatz. Dabei ist \\(k \\in \\mathbb{N}_{\\geq 1}\\) vom Benutzer zu\n        wählen.\n\n        Zuerst initialisert \\(k\\)-means die Zentroiden, also zentrale Punkte\n        für Cluster, zufällig. Dann geht \\(k\\)-means geht iterativ vor:\n\n        <ol>\n            <li>Weise jeden Datenpunkt seinem nächsten Cluster zu.</li>\n            <li>Verschiebe die \\(k\\) Zentroide in ihr Clusterzentrum</li>\n        </ol>\n\n        Siehe auch: <a href=\"//martin-thoma.com/k-nearest-neighbor-classification-interactive-example/\">Interaktives Beispiel</a>\n    </dd>\n    <dt><dfn>Fuzzy \\(k\\)-means</dfn></dt>\n    <dd>Im Gegensatz zum \\(k\\)-means Algorithmus, wo jeder Datenpunkt in genau\n        einem Cluster ist, weißt der Fuzzy \\(k\\)-means Algorithmus jedem\n        Datenpunkte eine Zugehörigkeitswahrscheinlichkeit zu. Je weiter\n        der Datenpunkt vom Zentroid entfernt ist, desto unwahrscheinlicher\n        wird die Zugehörigkeit.\n\n        Die Cluster-Zugehörigkeit des Datenpunktes \\(x_i\\) zum Cluster \\(c_j\\)\n        kann als Wahrscheinlichkeit in Abhängigkeit der Distanz\n        \\[d_{ij} = |x_i - z_j|^2\\]\n        zum Zentroiden\n        \\(z_j\\) ausgedrückt werden:\n        \\[P(c_j | x_i) = \\frac{(\\frac{1}{d_{ij}})^{\\frac{1}{b-1}}}{\\sum_{r=1}^k (\\frac{1}{d_{ir}})^{\\frac{1}{b-1}}}\\]\n        wobei \\(b \\in \\mathbb{R}_{\\geq 1}\\) ein frei zu wählender Parameter ist.\n\n        Die Zentroide werden dann wie folgt neu berechnet:\n\n        \\[z_j = \\frac{\\sum_{i=1}^n [P(z_j|x_i)]^b \\cdot x_i}{\\sum_{i=1}^n [P(z_j | x_i)]^b}\\]\n    </dd>\n    <dt><a href=\"https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse\"><dfn>Hierarchisches Clustern</dfn></a></dt>\n    <dd>Die Idee des hierarchischen Clusterns ist die iterative Vereinigung\n        von Clustern zu größeren Clustern.\n\n        Ergebisse können durch ein Dendrogramm beschrieben werden.\n\n        Anwendung: Einordnung von Schrauben in ein Ordnungssystem\n    </dd>\n    <dt><dfn>Agglomerative Hierarchical Clustering</dfn> (<dfn>AHC</dfn>)</dt>\n    <dd>AHC ist ein hierarchisches Clusteringverfahren.\n\n    Dabei ist ein Clusterdistanz-Schwellwert \\(t \\in \\mathbb{R}\\) und eine\n    minimale Cluster-Anzahl \\(k \\in \\mathbb{N}\\) zu wählen. Auch ein Distanzmaß\n    für Cluster (nearest neighbor, farest neighor, mean distance, ...) ist\n    als Hyperparameter zu wählen.\n\n    Dann geht AHC wie folgt vor:\n\n    <div class=\"highlight\">\n       <pre><code class=\"language-text\" data-lang=\"text\">\nc ← k  # Minimale Anzahl an Clustern\nc' ← n  # Anzahl der Datenpunkte\n\n# Weise jedem Punkt sein eigenes Clusterzentrum zu\nfor i in range(1, n):\n    D_i ← {x_i}\n\n# Vereinige Clusterzentren\ndo:\n    c' := c' -1\n    find closest clusters D_i, D_j\n    if d(D_i, D_j) ⩽ t:\n        merge(D_i, Dj)\n    else:\n        break\nuntil c = c'\n    </code></pre>\n    </div>\n    </dd>\n    <dt><a href=\"https://en.wikipedia.org/wiki/Conceptual_clustering\"><dfn>Begriffliche Ballung</dfn></a></dt>\n    <dd>Bei Algorithmen der Begrifflichen Ballung werden Konzeptbeschreibungen\n        generiert.</dd>\n    <dt><a href=\"https://en.wikipedia.org/wiki/Cobweb_(clustering)\"><dfn>COBWEB</dfn></a></dt>\n    <dd>Cobweb ist ein Algorithmus zur begrifflichen Ballung. Er lernt durch\n        inkrementelles Aufbauen eines Strukturbaumes. Dabei sind nominale\n        Attribute gestattet. Dabei wird ein Datenpunkt \\(x_i\\) zum Cluster\n        \\(c_j\\) geclustert, wenn man die Attributwerte von \\(x_i\\) durch die\n        Kentniss von \\(c_j\\) gut vorhersagen kann (<span markdown=\"0\">\\(P(x_i | c_j)\\)</span>,\n        predictability) und zugleich der Cluster gut vorhergesagt werden kann,\n        wenn die Attributwerte gegeben sind (<span markdown=\"0\">\\(P(c_j|x_i)</span>, predictiveness).\n\n        Es soll also in inter-Klassenähnlichkeit minimiert und die\n        intra-Klassenähnlichkeit maximimiert werden. Dafür wird die\n        Category Utility verwendet:\n\n        <div>\n        \\[\\text{CU} = \\sum_{k=1}^K \\sum_{i=1}^I \\sum_{j=1}^{J(i)} P(A_i = V_{ij}) \\cdot P(A_i = V_ij | C_k) \\cdot P(C_k | A_i = V_{ij})\\]\n        </div>\n\n        Dabei gilt:\n\n        <ul>\n            <li>\\(K\\): Anzahl der Cluster</li>\n            <li>\\(I\\): Anzahl der Attribute</li>\n            <li>\\(J(i)\\): Anzahl der Attributwerte des \\(i\\)-ten Attributs</li>\n            <li>\\(V_{ji}\\): \\(j\\)-ter möglicher Wert für Attribut \\(i\\)</li>\n            <li>\\(P(A_i = V_ij | C_k)\\): Predictability</li>\n            <li>\\(P(C_k | A_i = V_{ij}\\): Predictiveness</li>\n        </ul>\n\n        Anwendung: Interpretation von <abbr title=\"Elektromyographie\">EMGs</abbr>\n    </dd>\n</dl>\n\n\n\n## Prüfungsfragen\n\n<ul>\n    <li>Was ist Induktives Lernen?<br/>\n        → Eine große Menge an Beispielen wird gegeben. Der Lerner muss selbst\n           das Konzept herausfinden.</li>\n    <li>Was ist Deduktives Lernen?<br/>\n        → Fakten werden gegeben. Der lernende bekommt das allgemeine Konzept\n           gesagt und muss nur logische Schlussfolgerungen machen.</li>\n    <li>SVMs\n    <ul>\n        <li>Wie funktioniert SRM bei SVMs?<br/>\n            → Dualität zwischen Feature- und Hypothesenraum: Radius der Hyperkugel\n               wird minimiert.</li>\n        <li>Warum lernen SVMs \"korrekt\"?<br/>\n            → Es gibt ein Theorem (TODO: Welches?) das besagt, dass die VC-Dimension\n            eines Klassifiers, welcher Datenpunkte im \\(n\\)-Dimensionalen Raum\n            innerhalb einer Kugel mit Radius \\(D\\) durch eine Hyperebene mit\n            mindestens Abstand \\(\\Delta\\) trennen will, durch \\((\\frac{D}{\\Delta})^2\\)\n            beschränkt ist. Die SVM minimiert genau diesen Quotienten, da sie den\n            Margin maximiert.\n\n            Alternativ: Erklärung durch Strukturierung des Hypothesenraumes (TODO).\n            </li>\n    </ul>\n    </li>\n    <li>Reinforcement Learning\n        <ul>\n            <li>Wie lautet die Bellman-Gleichung?<br/>\n                → \\(Q(s, a) = r + \\gamma \\max_{a'} Q(s', a')\\) wobei \\(\\gamma\\) ein\n                Diskontierungsfaktor ist, \\(s'\\) der Zustand in den man kommt, wenn\n                man \\(a\\) ausführt und \\(r\\) der Reward nach ausführen von \\(a\\) in\n                \\(s\\) ist.</li>\n            <li>Was ist Value Iteration und wie lautet die Formel?<br/>\n                → Schätzen der Value-Funktion durch iteratives anwenden von \\(\\hat{V}^*(s_t) \\leftarrow r_t + \\gamma \\hat{V}^*(s_{t+1})\\)</li>\n            <li>Was sind Eligibility Traces im Kontext von Reinforcement Learning?<br/>\n                → Siehe <a href=\"#rl-eligibility-trace\">oben</a></li>\n            <li>Wie funktioniert Q-Learning?<br/>\n                → Siehe <a href=\"#q-learning\">Abschnitt Q-Learning</a></li>\n        </ul>\n    </li>\n    <li>Evolutionäre Algorithmen: Was ist wichtig?\n        <ul>\n            <li>Population / Individuen: Wie Individuen darstellen<br/>\n                → Durch Gene (Attribute), z.B. als Bitstring</li>\n            <li>Gegebener Ablauf (Wahl der Eltern, Generierung der Individuen)</li>\n            <li>Wie kann man Kombinieren?<br/>\n                → vgl. <i>Rekombination</i></li>\n            <li>Fitness Function</li>\n            <li>Was sind die wichtigsten Elemente von evolutionären Algorithmen?<br/>\n                → Mutation, Rekombination, Fittness-Funktion, Selektion</li>\n            <li>Was ist Landmarksche / Baldwinsche Evolution?</li>\n        </ul>\n    </li>\n    <li>Wie lautet die Fehlerabschätzung von Vapnik?<br/>\n        → Siehe <a href=\"#fehlerabschaetzung\">Abschätzung des realen Fehlers</a> durch den empirischen Fehler\n           und die VC-Dimension.</li>\n    <li>Was versteht man unter Cascade Correlation?<br/>\n        → <a href=\"https://www.youtube.com/watch?v=1E3XZr-bzZ4\">YouTube</a> (4:05 min)</li>\n    <li>Welche übwerwachten Lernverfahren gibt es?<br/>\n        → Neuronale Netze, SVMs</li>\n    <li>Wie funktioniert Inferenz in Markov Logik Netzen?<br/>\n        → Siehe <a href=\"#mln-inference\">oben</a></li>\n    <li>Wie wird die Verbundwahrscheinlichkeit / Weltwahrscheinlichkeit in Markov Logik Netzen berechnet?<br/>\n        → Siehe <a href=\"#mln-jpd\">oben</a></li>\n    <li>Was ist Dynamic Decay Adjustment (DDA)?<br/>\n        → Siehe <a href=\"#dda-algorithm\">oben</a></li>\n    <li>Was ist erklärungsbasierte Generalisierung (EBG)?<br/>\n        → Der Agent lernt keine neuen Konzepte, aber er lernt über Verbindungen\n           bekannter Konzepte.</li>\n    <li>Wie lautet die Formel für Entropie / Information Gain?<br/>\n        → \\(\\text{Entropie} = - \\sum_{i} p_i \\log p_i\\) und \\(KL(P, Q) = \\sum_{x \\in X} P(x) \\cdot \\log \\frac{P(x)}{Q(x)}\\)</li>\n    <li>Was ist Cobweb?<br/>\n        → Siehe <a href=\"#unsupervised-learning\">Unsupervised Learning</a></li>\n</ul>\n\n\n## Material und Links\n\n* [Vorlesungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/index.php)\n* [&Uuml;bungswebsite](http://cg.ivd.kit.edu/lehre/ws2015/cg/uebung.php)\n* StackExchange\n  * [What is the difference between concept learning and classification?](http://datascience.stackexchange.com/q/8642/8820)\n   * [What is the difference between a (dynamic) Bayes network and a HMM?](http://datascience.stackexchange.com/q/10000/8820)\n* [Zusammenfassung der Vorlesung ML 2](//martin-thoma.com/machine-learning-2-course/)\n* Udacity\n  * [Knowledge-Based AI: Cognitive Systems](https://www.udacity.com/course/knowledge-based-ai-cognitive-systems--ud409): Unter anderem gibt es eine Lektion zu Explanation-Based Learning (erklärungsbasierte Generalisierung)\n\n## Literatur\n\n* [<a href=\"#ref-mit97-anchor\" name=\"ref-mit97\">Mit97</a>] T. Mitchell.\n  Machine Learning. McGraw-Hill, 1997.\n* [<a href=\"#ref-dar09-anchor\" name=\"ref-dar09\">Dar09</a>] A. Darwiche.\n  Modeling and reasoning with Bayesian networks. Cambridge University Press,\n  Cambridge [u.a.], 2009.\n* [<a href=\"#ref-ber95-anchor\" name=\"ref-ber95\">Ber95</a>] M.&nbsp;Berthold and\n  J.&nbsp;Diamond. Boosting the Performance of RBF Networks with Dynamic Decay\n  Adjustment. Advances in Neural Information Processing, 1995. [<a href=\"http://kops.uni-konstanz.de/handle/123456789/5427\">Online</a>]\n* [<a href=\"#ref-pro06-anchor\" name=\"ref-pro06\">Pro06</a>] Prokopenko, Mikhail and Gerasimov, Vadim and\n  Tanev, Ivan. Evolving Spatiotemporal Coordination in a Modular Robotic\n  System. Springer, 2006.\n\n\n## Übungsbetrieb\n\nEs gibt keine Übungsblätter, keine Übungen, keine Tutorien und keine\nBonuspunkte.\n\n\n## Vorlesungsempfehlungen\n\nFolgende Vorlesungen sind ähnlich:\n\n* [Analysetechniken großer Datenbestände](https://martin-thoma.com/analysetechniken-grosser-datenbestaende/)\n* [Machine Learning 1](https://martin-thoma.com/machine-learning-1-course/)\n* [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)\n* [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)\n* [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)\n\n\n## Termine und Klausurablauf\n\n**Datum**: Mündliche Prüfung (in Zukunft schriftlich)<br/>\n**Ort**: nach Absprache<br/>\n**Zeit**: 15&nbsp;min<br/>\n**Übungsschein**: gibt es nicht<br/>\n**Bonuspunkte**: gibt es nicht<br/>\n**Ergebnisse**: werden ca. 5&nbsp;-&nbsp;10&nbsp;min. nach der mündlichen Prüfung gesagt<br/>\n**Erlaubte Hilfsmittel**: keine\n",
-			"file": "_posts/2015-11-09-machine-learning-1-course.md",
-			"file_size": 76726,
-			"file_write_time": 131057880294995439,
+			"contents": "    #!/usr/bin/env python\n    # -*- coding: utf-8 -*-\n\n    \"\"\"\n    tv, the TensorVision toolkit, is a computer vision toolbox.\n\n    It includes scripts that are useful for building tools for computer vision\n    tasks such as classification.\n    \"\"\"\n\n\n    import argparse\n\n    import logging\n    import sys\n\n    # tv modules\n    # Every TV tool that should be available through\n    #   tv TOOL\n    # has to be added to ``get_parser()`` and to ``main``.\n    import tensorvision\n    from tensorvision import train\n\n\n    logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',\n                        level=logging.DEBUG,\n                        stream=sys.stdout)\n\n\n    def get_parser():\n        \"\"\"Return the parser object for this script.\"\"\"\n        parser = argparse.ArgumentParser(description=__doc__,\n                                         prog='tv')\n        parser.add_argument('--version',\n                            action='version',\n                            version=('hwrt %s' % str(tensorvision.__version__)))\n        subparsers = parser.add_subparsers(dest='cmd')\n        subparsers.add_parser('train',\n                              add_help=False,\n                              parents=[train.get_parser()],\n                              help=(\"Train a model.\"))\n        return parser\n\n\n    def main(args):\n        \"\"\"Run the requested module.\"\"\"\n        if args.cmd == 'train':\n            # train.main(args.model)\n            train.main()\n        else:\n            logging.error(\"Command '%s' is not implemented yet.\", args.cmd)\n\n    if __name__ == '__main__':\n        args = get_parser().parse_args()\n        main(args)\n",
+			"file": "/home/moose/GitHub/TensorVision/bin/tv",
+			"file_size": 1482,
+			"file_write_time": 131057271418943030,
 			"settings":
 			{
-				"buffer_size": 76320,
+				"buffer_size": 1650,
 				"line_ending": "Unix"
 			}
 		}
@@ -740,8 +737,16 @@
 	],
 	"file_history":
 	[
-		"/home/moose/Desktop/optics.py",
+		"/home/moose/Desktop/pypi-licenses.csv",
+		"/home/moose/Downloads/pypi-licenses.csv",
+		"/home/moose/Desktop/misc/Raquel-essen.md",
+		"/home/moose/GitHub/MartinThoma.github.io/_posts/2016-04-15-analysetechniken-grosser-datenbestaende.md",
+		"/home/moose/GitHub/MartinThoma.github.io/python/polyglot.py",
+		"/home/moose/GitHub/MartinThoma.github.io/_posts/2011-09-21-polyglots-crazy-programming-stuff.md",
+		"/home/moose/GitHub/MartinThoma.github.io/_posts/2015-10-23-cg-klausur.md",
 		"/home/moose/GitHub/MartinThoma.github.io/_posts/2015-11-09-machine-learning-1-course.md",
+		"/home/moose/GitHub/MartinThoma.github.io/_posts/2015-04-27-mustererkennung-klausur.md",
+		"/home/moose/Desktop/optics.py",
 		"/home/moose/GitHub/MartinThoma.github.io/_posts/2015-04-27-neuronale-netze-vorlesung.md",
 		"/home/moose/GitHub/MartinThoma.github.io/html5/optics/optics.js",
 		"/home/moose/GitHub/MartinThoma.github.io/html5/optics/index.htm",
@@ -763,7 +768,6 @@
 		"/home/moose/GitHub/algorithms/db-scan/db_scan.py",
 		"/home/moose/GitHub/ML-KA/protokolle/2016-03-09-vorstandstreffen.md",
 		"/home/moose/GitHub/TensorVision/docs/conf.py",
-		"/home/moose/GitHub/MartinThoma.github.io/_posts/2016-04-15-analysetechniken-grosser-datenbestaende.md",
 		"/home/moose/GitHub/hwr-experiments/README.md",
 		"/home/moose/GitHub/ML-KA/ML-KA.github.io/content/paper-discussion-group.md",
 		"/home/moose/GitHub/MartinThoma.github.io/_includes/addthis-toolbox.html",
@@ -772,8 +776,6 @@
 		"/home/moose/Desktop/index.htm",
 		"/home/moose/Downloads/srep21471.ris",
 		"/home/moose/GitHub/algorithms/arules/basket_analysis.py",
-		"/home/moose/Desktop/misc/Raquel-essen.md",
-		"/home/moose/GitHub/MartinThoma.github.io/_posts/2015-04-27-mustererkennung-klausur.md",
 		"/home/moose/GitHub/algorithms/.gitignore",
 		"/home/moose/.cache/.fr-PLspF1/C.py",
 		"/home/moose/.cache/.fr-czSRAu/p3.py",
@@ -862,12 +864,7 @@
 		"/home/moose/Desktop/Einnahmenueberschussrechnung/2015-nicht-selbststaendig.csv",
 		"/home/moose/Desktop/Einnahmenueberschussrechnung/20160305-1020851588-umsatz.CSV",
 		"/home/moose/GitHub/KIT-Musterloesungen/CG/2015-Nachklausur/2015-Nachklausur.tex",
-		"/home/moose/Desktop/Einnahmenueberschussrechnung/README.md",
-		"/home/moose/GitHub/KIT-Musterloesungen/CG/2015-Hauptklausur/8c.cpp",
-		"/home/moose/GitHub/KIT-Musterloesungen/CG/2015-Hauptklausur/8a.cpp",
-		"/home/moose/GitHub/KIT-Musterloesungen/CG/template/2015-Nachklausur.tex",
-		"/home/moose/GitHub/MartinThoma.github.io/_posts/2015-10-23-cg-klausur.md",
-		"/home/moose/GitHub/algorithms/alpha-clipping/main.py"
+		"/home/moose/Desktop/Einnahmenueberschussrechnung/README.md"
 	],
 	"find":
 	{
@@ -887,6 +884,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"siehe",
+			"vgl",
+			"-Clustering-1.pd",
+			"kd-b",
+			"wilco",
+			"stat",
 			"overfi",
 			"overfitting",
 			"overf",
@@ -1008,13 +1011,7 @@
 			"entry",
 			"br",
 			"millions",
-			"cruel",
-			"@",
-			"Siehe auch",
-			"todo",
-			"maxq",
-			"f-schu15-anchor",
-			"todo"
+			"cruel"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1066,7 +1063,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1162,15 +1159,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36716,
+						"buffer_size": 39613,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31797,
-								31797
+								35932,
+								35932
 							]
 						],
 						"settings":
@@ -1178,86 +1175,86 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_square_content"
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 19032.0,
+						"translation.y": 19789.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "_posts/2015-04-27-mustererkennung-klausur.md",
+					"file": "/home/moose/Desktop/testpy.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15693,
+						"buffer_size": 105,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10947,
-								10947
+								72,
+								72
 							]
 						],
 						"settings":
@@ -1265,66 +1262,66 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_square_content"
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 6152.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1332,19 +1329,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "_posts/2015-11-09-machine-learning-1-course.md",
+					"file": "/home/moose/GitHub/TensorVision/bin/tv",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 76320,
+						"buffer_size": 1650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26953,
-								26953
+								1650,
+								1650
 							]
 						],
 						"settings":
@@ -1352,69 +1349,69 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_square_content"
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
 							],
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 13190.0,
+						"translation.y": 485.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1477,6 +1474,26 @@
 		"selected_items":
 		[
 			[
+				"analyse",
+				"_posts/2016-04-15-analysetechniken-grosser-datenbestaende.md"
+			],
+			[
+				"crazy",
+				"_posts/2011-09-21-polyglots-crazy-programming-stuff.md"
+			],
+			[
+				"poly",
+				"python/polyglot.py"
+			],
+			[
+				"cg-k",
+				"_posts/2015-10-23-cg-klausur.md"
+			],
+			[
+				"cg-kl",
+				"_posts/2015-10-23-cg-klausur.md"
+			],
+			[
 				"machinel",
 				"_posts/2015-11-09-machine-learning-1-course.md"
 			],
@@ -1509,10 +1526,6 @@
 				"_posts/2015-04-27-neuronale-netze-vorlesung.md"
 			],
 			[
-				"analyse",
-				"_posts/2016-04-15-analysetechniken-grosser-datenbestaende.md"
-			],
-			[
 				"machinelearn",
 				"_posts/2015-05-11-machine-learning-2-course.md"
 			],
@@ -1535,14 +1548,6 @@
 			[
 				"analysete",
 				"_posts/2016-04-15-analysetechniken-grosser-datenbestaende.md"
-			],
-			[
-				"cg-k",
-				"_posts/2015-10-23-cg-klausur.md"
-			],
-			[
-				"cg-kl",
-				"_posts/2015-10-23-cg-klausur.md"
 			],
 			[
 				"machinelearning2",
