@@ -977,7 +977,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → TODO
 
 ### Clustering
-* Wie kann man Radius, Durchmesser und Interclusterdistanz aus N, LS, SS herleiten?<br/>
+* Wie kann man Radius, Durchmesser und Interclusterdistanz aus N, LS, SS
+  herleiten?<br/>
   → TODO
 * Was spricht dagegen, <span markdown="0">\(\mathbf{\varepsilon}\)</span> in
   OPTICS riesig zu wählen?<br/>
