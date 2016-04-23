@@ -257,6 +257,10 @@ Slides: `2-statistGrundlagen.pdf`
     <dt><dfn>Korrelationsmaße</dfn></dt>
     <dd>Sind üblicherweise auf [-1, 1] normiert. Die Kovarianz ist ein
         nicht-normiertes Korrelationsmaß.</dd>
+    <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)#Definition"><dfn>Kovarianz</dfn></a></dt>
+    <dd>\[\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\]</dd>
+    <dt><a name="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn>Korrelationskoeffizient</dfn></a></dt>
+    <dd>\[\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]\]</dd>
     <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>TODO (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn>Chi-Quadrat-Test</dfn></a></dt>
@@ -350,6 +354,8 @@ Weitere
 Slides: `3-Informatik-Grundlagen.pdf`
 
 <dl>
+    <dt><dfn>B<sup>+</sup>-Tree</dfn> (see <a href="https://www.youtube.com/watch?v=CYKRMz8yzVU">YouTube</a>)</dt>
+    <dd>A balanced search tree.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Datenbankindex"><dfn>Index</dfn></a></dt>
     <dd>Beschleunigung der Suche von linearer Suchzeit auf logarithmische
         durch <a href="https://de.wikipedia.org/wiki/B%2B-Baum">B<sup>+</sup>-Bäume</a>.</dd>
@@ -357,16 +363,17 @@ Slides: `3-Informatik-Grundlagen.pdf`
     <dd>
 
         <ul>
-            <li>Punkt-Anfragen</li>
-            <li>Bereichs-Anfragen</li>
-            <li>Nearest-Neighbor-Anfragen (NN-Anfragen)</li>
+            <li>Punkt-Anfragen: Ist ein Punkt im Datensatz?</li>
+            <li>Bereichs-Anfragen: Ist mindestens ein Datenobjekt im gegebenen Bereich?</li>
+            <li>Nearest-Neighbor-Anfragen (NN-Anfragen): Was ist das nächste Datenobjekt zu einem gegebenen Punkt?</li>
         </ul>
 
     </dd>
     <dt><dfn>kD-Baum</dfn></dt>
-    <dd>Siehe <a href="https://martin-thoma.com/cg-klausur/#kd-tree">Computergrafik</a></dd>
-    <dt><dfn>kDB-Baum</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Siehe <a href="https://martin-thoma.com/cg-klausur/#kd-tree">Computergrafik</a>.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/K-D-B-tree"><dfn>kDB-Baum</dfn></a></dt>
+    <dd>Kombination aus heterogenem k-d-Baum und B*-Baum<br/>
+        TODO</dd>
     <dt><dfn>R-Baum</dfn></dt>
     <dd>TODO: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
 </dl>
@@ -413,7 +420,7 @@ Slides: `5-Evaluation.pdf`
 <dl>
     <dt><dfn>Resubsitution Error</dfn></dt>
     <dd>Trainingsfehler</dd>
-    <dt><dfn>\(k\)-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
+    <dt><a name="cross-validation"></a><dfn>\(k\)-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
     <dd>Unterteile den Datensatz in \(k\) Teile. Dabei sollten die Klassen in
         etwa gleich häufig in allen Teilen vorkommen.
 
@@ -438,16 +445,27 @@ Slides: `5-Evaluation.pdf`
         inhärent im Verfahren verankert.</dd>
     <dt><dfn>Varianz</dfn></dt>
     <dd>Fehler welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
-    <dt><dfn>Gesamt-Erfolgsquote</dfn></dt>
+    <dt><a name="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
     <dd>\[\frac{TP+TN}{TP+TN+FP+FN}\]</dd>
+    <dt><dfn>Konfusionsmatrix</dfn> (<dfn>Confusion matrix</dfn>)</dt>
+    <dd>Eine Tabelle, in der jede Zeile für die tatsächlichen Klassen stehen
+        und die Spalten für die vorhergesagten Klassen. Die Diagonalelemente
+        zählen also die richtig vorhergesagten Datenobjekte; alle anderen
+        Zellen zählen falsche Vorhersagen.</dd>
     <dt><dfn>Kappa-Koeffizient</dfn></dt>
     <dd>Vergleich mit Klassifier, der nur den Anteil der Klassenzugehörigkeit
-        schätzt.</dd>
+        schätzt.<br/>
+        Sei \(D\) die Menge der Datenobjekte, \(K\) die Menge der Klassen,
+        \(f: D \rightarrow K\) der Klassifizierer und \(k:D \rightarrow K\) die tatsächliche Klasse des Datenobjekts. Dann gilt:
+        \[\kappa(f, D) = \frac{TODO - }{|D|-|\{1|d \in D, f(d) = k(d)\}|}\]
+        Der Wertebereich ist also: TODO</dd>
     <dt><dfn>Lift-Faktor</dfn></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht.</dd>
-    <dt><dfn>ROC</dfn> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn>ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
     <dd>x-Achse: \(\frac{FP}{FP+TN} \cdot 100\) (FP-Rate),<br/>
-        y-Achse: \(\frac{TP}{TP+FN} \cdot 100\) (TP-Rate)</dd>
+        y-Achse: \(\frac{TP}{TP+FN} \cdot 100\) (TP-Rate)
+
+        Siehe auch: <a href="https://www.reddit.com/r/answers/comments/4g2wgx/where_does_the_name_receiver_operating/">Namensherkunft</a></dd>
     <dt><dfn>Recall</dfn> (<dfn>True Positive Rate</dfn>, <dfn>TPR</dfn>, <dfn>Sensitivität</dfn>)</dt>
     <dd>\[TPR = \frac{TP}{TP + FN} = 1 - FNR \in [0, 1]\]
 
@@ -460,6 +478,8 @@ Slides: `5-Evaluation.pdf`
 
         Die Precision gibt den Anteil der real positiven aus den als positiv
         erkannten an.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/F1_score"><dfn>F-Measure</dfn></a> (<dfn>F1 score</dfn>)</dt>
+    <dd>\[\frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{recall} + \text{precision}}\]</dd>
     <dt><dfn>Correlation Coefficient</dfn></dt>
     <dd>Der Correlation Coefficient ist kein Fehlermaß. Der
         \(CC(p, a)\) ist groß, wenn sich \(p\) und \(a\) ähnlich sind.
@@ -479,12 +499,17 @@ Slides: `5-Evaluation.pdf`
             <li>Ascii-Code</li>
         </ul></dd>
     <dt><dfn>Minimum Description Length</dfn> (<dfn>MDL</dfn>)</dt>
-    <dd>TODO</dd>
+    <dd>Minimale Länge zum Beschreiben des Modells.</dd>
 </dl>
 
 Weiteres:
 
 * Qualitätsmaße für numerische Vorhersagen
+
+Fragen:
+
+* TODO, Folie 23: Wo kommt die 140 her?
+* TODO, Folie 27: Lift Faktor ist 2 wenn man nur die 400 anschreibt, oder?
 
 
 ### Association Rules
@@ -545,13 +570,13 @@ Anwendungen von Association Rules denkbar:
     </dd>
     <dt><dfn>FP-Trees</dfn></dt>
     <dd>Datenstrutkur zum schnellen Finden von Frequent Itemsets.<br/>
-
-    TODO
-
+    <br/>
+    TODO<br/>
+    <br/>
     Jede Transaktion entspricht einem Pfad im FP-Tree.
     Für jedes Item gibt es eine verkettete Liste, die das Vorkommen im Baum
     angibt.<br/>
-
+    <br/>
     Jeder Knoten im Baum ist ein Item und die Häufigkeit des Präfixes.
 
     <ol>
@@ -639,17 +664,21 @@ Slides: `8-ConstrainedAssociationRules.pdf`
 
 ### Clustering
 
-Slides: `9-Clustering-1.pdf`
-Slides: `9-Clustering-2.pdf`
+Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
 <dl>
     <dt><dfn>Silhouette-Koeffizient</dfn></dt>
     <dd>Sei \(C = (C_1, \dots, C_k)\) ein Clustering.
 
     <ul>
-        <li>\(a(o) = \frac{1}{|C(o)|} \sum_{p \in C(o)} dist(o, p)\): Durchschnittlicher Abstand zwischen Objekt o und anderen Objekten in seinem Cluster</li>
-        <li>\(b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)\): Durchschnittlicher Abstand zum zweitnächsten Cluster</li>
-        <li>\(s(o) = \begin{cases}\end{cases}\) - Silhouette eines Objekts. Es gilt:
+        <li>Durchschnittlicher Abstand zwischen Objekt o und anderen Objekten in seinem Cluster:
+            \[a(o) = \frac{1}{|C(o)|} \sum_{p \in C(o)} dist(o, p)\]</li>
+        <li>Durchschnittlicher Abstand zum zweitnächsten Cluster:
+            \[b(o) = \min_{C_i \in \text{Cluster} \setminus C(o)}(\frac{1}{C_i}) \sum_{p\in C_i} \sum_{p \in C_i} \text{dist}(o, p)\]</li>
+        <li>Silhouette eines Objekts:
+            \[s(o) = \begin{cases}0  &\text{if } a(o) = 0, \text{i.e. } |C_i|=1\\
+                    \frac{b(o)-a(o)}{\max(a(o), b(o))} &\text{otherwise}\end{cases}\]
+            Es gilt:
             \[s(o) \in [-1, 1]\]</li>
         <li>\(\text{silh}(C) = \frac{1}{|C|} \sum_{C_i \in C} \frac{1}{|C_i|} \sum_{o \in C_i} s(o)\).
             Es gilt:
@@ -748,7 +777,7 @@ Slides: `9-Clustering-2.pdf`
     <dt><dfn>Reachability-Distanz</dfn></dt>
     <dd>\[\text{reach\_d}() = \begin{cases}d(p, o)               &\text{if } d(p, o) > \text{coreDist}(p, o)\\
                                  \text{coreDist}(p, o) &\text{if } d(p, o) < \text{coreDist}(p, o)\end{cases}\]</dd>
-    <dt><dfn>OPTICS</dfn></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/OPTICS"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
         epsilon (Radius für Cluster-Distanz) automatisch Cluster findet.
 
@@ -813,7 +842,7 @@ Slides: `11-SupportVectorMachines.pdf`
         \(y \in \mathbb{R}^m\) die Vorhersage und \(M \in \mathbb{R}^{n \times m}\)
         die Modellparameter.</dd>
     <dt><dfn>Cross Entropy Fehlermaß</dfn></dt>
-    <dd>\[E_{CE}(w) = \sum_{i=1}^n (1-y_i) \cdot \log (1-p) + y_i \cdot \log p]\]</dd>
+    <dd>\[E_{CE}(w) = \sum_{i=1}^n [(1-y_i) \cdot \log (1-p) + y_i \cdot \log p]\]</dd>
     <dt><dfn>SVM</dfn> (<dfn>Support Vector Machine</dfn>)</dt>
     <dd>See <a href="https://martin-thoma.com/svm-with-sklearn/">SVM article</a>.</dd>
 </dl>
@@ -832,6 +861,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     <ul>
         <li>Overfitting wird minimiert.</li>
         <li>Besseres Gesamtsystem</li>
+        <li>Parallelisierbarkeit</li>
         <li>TODO: Gibt es mehr Vorteile von Ensembles gegenüber einzelnen Classifieren?</li>
     </ul>
 
@@ -860,6 +890,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#overfitting">ML 1</a>
 * Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0">\(X, Y\)</span>?<br/>
   → <span markdown="0">\(\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\)</span>
+* Warum muss man für NN-Anfragen mit kD-Bäumen nur ein paar Rechtecke anschauen?<br/>
+  → TODO
 * Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
   für jede Dimension separat einen B-Baum angelegt hat?<br/>
   → TODO
@@ -877,11 +909,54 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → TODO
 * Was für Anfragen unterstützen die diversen räumlichen Indexstrukturen?<br/>
   → TODO
+* `3-Informatik-Grundlagen.pdf`, Folie 19
 * Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen
   die NN-Sphere überlappen?<br/>
   → TODO
 * Welche Classifier kennen Sie?<br/>
   → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze (TODO: einer fehlt!)
+* Was ist der Vorteil von Postpruning verglichen mit Prepruning?<br/>
+  → TODO
+* Wie baut man einen Entscheidungsbaum auf?<br/>
+  → Gehe durch alle Attribute. Finde für jedes einzelne Attribut den Wert, der
+     die niedrigste Schnitt-Entropie hat. Nehme dann das Attribut als
+     Split-Attribut, welches die niedrigste Schnitt-Entropie hat. Fahre so mit
+     den beiden Kindknoten fort, bis ein Abbruchkriterium erfüllt ist. Das
+     könnte z.B. eine Entropie von 0 oder eine maximale Tiefe sein.
+* Wie kann man Overfitting beim Aufbau eines Entscheidungsbaums
+  berücksichtigen?<br/>
+  → Prepruning oder Postpruning.
+* Wie kann man beim Aufbau des Entscheidungsbaums berücksichtigen, dass
+  unterschiedliche Fehlerarten unterschiedlich schlimm sind?<br/>
+  → Mehr Trainingsdaten für den schlimmeren Fehler. (TODO, vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)
+* Was ist Wertebereich der FP-Rate?<br/>
+  → [0, 1]: Die FP-Rate ist definiert als <span markdown="0">\(\frac{FP}{FP+TN}\)</span>.
+  Offensichtlich sind alle Werte nicht-negativ, also kann der Bruch nicht negativ werden.
+  Deshalb ist auch der Nenner mindestens so groß wie der Zähler. Wenn TN=0 und
+  \(FP \neq 0\), dann ist die FP-Rate gleich 1. Das geht, wenn man z.B. immer
+  "True" vorhersagt. Wenn man immer "False" vorhersagt ist die FP-Rate gleich
+  0.
+* Wie berechnet man den Korrelationskoeffizienten?
+  → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>
+* Was ist die "10-fold cross validation"?<br/>
+  → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#cross-validation">oben</a>
+* Wie haben wir die Erfolgsquote definiert?<br/>
+  → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a>
+* Was ist ein Lift Chart? Wie unterscheidet es sich von der ROC Kurve?<br/>
+  → TODO
+* Was für Fehlerarten gibt es bei Vorhersagen von Klassenzugehörigkeiten?<br/>
+  → False-Positive, False-Negative (oder: Konfusionsmatrix)
+* Was für Kennzahlen kennen Sie, die diese Fehlerarten sämtlich
+  berücksichtigen?<br/>
+  → F score und Gesamtfehler. (TODO: mehr?)
+* Was ist Unterschied zwischen Kovarianz und dem Korrelationskoeffizienten?<br/>
+  → Der Korrelationskoeffizient ist normiert (vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)
+* Warum kommt bei der informational loss Funktion die Logarithmusfunktion zur
+  Anwendung?<br/>
+  → TODO
+
+
+### Association Rules
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
   Support und hohe Confidence hat?
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
@@ -900,9 +975,12 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → TODO
 * Warum ist SQL nicht geeignet um Constraints zu formulieren?<br/>
   → TODO
+
+### Clustering
 * Wie kann man Radius, Durchmesser und Interclusterdistanz aus N, LS, SS herleiten?<br/>
   → TODO
-* Was spricht dagegen, \(\mathbf{\varepsilon}\) in OPTICS riesig zu wählen?<br/>
+* Was spricht dagegen, <span markdown="0">\(\mathbf{\varepsilon}\)</span> in
+  OPTICS riesig zu wählen?<br/>
   → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
      Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
 
