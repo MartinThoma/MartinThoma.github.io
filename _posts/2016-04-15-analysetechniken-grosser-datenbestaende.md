@@ -774,9 +774,9 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Zentrum eines Centroids</dfn></dt>
     <dd>\[X_0 = \frac{1}{N} \sum_{i=1}^N X_i\]</dd>
     <dt><dfn>Radius eines Centroids</dfn></dt>
-    <dd>\[R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i}^N {(X_j - X_0)}^2}\]</dd>
+    <dd>\[R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - X_0)}^2}\]</dd>
     <dt><dfn>Durchmesser eines Centroids</dfn></dt>
-    <dd>\[D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i}^N {(X_j - X_k)}^2}\]</dd>
+    <dd>\[D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}\]</dd>
     <dt><dfn>Interclusterdistanz</dfn></dt>
     <dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
 
