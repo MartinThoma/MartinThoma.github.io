@@ -262,7 +262,9 @@ Slides: `2-statistGrundlagen.pdf`
     <dt><a name="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn>Korrelationskoeffizient</dfn></a></dt>
     <dd>\[\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]\]</dd>
     <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
-    <dd>TODO (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
+    <dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
+        Attributen. Er projeziert die Datenobjekte auf eine Hyperebene, sodass
+        ein Maximum der Varianz beibehalten wird (vgl. <a href="https://martin-thoma.com/neuronale-netze-vorlesung/#pca">Neuronale Netze</a>)</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test#Unabh.C3.A4ngigkeitstest"><dfn>Chi-Quadrat-Test</dfn></a></dt>
     <dd>Oberbegriff für mehrere Tests; hier nur der Unabhängigkeitstest.<br/>
         <br/>
@@ -457,8 +459,14 @@ Slides: `5-Evaluation.pdf`
         schätzt.<br/>
         Sei \(D\) die Menge der Datenobjekte, \(K\) die Menge der Klassen,
         \(f: D \rightarrow K\) der Klassifizierer und \(k:D \rightarrow K\) die tatsächliche Klasse des Datenobjekts. Dann gilt:
-        \[\kappa(f, D) = \frac{TODO - }{|D|-|\{1|d \in D, f(d) = k(d)\}|}\]
-        Der Wertebereich ist also: TODO</dd>
+        Die Menge der richtig klassifizierten Datenobjekte:
+        \[R = |\{1|d \in D, f(d) = k(d)\}\|\]
+
+        Die Datenobjekte \(Z\), die ein zufälliger Klassifizierer richtig raten
+        würde.
+        \[\kappa(f, D) = \frac{R - Z}{|D|- Z}\]
+        Der Wertebereich ist also: \((-\infty; 1]\) - TODO,
+        da \(R < |D|\)</dd>
     <dt><dfn>Lift-Faktor</dfn></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn>ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
@@ -508,7 +516,8 @@ Weiteres:
 
 Fragen:
 
-* TODO, Folie 23: Wo kommt die 140 her?
+* Folie 23: Wo kommt die 140 her?<br/>
+  → Summe der Diagonalelemente auf Folie 21.
 * TODO, Folie 27: Lift Faktor ist 2 wenn man nur die 400 anschreibt, oder?
 
 
@@ -569,26 +578,39 @@ Anwendungen von Association Rules denkbar:
         </ul>
     </dd>
     <dt><dfn>FP-Trees</dfn></dt>
-    <dd>Datenstrutkur zum schnellen Finden von Frequent Itemsets.<br/>
-    <br/>
-    TODO<br/>
-    <br/>
-    Jede Transaktion entspricht einem Pfad im FP-Tree.
-    Für jedes Item gibt es eine verkettete Liste, die das Vorkommen im Baum
-    angibt.<br/>
-    <br/>
-    Jeder Knoten im Baum ist ein Item und die Häufigkeit des Präfixes.
+    <dd>FP-Trees sind eine Datenstrutkur zum schnellen Finden von Frequent
+        Itemsets. (TODO: Woher kommt der Name?). Jeder Knoten im Baum repräsentiert ein Item. Jeder Knoten
+        speichert zusätzlich die Häufigkeit des Präfixes, welcher durch den
+        Pfad von der Wurzel zu dem Knoten dargestellt wird. Zusätzlich
+        speichert jeder Knoten des Items \(i\) einen Zeiger auf einen anderen
+        Knoten mit einem Item \(i\). Jede Transaktion entspricht einem Pfad im
+        FP-Tree.<br/>
+        Zusätzlich zum FP-Tree gibt es eine Header-Tabelle. Die Zeilen dieser
+        Tabelle sind einzelne Items \(i\), denen jeweils ein Zeiger auf einen
+        Knoten im FP-Tree zugeordnet sind, der auch das Item \(i\)
+        repräsentiert.<br/>
+        Für jedes Item gibt es also eine verkettete Liste, die das Vorkommen im
+        Baum angibt.<br/>
 
+        Zum Finden von Frequent Items geht man also wie folgt vor:
     <ol>
         <li>Für jedes Item: Zähle in wie vielen Transaktionen das Item vorkommt.</li>
-        <li>Sortiere Items in Transaktion absteigend nach Häufigkeit. Bei gleicher Häufigkeit wird z.B. alphabetisch sortiert. Damit ergibt sich eine eindeutige Reihenfolge.</li>
+        <li>Sortiere Items in Transaktion absteigend nach Häufigkeit. Bei
+            gleicher Häufigkeit wird z.B. alphabetisch sortiert. Damit ergibt
+            sich eine eindeutige Reihenfolge.</li>
         <li>Sortiere Transaktionen nach den Items innerhalb der Transaktionen.</li>
         <li>Aufbau des FP-Trees
         <ol>
             <li>Aufbau des Baums</li>
-            <li>Aufbau der Header-Tabelle</li>
+            <li>Aufbau der Header-Tabelle: Absteigend eindeutig nach Häufigkeit
+                sortiert</li>
         </ol>
         </li>
+        <li>Starte mit dem niedrigsten Element in der Header-Tabelle. Überprüfe
+            den Präfix auf den erwarteten support. Gehe dazu alle Elemente
+            dieses Items durch (alle Präfix-Pfade im Baum) und wende eine Art
+            Apriori-Algorithmus an um in diesen Präfix-Pfaden mit dem Item
+            \(i\) die Frequent-Itemsets zu finden.</li>
     </ol>
 
     </dd>
@@ -688,15 +710,26 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     </dd>
     <dt><dfn>Distanzfunktionen für Cluster</dfn></dt>
     <dd>
+        Seien \(X, Y\) Cluster.
+
         <ul>
-            <li>Durschnittlicher Objektabstand</li>
-            <li>Single Link: Maximaler bzw. Minimaler Abstand</li>
+            <li>Durschnittlicher Objektabstand: \(\text{dist}_{avg}(X, Y) = \frac{1}{|X| \cdot |Y|} \cdot \sum_{x in X, y\in Y} \text{dist}(x, y)\)</li>
+            <li>Single Link: \(\text{dist}_{sl}(X, Y) = \min_{x \in X, y \in Y} \text{dist}(x, y)\)</li>
+            <li>Complete Link: \(\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)\)</li>
         </ul>
     </dd>
     <dt><dfn>\(k\)-means Clustering</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
     <dt><dfn>CLARANS</dfn></dt>
-    <dd>TODO</dd>
+    <dd>CLARANS ist ein Clustering-Algorithmus, der mit \(k\)-Means
+        zusammenhängt. Auch er erwartet einen Parameter \(k \in \mathbb{N}\),
+        der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
+        aus, dass jeder Medeoid durch einen Datenpunkt im Datensatz
+        repräsentiert werden kann. Für eine zufällige Wahl von \(k\) Punkten
+        \(M = \{p_1, \dots, p_k\}\) wird ein Score berechnet. Dann überprüft
+        man, was der Tausch eines Punktes \(p_i\) durch den Punkt \(p_j\)
+        für beliebige \(p_i \in M\) und \(p_j \notin M\) am Score ändern würde.
+        Den besten Tausch führt man durch.</dd>
     <dt><dfn>CF-Tree</dfn> (<dfn>Clustering Feature Tree</dfn>)</dt>
     <dd>Ein CF-Tree ist ein höhenbalancierter Baum. Jeder Knoten des Baums
         entspricht ein Cluster.</dd>
@@ -710,9 +743,30 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <li>\(SS = \sum_{i \in C_i} X_i^2\)</li>
     </ul>
 
+    Parameter:
+
+    <ul>
+        <li>B: (Fan-out), maximale anzahl an children</li>
+        <li>B': maximale Blatt-Kapazität (Anzahl Elementarcluster)</li>
+        <li>T (threshold): Maximaler Radius (durchmesser?), bevor er gesplittet wird</li>
+    </ul>
+
     </dd>
     <dt><dfn>Hierarchisches Clustering</dfn></dt>
-    <dd>TODO</dd>
+    <dd>Beim hierarchischen Clustern werden Datenpunkte Baumartig zu Clustern
+        zusammengefasst. Das ganze sieht einem Abstammungsbaum der Arten in der
+        Biologie sehr ähnlich.<br/>
+        <br/>
+        Es gibt zwei Vorgehensweisen:
+        <ul>
+            <li><a href="#agglomerative-clustering">Agglomorativ</a></li>
+            <li><a href="#divisive-clustering">Divisives Clustering</a></li>
+        </ul>
+
+        <a href="https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse#Dendrogramm">Dendrogramme</a> sind eine typische Visualisierung für das Ergebnis einer
+        hierarchischen Clusteranalyse.
+
+    </dd>
     <dt><dfn>Probabilistisches Clustering</dfn></dt>
     <dd>Datenobjekte werden nicht hart zu einem Cluster zugeordnet sondern
         weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
@@ -720,14 +774,14 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dt><dfn>Zentrum eines Centroids</dfn></dt>
     <dd>\[X_0 = \frac{1}{N} \sum_{i=1}^N X_i\]</dd>
     <dt><dfn>Radius eines Centroids</dfn></dt>
-    <dd>\[R(C_i) = {(\frac{1}{|C_i|} \sum_{j \in C_i}^N {(X_j - X_0)}^2)}^2\]</dd>
+    <dd>\[R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i}^N {(X_j - X_0)}^2}\]</dd>
     <dt><dfn>Durchmesser eines Centroids</dfn></dt>
-    <dd>\[D(C_i) = {(\frac{1}{|C_i| \cdot (|D_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i}^N {(X_j - X_k)}^2)}^2\]</dd>
+    <dd>\[D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i}^N {(X_j - X_k)}^2}\]</dd>
     <dt><dfn>Interclusterdistanz</dfn></dt>
     <dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
 
         \[D_2 = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}\]</dd>
-    <dt><dfn>Agglomeratives Clustering</dfn></dt>
+    <dt><a name="agglomerative-clustering"></a><dfn>Agglomeratives Clustering</dfn></dt>
     <dd>
 
         <ul>
@@ -740,8 +794,13 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
         Gesamtkomplexität: \(\mathcal{O}(n^2)\)
     </dd>
-    <dt><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
-    <dd>TODO (Splinter group)</dd>
+    <dt><a name="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
+    <dd>TODO (Splinter group)
+
+        Starte mit einem großen Cluster und unterteile diesen immer weiter in
+        zwei kleine Cluster.
+
+    </dd>
     <dt><dfn>Projected Clustering</dfn></dt>
     <dd>Input sind die Anzahl \(k\) der Cluster, die gefunden werden sollen und
         die durchschnittliche Anzahl der Dimensionen pro Cluster \(l\).
@@ -862,7 +921,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
         <li>Overfitting wird minimiert.</li>
         <li>Besseres Gesamtsystem</li>
         <li>Parallelisierbarkeit</li>
-        <li>TODO: Gibt es mehr Vorteile von Ensembles gegenüber einzelnen Classifieren?</li>
+        <li>Wahrscheinlichkeiten können genauer geschätzt werden</li>
     </ul>
 
     Typische Techniken sind Bagging und Boosting.</dd>
@@ -891,7 +950,9 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 * Wie berechnet man die Covarianz zweier Zufallsvariablen <span markdown="0">\(X, Y\)</span>?<br/>
   → <span markdown="0">\(\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\)</span>
 * Warum muss man für NN-Anfragen mit kD-Bäumen nur ein paar Rechtecke anschauen?<br/>
-  → TODO
+  → Weil man mit der Priority-Queue Algorithmus nur Rechtecke betrachten muss,
+    die von der Sphäre, welchen durch den Anfragepunkt un den tatsächlichen
+    nachsten Nachbarn gebildet wird, geschnitten werden.
 * Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
   für jede Dimension separat einen B-Baum angelegt hat?<br/>
   → TODO
@@ -930,20 +991,27 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   unterschiedliche Fehlerarten unterschiedlich schlimm sind?<br/>
   → Mehr Trainingsdaten für den schlimmeren Fehler. (TODO, vgl. <a href="http://datascience.stackexchange.com/q/11379/8820">How can decision trees be tuned for non-symmetrical loss?</a>)
 * Was ist Wertebereich der FP-Rate?<br/>
-  → [0, 1]: Die FP-Rate ist definiert als <span markdown="0">\(\frac{FP}{FP+TN}\)</span>.
-  Offensichtlich sind alle Werte nicht-negativ, also kann der Bruch nicht negativ werden.
-  Deshalb ist auch der Nenner mindestens so groß wie der Zähler. Wenn TN=0 und
-  \(FP \neq 0\), dann ist die FP-Rate gleich 1. Das geht, wenn man z.B. immer
-  "True" vorhersagt. Wenn man immer "False" vorhersagt ist die FP-Rate gleich
-  0.
+  → [0, 1]: Die FP-Rate ist definiert als <span
+  markdown="0">\(\frac{FP}{FP+TN}\)</span>. Offensichtlich sind alle Werte
+  nicht-negativ, also kann der Bruch nicht negativ werden. Deshalb ist auch der
+  Nenner mindestens so groß wie der Zähler. Wenn TN=0 und <span
+  markdown="0">\(FP \neq 0\)</span>, dann ist die FP-Rate gleich 1. Das geht,
+  wenn man z.B. immer "True" vorhersagt. Wenn man immer "False" vorhersagt ist
+  die FP-Rate gleich 0.
 * Wie berechnet man den Korrelationskoeffizienten?
   → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>
 * Was ist die "10-fold cross validation"?<br/>
   → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#cross-validation">oben</a>
 * Wie haben wir die Erfolgsquote definiert?<br/>
   → vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#erfolgsquote">oben</a>
-* Was ist ein Lift Chart? Wie unterscheidet es sich von der ROC Kurve?<br/>
-  → TODO
+* Was ist ein Lift Chart?<br/>
+  → Ein Lift Chart hat auf der x-Achse den Rang (Top-k) und auf der y-Achse der
+     Gewinn. Die x-Achse verläuft von 0 bis 100% und die y-Achse von 0 bis zum
+     maximalen Gewinn im Datenbestand. Die Diagonale von (0, 0) nach (100%,
+     Maximaler Gewinn) entspricht Raten, alles über der Diagonalen ist positiv.
+     Der Lift-Chart muss nicht monoton steigend sein.
+* Wie unterscheidet sich ein Lift Chart von der ROC Kurve?<br/>
+  → Die ROC-Kurve ist monoton steigend, der Lift-Chart jedoch nicht.
 * Was für Fehlerarten gibt es bei Vorhersagen von Klassenzugehörigkeiten?<br/>
   → False-Positive, False-Negative (oder: Konfusionsmatrix)
 * Was für Kennzahlen kennen Sie, die diese Fehlerarten sämtlich
@@ -953,7 +1021,9 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Der Korrelationskoeffizient ist normiert (vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)
 * Warum kommt bei der informational loss Funktion die Logarithmusfunktion zur
   Anwendung?<br/>
-  → TODO
+  → Die Logarithmusfunktion hat die gewünschte Form: Bei perfekter
+     Klassifizierung soll der Loss gleich 0 sein. Wenn es nicht perfekt ist,
+     also \(0 \leq p_i < 1\), dann soll der Loss streng monoton fallen.
 
 
 ### Association Rules
@@ -972,9 +1042,9 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   Grenze.
 * Welche zwei Sprachen haben wir für die Formulierung der Constraints
   kennengelernt?<br/>
-  → TODO
+  → 1-var und 2-var bzw. MetaRule Guided
 * Warum ist SQL nicht geeignet um Constraints zu formulieren?<br/>
-  → TODO
+  → Weil SQL keine Aussage über die Struktur machen kann (TODO)
 
 ### Clustering
 * Wie kann man Radius, Durchmesser und Interclusterdistanz aus N, LS, SS
