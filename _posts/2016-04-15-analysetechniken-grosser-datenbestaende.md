@@ -1102,7 +1102,7 @@ Folgende Vorlesungen sind ähnlich:
 * [Machine Learning 2](https://martin-thoma.com/machine-learning-2-course/)
 * [Mustererkennung](https://martin-thoma.com/mustererkennung-klausur/)
 * [Neuronale Netze](https://martin-thoma.com/neuronale-netze-vorlesung/)
-
+* Lokalisierung Mobiler Agenten
 
 ## Termine und Klausurablauf
 
