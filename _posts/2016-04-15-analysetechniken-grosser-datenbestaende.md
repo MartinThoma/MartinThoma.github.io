@@ -382,8 +382,8 @@ Slides: `3-Informatik-Grundlagen.pdf`
         minimale <abbr title="umhüllende achsenparallele bounding-boxen">AABBs</abbr>
         einschließt. Jeder Knoten hat eine solche AABB und jedes der Kinder -
         egal ob es wieder ein AABB oder Datenpunkte sind - ist darin.
-        Diese AABBs können sich überschneiden.
-
+        Diese AABBs können sich überschneiden.<br/>
+        <br/>
         TODO <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
     <dt><dfn>Nearest Neighbor in R-Tree</dfn></dt>
     <dd>Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py">Pseudo-Code</a>.</dd>
@@ -474,7 +474,7 @@ Slides: `5-Evaluation.pdf`
         Die Datenobjekte \(Z\), die ein zufälliger Klassifizierer richtig raten
         würde.
         \[\kappa(f, D) = \frac{R - Z}{|D|- Z}\]
-        Der Wertebereich ist also: \((-\infty; 1]\) - TODO,
+        Der Wertebereich ist also: \((-\infty; 1]\) (TODO: stimmt das?),
         da \(R < |D|\)</dd>
     <dt><dfn>Lift-Faktor</dfn></dt>
     <dd>Faktor, um den sich die Rücklaufquote erhöht.</dd>
@@ -779,15 +779,15 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         weich (also mit einer gewissen Wahrscheinlichkeit) jedem Cluster
         zugeordnet.</dd>
     <dt><dfn>Zentrum eines Centroids</dfn></dt>
-    <dd>\[X_0 = \frac{1}{N} \sum_{i=1}^N X_i\]</dd>
+    <dd>\[Z_{i} = \frac{1}{|C_i|} \sum_{i \in C_i} X_i\]</dd>
     <dt><dfn>Radius eines Centroids</dfn></dt>
-    <dd>\[R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - X_0)}^2}\]</dd>
+    <dd>\[R(C_i) = \sqrt{\frac{1}{|C_i|} \sum_{j \in C_i} {(X_j - Z_i)}^2}\]</dd>
     <dt><dfn>Durchmesser eines Centroids</dfn></dt>
     <dd>\[D(C_i) = \sqrt{\frac{1}{|C_i| \cdot (|C_i|-1)} \sum_{j \in C_i} \sum_{k \in C_i} {(X_j - X_k)}^2}\]</dd>
     <dt><dfn>Interclusterdistanz</dfn></dt>
     <dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
 
-        \[D_2 = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}\]</dd>
+        \[D(C_1, C_2) = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}\]</dd>
     <dt><a name="agglomerative-clustering"></a><dfn>Agglomeratives Clustering</dfn></dt>
     <dd>
 
@@ -802,11 +802,11 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Gesamtkomplexität: \(\mathcal{O}(n^2)\)
     </dd>
     <dt><a name="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
-    <dd>TODO (Splinter group)
-
-        Starte mit einem großen Cluster und unterteile diesen immer weiter in
-        zwei kleine Cluster.
-
+    <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
+        startet mit einem großen Cluster und unterteilt diesen rekursiv immer
+        weiter in je zwei kleine Cluster.<br/>
+        <br/>
+         TODO (Splinter group)
     </dd>
     <dt><dfn>Projected Clustering</dfn></dt>
     <dd>Input sind die Anzahl \(k\) der Cluster, die gefunden werden sollen und
@@ -979,17 +979,19 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     nicht. kDB-Bäume sind im Gegensatz zu kD-Bäumen auf physischer Ebene
     balanciert.
 * Wie funktioniert das Einfügen in den R-Baum, inklusive Split?<br/>
-  → TODO
+  → Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py#L29">Pseudocode</a>
 * Was für Anfragen unterstützen die diversen räumlichen Indexstrukturen?<br/>
   → Nearest-Neighbor, Bereichsanfragen, Punktanfrage
 * `3-Informatik-Grundlagen.pdf`, Folie 19
 * Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen
   die NN-Sphere überlappen?<br/>
-  → TODO
+  → Weil alle anderen Knoten in der Priority Queue weiter hinten liegen.
 * Welche Classifier kennen Sie?<br/>
-  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze (TODO: einer fehlt!)
+  → Decision Stumps (1-Rules), Entscheidungsbäume, SVMs, Neuronale Netze, <span markdown="0">\(k\)</span>-nearest neighbor (es gibt <a href="https://martin-thoma.com/comparing-classifiers/">mehr Classifier</a>)
 * Was ist der Vorteil von Postpruning verglichen mit Prepruning?<br/>
-  → TODO
+  → Es könnte sein, dass ein Feature nur in Kombination mit einem anderen
+    deutliche Vorteile bringt. Dies kann man bei Prepruning nicht erkennen,
+    ist bei Postpruning gegebenenfalls jedoch offensichtlich.
 * Wie baut man einen Entscheidungsbaum auf?<br/>
   → Gehe durch alle Attribute. Finde für jedes einzelne Attribut den Wert, der
      die niedrigste Schnitt-Entropie hat. Nehme dann das Attribut als
@@ -1028,7 +1030,7 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → False-Positive, False-Negative (oder: Konfusionsmatrix)
 * Was für Kennzahlen kennen Sie, die diese Fehlerarten sämtlich
   berücksichtigen?<br/>
-  → F score und Gesamtfehler. (TODO: mehr?)
+  → F score und Gesamtfehler.
 * Was ist Unterschied zwischen Kovarianz und dem Korrelationskoeffizienten?<br/>
   → Der Korrelationskoeffizient ist normiert (vgl. <a href="https://martin-thoma.com/analysetechniken-grosser-datenbestaende/#korrelationskoeffizient">oben</a>)
 * Warum kommt bei der informational loss Funktion die Logarithmusfunktion zur
@@ -1059,9 +1061,14 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → Weil SQL keine Aussage über die Struktur machen kann (TODO)
 
 ### Clustering
-* Wie kann man Radius, Durchmesser und Interclusterdistanz aus N, LS, SS
+* BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
   herleiten?<br/>
-  → TODO
+  → \(R(C_i) = \sqrt{\frac{1}{N} (SS - 2 \frac{LS}{N} \cdot LS + N (\frac{LS}{N})^2)}\)
+* BIRCH-Algorithmus: Wie kann man den Durchmesser aus N, LS, SS herleiten?<br/>
+  → \(\sqrt{\frac{1}{N \cdot (N-1)} (N \cdot SS - 2 LS^2 + N^2 \cdot SS)}\)
+* BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
+  herleiten?<br/>
+  → \(D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}\)
 * Was spricht dagegen, <span markdown="0">\(\mathbf{\varepsilon}\)</span> in
   OPTICS riesig zu wählen?<br/>
   → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
