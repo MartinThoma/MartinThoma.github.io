@@ -374,10 +374,19 @@ Slides: `3-Informatik-Grundlagen.pdf`
     <dt><dfn>kD-Baum</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/cg-klausur/#kd-tree">Computergrafik</a>.</dd>
     <dt><a href="https://en.wikipedia.org/wiki/K-D-B-tree"><dfn>kDB-Baum</dfn></a></dt>
-    <dd>Kombination aus heterogenem k-d-Baum und B*-Baum<br/>
-        TODO</dd>
-    <dt><dfn>R-Baum</dfn></dt>
-    <dd>TODO: <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
+    <dd>Ein balancierter kD-Baum. Die Balancierung wird durch eine Kombination
+        aus heterogenem k-d-Baum und B*-Baum erreicht. Der baum ist also nicht
+        auf logischer, sondern nur auf physischer Ebene balanciert.</dd>
+    <dt><a name="r-tree"></a><dfn>R-Baum</dfn></dt>
+    <dd>Ein R-Baum ist ein balancierter Baum, welcher die Datenobjekte in
+        minimale <abbr title="umhüllende achsenparallele bounding-boxen">AABBs</abbr>
+        einschließt. Jeder Knoten hat eine solche AABB und jedes der Kinder -
+        egal ob es wieder ein AABB oder Datenpunkte sind - ist darin.
+        Diese AABBs können sich überschneiden.
+
+        TODO <a href="http://cs.stackexchange.com/q/56337/2914">What is the difference between a R-tree and a BVH?</a></dd>
+    <dt><dfn>Nearest Neighbor in R-Tree</dfn></dt>
+    <dd>Siehe <a href="https://github.com/MartinThoma/algorithms/blob/master/nearest-neighbor-r-tree/nn_r_tree_pseudo.py">Pseudo-Code</a>.</dd>
 </dl>
 
 
@@ -578,13 +587,13 @@ Anwendungen von Association Rules denkbar:
         </ul>
     </dd>
     <dt><dfn>FP-Trees</dfn></dt>
-    <dd>FP-Trees sind eine Datenstrutkur zum schnellen Finden von Frequent
-        Itemsets. (TODO: Woher kommt der Name?). Jeder Knoten im Baum repräsentiert ein Item. Jeder Knoten
-        speichert zusätzlich die Häufigkeit des Präfixes, welcher durch den
-        Pfad von der Wurzel zu dem Knoten dargestellt wird. Zusätzlich
-        speichert jeder Knoten des Items \(i\) einen Zeiger auf einen anderen
-        Knoten mit einem Item \(i\). Jede Transaktion entspricht einem Pfad im
-        FP-Tree.<br/>
+    <dd>FP-Trees (FP für "frequent pattern") sind eine Datenstrutkur zum
+        schnellen Finden von Frequent Itemsets. Jeder Knoten im Baum
+        repräsentiert ein Item. Jeder Knoten speichert zusätzlich die
+        Häufigkeit des Präfixes, welcher durch den Pfad von der Wurzel zu dem
+        Knoten dargestellt wird. Zusätzlich speichert jeder Knoten des Items
+        \(i\) einen Zeiger auf einen anderen Knoten mit einem Item \(i\). Jede
+        Transaktion entspricht einem Pfad im FP-Tree.<br/>
         Zusätzlich zum FP-Tree gibt es eine Header-Tabelle. Die Zeilen dieser
         Tabelle sind einzelne Items \(i\), denen jeweils ein Zeiger auf einen
         Knoten im FP-Tree zugeordnet sind, der auch das Item \(i\)
@@ -671,13 +680,11 @@ Slides: `8-ConstrainedAssociationRules.pdf`
         Constraint sehr früh überprüft werden.</dd>
     <dt><dfn>Succinctness</dfn></dt>
     <dd>Ein Constraint heißt succinct, wenn alle Itemsets die es erfüllen
-        schnell erzeugt werden können.
-
+        schnell erzeugt werden können.<br/>
+        <br/>
         Beispiel: Man hat das Constraint, dass der Typ "Non-Food" sein soll.
-        Aber es gibt nur 3 Produkte die diesen Typ haben.
-
-    Kandidaten, die das Constraint nicht erfüllen werden gar nicht erst
-        erzeugt.</dd>
+        Aber es gibt nur 3&nbsp;Produkte die diesen Typ haben. Kandidaten, die
+        das Constraint nicht erfüllen werden gar nicht erst erzeugt.</dd>
 </dl>
 
 * Meta-Rule Guided mining
@@ -955,21 +962,26 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
     nachsten Nachbarn gebildet wird, geschnitten werden.
 * Warum kann man für räumliche Anfragen nicht ohne weiteres auswerten, wenn man
   für jede Dimension separat einen B-Baum angelegt hat?<br/>
-  → TODO
-* Wie ist der R-Baum aufgebaut?<br/>
-  → TODO
+  → TODO: Fragestellung nicht klar. War B-Baum und nicht R-Baum / kdB-Baum gemeint?
+* Wie ist ein R-Baum aufgebaut?<br/>
+  → Siehe <a href="#r-tree">oben</a>.
 * Wie funktioniert die Suche nach dem nächsten Nachbarn mit dem R-Baum?<br/>
-  → TODO
+  → Man fügt den Wurzel-Knoten in eine Priority-Queue ein. Die Priority-Queue
+    ist eine Min-Queue mit dem Abstand vom Anfragepunkt. Es wird im folgenden
+    so lange das höchstpriore Objekt aus der Queue entfernt
 * Was ändert sich, wenn die Objekte eine räumliche Ausdehnung haben?<br/>
-  → TODO (Dto. Anfragen)
+  → Man splittet nach mehreren Dimensionen.
 * Stören uns Überlappungen von Knoten des R-Baums? Wenn ja, warum?<br/>
-  → TODO
+  → Ja, weil die Suche nach dem nächsten Nachbarn ineffizienter wird. Es müssen
+     gegebenenfalls mehr Knoten betrachtet werden.
 * Wie unterscheiden sich R-Baum, kD-Baum und kDB-Baum?<br/>
-  → TODO
-* Wie funktioniert Einfügen in den R-Baum, inklusive Split?<br/>
+  → R-Bäume partitionieren im gegensatz zu kD- und kDB-Bäumen den Datensatz
+    nicht. kDB-Bäume sind im Gegensatz zu kD-Bäumen auf physischer Ebene
+    balanciert.
+* Wie funktioniert das Einfügen in den R-Baum, inklusive Split?<br/>
   → TODO
 * Was für Anfragen unterstützen die diversen räumlichen Indexstrukturen?<br/>
-  → TODO
+  → Nearest-Neighbor, Bereichsanfragen, Punktanfrage
 * `3-Informatik-Grundlagen.pdf`, Folie 19
 * Warum werden bei der NN-Suche nur genau die Knoten inspiziert, deren Zonen
   die NN-Sphere überlappen?<br/>
