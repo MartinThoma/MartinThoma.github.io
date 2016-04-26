@@ -49,3 +49,11 @@ When your system starts to swap, it becomes unusably slow. You should stop
 ```
 
 This takes several minutes.
+
+
+## Long saving times
+
+<figure class="wp-caption aligncenter img-thumbnail">
+     <img src="../images/2016/12/ml-not-seen-before-saving.png" alt="Saving your data suddenly takes a long time" /></a>
+    <figcaption class="text-center">Saving your data suddenly takes a long time</figcaption>
+</figure>
