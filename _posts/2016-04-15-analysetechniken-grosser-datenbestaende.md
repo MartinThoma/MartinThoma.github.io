@@ -1090,7 +1090,8 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → So groß wie sinnvoll möglich. Der verfügbare Arbeitsspeicher ist hier eine
   Grenze.
 * Was sind multidimensionale Association Rules?<br/>
-  → TODO
+  → Association Rules die auf verschiedenen Begriffsebenenen sind, z.B.
+    <span markdown="0">Oreo \(\Rightarrow\) Milch</span>
 * Wie findet man multidimensionale Association Rules?<br/>
   → TODO
 * In welchen Situationen ist Apriori teuer, und warum?<br/>
