@@ -11,6 +11,12 @@ featured_image: logos/klausur.png
 ---
 <div class="info">Dieser Artikel beschäftigt sich mit der Vorlesung &bdquo;Analysetechniken für große Datenbestände&ldquo; am KIT. Er dient als Prüfungsvorbereitung. Ich habe die Vorlesungen bei <a href="https://dbis.ipd.kit.edu/english/336.php">Herrn Prof. Dr.-Ing. Klemens Böhm</a> im Wintersemester 2015/2016 gehört. Der Artikel ist noch am Entstehen.</div>
 
+In der Vorlesung 'Analysetechniken für große Datenbestände' werden vor allem
+Association Rule Mining und Clustering-Techniken besprochen. Zum Association
+Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
+FP-Trees zu nennen. Beim Clustering ist k-Means, EM, DB-SCAN, OPTICS und BIRCH
+von großer Bedeutung.
+
 ## Behandelter Stoff
 
 ### Übersicht
@@ -622,6 +628,7 @@ Anwendungen von Association Rules denkbar:
             \(i\) die Frequent-Itemsets zu finden.</li>
     </ol>
 
+    Siehe auch: [Mining Frequent Patterns without Candidate Generation](https://www.cs.sfu.ca/~jpei/publications/sigmod00.pdf)
     </dd>
     <dt><dfn>Sampling</dfn></dt>
     <dd>Berechnung auf einer Stichprobe durchführen</dd>
@@ -845,7 +852,14 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
                                  \text{coreDist}(p, o) &\text{if } d(p, o) < \text{coreDist}(p, o)\end{cases}\]</dd>
     <dt><a href="https://de.wikipedia.org/wiki/OPTICS"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
-        epsilon (Radius für Cluster-Distanz) automatisch Cluster findet.
+        \(\varepsilon\) (maximaler Radius für Cluster-Distanz) automatisch
+        Cluster findet. Er startet dabei bei einem beliebigen Punkt. Dieser
+        Punkt definiert ein Cluster, wenn mindestens min_points von ihm aus
+        maximal \(\varepsilon\) entfernt sind. Dann wird der naheste Punkt zu
+        dem Cluster hinzugefügt. Dies wird so lange gemacht, wie die Punkte
+        maximal \(\varepsilon\) von einem Punkt im Cluster entfernt sind.
+        Dann wird ein bisher nicht betrachteter Punkt als genommen und man
+        macht für diesen Outlier / neuen Cluster so weiter wie zuvor.
 
         <ul>
             <li>ControlList (Priority Queue) enthält nur Objekte, die noch
@@ -857,8 +871,17 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
         Siehe <a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf">OPTICS: Ordering Points To Identify the Clustering Structure</a>.
     </dd>
-    <dt><dfn>Reachability-Plot</dfn></dt>
-    <dd>TODO</dd>
+    <dt><dfn>Reachability-Plot</dfn> (<dfn>Erreichbarkeitsdiagramm</dfn>)</dt>
+    <dd>Der Reachability-Plot veranschaulicht die Cluster und zeigt, welche
+        Wahl von \(\epsilon\) zu verschiedenen Clustern in DBSCAN führen würde.
+        Er veranschaulicht das Ergebnis von OPTICS.
+
+        <figure class="wp-caption aligncenter img-thumbnail">
+            <a href="https://commons.wikimedia.org/wiki/File:OPTICS.svg"><img src="../images/2016/04/optics.png" alt="OPTICS" /></a>
+            <figcaption class="text-center">OPTICS: Der Reachability-Plot ist ganz unten.</figcaption>
+        </figure>
+
+    </dd>
     <dt><dfn>EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-2-course#em-algorithmus">ML 2</a>.</dd>
     <dt><dfn>Overall Likelihood</dfn></dt>
@@ -1041,19 +1064,53 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 
 
 ### Association Rules
+* Was sind Association Rules?<br/>
+  → TODO
+* Wie findet man Association Rules?<br/>
+  → TODO
+* Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?<br/>
+  → TODO
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
-  Support und hohe Confidence hat?
+  Support und hohe Confidence hat?<br/>
+  → TODO
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
-  Support und geringe Confidence hat?
+  Support und geringe Confidence hat?<br/>
+  → TODO
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  geringen Support und hohe Confidence hat?
+  geringen Support und hohe Confidence hat?<br/>
+  → TODO
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
-  geringen Support und geringe Confidence hat?
+  geringen Support und geringe Confidence hat?<br/>
+  → TODO
 * Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?<br/>
   → (Antwort: 24.11.2015, 14:34)
 * Wie groß sollte man die Hash-Tabelle machen?<br/>
   → So groß wie sinnvoll möglich. Der verfügbare Arbeitsspeicher ist hier eine
   Grenze.
+* Was sind multidimensionale Association Rules?<br/>
+  → TODO
+* Wie findet man multidimensionale Association Rules?<br/>
+  → TODO
+* In welchen Situationen ist Apriori teuer, und warum?<br/>
+  → TODO
+* Was kann man gegen die Schwächen von Apriori tun?<br/>
+  → TODO
+* Was sind FP-Trees, und wie lassen sie sich für die Suche nach Frequent Itemsets verwenden?<br/>
+  → TODO
+* Was kann man tun, wenn FP-Trees für den Hauptspeicher zu groß sind?<br/>
+  → TODO (Sampling, Projektion)
+* Was ist Constraint-basiertes Mining? Was sind die Vorteile?<br/>
+  → TODO
+* Was für Arten von Constraints kennen sie? Beispiele hierfür.<br/>
+  → TODO
+* Was ist Anti-Monotonizität, Succinctness? <Für ein bestimmtes Constraint sagen/begründen, ob anti-monoton/succinct.><br/>
+  → TODO
+* Wie lässt sich Apriori für das Mining von Teilfolgen verallgemeinern?<br/>
+  → TODO
+* Antagonismus von Support-basiertem und Constraint-basiertem Pruning erklären können.<br/>
+  → TODO
+* Alternativen für Constraint-basiertes Pruning (wenn Constraint nicht anti-monoton) erklären können.<br/>
+  → TODO
 * Welche zwei Sprachen haben wir für die Formulierung der Constraints
   kennengelernt?<br/>
   → 1-var und 2-var bzw. MetaRule Guided
