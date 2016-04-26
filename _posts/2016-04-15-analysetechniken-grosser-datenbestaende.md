@@ -1065,9 +1065,11 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 
 ### Association Rules
 * Was sind Association Rules?<br/>
-  → TODO
+  → Association Rules sind im Kontext von Transaktionen von Items zu verstehen.
+     Eine Association Rule ist eine Regel <span markdown="0">\(A \Rightarrow B\)</span>,
+     wobei A und B Item-Mengen sind.
 * Wie findet man Association Rules?<br/>
-  → TODO
+  → In der Warenkorbanalyse / in Transaktionen.
 * Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?<br/>
   → TODO
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
