@@ -162,7 +162,7 @@ Slides: `1-Einleitung.pdf`
           <li>Alternate Clustering</li>
       </ul>
   </dd>
-  <dt><dfn>Association Rules</dfn></dt>
+  <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning"><dfn>Association Rules</dfn></a></dt>
   <dd>Association Rules sind Regeln der Form:
       Wenn eine Transaktion A enthält, dann auch B (formal: \(A \Rightarrow B\)).
 
@@ -265,7 +265,7 @@ Slides: `2-statistGrundlagen.pdf`
         nicht-normiertes Korrelationsmaß.</dd>
     <dt><a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)#Definition"><dfn>Kovarianz</dfn></a></dt>
     <dd>\[\operatorname{Cov}(X,Y) := \operatorname E\bigl[(X - \operatorname E(X)) \cdot (Y - \operatorname E(Y))\bigr]\]</dd>
-    <dt><a name="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn>Korrelationskoeffizient</dfn></a></dt>
+    <dt><a id="korrelationskoeffizient" href="https://de.wikipedia.org/wiki/Korrelationskoeffizient#Definitionen"><dfn>Korrelationskoeffizient</dfn></a></dt>
     <dd>\[\varrho(X,Y) =\frac{\operatorname{Cov}(X,Y)}{\sigma(X)\sigma(Y)} \in [-1, 1]\]</dd>
     <dt><dfn>PCA</dfn> (<dfn>Principal Component Analysis</dfn>)</dt>
     <dd>PCA ist ein Algorithmus zur Reduktion von Daten durch das Entfernen von
@@ -383,7 +383,7 @@ Slides: `3-Informatik-Grundlagen.pdf`
     <dd>Ein balancierter kD-Baum. Die Balancierung wird durch eine Kombination
         aus heterogenem k-d-Baum und B*-Baum erreicht. Der baum ist also nicht
         auf logischer, sondern nur auf physischer Ebene balanciert.</dd>
-    <dt><a name="r-tree"></a><dfn>R-Baum</dfn></dt>
+    <dt><a id="r-tree"></a><dfn>R-Baum</dfn></dt>
     <dd>Ein R-Baum ist ein balancierter Baum, welcher die Datenobjekte in
         minimale <abbr title="umhüllende achsenparallele bounding-boxen">AABBs</abbr>
         einschließt. Jeder Knoten hat eine solche AABB und jedes der Kinder -
@@ -437,7 +437,7 @@ Slides: `5-Evaluation.pdf`
 <dl>
     <dt><dfn>Resubsitution Error</dfn></dt>
     <dd>Trainingsfehler</dd>
-    <dt><a name="cross-validation"></a><dfn>\(k\)-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
+    <dt><a id="cross-validation"></a><dfn>\(k\)-Fold Cross-Validation</dfn> (<dfn>Kreuzvalidierung</dfn>)</dt>
     <dd>Unterteile den Datensatz in \(k\) Teile. Dabei sollten die Klassen in
         etwa gleich häufig in allen Teilen vorkommen.
 
@@ -462,7 +462,7 @@ Slides: `5-Evaluation.pdf`
         inhärent im Verfahren verankert.</dd>
     <dt><dfn>Varianz</dfn></dt>
     <dd>Fehler welcher durch das Fehlen von Trainingsdaten verursacht wird.</dd>
-    <dt><a name="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
+    <dt><a id="erfolgsquote"></a><dfn>Gesamt-Erfolgsquote</dfn></dt>
     <dd>\[\frac{TP+TN}{TP+TN+FP+FN}\]</dd>
     <dt><dfn>Konfusionsmatrix</dfn> (<dfn>Confusion matrix</dfn>)</dt>
     <dd>Eine Tabelle, in der jede Zeile für die tatsächlichen Klassen stehen
@@ -482,8 +482,19 @@ Slides: `5-Evaluation.pdf`
         \[\kappa(f, D) = \frac{R - Z}{|D|- Z}\]
         Der Wertebereich ist also: \((-\infty; 1]\) (TODO: stimmt das?),
         da \(R < |D|\)</dd>
-    <dt><dfn>Lift-Faktor</dfn></dt>
-    <dd>Faktor, um den sich die Rücklaufquote erhöht.</dd>
+    <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning#Lift"><dfn>Lift-Faktor</dfn></a></dt>
+    <dd>Faktor, um den sich die Rücklaufquote erhöht:
+
+        \[\mathrm{lift}(X\Rightarrow Y) = \frac{ \mathrm{supp}(X \cup Y)}{ \mathrm{supp}(X) \cdot \mathrm{supp}(Y) }\]
+
+        Der Lift ist ein Indiz für die Unabhängigkeit von \(X\) und \(Y\).
+        Ist der Lift nahe bei 1, dann spricht das für die Unabhängigkeit. Ein
+        Lift-Faktor kleiner als 1 bedeutet, dass die Itemsets zusammen seltener
+        vorkommen als bei Unabhängigkeit zu erwarten wäre. Ein Lift-Faktor von
+        größer als 1 bedeutet, dass die Itemsets zusammen häufiger vorkommen
+        als bei Unabhängigkeit zu erwarten wäre.
+
+    </dd>
     <dt><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic"><dfn>ROC</dfn></a> (<dfn>Receiver Operator Characteristic</dfn>)</dt>
     <dd>x-Achse: \(\frac{FP}{FP+TN} \cdot 100\) (FP-Rate),<br/>
         y-Achse: \(\frac{TP}{TP+FN} \cdot 100\) (TP-Rate)
@@ -561,14 +572,19 @@ Anwendungen von Association Rules denkbar:
     <dd>Drücken aus wie Phänomene zueinander in Beziehung stehen.
 
         Beispiel: Wer Bier kauft, der kauft auch Chips.</dd>
-    <dt><dfn>Support</dfn></dt>
-    <dd>Anzahl der Transaktionen, die das Itemset I unterhalten wird Support von I genannt.<br/>
-        Der \(\text{support}(A \cup B)\) ist die Anzahl der Mengen, die \(A \cup B\) enthalten.</dd>
+    <dt><a id="support"></a><dfn>Support</dfn></dt>
+    <dd>Die Anzahl der Transaktionen, die das Itemset \(I\) enthalten wird
+    <i>Support von \(I\)</i> genannt.<br/>
+        Es gilt:
+        \[\text{support}(A \Rightarrow B) = \text{support}(A \cup B)\)\]</dd>
     <dt><dfn>Closed Itemset</dfn></dt>
     <dd>Ein Itemset \(I\) heißt closed, wenn es keine echte Obermenge \(I' \supsetneq I\) gibt,
         die den gleichen support \(\text{supp}(I') = \text{supp}(I)\) hat.</dd>
-    <dt><dfn>Confidence</dfn></dt>
-    <dd>Confidence von \(A \Rightarrow B\) ist \(\frac{Support(A \cup B)}{support(A)}\)</dd>
+    <dt><a id="confidence"></a><dfn>Confidence</dfn></dt>
+    <dd>Confidence von \(A \Rightarrow B\) ist der Anteil der Transaktionen,
+        die \(A\) und \(B\) enthalten, von den Transaktione die \(A\) enthalten:
+
+        \[\text{conf}(A \Rightarrow B) = \frac{\text{support}(A \cup B)}{\text{support}(A)} \in [0, 1]\]</dd>
     <dt><dfn>Apriori Algorithmus</dfn></dt>
     <dd>Der Apriori-Algorithmus ist ein Generate-and-Test-Algorithmus zum
         Finden von Frequent Itemsets.
@@ -736,7 +752,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
     <dt><dfn>CLARANS</dfn></dt>
     <dd>CLARANS ist ein Clustering-Algorithmus, der mit \(k\)-Means
-        zusammenhängt. Auch er erwartet einen Parameter \(k \in \mathbb{N}\),
+        verwandt ist. Auch er erwartet einen Parameter \(k \in \mathbb{N}\),
         der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
         aus, dass jeder Medeoid durch einen Datenpunkt im Datensatz
         repräsentiert werden kann. Für eine zufällige Wahl von \(k\) Punkten
@@ -746,24 +762,31 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Den besten Tausch führt man durch.</dd>
     <dt><dfn>CF-Tree</dfn> (<dfn>Clustering Feature Tree</dfn>)</dt>
     <dd>Ein CF-Tree ist ein höhenbalancierter Baum. Jeder Knoten des Baums
-        entspricht ein Cluster.</dd>
-    <dt><a href="https://en.wikipedia.org/wiki/BIRCH"><dfn>BIRCH</dfn> (<dfn>Balanced Iterative Reducing and Clustering using Hierarchies</dfn>)</a></dt>
-    <dd>KEIN hierarchisches Clustering ("hierarchies" bezieht sich auf den Baum, nicht auf das Clusteringergebnis)
-
-    Clustering-Feature (N, LS, SS) für Cluster \(C_i\) mit
-    <ul>
-        <li>\(N = |C_i|\): Anzahl der Punkte im Cluster</li>
-        <li>\(LS = \sum_{i \in C_i} X_i\)</li>
-        <li>\(SS = \sum_{i \in C_i} X_i^2\)</li>
-    </ul>
-
-    Parameter:
-
-    <ul>
-        <li>B: (Fan-out), maximale anzahl an children</li>
-        <li>B': maximale Blatt-Kapazität (Anzahl Elementarcluster)</li>
-        <li>T (threshold): Maximaler Radius (durchmesser?), bevor er gesplittet wird</li>
-    </ul>
+        entspricht ein Cluster.<br/>
+        <br/>
+        Clustering-Feature (N, LS, SS) für Cluster \(C_i\) mit
+        <ul>
+            <li>\(N = |C_i|\): Anzahl der Punkte im Cluster</li>
+            <li>\(LS = \sum_{i \in C_i} X_i\)</li>
+            <li>\(SS = \sum_{i \in C_i} X_i^2\)</li>
+        </ul>
+        </dd>
+    <dt><a id="birch" href="https://en.wikipedia.org/wiki/BIRCH"><dfn>BIRCH</dfn> (<dfn>Balanced Iterative Reducing and Clustering using Hierarchies</dfn>)</a></dt>
+    <dd>BIRCH ist ein Clustering-Algorithmus, welcher CF-Trees benutzt und
+        mit wenig Speicherplatz auskommt. Der CF-Tree wird im ersten Schritt
+        aufgebaut.<br/>
+        <br/>
+        BIRCH ist KEIN hierarchisches Clustering ("hierarchies" bezieht sich
+        auf den Baum, nicht auf das Clusteringergebnis).<br/>
+        <br/>
+        Parameter von BIRCH:
+        <ul>
+            <li>\(k \in \mathbb{N}^+\): Anzahl der Cluster</li>
+            <li>B: (Fan-out), maximale anzahl an Kindknoten</li>
+            <li>B': maximale Blatt-Kapazität (Anzahl Elementarcluster)</li>
+            <li>T (Schwellwert): Maximaler Radius (oder Durchmesser), bevor ein
+                Elementar-Cluster gesplittet wird</li>
+        </ul>
 
     </dd>
     <dt><dfn>Hierarchisches Clustering</dfn></dt>
@@ -795,7 +818,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
     <dd>Durchschnittliche Inter-Clusterdistanz von Cluster 1 und Cluster 2:
 
         \[D(C_1, C_2) = \sqrt{\frac{\sum_{i \in C_1} \sum_{j \in C_2} {(X_i - X_j)}^2}{|C_1| \cdot |C_2|}}\]</dd>
-    <dt><a name="agglomerative-clustering"></a><dfn>Agglomeratives Clustering</dfn></dt>
+    <dt><a id="agglomerative-clustering"></a><dfn>Agglomeratives Clustering</dfn></dt>
     <dd>
 
         <ul>
@@ -808,7 +831,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
         Gesamtkomplexität: \(\mathcal{O}(n^2)\)
     </dd>
-    <dt><a name="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
+    <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
     <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
         startet mit einem großen Cluster und unterteilt diesen rekursiv immer
         weiter in je zwei kleine Cluster.<br/>
@@ -825,10 +848,10 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         \(n\) die Anzahl der Dimensionen von \(x_1, x_2\) ist.</dd>
     <dt><dfn>Jaccard Koeffizient</dfn></dt>
     <dd>\[J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]\]</dd>
-    <dt><dfn>DB-Scan</dfn></dt>
-    <dd>
+    <dt><a href="https://de.wikipedia.org/wiki/DBSCAN"><dfn>DBSCAN</dfn></a></dt>
+    <dd>DBSCAN ist ein Algorithmus zum finden von Clustern.
 
-    Unterscheidet:
+    Er unterscheidet 3 Arten von Datenpunkten:
 
     <ul>
         <li>Dichte Objekte: Epsion-Umgebung hat viele Datenobjekte.</li>
@@ -836,8 +859,14 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         <li>Ausreißer: Weder dicht noch dichte-erreichbar.</li>
     </ul>
 
-    Idee: Gehe über alle Punkte \(p \in P\) genau ein mal. Sei \(P' = P\) die
-    Menge der nicht-markierten Punkte. Solange es noch
+    Idee: Gehe über alle Punkte \(p \in P\) genau ein mal. Sei \(P' \leftarrow P\) die
+    Menge der nicht-markierten Punkte. Solange \(|P'| > 0\) wird ein Punkt
+    entnommen. Ist er dicht, so ist es ein neues Cluster. Von diesem Punkt aus
+    wird rekursiv alles in der \(\varepsilon\)-Umgebung zum Cluster hinzugefügt.
+    Hat der Punkt weniger als min_point Punkte in seiner \(\varepsilon\)-Umgebung,
+    so wird er als Ausreißer markiert.
+
+    Siehe auch: <a href="http://www.dbs.ifi.lmu.de/Publikationen/Papers/KDD-96.final.frame.pdf">A density-based algorithm for discovering clusters in large spatial databases with noise</a>
     </dd>
     <dt><dfn>Noise</dfn></dt>
     <dd>Noise sind Punkte, die zu keinem Cluster gehören.</dd>
@@ -848,8 +877,10 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         Die Core-Distanz eines Objekts \(o\) ist also die kleinste Distanz, sodass
         \(o\) noch ein dichtes Objekt ist.</dd>
     <dt><dfn>Reachability-Distanz</dfn></dt>
-    <dd>\[\text{reach\_d}() = \begin{cases}d(p, o)               &\text{if } d(p, o) > \text{coreDist}(p, o)\\
-                                 \text{coreDist}(p, o) &\text{if } d(p, o) < \text{coreDist}(p, o)\end{cases}\]</dd>
+    <dd>Seien \(p, o\) Datenpunkte.
+
+    \[\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &\text{if } d(p, o) < \varepsilon\\
+                                 \text{undefined} &\text{otherwise}\]</dd>
     <dt><a href="https://de.wikipedia.org/wiki/OPTICS"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
         \(\varepsilon\) (maximaler Radius für Cluster-Distanz) automatisch
@@ -1072,18 +1103,30 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   → In der Warenkorbanalyse / in Transaktionen.
 * Wie überprüft man rasch für viele Transaktionen, welche Kandidaten sie enthalten?<br/>
   → TODO
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
-  Support und hohe Confidence hat?<br/>
-  → TODO
-* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule hohen
+* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0">\(A \Rightarrow B\)</span> hohen
+  <a href="#support">Support</a> und hohe <a href="#confidence">Confidence</a>
+  hat?<br/>
+  → Viele Transaktionen müssen <span markdown="0">\(A \cup B\)</span> enthalten.
+     Wenn <span markdown="0">\(A\)</span> vorkommt, muss auch
+     <span markdown="0">\(B\)</span> häufig vorkommen.
+* Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0">\(A \Rightarrow B\)</span> hohen
   Support und geringe Confidence hat?<br/>
-  → TODO
+  → Viele Transaktionen müssen <span markdown="0">\(A \cup B\)</span>
+  enthalten, aber noch deutlich mehr nur \(A\).
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0">\(A \Rightarrow B\)</span>
   geringen Support und hohe Confidence hat?<br/>
-  → TODO
+  → Wenige Transaktionen müssen <span markdown="0">\(A \cup B\)</span>
+  enthalten, wenn <span markdown="0">\(A\)</span> mal vorkommt, dann immer
+  auch <span markdown="0">\(B\)</span>.
 * Wie muss der Datenbestand beschaffen sein, damit eine Association Rule
+  <span markdown="0">\(A \Rightarrow B\)</span>
   geringen Support und geringe Confidence hat?<br/>
-  → TODO
+  → Wenige Transaktionen müssen <span markdown="0">\(A \cup B\)</span>
+  enthalten. Wenn <span markdown="0">\(A\)</span> mal vorkommt, dann sehr
+  selten auch <span markdown="0">\(B\)</span>.
 * Im Apriori-Algorithmus hat man bei k=2 keinen Prune-Schritt. Warum?<br/>
   → (Antwort: 24.11.2015, 14:34)
 * Wie groß sollte man die Hash-Tabelle machen?<br/>
@@ -1129,6 +1172,10 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
 * BIRCH-Algorithmus: Wie kann man die Interclusterdistanz aus N, LS, SS
   herleiten?<br/>
   → \(D(C_1, C_2) = \sqrt{\frac{SS_{C_1} - 2 LS_{C_2} LS_{C_1} + SS_{C_2}}{N_{C_1} \cdot N_{C_2}}}\)
+* BIRCH-Algorithmus: Wie lassen sich die Clustering-Features eines Zusammengefügten
+  Clusters <span markdown="0">\(C_{12} = C_1 \cup C_2\)</span> aus den
+  Komponenten berechnen?<br/>
+  → Durch Addition der jeweiligen Features der Einzelcluster.
 * Was spricht dagegen, <span markdown="0">\(\mathbf{\varepsilon}\)</span> in
   OPTICS riesig zu wählen?<br/>
   → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
