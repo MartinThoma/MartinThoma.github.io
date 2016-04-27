@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Talking with Daeomons
+title: Talking with Daemons
 author: Martin Thoma
 date: 2016-04-27 23:26
 category: Programming
@@ -36,7 +36,8 @@ RPC is short for <i>remote procedure call</i>. It is a call to a function which
 is not in the same address space as the calling function. So basically code in
 program A calls code from program B.
 
-In Python, this is actually pretty easy to use with [Pyro]().
+In Python, this is actually pretty easy to use with
+[Pyro](https://pythonhosted.org/Pyro4/).
 
 
 ## Server
@@ -184,7 +185,7 @@ if __name__ == "__main__":
 
 resulting in about 0.004s from sending to receiving.
 
-{% caption align="aligncenter" width="500" alt="About 0.004s from sending to receiving" text="About 0.004s from sending to receiving" url="../images/2016/01/daemon.png" %}
+{% caption align="aligncenter" width="500" alt="About 0.004s from sending to receiving" text="About 0.004s from sending to receiving" url="../images/2016/04/daemon.png" %}
 
 
 ## A small chat
