@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <!-- type: head.html -->
+  <head>
+    <meta charset="utf-8">
+    
+    
+
+    
+        <meta name="image" content="https://martin-thoma.com/images/logos/daemon.png" />
+        <meta name="thumbnail" content="//martin-thoma.com/images/logos/daemon.png" />
+        <meta property="og:image" content="//martin-thoma.com/images/logos/daemon.png" />
+    
+
+    <meta property="og:type" content="blog"/>
+
+    <title>Talking with Daeomons</title>
+    <meta property="og:title" content="Talking with Daeomons" />
+    <meta property="og:url" content="//martin-thoma.com/talking-with-daemons" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/pygments.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/tocplus-screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="//martin-thoma.com/css/handheld.css" type="text/css" media="only screen and (max-width: 480px)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="alternate" type="application/rss+xml" title="Martin Thoma RSS Feed" href="//martin-thoma.com/feed/" /><!--TODO-->
+    <link rel="shortcut icon" href="//martin-thoma.com/favicon.ico" type="image/x-icon" />
+
+    <link rel="canonical" href="//martin-thoma.com/talking-with-daemons" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@themoosemind"/>
+<meta name="twitter:creator" content="@themoosemind"/>
+<meta name="twitter:title" content="Talking with Daeomons"/>
+
+    <meta name="twitter:description" content="A blog about Code, the Web and Cyberculture" />
+
+
+    <meta name="twitter:image" content="//martin-thoma.com/images/logos/daemon.png"/>
+
+
+
+<meta name="twitter:url" content="//martin-thoma.com/talking-with-daemons"/>
+<meta name="twitter:domain" content="Martin Thoma.com"/>
+
+
+    <script type='text/javascript' src="//martin-thoma.com/js/jquery.js"></script>
+    <script type='text/javascript' src="//martin-thoma.com/js/jquery-migrate.min.js"></script>
+    <style type="text/css">div#toc_container {width: 275px;}</style>
+    <style type="text/css" id="syntaxhighlighteranchor"></style>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+<!--
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ['\\[','\\]']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    processEscapes: true
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+// -->
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- Latest compiled and minified CSS bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<!-- type: post.html -->
+<body>
+    <div id="wrapper">
+        <div id="container" class="container">
+            <div class="span-16">
+                <!-- type: header.html -->
+<div id="header" role="banner">
+    <h1><a href="//martin-thoma.com">Martin Thoma</a></h1>
+    <h2 style="margin-top: 0;">A blog about Code, the Web and Cyberculture.</h2>
+</div>
+<nav class="navcontainer" role="navigation">
+    <ul id="nav">
+        <li class=""><a href="//martin-thoma.com">Home</a></li>
+        <li class="page_item page-item-41 "><a href="//martin-thoma.com/author/martin-thoma/">About Me</a></li>
+        <li class="page_item page-item-91 "><a href="//martin-thoma.com/imprint/">Imprint</a></li>
+    </ul>
+</nav>
+
+                <div id="content">
+                    <article class="post type-post format-standard hentry clearfix" itemscope itemType="http://schema.org/BlogPosting">
+                        <h2 class="title entry-title" itemprop="name headline">Talking with Daeomons</h2>
+                        <link itemprop="mainEntityOfPage" href="//martin-thoma.com/talking-with-daemons" />
+                        <div class="postdate entry-date date-header">
+                            <time datetime="2016-04-27T23:26:00+02:00" itemprop="datePublished">
+                                April
+                                27th,
+                                  
+                                2016
+                            </time>
+                        </div>
+
+                        <div class="entry post-body" id="contentAfterTitle" itemprop="articleBody">
+                            <p>Everybody knows that training big machine learning models takes a lot of
+computing power. However, it takes much less computing power to evaluate the
+model for a single instance. One important factor when measuring the time
+of a program which only runs one image classification is the time for loading
+the model itself. Only the reading / structuring of the computational graph.
+We don’t want to load the model often.</p>
+
+<p>One possible way around this is making a web service. The user connects to it,
+uploads an image and gets the result. But the model is loaded all the time and
+the web service is running all the time.</p>
+
+<p>One problem with this approach is that you might want to work on the web
+interface and not having to reload the machine learning part all the time. I
+also think this might be one of the most inefficient ways to realize
+<abbr title="inter process communication">IPC</abbr>.</p>
+
+<p>Today, it came to my mind that there might be a cleaner approach. I thought
+about creating a daemon and using RPCs.</p>
+
+<div id="toc_container" class="toc_light_blue no_bullets">
+   <p class="toc_title">Contents</p>
+   <ul class="toc_list">
+      <li class="toc_level-1 toc_section-1">
+         <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">RPC basics</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-2">
+         <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Server</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-3">
+         <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Client</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-4">
+         <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Timing</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-5">
+         <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">A small chat</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-6">
+         <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Daemons</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-7">
+         <a href="#tocAnchor-1-7"><span class="tocnumber">7</span> <span class="toctext">See also</span></a>
+      </li>
+   </ul>
+</div><h2 id="tocAnchor-1-1">RPC basics</h2>
+
+<p>RPC is short for <i>remote procedure call</i>. It is a call to a function which
+is not in the same address space as the calling function. So basically code in
+program A calls code from program B.</p>
+
+<p>In Python, this is actually pretty easy to use with <a href="">Pyro</a>.</p>
+
+<h2 id="tocAnchor-1-2">Server</h2>
+
+<p>Create a file <code>summon_daemon.py</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>The server.</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Pyro.core</span>
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Bartimaeus</span>(Pyro.core.ObjBase):
+    <span style="color:#D42"><span style="color:black">"""</span><span>The called class.</span><span style="color:black">"""</span></span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Constructor.</span><span style="color:black">"""</span></span>
+        Pyro.core.ObjBase.__init__(<span style="color:#069">self</span>)
+        <span style="color:#069">self</span>.counter = <span style="color:#00D">0</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">count</span>(<span style="color:#069">self</span>, up):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Count up.</span><span style="color:black">"""</span></span>
+        <span style="color:#069">self</span>.counter += up
+        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">I was called {count} times.</span><span style="color:#710">"</span></span>.format(count=<span style="color:#069">self</span>.counter)
+
+Pyro.core.initServer()
+daemon = Pyro.core.Daemon()
+uri = daemon.connect(Bartimaeus(), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">bartid</span><span style="color:#710">"</span></span>)
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The daemon runs on port: {port}</span><span style="color:#710">"</span></span>.format(port=daemon.port))
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The object's uri is: {uri}</span><span style="color:#710">"</span></span>.format(uri=uri))
+
+daemon.requestLoop()
+</pre></div>
+</div>
+</div>
+
+<h2 id="tocAnchor-1-3">Client</h2>
+
+<p>And a <code>call_daemon.py</code>:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>Talk with the daemon.</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Pyro.core</span>
+
+<span style="color:#777"># you have to change the URI below to match your own host/port.</span>
+bartimaeus = Pyro.core.getProxyForURI(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">PYROLOC://localhost:7766/bartid</span><span style="color:#710">"</span></span>)
+
+print(bartimaeus.count(<span style="color:#00D">1</span>))
+</pre></div>
+</div>
+</div>
+
+<h2 id="tocAnchor-1-4">Timing</h2>
+
+<p>I was interested how fast this is locally. So I made a tiny test:</p>
+
+<p>Server (<code>summon_daemon.py</code>):</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>The server.</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">logging</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Pyro.core</span>
+
+logging.basicConfig(format=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">%(asctime)s %(levelname)s %(message)s</span><span style="color:#710">'</span></span>,
+                    level=logging.DEBUG,
+                    stream=sys.stdout)
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Bartimaeus</span>(Pyro.core.ObjBase):
+    <span style="color:#D42"><span style="color:black">"""</span><span>The called class.</span><span style="color:black">"""</span></span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Constructor.</span><span style="color:black">"""</span></span>
+        Pyro.core.ObjBase.__init__(<span style="color:#069">self</span>)
+        <span style="color:#069">self</span>.counter = <span style="color:#00D">0</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">count</span>(<span style="color:#069">self</span>, up):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Count up.</span><span style="color:black">"""</span></span>
+        logging.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">new up: %i</span><span style="color:#710">"</span></span>, up)
+        <span style="color:#069">self</span>.counter += up
+        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">I was called {count} times.</span><span style="color:#710">"</span></span>.format(count=<span style="color:#069">self</span>.counter)
+
+Pyro.core.initServer()
+daemon = Pyro.core.Daemon()
+uri = daemon.connect(Bartimaeus(), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">bartid</span><span style="color:#710">"</span></span>)
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The daemon runs on port: {port}</span><span style="color:#710">"</span></span>.format(port=daemon.port))
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The object's uri is: {uri}</span><span style="color:#710">"</span></span>.format(uri=uri))
+
+daemon.requestLoop()
+</pre></div>
+</div>
+</div>
+
+<p>Client (<code>call_daemon.py</code>):</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>Talk with the daemon.</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">logging</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Pyro.core</span>
+
+logging.basicConfig(format=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">%(asctime)s %(levelname)s %(message)s</span><span style="color:#710">'</span></span>,
+                    level=logging.DEBUG,
+                    stream=sys.stdout)
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>(up):
+    <span style="color:#D42"><span style="color:black">"""</span><span>Do something with bartimaeus - who lives in another realm.</span><span style="color:black">"""</span></span>
+    <span style="color:#777"># you have to change the URI below to match your own host/port.</span>
+    logging.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Send up: %i</span><span style="color:#710">"</span></span>, up)
+    bartimaeus = Pyro.core.getProxyForURI(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">PYROLOC://localhost:7766/bartid</span><span style="color:#710">"</span></span>)
+    print(bartimaeus.count(up))
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
+    <span style="color:#D42"><span style="color:black">"""</span><span>Get parser object for call_demon.py.</span><span style="color:black">"""</span></span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
+    parser = ArgumentParser(description=__doc__,
+                            formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">-n</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">up</span><span style="color:#710">"</span></span>,
+                        default=<span style="color:#00D">1</span>,
+                        type=<span style="color:#369;font-weight:bold">int</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">count up</span><span style="color:#710">"</span></span>)
+    <span style="color:#080;font-weight:bold">return</span> parser
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    args = get_parser().parse_args()
+    main(args.up)
+
+</pre></div>
+</div>
+</div>
+
+<p>resulting in about 0.004s from sending to receiving.</p>
+
+<div style="width: 510px" class="wp-caption aligncenter">
+   <a href="../images/2016/01/daemon.png">
+      <img src="" alt="About 0.004s from sending to receiving" width="" height="" class="" />
+   </a>
+   <p class="wp-caption-text">About 0.004s from sending to receiving</p>
+</div>
+
+<h2 id="tocAnchor-1-5">A small chat</h2>
+
+<p>You could implement a very simple chat with this. I only have version 3.16 of
+<a href="https://pythonhosted.org/Pyro4/">Pyro</a> which seems not to have
+<a href="https://pythonhosted.org/Pyro4/clientcode.html#pyro-callbacks">callbacks</a> so
+that the server can inform the client when a new message is there. This means
+the following toy implementation expects the user to send messages to receive
+the current ones. Not nice, but I just wanted to give it a try:</p>
+
+<p>Server:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>A chat server.</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Pyro.core</span>
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Chat</span>(Pyro.core.ObjBase):
+    <span style="color:#D42"><span style="color:black">"""</span><span>The called class.</span><span style="color:black">"""</span></span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__init__</span>(<span style="color:#069">self</span>):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Constructor.</span><span style="color:black">"""</span></span>
+        Pyro.core.ObjBase.__init__(<span style="color:#069">self</span>)
+        <span style="color:#069">self</span>.msgs = []
+        <span style="color:#069">self</span>.clients = []
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">receive</span>(<span style="color:#069">self</span>, sender, msg, last_msg):
+        <span style="color:#D42"><span style="color:black">"""</span><span>Receive a message.</span><span style="color:black">"""</span></span>
+        <span style="color:#069">self</span>.msgs.append((sender, msg))
+        print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">[{sender}] {msg}</span><span style="color:#710">"</span></span>.format(sender=sender, msg=msg))
+        <span style="color:#080;font-weight:bold">return</span> (<span style="color:#069">self</span>.msgs[last_msg:], <span style="color:#369;font-weight:bold">len</span>(<span style="color:#069">self</span>.msgs))
+
+Pyro.core.initServer()
+daemon = Pyro.core.Daemon()
+uri = daemon.connect(Chat(), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">chat</span><span style="color:#710">"</span></span>)
+
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The daemon runs on port: {port}</span><span style="color:#710">"</span></span>.format(port=daemon.port))
+print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The object's uri is: {uri}</span><span style="color:#710">"</span></span>.format(uri=uri))
+
+daemon.requestLoop()
+</pre></div>
+</div>
+</div>
+
+<p>Client:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777">#!/usr/bin/env python</span>
+<span style="color:#777"># -*- coding: utf-8 -*-</span>
+
+<span style="color:#D42"><span style="color:black">"""</span><span>A chat client.</span><span style="color:black">"""</span></span>
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">logging</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">sys</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">Pyro.core</span>
+
+logging.basicConfig(format=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">%(asctime)s %(levelname)s %(message)s</span><span style="color:#710">'</span></span>,
+                    level=logging.DEBUG,
+                    stream=sys.stdout)
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">main</span>(server, name):
+    <span style="color:#D42"><span style="color:black">"""</span><span>Run the chat.</span><span style="color:black">"""</span></span>
+    chat_server = Pyro.core.getProxyForURI(server)
+    last_msg_id = <span style="color:#00D">0</span>
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">*</span><span style="color:#710">"</span></span>*<span style="color:#00D">80</span>)
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">* Chat started. You are called '{name}'.</span><span style="color:#710">"</span></span>.format(name=name))
+    print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">*</span><span style="color:#710">"</span></span>*<span style="color:#00D">80</span>)
+    <span style="color:#080;font-weight:bold">while</span> <span style="color:#069">True</span>:
+        msg = <span style="color:#369;font-weight:bold">raw_input</span>()
+        new_msgs, last_msg_id = chat_server.receive(name, msg, last_msg_id)
+        <span style="color:#080;font-weight:bold">for</span> sender, msg <span style="color:#080;font-weight:bold">in</span> new_msgs:
+            print(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">[{sender}] {msg}</span><span style="color:#710">"</span></span>.format(sender=sender, msg=msg))
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">get_parser</span>():
+    <span style="color:#D42"><span style="color:black">"""</span><span>Get parser object for chat_client.py.</span><span style="color:black">"""</span></span>
+    <span style="color:#080;font-weight:bold">from</span> <span style="color:#B44;font-weight:bold">argparse</span> <span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">ArgumentParser</span>, <span style="color:#B44;font-weight:bold">ArgumentDefaultsHelpFormatter</span>
+    parser = ArgumentParser(description=__doc__,
+                            formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--server</span><span style="color:#710">"</span></span>,
+                        dest=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">server</span><span style="color:#710">"</span></span>,
+                        required=<span style="color:#069">True</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">starts with PYRO://</span><span style="color:#710">"</span></span>)
+    parser.add_argument(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">--name</span><span style="color:#710">"</span></span>,
+                        required=<span style="color:#069">True</span>,
+                        help=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">what others see</span><span style="color:#710">"</span></span>)
+    <span style="color:#080;font-weight:bold">return</span> parser
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">__main__</span><span style="color:#710">"</span></span>:
+    args = get_parser().parse_args()
+    main(args.server, args.name)
+
+</pre></div>
+</div>
+</div>
+
+<h2 id="tocAnchor-1-6">Daemons</h2>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Daemon_(computing)">daemon</a> is a computer
+program that runs as a background process, rather than being under the direct
+control of an interactive user.</p>
+
+<p>You can <a href="http://stackoverflow.com/a/16420140/562769">create a simple daemon</a>,
+too.</p>
+
+<h2 id="tocAnchor-1-7">See also</h2>
+
+<ul>
+  <li><a href="https://www.reddit.com/r/learnprogramming/comments/4gq8mn/web_service_for_ipc_pros_and_cons/">Web Service for IPC: Pros and Cons?</a></li>
+</ul>
+
+                        </div>
+                        <div class="postmeta">Posted in
+                            
+                                <a href="//martin-thoma.com/category/programming/">programming</a><!--TODO: Displayed category name should be upper case! -->
+                             | Tags:
+                            
+                                
+                                    <a href="//martin-thoma.com/tag/python/">Python</a>
+                                
+                            
+                                , <a href="//martin-thoma.com/tag/rpc/">RPC</a>
+                                
+                            
+                                , <a href="//martin-thoma.com/tag/daemon/">daemon</a>
+                                
+                             by <a rel="author" class="vcard author post-author" itemprop="author" href="//martin-thoma.com/author/martin-thoma/"><span class="fn" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Martin Thoma</span></span></a> on <span class="updated"><span class="value-title" title="2016-04-27 23:26:00 +0200">
+                                April
+                                27th
+                                  ,
+                                2016</span></span></div>
+
+                            <div class="navigation clearfix">
+                                <div class="alignleft">
+                                
+                                    &laquo; <a href="//martin-thoma.com/analysetechniken-grosser-datenbestaende/" rel="prev">Analysetechniken für große Datenbestände</a>
+                                
+                                </div>
+                                <div class="alignright">
+                                
+                                </div>
+                            </div>
+
+                        </article>
+                        <div id="respond">
+                            <h3>Leave a Reply</h3>
+                                <!-- comment discuss code -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'martinthoma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!-- comment discuss code -->
+
+                        </div>
+                    </div>
+                </div>
+            <div class="span-8 last">
+                <div id="subscriptions">
+<a href="//martin-thoma.com/feed/"><img src="//martin-thoma.com/css/images/rss.png" alt="Subscribe to RSS Feed" title="Subscribe to RSS Feed" width="72" height="47" /></a>
+<a href="https://twitter.com/#!/themoosemind" title="Follow me on Twitter!"><img src="//martin-thoma.com/css/images/twitter.png" title="Follow me on Twitter!" alt="Follow me on Twitter!"  width="76" height="47" /></a>
+</div>
+
+                <div id="sidebar">
+                <!-- type: searchbox.html - TODO-->
+<ul>
+    <li id="search">
+        <div class="searchlayout">
+            <form method="get" id="searchform" action="//google.com/cse" role="search">
+                <input type="hidden" name="cx" value="017345337424948206369:qrnnnentkkk" />
+                <input type="search" value="" name="q" id="s" placeholder="Search with Google"/>
+                <input type="image" src="//martin-thoma.com/css/images/search.gif" style="border:0; vertical-align: top;" alt="search"/>
+            </form>
+        </div>
+    </li>
+</ul>
+
+                <div class="addthis_toolbox">
+    <div class="custom_images">
+            <a href="//twitter.com/share?url=https://martin-thoma.com/talking-with-daemons&amp;hashtags=python,rpc,daemon,&amp;via=themoosemind" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/twitter.png" width="32" height="32" alt="Twitter" /></a>
+            <a href="//del.icio.us/post?url=//martin-thoma.com/talking-with-daemons&amp;title=Talking%20with%20Daeomons" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/delicious.png" width="32" height="32" alt="Delicious" /></a>
+            <a href="//www.facebook.com/sharer.php?u=//martin-thoma.com/talking-with-daemons" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/facebook.png" width="32" height="32" alt="Facebook" /></a>
+            <a href="//digg.com/submit?phase=2&amp;url=//martin-thoma.com/talking-with-daemons&amp;title=Talking%20with%20Daeomons" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/digg.png" width="32" height="32" alt="Digg" /></a>
+            <a href="//www.stumbleupon.com/submit?url=//martin-thoma.com/talking-with-daemons&amp;title=Talking%20with%20Daeomons" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/stumbleupon.png" width="32" height="32" alt="Stumbleupon" /></a>
+            <a href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=//martin-thoma.com/talking-with-daemons" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/gplus.png" width="32" height="32" alt="Google Plus" /></a>
+            <a href="//reddit.com/submit?url=//martin-thoma.com/talking-with-daemons&amp;title=Talking%20with%20Daeomons" target="_blank"><img src="//martin-thoma.com/css/images/socialicons/reddit.png" width="32" height="32" alt="Reddit" /></a>
+    </div>
+</div>
+
+                <ul>
+                    <li id="categories-3" class="widget widget_categories">
+                        <!-- type: categories -->
+<h2 class="widgettitle">Categories</h2>
+    <ul>
+        <li class="cat-item cat-item-11"><a href="//martin-thoma.com/category/code/" title="Tipps for coding in different languages like Python oder C++.">Code</a></li>
+        <li class="cat-item cat-item-21"><a href="//martin-thoma.com/category/web/" title="New emerging websites and technologies.">The Web</a></li>
+        <li class="cat-item cat-item-31"><a href="//martin-thoma.com/category/cyberculture/" title="Lolcats, planking, Trollfaces, ...">Cyberculture</a></li>
+        <li class="cat-item cat-item-3404"><a href="//martin-thoma.com/category/maths/" title="View all posts filed under Mathematics">Mathematics</a></li>
+        <li class="cat-item cat-item-881"><a href="//martin-thoma.com/category/bits-and-bytes/" title="Sometimes posts don&#039;t fit in any category.">My bits and bytes</a></li>
+        <li class="cat-item cat-item-41"><a href="//martin-thoma.com/category/deutschland/" title="[All Posts here are written in German about German topics] - Die Bahn, unsere Politik und Europa.">German posts</a></li>
+    </ul>
+
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div><!--/container-->
+            <footer id="footer">
+                <a href="//martin-thoma.com"><strong>Martin Thoma</strong></a> -  A blog about Code, the Web and Cyberculture. <br />
+                <div class="footer-credits">
+                    <a href="http://flexithemes.com/themes/modern-style/">Modern Style</a> theme by <a href="http://flexithemes.com/">FlexiThemes</a>
+                </div>
+            </footer><!--/footer-->
+
+    </div><!--/wrapper-->
+<!-- type: footer -->
+<!-- TOC Plus -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"275px"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="//martin-thoma.com/js/tocplus-front.js"></script>
+<script>
+(function(){
+    'use strict';
+
+    /*
+    Create intra-page links
+    Requires that your headings already have an `id` attribute set (because that's what jekyll does)
+    For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
+    Ignores `h1`, because you should only have one per page.
+    The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
+
+    Credit: https://gist.github.com/SimplGy/a229d25cdb19d7f21231
+     */
+
+    var headingNodes = [], results, link,
+        tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+    tags.forEach(function(tag){
+        var contentTag = document.getElementById('contentAfterTitle');
+      results = contentTag.getElementsByTagName(tag);
+      Array.prototype.push.apply(headingNodes, results);
+    });
+
+    headingNodes.forEach(function(node){
+      link = document.createElement('a');
+      link.className = 'deepLink';
+      link.textContent = ' ¶';
+      link.href = '#' + node.getAttribute('id');
+      node.appendChild(link);
+    });
+
+  })();
+</script>
+</body>
+</html>
+
