@@ -116,8 +116,8 @@ MathJax.Hub.Queue(function() {
 <p>In der Vorlesung ‘Analysetechniken für große Datenbestände’ werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
-FP-Trees zu nennen. Beim Clustering ist k-Means, EM, DB-SCAN, OPTICS und BIRCH
-von großer Bedeutung.</p>
+FP-Trees zu nennen. Beim Clustering ist k-Means, EM, DBSCAN, OPTICS und BIRCH
+von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.</p>
 
 <div id="toc_container" class="toc_light_blue no_bullets">
    <p class="toc_title">Contents</p>
@@ -172,22 +172,25 @@ von großer Bedeutung.</p>
             <li class="toc_level-2 toc_section-16">
                <a href="#tocAnchor-1-14-2"><span class="tocnumber">2.2</span> <span class="toctext">Clustering</span></a>
             </li>
+            <li class="toc_level-2 toc_section-17">
+               <a href="#tocAnchor-1-14-3"><span class="tocnumber">2.3</span> <span class="toctext">Bayes</span></a>
+            </li>
          </ul>
       </li>
-      <li class="toc_level-1 toc_section-17">
-         <a href="#tocAnchor-1-17"><span class="tocnumber">3</span> <span class="toctext">Übungen</span></a>
-      </li>
       <li class="toc_level-1 toc_section-18">
-         <a href="#tocAnchor-1-18"><span class="tocnumber">4</span> <span class="toctext">Material und Links</span></a>
+         <a href="#tocAnchor-1-18"><span class="tocnumber">3</span> <span class="toctext">Übungen</span></a>
       </li>
       <li class="toc_level-1 toc_section-19">
-         <a href="#tocAnchor-1-19"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
+         <a href="#tocAnchor-1-19"><span class="tocnumber">4</span> <span class="toctext">Material und Links</span></a>
       </li>
       <li class="toc_level-1 toc_section-20">
-         <a href="#tocAnchor-1-20"><span class="tocnumber">6</span> <span class="toctext">Vorlesungsempfehlungen</span></a>
+         <a href="#tocAnchor-1-20"><span class="tocnumber">5</span> <span class="toctext">Übungsbetrieb</span></a>
       </li>
       <li class="toc_level-1 toc_section-21">
-         <a href="#tocAnchor-1-21"><span class="tocnumber">7</span> <span class="toctext">Termine und Klausurablauf</span></a>
+         <a href="#tocAnchor-1-21"><span class="tocnumber">6</span> <span class="toctext">Vorlesungsempfehlungen</span></a>
+      </li>
+      <li class="toc_level-1 toc_section-22">
+         <a href="#tocAnchor-1-22"><span class="tocnumber">7</span> <span class="toctext">Termine und Klausurablauf</span></a>
       </li>
    </ul>
 </div><h2 id="tocAnchor-1-1">Behandelter Stoff</h2>
@@ -337,11 +340,13 @@ von großer Bedeutung.</p>
   <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning"><dfn>Association Rules</dfn></a></dt>
   <dd>Association Rules sind Regeln der Form:
       Wenn eine Transaktion A enthält, dann auch B (formal: \(A \Rightarrow B\)).
-
+      <br />
       Association rules werden z.B. in der Market Basket Analysis eingesetzt.
       Sie können aus Frequent item sets relativ einfach erzeugt werden.
-
-      Der Apriori Algorithmus dient dem Finden von Association Rules.
+      <br />
+      Der Apriori Algorithmus dient dem Finden von Association Rules.<br />
+      <br />
+      Association Rules sind stark mit <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> verwandt.
   </dd>
   <dt><dfn>Predictive Maintenance</dfn></dt>
   <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
@@ -922,9 +927,9 @@ Autos in eine “Sport-Variante”?</li>
             <li>Complete Link: \(\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)\)</li>
         </ul>
     </dd>
-    <dt><dfn>\(k\)-means Clustering</dfn></dt>
+    <dt><dfn id="kmeans">\(k\)-means Clustering</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
-    <dt><dfn>CLARANS</dfn></dt>
+    <dt><dfn id="clarans">CLARANS</dfn></dt>
     <dd>CLARANS ist ein Clustering-Algorithmus, der mit \(k\)-Means
         verwandt ist. Auch er erwartet einen Parameter \(k \in \mathbb{N}\),
         der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
@@ -1005,12 +1010,18 @@ Autos in eine “Sport-Variante”?</li>
 
         Gesamtkomplexität: \(\mathcal{O}(n^2)\)
     </dd>
-    <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
+    <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>, <dfn>DIvisive ANAlysis</dfn>)</dt>
     <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
         startet mit einem großen Cluster und unterteilt diesen rekursiv immer
         weiter in je zwei kleine Cluster.<br />
         <br />
-         TODO (Splinter group)
+         TODO (Splinter group)<br />
+        <br />
+        Siehe auch:
+        <ul>
+            <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/diana.html">R implementierung</a></li>
+            <li><a href="http://onlinelibrary.wiley.com/book/10.1002/9780470316801">Leonard Kaufman, Peter J. Rousseeuw: Finding Groups in Data: An Introduction to Cluster Analysis.</a></li>
+        </ul>
     </dd>
     <dt><dfn>Projected Clustering</dfn></dt>
     <dd>Input sind die Anzahl \(k\) der Cluster, die gefunden werden sollen und
@@ -1022,7 +1033,7 @@ Autos in eine “Sport-Variante”?</li>
         \(n\) die Anzahl der Dimensionen von \(x_1, x_2\) ist.</dd>
     <dt><dfn>Jaccard Koeffizient</dfn></dt>
     <dd>\[J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]\]</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/DBSCAN"><dfn>DBSCAN</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
     <dd>DBSCAN ist ein Algorithmus zum finden von Clustern.
 
     Er unterscheidet 3 Arten von Datenpunkten:
@@ -1055,7 +1066,7 @@ Autos in eine “Sport-Variante”?</li>
 
     \[\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &amp;\text{if } d(p, o) &lt; \varepsilon\\
                                  \text{undefined} &amp;\text{otherwise}\]</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/OPTICS"><dfn>OPTICS</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/OPTICS" id="optics"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
         \(\varepsilon\) (maximaler Radius für Cluster-Distanz) automatisch
         Cluster findet. Er startet dabei bei einem beliebigen Punkt. Dieser
@@ -1071,7 +1082,7 @@ Autos in eine “Sport-Variante”?</li>
                 nicht in der Output-Liste sind.</li>
             <li>Kriterium: Minimale reachability-distanz zu Objekten in der
                 Output-Liste.</li>
-            <li>Rekursiv expandieren wie bei DB-SCAN.</li>
+            <li>Rekursiv expandieren wie bei DBSCAN.</li>
         </ul>
 
         Siehe <a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf">OPTICS: Ordering Points To Identify the Clustering Structure</a>.
@@ -1087,7 +1098,7 @@ Autos in eine “Sport-Variante”?</li>
         </figure>
 
     </dd>
-    <dt><dfn>EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
+    <dt><dfn id="em">EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-2-course#em-algorithmus">ML 2</a>.</dd>
     <dt><dfn>Overall Likelihood</dfn></dt>
     <dd>Die Overall Likelihood ist ein Gütemaß für Clusterings.
@@ -1105,15 +1116,7 @@ Autos in eine “Sport-Variante”?</li>
     <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit \(k\) initilisiert.
         Beachte, dass man auch die Gesamtzahl dann um \(k\) erhöhen muss.</dd>
     <dt><dfn>Bayessche Netze</dfn></dt>
-    <dd>Ein bayessches Netz ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>.
-        Ein Knoten für jedes Attribut sowie Klassenzugehörigkeit.
-        Kanten zwischen nicht unabhängigen Attributen.<br />
-        <br />
-        Netzkonstruktion: Meist von Hand (z.B. anhand von Kausalitäten)<br />
-        <br />
-        Finden der Maximum-Likelihood-Parameter.<br />
-        <br />
-        Behandeln fehlender Werte</dd>
+    <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
     <dt><dfn>Duplikateleminierung</dfn></dt>
     <dd>Spezialfall von Klassifikation</dd>
     <dt><dfn>Versteckte Variablen</dfn></dt>
@@ -1354,13 +1357,36 @@ Komponenten berechnen?<br />
 OPTICS riesig zu wählen?<br />
 → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
    Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.</li>
+  <li>Welche Clustering-Verfahren kennen Sie?<br />
+→ <a href="#kmeans">(k)-means</a>, <a href="#clarans">CLARANS</a>,
+   <a href="#dbscan">DBSCAN</a>, <a href="#optics">OPTICS</a>,
+   <a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a></li>
+  <li>Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?<br />
+→ Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
+  (Hierarchisches Clustering), finden von neuen Symbolen (TODO).</li>
+  <li>Warum funktionieren herkömmliche Clustering-Verfahren in hochdimensionalen
+Merkmalsräumen nicht? Skizzieren Sie eine mögliche Lösung.<br />
+→ TODO</li>
+  <li>Erklären Sie, warum Clustering mit kategorischen Attributen besonders ist?
+Warum ist Link-basiertes Clustering hier hilfreich?<br />
+→ TODO</li>
 </ul>
 
-<h2 id="tocAnchor-1-17">Übungen</h2>
+<h3 id="tocAnchor-1-14-3">Bayes</h3>
+
+<ul>
+  <li>&lt;Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
+auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.&gt;<br />
+→ TODO</li>
+  <li>Was ändert sich, wenn die Attribute nicht voneinander unabhängig sind?<br />
+→ TODO</li>
+</ul>
+
+<h2 id="tocAnchor-1-18">Übungen</h2>
 
 <p>Kommt noch.</p>
 
-<h2 id="tocAnchor-1-18">Material und Links</h2>
+<h2 id="tocAnchor-1-19">Material und Links</h2>
 
 <p>Die Vorlesung wurde gestreamt und ist unter
 <a href="http://mml-streamdb01.ira.uka.de/">mml-streamdb01.ira.uka.de</a> verfügbar.</p>
@@ -1370,11 +1396,11 @@ OPTICS riesig zu wählen?<br />
   <li><a href="https://ilias.studium.kit.edu/goto_produktiv_crs_477914.html">Ilias</a></li>
 </ul>
 
-<h2 id="tocAnchor-1-19">Übungsbetrieb</h2>
+<h2 id="tocAnchor-1-20">Übungsbetrieb</h2>
 
 <p>?</p>
 
-<h2 id="tocAnchor-1-20">Vorlesungsempfehlungen</h2>
+<h2 id="tocAnchor-1-21">Vorlesungsempfehlungen</h2>
 
 <p>Folgende Vorlesungen sind ähnlich:</p>
 
@@ -1387,7 +1413,7 @@ OPTICS riesig zu wählen?<br />
   <li>Lokalisierung Mobiler Agenten</li>
 </ul>
 
-<h2 id="tocAnchor-1-21">Termine und Klausurablauf</h2>
+<h2 id="tocAnchor-1-22">Termine und Klausurablauf</h2>
 
 <p>Es ist noch nicht klar, ob es eine mündliche oder eine schriftliche Prüfung
 wird.</p>
