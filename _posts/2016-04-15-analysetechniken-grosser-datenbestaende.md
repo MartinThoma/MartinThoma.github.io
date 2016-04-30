@@ -833,12 +833,18 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
         Gesamtkomplexität: \(\mathcal{O}(n^2)\)
     </dd>
-    <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>)</dt>
+    <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>, <dfn>DIvisive ANAlysis</dfn>)</dt>
     <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
         startet mit einem großen Cluster und unterteilt diesen rekursiv immer
         weiter in je zwei kleine Cluster.<br/>
         <br/>
-         TODO (Splinter group)
+         TODO (Splinter group)<br/>
+        <br/>
+        Siehe auch:
+        <ul>
+            <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/cluster/html/diana.html">R implementierung</a></li>
+            <li><a href="http://onlinelibrary.wiley.com/book/10.1002/9780470316801">Leonard Kaufman, Peter J. Rousseeuw: Finding Groups in Data: An Introduction to Cluster Analysis.</a></li>
+        </ul>
     </dd>
     <dt><dfn>Projected Clustering</dfn></dt>
     <dd>Input sind die Anzahl \(k\) der Cluster, die gefunden werden sollen und
