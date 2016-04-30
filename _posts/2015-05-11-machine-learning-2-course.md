@@ -330,7 +330,7 @@ Slides: `05_DynamischeBayesscheNetze.pdf`
                measurement of this time step.</li>
        </ul>
     </dd>
-    <dt><a href="" name="em-algorithmus"></a><dfn>Expectation Maximizaion Algorithm</dfn> (<dfn>EM-Algorithmus</dfn>)</dt>
+    <dt><a href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm" name="em-algorithmus"><dfn>Expectation Maximizaion Algorithm</dfn></a> (<dfn>EM-Algorithmus</dfn>)</dt>
     <dd>
         Der EM-Algorithmus ist ein Clusteringalgorithmus mit weicher
         Clusterzugehörigkeit. Er findet die Parameter für gegebene Verteilungen

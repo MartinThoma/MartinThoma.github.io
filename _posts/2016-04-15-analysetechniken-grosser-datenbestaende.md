@@ -14,8 +14,8 @@ featured_image: logos/klausur.png
 In der Vorlesung 'Analysetechniken für große Datenbestände' werden vor allem
 Association Rule Mining und Clustering-Techniken besprochen. Zum Association
 Rule minining ist vor allem der Apriori-Algorithmus sowie die Verbesserung mit
-FP-Trees zu nennen. Beim Clustering ist k-Means, EM, DB-SCAN, OPTICS und BIRCH
-von großer Bedeutung.
+FP-Trees zu nennen. Beim Clustering ist k-Means, EM, DBSCAN, OPTICS und BIRCH
+von großer Bedeutung. Ein weiteres großes Kapitel sind Bayessche Netze.
 
 ## Behandelter Stoff
 
@@ -165,11 +165,13 @@ Slides: `1-Einleitung.pdf`
   <dt><a href="https://en.wikipedia.org/wiki/Association_rule_learning"><dfn>Association Rules</dfn></a></dt>
   <dd>Association Rules sind Regeln der Form:
       Wenn eine Transaktion A enthält, dann auch B (formal: \(A \Rightarrow B\)).
-
+      <br/>
       Association rules werden z.B. in der Market Basket Analysis eingesetzt.
       Sie können aus Frequent item sets relativ einfach erzeugt werden.
-
-      Der Apriori Algorithmus dient dem Finden von Association Rules.
+      <br/>
+      Der Apriori Algorithmus dient dem Finden von Association Rules.<br/>
+      <br/>
+      Association Rules sind stark mit <a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative filtering</a> verwandt.
   </dd>
   <dt><dfn>Predictive Maintenance</dfn></dt>
   <dd>Ziel: Für Motoren will man vorhersagen, wann diese einen Fehler aufweisen
@@ -748,9 +750,9 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
             <li>Complete Link: \(\text{dist}_{cl}(X, Y) = \max_{x \in X, y \in Y} \text{dist}(x, y)\)</li>
         </ul>
     </dd>
-    <dt><dfn>\(k\)-means Clustering</dfn></dt>
+    <dt><dfn id="kmeans">\(k\)-means Clustering</dfn></dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#tocAnchor-1-1-15">ML 1</a>.</dd>
-    <dt><dfn>CLARANS</dfn></dt>
+    <dt><dfn id="clarans">CLARANS</dfn></dt>
     <dd>CLARANS ist ein Clustering-Algorithmus, der mit \(k\)-Means
         verwandt ist. Auch er erwartet einen Parameter \(k \in \mathbb{N}\),
         der die erwartete Anzahl an Clustern angibt. Dann geht CLARANS davon
@@ -831,7 +833,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
         Gesamtkomplexität: \(\mathcal{O}(n^2)\)
     </dd>
-    <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn>DIANA</dfn>)</dt>
+    <dt><a id="divisive-clustering"></a><dfn>Divisives Clustering</dfn> (<dfn id="diana">DIANA</dfn>)</dt>
     <dd>Divisives Clustering ist ein hierarchisches Clusteringverfahren. Es
         startet mit einem großen Cluster und unterteilt diesen rekursiv immer
         weiter in je zwei kleine Cluster.<br/>
@@ -848,7 +850,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         \(n\) die Anzahl der Dimensionen von \(x_1, x_2\) ist.</dd>
     <dt><dfn>Jaccard Koeffizient</dfn></dt>
     <dd>\[J(A, B) = \frac{|A \cap B|}{|A \cup B|} \in [0; 1]\]</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/DBSCAN"><dfn>DBSCAN</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/DBSCAN" id="dbscan"><dfn>DBSCAN</dfn></a></dt>
     <dd>DBSCAN ist ein Algorithmus zum finden von Clustern.
 
     Er unterscheidet 3 Arten von Datenpunkten:
@@ -881,7 +883,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
 
     \[\text{reach\_d}(p, o) = \begin{cases}\max(d(p, o), \text{coreDist}(p, o)) &\text{if } d(p, o) < \varepsilon\\
                                  \text{undefined} &\text{otherwise}\]</dd>
-    <dt><a href="https://de.wikipedia.org/wiki/OPTICS"><dfn>OPTICS</dfn></a></dt>
+    <dt><a href="https://de.wikipedia.org/wiki/OPTICS" id="optics"><dfn>OPTICS</dfn></a></dt>
     <dd>OPTICS ist ein Algorithmus, der mit den Parametern min_points und
         \(\varepsilon\) (maximaler Radius für Cluster-Distanz) automatisch
         Cluster findet. Er startet dabei bei einem beliebigen Punkt. Dieser
@@ -897,7 +899,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
                 nicht in der Output-Liste sind.</li>
             <li>Kriterium: Minimale reachability-distanz zu Objekten in der
                 Output-Liste.</li>
-            <li>Rekursiv expandieren wie bei DB-SCAN.</li>
+            <li>Rekursiv expandieren wie bei DBSCAN.</li>
         </ul>
 
         Siehe <a href="http://www.dbs.informatik.uni-muenchen.de/Publikationen/Papers/OPTICS.pdf">OPTICS: Ordering Points To Identify the Clustering Structure</a>.
@@ -913,7 +915,7 @@ Slides: `9-Clustering-1.pdf` und `9-Clustering-2.pdf`
         </figure>
 
     </dd>
-    <dt><dfn>EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
+    <dt><dfn id="em">EM-Algorithmus</dfn> (<dfn>Expectation Maximization</dfn>)</dt>
     <dd>Siehe <a href="https://martin-thoma.com/machine-learning-2-course#em-algorithmus">ML 2</a>.</dd>
     <dt><dfn>Overall Likelihood</dfn></dt>
     <dd>Die Overall Likelihood ist ein Gütemaß für Clusterings.
@@ -932,15 +934,7 @@ Slides: `10-StatistModellierung.pdf`
     <dd>Um Wahrscheinlichkeiten von 0 zu vermeiden, werden die Zähler mit \(k\) initilisiert.
         Beachte, dass man auch die Gesamtzahl dann um \(k\) erhöhen muss.</dd>
     <dt><dfn>Bayessche Netze</dfn></dt>
-    <dd>Ein bayessches Netz ist ein <abbr title="Directed Acyclical Graph">DAG</abbr>.
-        Ein Knoten für jedes Attribut sowie Klassenzugehörigkeit.
-        Kanten zwischen nicht unabhängigen Attributen.<br/>
-        <br/>
-        Netzkonstruktion: Meist von Hand (z.B. anhand von Kausalitäten)<br/>
-        <br/>
-        Finden der Maximum-Likelihood-Parameter.<br/>
-        <br/>
-        Behandeln fehlender Werte</dd>
+    <dd>Siehe <a href="https://martin-thoma.com/machine-learning-1-course/#bayes-net">ML 1</a>.</dd>
     <dt><dfn>Duplikateleminierung</dfn></dt>
     <dd>Spezialfall von Klassifikation</dd>
     <dt><dfn>Versteckte Variablen</dfn></dt>
@@ -1180,6 +1174,27 @@ Slides: `12-Ensembles.pdf` (vgl. <a href="https://martin-thoma.com/machine-learn
   OPTICS riesig zu wählen?<br/>
   → Dann sind gleich am Anfang mit dem ersten Objekt alle Datenobjekte in der
      Priority-Queue. Damit wäre der Aufwand für die Queue zu hoch.
+* Welche Clustering-Verfahren kennen Sie?<br/>
+  → <a href="#kmeans">\(k\)-means</a>, <a href="#clarans">CLARANS</a>,
+     <a href="#dbscan">DBSCAN</a>, <a href="#optics">OPTICS</a>,
+     <a href="#birch">BIRCH</a>, <a href="#diana">DIANA</a>, <a href="#em">EM</a>
+* Gegeben Szenario X, welche Clustering-Verfahren sind sinnvoll, und warum?<br/>
+  → Autohersteller will Anzahl der Teile minimieren um Kosten zu senken
+    (Hierarchisches Clustering), finden von neuen Symbolen (TODO).
+* Warum funktionieren herkömmliche Clustering-Verfahren in hochdimensionalen
+  Merkmalsräumen nicht? Skizzieren Sie eine mögliche Lösung.<br/>
+  → TODO
+* Erklären Sie, warum Clustering mit kategorischen Attributen besonders ist?
+  Warum ist Link-basiertes Clustering hier hilfreich?<br/>
+  → TODO
+
+### Bayes
+
+* <Gegeben ein beispielhafter Datenbestand, vergleichbar mit dem
+auf Folie 10, Vorhersage mit Naive Bayes erklären/vorführen können.><br/>
+  → TODO
+* Was ändert sich, wenn die Attribute nicht voneinander unabhängig sind?<br/>
+  → TODO
 
 
 ## Übungen

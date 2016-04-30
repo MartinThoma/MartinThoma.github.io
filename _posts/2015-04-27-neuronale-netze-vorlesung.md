@@ -351,8 +351,8 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
     <dt><dfn>Hyperparameter</dfn></dt>
     <dd>Hyperparameter \(\theta\) eines neuronalen Netzes sind Parameter,
         welche nicht gelernt werden.</dd>
-    <dt><dfn>Learnin Rate Scheduling</dfn></dt>
-    <dd>Start with a learning rate \(\eta\) and reduce it while training</dd>
+    <dt><a id="scheduling"></a><dfn>Learning Rate Scheduling</dfn></dt>
+    <dd>Start with a learning rate \(\eta\) and reduce it while training.</dd>
     <dt><dfn>Exponential Decay Learning Rate</dfn></dt>
     <dd>\(\eta_t = \eta_{t-1} \cdot \alpha = \eta_0 \cdot \alpha^t\) mit \(\alpha \in (0, 1)\)</dd>
     <dt><dfn>Performance Scheduling</dfn></dt>
@@ -369,7 +369,7 @@ Slide name: `V08_2015-05-13_Deep_Learning.pdf`
 
     where \(\eta_0\) is an initial learning rate, \(t\) is the epoch, \(i,j\) refer to neurons.</dd>
     <dt><dfn>Newbob Scheduling</dfn></dt>
-    <dd>Newbob scheduling is a combination of Exponential decay learning rate
+    <dd>Newbob scheduling is a combination of exponential decay learning rate
         scheduling and performance scheduling. It starts with a learning rate
         \(\eta_0\). When the validation error stops decreasing, switch to
         exponentially decaying learning rate. Terminate when the validation
