@@ -29,6 +29,8 @@ also think this might be one of the most inefficient ways to realize
 Today, it came to my mind that there might be a cleaner approach. I thought
 about creating a daemon and using RPCs.
 
+**Credits to [codeape](http://stackoverflow.com/a/658156/562769). He provided the basis for the examples below.**
+
 
 ## RPC basics
 
