@@ -6,7 +6,7 @@
 import os
 
 
-def parse_and_convert(filename):
+def categories_and_tags(filename):
     """
     Parse all Markdown files and overwrite them in the desired format.
 
@@ -79,7 +79,25 @@ def parse_and_convert(filename):
         o.write(txt)
 
 
+def math(filename):
+    """
+    Convert math mode indicators.
+
+    \(...\) to $...$
+    \[...\] to $$...$$$
+    """
+    import re
+    with open(filename) as f:
+        content = f.read()
+
+    single_math = re.compile("\((.+?)\)")
+    content = single_math.sub(lambda m: "${math}$".format(math=m.group(1)),
+                              content)
+
+    with open(filename, "w") as o:
+        o.write(content)
+
 if __name__ == '__main__':
     filenames = filter(lambda x: x.endswith(".md"), os.listdir("."))
     for filename in sorted(filenames):
-        parse_and_convert(filename)
+        categories_and_tags(filename)
