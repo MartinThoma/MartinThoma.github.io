@@ -16,7 +16,7 @@ featured_image: logos/star.png
 Get rid of blocks like
 
 ```text
-{% highlight whatever-lang %}
+{% highlight bash %}
 bla bla code
 bla
 {% endhighlight %}
@@ -32,7 +32,7 @@ and use instead:
 In sublime text, you can use the following search regex:
 
 ```text
-\{% highlight (.*?) %\}([\s\S]*?)\{% endhighlight %\}
+\{% highlight ([a-zA-Z]*?) %\}\n([\s\S]*?)\n\{% endhighlight %\}
 ```
 
 and replace it with
@@ -83,10 +83,20 @@ and replace it by the following
 ```
 
 
-## Header
+## Categories and tags
 
 You have to adjust your posts headers. For example, pelican does not know
 `categories`, but only `category`.
+
+## Liquid tags
+
+* `{% caption`
+
+
+## TODO
+
+* ! 'Game: Marble Run'
+
 
 
 ## Pelican Initialization
