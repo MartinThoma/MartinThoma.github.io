@@ -90,7 +90,7 @@ def math(filename):
     with open(filename) as f:
         content = f.read()
 
-    single_math = re.compile("\((.+?)\)")
+    single_math = re.compile("\\((.+?)\\)")
     content = single_math.sub(lambda m: "${math}$".format(math=m.group(1)),
                               content)
 
@@ -101,3 +101,4 @@ if __name__ == '__main__':
     filenames = filter(lambda x: x.endswith(".md"), os.listdir("."))
     for filename in sorted(filenames):
         categories_and_tags(filename)
+        math(filename)
