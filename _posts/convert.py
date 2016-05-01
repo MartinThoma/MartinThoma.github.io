@@ -97,8 +97,44 @@ def math(filename):
     with open(filename, "w") as o:
         o.write(content)
 
+
+def captiontag(filename):
+    """
+    Convert Liquid captiontags to HTML.
+
+    {% caption align="aligncenter"
+       width="512"
+       caption="Let Diamonds slide down"
+       url="../images/2013/05/falling-diamonds-slide.jpg"
+       alt="Let Diamonds slide down"
+       height="254"
+       class="size-full wp-image-65441" %}
+
+
+    """
+    import re
+    with open(filename) as f:
+        content = f.read()
+
+    single_math = re.compile('\{% caption align="aligncenter" width="(.+?)" caption="(.+?)" url="(.+?)" alt="(.+?)" height="(.+?)" class="(.+?)" %\}')
+    content = single_math.sub(lambda m: """<figure class="{class}">
+            <a href="{url}"><img src="{url}" alt="{alt}" width="{width}" height="{height}"/></a>
+            <figcaption class="text-center">{caption}</figcaption>
+        </figure>""".format(class=m.group(6),
+                            url=m.group(3),
+                            alt=m.group(4),
+                            caption=m.group(2),
+                            width=m.group(1),
+                            height=m.group(5)),
+                            content)
+
+    with open(filename, "w") as o:
+        o.write(content)
+
+
 if __name__ == '__main__':
     filenames = filter(lambda x: x.endswith(".md"), os.listdir("."))
     for filename in sorted(filenames):
         categories_and_tags(filename)
         math(filename)
+        captiontag(filename)
