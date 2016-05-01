@@ -26,12 +26,13 @@ LINKS = (('Pelican', 'http://getpelican.com/'), )
 # Social widget
 SOCIAL = (('Twitter', 'https://twitter.com/themoosemind'),
           ('Github', 'https://github.com/MartinThoma'),
-          ('Stackoverflow', 'http://stackoverflow.com/users/562769/martin-thoma'))
+          ('Stackoverflow',
+           'http://stackoverflow.com/users/562769/martin-thoma'))
 
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 THEME = '/home/moose/GitHub/pelican-themes/elegant'
 
@@ -47,15 +48,17 @@ CATEGORY_SAVE_AS = 'category/{slug}/index.html'
 TAG_URL = 'tag/{slug}/'
 TAG_SAVE_AS = 'tag/{slug}/index.html'
 
-# PLUGIN_PATHS = ['./pelican-bootstrapify',
-#                 './pelican_plugin-render_math',
-#                 './simple_footnotes',
-#                 './pelican-toc']
-# PLUGINS = ['bootstrapify',
-#            'pelican_plugin-render_math',
-#            'simple_footnotes',
-#            'toc']
+PLUGIN_PATHS = ['./pelican_plugin-render_math',
+                # './pelican-bootstrapify',
+                #                 './simple_footnotes',
+                #                 './pelican-toc'
+                ]
+PLUGINS = ['pelican_plugin-render_math',
+           # 'bootstrapify',
+           #            'simple_footnotes',
+           #            'toc'
+           ]
 
 STATIC_PATHS = ['images', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
-#SUMMARY_MAX_LENGTH = 0
+# SUMMARY_MAX_LENGTH = 0
